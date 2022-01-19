@@ -150,6 +150,8 @@ product_landing:
   guides: Guides
   code_examples: Code examples
   search_code_examples: Search code examples
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: Show more
   explore_people_and_projects: Explore people and projects
   sorry: Sorry, there is no result for

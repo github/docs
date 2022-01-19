@@ -46,7 +46,7 @@ También puedes ver si un propietario de empresa tiene un rol específico en la 
 | **Roles en la empresa** | **Roles en la organización**                     | **Acceso o impacto a la organización**                                                                                                                        |
 | ----------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Propietario de empresa  | Sin rol oficial en la organización o no afiliado | No puede acceder al contenido de la organización ni a sus repositorios, pero administra los ajustes y políticas de la empresa que impactan a tu organización. |
-| Propietario de empresa  | Organization owner                               | Puede configurar los ajustes de la organización y administrar el acceso a los recursos de la misma mediante equipos, etc.                                     |
+| Propietario de empresa  | Propietario de la organización                   | Puede configurar los ajustes de la organización y administrar el acceso a los recursos de la misma mediante equipos, etc.                                     |
 | Propietario de empresa  | Miembro de la organización                       | Puede acceder a los recursos y contenido de la organización, tales como repositorios, sin acceder a los ajustes de la misma.                                  |
 
 Para revisar todos los roles en una organización, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)". {% ifversion ghec %} Los miembros de la organización también pueden tener roles personalizados para un repositorio específico. Para obtener más información, consulta la sección "[Administrar los roles personalizados de repositorio en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".{% endif %}
@@ -56,9 +56,9 @@ Para obtener más información sobre el rol de propietario de empresa, consulta 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
-4. In the left sidebar, under "Enterprise permissions", click **Enterprise owners**. ![Captura de pantalla de la opción de "Propietarios de empresa" en el menú de la barra lateral](/assets/images/help/organizations/enterprise-owners-sidebar.png)
-5. View the list of the enterprise owners for your enterprise. If the enterprise owner is also a member of your organization, you can see their role in the organization.
+4. En la barra lateral izquierda, debajo de "Permisos empresariales", haz clic en **Propietarios de la empresa**. ![Captura de pantalla de la opción de "Propietarios de empresa" en el menú de la barra lateral](/assets/images/help/organizations/enterprise-owners-sidebar.png)
+5. Ve la lista de propietarios de tu empresa. Si el propietario de la empresa también es un miembro de tu organización, podrás ver su rol en esta.
 
-  ![Screenshot of list of Enterprise owners and their role in the organization](/assets/images/help/organizations/enterprise-owners-list-on-org-page.png)
+  ![Captura de pantalla de la lista de propietarios de empresa y de sus roles en la organización](/assets/images/help/organizations/enterprise-owners-list-on-org-page.png)
 
 {% endif %}

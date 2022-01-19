@@ -19,7 +19,7 @@ topics:
 
 OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to authenticate with a HashiCorp Vault to retrieve secrets.
 
-This guide gives an overview of how to configure HashiCorp Vault to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and demonstrates how to use this configuration in [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) to retrieve secrets from HashiCorp Vault.
+Esta guía te proporciona un resumen de cómo configurar la Bóveda de HashiCorp para que confíe en el OIDC de {% data variables.product.prodname_dotcom %} como una entidad federada y demuestra cómo utilizar esta configuración en [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) para recuperar secretos de la Bóveda de HashiCorp.
 
 ## Prerrequisitos
 
@@ -34,7 +34,7 @@ To use OIDC with HashiCorp Vault, you will need to add a trust configuration for
 Configure the vault to accept JSON Web Tokens (JWT) for authentication:
 - For the `oidc_discovery_url`, use `https://token.actions.githubusercontent.com`
 - For `bound_issuer`, use `https://token.actions.githubusercontent.com`
-- Ensure that `bound_subject` is correctly defined for your security requirements. For more information, see ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud) and [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action).
+- Ensure that `bound_subject` is correctly defined for your security requirements. Para obtener más información, consulta la sección ["Configurar la confianza de OIDC con la nube"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud) y [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action).
 
 ## Actualizar tu flujo de trabajo de {% data variables.product.prodname_actions %}
 
@@ -48,7 +48,7 @@ To add OIDC integration to your workflows that allow them to access secrets in V
 - Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
   - The workflow needs `permissions:` settings with the `id-token` value set to `write`. This lets you fetch the OIDC token from every job in the workflow.
 - Request the JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and present it to HashiCorp Vault to receive an access token:
-  - You could use the [Actions toolkit](https://github.com/actions/toolkit/) to fetch the tokens for your job, or you can use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to fetch the JWT and receive the access token from the Vault.
+  - Podrías utilizar las [Herramientas de las acciones](https://github.com/actions/toolkit/) para recuperar los tokens para tu job o puedes utilizar la acción [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) para recuperar el JWT y recibir el token de acceso de la bóveda.
 
 This example demonstrates how to use OIDC with the official action to request a secret from HashiCorp Vault.
 
