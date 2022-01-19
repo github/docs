@@ -1,4 +1,5 @@
----
+---dbshn nxliugh
+Uekold;;d[lpslakjai zkosslsksosms
 title: GitHub security features
 intro: 'An overview of {% data variables.product.prodname_dotcom %} security features.'
 versions:
@@ -17,7 +18,6 @@ topics:
 ## About {% data variables.product.prodname_dotcom %}'s security features
 
 {% data variables.product.prodname_dotcom %} has security features that help keep code and secrets secure in repositories and across organizations. {% data reusables.advanced-security.security-feature-availability %}
-
 The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that you can view, search, and filter. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
