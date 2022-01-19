@@ -38,13 +38,13 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
   ```
     {% else %}
   ```shell
-  $ ssh-keygen -t ed25519 -C "<em>your_email@example.com</em>"
+  $ ssh-keygen -t ed25519 -C "<em>amritraj2008savc7@gmail.com</em>"
   ```
   {% note %}
 
   **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
   ```shell
-   $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
+   $ ssh-keygen -t rsa -b 4096 -C "amritraj2008savc7@gmail.com</em>"
   ```
 
   {% endnote %}
