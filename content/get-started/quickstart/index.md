@@ -27,3 +27,4 @@ redirect_from:
   - /github/getting-started-with-github/quickstart
 ---
 
+git clone https://github.com/curl/curl.git
