@@ -2,15 +2,17 @@
 title: Gist でコンテンツを編集・共有する
 intro: ''
 redirect_from:
-  - /categories/23/articles/
-  - /categories/gists/
+  - /categories/23/articles
+  - /categories/gists
   - /articles/editing-and-sharing-content-with-gists
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - /creating-gists
   - /forking-and-cloning-gists
+shortTitle: Share content with gists
 ---
 

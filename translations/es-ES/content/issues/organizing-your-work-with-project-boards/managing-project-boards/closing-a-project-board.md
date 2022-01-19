@@ -3,16 +3,19 @@ title: Cerrar un tablero de proyecto
 intro: 'Si has completado todas las tareas de tu tablero de proyecto o ya no necesitas usar un tablero de proyecto, puedes cerrarlo.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/closing-a-project-board
-  - /articles/closing-a-project/
+  - /articles/closing-a-project
   - /articles/closing-a-project-board
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Cuando cierras un tablero de proyecto, todas las automatizaciones del flujo de trabajo configuradas se pausarán por defecto.
 
@@ -22,7 +25,7 @@ Si vuelves a abrir un tablero de proyecto, tienes la opción de *sincronizar* la
 2. En la lista de proyectos, junto al tablero de proyectos que deseas cerrar, haz clic en {% octicon "chevron-down" aria-label="The chevron icon" %}. ![Icono de comillas angulares a la derecha del nombre del tablero de proyecto](/assets/images/help/projects/project-list-action-chevron.png)
 3. Da clic en **Cerrar**. ![Menú desplegable para cerrar elementos en el tablero de proyecto](/assets/images/help/projects/close-project.png)
 
-### Leer más
+## Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Eliminar un tablero de proyecto](/articles/deleting-a-project-board)"

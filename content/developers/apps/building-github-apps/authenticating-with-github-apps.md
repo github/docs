@@ -2,14 +2,15 @@
 title: Authenticating with GitHub Apps
 intro: '{% data reusables.shortdesc.authenticating_with_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/
-  - /apps/building-github-apps/authentication-options-for-github-apps/
+  - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps
+  - /apps/building-github-apps/authentication-options-for-github-apps
   - /apps/building-github-apps/authenticating-with-github-apps
   - /developers/apps/authenticating-with-github-apps
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Authentication
@@ -39,7 +40,7 @@ To generate a private key:
 {% endnote %}
 
 ## Verifying private keys
-{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the {% ifversion ghes < 3.0 %}SHA-1{% else %}SHA-256{% endif %} hash function. You can verify that your private key matches the public key stored on {% data variables.product.product_name %} by generating the fingerprint of your private key and comparing it to the fingerprint shown on {% data variables.product.product_name %}.
+{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. You can verify that your private key matches the public key stored on {% data variables.product.product_name %} by generating the fingerprint of your private key and comparing it to the fingerprint shown on {% data variables.product.product_name %}.
 
 To verify a private key:
 
@@ -47,7 +48,7 @@ To verify a private key:
 ![Private key fingerprint](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 2. Generate the fingerprint of your private key (PEM) locally by using the following command:
     ```shell
-    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% ifversion ghes < 3.0 %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
+    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl sha256 -binary | openssl base64
     ```
 3. Compare the results of the locally generated fingerprint to the fingerprint you see in {% data variables.product.product_name %}.
 
@@ -72,7 +73,7 @@ require 'openssl'
 require 'jwt'  # https://rubygems.org/gems/jwt
 
 # Private key contents
-private_pem = File.read(YOUR_PATH_TO_PEM)
+private_pem = File.read("YOUR_PATH_TO_PEM")
 private_key = OpenSSL::PKey::RSA.new(private_pem)
 
 # Generate the JWT
@@ -82,14 +83,14 @@ payload = {
   # JWT expiration time (10 minute maximum)
   exp: Time.now.to_i + (10 * 60),
   # {% data variables.product.prodname_github_app %}'s identifier
-  iss: YOUR_APP_ID
+  iss: "YOUR_APP_ID"
 }
 
 jwt = JWT.encode(payload, private_key, "RS256")
 puts jwt
 ```
 
-`YOUR_PATH_TO_PEM` and `YOUR_APP_ID` are the values you must replace.
+`YOUR_PATH_TO_PEM` and `YOUR_APP_ID` are the values you must replace. Make sure to enclose the values in double quotes.
 
 Use your {% data variables.product.prodname_github_app %}'s identifier (`YOUR_APP_ID`) as the value for the JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (issuer) claim. You can obtain the {% data variables.product.prodname_github_app %} identifier via the initial webhook ping after [creating the app](/apps/building-github-apps/creating-a-github-app/), or at any time from the app settings page in the GitHub.com UI.
 

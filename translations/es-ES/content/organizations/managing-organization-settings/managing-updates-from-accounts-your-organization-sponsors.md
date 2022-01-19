@@ -4,11 +4,13 @@ intro: Puedes administrar la dirección de correo electrónico que recibe las ac
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-updates-from-accounts-your-organization-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 permissions: Organization owners can manage updates from accounts the organization sponsors.
 topics:
   - Organizations
   - Teams
+shortTitle: Administrar las actualizaciones de los patrocinios
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
@@ -22,6 +24,6 @@ También puedes inhabilitar las actualizaciones de las cuentas que tu organizaci
 1. Debajo de "correo electrónico de actualización de patrocinios (Privado)", teclea la dirección de correo electrónico de la cual deseas recibir actualizaciones sobre las cuentas que patrocina tu organización. ![Casilla de texto para ingresar una dirección de correo electrónico para recibir actualizaciones de las cuentas patrocinadas](/assets/images/help/sponsors/organization-update-email-textbox.png)
 1. Haz clic en **Update profile (Actualizar perfil)**. ![Botón Actualizar perfil](/assets/images/help/organizations/update-profile-button.png)
 
-### Leer más
+## Leer más
 
 - "[{% data variables.product.prodname_sponsors %}](/sponsors)"

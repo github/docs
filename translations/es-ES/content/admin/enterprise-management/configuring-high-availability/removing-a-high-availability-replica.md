@@ -6,16 +6,17 @@ redirect_from:
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
   - /admin/enterprise-management/removing-a-high-availability-replica
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - High availability
   - Enterprise
   - Infrastructure
+shortTitle: Eliminar una réplica de HA
 ---
 
-### Detener una replicación de forma temporal
+## Detener una replicación de forma temporal
 
 1. Si es necesario, puedes detener una replicación geográfica del tráfico de usuario activo al quitar las entradas Geo DNS para la réplica.
 2. En la réplica donde deseas detener la replicación de forma temporal, ejecuta ghe-repl-stop.
@@ -27,7 +28,7 @@ topics:
   $ ghe-repl-start
   ```
 
-### Quitar la replicación de forma permanente
+## Quitar la replicación de forma permanente
 
 1. Si es necesario, puedes detener una replicación geográfica del tráfico de usuario activo al quitar las entradas Geo DNS para la réplica.
 2. En la réplica donde deseas quitar la replicación, ejecuta `ghe-repl-stop`.
@@ -39,7 +40,7 @@ topics:
   $ ghe-repl-teardown
   ```
 
-  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  {% ifversion ghes %}
   {% note %}
 
   **Nota:** Si tienes habilitadas las {% data variables.product.prodname_actions %}, deberás decomisionar el servidor de réplica anterior o actualizar su configuración de {% data variables.product.prodname_actions %} para que utilice un almacenamiento externo diferente. Para obtener más información, consulta la sección "[Disponibilidad alta para {% data variables.product.prodname_actions %}](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)".

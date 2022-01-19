@@ -6,12 +6,13 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
   - /admin/policies/creating-a-pre-receive-hook-environment
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: Entornos de enlaces de pre-recepción
 ---
 
 Un entorno de pre-recepción para {% data variables.product.prodname_ghe_server %} es un entorno Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot). Dado que los ganchos de pre-recepción se ejecutan en todos los eventos de extracción, deberían ser rápidos y livianos. Normalmente, el entorno necesario para tales verificaciones será mínimo.
@@ -20,7 +21,7 @@ Un entorno de pre-recepción para {% data variables.product.prodname_ghe_server 
 
 Si tu entorno no cumple con uno de los requisitos específicos, como respaldo para un idioma en particular, puedes crear y cargar tu propio entorno `chroot` en Linux de 64 bits.
 
-### Crear un entorno de gancho de pre-recepción mediante Docker
+## Crear un entorno de gancho de pre-recepción mediante Docker
 
 Puedes usar una herramienta de administración de contenedores de Linux para crear un entorno de gancho de pre-recepción. Este ejemplo usa [Alpine Linux](http://www.alpinelinux.org/) y [Docker](https://www.docker.com/).
 
@@ -56,7 +57,7 @@ Puedes usar una herramienta de administración de contenedores de Linux para cre
 
    Este archivo `alpine-3.3.tar.gz` está listo para subirse al aparato {% data variables.product.prodname_ghe_server %}.
 
-### Crear un entorno de gancho de pre-recepción mediante chroot
+## Crear un entorno de gancho de pre-recepción mediante chroot
 
 1. Crea un entorno `chroot` en Linux.
 2. Crea un archivo `tar` comprimido como `gzip` del directorio `chroot`.
@@ -76,7 +77,7 @@ Puedes usar una herramienta de administración de contenedores de Linux para cre
 
 Para obtener más información acerca de la creación de un entorno chroot, consulta "[Chroot](https://wiki.debian.org/chroot)" desde *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" desde *Ubuntu Community Help Wiki* o "[Instalar Alpine Linux en un chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" desde *Alpine Linux Wiki*.
 
-### Cargar un entorno de pre-recepción en {% data variables.product.prodname_ghe_server %}
+## Cargar un entorno de pre-recepción en {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -87,7 +88,7 @@ Para obtener más información acerca de la creación de un entorno chroot, cons
 8. Escribe la URL del archivo `*.tar.gz` que contiene tu entorno. ![Cargar un entorno desde una URL](/assets/images/enterprise/site-admin-settings/upload-environment-from-url.png)
 9. Haz clic en **Add environment** (Agregar entorno). ![Agregar el botón de entorno](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
 
-### Cargar un entorno de pre-recepción mediante el shell administrativo
+## Cargar un entorno de pre-recepción mediante el shell administrativo
 1. Carga un archivo `*.tar.gz` legible que contenga tu entorno a un host web y copia la URL o transfiere el archivo al aparato del {% data variables.product.prodname_ghe_server %} mediante `scp`. Al usar `scp`, es posible que necesites ajustar los permisos del archivo `*.tar.gz` para que todos puedan leerlo.
 1.  Conecta con el shell administrativo.
 2.  Usa el comando `ghe-hook-env-create` y escribe el nombre que desees para el entorno como primer argumento y la ruta local completa o la dirección URL de un archivo `*.tar.gz` que contenga tu entorno como segundo argumento.

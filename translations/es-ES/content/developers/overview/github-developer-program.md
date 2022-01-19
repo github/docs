@@ -4,7 +4,8 @@ intro: 'Si creas herramientas que se integren con {% data variables.product.prod
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -21,7 +22,7 @@ Crea tus propias herramientas que se integren de manera continua con el lugar en
 
 ## Házte cargo de la empresa
 
-[Obten licencias de desarrollador](http://github.com/contact?form%5Bsubject%5D=Development+licenses) para crear y probar tu aplicación contra el {% data variables.product.prodname_ghe_server %}.
+Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
 
 ## ¿Tienes una integración que opera con GitHub?

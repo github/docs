@@ -6,15 +6,17 @@ redirect_from:
   - /github/managing-security-vulnerabilities/permission-levels-for-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/permission-levels-for-security-advisories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Security advisories
   - Vulnerabilities
   - Permissions
+shortTitle: 权限级别
 ---
 
-### 权限概述
+## 权限概述
 
 {% data reusables.repositories.security-advisory-admin-permissions %} 有关添加协作者到安全通告的更多信息，请参阅“[添加协作者到安全通告](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)”。
 
@@ -32,7 +34,7 @@ topics:
 | 关闭安全通告草稿                                                                                                                                                          |      | X     |
 | 发布安全通告（请参阅“[发布安全通告](/github/managing-security-vulnerabilities/publishing-a-security-advisory)”）                                                                   |      | X     |
 
-### 延伸阅读
+## 延伸阅读
 
 - "[添加协作者到安全通告](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)"
 - "[在临时私有复刻中协作以解决安全漏洞](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)"

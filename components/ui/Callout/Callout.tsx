@@ -2,13 +2,19 @@ import { DOMAttributes, ReactNode } from 'react'
 import cx from 'classnames'
 import styles from './Callout.module.scss'
 
-type Props = {
+export type CalloutPropsT = {
   dangerouslySetInnerHTML?: DOMAttributes<HTMLDivElement>['dangerouslySetInnerHTML']
   variant: 'success' | 'info' | 'warning'
   children?: ReactNode
   className?: string
 }
-export const Callout = ({ variant, className, dangerouslySetInnerHTML, children }: Props) => {
+
+export const Callout = ({
+  variant,
+  className,
+  dangerouslySetInnerHTML,
+  children,
+}: CalloutPropsT) => {
   return (
     <div
       data-testid="callout"
@@ -17,8 +23,8 @@ export const Callout = ({ variant, className, dangerouslySetInnerHTML, children 
         styles.container,
         'border rounded-1 p-3 f5',
         variant === 'success' && 'color-border-success color-bg-success',
-        variant === 'info' && 'color-border-info color-bg-info',
-        variant === 'warning' && 'color-bg-warning color-border-warning'
+        variant === 'info' && 'color-border-accent-emphasis color-bg-accent',
+        variant === 'warning' && 'color-bg-attention color-border-attention-emphasis'
       )}
       dangerouslySetInnerHTML={dangerouslySetInnerHTML}
     >

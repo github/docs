@@ -2,18 +2,19 @@
 title: OAuthアプリの作成
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps
   - /apps/building-oauth-apps/creating-an-oauth-app
   - /developers/apps/creating-an-oauth-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **ノート：** {% data reusables.apps.maximum-oauth-apps-allowed %}
@@ -42,7 +43,7 @@ topics:
 7. [Homepage URL] に、アプリケーションのウェブサイトの完全な URL を入力します。 ![アプリケーションのホームページ URL フィールド](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
 8. 必要に応じて、ユーザーに表示されるアプリケーションの説明を [Application description] に入力します。 ![アプリケーションの説明フィールド](/assets/images/oauth-apps/oauth_apps_application_description.png)
 9. [Authorization callback URL] に、アプリケーションのコールバック URL を入力します。 ![アプリケーションの認可コールバック URL フィールド](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
    {% note %}
 
    **注釈:** {% data variables.product.prodname_github_apps %} と異なり、OAuth App は複数のコールバック URL を持つことはできません。

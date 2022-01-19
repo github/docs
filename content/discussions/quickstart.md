@@ -4,6 +4,7 @@ intro: 'Enable {% data variables.product.prodname_discussions %} on an existing 
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Quickstart
 ---
 
@@ -43,7 +44,7 @@ For more information about providing guidelines for your project, see "[Adding a
 
 ## Creating a new discussion
 
-Anyone with access to a repository can create a discussion.
+Any authenticated user who can view a repository can create a discussion.
 
 {% data reusables.discussions.starting-a-discussion %}
 

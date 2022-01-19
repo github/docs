@@ -2,12 +2,13 @@
 title: Gerenciar chaves de implantação
 intro: Aprenda maneiras diferentes de gerenciar chaves SSH em seus servidores ao automatizar scripts de implantação e da melhor maneira para você.
 redirect_from:
-  - /guides/managing-deploy-keys/
+  - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -15,67 +16,67 @@ topics:
 
 Você pode gerenciar chaves SSH em seus servidores ao automatizar scripts de implantação usando o encaminhamento do agente SSH, HTTPS com tokens do OAuth, chaves de implantação ou usuários de máquina.
 
-### Encaminhamento de agente SSH
+## Encaminhamento de agente SSH
 
 Em muitos casos, especialmente no início de um projeto, o encaminhamento de agentes SSH é o método mais rápido e simples de utilizar. O encaminhamento de agentes usa as mesmas chaves SSH que o seu computador de desenvolvimento local.
 
-##### Prós
+#### Prós
 
 * Você não tem que gerar ou monitorar nenhuma chave nova.
 * Não há gerenciamento de chaves; os usuários têm as mesmas permissões no servidor e localmente.
 * Não há chaves armazenadas no servidor. Portanto, caso o servidor esteja comprometido, você não precisa buscar e remover as chaves comprometidas.
 
-##### Contras
+#### Contras
 
 * Os usuários **devem** ingressar com SSH para implantar; os processos de implantação automatizados não podem ser usados.
 * Pode ser problemático executar o encaminhamento de agente SSH para usuários do Windows.
 
-##### Configuração
+#### Configuração
 
 1. Ativar o encaminhamento do agente localmente. Consulte o [nosso guia sobre o encaminhamento de agentes SSH][ssh-agent-forwarding] para obter mais informações.
 2. Defina seus scripts de implantação para usar o encaminhamento de agentes. Por exemplo, em um script bash, permitir o encaminhamento de agentes seria algo como isto: `ssh -A serverA 'bash -s' < deploy.sh`
 
-### Clonagem de HTTPS com tokens do OAuth
+## Clonagem de HTTPS com tokens do OAuth
 
 Se você não quiser usar chaves SSH, você poderá usar [HTTPS com tokens do OAuth][git-automation].
 
-##### Prós
+#### Prós
 
 * Qualquer pessoa com acesso ao servidor pode implantar o repositório.
 * Os usuários não precisam alterar suas configurações SSH locais.
 * Não são necessários vários tokens (um para cada usuário); um token por servidor é suficiente.
 * Um token pode ser revogado a qualquer momento, transformando-o, basicamente, em uma senha de uso único.
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 * Gerar novos tokens pode ser facilmente programado usando [a API do OAuth](/rest/reference/oauth-authorizations#create-a-new-authorization).
 {% endif %}
 
-##### Contras
+#### Contras
 
 * Você deve certificar-se de configurar seu token com os escopos de acesso corretos.
 * Os Tokens são, basicamente, senhas e devem ser protegidos da mesma maneira.
 
-##### Configuração
+#### Configuração
 
 Consulte o [nosso guia sobre automação Git com tokens][git-automation].
 
-### Chaves de implantação
+## Chaves de implantação
 
 {% data reusables.repositories.deploy-keys %}
 
 {% data reusables.repositories.deploy-keys-write-access %}
 
-##### Prós
+#### Prós
 
 * Qualquer pessoa com acesso ao repositório e servidor é capaz de implantar o projeto.
 * Os usuários não precisam alterar suas configurações SSH locais.
 * As chaves de implantação são somente leitura por padrão, mas você pode lhes conferir acesso de gravação ao adicioná-las a um repositório.
 
-##### Contras
+#### Contras
 
 * As chaves de implementação só concedem acesso a um único repositório. Projetos mais complexos podem ter muitos repositórios para extrair para o mesmo servidor.
 * De modo geral, as chaves de implantação não são protegidas por uma frase secreta, o que a chave facilmente acessível se o servidor estiver comprometido.
 
-##### Configuração
+#### Configuração
 
 1.
 Execute o procedimento `ssh-keygen` no seu servidor e lembre-se do local onde você salva o par de chaves RSA público/privadas gerado.</li> 
@@ -90,7 +91,7 @@ Execute o procedimento `ssh-keygen` no seu servidor e lembre-se do local onde vo
 
 
 
-##### Usar vários repositórios em um servidor
+#### Usar vários repositórios em um servidor
 
 Se você usar vários repositórios em um servidor, você deverá gerar um par de chaves dedicado para cada um. Você não pode reutilizar uma chave de implantação para vários repositórios.
 
@@ -99,18 +100,18 @@ No arquivo de configuração do SSH do servidor (geralmente `~/.ssh/config`), ad
 
 
 ```bash
-Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
-        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-0_deploy_key
 
-Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
-        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
 
-* `Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}meu-GHE-hostname.com{% endif %}-repo-0` - Pseudônimo do repositório.
-* `Nome de host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}meu-GHE-hostname.com{% endif %}` - Configura o nome de host a ser usado com o pseudônimo.
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - O alias do repositório.
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configura o nome de host a ser usado com o alias.
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Atribui uma chave privada ao pseudônimo.
 
 Em seguida, você pode usar o apelido do host para interagir com o repositório usando SSH, que usará a chave de deploy exclusiva atribuída a esse pseudônimo. Por exemplo:
@@ -118,13 +119,13 @@ Em seguida, você pode usar o apelido do host para interagir com o repositório 
 
 
 ```bash
-$ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+$ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
 
 
 
-### Tokens do servidor para servidor
+## Tokens do servidor para servidor
 
 Se seu servidor precisar acessar repositórios em uma ou mais organizações, você poderá usar um aplicativo GitHub para definir o acesso que você precisa e, em seguida, gerar tokens de _escopo limitado_, _servidor para servidor_ a partir daquele aplicativo GitHub. Os tokens do servidor para servidor podem ter escopo de repositório único ou múltiplo e podem ter permissões refinadas. Por exemplo, você pode gerar um token com acesso somente leitura para o conteúdo de um repositório. 
 
@@ -132,7 +133,7 @@ Uma vez que os aplicativos GitHub são um ator de primeira classe em  {% data va
 
 
 
-##### Prós
+#### Prós
 
 - Tokens com escopo limitado com conjuntos de permissões bem definidos e tempos de expiração (1 hora, ou menos se for revogado manualmente usando a API).
 - Limites de taxa dedicados que crescem com a sua organização.
@@ -141,14 +142,14 @@ Uma vez que os aplicativos GitHub são um ator de primeira classe em  {% data va
 
 
 
-##### Contras
+#### Contras
 
 - É necessária uma configuração adicional para criar o aplicativo GitHub.
 - Os tokens de servidor para servidor expiram após 1 hora. Portanto, precisam ser gerados novamente, geralmente sob demanda e usando código.
 
 
 
-##### Configuração
+#### Configuração
 
 1. Determine se seu aplicativo GitHub deve ser público ou privado. Se o seu aplicativo GitHub agir apenas nos repositórios da organização, é provável que você queira que ele seja privado.
 1. Determine as permissões que o aplicativo GitHub exige, como acesso somente leitura ao conteúdo do repositório.
@@ -162,11 +163,11 @@ Uma vez que os aplicativos GitHub são um ator de primeira classe em  {% data va
 
 
 
-### Usuários máquina
+## Usuários máquina
 
-Se o seu servidor precisar acessar vários repositórios, você poderá criar uma conta nova no {% data variables.product.product_name %} e anexar uma chave SSH que será usada exclusivamente para automação. Como esta conta do {% data variables.product.product_name %} não será usada por uma pessoa, ela será denominada _usuário máquina_. É possível adicionar o usuário máquina como [colaborador][collaborator] em um repositório pessoal (concedendo acesso de leitura e gravação), como [colaborador externo][outside-collaborator] em um repositório da organização (concedendo leitura, acesso gravação, ou administrador) ou como uma [equipe][team], com acesso aos repositórios que precisa automatizar (concedendo as permissões da equipe).
+Se o servidor tiver de acessar vários repositórios, você poderá criar uma nova conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} e anexar uma chave SSH que será usada exclusivamente para automatização. Como essa conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} não será usada por uma pessoa, ela é chamada denominada _usuário de máquina_. É possível adicionar o usuário máquina como [colaborador][collaborator] em um repositório pessoal (concedendo acesso de leitura e gravação), como [colaborador externo][outside-collaborator] em um repositório da organização (concedendo leitura, acesso gravação, ou administrador) ou como uma [equipe][team], com acesso aos repositórios que precisa automatizar (concedendo as permissões da equipe).
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -184,7 +185,7 @@ Isto significa que você não pode automatizar a criação de contas. Mas se voc
 
 
 
-##### Prós
+#### Prós
 
 * Qualquer pessoa com acesso ao repositório e servidor é capaz de implantar o projeto.
 * Nenhum usuário (humano) precisa alterar suas configurações de SSH locais.
@@ -192,23 +193,30 @@ Isto significa que você não pode automatizar a criação de contas. Mas se voc
 
 
 
-##### Contras
+#### Contras
 
 * Apenas organizações podem restringir os usuários máquina para acesso somente leitura. Os repositórios pessoais sempre concedem aos colaboradores acesso de leitura/gravação.
 * Chaves dos usuário máquina, como chaves de implantação, geralmente não são protegidas por senha.
 
 
 
-##### Configuração
+#### Configuração
 
 1. [Execute o procedimento `ssh-keygen`][generating-ssh-keys] no seu servidor e anexe a chave pública à conta do usuário máquina.
 2. Dê acesso à conta de usuário máquina aos repositórios que deseja automatizar. Você pode fazer isso adicionando a conta como [colaborador][collaborator], como [colaborador externo][outside-collaborator] ou como uma [equipe][team] em uma organização.
 
+
+
+## Leia mais
+
+- [Configurar notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
-[tos]: /articles/github-terms-of-service/
+[tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
 [git-automation]: /articles/git-automation-with-oauth-tokens
 [git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
+

@@ -2,14 +2,14 @@
 title: Habilitar o modo privado
 intro: 'No modo privado, o {% data variables.product.prodname_ghe_server %} exige que todos os usuários façam login para acessar a instalação.'
 redirect_from:
-  - /enterprise/admin/articles/private-mode/
-  - /enterprise/admin/guides/installation/security/
-  - /enterprise/admin/guides/installation/securing-your-instance/
+  - /enterprise/admin/articles/private-mode
+  - /enterprise/admin/guides/installation/security
+  - /enterprise/admin/guides/installation/securing-your-instance
   - /enterprise/admin/installation/enabling-private-mode
   - /enterprise/admin/configuration/enabling-private-mode
   - /admin/configuration/enabling-private-mode
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management

@@ -1,1 +1,0 @@
-You can offer your app for free for 14 days as a free trial. Free trials automatically convert to a paid subscription after 14 days, unless the customer cancels before the free trial expires. Select "Enable 14 day free trial for this plan" to offer a free trial.

@@ -7,7 +7,7 @@ Use the following checklist to help make your files more translation-friendly. F
 - [ ] Write in active voice.
 - [ ] Write simple, short and easy to understand sentences.
 - [ ] Avoid using too many pronouns that can make text unclear.
-- [ ] Avoid slang and jokes.
+- [ ] Avoid using slang and jokes.
 - [ ] Avoid negative sentences.
 - [ ] Use industry standard acronyms whenever possible and explain custom acronyms.
 - [ ] Use indicative mood.

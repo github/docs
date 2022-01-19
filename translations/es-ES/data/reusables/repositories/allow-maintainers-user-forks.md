@@ -1,4 +1,4 @@
-1. En las bifurcaciones que pertenecen a un usuario, si no quieres permitir que las personas con acceso de escritura en el repositorio ascendente realicen cambios en tu solicitud de extracción, deselecciona **Permitir ediciones de los mantenedores**.
+1. En las bifurcaciones que pertenecen a los usuarios, si quieres que alguien con acceso de subida al repositorio de nivel superior haga cambios en tu solicitud de cambios, selecciona **Permitir las ediciones de los mantenedores**.
 
     {% warning %}
 

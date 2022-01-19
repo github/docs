@@ -2,11 +2,13 @@
 title: 使用 GitHub 导入工具导入仓库
 intro: 如果您有项目托管在另一个版本控制系统上，可以使用 GitHub 导入工具将其自动导入到 GitHub。
 redirect_from:
-  - /articles/importing-from-other-version-control-systems-to-github/
+  - /articles/importing-from-other-version-control-systems-to-github
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: 使用 GitHub 导入工具
 ---
 
 {% tip %}
@@ -16,8 +18,6 @@ versions:
 {% endtip %}
 
 如果在导入时要将仓库中的提交匹配到作者的 GitHub 用户帐户，请确保在开始导入之前，仓库的每个贡献者都有 GitHub 帐户。
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% data reusables.repositories.repo-size-limit %}
 
@@ -32,6 +32,6 @@ versions:
 
 在仓库完成导入时，您会收到一封电子邮件。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[使用 GitHub 导入工具更新提交作者属性](/articles/updating-commit-author-attribution-with-github-importer)"

@@ -5,12 +5,14 @@ redirect_from:
   - /articles/creating-and-highlighting-code-blocks
   - /github/writing-on-github/creating-and-highlighting-code-blocks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Crie blocos de código
 ---
 
-### Blocos de código isolados
+## Blocos de código isolados
 
 Você pode criar blocos de código isolados colocando aspas triplas <code>\`\`\`</code> antes e depois do bloco de código. É recomendável colocar uma linha em branco antes e depois dos blocos de código para facilitar a leitura da formação bruta.
 
@@ -30,21 +32,22 @@ function test() {
 
 {% endtip %}
 
-To display triple backticks in a fenced code block, wrap them inside quadruple backticks.
+Para mostrar aspas tripas em um bloco de código isolado, envolva-os dentro de aspas quádruplas.
 
 
 <pre>
 ```` 
 ```
-Look! You can see my backticks.
+Look! Você pode ver minhas aspas.
 ```
 ````
 </pre>
 
-![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
+![Código isolado interpretado como um bloco de aspas inversas](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
-### Realce de sintaxe
+## Realce de sintaxe
 
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
@@ -63,7 +66,7 @@ Por exemplo, para código Ruby do realce de sintaxe:
 
 Usamos [Linguist](https://github.com/github/linguist) para executar a detecção de linguagem e selecionar [gramáticas de terceiros](https://github.com/github/linguist/blob/master/vendor/README.md) para realce de sintaxe. Você pode descobrir quais palavras-chave são válidas no [arquivo YAML de linguagem](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-### Leia mais
+## Leia mais
 
 - [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
 - "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)"

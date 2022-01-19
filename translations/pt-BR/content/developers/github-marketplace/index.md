@@ -2,11 +2,12 @@
 title: GitHub Marketplace
 intro: 'Liste suas ferramentas no Markeplace do {% data variables.product.prodname_dotcom %} para os desenvolvedores usarem ou comprarem.'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/about-github-marketplace/
-  - /apps/marketplace/
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/about-github-marketplace
+  - /apps/marketplace
   - /marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 children:

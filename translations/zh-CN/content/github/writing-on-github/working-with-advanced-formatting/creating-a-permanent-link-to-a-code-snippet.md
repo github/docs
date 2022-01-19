@@ -6,12 +6,16 @@ redirect_from:
   - /articles/creating-a-permanent-link-to-a-code-snippet
   - /github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: 代码的永久链接
 ---
+
+## 链接到代码
 
 此类永久链接仅在其起源仓库中呈现为代码段。 在其他仓库中，永久链接代码段将呈现为 URL。
 
@@ -32,7 +36,13 @@ topics:
 5. 导航到要链接到代码段的对话。
 6. 将永久链接粘贴到评论中，然后单击 **Comment（评论）**。 ![粘贴在同一个仓库的评论中的永久链接](/assets/images/help/repository/code-snippet-permalink-in-comment.png)
 
-### 延伸阅读
+## 链接到 Markdown
+
+您可以通过加载 Markdown 文件而不进行 Markdown 渲染来链接到 Markdown 文件中的特定行。 要在不渲染的情况下加载 Markdown 文件，您可以在文件的 url 末尾使用 `?plain=1` 参数。 例如 `github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1`。
+
+您可以在代码中以同样的方式链接到 Markdown 文件中的特定行。 在 url 末尾的行号附加 `#L`。 例如，`github.com/<organization>/<repository>/blob/<branch_name>/README.md?plain=1#L14` 将在纯文本文件 README.md 中突出显示第 14 行。
+
+## 延伸阅读
 
 - “[创建议题](/articles/creating-an-issue/)”
 - “[从代码打开议题](/articles/opening-an-issue-from-code/)”

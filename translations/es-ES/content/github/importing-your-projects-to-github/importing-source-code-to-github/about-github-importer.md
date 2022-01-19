@@ -5,7 +5,8 @@ redirect_from:
   - /articles/about-github-importer
   - /github/importing-your-projects-to-github/about-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 ---
 
 Importador GitHub es una herramienta que importa de forma rápida repositorios de código fuente, incluido el historial de revisiones y confirmaciones de cambios, a GitHub para tí.
@@ -21,7 +22,7 @@ Durante una importación, dependiendo del sistema de control de la versión del 
 | Mover archivos grandes a [Large File Storage de Git](/articles/about-git-large-file-storage)                               |   **X**    |   **X**   | **X** |       |
 | Eliminar archivos grandes de tu repositorio                                                                                |   **X**    |   **X**   | **X** |       |
 
-### Leer más
+## Leer más
 
 - "[Importar un repositorio con Importador GitHub](/articles/importing-a-repository-with-github-importer)"
 - "[Actualizar la atribución del autor de la confirmación con Importador GitHub ](/articles/updating-commit-author-attribution-with-github-importer)"

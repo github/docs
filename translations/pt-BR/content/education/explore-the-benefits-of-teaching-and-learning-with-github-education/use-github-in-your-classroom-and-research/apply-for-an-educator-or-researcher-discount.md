@@ -4,17 +4,18 @@ intro: 'Sendo um educador ou pesquisador, você pode se candidatar para receber 
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
-  - /articles/applying-for-a-classroom-discount/
-  - /articles/applying-for-a-discount-for-your-school-club/
-  - /articles/applying-for-an-academic-research-discount/
-  - /articles/applying-for-a-discount-for-your-first-robotics-team/
+  - /articles/applying-for-a-classroom-discount
+  - /articles/applying-for-a-discount-for-your-school-club
+  - /articles/applying-for-an-academic-research-discount
+  - /articles/applying-for-a-discount-for-your-first-robotics-team
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Solicitar desconto
 ---
 
-### Sobre descontos para educador e pesquisador
+## Sobre descontos para educador e pesquisador
 
 {% data reusables.education.about-github-education-link %}
 
@@ -22,7 +23,7 @@ versions:
 
 Para obter mais informações sobre contas de usuário em {% data variables.product.product_name %}, consulte "[Cadastrar-se para uma nova conta de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/signing-up-for-a-new-github-account)".
 
-### Candidatar-se a um desconto de educador ou pesquisador
+## Candidatar-se a um desconto de educador ou pesquisador
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -32,16 +33,16 @@ Para obter mais informações sobre contas de usuário em {% data variables.prod
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### Atualizar sua organização
+## Atualizar sua organização
 
 Depois que sua solicitação para desconto de educador ou pesquisador for aprovada, você poderá atualizar as organizações que usa com sua comunidade de aprendizagem para o {% data variables.product.prodname_team %}, o que permite usuários ilimitados e repositórios privados com recursos completos, gratuitamente. Você pode atualizar uma organização existente ou criar uma para atualizar.
 
-#### Atualizar uma organização existente
+### Atualizar uma organização existente
 
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-#### Atualizar uma nova organização
+### Atualizar uma nova organização
 
 {% data reusables.education.upgrade-page %}
 1. Clique em {% octicon "plus" aria-label="The plus symbol" %} **Create an organization** (Criar uma organização). ![Botão Create an organization (Criar uma organização)](/assets/images/help/education/create-org-button.png)
@@ -51,7 +52,7 @@ Depois que sua solicitação para desconto de educador ou pesquisador for aprova
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-### Leia mais
+## Leia mais
 
 - "[Por que minha solicitação para desconto de educador ou pesquisador não foi aprovada?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)

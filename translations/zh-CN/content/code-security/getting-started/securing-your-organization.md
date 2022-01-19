@@ -1,112 +1,141 @@
 ---
-title: 保护您的组织
-intro: '您可以使用许多 {% data variables.product.prodname_dotcom %} 功能来帮助保护组织的安全。'
+title: Securing your organization
+intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure.'
 permissions: Organization owners can configure organization security settings.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
   - Dependencies
   - Vulnerabilities
   - Advanced Security
+shortTitle: Secure your organization
 ---
 
-### 简介
-本指南向您展示如何配置一个组织的安全功能。 组织的安全需求是独一无二的，您可能不需要启用每个安全功能。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 安全功能](/code-security/getting-started/github-security-features)”。
+## Introduction
+This guide shows you how to configure security features for an organization. Your organization's security needs are unique and you may not need to enable every security feature. For more information, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
-某些安全功能仅适用于{% if currentVersion == "free-pro-team@latest" %}公共仓库，以及由{% else %}您具有 {% endif %} {% data variables.product.prodname_advanced_security %} 许可的组织拥有的仓库。 {% data reusables.advanced-security.more-info-ghas %}
+{% data reusables.advanced-security.security-feature-availability %}
 
-### 管理对组织的访问
+## Managing access to your organization
 
-您可以使用权限级别来控制人们在您的组织中可以采取哪些操作。 更多信息请参阅“[组织的权限级别](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)”。
+You can use roles to control what actions people can take in your organization. {% if security-managers %}For example, you can assign the security manager role to a team to give them the ability to manage security settings across your organization, as well as read access to all repositories.{% endif %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 
-### 创建默认安全策略
+## Creating a default security policy
 
-您可以创建默认安全策略，该策略将显示在组织中任何没有自己的安全策略的公共仓库中。 更多信息请参阅“[创建默认社区健康文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
-
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### 管理 {% data variables.product.prodname_dependabot_alerts %} 和依赖关系图
-
-默认情况下，{% data variables.product.prodname_dotcom %} 会检测公共仓库中的漏洞，并生成 {% data variables.product.prodname_dependabot_alerts %} 和依赖关系图。 您可以为组织拥有的所有仓库启用或禁用 {% data variables.product.prodname_dependabot_alerts %} 和依赖关系图。
-
-1. 单击您的个人资料照片，然后单击 **Organizations（组织）**。
-2. 单击组织旁边的 **Settings（设置）** 。
-3. 点击 **Security & analysis（安全和分析）**。
-4. 单击您要管理的功能旁边的 **Enable all（全部启用）**或 **Disable all（全部禁用）**。
-5. （可选）选择 **Automatically enable for new repositories（自动对新仓库启用）**。
-
-更多信息请参阅“[关于漏洞依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”、“[探索仓库的依赖关系](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)”和“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
+You can create a default security policy that will display in any of your organization's public repositories that do not have their own security policy. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% ifversion fpt or ghes > 2.22 or ghae-issue-4864 or ghec %}
+## Managing {% data variables.product.prodname_dependabot_alerts %} and the dependency graph
 
-### 管理依赖项审查
+{% ifversion fpt or ghec %}By default, {% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and generates {% data variables.product.prodname_dependabot_alerts %} and a dependency graph. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} and the dependency graph for all private repositories owned by your organization.
 
-依赖项审查可让您在合并到仓库之前在拉取请求中显示依赖关系的变化。 依赖项审查适用于所有公共仓库以及由具有 {% data variables.product.prodname_advanced_security %} 许可的组织所拥有并且启用了依赖关系图的私有仓库。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)”。
+1. Click your profile photo, then click **Organizations**.
+2. Click **Settings** next to your organization.
+3. Click **Security & analysis**.
+4. Click **Enable all** or **Disable all** next to the feature that you want to manage.
+5. Optionally, select **Automatically enable for new repositories**.
+{% endif %}
+
+{% data reusables.dependabot.dependabot-alerts-beta %}
+{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
+
+For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)," "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)," and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% endif %}
+
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
+
+## Managing dependency review
+
+Dependency review is an {% data variables.product.prodname_advanced_security %} feature that lets you visualize dependency changes in pull requests before they are merged into your repositories. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+
+{% ifversion fpt or ghec %}Dependency review is already enabled for all public repositories. {% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable dependency review for private and internal repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-organization#managing-dependency-review). {% endif %}{% endif %}{% ifversion ghec %}For private and internal repositories that are owned by an organization, you can enable dependency review by enabling the dependency graph and enabling {% data variables.product.prodname_advanced_security %} (see below). 
+{% elsif ghes or ghae %}Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and you enable {% data variables.product.prodname_advanced_security %} for the organization (see below).{% endif %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### 管理 {% data variables.product.prodname_dependabot_security_updates %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
+## Managing {% data variables.product.prodname_dependabot_security_updates %}
 
-对于任何使用 {% data variables.product.prodname_dependabot_alerts %} 的仓库，您可以启用 {% data variables.product.prodname_dependabot_security_updates %} 在检测到漏洞时提出带有安全更新的拉取请求。 您也可以为组织的所有仓库启用或禁用 {% data variables.product.prodname_dependabot_security_updates %}。
+For any repository that uses {% data variables.product.prodname_dependabot_alerts %}, you can enable {% data variables.product.prodname_dependabot_security_updates %} to raise pull requests with security updates when vulnerabilities are detected. You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all repositories across your organization.
 
-1. 单击您的个人资料照片，然后单击 **Organizations（组织）**。
-2. 单击组织旁边的 **Settings（设置）** 。
-3. 点击 **Security & analysis（安全和分析）**。
-4. 单击 {% data variables.product.prodname_dependabot_security_updates %} 旁边的 **Enable all（全部启用）**或 **Disable all（全部禁用）**。
-5. （可选）选择 **Automatically enable for new repositories（自动对新仓库启用）**。
+1. Click your profile photo, then click **Organizations**.
+2. Click **Settings** next to your organization.
+3. Click **Security & analysis**.
+4. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_dependabot_security_updates %}.
+5. Optionally, select **Automatically enable for new repositories**. 
 
-更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/about-dependabot-security-updates)”和“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
+For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/about-dependabot-security-updates)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-### 管理 {% data variables.product.prodname_dependabot_version_updates %}
+## Managing {% data variables.product.prodname_dependabot_version_updates %}
 
-您可以让 {% data variables.product.prodname_dependabot %} 自动提出拉取请求以保持依赖项的更新。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/about-dependabot-version-updates)“。
+You can enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/about-dependabot-version-updates)."
 
-要启用 {% data variables.product.prodname_dependabot_version_updates %}，您必须创建 *dependabot.yml* 配置文件。 更多信息请参阅“[启用和禁用版本更新](/code-security/supply-chain-security/enabling-and-disabling-version-updates)”。
-
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### 管理 {% data variables.product.prodname_GH_advanced_security %}
-
-如果您的组织属于具有 {% data variables.product.prodname_advanced_security %} 许可的企业，您可以启用或禁用 {% data variables.product.prodname_advanced_security %} 功能。
-
-1. 单击您的个人资料照片，然后单击 **Organizations（组织）**。
-2. 单击组织旁边的 **Settings（设置）** 。
-3. 点击 **Security & analysis（安全和分析）**。
-4. 单击 {% data variables.product.prodname_GH_advanced_security %} 旁边的 **Enable all（全部启用）**或 **Disable all（全部禁用）**。
-5. （可选）选择 **Automatically enable for new private repositories（自动对新私有仓库启用）**。
-
-更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)”和“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
-
-### 配置 {% data variables.product.prodname_secret_scanning %}
-{% data variables.product.prodname_secret_scanning_caps %} 可用于{% if currentVersion == "free-pro-team@latest" %}公共仓库，以及具有{% else %}您有{% endif %} {% data variables.product.prodname_advanced_security %} 许可的组织拥有的私有仓库。
-
-您可以对已启用 {% data variables.product.prodname_advanced_security %} 的所有仓库启用或禁用 {% data variables.product.prodname_secret_scanning %}。
-
-1. 单击您的个人资料照片，然后单击 **Organizations（组织）**。
-2. 单击组织旁边的 **Settings（设置）** 。
-3. 点击 **Security & analysis（安全和分析）**。
-4. 单击 {% data variables.product.prodname_secret_scanning_caps %} 旁边的 **Enable all（全部启用）**或 **Disable all（全部禁用）**（仅限 {% data variables.product.prodname_GH_advanced_security %} 仓库）。
-5. （可选）选择**自动对添加到 {% data variables.product.prodname_advanced_security %} 的私有仓库启用**。
-
-更多信息请参阅“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
+To enable {% data variables.product.prodname_dependabot_version_updates %}, you must create a *dependabot.yml* configuration file. For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 {% endif %}
 
-### 后续步骤
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" %}您可以在安全概览中查看、过滤以及排序由您的组织拥有的仓库的安全警报。 更多信息请参阅“[探索安全警报](/code-security/security-overview/exploring-security-alerts)”。{% endif %}
+{% ifversion ghes > 2.22 or ghae or ghec %}
+## Managing {% data variables.product.prodname_GH_advanced_security %}
 
-您可以查看和管理来自安全功能的警报，以解决代码中的依赖项和漏洞。 更多信息请参阅 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}“[查看和更新仓库中的漏洞依赖项](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)”、{% endif %} {% if currentVersion == "free-pro-team@latest" %}“[管理用于依赖项更新的拉取请求](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)”、{% endif %}“[管理仓库的 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”和“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
+{% ifversion ghes > 2.22 or ghec %}
+If your {% ifversion ghec %}organization is owned by an enterprise that{% else %}enterprise{% endif %} has an {% data variables.product.prodname_advanced_security %} license, you can enable or disable {% data variables.product.prodname_advanced_security %} features.
+{% elsif ghae %}
+You can enable or disable {% data variables.product.prodname_advanced_security %} features.
+{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}如果您存在安全漏洞，您可以创建安全通告，以私下讨论和修复该漏洞。 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)”和“[创建安全通告](/code-security/security-advisories/creating-a-security-advisory)”。
+1. Click your profile photo, then click **Organizations**.
+2. Click **Settings** next to your organization.
+3. Click **Security & analysis**.
+4. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_GH_advanced_security %}.
+5. Optionally, select **Automatically enable for new private repositories**. 
+
+For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% endif %}
+
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
+## Configuring {% data variables.product.prodname_secret_scanning %}
+
+{% data variables.product.prodname_secret_scanning_caps %} is an {% data variables.product.prodname_advanced_security %} feature that scans repositories for secrets that are insecurely stored.
+
+{% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} is already enabled for all public repositories. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable {% data variables.product.prodname_secret_scanning %} for private and internal repositories.{% endif %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-organization#configuring-secret-scanning). {% endif %}
+
+{% ifversion ghes or ghae %}{% data variables.product.prodname_secret_scanning_caps %} is available if your enterprise uses {% data variables.product.prodname_advanced_security %}.{% endif %}
+
+{% ifversion not fpt %}
+You can enable or disable {% data variables.product.prodname_secret_scanning %} for all repositories across your organization that have {% data variables.product.prodname_advanced_security %} enabled.
+
+1. Click your profile photo, then click **Organizations**.
+2. Click **Settings** next to your organization.
+3. Click **Security & analysis**.
+4. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_secret_scanning_caps %} ({% data variables.product.prodname_GH_advanced_security %} repositories only).
+5. Optionally, select **Automatically enable for private repositories added to {% data variables.product.prodname_advanced_security %}**. 
+
+For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% endif %}
+
+{% endif %}
+
+## Configuring {% data variables.product.prodname_code_scanning %}
+
+{% data variables.product.prodname_code_scanning_capc %} is an {% data variables.product.prodname_advanced_security %} feature that scans code for security vulnerabilities and errors
+
+{% ifversion fpt or ghec %}{% data variables.product.prodname_code_scanning_capc %} is available for all public repositories. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally use {% data variables.product.prodname_code_scanning %} for private and internal repositories.{% else %}{% data variables.product.prodname_code_scanning_capc %} is available if your enterprise uses {% data variables.product.prodname_advanced_security %}.{% endif %}
+
+{% data variables.product.prodname_code_scanning_capc %} is configured at the repository level. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+
+## Next steps
+{% ifversion fpt or ghes > 3.1 or ghec %}You can view, filter, and sort security alerts for repositories owned by your organization in the security overview. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."{% endif %}
+
+You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes > 2.22 or ghec %} "[Viewing and updating vulnerable dependencies in your repository](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),"{% endif %} {% ifversion fpt or ghec or ghes > 3.2 %}"[Managing pull requests for dependency updates](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Managing {% data variables.product.prodname_code_scanning %} for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," and "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+
+{% ifversion fpt or ghec %}If you have a security vulnerability, you can create a security advisory to privately discuss and fix the vulnerability. For more information, see "[About {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)" and "[Creating a security advisory](/code-security/security-advisories/creating-a-security-advisory)."
 {% endif %}

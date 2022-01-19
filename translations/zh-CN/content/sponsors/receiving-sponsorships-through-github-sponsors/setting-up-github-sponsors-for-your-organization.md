@@ -7,15 +7,17 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
   - Sponsors profile
   - Open Source
+shortTitle: 为组织设置
 ---
 
-### 加入 {% data variables.product.prodname_sponsors %}
+## 加入 {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -29,7 +31,7 @@ topics:
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}
 
-### 填写被赞助组织资料
+## 填写被赞助组织资料
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
@@ -40,7 +42,7 @@ topics:
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-### 创建赞助等级
+## 创建赞助等级
 
 {% data reusables.sponsors.tier-details %}
 
@@ -50,13 +52,14 @@ topics:
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
 
-### 提交您的银行信息
+## 提交您的银行信息
 
-作为被赞助组织，您必须在受支持的区域接收支付到组织专用银行帐户的赞助款。 您可以通过如 [Open Collective](https://opencollective.com/) 和 [Stripe Atlas](https://stripe.com/atlas) 之类的服务获得企业银行帐户。 您的组织合法经营的区域与您银行帐户所在的区域必须匹配。 为组织设置 {% data variables.product.prodname_sponsors %} 的人员也必须居住在同一受支持的区域。 {% data reusables.sponsors.stripe-supported-regions %}
+作为被赞助组织，您将在受支持的区域接收支付到银行帐户的赞助款。 这可以是您组织的专用银行帐户或个人银行帐户。 您可以通过 [Stripe Atl](https://stripe.com/atlas) 等服务获得商业银行帐户，或加入类似 [Open Collective](https://opencollective.com/)的财政主机。 为组织设置 {% data variables.product.prodname_sponsors %} 的人员也必须居住在同一受支持的区域。 {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
@@ -65,7 +68,7 @@ topics:
 
 有关使用 Open Collective 设置 Stripe Connect 的更多信息，请参阅 Open Collective 文档中的[设置 {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors)。
 
-### 提交您的税务信息
+## 提交您的税务信息
 
 {% data reusables.sponsors.tax-form-information-org %}
 
@@ -75,17 +78,17 @@ topics:
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
-### 在您的 {% data variables.product.prodname_dotcom %} 帐户上启用双重身份验证 (2FA)。
+## 在您的 {% data variables.product.prodname_dotcom %} 帐户上启用双重身份验证 (2FA)。
 
-在您的组织成为被赞助的组织之前，您必须在 {% data variables.product.product_name %} 帐户上启用 2FA。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
+在您的组织成为被赞助的组织之前，您必须为您在 {% data variables.product.product_location %} 上的帐户启用 2FA。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
 
-### 向 {% data variables.product.prodname_dotcom %} 提交申请以请求批准
+## 向 {% data variables.product.prodname_dotcom %} 提交申请以请求批准
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}
 
-### 延伸阅读
+## 延伸阅读
 - "[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
 - "[通过 {% data variables.product.prodname_sponsors %} 接受赞助](/sponsors/receiving-sponsorships-through-github-sponsors)"

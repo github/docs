@@ -25,9 +25,9 @@ export function ProductReleases() {
           const secondPreviousVersion = `enterprise-server@${release.secondPreviousRelease}`
           return (
             <div key={releaseNumber} className="col-lg-4 col-12 mb-4">
-              <div className="Box color-shadow-medium height-full d-block hover-shadow-large no-underline color-text-primary p-5">
-                <h2>{allVersions[releaseVersion].versionTitle}</h2>
-                <p className="mt-2 mb-4 color-text-tertiary">
+              <div className="Box color-shadow-medium height-full d-block hover-shadow-large no-underline color-fg-default p-5">
+                <h3 className="f2">{allVersions[releaseVersion].versionTitle}</h3>
+                <p className="mt-2 mb-4 color-fg-muted">
                   <ListUnorderedIcon />{' '}
                   <Link
                     href={`/${router.locale}/${releaseVersion}/admin/release-notes#${latestPatch.version}`}
@@ -36,7 +36,7 @@ export function ProductReleases() {
                   </Link>{' '}
                   ({latestPatch.date})
                 </p>
-                <p className="mt-2 mb-4 color-text-tertiary">
+                <p className="mt-2 mb-4 color-fg-muted">
                   <ArrowUpIcon /> {t('upgrade_from')}{' '}
                   <Link
                     href={`/${router.locale}/${firstPreviousVersion}/admin/enterprise-management/upgrading-github-enterprise-server`}
@@ -50,7 +50,7 @@ export function ProductReleases() {
                     {release.secondPreviousRelease}
                   </Link>
                 </p>
-                <p className="mt-2 mb-4 color-text-tertiary">
+                <p className="mt-2 mb-4 color-fg-muted">
                   <FileIcon />{' '}
                   <Link href={`/${router.locale}/${releaseVersion}`}>{t('browse_all_docs')}</Link>
                 </p>

@@ -19,6 +19,7 @@ Checkout.com | Checkout.com Production Secret Key
 Checkout.com | Checkout.com Test Secret Key
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
+Contributed Systems | Contributed Systems Credentials
 Databricks | Databricks Access Token
 Datadog | Datadog API Key
 Discord | Discord Bot Token
@@ -34,6 +35,7 @@ Dynatrace | Dynatrace Internal Token
 Finicity | Finicity App Key
 Frame.io | Frame.io JSON Web Token
 Frame.io| Frame.io Developer Token
+FullStory| FullStory API Key
 GitHub | GitHub Personal Access Token
 GitHub | GitHub OAuth Access Token
 GitHub | GitHub Refresh Token
@@ -53,6 +55,7 @@ Mailchimp | Mailchimp API Key
 Mailchimp | Mandrill API Key
 Mailgun | Mailgun API Key
 MessageBird | MessageBird API Key
+Meta | Facebook Access Token
 npm | npm Access Token
 NuGet | NuGet API Key
 OpenAI | OpenAI API Key
@@ -60,7 +63,7 @@ Palantir | Palantir JSON Web Token
 PlanetScale | PlanetScale Database Password
 PlanetScale | PlanetScale OAuth Token
 PlanetScale | PlanetScale Service Token
-Plivo | Plivo Auth Token
+Plivo | Plivo Auth ID and Token
 Postman | Postman API Key
 Proctorio | Proctorio Consumer Key
 Proctorio | Proctorio Linkage Key
@@ -72,6 +75,8 @@ RubyGems | RubyGems API Key
 Samsara | Samsara API Token
 Samsara | Samsara OAuth Access Token
 SendGrid | SendGrid API Key
+Sendinblue | Sendinblue API Key
+Sendinblue | Sendinblue SMTP Key
 Shopify | Shopify App Shared Secret
 Shopify | Shopify Access Token
 Shopify | Shopify Custom App Access Token
@@ -88,4 +93,5 @@ Stripe | Stripe Test API Restricted Key
 Tencent Cloud | Tencent Cloud Secret ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
+Typeform | Typeform Personal Access Token
 Valour | Valour Access Token

@@ -11,7 +11,7 @@ featuredLinks:
     - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
     - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
     - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces
-    - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces
+    - /codespaces/developing-in-codespaces/codespaces-lifecycle
   popular:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
@@ -24,7 +24,7 @@ featuredLinks:
     - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   popularHeading: Set up your project
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
-community_redirect:
+communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/github/feedback/discussions/categories/codespaces-feedback'
 redirect_from:
@@ -34,6 +34,7 @@ layout: product-landing
 examples_source: data/product-examples/codespaces/code-examples.yml
 versions:
   fpt: '*'
+  ghec: '*'
 children:
   - /overview
   - /getting-started
@@ -44,6 +45,7 @@ children:
   - /managing-codespaces-for-your-organization
   - /codespaces-reference
   - /troubleshooting
+  - /the-githubdev-web-based-editor
   - /guides
 ---
 

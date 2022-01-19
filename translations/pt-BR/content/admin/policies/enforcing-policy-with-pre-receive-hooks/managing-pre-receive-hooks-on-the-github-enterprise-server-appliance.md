@@ -3,19 +3,20 @@ title: Gerenciar hooks pre-receive no appliance do GitHub Enterprise Server
 intro: 'Configure o uso que as pessoas farão dos hooks pre-receive em seus appliances do {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
-  - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance/
+  - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: Gerenciar hooks pre-receive
 ---
 
-### Criar hooks pre-receive
+## Criar hooks pre-receive
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -28,21 +29,21 @@ topics:
 9. Selecione **Enable this pre-receive hook on all repositories by default** (Habilitar este hooks pre-receive em todos os repositórios por padrão) se quiser que o hook pre-receive seja executado em todos os repositórios. ![Habilitar hooks em todos os repositório](/assets/images/enterprise/site-admin-settings/enable-hook-all-repos.png)
 10. Selecione **Administrators can enable and disable this hook** (Administradores podem habilitar e desabilitar este hook) para permitir que os integrantes da organização com permissões de administrador ou proprietário decidam se querem habilitar ou desabilitar esse hook pre-receive. ![Habilitar ou desabilitar hooks para administradores](/assets/images/enterprise/site-admin-settings/admins-enable-hook.png)
 
-### Editar hooks pre-receive
+## Editar hooks pre-receive
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 1. Ao lado do hook pre-receive que deseja editar, clique em {% octicon "pencil" aria-label="The edit icon" %}.![Editar hooks pre-receive](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
-### Excluir hooks pre-receive
+## Excluir hooks pre-receive
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 2. Ao lado do hook pre-receive que deseja excluir, clique em {% octicon "x" aria-label="X symbol" %}.![Editar hooks pre-receive](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
 
-### Configurar hooks pre-receive para uma organização
+## Configurar hooks pre-receive para uma organização
 
 O administrador da organização só pode configurar permissões de hook para a organização se o administrador do site tiver selecionado a opção **Administrators can enable or disable this hook** (Administradores podem habilitar e desabilitar este hook) ao criar o hook pre-receive. Para configurar hooks pre-receive em um repositório, você deve ser administrador ou proprietário da organização.
 
@@ -51,7 +52,7 @@ O administrador da organização só pode configurar permissões de hook para a 
 4. Na barra lateral esquerda, clique em **Hooks**. ![Barra lateral de hooks](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
 5. Ao lado do hook pre-receive que você pretende configurar, clique no menu suspenso **Hook permissions** (Permissões de hook). Selecione se deseja habilitar ou desabilitar o hook pre-receive, ou permitir que ele seja configurado pelos administradores do repositório. ![Permissões de hook](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
 
-### Configurar hooks pre-receive para um repositório
+## Configurar hooks pre-receive para um repositório
 
 O proprietário do repositório só pode configurar um hook se o administrador do site tiver selecionado a opção **Administrators can enable or disable this hook** (Administradores podem habilitar e desabilitar este hook) ao criar o hook pre-receive. Em uma organização, o proprietário da organização também deve ter selecionado a permissão de hook **Configurable** (Configurável). Para configurar hooks pre-receive em um repositório, você deve ser proprietário do repositório.
 

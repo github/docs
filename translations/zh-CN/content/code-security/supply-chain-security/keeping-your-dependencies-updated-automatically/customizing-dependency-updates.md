@@ -6,7 +6,9 @@ redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -16,9 +18,13 @@ topics:
   - Dependencies
   - Pull requests
   - Vulnerabilities
+shortTitle: 自定义更新
 ---
 
-### 关于自定义依赖项更新
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
+## 关于自定义依赖项更新
 
 启用版本更新后，您可以自定义 {% data variables.product.prodname_dependabot %} 通过向 *dependabot.yml* 文件添加更多选项来维护依赖项。 例如，您可以：
 
@@ -28,17 +34,17 @@ topics:
 - 更改为版本更新打开的拉取请求默认最大数 5：`open-pull-requests-limit`
 - 打开版本更新的拉取请求以定位特定分支，而不是默认分支：`target-branch`
 
-有关配置选项的详细信息，请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates)”。
+有关配置选项的详细信息，请参阅“[依赖项更新的配置选项](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)”。
 
-更新仓库中的 *dependabot.yml* 文件时，{% data variables.product.prodname_dependabot %} 使用新配置即刻进行检查。 几分钟内，您将在 **{% data variables.product.prodname_dependabot %}** 选项卡上看到更新的依赖项列表，如果仓库有很多依赖项，可能需要更长时间。 您可能还会看到针对版本更新的新拉取请求。 更多信息请参阅“[列出为版本更新配置的依赖项](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)”。
+更新仓库中的 *dependabot.yml* 文件时，{% data variables.product.prodname_dependabot %} 使用新配置即刻进行检查。 几分钟内，您将在 **{% data variables.product.prodname_dependabot %}** 选项卡上看到更新的依赖项列表，如果仓库有很多依赖项，可能需要更长时间。 您可能还会看到针对版本更新的新拉取请求。 更多信息请参阅“[列出为版本更新配置的依赖项](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)”。
 
-### 配置更改对安全更新的影响
+## 配置更改对安全更新的影响
 
 如果您自定义 *dependabot.yml* 文件，您可能会注意到为安全更新提出的拉取请求的一些变化。 这些拉取请求始终由依赖项的安全通告触发，而不是由 {% data variables.product.prodname_dependabot %} 时间表触发。 但是，它们会从 *dependabot.yml* 文件继承相关的配置设置，除非您为版本更新指定不同的目标分支。
 
 有关示例，请参阅下面的“[设置自定义标签](#setting-custom-labels)”。
 
-### 修改计划
+## 修改计划
 
 设置 `daily` 更新计划时，默认情况下，{% data variables.product.prodname_dependabot %} 会在 05:00 UTC 检查新版本。 您可以使用 `schedule.time` 指定在一天中的其他时间检查更新（格式：`h:mm`）。
 
@@ -59,7 +65,7 @@ updates:
       time: "02:00"
 ```
 
-### 设置审查者和受理人
+## 设置审查者和受理人
 
 默认情况下，{% data variables.product.prodname_dependabot %} 会提出没有任何审查者或受理人的拉取请求。
 
@@ -87,7 +93,7 @@ updates:
       - "user-name"
 ```
 
-### 设置自定义标签
+## 设置自定义标签
 
 {% data reusables.dependabot.default-labels %}
 
@@ -132,6 +138,6 @@ updates:
       - "triage-board"
 ```
 
-### 更多示例
+## 更多示例
 
-更多示例请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates)。”
+更多示例请参阅“[依赖项更新的配置选项](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)。”

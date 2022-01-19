@@ -4,14 +4,16 @@ intro: 为节省时间并确保提供一致的消息，您可将已保存回复�
 redirect_from:
   - /articles/working-with-saved-replies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - /about-saved-replies
   - /creating-a-saved-reply
   - /editing-a-saved-reply
   - /deleting-a-saved-reply
   - /using-saved-replies
+shortTitle: 处理已保存回复
 ---
 

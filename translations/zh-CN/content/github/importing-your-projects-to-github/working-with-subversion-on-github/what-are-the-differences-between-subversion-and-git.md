@@ -2,15 +2,17 @@
 title: Subversion 和 Git 有哪些区别？
 intro: Subversion (SVN) 仓库与 Git 仓库类似，但涉及项目架构时有一些区别。
 redirect_from:
-  - /articles/what-are-the-differences-between-svn-and-git/
+  - /articles/what-are-the-differences-between-svn-and-git
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+shortTitle: Subversion 与 Git 差异
 ---
 
-### 目录结构
+## 目录结构
 
 项目中的每个*引用*或标记的提交快照均在特定子目录中组织，例如 `trunk`、`branches` 和 `tags`。 例如，具有两项正在开发的功能的 SVN 项目可能类似如下：
 
@@ -42,7 +44,7 @@ Git 工作流程可能类似如下：
 
 与 SVN 不同的是，使用 Git 时目录结构保持不变，但文件内容会根据您的分支而变化。
 
-### 包括子项目
+## 包括子项目
 
 *子项目*是在主项目之外的某个位置开发和管理的项目。 您通常导入子项目以将一些功能添加到您的项目，而无需自行维护代码。 每当子项目更新时，您可以将其与您的项目同步，以确保所有内容都是最新的。
 
@@ -50,7 +52,7 @@ Git 工作流程可能类似如下：
 
 更多信息请参阅 Git 文档中的“[Git 工具子模块](https://git-scm.com/book/en/Git-Tools-Submodules)”。
 
-### 保留历史记录
+## 保留历史记录
 
 SVN 配置为假设项目的历史记录永不更改。 Git 允许您使用 [`git rebase`](/github/getting-started-with-github/about-git-rebase) 等工具修改以前的提交和更改。
 
@@ -60,7 +62,7 @@ SVN 配置为假设项目的历史记录永不更改。 Git 允许您使用 [`gi
 
 {% endtip %}
 
-### 延伸阅读
+## 延伸阅读
 
 - “[GitHub 支持的 Subversion 属性](/articles/subversion-properties-supported-by-github)”
 - [_Git SCM_ 书籍中的“分支与合并”](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)

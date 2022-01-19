@@ -1,10 +1,10 @@
 ---
 title: GitHub Terms of Service
 redirect_from:
-  - /tos/
-  - /terms/
-  - /terms-of-service/
-  - /github-terms-of-service-draft/
+  - /tos
+  - /terms
+  - /terms-of-service
+  - /github-terms-of-service-draft
   - /articles/github-terms-of-service
 versions:
   fpt: '*'
@@ -101,7 +101,7 @@ You agree that you will not under any circumstances violate our [Acceptable Use 
 You may create or upload User-Generated Content while using the Service. You are solely responsible for the content of, and for any harm resulting from, any User-Generated Content that you post, upload, link to or otherwise make available via the Service, regardless of the form of that Content. We are not responsible for any public display or misuse of your User-Generated Content.
 
 ### 2. GitHub May Remove Content
-We have the right to refuse or remove any User-Generated Content that, in our sole discretion, violates any laws or [GitHub terms or policies](/github/site-policy). User-Generated Content displayed on GitHub for mobile may be subject to mobile app stores' additional terms.
+We have the right to refuse or remove any User-Generated Content that, in our sole discretion, violates any laws or [GitHub terms or policies](/github/site-policy). User-Generated Content displayed on GitHub Mobile may be subject to mobile app stores' additional terms.
 
 ### 3. Ownership of Content, Right to Post, and License Grants
 You retain ownership of and responsibility for Your Content. If you're posting anything you did not create yourself or do not own the rights to, you agree that you are responsible for any Content you post; that you will only submit Content that you have the right to post; and that you will fully comply with any third party licenses relating to Content you post.

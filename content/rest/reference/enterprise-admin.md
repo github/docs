@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise administration
-intro: 'You can use these endpoints to administer your enterprise. Among the tasks you can perform with this API are many relating to GitHub Actions.'
+intro: You can use these endpoints to administer your enterprise. Among the tasks you can perform with this API are many relating to GitHub Actions.
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 shortTitle: Enterprise administration
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -32,6 +33,10 @@ REST API endpoints{% ifversion ghes %}—except [Management Console](#management
 ```shell
 {% data variables.product.api_url_pre %}
 ```
+
+{% ifversion fpt or ghec %}
+When endpoints include `{enterprise}`, replace `{enterprise}` with the handle for your enterprise account, which is included in the URL for your enterprise settings. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `{enterprise}` with `octo-enterprise`.
+{% endif %}
 
 {% ifversion ghes %}
 [Management Console](#management-console) API endpoints are only prefixed with a hostname:
@@ -63,7 +68,7 @@ You can also read the current version by calling the [meta endpoint](/rest/refer
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 
 ## Audit log
 
@@ -73,7 +78,7 @@ You can also read the current version by calling the [meta endpoint](/rest/refer
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Billing
 
 {% for operation in currentRestOperations %}
@@ -84,7 +89,6 @@ You can also read the current version by calling the [meta endpoint](/rest/refer
 
 ## GitHub Actions
 
-{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
@@ -182,21 +186,11 @@ $ curl -L 'https://<em>hostname</em>:<em>admin_port</em>/setup/api?api_key=<em>y
 You can also use standard HTTP authentication to send this token. For example:
 
 ```shell
-$ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>admin_port</em>/setup/api'
+$ curl -L -u "api_key:<em>your-amazing-password</em>" 'https://<em>hostname</em>:<em>admin_port</em>/setup/api'
 ```
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'management-console' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
-{% ifversion ghes > 3.2 %}
-
-## Git LFS
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% endif %}

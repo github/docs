@@ -3,7 +3,7 @@ title: Acuerdo de Desarrollador de GitHub Marketplace
 redirect_from:
   - /articles/github-marketplace-developer-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -11,9 +11,9 @@ topics:
 
 **ESTOS TÉRMINOS Y CONDICIONES (EL "ACUERDO") REGULAN TU PARTICIPACIÓN EN EL PROGRAMA DEL MERCADO DE GITUB. AL INSCRIBIRTE PARA PARTICIPAR EN EL PROGRAMA DE MERCADO O AL HACER CLIC EN "ACEPTO" A CONTINUACIÓN, CONFIRMAS QUE ENTIENDES EL PRESENTE ACUERDO Y QUE ACEPTAS TODOS SUS TÉRMINOS Y CONDICIONES.  SI ESTÁS INGRESANDO EN EL PRESENTE ACUERDO EN NOMBRE DE UNA EMPRESA U OTRA ENTIDAD LEGAL, DECLARAS QUE TIENES LA AUTORIDAD LEGAL PARA VINCULAR A LA ENTIDAD CON EL PRESENTE ACUERDO, EN CUYO CASO "TÚ" SIGNIFICARÁ LA ENTIDAD QUE REPRESENTAS.**
 
-Fecha de entrada en vigor: 1 de enero de 2021
+Fecha Efectiva: 24 de agosto de 2021
 
-### 1.  DEFINICIONES
+## 1.   DEFINICIONES
 
 Los términos con mayúscula inicial utilizados en el presente acuerdo y no definidos en el presente documento deberán tener el significado establecido en los términos de servicio de GitHub ubicados en [https://docs.github.com/articles/github-terms-of-service](/articles/github-terms-of-service) (los "Términos" o "ToS").
 
@@ -37,7 +37,7 @@ Los términos con mayúscula inicial utilizados en el presente acuerdo y no defi
 
 "Datos de uso" hace referencia a los datos relacionados con el mercado generados en relación con el uso del usuario final del mercado de GitHub y la licencia de los productos para Programadores, incluyendo, sin limitación a estadísticas de uso y datos de ventas agregados. Los datos de uso no incluyen y específicamente excluyen la información bancaria y de pago.
 
-### 2.  OBJETIVO Y CONCESIÓN DE LICENCIA
+## 2.   OBJETIVO Y CONCESIÓN DE LICENCIA
 
 **2.1** El presente acuerdo establece los términos y condiciones de acuerdo con los cuales el Programador puede publicar listados en el mercado GitHub para la compra de productos del programador por parte de los usuarios finales y el uso en conexión con GitHub.com.  El presente acuerdo se aplica a los productos del Programador distribuidos para productos gratuitos y de Programador para los cuales se cobra una tarifa a los usuarios finales.  El programador acepta usar el mercado de GitHub únicamente para los fines permitidos por el presente acuerdo o según lo permita la legislación aplicable.  Entre GitHub y el Programador, el Programador es el único responsable de los productos del Programador.
 
@@ -51,7 +51,7 @@ Los términos con mayúscula inicial utilizados en el presente acuerdo y no defi
 
 **2.6** El programador reconoce y acepta que GitHub tendrá derecho a proporcionar el nombre del Programador, la dirección y otros detalles de contacto a cualquier tercero que razonablemente, en la única determinación de GitHub, afirme que el Programador no posee todos los derechos de propiedad intelectual necesarios sobre o para los productos del programador.
 
-### 3.  RESTRICCIONES Y RESPONSABILIDADES
+## 3.   RESTRICCIONES Y RESPONSABILIDADES
 
 Independientemente de cualquiera de los requisitos establecidos en la sección 2, Propósito y Concesión de Licencia, antes mencionados, el Programador reconoce y acepta que su uso del mercado y la participación en el programa están explícitamente condicionados al apego del Programador al presente acuerdo, incluyendo, entre otras, las restricciones y los requisitos de cumplimiento establecidos en la presente sección 3.
 
@@ -90,7 +90,7 @@ Independientemente de cualquiera de los requisitos establecidos en la sección 2
 
 **3.8** Ninguna disposición del presente Acuerdo impedirá que alguna de las partes desarrolle y/o publique aplicaciones que sean similares o que compitan de cualquier otra manera con las solicitudes de la otra parte.
 
-### 4.  ELIMINACIONES
+## 4.   ELIMINACIONES
 
 **4.1** Tus eliminaciones. Al proporcionar a GitHub una notificación por escrito de treinta (30) días antes del 1er día del mes calendario subsiguiente, puedes eliminar tus anuncios de la distribución futura por medio del mercado, pero debes cumplir con el presente acuerdo para cualquier lista distribuida a través del mercado, incluyendo, entre otros, los requisitos de reembolso. Eliminar tu lista de la distribución futura por medio del mercado no (a) afecta los derechos de licencia de los usuarios finales que previamente compraron o instalaron tu perfil o (b) cambia tu obligación de entregar o apoyar un listado que haya sido adquirido o instalado previamente por los usuarios.
 
@@ -129,7 +129,7 @@ En el caso de que tu publicación se elimine involuntariamente porque es defectu
 
 **4.4** Eliminaciones del usuario final. Si un usuario final usa tu producto de Programador de manera que viole los términos, entonces tenemos el derecho de suspender o terminar el acceso del usuario final al producto del Programador sin ninguna responsabilidad para ti.
 
-### 5.  REPRESENTACIONES, GARANTÍAS Y CONVENIOS
+## 5.   REPRESENTACIONES, GARANTÍAS Y CONVENIOS
 
 **5.1** El Programador declara y garantiza que el Programador notificó a todos los usuarios de dichas aplicaciones de desarrollo que los datos de su cuenta se transmitirán fuera del servicio y los términos del programador controlarán la privacidad, seguridad o integridad de los datos de la cuenta. El Programador además declara y garantiza que, en la medida en que las aplicaciones del programador almacenen, procesen o transmitan datos de la cuenta, ni el programador ni la aplicación del programador, sin el consentimiento del usuario previo adecuado o excepto en la medida que lo exija la ley aplicable,
 - (i) modificará el contenido de los datos de la cuenta de una manera que afecte negativamente a la integridad de los datos de la misma;
@@ -142,7 +142,7 @@ En el caso de que tu publicación se elimine involuntariamente porque es defectu
 
 **5.4** DESCARGO DE GARANTÍAS. TODOS LOS ASPECTOS DEL MERCADO Y DE LA API DE GITHUB, INCLUYENDO TODOS LOS COMPONENTES DEL SERVIDOR Y DE LA RED, SE PROPORCIONAN "TAL CUAL" Y "SEGÚN DISPONIBILIDAD", SIN GARANTÍAS DE NINGÚN TIPO EN LA MEDIDA EN QUE LO PERMITA LA LEY Y GITHUB RENUNCIA EXPRESAMENTE A TODAS LAS GARANTÍAS, YA SEAN EXPRESAS O IMPLÍCITAS, INCLUYENDO, ENTRE OTRAS, CUALQUIER GARANTÍA IMPLÍCITA DE COMERCIABILIDAD, TÍTULO, IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO EL DE INFRACCIÓN.  EL PROGRAMADOR RECONOCE QUE GITHUB NO GARANTIZA QUE EL MERCADO O LA API DE GITHUB NO SE INTERRUMPIRÁN, OPORTUNAMENTE, DE MANERA SEGURA, SIN ERRORES O QUE ESTARÁ LIBRE DE VIRUS, MALWARE O GUSANOS (TAMBIÉN CONOCIDO COMO CÓDIGO INFORMÁTICO U OTRA TECNOLOGÍA ESPECÍFICAMENTE DISEÑADA PARA INTERRUMPIR, INHABILITAR O DAÑAR TU SOFTWARE, HARDWARE, SISTEMA INFORMÁTICO O RED) Y NINGUNA INFORMACIÓN O ASESORAMIENTO OBTENIDO POR PARTE DE UN PROGRAMADOR DE GITHUB O A TRAVÉS DEL MERCADO O DE LA API DE GITHUB CREARÁ NINGUNA GARANTÍA QUE NO ESTÉ EXPRESAMENTE ESTABLECIDA EN LOS PRESENTES TÉRMINOS.  GITHUB NO ES RESPONSABLE Y ESPECÍFICAMENTE RECHAZA CUALQUIER RESPONSABILIDAD POR CUALQUIER USO NO AUTORIZADO DE PRODUCTOS DEL PROGRAMADOR FUERA DEL MERCADO.
 
-### 6.  PRECIOS Y TÉRMINOS DE PAGO
+## 6.   PRECIOS Y TÉRMINOS DE PAGO
 
 **6.1** GitHub será el comerciante de los productos de Programador comprados por usuarios finales a través del mercado.
 
@@ -152,19 +152,19 @@ En el caso de que tu publicación se elimine involuntariamente porque es defectu
 
 **6.4** Apoyas tu producto de Programador. Serás el único responsable del soporte y el mantenimiento de tus productos de Programador y de cualquier queja sobre tus productos de Programador. Tu información de contacto de soporte será mostrada en cada página de detalles de la aplicación y estará a disposición de los usuarios con fines de soporte al cliente. Si no se proporciona el soporte adecuado para tus productos de Programador, se puede dar como resultado una exposición del producto menos destacada o, en algunos casos, la eliminación del mercado o en cualquier otro lugar en GitHub.com donde los productos del programador previamente comprados o descargados se almacenen en nombre de los usuarios.
 
-### 7.  PROPIEDAD
+## 7.   PROPIEDAD
 
 Sujeto a las licencias limitadas expresamente establecidas en el presente Acuerdo, nada en el presente acuerdo transfiere o asigna a una parte ninguno de los derechos de propiedad intelectual de la otra parte sobre sus características de marca u otra tecnología, y nada en el presente acuerdo transfiere o asigna a una parte ninguno de los derechos de propiedad intelectual de la otra parte.
 
-### 8.  LIMITACIÓN DE RESPONSABILIDAD
+## 8.   LIMITACIÓN DE RESPONSABILIDAD
 
 BAJO NINGUNA CIRCUNSTANCIA Y BAJO NINGUNA TEORÍA LEGAL (YA SEA EN EL CONTRATO, AGRAVIO, NEGLIGENCIA O DE CUALQUIER OTRA MANERA) GITHUB, O SUS AFILIADOS, EJECUTIVOS, DIRECTORES, EMPLEADOS, AGENTES O PROVEEDORES SERÁN RESPONSABLES ANTE EL PROGRAMADOR O CUALQUIER TERCERO CONFORME A LO DISPUESTO EN EL PRESENTE ACUERDO POR NINGÚN DAÑO INDIRECTO, INCIDENTAL, ESPECIAL, EJEMPLAR, CONSECUENTE, PUNITIVO U OTRO DAÑO SIMILAR, INCLUYENDO PÉRDIDAS DE BENEFICIOS, VENTAS O NEGOCIOS PERDIDOS, DATOS PERDIDOS, INTERRUPCIONES COMERCIALES O CUALQUIER OTRA PÉRDIDA INCURRIDA POR EL PROGRAMADOR O CUALQUIER TERCERO EN RELACIÓN EL PRESENTE ACUERDO, INDEPENDIENTEMENTE DE SI SE HA ADVERTIDO A LOS DESARROLLADORES DE LA POSIBILIDAD O DE HABER PODIDO PREVER DICHOS DAÑOS, INDEPENDIENTEMENTE DE CUALQUIER DISPOSICIÓN CONTRARIA EN EL PRESENTE ACUERDO, LA RESPONSABILIDAD AGREGADA DE GITHUB AL PROGRAMADOR O A CUALQUIER TERCERO QUE SURJA DEL PRESENTE ACUERDO NO SUPERARÁ LOS SEIS (6) MESES DE GASTO.
 
-### 9.  INDEMNIZACIÓN
+## 9.   INDEMNIZACIÓN
 
 **9.1** En la medida máxima permitida por la legislación aplicable, el Programador acepta defender, indemnizar y eximir de toda responsabilidad a GitHub, sus filiales y sus respectivos directores, funcionarios, empleados y agentes de cualquier reclamación, acciones, demandas o procedimientos, así como cualquier pérdida, responsabilidad, daño, costo y gasto (incluyendo los honorarios razonables de abogados) que surjan de o estén relacionados con (a) el uso del mercado por parte de un programador en violación del presente acuerdo, los términos o cualquier ley o regulación aplicable; (b) productos del programador que infrinjan cualquier derecho de autor, marca registrada, secreto comercial, patente u otro derecho de propiedad intelectual de cualquier tercero; (c) cualquier pérdida o divulgación de datos o información personal por parte de los productos del programador; y (d) EULA (o ToS) del Programador.
 
-### 10. TERMINACIÓN
+## 10.  TERMINACIÓN
 
 **10.1**    El presente acuerdo continuará aplicándose hasta que se rescinda por cualquiera de las partes como se indica a continuación.
 
@@ -176,37 +176,37 @@ BAJO NINGUNA CIRCUNSTANCIA Y BAJO NINGUNA TEORÍA LEGAL (YA SEA EN EL CONTRATO, 
 
 **10.5**    Las obligaciones en las secciones 2, 3, 4, 5, 8, 9 y 12-18 sobrevivirán a cualquier vencimiento o terminación del presente acuerdo.
 
-### 11. MODIFICACIÓN
+## 11.  MODIFICACIÓN
 
 El programador reconoce y acepta que GitHub puede modificar el presente acuerdo, el mercado, la API de GitHub, las políticas generales de la API, la política de privacidad de GitHub, los ToS del programa de Programadores de GitHub y los ToS de GitHub.com de vez en cuando (una "Modificación"). Todas las modificaciones se comunicarán a través del mercado, el sitio web de GitHub en www.GitHub.com o mediante una forma de comunicación directa de GitHub al Programador. El Programador reconoce y acepta que dichas modificaciones pueden implementarse en cualquier momento y sin previo aviso al Programador. El Programador debe, dentro de los cuarenta y cinco (45) días a partir de la fecha de la primera notificación de cualquier modificación (o dicho período de tiempo más corto especificado en el aviso de la(s) modificación es)) (el "Período de Conformidad") cumplir con dichas modificaciones mediante la implementación y el uso de la versión más reciente de la API de GitHub en la versión más reciente de los productos del Programador y la realización de cualquier cambio en los productos del programador que puede requerirse como resultado de dichas modificaciones. El Programador reconoce que una modificación puede tener un efecto adverso en los productos del programador, incluyendo, entre otros, el cambio de la manera en que las aplicaciones se comunican con la API de GitHub. GitHub no será responsable de ningún tipo del Programador o de ningún usuario final con respecto a dichas modificaciones o cualquier efecto adverso derivado de dichas modificaciones. El acceso continuado del Programador o el uso del mercado o de la API de GitHub después del período de conformidad constituirá la aceptación vinculante de la(s) modificación(es) en litigio.
 
-### 12. ASIGNACIÓN; ACUERDO COMPLETO; REVISIONES
+## 12.  ASIGNACIÓN; ACUERDO COMPLETO; REVISIONES
 
 **12.1**   El programador no puede, directa o indirectamente, por operación de la ley o de cualquier otra manera, asignar la totalidad o parte del presente acuerdo o los derechos del Programador conforme a lo dispuesto en el presente acuerdo o delegar el desempeño de las obligaciones del Programador conforme a lo dispuesto en el presente acuerdo sin el consentimiento previo por escrito de GitHub.  Los derechos otorgados en el presente acuerdo pueden asignarse o transferirse por GitHub sin la aprobación previa del programador.  Además, GitHub puede delegar sus responsabilidades u obligaciones conforme a lo dispuesto en el presente acuerdo sin el consentimiento del Programador.
 
 **12.2**    El presente acuerdo, junto con los términos, constituye el acuerdo completo entre las partes con respecto al objeto del presente acuerdo. El incumplimiento por parte de GitHub de hacer cumplir en cualquier momento cualquier disposición del presente acuerdo no constituye una renuncia a esa disposición o a cualquier otra disposición del presente acuerdo.
 
-### 13. DIVISIBILIDAD
+## 13.  DIVISIBILIDAD
 
 Si alguna disposición del presente acuerdo se considera inejecutable por parte de un tribunal de jurisdicción competente, dicha disposición se modificará por el Tribunal y se interpretará de manera que se logre mejor la disposición original en la medida en que lo permita la ley y las disposiciones restantes del presente acuerdo permanecerán vigentes.
 
-### 14. RELACIÓN DE LAS PARTES
+## 14. RELACIÓN DE LAS PARTES
 
 Las partes son contratistas independientes. El presente acuerdo no crea una relación de colaboración, franquicia, empresa conjunta, agencia, fiduciaria o de empleo entre las partes.  El Programador acepta que cada miembro del grupo de compañías al que pertenece GitHub será un tercero beneficiario del presente acuerdo y que dichas otras compañías tendrán derecho a hacer cumplir y basarse directamente en cualquier disposición del presente acuerdo que confiere un beneficio o otorga un derecho a favor o GitHub.  Ninguna otra persona, empresa o entidad legal será un tercero beneficiario del acuerdo.
 
-### 15. AVISOS
+## 15. AVISOS
 
 Todas las notificaciones que GitHub debe proporcionar al Programador conforme a lo dispuesto en el presente acuerdo pueden entregarse por escrito (i) por el servicio de entrega a domicilio de un solo día ("Courier") o por correo nacional de los EE.UU. a la dirección de correo de contacto que haya proporcionado el programador a GitHub; o (ii) correo electrónico a la dirección de correo electrónico que proporcionó el Programador. El programador debe dar aviso a GitHub por escrito por mensajería o EE. UU. GitHub, Inc., en atención al: Departamento Jurídico, 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107 EE. UU. Todas las notificaciones se considerarán entregadas inmediatamente después de la entrega por correo electrónico, o si se entregan de otra manera al recibirlo o, si son anteriores, dos (2) días hábiles después de haber sido depositadas por correo o con un mensajero como se permitió anteriormente.
 
-### 16. LEGISLACIÓN APLICABLE
+## 16. LEGISLACIÓN APLICABLE
 
 El presente acuerdo se regirá por las leyes del estado de California sin tener en cuenta los principios de conflicto de leyes. Por la presente, el Programador acepta expresamente someterse a la jurisdicción personal exclusiva de los tribunales federales y estatales del estado de California, en el Condado de San Francisco, con el fin de resolver cualquier disputa relacionada con el presente acuerdo.  Sin perjuicio de lo anterior, GitHub tendrá derecho a buscar acciones cautelares u otros tipos de remedio legal urgente en cualquier jurisdicción.
 
-### 17. RESTRICCIONES DE EXPORTACIÓN
+## 17. RESTRICCIONES DE EXPORTACIÓN
 
 LOS PRODUCTOS PARA PROGRAMADORES QUE SE DISTRIBUYEN POR MEDIO DEL MERCADO PUEDEN ESTAR SUJETOS A CONTROLES DE EXPORTACIÓN O RESTRICCIONES POR PARTE DE LOS ESTADOS UNIDOS U OTROS PAÍSES O TERRITORIOS.  EL PROGRAMADOR ACEPTA CUMPLIR CON TODAS LAS LEYES Y REGULACIONES VIGENTES EN LOS ESTADOS UNIDOS Y LAS EXPORTACIONES INTERNACIONALES.  ESTAS LEYES PUEDEN INCLUIR RESTRICCIONES EN LOS DESTINOS, EL CONTENIDO Y/O LOS USUARIOS FINALES.
 
-### 18.  DATOS DE USO
+## 18.  DATOS DE USO
 Con el fin de operar y mejorar el mercado, GitHub puede recopilar datos de uso del mercado y API de GitHub o en cualquier lugar que los productos de programador previamente comprados o descargados se almacenen en nombre de los usuarios finales por parte de GitHub.  Los datos de uso se mantendrán de acuerdo con las políticas de privacidad de GitHub vigentes en ese momento.  Los datos de uso limitados pueden estar disponibles para su uso por parte del Programador a la exclusiva discreción de GitHub.
 
 # Anexo 1: Anexo de protección de datos
@@ -238,7 +238,7 @@ El presente anexo de protección de datos (este "Anexo") se adjunta y forma part
    - ii. El Programador debe procesar y comunicar los datos protegidos a terceros únicamente para los fines limitados y específicos de proporcionar sus servicios al usuario final, tal como se describe en su acuerdo con el usuario final, a menos que este acepte permitir diferentes usos.
 - c. Calidad y proporcionalidad de los datos. El Programador debe mantener los datos protegidos precisos y actualizados.
 - d. Seguridad. El Programador debe tomar todas las medidas de seguridad razonables adecuadas para los riesgos, por ejemplo, contra la destrucción accidental o ilícita, o la pérdida accidental, alteración, divulgación o acceso no autorizado, presentadas al procesar los datos protegidos.
-- e. Retención y eliminación de datos. Tras la solicitud razonable de GitHub, a menos que se prohiba por ley, el Programador debe regresar o destruir toda la información personal y los datos relacionados en todas las ubicaciones en las que se almacena después de que ya no sean necesarios para los fines limitados y especificados para los cuales fueron recopilados. El Programador debe tener disponible o desarrollar procesos de destrucción de la información que cumplan con los requisitos de seguridad de GitHub en la sección 3.8 del acuerdo.
+- e. Retención y eliminación de datos. Tras la solicitud razonable de GitHub, a menos que se prohiba por ley, el Programador debe regresar o destruir toda la información personal y los datos relacionados en todas las ubicaciones en las que se almacena después de que ya no sean necesarios para los fines limitados y especificados para los cuales fueron recopilados.
 - f. Subprocesamiento y transferencia ulterior. El Programador es responsable de las transferencias posteriores de datos protegidos a sus subprocesadores. En caso de que el desarrollador deba transferir los datos protegidos a un tercero, o de que se instale, use o habilite servicios de terceros para procesar dichos datos en nombre del desarrollador, dicho desarrollador deberá garantizar que el tercero proporcionará por lo menos el mismo nivel de protección de la privacidad como se requiere en el presente.
 
 **A1-5. Uso de datos protegidos**
@@ -249,9 +249,7 @@ El presente anexo de protección de datos (este "Anexo") se adjunta y forma part
 
 **A1-6. Cumplimiento**
 
-- a. El programador debe cumplir con las solicitudes razonables de información sobre sus prácticas de privacidad y el uso de datos de la siguiente manera:
-   - i. A petición, el Programador hará su declaración de privacidad, política de privacidad, aviso de privacidad o cualquier documentación similar disponible. El Programador también proporcionará un aviso de cualquier informe de cumplimiento relevante, incluyendo el cumplimiento del escudo de la privacidad.
-   - ii. El Programador cumplirá con las obligaciones de seguridad de la información y auditoría en la sección 3.7 del acuerdo del Programador del mercado de GitHub.
+A petición, el Programador hará su declaración de privacidad, política de privacidad, aviso de privacidad o cualquier documentación similar disponible. El Programador también proporcionará un aviso de cualquier informe de cumplimiento relevante, incluyendo el cumplimiento del escudo de la privacidad.
 
 **A1-7. Terminación**
 

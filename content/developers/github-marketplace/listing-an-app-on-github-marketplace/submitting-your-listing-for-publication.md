@@ -7,6 +7,7 @@ redirect_from:
   - /developers/github-marketplace/submitting-your-listing-for-publication
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Submit your listing

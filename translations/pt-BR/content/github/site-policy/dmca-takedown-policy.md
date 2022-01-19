@@ -1,13 +1,13 @@
 ---
 title: Política de retirada DMCA
 redirect_from:
-  - /dmca/
-  - /dmca-takedown/
-  - /dmca-takedown-policy/
-  - /articles/dmca-takedown/
+  - /dmca
+  - /dmca-takedown
+  - /dmca-takedown-policy
+  - /articles/dmca-takedown
   - /articles/dmca-takedown-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -15,11 +15,11 @@ topics:
 
 Bem-vindo ao Guia do GitHub para a Lei dos Direitos Autorais do Milênio Digital, comumente conhecida como "DMCA" - Digital Millenium Copyright Act Policy. Esta página não tem a finalidade de ser uma cartilha abrangente sobre o regimento. No entanto, se você recebeu um aviso de retirada DMCA direcionado ao conteúdo que você postou no GitHub, ou se você é um detentor de direitos que pretende enviar tal aviso, esta página vai ajudá-lo a desmistificar a lei, bem como nossas políticas relacionadas.
 
-(Se deseja somente enviar um aviso, você pode [pular para o final](#f-submitting-notices).)
+(Se você quiser apenas enviar uma notificação, você poderá pular para "[G. Enviando avisos](#g-submitting-notices).")
 
 Como em todas as questões jurídicas, é sempre melhor consultar um profissional sobre suas dúvidas ou situação específica. Incentivamos a fazê-lo antes de tomar quaisquer medidas que possam impactar seus direitos. Este guia não é um aconselhamento jurídico e não deve ser tomado como tal.
 
-### O que é DMCA?
+## O que é DMCA?
 
 Para compreender a DMCA e algumas das linhas políticas que ela traça, talvez seja útil considerar a vida antes de ela ser promulgada.
 
@@ -27,11 +27,11 @@ A DMCA fornece um porto seguro para fornecedores de serviços que hospedam conte
 
 A DMCA resolve esse problema criando um [porto seguro de responsabilidade por direitos autorais](https://www.copyright.gov/title17/92chap5.html#512) para provedores de serviços de internet que hospedam conteúdo gerado por usuários que, supostamente, estejam infringindo esses direitos. Em resumo, enquanto um provedor de serviços seguir as regras de notificação e retirada DMCA, ele não será responsabilizado por violações de direitos autorais com base no conteúdo gerado pelo usuário. Por isso, é importante que o GitHub mantenha seu status de porto seguro DMCA.
 
-The DMCA also prohibits the [circumvention of technical measures](https://www.copyright.gov/title17/92chap12.html) that effectively control access to works protected by copyright.
+A DMCA também proíbe [contornar medidas técnicas](https://www.copyright.gov/title17/92chap12.html) que controlam efetivamente o acesso a obras protegidas por direitos autorais.
 
-### Avisos DMCA em poucas palavras
+## Avisos DMCA em poucas palavras
 
-A DMCA fornece dois procedimentos simples e objetivos que todos os usuários do GitHub devem conhecer: (i) um procedimento de [aviso de retirada](/articles/guide-to-submitting-a-dmca-takedown-notice) para que os titulares de direitos autorais solicitem que o conteúdo seja removido; e (ii) um procedimento de [contra-aviso de retirada](/articles/guide-to-submitting-a-dmca-counter-notice) para que os usuários possam ter seu conteúdo reativado quando o mesmo tiver sido retirado por erro ou identificação incorreta.
+O DMCA fornece dois procedimentos simples que todos os usuários do GitHub devem conhecer: (i) um procedimento de [tomada em conta](/articles/guide-to-submitting-a-dmca-takedown-notice) para que os titulares de direitos autorais solicitem que o conteúdo seja removido; e (ii) um procedimento de contranotificação [](/articles/guide-to-submitting-a-dmca-counter-notice) para os usuários obterem conteúdo reabilitado quando este for retirado por erro ou identificação incorreta.
 
 Os [avisos de retirada](/articles/guide-to-submitting-a-dmca-takedown-notice) DMCA são utilizados por proprietários de direitos autorais para solicitar ao GitHub a retirada de conteúdo que eles acreditam estar infringindo esses direitos. Se você é um desenvolvedor ou designer de software, você cria conteúdo protegido por direitos autorais todos os dias. Se outra pessoa estiver utilizando seus conteúdos protegidos por direitos autorais de forma não autorizada no GitHub, você poderá enviar-nos um aviso de retirada DMCA para solicitar que o conteúdo inapropriado seja alterado ou removido.
 
@@ -39,7 +39,7 @@ Por outro lado, [contra-avisos de retirada](/articles/guide-to-submitting-a-dmca
 
 O processo de aviso e retirada DMCA deve ser utilizado apenas para queixas relativas a violações dos direitos autorais. Os avisos enviados através do nosso processo DMCA devem identificar a obra ou o trabalho protegido por direitos autorais que estejam alegadamente sendo violados. O processo não pode ser utilizado para outras queixas, tais como reclamações sobre alegada [violação de marca registrada](/articles/github-trademark-policy/) ou [dados confidenciais](/articles/github-sensitive-data-removal-policy/); oferecemos processos separados para essas situações.
 
-### A. Como realmente funciona?
+## A. Como realmente funciona?
 
 A abordagem DMCA é um pouco como trocar bilhetinhos em sala de aula. O proprietário dos direitos autorais faz uma reclamação ao GitHub sobre um usuário. Se estiver escrito corretamente, passamos a reclamação para o usuário. Se o usuário discordar da reclamação, pode devolver uma notificação dizendo os motivos. O GitHub atua pouco no processo, determinando se as notificações atendem aos requisitos mínimos da DMCA. Cabe às partes (e aos seus advogados) avaliar o mérito das suas reivindicações, tendo em conta que os avisos devem ser feitos corretamente sob pena de perjúrio.
 
@@ -60,54 +60,54 @@ Aqui estão os passos básicos do processo.
 
 7. **O usuário pode enviar um contra-aviso de retirada.** Encorajamos usuários com conteúdo desabilitado a consultar um advogado sobre as opções que possui. Se um usuário acredita que seu conteúdo foi desabilitado como resultado de um erro ou identificação incorreta, ele pode nos enviar um [contra-aviso de retirada](/articles/guide-to-submitting-a-dmca-counter-notice). Como na notificação original, garantiremos que o contra-aviso seja suficientemente detalhado (conforme explicado no [guia prático](/articles/guide-to-submitting-a-dmca-counter-notice)). Se estiver, vamos [postá-lo](#d-transparency) em nosso [repositório público](https://github.com/github/dmca) e passar o aviso de volta para o proprietário dos direitos autorais, enviando o link para ele.
 
-8. **O proprietário dos direitos autorais pode entrar com uma ação legal.** Se um proprietário de direitos autorais deseja manter o conteúdo desativado após receber um contra-aviso, ele precisará entrar com uma ação judicial em busca de uma ordem da justiça para evitar que o usuário se envolva em infração à atividade relacionada ao conteúdo no GitHub. Em outras palavras, você pode processar. Se o proprietário dos direitos autorais não der um aviso ao GitHub dentro de 10-14 dias, enviando uma cópia de uma reclamação legal válida apresentada em tribunal competente, o GitHub reativará o conteúdo desabilitado.
+8. **O proprietário dos direitos autorais pode entrar com uma ação legal.** Se um proprietário de direitos autorais deseja manter o conteúdo desativado após receber um contra-aviso, ele precisará entrar com uma ação judicial em busca de uma ordem da justiça para evitar que o usuário se envolva em infração à atividade relacionada ao conteúdo no GitHub. Em outras palavras, você pode processar. Se o proprietário dos direitos autorais não der um aviso no GitHub de 10 a 14 dias, enviando uma cópia de uma reclamação legal válida apresentada em tribunal de jurisdição competente, o GitHub reabilitará o conteúdo desabilitado.
 
-### B. O que significa Bifurcação? (ou O que é uma Bifurcação?)
+## B. O que significa Bifurcação? (ou O que é uma Bifurcação?)
 
 Um dos melhores recursos do GitHub é a possibilidade de os usuários "bifurcarem" repositórios uns dos outros. O que isso significa? Basicamente, isso significa que os usuários podem fazer uma cópia de um projeto no GitHub em seus próprios repositórios. Conforme a licença ou a lei permitirem, os usuários podem fazer alterações nessa bifurcação para ou fazer push de volta para o projeto principal ou simplesmente manter como sua própria variação de um projeto. Cada uma dessas cópias é uma "[bifurcação](/articles/github-glossary#fork)" do repositório original que, por sua vez, também pode ser chamado de "principal" da bifurcação.
 
 O GitHub *não* irá desabilitar bifurcações automaticamente quando desabilitar um repositório principal. Isto ocorre porque as bifurcações pertencem a diferentes usuários, podem ter sido alteradas de maneira significativa e podem ser licenciadas ou utilizadas de uma forma diferente que seja protegida pela doutrina do uso justo. O GitHub não realiza nenhuma investigação independente sobre as bifurcações. Esperamos que os titulares de direitos autorais façam essa investigação e, se acreditarem que as bifurcações também estão violando direitos, incluam expressamente as bifurcações no seu aviso de retirada.
 
-Em casos raros, você pode estar alegando a violação de direitos autorais em um repositório completo que está sendo ativamente bifurcado. Se, no momento em que você enviou a notificação, você identificou todas as bifurcações existentes do repositório como supostamente violadas, nós processaríamos uma reivindicação válida contra todas as bifurcações dessa rede no momento em que processamos a notificação. Nós faríamos isso tendo em conta a probabilidade de todas as novas bifurcações criadas conterem o mesmo conteúdo. In addition, if the reported network that contains the allegedly infringing content is larger than one hundred (100) repositories and thus would be difficult to review in its entirety, we may consider disabling the entire network if you state in your notice that, "Based on the representative number of forks I have reviewed, I believe that all or most of the forks are infringing to the same extent as the parent repository." A sua declaração juramentada será aplicada a esta declaração.
+Em casos raros, você pode estar alegando a violação de direitos autorais em um repositório completo que está sendo ativamente bifurcado. Se, no momento em que você enviou a notificação, você identificou todas as bifurcações existentes do repositório como supostamente violadas, nós processaríamos uma reivindicação válida contra todas as bifurcações dessa rede no momento em que processamos a notificação. Nós faríamos isso tendo em conta a probabilidade de todas as novas bifurcações criadas conterem o mesmo conteúdo. Além disso se a rede relatada que contém o conteúdo supostamente violador for superior a 100 (cem) repositórios, seria difícil, portanto, revisá-la na sua totalidade, e podemos considerar a desabilitação de toda a rede se você declarar na sua notificação que, "Com base no número representativo de bifurcações que você analisou, acredito que todos ou a maioria das bifurcações estão cometendo violações na mesma medida que o repositório principal". A sua declaração juramentada será aplicada a esta declaração.
 
-### C. What about Circumvention Claims?
+## C. E quanto às reivindicações da circunvenção?
 
-The DMCA prohibits the [circumvention of technical measures](https://www.copyright.gov/title17/92chap12.html) that effectively control access to works protected by copyright. Given that these types of claims are often highly technical in nature, GitHub requires claimants to provide [detailed information about these claims](/github/site-policy/guide-to-submitting-a-dmca-takedown-notice#complaints-about-anti-circumvention-technology), and we undertake a more extensive review.
+A DMCA proíbe a [contornar medidas técnicas](https://www.copyright.gov/title17/92chap12.html) que controlam efetivamente o acesso a obras protegidas por direitos autorais. Dado que este tipo de reclamação é, muitas vezes, de natureza altamente técnica, o GitHub exige que os reclamantes forneçam [informações detalhadas sobre essas reclamações](/github/site-policy/guide-to-submitting-a-dmca-takedown-notice#complaints-about-anti-circumvention-technology), e nós realizamos uma revisão mais abrangente.
 
-A circumvention claim must include the following details about the technical measures in place and the manner in which the accused project circumvents them. Specifically, the notice to GitHub must include detailed statements that describe:
-1. What the technical measures are;
-2. How they effectively control access to the copyrighted material; and
-3. How the accused project is designed to circumvent their previously described technological protection measures.
+Uma alegação de circunvenção deve incluir os pormenores a seguir sobre as medidas técnicas em vigor e a forma como o projeto acusado as contorna. Principalmente, o aviso ao GitHub deve incluir declarações detalhadas que descrevem:
+1. Quais são as medidas técnicas;
+2. Como controlam, de forma eficaz, o acesso ao material protegido por direitos autorais; e
+3. O modo como o projecto acusado foi concebido para contornar as medidas de proteção tecnológica anteriormente descritas.
 
-GitHub will review circumvention claims closely, including by both technical and legal experts. In the technical review, we will seek to validate the details about the manner in which the technical protection measures operate and the way the project allegedly circumvents them. In the legal review, we will seek to ensure that the claims do not extend beyond the boundaries of the DMCA. In cases where we are unable to determine whether a claim is valid, we will err on the side of the developer, and leave the content up. If the claimant wishes to follow up with additional detail, we would start the review process again to evaluate the revised claims.
+O GitHub analisará de perto reclamações da circunvenção, incluindo especialistas técnicos e jurídicos. Na revisão técnica, Procuraremos validar os pormenores sobre a forma como funcionam as medidas de proteção técnica e a forma como o projeto as contorna. Na revisão jurídica, procuraremos assegurar que as alegações não vão para além das fronteiras do DMCA. Nos casos em que não formos capazes de determinar se uma reivindicação é válida, pecaremos no lado do desenvolvedor e deixar o conteúdo disponível. Se o reclamante desejar fazer o acompanhamento com informações adicionais, iniciaremos novamente o processo de revisão para avaliar as reclamações revisadas.
 
-Where our experts determine that a claim is complete, legal, and technically legitimate, we will contact the repository owner and give them a chance to respond to the claim or make changes to the repo to avoid a takedown. If they do not respond, we will attempt to contact the repository owner again before taking any further steps. In other words, we will not disable a repository based on a claim of circumvention technology  without attempting to contact a repository owner to give them a chance to respond or make changes first. If we are unable to resolve the issue by reaching out to the repository owner first, we will always be happy to consider a response from the repository owner even after the content has been disabled if they would like an opportunity to dispute the claim, present us with additional facts, or make changes to have the content restored. When we need to disable content, we will ensure that repository owners can export their issues and pull requests and other repository data that do not contain the alleged circumvention code to the extent legally possible.
+Quando os nossos especialistas determinarem que uma reivindicação é completa, legal e tecnicamente legítima, nós entraremos em contato com o proprietário do repositório e iremos dar-lhe a oportunidade de responder à reivindicação ou fazer alterações no repositório para evitar a desabilitação de um repositório. Se não responderem, tentaremos entrar em contato com o proprietário do repositório novamente antes de tomar qualquer outra medida. Em outras palavras, não desativaremos um repositório com base em uma reivindicação de circunvenção de tecnologia sem tentar entrar em contato com o proprietário do repositório para dar-lhe a oportunidade de responder ou fazer alterações primeiro. Se não formos capazes de resolver o problema entrando em contato com o proprietário do repositório, primeiro teremos o prazer de considerar uma resposta do proprietário do repositório mesmo depois que o conteúdo tenha sido desabilitado se quiser uma oportunidade de contestar a reclamação, apresenta-nos fatos adicionais, ou fazer alterações para que o conteúdo seja restaurado. Quando tivermos de desabilitar o conteúdo, garantiremos que os proprietários do repositório possam exportar os seus problemas, pull requests e outros dados do repositórios que não contenham o suposto código de contorno na medida do juridicamente possível.
 
-Please note, our review process for circumvention technology does not apply to content that would otherwise violate our Acceptable Use Policy restrictions against sharing unauthorized product licensing keys, software for generating unauthorized product licensing keys, or software for bypassing checks for product licensing keys. Although these types of claims may also violate the DMCA provisions on circumvention technology, these are typically straightforward and do not warrant additional technical and legal review. Nonetheless, where a claim is not straightforward, for example in the case of jailbreaks, the circumvention technology claim review process would apply.
+Tenha em mente que o nosso processo de revisão para contornar a tecnologia não se aplica ao conteúdo que, de outra forma, violaria as nossas restrições de uso aceitável da política de compartilhamento de chaves de licenciamento de produtos não autorizadas, software para gerar chaves de licenciamento de produtos não autorizadas ou software para ignorar verificações de chaves de licenciamento de produtos. Embora estes tipos de alegações também possam violar as disposições da DMCA sobre as tecnologias de circunvenção, trata-se de questões tipicamente simples e não justificam uma revisão técnica e jurídica adicional. No entanto, quando a reivindicação não for simples, por exemplo, no caso de infracções, será aplicado o processo de revisão de pedidos de indemnização por tecnologia.
 
-When GitHub processes a DMCA takedown under our circumvention technology claim review process, we will offer to connect the repository owner with legal resources, in case the repository owner wishes to obtain third party legal advice.
+Quando o GitHub processa um banco de dados do DMCA no nosso processo de análise de tecnologia de circunvenção, nós ofereceremos ao proprietário do repositório uma indicação para receber uma consultoria jurídica independente por meio do do [Fundo de Defesa de Desenvolvedor do GitHub](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/) sem nenhum custo.
 
-### D. E se eu, inadvertidamente, deixar passar o período para fazer as alterações?
+## D. E se eu, inadvertidamente, deixar passar o período para fazer as alterações?
 
 Reconhecemos que há muitas razões válidas para que você possa não conseguir fazer alterações dentro da janela aproximada de 1 dia útil que fornecemos antes que seu repositório seja desativado. Talvez a nossa mensagem tenha sido sinalizada como spam, talvez você estivesse de férias, talvez você não verifique essa conta de e-mail regularmente, ou talvez você estivesse apenas ocupado. Nós entendemos isso. Se você responder para nos informar que gostaria de ter feito as alterações, mas de alguma forma perdeu a primeira oportunidade, reativaremos o repositório por um tempo adicional de aproximadamente 1 dia útil para permitir que você faça as alterações. Novamente, você deve nos notificar que fez as alterações para manter o repositório ativo após essa janela de 1 dia útil, conforme mencionado acima na [Etapa A.4](#a-how-does-this-actually-work). Por favor, note que só forneceremos esta chance adicional.
 
-### E. Transparência
+## E. Transparência
 
 Acreditamos que a transparência é uma virtude. O público deve saber qual conteúdo está sendo removido do GitHub e por quê. Um público informado pode notar e supervisionar problemas potenciais que, de outra forma, passariam despercebidos num sistema obscuro. Publicamos cópias com conteúdo pessoal suprimido de quaisquer avisos legais que recebamos (incluindo avisos originais, contra-avisos ou retratações) em <https://github.com/github/dmca>. Não tornaremos públicas suas informações de contato pessoais; removeremos informações pessoais (exceto nomes de usuários nas URLs) antes de publicar avisos. No entanto, não iremos suprimir quaisquer outras informações do seu aviso, a menos que nos solicite especificamente que o façamos. Aqui estão alguns exemplos de um [aviso](https://github.com/github/dmca/blob/master/2014/2014-05-28-Delicious-Brains.md) publicado e um [contra-aviso](https://github.com/github/dmca/blob/master/2014/2014-05-01-Pushwoosh-SDK-counternotice.md) para você ver como eles são. Quando removermos o conteúdo, publicaremos no seu lugar um link para o aviso relacionado.
 
 Note também que, embora não divulguemos publicamente avisos sem a exclusão de dados pessoais, podemos fornecer uma cópia completa sem conteúdo suprimido de qualquer aviso que recebermos diretamente para qualquer uma das partes cujos direitos seriam afetados por ele.
 
-### F. Violação recorrente
+## F. Violação recorrente
 
 É política do GitHub, em circunstâncias apropriadas e a seu exclusivo critério, desativar e encerrar as contas de usuários que possam infringir direitos autorais ou outros direitos de propriedade intelectual do GitHub ou de terceiros.
 
-### G. Enviando avisos
+## G. Enviando avisos
 
 Se estiver pronto para enviar um aviso ou contra-aviso:
 - [Como enviar um Aviso DMCA](/articles/guide-to-submitting-a-dmca-takedown-notice)
 - [Como enviar um Contra-aviso DMCA](/articles/guide-to-submitting-a-dmca-counter-notice)
 
-### Saiba Mais e Fale Mais
+## Saiba Mais e Fale Mais
 
 Se você navegar pela internet, não é muito difícil encontrar comentários e críticas sobre o sistema de direitos autorais em geral e sobre a DMCA em particular. Embora o GitHub reconheça e aprecie o papel importante que a DMCA tem desempenhado na promoção da inovação online, acreditamos que as leis de direitos autorais poderiam passar uma ou outra correção, ou mesmo uma nova versão completa. Em questão de software, estamos constantemente melhorando e atualizando nosso código. Pense no quanto a tecnologia mudou desde 1998, quando a DMCA foi escrita. Não faria sentido atualizar essa lei no que se aplica aos softwares?
 
@@ -120,4 +120,4 @@ Não presumimos ter todas as respostas. Mas se você é curioso, aqui estão alg
 - [Oportunidades para a reforma dos Direitos Autorais](https://www.cato-unbound.org/issues/january-2013/opportunities-copyright-reform) (Cato Unbound)
 - [Doutrina do uso justo e a Digital Millennium Copyright Act: o uso justo existe na internet sob a DMCA?](https://digitalcommons.law.scu.edu/lawreview/vol42/iss1/6/) (Santa Clara Law Review)
 
-O GitHub não necessariamente apoia nenhum dos pontos de vista desses artigos. We provide the links to encourage you to learn more, form your own opinions, and then reach out to your elected representative(s) (e.g, in the [U.S. Congresso](https://www.govtrack.us/congress/members) ou [E.U. Parlamento](https://www.europarl.europa.eu/meps/en/home)) para procurar quaisquer alterações que você entenda que devem ser feitas.
+O GitHub não necessariamente apoia nenhum dos pontos de vista desses artigos. Fornecemos os links para incentivar você a aprender mais, formar suas próprias opiniões e, em seguida, entrar em contato com o(s) seu(s) representante(s) (por exemplo, no (p. ex., nos [EUA Congresso](https://www.govtrack.us/congress/members) ou [E.U. Parlamento](https://www.europarl.europa.eu/meps/en/home)) para procurar quaisquer alterações que você entenda que devem ser feitas.

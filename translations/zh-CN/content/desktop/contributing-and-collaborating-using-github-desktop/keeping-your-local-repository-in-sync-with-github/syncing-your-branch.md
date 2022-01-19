@@ -5,10 +5,10 @@ redirect_from:
   - /desktop/contributing-to-projects/syncing-your-branch
   - /desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### 关于分支同步
+## 关于分支同步
 
 您可以通过拉取自上次同步以来在 {% data variables.product.product_name %} 上添加到分支的任何提交来同步本地分支与远程仓库。 如果从其他设备进行提交，或有多人参与项目，则需要同步本地分支以保持分支的更新。
 
@@ -18,14 +18,14 @@ versions:
 
 有些工作流程需要或受益于变基而不是合并。 通过变基，可以重新排序、编辑提交或将其压缩到一起。 更多信息请参阅“[关于 Git 变基](/github/getting-started-with-github/about-git-rebase)”和“[将您的项目分支变基到另一个分支](#rebasing-your-project-branch-onto-another-branch)”。
 
-### 从远程拉取到您的本地分支
+## 从远程拉取到您的本地分支
 
 1. 在 {% data variables.product.prodname_desktop %} 中，使用 {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch（当前分支）**下拉菜单，然后选择要更新的本地分支。
 2.  要检查远程分支上的提交，请单击 **Fetch origin（获取源)** ![提取源按钮](/assets/images/help/desktop/fetch-button.png)
 3. 要从远程分支拉取任何提交，请点击 **Pull origin（拉取来源）**或 **Pull origin with rebase（包含变基的的拉取来源）**。 ![拉取源按钮](/assets/images/help/desktop/pull-button.png)
 {% data reusables.desktop.resolve-merge-conflicts %}
 
-### 将另一个分支合并到项目分支
+## 将另一个分支合并到项目分支
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.choose-a-branch-to-merge %}
@@ -40,7 +40,7 @@ versions:
    ![合并按钮](/assets/images/help/desktop/merge-branch-button.png)
 {% data reusables.desktop.push-origin %}
 
-### 将项目分支变基到另一个分支
+## 将项目分支变基到另一个分支
 
 {% mac %}
 
@@ -62,7 +62,18 @@ versions:
 
 {% endwindows %}
 
-### 延伸阅读
+## 将另一个分支压缩并合并到项目分支
+
+1. 使用 **Branch（分支）**下拉菜单，并单击 **Squash and Merge into Current Branch（压缩并合并到当前分支）**。 ![分支下拉菜单中的压缩并合并](/assets/images/help/desktop/squash-and-merge-menu.png)
+2. 单击要合并到当前分支的分支，然后单击 **Squash and merge（压缩并合并）**。 ![压缩并合并按钮](/assets/images/help/desktop/squash-and-merge-selection.png)
+   {% note %}
+
+   **注意：**如果存在合并冲突，{% data variables.product.prodname_desktop %} 会在 **Squash and merge（压缩并合并）**按钮上方提醒您。 在解决所有冲突之前无法压缩和合并分支。
+
+   {% endnote %}
+{% data reusables.desktop.push-origin %}
+
+## 延伸阅读
 - {% data variables.product.prodname_dotcom %} 词汇表中的“[拉取](/github/getting-started-with-github/github-glossary#pull)”
 - {% data variables.product.prodname_dotcom %} 词汇表中的“[合并](/github/getting-started-with-github/github-glossary#merge)”
 - {% data variables.product.prodname_dotcom %} 词汇表中的“[变基](/github/getting-started-with-github/github-glossary#rebase)”

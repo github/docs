@@ -2,7 +2,8 @@
 title: Conecte o sistema de gerenciamento de aprendizagem ao GitHub Classroom
 intro: 'Você pode configurar um sistema de gerenciamento de aprendizado compatível com LTI (LMS) para conectar a {% data variables.product.prodname_classroom %} a fim de importar uma lista de participantes para sua sala de aula.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configuring-a-learning-management-system-for-github-classroom
   - /education/manage-coursework-with-github-classroom/connect-to-lms
@@ -11,17 +12,18 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/setup-generic-lms
   - /education/manage-coursework-with-github-classroom/setup-moodle
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
+shortTitle: Conectar um LMS
 ---
 
-### Sobre a configuração do seu LMS
+## Sobre a configuração do seu LMS
 
 Você pode conectar um sistema de gerenciamento de aprendizagem (LMS) a {% data variables.product.prodname_classroom %}, e {% data variables.product.prodname_classroom %} pode importar uma lista de identificadores de aluno do LMS. Para conectar seu LMS a {% data variables.product.prodname_classroom %}, você deve inserir as credenciais de configuração para {% data variables.product.prodname_classroom %} no seu LMS.
 
-### Pré-requisitos
+## Pré-requisitos
 
 Para configurar um LMS para conectar-se a {% data variables.product.prodname_classroom %}, primeiro você deve criar uma sala de aula. Para obter mais informações, consulte "[Gerenciar salas de aula](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)".
 
-### LMSes compatíveis
+## LMSes compatíveis
 
 {% data variables.product.prodname_classroom %} é compatível com a importação de dados da lista de LMSes que implementam os padrões de interoperabilidade de ferramentas de aprendizagem (LTI).
 
@@ -42,7 +44,7 @@ Atualmente, {% data variables.product.prodname_classroom %} não é compatível 
 
 
 
-### Gerar credenciais de configuração para sua sala de aula
+## Gerar credenciais de configuração para sua sala de aula
 
 {% data reusables.classroom.sign-into-github-classroom %}
 
@@ -65,7 +67,7 @@ Atualmente, {% data variables.product.prodname_classroom %} não é compatível 
 
 
 
-### Configurar um LMS genérico
+## Configurar um LMS genérico
 
 Você deve configurar as configurações de privacidade para o seu LMS para permitir que as ferramentas externas recebam informações da lista.
 
@@ -78,7 +80,7 @@ Você deve configurar as configurações de privacidade para o seu LMS para perm
 
 
 
-### Configurar o Canvas
+## Configurar o Canvas
 
 Você pode configurar {% data variables.product.prodname_classroom %} como um aplicativo externo para Canvas para importar dados da lista para sua sala de aula. Para obter mais informações sobre o Canvas, consulte o [site do Canvas](https://www.instructure.com/canvas/).
 
@@ -113,13 +115,13 @@ Você pode configurar {% data variables.product.prodname_classroom %} como um ap
 
 
 
-### Configurar Moodle
+## Configurar Moodle
 
 Você pode configurar {% data variables.product.prodname_classroom %} como uma atividade do Moodle para importar dados da lista para sua sala de aula. Para obter mais informações sobre o Moodle, consulte o [site do Moodle](https://moodle.org).
 
 Você deve usar a versão 3.0 ou superior do Moodle.
 
-1. Efetue o login no [Moodle](https://moodle.org/login/index.php).
+1. Efetue o login no [Moodle](https://moodle.org/login/).
 1. Selecione o curso do Moodle a ser integrado com {% data variables.product.prodname_classroom %}.
 1. Clique em **Ativar a edição**.
 1. Sempre que você queira que {% data variables.product.prodname_classroom %} esteja disponível no Moodle, clique em **Adicionar uma atividade ou recurso**.
@@ -152,13 +154,13 @@ Você deve usar a versão 3.0 ou superior do Moodle.
 
 
 
-### Importar uma lista do seu LMS
+## Importar uma lista do seu LMS
 
 Para obter mais informações sobre a importação da lista de participantes do seu LMS para {% data variables.product.prodname_classroom %}, consulte "[Gerenciar salas de aula](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)".
 
 
 
-### Desconectar seu LMS
+## Desconectar seu LMS
 
 {% data reusables.classroom.sign-into-github-classroom %}
 

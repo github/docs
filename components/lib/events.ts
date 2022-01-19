@@ -14,6 +14,12 @@ let maxScrollY = 0
 let pauseScrolling = false
 let sentExit = false
 
+function resetPageParams() {
+  maxScrollY = 0
+  pauseScrolling = false
+  sentExit = false
+}
+
 export function getUserEventsId() {
   if (cookieValue) return cookieValue
   cookieValue = Cookies.get(COOKIE_NAME)
@@ -32,6 +38,7 @@ export enum EventType {
   exit = 'exit',
   link = 'link',
   search = 'search',
+  searchResult = 'searchResult',
   navigate = 'navigate',
   survey = 'survey',
   experiment = 'experiment',
@@ -52,6 +59,11 @@ type SendEventProps = {
   link_url?: string
   search_query?: string
   search_context?: string
+  search_result_query?: string
+  search_result_index?: number
+  search_result_total?: number
+  search_result_rank?: number
+  search_result_url?: string
   navigate_label?: string
   survey_token?: string // Honeypot, doesn't exist in schema
   survey_vote?: boolean
@@ -71,11 +83,6 @@ function getMetaContent(name: string) {
 }
 
 export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps) {
-  let site_language = location.pathname.split('/')[1]
-  if (location.pathname.startsWith('/playground')) {
-    site_language = 'en'
-  }
-
   const body = {
     _csrf: getCsrf(),
 
@@ -95,7 +102,10 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
       referrer: document.referrer,
       search: location.search,
       href: location.href,
-      site_language,
+      path_language: getMetaContent('path-language'),
+      path_version: getMetaContent('path-version'),
+      path_product: getMetaContent('path-product'),
+      path_article: getMetaContent('path-article'),
       page_document_type: getMetaContent('page-document-type'),
       page_type: getMetaContent('page-type'),
       status: Number(getMetaContent('status') || 0),
@@ -174,9 +184,13 @@ function trackScroll() {
   if (scrollPosition > maxScrollY) maxScrollY = scrollPosition
 }
 
+function sendPage() {
+  const pageEvent = sendEvent({ type: EventType.page })
+  pageEventId = pageEvent?.context?.event_id
+}
+
 function sendExit() {
   if (sentExit) return
-  if (document.visibilityState !== 'hidden') return
   sentExit = true
   const { render, firstContentfulPaint, domInteractive, domComplete } = getPerformance()
   return sendEvent({
@@ -190,9 +204,33 @@ function sendExit() {
   })
 }
 
-function initPageEvent() {
-  const pageEvent = sendEvent({ type: EventType.page })
-  pageEventId = pageEvent?.context?.event_id
+function initPageAndExitEvent() {
+  sendPage() // Initial page hit
+
+  // Regular page exits
+  window.addEventListener('scroll', trackScroll)
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      sendExit()
+    }
+  })
+
+  // Client-side routing
+  const pushState = history.pushState
+  history.pushState = function (state, title, url) {
+    // Don't trigger page events on query string or hash changes
+    const newPath = url?.toString().replace(location.origin, '').split('?')[0]
+    const shouldSendEvents = newPath !== location.pathname
+    if (shouldSendEvents) {
+      sendExit()
+    }
+    const result = pushState.call(history, state, title, url)
+    if (shouldSendEvents) {
+      sendPage()
+      resetPageParams()
+    }
+    return result
+  }
 }
 
 function initClipboardEvent() {
@@ -215,20 +253,20 @@ function initLinkEvent() {
   })
 }
 
-function initExitEvent() {
-  window.addEventListener('scroll', trackScroll)
-  document.addEventListener('visibilitychange', sendExit)
+function initPrintEvent() {
+  window.addEventListener('beforeprint', () => {
+    sendEvent({ type: EventType.print })
+  })
 }
 
 export default function initializeEvents() {
-  initPageEvent() // must come first
-  initExitEvent()
+  initPageAndExitEvent() // must come first
   initLinkEvent()
   initClipboardEvent()
-  // print event in ./print.js
+  initPrintEvent()
   // survey event in ./survey.js
   // experiment event in ./experiment.js
-  // search event in ./search.js
+  // search and search_result event in ./search.js
   // redirect event in middleware/record-redirect.js
   // preference event in ./display-tool-specific-content.js
 }

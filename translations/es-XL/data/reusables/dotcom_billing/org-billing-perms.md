@@ -1,1 +1,0 @@
-Únicamente los miembros de la organización que posean los roles de [*propietario*](/articles/permission-levels-for-an-organization) o [*gerente de facturación*](/articles/adding-a-billing-manager-to-your-organization) pueden acceder a los parámetros de facturación de tu organización o modificarlos.

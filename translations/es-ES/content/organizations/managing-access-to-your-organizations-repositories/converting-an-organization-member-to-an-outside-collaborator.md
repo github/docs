@@ -1,44 +1,49 @@
 ---
-title: Convertir a un miembro de la organización en un colaborador externo
-intro: 'Si un miembro actual de tu organización solo necesita acceso a determinados repositorios, como consultores o empleados temporales, puedes convertirlo en un *colaborador externo".'
+title: Converting an organization member to an outside collaborator
+intro: 'If a current member of your organization only needs access to certain repositories, such as consultants or temporary employees, you can convert them to an *outside collaborator*.'
 redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-member-to-an-outside-collaborator
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Convert member to collaborator
 ---
 
-{% data reusables.organizations.owners-and-admins-can %} convertir a los miembros de la organización en colaboradores externos.
+{% data reusables.organizations.owners-and-admins-can %} convert organization members into outside collaborators.
 
-{% data reusables.organizations.outside-collaborators-use-seats %}{% data reusables.organizations.outside_collaborator_forks %}
+{% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
 
-Luego de convertir a un miembro de la organización en un colaborador externo, solo tendrá acceso a los repositorios que permite su membresía de equipo actual. La persona ya no será un miembro explícito de la organización, y ya no podrá:
+After converting an organization member to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The person will no longer be an explicit member of the organization, and will no longer be able to:
 
-- Crear equipos
-- Ver todos los miembros y equipos de la organización
-- @mencionar cualquier equipo visible
-- Ser un mantenedor del equipo
+- Create teams
+- See all organization members and teams
+- @mention any visible team
+- Be a team maintainer
 
-Para obtener más información, consulta ´la sección "[Niveles de permisos para una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)".
+For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-Recomendamos revisar el acceso del miembro de la organización a los repositorios para garantizar que su acceso sea el que esperas. Para obtener más información, consulta la sección "[Administrar el acceso de un individuo a un repositorio de la organización](/articles/managing-an-individual-s-access-to-an-organization-repository)".
+We recommend reviewing the organization member's access to repositories to ensure their access is as you expect. For more information, see "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)."
 
-Cuando conviertes a un miembro de la organización en colaborador externo, sus privilegios de miembros de la organización se guardan por tres meses para que puedas restablecer sus privilegios de membrecía si los{% if currentVersion == "free-pro-team@latest" %} invitas a volver a unirse{% else %} agregas de nuevo{% endif %} a tu organización dentro del límite de tiempo establecido. Para obtener más información, consulta "[Reinstalar un miembro antiguo de tu organización](/enterprise/{{ page.version }}/user/articles/reinstating-a-former-member-of-your-organization)".
+When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% ifversion fpt or ghec %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
-4. Selecciona la persona o las personas a quienes deseas convertir en colaboradores externos. ![Lista de miembros con dos miembros seleccionados](/assets/images/help/teams/list-of-members-selected-bulk.png)
-5. Arriba de la lista de miembros, utiliza el menú desplegable y haz clic en **Convert to outside collaborator** (Convertir en colaborador externo). ![Menú desplegable con la opción para convertir miembros en colaboradores externos](/assets/images/help/teams/user-bulk-management-options.png)
-6. Lee la información sobre cómo convertir miembros en colaboradores externos, luego haz clic en **Convert to outside collaborator** (Convertir en colaborador externo). ![Información sobre permisos de colaboradores externos y botón Convert to outside collaborators (Convertir en colaboradores externos)](/assets/images/help/teams/confirm-outside-collaborator-bulk.png)
+4. Select the person or people you'd like to convert to outside collaborators.
+  ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
+5. Above the list of members, use the drop-down menu and click **Convert to outside collaborator**.
+  ![Drop-down menu with option to convert members to outside collaborators](/assets/images/help/teams/user-bulk-management-options.png)
+6. Read the information about converting members to outside collaborators, then click **Convert to outside collaborator**.
+  ![Information on outside collaborators permissions and Convert to outside collaborators button](/assets/images/help/teams/confirm-outside-collaborator-bulk.png)
 
-### Leer más
+## Further reading
 
-- "[Agregar colaboradores externos a repositorios de tu organización](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
-- "[Eliminar a un colaborador externo desde el repositorio de una organización](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
-- "[Convertir a un colaborador externoe en un miembro de la organización](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
+- "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
+- "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository)"
+- "[Converting an outside collaborator to an organization member](/articles/converting-an-outside-collaborator-to-an-organization-member)"

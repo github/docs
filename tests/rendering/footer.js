@@ -17,6 +17,11 @@ describe('footer', () => {
       expect($('a#contact-us').attr('href')).toBe('https://enterprise.github.com/support')
     })
 
+    test('leads to Enterprise support on GHEC pages', async () => {
+      const $ = await getDOM('/en/enterprise-cloud@latest')
+      expect($('a#contact-us').attr('href')).toBe('https://enterprise.github.com/support')
+    })
+
     test('leads to dotcom support on 404 pages', async () => {
       const $ = await getDOM('/en/delicious-snacks/donuts.php')
       expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')

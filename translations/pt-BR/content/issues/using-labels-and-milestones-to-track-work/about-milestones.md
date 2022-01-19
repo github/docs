@@ -6,9 +6,10 @@ redirect_from:
   - /articles/about-milestones
   - /github/managing-your-work-on-github/about-milestones
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -27,7 +28,7 @@ Além disso, você pode editar o marco na página de marcos e criar problemas qu
 
 ![Página de marcos](/assets/images/help/issues/milestone-info-page.png)
 
-### Priorizar problemas e pull requests em marcos
+## Priorizar problemas e pull requests em marcos
 
 Você pode priorizar problemas e pull requests em aberto em um marco clicando à esquerda da caixa de seleção de um problema ou uma pull request, arrastando-os para um novo local e soltando-os.
 
@@ -39,7 +40,7 @@ Você pode priorizar problemas e pull requests em aberto em um marco clicando à
 
 ![Marcos reordenados](/assets/images/help/issues/milestone-reordered.gif)
 
-### Leia mais
+## Leia mais
 
 - "[Criar e editar marcos para problemas e pull requests](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
 - "[Associar marcos a problemas e pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"

@@ -1,7 +1,7 @@
 
-#### セルフホストランナーの追加に成功したことの確認
+### セルフホストランナーの追加に成功したことの確認
 
-セルフホストランナーを追加するステップを完了したら、「Self-hosted runners（セルフホストランナー）」の下のリストにランナーとそのステータスが表示されます。
+After completing the steps to add a self-hosted runner, the runner and its status are now listed under {% ifversion fpt or ghec %}"Runners"{% elsif ghae or ghes %}"Self-hosted runners"{% endif %}.
 
 ジョブをランナーが受け付けるためには、セルフホストランナーアプリケーションが動作していなければなりません。 ランナーアプリケーションが{% data variables.product.product_name %}に接続してジョブの受信準備ができたなら、以下のメッセージがマシンのターミナルに表示されます。
 

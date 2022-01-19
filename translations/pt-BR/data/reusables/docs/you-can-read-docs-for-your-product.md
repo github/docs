@@ -1,0 +1,1 @@
+You can read documentation that reflects the features available to you on {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."

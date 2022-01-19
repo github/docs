@@ -1,12 +1,13 @@
 ---
 title: Recursos na API REST
-intro: 'Aprenda a navegar nos recursos fornecidos pela API de {% data variables.product.prodname_dotcom %}.'
+intro: 'Aprenda a navegar pelos recursos fornecidos pela API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.'
 redirect_from:
-  - /rest/initialize-the-repo/
+  - /rest/initialize-the-repo
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -14,21 +15,21 @@ topics:
 
 Isso descreve os recursos que formam a API REST oficial de {% data variables.product.product_name %}. Em caso de problema ou solicitação, entre em contato com {% data variables.contact.contact_support %}.
 
-### Versão atual
+## Versão atual
 
 Por padrão, todas as solicitações para `{% data variables.product.api_url_code %}` recebem a versão **v3** [](/developers/overview/about-githubs-apis) da API REST. Nós incentivamos que você a [solicite explicitamente esta versão por meio do cabeçalho `Aceitar`](/rest/overview/media-types#request-specific-version).
 
     Accept: application/vnd.github.v3+json
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
+{% ifversion fpt or ghec %}
 
-Para obter informações sobre a API do GraphQL do GitHub, consulte a [documentação v4](/graphql). Para obter informações sobre migração para o GraphQL, consulte "[Fazendo a migração do REST](/graphql/guides/migrating-from-rest-to-graphql)".
+Para obter informações sobre a API do GraphQL do GitHub, consulte a [documentação v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obter informações sobre migração para o GraphQL, consulte "[Fazendo a migração do REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
 
 {% endif %}
 
-### Esquema
+## Esquema
 
-{% if currentVersion == "free-pro-team@latest" %}Todo o acesso à API é feito por meio de HTTPS, e{% else %}A API é{% endif %} acessada a partir de `{% data variables.product.api_url_code %}`.  Todos os dados são
+{% ifversion fpt or ghec %}Todo acesso à API é feito por meio de HTTPS, e{% else %}a API é{% endif %} acessada a partir de `{% data variables.product.api_url_code %}`.  Todos os dados são
 enviados e recebidos como JSON.
 
 ```shell
@@ -42,8 +43,8 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if enterpriseServerVersions contains currentVersion %}
-> X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif currentVersion == "github-ae@latest" %}
+> X-RateLimit-Reset: 1350085394{% ifversion ghes %}
+> X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif ghae %}
 > X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
@@ -52,13 +53,13 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 Os campos em branco são incluídos como `null` em vez de serem omitidos.
 
-Todos os registros de tempo são retornados no formato ISO 8601:
+Todos os timestamps são retornados no formato UTC, ISO 8601:
 
     YYYY-MM-DDTHH:MM:SSZ
 
 Para obter mais informações sobre fusos horários nos registros de tempo, consulte [esta seção](#timezones).
 
-#### Apresentações resumidas
+### Apresentações resumidas
 
 Ao buscar uma lista de recursos, a resposta inclui um _subconjunto_ dos atributos para esse recurso. Esta é a representação "resumo" do recurso. (Alguns atributos são computacionalmente caros para a API fornecer. Por razões de desempenho, a representação resumida exclui esses atributos. Para obter esses atributos, busque a representação "detalhada".)
 
@@ -66,7 +67,7 @@ Ao buscar uma lista de recursos, a resposta inclui um _subconjunto_ dos atributo
 
     GET /orgs/octokit/repos
 
-#### Representações detalhadas
+### Representações detalhadas
 
 Ao buscar um recurso individual, a resposta normalmente inclui _todos os_ atributos para esse recurso. Esta é a representação "detalhada" do recurso. (Note que a autorização por vezes influencia o valor de detalhes incluído na representação.)
 
@@ -76,17 +77,17 @@ Ao buscar um recurso individual, a resposta normalmente inclui _todos os_ atribu
 
 A documentação fornece um exemplo de resposta para cada método da API. O exemplo da resposta ilustra todos os atributos retornados por esse método.
 
-### Autenticação
+## Autenticação
 
-{% if currentVersion == "github-ae@latest" %} Recomendamos efetuar a autenticação na API REST de {% data variables.product.product_name %}, criando um token OAuth2 por meio do [fluxo do aplicativo web](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} Existem duas maneiras de efetuar a autenticação por meio da API REST de {% data variables.product.product_name %}.{% endif %} As solicitações que exigem autenticação retornarão `404 Not Found`, em vez de `403 Forbidden` em alguns lugares.  Isso é para evitar a fuga acidental de repositórios privados para usuários não autorizados.
+{% ifversion ghae %} Recomendamos efetuar a autenticação na API REST de {% data variables.product.product_name %}, criando um token OAuth2 por meio do [fluxo do aplicativo web](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} Existem duas maneiras de efetuar a autenticação por meio da API REST de {% data variables.product.product_name %}.{% endif %} As solicitações que exigem autenticação retornarão `404 Not Found`, em vez de `403 Forbidden` em alguns lugares.  Isso é para evitar a fuga acidental de repositórios privados para usuários não autorizados.
 
-#### Autenticação básica
+### Autenticação básica
 
 ```shell
 $ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
-#### Token do OAuth2 (enviado em um cabeçalho)
+### Token do OAuth2 (enviado em um cabeçalho)
 
 ```shell
 $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
@@ -100,8 +101,8 @@ Observação: O GitHub recomenda enviar tokens do OAuth usando o cabeçalho de a
 
 Leia [mais sobre o OAuth2](/apps/building-oauth-apps/).  Observe que os tokens do OAuth2 podem ser adquiridos usando o [fluxo de aplicação web](/developers/apps/authorizing-oauth-apps#web-application-flow) para aplicativos de produção.
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-#### OAuth2 key/secret
+{% ifversion fpt or ghes or ghec %}
+### OAuth2 key/secret
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -111,16 +112,18 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 Usar o seu `client_id` e `client_secret` _ não_ autenticam você como usuário. Isso apenas irá identificar o seu aplicativo OAuth para aumentar o seu limite de taxa. As permissões só são concedidas a usuários, não aplicativos, e você só obterá dados que um usuário não autenticado visualizaria. Por este motivo, você só deve usar a chave/segredo OAuth2 em cenários de servidor para servidor. Não compartilhe o segredo do cliente do aplicativo OAuth com os seus usuários.
 
-Você não conseguirá efetuar a autenticação usando sua chave e segredo do OAuth2 enquanto estiver no modo privado e essa tentativa de autenticação irá retornar `401 Unauthorized`. Para obter mais informações, consulte "[Habilitar o modo privado](/enterprise/admin/installation/enabling-private-mode)".
+{% ifversion ghes %}
+Você não conseguirá efetuar a autenticação usando sua chave e segredo do OAuth2 enquanto estiver no modo privado e essa tentativa de autenticação irá retornar `401 Unauthorized`. Para obter mais informações, consulte "[Habilitar o modo privado](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
+{% endif %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 Leia [Mais informações sobre limitação da taxa não autenticada](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
 
 {% endif %}
 
-#### Falha no limite de login
+### Falha no limite de login
 
 A autenticação com credenciais inválidas retornará `401 Unauthorized`:
 
@@ -137,8 +140,8 @@ $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 Após detectar várias solicitações com credenciais inválidas em um curto período de tempo, a API rejeitará temporariamente todas as tentativas de autenticação para esse usuário (incluindo aquelas com credenciais válidas) com `403 Forbidden`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
--u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
+$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
+-u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% ifversion ghes %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
@@ -146,7 +149,7 @@ $ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "f
 > }
 ```
 
-### Parâmetros
+## Parâmetros
 
 Muitos métodos de API tomam parâmetros opcionais. Para solicitações tipo `GET`, todos os parâmetros não especificados como um segmento no caminho podem ser passados como um parâmetro de string de consulta de HTTP:
 
@@ -162,20 +165,20 @@ Para solicitações de `POST`, `PATCH`, `PUT`e `EXCLUIR`, os parâmetros não in
 $ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
-### Ponto de extremidade raiz
+## Ponto de extremidade raiz
 
 Você pode emitir uma solicitação `GET` para o ponto de extremidade de raiz para obter todas as categorias do ponto de extremidade com a qual a API REST é compatível:
 
 ```shell
-$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
--u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% ifversion fpt or ghae or ghec %}
+-u <em>username</em>:<em>token</em> {% endif %}{% ifversion ghes %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
-### IDs de nós globais do GraphQL
+## IDs de nós globais do GraphQL
 
-Consulte o guia em "[Usar IDs do nó globais ](/graphql/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
+Consulte o guia em "[Usar IDs do nó globais ]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
 
-### Erros do cliente
+## Erros do cliente
 
 Há três tipos possíveis de erros de cliente na chamadas da API que recebem textos:
 
@@ -228,7 +231,7 @@ Todos objetos de erro têm propriedades de recurso e campo para que seu cliente 
 
 Os recursos também podem enviar erros de validação personalizados (em que o `código` é `personalizado`). Os erros personalizados sempre terão um campo de `mensagem` que descreve o erro e a maioria dos erros também incluirá um campo de `documentation_url` que aponta para algum conteúdo que pode ajudá-lo a resolver o erro.
 
-### Redirecionamentos HTTP
+## Redirecionamentos HTTP
 
 API v3 usa redirecionamento HTTP quando apropriado. Os clientes devem assumir que qualquer solicitação pode resultar em redirecionamento. Receber um redirecionamento de HTTP *não* é um erro e os clientes devem seguir esse redirecionamento. As respostas de redirecionamento terão um campo do cabeçalho do tipo `Localização` que contém o URI do recurso ao qual o cliente deve repetir as solicitações.
 
@@ -239,7 +242,7 @@ API v3 usa redirecionamento HTTP quando apropriado. Os clientes devem assumir qu
 
 Outros códigos de status de redirecionamento podem ser usados de acordo com a especificação HTTP 1.1.
 
-### Verbos HTTP
+## Verbos HTTP
 
 Quando possível, a API v3 se esforça para usar verbos HTTP apropriados para cada ação.
 
@@ -252,7 +255,7 @@ Quando possível, a API v3 se esforça para usar verbos HTTP apropriados para ca
 | `PUT`    | Usado para substituir recursos ou coleções. Para as solicitações de `PUT` sem atributo de `texto`, certifique-se de definir o cabeçalho `Content-Length` como zero.                                                              |
 | `DELETE` | Usado para excluir recursos.                                                                                                                                                                                                     |
 
-### Hipermídia
+## Hipermídia
 
 Todos os recursos podem ter uma ou mais propriedades `*_url` vinculando outros recursos.  Estes tem o objetivo de fornecer URLs explícitas para que os clientes API apropriados não precisem construir URLs por conta própria.  É altamente recomendável que os clientes da API os utilizem.  Fazer isso tornará as futuras atualizações da API mais fáceis para os desenvolvedores.  Espera-se que todas as URLs sejam modelos de URI [RFC 6570][rfc] adequados.
 
@@ -268,7 +271,7 @@ Então você pode expandir estes modelos usando algo como o [uri_template][uri] 
     >> tmpl.expand :all => 1, :participating => 1
     => "/notifications?all=1&participating=1"
 
-### Paginação
+## Paginação
 
 Pedidos que retornam vários itens serão paginados para 30 itens por padrão.  Você pode especificar mais páginas com o parâmetro `page`. Para alguns recursos, você também pode definir um tamanho de página até 100 com o parâmetro `per_page`. Observe que, por razões técnicas, nem todos os pontos de extremidade respeitam o parâmetro `per_page`, veja [eventos](/rest/reference/activity#events) por exemplo.
 
@@ -282,7 +285,7 @@ Alguns pontos de extremidade usam paginação baseada no cursor. Um cursor é um
 
 Para obter mais informações sobre paginação, confira nosso guia sobre [Passar com paginação][pagination-guide].
 
-#### Cabeçalho do link
+### Cabeçalho do link
 
 {% note %}
 
@@ -290,7 +293,7 @@ Para obter mais informações sobre paginação, confira nosso guia sobre [Passa
 
 {% endnote %}
 
-O [cabeçalho do link](http://tools.ietf.org/html/rfc5988) inclui informações de paginação. Por exemplo:
+O [cabeçalho do link](https://datatracker.ietf.org/doc/html/rfc5988) inclui informações de paginação. Por exemplo:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
@@ -301,7 +304,7 @@ Ou, se o ponto de extremidade usar paginação baseada em cursor:
 
     Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
-Este `Link` de resposta contém um ou mais links de relações de [hipermídia](/rest#hypermedia), alguns dos quais podem exigir expansão como [modelos de URI](http://tools.ietf.org/html/rfc6570).
+Este `Link` de resposta contém um ou mais links de relações de [hipermídia](/rest#hypermedia), alguns dos quais podem exigir expansão como [modelos de URI](https://datatracker.ietf.org/doc/html/rfc6570).
 
 Os valores de `rel` possíveis são:
 
@@ -312,11 +315,11 @@ Os valores de `rel` possíveis são:
 | `first`   | A relação de link para a primeira página de resultados.          |
 | `prev`    | A relação de link para a página de resultados anterior imediata. |
 
-### Limite de taxa
+## Limite de taxa
 
 Para solicitações de API que usam a Autenticação Básica ou OAuth, você pode criar até 5.000 solicitações por hora. As solicitações de autenticação são associadas ao usuário autenticado, independentemente de [Autenticação Básica](#basic-authentication) ou [um token do OAuth](#oauth2-token-sent-in-a-header) ter sido usado. Isto significa que todos os aplicativos OAuth autorizados por um usuário compartilham a mesma cota de 5.000 solicitações por hora quando eles são autenticados com diferentes tokens pertencentes ao mesmo usuário.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 Para usuários que pertencem a uma conta {% data variables.product.prodname_ghe_cloud %}, solicitações feitas usando um token OAuth para recursos pertencentes à mesma conta de {% data variables.product.prodname_ghe_cloud %} têm um aumento de 15.000 solicitações por hora no limite.
 
@@ -371,7 +374,7 @@ Se você exceder o limite de taxa, uma resposta do erro retorna:
 
 Você pode [verificar o status do seu limite de taxa](/rest/reference/rate-limit) sem a incorrer em uma consulta da API.
 
-#### Aumentar o limite de taxa não autenticado para aplicativos OAuth
+### Aumentar o limite de taxa não autenticado para aplicativos OAuth
 
 Se o seu aplicativo OAuth precisar fazer chamadas não autenticadas com um limite de taxa mais alto, você poderá passar o ID e o segredo do cliente do seu aplicativo antes do encaminhamento de pontos de extremidade.
 
@@ -390,15 +393,15 @@ $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}
 
 {% endnote %}
 
-#### Manter-se dentro do limite de taxa
+### Manter-se dentro do limite de taxa
 
 Se você exceder seu limite de taxa usando a Autenticação Básica ou OAuth, você poderá corrigir o problema armazenando respostas da API e usando [solicitações condicionais](#conditional-requests).
 
-#### Abusar dos limites de taxa
+### Limites de taxa secundária
 
-A fim de fornecer serviço de qualidade no {% data variables.product.product_name %}, podem-se aplicar limites de taxa adicionais podem a algumas ações ao usar a API. Por exemplo, usar a API para criar rapidamente conteúdo, fazer sondagem de modo agressivo em vez de usar webhooks, fazer várias solicitações simultâneas ou solicitar repetidamente dados caros do ponto de vista computacional podem resultar na limitação da taxa de abuso.
+A fim de fornecer serviço de qualidade no {% data variables.product.product_name %}, podem-se aplicar limites de taxa adicionais podem a algumas ações ao usar a API. Por exemplo, usar a API para criar rapidamente conteúdo, fazer sondagem de modo agressivo em vez de usar webhooks, fazer várias solicitações simultâneas ou solicitar repetidamente dados caros do ponto de vista computacional podem resultar na limitação da taxa secundária.
 
-O abuso dos limites de taxa não são destinados a interferir no uso legítimo da API. Seus limites de taxa normais devem ser o único limite em que você deve focar. Para garantir que você está agindo como um bom cidadão da API, confira nossas [Diretrizes sobre práticas recomendadas](/guides/best-practices-for-integrators/).
+Limites de taxa secundária não pretendem interferir com o uso legítimo da API. Seus limites de taxa normais devem ser o único limite em que você deve focar. Para garantir que você está agindo como um bom cidadão da API, confira nossas [Diretrizes sobre práticas recomendadas](/guides/best-practices-for-integrators/).
 
 Se seu aplicativo acionar este limite de taxa, você receberá uma resposta informativa:
 
@@ -408,14 +411,14 @@ Se seu aplicativo acionar este limite de taxa, você receberá uma resposta info
 > Connection: close
 
 > {
->   "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#abuse-rate-limits"
+>   "message": "You have exceeded a secondary rate limit and have been temporarily blocked from content creation. Please retry your request again later.",
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#secondary-rate-limits"
 > }
 ```
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
-### Agente de usuário obrigatório
+## Agente de usuário obrigatório
 
 Todas as solicitações da API DEVEM incluir um cabeçalho válido de `User-Agent`. As requisições sem o cabeçalho do `User-Agent` serão rejeitadas. Pedimos que use seu nome de usuário de {% data variables.product.product_name %} ou o nome de seu aplicativo, para o valor do cabeçalho `User-Agent`. Isso nos permite entrar em contato com você, em caso de problemas.
 
@@ -440,11 +443,11 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 {% endif %}
 
-### Solicitações condicionais
+## Solicitações condicionais
 
 A maioria das respostas retorna um cabeçalho de </code>Etag`. Muitas respostas também retornam um cabeçalho <code>Last-Modified`. Você pode usar os valores desses cabeçalhos para fazer solicitações subsequentes para esses recursos usando os cabeçalhos `If-None-Match` e `If-Modified-Desde`, respectivamente. Se o recurso não foi alterado, o servidor retornará `304 não modificado`.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -485,9 +488,9 @@ $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: T
 > X-RateLimit-Reset: 1372700873
 ```
 
-### Compartilhamento de recursos de origem cruzada
+## Compartilhamento de recursos de origem cruzada
 
-A API é compatível com Compartilhamento de Recursos de Origens Cruzadas (CORS) para solicitações de AJAX de qualquer origem. You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors/), or [this intro](http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity) from the HTML 5 Security Guide.
+A API é compatível com Compartilhamento de Recursos de Origens Cruzadas (CORS) para solicitações de AJAX de qualquer origem. Você pode ler a [Recomendação do CORS W3C](http://www.w3.org/TR/cors/) ou [esta introdução](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki) do Guia de Segurança do HTML 5.
 
 Aqui está uma solicitação de exemplo enviada a partir de uma consulta em `http://exemplo.com`:
 
@@ -510,7 +513,7 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-Ra
 Access-Control-Max-Age: 86400
 ```
 
-### Chamadas de retorno do JSON-P
+## Chamadas de retorno do JSON-P
 
 Você pode enviar um parâmetro `?callback` para qualquer chamada de GET para envolver os resultados em uma função JSON.  Isso é normalmente usado quando os navegadores querem que incorporem {% data variables.product.product_name %} conteúdo em páginas da web, contornando problemas de de domínio cruzado.  A resposta inclui a mesma saída de dados da API regular, mais as informações relevantes do cabeçalho de HTTP.
 
@@ -585,22 +588,24 @@ Um link que se parece com isto:
 }
 ```
 
-### Fusos horários
+## Fusos horários
 
-Algumas solicitações que criam novos dados, como a criação de um novo commit, permitem que você forneça informações do fuso horário ao especificar ou marcas de tempo. Aplicamos as seguintes regras, por ordem de prioridade, para determinar as informações do fuso horário para chamadas de API.
+Algumas solicitações que criam novos dados, como a criação de um novo commit, permitem que você forneça informações do fuso horário ao especificar ou marcas de tempo. Aplicamos as seguintes regras, por ordem de prioridade, para determinar as informações do fuso horário para essas chamadas da API.
 
 * [Fornecer explicitamente uma marca de tempo ISO 8601 com informações de fuso horário](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
 * [Usar o cabeçalho `Time-Zone`](#using-the-time-zone-header)
 * [Usar o último fuso horário conhecido para o usuário](#using-the-last-known-timezone-for-the-user)
 * [Definir como padrão UTC sem outras informações de fuso horário](#defaulting-to-utc-without-other-timezone-information)
 
-#### Fornecer explicitamente uma marca de tempo ISO 8601 com informações de fuso horário
+Observe que essas regras se aplicam somente a dados passados para a API, não a dados retornados pela API. Conforme mencionado no [Esquema](#schema)", os registros de hora retornados pela API estão em formato UTC, ISO 8601.
+
+### Fornecer explicitamente uma marca de tempo ISO 8601 com informações de fuso horário
 
 Para chamadas de API que permitem que uma marca de tempo seja especificada, usamos essa marca de tempo exata. Um exemplo disso é a [API de Commits](/rest/reference/git#commits).
 
 Essas marcas de tempo se parecem com `2014-02-27T15:05:06+01:00`. Veja também [este exemplo](/rest/reference/git#example-input) para saber como essas marcas de tempo podem ser especificadas.
 
-#### Usar o cabeçalho `Time-Zone`
+### Usar o cabeçalho `Time-Zone`
 
 É possível fornecer um cabeçalho `Time-Zone` que define um fuso horário de acordo com a lista [ de nomes do banco de dados Olson](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
@@ -610,15 +615,15 @@ $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_ur
 
 Isso significa que geramos uma marca de tempo no momento em que sua chamada de API é feita no fuso horário que este cabeçalho define. Por exemplo, o [API de Conteúdo](/rest/reference/repos#contents) gera um commit do git para cada adição ou alteração e usa a hora atual como marca de tempo. Este cabeçalho determinará o fuso horário usado para gerar essa marca de tempo atual.
 
-#### Usar o último fuso horário conhecido para o usuário
+### Usar o último fuso horário conhecido para o usuário
 
 Se nenhum cabeçalho `Time-Zone` for especificado e você fizer uma chamada autenticada para a API, nós usaremos o último fuso horário conhecido para o usuário autenticado. O último fuso horário conhecido é atualizado sempre que você navegar no site de {% data variables.product.product_name %}.
 
-#### Definir como padrão UTC sem outras informações de fuso horário
+### Definir como padrão UTC sem outras informações de fuso horário
 
 Se as etapas acima não resultarem em nenhuma informação, usaremos UTC como o fuso horário para criar o commit do git.
 
-[rfc]: http://tools.ietf.org/html/rfc6570
+[rfc]: https://datatracker.ietf.org/doc/html/rfc6570
 [uri]: https://github.com/hannesg/uri_template
 
 [pagination-guide]: /guides/traversing-with-pagination

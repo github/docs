@@ -1,13 +1,16 @@
 ---
 title: Problemas
+intro: 'La API de Propuestas te permite ver y administrar las propuestas, incluyendo a sus asignados, comentarios, etiquetas e hitos.'
 redirect_from:
   - /v3/issues
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Tipos de mendios personalizados para los informes de problemas

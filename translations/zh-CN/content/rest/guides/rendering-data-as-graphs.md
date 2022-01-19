@@ -2,25 +2,26 @@
 title: 将数据渲染为图形
 intro: 了解如何使用 D3.js 库和 Ruby Octokit 可视化仓库中的编程语言。
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
  
 
 
-在本指南中，我们将使用 API 来获取有关我们拥有的仓库以及构成这些仓库的编程语言的信息。 然后，我们将使用 [D3.js][D3.js] 库来以几种不同的方式可视化这些信息。 为了与 {% data variables.product.product_name %} API 进行交互，我们将使用卓越的 Ruby 库 [Octokit][Octokit]。
+在本指南中，我们将使用 API 来获取有关我们拥有的仓库以及构成这些仓库的编程语言的信息。 然后，我们将使用 [D3.js][D3.js] 库来以几种不同的方式可视化这些信息。 要与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 交互，我们将使用卓越的 Ruby 库 [Octokit.rb][Octokit]。
 
 在开始本示例之前，您应该阅读[“身份验证基础知识”][basics-of-authentication]指南（如果尚未阅读）。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
 
 我们马上开始！
 
-### 设置 OAuth 应用程序
+## 设置 OAuth 应用程序
 
 首先，请在 {% data variables.product.product_name %} 上[注册一个新应用程序][new oauth application]。 将主 URL 和回调 URL 设置为 `http://localhost:4567/`。 与[之前][basics-of-authentication]一样，我们将使用 [sinatra-auth-github][sinatra auth github] 实现 Rack 中间件，以处理 API 的身份验证：
 
@@ -73,9 +74,9 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'server'))
 run Example::MyGraphApp
 ```
 
-### 获取仓库信息
+## 获取仓库信息
 
-这次，为了与 {% data variables.product.product_name %} API 进行对话，我们将使用 [Octokit.rb][Octokit]。 这比直接进行一大堆 REST 调用要容易得多。 另外，Octokit 是由 GitHubber 开发的，并且一直在积极维护，因此可以确保有效性。
+这次，为了与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行对话，我们将使用 [Octokit Ruby 库][Octokit]。 这比直接进行一大堆 REST 调用要容易得多。 另外，Octokit 是由 GitHubber 开发的，并且一直在积极维护，因此可以确保有效性。
 
 通过 Octokit 进行 API 身份验证非常简单。 只需将您的登录名和令牌传递到 `Octokit::Client` 构造函数：
 
@@ -119,7 +120,7 @@ languages.to_s
 
 到目前为止，进展不错，但结果不是很人性化。 可视化将非常有助于我们理解这些语言计数是如何分布的。 我们来将这些计数输入到 D3 中，得到一个表示语言使用频率的简洁条形图。
 
-### 可视化语言计数
+## 可视化语言计数
 
 D3.js（或仅 D3）是用于创建多种图表、图形和交互式可视化内容的综合库。 详细介绍 D3 的用法超出了本指南的范围，但我们推荐您阅读一篇不错的介绍性文章[“D3 for Mortals（面向大众的 D3)”][D3 mortals]。
 
@@ -221,7 +222,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 
 如“D3 for Mortals（面向大众的 D3）”所述，这未必是 D3 的最佳用法。 但它确实表明了您能够如何配合使用该库与 Octokit，做出一些真正令人惊叹的事情。
 
-### 结合不同的 API 调用
+## 结合不同的 API 调用
 
 现在是时候坦白了：仓库中的 `language` 属性仅标识定义的“主要”语言。 这意味着，如果您的仓库结合了多种语言，则代码字节最多的语言将被视为主要语言。
 

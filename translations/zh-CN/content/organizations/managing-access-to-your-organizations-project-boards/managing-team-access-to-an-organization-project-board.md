@@ -5,12 +5,14 @@ redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 管理团队访问
 ---
 
 {% warning %}
@@ -21,7 +23,7 @@ topics:
 
 {% endwarning %}
 
-### 授予团队项目板访问权限
+## 授予团队项目板访问权限
 
 您可以向整个团队授予相同级别的项目板访问权限。
 
@@ -41,7 +43,7 @@ topics:
 9. 要添加团队，请单击 **Add a team: Select team（添加团队：选择团队）**。 然后，从下拉菜单中选择一个团队，或者搜索要添加的团队。 ![添加包含组织中团队列表的团队下拉菜单](/assets/images/help/projects/add-a-team.png)
 10. 在团队名称旁边，使用下拉菜单选择所需的权限级别：**Read（读取）**、**Write（写入）**或 **Admin（管理员）**。 ![包含读取、写入和管理员选项的团队权限下拉菜单](/assets/images/help/projects/org-project-team-choose-permissions.png)
 
-### 配置团队对项目板的访问
+## 配置团队对项目板的访问
 
 如果团队的项目板访问权限继承自父团队，您必须删除父团队的项目板访问权限，以更新子团队的访问权限。
 

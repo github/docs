@@ -4,18 +4,19 @@ intro: 'Puedes crear una organización {% data variables.product.prodname_dotcom
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
-  - /github/setting-up-and-managing-billing-and-payments-on-github/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - User account
   - Organizations
   - Upgrades
+shortTitle: En nombre de un cliente
 ---
 
-### Requisitos
+## Requisitos
 
 Antes de comenzar, asegúrate de saber lo siguiente:
 - El nombre de usuario {% data variables.product.prodname_dotcom %} del cliente que se convertirá en el propietario de la organización que creaste
@@ -24,7 +25,7 @@ Antes de comenzar, asegúrate de saber lo siguiente:
 - El [producto](/articles/github-s-products) que tu cliente desea comprar
 - El número de [asientos pagos](/articles/about-per-user-pricing/) que tu cliente desea comprar para la organización
 
-### Paso 1: Crea tu cuenta personal de {% data variables.product.prodname_dotcom %}.
+## Paso 1: Crea tu cuenta personal de {% data variables.product.prodname_dotcom %}.
 
 Usarás tu cuenta personal para configurar la organización. También necesitarás iniciar sesión en esta cuenta para renovar la suscripción de tu cliente o hacer cambios en ella en el futuro.
 
@@ -35,7 +36,7 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 3. Selecciona {% data variables.product.prodname_free_user %} para tu cuenta personal.
 4. Haz clic en **Finalizar registración**.
 
-### Paso 2: Crea la organización.
+## Paso 2: Crea la organización.
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
@@ -46,7 +47,7 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 {% data reusables.dotcom_billing.owned_by_business %}
 8. Da clic en **Siguiente**.
 
-### Paso 3: Actualiza la organización para que tenga una suscripción anual paga.
+## Paso 3: Actualiza la organización para que tenga una suscripción anual paga.
 
 
 {% data reusables.profile.access_org %}
@@ -58,7 +59,7 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### Paso 4: Actualiza el número de asientos pagos de la organización.
+## Paso 4: Actualiza el número de asientos pagos de la organización.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -67,7 +68,7 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-### Paso 5: Invita a tu cliente a unirse a la organización.
+## Paso 5: Invita a tu cliente a unirse a la organización.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -77,7 +78,7 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 6. Elige el rol de *propietario* para tu cliente y luego haz clic en **Enviar invitación**. ![Botón de selección para el propietario y botón para enviar invitación](/assets/images/help/organizations/add-owner-send-invite-reseller.png)
 7. Tu cliente recibirá un correo electrónico en el que se lo invitará a unirse a la organización. Será necesario que acepte la invitación para que puedas continuar con el paso siguiente.
 
-### Paso 6: Transfiere la propiedad de la organización a tu cliente.
+## Paso 6: Transfiere la propiedad de la organización a tu cliente.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -87,13 +88,13 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 6. A la izquierda, haz clic en **Eliminar de la organización**. ![Botón para eliminar de la organización ](/assets/images/help/organizations/remove-from-org-button.png)
 7. Confirma tu opción y haz clic en **Eliminar miembros**. ![Botón para confirmar la eliminación de miembros](/assets/images/help/organizations/confirm-remove-from-org.png)
 
-### Pasos siguientes
+## Pasos siguientes
 
 1. Ponte en contacto con tu cliente y pídele que [te agregue a la organización como gerente de facturación](/articles/adding-a-billing-manager-to-your-organization). Será necesario que seas un gerente de facturación de la organización para que puedas renovar la suscripción de tu cliente o hacer cambios en esta en el futuro.
 2. Si deseas que la tarjeta de crédito de tu organización se elimine de la organización para que no vuelvan a hacerse cargos en ella, ponte en contacto con {% data variables.contact.contact_support %}.
 3. Cuando sea el momento de renovar la suscripción paga de tu cliente, consulta "[Renovar la organización paga de tu cliente](/articles/renewing-your-client-s-paid-organization)".
 
-### Leer más
+## Leer más
 
 - "[Acerca de las organizaciones para empresas de contratación](/articles/about-organizations-for-procurement-companies)"
 - "[Actualizar o bajar de categoría la organización paga de tu cliente](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"

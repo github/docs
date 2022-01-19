@@ -5,12 +5,14 @@ redirect_from:
   - /articles/organizing-information-with-tables
   - /github/writing-on-github/organizing-information-with-tables
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: 使用表格组织的数据
 ---
 
-### 创建表格
+## 创建表格
 
 您可以用竖线 `|` 和横线 `-` 创建表格。 横线用于创建每列的标题，而竖线用于分隔每列。 必须在表格前包含空白链接，以便其正确呈现。
 
@@ -37,7 +39,9 @@ versions:
 
 ![呈现的单元格宽度不同的表格](/assets/images/help/writing/table-varied-columns-rendered.png)
 
-### 格式化表格中的内容
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
+
+## 格式化表格中的内容
 
 您可以在表格中使用[格式](/articles/basic-writing-and-formatting-syntax)，如链接、内联代码块和文本样式：
 
@@ -72,7 +76,7 @@ versions:
 
 ![呈现的带逸出竖线字符的表格](/assets/images/help/writing/table-escaped-character-rendered.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown 规格](https://github.github.com/gfm/)
 - "[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax)"

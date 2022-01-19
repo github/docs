@@ -1,0 +1,1 @@
+La ruta al directorio que contiene las herramientas preinstaladas para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
