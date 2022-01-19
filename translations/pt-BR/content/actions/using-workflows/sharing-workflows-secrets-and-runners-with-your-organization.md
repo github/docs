@@ -1,7 +1,7 @@
 ---
 title: 'Compartilhando fluxos de trabalho, segredos e executores com a sua organização'
 shortTitle: Compartilhar fluxos de trabalho com a sua organização
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflows, secrets, and self-hosted runners.'
+intro: 'Aprenda como usar recursos da organização para colaborar com a sua equipe, compartilhando fluxos de trabalho iniciantes, segredos e executores auto-hospedados.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
   - /actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
@@ -18,7 +18,7 @@ type: how_to
 
 ## Visão Geral
 
-Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. Uma organização permite que você armazene e gerencie, centralizadamente, segredos, artefatos e executores auto-hospedados. You can also create starter workflows in the `.github` repository and share them with other users in your organization.
+Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. Uma organização permite que você armazene e gerencie, centralizadamente, segredos, artefatos e executores auto-hospedados. Você também pode criar fluxos de trabalho iniciantes no repositório `.github` e compartilhá-los com outros usuários na sua organização.
 
 ## Usando fluxos de trabalho iniciais
 

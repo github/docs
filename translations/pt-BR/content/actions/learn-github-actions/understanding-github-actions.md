@@ -42,7 +42,7 @@ O seu repositório pode ter vários fluxos de trabalho em um repositório, cada 
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Você pode consultar um fluxo de trabalho dentro de outro fluxo de trabalho. Consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)"{% endif %}
 
-For more information about workflows, see "[Using workflows](/actions/using-workflows)."
+Para obter mais informações sobre fluxos de trabalho, consulte "[Usando fluxos de trabalho](/actions/using-workflows)".
 
 ### Eventos
 
@@ -56,7 +56,7 @@ Um trabalho é um conjunto de _etapas_ em um fluxo de trabalho que é executado 
 
 Você pode configurar as dependências de um trabalho com outros trabalhos; por padrão, os trabalhos não têm dependências e são executados em paralelo um com o outro.  Quando um trabalho leva uma dependência de outro trabalho, ele irá aguardar que o trabalho depeendente seja concluído antes que possa executar.  Por exemplo, você pode ter vários trabalhos de criação para diferentes arquiteturas que não têm dependências, e um trabalho de pacotes que depende desses trabalhos.  Os trabalhos de criação serão executados em paralelo e, quando todos forem concluídos com sucesso, o trabalho de empacotamento será executado.
 
-For more information about jobs, see "[Using jobs](/actions/using-jobs)."
+Para obter mais informações sobre trabalhos, consulte "[Usando trabalhos](/actions/using-jobs)".
 
 ### Ações
 
