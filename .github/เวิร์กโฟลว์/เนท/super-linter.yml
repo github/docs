@@ -1,0 +1,59 @@
+# This workflow executes several linters on changed files based on languages used in your code base whenever
+# you push a code or open a pull request.
+#
+# You can adjust the behavior by modifying this file.
+# For more information, see:
+# https://github.com/github/super-linter
+name: Lint Code Base
+
+on:
+  push:$ tar xzf project.tar.gz
+$ cd project
+$ git init
+กิตจะตอบ
+
+Initialized empty Git repository in .git/
+คุณได้เริ่มต้นไดเร็กทอรีการทำงานแล้ว คุณอาจสังเกตเห็นไดเร็กทอรีใหม่ชื่อ ".git" ที่สร้างขึ้น
+
+ถัดไป บอกให้ Git ถ่ายภาพสแน็ปช็อตของเนื้อหาของไฟล์ทั้งหมดภายใต้ไดเร็กทอรีปัจจุบัน (หมายเหตุ. ) ด้วยgit add :
+
+$ git add .
+ขณะนี้สแนปชอตนี้ถูกเก็บไว้ในพื้นที่แสดงชั่วคราวซึ่ง Git เรียกว่า "ดัชนี" คุณสามารถจัดเก็บเนื้อหาของดัชนีในที่เก็บอย่างถาวรด้วยgit commit :
+
+$ git commit
+สิ่งนี้จะพร้อมท์ให้คุณใส่ข้อความยืนยัน ตอนนี้คุณได้จัดเก็บเวอร์ชันแรกของโครงการของคุณใน Git แล้ว
+
+การเปลี่ยนแปลง
+แก้ไขไฟล์บางไฟล์ จากนั้นเพิ่มเนื้อหาที่อัปเดตไปยังดัชนี:
+
+$ git add file1 file2 file3
+ตอนนี้คุณพร้อมที่จะกระทำการ คุณสามารถดูสิ่งที่กำลังจะกระทำโดยใช้git diffด้วย --cached ตัวเลือก:
+
+$ git diff --cached
+(หากไม่มี --cached git diffจะแสดงการเปลี่ยนแปลงที่คุณได้ทำไว้แต่ยังไม่ได้เพิ่มลงในดัชนี) คุณยังสามารถรับข้อมูลสรุปสถานการณ์โดยย่อด้วยสถานะ git :
+
+$ git status
+On branch master
+Changes to be committed:
+Your branch is up to date with 'origin/master'.
+  (use "git restore --staged <file>..." to unstage)
+
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  run-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
+
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
