@@ -37,6 +37,7 @@ search:
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
+  search_error: An error occurred trying to perform the search.
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
