@@ -104,6 +104,14 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/user-management/monitoring-activity-in-your-enterprise/managing-global-webhooks{% endif %}'
     - '{% ifversion ghec %}/billing/managing-your-license-for-github-enterprise/using-visual-studio-subscription-with-github-enterprise/setting-up-visual-studio-subscription-with-github-enterprise{% endif %}'
     - /admin/enterprise-support/about-github-enterprise-support
+  videos:
+    - title: "GitHub in the Enterprise – Maya Ross"
+      href: 'https://www.youtube-nocookie.com/embed/1-i39RqaxRs'
+    - title: "What's new for GitHub Enterprise – Jarryd McCree"
+      href: 'https://www.youtube-nocookie.com/embed/ZZviWZgrqhM'
+    - title: "Enforcing information security policy through GitHub Enterprise – Thomas Worley"
+      href: 'https://www.youtube-nocookie.com/embed/DCu-ZTT7WTI'
+  videosHeading: GitHub Universe 2021 videos
 layout: product-landing
 versions:
   ghec: '*'
