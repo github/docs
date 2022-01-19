@@ -20,7 +20,7 @@ shortTitle: 强制 SAML 单点登录
 
 您也可以对组织实施 SAML SSO。 {% data reusables.saml.when-you-enforce %} 实施会从组织中删除尚未通过 IdP 进行身份验证的任何成员和管理员。 {% data variables.product.company_short %} 将向每个被删除的用户发送电子邮件通知。
 
-成功完成单点登录后，可以恢复组织成员。 删除的用户访问权限和设置保存三个月，在此时间范围内可以恢复。 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
+Any users removed due to SAML SSO enforcement can rejoin your organization by authenticating via SAML single sign-on. If a user rejoins the organization within three months, the user's access privileges and settings will be restored. 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
 
 未在组织的 IdP 中设置外部身份的自动程序和服务帐户在执行 SAML SSO 时也将被删除。 有关自动程序和服务帐户的更多信息，请参阅“[使用 SAML 单点登录管理自动程序和服务帐户](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)”。
 

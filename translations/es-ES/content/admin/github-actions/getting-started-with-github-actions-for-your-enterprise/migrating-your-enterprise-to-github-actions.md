@@ -16,7 +16,7 @@ topics:
 
 To migrate your enterprise to {% data variables.product.prodname_actions %} from an existing system, you can plan the migration, complete the migration, and retire existing systems.
 
-This guide addresses specific considerations for migrations. For additional information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+This guide addresses specific considerations for migrations. Para obtener información adicional sobre cómo incluir las {% data variables.product.prodname_actions %} en tu empresa, consulta la sección "[Incluir las {% data variables.product.prodname_actions %} en tu empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)".
 
 ## Planning your migration
 
