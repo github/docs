@@ -1,0 +1,266 @@
+name: NodeJS with Grunt
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+      run: |
+        npm install
+        grunt
+response.status:
+- Fetch
+This documents the polyfillable parts of the WHATWG Fetch standard. See Caveats for notable exceptions.
+
+Usage synopsis (use the argument links to find out more):
+
+fetch(url, options).then(function(response) {
+  // handle HTTP response
+}, function(error) {
+  // handle network error
+})
+More comprehensive usage example:
+
+fetch(url, {
+  method: "POST",
+  body: JSON.stringify(data),
+  headers: {
+    "Content-Type": "application/json"
+  },
+  credentials: "same-origin"
+}).then(function(response) {
+  response.status     //=> number 100–599
+  response.statusText //=> String
+  response.headers    //=> Headers
+  response.url        //=> String
+
+  return response.text()
+}, function(error) {
+  error.message //=> String
+})
+Request
+Synopsis: new Request(url, options)
+
+Request represents a HTTP request to be performed via fetch(). Typically a Request doesn't need to be constructed manually, as it's instantiated internally when fetch() is called.
+
+URL (Request or string)
+The URL of the resource which is being fetched. Typically this is an absolute URL without the host component, e.g. "/path". If the URL has the host of another site, the request is performed in accordance to CORS.
+
+Any non-Request object will be converted to a String, making it possible to pass an instance of URL, for example.
+
+A request can be initialized using another instance of Request in place of the URL. In that case, the URL and other options are inherited from the provided Request object.
+
+Options
+method (String) - HTTP request method. Default: "GET"
+body (String, body types) - HTTP request body
+headers (Object, Headers) - Default: {}
+credentials (String) - Authentication credentials mode. Default: "omit"
+"omit" - don't include authentication credentials (e.g. cookies) in the request
+"same-origin" - include credentials in requests to the same site
+"include" - include credentials in requests to all sites
+Body types
+Class	Default Content-Type
+String	text/plain;charset=UTF-8
+URLSearchParams	application/x-www-form-urlencoded;charset=UTF-8
+FormData	multipart/form-data
+Blob	inherited from the blob.type property
+ArrayBuffer	
+TypedArray	
+DataView	
+Other data structures need to be encoded beforehand as one of the above types. For instance, JSON.stringify(data) can be used to serialize a data structure into a JSON string.
+
+Note that HTTP servers often require that requests that are posted with a body also specify their type via a Content-Type request header.
+
+Response
+Response represents a HTTP response from the server. Typically a Response is not constructed manually, but is available as argument to the resolved promise callback.
+
+Properties
+status (number) - HTTP response code in the 100–599 range
+statusText (String) - Status text as reported by the server, e.g. "Unauthorized"
+ok (boolean) - True if status is HTTP 2xx
+headers (Headers)
+url (String)
+Body methods
+Each of the methods to access the response body returns a Promise that will be resolved when the associated data type is ready.
+
+text() - yields the response text as String
+json() - yields the result of JSON.parse(responseText)
+blob() - yields a Blob
+arrayBuffer() - yields an ArrayBuffer
+formData() - yields FormData that can be forwarded to another request
+Other response methods
+clone()
+Response.error()
+Response.redirect()
+Headers
+Synopsis: new Headers(hash)
+
+Headers represents a set of request/response HTTP headers. It allows for case-insensitive lookup of header by name, as well as merging multiple values of a single header.
+
+Methods
+has(name) (boolean)
+get(name) (String)
+set(name, value)
+append(name, value)
+delete(name)
+forEach(function(value, name){ ... }, [thisContext])
+Error
+If there is a network error or another reason why the HTTP request couldn't be fulfilled, the fetch() promise will be rejected with a reference to that error.
+
+Note that the promise won't be rejected in case of HTTP 4xx or 5xx server responses. The promise will be resolved just as it would be for HTTP 2xx. Inspect the response.status number within the resolved callback to add conditional handling of server errors to your code.
+
+
+fetch(...).then(function(response) {
+  if (response.ok) {
+    return response
+  } else {
+    var error = new Error(response.statusText)
+    error.response = response
+    throw error
+  }
+})
+Caveats
+The whatwg-fetch polyfill isn't able nor does it aim to implement the entire WHATWG Fetch standard, since some of the standard features would be non-trivial or otherwise unfeasible to implement. Notable examples include:
+
+Inability to set the redirect mode
+Inability to change the cache directive
+Inability to disable same-origin cookies
+typedef (sequence<sequence<ByteString>> or record<ByteString, ByteString>) HeadersInit;
+
+[Exposed=(Window,Worker)]
+interface Headers {
+  constructor(optional HeadersInit init);
+
+  undefined append(ByteString name, ByteString value);
+  undefined delete(ByteString name);
+  ByteString? get(ByteString name);
+  boolean has(ByteString name);
+  undefined set(ByteString name, ByteString value);
+  iterable<ByteString, ByteString>;
+};
+
+typedef (Blob or BufferSource or FormData or URLSearchParams or USVString) XMLHttpRequestBodyInit;
+
+typedef (ReadableStream or XMLHttpRequestBodyInit) BodyInit;
+interface mixin Body {
+  readonly attribute ReadableStream? body;
+  readonly attribute boolean bodyUsed;
+  [NewObject] Promise<ArrayBuffer> arrayBuffer();
+  [NewObject] Promise<Blob> blob();
+  [NewObject] Promise<FormData> formData();
+  [NewObject] Promise<any> json();
+  [NewObject] Promise<USVString> text();
+};
+typedef (Request or USVString) RequestInfo;
+
+[Exposed=(Window,Worker)]
+interface Request {
+  constructor(RequestInfo input, optional RequestInit init = {});
+
+  readonly attribute ByteString method;
+  readonly attribute USVString url;
+  [SameObject] readonly attribute Headers headers;
+
+  readonly attribute RequestDestination destination;
+  readonly attribute USVString referrer;
+  readonly attribute ReferrerPolicy referrerPolicy;
+  readonly attribute RequestMode mode;
+  readonly attribute RequestCredentials credentials;
+  readonly attribute RequestCache cache;
+  readonly attribute RequestRedirect redirect;
+  readonly attribute DOMString integrity;
+  readonly attribute boolean keepalive;
+  readonly attribute boolean isReloadNavigation;
+  readonly attribute boolean isHistoryNavigation;
+  readonly attribute AbortSignal signal;
+
+  [NewObject] Request clone();
+};
+Request includes Body;
+
+dictionary RequestInit {
+  ByteString method;
+  HeadersInit headers;
+  BodyInit? body;
+  USVString referrer;
+  ReferrerPolicy referrerPolicy;
+  RequestMode mode;
+  RequestCredentials credentials;
+  RequestCache cache;
+  RequestRedirect redirect;
+  DOMString integrity;
+  boolean keepalive;
+  AbortSignal? signal;
+  any window; // can only be set to null
+};
+
+enum RequestDestination { "", "audio", "audioworklet", "document", "embed", "font", "frame", "iframe", "image", "manifest", "object", "paintworklet", "report", "script", "sharedworker", "style",  "track", "video", "worker", "xslt" };
+enum RequestMode { "navigate", "same-origin", "no-cors", 
+Request class
+✔MDN
+typedef (Request or USVString) RequestInfo;
+
+[Exposed=(Window,Worker)]
+interface Request {
+  constructor(RequestInfo input, optional RequestInit init = {});
+
+  readonly attribute ByteString method;
+  readonly attribute USVString url;
+  [SameObject] readonly attribute Headers headers;
+
+  readonly attribute RequestDestination destination;
+  readonly attribute USVString referrer;
+  readonly attribute ReferrerPolicy referrerPolicy;
+  readonly attribute RequestMode mode;
+  readonly attribute RequestCredentials credentials;
+  readonly attribute RequestCache cache;
+  readonly attribute RequestRedirect redirect;
+  readonly attribute DOMString integrity;
+  readonly attribute boolean keepalive;
+  readonly attribute boolean isReloadNavigation;
+  readonly attribute boolean isHistoryNavigation;
+  readonly attribute AbortSignal signal;
+
+  [NewObject] Request clone();
+};
+Request includes Body;
+
+dictionary RequestInit {
+  ByteString method;
+  HeadersInit headers;
+  BodyInit? body;
+  USVString referrer;
+  ReferrerPolicy referrerPolicy;
+  RequestMode mode;
+  RequestCredentials credentials;
+  RequestCache cache;
+  RequestRedirect redirect;
+  DOMString integrity;
+  boolean keepalive;
+  AbortSignal? signal;
+  any window; // can only be set to null
+};
+
+enum RequestDestination { "", "audio", "audioworklet", "document", "embed", "font", "frame", "iframe", "image", "manifest", "object", "paintworklet", "report", "script", "sharedworker", "style",  "track", "video", "worker", "xslt" };
+enum RequestMode { "navigate", "same-origin", "no-cors", "cors" };
+enum RequestCredentials { "omit", "same-origin", "include" };
+enum RequestCache { "default", "no-store", "reload", "no-cache", "force-cache", "only-if-cached" };
+enum RequestRedirect { "follow", "error", "manual" };
