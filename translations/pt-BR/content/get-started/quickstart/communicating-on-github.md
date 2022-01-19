@@ -1,6 +1,6 @@
 ---
-title: Communicating on GitHub
-intro: 'You can discuss specific projects and changes, as well as broader ideas or team goals, using different types of discussions on {% data variables.product.product_name %}.'
+title: Comunicar-se no GitHub
+intro: 'Você pode discutir projetos e alterações específicas, bem como ideias mais amplas ou objetivos de equipe, usando diferentes tipos de discussões em {% data variables.product.product_name %}.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/quickstart-for-communicating-on-github
@@ -19,138 +19,139 @@ topics:
   - Discussions
   - Fundamentals
 ---
-## Introduction
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
+## Introdução
+
+{% data variables.product.product_name %} fornece ferramentas de comunicação colaborativa embutidas que permitem que você interaja de perto com sua comunidade. Este guia de início rápido irá mostrar como escolher a ferramenta certa para suas necessidades.
 
 {% ifversion fpt or ghec %}
-You can create and participate in issues, pull requests, {% data variables.product.prodname_discussions %}, and team discussions, depending on the type of conversation you'd like to have.
+Você pode criar e participar de problemas, pull requests, {% data variables.product.prodname_discussions %} e discussões com a equipe, dependendo do tipo de conversa que você gostaria de ter.
 {% endif %}
 {% ifversion ghes or ghae %}
-You can create and participate in issues, pull requests and team discussions, depending on the type of conversation you'd like to have.
+Você pode criar e participar de problemas, pull requests e discussões de equipe, dependendo do tipo de conversa que você gostaria de ter.
 {% endif %}
 
 ### {% data variables.product.prodname_github_issues %}
-- are useful for discussing specific details of a project such as bug reports, planned improvements and feedback. 
-- are specific to a repository, and usually have a clear owner. 
-- are often referred to as {% data variables.product.prodname_dotcom %}'s bug-tracking system.
-  
+- são úteis para discutir detalhes específicos de um projeto como relatórios de erros, melhorias e feedbacks planejados.
+- são específicos para um repositório e geralmente têm um proprietário claro.
+- muitas vezes são referidos como o sistema de rastreamento de erros de {% data variables.product.prodname_dotcom %}.
+
 ### Pull requests
-- allow you to propose specific changes.
-- allow you to comment directly on proposed changes suggested by others. 
-- are specific to a repository. 
- 
+- permite que você proponha alterações específicas.
+- permite que comente diretamente as alterações propostas por outros.
+- são específicos para um repositório.
+
 {% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %}
--  are like a forum, and are best used for open-form ideas and discussions where collaboration is important. 
--  may span many repositories. 
--  provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
--  often don’t have a clear owner.
--  often do not result in an actionable task.
+-  são como um fórum e são mais utilizados para ideias de forma aberta e discussões em que a colaboração é importante.
+-  poderá incluir muitos repositórios.
+-  oferecem uma experiência colaborativa fora da base de código, permitindo o debate de ideias e a criação de uma base de conhecimento comunitária.
+-  frequentemente não têm um proprietário claro.
+-  muitas vezes não resultam em uma tarefa exequível.
 {% endif %}
 
-### Team discussions
-- can be started on your team's page for conversations that span across projects and don't belong in a specific issue or pull request. Instead of opening an issue in a repository to discuss an idea, you can include the entire team by having a conversation in a team discussion.
-- allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% ifversion ghes or ghae %} 
-- provide a collaborative experience outside the codebase, allowing the brainstorming of ideas.
-- often don’t have a clear owner.
-- often do not result in an actionable task.{% endif %}
+### Discussões de equipe
+- na página da sua equipe podem ser iniciadas para conversas que abrangem projetos e não pertencem a um problema específico ou pull request. Em vez de abrir uma issue em um repositório para discutir uma ideia, você pode incluir toda a equipe tendo uma conversa em uma discussão de equipe.
+- permitem que você realize discussões com sua equipe sobre planejamento, análise, design, pesquisa de usuário e tomada de decisão geral do projeto em um só lugar.{% ifversion ghes or ghae %}
+- oferecem uma experiência colaborativa fora do código, o que viabiliza o levantamento de hipóteses.
+- frequentemente não têm um proprietário claro.
+- muitas vezes não resultam em uma tarefa útil.{% endif %}
 
-## Which discussion tool should I use?
+## Que ferramenta de discussão devo usar?
 
-### Scenarios for issues
+### Cenários para problemas
 
-- I want to keep track of tasks, enhancements and bugs.
-- I want to file a bug report.
-- I want to share feedback about a specific feature.
-- I want to ask a question about files in the repository.
+- Quero acompanhar as tarefas, melhorias e erros.
+- Eu quero arquivar um relatório de erro.
+- Quero partilhar o feedback sobre um recurso específico.
+- Quero fazer uma pergunta sobre os arquivos do repositório.
 
-#### Issue example
+#### Exemplo de problema
 
-This example illustrates how a {% data variables.product.prodname_dotcom %} user created an issue in our documentation open source repository to make us aware of a bug, and discuss a fix. 
+Este exemplo ilustra como um usuário do {% data variables.product.prodname_dotcom %} criou um problema na nossa documentação de repositório de código aberto para chamar a nossa atenção para um erro e discutir uma correção.
 
-![Example of issue](/assets/images/help/issues/issue-example.png)
+![Exemplo de problema](/assets/images/help/issues/issue-example.png)
 
-- A user noticed that the blue color of the banner at the top of the page in the Chinese version of the {% data variables.product.prodname_dotcom %} Docs makes the text in the banner unreadable. 
-- The user created an issue in the repository, stating the problem and suggesting a fix (which is, use a different background color for the banner).
-- A discussion ensues, and eventually, a consensus will be reached about the fix to apply.
-- A contributor can then create a pull request with the fix.
+- Um usuário notou que a cor azul do banner na parte superior da página na versão em chinês da documentação do {% data variables.product.prodname_dotcom %} torna o texto no banner ilegível.
+- O usuário criou um problema no repositório, identificando o problema e sugerindo uma correção (que se trata de usar uma cor de fundo diferente para o banner).
+- Uma discussão se inicia e, eventualmente, será alcançado um consenso sobre a correção a ser aplicada.
+- Em seguida, um contribuidor pode criar um pull request com a correção.
 
-### Scenarios for pull requests
+### Cenários para pull requests
 
-- I want to fix a typo in a repository.
-- I want to make changes to a repository.
-- I want to make changes to fix an issue.
-- I want to comment on changes suggested by others.
+- Eu quero corrigir um erro de digitação em um repositório.
+- Quero fazer alterações em um repositório.
+- Eu quero fazer alterações para consertar um problema.
+- Eu quero comentar as alterações sugeridas por outras pessoas.
 
-#### Pull request example
+#### Exemplo de pull request
 
-This example illustrates how a {% data variables.product.prodname_dotcom %} user created a pull request in our documentation open source repository to fix a typo. 
+Este exemplo ilustra como um usuário do {% data variables.product.prodname_dotcom %} criou um pull request na nossa documentação do repositório de código aberto para corrigir um erro de digitação.
 
-In the **Conversation** tab of the pull request, the author explains why they created the pull request.
+Na aba **Conversa** do pull request, o autor explica por que criou o pull request.
 
-![Example of pull request - Conversation tab](/assets/images/help/pull_requests/pr-conversation-example.png)
+![Exemplo de pull request - aba Conversa](/assets/images/help/pull_requests/pr-conversation-example.png)
 
-The **Files changed** tab of the pull request shows the implemented fix.
+A aba**Arquivos alterados** do pull request mostra a correção implementada.
 
-![Example of pull request - Files changed tab](/assets/images/help/pull_requests/pr-files-changed-example.png)
+![Exemplo de pull request - Aba de Arquivos alterados](/assets/images/help/pull_requests/pr-files-changed-example.png)
 
-- This contributor notices a typo in the repository.
-- The user creates a pull request with the fix.
-- A repository maintainer reviews the pull request, comments on it, and merges it.
+- Este contribuidor observa um erro de digitação no repositório.
+- O usuário cria um pull request com a correção.
+- Um mantenedor do repositório revisa o pull request, comenta e faz merge nela.
 
 {% ifversion fpt or ghec %}
-### Scenarios for {% data variables.product.prodname_discussions %}
+### Cenários para {% data variables.product.prodname_discussions %}
 
-- I have a question that's not necessarily related to specific files in the repository.
-- I want to share news with my collaborators, or my team.
-- I want to start or participate in an open-ended conversation.
-- I want to make an announcement to my community.
+- Tenho uma pergunta que não é necessariamente relacionada a arquivos específicos no repositório.
+- Eu quero compartilhar notícias com meus colaboradores ou com minha equipe.
+- Eu quero começar ou participar de uma conversa aberta.
+- Eu quero fazer um anúncio à minha comunidade.
 
-#### {% data variables.product.prodname_discussions %} example
+#### Exemplo de {% data variables.product.prodname_discussions %}
 
-This example shows the {% data variables.product.prodname_discussions %} welcome post for the {% data variables.product.prodname_dotcom %} Docs open source repository, and illustrates how the team wants to collaborate with their community.
+Este exemplo mostra a postagem de boas-vindas de {% data variables.product.prodname_discussions %} para a documentação do repositório de código aberto {% data variables.product.prodname_dotcom %} e ilustra como a equipe quer colaborar com sua comunidade.
 
-![Example of {% data variables.product.prodname_discussions %}](/assets/images/help/discussions/github-discussions-example.png)
+![Exemplo de {% data variables.product.prodname_discussions %}](/assets/images/help/discussions/github-discussions-example.png)
 
-This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
+Este mantenedor da comunidade iniciou uma discussão para dar as boas-vindas à comunidade e pedir aos integrantes que se apresentem. Esta postagem promove uma atmosfera de acolhedora para visitantes e contribuidores. A postagem também esclarece que a equipe tem o prazer em ajudar com as contribuições para o repositório.
 
 {% endif %}
 {% ifversion fpt or ghes or ghae or ghec %}
-### Scenarios for team discussions
+### Cenários para discussões em equipe
 
-- I have a question that's not necessarily related to specific files in the repository.
-- I want to share news with my collaborators, or my team.
-- I want to start or participate in an open-ended conversation.
-- I want to make an announcement to my team.
-
-{% ifversion fpt or ghec %}
-As you can see, team discussions are very similar to {% data variables.product.prodname_discussions %}. For {% data variables.product.prodname_dotcom_the_website %}, we recommend using {% data variables.product.prodname_discussions %} as the starting point for conversations. You can use {% data variables.product.prodname_discussions %} to collaborate with any community on {% data variables.product.prodname_dotcom %}. If you are part of an organization, and would like to initiate conversations within your organization or team within that organization, you should use team discussions.
-{% endif %}
-
-#### Team discussion example
-
-This example shows a team post for the `octo-team` team.
-
-![Example of team discussion](/assets/images/help/projects/team-discussions-example.png)
-
-The `octocat` team member posted a team discussion, informing the team of various things:
-- A team member called Mona started remote game events.
-- There is a blog post describing how the teams use {% data variables.product.prodname_actions %} to produce their docs.
-- Material about the April All Hands is now available for all team members to view.
-
-{% endif %}
-
-## Next steps
-
-These examples showed you how to decide which is the best tool for your conversations on {% data variables.product.product_name %}. But this is only the beginning; there is so much more you can do to tailor these tools to your needs.
-
-For issues, for example, you can tag issues with labels for quicker searching and create issue templates to help contributors open meaningful issues. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues#working-with-issues)" and "[About issue and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
-
-For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)."
+- Tenho uma pergunta que não é necessariamente relacionada a arquivos específicos no repositório.
+- Eu quero compartilhar notícias com meus colaboradores ou com minha equipe.
+- Eu quero começar ou participar de uma conversa aberta.
+- Eu quero fazer um anúncio à minha equipe.
 
 {% ifversion fpt or ghec %}
-For {% data variables.product.prodname_discussions %}, you can set up a code of conduct and pin discussions that contain important information for your community. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+Como você pode ver, as discussões da equipe são muito parecidas com {% data variables.product.prodname_discussions %}. Para {% data variables.product.prodname_dotcom_the_website %}, recomendamos usar {% data variables.product.prodname_discussions %} como ponto de partida para conversas. Você pode usar {% data variables.product.prodname_discussions %} para colaborar com qualquer comunidade em {% data variables.product.prodname_dotcom %}. Se você faz parte de uma organização e gostaria de iniciar conversas dentro da sua organização ou equipe dentro dessa organização, você deverá usar discussões de equipe.
 {% endif %}
 
-For team discussions, you can edit or delete discussions on a team's page, and you can configure notifications for team discussions. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+#### Exemplo de discussão em equipe
+
+Este exemplo mostra uma postagem de equipe para a equipe `octo-team`.
+
+![Exemplo de discussão em equipe](/assets/images/help/projects/team-discussions-example.png)
+
+O integrante da equipe do `octocat` publicou uma discussão sobre a equipe, informando a equipe de várias coisas:
+- Um integrante da equipe denominado Mona iniciou eventos remotos de jogos.
+- Há uma postagem no blogue que descreve como as equipes usam {% data variables.product.prodname_actions %} para produzir sua documentação.
+- Material sobre a "All Hands" de Abril agora está disponível para ver todos os integrantes da equipe.
+
+{% endif %}
+
+## Próximas etapas
+
+Estes exemplos mostraram como decidir qual é a melhor ferramenta para suas conversas em {% data variables.product.product_name %}. Mas esse é apenas o começo; há muito mais que você pode fazer para adaptar essas ferramentas às suas necessidades.
+
+Para problemas, por exemplo, você pode marcar problemas com etiquetas para uma pesquisa mais rápida e criar modelos de problemas para ajudar os colaboradores a abrir problemas significativos. Para obter mais informações, consulte "[Sobre problemas](/github/managing-your-work-on-github/about-issues#working-with-issues)" e "[Sobre problemas e modelos de pull request](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)".
+
+Para pull requests, você pode criar pull requests de rascunho se as suas alterações propostas ainda forem um trabalho em andamento. Não é possível fazer o merge dos pull requests de rascunho até que estejam prontos para revisão. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)".
+
+{% ifversion fpt or ghec %}
+Para {% data variables.product.prodname_discussions %}, você pode definir um código de conduta e fixar discussões que contenham informações importantes para sua comunidade. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
+{% endif %}
+
+Para discussões em equipe, você pode editar ou excluir discussões na página de uma equipe, além de poder configurar notificações para discussões em equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions)".

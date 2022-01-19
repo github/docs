@@ -63,7 +63,7 @@ export const GuidesHero = () => {
                 >
                   <StarFillIcon size={24} />
                 </div>
-                <h3 className="text-semibold my-4">{featuredTrack.title}</h3>
+                <h2 className="text-semibold my-4 f3">{featuredTrack.title}</h2>
                 <div className="f5 my-4">{featuredTrack.description}</div>
                 {featuredTrack.guides && (
                   <Link

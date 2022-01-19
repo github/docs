@@ -1,7 +1,7 @@
 ---
-title: Enabling GitHub Advanced Security for your enterprise
-shortTitle: Enabling GitHub Advanced Security
-intro: 'You can configure {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code.'
+title: 为企业启用 GitHub Advanced Security
+shortTitle: 启用 GitHub Advanced Security
+intro: '您可以配置 {% data variables.product.product_name %} 以包括 {% data variables.product.prodname_GH_advanced_security %}。 这将提供额外的功能，帮助用户发现和修复其代码中的安全问题。'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   ghes: '*'
@@ -14,84 +14,81 @@ topics:
   - Security
 ---
 
-## About enabling {% data variables.product.prodname_GH_advanced_security %}
+## 关于启用 {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
 {% ifversion ghes > 3.0 %}
-When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features unless you set up a policy to restrict access. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."
+为企业启用 {% data variables.product.prodname_GH_advanced_security %} 后，所有组织的仓库管理员都可以启用这些功能，除非您设置了限制访问的策略。 更多信息请参阅“[在企业中执行 {% data variables.product.prodname_advanced_security %} 的策略](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)”。
 {% else %}
-When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features. {% ifversion ghes = 3.0 %}For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
+为企业启用 {% data variables.product.prodname_GH_advanced_security %} 后，所有组织的仓库管理员都可以启用这些功能。 {% ifversion ghes = 3.0 %}更多信息请参阅“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”或“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。{% endif %}
 {% endif %}
 
 {% ifversion ghes %}
-For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying GitHub Advanced Security in your enterprise](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)."
+有关分阶段部署 GitHub Advanced Security 的指导，请参阅“[在企业中部署 GitHub Advanced Security](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)”。
 {% endif %}
 
-## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+## 检查您的许可是否包含 {% data variables.product.prodname_GH_advanced_security %}
 
 {% ifversion ghes > 3.0 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, the license page includes a section showing details of current usage.
-![{% data variables.product.prodname_GH_advanced_security %} section of Enterprise license](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
+1. 如果您的许可包括 {% data variables.product.prodname_GH_advanced_security %}，则许可页面将包括显示当前使用情况详细信息的部分。 ![企业许可证的 {% data variables.product.prodname_GH_advanced_security %} 部分](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
 {% endif %}
 
 {% ifversion ghes = 3.0 %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, there is an **{% data variables.product.prodname_advanced_security %}** entry in the left sidebar.
-![Advanced Security sidebar](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
+1. 如果您的许可包括 {% data variables.product.prodname_GH_advanced_security %}，则左侧边栏中有一个 **{% data variables.product.prodname_advanced_security %}** 条目。 ![高级安全侧边栏](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
 
 {% data reusables.enterprise_management_console.advanced-security-license %}
 {% endif %}
 
-## Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}
+## 启用 {% data variables.product.prodname_GH_advanced_security %} 的前提条件
 
-1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes > 3.0 %} For information about licensing, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
-2. Download the new license file. For more information, see "[Downloading your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
-3. Upload the new license file to {% data variables.product.product_location %}. For more information, see "[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes %}
-4. Review the prerequisites for the features you plan to enable.
+1. 升级 {% data variables.product.product_name %} 许可以包括 {% data variables.product.prodname_GH_advanced_security %}。{% ifversion ghes > 3.0 %}有关许可的更多信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)”。{% endif %}
+2. 下载新的许可文件。 更多信息请参阅“[下载 {% data variables.product.prodname_enterprise %} 的许可](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)”。
+3. 将新许可文件上传到 {% data variables.product.product_location %}。 更多信息请参阅“[上传新许可到 {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)”。{% ifversion ghes %}
+4. 审查您计划启用的功能的先决条件。
 
-    - {% data variables.product.prodname_code_scanning_capc %}, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
-    - {% data variables.product.prodname_secret_scanning_caps %}, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your appliance](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
-    - {% data variables.product.prodname_dependabot %}, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)." 
+    - {% data variables.product.prodname_code_scanning_capc %}，请参阅“[为设备配置 {% data variables.product.prodname_code_scanning %}](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)”。
+    - {% data variables.product.prodname_secret_scanning_caps %}，请参阅“[为设备配置 {% data variables.product.prodname_secret_scanning %}](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)”。{% endif %}
+    - {% data variables.product.prodname_dependabot %}，请参阅“[在企业帐户上启用依赖关系图和 {% data variables.product.prodname_dependabot_alerts %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)”。
 
-## Enabling and disabling {% data variables.product.prodname_GH_advanced_security %} features
+## 启用和禁用 {% data variables.product.prodname_GH_advanced_security %} 功能
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
-1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," select the features that you want to enable and deselect any features you want to disable.
+1. 在“{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security（安全性）{% endif %}”下，选择要启用的功能，取消选择要禁用的任何功能。
 {% ifversion ghes > 3.1 %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
-1. Under "{% data variables.product.prodname_advanced_security %}," click **{% data variables.product.prodname_code_scanning_capc %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
+1. 在“{% data variables.product.prodname_advanced_security %}”下，单击 **{% data variables.product.prodname_code_scanning_capc %}**。 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)用于启用 Public Pages 的复选框{% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-When {% data variables.product.product_name %} has finished restarting, you're ready to set up any additional resources required for newly enabled features. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance)."
+当 {% data variables.product.product_name %} 完成重启后，您可以设置新启用功能所需的任何额外资源。 更多信息请参阅“[为设备配置 {% data variables.product.prodname_code_scanning %}](/admin/advanced-security/configuring-code-scanning-for-your-appliance)”。
 
-## Enabling or disabling {% data variables.product.prodname_GH_advanced_security %} features via the administrative shell (SSH)
+## 通过管理 shell (SSH) 启用或禁用 {% data variables.product.prodname_GH_advanced_security %} 功能
 
-You can enable or disable features programmatically on {% data variables.product.product_location %}. For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[Command-line utilities](/admin/configuration/command-line-utilities#ghe-config)."
+您可以通过编程方式在 {% data variables.product.product_location %} 上启用或禁用功能。 有关 {% data variables.product.prodname_ghe_server %} 的管理 shell 和命令行实用程序的更多信息，请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)”和“[命令行实用程序](/admin/configuration/command-line-utilities#ghe-config)”。
 
-For example, you can enable any {% data variables.product.prodname_GH_advanced_security %} feature with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
+例如，当您部署用于暂存或灾难恢复的实例时，可以使用基础架构即代码工具启用任何 {% data variables.product.prodname_GH_advanced_security %}。
 
-1. SSH into {% data variables.product.product_location %}.
-1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
+1. SSH 连接到 {% data variables.product.product_location %}。
+1. 启用 {% data variables.product.prodname_GH_advanced_security %} 的功能。
 
-    - To enable {% data variables.product.prodname_code_scanning_capc %}, enter the following commands.
+    - 要启用 {% data variables.product.prodname_code_scanning_capc %}，请输入以下命令。
     ```shell
     ghe-config app.minio.enabled true
     ghe-config app.code-scanning.enabled true
     ```
-    - To enable {% data variables.product.prodname_secret_scanning_caps %}, enter the following command.
+    - 要启用 {% data variables.product.prodname_secret_scanning_caps %}，请输入以下命令。
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
-    - To enable {% data variables.product.prodname_dependabot %}, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    - 要启用 {% data variables.product.prodname_dependabot %}，请输入以下 {% ifversion ghes > 3.1 %}命令{% else %}命令{% endif %}。
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
@@ -99,18 +96,18 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ghe-config app.github.dependency-graph-enabled true
     ghe-config app.github.vulnerability-alerting-and-settings-enabled true
     ```{% endif %}
-2. Optionally, disable features for {% data variables.product.prodname_GH_advanced_security %}.
+2. （可选）禁用 {% data variables.product.prodname_GH_advanced_security %} 的功能。
 
-    - To disable {% data variables.product.prodname_code_scanning %}, enter the following commands.
+    - 要禁用 {% data variables.product.prodname_code_scanning %}，请输入以下命令。
     ```shell
     ghe-config app.minio.enabled false
     ghe-config app.code-scanning.enabled false
     ```
-    - To disable {% data variables.product.prodname_secret_scanning %}, enter the following command.
+    - 要禁用 {% data variables.product.prodname_secret_scanning %}，请输入以下命令。
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - To disable {% data variables.product.prodname_dependabot_alerts %}, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    - 要禁用 {% data variables.product.prodname_dependabot_alerts %}，请输入以下 {% ifversion ghes > 3.1 %}命令{% else %}命令{% endif %}。
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled false
     ```
@@ -118,7 +115,7 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ghe-config app.github.dependency-graph-enabled false
     ghe-config app.github.vulnerability-alerting-and-settings-enabled false
     ```{% endif %}
-3. Apply the configuration.
+3. 应用配置。
     ```shell
     ghe-config-apply
     ```

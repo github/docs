@@ -1,6 +1,6 @@
 ---
-title: Importing source code to GitHub
-intro: 'You can import repositories to GitHub using {% ifversion fpt %}GitHub Importer, the command line,{% else %}the command line{% endif %} or external migration tools.'
+title: 将源代码导入到 GitHub
+intro: '您可以使用 {% ifversion fpt %}GitHub 导入工具、命令行、{% else %}命令行{% endif %}或外部迁移工具将仓库导入到 GitHub。'
 redirect_from:
   - /articles/importing-an-external-git-repository
   - /articles/importing-from-bitbucket
@@ -19,6 +19,6 @@ children:
   - /importing-a-git-repository-using-the-command-line
   - /adding-an-existing-project-to-github-using-the-command-line
   - /source-code-migration-tools
-shortTitle: Import code to GitHub
+shortTitle: 导入代码到 GitHub
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Enabling debug logging
-intro: 'If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging.'
+title: Habilitar registro de depuración
+intro: 'Si los registros de flujo de trabajo no proporcionan suficiente detalle para diagnosticar por qué un flujo de trabajo o paso no funciona como se espera, puedes habilitar más registros de depuración.'
 redirect_from:
   - /actions/managing-workflow-runs/enabling-debug-logging
 versions:
@@ -13,7 +13,7 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-These extra logs are enabled by setting secrets in the repository containing the workflow, so the same permissions requirements will apply:
+Estas bitácoras extra se habilitan configurando los secretos en el repositorio que contiene el flujo de trabajo, así que aplicarán los mismos requisitos de los permisos:
 
 - {% data reusables.github-actions.permissions-statement-secrets-repository %}
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
@@ -22,23 +22,23 @@ These extra logs are enabled by setting secrets in the repository containing the
 - {% data reusables.github-actions.permissions-statement-secrets-organization %}
 - {% data reusables.github-actions.permissions-statement-secrets-api %}
 
-For more information on setting secrets, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+Para obtener más información sobre cómo establecer secretos, consulta la sección "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-## Enabling runner diagnostic logging
+## Habilitar el registro de diagnóstico del ejecutor
 
-Runner diagnostic logging provides additional log files that contain information about how a runner is executing a job. Two extra log files are added to the log archive:
+El registro de diagnósticos de ejecución proprociona archivos de bitácora adicionales que contienen información acera de cómo un ejecutor está ejecutando un job. Dos archivos de registro adicionales se agregan al archivo de registro:
 
-* The runner process log, which includes information about coordinating and setting up runners to execute jobs.
-* The worker process log, which logs the execution of a job.
+* El registro del proceso del ejecutor, que incluye información acerca de la coordinación y la configuración de los ejecutores para ejecutar tareas.
+* El registro del proceso del trabajador, que registra la ejecución de una tarea.
 
-1. To enable runner diagnostic logging, set the following secret in the repository that contains the workflow: `ACTIONS_RUNNER_DEBUG` to `true`.
+1. Para habilitar el registro de diagnóstico del ejecutor, establece el siguiente secreto en el repositorio que contiene el flujo de trabajo: `ACTIONS_RUNNER_DEBUG` en `true`.
 
-1. To download runner diagnostic logs, download the log archive of the workflow run. The runner diagnostic logs are contained in the `runner-diagnostic-logs` folder. For more information on downloading logs, see "[Downloading logs](/actions/managing-workflow-runs/using-workflow-run-logs/#downloading-logs)."
+1. Para descargar los registros de diagnóstico del ejecutor, descarga el archivo de registro del flujo de trabajo. Los registros de diagnóstico del ejecutor se encuentran en la carpeta `correner-diagnostic-logs`. Para obtener más información sobre cómo descargar bitácoras, consulta la sección "[Descargar bitácoras](/actions/managing-workflow-runs/using-workflow-run-logs/#downloading-logs)".
 
-## Enabling step debug logging
+## Habilitar el registro de depuración del paso
 
-Step debug logging increases the verbosity of a job's logs during and after a job's execution.
+El registro de depuración del paso aumenta el nivel de detalle de los registros de un trabajo durante y después de la ejecución de una tarea.
 
-1. To enable step debug logging, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`.
+1. Para habilitar el registro de depuración del paso, debes establecer el siguiente secreto en el repositorio que contiene el flujo de trabajo: `ACTIONS_RUNNER_DEBUG` en `true`.
 
-1. After setting the secret, more debug events are shown in the step logs. For more information, see ["Viewing logs to diagnose failures"](/actions/managing-workflow-runs/using-workflow-run-logs/#viewing-logs-to-diagnose-failures).
+1. Después de establecer el secreto, se muestran más eventos de depuración en los registros del paso. Para obtener más información, consulta ["Ver registros para diagnosticar fallas"](/actions/managing-workflow-runs/using-workflow-run-logs/#viewing-logs-to-diagnose-failures).

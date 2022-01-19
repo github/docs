@@ -1,7 +1,7 @@
 ---
-title: Managing your GitHub billing settings
-shortTitle: Billing settings
-intro: 'Your account''s billing settings apply to every paid feature or product you add to the account. You can manage settings like your payment method, billing cycle, and billing email. You can also view billing information such as your subscription, billing date, payment history, and past receipts.'
+title: Administrar tus configuraciones de facturación de GitHub
+shortTitle: Configuración de facturación
+intro: 'Las configuraciones de facturación de tu cuenta se aplican a cada característica paga o producto que agregas a la cuenta. Puedes administrar configuraciones como tu método de pago, el ciclo de facturación y el correo electrónico de facturación. También puedes visualizar la información de facturación como tu suscripción, la fecha de facturación, el historial de pagos y los recibos pasados.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings
   - /articles/viewing-and-managing-your-personal-account-s-billing-information
@@ -25,6 +25,5 @@ children:
   - /redeeming-a-coupon
   - /troubleshooting-a-declined-credit-card-charge
   - /unlocking-a-locked-account
-  - /removing-a-payment-method
 ---
 

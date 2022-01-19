@@ -1,5 +1,5 @@
 ---
-title: Releases
+title: Lanzamientos
 intro: 'The releases API allows you to create, modify, and delete releases and release assets.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -14,10 +14,16 @@ miniTocMaxHeadingLevel: 3
 
 {% note %}
 
-**Note:** The Releases API replaces the Downloads API. You can retrieve the download count and browser download URL from the endpoints in this API that return releases and release assets.
+**Nota:** La API de Lanzamientos reemplaza a la API de Descargas. Puedes recuperar el conteo de descargas y la URL de descarga del buscador desde las terminales en esta API, las cuales devuelven los lanzamientos y los activos de éstos.
 
 {% endnote %}
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'releases' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
+{% endfor %}
+
+## Release assets
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'assets' %}{% include rest_operation %}{% endif %}
 {% endfor %}

@@ -17,7 +17,7 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## Introducción
 
 After you create an action, you'll want to continue releasing new features while working with community contributions. This tutorial describes an example process you can follow to release and maintain actions in open source. The example:
 
@@ -57,22 +57,22 @@ To support the developer process in the next section, add two {% data variables.
 
 Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt or ghec%} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
 
-1. Do feature work in branches per GitHub flow. For more information, see "[GitHub flow](/get-started/quickstart/github-flow)."
+1. Do feature work in branches per GitHub flow. Para obtener más información, consulta la sección "[Flujo de GitHub](/get-started/quickstart/github-flow)".
    * Whenever a commit is pushed to the feature branch, your testing workflow will automatically run the tests.
 
 2. Create pull requests to the `main` branch to initiate discussion and review, merging when ready.
 
    * When a pull request is opened, either from a branch or a fork, your testing workflow will again run the tests, this time with the merge commit.
 
-   * **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. If your tests or other workflows triggered upon pull request require access to secrets, consider using a different event like a [manual trigger](/actions/reference/events-that-trigger-workflows#manual-events) or a [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Read more [here](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
+   * **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. Su tus pruebas u otros flujos de trabajo que se activaron en la solicitud de cambios requieren acceso a secretos, considera utilizar un evento diferente como un [activador manual](/actions/reference/events-that-trigger-workflows#manual-events) o una [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Read more [here](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
 
-3. Create a semantically tagged release. {% ifversion fpt or ghec %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} and "[Publishing actions in {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
+3. Create a semantically tagged release. {% ifversion fpt or ghec %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} Para obtener más información, consulta las secciones "[Adminsitrar los lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} y "[Publicar acciones en {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
 
    * When a release is published or edited, your release workflow will automatically take care of compilation and adjusting tags.
 
    * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" and "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
 
-### Results
+### Resultados
 
 Unlike some other automated release management strategies, this process intentionally does not commit dependencies to the `main` branch, only to the tagged release commits. By doing so, you encourage users of your action to reference named tags or `sha`s, and you help ensure the security of third party pull requests by doing the build yourself during a release.
 
@@ -82,12 +82,12 @@ Using semantic releases means that the users of your actions can pin their workf
 
 {% data variables.product.product_name %} provides tools and guides to help you work with the open source community. Here are a few tools we recommend setting up for healthy bidirectional communication. By providing the following signals to the community, you encourage others to use, modify, and contribute to your action:
 
-* Maintain a `README` with plenty of usage examples and guidance. For more information, see "[About READMEs](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
-* Include a workflow status badge in your `README` file. For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)." Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
-* Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)."{% endif %}
+* Maintain a `README` with plenty of usage examples and guidance. Para obtener más información, consulta "[Acerca de los README](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)".
+* Include a workflow status badge in your `README` file. Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)". Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
+* Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)".{% endif %}
 * Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).
 
-## Further reading
+## Leer más
 
 Examples where similar patterns are employed include:
 

@@ -4,6 +4,26 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `OrgEnterpriseOwnerOrder` was added",
+          "Type `OrgEnterpriseOwnerOrderField` was added",
+          "Type `OrganizationEnterpriseOwnerConnection` was added",
+          "Type `OrganizationEnterpriseOwnerEdge` was added",
+          "Enum value 'LFX_CROWDFUNDING` was added to enum `FundingPlatform'",
+          "Field `enterpriseOwners` was added to object type `Organization`",
+          "Enum value 'ADDED_TO_MERGE_QUEUE_EVENT` was added to enum `PullRequestTimelineItemsItemType'",
+          "Enum value 'REMOVED_FROM_MERGE_QUEUE_EVENT` was added to enum `PullRequestTimelineItemsItemType'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-01-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `BypassForcePushAllowance` was added",
           "Type `BypassForcePushAllowanceConnection` was added",
           "Type `BypassForcePushAllowanceEdge` was added",

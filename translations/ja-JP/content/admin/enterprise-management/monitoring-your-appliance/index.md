@@ -1,6 +1,6 @@
 ---
-title: Monitoring your appliance
-intro: 'As use of {% data variables.product.product_location %} increases over time, the utilization of system resources, like CPU, memory, and storage will also increase. You can configure monitoring and alerting so that you''re aware of potential issues before they become critical enough to negatively impact application performance or availability.'
+title: アプライアンスを監視する
+intro: '{% data variables.product.product_location %} インスタンスの使用が時間とともに増加するにつれて、CPU、メモリ、ストレージなどのシステムリソースの利用率も増加します。 アプリケーションのパフォーマンスや可用性にマイナスの影響を及ぼすほど重大になる前に潜在的な問題に気づけるよう、モニタリングやアラートを設定することができます。'
 redirect_from:
   - /enterprise/admin/guides/installation/system-resource-monitoring-and-alerting
   - /enterprise/admin/guides/installation/monitoring-your-github-enterprise-appliance

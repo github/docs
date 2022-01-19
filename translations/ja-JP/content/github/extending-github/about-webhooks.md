@@ -1,11 +1,11 @@
 ---
-title: About webhooks
+title: webhook について
 redirect_from:
   - /post-receive-hooks
   - /articles/post-receive-hooks
   - /articles/creating-webhooks
   - /articles/about-webhooks
-intro: Webhooks provide a way for notifications to be delivered to an external web server whenever certain actions occur on a repository or organization.
+intro: webhook は、特定のアクションがリポジトリあるいは Organization で生じたときに外部の Web サーバーへ通知を配信する方法を提供します。
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,17 +15,17 @@ versions:
 
 {% tip %}
 
-**Tip:** {% data reusables.organizations.owners-and-admins-can %} manage webhooks for an organization. {% data reusables.organizations.new-org-permissions-more-info %}
+**ヒント:** {% data reusables.organizations.owners-and-admins-can %}は Organization の webhook を管理します。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
-Webhooks can be triggered whenever a variety of actions are performed on a repository or an organization. For example, you can configure a webhook to execute whenever:
+webhook は、リポジトリあるいは Organization にさまざまなアクションが行われたときに動作します。 たとえば以下のような場合に動作するよう webhook を設定できます:
 
-* A repository is pushed to
-* A pull request is opened
-* A {% data variables.product.prodname_pages %} site is built
-* A new member is added to a team
+* リポジトリへのプッシュ
+* プルリクエストのオープン
+* {% data variables.product.prodname_pages %}サイトの構築
+* Team への新しいメンバーの追加
 
 Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you can make these webhooks update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server.
 
-To set up a new webhook, you'll need access to an external server and familiarity with the technical procedures involved. For help on building a webhook, including a full list of actions you can associate with, see "[Webhooks](/webhooks)."
+新しい webhook をセットアップするには、外部サーバーにアクセスでき、関連する技術的な手順に精通している必要があります。 関連付けられるアクションの完全なリストを含む、webhook の作成に関するヘルプについては、「[ webhook](/webhooks)」を参照してください。

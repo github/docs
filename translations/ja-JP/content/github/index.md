@@ -4,7 +4,7 @@ redirect_from:
   - /articles
   - /common-issues-and-questions
   - /troubleshooting-common-issues
-intro: 'Documentation, guides, and help topics for software developers, designers, and project managers. Covers using Git, pull requests, issues, wikis, gists, and everything you need to make the most of GitHub for development.'
+intro: ソフトウェア開発者、設計者、およびプロジェクトマネージャーのためのドキュメント、ガイド、およびヘルプトピックです。 Git、プルリクエスト、Issues、Wiki、Gist の使用方法、および開発のために GitHub を最大限活用するために必要な全てのポイントをカバーしています。
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,8 +16,8 @@ children:
   - /importing-your-projects-to-github
   - /customizing-your-github-workflow
   - /extending-github
-  - /working-with-github-support
   - /understanding-how-github-uses-and-protects-your-data
   - /site-policy
   - /site-policy-deprecated
 ---
+

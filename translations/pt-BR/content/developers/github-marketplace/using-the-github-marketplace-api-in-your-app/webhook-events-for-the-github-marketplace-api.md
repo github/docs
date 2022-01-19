@@ -1,6 +1,6 @@
 ---
-title: Webhook events for the GitHub Marketplace API
-intro: 'A {% data variables.product.prodname_marketplace %} app receives information about changes to a user''s plan from the Marketplace purchase event webhook. A Marketplace purchase event is triggered when a user purchases, cancels, or changes their payment plan.'
+title: Eventos do Webhook para a API do GitHub Marketplace
+intro: 'Um aplicativo do {% data variables.product.prodname_marketplace %} recebe informações sobre mudanças no plano de um usuário no webhook do evento de compra no Marketplace. Um evento de compra no Marketplace é acionado quando um usuário compra, cancela ou muda seu plano de pagamento.'
 redirect_from:
   - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing
   - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
@@ -11,65 +11,66 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: Webhook events
+shortTitle: Eventos webhook
 ---
-## {% data variables.product.prodname_marketplace %} purchase webhook payload
 
-Webhooks `POST` requests have special headers. See "[Webhook delivery headers](/webhooks/event-payloads/#delivery-headers)" for more details. GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.
+## Carga do webhook de compra no {% data variables.product.prodname_marketplace %}
 
-Cancellations and downgrades take effect on the first day of the next billing cycle. Events for downgrades and cancellations are sent when the new plan takes effect at the beginning of the next billing cycle. Events for new purchases and upgrades begin immediately. Use the `effective_date` in the webhook payload to determine when a change will begin.
+As solicitações de `POST` têm cabeçalhos especiais. Consulte "[Cabeçalhos de entrega de Webhook](/webhooks/event-payloads/#delivery-headers)" para obter mais informações. O GitHub não reenvia tentativas falhas de entrega. Certifique-se de que seu aplicativo possa receber todas as cargas do webhook enviadas pelo GitHub.
+
+Os cancelamentos e downgrades entram em vigor no primeiro dia do próximo ciclo de cobrança. Os eventos para downgrades e cancelamentos são enviados quando o novo plano entra em vigor no início do próximo ciclo de cobrança. Os eventos referentes às novas compras e atualizações entram em vigor imediatamente. Use `effective_date` na carga do webhook para determinar quando uma alteração terá início.
 
 {% data reusables.marketplace.marketplace-malicious-behavior %}
 
-Each `marketplace_purchase` webhook payload will have the following information:
+Cada carga útil do webhook de `marketplace_purchase` terá as seguintes informações:
 
 
-Key | Type | Description
-----|------|-------------
-`action` | `string` | The action performed to generate the webhook. Can be `purchased`, `cancelled`, `pending_change`, `pending_change_cancelled`, or `changed`. For more information, see the example webhook payloads below. **Note:** The `pending_change` and `pending_change_cancelled` payloads contain the same keys as shown in the [`changed` payload example](#example-webhook-payload-for-a-changed-event).
-`effective_date` | `string` | The date the `action` becomes effective.
-`sender` | `object` | The person who took the `action` that triggered the webhook.
-`marketplace_purchase` | `object` | The {% data variables.product.prodname_marketplace %} purchase information.
+| Tecla                  | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação`                 | `string` | A ação realizada para gerar o webhook. Pode ser `comprado`, `cancelado`, `pending_change`, `pending_change_cancelled`, ou `alterado`. Para obter mais informações, consulte o exemplo de cargas de webhook abaixo. **Observação:** As cargas `pending_change` e `pending_change_cancelled` contêm as mesmas chaves mostradas no exemplo na carga [`alterado` da carga](#example-webhook-payload-for-a-changed-event). |
+| `effective_date`       | `string` | A data da `ação` entra em vigor.                                                                                                                                                                                                                                                                                                                                                                                      |
+| `remetente`            | `objeto` | A pessoa que realizou a `ação` que acionou o webhook.                                                                                                                                                                                                                                                                                                                                                                 |
+| `marketplace_purchase` | `objeto` | Informações de compra do {% data variables.product.prodname_marketplace %}.                                                                                                                                                                                                                                                                                                                                           |
 
-The `marketplace_purchase` object has the following keys:
+O objeto `marketplace_purchase` tem as seguintes chaves:
 
-Key | Type | Description
-----|------|-------------
-`account` | `object` | The `organization` or `user` account associated with the subscription. Organization accounts will include `organization_billing_email`, which is the organization's administrative email address. To find email addresses for personal accounts, you can use the [Get the authenticated user](/rest/reference/users#get-the-authenticated-user) endpoint.
-`billing_cycle` | `string` | Can be `yearly` or `monthly`. When the `account` owner has a free GitHub plan and has purchased a free {% data variables.product.prodname_marketplace %} plan, `billing_cycle` will be `nil`.
-`unit_count`  | `integer` | Number of units purchased.
-`on_free_trial` | `boolean` | `true` when the `account` is on a free trial.
-`free_trial_ends_on` | `string` | The date the free trial will expire.
-`next_billing_date` | `string` | The date that the next billing cycle will start. When the `account` owner has a free GitHub.com plan and has purchased a free {% data variables.product.prodname_marketplace %} plan, `next_billing_date` will be `nil`.
-`plan` | `object` | The plan purchased by the `user` or `organization`.
+| Tecla                | Tipo      | Descrição                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `conta`              | `objeto`  | A conta da `organização` ou do `usuário` associada à assinatura. As contas da organização incluirão `organization_billing_email`, que é o endereço de e-mail administrativo da organização. Para encontrar endereços de e-mail para contas pessoais, você pode usar o ponto de extremidade [Obter o usuário autenticado](/rest/reference/users#get-the-authenticated-user). |
+| `billing_cycle`      | `string`  | Pode ser `anual` ou `mensal`. Quando a o proprietário da `conta` tem um plano grátis do GitHub e comprou um plano grátis do {% data variables.product.prodname_marketplace %}, o `billing_cycle` será `nulo`.                                                                                                                                                               |
+| `unit_count`         | `inteiro` | Número de unidades compradas.                                                                                                                                                                                                                                                                                                                                               |
+| `on_free_trial`      | `boolean` | `verdadeiro` quando a `conta` está em um teste grátis.                                                                                                                                                                                                                                                                                                                      |
+| `free_trial_ends_on` | `string`  | A data em que o teste grátis expirará.                                                                                                                                                                                                                                                                                                                                      |
+| `next_billing_date`  | `string`  | A data em que começará o próximo ciclo de faturamento. Quando o proprietário da `conta` tem um plano grátis do GitHub.com e comprou um plano grátis do {% data variables.product.prodname_marketplace %}, o `next_billing_date` será `nulo`.                                                                                                                                |
+| `plano`              | `objeto`  | O plano comprado pelo usuário `` ou `organização`.                                                                                                                                                                                                                                                                                                                          |
 
-The `plan` object has the following keys:
+O objeto `plano` tem as chaves a seguir:
 
-Key | Type | Description
-----|------|-------------
-`id` | `integer` | The unique identifier for this plan.
-`name` | `string` | The plan's name.
-`description` | `string` | This plan's description.
-`monthly_price_in_cents` | `integer` | The monthly price of this plan in cents (US currency). For example, a listing that costs 10 US dollars per month will be 1000 cents.
-`yearly_price_in_cents` | `integer` | The yearly price of this plan in cents (US currency). For example, a listing that costs 100 US dollars per month will be 10000 cents.
-`price_model` | `string` | The pricing model for this listing. Can be one of `flat-rate`, `per-unit`, or `free`.
-`has_free_trial` | `boolean` | `true` when this listing offers a free trial.
-`unit_name` | `string` | The name of the unit. If the pricing model is not `per-unit` this will be `nil`.
-`bullet` | `array of strings` | The names of the bullets set in the pricing plan.
+| Tecla                    | Tipo               | Descrição                                                                                                                             |
+| ------------------------ | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                     | `inteiro`          | O identificador exclusivo para este plano.                                                                                            |
+| `name`                   | `string`           | O nome do plano.                                                                                                                      |
+| `descrição`              | `string`           | Descrição deste plano.                                                                                                                |
+| `monthly_price_in_cents` | `inteiro`          | O preço mensal deste plano em centavos (moeda americana). Por exemplo, uma listagem que custa 10 dólares por mês será 1000 centavos.  |
+| `yearly_price_in_cents`  | `inteiro`          | O preço anual deste plano em centavos (moeda americana). Por exemplo, uma listagem que custa 100 dólares por mês será 10000 centavos. |
+| `price_model`            | `string`           | O modelo de preço para esta listagem. Pode ser uma das `tarifas fixas`, `por unidade`, ou `grátis`.                                   |
+| `has_free_trial`         | `boolean`          | `verdadeiro` quando esta listagem oferece um teste grátis.                                                                            |
+| `unit_name`              | `string`           | O nome da unidade. Se o modelo de preços não é `por unidade`, será `nulo`.                                                            |
+| `marcador`               | `array de strigns` | Os nomes dos marcadores estabelecidos no plano de preços.                                                                             |
 
 <br/>
 
-### Example webhook payload for a `purchased` event
-This example provides the `purchased` event payload.
+### Exemplo de carga de webhook para um evento `comprado`
+Este exemplo fornece a carga do evento `comprado`.
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
-### Example webhook payload for a `changed` event
+### Exemplo de carga de webhook para um evento `alterado`
 
-Changes in a plan include upgrades and downgrades. This example represents the `changed`,`pending_change`, and `pending_change_cancelled` event payloads. The action identifies which of these three events has occurred.
+As alterações em um plano incluem atualizações e downgrades. Este exemplo representa as cargas de eventos `alterados`,`pending_change` e `pending_change_cancelled`. A ação identifica qual destes três acontecimentos ocorreu.
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.changed }}
 
-### Example webhook payload for a `cancelled` event
+### Exemplo de carga de webhook para um evento `cancelado`
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.cancelled }}

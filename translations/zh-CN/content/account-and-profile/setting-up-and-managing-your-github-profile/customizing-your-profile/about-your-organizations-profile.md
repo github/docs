@@ -16,7 +16,7 @@ topics:
 shortTitle: 组织资料
 ---
 
-You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories.{% ifversion not ghes and not ghae %} You can customize your organization's profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."{% endif %}
+You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4749 %} You can customize your organization's profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."{% endif %}
 
 {% ifversion fpt or ghec %}要确认组织的身份并在组织资料页面显示“验证的”徽章，必须向 {% data variables.product.product_name %} 验证组织的域。 For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."{% endif %}
 

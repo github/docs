@@ -1,6 +1,6 @@
 ---
-title: Guides
-intro: 'Learn about getting started with the REST API, authentication, and how to use the REST API for a variety of tasks.'
+title: ガイド
+intro: REST APIおよび認証の初歩や、さまざまなタスクでREST APIを使用する方法について学びましょう。
 redirect_from:
   - /guides
   - /v3/guides
@@ -24,10 +24,5 @@ children:
   - /getting-started-with-the-git-database-api
   - /getting-started-with-the-checks-api
 ---
-This section of the documentation is intended to get you up-and-running with
-real-world {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API applications. We'll cover everything you need to know, from
-authentication, to manipulating results, to combining results with other apps.
-Every tutorial here will have a project, and every project will be
-stored and documented in our public
-[platform-samples](https://github.com/github/platform-samples) repository.
-![The Electrocat](/assets/images/electrocat.png)
+
+This section of the documentation is intended to get you up-and-running with real-world {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API applications. 認証から結果の操作、結果を他のアプリケーションと組み合わせる方法に至るまで、必要な情報をすべて網羅しています。 ここに挙げる各チュートリアルにはプロジェクトがあり、各プロジェクトはパブリックの[platform-samples](https://github.com/github/platform-samples)に保存・文書化されます。 ![Electrocat](/assets/images/electrocat.png)

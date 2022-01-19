@@ -1,7 +1,7 @@
 ---
-title: Managing billing for Codespaces in your organization
-shortTitle: Manage billing
-intro: 'You can check your {% data variables.product.prodname_codespaces %} usage and set usage limits.'
+title: Administrar la facturación para los Codespaces en tu organización
+shortTitle: Administrar la facturación
+intro: 'Puedes verificar tu uso de {% data variables.product.prodname_codespaces %} y configurar los límites de uso.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
 versions:
@@ -13,36 +13,38 @@ topics:
   - Billing
 ---
 
-## Overview
+## Resumen
 
-To learn about pricing for {% data variables.product.prodname_codespaces %}, see "[{% data variables.product.prodname_codespaces %} pricing](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+Para aprender más sobre los precios de los {% data variables.product.prodname_codespaces %}, consulta la sección "[precios de los {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
 
 {% data reusables.codespaces.codespaces-billing %}
 
-- As an an organization owner or a billing manager you can manage {% data variables.product.prodname_codespaces %} billing for your organization: ["About billing for Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
+- Como propietario o gerente de facturación de una organización, puedes administrar la facturación de {% data variables.product.prodname_codespaces %} para tu organización: ["Acerca de la facturación para Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
 
-- For users, there is a guide that explains how billing works: ["Understanding billing for Codespaces"](/codespaces/codespaces-reference/understanding-billing-for-codespaces)
+- Hay una guía para los usuarios que explica cómo funciona la facturación: ["Entender la facturación para los Codespaces"](/codespaces/codespaces-reference/understanding-billing-for-codespaces)
 
-## Usage limits
+## Límites de uso
 
-You can set a usage limit for the codespaces in your organization or repository. This limit is applied to the compute and storage usage for {% data variables.product.prodname_codespaces %}:
- 
-- **Compute minutes:** Compute usage is calculated by the actual number of minutes used by all {% data variables.product.prodname_codespaces %} instances while they are active. These totals are reported to the billing service daily, and is billed monthly. You can set a spending limit for {% data variables.product.prodname_codespaces %} usage in your organization. For more information, see "[Managing spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+Puedes configurar el límite de uso de los codespaces en tu organización o repositorio. Este límite se aplica al uso de cálculo y almacenamiento de {% data variables.product.prodname_codespaces %}:
 
-- **Storage usage:**  For {% data variables.product.prodname_codespaces %} billing purposes, this includes all storage used by all codespaces in your account. This includes all used by the codespaces, such as cloned repositories, configuration files, and extensions, among others. These totals are reported to the billing service daily, and is billed monthly. At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. To check how many compute minutes and storage GB have been used by {% data variables.product.prodname_codespaces %}, see "[Viewing your Codespaces usage"](/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage)."
+- **Minutos de cálculo:** El uso de cálculo se obtiene con la cantidad actual de minutos que utilizan todas las instancias de {% data variables.product.prodname_codespaces %} mientras están activas. Estos totales se reportan al servicio de facturación diariamente y se cobran mensualmente. Puedes configurar un límite de gastos para el uso de {% data variables.product.prodname_codespaces %} en tu organización. Para obtener más información, consulta la sección "[Administrar los límites de gastos para los Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
 
-## Disabling or limiting {% data variables.product.prodname_codespaces %}
+- **Uso de almacenamiento:**  Para propósitos de facturación de {% data variables.product.prodname_codespaces %}, esto incluye todo el almacenamiento que se utiliza en todos los codespaces de tu cuenta. Esto incluye todos los que utilizan los codespaces, tales como los repositorios clonados, archivos de configuración y extensiones, entre otros. Estos totales se reportan al servicio de facturación diariamente y se cobran mensualmente. Al final del mes, {% data variables.product.prodname_dotcom %} redondea tu almacenamiento al número de MB más cercano. Para verificar cuántos minutos de cálculo y GB de almacenamiento ha utilizado cualquier {% data variables.product.prodname_codespaces %}, consulta la sección "[Ver tu uso de Codespaces](/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage)".
 
-You can disable the use of {% data variables.product.prodname_codespaces %} in your organization or repository. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)."
+## Inhabilitar o limitar los {% data variables.product.prodname_codespaces %}
 
-You can also limit the individual users who can use {% data variables.product.prodname_codespaces %}. For more information, see "[Managing user permissions for your organization](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)."
+Puedes inhabilitar el uso de los {% data variables.product.prodname_codespaces %} en tu organización o repositorio. Para obtener más información, consulta la sección "[Administrar el acceso de un repositorio a los codespces de tu organización](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)".
 
-## Deleting unused codespaces
+También puedes limitar a los usuarios individuales que pueden utilizar {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Administrar los permisos de los usuarios para tu organización](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)".
 
-Your users can delete their codespaces in https://github.com/codespaces and from within Visual Studio Code. To reduce the size of a codespace, users can manually delete files using the terminal or from within Visual Studio Code. 
+Puedes limitar la elección de tipos de máquina que se encuentra disponible para los repositorios que pertenecen a tu organización. Esto te permite prevenir que las personas utilicen máquinas con recursos excedidos para sus codespaces. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
+
+## Borrar los codespaces sin utilizar
+
+Tus usuarios pueden borrar sus codespaces en https://github.com/codespaces y desde dentro de Visual Studio Code. Para reducir el tamaño de un codespace, los usuarios pueden borrar archivos manualmente en la terminal o desde Visual Studio Code.
 
 {% note %}
 
-**Note:** Only the person who created a codespace can delete it. There is currently no way for organization owners to delete codespaces created within their organization.
+**Nota:** Solo la persona que creó un codespace podrá borrarlo. Actualmente no hay forma de que los propietarios de las organizaciones borren los codespaces que se crearon dentro de su organización.
 
 {% endnote %}

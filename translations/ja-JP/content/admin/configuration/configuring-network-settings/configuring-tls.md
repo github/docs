@@ -1,6 +1,6 @@
 ---
-title: Configuring TLS
-intro: 'You can configure Transport Layer Security (TLS) on {% data variables.product.product_location %} so that you can use a certificate that is signed by a trusted certificate authority.'
+title: TLSの設定
+intro: '信頼できる認証機関によって署名された証明書を使用できるように、{% data variables.product.product_location %} で Transport Layer Security (TLS) を設定できます。'
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration
   - /enterprise/admin/guides/installation/about-tls
@@ -17,55 +17,53 @@ topics:
   - Networking
   - Security
 ---
-## About Transport Layer Security
 
-TLS, which replaced SSL, is enabled and configured with a self-signed certificate when {% data variables.product.prodname_ghe_server %} is started for the first time. As self-signed certificates are not trusted by web browsers and Git clients, these clients will report certificate warnings until you disable TLS or upload a certificate signed by a trusted authority, such as Let's Encrypt.
+## Transport Layer Securityについて
 
-The {% data variables.product.prodname_ghe_server %} appliance will send HTTP Strict Transport Security headers when SSL is enabled. Disabling TLS will cause users to lose access to the appliance, because their browsers will not allow a protocol downgrade to HTTP. For more information, see "[HTTP Strict Transport Security (HSTS)](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)" on Wikipedia.
+SSL に代わる TLS は、{% data variables.product.prodname_ghe_server %} の初回起動時に有効になり、自己署名証明書で設定されます。 自己署名証明書は Web ブラウザや Git クライアントから信頼されていないため、TLS を無効にするか、Let's Encrypt などの信頼できる機関によって署名された証明書をアップロードするまで、これらのクライアントは証明書の警告を報告します。
+
+SSL が有効な場合、{% data variables.product.prodname_ghe_server %} アプライアンスは HTTP Strict Transport Security ヘッダーを送信します。 TLSを無効化すると、ブラウザはHTTPへのプロトコルダウングレードを許さないので、ユーザはアプライアンスにアクセスできなくなります。 詳しい情報についてはWikipediaの"[HTTP Strict Transport Security](https://ja.wikipedia.org/wiki/HTTP_Strict_Transport_Security)"を参照してください。
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-To allow users to use FIDO U2F for two-factor authentication, you must enable TLS for your instance. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
+ユーザが2要素認証のFIDO U2Fを利用できるようにするには、インスタンスでTLSを有効化しなければなりません。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
 
-## Prerequisites
+## 必要な環境
 
-To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority.
+プロダクションでTLSを利用するには、暗号化されていないPEMフォーマットで、信頼済みの証明書認証局によって署名された証明書がなければなりません。
 
-Your certificate will also need Subject Alternative Names configured for the subdomains listed in "[Enabling subdomain isolation](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)" and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see "[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)" on Wikipedia.
+また、証明書には"[Subdomain Isolationの有効化](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)"のリストにあるサブドメインに設定されたSubject Alternative Namesが必要で、中間証明書認証局によって署名されたものであれば、完全な証明書チェーンを含んでいる必要があります。 詳しい情報についてはWikipediaの"[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)"を参照してください。
 
-You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)."
+`ghe-ssl-generate-csr` コマンドを使用すれば、インスタンス用の証明書署名要求 (CSR) を生成できます。 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)」を参照してください。
 
-## Uploading a custom TLS certificate
+## カスタムのTLS証明書のアップロード
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 {% data reusables.enterprise_management_console.select-tls-only %}
-4. Under "TLS Protocol support", select the protocols you want to allow.
-  ![Radio buttons with options to choose TLS protocols](/assets/images/enterprise/management-console/tls-protocol-support.png)
-5. Under "Certificate", click **Choose File** to choose a TLS certificate or certificate chain (in PEM format) to install. This file will usually have a *.pem*, *.crt*, or *.cer* extension.
-  ![Button to find TLS certificate file](/assets/images/enterprise/management-console/install-tls-certificate.png)
-6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. This file will usually have a *.key* extension.
-  ![Button to find TLS key file](/assets/images/enterprise/management-console/install-tls-key.png)
+4. [TLS Protocol support] で、許可するプロトコルを選択します。 ![TLS プロトコルを選択するオプションを備えたラジオボタン](/assets/images/enterprise/management-console/tls-protocol-support.png)
+5. "Certificate（証明書）"の下で**Choose File（ファイルの選択）**をクリックし、インストールしたいTLS証明書もしくは証明書チェーン（PEMフォーマット）を選択してください。 このファイルは通常、*.pem*、*.crt*、*.cer* といった拡張子を持ちます。 ![TLS 証明書ファイルを見つけるためのボタン](/assets/images/enterprise/management-console/install-tls-certificate.png)
+6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. このファイルは通常*.key*という拡張子を持ちます。 ![TLS鍵ファイルを見つけるためのボタン](/assets/images/enterprise/management-console/install-tls-key.png)
 
   {% warning %}
 
-  **Warning**: Your key must be an RSA key and must not have a passphrase. For more information, see "[Removing the passphrase from your key file](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
+  **Warning**: Your key must be an RSA key and must not have a passphrase. 詳しい情報については"[キーファイルからのパスフレーズの除去](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)"を参照してください。
 
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-## About Let's Encrypt support
+## Let's Encryptのサポートについて
 
-Let's Encrypt is a public certificate authority that issues free, automated TLS certificates that are trusted by browsers using the ACME protocol. You can automatically obtain and renew Let's Encrypt certificates on your appliance without any required manual maintenance.
+Let's Encryptは公開の証明書認証者で、ACMEプロトコルを使ってブラウザが信頼するTLS証明書を、無料で自動的に発行してくれます。 アプライアンスのためのLet's Encryptの証明書は、手動のメンテナンスを必要とせず自動的に取得及び更新できます。
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-When you enable automation of TLS certificate management using Let's Encrypt, {% data variables.product.product_location %} will contact the Let's Encrypt servers to obtain a certificate. To renew a certificate, Let's Encrypt servers must validate control of the configured domain name with inbound HTTP requests.
+Let's Encryptを使ったTLS証明書管理の自動化を有効にすると、{% data variables.product.product_location %}はLet's Encryptのサーバに接続して証明書を取得します。 証明書を更新するには、Let's EncryptのサーバはインバウンドのHTTPリクエストで設定されたドメイン名の制御を検証しなければなりません。
 
-You can also use the `ghe-ssl-acme` command line utility on {% data variables.product.product_location %} to automatically generate a Let's Encrypt certificate. For more information, see "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)."
+また、{% data variables.product.product_location %}上でコマンドラインユーティリティの`ghe-ssl-acme`を使っても、自動的にLet's Encryptの証明書を生成できます。 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)」を参照してください。
 
-## Configuring TLS using Let's Encrypt
+## Let's Encryptを使ったTLSの設定
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
@@ -73,12 +71,9 @@ You can also use the `ghe-ssl-acme` command line utility on {% data variables.pr
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 {% data reusables.enterprise_management_console.select-tls-only %}
-5. Select **Enable automation of TLS certificate management using Let's Encrypt**.
-  ![Checkbox to enable Let's Encrypt](/assets/images/enterprise/management-console/lets-encrypt-checkbox.png)
+5. **Enable automation of TLS certificate management using Let's Encrypt（Let's Encryptを使った自動的なTLS証明書管理の有効化）**を選択してください。 ![[Let's Encrypt] を有効化するチェックボックス](/assets/images/enterprise/management-console/lets-encrypt-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 {% data reusables.enterprise_management_console.privacy %}
-7. Click **Request TLS certificate**.
-  ![Request TLS certificate button](/assets/images/enterprise/management-console/request-tls-button.png)
-8. Wait for the "Status" to change from "STARTED" to "DONE".
-   ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
-9. Click **Save configuration**.
+7. **Request TLS certificate（TLS証明書のリクエスト）**をクリックしてください。 ![[Request TLS certificate] ボタン](/assets/images/enterprise/management-console/request-tls-button.png)
+8. Wait for the "Status" to change from "STARTED" to "DONE". ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
+9. **Save configuration（設定の保存）**をクリックしてください。

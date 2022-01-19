@@ -15,13 +15,13 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 The lifecycle of a codespace begins when you create a codespace and ends when you delete it. You can disconnect and reconnect to an active codespace without affecting its running processes. You may stop and restart a codespace without losing changes that you have made to your project.
 
-## Creating a codespace
+## 创建代码空间
 
 When you want to work on a project, you can choose to create a new codespace or open an existing codespace. You might want to create a new codespace from a branch of your project each time you develop in {% data variables.product.prodname_codespaces %} or keep a long-running codespace for a feature.
 
-If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. You can have up to 10 codespaces at a time. Once you have 10 codespaces, you must delete a codespace before you can create a new one. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. You can have up to 10 codespaces at a time. Once you have 10 codespaces, you must delete a codespace before you can create a new one. 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace)”。
 
-If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine. 
+If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine.
 
 ## Saving changes in a codespace
 
@@ -37,7 +37,7 @@ If you leave your codespace running without interaction, or if you exit your cod
 
 When a codespace times out, your data is preserved from the last time your changes were saved. For more information, see "[Saving changes in a codespace](#saving-changes-in-a-codespace)."
 
-## Rebuilding a codespace
+## 重建代码空间
 
 You can rebuild your codespace to restore a clean state as if you had created a new codespace. For most uses, you can create a new codespace as an alternative to rebuilding a codespace. You are most likely to rebuild a codespace to implement changes to your dev container. When you rebuild a codespace, any Docker containers, images, volumes, and caches are cleaned, then the codespace is rebuilt.
 
@@ -63,9 +63,9 @@ You can stop a codespace at any time. When you stop a codespace, any running pro
 
 Only running codespaces incur CPU charges; a stopped codespace incurs only storage costs.
 
-You may want to stop and restart a codespace to apply changes to it. For example, if you change the machine type used for your codespace, you will need to stop and restart it for the change to take effect. You can also stop your codespace and choose to restart or delete it if you encounter an error or something unexpected. For more information, see "[Suspending or stopping a codespace](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
+You may want to stop and restart a codespace to apply changes to it. For example, if you change the machine type used for your codespace, you will need to stop and restart it for the change to take effect. You can also stop your codespace and choose to restart or delete it if you encounter an error or something unexpected. 更多信息请参阅“[暂停或停止代码空间](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)”。
 
-## Deleting a codespace
+## 删除代码空间
 
 You can create a codespace for a particular task and then safely delete the codespace after you push your changes to a remote branch.
 

@@ -1,6 +1,6 @@
 ---
-title: Inviting collaborators to a personal repository
-intro: 'You can {% ifversion fpt or ghec %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
+title: コラボレーターを個人リポジトリに招待する
+intro: '個人リポジトリにコラボレーターとして{% ifversion fpt or ghec %}ユーザを招待{% else %}ユーザを追加{% endif %}することができます。'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator
   - /articles/adding-collaborators-to-a-personal-repository
@@ -18,7 +18,8 @@ topics:
   - Repositories
 shortTitle: Invite collaborators
 ---
-Repositories owned by an organization can grant more granular access. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)."
+
+Organization が所有するリポジトリは、細やかなアクセスを許可できます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
 
 {% data reusables.organizations.org-invite-expiration %}
 
@@ -28,39 +29,33 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 {% note %}
 
-**Note:** {% data variables.product.company_short %} limits the number of people who can be invited to a repository within a 24-hour period. If you exceed this limit, either wait 24 hours or create an organization to collaborate with more people.
+**メモ:** {% data variables.product.company_short %} では、24 時間以内にリポジトリに招待できる人数に上限があります。 この上限を超える場合は、24 時間待つか、コラボレーションする人数の多い Organization を作成してください。
 
 {% endnote %}
 
 {% endif %}
 
-1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
+1. コラボレーターとして招待する人のユーザ名を確認してください。{% ifversion fpt or ghec %}まだユーザ名がない場合は、{% data variables.product.prodname_dotcom %}にサインアップできます。詳細は「[新しい {% data variables.product.prodname_dotcom %}アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)」を参照してください。{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
-1. Click **Invite a collaborator**.
-  !["Invite a collaborator" button](/assets/images/help/repository/invite-a-collaborator-button.png)
-2. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
-  ![Search field for typing the name of a person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field-user.png)
-3. Click **Add NAME to REPOSITORY**.
-    ![Button to add collaborator](/assets/images/help/repository/add-collaborator-user-repo.png)
+1. [**Invite a collaborator**] をクリックします。 ![[Invite a collaborator] ボタン](/assets/images/help/repository/invite-a-collaborator-button.png)
+2. 検索フィールドで、招待する人の名前を入力し、一致するリストの名前をクリックします。 ![リポジトリに招待する人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field-user.png)
+3. [**Add NAME to REPOSITORY**] をクリックします。 ![コラボレーターを追加するボタン](/assets/images/help/repository/add-collaborator-user-repo.png)
 {% else %}
-5. In the left sidebar, click **Collaborators**.
-![Repository settings sidebar with Collaborators highlighted](/assets/images/help/repository/user-account-repo-settings-collaborators.png)
-6. Under "Collaborators", start typing the collaborator's username.
-7. Select the collaborator's username from the drop-down menu.
-   ![Collaborator list drop-down menu](/assets/images/help/repository/repo-settings-collab-autofill.png)
-8. Click **Add collaborator**.
-   !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
+5. 左サイドバーで [**Collaborators**] をクリックします。 ![リポジトリの [Settings] サイドバーで [Collaborators] を選択](/assets/images/help/repository/user-account-repo-settings-collaborators.png)
+6. [Collaborators] で、コラボレーターのユーザ名の入力を始めます。
+7. ドロップダウンメニューからコラボレーターのユーザ名を選択します。 ![コラボレーター リストのドロップダウン メニュー](/assets/images/help/repository/repo-settings-collab-autofill.png)
+8. [**Add collaborator**] をクリックします。 !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
 {% endif %}
 {% ifversion fpt or ghec %}
-9. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.
+9. リポジトリへの招待メールがユーザに届きます。 ユーザが招待を受諾すると、そのユーザはコラボレーターとしてリポジトリにアクセスできるようになります。
 {% endif %}
 
-## Further reading
+## 参考リンク
 
-- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
-- "[Removing a collaborator from a personal repository](/articles/removing-a-collaborator-from-a-personal-repository)"
-- "[Removing yourself from a collaborator's repository](/articles/removing-yourself-from-a-collaborator-s-repository)"
-- "[Organizing members into teams](/organizations/organizing-members-into-teams)"
+- "[ユーザ アカウントリポジトリの権限レベル](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
+- [個人リポジトリからコラボレーターを削除する](/articles/removing-a-collaborator-from-a-personal-repository)
+- [コラボレーターのリポジトリから自分を削除する](/articles/removing-yourself-from-a-collaborator-s-repository)
+- [メンバーを Team に編成する](/organizations/organizing-members-into-teams)
