@@ -17,6 +17,344 @@ redirect_from:
   - /github/administering-a-repository/about-required-reviews-for-pull-requests
   - /github/administering-a-repository/about-protected-branches
   - /github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches
+  -/* global describe, before, after, it */
+/* eslint no-console: ["error", { allow: ["log"] }] */
+/* eslint max-len: ["error", 300] */
+ 
+const config = require('./config.js');
+const utility = require('./common/utility.js')(config);
+const Web3 = require('web3');
+const assert = require('assert');
+const TestRPC = require('ethereumjs-testrpc');
+const sha256 = require('js-sha256').sha256;
+const async = require('async');
+const BigNumber = require('bignumber.js');
+const solc = require('solc');
+ 
+const logger = {
+  log: (message) => {
+    if (false) console.log(message);
+  } };
+ 
+const compiledSources = {};
+function deploy(web3, sourceFile, contractName, constructorParams, address, callback) {
+  utility.readFile(sourceFile, (errRead, source) => {
+    const solcVersion = 'v0.4.9+commit.364da425';
+    solc.loadRemoteVersion(solcVersion, (errRemote, solcV) => {
+      if (!compiledSources[sourceFile]) compiledSources[sourceFile] = solcV.compile(source, 1);
+      const compiled = compiledSources[sourceFile];
+      const compiledContract = compiled.contracts[`:${contractName}`];
+      const abi = JSON.parse(compiledContract.interface);
+      const bytecode = compiledContract.bytecode;
+      let contract = web3.eth.contract(abi);
+      utility.testSend(web3, contract, undefined, 'constructor', constructorParams.concat([{ from: address, data: bytecode }]), address, undefined, 0, (err, result) => {
+        const initialTransaction = result;
+        assert.deepEqual(initialTransaction.length, 66);
+        web3.eth.getTransactionReceipt(initialTransaction, (errReceipt, receipt) => {
+          assert.equal(errReceipt, undefined);
+          const addr = receipt.contractAddress;
+          contract = contract.at(addr);
+          assert.notEqual(receipt, null, 'Transaction receipt should not be null');
+          assert.notEqual(addr, null, 'Transaction did not create a contract');
+          web3.eth.getCode(addr, (errCode, resultCode) => {
+            assert.equal(errCode, undefined);
+            assert.notEqual(resultCode, null);
+            assert.notEqual(resultCode, '0x0');
+            callback(undefined, { contract, addr });
+          });
+        });
+      });
+    });
+  });
+}
+ 
+describe('Test', function test() {
+  this.timeout(240 * 1000);
+  const web3 = new Web3();
+  const port = 12345;
+  let server;
+  let accounts;
+  let contractTokenEther;
+  let contractToken1;
+  let contractToken2;
+  let contractAccountLevels;
+  let contractTokenEtherAddr;
+  let contractToken1Addr;
+  let contractToken2Addr;
+  let contractAccountLevelsAddr;
+  let feeAccount;
+  let admin;
+  let feeMake;
+  let feeTake;
+  let feeRebate;
+  const unit = new BigNumber(utility.ethToWei(1.0));
+ 
+  before('Initialize TestRPC server', (done) => {
+    server = TestRPC.server(logger);
+    server.listen(port, () => {
+      config.ethProvider = `http://localhost:${port}`;
+      config.ethGasCost = 20000000000;
+      web3.setProvider(new Web3.providers.HttpProvider(config.ethProvider));
+      done();
+    });
+  });
+ 
+  before('Initialize accounts', (done) => {
+    web3.eth.getAccounts((err, accs) => {
+      assert.equal(err, undefined);
+      accounts = accs;
+      config.ethAddr = accounts[0];
+      done();
+    });
+  });
+ 
+  after('Shutdown server', (done) => {
+    server.close(done);
+  });
+ 
+  describe('Contract scenario', () => {
+    it('Should add a token1 contract to the network', (done) => {
+      deploy(web3, config.contractTokenEther, 'ReserveToken', [], accounts[0], (err, contract) => {
+        contractToken1 = contract.contract;
+        contractToken1Addr = contract.addr;
+        done();
+      });
+    });
+    it('Should add a token2 contract to the network', (done) => {
+      deploy(web3, config.contractTokenEther, 'ReserveToken', [], accounts[0], (err, contract) => {
+        contractToken2 = contract.contract;
+        contractToken2Addr = contract.addr;
+        done();
+      });
+    });
+    it('Should add an AccountLevels contract to the network', (done) => {
+      deploy(web3, config.contractTokenEther, 'AccountLevelsTest', [], accounts[0], (err, contract) => {
+        contractAccountLevels = contract.contract;
+        contractAccountLevelsAddr = contract.addr;
+        done();
+      });
+    });
+    it('Should add the TokenEther contract to the network', (done) => {
+      feeMake = new BigNumber(utility.ethToWei(0.0005));
+      feeTake = new BigNumber(utility.ethToWei(0.003));
+      feeRebate = new BigNumber(utility.ethToWei(0.002));
+      admin = accounts[0];
+      feeAccount = accounts[0];
+      deploy(web3, config.contractTokenEther, 'TokenEther', [admin, feeAccount, contractAccountLevelsAddr, feeMake, feeTake, feeRebate], accounts[0], (err, contract) => {
+        contractTokenEther = contract.contract;
+        contractTokenEtherAddr = contract.addr;
+        done();
+      });
+    });
+    it('Should mint some tokens', (done) => {
+      const amount = utility.ethToWei(10000);
+      async.each([1, 2, 3, 4, 5],
+        (i, callback) => {
+          utility.testSend(web3, contractToken1, contractToken1Addr, 'create', [accounts[i], amount, { gas: 1000000, value: 0 }], accounts[0], undefined, 0, (err) => {
+            assert.equal(err, undefined);
+            utility.testSend(web3, contractToken2, contractToken2Addr, 'create', [accounts[i], amount, { gas: 1000000, value: 0 }], accounts[0], undefined, 0, (err2) => {
+              assert.equal(err2, undefined);
+              callback(null);
+            });
+          });
+        },
+        () => {
+          done();
+        });
+    });
+    it('Should add funds to TokenEther', (done) => {
+      function addEtherFunds(amount, account, callback) {
+        utility.testSend(web3, contractTokenEther, contractTokenEtherAddr, 'deposit', [{ gas: 1000000, value: amount }], account, undefined, 0, (err) => {
+          assert.equal(err, undefined);
+          utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [0, account], (err2, result) => {
+            assert.equal(result.equals(amount), true);
+            callback();
+          });
+        });
+      }
+      function addFunds(amount, contractToken, contractTokenAddr, account, callback) {
+        utility.testSend(web3, contractToken, contractTokenAddr, 'approve', [contractTokenEtherAddr, amount, { gas: 1000000, value: 0 }], account, undefined, 0, (err) => {
+          assert.equal(err, undefined);
+          utility.testSend(web3, contractTokenEther, contractTokenEtherAddr, 'depositToken', [contractTokenAddr, amount, { gas: 1000000, value: 0 }], account, undefined, 0, (err2) => {
+            assert.equal(err2, undefined);
+            utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractTokenAddr, account], (err3, result) => {
+              assert.equal(result.equals(amount), true);
+              callback();
+            });
+          });
+        });
+      }
+      const amount = new BigNumber(utility.ethToWei(1000));
+      addFunds(amount, contractToken1, contractToken1Addr, accounts[1], () => {
+        addFunds(amount, contractToken1, contractToken1Addr, accounts[2], () => {
+          addFunds(amount, contractToken2, contractToken2Addr, accounts[1], () => {
+            addFunds(amount, contractToken2, contractToken2Addr, accounts[2], () => {
+              addEtherFunds(amount, accounts[1], () => {
+                addEtherFunds(amount, accounts[2], () => {
+                  done();
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+    it('Should do some trades initiated onchain', (done) => {
+      function testTrade(expiresIn, orderNonce, tokenGet, tokenGive, amountGet, amountGive, amount, account1, account2, accountLevel, callback) {
+        let expires = expiresIn;
+        web3.eth.getBlockNumber((err, blockNumber) => {
+          if (err) callback(err);
+          expires += blockNumber;
+          utility.testSend(web3, contractAccountLevels, contractAccountLevelsAddr, 'setAccountLevel', [account1, accountLevel, { gas: 1000000, value: 0 }], account1, undefined, 0, (err2) => {
+            assert.equal(err2, undefined);
+            utility.testCall(web3, contractAccountLevels, contractAccountLevelsAddr, 'accountLevel', [account1], (err3, level) => {
+              assert.equal(err3, undefined);
+              utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, feeAccount], (err4, initialFeeBalance1) => {
+                utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, feeAccount], (err5, initialFeeBalance2) => {
+                  utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, account1], (err6, initialBalance11) => {
+                    utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, account2], (err7, initialBalance12) => {
+                      utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, account1], (err8, initialBalance21) => {
+                        utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, account2], (err9, initialBalance22) => {
+                          utility.testSend(web3, contractTokenEther, contractTokenEtherAddr, 'order', [tokenGet, amountGet, tokenGive, amountGive, expires, orderNonce, { gas: 1000000, value: 0 }], account1, undefined, 0, (err10) => {
+                            assert.equal(err10, undefined);
+                            utility.testSend(web3, contractTokenEther, contractTokenEtherAddr, 'trade', [tokenGet, amountGet, tokenGive, amountGive, expires, orderNonce, account1, 0, '0x0', '0x0', amount, { gas: 1000000, value: 0 }], account2, undefined, 0, (err11) => {
+                              assert.equal(err11, undefined);
+                              utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, feeAccount], (err12, feeBalance1) => {
+                                utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, feeAccount], (err13, feeBalance2) => {
+                                  utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, account1], (err14, balance11) => {
+                                    utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, account2], (err15, balance12) => {
+                                      utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, account1], (err16, balance21) => {
+                                        utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, account2], (err17, balance22) => {
+                                          utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'availableVolume', [tokenGet, amountGet, tokenGive, amountGive, expires, orderNonce, account1, 0, '0x0', '0x0'], (err18, availableVolume) => {
+                                            utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'amountFilled', [tokenGet, amountGet, tokenGive, amountGive, expires, orderNonce, account1, 0, '0x0', '0x0'], (err19, amountFilled) => {
+                                              const feeMakeXfer = amount.times(feeMake).divToInt(unit);
+                                              const feeTakeXfer = amount.times(feeTake).divToInt(unit);
+                                              let feeRebateXfer = 0;
+                                              if (Number(level) === 1) feeRebateXfer = amount.times(feeRebate).divToInt(unit);
+                                              if (Number(level) === 2) feeRebateXfer = feeTakeXfer;
+                                              assert.equal(availableVolume.equals(amountGet.minus(amount)), true);
+                                              assert.equal(amountFilled.equals(amount), true);
+                                              assert.equal(initialFeeBalance1.plus(initialBalance11).plus(initialBalance12).equals(feeBalance1.plus(balance11).plus(balance12)), true);
+                                              assert.equal(initialFeeBalance2.plus(initialBalance21).plus(initialBalance22).equals(feeBalance2.plus(balance21).plus(balance22)), true);
+                                              assert.equal(feeBalance1.minus(initialFeeBalance1).equals(feeMakeXfer.plus(feeTakeXfer).minus(feeRebateXfer)), true);
+                                              assert.equal(balance11.equals(initialBalance11.plus(amount).minus(feeMakeXfer).plus(feeRebateXfer)), true);
+                                              assert.equal(balance12.equals(initialBalance12.minus(amount.plus(feeTakeXfer))), true);
+                                              assert.equal(balance21.equals(initialBalance21.minus(amount.times(amountGive).divToInt(amountGet))), true);
+                                              assert.equal(balance22.equals(initialBalance22.plus(amount.times(amountGive).divToInt(amountGet))), true);
+                                              callback();
+                                            });
+                                          });
+                                        });
+                                      });
+                                    });
+                                  });
+                                });
+                              });
+                            });
+                          });
+                        });
+                      });
+                    });
+                  });
+                });
+              });
+            });
+          });
+        });
+      }
+      const trades = [
+        {
+          expires: 10,
+          orderNonce: 1,
+          tokenGet: contractToken1Addr,
+          tokenGive: contractToken2Addr,
+          amountGet: new BigNumber(utility.ethToWei(50)),
+          amountGive: new BigNumber(utility.ethToWei(25)),
+          amount: new BigNumber(utility.ethToWei(25)),
+          account1: accounts[1],
+          account2: accounts[2],
+          accountLevel: 0,
+        },
+        {
+          expires: 10,
+          orderNonce: 2,
+          tokenGet: contractToken1Addr,
+          tokenGive: contractToken2Addr,
+          amountGet: new BigNumber(utility.ethToWei(50)),
+          amountGive: new BigNumber(utility.ethToWei(25)),
+          amount: new BigNumber(utility.ethToWei(25)),
+          account1: accounts[1],
+          account2: accounts[2],
+          accountLevel: 1,
+        },
+        {
+          expires: 10,
+          orderNonce: 3,
+          tokenGet: contractToken1Addr,
+          tokenGive: contractToken2Addr,
+          amountGet: new BigNumber(50),
+          amountGive: new BigNumber(25),
+          amount: new BigNumber(25),
+          account1: accounts[1],
+          account2: accounts[2],
+          accountLevel: 2,
+        },
+      ];
+      async.eachSeries(trades,
+        (trade, callbackEach) => {
+          testTrade(trade.expires, trade.orderNonce, trade.tokenGet, trade.tokenGive, trade.amountGet, trade.amountGive, trade.amount, trade.account1, trade.account2, trade.accountLevel, () => {
+            callbackEach(null);
+          });
+        },
+        () => {
+          done();
+        });
+    });
+    it('Should do some trades initiated offchain', (done) => {
+      function testTrade(expiresIn, orderNonce, tokenGet, tokenGive, amountGet, amountGive, amount, account1, account2, accountLevel, callback) {
+        let expires = expiresIn;
+        web3.eth.getBlockNumber((err, blockNumber) => {
+          if (err) callback(err);
+          expires += blockNumber;
+          const condensed = utility.pack([contractTokenEtherAddr, tokenGet, amountGet, tokenGive, amountGive, expires, orderNonce], [160, 160, 256, 160, 256, 256, 256]);
+          const hash = sha256(new Buffer(condensed, 'hex'));
+          utility.testSend(web3, contractAccountLevels, contractAccountLevelsAddr, 'setAccountLevel', [account1, accountLevel, { gas: 1000000, value: 0 }], account1, undefined, 0, (err2) => {
+            assert.equal(err2, undefined);
+            utility.testCall(web3, contractAccountLevels, contractAccountLevelsAddr, 'accountLevel', [account1], (err3, level) => {
+              assert.equal(err3, undefined);
+              utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, feeAccount], (err4, initialFeeBalance1) => {
+                utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, feeAccount], (err5, initialFeeBalance2) => {
+                  utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, account1], (err6, initialBalance11) => {
+                    utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, account2], (err7, initialBalance12) => {
+                      utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, account1], (err8, initialBalance21) => {
+                        utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, account2], (err9, initialBalance22) => {
+                          utility.sign(web3, account1, hash, undefined, (err10, sig) => {
+                            utility.testSend(web3, contractTokenEther, contractTokenEtherAddr, 'trade', [tokenGet, amountGet, tokenGive, amountGive, expires, orderNonce, account1, sig.v, sig.r, sig.s, amount, { gas: 1000000, value: 0 }], account2, undefined, 0, (err11) => {
+                              assert.equal(err11, undefined);
+                              utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, feeAccount], (err12, feeBalance1) => {
+                                utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, feeAccount], (err13, feeBalance2) => {
+                                  utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, account1], (err14, balance11) => {
+                                    utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken1Addr, account2], (err15, balance12) => {
+                                      utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, account1], (err16, balance21) => {
+                                        utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'balanceOf', [contractToken2Addr, account2], (err17, balance22) => {
+                                          utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'availableVolume', [tokenGet, amountGet, tokenGive, amountGive, expires, orderNonce, account1, sig.v, sig.r, sig.s], (err18, availableVolume) => {
+                                            utility.testCall(web3, contractTokenEther, contractTokenEtherAddr, 'amountFilled', [tokenGet, amountGet, tokenGive, amountGive, expires, orderNonce, account1, sig.v, sig.r, sig.s], (err19, amountFilled) => {
+                                              const feeMakeXfer = amount.times(feeMake).divToInt(unit);
+                                              const feeTakeXfer = amount.times(feeTake).divToInt(unit);
+                                              let feeRebateXfer = 0;
+                                              if (Number(level) === 1) feeRebateXfer = amount.times(feeRebate).divToInt(unit);
+                                              if (Number(level) === 2) feeRebateXfer = feeTakeXfer;
+                                              assert.equal(availableVolume.equals(amountGet.minus(amount)), true);
+                                              assert.equal(amountFilled.equals(amount), true);
+                                              assert.equal(initialFeeBalance1.plus(initialBalance11).plus(initialBalance12).equals(feeBalance1.plus(balance11).plus(balance12)), true);
+                                              assert.equal(initialFeeBalance2.plus(initialBalance21).plus(initialBalance22).equals(feeBalance2.plus(balance21).plus(balance22)), true);
+                                              assert.equal(feeBalance1.minus(initialFeeBalance1).equals(feeMakeXfer.plus(feeTakeXfer).minus(feeRebateXfer)), true);
+                                              assert.equal(balance11.equals(initialBalance11.plus(amount).minus(feeMakeXfer).plus(feeRebateXfer)), true);
+                                              assert.equal(balance12.equals(initialBalance12.minus(amount.plus(feeTakeXfer))), true);
+                                              assert.equal(balance21.equals(initialBalance21.minus(amount.times(amountGive).divToInt(amountGet))), true);
+                                              assert.equal(balance22.equals(initialBalance22.plus(amount.times(amountGive).divToInt(amountGet))), true);
+                                              callback();
+                                            });
 versions:
   fpt: '*'
   ghes: '*'
