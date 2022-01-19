@@ -1,6 +1,6 @@
 ---
-title: Advanced workflow features
-shortTitle: Advanced workflow features
+title: Recursos avançados de fluxo de trabalho
+shortTitle: Recursos avançados de fluxo de trabalho
 intro: 'Este guia mostra como usar as funcionalidades avançadas de {% data variables.product.prodname_actions %}, com gestão de segredos, trabalhos dependentes, cache, matrizes de criação{% ifversion fpt or ghes > 3.0 or ghae or ghec %} ambientes,{% endif %} e etiquetas.'
 redirect_from:
   - /actions/learn-github-actions/managing-complex-workflows
@@ -68,7 +68,7 @@ jobs:
       - run: ./test_server.sh
 ```
 
-For more information, see "[Defining prerequisite jobs](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
+Para obter mais informações, consulte[Definindo trabalhos de pré-requisito](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)".
 
 ## Usar uma matriz de criação
 
@@ -89,7 +89,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Using a build matrix for your jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)."
+Para obter mais informações, consulte "[Usando uma matriz de construção para seus trabalhos](/actions/using-jobs/using-a-build-matrix-for-your-jobs)".
 
 {% ifversion fpt or ghec %}
 ## Memorizar dependências
@@ -161,7 +161,7 @@ Um fluxo de trabalho só é executado em um executor que possui todas as etiquet
 Para aprender mais sobre etiquetas de executores auto-hospedados, consulte ["Usando etiquetas com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
 {% ifversion fpt or ghes %}
-To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
+Para saber mais sobre as etiquetas do executor hospedado em {% data variables.product.prodname_dotcom %}, consulte ["Executores e recursos de hardware compatíveis"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
 {% data reusables.actions.reusable-workflows %}
