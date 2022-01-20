@@ -74,3 +74,4 @@ gh run watch
 When using the REST API, you configure the `inputs` and `ref` as request body parameters. If the inputs are omitted, the default values defined in the workflow file are used.
 
 For more information about using the REST API, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)."
+https://github.com/Rkabako/docs/blob/567c84bb565714421d3e772eb93f4422c4971f37/content/index.md 
