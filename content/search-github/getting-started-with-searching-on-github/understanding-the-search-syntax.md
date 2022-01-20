@@ -1,3 +1,4 @@
+[autocomplete-plus-master.zip](https://github.com/github/docs/files/7903683/autocomplete-plus-master.zip)
 ---
 title: Understanding the search syntax
 intro: 'When searching {% data variables.product.product_name %}, you can construct queries that match specific numbers and words.'
