@@ -92,7 +92,7 @@ jobs:
           CHECK_INTERVAL: 10000
         with:
           script: |
-            import { execSync } from 'child_process'
+            const { execSync } = require('child_process')
 
             const getStatesForSlot = (slot) => {
               return JSON.parse(
