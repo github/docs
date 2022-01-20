@@ -13,7 +13,6 @@ shortTitle: Executores de etiqueta
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Para obter informações sobre como usar etiquetas para encaminhar trabalhos para tipos específicos de executores auto-hospedados, consulte "[Usando executores auto-hospedados em um fluxo de trabalho](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
 

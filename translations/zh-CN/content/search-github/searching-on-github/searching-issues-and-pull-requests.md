@@ -2,7 +2,7 @@
 title: 搜索议题和拉取请求
 intro: '您可以在 {% data variables.product.product_name %} 上搜索代码，并使用这些代码搜索限定符的任意组合缩小结果范围。'
 redirect_from:
-  - /articles/searching-issues/
+  - /articles/searching-issues
   - /articles/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests
@@ -79,7 +79,7 @@ shortTitle: 搜索议题和 PR
 
 您可以使用 `is` 限定符，按包含议题和拉取请求的仓库的可见性进行过滤。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
-| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% ifversion fpt or ghes or ghae or ghec %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
+| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
 ## 按作者搜索
 
@@ -149,11 +149,11 @@ shortTitle: 搜索议题和 PR
 
 您可以使用 `label` 限定符按标签缩小结果范围。 由于议题可有多个标签，因此您可为每个议题列出单独的限定符。
 
-| 限定符                        | 示例                                                                                                                                                                                                                 |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) 匹配标签为 "help wanted"、位于 Ruby 仓库中的议题。                                      |
-|                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) 匹配正文中含有 "broken" 字样、没有 "bug" 标签但*有* "priority" 标签的议题。                       |
-|                            | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+| 限定符                        | 示例                                                                                                                                                                                                            |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) 匹配标签为 "help wanted"、位于 Ruby 仓库中的议题。                                 |
+|                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) 匹配正文中含有 "broken" 字样、没有 "bug" 标签但*有* "priority" 标签的议题。                  |
+|                            | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 |                            | [**label:bug label:resolved**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) 匹配含有 "bug" 或 "resolved" 标签的议题。{% endif %}
 
 ## 按里程碑搜索
@@ -240,11 +240,11 @@ shortTitle: 搜索议题和 PR
 ## 搜索草稿拉取请求
 您可以过滤草稿拉取请求。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。
 
-| Qualifier        | Example | ------------- | -------------{% ifversion fpt or ghes or ghae or ghec %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) 匹配可供审查的拉取请求。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) 匹配拉取请求草稿。{% endif %}
+| 限定符        | 示例 | ------------- | -------------{% ifversion fpt or ghes or ghae or ghec %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) 匹配拉取请求草稿。 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) 匹配可供审查的拉取请求。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) 匹配拉取请求草稿。{% endif %}
 
 ## 按拉取请求审查状态和审查者搜索
 
-You can filter pull requests based on their [review status](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_, _required_, _approved_, or _changes requested_), by reviewer, and by requested reviewer.
+您可以基于拉取请求的[审查状态](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)（_无_、_必需_、_批准_或_请求更改_）、按审查者和请求的审查者过滤拉取请求。
 
 | 限定符                        | 示例                                                                                                                                                                                                                                                                                                                                                                                 |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

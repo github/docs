@@ -1,7 +1,7 @@
 ---
 title: Configuring notifications for vulnerable dependencies
 shortTitle: Configuring notifications
-intro: 'Optimize how you receive notifications about {% data variables.product.prodname_dependabot %} alerts.'
+intro: 'Optimize how you receive notifications about  {% data variables.product.prodname_dependabot_alerts %}.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
@@ -50,7 +50,7 @@ You can configure notification settings for yourself or your organization from t
 
 {% note %}
 
-**Note:** You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} alerts. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."
+**Note:** You can filter your notifications on {% data variables.product.company_short %} to show  {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."
 
 {% endnote %}
 

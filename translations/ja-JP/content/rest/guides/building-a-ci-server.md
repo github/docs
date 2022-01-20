@@ -2,7 +2,7 @@
 title: CIサーバーの構築
 intro: Status APIで独自のCIシステムを構築しましょう。
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'

@@ -2,6 +2,7 @@
 title: 浏览 GitHub Advisory Database 中的安全漏洞
 intro: '{% data variables.product.prodname_advisory_database %} 允许您浏览或搜索影响 {% data variables.product.company_short %} 上开源项目的漏洞。'
 shortTitle: 浏览公告数据库
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
@@ -23,13 +24,29 @@ topics:
 
 {% data reusables.repositories.a-vulnerability-is %}
 
-如果我们检测到 {% data variables.product.prodname_advisory_database %} 中存在会影响您的仓库所依赖的软件包的任何漏洞，{% data variables.product.product_name %} 将会向您发送 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
-
 ## 关于 {% data variables.product.prodname_advisory_database %}
 
-{% data variables.product.prodname_advisory_database %} 包含已映射到 {% data variables.product.company_short %} 依赖关系图跟踪的软件包的安全漏洞列表。 {% data reusables.repositories.tracks-vulnerabilities %}
+The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities, grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.
 
-每个安全通告都包含有关漏洞的信息，包括说明、严重程度、受影响的包、包生态系统、受影响的版本和修补版本、影响以及可选信息（如引用、解决方法和积分）。 此外，国家漏洞数据库列表中的公告包含 CVE 记录链接，通过链接可以查看漏洞、其 CVSS 得分及其质化严重等级的更多详细信息。 更多信息请参阅国家标准和技术研究所 (National Institute of Standards and Technology) 的“[国家漏洞数据库](https://nvd.nist.gov/)”。
+{% data reusables.repositories.tracks-vulnerabilities %}
+
+### About {% data variables.product.company_short %}-reviewed advisories
+
+{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities that have been mapped to packages tracked by the {% data variables.product.company_short %} dependency graph.
+
+We carefully review each advisory for validity. Each {% data variables.product.company_short %}-reviewed advisory has a full description, and contains both ecosystem and package information.
+
+If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory affects packages you depend on. 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
+
+### About unreviewed advisories
+
+Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed.
+
+{% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
+
+## About security advisories
+
+Each security advisory contains information about the vulnerability, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. 此外，国家漏洞数据库列表中的公告包含 CVE 记录链接，通过链接可以查看漏洞、其 CVSS 得分及其质化严重等级的更多详细信息。 更多信息请参阅国家标准和技术研究所 (National Institute of Standards and Technology) 的“[国家漏洞数据库](https://nvd.nist.gov/)”。
 
 我们在[常见漏洞评分系统 (CVSS) 第 5 节](https://www.first.org/cvss/specification-document)中定义了以下四种可能的严重性等级。
 - 低
@@ -45,6 +62,11 @@ topics:
 
 1. 导航到 https://github.com/advisories。
 2. （可选）要过滤列表，请使用任意下拉菜单。 ![下拉过滤器](/assets/images/help/security/advisory-database-dropdown-filters.png)
+   {% tip %}
+
+   **Tip:** You can use the sidebar on the left to explore  {% data variables.product.company_short %}-reviewed and unreviewed advisories separately.
+
+   {% endtip %}
 3. 单击任何通告以查看详情。
 
 {% note %}
@@ -63,6 +85,8 @@ topics:
 
 | 限定符                   | 示例                                                                                                                                                          |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type:reviewed`       | [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories.          |
+| `type:unreviewed`     | [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) will show unreviewed advisories.                                               |
 | `GHSA-ID`             | [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) 将显示使用此 {% data variables.product.prodname_advisory_database %} ID 的通告。 |
 | `CVE-ID`              | [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) 将显示使用此 CVE ID 号的通告。                                                                |
 | `ecosystem:ECOSYSTEM` | [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) 只显示影响 NPM 包的通告。                                                     |
@@ -80,7 +104,7 @@ topics:
 
 ## 查看有漏洞的仓库
 
-对于 {% data variables.product.prodname_advisory_database %} 中的任何漏洞，您可以查看哪些仓库具有该漏洞的 {% data variables.product.prodname_dependabot %} 警报。 要查看有漏洞的仓库，您必须有权访问该仓库的 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)”。
+For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability. 要查看有漏洞的仓库，您必须有权访问该仓库的 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)”。
 
 1. 导航到 https://github.com/advisories。
 2. 单击通告。

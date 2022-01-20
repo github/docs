@@ -2,9 +2,9 @@
 title: 使用双重身份验证访问 GitHub
 intro: '启用 2FA 后，在登录到 {% data variables.product.product_name %} 时需要提供 2FA 验证码以及密码。'
 redirect_from:
-  - /articles/providing-your-2fa-security-code/
-  - /articles/providing-your-2fa-authentication-code/
-  - /articles/authenticating-to-github-using-fido-u2f-via-nfc/
+  - /articles/providing-your-2fa-security-code
+  - /articles/providing-your-2fa-authentication-code
+  - /articles/authenticating-to-github-using-fido-u2f-via-nfc
   - /articles/accessing-github-using-two-factor-authentication
   - /github/authenticating-to-github/accessing-github-using-two-factor-authentication
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication

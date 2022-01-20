@@ -3,6 +3,7 @@ title: Criar um trabalho individual
 intro: Você pode criar uma atividade para os alunos do seu curso para ser concluída individualmente.
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can create and manage individual assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
@@ -100,11 +101,20 @@ Opcionalmente, você pode classificar automaticamente as atividades e criar um e
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-Você pode ver se um aluno juntou-se à sala de aula e aceitou ou enviou uma atividade na aba **Todos os alunos** da atividade. {% data reusables.classroom.assignments-to-prevent-submission %}
+Você pode ver se um aluno entrou na sala de aula e aceitou ou enviou uma atividade na aba**Lista da sala de aula** para a atividade. Você também pode vincular os apelidos dos alunos de {% data variables.product.prodname_dotcom %} ao seu identificador de lista de participantes e vice-versa nesta aba. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="Atividade individual" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
+
+## Monitorando o progresso dos alunos
+A página de visão geral do trabalho fornece uma visão geral das suas aceitações da atividade e do progresso do aluno. Você pode ter diferentes informações resumidas, com base nas configurações das suas atividades.
+
+- **Alunos cadastrados**: O número de alunos na lista da sala de aula.
+- **Adicionou os alunos**: O número de contas de {% data variables.product.prodname_dotcom %} que aceitaram a atividade e não estão associadas a um identificador da lista de participação.
+-  **Alunos aceitos**: O número de contas que aceitaram esta atividade.
+-  **Envios das atividades**: O número de alunos que enviaram a atividade. O envio é acionado no prazo da atividade.
+-  **Passando em aprovação**: O número de alunos atualmente em testes de avaliação automática para essa atividade.
 
 ## Próximas etapas
 

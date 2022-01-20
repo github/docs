@@ -119,8 +119,6 @@ Você pode usar filtros avançados para pesquisar problemas e pull requests que 
 
 ### Pesquisando problemas e pull requests
 
-{% include tool-switcher %}
-
 {% webui %}
 
 A barra de pesquisa de problemas e pull requests permite que você defina seus próprios filtros personalizados e ordene por uma ampla variedade de critérios. A barra de pesquisa pode ser encontrada nas guias **Problemas** e **Pull requests** de cada repositório nos [Painéis de problemas e pull requests](/articles/viewing-all-of-your-issues-and-pull-requests).
@@ -165,7 +163,7 @@ Com os termos da pesquisa de problemas e pull requests, é possível:
 - Filtrar problemas e pull requests por etiqueta: `state:open type:issue label:"bug"`
 - Filtrar termos da pesquisa usando `-` antes do termo: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 {% tip %}
 
 **Dica:** Você pode filtrar problemas e pull requests por etiqueta, usando a lógica OU ou E.
@@ -228,4 +226,4 @@ Por exemplo, se você filtrar por problemas atribuídos a Hubot e ordenar pelos 
 
 ## Leia mais
 
-- "[Pesquisando problemas e pull requests](/articles/searching-issues)""
+- "[Pesquisando problemas e pull requests](/articles/searching-issues)"

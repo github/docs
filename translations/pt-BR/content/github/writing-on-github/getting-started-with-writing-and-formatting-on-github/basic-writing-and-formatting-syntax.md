@@ -28,13 +28,13 @@ Para criar um título, adicione de um a seis símbolos `#` antes do texto do tí
 
 Você pode indicar ênfase com texto em negrito, itálico ou riscado em campos de comentários e arquivos de `.md`.
 
-| Estilo                     | Sintaxe            | Atalho              | Exemplo                                      | Resultado                                  |
-| -------------------------- | ------------------ | ------------------- | -------------------------------------------- | ------------------------------------------ |
-| Negrito                    | `** **` ou `__ __` | command/control + b | `**Esse texto está em negrito**`             | **Esse texto está em negrito**             |
-| Itálico                    | `* *` ou `_ _`     | command/control + i | `*Esse texto está em itálico*`               | *Esse texto está em itálico*               |
-| Tachado                    | `~~ ~~`            |                     | `~~Esse texto estava errado~~`               | ~~Esse texto estava errado~~               |
-| Negrito e itálico aninhado | `** **` e `_ _`    |                     | `**Esse texto é _extremamente_ importante**` | **Esse texto é _extremamente_ importante** |
-| Todo em negrito e itálico  | `*** ***`          |                     | `***Todo esse texto é importante***`         | ***Todo esse texto é importante***         |
+| Estilo                     | Sintaxe             | Atalho              | Exemplo                                      | Resultado                                  |
+| -------------------------- | ------------------- | ------------------- | -------------------------------------------- | ------------------------------------------ |
+| Negrito                    | `** **` ou `__ __`  | command/control + b | `**Esse texto está em negrito**`             | **Esse texto está em negrito**             |
+| Itálico                    | `* *` ou `_ _`      | command/control + i | `*Esse texto está em itálico*`               | *Esse texto está em itálico*               |
+| Tachado                    | `~~ ~~`             |                     | `~~Esse texto estava errado~~`               | ~~Esse texto estava errado~~               |
+| Negrito e itálico aninhado | `** **` e `_ _`     |                     | `**Esse texto é _extremamente_ importante**` | **Esse texto é _extremamente_ importante** |
+| Todo em negrito e itálico  | `*** ***`           |                     | `***Todo esse texto é importante***`         | ***Todo esse texto é importante***         |
 
 ## Citar texto
 
@@ -56,7 +56,7 @@ Texto que não é uma citação
 
 ## Citar código
 
-Você pode chamar código ou um comando em uma frase com aspas simples. O texto entre aspas simples não será formatado.{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %} Você também pode pressionar o comando `` ou `Ctrl` + `e` o atalho do teclado para inserir as aspas simples para um bloco de código dentro de uma linha de Markdown.{% endif %}
+Você pode chamar código ou um comando em uma frase com aspas simples. O texto entre aspas simples não será formatado.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} Você também pode pressionar o comando `` ou `Ctrl` + `e` o atalho do teclado para inserir as aspas simples para um bloco de código dentro de uma linha de Markdown.{% endif %}
 
 ```markdown
 Use 'git status' para listar todos os arquivos novos ou modificados que ainda não receberam commit.
@@ -79,9 +79,11 @@ git commit
 
 Para obter mais informações, consulte "[Criar e destacar blocos de código](/articles/creating-and-highlighting-code-blocks)".
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
+
 ## Links
 
-Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Você também pode usar o comando `de atalho de teclado + k` para criar um link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Ao selecionar o texto, você poderá colar uma URL da sua área de transferência para criar automaticamente um link a partir da seleção.{% endif %}
 
 `Este site foi construído usando [GitHub Pages](https://pages.github.com/).`
 
@@ -135,6 +137,18 @@ Aqui estão alguns exemplos para usar links relativos para exibir uma imagem.
 
 Para obter mais informações, consulte[Links relativos,](#relative-links)."
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5559 %}
+### Especificando o tema para o qual uma imagem será exibida
+
+Você pode especificar o tema para o qual uma imagem é exibida acrescentando `#gh-dark-mode-only` ou `#gh-light-mode-only` no final de uma URL da imagem, em Markdown.
+
+Nós distinguimos entre os modos de cores claro e escuro. Portanto, há duas opções disponíveis. Você pode usar essas opções para exibir imagens otimizadas para fundos escuros ou claros. Isso é particularmente útil para imagens PNG transparentes.
+
+| Contexto    | URL                                                                      |
+| ----------- | ------------------------------------------------------------------------ |
+| Tema escuro | `![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)` |
+| Tema claro  | `![GitHub Dark](https://github.com/github-dark.png#gh-light-mode-only)`  |
+{% endif %}
 
 ## Listas
 
@@ -231,6 +245,7 @@ Para obter mais informações, consulte "[Referências e URLs vinculados automat
 
 {% data reusables.repositories.autolink-references %}
 
+{% ifversion ghes < 3.4 %}
 ## Anexos de conteúdo
 
 Alguns {% data variables.product.prodname_github_apps %} fornecem informações em {% data variables.product.product_name %} para URLs vinculadas aos seus domínios registrados. O {% data variables.product.product_name %} renderiza as informações fornecidas pelo app sob o URL no texto ou comentário de um problema ou uma pull request.
@@ -241,7 +256,7 @@ Para visualizar anexos de conteúdo, você deverá ter um {% data variables.prod
 
 Os anexos de conteúdo não serão exibidos para URLs que fazem parte de um link markdown.
 
-Para obter mais informações sobre como compilar um {% data variables.product.prodname_github_app %} que use anexos de conteúdo, consulte "[Usar anexos de conteúdo](/apps/using-content-attachments)".
+Para obter mais informações sobre a construção de um {% data variables.product.prodname_github_app %} que usa anexos de conteúdo, consulte "[Usando anexos de conteúdo](/apps/using-content-attachments)."{% endif %}
 
 ## Fazer upload de ativos
 
@@ -271,16 +286,16 @@ Você pode adicionar notas de rodapé ao seu conteúdo usando esta sintaxe entre
 ```
 Essa é uma simples nota de rodapé[^1].
 
-A footnote can also have multiple lines[^2].  
+Uma nota de rodapé também pode ter várias linhas[^2].  
 
-You can also use words, to fit your writing style more closely[^note].
+Você também pode usar palavras, para se adequar melhor ao seu estilo de escrita[^note].
 
 [^1]: Minha referência.
-[^2]: Every new line should be prefixed with 2 spaces.  
-  This allows you to have a footnote with multiple lines.
+[^2]: Cada nova linha deve ser precedida de 2 espaços.  
+  Isso permite que você tenha uma nota de rodapé com várias linhas.
 [^note]:
     Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
-    This footnote also has been made with a different syntax using 4 spaces for new lines.
+    Essa nota de rodapé também foi feita com uma sintaxe diferente usando 4 espaços para novas linhas.
 ```
 
 A nota de rodapé será interpretada da seguinte forma:
@@ -289,7 +304,7 @@ A nota de rodapé será interpretada da seguinte forma:
 
 {% tip %}
 
-**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+**Observação**: A posição de uma nota de rodapé no seu Markdown não influencia o lugar onde a nota de rodapé será interpretada. Você pode escrever uma nota de rodapé logo após sua referência à nota de rodapé, e ela continuará sendo interpretada na parte inferior do Markdown.
 
 {% endtip %}
 {% endif %}

@@ -21,7 +21,11 @@ topics:
 
 ## About {% data variables.product.prodname_dotcom %}'s products
 
-{% data variables.product.prodname_dotcom %}では無償版と有償版の製品をご用意しています。 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data reusables.products.product-roadmap %}
+{% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to user accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+
+各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data reusables.products.product-roadmap %}
+
+When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your product. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ## ユーザアカウント用の{% data variables.product.prodname_free_user %}
 

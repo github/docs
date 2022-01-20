@@ -1,12 +1,10 @@
 ---
 title: 关于使用 SAML 单点登录管理身份和访问
 intro: '如果您使用身份提供程序 (IdP) 集中管理用户身份和应用程序，可以配置安全声明标记语言 (SAML) 单点登录 (SSO) 来保护组织在 {% data variables.product.prodname_dotcom %} 上的资源。'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-identity-and-access-management-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -23,8 +21,6 @@ shortTitle: 使用 SAML SSO 的 IAM
 {% data reusables.saml.saml-accounts %}
 
 组织所有者可以对单个组织强制实施 SAML SSO，企业所有者可以为企业帐户中的所有组织强制实施 SAML SSO。 更多信息请参阅“[配置企业的 SAML 单点登录](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
-
-{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
 

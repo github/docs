@@ -95,7 +95,7 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
 
 ## 使用企业账户 API 的查询示例
 
-此 GraphQL 查询使用 Enterprise Accounts API 请求每个设备的组织中 {% ifversion not ghae %}`公共`{% else %}`私有`{% endif %} 仓库的总数。 要自定义此查询，请用企业实例 slug 的 slug 替换 `<enterprise-account-name>`。
+此 GraphQL 查询使用 Enterprise Accounts API 请求每个设备的组织中 {% ifversion not ghae %}`公共`{% else %}`私有`{% endif %} 仓库的总数。 To customize this query, replace `<enterprise-account-name>` with the handle for your enterprise account. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `<enterprise-account-name>` with `octo-enterprise`.
 
 {% ifversion not ghae %}
 

@@ -17,7 +17,7 @@ shortTitle: Com vários autores
 
 ## Informações obrigatórias do coautor
 
-Para poder adicionar um coautor a um commit, você deve saber o e-mail adequado a ser usado para cada coautor. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+Para poder adicionar um coautor a um commit, você deve saber o e-mail adequado a ser usado para cada coautor. Para o commit do coautor contar como uma contribuição, você deve usar o e-mail associado à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 {% ifversion fpt or ghec %}
 

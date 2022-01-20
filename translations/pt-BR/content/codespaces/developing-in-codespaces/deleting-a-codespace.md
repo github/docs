@@ -13,9 +13,10 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Excluir um codespace
 ---
 
- 
+
 
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
@@ -25,7 +26,6 @@ topics:
 
 {% endnote %}
 
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -61,4 +61,4 @@ Para obter mais informações sobre esse comando, consulte [o manual de{% data v
 {% endcli %}
 
 ## Leia mais
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- [Ciclo de vida dos codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)

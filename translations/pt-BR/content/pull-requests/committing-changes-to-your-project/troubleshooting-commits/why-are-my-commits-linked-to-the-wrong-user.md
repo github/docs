@@ -1,7 +1,7 @@
 ---
 title: Por que meus commits estão vinculados ao usuário errado?
 redirect_from:
-  - /articles/how-do-i-get-my-commits-to-link-to-my-github-account/
+  - /articles/how-do-i-get-my-commits-to-link-to-my-github-account
   - /articles/why-are-my-commits-linked-to-the-wrong-user
   - /github/committing-changes-to-your-project/why-are-my-commits-linked-to-the-wrong-user
   - /github/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user
@@ -22,7 +22,7 @@ shortTitle: Vinculado ao usuário incorreto
 
 ## Commits vinculados a outro usuário
 
-Se seus commits estiverem vinculados a outro usuário, isso significa que o endereço de e-mail nas configurações locais do Git está conectado à conta desse usuário em {% data variables.product.product_name %}. Neste caso, você pode alterar o e-mail nas configurações locais do Git, {% ifversion ghae %} ao endereço associado à sua conta em {% data variables.product.product_name %} para vincular seus commits futuros. Os commits antigos não serão vinculados. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %} and add the new email address to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} account to link future commits to your account.
+Se seus commits estiverem vinculados a outro usuário, isso significa que o endereço de e-mail nas configurações locais do Git está conectado à conta desse usuário em {% data variables.product.product_name %}. Neste caso, você pode alterar o e-mail nas configurações locais do Git, {% ifversion ghae %} ao endereço associado à sua conta em {% data variables.product.product_name %} para vincular seus commits futuros. Os commits antigos não serão vinculados. Para obter mais informações, consulte "[Definindo o seu endereço de e-mail do commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git).{% else %} e adicione o novo endereço de e-mail à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} para vincular commits futuros à sua conta.
 
 1. Para alterar o endereço de e-mail na sua configuração Git local, siga os passos em "[Definir o seu endereço de e-mail de commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)". Se você trabalha em várias máquinas, precisa alterar essa configuração em cada uma deles.
 2. Adicione o endereço de e-mail da etapa 2 às configurações da sua conta seguindo os passos em "[Adicionar um endereço de e-mail à sua conta GitHub](/articles/adding-an-email-address-to-your-github-account)".{% endif %}

@@ -1,9 +1,9 @@
 ---
 title: 关于 web 挂钩
 redirect_from:
-  - /post-receive-hooks/
-  - /articles/post-receive-hooks/
-  - /articles/creating-webhooks/
+  - /post-receive-hooks
+  - /articles/post-receive-hooks
+  - /articles/creating-webhooks
   - /articles/about-webhooks
 intro: Web 挂钩是一种通知方式，只要仓库或组织上发生特定操作，就会发送通知到外部 web 服务器。
 versions:

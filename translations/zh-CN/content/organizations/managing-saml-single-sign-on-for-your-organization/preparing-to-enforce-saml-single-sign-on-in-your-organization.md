@@ -1,12 +1,10 @@
 ---
 title: 准备在组织中实施 SAML 单点登录
 intro: 在组织中实施 SAML 单点登录之前，应验证组织的成员资格，并配置到身份提供程序的连接设置。
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

@@ -1,6 +1,7 @@
 ---
 title: Habilitando o gráfico de dependências e os alertas de dependências na sua conta corporativa
-intro: 'Você pode conectar {% data variables.product.product_location %} a {% data variables.product.prodname_ghe_cloud %} e habilitar o gráfico de dependências e alertas de {% data variables.product.prodname_dependabot %} em repositórios na sua instância.'
+intro: 'Você pode conectar {% data variables.product.product_location %} a {% data variables.product.prodname_ghe_cloud %} e habilitar o gráfico de dependências e  {% data variables.product.prodname_dependabot_alerts %} nos repositórios da sua instância.'
+miniTocMaxHeadingLevel: 3
 shortTitle: Habilitar a análise de dependências
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
@@ -9,7 +10,7 @@ redirect_from:
   - /admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
-permissions: 'Enterprise owners who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable the dependency graph and {% data variables.product.prodname_dependabot %} alerts on {% data variables.product.product_location %}.'
+permissions: 'Enterprise owners who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable the dependency graph and  {% data variables.product.prodname_dependabot_alerts %} on {% data variables.product.product_location %}.'
 versions:
   ghes: '*'
   ghae: issue-4864
@@ -38,6 +39,13 @@ Para obter mais informações sobre essas funcionalidades, consulte "[Sobre o gr
 
 Você pode conectar-se {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %} com {% data variables.product.prodname_github_connect %}. Uma vez conectados, os dados de vulnerabilidade são sincronizados de {% data variables.product.prodname_advisory_database %} para sua instância uma vez a cada hora. Também é possível sincronizar os dados de vulnerabilidade manualmente a qualquer momento. Nenhum código ou informações sobre o código da {% data variables.product.product_location %} são carregados para o {% data variables.product.prodname_dotcom_the_website %}.
 
+Apenas as consultorias revisadas por {% data variables.product.company_short %} estão sincronizados. {% data reusables.security-advisory.link-browsing-advisory-db %}
+
+### Sobre a digitalização de repositórios com dados sincronizados do {% data variables.product.prodname_advisory_database %}
+
+Para repositórios com {% data variables.product.prodname_dependabot_alerts %} habilitado, a digitalização é acionada em qualquer push para o branch padrão que contém um arquivo de manifesto ou arquivo de bloqueio. Além disso, quando um novo registro de vulnerabilidade é adicionado à instância, {% data variables.product.prodname_ghe_server %} irá digitalizar todos os repositórios existentes nessa instância e gerará alertas para qualquer repositório que seja vulnerável. Para obter mais informações, consulte "[Detecção de dependências vulneráveis](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)".
+
+
 ### Sobre a geração de {% data variables.product.prodname_dependabot_alerts %}
 
 Se você habilitar a detecção de vulnerabilidade, quando {% data variables.product.product_location %} recebe informações sobre uma vulnerabilidade, ela irá identificar os repositórios na sua instância que usam a versão afetada da dependência e irá gerar {% data variables.product.prodname_dependabot_alerts %}. Você pode escolher se quer ou não notificar os usuários automaticamente sobre o novo {% data variables.product.prodname_dependabot_alerts %}.
@@ -47,7 +55,7 @@ Se você habilitar a detecção de vulnerabilidade, quando {% data variables.pro
 ### Pré-requisitos
 
 Para {% data variables.product.product_location %} detectar dependências vulneráveis e gerar {% data variables.product.prodname_dependabot_alerts %}:
-- Você deve conectar {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}Isso também habilita o serviço do gráfico de dependências. {% endif %}{% ifversion ghes or ghae-next %}Para obter mais informações, consulte "[Conectando a conta corporativa ao {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)".{% endif %}
+- Você deve conectar {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghae %}Isso também habilita o serviço do gráfico de dependências. {% endif %}{% ifversion ghes or ghae %}Para obter mais informações, consulte "[Conectando a conta corporativa ao {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)".{% endif %}
 {% ifversion ghes %}- Você deve habilitar o serviço do gráfico de dependências.{% endif %}
 - Você deve habilitar a digitalização de vulnerabilidade.
 
@@ -70,19 +78,23 @@ Você pode habilitar o gráfico de dependências por meio do {% data variables.e
 {% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 1. No shell administrativo, habilite o gráfico de dependências em {% data variables.product.product_location %}:
-    ``` shell
-    $ {% ifversion ghes > 3.1 %}ghe-config app.dependency-graph.enabled true{% else %}ghe-config app.github.dependency-graph-enabled true{% endif %}
+    {% ifversion ghes > 3.1 %}```shell
+    ghe-config app.dependency-graph.enabled true
     ```
+    {% else %}```shell
+    ghe-config app.github.dependency-graph-enabled true
+  ghe-config app.github.vulnerability-alerting-and-settings-enabled true
+    ```{% endif %}
    {% note %}
 
-   **Observação**: Para obter mais informações sobre como habilitar o acesso ao shell administrativo via SSH, veja "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)".
+   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
-1. Aplique a configuração.
+2. Aplique a configuração.
     ```shell
     $ ghe-config-apply
     ```
-1. Volte para o {% data variables.product.prodname_ghe_server %}.
+3. Volte para o {% data variables.product.prodname_ghe_server %}.
 {% endif %}
 
 ### Habilitar o {% data variables.product.prodname_dependabot_alerts %}

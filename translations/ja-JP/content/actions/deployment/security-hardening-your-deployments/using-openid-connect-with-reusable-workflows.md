@@ -18,12 +18,6 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% note %}
-
-**Note:** Reusable workflows are currently in beta and subject to change.
-
-{% endnote %}
-
 ## About reusable workflows
 
 Rather than copying and pasting deployment jobs from one workflow to another, you can create a reusable workflow that performs the deployment steps. A reusable workflow can be used by another workflow if it meets one of the access requirements described in "[Reusing workflows](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)."

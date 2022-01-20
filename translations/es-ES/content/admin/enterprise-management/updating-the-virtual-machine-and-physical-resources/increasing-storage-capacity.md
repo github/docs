@@ -65,21 +65,29 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
 {% endwarning %}
 
 1. Conecta un nuevo disco a tu aparato {% data variables.product.prodname_ghe_server %}.
-2. Ejecuta el comando `parted` para formatear el disco:
+1. Ejecuta el comando `parted` para formatear el disco:
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-3. Ejecuta el comando `ghe-upgrade` para instalar un paquete específico de plataforma completo al disco recientemente particionado. Un paquete de actualización de hotpatch universal, como `github-enterprise-2.11.9.hpkg` no funcionará como se espera. Después de que se complete el comando `ghe-upgrade`, los servicios de aplicación se terminarán automáticamente.
+1. Para detener la replicación, ejecuta el comando `ghe-repl-stop`.
+
+   ```shell
+   $ ghe-repl-stop
+   ```
+
+1. Ejecuta el comando `ghe-upgrade` para instalar un paquete específico de plataforma completo al disco recientemente particionado. Un paquete de actualización de hotpatch universal, como `github-enterprise-2.11.9.hpkg` no funcionará como se espera. Después de que se complete el comando `ghe-upgrade`, los servicios de aplicación se terminarán automáticamente.
 
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. Cierra el aparato:
+1. Cierra el aparato:
   ```shell
   $ sudo poweroff
   ```
-5. En el hipervisor, quita el disco raíz anterior y agrega el nuevo disco raíz en la misma ubicación del disco raíz anterior.
-6. Inicia el aparato.
-7. Asegúrate de que los servicios de sistema estén funcionando correctamente y luego sal del modo de mantenimiento. Para obtener más información, consulta [Habilitar y programar el modo mantenimiento](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+1. En el hipervisor, quita el disco raíz anterior y agrega el nuevo disco raíz en la misma ubicación del disco raíz anterior.
+1. Inicia el aparato.
+1. Asegúrate de que los servicios de sistema estén funcionando correctamente y luego sal del modo de mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+
+Si tu aplicativo se configura para la disponibilidad alta o geo-replicación, recuerda iniciar la replicación en cada nodo de réplica utilizando `ghe-repl-start` después de que se haya mejorado el almacenamiento en todos los nodos.

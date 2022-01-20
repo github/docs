@@ -2,7 +2,7 @@
 - **ユーザリポジトリ**: リポジトリのオーナーでなければなりません。
 - **Organization**: Organizationのオーナーでなければなりません。
 - **Organizationのリポジトリ**: Organizationのオーナーであるか、リポジトリへの管理アクセス権を持っていなければなりません。
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 - **Enterpriseアカウント**: Enterpriseのオーナーでなければなりません。
 {% elsif ghes or ghae %}
 - **Enterprise**: {% data variables.product.prodname_enterprise %}サイト管理者でなければなりません。

@@ -49,7 +49,7 @@ To use an organization account with {% data variables.product.prodname_ghe_cloud
 Alternatively, if you have an existing organization account that you would like to upgrade, follow the steps in "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 #### 3. Setting up and managing billing
 
-When you choose to use an organization account with {% data variables.product.prodname_ghe_cloud %}, you'll first have access to a [14-day trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_team %} before your trial ends, your organization will be downgraded to {% data variables.product.prodname_free_user %} and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
+When you choose to use an organization account with {% data variables.product.prodname_ghe_cloud %}, you'll first have access to a [30-day trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_team %} before your trial ends, your organization will be downgraded to {% data variables.product.prodname_free_user %} and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
 
 Your organization's billing settings page allows you to manage settings like your payment method and billing cycle, view information about your subscription, and upgrade your storage and {% data variables.product.prodname_actions %} minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)."
 
@@ -199,14 +199,18 @@ Members of your organization or enterprise can use tools from the {% data variab
 ## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
 
 Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community.
-### 1. Learning with {% data variables.product.prodname_learning %}
+
+### 1. Reading about {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_docs %}
+You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
+### 2. Learning with {% data variables.product.prodname_learning %}
 Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by the friendly Learning Lab bot.
 
 For more information, see "[Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
-### 2. Supporting the open source community
+### 3. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### 3. {% data variables.contact.github_support %} への連絡
+### 4. {% data variables.contact.github_support %} への連絡
 {% data reusables.getting-started.contact-support %}
 
 {% data variables.product.prodname_ghe_cloud %} allows you to submit priority support requests with a target eight-hour response time. 詳細は「[{% data variables.product.prodname_ghe_cloud %} サポート](/github/working-with-github-support/github-enterprise-cloud-support)」を参照してください。

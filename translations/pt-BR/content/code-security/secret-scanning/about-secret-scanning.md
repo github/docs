@@ -54,25 +54,25 @@ O {% data variables.product.product_name %} atualmente verifica repositórios p�
 
 Se você é um administrador de repositório ou um proprietário de uma organização, você pode habilitar {% data variables.product.prodname_secret_scanning %} para {% ifversion fpt or ghec %} repositórios privados{% endif %} pertencentes a organizações. Você pode habilitar {% data variables.product.prodname_secret_scanning %} para todos os seus repositórios ou para todos os novos repositórios dentro da sua organização.{% ifversion fpt or ghec %} {% data variables.product.prodname_secret_scanning_caps %} não está disponível para repositórios privados pertencentes ao usuário.{% endif %} Para obter mais informações, consulte "[Gerenciar segurança e configurações de análise para o seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" e "[Gerenciar configurações de segurança e análise para a sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}Você também pode definir padrões personalizados de {% data variables.product.prodname_secret_scanning %} que se aplicam somente ao seu repositório ou organização. Para obter mais informações, consulte "[Definir padrões personalizados para {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)".{% endif %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}Você também pode definir padrões personalizados de {% data variables.product.prodname_secret_scanning %} que se aplicam somente ao seu repositório ou organização. Para obter mais informações, consulte "[Definir padrões personalizados para {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)".{% endif %}
 
 Quando você faz push dos commits para um repositório{% ifversion fpt or ghec %} privado{% endif %} com {% data variables.product.prodname_secret_scanning %} habilitado, {% data variables.product.prodname_dotcom %} verifica o conteúdo dos segredos dos commits.
 
 Quando {% data variables.product.prodname_secret_scanning %} detecta um segredo em um{% ifversion fpt or ghec %} privado{% endif %} repositório, {% data variables.product.prodname_dotcom %} gera um alerta.
 
 - O {% data variables.product.prodname_dotcom %} envia um alerta de email para os administradores do repositório e proprietários da organização.
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - {% data variables.product.prodname_dotcom %} envia um alerta de e-mail para o contribuidor que fez o commit do segredo no repositório com um link para o alerta de {% data variables.product.prodname_secret_scanning %} relacionado. O autor do commit pode visualizar o alerta no repositório e resolver o alerta.
 {% endif %}
 - {% data variables.product.prodname_dotcom %} exibe um alerta no repositório.{% ifversion ghes = 3.0 %} Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)".{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Para obter mais informações sobre a visualização e resolução de alertas de {% data variables.product.prodname_secret_scanning %}, consulte "[Gerenciar alertas de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
 
 Os administradores do repositório e proprietários da organização podem conceder acesso aos usuários aos alertas de {% data variables.product.prodname_secret_scanning %}. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)".
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
-Para monitorar os resultados de {% data variables.product.prodname_secret_scanning %} nos seus repositórios privados ou na sua organização, você pode usar a API de {% data variables.product.prodname_secret_scanning %}. Para obter mais informações sobre pontos de extremidade da API, consulte "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)".{% endif %}
+Para monitorar resultados de {% data variables.product.prodname_secret_scanning %} nos seus {% ifversion fpt or ghec %}repositórios {% endif %}privados{% ifversion ghes > 3.1 %} ou na sua organização{% endif %}, você pode usar a API de {% data variables.product.prodname_secret_scanning %}. Para obter mais informações sobre pontos de extremidade da API, consulte "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)".{% endif %}
 
 {% ifversion ghes or ghae %}
 ## Lista de segredos compatíveis{% else %}

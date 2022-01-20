@@ -14,6 +14,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Create a codespace
 ---
 
 ## 关于代码空间的创建
@@ -66,8 +67,6 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 ## 创建代码空间
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -79,7 +78,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
    ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 
-   如果您是组织的成员，并且在该组织拥有的仓库上创建代码空间，您可以选择不同机器类型的选项。 从对话框中选择机器类型，然后点击 **Create codespace（创建代码空间）**。 ![机器类型选择](/assets/images/help/codespaces/choose-custom-machine-type.png)
+   如果您是组织的成员，并且在该组织拥有的仓库上创建代码空间，您可以选择不同机器类型的选项。 From the dialog box, choose a machine type and then click **Create codespace**.
+
+   ![机器类型选择](/assets/images/help/codespaces/choose-custom-machine-type.png)
+
+   {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% endwebui %}
 

@@ -1,3 +1,4 @@
+import { LinkIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
 type Props = {
@@ -9,11 +10,12 @@ type Props = {
 }
 export const LandingSection = ({ title, children, className, sectionLink, description }: Props) => {
   return (
-    <div className={cx('container-xl px-3 px-md-6', className)} id={sectionLink}>
+    <div className={cx('container-xl px-3 px-md-6 mt-6', className)} id={sectionLink}>
       {title && (
         <h2 className={cx('h1 color-fg-default', !description ? 'mb-3' : 'mb-4')}>
           {sectionLink ? (
             <a className="color-unset" href={`#${sectionLink}`}>
+              <LinkIcon size={24} className="m-1" />
               {title}
             </a>
           ) : (

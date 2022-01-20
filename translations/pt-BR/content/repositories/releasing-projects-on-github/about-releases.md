@@ -2,8 +2,8 @@
 title: Sobre as versões
 intro: 'Você pode criar uma versão de modo a empacotar software, com notas de versão e links para arquivos binários, para uso de outras pessoas.'
 redirect_from:
-  - /articles/downloading-files-from-the-command-line/
-  - /articles/downloading-files-with-curl/
+  - /articles/downloading-files-from-the-command-line
+  - /articles/downloading-files-with-curl
   - /articles/about-releases
   - /articles/getting-the-download-count-for-your-releases
   - /github/administering-a-repository/getting-the-download-count-for-your-releases
@@ -20,9 +20,9 @@ topics:
 
 ## Sobre as versões
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
 ![Uma visão geral de versões](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% elsif ghes > 3.3 or ghae-issue-4972 %}
+{% elsif ghae-issue-4972 %}
 ![Uma visão geral de versões](/assets/images/help/releases/releases-overview-with-contributors.png)
 {% else %}
 ![Uma visão geral de versões](/assets/images/help/releases/releases-overview.png)
@@ -36,7 +36,7 @@ Você pode receber notificações quando novas versões são publicadas em um re
 
 Qualquer pessoa com acesso de leitura a um repositório pode ver e comparar versões, mas somente pessoas com permissões de gravação a um repositório podem gerenciar versões. Para obter mais informações, consulte "[Gerenciando versões em um repositório](/github/administering-a-repository/managing-releases-in-a-repository)."
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
 
 Você pode criar notas de versão manualmente enquanto gerencia uma versão. Como alternativa, você pode gerar automaticamente notas de versão a partir de um modelo padrão, ou personalizar seu próprio modelo de notas de versão. Para obter mais informações, consulte "[Notas de versão geradas automaticamente](/repositories/releasing-projects-on-github/automatically-generated-release-notes)".
 

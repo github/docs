@@ -2,7 +2,7 @@
 title: Migrar los equipos de administradores a permisos de organización mejorados
 intro: 'Si tu organización fue creada después de septiembre de 2015, tu organización ha mejorado los permisos de la organización por defecto. Las organizaciones creadas antes de septiembre de 2015 pueden necesitar migrar a los antiguos equipos de propietarios y administradores al modelo mejorado de permisos. Los miembros de los equipos de administradores heredados conservan de forma automática la capacidad para crear repositorios hasta que esos equipos sean migrados al modelo mejorado de permisos de la organización.'
 redirect_from:
-  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions/
+  - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions
   - /articles/migrating-admin-teams-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/migrating-admin-teams-to-improved-organization-permissions
 versions:
@@ -21,7 +21,7 @@ Los equipos de administración heredados son equipos que fueron creados con el n
 
 Puedes eliminar esta capacidad al migrar tus equipos de administradores heredados a los permisos mejorados de la organización.
 
-For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Para obtener más información, consulta la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
 {% warning %}
 

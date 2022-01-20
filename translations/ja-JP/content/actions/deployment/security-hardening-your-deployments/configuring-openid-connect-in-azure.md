@@ -65,36 +65,28 @@ The [`azure/login`](https://github.com/Azure/login) action receives a JWT from t
 
 The following example exchanges an OIDC ID token with Azure to receive an access token, which can then be used to access cloud resources.
 
+{% raw %}
 ```yaml{:copy}
-name: Run Azure Login with OpenID Connect
+name: Run Azure Login with OIDC
 on: [push]
 
 permissions:
       id-token: write
-
+      contents: read
 jobs: 
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-    - name: Installing CLI-beta for OpenID Connect
-      run: |
-        cd ../..
-        CWD="$(pwd)"
-        python3 -m venv oidc-venv
-        . oidc-venv/bin/activate
-        echo "activated environment"
-        python3 -m pip install -q --upgrade pip
-        echo "started installing cli beta"
-        pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
-        echo "***************installed cli beta*******************"
-        echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
-
-    - name: 'Az CLI login'
-      uses: azure/login@v1.4.0
-      with:
-        client-id: {% raw %}${{ secrets.AZURE_CLIENTID }}{% endraw %}
-        tenant-id: {% raw %}${{ secrets.AZURE_TENANTID }}{% endraw %}
-        subscription-id: {% raw %}${{ secrets.AZURE_SUBSCRIPTIONID }}{% endraw %}
+      - name: 'Run az commands'
+        run: |
+          az account show
+          az group list
 ```
- 
+ {% endraw %}

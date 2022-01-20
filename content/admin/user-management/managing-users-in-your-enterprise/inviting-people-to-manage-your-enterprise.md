@@ -1,12 +1,11 @@
 ---
 title: Inviting people to manage your enterprise
 intro: 'You can {% ifversion ghec %}invite people to become enterprise owners or billing managers for{% elsif ghes %}add enterprise owners to{% endif %} your enterprise account. You can also remove enterprise owners {% ifversion ghec %}or billing managers {% endif %}who no longer need access to the enterprise account.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
-  - /articles/inviting-people-to-collaborate-in-your-business-account/
+  - /articles/inviting-people-to-collaborate-in-your-business-account
   - /articles/inviting-people-to-manage-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
 versions:

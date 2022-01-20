@@ -44,7 +44,6 @@ Os eventos listados no seu registro de segurança são acionados por suas açõe
 
 | Categoria                                                                              | Descrição                                                                                                                                                                                                                                                                                                                                                                                                           |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
-| [`account_recovery_token`](#account_recovery_token-category-actions)                   | Contém todas as atividade relacionadas a [adicionar um token de recuperação](/articles/configuring-two-factor-authentication-recovery-methods).                                                                                                                                                                                                                                                                     |
 | [`cobrança`](#billing-category-actions)                                                | Contém todas as atividades relacionadas às suas informações de cobrança.                                                                                                                                                                                                                                                                                                                                            |
 | [`espaços de código`](#codespaces-category-actions)                                    | Contém todas as atividades relacionadas a {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-codespaces)".                                                                                                                                                         |
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contém todas as atividades relacionadas à assinatura do Contrato de desenvolvedor do {% data variables.product.prodname_marketplace %}.                                                                                                                                                                                                                                                                             |
@@ -74,14 +73,6 @@ Os eventos listados no seu registro de segurança são acionados por suas açõe
 Uma visão geral de algumas das ações mais comuns que são registradas como eventos no log de segurança.
 
 {% ifversion fpt or ghec %}
-
-### `account_recovery_token` ações de categoria
-
-| Ação            | Descrição                                                                                                                                       |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `confirm`       | Acionada quando você [armazena um novo token com um provedor de recuperação](/articles/configuring-two-factor-authentication-recovery-methods). |
-| `recover`       | Acionada quando você [resgata um token de recuperação de conta](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).            |
-| `recover_error` | Acionada quando um token é usado, mas o {% data variables.product.prodname_dotcom %} não consegue validá-lo.                                    |
 
 ### ações de categoria de `cobrança`
 
@@ -131,7 +122,6 @@ Uma visão geral de algumas das ações mais comuns que são registradas como ev
 
 | Ação     | Descrição                                                                                                  |
 | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `clear`  | Acionada quando [um método de pagamento](/articles/removing-a-payment-method) registrado é removido.       |
 | `create` | Acionada quando um novo método de pagamento, como um novo cartão de crédito ou conta PayPal, é adicionado. |
 | `update` | Acionada quando um método de pagamento é atualizado.                                                       |
 
@@ -177,7 +167,7 @@ Uma visão geral de algumas das ações mais comuns que são registradas como ev
 | `config.unlock_anonymous_git_access`  | Acionada quando a [configuração de acesso de leitura anônimo do Git de um repositório é desbloqueada](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
 | `create`                              | Acionada quando [um repositório é criado](/articles/creating-a-new-repository).                                                                                                                                                                                                                                                             |
 | `destroy`                             | Acionada quando [um repositório é excluído](/articles/deleting-a-repository).{% ifversion fpt or ghec %}
-| `desabilitar`                         | Acionada quando um repositório é desabilitado (por exemplo, por [recursos financeiros insuficientes](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
+| `desabilitar`                         | Acionada quando um repositório é desabilitado (por exemplo, por [fundos insuficientes](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
 | `habilitar`                           | Acionada quando um repositório é habilitado novamente.{% endif %}
 | `remove_member`                       | Acionada quando um usuário do {% data variables.product.product_name %} é [removido de um repositório como um colaborador](/articles/removing-a-collaborator-from-a-personal-repository).                                                                                                                                                   |
 | `remove_topic`                        | Acionada quando um proprietário do repositório remove um tópico de um repositório.                                                                                                                                                                                                                                                          |

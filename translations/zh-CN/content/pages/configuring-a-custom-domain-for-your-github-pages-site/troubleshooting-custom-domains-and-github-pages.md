@@ -2,9 +2,9 @@
 title: 自定义域和 GitHub Pages 疑难解答
 intro: '您可以检查常见错误，以解决与 {% data variables.product.prodname_pages %} 站点的自定义域或 HTTPS 相关的问题。'
 redirect_from:
-  - /articles/my-custom-domain-isn-t-working/
-  - /articles/custom-domain-isn-t-working/
-  - /articles/troubleshooting-custom-domains/
+  - /articles/my-custom-domain-isn-t-working
+  - /articles/custom-domain-isn-t-working
+  - /articles/troubleshooting-custom-domains
   - /articles/troubleshooting-custom-domains-and-github-pages
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'

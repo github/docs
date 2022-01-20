@@ -2,7 +2,7 @@
 title: ソースコード移行ツール
 intro: 外部ツールを使って、プロジェクトを GitHub に移動できます。
 redirect_from:
-  - /articles/importing-from-subversion/
+  - /articles/importing-from-subversion
   - /articles/source-code-migration-tools
   - /github/importing-your-projects-to-github/source-code-migration-tools
 versions:

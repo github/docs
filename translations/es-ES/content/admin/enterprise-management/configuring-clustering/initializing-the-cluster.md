@@ -30,7 +30,7 @@ topics:
 
 ## Inicializar la agrupación
 
-Para inicializar la agrupación, necesitas un archivo de configuración de agrupación (`cluster.conf`). For more information, see "[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+Para inicializar la agrupación, necesitas un archivo de configuración de agrupación (`cluster.conf`). Para obtener màs informaciòn, consulta la secciòn "[Acerca del archivo de configuraciòn de clùster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
 1. Desde el primer nodo que se configuró, ejecuta `ghe-cluster-config. init`.  De esta manera, se inicializará la agrupación si existen nodos en el archivo de configuración de la agrupación que no están configurados.
 2. Ejecuta `ghe-cluster-config-apply`. Esto validará el archivo `cluster.conf`, aplicará la configuración a cada archivo del nodo y traerá los servicios configurados en cada nodo.

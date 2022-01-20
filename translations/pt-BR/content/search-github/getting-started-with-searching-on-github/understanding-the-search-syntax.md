@@ -2,7 +2,7 @@
 title: Entender a sintaxe de pesquisa
 intro: 'Durante a pesquisa no {% data variables.product.product_name %}, é possível criar consultas que correspondam a palavras e números específicos.'
 redirect_from:
-  - /articles/search-syntax/
+  - /articles/search-syntax
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/understanding-the-search-syntax

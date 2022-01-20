@@ -1,21 +1,22 @@
 ---
-title: 管理企业的 GitHub Actions
-intro: '在 {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %} 上启用 {% data variables.product.prodname_actions %}，并管理 {% data variables.product.prodname_actions %} 策略和设置。'
+title: Managing GitHub Actions for your enterprise
+intro: 'Enable {% data variables.product.prodname_actions %} on {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %}, and manage {% data variables.product.prodname_actions %} policies and settings.'
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
   - Enterprise
 children:
+  - /getting-started-with-github-actions-for-your-enterprise
   - /using-github-actions-in-github-ae
   - /enabling-github-actions-for-github-enterprise-server
   - /managing-access-to-actions-from-githubcom
   - /advanced-configuration-and-troubleshooting
-shortTitle: 管理 GitHub Actions
+shortTitle: Manage GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}

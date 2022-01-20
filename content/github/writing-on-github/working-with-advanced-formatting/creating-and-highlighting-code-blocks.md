@@ -45,6 +45,7 @@ Look! You can see my backticks.
 
 ![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
 
 ## Syntax highlighting
 

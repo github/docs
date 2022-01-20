@@ -2,8 +2,8 @@
 title: 混乱を生むコメントを管理する
 intro: 'Issue、プルリクエスト、 およびコミットに対するコメントを{% ifversion fpt or ghec %}非表示、編集{% else %}編集{% endif %}、削除できます。'
 redirect_from:
-  - /articles/editing-a-comment/
-  - /articles/deleting-a-comment/
+  - /articles/editing-a-comment
+  - /articles/deleting-a-comment
   - /articles/managing-disruptive-comments
   - /github/building-a-strong-community/managing-disruptive-comments
 versions:

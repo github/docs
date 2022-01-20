@@ -33,7 +33,7 @@ function PickerSummaryWrapper({ variant, children }: PickerWrapperPropsT) {
   return (
     <>
       {children}
-      <Dropdown.Caret />
+      <ChevronDownIcon size={16} className="arrow ml-md-1" />
     </>
   )
 }
@@ -65,7 +65,7 @@ export function Picker({ variant, defaultText, options, ...restProps }: PickerPr
       <summary
         className="d-block btn btn-invisible color-fg-default"
         aria-haspopup="true"
-        aria-label="Toggle picker list"
+        aria-label={selectedOption?.text || defaultText}
       >
         <PickerSummaryWrapper variant={variant}>
           <Text>{selectedOption?.text || defaultText}</Text>

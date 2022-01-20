@@ -1,5 +1,0 @@
-{% ifversion fpt %}
-Internal repositories are available on {% data variables.product.prodname_ghe_cloud %} for organizations that are owned by an enterprise account and {% data variables.product.prodname_ghe_server %} 2.20+. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
-{% else %}
-Internal repositories are available on {% data variables.product.prodname_ghe_cloud %} for organizations that are owned by an enterprise account{% ifversion ghae %}, {% data variables.product.prodname_ghe_managed %},{% endif %} and {% data variables.product.prodname_ghe_server %} 2.20+. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
-{% endif %}

@@ -51,7 +51,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-Consulta la sección "[Buscar en GitHub](/articles/searching-on-github/)" para encontrar una lista completa de calificadores disponibles, su formato, y ejemplos de cómo utilizarlos. Para obtener más información acerca de cómo utilizar los operadores para que coincidan con cantidades y fechas específicas o para que excluyan resultados, consulta la sección "[Entender la sintaxis de búsqueda](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)".
+Consulta la sección "[Buscar en GitHub](/search-github/searching-on-github)" para encontrar una lista completa de calificadores disponibles, su formato, y ejemplos de cómo utilizarlos. Para obtener más información acerca de cómo utilizar los operadores para que coincidan con cantidades y fechas específicas o para que excluyan resultados, consulta la sección "[Entender la sintaxis de búsqueda](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)".
 
 ### Limitaciones sobre la longitud de la consulta
 
@@ -69,7 +69,7 @@ Llegar a una interrupción no necesariamente significa que los resultados de bú
 
 ### Errores de acceso o resultados de búsqueda faltantes
 
-Necesitas autenticarte exitosamente y tener acceso a los repositorios en tus consultas de búsqueda, de lo contrario, verás un error de `422 Unprocessible Entry` con un mensaje de "Validation Failed". Por ejemplo, tu búsqueda fallará si tu consulta incluye los calificadores `repo:`, `user:`, o `org:` que solicitan los recursos a los cuales no tienes acceso cuando inicias sesión en {% data variables.product.prodname_dotcom %}.
+Necesitas autenticarte con éxito y tener acceso a los repositorios en tus consultas de búsqueda, de otro modo, verás un error `422 Unprocessable Entry` con un mensaje de "Validation Failed". Por ejemplo, tu búsqueda fallará si tu consulta incluye los calificadores `repo:`, `user:`, o `org:` que solicitan los recursos a los cuales no tienes acceso cuando inicias sesión en {% data variables.product.prodname_dotcom %}.
 
 Cuando tu consulta de búsqueda solicita recursos múltiples, la respuesta solo contendrá aquellos a los que tengas acceso y **no** proporcionará un mensaje de error que liste los recursos que no se devolvieron.
 

@@ -3,7 +3,7 @@ title: Monitorar usando SNMP
 intro: 'O {% data variables.product.prodname_enterprise %} fornece dados sobre o uso de disco, CPU, memória e muito mais no SNMP.'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
-  - /enterprise/admin/articles/monitoring-using-snmp/
+  - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:

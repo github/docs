@@ -36,6 +36,24 @@ topics:
 
 Para producir una salida más detallada de bitácoras, puedes habilitar el registro de depuración de pasos. Para obtener más información, consulta la sección "[Habilitar el registro de depuración](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+
+## Crear artefactos de depuración de {% data variables.product.prodname_codeql %}
+
+Puedes obtener artefactos para que te ayuden a depurar {% data variables.product.prodname_codeql %} si seleccionas un marcador de configuración de depuración. Modifica el paso de `init` de tu archivo de flujo de trabajo de {% data variables.product.prodname_codeql %} y configura `debug: true`.
+
+```
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v1
+  with:
+    debug: true
+```
+Los artefactos de depuración se cargarán a la ejecución de flujo de trabajo como un artefacto de nombre `debug-artifacts`. Los datos contienen las bitácoras de {% data variables.product.prodname_codeql %}. la(s) base(s) de datos de {% data variables.product.prodname_codeql %} y cualquier archivo SARIF que produzca el flujo de trabajo.
+
+Estos artefactos te ayudarán a depurar los problemas con el escaneo de código de {% data variables.product.prodname_codeql %}. Si contactas al soporte de GitHub, podrían pedirte estos datos.
+
+{% endif %}
+
 ## Compilación automática para los fallos de un lenguaje compilado
 
 Si una compilación automática de código para un lenguaje compilado dentro de tu proyecto falla, intenta los siguientes pasos de solución de problemas.
@@ -48,7 +66,7 @@ Si una compilación automática de código para un lenguaje compilado dentro de 
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -93,20 +111,20 @@ Si tu flujo de trabajo falla con un error de `No source code was seen during the
    * Compilar utilizando un sistema de compilación distribuida externo a GitHub Actions, utilizando un proceso de daemon.
    * {% data variables.product.prodname_codeql %} no está consciente del compilador específico que estás utilizando.
 
-  Para los proyectos de .NET Framework y los de C# que utilicen ya sea `dotnet build` o `msbuild` y que apunten a .NET Core 2, debes especificar `/p:UseSharedCompilation=false` en el paso `run` de tu flujo de trabajo cuando compiles tu código. No es necesario el marcador `UseSharedCompilation` para .NET Core 3.0 o superior.
+  En el caso de los proyectos de .NET Framework y C# que utilicen ya sea `dotnet build` o `msbuild`, deberás especificar `/p:UseSharedCompilation=false` en el paso de `run` de tu flujo de trabajo cuando compiles tu código.
 
   Por ejemplo, la siguiente configuración para C# pasará el marcador durante el primer paso de compilación.
 
    ``` yaml
    - run: |
-       dotnet build /p:UseSharedCompilation=false 
+       dotnet build /p:UseSharedCompilation=false
    ```
 
   Si encuentras otro problema con tu compilador específico o con tu configuración, contacta a {% data variables.contact.contact_support %}.
 
 Para obtener más información acerca de especificar los pasos de compilación, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1  or ghae or ghec %}
 ## Las líneas de código escaneado son menores de lo esperado
 
 Para los lenguajes compilados como C/C++, C#, Go y Java, {% data variables.product.prodname_codeql %} solo escanea los archivos que se compilen durante el análisis. Por lo tanto, la cantidad de líneas de código escaneado será menor de lo esperado si parte del código fuente no se compila correctamente. Esto puede suceder por varias razones:
@@ -161,9 +179,9 @@ El {% data variables.product.prodname_codeql_workflow %} predeterminado utiliza 
 
 El tiempo de análisis es habitualmente proporcional a la cantidad de código que se esté analizando. Puedes reducir el tiempo de análisis si reduces la cantidad de código que se analice en cada vez, por ejemplo, si excluyes el código de prueba o si divides el análisis en varios flujos de trabajo que analizan únicamente un subconjunto de tu código a la vez.
 
-Para los lenguajes compilados como Java, C, C++ y C#, {% data variables.product.prodname_codeql %} analiza todo el código que se haya compilado durante la ejecución del flujo de trabajo. Para limitar la cantidad de código que se está analizando, compila únicamente el código que quieres analizar especificando tus propios pasos de compilación en un bloque de `run`. Puedes combinar el especificar tus propios pasos de compilación con el uso de filtros de `paths` o `paths-ignore` en los eventos de `pull_request` y de `push` para garantizar que tu flujo de trabajo solo se ejecute cuando se cambia el código específico. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)".
+Para los lenguajes compilados como Java, C, C++ y C#, {% data variables.product.prodname_codeql %} analiza todo el código que se haya compilado durante la ejecución del flujo de trabajo. Para limitar la cantidad de código que se está analizando, compila únicamente el código que quieres analizar especificando tus propios pasos de compilación en un bloque de `run`. Puedes combinar el especificar tus propios pasos de compilación con el uso de filtros de `paths` o `paths-ignore` en los eventos de `pull_request` y de `push` para garantizar que tu flujo de trabajo solo se ejecute cuando se cambia el código específico. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)".
 
-Para los lenguajes interpretados como Go, JavaScript, Python y TypeScript que analiza {% data variables.product.prodname_codeql %} sin una compilación específica, puedes especificar opciones de configuración adicionales para limitar la cantidad de código a analizar. Para obtener más información, consulta la sección "[Especificar los directorios a escanear](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan)".
+En el caso de los lenguajes como Go, JavaScript, Python y TypeScript, los cuales analiza {% data variables.product.prodname_codeql %} sin compilar el código fuente, puedes especificar opciones adicionales de configuración para limitar la cantidad de código a analizar. Para obtener más información, consulta la sección "[Especificar los directorios a escanear](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan)".
 
 Si divides tu análisis en varios flujos de trabajo como se describió anteriormente, aún te recomendamos que por lo menos tengas un flujo de trabajo que se ejecute con un `schedule` que analice todo el código en tu repositorio. Ya que {% data variables.product.prodname_codeql %} analiza los flujos de datos entre componentes, algunos comportamientos de seguridad complejos podrían detectarse únicamente en una compilación completa.
 
@@ -186,7 +204,7 @@ Si la ejecución de un flujo de trabajo para {% data variables.product.prodname_
 
 ## Error: "Out of disk" o "Out of memory"
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+En proyectos muy grandes, el {% data variables.product.prodname_codeql %} podría quedarse sin memoria o sin espacio de almacenamiento en el ejecutor.
 {% ifversion fpt or ghec %}Si te encuentras con este problema en un ejecutor de {% data variables.product.prodname_actions %}, contacta a {% data variables.contact.contact_support %} para que podamos investigar el problema.
 {% else %}Si llegas a tener este problema, intenta incrementar la memoria en el ejecutor.{% endif %}
 

@@ -1,11 +1,11 @@
 ---
 title: Enabling unified contributions between your enterprise account and GitHub.com
 shortTitle: Enable unified contributions
-intro: '{% data variables.product.prodname_github_connect %}を有効化すると、{% data variables.product.prodname_ghe_cloud %}のメンバーがコントリビューション数を{% data variables.product.prodname_dotcom_the_website %}のプロフィールに送信して、{% data variables.product.product_name %}上の作業をハイライトできるようにできます。'
+intro: 'After enabling {% data variables.product.prodname_github_connect %}, you can allow {% data variables.product.prodname_ghe_cloud %} members to highlight their work on {% data variables.product.product_name %} by sending the contribution counts to their {% data variables.product.prodname_dotcom_the_website %} profiles.'
 redirect_from:
-  - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-and-github-com/
-  - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-github-com/
-  - /enterprise/admin/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-githubcom/
+  - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-and-github-com
+  - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-github-com
+  - /enterprise/admin/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/installation/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
@@ -13,7 +13,7 @@ redirect_from:
 permissions: 'Enterprise owners who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified contributions between {% data variables.product.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -26,21 +26,22 @@ As an enterprise owner, you can allow end users to send anonymized contribution 
 
 After you enable {% data variables.product.prodname_github_connect %} and enable {% data variables.product.prodname_unified_contributions %} in both environments, end users on your enterprise account can connect to their {% data variables.product.prodname_dotcom_the_website %} accounts and send contribution counts from {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.github-connect.sync-frequency %} For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
 
-If the enterprise owner disables the functionality or developers opt out of the connection, the {% data variables.product.product_name %} contribution counts will be deleted on {% data variables.product.prodname_dotcom_the_website %}. 開発者がプロフィールを無効にした後に再接続すると、過去 90 日間のコントリビューションカウントが復元されます。
+If the enterprise owner disables the functionality or developers opt out of the connection, the {% data variables.product.product_name %} contribution counts will be deleted on {% data variables.product.prodname_dotcom_the_website %}. If the developer reconnects their profiles after disabling them, the contribution counts for the past 90 days are restored.
 
-{% data variables.product.product_name %} は、接続されているユーザーのコントリビューションカウントおよびソース ({% data variables.product.product_name %}) **のみ**を送信します。 コントリビューションまたはその作成方法に関する情報は送信されません。
+{% data variables.product.product_name %} **only** sends the contribution count and source ({% data variables.product.product_name %}) for connected users. It does not send any information about the contribution or how it was made.
 
-{% data variables.product.product_location %}で {% data variables.product.prodname_unified_contributions %}を有効化する前に、{% data variables.product.product_location %}を {% data variables.product.prodname_dotcom_the_website %}に接続する必要があります。 For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+Before enabling {% data variables.product.prodname_unified_contributions %} on {% data variables.product.product_location %}, you must connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 {% ifversion ghes %}
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
-1. {% data variables.product.product_location %}と{% data variables.product.prodname_dotcom_the_website %}にサインインしてください。
+1. Sign in to {% data variables.product.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
-1. \[Users can share contribution counts to {% data variables.product.prodname_dotcom_the_website %}\] (ユーザは {% data variables.product.prodname_dotcom_the_website %} にコントリビューション数を共有できる) の下で、[**Request access**] (アクセスをリクエスト) をクリックします。 ![Request access to unified contributions option](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png){% ifversion ghes %}
-2. {% data variables.product.prodname_ghe_server %} サイトに[サインイン](https://enterprise.github.com/login)して、以降の指示を受けてください。
+1. Under "Users can share contribution counts to {% data variables.product.prodname_dotcom_the_website %}", click **Request access**.
+  ![Request access to unified contributions option](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png){% ifversion ghes %}
+2. [Sign in](https://enterprise.github.com/login) to the {% data variables.product.prodname_ghe_server %} site to receive further instructions.
 
 When you request access, we may redirect you to the {% data variables.product.prodname_ghe_server %} site to check your current terms of service.
 {% endif %}

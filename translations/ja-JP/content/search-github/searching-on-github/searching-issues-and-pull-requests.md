@@ -2,7 +2,7 @@
 title: Issue およびプルリクエストを検索する
 intro: '{% data variables.product.product_name %} 上の Issue およびプルリクエストを検索することができます。そして、これらの検索用修飾子を組み合わせることで、検索結果を絞ることができます。'
 redirect_from:
-  - /articles/searching-issues/
+  - /articles/searching-issues
   - /articles/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests
@@ -79,7 +79,7 @@ shortTitle: Search issues & PRs
 
 `is` 修飾子を使用して、Issue とプルリクエストを含むリポジトリの可視性でフィルタできます。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% ifversion fpt or ghes or ghae or ghec %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
+| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
 ## 作者で検索
 
@@ -149,11 +149,11 @@ shortTitle: Search issues & PRs
 
 `label` 修飾子を使って、ラベルで検索結果を絞り込むことができます。 Issue は複数のラベルがある可能性があることから、各 Issue について異なる修飾子を記載できます。
 
-| 修飾子                        | サンプル                                                                                                                                                                                                               |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) は、Ruby のリポジトリにある「help wanted」のラベルがある Issue にマッチします。                      |
-|                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues)は、「bug」ラベルはないが「priority」ラベルがある、本文に「broken」という単語がある Issue にマッチします。**          |
-|                            | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+| 修飾子                        | サンプル                                                                                                                                                                                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) は、Ruby のリポジトリにある「help wanted」のラベルがある Issue にマッチします。                 |
+|                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues)は、「bug」ラベルはないが「priority」ラベルがある、本文に「broken」という単語がある Issue にマッチします。**     |
+|                            | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 |                            | [**label:bug,resolved**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) matches issues with the label "bug" or the label "resolved."{% endif %}
 
 ## マイルストーンで検索
@@ -240,11 +240,11 @@ shortTitle: Search issues & PRs
 ## ドラフトプルリクエストを検索
 ドラフトプルリクエストをフィルタリングすることができます。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests#draft-pull-requests)を参照してください。
 
-| Qualifier        | Example | ------------- | -------------{% ifversion fpt or ghes or ghae or ghec %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) は、レビューの準備ができたプルリクエストに一致します。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) はドラフトプルリクエストに一致します。{% endif %}
+| Qualifier        | Example | ------------- | -------------{% ifversion fpt or ghes or ghae or ghec %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) はドラフトプルリクエストに一致します。 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) は、レビューの準備ができたプルリクエストに一致します。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) はドラフトプルリクエストに一致します。{% endif %}
 
 ## プルリクエストレビューのステータスおよびレビュー担当者で検索
 
-You can filter pull requests based on their [review status](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_, _required_, _approved_, or _changes requested_), by reviewer, and by requested reviewer.
+レビュー担当者およびレビューリクエストを受けた人で、[レビューステータス](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_、_required_、_approved_、または _changes requested_) でプルリクエストをフィルタリングできます。
 
 | 修飾子                        | サンプル                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -2,8 +2,8 @@
 title: 使用主题选择器将主题添加到 GitHub Pages 站点
 intro: '您可以将主题添加到 {% data variables.product.prodname_pages %} 站点，以自定义站点的外观。'
 redirect_from:
-  - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser/
+  - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser
   - /articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
 product: '{% data reusables.gated-features.pages %}'

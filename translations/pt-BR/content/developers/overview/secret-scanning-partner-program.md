@@ -3,7 +3,7 @@ title: Programa de verificação de segredo de parceiros
 intro: 'Como um provedor de serviço, você pode associar-se ao {% data variables.product.prodname_dotcom %} para proteger os seus formatos de token secretos por varredura de segredos, que pesquisa commits acidentais no seu formato secreto e que pode ser enviado para o ponto de extremidade de verificação de um provedor de serviços.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /partnerships/token-scanning/
+  - /partnerships/token-scanning
   - /partnerships/secret-scanning
   - /developers/overview/secret-scanning
 versions:

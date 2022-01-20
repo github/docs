@@ -3,6 +3,7 @@ title: Criar uma atribuição em grupo
 intro: Você pode criar uma atribuição colaborativa para equipes de alunos que participam do seu curso.
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
@@ -125,6 +126,16 @@ Você pode ver as equipes que estão trabalhando ou que enviaram uma atividade n
 <div class="procedural-image-wrapper">
   <img alt="Atividade em grupo" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
+
+## Monitorando o progresso dos alunos
+A página de visão geral de atividades exibe informações sobre a aceitação da sua atividade e o progresso da equipe. Você pode ter diferentes informações resumidas, com base nas configurações das suas atividades.
+
+- **Total de equipes**: O número de equipes que foram criadas.
+- **Alunos cadastrados**: O número de alunos na lista da sala de aula.
+- **Alunos fora de uma equipe**: O número de alunos na lista de participantes da sala de aula que ainda não se juntaram a uma equipe.
+-  **Equipes aceitas**: O número de equipes que aceitaram esta atividade.
+-  **Envios das atividaeds**: O número de equipes que enviaram a atividade. O envio é acionado no prazo da atividade.
+-  **Equipes em teste**: O número de equipes que estão atualmente passando os testes de autoavaliação para esta atividade.
 
 ## Próximas etapas
 

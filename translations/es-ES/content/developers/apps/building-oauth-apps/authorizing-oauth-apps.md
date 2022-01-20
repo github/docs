@@ -2,11 +2,11 @@
 title: Autorizar aplicaciones OAuth
 intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access/
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps/
-  - /v3/oauth/
-  - /apps/building-oauth-apps/authorization-options-for-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps
+  - /v3/oauth
+  - /apps/building-oauth-apps/authorization-options-for-oauth-apps
   - /apps/building-oauth-apps/authorizing-oauth-apps
   - /developers/apps/authorizing-oauth-apps
 versions:
@@ -49,7 +49,7 @@ Cuando tu GitHub App especifica un parámetro de `login`, solicita a los usuario
 
 #### Parámetros
 
-| Nombre         | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Nombre         | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `client_id`    | `secuencia` | **Requerido**. La ID de cliente que recibiste de GitHub cuando te {% ifversion fpt or ghec %}[registraste](https://github.com/settings/applications/new){% else %}registraste{% endif %}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `redirect_uri` | `secuencia` | La URL en tu aplicación a donde se enviará a los usuarios después de la autorización. Consulta los siguientes detalles sobre [urls de redireccionamiento](#redirect-urls).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -68,7 +68,7 @@ Intercambia este `code` por un token de acceso:
 
 #### Parámetros
 
-| Nombre          | Type        | Descripción                                                                                                                                                 |
+| Nombre          | Tipo        | Descripción                                                                                                                                                 |
 | --------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `client_id`     | `secuencia` | **Requerido.** La ID de cliente que recibiste de {% data variables.product.product_name %} para tu {% data variables.product.prodname_oauth_app %}.       |
 | `client_secret` | `secuencia` | **Requerido.** El secreto del cliente que recibiste de {% data variables.product.product_name %} para tu {% data variables.product.prodname_oauth_app %}. |
@@ -80,7 +80,7 @@ Intercambia este `code` por un token de acceso:
 Predeterminadamente, la respuesta toma la siguiente forma:
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&scope=repo%2Cgist&token_type=bearer
+access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&scope=repo%2Cgist&token_type=bearer
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -88,7 +88,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F2
 ```json
 Accept: application/json
 {
-  "access_token":"{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token":"{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "scope":"repo,gist",
   "token_type":"bearer"
 }
@@ -99,7 +99,7 @@ Accept: application/xml
 <OAuth>
   <token_type>bearer</token_type>
   <scope>repo,gist</scope>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
 </OAuth>
 ```
 
@@ -142,7 +142,7 @@ Tu app debe solicitar un código de verificación de usuario y una URL de verifi
 
 #### Parámetros de entrada
 
-| Nombre      | Type        | Descripción                                                                                             |
+| Nombre      | Tipo        | Descripción                                                                                             |
 | ----------- | ----------- | ------------------------------------------------------------------------------------------------------- |
 | `client_id` | `secuencia` | **Requerido.** La ID de cliente que recibiste de {% data variables.product.product_name %} para tu app. |
 | `alcance`   | `secuencia` | El alcance al cual está solicitando acceso tu app.                                                      |
@@ -181,7 +181,7 @@ Accept: application/xml
 
 #### Parámetros de respuesta
 
-| Nombre             | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Nombre             | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `device_code`      | `secuencia` | El código de verificación de dispositivo es de 40 caracteres y se utiliza para verificar dicho dispositivo.                                                                                                                                                                                                                                                                                                                                                                                             |
 | `user_code`        | `secuencia` | El código de verificación de usuario se muestra en el dispositivo para que el usuario pueda ingresar dicho código en un buscador. El código es de 8 caracteres con un guión medio a la mitad.                                                                                                                                                                                                                                                                                                           |
@@ -207,7 +207,7 @@ Ya que el usuario lo haya autorizado, la app recibirá un token de acceso que se
 
 #### Parámetros de entrada
 
-| Nombre        | Type        | Descripción                                                                                                                                                      |
+| Nombre        | Tipo        | Descripción                                                                                                                                                      |
 | ------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `client_id`   | `secuencia` | **Requerido.** La ID de cliente que recibiste de {% data variables.product.product_name %} para tu {% data variables.product.prodname_oauth_app %}.            |
 | `device_code` | `secuencia` | **Requerido.** El código de verificación del dispositivo que recibiste de la solicitud de `POST {% data variables.product.oauth_host_code %}/login/device/code`. |
@@ -218,7 +218,7 @@ Ya que el usuario lo haya autorizado, la app recibirá un token de acceso que se
 Predeterminadamente, la respuesta toma la siguiente forma:
 
 ```
-access_token={% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer&scope=repo%2Cgist
+access_token={% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer&scope=repo%2Cgist
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -226,7 +226,7 @@ access_token={% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F2
 ```json
 Accept: application/json
 {
- "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+ "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "token_type": "bearer",
   "scope": "repo,gist"
 }
@@ -235,7 +235,7 @@ Accept: application/json
 ```xml
 Accept: application/xml
 <OAuth>
-  <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <access_token>{% ifversion fpt or ghes > 3.1 or ghae or ghec %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
   <token_type>bearer</token_type>
   <scope>gist,repo</scope>
 </OAuth>

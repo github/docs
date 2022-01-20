@@ -187,3 +187,4 @@ O comando `ghe-repl-teardown` desativa por completo o modo de replicação, remo
 ## Leia mais
 
 - [Criar réplica de alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)
+- "[Portas de rede](/admin/configuration/configuring-network-settings/network-ports)"

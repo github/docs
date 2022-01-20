@@ -20,7 +20,7 @@ shortTitle: Acerca de los métodos de fusión
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+**Nota:** Cuando utilices la cola de fusión, ya no podrás elegir el método de fusión, ya que a este lo controla la cola. {% data reusables.pull_requests.merge-queue-references %}
 
 {% endnote %}
 {% endif %}

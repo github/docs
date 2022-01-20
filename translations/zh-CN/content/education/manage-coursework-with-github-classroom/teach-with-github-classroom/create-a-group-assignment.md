@@ -3,6 +3,7 @@ title: 创建组分配
 intro: 您可以为参加您课程的学生团队创建协作作业。
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
@@ -125,6 +126,16 @@ redirect_from:
 <div class="procedural-image-wrapper">
   <img alt="组分配" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
+
+## Monitoring students' progress
+The assignment overview page displays information about your assignment acceptances and team progress. You may have different summary information based on the configurations of your assignments.
+
+- **Total teams**: The number of teams that have been created.
+- **Rostered students**: The number of students on the Classroom's roster.
+- **Students not on a team**: The number of students on the Classroom roster who have not yet joined a team.
+-  **Accepted teams**: The number of teams who have accepted this assignment.
+-  **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
+-  **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
 
 ## 后续步骤
 

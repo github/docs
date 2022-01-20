@@ -105,7 +105,16 @@ topics:
 
 `is` 修飾子は、指定した可視性を持つリポジトリからのコミットにマッチします。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| 修飾子  | 例 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) はパブリックリポジトリへのコミットにマッチします。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) は内部リポジトリへのコミットにマッチします。 | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) はプライベートリポジトリへのコミットに一致します。
+| 修飾子 | サンプル |
+| --- | ---- |
+|     |      |
+{%- ifversion fpt or ghes or ghec %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.
+{%- endif %}
+{%- ifversion ghes or ghec or ghae %}
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories.
+{%- endif %}
+| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) はプライベートリポジトリへのコミットに一致します。
 
 ## 参考リンク
 

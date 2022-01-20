@@ -2,7 +2,7 @@
 title: Agregar un proyecto existente a GitHub utilizando la línea de comando
 intro: 'Poner tu trabajo existente en {% data variables.product.product_name %} puede permitirte compartir y colaborar de muchas maneras increíbles.'
 redirect_from:
-  - /articles/add-an-existing-project-to-github/
+  - /articles/add-an-existing-project-to-github
   - /articles/adding-an-existing-project-to-github-using-the-command-line
   - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
 versions:
@@ -34,24 +34,17 @@ shortTitle: Agregar un proyecto localmente
     git init -b main
     ```
 
-1. Para crear un repositorio para tu proyecto en {% data variables.product.product_name %}, utiliza el subcomando `gh repo create`. Reemplaza a `project-name` con el nombre que deseas dar a tu repositorio. Si quieres que tu proyecto pertenezca a una organización en vez de a tu cuenta de usuario, especifica el nombre de la organización y del proyecto con `organization-name/project-name`.
+1. Probar y confirmar todos los archivos en tu proyecto
 
    ```shell
-   gh repo create <em>project-name</em>
+   git add . && git commit -m "initial commit"
    ```
 
-1. Sigue los mensajes interactivos. Como alternativa, puedes especificar los argumentos para omitir estos mensajes. Para obtener más información sobre los argumentos posibles, consulta [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_repo_create).
-1. Extrae los cambios del repositorio nuevo que creaste. (Si creaste un archivo `.gitignore` o `LICENSE` en el paso anterior, esto extraerá dichos cambios en tu directorio local.)
+1. Para crear un repositorio para tu proyecto en GitHub, utiliza el subcomando `gh repo create`. Cuando se te solicite, selecciona **Subir un repositorio local existente a GitHub** e ingresa el nombre que quieras ponerle a tu repositorio. Si quieres que tu proyecto pertenezca a una organización en vez de a tu cuenta de usuario, especifica el nombre de la organización y del proyecto con `organization-name/project-name`.
 
-    ```shell
-    git pull --set-upstream origin main
-    ```
+1. Sigue los mensajes interactivos. Para agregar el remoto y subir el repositorio, confirma con "Sí" cuando se te pida agregar el remoto y subir las confirmaciones a la rama actual.
 
-1. Prueba, confirma y sube todos los archivos de tu proyecto.
-
-    ```shell
-    git add . && git commit -m "initial commit" && git push
-    ```
+1. Como alternativa, para saltarte todos los mensajes, proporciona la ruta del repositorio con el marcador `--source` y pasa un marcador de visibilidad (`--public`, `--private` o `--internal`). Por ejemplo, `gh repo create --source=. --public`. Especifica un remoto con el marcador `--remote`. Para subir tus confirmaciones, pasa el marcador `--push`. Para obtener más información sobre los argumentos posibles, consulta el [manual del CLI de GitHub](https://cli.github.com/manual/gh_repo_create).
 
 ## Agregar un proyecto a {% data variables.product.product_name %} sin el {% data variables.product.prodname_cli %}
 
@@ -74,7 +67,7 @@ shortTitle: Agregar un proyecto localmente
   $ git commit -m "First commit"
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. En la parte superior de tu repositorio en la página de configuración rápida de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto. ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. En Terminal, [agrega la URL para el repositorio remoto](/github/getting-started-with-github/managing-remote-repositories) donde se subirá tu repositorio local.
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>
@@ -109,7 +102,7 @@ shortTitle: Agregar un proyecto localmente
   $ git commit -m "First commit"
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. En la parte superior de tu repositorio en la página de configuración rápida de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto. ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. En la indicación Command (Comando), [agrega la URL para el repositorio remoto](/github/getting-started-with-github/managing-remote-repositories) donde se subirá tu repositorio local.
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>
@@ -144,7 +137,7 @@ shortTitle: Agregar un proyecto localmente
   $ git commit -m "First commit"
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. En la parte superior de tu repositorio en la página de configuración rápida de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto. ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. En Terminal, [agrega la URL para el repositorio remoto](/github/getting-started-with-github/managing-remote-repositories) donde se subirá tu repositorio local.
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>

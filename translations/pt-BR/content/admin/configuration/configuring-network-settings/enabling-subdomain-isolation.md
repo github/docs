@@ -2,7 +2,7 @@
 title: Habilitar isolamento de subdomínio
 intro: 'É possível configurar o isolamento de subdomínio para separar com segurança o conteúdo enviado pelo usuário de outras partes do seu appliance do {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
-  - /enterprise/admin/guides/installation/about-subdomain-isolation/
+  - /enterprise/admin/guides/installation/about-subdomain-isolation
   - /enterprise/admin/installation/enabling-subdomain-isolation
   - /enterprise/admin/configuration/enabling-subdomain-isolation
   - /admin/configuration/enabling-subdomain-isolation

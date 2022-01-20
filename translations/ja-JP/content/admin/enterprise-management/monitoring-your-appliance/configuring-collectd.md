@@ -3,7 +3,7 @@ title: collectd のコンフィグレーション
 intro: '{% data variables.product.prodname_enterprise %}は、`collectd` でデータを収集し、外部の `collectd` に送信することができます。 CPU の使用率やメモリーとディスクの消費、ネットワークインタフェーストラフィックとエラー、仮想マシンの全体的な負荷などのデータを収集しています。'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
-  - /enterprise/admin/articles/configuring-collectd/
+  - /enterprise/admin/articles/configuring-collectd
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:

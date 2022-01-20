@@ -3,7 +3,7 @@ title: Sobre branches
 intro: Use um branch para isolar o trabalho de desenvolvimento sem afetar outros branches no repositório. Cada repositório tem um branch padrão e pode ter vários outros branches. Você pode fazer merge de um branch em outro branch usando uma pull request.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
-  - /articles/working-with-protected-branches/
+  - /articles/working-with-protected-branches
   - /articles/about-branches
   - /github/collaborating-with-issues-and-pull-requests/about-branches
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
@@ -30,7 +30,7 @@ Você deve ter acesso de gravação em um repositório para criar um branch, abr
 
 {% data reusables.branches.new-repo-default-branch %} O branch-padrão é o branch que {% data variables.product.prodname_dotcom %} exibe quando alguém visita o seu repositório. O branch padrão é também o branch inicial que o Git verifica localmente quando alguém clona o repositório. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-By default, {% data variables.product.product_name %} names the default branch `main` in any new repository.
+Por padrão, {% data variables.product.product_name %} nomeia o branch padrão `principal`em qualquer repositório novo.
 
 {% data reusables.branches.change-default-branch %}
 
@@ -45,15 +45,15 @@ Depois que uma pull request tiver sido mesclada ou fechada, você poderá exclui
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 Os seguintes diagramas ilustram isso.
 
- Here someone has created a branch called `feature1` from the `main` branch, and you've then created a branch called `feature2` from `feature1`. Existem pull requests abertas para ambos os branches. As setas indicam o branch base atual para cada pull request. Neste ponto, `feature1` é o branch base para `feature2`. Se a pull request para `feature2` for mesclada agora, o branch `feature2` será mesclado no `feature1`.
+ Aqui alguém criou um branch chamado `feature1` a partir do branch `principal`, e você então criou um branch chamado `feature2` a partir do `feature1`. Existem pull requests abertas para ambos os branches. As setas indicam o branch base atual para cada pull request. Neste ponto, `feature1` é o branch base para `feature2`. Se a pull request para `feature2` for mesclada agora, o branch `feature2` será mesclado no `feature1`.
 
  ![botão-merge-pull-request](/assets/images/help/branches/pr-retargeting-diagram1.png)
 
-In the next diagram, someone has merged the pull request for `feature1` into the `main` branch, and they have deleted the `feature1` branch. As a result, {% data variables.product.prodname_dotcom %} has automatically retargeted the pull request for `feature2` so that its base branch is now `main`.
+No próximo diagrama, alguém fez merge do pull request para `feature1` no branch `principal`, e eles excluíram o branch `feature1`. Como resultado, o {% data variables.product.prodname_dotcom %} redirecionou automaticamente o pull request para `feature2` para que seu branch base seja agora `principal`.
 
  ![botão-merge-pull-request](/assets/images/help/branches/pr-retargeting-diagram2.png)
 
-Now when you merge the `feature2` pull request, it'll be merged into the `main` branch.
+Agora, quando você faz merge do pull request `feature2`, ele será mesclado com o branch `principal`.
 
 ## Trabalhar com branches protegidos
 

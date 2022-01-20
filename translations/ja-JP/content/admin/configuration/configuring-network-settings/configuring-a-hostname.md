@@ -2,7 +2,7 @@
 title: ホスト名の設定
 intro: アプライアンスには、ハードコードされたIPアドレスを使うのではなくホスト名を設定することをおすすめします。
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-hostnames/
+  - /enterprise/admin/guides/installation/configuring-hostnames
   - /enterprise/admin/installation/configuring-a-hostname
   - /enterprise/admin/configuration/configuring-a-hostname
   - /admin/configuration/configuring-a-hostname

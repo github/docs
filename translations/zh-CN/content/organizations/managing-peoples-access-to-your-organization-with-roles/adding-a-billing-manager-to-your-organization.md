@@ -53,7 +53,7 @@ shortTitle: 添加帐单管理员
 {% ifversion ghec %}
 {% note %}
 
-**注意：** 如果您的组织使用 [企业帐户](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) 管理，您将无法邀请组织一级的帐单管理员。
+**Note:** If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. 更多信息请参阅“[关于企业帐户](/admin/overview/about-enterprise-accounts)”。
 
 {% endnote %}
 {% endif %}
