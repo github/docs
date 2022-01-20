@@ -2,7 +2,7 @@
 title: Fazer push de commits para um repositório remote
 intro: Use `git push` para fazer push de commits de seu branch local para um repositório remote.
 redirect_from:
-  - /articles/pushing-to-a-remote/
+  - /articles/pushing-to-a-remote
   - /articles/pushing-commits-to-a-remote-repository
   - /github/using-git/pushing-commits-to-a-remote-repository
   - /github/getting-started-with-github/pushing-commits-to-a-remote-repository
@@ -94,9 +94,9 @@ git fetch upstream
 >  * [new branch]      main     -> upstream/main
 ```
 
-Quando finalizar as alterações locais, você pode fazer push do seu branch local para o GitHub e [iniciar uma pull request](/articles/about-pull-requests).
+Quando finalizar as alterações locais, você pode fazer push do seu branch local para o GitHub e [iniciar uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-Para obter mais informações sobre como trabalhar com bifurcações, consulte "[Sincronizar uma bifurcação](/articles/syncing-a-fork)".
+Para obter mais informações sobre como trabalhar com bifurcações, consulte "[Sincronizar uma bifurcação](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
 
 ## Leia mais
 

@@ -1,8 +1,8 @@
 ---
 title: OAuth トークンを使用した Git の自動化
 redirect_from:
-  - /articles/git-over-https-using-oauth-token/
-  - /articles/git-over-http-using-oauth-token/
+  - /articles/git-over-https-using-oauth-token
+  - /articles/git-over-http-using-oauth-token
   - /articles/git-automation-with-oauth-tokens
 intro: 'OAuthトークンを使用して、自動化されたスクリプトを介して {% data variables.product.product_name %} を操作できます。'
 versions:

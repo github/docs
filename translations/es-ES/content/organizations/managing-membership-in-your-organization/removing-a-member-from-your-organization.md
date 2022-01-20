@@ -24,7 +24,9 @@ Solo los propietarios de la organización pueden eliminar usuarios de una organi
 **Advertencia:** Cuando eliminas a algún miembro de una organización:
 - La cuenta de licencias pagadas no baja de categoría automáticamente. Para pagar por menos licencias después de eliminar usuarios de tu organización, sigue los pasos de la sección "[Bajar el cupo límite de plazas pagadas en tu organización](/articles/downgrading-your-organization-s-paid-seats)".
 - Los miembros eliminados perderán el acceso a las bifurcaciones privadas de los repositorios privados de tu organización, pero aún podrían tener copias locales de estas. Sin embargo, no pueden sincronizar las copias locales con tus repositorios de la organización. Se pueden restaurar las bifurcaciones privadas del usuario si se lo reinstala [como miembro de la organización](/articles/reinstating-a-former-member-of-your-organization) dentro de los tres meses posteriores a haber sido eliminado de la organización. En última instancia, tú eres el responsable de asegurar que las personas que perdieron acceso a un repositorio borren cualquier información confidencial o propiedad intelectual.
--  Si tu organización le pertenece a una cuenta empresarial, los miembros eliminados también perderán acceso a las bifurcaciones privadas de los repositorios internos de tu organización en caso de que el miembro que se elimine no sea miembro de otra organización que le pertenezca a la misma cuenta empresarial. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
+{%- ifversion ghec %}
+-  Los miembros eliminados también perderán acceso a las bifurcaciones privadas de los repositorios internos de tu organización en caso de que el miembro eliminado no es miembro de alguna otra organización que le pertenezca a la misma cuenta empresarial. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)".
+{%- endif %}
 - Cualquier invitación a una organización que envíe un miembro eliminado, y que no se haya aceptado, se cancelará y no se podrá acceder a ella.
 
 {% endwarning %}

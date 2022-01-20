@@ -151,7 +151,7 @@ Os manifestos do aplicativo GitHub permitem que pessoas criem aplicativos GitHub
 
 ## Status da implantação
 
-Agora você pode atualizar o ambiente `` de um [status de implantação](/rest/reference/repos#create-a-deployment-status) e usar os estados `in_progress` e `na fila`. Ao criar o status da implantação, agora você pode usar o parâmetro `auto_inactive` para marcar implantações de `produção` antigas como `inativa`.
+Agora você pode atualizar o ambiente `` de um [status de implantação](/rest/reference/deployments#create-a-deployment-status) e usar os estados `in_progress` e `na fila`. Ao criar o status da implantação, agora você pode usar o parâmetro `auto_inactive` para marcar implantações de `produção` antigas como `inativa`.
 
 **Tipo de mídia personalizada:** `flash-preview` **Anunciado:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
 
@@ -167,13 +167,15 @@ Agora você pode configurar se os integrantes da organização podem criar repos
 
 {% endif %}
 
+{% ifversion ghes < 3.4 %}
 ## Anexos de conteúdo
 
 Agora você pode fornecer mais informações no GitHub para URLs vinculadas a domínios registrados usando a API de {% data variables.product.prodname_unfurls %}. Consulte "[Usar anexos de conteúdo](/apps/using-content-attachments/)" para obter mais informações.
 
 **Tipos de mídia personalizada:** `corsair-preview` **Anunciado:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-{% ifversion ghes < 3.3 %}
+{% endif %}
+{% ifversion ghae or ghes < 3.3 %}
 
 ## Habilitar e desabilitar páginas
 

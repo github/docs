@@ -11,6 +11,8 @@ topics:
   - Upgrades
 ---
 
+{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
+
 {% data variables.product.product_name %} is constantly improving, with new functionality and bug fixes introduced through feature and patch releases. {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} はフルマネージドサービスであるため、{% data variables.product.company_short %} が Enterprise のアップグレードプロセスを完了します。{% endif %}
 
 Feature releases include new functionality and feature upgrades and typically occur quarterly. {% ifversion ghae %}{% data variables.product.company_short %} will upgrade your enterprise to the latest feature release. Enterprise で予定されているダウンタイムについては、事前に通知されます。{% endif %}
@@ -37,7 +39,7 @@ Starting with {% data variables.product.prodname_ghe_server %} 3.0, all feature 
 
 Patch releases, which consist of hot patches and bug fixes only, happen more frequently. Patch releases are generally available when first released, with no release candidates. Upgrading to a patch release typically requires less than five minutes of downtime.
 
-Enterprise を新しいリリースにアップグレードするには、「[リリースノート](/enterprise-server/admin/release-notes)」および「[{% data variables.product.prodname_ghe_server %} へのアップグレード](/admin/enterprise-management/upgrading-github-enterprise-server)」を参照してください。
+Enterprise を新しいリリースにアップグレードするには、「[リリースノート](/enterprise-server/admin/release-notes)」および「[{% data variables.product.prodname_ghe_server %} へのアップグレード](/admin/enterprise-management/upgrading-github-enterprise-server)」を参照してください。 Because you can only upgrade from a feature release that's at most two releases behind, use the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
 
 {% endif %}
 

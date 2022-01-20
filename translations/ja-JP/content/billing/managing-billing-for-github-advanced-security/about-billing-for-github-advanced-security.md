@@ -1,6 +1,6 @@
 ---
 title: About billing for GitHub Advanced Security
-intro: 'If you want to use {% data variables.product.prodname_GH_advanced_security %} features{% ifversion fpt or ghec %} in a private or internal repository{% endif %}, you need a license.{% ifversion fpt or ghec %} These features are available free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
+intro: 'If you want to use {% data variables.product.prodname_GH_advanced_security %} features{% ifversion fpt or ghec %} in a private or internal repository{% endif %}, you need a license{% ifversion fpt %} for your enterprise{% endif %}.{% ifversion fpt or ghec %} These features are available free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /admin/advanced-security/about-licensing-for-github-advanced-security
@@ -21,9 +21,13 @@ shortTitle: Advanced Security billing
 
 ## {% data variables.product.prodname_GH_advanced_security %}の支払いについて
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt %}
 
-{% data variables.product.prodname_dotcom_the_website %} のパブリックリポジトリ以外のリポジトリで {% data variables.product.prodname_GH_advanced_security %} 機能を使用する場合は、ライセンスが必要です。 {% data variables.product.prodname_GH_advanced_security %} に関する詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。
+If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license, available with {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_GH_advanced_security %} に関する詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。
+
+{% elsif ghec %}
+
+If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license. {% data variables.product.prodname_GH_advanced_security %} に関する詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。
 
 {% elsif ghes %}
 
@@ -57,9 +61,9 @@ Enterprise アカウントが所有する Organization による {% data variabl
 
 {% endif %}
 
-## Calculating committer spending
+## Understanding active committer usage
 
-The following example timeline demonstrates the events during a month that affect billing for {% data variables.product.prodname_GH_advanced_security %} in an enterprise. For each month, you will find events, the total committer count, and the total number of committers that {% data variables.product.company_short %} would bill for.
+The following example timeline demonstrates how active committer count for {% data variables.product.prodname_GH_advanced_security %} could change over time in an enterprise. For each month, you will find events, along with the resulting committer count.
 
 <table spaces-before="0">
   <tr>
@@ -72,17 +76,13 @@ The following example timeline demonstrates the events during a month that affec
     </th>
     
     <th align="right">
-      Total committer count
-    </th>
-    
-    <th align="right">
-      Committers billed for the month
+      Total committers
     </th>
   </tr>
   
   <tr>
     <td align="left">
-      <nobr>August 1</nobr>
+      <nobr>15 年 4 月</nobr>
     </td>
     
     <td align="left">
@@ -92,15 +92,11 @@ The following example timeline demonstrates the events during a month that affec
     <td align="right">
       <strong x-id="1">50</strong>
     </td>
-    
-    <td align="right">
-      <strong x-id="1">50</strong>
-    </td>
   </tr>
   
   <tr>
     <td align="left">
-      <nobr>September 5</nobr>
+      <nobr>May 1</nobr>
     </td>
     
     <td align="left">
@@ -108,140 +104,58 @@ The following example timeline demonstrates the events during a month that affec
     </td>
     
     <td align="right">
-      <strong x-id="1">50</strong>
-    </td>
-    
-    <td align="right">
-      <strong x-id="1">50</strong>
+      <strong x-id="1">50</strong> | <strong x-id="1">50</strong>
     </td>
   </tr>
   
   <tr>
     <td align="left">
-      <nobr>September 8</nobr>
+      <nobr>August 1</nobr>
     </td>
     
     <td align="left">
-      Developer <strong x-id="1">B</strong> pushes a commit to repository <strong x-id="1">X</strong> for the first time. Developer <strong x-id="1">B</strong>'s usage is pro-rated, because the developer began contributing to repository <strong x-id="1">X</strong> partway through the month.
+      Developer <strong x-id="1">A</strong>'s contributions no longer count towards the licences required, because 90 days have passed.
     </td>
     
     <td align="right">
-      <sub>_50 + 1_</sub></br><strong x-id="1">51</strong>
-    </td>
-    
-    <td align="right">
-      <sub>_50 + 0.8_</sub><br/><strong x-id="1">50.8</strong>
+      <sub>_50 - 1_</sub></br><strong x-id="1">49</strong>
     </td>
   </tr>
   
   <tr>
     <td align="left">
-      October and November
+      <nobr>15 年 8 月</nobr>
     </td>
     
     <td align="left">
-      Developer <strong x-id="1">A</strong>'s contributions to repository <strong x-id="1">X</strong> continue to count because the contributions were within the past 90 days. {% data variables.product.company_short %} now bills for developer <strong x-id="1">B</strong> for the entire month because developer <strong x-id="1">B</strong> now has contributions within the past 90 days.
+      A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for a second repository, repository <strong x-id="1">Y</strong>. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo <strong x-id="1">X</strong> and do not require additional licenses.
     </td>
     
     <td align="right">
-      <strong x-id="1">51</strong>
-    </td>
-    
-    <td align="right">
-      <strong x-id="1">51</strong>
+      <sub>_49 + 10_</sub><br/><strong x-id="1">59</strong>
     </td>
   </tr>
   
   <tr>
     <td align="left">
-      <nobr>December 4</nobr>
+      <nobr>16 年 8 月</nobr>
     </td>
     
     <td align="left">
-      90 days have passed since developer <strong x-id="1">A</strong>'s last contribution to repository _X. The 90 days lapsed after December started, so {% data variables.product.company_short %} bills for developer <strong x-id="1">A</strong> for the entire month.
+      A member of your enterprise disables {% data variables.product.prodname_GH_advanced_security %} for repository <strong x-id="1">X</strong>. Of the 49 developers who were working on repository <strong x-id="1">X</strong>, 10 still also work on repository <strong x-id="1">Y</strong>, which has a total of 20 developers contributing in the last 90 days.
     </td>
     
     <td align="right">
-      <sub>_51 - 1_</sub><br/><strong x-id="1">50</strong>
-    </td>
-    
-    <td align="right">
-      <sub></sub><br/><strong x-id="1">51</strong>
-    </td>
-  </tr>
-  
-  <tr>
-    <td align="left">
-      <nobr>December 11</nobr>
-    </td>
-    
-    <td align="left">
-      Developer <strong x-id="1">C</strong> joins the company and pushes a commit to repository <strong x-id="1">X</strong> for the first time. Developer <strong x-id="1">C</strong>'s usage is pro-rated at 70% for 21 out of 30 days.
-    </td>
-    
-    <td align="right">
-      <sub>_50 + 1_</sub><br/><strong x-id="1">51</strong>
-    </td>
-    
-    <td align="right">
-      <sub>_51 + .07_</sub><br/><strong x-id="1">51.7</strong>
-    </td>
-  </tr>
-  
-  <tr>
-    <td align="left">
-      <nobr>January</nobr>
-    </td>
-    
-    <td align="left">
-      {% data variables.product.company_short %} no longer bills for developer <strong x-id="1">A</strong>. {% data variables.product.company_short %} bills for developer <strong x-id="1">C</strong> for the entire month.
-    </td>
-    
-    <td align="right">
-      <strong x-id="1">51</strong>
-    </td>
-    
-    <td align="right">
-      <strong x-id="1">51</strong>
-    </td>
-  </tr>
-  
-  <tr>
-    <td align="left">
-      <nobr>February 15</nobr>
-    </td>
-    
-    <td align="left">
-      A member of your enterprise disables {% data variables.product.prodname_GH_advanced_security %} for repository <strong x-id="1">X</strong>. The 51 contributors to repository <strong x-id="1">X</strong> do not work in any other repositories with {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.company_short %} bills for the developers' usage in repository <strong x-id="1">X</strong> for February.
-    </td>
-    
-    <td align="right">
-      <sub>_51 - 51_</sub><br/><strong x-id="1">0</strong>
-    </td>
-    
-    <td align="right">
-      <sub></sub><br/><strong x-id="1">51</strong>
-    </td>
-  </tr>
-  
-  <tr>
-    <td align="left">
-      <nobr>March</nobr>
-    </td>
-    
-    <td align="left">
-      No repository owned by your enterprise has {% data variables.product.prodname_GH_advanced_security %} enabled.
-    </td>
-    
-    <td align="right">
-      <strong x-id="1">0</strong>
-    </td>
-    
-    <td align="right">
-      <strong x-id="1">0</strong>
+      <sub>_49 - 29_</sub><br/><strong x-id="1">20</strong>
     </td>
   </tr>
 </table>
+
+{% note %}
+
+**Note:** A user will be flagged as active when their commits are pushed to any branch of a repository, even if the commits were authored more than 90 days ago.
+
+{% endnote %}
 
 ## Getting the most out of {% data variables.product.prodname_GH_advanced_security %}
 

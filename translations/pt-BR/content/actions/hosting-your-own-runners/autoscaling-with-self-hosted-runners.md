@@ -11,7 +11,6 @@ type: overview
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre o dimensionamento automático
 
@@ -23,7 +22,7 @@ Você pode aumentar ou diminuir automaticamente o número de executores auto-hos
 
 Os repositórios a seguir possuem instruções detalhadas para configurar esses dimensionadores automáticos:
 
-- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - Um controlador do Kubernetes para {% data variables.product.prodname_actions %} executores auto-hospedados.
+- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - Um controlador do Kubernetes para executores auto-hospedados de {% data variables.product.prodname_actions %}.
 - [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - Um módulo do Terraform para executores de {% data variables.product.prodname_actions %} dimensionáveis no Amazon Web Services.
 
 Cada solução tem certas especificações que podem ser importantes para considerar:

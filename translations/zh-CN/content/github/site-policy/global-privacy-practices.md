@@ -1,7 +1,7 @@
 ---
 title: 全球隐私实践
 redirect_from:
-  - /eu-safe-harbor/
+  - /eu-safe-harbor
   - /articles/global-privacy-practices
 versions:
   fpt: '*'

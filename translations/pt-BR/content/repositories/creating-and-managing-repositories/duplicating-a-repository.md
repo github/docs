@@ -2,7 +2,7 @@
 title: Duplicar um repositório
 intro: 'Para manter um espelho de um repositório sem a bifurcação, é possível executar um comando especial de clone e, em seguida, fazer push do espelho para o novo repositório.'
 redirect_from:
-  - /articles/duplicating-a-repo/
+  - /articles/duplicating-a-repo
   - /articles/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/duplicating-a-repository
@@ -88,13 +88,13 @@ Se você deseja espelhar um repositório em outro local e ainda obter atualizaç
   $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
+Assim como um clone bare, um clone espelhado inclui todos os branches remotes e tags, mas todas as referências locais serão substituídas todas as vezes que você fizer fetch, assim ele sempre será o mesmo do repositório original. O push no espelho é simplificado pela configuração da URL para pushes.
 
-Assim como um clone bare, um clone espelhado inclui todos os branches remotes e tags, mas todas as referências locais serão substituídas todas as vezes que você fizer fetch, assim ele sempre será o mesmo do repositório original. O push no espelho é simplificado pela configuração da URL para pushes. Para atualizar o espelho, obtenha atualizações e faça push.
-
-```shell
-$ git fetch -p origin
-$ git push --mirror
-```
+4. Para atualizar o espelho, obtenha atualizações e faça push.
+  ```shell
+  $ git fetch -p origin
+  $ git push --mirror
+  ```
 {% ifversion fpt or ghec %}
 ## Leia mais
 

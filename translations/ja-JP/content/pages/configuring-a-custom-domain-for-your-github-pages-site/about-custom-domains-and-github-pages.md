@@ -2,9 +2,9 @@
 title: カスタムドメインとGitHub Pagesについて
 intro: '{% data variables.product.prodname_pages %} では、カスタムドメインを使用する、つまりサイトの URL を ''octocat.github.io'' などのデフォルトからあなたが所有するドメインに変更することができます。'
 redirect_from:
-  - /articles/about-custom-domains-for-github-pages-sites/
-  - /articles/about-supported-custom-domains/
-  - /articles/custom-domain-redirects-for-your-github-pages-site/
+  - /articles/about-custom-domains-for-github-pages-sites
+  - /articles/about-supported-custom-domains
+  - /articles/custom-domain-redirects-for-your-github-pages-site
   - /articles/about-custom-domains-and-github-pages
   - /github/working-with-github-pages/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
@@ -56,9 +56,9 @@ Apex ドメインは、DNS プロバイダを通じて、`A`、`ALIAS`、`ANAME`
 
 {% data reusables.pages.www-and-apex-domain-recommendation %} 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)」を参照してください。
 
-## {% data variables.product.prodname_pages %} サイトが無効化された際にカスタムドメインを更新する
+## Securing the custom domain for your {% data variables.product.prodname_pages %} site
 
-{% data variables.product.prodname_pages %} サイトが無効になっていて、かつカスタムドメインがセットアップされている場合、すぐに DNS プロバイダで DNS レコードを更新するか削除して、ドメイン乗っ取りのリスクを避けてください。 サイトが無効な間に、DNS プロバイダでカスタムドメインを設定していると、サブドメインのいずれかで誰かにサイトをホストされてしまう恐れがあります。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
+{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
 サイトが自動的に無効化される理由は、いくつかあります。
 

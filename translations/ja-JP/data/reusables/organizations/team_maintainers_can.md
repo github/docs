@@ -11,5 +11,5 @@
 - [OrganizationメンバーのTeamからの削除](/articles/removing-organization-members-from-a-team)
 - [既存のTeamメンバーのチームメンテナへの昇格](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)
 - リポジトリへのTeamのアクセスの削除{% ifversion fpt or ghes or ghae or ghec %}
-- [Teamのためのコードレビューの割り当て管理](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt or ghec %}
+- [Manage code review settings for the team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team){% endif %}{% ifversion fpt or ghec %}
 - [プルリクエストのスケジュールされたリマインダーの管理](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests){% endif %}

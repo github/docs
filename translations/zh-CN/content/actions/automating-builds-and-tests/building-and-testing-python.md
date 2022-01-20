@@ -21,13 +21,13 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
 本指南介绍如何构建、测试和发布 Python 包。
 
-{% ifversion ghae %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %} {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 Python 和 PyPy。 您无需安装任何项目！ 有关最新版软件以及 Python 和 PyPy 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
 {% endif %}
 
@@ -42,11 +42,11 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## 从 Python 工作流程模板开始
+## Using the Python starter workflow
 
-{% data variables.product.prodname_dotcom %} 提供有 Python 工作流程模板，应该适用于大多数 Python 项目。 本指南包含可用于自定义模板的示例。 更多信息请参阅 [Python 工作流程模板](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml)。
+{% data variables.product.prodname_dotcom %} provides a Python starter workflow that should work for most Python projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Python starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
-要快速开始，请将模板添加到仓库的 `.github/workflows` 目录中。
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml{:copy}
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -125,7 +125,7 @@ jobs:
       # You can use PyPy versions in python-version.
       # For example, pypy2 and pypy3
       matrix:
-        python-version: [2.7, 3.6, 3.7, 3.8, 3.9]
+        python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -200,12 +200,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9, pypy2, pypy3]
+        python-version: ["3.6", "3.7", "3.8", "3.9", pypy2, pypy3]
         exclude:
           - os: macos-latest
-            python-version: 3.6
+            python-version: "3.6"
           - os: windows-latest
-            python-version: 3.6
+            python-version: "3.6"
 ```
 
 
@@ -278,42 +278,27 @@ steps:
 
 ### 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以使用唯一密钥缓存 pip 依赖项， 并在使用[`缓存`](https://github.com/marketplace/actions/cache)操作运行未来的工作流程时恢复依赖项。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-python` action](https://github.com/actions/setup-python).
 
-Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 您需要缓存的路径可能不同于下面的 Ubuntu 示例，具体取决于您使用的操作系统。 更多信息请参阅 [Python 缓存示例](https://github.com/actions/cache/blob/main/examples.md#python---pip)。
+The following example caches dependencies for pip.
 
-{% raw %}
 
 
 ```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
-- name: Setup Python
-  uses: actions/setup-python@v2
+- uses: actions/setup-python@v2
   with:
-    python-version: '3.x'
-- name: Cache pip
-  uses: actions/cache@v2
-  with:
-    # This path is specific to Ubuntu
-    path: ~/.cache/pip
-    # Look to see if there is a cache hit for the corresponding requirements file
-    key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-    restore-keys: |
-      ${{ runner.os }}-pip-
-      ${{ runner.os }}-
-- name: Install dependencies
-  run: pip install -r requirements.txt
+    python-version: '3.9'
+    cache: 'pip'
+- run: pip install -r requirements.txt
+- run: pip test
 ```
 
 
-{% endraw %}
+By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip or `Pipfile.lock` for pipenv) in the whole repository. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching packages dependencies</a>" in the `setup-python` actions README. 
 
-{% note %}
-
-**注意：**取决于依赖项的数量，使用依赖项缓存可能会更快。 有很多大型依赖项的项目应该能看到性能明显提升，因为下载所需的时间会缩短。 依赖项较少的项目可能看不到明显的性提升，甚至可能由于pip 安装缓存依赖项的方式而看到性能略有下降。 性能因项目而异。
-
-{% endnote %}
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 The path you'll need to cache may differ from the Ubuntu example above, depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip) in the `cache` action repository.
 
 
 
@@ -403,7 +388,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [3.7, 3.8, 3.9]
+        python: ["3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -443,7 +428,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -512,4 +497,4 @@ jobs:
 ```
 
 
-有关模板工作流程的更多信息，请参阅 [`python-published`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)。
+For more information about the starter workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

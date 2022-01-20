@@ -44,30 +44,37 @@ topics:
 
 ## リポジトリの可視性について
 
-リポジトリの可視性を選択することで、リポジトリにアクセスできるユーザを制限できます{% ifversion fpt or ghes or ghec %}（パブリック、内部、プライベート{% elsif ghae %}{% else %}パブリックまたはプライベートなど）{% endif %}。
+You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
 
-{% ifversion ghae %} ユーザアカウント所有のリポジトリを作成すると、リポジトリは常にプライベートになります。 Organization 所有のリポジトリを作成するときに、プライベートリポジトリにするか内部リポジトリにするかを選択できます。{% else %}リポジトリを作成するときに、リポジトリをパブリックにするかプライベートにするかを選択できます。{% ifversion fpt or ghes or ghec %} Enterprise アカウントが所有する Organization {% ifversion fpt or ghec %} でリポジトリを作成している場合は{% endif %}、リポジトリを内部にすることもできます。{% endif %}{% endif %}
+{% ifversion fpt or ghec or ghes %}
 
-{% ifversion ghes %}
-If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. そうではない場合、外部のコラボレータを含め、{% data variables.product.product_location %} を使用するすべてのユーザがパブリックリポジトリを利用できます。 プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 {% ifversion ghes %} Internal repositories are accessible to enterprise members. 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。{% endif %}
+When you create a repository, you can choose to make the repository public or private.{% ifversion ghec or ghes %} If you're creating the repository in an organization{% ifversion ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}{% ifversion fpt %} Repositories in organizations that use {% data variables.product.prodname_ghe_cloud %} and are owned by an enterprise account can also be created with internal visibility. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories).
+
 {% elsif ghae %}
-プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 内部リポジトリには、すべての Enterprise メンバーがアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。
-{% else %}
-パブリックリポジトリには、インターネット上のすべてのユーザがアクセスできます。 プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 内部リポジトリには、Enterprise メンバーがアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。
+
+When you create a repository owned by your user account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.
+
 {% endif %}
+
+{%- ifversion fpt or ghec %}
+- パブリックリポジトリには、インターネット上のすべてのユーザがアクセスできます。
+- プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。
+{%- elsif ghes %}
+- If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. そうではない場合、外部のコラボレータを含め、{% data variables.product.product_location %} を使用するすべてのユーザがパブリックリポジトリを利用できます。
+- プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。
+{%- elsif ghae %}
+- プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。
+{%- endif %}
+{%- ifversion ghec or ghes or ghae %}
+- 内部リポジトリには、すべての Enterprise メンバーがアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。
+{%- endif %}
 
 Organization のオーナーは、Organization 内で作成されたすべてのリポジトリにいつでもアクセスできます。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 リポジトリの管理者権限を持つユーザは、既存のリポジトリの可視性を変更できます。 詳細は「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」を参照してください。
 
-{% ifversion fpt or ghae or ghes or ghec %}
+{% ifversion ghes or ghec or ghae %}
 ## インターナルリポジトリについて
-
-{% note %}
-
-**注釈:** {% data reusables.gated-features.internal-repos %}
-
-{% endnote %}
 
 {% data reusables.repositories.about-internal-repos %}インナーソースに関する詳しい情報については、{% data variables.product.prodname_dotcom %}のホワイトペーパー「[インナーソース入門](https://resources.github.com/whitepapers/introduction-to-innersource/)」を参照してください。
 

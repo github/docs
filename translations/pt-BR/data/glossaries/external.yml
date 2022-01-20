@@ -7,10 +7,6 @@
   description: >-
     Token usado no lugar de uma senha ao executar operações do Git em HTTPS com Git na linha de comando ou na API. Também chamado de token de acesso pessoal.
 - 
-  term: token de recuperação de conta
-  description: >-
-    **Obsoleto e será desativado em 1 de dezembro de 2021.** A credencial de autenticação armazenada como parte de uma configuração de recuperação de conta denominada Recuperação de Contas em Outro Lugar Recover que permite que você armazene essa credencial de backup.
-- 
   term: Visualização da API
   description: >-
     Forma de testar novas APIs e alterações nos métodos existentes antes de integrá-las como parte da API oficial do GitHub.
@@ -214,7 +210,7 @@
   description: Notificações enviadas para o endereço de e-mail de um usuário.
 - 
   term: enterprise account
-  description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorador
   description: >-
@@ -566,15 +562,11 @@
     Nível de permissão que permite ao usuário ler ou fazer pull das informações do repositório. Todos os repositórios públicos dão acesso de leitura a todos os usuários do GitHub. Sinônimo para acesso pull.
 - 
   term: README
-  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo README ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
+  description: Arquivo de texto com informações sobre os arquivos em um repositório, costuma ser o primeiro arquivo exibido aos visitantes do repositório. Com uma licença de repositório, diretrizes de contribuição e um código de conduta, o arquivo LEIAME ajuda a definir as expectativas e a gerenciar contribuições para o seu projeto.
 - 
   term: rebase
   description: >-
     Reaplicar uma série de alterações de um branch para uma base diferente e redefinir o HEAD daquele branch para o resultado.
-- 
-  term: recuperação de contas em outro lugar
-  description: >-
-    **Obsoleto e será desabilitado em 1 de dezembro de 2021.** Permite aos usuários adicionar uma camada de segurança extra à conta do GitHub em caso de perda do acesso à autenticação de dois fatores ou aos códigos de recuperação. Os usuários podem associar suas contas do GitHub às contas do Facebook armazenando uma credencial de autenticação em forma de token de recuperação para a conta do GitHub no Facebook.
 - 
   term: código de recuperação
   description: Código que ajuda a recuperar o acesso à conta do GitHub.
@@ -602,12 +594,16 @@
   description: >-
     Repositórios são o elemento mais essencial do GitHub e podem ser imaginados como pastas de um projeto. O repositório contém todos os arquivos do projeto (inclusive a documentação) e armazena o histórico de revisão de cada arquivo. Repositórios podem ter vários colaboradores e podem ser públicos ou privados.
 - 
+  term: repository cache
+  description: >-
+    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
+- 
   term: gráfico do repositório
   description: Representação visual dos dados do seu repositório.
 - 
   term: mantenedor de repositório
   description: >-
-    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o README e os arquivos de contribuição atualizados.
+    Pessoa que gerencia um repositório. Como tal, ela pode ajudar na triagem de problemas e usar etiquetas e outros recursos para gerenciar o trabalho do repositório. Também pode ser responsável por manter o LEIAME e os arquivos de contribuição atualizados.
 - 
   term: revisão obrigatória de pull request
   description: >-

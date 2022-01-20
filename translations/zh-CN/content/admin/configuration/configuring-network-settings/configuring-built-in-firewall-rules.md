@@ -2,7 +2,7 @@
 title: 配置内置防火墙规则
 intro: '您可以查看默认防火墙规则并自定义 {% data variables.product.product_location %} 的规则。'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-firewall-settings/
+  - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-built-in-firewall-rules

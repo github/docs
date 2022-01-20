@@ -2,8 +2,8 @@
 title: Ver contribuciones en tu perfil
 intro: 'Tu perfil de {% data variables.product.product_name %} presume {% ifversion fpt or ghes or ghec %}tus repositorios anclados, así como{% endif %} una gráfica de tus contribuciones al repositorio en el último año.'
 redirect_from:
-  - /articles/viewing-contributions/
-  - /articles/viewing-contributions-on-your-profile-page/
+  - /articles/viewing-contributions
+  - /articles/viewing-contributions-on-your-profile-page
   - /articles/viewing-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/viewing-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile
@@ -84,7 +84,7 @@ Las marcas horarias se calculan de forma diferente para las confirmaciones y las
 
 ![Sección de resumen de actividad en el perfil](/assets/images/help/profile/activity-overview-section.png)
 
-Las organizaciones que se muestran en el resumen de la actividad se priorizan de acuerdo con qué tan activo estés en la organización. Si mencionas una organización en tu biografía de perfil y eres miembro de una organización, entonces esa organización se prioriza en el resumen de la actividad. For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)" or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
+Las organizaciones que se muestran en el resumen de la actividad se priorizan de acuerdo con qué tan activo estés en la organización. Si mencionas una organización en tu biografía de perfil y eres miembro de una organización, entonces esa organización se prioriza en el resumen de la actividad. Para obtener más información, consulta la sección “[Mencionar personas y equipos](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” o "[Agregar una biografía en tu perfil](/articles/adding-a-bio-to-your-profile/)".
 
 ## Actividad de contribución
 
@@ -92,14 +92,10 @@ La sección de actividad de contribuciones incluye una cronología detallada de 
 
 ![Filtro de tiempo de actividad de contribuciones](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion fpt or ghes or ghae-next or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 
 ## Ver contribuciones de {% data variables.product.prodname_enterprise %} en {% data variables.product.prodname_dotcom_the_website %}
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+Si utilizas {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} o {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} y tu propietario de empresa habilita las {% data variables.product.prodname_unified_contributions %}, puedes enviar los conteos de contribución de empresa desde tu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Enviar contribuciones empresariales a tu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
 
 {% endif %}
-
-## Leer más
-
-- "[Ver las contribuciones en tu página de perfil](/articles/viewing-contributions-on-your-profile-page)"

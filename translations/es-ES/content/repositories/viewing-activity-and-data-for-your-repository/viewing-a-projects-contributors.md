@@ -1,9 +1,9 @@
 ---
-title: Ver los colaboradores de un proyecto
-intro: 'Puedes ver quién aportó confirmaciones a un repositorio{% ifversion fpt or ghec %} y sus dependencias{% endif %}.'
+title: Viewing a project's contributors
+intro: 'You can see who contributed commits to a repository{% ifversion fpt or ghec %} and its dependencies{% endif %}.'
 redirect_from:
-  - /articles/i-don-t-see-myself-in-the-contributions-graph/
-  - /articles/viewing-contribution-activity-in-a-repository/
+  - /articles/i-don-t-see-myself-in-the-contributions-graph
+  - /articles/viewing-contribution-activity-in-a-repository
   - /articles/viewing-a-projects-contributors
   - /github/visualizing-repository-data-with-graphs/viewing-a-projects-contributors
   - /github/visualizing-repository-data-with-graphs/accessing-basic-repository-data/viewing-a-projects-contributors
@@ -15,37 +15,38 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Visualizar a los contribuyentes del proyecto
+shortTitle: View project contributors
 ---
+## About contributors
 
-## Acerca de los colaboradores
-
-Puedes ver hasta 100 colaboradores de un repositorio{% ifversion ghes or ghae %}, incluidos los coautores de confirmaciones,{% endif %} en el gráfico de colaboradores. Las confirmaciones de fusión y las confirmaciones vacías no se cuentan en las contribuciones para este gráfico.
+You can view the top 100 contributors to a repository{% ifversion ghes or ghae %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
 
 {% ifversion fpt or ghec %}
-También puedes ver una lista de personas que han contribuido con las dependencias de Python del proyecto. Para acceder a esta lista de colaboradores de la comunidad, visita `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
+You can also see a list of people who have contributed to the project's Python dependencies. To access this list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
 {% endif %}
 
-## Acceder al gráfico de colaboradores
+## Accessing the contributors graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. En la barra lateral izquierda, haz clic en **Contributors (Colaboradores)**. ![Pestaña de colaboradores](/assets/images/help/graphs/contributors_tab.png)
-4. Como alternativa, para ver colaboradores durante un período de tiempo específico, haz clic, después arrastra hasta que se selecciona el período de tiempo. La gráfica de contribuyentes suma las cantidades de confirmaciones semanales cada domingo, así que tu periodo de tiempo debe incluir un domingo. ![Rango de tiempo seleccionado en el gráfico de colaboradores](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
+3. In the left sidebar, click **Contributors**.
+  ![Contributors tab](/assets/images/help/graphs/contributors_tab.png)
+4. Optionally, to view contributors during a specific time period, click, then drag until the time period is selected. The contributors graph sums weekly commit numbers onto each Sunday, so your time period must include a Sunday.
+  ![Selected time range in the contributors graph](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
 
-## Resolución de problemas con colaboradores
+## Troubleshooting contributors
 
-Si no apareces en el gráfico de colaboradores de un repositorio, puede deberse a que:
-- No eres uno de los 100 colaboradores principales.
-- Tus confirmaciones no se han fusionado en la rama por defecto.
-- La dirección de correo electrónico que utilizaste para crear las confirmaciones no está conectada a tu cuenta en {% data variables.product.product_name %}.
+If you don't appear in a repository's contributors graph, it may be because:
+- You aren't one of the top 100 contributors.
+- Your commits haven't been merged into the default branch.
+- The email address you used to author the commits isn't connected to your account on {% data variables.product.product_name %}.
 
 {% tip %}
 
-**Tip:** Para listar todos los colaboradores de una confirmación en un repositorio, consulta la sección "[Repositorios](/rest/reference/repos#list-contributors)".
+**Tip:** To list all commit contributors in a repository, see "[Repositories](/rest/reference/repos#list-contributors)."
 
 {% endtip %}
 
-Si todas tus confirmaciones en el repositorio están en ramas que no son por defecto, no estarás en el gráfico de colaboradores. Por ejemplo, las confirmaciones en la rama `gh-pages` no están incluidas en el gráfico excepto que `gh-pages` sea la rama por defecto del repositorio. Para que tus confirmaciones se fusionen en la rama por defecto, puedes crear una solicitud de extracción. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)."
+If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
-Si la dirección de correo electrónico que utilizaste para crear las confirmaciones no está conectada a tu cuenta en {% data variables.product.product_name %}, tus confirmaciones no se enlazarán a ésta, y no aparecerás en la gráfica de colaboradores. Para obtener más información, consulta la sección "[Configurar tu dirección de correo electrónico de confirmaciones](/articles/setting-your-commit-email-address){% ifversion not ghae %}" y "[Agregar una dirección de correo electrónico a tu cuenta de {% data variables.product.prodname_dotcom %}](/articles/adding-an-email-address-to-your-github-account){% endif %}".
+If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address){% ifversion not ghae %}" and "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/articles/adding-an-email-address-to-your-github-account){% endif %}."

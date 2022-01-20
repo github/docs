@@ -109,7 +109,7 @@ Para adicionar um filtro de `repo:`, você deve incluir o proprietário do repos
 
 ### Consultas suportadas `is:`
 
-Para filtrar notificações para uma atividade específica no {% data variables.product.product_location %}, você pode usar a  consulta `is`. Por exemplo, para ver apenas atualizações de convite do repositório, use `é:repository-invitation`{% ifversion not ghae %} e apenas ver {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dependabot %}{% else %} alertas de segurança{% endif %} alertas, use `is:repository-vulnerability-alert`.{% endif %}
+Para filtrar notificações para uma atividade específica no {% data variables.product.product_location %}, você pode usar a  consulta `is`. Por exemplo, para visualizar apenas atualizações de convite do repositório, use `is:repository-invitation`{% ifversion not ghae %}, e para ver apenas {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
 
 - `is:check-suite`
 - `is:commit`
@@ -168,7 +168,7 @@ Por exemplo, para ver notificações da organização octo-org, use `org:octo-or
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Filtros personalizados de {% data variables.product.prodname_dependabot %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 Se você usar {% data variables.product.prodname_dependabot %} para manter suas dependências atualizadas, você pode usar e salvar esses filtros personalizados:
 - `is:repository_vulnerability_alert` para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %}.
 - `reason:security_alert` para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %} e pull requests das atualizações de segurança.
@@ -177,9 +177,9 @@ Se você usar {% data variables.product.prodname_dependabot %} para manter suas 
 Para obter mais informações sobre {% data variables.product.prodname_dependabot %}, consulte "[Sobre o gerenciamento de dependências vulneráveis](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)".
 {% endif %}
 
-{% ifversion ghes or ghae-issue-4864 %}
+{% ifversion ghes < 3.3 or ghae-issue-4864 %}
 
-Se você usar {% data variables.product.prodname_dependabot %} para manter suas dependências atualizadas, você poderá usar e salvar estes filtros personalizados para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %}:
+Se você usar {% data variables.product.prodname_dependabot %} para falar sobre dependências vulneráveis, você pode usar e salvar esses filtros personalizados para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %}:
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 

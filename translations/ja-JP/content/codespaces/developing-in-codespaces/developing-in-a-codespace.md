@@ -14,6 +14,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Develop in a codespace
 ---
 
  
@@ -21,6 +22,8 @@ topics:
 ## About development with {% data variables.product.prodname_codespaces %}
 
 {% data variables.product.prodname_codespaces %} は、{% data variables.product.prodname_vscode %} の完全な開発体験を提供します。 {% data reusables.codespaces.use-visual-studio-features %}
+
+{% data reusables.codespaces.links-to-get-started %}
 
 ![codespace の概要(注釈付き)](/assets/images/help/codespaces/codespace-overview-annotated.png)
 

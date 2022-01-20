@@ -1,12 +1,11 @@
 ---
 title: 邀请人员管理企业
 intro: '您可以 {% ifversion ghec %}邀请人们成为企业所有者或帐单管理员，以{% elsif ghes %}添加企业所有者到{% endif %}企业帐户。 也可以删除不再需要访问企业帐户的企业所有者{% ifversion ghec %}或帐单管理员{% endif %}。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
-  - /articles/inviting-people-to-collaborate-in-your-business-account/
+  - /articles/inviting-people-to-collaborate-in-your-business-account
   - /articles/inviting-people-to-manage-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
 versions:

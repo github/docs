@@ -2,7 +2,7 @@
 title: Flujos de trabajo de Git
 intro: 'El flujo de {% data variables.product.prodname_dotcom %} es un flujo de trabajo ligero basado en ramas que soporta equipos y proyectos que despliegan frecuentemente.'
 redirect_from:
-  - /articles/what-is-a-good-git-workflow/
+  - /articles/what-is-a-good-git-workflow
   - /articles/git-workflows
   - /github/using-git/git-workflows
   - /github/getting-started-with-github/git-workflows

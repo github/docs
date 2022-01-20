@@ -5,7 +5,7 @@
 - na interface do usuário, é exibido um aviso é nos arquivos e visualizações de código do seu repositório se houver quaisquer dependências vulneráveis (opção de **alertas de interface do usuário**).
 - na linha de comando, são exibidos avisos como retornos de chamada quando você faz push em repositórios com quaisquer dependências vulneráveis (opção de **Linha de Comando**).
 - na sua caixa de entrada, como notificações da web. A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**Web** option).{% ifversion not ghae %}
-- em {% data variables.product.prodname_mobile %}, como notificações da web. For more information, see "[Enabling push notifications with GitHub for mobile](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."{% endif %}
+- em {% data variables.product.prodname_mobile %}, como notificações da web. For more information, see "[Enabling push notifications with GitHub Mobile](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."{% endif %}
 
 {% note %}
 

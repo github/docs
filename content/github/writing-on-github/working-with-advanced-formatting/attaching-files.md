@@ -3,7 +3,7 @@ title: Attaching files
 intro: You can convey information by attaching a variety of file types to your issues and pull requests.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
-  - /articles/issue-attachments/
+  - /articles/issue-attachments
   - /articles/file-attachments-on-issues-and-pull-requests
   - /github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests
 versions:
@@ -17,7 +17,7 @@ topics:
 
 {% warning %}
 
-**Warning:** If you add an image{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %} or video{% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+**Warning:** If you add an image{% ifversion fpt or ghes > 3.1 or ghae or ghec %} or video{% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -34,7 +34,7 @@ To attach a file to an issue or pull request conversation, drag and drop it into
 The maximum file size is:
 - 10MB for images and gifs{% ifversion fpt or ghec %}
 - 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
-- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif fpt or ghes > 3.1 or ghae-next %}
+- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif fpt or ghes > 3.1 or ghae %}
 - 100MB for videos{% endif %}
 - 25MB for all other files
 
@@ -47,7 +47,7 @@ We support these files:
 * Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
 * Text files (*.txt*)
 * PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+* ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 * Video (*.mp4*, *.mov*)
 
 {% note %}

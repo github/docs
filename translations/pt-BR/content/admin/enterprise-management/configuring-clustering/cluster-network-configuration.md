@@ -100,6 +100,8 @@ Como as conexões do cliente com o cluster vêm do balanceador de carga, pode oc
 
 É altamente recomendável ativar o suporte PROXY para sua instância e o balanceador de carga.
 
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
+
  - Na instância, use este comando:
   ```shell
   $ ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply

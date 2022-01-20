@@ -2,8 +2,8 @@
 title: Sobre READMEs
 intro: 'Você pode adicionar um arquivo README ao seu repositório para informar outras pessoas por que seu projeto é útil, o que elas podem fazer com o projeto e como elas podem usá-lo.'
 redirect_from:
-  - /articles/section-links-on-readmes-and-blob-pages/
-  - /articles/relative-links-in-readmes/
+  - /articles/section-links-on-readmes-and-blob-pages
+  - /articles/relative-links-in-readmes
   - /articles/about-readmes
   - /github/creating-cloning-and-archiving-repositories/about-readmes
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes
@@ -41,19 +41,13 @@ Se você colocar o arquivo README na raiz do repositório, `docs`, ou no diretó
 
 ![Arquivo README no nome de usuário/repositório do nome de usuário](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
 ## Índice gerado automaticamente para arquivos README
 
 Para a visualização interpretada de qualquer arquivo Markdown em um repositório, incluindo arquivos README {% data variables.product.product_name %} irá gerar automaticamente um índice com base nos títulos da seção. Você pode visualizar o índice para um arquivo LEIAME, clicando no ícone de menu {% octicon "list-unordered" aria-label="The unordered list icon" %} no canto superior esquerdo da página interpretada.
 
 ![README com TOC gerado automaticamente](/assets/images/help/repository/readme-automatic-toc.png)
-
-O índice gerado automaticamente é habilitado por padrão para todos os arquivos Markdown em um repositório, mas você pode desabilitar esta funcionalidade para o repositório.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Em "Funcionalidades", desmarque **Índice**. ![Configuração automática de TOC para repositórios](/assets/images/help/repository/readme-automatic-toc-setting.png)
 
 {% endif %}
 
@@ -67,7 +61,7 @@ O índice gerado automaticamente é habilitado por padrão para todos os arquivo
 
 ## Wikis
 
-A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. Para obter mais informações, consulte "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)."
+Um README deve conter apenas as informações necessárias para desenvolvedores começarem a usar e a contribuir para o seu projeto. A documentação mais longa é mais adequada para wikis. Para obter mais informações, consulte "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)."
 
 ## Leia mais
 

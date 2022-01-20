@@ -2,9 +2,9 @@
 title: Accessing an organization
 intro: 'To access an organization that you''re a member of, you must sign in to your personal user account.'
 redirect_from:
-  - /articles/error-cannot-log-in-that-account-is-an-organization/
-  - /articles/cannot-log-in-that-account-is-an-organization/
-  - /articles/how-do-i-access-my-organization-account/
+  - /articles/error-cannot-log-in-that-account-is-an-organization
+  - /articles/cannot-log-in-that-account-is-an-organization
+  - /articles/how-do-i-access-my-organization-account
   - /articles/accessing-an-organization
   - /github/setting-up-and-managing-your-github-user-account/accessing-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/accessing-an-organization

@@ -13,6 +13,6 @@ children:
   - /about-the-dependency-graph
   - /exploring-the-dependencies-of-a-repository
   - /about-dependency-review
-shortTitle: サプライチェーンの理解
+shortTitle: Understand your supply chain
 ---
 

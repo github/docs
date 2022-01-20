@@ -2,8 +2,8 @@
 title: Acerca de los archivos README
 intro: 'Puedes agregar un archivo README a tu repositorio para comentarle a otras personas por qué tu proyecto es útil, qué pueden hacer con tu proyecto y cómo lo pueden usar.'
 redirect_from:
-  - /articles/section-links-on-readmes-and-blob-pages/
-  - /articles/relative-links-in-readmes/
+  - /articles/section-links-on-readmes-and-blob-pages
+  - /articles/relative-links-in-readmes
   - /articles/about-readmes
   - /github/creating-cloning-and-archiving-repositories/about-readmes
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes
@@ -41,19 +41,13 @@ Si colocas tu archivo README en la raíz de tu repositorio, `docs`, o en el dire
 
 ![El archivo de README en tu nombre de usuario/repositorio de nombre de usuario](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
 ## Índice auto-generado de los archivos README
 
 Para la versión interpretada de cualquier archivo de lenguaje de marcado en un repositorio, incluyendo los archivos README, {% data variables.product.product_name %} generará un índice automáticamente con base en los encabezados de sección. Puedes ver el índice de un archivo README si haces clic en el icono de menú {% octicon "list-unordered" aria-label="The unordered list icon" %} en la parte superior izquierda de la página interpretada.
 
 ![README con TOC generado automáticamente](/assets/images/help/repository/readme-automatic-toc.png)
-
-El índice auto-generado se habilita predeterminadamente para todos los archivos de lenguaje de marcado de un repositorio, pero puedes inhabilitar esta característica en tu repositorio.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Debajo de "Características", anula la selección **Índice**. ![Configuración de TOC automático en los repositorios](/assets/images/help/repository/readme-automatic-toc-setting.png)
 
 {% endif %}
 
@@ -67,7 +61,7 @@ El índice auto-generado se habilita predeterminadamente para todos los archivos
 
 ## Wikis
 
-A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. Para obtener más información, consulta la sección "[Acerca de los wikis](/communities/documenting-your-project-with-wikis/about-wikis)".
+Un archivo README debe contener solo la información necesaria para que los desarrolladores comiencen a hacer contribuciones en tu proyecto. La documentación más grande es mejor para los wikis. Para obtener más información, consulta la sección "[Acerca de los wikis](/communities/documenting-your-project-with-wikis/about-wikis)".
 
 ## Leer más
 

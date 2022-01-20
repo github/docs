@@ -26,7 +26,7 @@ export function ProductReleases() {
           return (
             <div key={releaseNumber} className="col-lg-4 col-12 mb-4">
               <div className="Box color-shadow-medium height-full d-block hover-shadow-large no-underline color-fg-default p-5">
-                <h2>{allVersions[releaseVersion].versionTitle}</h2>
+                <h3 className="f2">{allVersions[releaseVersion].versionTitle}</h3>
                 <p className="mt-2 mb-4 color-fg-muted">
                   <ListUnorderedIcon />{' '}
                   <Link

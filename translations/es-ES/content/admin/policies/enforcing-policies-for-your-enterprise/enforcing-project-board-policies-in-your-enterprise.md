@@ -2,10 +2,9 @@
 title: Enforcing project board policies in your enterprise
 intro: 'You can enforce policies for projects within your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: Enterprise owners can enforce policies for project boards in an enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
-  - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account/
-  - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account
   - /articles/enforcing-project-board-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-project-board-policies-in-your-enterprise-account
@@ -28,7 +27,7 @@ You can enforce policies to control how members of your enterprise on {% data va
 
 ## Hacer cumplir una política para tableros de proyecto en toda la organización
 
-Across all organizations owned by your enterprise, you can enable or disable organization-wide project boards, or allow owners to administer the setting on the organization level.
+En todas las organizaciones que son propiedad de tu empresa, puedes habilitar o inhabilitar tableros de proyecto en toda la organización o permitir que los propietarios administren este parámetro a nivel de la organización.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -38,7 +37,7 @@ Across all organizations owned by your enterprise, you can enable or disable org
 
 ## Hacer cumplir una política para tableros de proyecto de repositorios
 
-Across all organizations owned by your enterprise, you can enable or disable repository-level project boards, or allow owners to administer the setting on the organization level.
+En todas las organizaciones que pertenezcan a tu empresa, puedes habilitar o inhabilitar tableros de proyecto a nivel de los repositorios o permitir que los propietarios administren este parámetro a nivel de la organización.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

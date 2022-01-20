@@ -20,7 +20,6 @@ shortTitle: Docker 容器操作
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -57,7 +56,7 @@ shortTitle: Docker 容器操作
 
 ## 创建 Dockerfile
 
-在新的 `hello-world-docker-action` 目录中，创建新的 `Dockerfile` 文件。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的 Dockerfile 支持](/actions/creating-actions/dockerfile-support-for-github-actions)”。
+在新的 `hello-world-docker-action` 目录中，创建新的 `Dockerfile` 文件。 Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. 更多信息请参阅“[{% data variables.product.prodname_actions %} 的 Dockerfile 支持](/actions/creating-actions/dockerfile-support-for-github-actions)”。
 
 **Dockerfile**
 ```Dockerfile{:copy}

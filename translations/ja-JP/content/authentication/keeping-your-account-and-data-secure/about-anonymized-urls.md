@@ -2,7 +2,7 @@
 title: About anonymized URLs
 intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
 redirect_from:
-  - /articles/why-do-my-images-have-strange-urls/
+  - /articles/why-do-my-images-have-strange-urls
   - /articles/about-anonymized-image-urls
   - /authenticating-to-github/about-anonymized-image-urls
   - /github/authenticating-to-github/about-anonymized-urls
@@ -29,7 +29,7 @@ Anyone who receives your anonymized URL, directly or indirectly, may view your i
 
 {% tip %}
 
-Windowsユーザは、Git Powershell（これは[{% data variables.product.prodname_desktop %}](https://desktop.github.com/)と共にインストールされます）を使うか、[curl for Windows](http://curl.haxx.se/download.html)をダウンロードする必要があります。
+Windows users will either need to use the Git PowerShell (which is installed alongside [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) or download [curl for Windows](http://curl.haxx.se/download.html).
 
 {% endtip %}
 

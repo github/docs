@@ -2,7 +2,7 @@
 title: Enterprise アカウントについて
 intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to {% ifversion ghec %}enable collaboration between your organizations, while giving{% elsif ghes or ghae %}give{% endif %} administrators a single point of visibility and management.'
 redirect_from:
-  - /articles/about-github-business-accounts/
+  - /articles/about-github-business-accounts
   - /articles/about-enterprise-accounts
   - /enterprise/admin/installation/about-enterprise-accounts
   - /enterprise/admin/overview/about-enterprise-accounts
@@ -37,6 +37,8 @@ Organizations are shared accounts where enterprise members can collaborate acros
 {% ifversion ghec %}
 
 Enterprise owners can create organizations and link the organizations to the enterprise. Alternatively, you can invite an existing organization to join your enterprise account. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. 特定の強制の選択肢は、設定によって異なります。概して、Enterprise アカウント内のすべての Organization に単一のポリシーを強制するか、Organization レベルでオーナーがポリシーを設定することを許可するかを選択できます。 For more information, see "[Setting policies for your enterprise](/admin/policies)."
+
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
 
 {% elsif ghes or ghae %}
 

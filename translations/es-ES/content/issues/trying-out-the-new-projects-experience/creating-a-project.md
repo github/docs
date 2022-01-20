@@ -17,11 +17,11 @@ Los proyectos son una colección personalizable de elementos que se mantienen ac
 
 ## Crear un proyecto
 
-### Creating an organization project
+### Crear un proyecto organizacional
 
 {% data reusables.projects.create-project %}
 
-### Creating a user project
+### Crear un proyecto de usuario
 
 {% data reusables.projects.create-user-project %}
 
@@ -34,9 +34,16 @@ Tu proyecto puede rastrear borradores de propuestas, propuestas, y solicitudes d
 Los borradores de propuestas son útiles si quieres capturar ideas rápidamente.
 
 1. Coloca tu cursor en la fila inferior del proyecto, junto al {% octicon "plus" aria-label="plus icon" %}.
-2. Teclea tu ida y luego presiona **Enter**.
+1. Teclea tu ida y luego presiona **Enter**.
+1. Para agregar cuerpo de texto, haz clic en el título del borrador de propuesta. En la caja de entrada de lenguaje de marcado que se muestra, ingresa el texto para el cuerpo del borrador de propuesta y luego haz clic en **Guardar**.
 
-You can convert draft issues into issues. For more information, see [Converting draft issues to issues](#converting-draft-issues-to-issues).
+Los borradores de propuesta pueden tener un título, cuerpo de texto, asignados y cualquier campo personalizado desde tu proyecto. Para poder poblar el repositorio, las etiquetas o hitos de un borrador de propuesta, primero debes convertirla en una propuesta formal. Para obtener más información, consulta la sección "[Convertir los borradores de propuesta en propuestas formales](#converting-draft-issues-to-issues)".
+
+{% note %}
+
+**Nota**: Los usuarios no recibirán notificaciones cuando se les asigne o se les mencione en un borrador de propuesta, a menos de que este se convierta en una propuesta formal.
+
+{% endnote %}
 
 ### Propuestas y solicitudes de extracción
 
@@ -48,7 +55,7 @@ You can convert draft issues into issues. For more information, see [Converting 
 #### Buscar una propuesta o solicitud de cambios
 
 1. Coloca tu cursor en la fila inferior del proyecto, junto al {% octicon "plus" aria-label="plus icon" %}.
-2. Ingresa `#`.
+2. Ingresa <kbd>#</kbd>.
 3. Selecciona el repositorio en donde se ubica la solicitud de cambios o propuesta. Puedes teclear la parte del nombre de repositorio para reducir tus opciones.
 4. Selecciona la propuesta o solicitud de cambios. Puedes teclear parte del título para reducir tus opciones.
 
@@ -61,37 +68,37 @@ You can convert draft issues into issues. For more information, see [Converting 
 
    ![Barra lateral del proyecto](/assets/images/help/issues/project_side_bar.png)
 
-## Converting draft issues to issues
+## Convertir los borradores de propuestas en propuestas
 
-In table layout:
+En el diseño de la tabla:
 
-1. Click the {% octicon "triangle-down" aria-label="the item menu" %} on the draft issue that you want to convert.
-2. Select **Convert to issue**.
-3. Select the repository that you want to add the issue to.
-4. Alternatively, edit the `assignee`, `labels`, `milestone`, or `repository` fields of the draft issue that you want to convert.
+1. Haz clic en el {% octicon "triangle-down" aria-label="the item menu" %} en el borrador de propuesta que quieras convertir.
+2. Selecciona **Convertir en propuesta**.
+3. Selecciona el repositorio al cual quieras agregar la propuesta.
+4. Como alternativa, edita los campos `labels`, `milestone` o `repository` del borrador de propuesta que quieras convertir.
 
-In board layout:
+En el diseño del tablero:
 
-1. Click the {% octicon "kebab-horizontal" aria-label="the item menu" %} on the draft issue that you want to convert.
-2. Select **Convert to issue**.
-3. Select the repository that you want to add the issue to.
+1. Haz clic en el {% octicon "kebab-horizontal" aria-label="the item menu" %} en el borrador de propuesta que quieras convertir.
+2. Selecciona **Convertir en propuesta**.
+3. Selecciona el repositorio al cual quieras agregar la propuesta.
 
-## Removing items from your project
+## Eliminar elementos de tu proyecto
 
-You can archive an item to keep the context about the item in the project but remove it from the project views. You can delete an item to remove it from the project entirely.
+Puedes archivar un elemento para mantener el contexto sobre este en el proyecto, pero eliminarlo de las vistas del proyecto. Puedes borrar un elemento para eliminarlo por completo del proyecto.
 
-1. Select the item(s) to archive or delete. To select multiple items, do one of the following:
-     - `cmd + click` (Mac) or `ctrl + click` (Windows/Linux) each item.
-     - Select an item then `shift + arrow-up` or `shift + arrow-down` to select additional items above or below the intitially selected item.
-     - Select an item then `shift + click` another item to select all items between the two items.
-     - Enter `cmd + a` (Mac) or `ctrl + a` (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
-2. To archive all selected items, enter `e`. To delete all selected items, enter `del`. Alternatively, select the {% octicon "triangle-down" aria-label="the item menu" %} (in table layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout), then select the desired action.
+1. Selecciona el(los) elemento(s) a archivar o borrar. Para seleccionar elementos múltiples, realiza alguna de las siguientes acciones:
+     - <kbd>Command</kbd>+Clic (Mac) o <kbd>Ctrl</kbd>+Click (Windows/Linux) en cada elemento.
+     - Selecciona un elemento y luego presiona <kbd>Shift</kbd>+<kbd>↑</kbd> o <kbd>Shift</kbd>+<kbd>↓</kbd> para seleccionar los elementos adicionales sobre o debajo del que seleccionaste inicialmente.
+     - Selecciona un elemento y luego presiona <kbd>Shift</kbd>+Clic en otro elemento para seleccionar todos los elementos entre dos de ellos.
+     - Ingresa <kbd>Command</kbd>+<kbd>A</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) para seleccionar todos los elementos en una columna en un diseño amplio o todos los elementos en un diseño de tabla.
+2. Para archivar todos los elementos seleccionados, ingresa <kbd>E</kbd>. Para borrar todos los elementos seleccionados, ingresa <kbd>Del</kbd>. Como alternativa, selecciona el {% octicon "triangle-down" aria-label="the item menu" %} (en el diseño de tabla) o el {% octicon "kebab-horizontal" aria-label="the item menu" %} (en el diseño de tablero) y luego selecciona la acción deseada.
 
-You can restore archived items but not deleted items. For more information, see [Restoring archived items](#restoring-archived-items).
+Puedes restablecer los elementos archivados, pero no los borrados. Para obtener más información, consulta la sección de [Cómo restaurar los elementos archivados](#restoring-archived-items).
 
-## Restoring archived items
+## Restaurar los elementos archivados
 
-To restore an archived item, navigate to the issue or pull request. In the project side bar on the issue or pull request, click **Restore** for the project that you want to restore the item to. Draft issues cannot be restored.
+Para restablecer un elemento archivado, navega a la propuesta o solicitud de cambios. En la barra lateral del proyecto sobre la propuesta o solicitud de cambios, haz clic en **Restablecer** en el proyecto al cual quieras restablecer el elemento. Los borradores de propuestas no pueden restaurarse.
 
 ## Agregar campos
 
@@ -99,7 +106,7 @@ Conforme cambian los valores de los campos, estos se sincronizan automáticament
 
 ### Mostrar campos existentes
 
-Tu proyecto rastrea la información actualizada de las propuestas y solicitudes de cambio, incluyendo cualquier cambio al título, asignados, etiquetas, hitos y repositorio. Cuando tu proyecto inicializa, se muestran el "título" y los "asignados"; los otros campos están ocultos. Puedes cambiar la visibilidad de estos campos en tu proyecto.
+Tu proyecto rastrea la información actualizada de las propuestas y solicitudes de cambio, incluyendo cualquier cambio en el título, asignados, etiquetas, hitos, repositorios, revisores y solicitudes de cambio enlazadas. Cuando tu proyecto inicializa, se muestran el "título" y los "asignados"; los otros campos están ocultos. Puedes cambiar la visibilidad de estos campos en tu proyecto.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comienza a teclear "show".
@@ -114,37 +121,50 @@ Como alternativa, puedes hacer esto en la IU:
 
 Puedes agregar campos personalizados a tu proyecto. Los campos personalizados se mostrarán en la bara lateral de las propuestas y solicitudes de cambio en el proyecto.
 
-Custom fields can be text, number, date, single select, or iteration:
+Los campos personalizados pueden ser de texto, número, fecha, selección simple o iteración:
 
-- Text: The value can be any text.
-- Number: The value must be a number.
-- Date: The value must be a date.
-- Single select: The value must be selected from a set of specified values.
-- Iteration: The value must be selected from a set of date ranges (iterations). Iterations in the past are automatically marked as "completed", and the iteration covering the current date range is marked as "current".
+- Texto: El valor puede ser cualquier tipo de texto.
+- Número: El valor debe ser un número.
+- Fecha: El valor puede ser una fecha.
+- Selección simple: El valor debe seleccionarse desde un conjunto de valores especificados.
+- Iteración: el valor debe seleccionarse desde un conjunto de rangos de fechas (iteraciones). Las iteraciones pasadas se marcan automáticamente como "completadas" y la iteración que cubre el rango de fecha actual se marca como "actual".
 
 1. {% data reusables.projects.open-command-palette %} Comienza a teclear cualquier parte de "Create new field". Cuando se muestre "Create new field" en la paleta de comandos, selecciónalo.
 2. Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} en el encabezado de campo que está lo más hacia la derecha. Aparecerá un menú desplegable con los campos de proyecto. Haz clic en **Campo nuevo**.
 3. Se mostrará una ventana emergente para que ingreses la información sobre el campo nuevo. ![Campo nuevo](/assets/images/help/issues/projects_new_field.png)
 4. En la caja de texto, ingresa un nombre para el campo nuevo.
 5. Selecciona el menú desplegable y haz clic en el tipo deseado.
-6. If you specified **Single select** as the type, enter the options.
-7. If you specified **Iteration** as the type, enter the start date of the first iteration and the duration of the iteration. Three iterations are automatically created, and you can add additional iterations on the project's settings page.
+6. Si especificaste **Selección simple** como el tipo, ingresa las opciones.
+7. Si especificaste **Iteración** como el tipo, ingresa la fecha de inicio de la primera iteración y la duración de la misma. Se crearán tres iteraciones automáticamente y podrás agregar iteraciones adicionales en la página de ajustes del proyecto.
 
-You can later edit the drop down options for single select and iteration fields.
+Puedes editar las opciones del menú desplegable posteriormente para los campos de iteración y de selección sencilla.
 
 {% data reusables.projects.project-settings %}
-1. Under **Fields**, select the field that you want to edit.
-1. For single select fields, you can add, delete, or reorder the options.
-2. For iteration fields, you can add or delete iterations, change iteration names, and change the start date and duration of the iteration.
+1. Debajo de **Campos**, selecciona aquél que quieras editar.
+1. Para los campos de selección sencilla, puedes agregar, borrar o reordenar las opciones.
+2. Para los campos de iteración, puedes agregar o borrar las iteraciones, cambiar los nombres de estas y cambiar la fecha de inicio y duración de las mismas.
 
-## Customizing your views
+## Personalizar tus vistas
 
 Puedes ver tu proyecto como una tabla o tablero, agrupar los elementos por campo, elemento de filtrado y más. Para obtener más información, consulta la sección "[Personalizar las vistas de tu proyecto (beta)](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
 
-## Configuring built-in automation
+## Configurar la automatización integrada
 
 {% data reusables.projects.about-workflows %}
 
-You can enable or disable the built-in workflows for your project.
+Puedes habilitar o inhabilitar los flujos de trabajo integrados de tu proyecto.
 
 {% data reusables.projects.enable-basic-workflow %}
+
+## Agregar tu proyecto a un repositorio
+
+Puedes listar los proyectos relevantes en un repositorio. Solo puedes listar proyectos que le pertenezcan al mismo usuario u organización propietaria del repositorio.
+
+Para que los miembros de los repositorios vean un proyecto que se lista en dichos repositorios, deben tener visibilidad del proyecto. Para obtener más información, consulta las secciones "[Administrar la visibilidad de tus proyectos (beta)](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)" y "[Administrar el acceso a los proyectos (beta)](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)".
+
+1. En {% data variables.product.prodname_dotcom %}, navega a la página principal de tu repositorio.
+1. Haz clic en {% octicon "table" aria-label="the project icon" %} **Proyectos**.
+1. Haz clic en **Proyectos (Beta)** en la barra lateral.
+1. Haz clic en **Agregar proyecto**.
+1. En la barra de búsqueda que se muestra, busca los proyectos que le pertenezcan al mismo usuario u organización propietaria del repositorio.
+1. Haz clic en un proyecto para listarlo en tu repositorio.

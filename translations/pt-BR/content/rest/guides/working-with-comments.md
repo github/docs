@@ -2,7 +2,7 @@
 title: Trabalhar com comentários
 intro: 'Ao usar a API REST, você pode acessar e gerenciar comentários nos seus pull requests, problemas ou commits.'
 redirect_from:
-  - /guides/working-with-comments/
+  - /guides/working-with-comments
   - /v3/guides/working-with-comments
 versions:
   fpt: '*'
@@ -17,7 +17,7 @@ topics:
 
 Para qualquer pull request, {% data variables.product.product_name %} fornece três tipos de visualizações de comentários: [comentários no Pull Request][PR comment] como um todo, [comentários em uma linha específica][PR line comment] dentro do Pull Request, e [comentários em um commit específico][commit comment] dentro do Pull Request.
 
-Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. Neste guia, vamos explorar como você pode acessar e manipular cada um. Para cada exemplo, usaremos [esta amostra de Pull Request feita][sample PR] no repositório de "octocat". Como sempre, as amostras podem ser encontradas no [nosso repositório platform-samples][platform-samples].
+Cada um desses tipos de comentários passa por uma parte diferente da {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. Neste guia, vamos explorar como você pode acessar e manipular cada um. Para cada exemplo, usaremos [esta amostra de Pull Request feita][sample PR] no repositório de "octocat". Como sempre, as amostras podem ser encontradas no [nosso repositório platform-samples][platform-samples].
 
 ## Comentários do Pull Request
 
@@ -73,7 +73,7 @@ Você perceberá que ele é incrivelmente semelhante ao exemplo acima. A diferen
 
 ## Comentários de commit
 
-O último tipo de comentários ocorre especificamente nos commits individuais. Por esta razão, eles fazem uso de [a API de comentário de commit][commit comment API].
+O último tipo de comentários ocorre especificamente nos commits individuais. Por esta razão, eles usam [a API de comentário de commit][commit comment API].
 
 Para recuperar os comentários em um commit, você deverá usar o SHA1 do commit. Em outras palavras, você não usará nenhum identificador relacionado ao Pull Request. Aqui está um exemplo:
 
@@ -104,4 +104,4 @@ Observe que esta chamada de API recuperará comentários de linha única, bem co
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [PR Review API]: /rest/reference/pulls#comments
-[commit comment API]: /rest/reference/repos#get-a-commit-comment
+[commit comment API]: /rest/reference/commits#get-a-commit-comment

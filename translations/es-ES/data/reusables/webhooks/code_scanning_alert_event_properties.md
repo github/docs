@@ -1,4 +1,4 @@
-| Clave        | Type        | Descripción                                                                                                                                                                                               |
+| Clave        | Tipo        | Descripción                                                                                                                                                                                               |
 | ------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Acción`     | `secuencia` | La acción que se realizó. Este puede ser uno de entre `created`, `reopened_by_user`, `closed_by_user`, `fixed`, `appeared_in_branch`, o `reopened`.                                                       |
 | `alerta`     | `objeto`    | La alerta de escaneo de código involucrada en el evento.                                                                                                                                                  |

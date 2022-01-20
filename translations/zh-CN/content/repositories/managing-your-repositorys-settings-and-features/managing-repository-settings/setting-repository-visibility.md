@@ -2,9 +2,9 @@
 title: 设置仓库可见性
 intro: 您可选择能够查看仓库的人员。
 redirect_from:
-  - /articles/making-a-private-repository-public/
-  - /articles/making-a-public-repository-private/
-  - /articles/converting-a-public-repo-to-a-private-repo/
+  - /articles/making-a-private-repository-public
+  - /articles/making-a-public-repository-private
+  - /articles/converting-a-public-repo-to-a-private-repo
   - /articles/setting-repository-visibility
   - /github/administering-a-repository/setting-repository-visibility
   - /github/administering-a-repository/managing-repository-settings/setting-repository-visibility
@@ -22,9 +22,9 @@ shortTitle: 仓库可见性
 
 组织所有者可以限制只有组织所有者才能更改仓库可见性。 更多信息请参阅“[限制组织的仓库可见性更改](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)”。
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
-If you're a member of an {% data variables.product.prodname_emu_enterprise %}, your repositories owned by your user account can only be private, and repositories in your enterprise's organizations can only be private or internal.
+Members of an {% data variables.product.prodname_emu_enterprise %} can only set the visibility of repositories owned by their user account to private, and repositories in their enterprise's organizations can only be private or internal. 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 
 {% endif %}
 
@@ -47,22 +47,26 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 ### 将仓库设为私有
 {% ifversion fpt or ghes or ghec %}
 * {% data variables.product.product_name %} 将会分离公共仓库的公共复刻并将其放入新的网络中。 公共复刻无法设为私有。{% endif %}
-* 如果您将仓库的可见性从内部更改为私有， {% data variables.product.prodname_dotcom %} 将删除属于任何没有新私有仓库访问权限的用户的复刻。 {% ifversion fpt or ghes or ghec %}任何复刻的可见性也将更改为私有。{% elsif ghae %}如果内部仓库有任何复刻，则复刻的可见性已经是私有的。{% endif %}更多信息请参阅“[删除仓库或更改其可见性时，复刻会发生什么变化？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)”{% ifversion fpt or ghec %}
-* 如果对用户帐户或组织使用 {% data variables.product.prodname_free_user %}，有些功能在您将可见性更改为私有后不可用于仓库。 {% data reusables.gated-features.more-info %}{% endif %}
-* 任何已发布的 {% data variables.product.prodname_pages %} 站点将自动取消发布。{% ifversion fpt or ghec %} 如果将自定义域添加到 {% data variables.product.prodname_pages %} 站点，应先删除或更新 DNS 记录后再将仓库设为私有，以避免域接管的风险。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。{% endif %}{% ifversion fpt or ghec %}
-* {% data variables.product.prodname_dotcom %} 不再在 {% data variables.product.prodname_archive %} 中包含该仓库。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program) 上存档内容和数据”。{% endif %}{% ifversion fpt or ghec %}
-* {% data variables.product.prodname_GH_advanced_security %} 功能，例如 {% data variables.product.prodname_code_scanning %}，将停止工作，除非拥有仓库的组织具有 {% data variables.product.prodname_advanced_security %} 许可证和充分的备用席位。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion ghes %}
-* 匿名 Git 读取权限不再可用。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)”。{% endif %}
+{%- ifversion ghes or ghec or ghae %}
+* 如果您将仓库的可见性从内部更改为私有， {% data variables.product.prodname_dotcom %} 将删除属于任何没有新私有仓库访问权限的用户的复刻。 {% ifversion fpt or ghes or ghec %}任何复刻的可见性也将更改为私有。{% elsif ghae %}如果内部仓库有任何复刻，则复刻的可见性已经是私有的。{% endif %}更多信息请参阅“[删除仓库或更改其可见性时，复刻会发生什么变化？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)”
+{%- endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
+{%- ifversion fpt %}
+* 如果对用户帐户或组织使用 {% data variables.product.prodname_free_user %}，有些功能在您将可见性更改为私有后不可用于仓库。 任何已发布的 {% data variables.product.prodname_pages %} 站点都将自动取消发布。 如果您将自定义域添加到 {% data variables.product.prodname_pages %} 站点，应在将仓库设为私有之前删除或更新 DNS 记录，以避免域接管的风险。 For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+{%- endif %}
+
+{%- ifversion fpt or ghec %}
+* {% data variables.product.prodname_dotcom %} 不再在 {% data variables.product.prodname_archive %} 中包含该仓库。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program) 上存档内容和数据”。
+* {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working{% ifversion ghec %} unless the repository is owned by an organization that is part of an enterprise with a license for {% data variables.product.prodname_advanced_security %} and sufficient spare seats{% endif %}. {% data reusables.advanced-security.more-info-ghas %}
+{%- endif %}
+
+{%- ifversion ghes %}
+* 匿名 Git 读取权限不再可用。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”
+{%- endif %}
+
+{% ifversion ghes or ghec or ghae %}
 
 ### 将仓库设为内部
-
-{% note %}
-
-**注：**{% data reusables.gated-features.internal-repos %}
-
-{% endnote %}
 
 * 仓库的任何复刻都将保留在仓库网络中， {% data variables.product.product_name %} 维护根仓库与复刻之间的关系。 更多信息请参阅“[删除仓库或更改其可见性时，复刻会发生什么变化？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)”
 

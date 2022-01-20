@@ -142,28 +142,21 @@ describe('header', () => {
       const $ = await getDOM(
         '/en/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
       )
-      const github = $('[data-testid=current-product][data-current-product-path="/github"]')
+      const github = $('[data-testid=product-picker][data-current-product-path="/github"] summary')
       expect(github.length).toBe(1)
       expect(github.text().trim()).toBe('GitHub')
 
-      const ghec = $(
-        `[data-testid=product-picker-list] a[href="/en/enterprise-cloud@latest/admin"]`
-      )
+      const ghec = $(`[data-testid=product-picker] a[href="/en/enterprise-cloud@latest/admin"]`)
       expect(ghec.length).toBe(1)
       expect(ghec.text().trim()).toBe('Enterprise administrators')
     })
 
-    // Skipped. Docs Engineering issue: 923
-    test.skip("point to homepages in the current page's language", async () => {
-      const $ = await getDOM(
-        '/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests'
-      )
-      expect(
-        $('[data-testid=current-product][data-current-product-path="/repositories"]').length
-      ).toBe(1)
-      expect(
-        $(`[data-testid=product-picker-list] a[href="/ja/enterprise-cloud/admin"]`).length
-      ).toBe(1)
+    test("point to homepages in the current page's language", async () => {
+      const $ = await getDOM('/ja/github/site-policy/github-terms-of-service')
+      const $breadcrumbRefs = $('[data-testid=breadcrumbs] a')
+      expect($breadcrumbRefs[0].attribs.href.startsWith('/ja')).toBe(true)
+      const $sidebarRefs = $('[data-testid=sidebar] a')
+      expect($sidebarRefs[0].attribs.href.startsWith('/ja')).toBe(true)
     })
 
     test('emphasizes the product that corresponds to the current page', async () => {
@@ -171,7 +164,7 @@ describe('header', () => {
         `/en/enterprise-server@${oldestSupported}/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
       )
 
-      expect($('[data-testid=current-product]').text()).toBe('GitHub')
+      expect($('[data-testid=product-picker] summary').text()).toBe('GitHub')
     })
   })
 })

@@ -3,9 +3,9 @@ title: Criar gists
 intro: 'Você pode criar dois tipos de gists: {% ifversion ghae %}internos{% else %}públicos{% endif %} e secretos. Crie um gist {% ifversion ghae %}interno{% else %}um público{% endif %} se você estiver pronto para compartilhar suas ideias com {% ifversion ghae %}os integrantes corporativos{% else %}o mundo{% endif %} ou um gist secreto se você não estiver pronto.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
-  - /articles/about-gists/
-  - /articles/cannot-delete-an-anonymous-gist/
-  - /articles/deleting-an-anonymous-gist/
+  - /articles/about-gists
+  - /articles/cannot-delete-an-anonymous-gist
+  - /articles/deleting-an-anonymous-gist
   - /articles/creating-gists
   - /github/writing-on-github/creating-gists
 versions:

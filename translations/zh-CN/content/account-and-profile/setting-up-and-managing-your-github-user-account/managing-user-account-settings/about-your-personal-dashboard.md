@@ -1,12 +1,12 @@
 ---
-title: 关于个人仪表板
+title: About your personal dashboard
 redirect_from:
-  - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github/
-  - /articles/opting-into-the-public-beta-for-a-new-dashboard/
+  - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github
+  - /articles/opting-into-the-public-beta-for-a-new-dashboard
   - /articles/about-your-personal-dashboard
   - /github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard
-intro: 您可以访问个人仪表板，以跟踪您参与或关注的议题和拉取请求，浏览常用仓库和团队页面，了解您订阅的组织和仓库中近期活动的最新信息，以及探索推荐的仓库。
+intro: 'You can visit your personal dashboard to keep track of issues and pull requests you''re working on or following, navigate to your top repositories and team pages, stay updated on recent activities in organizations and repositories you''re subscribed to, and explore recommended repositories.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,50 +14,49 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: 您的个人控制板
+shortTitle: Your personal dashboard
 ---
+## Accessing your personal dashboard
 
-## 访问个人仪表板
+Your personal dashboard is the first page you'll see when you sign in on {% data variables.product.product_name %}.
 
-个人仪表板是登录 {% data variables.product.product_name %} 时显示的第一页。
+To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_name %}.
 
-登录后要访问个人仪表板，请单击 {% data variables.product.product_name %} 上任何页面左上角的 {% octicon "mark-github" aria-label="The github octocat logo" %}。
+## Finding your recent activity
 
-## 查找近期活动
-
-在消息馈送的“Recent activity（最近活动）”部分，您可以快速找到并跟进最近更新的议题和您正在处理的拉取请求。 在“Recent activity（最近活动）”下，您可以预览过去两周内的最多 12 次最近更新。
+In the "Recent activity" section of your news feed, you can quickly find and follow up with recently updated issues and pull requests you're working on. Under "Recent activity", you can preview up to 12 recent updates made in the last two weeks.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
-## 查找常用仓库和团队
+## Finding your top repositories and teams
 
-在仪表板的左侧栏中，可以访问常用仓库和团队。
+In the left sidebar of your dashboard, you can access the top repositories and teams you use.
 
-![不同组织中的仓库和团队列表](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
+![list of repositories and teams from different organizations](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
-常用仓库列表自动生成，可以包括您与之交互的任何仓库，无论它是否由您的帐户直接拥有。 交互包括提交和打开或评论议题和拉取请求。 常用仓库列表无法编辑，但其中的仓库将在您最后一次与之交互 4 个月后从列表中删除。
+The list of top repositories is automatically generated, and can include any repository you have interacted with, whether it's owned directly by your account or not. Interactions include making commits and opening or commenting on issues and pull requests. The list of top repositories cannot be edited, but repositories will drop off the list 4 months after you last interacted with them.
 
-您也可以点击 {% data variables.product.product_name %} 上任何页面顶部的搜索栏，查找近期访问过的仓库、团队及项目板列表。
+You can also find a list of your recently visited repositories, teams, and project boards when you click into the search bar at the top of any page on {% data variables.product.product_name %}.
 
-## 了解社区中活动的最新信息
+## Staying updated with activity from the community
 
-在消息馈送的“All activity（所有活动）”部分，您可以查看订阅的仓库的更新以及您关注的人员。 “All activity（所有活动）”部分显示您关注或标星的仓库以及您关注的用户的更新。
+In the "All activity" section of your news feed, you can view updates from repositories you're subscribed to and people you follow. The "All activity" section shows updates from repositories you watch or have starred, and from users you follow.
 
-当您关注的用户执行以下操作时，您会在消息馈送中看到更新：
-- 对仓库标星。
-- 关注其他用户。{% ifversion fpt or ghes or ghec %}
-- 创建公共仓库。{% endif %}
-- 在您关注的仓库上打开具有“需要帮助”或“良好的第一个议题”标签的议题或拉取请求。
-- 推送提交到您关注的仓库。{% ifversion fpt or ghes or ghec %}
-- 复刻公共仓库。{% endif %}
+You'll see updates in your news feed when a user you follow:
+- Stars a repository.
+- Follows another user.{% ifversion fpt or ghes or ghec %}
+- Creates a public repository.{% endif %}
+- Opens an issue or pull request with "help wanted" or "good first issue" label on a repository you're watching.
+- Pushes commits to a repository you watch.{% ifversion fpt or ghes or ghec %}
+- Forks a public repository.{% endif %}
 - Publishes a new release.
 
-有关对仓库标星和关注人员的更多信息，请参阅“[使用星标保存仓库](/articles/saving-repositories-with-stars/)" and "[关注人员](/articles/following-people)”。
+For more information about starring repositories and following people, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)" and "[Following people](/articles/following-people)."
 
-## 探索推荐的仓库
+## Exploring recommended repositories
 
-在仪表板右侧的“Explore repositories（浏览仓库）”部分，您可以浏览社区中推荐的仓库。 建议基于您已经标星或访问过的仓库、您关注的人以及您可以访问的仓库中的活动。{% ifversion fpt or ghec %} 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
+In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% ifversion fpt or ghec %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
-## 延伸阅读
+## Further reading
 
-- "[关于组织仪表板](/articles/about-your-organization-dashboard)"
+- "[About your organization dashboard](/articles/about-your-organization-dashboard)"

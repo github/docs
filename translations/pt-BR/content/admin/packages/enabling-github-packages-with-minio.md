@@ -19,7 +19,9 @@ shortTitle: Habilitar pacotes com MinIO
 - Certifique-se de configurar o bucket que você vai querer usar no futuro. Não recomendamos alterar seu armazenamento depois de começar a usar {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
+
 ## Pré-requisitos
+
 Antes de poder habilitar e configurar {% data variables.product.prodname_registry %} em {% data variables.product.product_location_enterprise %}, você precisa preparar seu grupo de armazenamento do MinIO. Para ajudá-lo a configurar rapidamente um bucket do MinIO e acessar as opções de personalização do MinIO, consulte o "[Guia de inícoio rápido para configurar seu bucket de armazenamento do MinIO para {% data variables.product.prodname_registry %}](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)".
 
 Certifique-se de que que o seu ID da chave de acesso e o segredo de armazenamento externo do MinIO tenham essas permissões:
@@ -33,7 +35,7 @@ Certifique-se de que que o seu ID da chave de acesso e o segredo de armazenament
 
 ## Habilitar {% data variables.product.prodname_registry %} com armazenamento externo do MinIO
 
-Although MinIO does not currently appear in the user interface under "Package Storage", MinIO is still  supported by {% data variables.product.prodname_registry %} on {% data variables.product.prodname_enterprise %}. Além disso, observe que o armazenamento de objetos do MinIO é compatível com a API do S3 e você pode inserir detalhes do bucket do MinIO no lugar dos detalhes do AWS S3.
+Embora o MinIO atualmente não apareça na interface do usuário em "Armazenamento de Pacote", ele ainda é compatível com {% data variables.product.prodname_registry %} em {% data variables.product.prodname_enterprise %}. Além disso, observe que o armazenamento de objetos do MinIO é compatível com a API do S3 e você pode inserir detalhes do bucket do MinIO no lugar dos detalhes do AWS S3.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

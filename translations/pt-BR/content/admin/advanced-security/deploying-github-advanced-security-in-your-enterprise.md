@@ -1,5 +1,5 @@
 ---
-title: Deploying GitHub Advanced Security in your enterprise
+title: Implantando o GitHub Advanced Security na sua empresa
 intro: 'Aprenda a planejar, preparar e implementar uma abordagem em fases para implantar {% data variables.product.prodname_GH_advanced_security %} (GHAS) na sua empresa.'
 product: '{% data reusables.gated-features.advanced-security %}'
 miniTocMaxHeadingLevel: 3
@@ -206,7 +206,7 @@ Para mais informações sobre {% data variables.product.prodname_actions %}, con
   - "[Conheça o GitHub Actions](/actions/learn-github-actions)"
   - "[Entendendo o GitHub Actions](/actions/learn-github-actions/understanding-github-actions)"
   - [Eventos que acionam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows)
-  - "[Filter Pattern Cheat Sheet](/actions/learn-github-actions/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
+  - "[Filtrar o padrão da folha de informações](/actions/learn-github-actions/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
 
 #### Usando um sistema de CI de terceiros com o a CLI do CodeQL para {% data variables.product.prodname_code_scanning %}
 
@@ -221,7 +221,7 @@ Se você estiver usando uma abordagem faseada para implementar o GHAS, recomenda
 
 Se você não estiver planejando uma abordagem de implementação faseada e quiser habilitar a verificação de código para muitos repositórios, você pode fazer o script do processo.
 
-Para obter um exemplo de um script que abre pull requests para adicionar um fluxo de trabalho de {% data variables.product.prodname_actions %} em vários repositórios, consulte o repositório [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) para ver um exemplo que usa o Powershell ou [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) para equipes que não possuem Powershell e que, em vez disso, prefeririam usar o NodeJS.
+Para obter um exemplo de um script que abre pull requests para adicionar um fluxo de trabalho de {% data variables.product.prodname_actions %} em vários repositórios, consulte o repositório [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) para ver um exemplo que usa o PowerShell ou [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) para equipes que não possuem PowerShell e que, em vez disso, prefeririam usar o NodeJS.
 
 ### Etapa 4: Execute digitalizações de código e revise seus resultados
 
@@ -267,19 +267,15 @@ Para saber como exibir e fechar alertas para segredos verificados em seu reposit
 
 O GitHub ajuda você a evitar o uso de software de terceiros que contém vulnerabilidades conhecidas. Nós fornecemos as seguintes ferramentas para remover e evitar dependências vulneráveis.
 
-| Ferramenta Gerenciamento de Dependência | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Alertas de Dependabot                   | Você pode acompanhar as dependências do seu repositório e receber alertas de dependências do Dependabot quando sua empresa detectar dependências vulneráveis. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)"                                                                                                                                                            |
-| Gráfico de Dependência                  | O gráfico de dependências é um resumo do manifesto e bloqueia arquivos armazenados em um repositório. Ele mostra os ecossistemas e pacotes dos quais a sua base de código depende (suas dependências) e os repositórios e pacotes que dependem do seu projeto (suas dependências). Para obter mais informações, consulte "[Sobre o gráfico de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)". |{% ifversion ghes > 3.1 or ghec %}
-| Revisão de Dependência                  | Se um pull request tiver alterações nas dependências, você poderá ver um resumo do que alterou e se há vulnerabilidades conhecidas em qualquer uma das dependências. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" ou "[Revisando as alterações de dependência em um pull requestl](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)". |{% endif %} {% ifversion ghec %}
-| Atualizações de segurança do Dependabot | O dependabot pode corrigir dependências vulneráveis levantando pull requests com atualizações de segurança. Para obter mais informações, consulte "[Sobre atualizações de segurança do Dependabot](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)".                                                                                                                                                                                                                  |
-| Atualizações da versão do Dependabot    | O dependabot pode ser usado para manter os pacotes que você usa atualizados para as últimas versões. Para obter mais informações, consulte "[Sobre atualizações da versão do Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)". | {% endif %}
+| Ferramenta Gerenciamento de Dependência        | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Alertas de Dependabot                          | Você pode acompanhar as dependências do seu repositório e receber alertas de dependências do Dependabot quando sua empresa detectar dependências vulneráveis. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)"                                                                                                                                                            |
+| Gráfico de Dependência                         | O gráfico de dependências é um resumo do manifesto e bloqueia arquivos armazenados em um repositório. Ele mostra os ecossistemas e pacotes dos quais a sua base de código depende (suas dependências) e os repositórios e pacotes que dependem do seu projeto (suas dependências). Para obter mais informações, consulte "[Sobre o gráfico de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)". |{% ifversion ghes > 3.1 or ghec %}
+| Revisão de Dependência                         | Se um pull request tiver alterações nas dependências, você poderá ver um resumo do que alterou e se há vulnerabilidades conhecidas em qualquer uma das dependências. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" ou "[Revisando as alterações de dependência em um pull requestl](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)". |{% endif %} {% ifversion ghec or ghes > 3.2 %}
+| Atualizações de segurança do Dependabot        | O dependabot pode corrigir dependências vulneráveis levantando pull requests com atualizações de segurança. Para obter mais informações, consulte "[Sobre atualizações de segurança do Dependabot](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)".                                                                                                                                                                                                                  |
+| Atualizações da versão do Dependabot           | O dependabot pode ser usado para manter os pacotes que você usa atualizados para as últimas versões. Para obter mais informações, consulte "[Sobre atualizações da versão do Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)". | {% endif %}
 
-{% note %}
-
-**Observação:** As atualizações de segurança do Dependabot e as atualizações de versão estão disponíveis apenas para {% data variables.product.prodname_ghe_cloud %} e estarão disponíveis para {% data variables.product.prodname_ghe_server %} conforme descrito em nosso [](https://github.com/github/roadmap)de roteiro público.
-
-{% endnote %}
+{% data reusables.dependabot.beta-security-and-version-updates-onboarding %}
 
 ### Etapa 8: Estabelecer um processo de correção
 
@@ -301,74 +297,74 @@ Você pode aprender mais sobre [consultas CodeQL](https://codeql.github.com/docs
 
 ### Passo 10: Criar & manter a documentação
 
-All throughout the pilot phase, it’s essential to create and maintain high-quality internal documentation of the infrastructure and process changes made within your company, as well as learnings from the pilot process and configuration changes made as your team(s) progress throughout the rollout and implementation process.
+Em toda a fase piloto, é fundamental criar e manter uma documentação interna de alta qualidade da infraestrutura e processar alterações feitas dentro da sua empresa, bem como o que foi aprendido com o processo piloto e as alterações na configuração feitas conforme o progresso da(s) sua(s) equipe(s) ao longo da implementação.
 
 Ter uma documentação completa e completa ajuda a fazer das etapas restantes da sua implementação mais de um processo reproduzível. Uma boa documentação também garante que as novas equipes possam ser integradas de forma consistente ao longo do processo de implementação e, uma vez que que novos integrantes da equipe se unem à(s) equipe(s).
 
-Good documentation doesn’t end when rollout and implementation are complete. The most helpful documentation is actively updated and evolves as your teams expand their experience using GHAS and as their needs grow.
+A documentação boa não termina quando a implementação é concluída. A documentação mais útil é atualizada e evolui ativamente à medida que suas equipes expandem sua experiência usando o GHAS e suas necessidades aumentam.
 
-In addition to your documentation, we recommend your company provides clear channels to your team(s) for support and guidance all throughout rollout, implementation, and beyond. Depending on the level of change your company needs to take on in order to support the rollout and implementation of GHAS, having well-supported teams will help ensure a successful adoption into your development teams’ daily workflow.
+Além da sua documentação, recomendamos que sua empresa forneça canais claros para a(s) sua(s) equipe(s) para suporte e orientação tudo durante e após a implementação. Dependendo do nível de mudança, a sua empresa precisa assumir para apoiar a implementação do GHAS. Ter equipes bem respaldadas ajudará a garantir uma adesão bem-sucedida no fluxo de trabalho diário das suas equipes de desenvolvimento.
 
-## {% octicon "milestone" aria-label="The milestone icon" %}  Phase 2: Organizational buy-in & rollout preparation
-
-{% note %}
-
-{% octicon "clock" aria-label="Clock" %} **Estimated timing:** We estimate that phase 2 may last roughly between 1 week to over a month. This range can vary largely depending on your company’s internal approval processes.
-
-{% endnote %}
-
-One of the main goals of this phase is to ensure you have the organizational buy-in to make the full deployment of GHAS successful.
-
-During this phase, your company reviews the results of the pilot project(s) to determine if the pilot was successful, what adjustments may need to be made, and if the company is ready to continue forward with the rollout.
-
-Depending on your company’s approval process, organizational buy-in from your executive sponsor may be necessary to continue forward. In most cases, organizational buy-in from your team(s) is necessary to begin utilizing the value of GHAS for your company.
-
-Before moving forward to the next phase of rolling out GHAS more widely across your company, modifications are often made to the original rollout plan based on learnings from the pilot.
-
-Any changes that may impact the documentation should also be made to ensure it is current for continued rollout.
-
-We also recommend that you consider your plan to train any teams or team members that will be introduced to GHAS in the next phases of your rollout if you haven't already.
-
-### Step 1: Organize results
-
-At the completion of Phase 1, your team(s) should have {% ifversion ghes %} GHAS enabled on your {% data variables.product.prodname_ghe_server %} instance and have{% endif %} been able to utilize all of the key features of GHAS successfully, potentially with some configuration changes to optimize results. If your company clearly defined success metrics in Phase 0, you should be able to measure against these metrics to determine the success of your pilot.
-
-It’s important to revisit your baseline metrics when preparing your results to ensure that incremental progress can be demonstrated based on metrics collected from the pilot against your original business goals. If you need assistance with this information, GitHub can help by ensuring that your company has the right metrics to measure your progress against. For more information on help available, see "[GitHub services and support](/admin/advanced-security/overview-of-github-advanced-security-deployment#github-services-and-support)."
-
-### Step 2: Secure organizational buy-in
-
-Organizational buy-in will vary depending on a variety of factors, including your company’s size, approval process, or even the level of change required to rollout GHAS to name a few.
-
-For some companies, securing buy-in is a one-time meeting, but for others, this process can take quite some time (potentially weeks or months). Buy-in may require approval from your executive sponsor or may require the adoption of GHAS into your teams’ daily workflows.
-
-This duration of this stage is entirely up to your company and how quickly you would like to proceed. We recommend seeking support or services from GitHub where possible to help answer questions and provide any recommendations that may be needed to help support this process. For more information on help available, see "[GitHub services and support](/admin/advanced-security/overview-of-github-advanced-security-deployment#github-services-and-support)."
-
-### Step 3: Revise and update documentation
-
-Review the results and findings from your pilot project(s) and the needs of the remaining teams at your company. Based on your findings and needs analysis, update/revise your documentation.
-
-We've found that it’s essential to ensure that your documentation is up-to-date before continuing with the rollout to the remainder of your company's enterprise.
-
-### Step 4: Prepare a full rollout plan for your company
-
-Based on what you learned from your pilot project(s), update the rollout plan you designed in stage 0. To prepare for rolling out to your company, consider any training your teams will need, such as training on using GHAS, process changes, or migration training if your enterprise is migrating to GitHub.
-
-## {% octicon "milestone" aria-label="The milestone icon" %}  Phase 3: Full organizational rollout & change management
+## {% octicon "milestone" aria-label="The milestone icon" %}  Fase 2: Adesão organizacional & preparação para implementação
 
 {% note %}
 
-{% octicon "clock" aria-label="Clock" %} **Estimated timing:** We estimate that phase 3 may
-last anywhere from 2 weeks to multiple months. This range can vary largely depending on your company’s size, number of repositories/teams, level of change the GHAS rollout will be for your company, etc.
+{% octicon "clock" aria-label="Clock" %} **Tempo estimado:** Estimamos que a fase 2 deverá dura entre 1 semana e 1 mês. Esse intervalo pode variar em grande medida dependendo dos processos internos de aprovação da sua empresa.
 
 {% endnote %}
 
-Once your company has aligned on the results and findings from your pilot project(s) and all rollout preparation steps have been completed from Phase 2, you can move forward with the full rollout to your company based on your plan.
+Um dos principais objetivos desta fase é garantir que você tenha a adesão da organização para fazer com que toda a implantação do GHAS seja bem-sucedida.
 
-### Step 1: Evaluate your rollout as you go
+Durante essa fase, a sua empresa analisa os resultados do(s) projeto(s) piloto para determinar se o piloto teve sucesso, que qjustes poderão ser necessários e se a empresa está disposta a prosseguir com a implantação.
 
-If you're using a phased approach to rolling out GHAS, we recommend taking a brief pause and completing a short evaluation after rolling out GHAS to a different segment of your company to ensure the rollout is moving forward smoothly. Your evaluation can ensure that teams are enabled and trained properly, that any unique GHAS configuration needs are met, and that plans and documentation can be adjusted as needed.
+Dependendo do processo de aprovação da sua empresa, poderá ser necessário continuar com a adesão da organização do seu patrocinador executivo. Na maioria dos casos, a adesão da(s) sua(s) equipe(s) organizacionais é necessária para começar a utilizar o valor do GHAS para a sua empresa.
 
-### Step 2: Set up any needed training
+Antes de passar para a próxima fase de implementação do GHAS em toda a sua empresa, as modificações são frequentemente feitas no plano original de implementação, com base no que aprendermos com o piloto.
+
+Todas as alterações que possam ter impacto na documentação deverão também ser introduzidas para assegurar a sua implantação contínua.
+
+Também recomendamos que você considere seu plano de treinar todas as equipes ou integrantes da equipe que serão apresentados ao GHAS nas próximas fases da sua implementação, se você ainda não o fez.
+
+### Etapa 1: Organizar resultados
+
+Na conclusão da fase 1, sua(s) equipe(s) deve(m) ter {% ifversion ghes %} o GHAS habilitado na instância de {% data variables.product.prodname_ghe_server %} e{% endif %} poder ter usado todos os principais recursos do GHAS com sucesso, potencialmente com algumas alterações de configuração para otimizar os resultados. Se a sua empresa definiu claramente métricas de sucesso na Fase 0, você poderá medir com base nessas métricas para determinar o sucesso do seu piloto.
+
+É importante revisitar suas métricas de linha de base ao preparar seus resultados para garantir que o progresso adicional possa ser demonstrado com base em métricas coletadas do piloto com base nas metas originais do seu negócio. Se você precisar de ajuda com estas informações, o GitHub pode ajudar, garantindo que sua empresa tenha as métricas certas com base nas quais o seu progresso será medido. Para obter mais informações sobre a ajuda disponível, consulte "[Serviços e suporte do GitHub](/admin/advanced-security/overview-of-github-advanced-security-deployment#github-services-and-support)".
+
+### Etapa 2: Adesão segura pela organização
+
+A adesão organizacional irá variar com base em uma série de fatores, incluindo o tamanho da sua empresa, processo de aprovação, ou nível de mudança necessário para implantar o GHAS, para citar alguns exemplos.
+
+Para algumas empresas, garantir a adesão é uma reunião única, mas, para outras, este processo pode levar algum tempo (possivelmente semanas ou meses). A adesão poderá exigir a aprovação do seu patrocinador executivo ou exigir a adoção do GHAS nos fluxos diários das suas equipes.
+
+A duração desta fase depende inteiramente da sua empresa e da rapidez com que você gostaria de prosseguir. Recomendamos buscar suporte ou serviços a partir do GitHub sempre que possível para ajudar a responder a perguntas e fornecer todas recomendações que possam ser necessárias para ajudar a apoiar este processo. Para obter mais informações sobre a ajuda disponível, consulte "[Serviços e suporte do GitHub](/admin/advanced-security/overview-of-github-advanced-security-deployment#github-services-and-support)".
+
+### Passo 3: Revisar e atualizar a documentação
+
+Analise os resultados e conclusões de seu projeto piloto e as necessidades dos das equipes restantes da sua empresa. Com base nos seus resultados e análises de necessidades, atualize e revise a sua documentação.
+
+Descobrimos que é essencial garantir que a sua documentação esteja atualizada antes de continuar a implantação para os demais negócios da sua empresa.
+
+### Passo 4: Prepare um plano de implantação completo para sua empresa
+
+Com base no que você aprendeu com o(s) seu(s) projeto(s) piloto, atualize o plano de implantação que você projetou na fase 0. Para se preparar para a implementação na sua empresa, considere todos os treinamentos que suas equipes precisarem como, por exemplo, o treinamento sobre o uso do GHAS, mudanças de processo ou treinamento de migração se seu negócio estiver fazendo a migração para o GitHub.
+
+## {% octicon "milestone" aria-label="The milestone icon" %}  Fase 3: Execução completa da organização & gestão de mudanças
+
+{% note %}
+
+{% octicon "clock" aria-label="Clock" %} **Tempo estimado:** Estimamos que a fase 3 pode
+durar entre 2 semanas e vários meses. Este intervalo pode variar em grande parte dependendo do tamanho da sua empresa, número de repositórios/equipes, o nível de mudança que a implantação do GHAS irá representar para a sua empresa, etc.
+
+{% endnote %}
+
+Assim que sua empresa estiver alinhada com os resultados e conclusões do(s) seu(s) projeto(s) piloto e todas as etapas de preparação forem concluídas a partir da Fase 2, você pode seguir em frente com a implementação completa para sua empresa com base no seu plano.
+
+### Etapa 1: Avalie sua implantação à medida que você avança
+
+Se você está usando uma abordagem faseada para implementar o GHAS, recomendamos que você faça uma breve pausa e realize uma curta avaliação depois de implementar o GHAS em um segmento diferente da sua empresa para garantir que a implantação avance sem problemas. Sua avaliação pode garantir que as equipes sejam habilitadas e treinadas adequadamente, que todas as necessidades únicas de configuração do GHAS foram atendidas e que os planos e a documentação podem ser ajustados conforme necessário.
+
+### Passo 2: Configure todos os treinamentos necessários
 
 Ao implementar o GHAS em qualquer equipe além da sua equipe de projeto(s) piloto(s), é importante garantir que as equipes sejam treinadas ou que existam recursos de treinamento disponíveis para fornecer suporte adicional quando necessário.
 

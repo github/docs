@@ -3,7 +3,7 @@ title: アカウントとデータを安全に保つ
 intro: 'To protect your personal information, you should keep both your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and any associated data secure.'
 redirect_from:
   - /articles/keeping-your-account-and-data-secure
-  - /github/authenticating-to-github/keeping-your-account-and-data-secure/
+  - /github/authenticating-to-github/keeping-your-account-and-data-secure
 versions:
   fpt: '*'
   ghes: '*'

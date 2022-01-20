@@ -21,13 +21,13 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
 Este guia mostra como criar, testar e publicar um pacote no Python.
 
-{% ifversion ghae %} Para obter instruções sobre como ter certeza de que o {% data variables.actions.hosted_runner %} possui o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 Os executores hospedados em {% else %} {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado, que inclui Python e PyPy. Você não precisa instalar nada! Para obter uma lista completa do software atualizado e das versões pré-instaladas do Python e PyPy, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
@@ -42,11 +42,11 @@ Recomendamos que você tenha um entendimento básico do Python, PyPy e pip. Para
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Introdução com o modelo do fluxo de trabalho do Python
+## Usando o fluxo de trabalho inicial do Python
 
-O {% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho do Python que deve funcionar na maioria dos projetos Python. Este guia inclui exemplos que você pode usar para personalizar o modelo. Para obter mais informações, consulte o [modelo de fluxo de trabalho do Python](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
+{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial do Python que deve funcionar na maioria dos projetos do Python. Este guia inclui exemplos que você pode usar para personalizar o fluxo de trabalho inicial. Para obter mais informações, consulte o [fluxo de trabalho inicial do Python](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
-Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do repositório.
+Para iniciar rapidamente, adicione o fluxo de trabalho inicial para o diretório `.github/workflows` do seu repositório.
 
 {% raw %}
 ```yaml{:copy}
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -119,7 +119,7 @@ trabalhos:
       # Você pode usar as versões do PyPy em python-version.
       # For example, pypy2 and pypy3
       matrix:
-        python-version: [2.7, 3.6, 3.7, 3.8, 3.9]
+        python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -182,12 +182,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9, pypy2, pypy3]
+        python-version: ["3.6", "3.7", "3.8", "3.9", pypy2, pypy3]
         exclude:
           - os: macos-latest
-            python-version: 3.6
+            python-version: "3.6"
           - os: windows-latest
-            python-version: 3.6
+            python-version: "3.6"
 ```
 {% endraw %}
 
@@ -241,38 +241,24 @@ etapas:
 
 ### Memorizar dependências
 
-Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá armazenar em cache dependências usando uma chave única e restaurar as dependências quando você executar fluxos de trabalho futuros usando a ação [`cache`](https://github.com/marketplace/actions/cache). Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você pode armazenar em cache e restaurar as dependências usando a ação [`setup-python`](https://github.com/actions/setup-python).
 
-O Pip armazena dependências em diferentes locais, dependendo do sistema operacional do executor. O caminho que você precisa efetuar o armazenamento em cache pode ser diferente do exemplo do Ubuntu abaixo, dependendo do sistema operacional que você usa. Para obter mais informações, consulte [Exemplos de armazenamento em cache do Python](https://github.com/actions/cache/blob/main/examples.md#python---pip).
+O exemplo a seguir armazena dependências para pip.
 
-{% raw %}
 ```yaml{:copy}
-etapas:
-- usa: actions/checkout@v2
-- nome: Setup Python
-  usa: actions/setup-python@v2
-  com:
-    python-version: '3.x'
-- nome: Cache pip
-  usa: actions/cache@v2
-  com:
-    # Este caminho é específico para o Ubuntu
-    caminho: ~/.cache/pip
-    # Observe se há uma correspondência da cache para o arquivo de requisitos correspondente
-    chave: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-    restore-keys: |
-      ${{ runner.os }}-pip-
-      ${{ runner.os }}-
-- nome: Instalar dependências
-  executar: pip install -r requirements.txt
+steps:
+- uses: actions/checkout@v2
+- uses: actions/setup-python@v2
+  with:
+    python-version: '3.9'
+    cache: 'pip'
+- run: pip install -r requirements.txt
+- run: pip test
 ```
-{% endraw %}
 
-{% note %}
+Por padrão, a ação `setup-python` busca o arquivo de dependência (`requirements.txt` para pip ou `Pipfile.lock` para pipenv) em todo o repositório. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Armazenando em cache as dependências de pacotes</a>" nas ações README do `setup-python`.
 
-**Observação:** Dependendo do número de dependências, pode ser mais rápido para usar o armazenamento de dependências. Os projetos com muitas dependências grandes devem ver um aumento no desempenho conforme reduz o tempo necessário para fazer o download. Os projetos com menos dependências podem não ver um aumento significativo no desempenho e até mesmo ver um ligeiro diminuir devido à forma como o pip instala dependências armazenadas em cache. O desempenho varia de projeto para projeto.
-
-{% endnote %}
+Se você tiver um requisito personalizado ou precisar de melhores controles para cache, você poderá usar a ação [`cache`](https://github.com/marketplace/actions/cache). O Pip armazena dependências em diferentes locais, dependendo do sistema operacional do executor. O caminho que você precisa efetuar o armazenamento em cache pode ser diferente do exemplo do Ubuntu acima, dependendo do sistema operacional que você usa. Para obter mais informações, consulte [Exemplos de armazenamento em cache do Python](https://github.com/actions/cache/blob/main/examples.md#python---pip) no repositório de ação `cache`.
 
 ## Testar seu código
 
@@ -344,7 +330,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [3.7, 3.8, 3.9]
+        python: ["3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -378,7 +364,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -440,4 +426,4 @@ jobs:
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
 
-Para obter mais informações sobre o fluxo de trabalho do modelo, consulte [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
+Para obter mais informações sobre o fluxo de trabalho inicial, consulte [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

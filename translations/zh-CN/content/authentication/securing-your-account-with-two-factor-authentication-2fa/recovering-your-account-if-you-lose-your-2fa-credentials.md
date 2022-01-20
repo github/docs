@@ -2,8 +2,8 @@
 title: 丢失 2FA 凭据时恢复帐户
 intro: 如果无法访问双重身份验证凭据，您可以使用恢复代码或其他恢复选项重新获取对帐户的访问权限。
 redirect_from:
-  - /articles/recovering-your-account-if-you-lost-your-2fa-credentials/
-  - /articles/authenticating-with-an-account-recovery-token/
+  - /articles/recovering-your-account-if-you-lost-your-2fa-credentials
+  - /articles/authenticating-with-an-account-recovery-token
   - /articles/recovering-your-account-if-you-lose-your-2fa-credentials
   - /github/authenticating-to-github/recovering-your-account-if-you-lose-your-2fa-credentials
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials
@@ -62,7 +62,7 @@ shortTitle: 使用 2FA 找回帐户
 2. 在“Having Problems?（有问题？）”下，单击 **Can't access your two factor device or valid recovery codes?（无法访问双重设备或有效的恢复代码？）**。 ![没有 2fa 设备或恢复码时的链接](/assets/images/help/2fa/no-access-link.png)
 3. 单击 **I understand, get started（我理解，开始）**请求重置身份验证设置。 ![重置身份验证设置按钮](/assets/images/help/2fa/reset-auth-settings.png)
 4. 单击 **Send one-time password（发送一次性密码）**向与您的帐户关联的所有电子邮件地址发送一次性密码。 ![发送一次性密码按钮](/assets/images/help/2fa/send-one-time-password.png)
-5. 在“One-time password（一次性密码）”下，键入恢复电子邮件 {% data variables.product.prodname_dotcom %} 发送的临时密码。 ![一次性密码字段](/assets/images/help/2fa/one-time-password-field.png)
+5. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent. ![一次性密码字段](/assets/images/help/2fa/one-time-password-field.png)
 6. 单击 **Verify email address（验证电子邮件地址）**。
 7. 选择替代验证因素。
     - 如果您之前已经使用当前设备登录此帐户，并且想使用该设备进行验证，请单击 **Verify with this device（使用此设备进行验证）**。
@@ -70,31 +70,6 @@ shortTitle: 使用 2FA 找回帐户
     - 如果您之前已经设置个人访问令牌，并且想使用个人访问令牌进行验证，请单击 **Personal access token（个人访问令牌）**。 ![替代验证按钮](/assets/images/help/2fa/alt-verifications.png)
 8. {% data variables.contact.github_support %} 的成员将在 3-5 个工作日内审查您的请求并给您发送电子邮件。 如果您的请求获得批准，您将收到一个完成帐户恢复过程的链接。 如果您的请求被拒绝，电子邮件将说明就任何其他问题联系支持的方式。
 
-## 使用帐户恢复令牌进行身份验证
-
-{% warning %}
-
-**Warning:** Account recovery tokens are deprecated and will be disabled on **December 1st, 2021**. Please ensure you have configured other two-factor recovery methods. For more information, see "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)."
-
-{% endwarning %}
-
-If you lose access to the two-factor authentication methods for your account on {% data variables.product.product_location %}, you can retrieve your account recovery token from a partner recovery provider and ask {% data variables.product.prodname_dotcom %} Support to review it.
-
-如果您无法访问双因素身份验证方法或恢复代码，并且已通过 Facebook 使用“异地恢复帐户”存储帐户恢复令牌，则可以使用您的令牌重新获得对帐户的访问权限。
-
-如果无法重新获得对帐户的访问权限，请生成一次性密码以重新获得访问权限。 更多信息请参阅“[使用经过验证的设备、SSH 令牌或个人访问令牌进行身份验证](#authenticating-with-a-verified-device-ssh-token-or-personal-access-token)”。
-
-{% warning %}
-
-**警告：**
-- 提取帐户恢复令牌之前，您应尝试使用[双因素身份验证码](/articles/accessing-github-using-two-factor-authentication)或双因素身份验证恢复代码重新获得对帐户的访问权限。 更多信息请参阅“[丢失 2FA 凭据时恢复帐户](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)”。
-
-{% endwarning %}
-
-1. 在 Facebook 中，导航到 [Security Settings（安全设置）](https://www.facebook.com/settings?tab=security)，然后单击 **Recover Accounts Elsewhere（异地恢复帐户）**。 ![含有异地恢复帐户链接的 Facebook 安全设置页面](/assets/images/help/settings/security-facebook-security-settings-page.png)
-2. Click the recovery token associated with your account on {% data variables.product.product_location %}. ![Facebook 中存储的恢复令牌列表](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
-3. 要取回帐户恢复令牌，请单击 **Recover This Account（恢复此帐户）**。 此时将打开一个新窗口，将您返回到 {% data variables.product.product_name %}。 ![含有恢复令牌相关信息的模态框和恢复此帐户按钮](/assets/images/help/settings/security-recover-account-facebook.png)
-4. 联系 {% data variables.contact.contact_support %}，告知他们您的帐户恢复令牌已准备好进行审查。
 {% endif %}
 
 ## 延伸阅读

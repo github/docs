@@ -100,6 +100,8 @@ shortTitle: Configure a cluster network
 
 インスタンスとロードバランサの双方でPROXYサポートを有効化することを強くおすすめします。
 
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
+
  - インスタンスにはこのコマンドを使用してください:
   ```shell
   $ ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply

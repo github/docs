@@ -2,8 +2,8 @@
 title: Diferencias entre GitHub Apps y Apps de OAuth
 intro: 'El entender las diferencias entre las {% data variables.product.prodname_github_apps %} y las {% data variables.product.prodname_oauth_apps %} te ayudará a decidir qué app quieres crear. Una {% data variables.product.prodname_oauth_app %} actúa como un usuario de Github, mientras que una {% data variables.product.prodname_github_app %} utiliza su propia identidad cuando se instala en una organización o en repositorios dentro de una organización.'
 redirect_from:
-  - /early-access/integrations/integrations-vs-oauth-applications/
-  - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type/
+  - /early-access/integrations/integrations-vs-oauth-applications
+  - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type
   - /apps/differences-between-apps
   - /developers/apps/differences-between-github-apps-and-oauth-apps
 versions:
@@ -96,10 +96,10 @@ A diferencia de las apps de OAuth, las GitHub Apps tiene permisos específicos q
 
 ## Acceso a Git
 
-| GitHub Apps                                                                                                                                                                                                                                                     | OAuth Apps                                                                                                                                                                                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Las GitHub Apps solicitan permiso a los contenidos del repositorio y utilizan tu token de instalación para autenticarte a través de [Git basado en HTTP](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation). | Las Apps de OAuth piden el alcance `write:public_key` y [Crean una llave de despliegue](/rest/reference/repos#create-a-deploy-key) a través de la API. Entonces puedes utilizar esa llave para ejecutar comandos de Git. |
-| El token se utiliza como la contraseña HTTP.                                                                                                                                                                                                                    | El token se utiliza como el nombre de usuario HTTP.                                                                                                                                                                      |
+| GitHub Apps                                                                                                                                                                                                                                                     | OAuth Apps                                                                                                                                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Las GitHub Apps solicitan permiso a los contenidos del repositorio y utilizan tu token de instalación para autenticarte a través de [Git basado en HTTP](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation). | Las Apps de OAuth piden el alcance `write:public_key` y [Crean una llave de despliegue](/rest/reference/deployments#create-a-deploy-key) a través de la API. Entonces puedes utilizar esa llave para ejecutar comandos de Git. |
+| El token se utiliza como la contraseña HTTP.                                                                                                                                                                                                                    | El token se utiliza como el nombre de usuario HTTP.                                                                                                                                                                            |
 
 ## Cuentas de máquina vs cuentas de bot
 

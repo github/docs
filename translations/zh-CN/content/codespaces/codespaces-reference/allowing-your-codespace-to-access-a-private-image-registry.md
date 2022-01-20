@@ -74,11 +74,37 @@ ACR_CONTAINER_REGISTRY_USER = acr-user-here
 ACR_CONTAINER_REGISTRY_PASSWORD = <PAT>
 ```
 
-有关通用映像注册表的信息，请参阅“[通用映像注册表服务器](#common-image-registry-servers)”。
+有关通用映像注册表的信息，请参阅“[通用映像注册表服务器](#common-image-registry-servers)”。 Note that accessing AWS Elastic Container Registry (ECR) is different.
 
 ![映像注册表密钥示例](/assets/images/help/settings/codespaces-image-registry-secret-example.png)
 
 添加机密后，您可能需要停止并启动您所在的代码空间，以便将新的环境变量传递到容器。 更多信息请参阅“[暂停或停止代码空间](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)”。
+
+#### 访问 AWS Elastic Container Registry
+
+To access AWS Elastic Container Registry (ECR),  you can provide an AWS access key ID and secret key, and {% data variables.product.prodname_dotcom %}  can retrieve an access token for you and log in on your behalf.
+
+```
+*_CONTAINER_REGISTRY_SERVER = <ECR_URL>
+*_CONTAINER_REGISTRY_USER = <AWS_ACCESS_KEY_ID>
+*_container_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
+```
+
+You must also ensure you have the appropriate AWS IAM permissions to perform the credential swap (e.g. `sts:GetServiceBearerToken`) as well as the ECR read operation (either `AmazonEC2ContainerRegistryFullAccess` or `ReadOnlyAccess`).
+
+Alternatively, if you don't want GitHub to perform the credential swap on your behalf, you can provide an authorization token fetched via AWS's APIs or CLI.
+
+```
+*_CONTAINER_REGISTRY_SERVER = <ECR_URL>
+*_CONTAINER_REGISTRY_USER = AWS
+*_container_REGISTRY_PASSWORD = <TOKEN>
+```
+
+Since these tokens are short lived and need to be refreshed periodically, we recommend providing an access key ID and secret.
+
+While these secrets can have any name, so long as the `*_CONTAINER_REGISTRY_SERVER` is an ECR URL, we recommend using `ECR_CONTAINER_REGISTRY_*` unless you are dealing with multiple ECR registries.
+
+For more information, see AWS ECR's "[Private registry authentication documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)."
 
 ### 通用映像注册表服务器
 
@@ -90,6 +116,6 @@ ACR_CONTAINER_REGISTRY_PASSWORD = <PAT>
 - [AWS Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html) - `<aws_account_id>.dkr.ecr.<region>.amazonaws.com`
 - [Google Cloud Container Registry](https://cloud.google.com/container-registry/docs/overview#registries) - `gcr.io` (US), `eu.gcr.io` (EU), `asia.gcr.io` (Asia)
 
-#### 访问 AWS Elastic Container Registry
+## Debugging private image registry access
 
-如果您想要访问 AWS Elastic Container Registry (ECR)，必须在 `ECR_CONTAINER_REGISTRY_PASSSWORD` 中提供一个 AWS 授权令牌。 此授权令牌与您的密钥不相同。 您可以使用 AWS 的 API 或 CLI 获得AWS 授权令牌。 这些令牌寿命短，需要定期刷新。 For more information, see AWS ECR's "[Private registry authentication documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)."
+If you are having trouble pulling an image from a private image registry, make sure you are able to run `docker login -u <user> -p <password> <server>`, using the values of the secrets defined above. If login fails, ensure that the login credentials are valid and that you have the apprioriate permissions on the server to fetch a container image. If login succeeds, make sure that these values are copied appropriately into the right {% data variables.product.prodname_codespaces %} secrets, either at the user, repository, or organization level and try again.

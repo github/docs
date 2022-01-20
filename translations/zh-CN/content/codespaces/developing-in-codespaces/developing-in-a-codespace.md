@@ -14,6 +14,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Develop in a codespace
 ---
 
  
@@ -21,6 +22,8 @@ topics:
 ## 关于 {% data variables.product.prodname_codespaces %} 的开发
 
 {% data variables.product.prodname_codespaces %} 为您提供 {% data variables.product.prodname_vscode %} 的完整开发体验。 {% data reusables.codespaces.use-visual-studio-features %}
+
+{% data reusables.codespaces.links-to-get-started %}
 
 ![带注释的代码空间概述](/assets/images/help/codespaces/codespace-overview-annotated.png)
 

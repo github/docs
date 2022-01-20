@@ -65,6 +65,7 @@ The following example OIDC token uses a subject (`sub`) that references a job en
 {
   "jti": "example-id",
   "sub": "repo:octo-org/octo-repo:environment:prod",
+  "environment": "prod",
   "aud": "https://github.com/octo-org",
   "ref": "refs/heads/main",
   "sha": "example-sha",
@@ -111,22 +112,22 @@ The OIDC token also includes additional standard claims:
 
 The token also includes custom claims provided by {% data variables.product.prodname_dotcom %}:
 
-| Claim              | 描述                                                                |
-| ------------------ | ----------------------------------------------------------------- |
-| `actor`            | The user account that initiated the workflow run.                 |
-| `base_ref`         | The target branch of the pull request in a workflow run.          |
-| `environment`      | The name of the environment used by the job.                      |
-| `event_name`       | 触发工作流程运行的事件的名称。                                                   |
-| `head_ref`         | The source branch of the pull request in a workflow run.          |
-| `job_workflow_ref` | This is the ref path to the reusable workflow used by this job.   |
-| `ref`              | _(Reference)_ The git ref that triggered the workflow run.        |
-| `ref_type`         | The type of `ref`, for example: "branch".                         |
-| `仓库`               | The repository from where the workflow is running.                |
-| `repository_owner` | The name of the organization in which the `repository` is stored. |
-| `run_id`           | The ID of the workflow run that triggered the workflow.           |
-| `run_number`       | The number of times this workflow has been run.                   |
-| `run_attempt`      | The number of time this workflow run was been retried.            |
-| `工作流程`             | 工作流程的名称。                                                          |
+| Claim              | 描述                                                                                                                                                                                                                                                  |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `actor`            | The user account that initiated the workflow run.                                                                                                                                                                                                   |
+| `base_ref`         | The target branch of the pull request in a workflow run.                                                                                                                                                                                            |
+| `environment`      | The name of the environment used by the job.                                                                                                                                                                                                        |
+| `event_name`       | 触发工作流程运行的事件的名称。                                                                                                                                                                                                                                     |
+| `head_ref`         | The source branch of the pull request in a workflow run.                                                                                                                                                                                            |
+| `job_workflow_ref` | This is the ref path to the reusable workflow used by this job. For more information, see "["Using OpenID Connect with reusable workflows"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)." |
+| `ref`              | _(Reference)_ The git ref that triggered the workflow run.                                                                                                                                                                                          |
+| `ref_type`         | The type of `ref`, for example: "branch".                                                                                                                                                                                                           |
+| `仓库`               | The repository from where the workflow is running.                                                                                                                                                                                                  |
+| `repository_owner` | The name of the organization in which the `repository` is stored.                                                                                                                                                                                   |
+| `run_id`           | The ID of the workflow run that triggered the workflow.                                                                                                                                                                                             |
+| `run_number`       | The number of times this workflow has been run.                                                                                                                                                                                                     |
+| `run_attempt`      | The number of times this workflow run has been retried.                                                                                                                                                                                             |
+| `工作流程`             | 工作流程的名称。                                                                                                                                                                                                                                            |
 
 ### Defining trust conditions on cloud roles using OIDC claims
 
@@ -152,38 +153,38 @@ The following examples demonstrate how to use "Subject" as a condition. The [sub
 
 You can configure a subject that filters for a specific [environment](/actions/deployment/using-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-|         |                                                     |
-| ------- | --------------------------------------------------- |
-| Syntax: | `repo:orgName/repoName:environment:environmentName` |
-| 示例：     | `repo:octo-org/octo-repo:environment:Production`    |
+|     |                                                     |
+| --- | --------------------------------------------------- |
+| 语法: | `repo:orgName/repoName:environment:environmentName` |
+| 示例： | `repo:octo-org/octo-repo:environment:Production`    |
 
 #### Filtering for `pull_request` events
 
-You can configure a subject that filters for the [`pull_request`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
+You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 
-|         |                                        |
-| ------- | -------------------------------------- |
-| Syntax: | `repo:orgName/repoName:pull_request`   |
-| 示例：     | `repo:octo-org/octo-repo:pull_request` |
+|     |                                        |
+| --- | -------------------------------------- |
+| 语法: | `repo:orgName/repoName:pull_request`   |
+| 示例： | `repo:octo-org/octo-repo:pull_request` |
 
 #### Filtering for a specific branch
 
 You can configure a subject that filters for a specific branch name. In this example, the workflow run must have originated from a branch named `demo-branch`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-|         |                                                      |
-| ------- | ---------------------------------------------------- |
-| Syntax: | `repo:orgName/repoName:ref:refs/heads/branchName`    |
-| 示例：     | `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` |
+|     |                                                      |
+| --- | ---------------------------------------------------- |
+| 语法: | `repo:orgName/repoName:ref:refs/heads/branchName`    |
+| 示例： | `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` |
 
 #### Filtering for a specific tag
 
 You can create a subject that filters for specific tag. In this example, the workflow run must have originated with a tag named `demo-tag`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-|         |                                                  |
-| ------- | ------------------------------------------------ |
-| Syntax: | `repo:orgName/repoName:ref:refs/tags/tagName`    |
-| 示例：     | `repo:octo-org/octo-repo:ref:refs/tags/demo-tag` |
+|     |                                                  |
+| --- | ------------------------------------------------ |
+| 语法: | `repo:orgName/repoName:ref:refs/tags/tagName`    |
+| 示例： | `repo:octo-org/octo-repo:ref:refs/tags/demo-tag` |
 
 ### Configuring the subject in your cloud provider
 

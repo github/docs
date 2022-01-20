@@ -67,72 +67,68 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Islândia</li>
 <li>Índia</li>
 <li>Indonésia</li>
-<li>Irã</li>
-<li>Irlanda</li>
+<li>Ireland</li>
 <li>Israel</li>
-<li>Itália</li>
-<li>Costa do Marfim</li>
+<li>Italy</li>
+<li>Ivory Coast</li>
 <li>Jamaica</li>
-<li>Japão</li>
-<li>Jordânia</li>
-<li>Cazaquistão</li>
+<li>Japan</li>
+<li>Jordan</li>
+<li>Kazakhstan</li>
 <li>Kuwait</li>
-<li>Letônia</li>
-<li>Líbia</li>
+<li>Latvia</li>
+<li>Libya</li>
 <li>Liechtenstein</li>
-<li>Lituânia</li>
-<li>Luxemburgo</li>
+<li>Lithuania</li>
+<li>Luxembourg</li>
 <li>Madagascar</li>
-<li>Malaui</li>
-<li>Malásia</li>
-<li>Maldivas</li>
+<li>Malawi</li>
+<li>Malaysia</li>
+<li>Maldives</li>
 <li>Mali</li>
 <li>Malta</li>
-<li>Maurício</li>
-<li>México</li>
-<li>Mônaco</li>
+<li>Mauritius</li>
+<li>Mexico</li>
+<li>Monaco</li>
 <li>Montenegro</li>
 <li>Montserrat</li>
-<li>Moçambique</li>
-<li>Namíbia</li>
-<li>Holanda</li>
-<li>Antilhas Holandesas</li>
-<li>Nova Zelândia</li>
-<li>Nigéria</li>
-<li>Noruega</li>
-<li>Filipinas</li>
-<li>Polônia</li>
+<li>Mozambique</li>
+<li>Namibia</li>
+<li>Netherlands</li>
+<li>Netherlands Antilles</li>
+<li>New Zealand</li>
+<li>Nigeria</li>
+<li>Norway</li>
+<li>Philippines</li>
+<li>Poland</li>
 <li>Portugal</li>
-<li>Catar</li>
-<li>Romênia</li>
-<li>Rússia</li>
-<li>Ruanda</li>
+<li>Qatar</li>
+<li>Romania</li>
+<li>Rwanda</li>
 <li>Senegal</li>
-<li>Sérvia</li>
-<li>Seicheles</li>
-<li>Cingapura</li>
-<li>Eslováquia</li>
-<li>Eslovênia</li>
-<li>África do Sul</li>
-<li>Coreia do Sul</li>
-<li>Espanha</li>
+<li>Serbia</li>
+<li>Seychelles</li>
+<li>Singapore</li>
+<li>Slovakia</li>
+<li>Slovenia</li>
+<li>South Africa</li>
+<li>South Korea</li>
+<li>Spain</li>
 <li>Sri Lanka</li>
-<li>Santa Lúcia</li>
-<li>Sudão</li>
-<li>Suécia</li>
-<li>Suíça</li>
+<li>St Lucia</li>
+<li>Sudan</li>
+<li>Sweden</li>
+<li>Switzerland</li>
 <li>Taiwan</li>
-<li>Tanzânia</li>
+<li>Tanzania</li>
 <li>Togo</li>
-<li>Trinidade e Tobago</li>
-<li>Turquia</li>
-<li>Ilhas Turks e Caicos</li>
+<li>Trinidad and Tobago</li>
+<li>Turks and Caicos Islands</li>
 <li>Uganda</li>
-<li>Ucrânia</li>
-<li>Emirados Árabes Unidos</li>
-<li>Reino Unido</li>
+<li>United Arab Emirates</li>
+<li>United Kingdom</li>
 <li>Estados Unidos</li>
-<li>Uzbequistão</li>
+<li>Uzbekistan</li>
 <li>Venezuela</li>
 </ul>
 

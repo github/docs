@@ -4,7 +4,7 @@ intro: 'Para evitar que as informações da organização sejam divulgadas para 
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
-  - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain/
+  - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
   - /articles/restricting-email-notifications-to-an-approved-domain
   - /github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
@@ -29,9 +29,9 @@ Quando as notificações de e-mail restritas são habilitadas em uma organizaç�
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-Os colaboradores externos não estão sujeitos às restrições de notificações por e-mail para domínios verificados ou aprovados. For more information about outside collaborators, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+Os colaboradores externos não estão sujeitos às restrições de notificações por e-mail para domínios verificados ou aprovados. Para obter mais informações sobre colaboradores externos, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)".
 
-Se sua organização pertence a uma conta corporativa os integrantes da organização poderão receber notificações de qualquer domínio verificado ou aprovado para a conta corporativa, Além de quaisquer domínios verificados ou aprovados para a organização. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
+Se sua organização pertence a uma conta corporativa os integrantes da organização poderão receber notificações de qualquer domínio verificado ou aprovado para a conta corporativa, Além de quaisquer domínios verificados ou aprovados para a organização. Para obter mais informações, consulte "[Verificando ou aprovando um domínio para sua empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".
 
 ## Restringir notificações de e-mail
 

@@ -7,14 +7,14 @@ versions:
 
 Esta guía te mostrará cómo configurar, ajustar y administrar tu cuenta de {% data variables.product.prodname_team %} como propietario de una organización.
 
-## Part 1: Configuring your account on {% data variables.product.product_location %}
+## Parte 1: Configurar tu cuenta de {% data variables.product.product_location %}
 Como primeros pasos en el inicio con {% data variables.product.prodname_team %}, necesitarás crear una cuenta de usuario o iniciar sesión en tu cuenta existente de {% data variables.product.prodname_dotcom %}, crear una organización y configurar la facturación.
 
 ### 1. Acerca de las organizaciones
 Las organizaciones son cuentas compartidas donde las empresas y los proyectos de código abierto pueden colaborar en muchos proyectos a la vez. Los propietarios y los administradores pueden administrar el acceso de los miembros a los datos y los proyectos de la organización con características administrativas y de seguridad sofisticadas. Para obtener más información sobre las características de las organizaciones, consulta la sección "[Acerca de las organizaciones](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)".
 
 ### 2. Crear una organización y registrarse para {% data variables.product.prodname_team %}
-Before creating an organization, you will need to create a user account or log in to your existing account on {% data variables.product.product_location %}. Para obtener más información, consulta "[Registrarse para una nueva cuenta de {% data variables.product.prodname_dotcom %}](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)".
+Antes de crear una organización, necesitarás crear una cuenta de usuario o iniciar sesión en tu cuenta existente de {% data variables.product.product_location %}. Para obtener más información, consulta "[Registrarse para una nueva cuenta de {% data variables.product.prodname_dotcom %}](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)".
 
 Una vez que se configure tu cuenta de usuario, puedes crear una organización y elegir un plan. Aquí es donde puedes elegir una suscripción de {% data variables.product.prodname_team %} para tu organización. Para obtener más información, consulta la sección "[Crear una organización nueva desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
@@ -66,7 +66,7 @@ Puedes ayudar a mejorar la seguridad de tu organización si recomiendas o requie
 {% data reusables.getting-started.customizing-and-automating %}
 ### 1. Uso de {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. Utilizar la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
 
 ### 3. Crear {% data variables.product.prodname_actions %}
@@ -83,13 +83,16 @@ Puedes ayudar a mejorar la seguridad de tu organización si recomiendas o requie
 ### 2. Interactuar con el {% data variables.product.prodname_gcf %}
 {% data reusables.support.ask-and-answer-forum %}
 
-### 3. Aprender con {% data variables.product.prodname_learning %}
+### 3. Leer sobre {% data variables.product.prodname_team %} en {% data variables.product.prodname_docs %}
+Puedes leer la documentación que refleje las características disponibles en {% data variables.product.prodname_team %}. Para obtener más información, consulta la sección "[Acerca de las versiones de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
+
+### 4. Aprender con {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab %}
 
-### 4. Apoyar a la comunidad de código abierto
+### 5. Apoyar a la comunidad de código abierto
 {% data reusables.getting-started.sponsors %}
 
-### 5. Comunicarse con {% data variables.contact.github_support %}
+### 6. Comunicarse con {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 ## Leer más
 
