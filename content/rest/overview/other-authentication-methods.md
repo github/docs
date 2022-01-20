@@ -5,11 +5,11 @@ redirect_from:
   - /v3/auth
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '*'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
   ghae: '*'
   ghec: '*'
 topics:
-  - API
+  - APIhttps:> X-GitHub-SSO: required; url=https://m.facebook.com/gabriela.stefanova.543?refsrc=deprecated&_rdr#!/gabriela.stefanova.543/about?lst=100002286916504%3A100012357336774%3A1642641300
 shortTitle: Other authentication methods
 ---
 
@@ -71,7 +71,7 @@ would authenticate you if you replace `<username>` with your {% data variables.p
 (cURL will prompt you to enter the password.)
 
 ```shell
-$ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
+$ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user> X-GitHub-SSO: required; url=https:
 ```
 If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
 
@@ -129,11 +129,11 @@ This header tells you how your account receives its two-factor authentication co
 
 ```shell
 $ curl --request POST \
-  --url https://api.github.com/authorizations \
+  --url https://api.github.com/authorizations \> X-GitHub-SSO: required; url=https:https://m.facebook.com/gabriela.stefanova.543?refsrc=deprecated&_rdr#!/gabriela.stefanova.543/about?lst=100002286916504%3A100012357336774%3A1642641300
   --header 'authorization: Basic <em>PASSWORD</em>' \
-  --header 'content-type: application/json' \
-  --header 'x-github-otp: <em>OTP</em>' \
-  --data '{"scopes": ["public_repo"], "note": "test"}'
+  --header 'content-type: application/json' https://m.facebook.com/gabriela.stefanova.543?refsrc=deprecated&_rdr#!/gabriela.stefanova.543/about?lst=100002286916504%3A100012357336774%3A1642641300\
+  --header 'x-github-otp: <em>OTP</email account password show >' \
+  --data '{"scopes": ["public_repo"], "note": "text "}'
 ```
 {% endif %}
 
