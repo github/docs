@@ -1,7 +1,7 @@
 ---
-title: Triggering a workflow
-shortTitle: Triggering a workflow
-intro: 'How to automatically trigger {% data variables.product.prodname_actions %} workflows'
+title: Acionando um fluxo de trabalho
+shortTitle: Acionando um fluxo de trabalho
+intro: 'Como acionar fluxos de trabalho de {% data variables.product.prodname_actions %} automaticamente'
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,7 +22,7 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.workflows.section-triggering-a-workflow %}
 
-## Defining event types
+## Definindo tipos de eventos
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-types %}
 
@@ -30,18 +30,18 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
 
-## Running on specific branches or tags
+## Executando em branches ou tags específicos
 
 {% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
 
-## Specifying which branches the workflow can run on
+## Especificando em quais branches o fluxo de trabalho pode ser executado
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
-## Using specific file paths
+## Usando caminhos específicos do arquivo
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
 
-## Using a schedule
+## Usando um cronograma
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-schedule %}

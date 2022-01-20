@@ -140,6 +140,8 @@ product_landing:
   guides: ガイド
   code_examples: コード例
   search_code_examples: 検索コードの例
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: 詳細を表示
   explore_people_and_projects: 人やプロジェクトを調べる
   sorry: 検索結果はありません

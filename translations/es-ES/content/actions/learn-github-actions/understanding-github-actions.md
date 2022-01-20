@@ -42,7 +42,7 @@ Tu repositorio puede tener varios flujos de trabajo dentro de él, cada uno de l
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Puedes referenciar un flujo de trabajo dentro de otro flujo de trabajo, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".{% endif %}
 
-For more information about workflows, see "[Using workflows](/actions/using-workflows)."
+Para obtener más información sobre los flujos de trabajo, consulta la sección "[Utilizar flujos de trabajo](/actions/using-workflows)".
 
 ### Eventos
 
@@ -56,7 +56,7 @@ Un job es un conjunto de _pasos_ en un flujo de trabajo, los cuales se ejecutan 
 
 Puedes configurar las dependencias de un job con otros jobs; predeterminadamente, los jobs no tienen dependencias y se ejecutan en paralelo entre ellos.  Cuando un job lleva una dependencia a otro job, este esperará a que el job dependiente se complete antes de que pueda ejecutarse.  Por ejemplo, puedes tener jobs de compilación múltiple para arquitecturas diferentes que no tengan dependencias y un job de empaquetado que sea dependiente de estos jobs.  Los jobs de compilación se ejecutarán en paralelo y, cuando se hayan completado con éxito, se ejecutará el job de empaquetado.
 
-For more information about jobs, see "[Using jobs](/actions/using-jobs)."
+Para obtener más información sobre los jobs, consulta la sección "[Utilizar jobs](/actions/using-jobs)".
 
 ### Acciones
 

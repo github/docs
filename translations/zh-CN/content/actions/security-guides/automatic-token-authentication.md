@@ -43,26 +43,7 @@ shortTitle: Automatic token authentication
 
 ### 示例 1：将 `GITHUB_TOKEN` 作为输入传递
 
-此示例工作流程使用[贴标器操作](https://github.com/actions/labeler)，需要 `GITHUB_TOKEN` 作为 `repo-token` 输入参数的值：
-
-```yaml
-name: Pull request labeler
-
-on: [ pull_request_target ]
-
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}permissions:
-  contents: read
-  pull-requests: write
-
-{% endif %}
-jobs:
-  triage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/labeler@v2
-        with:
-          repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```
+{% data reusables.github-actions.github_token-input-example %}
 
 ### 例2：调用 REST API
 
@@ -99,33 +80,33 @@ jobs:
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 下表显示默认情况下授予 `GITHUB_TOKEN` 的权限。 People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
-| 作用域      | 默认访问<br>（允许） | 默认访问<br>（限制） | 复刻的仓库的最大访问权限<br> |
-| -------- | ------------------ | ------------------ | ---------------------- |
-| 操作       | 读/写                | 无                  | 读取                     |
-| 检查       | 读/写                | 无                  | 读取                     |
-| 内容       | 读/写                | 读取                 | 读取                     |
-| 部署       | 读/写                | 无                  | 读取                     |
-| id-token | 读/写                | 无                  | 读取                     |
-| 议题       | 读/写                | 无                  | 读取                     |
-| 元数据      | 读取                 | 读取                 | 读取                     |
-| 包        | 读/写                | 无                  | 读取                     |
-| 拉取请求     | 读/写                | 无                  | 读取                     |
-| 仓库项目     | 读/写                | 无                  | 读取                     |
-| 安全事件     | 读/写                | 无                  | 读取                     |
-| 状态       | 读/写                | 无                  | 读取                     |
+| 作用域                 | 默认访问<br>（允许） | 默认访问<br>（限制） | 复刻的仓库的最大访问权限<br> |
+| ------------------- | ------------------ | ------------------ | ---------------------- |
+| 操作                  | 读/写                | 无                  | 读取                     |
+| 检查                  | 读/写                | 无                  | 读取                     |
+| 内容                  | 读/写                | 读取                 | 读取                     |
+| 部署                  | 读/写                | 无                  | 读取                     |
+| id-token            | 读/写                | 无                  | 读取                     |
+| 议题                  | 读/写                | 无                  | 读取                     |
+| 元数据                 | 读取                 | 读取                 | 读取                     |
+| 包                   | 读/写                | 无                  | 读取                     |
+| pull-requests       | 读/写                | 无                  | 读取                     |
+| repository-projects | 读/写                | 无                  | 读取                     |
+| security-events     | 读/写                | 无                  | 读取                     |
+| 状态                  | 读/写                | 无                  | 读取                     |
 {% else %}
-| 作用域  | 访问类型 | 通过复刻的仓库访问 |
-| ---- | ---- | --------- |
-| 操作   | 读/写  | 读取        |
-| 检查   | 读/写  | 读取        |
-| 内容   | 读/写  | 读取        |
-| 部署   | 读/写  | 读取        |
-| 议题   | 读/写  | 读取        |
-| 元数据  | 读取   | 读取        |
-| 包    | 读/写  | 读取        |
-| 拉取请求 | 读/写  | 读取        |
-| 仓库项目 | 读/写  | 读取        |
-| 状态   | 读/写  | 读取        |
+| 作用域                 | 访问类型 | 通过复刻的仓库访问 |
+| ------------------- | ---- | --------- |
+| 操作                  | 读/写  | 读取        |
+| 检查                  | 读/写  | 读取        |
+| 内容                  | 读/写  | 读取        |
+| 部署                  | 读/写  | 读取        |
+| 议题                  | 读/写  | 读取        |
+| 元数据                 | 读取   | 读取        |
+| 包                   | 读/写  | 读取        |
+| pull-requests       | 读/写  | 读取        |
+| repository-projects | 读/写  | 读取        |
+| 状态                  | 读/写  | 读取        |
 {% endif %}
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
