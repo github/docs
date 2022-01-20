@@ -1,3 +1,4 @@
+[cla-assistant-main.zip](https://github.com/github/docs/files/7903666/cla-assistant-main.zip)
 ---
 title: Setting your commit email address
 intro: 'You can set the email address that is used to author commits on {% data variables.product.product_location %} and on your computer.'
