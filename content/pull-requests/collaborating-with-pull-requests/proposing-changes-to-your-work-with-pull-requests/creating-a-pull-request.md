@@ -1,8 +1,435 @@
----
+---@@ diff@bitore.sig/paradice::':starts::/On-on:
+on:
 title: Creating a pull request
 intro: 'Create a pull request to propose and collaborate on changes to a repository. These changes are proposed in a *branch*, which ensures that the default branch only contains finished and approved work.'
 permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
 redirect_from:
+#+- 
+The Web Adaptors resource lists the ArcGIS Web Adaptor configured with your portal. You can configure the Web Adaptor by using its configuration web page or the command line utility provided with the installation.
+
+propertyconfiguration
+Gets/Sets the common properties and configuration of the ArcGIS Web Adaptor configured with the portal.
+
+Argument
+
+Description
+
+shared_key
+
+Required string. This property represents credentials that are shared with the Web Adaptor. The Web Adaptor uses these credentials to communicate with the portal
+
+list()
+Returns all instances of WebAdaptors
+
+USAGE: Get all Web Adaptors and list keys,values of first Web Adaptor object
+
+from arcgis.gis import GIS
+gis = GIS("https://yourportal.com/portal", "portaladmin", "password")
+
+# Return a List of Web Adaptor objects
+webadaptors = gis.admin.system.web_adaptors.list()
+
+# Get the first Web Adaptor object and print out each of its values
+for key, value in dict(webadaptors[0]).items():
+    print("{} : {}".format(key, value))
+
+# Output
+machineName : yourportal.com
+machineIP : 10.11.12.13
+webAdaptorURL : https://yourwebserver.com/portal
+id : ac17d7b9-adbd-4c45-ae13-77b0ad6f14e8
+description :
+httpPort : 80
+httpsPort : 443
+refreshServerListInterval : 1
+reconnectServerOnFailureInterval : 1
+Returns
+List of Web Adaptor objects. Typically, only 1 Web Adaptor will exist for a Portal
+
+WebhookManager
+classarcgis.gis.admin.WebhookManager(url, gis)
+Creates and manages ArcGIS Enterprise webhooks. Webhooks allow you to be automatically notified when events associated with items, groups, and users occur. Once a webhook has been triggered, an HTTP request is made to a user-defined URL to provide information regarding the event.
+
+create(name, url, events='ALL', number_of_failures=5, days_in_past=5, secret=None)
+Creates a WebHook to monitor REST endpoints and report activities
+
+Argument
+
+Description
+
+name
+
+Required String. The name of the webhook.
+
+url
+
+Required String. This is the URL to which the webhook will deliver payloads to.
+
+events
+
+Otional List or String. The events accepts a list or all events can be monitored. This is done by passing “ALL” in as the events. If a list is provided, a specific endpoint can be monitored.
+
+Item Trigger Events
+
+Trigger event
+
+URI example
+
+All trigger events for all items
+
+/items
+
+Add item to the portal
+
+/items/add
+
+All trigger events for a specific item
+
+/items/<itemID>
+
+Delete a specific item
+
+/items/<itemID>/delete
+
+Update a specific item’s properties
+
+/items/<itemID>/update
+
+Move an item or changing ownership of the item
+
+/items/<itemID>/move
+
+Publish a specific item
+
+/items/<itemID>/publish
+
+Share a specific item
+
+/items/<itemID>/share
+
+Unshare a specific item
+
+/items/<itemID>/unshare
+
+Group Trigger Events
+
+Trigger event
+
+URI example
+
+All trigger events for all groups
+
+/groups
+
+Add group
+
+/groups/add
+
+All trigger events for a specific group
+
+/groups/<groupID>
+
+Update a specific group
+
+/groups/<groupID>/update
+
+Delete a specific group
+
+/groups/<groupID>/delete
+
+Enable Delete Protection for a specific group
+
+/groups/<groupID>/protect
+
+Disable Delete Protection for a specific group
+
+/groups/<groupID>/unprotect
+
+Invite a user to a specific group
+
+/groups/<groupID>/invite
+
+Add a user to a specific group
+
+/groups/<groupID>/addUsers
+
+Remove a user from a specific group
+
+/groups/<groupID>/removeUsers
+
+Update a user’s role in a specific group
+
+/groups/<groupID>/updateUsers
+
+User Trigger Events
+
+Trigger event
+
+URI example
+
+All trigger events for all users in the portal
+
+/users
+
+All trigger events associated with a specific user
+
+/users/<username>
+
+Delete a specific user
+
+/users/<username>/delete
+
+Update a specific user’s profile
+
+/users/<username>/update
+
+Disable a specific user’s account
+
+/users/<username>/disable
+
+Enable a specific user’s account
+
+/users/<username>/enable
+
+Example Syntax: [‘/users’, ‘/groups/abcd1234….’]
+
+number_of_failures
+
+Optional Integer. The number of failures to allow before the service
+
+days_in_past
+
+Option Integer. The number of days to report back on.
+
+secret
+
+Optional String. Add a Secret to your payload that can be used to authenticate the message on your receiver.
+
+:returns a WebHook instance
+
+# Example using Zapier as the payload URL
+
+from arcgis.gis import GIS
+
+gis = GIS(profile="your_profile", verify_cert=False)
+
+wh_mgr = gis.admin.webhooks
+wh = wh_mgr.create(name="Webhook_from_API",
+                   url="https://hooks.zapier.com/hooks/catch/6694048/odqj9o3/",
+                   events=["/items/981e98b949d9432ebf26433f40948cec/move",
+                           "/items/981e98b949d9432ebf26433f40948cec/update"]
+See Webhook Blog Post for a detailed explanation.
+
+get(name)
+finds a single instance of a webhook by name
+
+list()
+Returns a list of WebHook objects
+
+propertyproperties
+returns the Webhook properties
+
+propertysettings
+There are several advanced parameters that can be used to configure the connection behavior of your webhook. These parameters will be applied to all of the configured webhooks in your Portal. Use the Update operation to modify any of the parameters.
+
+** Dictionary Key/Values **
+
+Argument
+
+Description
+
+notificationAttempts
+
+Required Integer. This will determine how many attempts will be made to deliver a payload.
+
+otificationTimeOutInSeconds
+
+Required Integer. The length of time (in seconds) that Portal will wait to receive a response. The max response is 60.
+
+notificationElapsedTimeInSeconds
+
+Required Integer. The amount of time between each payload delivery attempt. By default, this is set to 30 seconds and can be set to a maximum of 100 seconds and a minimum of one second.
+
+returns: dict
+
+Webhook
+classarcgis.gis.admin.Webhook(url, gis)
+a single webhook
+
+activate()
+deactivate()
+Temporarily pause the webhook. This will stop the webhook from delivering payloads when it is invoked. The webhook will be automatically deactivated when the deactivation policy is met.
+
+Returns
+boolean
+
+delete()
+Removes the current webhook from the system.
+
+Returns
+Boolean
+
+propertynotifications
+The notifications` will display information pertaining to trigger events associated with the specific webhook. You can use this table to monitor your webhook and the details of any delivered payloads such as the time the webhook was triggered, the response received from the payload URL, and the delivered payload data.
+
+Returns
+List
+
+propertyproperties
+update(name=None, url=None, events=None, number_of_failures=None, days_in_past=None, secret=None)
+The Update Webhook operation allows administrators to update any of the parameters of their webhook.
+
+Argument
+
+Description
+
+name
+
+Required String. The name of the webhook.
+
+url
+
+Required String. This is the URL to which the webhook will deliver payloads to.
+
+events
+
+Otional List or String. The events accepts a list of all events that can be monitored. This is done by passing “ALL” in as the events. If a list is provided, a specific endpoint can be monitored.
+
+Item Trigger Events
+
+Trigger event
+
+URI example
+
+All trigger events for all items
+
+/items
+
+Add item to the portal
+
+/items/add
+
+All trigger events for a specific item
+
+/items/<itemID>
+
+Delete a specific item
+
+/items/<itemID>/delete
+
+Update a specific item’s properties
+
+/items/<itemID>/update
+
+Move an item or changing ownership of the item
+
+/items/<itemID>/move
+
+Publish a specific item
+
+/items/<itemID>/publish
+
+Share a specific item
+
+/items/<itemID>/share
+
+Unshare a specific item
+
+/items/<itemID>/unshare
+
+Group Trigger Events
+
+Trigger event
+
+URI example
+
+All trigger events for all groups
+
+/groups
+
+Add group
+
+/groups/add
+
+All trigger events for a specific group
+
+/groups/<groupID>
+
+Update a specific group
+
+/groups/<groupID>/update
+
+Delete a specific group
+
+/groups/<groupID>/delete
+
+Enable Delete Protection for a specific group
+
+/groups/<groupID>/protect
+
+Disable Delete Protection for a specific group
+
+/groups/<groupID>/unprotect
+
+Invite a user to a specific group
+
+/groups/<groupID>/invite
+
+Add a user to a specific group
+
+/groups/<groupID>/addUsers
+
+Remove a user from a specific group
+
+/groups/<groupID>/removeUsers
+
+Update a user’s role in a specific group
+
+/groups/<groupID>/updateUsers
+
+User Trigger Events
+
+Trigger event
+
+URI example
+
+All trigger events for all users in the portal
+
+/users
+
+All trigger events associated with a specific user
+
+/users/<username>
+
+Delete a specific user
+
+/users/<username>/delete
+
+Update a specific user’s profile
+
+/users/<username>/update
+
+Disable a specific user’s account
+
+/users/<username>/disable
+
+Enable a specific user’s account
+
+/users/<username>/enable
+
+Example Syntax: [‘/users’, ‘/groups/abcd1234….’]
+
+number_of_failures
+
+Optional Integer. The number of failures to allow before the service
+
+days_in_past
+
+Option Integer. The number of days to report back on.
+
+secret
+
+Optional String. Add a 
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
   - /articles/creating-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
