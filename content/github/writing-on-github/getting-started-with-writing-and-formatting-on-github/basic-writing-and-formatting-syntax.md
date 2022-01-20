@@ -328,7 +328,7 @@ For more information, see Daring Fireball's "[Markdown Syntax](https://daringfir
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
-## Disabling Markdown rendering
+## Disabling Markdown rendering 
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 
@@ -339,4 +339,4 @@ For more information, see Daring Fireball's "[Markdown Syntax](https://daringfir
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
 - "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
 - "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"
+- "[Mastering Markdown](https://guides.github.com/features/)"
