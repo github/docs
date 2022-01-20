@@ -127,6 +127,34 @@ Actividad relacionada con una regla de protección de rama. Para obtener más in
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+A Git ref has been successfully synced to a cache replica. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+
+### Disponibilidad
+
+- Webhooks de repositorio
+- Webhooks de organización
+
+### Objeto de carga útil del webhook
+
+| Clave            | Tipo        | Descripción                                                    |
+| ---------------- | ----------- | -------------------------------------------------------------- |
+| `cache_location` | `secuencia` | The location of the cache server that has been updated.        |
+| `ref`            | `secuencia` | The ref that has been updated.                                 |
+| `before`         | `secuencia` | The OID of the ref on the cache replica before it was updated. |
+| `after`          | `secuencia` | The OID of the ref on the cache replica after the update.      |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Ejemplo de carga útil del webhook
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -325,10 +353,10 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 ### Objeto de carga útil del webhook
 
-| Clave        | Tipo                                        | Descripción                                                    |
-| ------------ | ------------------------------------------- | -------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| Clave        | Tipo                                        | Descripción                                                     |
+| ------------ | ------------------------------------------- | --------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `Acción`     | `secuencia`                                 | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment` | `objeto`                                    | El [despliegue](/rest/reference/deployments#list-deployments). |
+| `deployment` | `objeto`                                    | The [deployment](/rest/reference/deployments#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -350,14 +378,14 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 ### Objeto de carga útil del webhook
 
-| Clave                              | Tipo                                        | Descripción                                                                                     |
-| ---------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| Clave                              | Tipo                                        | Descripción                                                                                         |
+| ---------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `Acción`                           | `secuencia`                                 | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment_status`                | `objeto`                                    | El [Estado del despliegue](/rest/reference/deployments#list-deployment-statuses).               |
-| `deployment_status["state"]`       | `secuencia`                                 | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                          |
-| `deployment_status["target_url"]`  | `secuencia`                                 | El enlace opcional agregado al estado.                                                          |
-| `deployment_status["description"]` | `secuencia`                                 | La descripción opcional legible para las personas que se agrega al estado.                      |
-| `deployment`                       | `objeto`                                    | El [despliegue](/rest/reference/deployments#list-deployments) con el que se asocia este estado. |
+| `deployment_status`                | `objeto`                                    | The [deployment status](/rest/reference/deployments#list-deployment-statuses).                      |
+| `deployment_status["state"]`       | `secuencia`                                 | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                              |
+| `deployment_status["target_url"]`  | `secuencia`                                 | El enlace opcional agregado al estado.                                                              |
+| `deployment_status["description"]` | `secuencia`                                 | La descripción opcional legible para las personas que se agrega al estado.                          |
+| `deployment`                       | `objeto`                                    | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}

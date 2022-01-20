@@ -42,5 +42,5 @@ Antes de habilitar {% data variables.product.prodname_unified_contributions %} e
 1. En "Los usuarios pueden compartir recuentos de contribuciones en {% data variables.product.prodname_dotcom_the_website %}", haz clic en **Request access (Solicita acceso)**. ![Request access to unified contributions option](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png){% ifversion ghes %}
 2. [Inicia sesión](https://enterprise.github.com/login) en el sitio {% data variables.product.prodname_ghe_server %} para recibir más instrucciones.
 
-When you request access, we may redirect you to the {% data variables.product.prodname_ghe_server %} site to check your current terms of service.
+Cuando solicitas acceso, podríamos redireccionarte al sitio de {% data variables.product.prodname_ghe_server %} para verificar tus condiciones de servicio actuales.
 {% endif %}
