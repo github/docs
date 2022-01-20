@@ -253,7 +253,7 @@ If your instance has subdomain isolation disabled:
 $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% endif %}
-{% endif %}
+{% endif %}，
 
 {% note %}
 
