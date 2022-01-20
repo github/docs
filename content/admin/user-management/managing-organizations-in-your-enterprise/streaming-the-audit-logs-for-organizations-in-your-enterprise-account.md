@@ -16,12 +16,6 @@ redirect_from:
 permissions: Enterprise owners can configure audit log streaming.
 ---
 
-{% note %}
-
-**Note:** Audit log streaming is currently in beta for {% data variables.product.prodname_ghe_cloud %} and subject to change.
-
-{% endnote %}
-
 ## About exporting audit data
 
 You can extract audit log and Git events data from {% data variables.product.prodname_dotcom %} in multiple ways:
