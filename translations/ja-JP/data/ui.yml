@@ -22,7 +22,9 @@ search:
   placeholder: トピックや製品などの検索
   loading: ロード中
   no_results: 結果が見つかりませんでした
+  search_results_for: Search results for
   no_content: No content
+  matches_displayed: Matches displayed
 homepage:
   explore_by_product: 製品で調べる
   version_picker: バージョン
@@ -56,6 +58,7 @@ survey:
   required: 必須
   email_placeholder: email@example.com
   email_label: If we can contact you with more questions, please enter your email address
+  email_validation: Please enter a valid email address
   send: 送信
   feedback: ありがとうございます！フィードバックをいただきました。
   not_support: 返信が必要な場合は、サポートにお問い合わせください。
@@ -137,6 +140,8 @@ product_landing:
   guides: ガイド
   code_examples: コード例
   search_code_examples: 検索コードの例
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: 詳細を表示
   explore_people_and_projects: 人やプロジェクトを調べる
   sorry: 検索結果はありません

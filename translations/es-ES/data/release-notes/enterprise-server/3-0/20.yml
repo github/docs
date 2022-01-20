@@ -9,8 +9,9 @@ sections:
     - In large cluster environments, the authentication backend could be unavailable on a subset of frontend nodes.
     - Some critical services may not have been available on backend nodes in GHES Cluster.
   changes:
-    - An additional outer layer of `gzip` compression when creating a cluster support bundle with `ghe-cluster-suport-bundle` is now turned off by default. This outer compression can optionally be applied with the `ghe-cluster-suport-bundle -c` command line option.
+    - Una capa externa adicional de la compresión de `gzip`, al crear un paquete de soporte de clúster con `ghe-cluster-suport-bundle`, ahora se encuentra apagada predeterminadamente. Esta compresión externa puede aplicarse opcionalmente con la opción de línea de comandos `ghe-cluster-suport-bundle -c`.
     - We have added extra text to the admin console to remind users about the mobile apps' data collection for experience improvement purposes.
+    - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features. [Updated 2021-12-09]
   known_issues:
     - En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.

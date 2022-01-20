@@ -1,6 +1,6 @@
 ---
-title: Building and testing Swift
-intro: You can create a continuous integration (CI) workflow to build and test your Swift project.
+title: Swift のビルドとテスト
+intro: 継続的インテグレーション (CI) ワークフローを作成して、Swift プロジェクトをビルドおよびテストできます。
 redirect_from:
   - /actions/guides/building-and-testing-swift
 versions:
@@ -18,18 +18,18 @@ shortTitle: Build & test Swift
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## はじめに
 
-This guide shows you how to build and test a Swift package.
+このガイドでは、Swift パッケージをビルドしてテストする方法を説明します。
 
 {% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, the necessary Swift dependencies are required. {% data reusables.actions.self-hosted-runners-software %}
-{% else %}{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, and the Ubuntu and macOS runners include the dependencies for building Swift packages. For a full list of up-to-date software and the preinstalled versions of Swift and Xcode, see "[About GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."{% endif %}
+{% else %}{% data variables.product.prodname_dotcom %} ホストランナーには、ソフトウェアがプリインストールされたツールキャッシュがあり、Ubuntu および macOS ランナーには、Swift パッケージをビルドするための依存関係が含まれています。 最新のソフトウェアとプレインストールされたバージョンの Swift および Xcode の完全なリストについては、「[GitHub ホストランナーについて](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)」を参照してください。{% endif %}
 
-## Prerequisites
+## 必要な環境
 
-You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+YAMLの構文と、{% data variables.product.prodname_actions %}でのYAMLの使われ方に馴染んでいる必要があります。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)」を参照してください。
 
-We recommend that you have a basic understanding of Swift packages. For more information, see "[Swift Packages](https://developer.apple.com/documentation/swift_packages)" in the Apple developer documentation.
+Swift パッケージの基本を理解しておくことをお勧めします。 詳細については、Apple 開発者ドキュメントの「[Swift パッケージ](https://developer.apple.com/documentation/swift_packages)」を参照してください。
 
 ## Using the Swift starter workflow
 
@@ -57,17 +57,17 @@ jobs:
 ```
 {% endraw %}
 
-## Specifying a Swift version
+## Swift バージョンの指定
 
-To use a specific preinstalled version of Swift on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `fwal/setup-swift` action. This action finds a specific version of Swift from the tools cache on the runner and adds the necessary binaries to `PATH`. These changes will persist for the remainder of a job. For more information, see the [`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift) action.
+{% data variables.product.prodname_dotcom %} ホストランナーでプリインストールされた特定のバージョンの Swift を使用するには、`fwal/setup-swift` アクションを使用します。 このアクションは、ランナーのツールキャッシュから特定のバージョンの Swift を見つけ、必要なバイナリを `PATH` に追加します。 これらの変更は、ジョブの残りの部分で保持されます。 詳しい情報については、[`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift) アクションを参照してください。
 
-If you are using a self-hosted runner, you must install your desired Swift versions and add them to `PATH`.
+セルフホストランナーを使用している場合は、目的の Swift バージョンをインストールして `PATH` に追加する必要があります。
 
-The examples below demonstrate using the `fwal/setup-swift` action.
+以下は、`fwal/setup-swift` アクションの使用例です。
 
-### Using multiple Swift versions
+### 複数の Swift バージョンを使用する
 
-You can configure your job to use a multiple versions of Swift in a build matrix.
+ビルドマトリックスで Swift の複数のバージョンを使用するようにジョブを設定できます。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -85,24 +85,24 @@ jobs:
         swift: ["5.2", "5.3"]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
-      - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+      - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
-      - uses: actions/checkout@
+      - uses: actions/checkout@v2
       - name: Build
         run: swift build
       - name: Run tests
         run: swift test
 ```
 
-### Using a single specific Swift version
+### 単一の特定の Swift バージョンを使用する
 
-You can configure your job to use a single specific version of Swift, such as `5.3.3`.
+`5.3.3` などの特定のバージョンの Swift を使用するようにジョブを設定できます。
 
 {% raw %}
 ```yaml{:copy}
 steps:
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
   - name: Get swift version
@@ -110,15 +110,15 @@ steps:
 ```
 {% endraw %}
 
-## Building and testing your code
+## コードのビルドとテスト
 
-You can use the same commands that you use locally to build and test your code using Swift. This example demonstrates how to use `swift build` and `swift test` in a job:
+ローカルで使うのと同じコマンドを使用して、Swift でコードをビルドおよびテストできます。 以下は、ジョブでの `swift build` と `swift test` の使用例です。
 
 {% raw %}
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
   - name: Build

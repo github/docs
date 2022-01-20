@@ -1,6 +1,6 @@
 ---
-title: Audited actions
-intro: You can search the audit log for a wide variety of actions.
+title: 監査されたアクション
+intro: 監査ログでいろんなアクションを検索することができます。
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/articles/audited-actions
@@ -17,27 +17,20 @@ topics:
   - Security
 ---
 
-## Authentication
+## 認証
 
-Action                               | Description
------------------------------------- | ----------------------------------------
-`oauth_access.create`                | An [OAuth access token][] was [generated][generate token] for a user account.
-`oauth_access.destroy`               | An [OAuth access token][] was deleted from a user account.
-`oauth_application.destroy`          | An [OAuth application][] was deleted from a user or organization account.
-`oauth_application.reset_secret`     | An [OAuth application][]'s secret key was reset.
-`oauth_application.transfer`         | An [OAuth application][] was transferred from one user or organization account to another.
-`public_key.create`                  | An SSH key was [added][add key] to a user account or a [deploy key][] was added to a repository.
-`public_key.delete`                  | An SSH key was removed from a user account or a [deploy key][] was removed from a repository.
-`public_key.update`                  | A user account's SSH key or a repository's [deploy key][] was updated.{% ifversion ghes %}
-`two_factor_authentication.enabled`  | [Two-factor authentication][2fa] was enabled for a user account.
-`two_factor_authentication.disabled` | [Two-factor authentication][2fa] was disabled for a user account.{% endif %}
-
-  [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
-  [deploy key]: /guides/managing-deploy-keys/#deploy-keys
-  [generate token]: /articles/creating-an-access-token-for-command-line-use
-  [OAuth access token]: /developers/apps/authorizing-oauth-apps
-  [OAuth application]: /guides/basics-of-authentication/#registering-your-app
-  [2fa]: /articles/about-two-factor-authentication
+| アクション                                | 説明                                                               |
+| ------------------------------------ | ---------------------------------------------------------------- |
+| `oauth_access.create`                | ユーザアカウントに[OAuth アクセストークン][] が[作成][generate token] されました。         |
+| `oauth_access.destroy`               | [OAuth アクセストークン][] がユーザアカウントから削除されました。                           |
+| `oauth_application.destroy`          | [OAuth application][]がユーザまたは Organization のアカウントから削除されました。       |
+| `oauth_application.reset_secret`     | [OAuth アプリケーション][]の秘密鍵がリセットされました。                                |
+| `oauth_application.transfer`         | [OAuth アプリケーション][]が別のユーザ、または Organization のアカウントへ移されました。         |
+| `public_key.create`                  | SSHキーがユーザアカウントに[追加][add key]されたか[デプロイキー][]がリポジトリに追加されました。        |
+| `public_key.delete`                  | SSHキーがユーザアカウントから削除されたか[デプロイキー][]がリポジトリから削除されました。                 |
+| `public_key.update`                  | ユーザアカウントの SSH キーまたはリポジトリの[デプロイキー][]が更新されました。{% ifversion ghes %}
+| `two_factor_authentication.enabled`  | ユーザアカウントの[二段階認証][2fa]が有効化されました。                                  |
+| `two_factor_authentication.disabled` | ユーザアカウントの [2 要素認証][2fa]が無効になりました。{% endif %}
 
 {% ifversion ghes %}
 ## {% data variables.product.prodname_actions %}
@@ -46,159 +39,152 @@ Action                               | Description
 
 {% endif %}
 
-## Hooks
+## フック
 
-Action                            | Description
---------------------------------- | -------------------------------------------
-`hook.create`                     | A new hook was added to a repository.
-`hook.config_changed`             | A hook's configuration was changed.
-`hook.destroy`                    | A hook was deleted.
-`hook.events_changed`             | A hook's configured events were changed.
+| アクション                 | 説明                       |
+| --------------------- | ------------------------ |
+| `hook.create`         | リポジトリに新規フックが追加されました。     |
+| `hook.config_changed` | フックのコンフィグレーションが変更されました。  |
+| `hook.destroy`        | フックが削除されました。             |
+| `hook.events_changed` | フックの設定されているイベントが変更されました。 |
 
-## Enterprise configuration settings
+## Enterprise 設定
 
-Action                                          | Description
------------------------------------------------ | -------------------------------------------{% ifversion ghes > 3.0 or ghae %}
-`business.advanced_security_policy_update` | A site admin creates, updates, or removes a policy for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."{% endif %}
-`business.clear_members_can_create_repos` | A site admin clears a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% ifversion ghes > 3.1 %}
-`business.referrer_override_enable` | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."
-`business.referrer_override_disable` | A site admin disables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."{% endif %}
-`business.update_member_repository_creation_permission` | A site admin restricts repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% ifversion ghes %}
-`enterprise.config.lock_anonymous_git_access`   | A site admin locks anonymous Git read access to prevent repository admins from changing existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."
-`enterprise.config.unlock_anonymous_git_access` | A site admin unlocks anonymous Git read access to allow repository admins to change existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."{% endif %}
+| アクション                                                   | 説明                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes > 3.0 or ghae %}
+| `business.advanced_security_policy_update`              | A site admin creates, updates, or removes a policy for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."{% endif %}
+| `business.clear_members_can_create_repos`               | サイトアドミンは、Enterprise 内の Organization でのリポジトリ作成の制限を解除します。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)」を参照してください。{% ifversion ghes > 3.1 %}
+| `business.referrer_override_enable`                     | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."                                                                                                     |
+| `business.referrer_override_disable`                    | A site admin disables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."{% endif %}
+| `business.update_member_repository_creation_permission` | サイトアドミンは、Enterprise 内の Organization でのリポジトリの作成を制限します。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)」を参照してください。{% ifversion ghes %}
+| `enterprise.config.lock_anonymous_git_access`           | サイトアドミンは匿名の Git 読み取りアクセスをロックして、リポジトリ管理者が Enterprise 内のリポジトリの既存の匿名 Git 読み取りアクセス設定を変更できないようにします。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)」を参照してください。                                                                         |
+| `enterprise.config.unlock_anonymous_git_access`         | サイトアドミンは匿名 Git 読み取りアクセスのロックを解除して、リポジトリ管理者が Enterprise 内のリポジトリの既存の匿名 Git 読み取りアクセス設定を変更できるようにします。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)」を参照してください。{% endif %}
 
 {% ifversion ghae %}
 
-## IP allow lists
+## IP 許可リスト
 
-Name                                 | Description
-------------------------------------:| -----------------------------------------------------------
-`ip_allow_list_entry.create`         | An IP address was added to an IP allow list.
-`ip_allow_list_entry.update`         | An IP address or its description was changed.
-`ip_allow_list_entry.destroy`        | An IP address was deleted from an IP allow list.
-`ip_allow_list.enable`               | An IP allow list was enabled.
-`ip_allow_list.enable_for_installed_apps` | An IP allow list was enabled for installed {% data variables.product.prodname_github_apps %}.
-`ip_allow_list.disable`              | An IP allow list was disabled.
-`ip_allow_list.disable_for_installed_apps` | An IP allow list was disabled for installed {% data variables.product.prodname_github_apps %}.
+|                                         名前 | 説明                                                                                      |
+| ------------------------------------------:| --------------------------------------------------------------------------------------- |
+|               `ip_allow_list_entry.create` | IP アドレスが IP 許可リストに追加されました。                                                              |
+|               `ip_allow_list_entry.update` | IP アドレスまたはその説明が変更されました。                                                                 |
+|              `ip_allow_list_entry.destroy` | IP アドレスが IP 許可リストから削除されました。                                                             |
+|                     `ip_allow_list.enable` | IP 許可リストが有効化されました。                                                                      |
+|  `ip_allow_list.enable_for_installed_apps` | インストールされている {% data variables.product.prodname_github_apps %} に対して IP 許可リストが有効化されました。 |
+|                    `ip_allow_list.disable` | IP 許可リストが無効化されました。                                                                      |
+| `ip_allow_list.disable_for_installed_apps` | インストールされている {% data variables.product.prodname_github_apps %} に対して IP 許可リストが無効化されました。 |
 
 {% endif %}
 
-## Issues
+## Issue
 
-Action                               | Description
------------------------------------- | -----------------------------------------------------------
-`issue.update`                       | An issue's body text (initial comment) changed.
-`issue_comment.update`               | A comment on an issue (other than the initial one) changed.
-`issue.destroy`                      | An issue was deleted from the repository. For more information, see "[Deleting an issue](/github/managing-your-work-on-github/deleting-an-issue)."
+| アクション                  | 説明                                                                                                                   |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `issue.update`         | Issue のテキスト本体（最初のコメント）が変更されました。                                                                                      |
+| `issue_comment.update` | Issue （最初以外）のコメントが変更されました。                                                                                           |
+| `issue.destroy`        | Issue がリポジトリから削除されました。 詳しい情報については、「[>Issue を削除する](/github/managing-your-work-on-github/deleting-an-issue)」を参照してください。 |
 
-## Organizations
+## Organization
 
-Action             | Description
------------------- | ----------------------------------------------------------
-`org.async_delete` | A user initiated a background job to delete an organization.
-`org.delete`       | An organization was deleted by a user-initiated background job.{% ifversion not ghae %}
-`org.transform`    | A user account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."{% endif %}
+| アクション              | 説明                                                                                                                                                                                             |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `org.async_delete` | ユーザが Organization を削除するための背景ジョブを開始しました。                                                                                                                                                        |
+| `org.delete`       | ユーザが開始したバックグラウンドジョブによって Organization が削除されました。{% ifversion not ghae %}
+| `org.transform`    | ユーザアカウントが Organization へと変換されました。 詳しい情報については、「[ユーザを Organization に変換する](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)」を参照してください。{% endif %}
 
-## Pull requests
+## プルリクエスト
 
-| Action | Description |
-| :- | :- |{% ifversion ghes > 3.1 or ghae %}
-| `pull_request.create` | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)." |
-| `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." |
-| `pull_request.reopen` | A pull request was reopened after previously being closed. |
-| `pull_request.merge` | A pull request was merged. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)." |
-| `pull_request.indirect_merge` | A pull request was considered merged because the pull request's commits were merged into the target branch. |
-| `pull_request.ready_for_review` | A pull request was marked as ready for review. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)." |
-| `pull_request.converted_to_draft` | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)." |
-| `pull_request.create_review_request` | A review was requested on a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request.remove_review_request` | A review request was removed from a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review.submit` | A review was submitted for a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review.dismiss` | A review on a pull request was dismissed. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)." |
-| `pull_request_review.delete` | A review on a pull request was deleted. |
-| `pull_request_review_comment.create` | A review comment was added to a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review_comment.update` | A review comment on a pull request was changed. |{% endif %}
-| `pull_request_review_comment.delete` | A review comment on a pull request was deleted. |
+| Action | Description | | :- | :- |{% ifversion ghes > 3.1 or ghae %} | `pull_request.create` | A pull request was created. 詳しい情報については[プルリクエストの作成](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)を参照してください。 | | `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." | | `pull_request.reopen` | A pull request was reopened after previously being closed. | | `pull_request.merge` | A pull request was merged. 詳しい情報については[プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)を参照してください。 | | `pull_request.indirect_merge` | A pull request was considered merged because the pull request's commits were merged into the target branch. | | `pull_request.ready_for_review` | A pull request was marked as ready for review. 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)」を参照してください。 | | `pull_request.converted_to_draft` | A pull request was converted to a draft. 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)」を参照してください。 | | `pull_request.create_review_request` | A review was requested on a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request.remove_review_request` | A review request was removed from a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request_review.submit` | A review was submitted for a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request_review.dismiss` | A review on a pull request was dismissed. 詳しい情報については[プルリクエストレビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。 | | `pull_request_review.delete` | A review on a pull request was deleted. | | `pull_request_review_comment.create` | A review comment was added to a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request_review_comment.update` | A review comment on a pull request was changed. |{% endif %} | `pull_request_review_comment.delete` | A review comment on a pull request was deleted. |
 
-## Protected branches
+## 保護されたブランチ
 
-Action                     | Description
--------------------------- | ----------------------------------------------------------
-`protected_branch.create ` | Branch protection is enabled on a branch.
-`protected_branch.destroy` | Branch protection is disabled on a branch.
-`protected_branch.update_admin_enforced `            | Branch protection is enforced for repository administrators.
-`protected_branch.update_require_code_owner_review ` | Enforcement of required code owner review is updated on a branch.
-`protected_branch.dismiss_stale_reviews `   | Enforcement of dismissing stale pull requests is updated on a branch.
-`protected_branch.update_signature_requirement_enforcement_level `    | Enforcement of required commit signing is updated on a branch.
-`protected_branch.update_pull_request_reviews_enforcement_level `     | Enforcement of required pull request reviews is updated on a branch.
-`protected_branch.update_required_status_checks_enforcement_level `   | Enforcement of required status checks is updated on a branch.
-`protected_branch.rejected_ref_update `     | A branch update attempt is rejected.
-`protected_branch.policy_override `         | A branch protection requirement is overridden by a repository administrator.
+| アクション                                                              | 説明                                                                                             |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| `protected_branch.create`                                          | ブランチ保護がブランチで有効になっています。                                                                         |
+| `protected_branch.destroy`                                         | ブランチ保護がブランチで無効になっています。                                                                         |
+| `protected_branch.update_admin_enforced`                           | ブランチ保護がリポジトリ管理者に対して強制されます。                                                                     |
+| `protected_branch.update_require_code_owner_review`                | 必要なコードオーナーレビューの強制がブランチで更新されます。                                                                 |
+| `protected_branch.dismiss_stale_reviews`                           | 却下している古いプルリクエストの強制がブランチで更新されます。                                                                |
+| `protected_branch.update_signature_requirement_enforcement_level`  | 必要なコミット署名の強制がブランチで更新されます。                                                                      |
+| `protected_branch.update_pull_request_reviews_enforcement_level`   | 必要なプルリクエストレビューの強制がブランチで更新されます。 Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone). |
+| `protected_branch.update_required_status_checks_enforcement_level` | 必要なステータスチェックの強制がブランチで更新されます。                                                                   |
+| `protected_branch.rejected_ref_update`                             | ブランチ更新の試行が拒否されます。                                                                              |
+| `protected_branch.policy_override`                                 | ブランチ保護の要件がリポジトリ管理者によってオーバーライドされます。                                                             |
 
-## Repositories
+## リポジトリ
 
-Action                | Description
---------------------- | -------------------------------------------------------
-`repo.access`         | The visibility of a repository changed to private{% ifversion ghes %}, public,{% endif %} or internal.
-`repo.archived`       | A repository was archived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."
-`repo.add_member`     | A collaborator was added to a repository.
-`repo.config`         | A site admin blocked force pushes. For more information, see [Blocking force pushes to a repository](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) to a repository.
-`repo.create`         | A repository was created.
-`repo.destroy`        | A repository was deleted.
-`repo.remove_member`  | A collaborator was removed from a repository.
-`repo.rename`         | A repository was renamed.
-`repo.transfer`       | A user accepted a request to receive a transferred repository.
-`repo.transfer_start` | A user sent a request to transfer a repository to another user or organization.
-`repo.unarchived`     | A repository was unarchived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."{% ifversion ghes %}
-`repo.config.disable_anonymous_git_access`| Anonymous Git read access is disabled for a repository. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
-`repo.config.enable_anonymous_git_access` | Anonymous Git read access is enabled for a repository. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
-`repo.config.lock_anonymous_git_access` | A repository's anonymous Git read access setting is locked, preventing repository administrators from changing (enabling or disabling) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."
-`repo.config.unlock_anonymous_git_access` | A repository's anonymous Git read access setting is unlocked, allowing repository administrators to change (enable or disable) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."{% endif %}
+| アクション                                      | 説明                                                                                                                                                                                                                                                                |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repo.access`                              | リポジトリの可視性がプライベート{% ifversion ghes %}、パブリック、{% endif %} または内部に変更されました。                                                                                                                                                                                             |
+| `repo.archived`                            | リポジトリがアーカイブされました。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} のリポジトリをアーカイブする](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)」を参照してください。                                                                         |
+| `repo.add_member`                          | リポジトリにコラボレーターが追加されました。                                                                                                                                                                                                                                            |
+| `repo.config`                              | サイト管理者がフォースプッシュをブロックしました。 詳しくは、 [リポジトリへのフォースプッシュのブロック](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)を参照してください。                                                                                         |
+| `repo.create`                              | リポジトリが作成されました。                                                                                                                                                                                                                                                    |
+| `repo.destroy`                             | リポジトリが削除されました。                                                                                                                                                                                                                                                    |
+| `repo.remove_member`                       | コラボレーターがリポジトリから削除されました。                                                                                                                                                                                                                                           |
+| `repo.rename`                              | リポジトリの名前が変更されました。                                                                                                                                                                                                                                                 |
+| `repo.transfer`                            | ユーザーが転送されたリポジトリを受け取る要求を受け入れました。                                                                                                                                                                                                                                   |
+| `repo.transfer_start`                      | ユーザーがリポジトリを別のユーザーまたは Organization に転送する要求を送信しました。                                                                                                                                                                                                                 |
+| `repo.unarchived`                          | リポジトリがアーカイブ解除されました。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} のリポジトリをアーカイブする](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)」を参照してください。{% ifversion ghes %}
+| `repo.config.disable_anonymous_git_access` | 匿名 Git 読み取りアクセスがリポジトリに対して無効になります。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。                                                                             |
+| `repo.config.enable_anonymous_git_access`  | 匿名 Git 読み取りアクセスがリポジトリに対して有効になります。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。                                                                             |
+| `repo.config.lock_anonymous_git_access`    | リポジトリの匿名 Git 読み取りアクセス設定がロックされているため、リポジトリ管理者はこの設定を変更 (有効化または無効化) できません。 詳しい情報については、「[ユーザによる匿名 Git 読み取りアクセスの変更を禁止する](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)」を参照してください。             |
+| `repo.config.unlock_anonymous_git_access`  | リポジトリの匿名 Git 読み取りアクセス設定がロック解除されているため、リポジトリ管理者はこの設定を変更 (有効化または無効化) できます。 詳しい情報については、「[ユーザによる匿名 Git 読み取りアクセスの変更を禁止する](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)」を参照してください。{% endif %}
 
-## Site admin tools
+## サイトアドミンのツール
 
-Action                        | Description
------------------------------ | -----------------------------------------------
-`staff.disable_repo`          | A site admin disabled access to a repository and all of its forks.
-`staff.enable_repo`           | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghes > 3.2 %}
-`staff.exit_fake_login`       | A site admin ended an impersonation session on {% data variables.product.product_name %}.
-`staff.fake_login`            | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
-`staff.repo_unlock`           | A site admin unlocked (temporarily gained full access to) one of a user's private repositories.
-`staff.unlock`                | A site admin unlocked (temporarily gained full access to) all of a user's private repositories.
+| アクション                   | 説明                                                                                             |
+| ----------------------- | ---------------------------------------------------------------------------------------------- |
+| `staff.disable_repo`    | サイトアドミンがリポジトリとその全てのフォークへのアクセスを無効にしました。                                                         |
+| `staff.enable_repo`     | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghes > 3.2 %}
+| `staff.exit_fake_login` | A site admin ended an impersonation session on {% data variables.product.product_name %}.      |
+| `staff.fake_login`      | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
+| `staff.repo_unlock`     | サイトアドミンがユーザのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                                                 |
+| `staff.unlock`          | サイトアドミンがユーザの全てのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                                              |
 
-## Teams
+## Team
 
-Action                            | Description
---------------------------------- | -------------------------------------------
-`team.create`                     | A user account or repository was added to a team.
-`team.delete`                     | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
-`team.demote_maintainer`          | A user was demoted from a team maintainer to a team member.{% endif %}
-`team.destroy`                    | A team was deleted.{% ifversion ghes or ghae %}
-`team.promote_maintainer`         | A user was promoted from a team member to a team maintainer.{% endif %}
+| アクション                     | 説明                                                                                |
+| ------------------------- | --------------------------------------------------------------------------------- |
+| `team.create`             | ユーザアカウントまたはリポジトリが Team に追加されました。                                                  |
+| `team.delete`             | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
+| `team.demote_maintainer`  | ユーザがチームメンテナからチームメンバーに降格されました。{% endif %}
+| `team.destroy`            | Team が削除されました。{% ifversion ghes or ghae %}
+| `team.promote_maintainer` | ユーザーがチームメンバーからチームメンテナに昇格しました。{% endif %}
 
-## Users
+## ユーザ
 
-Action                            | Description
---------------------------------- | -------------------------------------------
-`user.add_email`                  | An email address was added to a user account.
-`user.async_delete`               | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% ifversion ghes %}
-`user.change_password`            | A user changed his or her password.{% endif %}
-`user.create`                     | A new user account was created.
-`user.delete`                     | A user account was destroyed by an asynchronous job.
-`user.demote`                     | A site admin was demoted to an ordinary user account.
-`user.destroy`                    | A user deleted his or her account, triggering `user.async_delete`.{% ifversion ghes %}
-`user.failed_login`               | A user tried to sign in with an incorrect username, password, or two-factor authentication code.
-`user.forgot_password`            | A user requested a password reset via the sign-in page.{% endif %}
-`user.login`                      | A user signed in.{% ifversion ghes or ghae %}
-`user.mandatory_message_viewed`   | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
-`user.promote`                    | An ordinary user account was promoted to a site admin.
-`user.remove_email`               | An email address was removed from a user account.
-`user.rename`                     | A username was changed.
-`user.suspend`                    | A user account was suspended by a site admin.{% ifversion ghes %}
-`user.two_factor_requested`       | A user was prompted for a two-factor authentication code.{% endif %}
-`user.unsuspend`                  | A user account was unsuspended by a site admin.
+| アクション                           | 説明                                                                                                                                            |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `user.add_email`                | ユーザアカウントにメールアドレスが追加されました。                                                                                                                     |
+| `user.async_delete`             | ユーザアカウントを破棄する非同期ジョブが開始され、最終的に ` user.delete ` がトリガーされました。{% ifversion ghes %}
+| `user.change_password`          | ユーザがパスワードを変更しました。{% endif %}
+| `user.create`                   | 新規ユーザが作成されました。                                                                                                                                |
+| `user.delete`                   | ユーザアカウントが非同期的ジョブによって削除されました。                                                                                                                  |
+| `user.demote`                   | サイトアドミンが一般ユーザアカウントに変更されました。                                                                                                                   |
+| `user.destroy`                  | ユーザが自分のアカウントを削除し、`user.async_delete` をトリガーしました。{% ifversion ghes %}
+| `user.failed_login`             | ユーザが間違ったユーザネームやパスワード、または二段階認証コードでサインインしようとしました。                                                                                               |
+| `user.forgot_password`          | ユーザがサインインページでパスワードリセットを申請しました。{% endif %}
+| `user.login`                    | ユーザがサインインしました。{% ifversion ghes or ghae %}
+| `user.mandatory_message_viewed` | ユーザが必須メッセージを表示します（詳細については、「[ユーザメッセージをカスタマイズする](/admin/user-management/customizing-user-messages-for-your-enterprise)」を参照してください） | {% endif %}
+| `user.promote`                  | 一般ユーザアカウントがサイトアドミンへと変更されました。                                                                                                                  |
+| `user.remove_email`             | ユーザアカウントからメールアドレスが削除されました。                                                                                                                    |
+| `user.rename`                   | ユーザ名が変更されました。                                                                                                                                 |
+| `user.suspend`                  | A user account was suspended by a site admin.{% ifversion ghes %}
+| `user.two_factor_requested`     | ユーザが 2 要素認証コードを求められました。{% endif %}
+| `user.unsuspend`                | サイトアドミンがユーザアカウント停止を解除しました。                                                                                                                    |
 
 {% ifversion ghes > 3.1 or ghae %}
-## Workflows
+## ワークフロー
 
 {% data reusables.actions.actions-audit-events-workflow %}
 {% endif %}
+
+  [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
+  [デプロイキー]: /guides/managing-deploy-keys/#deploy-keys
+  [generate token]: /articles/creating-an-access-token-for-command-line-use
+  [OAuth アクセストークン]: /developers/apps/authorizing-oauth-apps
+  [OAuth application]: /guides/basics-of-authentication/#registering-your-app
+  [OAuth アプリケーション]: /guides/basics-of-authentication/#registering-your-app
+  [2fa]: /articles/about-two-factor-authentication
+  [2fa]: /articles/about-two-factor-authentication

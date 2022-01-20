@@ -34,7 +34,7 @@ In a distributed version control system, every developer has a full copy of the 
 
 - Businesses using Git can break down communication barriers between teams and keep them focused on doing their best work. Plus, Git makes it possible to align experts across a business to collaborate on major projects.
 
-## About repositories
+## Acerca de los repositorios
 
 A repository, or Git project, encompasses the entire collection of files and folders associated with a project, along with each file's revision history. The file history appears as snapshots in time called commits. The commits can be organized into multiple lines of development called branches. Because Git is a DVCS, repositories are self-contained units and anyone who has a copy of the repository can access the entire codebase and its history. Using the command line or other ease-of-use interfaces, a Git repository also allows for: interaction with the history, cloning the repository, creating branches, committing, merging, comparing changes across versions of code, and more.
 
@@ -42,9 +42,9 @@ Through platforms like {% data variables.product.product_name %}, Git also provi
 
 ## How {% data variables.product.product_name %} works
 
-{% data variables.product.product_name %} hosts Git repositories and provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the {% data variables.product.prodname_marketplace %}. With collaboration layers like the {% data variables.product.product_name %} flow, a community of 15 million developers, and an ecosystem with hundreds of integrations, {% data variables.product.product_name %} changes the way software is built.
+{% data variables.product.product_name %} hospeda repositorios de Git y proporciona a los desarrolladores las herramientas para generar un código mejor mediante características de línea de comandos, propuestas (debates en hilo), solicitudes de cambio, revisión de código o el uso de un conjunto de apps gratuitas y de pago en {% data variables.product.prodname_marketplace %}. Con las capas de colaboración tales como el flujo de {% data variables.product.product_name %}, una comunidad de 15 millones de desarrolladores y un ecosistema con cientos de integraciones, {% data variables.product.product_name %} cambia la forma en la que se crea el software.
 
-{% data variables.product.product_name %} builds collaboration directly into the development process. Work is organized into repositories where developers can outline requirements or direction and set expectations for team members. Then, using the {% data variables.product.product_name %} flow, developers simply create a branch to work on updates, commit changes to save them, open a pull request to propose and discuss changes, and merge pull requests once everyone is on the same page. For more information, see "[GitHub flow](/get-started/quickstart/github-flow)."
+{% data variables.product.product_name %} builds collaboration directly into the development process. Work is organized into repositories where developers can outline requirements or direction and set expectations for team members. Then, using the {% data variables.product.product_name %} flow, developers simply create a branch to work on updates, commit changes to save them, open a pull request to propose and discuss changes, and merge pull requests once everyone is on the same page. Para obtener más información, consulta la sección "[Flujo de GitHub](/get-started/quickstart/github-flow)".
 
 ## {% data variables.product.product_name %} and the command line
 
@@ -164,7 +164,7 @@ With a shared repository, individuals and teams are explicitly designated as con
 
 For an open source project, or for projects to which anyone can contribute, managing individual permissions can be challenging, but a fork and pull model allows anyone who can view the project to contribute. A fork is a copy of a project under a developer's personal account. Every developer has full control of their fork and is free to implement a fix or a new feature. Work completed in forks is either kept separate, or is surfaced back to the original project via a pull request. There, maintainers can review the suggested changes before they're merged. For more information, see "[Contributing to projects](/get-started/quickstart/contributing-to-projects)."
 
-## Further reading
+## Leer más
 
 The {% data variables.product.product_name %} team has created a library of educational videos and guides to help users continue to develop their skills and build better software.
 

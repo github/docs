@@ -1,6 +1,6 @@
 ---
-title: Deployment
-shortTitle: Deployment
+title: 部署
+shortTitle: 部署
 intro: 'Automatically deploy projects with {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'

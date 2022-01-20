@@ -21,7 +21,7 @@ topics:
 {% ifversion ghes > 3.0 %}
 When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features unless you set up a policy to restrict access. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."
 {% else %}
-When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features. {% ifversion ghes = 3.0 %}For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
+When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features. {% ifversion ghes = 3.0 %}詳しい情報については、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」と「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。{% endif %}
 {% endif %}
 
 {% ifversion ghes %}
@@ -34,15 +34,13 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, the license page includes a section showing details of current usage.
-![{% data variables.product.prodname_GH_advanced_security %} section of Enterprise license](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
+1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, the license page includes a section showing details of current usage. ![{% data variables.product.prodname_GH_advanced_security %} section of Enterprise license](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
 {% endif %}
 
 {% ifversion ghes = 3.0 %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, there is an **{% data variables.product.prodname_advanced_security %}** entry in the left sidebar.
-![Advanced Security sidebar](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
+1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, there is an **{% data variables.product.prodname_advanced_security %}** entry in the left sidebar. ![[Advanced Security] サイドバー](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
 
 {% data reusables.enterprise_management_console.advanced-security-license %}
 {% endif %}
@@ -56,7 +54,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying
 
     - {% data variables.product.prodname_code_scanning_capc %}, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
     - {% data variables.product.prodname_secret_scanning_caps %}, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your appliance](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
-    - {% data variables.product.prodname_dependabot %}, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)." 
+    - {% data variables.product.prodname_dependabot %}, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."
 
 ## Enabling and disabling {% data variables.product.prodname_GH_advanced_security %} features
 
@@ -67,19 +65,18 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying
 {% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
 1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," select the features that you want to enable and deselect any features you want to disable.
 {% ifversion ghes > 3.1 %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
-1. Under "{% data variables.product.prodname_advanced_security %}," click **{% data variables.product.prodname_code_scanning_capc %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
+1. [{% data variables.product.prodname_advanced_security %}] で、[**{% data variables.product.prodname_code_scanning_capc %}**] をクリックします。 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-When {% data variables.product.product_name %} has finished restarting, you're ready to set up any additional resources required for newly enabled features. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance)."
+When {% data variables.product.product_name %} has finished restarting, you're ready to set up any additional resources required for newly enabled features. 詳しい情報については「[アプライアンスのための{% data variables.product.prodname_code_scanning %}の設定](/admin/advanced-security/configuring-code-scanning-for-your-appliance)」を参照してください。
 
 ## Enabling or disabling {% data variables.product.prodname_GH_advanced_security %} features via the administrative shell (SSH)
 
-You can enable or disable features programmatically on {% data variables.product.product_location %}. For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[Command-line utilities](/admin/configuration/command-line-utilities#ghe-config)."
+You can enable or disable features programmatically on {% data variables.product.product_location %}. {% data variables.product.prodname_ghe_server %} の管理シェルおよびコマンドラインユーティリティの詳細については、「[管理シェル (SSH) へのアクセス](/admin/configuration/accessing-the-administrative-shell-ssh)」および「[コマンドラインユーティリティ](/admin/configuration/command-line-utilities#ghe-config)」を参照してください。
 
 For example, you can enable any {% data variables.product.prodname_GH_advanced_security %} feature with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
 
-1. SSH into {% data variables.product.product_location %}.
+1. {% data variables.product.product_location %}にSSHでアクセスしてください。
 1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     - To enable {% data variables.product.prodname_code_scanning_capc %}, enter the following commands.
@@ -118,7 +115,7 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ghe-config app.github.dependency-graph-enabled false
     ghe-config app.github.vulnerability-alerting-and-settings-enabled false
     ```{% endif %}
-3. Apply the configuration.
+3. 設定を適用します。
     ```shell
     ghe-config-apply
     ```

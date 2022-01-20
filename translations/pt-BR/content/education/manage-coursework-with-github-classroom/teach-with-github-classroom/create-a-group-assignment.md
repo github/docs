@@ -1,114 +1,115 @@
 ---
-title: Create a group assignment
-intro: You can create a collaborative assignment for teams of students who participate in your course.
+title: Criar uma atribuição em grupo
+intro: Você pode criar uma atribuição colaborativa para equipes de alunos que participam do seu curso.
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
 ---
-## About group assignments
 
-{% data reusables.classroom.assignments-group-definition %} Students can work together on a group assignment in a shared repository, like a team of professional developers.
+## Sobre atribuições em grupo
 
-When a student accepts a group assignment, the student can create a new team or join an existing team. {% data variables.product.prodname_classroom %} saves the teams for an assignment as a set. You can name the set of teams for a specific assignment when you create the assignment, and you can reuse that set of teams for a later assignment.
+{% data reusables.classroom.assignments-group-definition %} Os alunos podem trabalhar juntos em uma tarefa em grupo em um repositório compartilhado, como uma equipe de desenvolvedores profissionais.
+
+Quando um aluno aceita uma atividade em grupo, o aluno poderá criar uma nova equipe ou juntar-se a uma equipe existente. {% data variables.product.prodname_classroom %} salva as equipes para uma atividade como um conjunto. Você pode nomear o conjunto de equipes para uma atividade específica ao criar a tarefa e você pode reutilizar esse conjunto de equipes para uma atividade futura.
 
 {% data reusables.classroom.classroom-creates-group-repositories %}
 
 {% data reusables.classroom.about-assignments %}
 
-You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+Você pode decidir quantas equipes uma atividade pode ter e quantos integrantes cada equipe pode ter. Cada equipe que um estudante cria para uma atividade é uma equipe dentro da sua organização em {% data variables.product.product_name %}. A visibilidade da equipe é secreta. Equipes criadas em {% data variables.product.product_name %} não aparecerão em {% data variables.product.prodname_classroom %}. Para obter mais informações, consulte "[Sobre equipes](/organizations/organizing-members-into-teams/about-teams)".
 
-For a video demonstration of the creation of a group assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
+Para uma demonstração de vídeo da criação de uma atividade de grupo, consulte "[Fundamentos de configuração de {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
 
-## Prerequisites
+## Pré-requisitos
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## Creating an assignment
+## Criar uma atividade
 
 {% data reusables.classroom.assignments-guide-create-the-assignment %}
 
-## Setting up the basics for an assignment
+## Configurar os fundamentos para uma atividade
 
-Name your assignment, decide whether to assign a deadline, define teams, and choose the visibility of assignment repositories.
+Nomeie sua atividade, decida se deseja atribuir um prazo, defina equipes e escolha a visibilidade dos repositórios de atividades.
 
-- [Naming an assignment](#naming-an-assignment)
-- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-- [Choosing an assignment type](#choosing-an-assignment-type)
-- [Defining teams for an assignment](#defining-teams-for-an-assignment)
-- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
+- [Nomear uma atividade](#naming-an-assignment)
+- [Atribuir um prazo para uma atividade](#assigning-a-deadline-for-an-assignment)
+- [Escolher um tipo de atividade](#choosing-an-assignment-type)
+- [Definir equipes para uma atividade](#defining-teams-for-an-assignment)
+- [Escolher uma visibilidade para repositórios de atividades](#choosing-a-visibility-for-assignment-repositories)
 
-### Naming an assignment
+### Nomear uma atividade
 
-For a group assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the name of the team. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the team's name on {% data variables.product.product_name %} is "student-team", the name of the assignment repository for members of the team will be `assignment-1-student-team`.
+Para uma atividade em grupo, {% data variables.product.prodname_classroom %} nomeia repositórios pelo prefixo do repositório e pelo nome da equipe. Por padrão, o prefixo do repositório é o título da atividade. Por exemplo, se você nomear uma atividade "atividade-1" e o nome da equipe em {% data variables.product.product_name %} for "aluno-equipe", o nome do repositório de atividade para os integrantes da equipe será a `atividade-1-aluno-equipe`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### Assigning a deadline for an assignment
+### Atribuir um prazo para uma atividade
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### Choosing an assignment type
+### Escolher um tipo de atividade
 
-Under "Individual or group assignment", select the drop-down menu, then click **Group assignment**. You can't change the assignment type after you create the assignment. If you'd rather create a individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
+Em "Atividade individual ou em grupo", selecione o menu suspenso e, em seguida, clique em **Atividade em grupo**. Você não pode alterar o tipo de atividade depois de criá-la. Se você preferir criar uma atividade individual, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)".
 
-### Defining teams for an assignment
+### Definir equipes para uma atividade
 
-If you've already created a group assignment for the classroom, you can reuse a set of teams for the new assignment. To create a new set with the teams that your students create for the assignment, type the name for the set. Optionally, type the maximum number of team members and total teams.
+Se você já criou uma atividade em grupo para a sala de aula, você pode reutilizar um conjunto de equipes para a nova atividade. Para criar um novo conjunto com as equipes que seus alunos criam para a atividade, digite o nome do conjunto. Opcionalmente, digite o número máximo de integrantes e equipes totais.
 
 {% tip %}
 
-**Tips**:
+**Dicas**:
 
-- We recommend including details about the set of teams in the name for the set. For example, if you want to use the set of teams for one assignment, name the set after the assignment. If you want to reuse the set throughout a semester or course, name the set after the semester or course.
+- Recomendamos incluir detalhes sobre o conjunto de equipes no nome para o conjunto. Por exemplo, se você desejar usar o conjunto de equipes para uma atividade, nomeie o conjunto após a atividade. Se você desejar reutilizar o conjunto ao longo de um semestre ou curso, nomeie o conjunto após o semestre ou curso.
 
-- If you'd like to assign students to a specific team, give your students a name for the team and provide a list of members.
+- Se desejar atribuir aos alunos uma equipe específica, dê a seus alunos um nome para a equipe e forneça uma lista de integrantes.
 
 {% endtip %}
 
-![Parameters for the teams participating in a group assignment](/assets/images/help/classroom/assignments-define-teams.png)
+![Parâmetros para as equipes que participam de uma atividade em grupo](/assets/images/help/classroom/assignments-define-teams.png)
 
-### Choosing a visibility for assignment repositories
+### Escolher uma visibilidade para repositórios de atividades
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
 
-## Adding starter code and configuring a development environment
+## Adicionar código inicial e configurar um ambiente de desenvolvimento
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
-- [Choosing a template repository](#choosing-a-template-repository)
-- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
+- [Escolher um repositório de modelo](#choosing-a-template-repository)
+- [Escolhendo um ambiente integrado de desenvolvimento (IDE)](#choosing-an-integrated-development-environment-ide)
 
-### Choosing a template repository
+### Escolher um repositório de modelo
 
-By default, a new assignment will create an empty repository for each team that a student creates. {% data reusables.classroom.you-can-choose-a-template-repository %} 
+Por padrão, uma nova atividade criará um repositório vazio para cada equipe criada por um aluno. {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
-### Choosing an integrated development environment (IDE)
+### Escolhendo um ambiente integrado de desenvolvimento (IDE)
 
-{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+{% data reusables.classroom.about-online-ides %} Para obter mais informações, consulte "[Integrar {% data variables.product.prodname_classroom %} com um IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-## Providing feedback
+## Fornecer feedback
 
-Optionally, you can automatically grade assignments and create a space for discussing each submission with the team.
+Opcionalmente, você pode classificar automaticamente as atividades e criar um espaço para discutir cada envio com a equipe.
 
-- [Testing assignments automatically](#testing-assignments-automatically)
-- [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
+- [Testar recomendações automaticamente](#testing-assignments-automatically)
+- [Criar um pull request para feedback](#creating-a-pull-request-for-feedback)
 
-### Testing assignments automatically
+### Testar recomendações automaticamente
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-### Creating a pull request for feedback
+### Criar um pull request para feedback
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -116,26 +117,36 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-## Inviting students to an assignment
+## Convidar alunos para uma atividade
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see the teams that are working on or have submitted an assignment in the **Teams** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
+Você pode ver as equipes que estão trabalhando ou que enviaram uma atividade na aba **Equipes** para a atividade. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
-  <img alt="Group assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
+  <img alt="Atividade em grupo" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
 
-## Next steps
+## Monitorando o progresso dos alunos
+A página de visão geral de atividades exibe informações sobre a aceitação da sua atividade e o progresso da equipe. Você pode ter diferentes informações resumidas, com base nas configurações das suas atividades.
 
-- After you create the assignment and your students form teams, team members can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and the team can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [managing merge conflicts](https://lab.github.com/githubtraining/managing-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- **Total de equipes**: O número de equipes que foram criadas.
+- **Alunos cadastrados**: O número de alunos na lista da sala de aula.
+- **Alunos fora de uma equipe**: O número de alunos na lista de participantes da sala de aula que ainda não se juntaram a uma equipe.
+-  **Equipes aceitas**: O número de equipes que aceitaram esta atividade.
+-  **Envios das atividaeds**: O número de equipes que enviaram a atividade. O envio é acionado no prazo da atividade.
+-  **Equipes em teste**: O número de equipes que estão atualmente passando os testes de autoavaliação para esta atividade.
 
-- When a team finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand how the team collaborated. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
+## Próximas etapas
 
-- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" and "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)." For more information about creating saved replies to provide feedback for common errors, see "[About saved replies](/github/writing-on-github/about-saved-replies)."
+- Após criar a atividade e seus alunos formarem equipes, os integrantes da equipe poderão começar a trabalhar nas atividades usando os recursos do Git e do {% data variables.product.product_name %}. Os alunos podem clonar o repositório, realizar commits de push, gerenciar branches, criar e revisar pull requests, resolver conflitos de merge e discutir alterações com problemas. Tanto você como a equipe podem revisar o histórico de commit do repositório. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[repositórios](/repositories)," "[Usando o Git](/github/getting-started-with-github/using-git), e "[Colaborando com problemas e pull requests](/github/collaborating-with-issues-and-pull-requests)e o curso grátis em [Gerenciando conflitos de merge](https://lab.github.com/githubtraining/managing-merge-conflicts) de {% data variables.product.prodname_learning %}.
 
-## Further reading
+- Quando uma equipe termina uma atividade, você poderá revisar os arquivos no repositório, ou você poderá revisar o histórico e as visualizações do repositório para entender melhor como a equipe colaborou. Para obter mais informações, consulte "[Visualizar dados do repositório com gráficos](/github/visualizing-repository-data-with-graphs)".
 
-- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
-- "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
-- [Using Existing Teams in Group Assignments?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) in the {% data variables.product.prodname_education %} Community
+- Você pode fornecer comentários para uma atividade, comentando em commits individuais ou em linhas em um pull request. Para obter mais informações, consulte "[Comentando em um pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" e "[Abrir um problema a partir do código](/github/managing-your-work-on-github/opening-an-issue-from-code)". Para obter mais informações sobre a criação de respostas salvas para fornecer feedback sobre erros comuns, consulte "[Sobre respostas salvas](/github/writing-on-github/about-saved-replies)".
+
+## Leia mais
+
+- "[Use {% data variables.product.prodname_dotcom %} na sua sala de aula e pesquisa](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
+- "[Conecte um sistema de gerenciamento de aprendizagem para {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
+- [Usar Equipes Existentes atividades em grupo?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) na comunidade de {% data variables.product.prodname_education %}

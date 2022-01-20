@@ -1,6 +1,6 @@
 ---
-title: Keeping your organization secure
-intro: 'Organization owners have several features to help them keep their projects and data secure. If you''re the owner of an organization, you should regularly review your organization''s audit log{% ifversion not ghae %}, member 2FA status,{% endif %} and application settings to ensure that no unauthorized or malicious activity has occurred.'
+title: Organization を安全に保つ
+intro: 'Organization のオーナーがプロジェクトとデータを安全に保つ方法はいくつかあります。 Organization のオーナーは、不正な、または悪意のあるアクティビティが発生していないことを確認するために、Organization の監査ログ{% ifversion not ghae %}、メンバーの 2 要素認証ステータス、{% endif %} そしてアプリケーション設定を定期的にレビューする必要があります。'
 redirect_from:
   - /articles/preventing-unauthorized-access-to-organization-information
   - /articles/keeping-your-organization-secure
@@ -22,6 +22,6 @@ children:
   - /restricting-email-notifications-for-your-organization
   - /reviewing-the-audit-log-for-your-organization
   - /reviewing-your-organizations-installed-integrations
-shortTitle: Organization security
+shortTitle: Organizationのセキュリティ
 ---
 

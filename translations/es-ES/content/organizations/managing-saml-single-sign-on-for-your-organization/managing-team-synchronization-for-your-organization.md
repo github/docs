@@ -1,6 +1,6 @@
 ---
-title: Managing team synchronization for your organization
-intro: 'You can enable and disable team synchronization between your identity provider (IdP) and your organization on {% data variables.product.product_name %}.'
+title: Administrar la sincronización de equipos para tu organización
+intro: 'Puedes habilitar e inhabilitar la sincronización entre tu Proveedor de Identidad (IdP) y tu organización en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/synchronizing-teams-between-your-identity-provider-and-github
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
@@ -13,14 +13,14 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Manage team synchronization
+shortTitle: Administrar la sincronización de equipos
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
-## About team synchronization
+## Acerca de la sincronización de equipo
 
-You can enable team synchronization between your IdP and {% data variables.product.product_name %} to allow organization owners and team maintainers to connect teams in your organization with IdP groups.
+Puedes habilitar la sincronización de equipos entre tu IdP y {% data variables.product.product_name %} para permitir a los propietarios de la organización y a los mantenedores de equipo conectar equipos en tu organización con grupos de IdP.
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
@@ -28,25 +28,31 @@ You can enable team synchronization between your IdP and {% data variables.produ
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-You can also enable team synchronization for organizations owned by an enterprise account. For more information, see "[Managing team synchronization for organizations in your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
+También puedes habilitar la sincronización de equipos para las organizaciones que pertenezcan a tu cuenta empresarial. Para obtener más información, consulta la sección "[Administrar la sincronización de equipos para las organizaciones de tu empresa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise).
 
 {% data reusables.enterprise-accounts.team-sync-override %}
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 
-## Enabling team synchronization
+## Habilitar la sincronización de equipo
 
-The steps to enable team synchronization depend on the IdP you want to use. There are prerequisites to enable team synchronization that apply to every IdP. Each individual IdP has additional prerequisites.
+Los pasos para habilitar la sincronización de equipos dependen del IdP que quieras utilizar. Existen prerrequisitos aplicables a cada IdP para habilitar la sincronización de equipos. Cada IdP individual tiene prerrequisitos adicionales.
 
-### Prerequisites
+### Prerrequisitos
 
 {% data reusables.identity-and-permissions.team-sync-required-permissions %}
 
-You must enable SAML single sign-on for your organization and your supported IdP. For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
+Debes habilitar el inicio de sesión único de SAML para tu organización y tu IdP compatible. Para obtener más información, consulta la sección "[Requerir el inicio de sesión único de SAML en tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
-You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
+Debes tener una identidad de SAML vinculada. Para crear una identidad vinculada, debes autenticarte a tu organización utilizando el SSO de SAML y el IdP compatible por lo menos una vez. Para obtener más información, consulta "[Acerca de la autenticación con el inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)".
 
-### Enabling team synchronization for Azure AD
+Tus ajustes de SAML **deben** contener una URL de IdP válida para el campo **emisor**.
+
+![Campo de emisor de SAML](/assets/images/help/saml/saml_issuer.png)
+
+
+
+### Habilitar la sincronización de equipos para Azure AD
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
@@ -56,18 +62,17 @@ You must have a linked SAML identity. To create a linked identity, you must auth
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
-6. Review the identity provider tenant information you want to connect to your organization, then click **Approve**.
-  ![Pending request to enable team synchronization to a specific IdP tenant with option to approve or cancel request](/assets/images/help/teams/approve-team-synchronization.png)
+6. Revisa la información de locatario del proveedor de identidad que deseas conectar a tu organización, después haz clic en **Approve (Aprobar)**. ![Solicitud pendiente para habilitar la sincronización de equipo a un locatario IdP específico con la opción de aprobar o cancelar la solicitud](/assets/images/help/teams/approve-team-synchronization.png)
 
-### Enabling team synchronization for Okta
+### Habilitar la sincronización de equipos para Okta
 
-Okta team synchronization requires that SAML and SCIM with Okta have already been set up for your organization.
+La sincronización de equipos de Okta requiere que ya se hayan configurado el SAML y SCIM con Okta en tu organización.
 
-To avoid potential team synchronization errors with Okta, we recommend that you confirm that SCIM linked identities are correctly set up for all organization members who are members of your chosen Okta groups, before enabling team synchronization on {% data variables.product.prodname_dotcom %}. 
+Para evitar los errores potenciales de sincronización de equipos, de recomendamos que confirmes que las entidades de SCIM enlazadas se hayan configurado correctamente para los miembros de la organización que son miembros de tus grupos selectos de Okta antes de habilitar la sincronización de equipos en {% data variables.product.prodname_dotcom %}.
 
-If an organization member does not have a linked SCIM identity, then team synchronization will not work as expected and the user may not be added or removed from teams as expected. If any of these users are missing a SCIM linked identity, you will need to reprovision them.
+Si un miembro de la organización no tiene una identidad de SCIM enlazada, entonces la sincronización de equipos no funcionará como lo esperas y el usuario podría no agregarse o eliminarse de los equipos de acuerdo con lo esperado. Si cualquiera de estos usuarios no tiene una identidad de SCIM enlazada, necesitarás volver a aprovisionarlos.
 
-For help on provisioning users that have missing a missing SCIM linked identity, see "[Troubleshooting identity and access management](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)."
+Para obtener ayuda para aprovisionar usuarios que no tengan una identidad de SCIM enlazada, consulta la sección "[Solución de problemas para la administración de identidad y acceso](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)".
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
@@ -76,19 +81,16 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.team-sync-confirm-scim %}
-1. Consider enforcing SAML in your organization to ensure that organization members link their SAML and SCIM identities. For more information, see "[Enforcing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)."
+1. Considera requerir SAML en tu organización para garantizar que los miembros de ella enlacen sus identidades de SAML y de SCIM. Para obtener más información, consulta la sección "[Requerir el inicio de sesión único de SAML en tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)".
 {% data reusables.identity-and-permissions.enable-team-sync-okta %}
-7. Under your organization's name, type a valid SSWS token and the URL to your Okta instance.
-  ![Enable team synchronization Okta organization form](/assets/images/help/teams/confirm-team-synchronization-okta-organization.png)
-6. Review the identity provider tenant information you want to connect to your organization, then click **Create**.
-  ![Enable team synchronization create button](/assets/images/help/teams/confirm-team-synchronization-okta.png)
+7. Debajo del nombre de tu organización, teclea un token SSWS válido y la URL de tu instancia de Okta. ![Formulario organizacional de Okta para habilitar la sincronización de equipos](/assets/images/help/teams/confirm-team-synchronization-okta-organization.png)
+6. Revisa la información de locatario del proveedor de identidad que deseas conectar a tu organización, después da clic en **Crear**. ![Botón de crear en habilitar la sincronización de equipos](/assets/images/help/teams/confirm-team-synchronization-okta.png)
 
-## Disabling team synchronization
+## Inhabilitar la sincronización de equipo
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-5. Under "Team synchronization", click **Disable team synchronization**.
-  ![Disable team synchronization](/assets/images/help/teams/disable-team-synchronization.png)
+5. Dentro de "Team synchronization" (Sincronización de equipo), haz clic en **Disable team synchronization (Inhabilitar la sincronización de equipo)**. ![Inhabilita la sincronización de equipo](/assets/images/help/teams/disable-team-synchronization.png)

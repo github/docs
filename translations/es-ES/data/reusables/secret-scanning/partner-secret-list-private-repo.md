@@ -8,7 +8,11 @@ Adobe | Token de Servicio de Adobe | adobe_service_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Adobe | Token de Acceso de Duración Corta de Adobe | adobe_short_lived_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-Adobe | Token Web JSON de Adobe | adobe_jwt{% endif %} Alibaba Cloud | ID de Llave de Acceso a Alibaba Cloud | alibaba_cloud_access_key_id Alibaba Cloud | Llave Secreta de Acceso a Alibaba Cloud | alibaba_cloud_access_key_secret Amazon Web Services (AWS) | ID de Llave de Acceso de Amazon AWS | aws_access_key_id Amazon Web Services (AWS) | Llave de Acceso Secreta de Amazon AWS | aws_secret_access_key
+Adobe | Token Web de JSON de Adobe | adobe_jwt{% endif %} Alibaba Cloud | ID de Clave de Acceso de Alibaba Cloud | alibaba_cloud_access_key_id Alibaba Cloud | Secreto de Clave de Acceso de Alibaba Cloud | alibaba_cloud_access_key_secret
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Amazon | ID de Cliente OAuth de Amazon | amazon_oauth_client_id{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Amazon | Secreto de Cliente OAuth de Amazon | amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | ID de Llave de Acceso a Amazon AWS | aws_access_key_id Amazon Web Services (AWS) | Llave de Acceso al Secreto de Amazon AWS | aws_secret_access_key
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 Amazon Web Services (AWS) | Token de Sesión de Amazon AWS | aws_session_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -17,6 +21,8 @@ Amazon Web Services (AWS) | ID de Llave de Acceso Temporal de Amazon AWS | aws_t
 Asana | Token de Acceso Personal de Asana | asana_personal_access_token{% endif %} Atlassian | Token de la API de Atlassian | atlassian_api_token Atlassian | Token Web JSON de Atlassian | atlassian_jwt
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Atlassian | Token de Acceso Personal de Bitbucket Server | bitbucket_server_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Azure | Secreto de la Aplicación de Azure Active Directory | azure_active_directory_application_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Azure | Llave del Caché de Azure para Redis | azure_cache_for_redis_access_key{% endif %} Azure | Token de Acceso Personal de Azure DevOps | azure_devops_personal_access_token Azure | Token de SAS de Azure | azure_sas_token Azure | Certificado de Azure Service Management | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae or ghae-issue-5342 %}
@@ -86,7 +92,7 @@ Google | Secreto de Cliente OAuth de Google | google_oauth_client_secret{% endif
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Google | Token de Actualización OAuth a Google | google_oauth_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-Grafana | Llave de la API de Grafana | grafana_api_key{% endif %} Hashicorp Terraform | API del Token de Terraform Cloud / Enterprise | terraform_api_token Hubspot | Llave de la API de Hubspot | hubspot_api_key
+Grafana | Llave de la API de Grafana | grafana_api_key{% endif %} HashiCorp | Token de la API de Terraform Cloud / Enterprise | terraform_api_token HashiCorp | Token de Lote de HashiCorp Vault | hashicorp_vault_batch_token HashiCorp | Toekn de Servicio de HashiCorp Vault | hashicorp_vault_service_token Hubspot | Llave de la API de Hubspot | hubspot_api_key
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Intercom | Token de Acceso a Intercom | intercom_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -111,6 +117,10 @@ Mapbox | Token de Acceso Secreto a Mapbox | mapbox_secret_access_token{% endif %
 MessageBird | Llave de la API de MessageBird | messagebird_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Meta | Token de Acceso a Facebook | facebook_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Midtrans | Llave del Servidor Productivo de Midtrans | midtrans_production_server_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Midtrans | Llave del Servidor de Pruebas de Midtrans | midtrans_sandbox_server_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 New Relic | Llave Personal de la API de New Relic | new_relic_personal_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -123,6 +133,8 @@ New Relic | Llave de Licencia de New Relic | new_relic_license_key{% endif %}
 Notion | Token de Integración a Notion | notion_integration_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Notion | Secreto de Cliente OAuth a Notion | notion_oauth_client_secret{% endif %} npm | Token de Acceso a npm | npm_access_token NuGet | Llave de la API de NuGet | nuget_api_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Octopus Deploy | Llave de la API de Despliegue de Octopus | octopus_deploy_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Onfido | Token de la API de Onfido Live | onfido_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -178,9 +190,19 @@ Telegram | Token del Bot de Telegram | telegram_bot_token{% endif %} Tencent Clo
 Twilio | Token de Acceso a Twilio | twilio_access_token{% endif %} Twilio | Identificador de Secuencia de Cuenta de Twilio | twilio_account_sid Twilio | Llave de la API de Twilio | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Typeform | Token de Acceso Personal a Typeform | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | Llave de la API de Producción de WorkOS Production | workos_production_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | Llave de la API de Pruebas de WorkOS | workos_staging_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Llave de la API de Yandex.Cloud | yandex_cloud_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Cookie IAM de Yandex.Cloud | yandex_cloud_iam_cookie{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Token IAM de Yandex.Cloud | yandex_cloud_iam_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Llave de la API de Yandex.Dictionary | yandex_dictionary_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Llave de la API de Yandex.Predictor | yandex_predictor_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Llave de la API de Yandex.Translate | yandex_translate_api_key{% endif %}

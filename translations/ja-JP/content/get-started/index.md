@@ -1,7 +1,7 @@
 ---
-title: Getting started with GitHub
-shortTitle: Get started
-intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
+title: GitHub を使ってみる
+shortTitle: 始めましょう！
+intro: '{% data variables.product.prodname_dotcom %} を使用してソフトウェアの構築、出荷、および保守を始める方法を学びます。 当社の製品を探索し、アカウントにサインアップして、世界最大の開発コミュニティと繋がりましょう。'
 redirect_from:
   - /categories/54/articles
   - /categories/bootcamp
@@ -61,3 +61,4 @@ children:
   - /getting-started-with-git
   - /using-git
 ---
+

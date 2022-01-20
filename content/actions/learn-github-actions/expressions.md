@@ -125,11 +125,11 @@ Returns `true` if `search` contains `item`. If `search` is an array, this functi
 
 #### Example using an array
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
 
 #### Example using a string
 
-`contains('Hello world', 'llo')` returns `true`
+`contains('Hello world', 'llo')` returns `true`.
 
 ### startsWith
 
@@ -139,7 +139,7 @@ Returns `true` when `searchString` starts with `searchValue`. This function is n
 
 #### Example
 
-`startsWith('Hello world', 'He')` returns `true`
+`startsWith('Hello world', 'He')` returns `true`.
 
 ### endsWith
 
@@ -149,7 +149,7 @@ Returns `true` if `searchString` ends with `searchValue`. This function is not c
 
 #### Example
 
-`endsWith('Hello world', 'ld')` returns `true`
+`endsWith('Hello world', 'ld')` returns `true`.
 
 ### format
 
@@ -159,19 +159,19 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 
 #### Example
 
-Returns 'Hello Mona the Octocat'
-
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### Example escaping braces
+Returns 'Hello Mona the Octocat'.
 
-Returns '{Hello Mona the Octocat!}'
+#### Example escaping braces
 
 {% raw %}
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
+
+Returns '{Hello Mona the Octocat!}'.
 
 ### join
 

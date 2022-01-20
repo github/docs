@@ -11,8 +11,8 @@
   "dependencies": {
     "@github/failbot": "0.8.0",
     "@hapi/accept": "^5.0.2",
-    "@primer/components": "^32.1.0",
-    "@primer/css": "^18.2.0",
+    "@primer/components": "^33.1.0",
+    "@primer/css": "^19.1.1",
     "@primer/octicons": "^16.1.1",
     "@primer/octicons-react": "^16.2.0",
     "@react-aria/ssr": "^3.1.0",
@@ -30,7 +30,7 @@
     "dayjs": "^1.10.7",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
-    "express-rate-limit": "^5.5.1",
+    "express-rate-limit": "^6.0.4",
     "express-timeout-handler": "^2.2.2",
     "flat": "^5.0.2",
     "github-slugger": "^1.4.0",
@@ -72,7 +72,7 @@
     "rehype-autolink-headings": "^6.1.0",
     "rehype-highlight": "^5.0.0",
     "rehype-raw": "^6.1.1",
-    "rehype-slug": "^5.0.0",
+    "rehype-slug": "^5.0.1",
     "rehype-stringify": "^9.0.2",
     "remark-code-extra": "^1.0.1",
     "remark-gemoji-to-emoji": "^1.1.0",
@@ -87,7 +87,7 @@
     "slash": "^4.0.0",
     "strip-html-comments": "^1.0.0",
     "styled-components": "^5.3.3",
-    "swr": "1.1.0",
+    "swr": "1.1.2",
     "throng": "^5.0.0",
     "ts-dedent": "^2.2.0",
     "unified": "^10.1.0",
@@ -153,7 +153,7 @@
     "jest": "^27.4.3",
     "jest-github-actions-reporter": "^1.0.3",
     "jest-slow-test-reporter": "^1.0.0",
-    "linkinator": "^2.16.2",
+    "linkinator": "^3.0.3",
     "lint-staged": "^12.1.2",
     "make-promises-safe": "^5.1.0",
     "minimatch": "^3.0.4",
@@ -179,7 +179,7 @@
     "yesno": "^0.3.1"
   },
   "engines": {
-    "node": ">= 16.0.0"
+    "node": "16.x"
   },
   "exports": "./server.mjs",
   "license": "(MIT AND CC-BY-4.0)",
@@ -224,7 +224,7 @@
     "translation-check": "start-server-and-test translation-check-server 4002 translation-check-test",
     "translation-check-server": "cross-env NODE_ENV=test PORT=4002 node server.mjs",
     "translation-check-test": "script/i18n/test-html-pages.js",
-    "test": "cross-env NODE_OPTIONS='--max_old_space_size=8192 --experimental-vm-modules' jest",
+    "test": "cross-env NODE_OPTIONS='--max_old_space_size=8192 --experimental-vm-modules' jest --logHeapUsage",
     "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage",
     "tsc": "tsc --noEmit"
   },

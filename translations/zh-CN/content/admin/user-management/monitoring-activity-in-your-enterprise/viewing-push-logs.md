@@ -1,6 +1,6 @@
 ---
-title: Viewing push logs
-intro: Site administrators can view a list of Git push operations for any repository on the enterprise.
+title: 查看推送日志
+intro: 站点管理员可以查看企业上任何仓库的 Git 推送操作列表。
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs
   - /enterprise/admin/installation/viewing-push-logs
@@ -16,31 +16,30 @@ topics:
   - Git
   - Logging
 ---
-Push log entries show:
 
-- Who initiated the push
-- Whether it was a force push or not
-- The branch someone pushed to
-- The protocol used to push
-- The originating IP address
-- The Git client used to push
-- The SHA hashes from before and after the operation
+推送日志条目会显示：
 
-## Viewing a repository's push logs
+- 推送发起人
+- 是否为强制推送
+- 某人推送到的分支
+- 推送所使用的协议
+- 发起的 IP 地址
+- 推送所使用的 Git 客户端
+- 操作前后的 SHA 哈希
 
-1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
-1. Navigate to a repository.
-1. In the upper-right corner of the repository's page, click {% octicon "rocket" aria-label="The rocket ship" %}.
-    ![Rocketship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+## 查看仓库的推送日志
+
+1. 以站点管理员的身份登录 {% data variables.product.prodname_ghe_server %} 。
+1. 导航到仓库。
+1. 在仓库页面右上角，单击 {% octicon "rocket" aria-label="The rocket ship" %}。 ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
-4. In the left sidebar, click **Push Log**.
-![Push log tab](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
+4. 在左侧边栏中，单击 **Push Log**。 ![Push Log 选项卡](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 {% ifversion ghes %}
-## Viewing a repository's push logs on the command-line
+## 在命令行上查看仓库的推送日志
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. In the appropriate Git repository, open the audit log file:
+1. 在相应的 Git 仓库中，打开审核日志文件：
   ```shell
   ghe-repo <em>owner</em>/<em>repository</em> -c "less audit_log"
   ```

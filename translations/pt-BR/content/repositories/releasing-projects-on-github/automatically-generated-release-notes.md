@@ -5,6 +5,8 @@ permissions: Repository collaborators and people with write access to a reposito
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.3'
+  ghae: issue-4974
 topics:
   - Repositories
 shortTitle: Notas de versão automatizadas
@@ -43,23 +45,23 @@ As otas de versão geradas automaticamente fornecem uma alternativa automatizada
 12. Se estiver pronto para tornar pública a sua versão, clique em **Publish release** (Publicar versão). Para trabalhar na versão posteriormente, clique em **Save draft** (Salvar rascunho). ![Botões Publish release (Publicar versão) e Draft release (Rascunhar versão)](/assets/images/help/releases/release_buttons.png)
 
 
-## Configuring automatically generated release notes
+## Configurar notas de versões geradas automaticamente
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. No campo de nome de arquivo, digite `.github/release.yml` para criar o arquivo `release.yml` no diretório `.github`. ![Criar novo arquivo](/assets/images/help/releases/release-yml.png)
-4. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. Você também pode criar novas categorias e listar as etiquetas de pull request para que sejam incluídas cada uma delas.
+4. No arquivo, usando as opções de configuração abaixo, especifique no YAML as etiquetas de pull request e autores que você deseja excluir desta versão. Você também pode criar novas categorias e listar as etiquetas de pull request para que sejam incluídas cada uma delas.
 
 ### Opções de configuração
 
-| Parâmetro                                 | Descrição                                                                                                                                                      |
-|:----------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `changelog.exclude.labels`                | A list of labels that exclude a pull request from appearing in release notes.                                                                                  |
-| `changelog.exclude.authors`               | A list of user or bot login handles whose pull requests are to be excluded from release notes.                                                                 |
-| `changelog.categories[*].title`           | **Required.** The title of a category of changes in release notes.                                                                                             |
-| `changelog.categories[*].labels`          | **Required.** Labels that qualify a pull request for this category. Use `*` as a catch-all for pull requests that didn't match any of the previous categories. |
-| `changelog.categories[*].exclude.labels`  | A list of labels that exclude a pull request from appearing in this category.                                                                                  |
-| `changelog.categories[*].exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from this category.                                                                 |
+| Parâmetro                                 | Descrição                                                                                                                                                                           |
+|:----------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `changelog.exclude.labels`                | Uma lista de etiquetas que excluem um pull request de aparecer nas notas de versão.                                                                                                 |
+| `changelog.exclude.authors`               | Uma lista de usuários ou servidores de login com os quais os pull requests devem ser excluídos das notas de versão.                                                                 |
+| `changelog.categories[*].title`           | **Obrigatório.** O título de uma categoria de alterações nas notas de versão.                                                                                                       |
+| `changelog.categories[*].labels`          | **Obrigatório.** Etiquetas que qualificam um pull request para esta categoria. Use `*` como um coringa para pull requests que não correspondem a nenhuma das categorias anteriores. |
+| `changelog.categories[*].exclude.labels`  | Uma lista de etiquetas que excluem um pull request de aparecer nesta categoria.                                                                                                     |
+| `changelog.categories[*].exclude.authors` | Uma lista gerenciamento de login de sessão de usuários ou bot, cujos pull requests devem ser excluídos desta categoria.                                                             |
 
 ### Exemplo de configuração
 
@@ -90,4 +92,4 @@ changelog:
 
 ## Leia mais
 
-- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 
+- "[Gerenciando etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 

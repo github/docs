@@ -22,7 +22,7 @@ Crie suas próprias ferramentas que integram-se perfeitamente ao lugar que você
 
 ## Assuma a empresa
 
-[Obtenha licenças de desenvolvedor](http://github.com/contact?form%5Bsubject%5D=Development+licenses) para criar e testar seu aplicativo com base no {% data variables.product.prodname_ghe_server %}.
+Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
 
 ## Você tem uma integração que é compatível com o GitHub?

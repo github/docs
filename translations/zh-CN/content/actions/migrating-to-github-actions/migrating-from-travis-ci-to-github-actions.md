@@ -1,6 +1,6 @@
 ---
-title: Migrating from Travis CI to GitHub Actions
-intro: '{% data variables.product.prodname_actions %} and Travis CI share multiple similarities, which helps make it relatively straightforward to migrate to {% data variables.product.prodname_actions %}.'
+title: 从 Travis CI 迁移到 GitHub Actions
+intro: '{% data variables.product.prodname_actions %} 和 Travis CI 有多个相似之处，这有助于很简便地迁移到 {% data variables.product.prodname_actions %}。'
 redirect_from:
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
@@ -14,57 +14,56 @@ topics:
   - Migration
   - CI
   - CD
-shortTitle: Migrate from Travis CI
+shortTitle: 从 Travis CI 迁移
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## 简介
 
-This guide helps you migrate from Travis CI to {% data variables.product.prodname_actions %}. It compares their concepts and syntax, describes the similarities, and demonstrates their different approaches to common tasks.
+本指南可帮助您从 Travis CI 迁移到 {% data variables.product.prodname_actions %}。 它会比较它们的概念和语法、描述相似之处，并演示了它们处理常见任务的不同方法。
 
-## Before you start
+## 开始之前
 
-Before starting your migration to {% data variables.product.prodname_actions %}, it would be useful to become familiar with how it works:
+在开始迁移到 {% data variables.product.prodname_actions %} 之前，熟悉其工作原理很有用：
 
-- For a quick example that demonstrates a {% data variables.product.prodname_actions %} job, see "[Quickstart for {% data variables.product.prodname_actions %}](/actions/quickstart)."
-- To learn the essential {% data variables.product.prodname_actions %} concepts, see "[Introduction to GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)."
+- 有关演示 {% data variables.product.prodname_actions %} 作业的快速示例，请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
+- 要了解 {% data variables.product.prodname_actions %} 的基本概念，请参阅“[GitHub Actions 简介](/actions/learn-github-actions/introduction-to-github-actions)”。
 
-## Comparing job execution
+## 比较作业执行
 
-To give you control over when CI tasks are executed, a {% data variables.product.prodname_actions %} _workflow_ uses _jobs_ that run in parallel by default. Each job contains _steps_ that are executed in a sequence that you define. If you need to run setup and cleanup actions for a job, you can define steps in each job to perform these.
+为让您控制 CI 任务何时执行，{% data variables.product.prodname_actions %} _工作流程_默认使用并行运行的_作业_。 每个作业包含按照您定义的顺序执行的_步骤_。 如果需要为作业运行设置和清理操作，可以在每个作业中定义执行这些操作的步骤。
 
-## Key similarities
+## 主要相似之处
 
-{% data variables.product.prodname_actions %} and Travis CI share certain similarities, and understanding these ahead of time can help smooth the migration process.
+{% data variables.product.prodname_actions %} 和 Travis CI 具有某些相似之处，提前了解这些相似之处有助于顺利迁移过程。
 
 ### Using YAML syntax
 
-Travis CI and {% data variables.product.prodname_actions %} both use YAML to create jobs and workflows, and these files are stored in the code's repository. For more information on how {% data variables.product.prodname_actions %} uses YAML, see ["Creating a workflow file](/actions/learn-github-actions/introduction-to-github-actions#create-an-example-workflow)."
+Travis CI 和 {% data variables.product.prodname_actions %} 同时使用 YAML 创建作业和工作流程，并且这些文件存储在代码仓库中。 有关 {% data variables.product.prodname_actions %} 如何使用 YAML的更多信息，请参阅“[创建工作流程文件](/actions/learn-github-actions/introduction-to-github-actions#create-an-example-workflow)”。
 
-### Custom environment variables
+### 自定义环境变量
 
-Travis CI lets you set environment variables and share them between stages. Similarly, {% data variables.product.prodname_actions %} lets you define environment variables for a step, job, or workflow. For more information, see ["Environment variables](/actions/reference/environment-variables)."
+Travis CI 允许您设置环境变量并在各个阶段之间共享它们。 同样，{% data variables.product.prodname_actions %} 允许您为步骤、作业或工作流程定义环境变量。 更多信息请参阅“[环境变量](/actions/reference/environment-variables)”。
 
-### Default environment variables
+### 默认环境变量
 
-Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
+Travis CI 和 {% data variables.product.prodname_actions %} 都包括可以在 YAML 文件中使用的默认环境变量。 对于 {% data variables.product.prodname_actions %}，您可以在“[默认环境变量](/actions/reference/environment-variables#default-environment-variables)”中查看这些变量。
 
-### Parallel job processing
+### 并行作业处理
 
-Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
+Travis CI 可以使用 `stages` 并行运行作业。 同样，{% data variables.product.prodname_actions %} 也可以并行运行 `jobs`。 更多信息请参阅“[创建依赖的作业](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)”。
 
-### Status badges
+### 状态徽章
 
-Travis CI and {% data variables.product.prodname_actions %} both support status badges, which let you indicate whether a build is passing or failing.
-For more information, see ["Adding a workflow status badge to your repository](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
+Travis CI 和 {% data variables.product.prodname_actions %} 都支持状态徽章，用于表示构建是通过还是失败。 更多信息请参阅“[将工作流程状态徽章添加到仓库](/actions/managing-workflow-runs/adding-a-workflow-status-badge)”。
 
-### Using a build matrix
+### 使用构建矩阵
 
-Travis CI and {% data variables.product.prodname_actions %} both support a build matrix, allowing you to perform testing using combinations of operating systems and software packages. For more information, see "[Using a build matrix](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)."
+Travis CI和 {% data variables.product.prodname_actions %} 都支持构建矩阵，允许您使用操作系统和软件包的组合进行测试。 更多信息请参阅“[使用构建矩阵](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)”。
 
-Below is an example comparing the syntax for each system:
+下面是比较每个系统的语法示例：
 
 <table>
 <tr>
@@ -100,11 +99,11 @@ jobs:
 </tr>
 </table>
 
-### Targeting specific branches
+### 定向特定分支
 
-Travis CI and {% data variables.product.prodname_actions %} both allow you to target your CI to a specific branch. For more information, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)."
+Travis CI 和 {% data variables.product.prodname_actions %} 允许您将 CI 定向到特定分支。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
-Below is an example of the syntax for each system:
+下面是每个系统的语法示例：
 
 <table>
 <tr>
@@ -140,11 +139,11 @@ on:
 </tr>
 </table>
 
-### Checking out submodules
+### 检出子模块
 
-Travis CI and {% data variables.product.prodname_actions %} both allow you to control whether submodules are included in the repository clone.
+Travis CI 和 {% data variables.product.prodname_actions %} 都允许您控制子模块是否包含在仓库克隆中。
 
-Below is an example of the syntax for each system:
+下面是每个系统的语法示例：
 
 <table>
 <tr>
@@ -176,50 +175,50 @@ git:
 </tr>
 </table>
 
-### Using environment variables in a matrix
+### 在矩阵中使用环境变量
 
-Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
+Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义环境变量添加到测试矩阵，这可让您在后面的步骤中引用该变量。
 
-In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
+在 {% data variables.product.prodname_actions %}中，您可以使用 `include` 键将自定义环境变量添加到矩阵中。 {% data reusables.github-actions.matrix-variable-example %}
 
-## Key features in {% data variables.product.prodname_actions %}
+## {% data variables.product.prodname_actions %} 中的关键功能
 
-When migrating from Travis CI, consider the following key features in {% data variables.product.prodname_actions %}:
+从 Travis CI 迁移时，请考虑 {% data variables.product.prodname_actions %} 中的以下关键功能：
 
-### Storing secrets
+### 存储密码
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Environment protection rules can require manual approval for a workflow to access environment secrets. {% endif %}For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}环境保护规则可能需要手动批准工作流程才能访问环境秘密。 {% endif %}更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 
-### Sharing files between jobs and workflows
+### 在作业和工作流程之间共享文件
 
-{% data variables.product.prodname_actions %} includes integrated support for artifact storage, allowing you to share files between jobs in a workflow. You can also save the resulting files and share them with other workflows. For more information, see "[Sharing data between jobs](/actions/learn-github-actions/essential-features-of-github-actions#sharing-data-between-jobs)."
+{% data variables.product.prodname_actions %} 包括对构件存储的集成支持，允许您在工作流程中的作业之间共享文件。 您还可以保存生成的文件，并与其他工作流程共享它们。 更多信息请参阅“[在作业之间共享数据](/actions/learn-github-actions/essential-features-of-github-actions#sharing-data-between-jobs)”。
 
-### Hosting your own runners
+### 托管您自己的运行器
 
-If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)."
+如果您的作业需要特定的硬件或软件，{% data variables.product.prodname_actions %} 允许您托管自己的运行器，并将其作业发送给它们进行处理。 {% data variables.product.prodname_actions %} 还允许您使用策略来控制访问这些运行器的方式，在组织或仓库级别授予访问权限。 更多信息请参阅“[托管您自己的运行器](/actions/hosting-your-own-runners)”。
 
 {% ifversion fpt or ghec %}
 
-### Concurrent jobs and execution time
+### 并行作业和执行时间
 
-The concurrent jobs and workflow execution times in {% data variables.product.prodname_actions %} can vary depending on your {% data variables.product.company_short %} plan. For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration)."
+{% data variables.product.prodname_actions %} 中的并行作业和工作流程执行时间因 {% data variables.product.company_short %} 计划而异。 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration)”。
 
 {% endif %}
 
-### Using different languages in {% data variables.product.prodname_actions %}
+### 在 {% data variables.product.prodname_actions %} 中使用不同的语言
 
-When working with different languages in {% data variables.product.prodname_actions %}, you can create a step in your job to set up your language dependencies. For more information about working with a particular language, see the specific guide:
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
-  - [Building and testing PowerShell](/actions/guides/building-and-testing-powershell)
-  - [Building and testing Java with Maven](/actions/guides/building-and-testing-java-with-maven)
-  - [Building and testing Java with Gradle](/actions/guides/building-and-testing-java-with-gradle)
-  - [Building and testing Java with Ant](/actions/guides/building-and-testing-java-with-ant)
+在 {% data variables.product.prodname_actions %} 中使用不同语言时，您可以在作业中创建步骤来设置语言依赖项。 有关使用特定语言的信息，请参阅特定指南：
+  - [构建并测试 Node.js 或 Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [构建和测试 PowerShell](/actions/guides/building-and-testing-powershell)
+  - [使用 Maven 构建和测试 Java](/actions/guides/building-and-testing-java-with-maven)
+  - [使用 Gradle 构建和测试 Java](/actions/guides/building-and-testing-java-with-gradle)
+  - [使用 Ant 构建和测试 Java](/actions/guides/building-and-testing-java-with-ant)
 
-## Executing scripts
+## 执行脚本
 
-{% data variables.product.prodname_actions %} can use `run` steps to run scripts or shell commands. To use a particular shell, you can specify the `shell` type when providing the path to the script. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+{% data variables.product.prodname_actions %} 可以使用 `run` 步骤运行脚本或 shell 命令。 要使用特定的 shell，您可以在提供脚本路径时指定 `shell` 类型。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)”。
 
-For example:
+例如：
 
 ```yaml
 steps:
@@ -228,23 +227,23 @@ steps:
     shell: bash
 ```
 
-## Error handling in {% data variables.product.prodname_actions %}
+## {% data variables.product.prodname_actions %} 中的错误处理
 
-When migrating to {% data variables.product.prodname_actions %}, there are different approaches to error handling that you might need to be aware of.
+迁移到 {% data variables.product.prodname_actions %} 时，可能需要注意不同的错误处理方法。
 
-### Script error handling
+### 脚本错误处理
 
-{% data variables.product.prodname_actions %} stops a job immediately if one of the steps returns an error code. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)."
+如果其中一个步骤返回错误代码，{% data variables.product.prodname_actions %} 将立即停止作业。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)”。
 
-### Job error handling
+### 作业错误处理
 
-{% data variables.product.prodname_actions %} uses `if` conditionals to execute jobs or steps in certain situations. For example, you can run a step when another step results in a `failure()`. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#example-using-status-check-functions)."  You can also use [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) to prevent a workflow run from stopping when a job fails.
+{% data variables.product.prodname_actions %} 使用 `if` 条件在特定情况下执行作业或步骤。 例如，您可以在某个步骤导致 `failure()` 时运行另一个步骤。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#example-using-status-check-functions)”。  您也可以使用 [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) 防止工作流程在作业失败时停止运行。
 
-## Migrating syntax for conditionals and expressions
+## 迁移条件和表达式的语法
 
-To run jobs under conditional expressions, Travis CI and {% data variables.product.prodname_actions %} share a similar `if` condition syntax. {% data variables.product.prodname_actions %} lets you use the `if` conditional to prevent a job or step from running unless a condition is met. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+要在条件表达式下运行作业，Travis CI 和 {% data variables.product.prodname_actions %} 具有类似的 `if` 条件语法。 {% data variables.product.prodname_actions %} 允许您使用 `if` 条件使作业或步骤仅在满足条件时才运行。 For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
-This example demonstrates how an `if` conditional can control whether a step is executed:
+此示例演示 `if` 条件如何控制是否执行步骤：
 
 ```yaml
 jobs:
@@ -255,11 +254,11 @@ jobs:
         if: env.str == 'ABC' && env.num == 123
 ```
 
-## Migrating phases to steps
+## 将阶段迁移到步骤
 
-Where Travis CI uses _phases_ to run _steps_, {% data variables.product.prodname_actions %} has _steps_ which execute _actions_. You can find prebuilt actions in the [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions), or you can create your own actions. For more information, see "[Building actions](/actions/building-actions)."
+其中 Travis CI 使用_阶段_来运行_步骤_，{% data variables.product.prodname_actions %} 具有_步骤_来执行_操作_。 您可以在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 中找到预建的操作，也可以创建自己的操作。 更多信息请参阅“[创建操作](/actions/building-actions)”。
 
-Below is an example of the syntax for each system:
+下面是每个系统的语法示例：
 
 <table>
 <tr>
@@ -301,9 +300,9 @@ jobs:
 </tr>
 </table>
 
-## Caching dependencies
+## 缓存依赖项
 
-Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system.
+Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。
 
 <table>
 <tr>
@@ -338,15 +337,15 @@ cache: npm
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable for repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
-## Examples of common tasks
+## 常见任务示例
 
-This section compares how {% data variables.product.prodname_actions %} and Travis CI perform common tasks.
+本节比较了 {% data variables.product.prodname_actions %} 和 Travis CI 执行共同任务的方式。
 
-### Configuring environment variables
+### 配置环境变量
 
-You can create custom environment variables in a {% data variables.product.prodname_actions %} job. For example:
+您可以在 {% data variables.product.prodname_actions %} 作业中创建自定义环境变量。 例如：
 
 <table>
 <tr>
@@ -354,7 +353,7 @@ You can create custom environment variables in a {% data variables.product.prodn
 Travis CI
 </th>
 <th>
-{% data variables.product.prodname_actions %} Workflow
+{% data variables.product.prodname_actions %} 工作流程
 </th>
 </tr>
 <tr>
@@ -379,7 +378,7 @@ jobs:
 </tr>
 </table>
 
-### Building with Node.js
+### 使用 Node.js 构建
 
 <table>
 <tr>
@@ -387,7 +386,7 @@ jobs:
 Travis CI
 </th>
 <th>
-{% data variables.product.prodname_actions %} Workflow
+{% data variables.product.prodname_actions %} 工作流程
 </th>
 </tr>
 <tr>
@@ -425,6 +424,6 @@ jobs:
 </tr>
 </table>
 
-## Next steps
+## 后续步骤
 
-To continue learning about the main features of  {% data variables.product.prodname_actions %}, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+要继续了解 {% data variables.product.prodname_actions %} 的主要功能，请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。

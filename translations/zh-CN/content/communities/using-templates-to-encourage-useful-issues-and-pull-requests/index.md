@@ -1,7 +1,7 @@
 ---
-title: Using templates to encourage useful issues and pull requests
-shortTitle: Issue & PR templates
-intro: Repository maintainers can add templates in a repository to help contributors create high-quality issues and pull requests.
+title: 使用模板鼓励有用的议题和拉取请求
+shortTitle: 议题和 PR 模板
+intro: 仓库维护员可在仓库中添加模板，以帮助贡献者创建高质量的议题和拉取请求。
 redirect_from:
   - /github/building-a-strong-community/using-issue-and-pull-request-templates
   - /articles/using-templates-to-encourage-high-quality-issues-and-pull-requests-in-your-repository

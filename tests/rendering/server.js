@@ -775,13 +775,11 @@ describe('server', () => {
 })
 
 describe('URLs by language', () => {
-  // TODO re-enable this test once TOCs are auto-generated (after PR 11731 has landed)
   test('heading IDs and links on translated pages are in English', async () => {
-    const $ = await getDOM('/ja/actions/using-github-hosted-runners/about-github-hosted-runners')
+    const $ = await getDOM('/ja/github/site-policy/github-terms-of-service')
     expect($.res.statusCode).toBe(200)
-    expect($('h2[id="further-reading"]').length).toBe(1)
-    expect($('h3[id="参考リンク"]').length).toBe(0)
-    expect($('h2 a[href="#further-reading"]').length).toBe(1)
+    expect($('h1')[0].children[0].data).toBe('GitHub利用規約')
+    expect($('h2 a[href="#summary"]').length).toBe(1)
   })
 })
 
@@ -812,7 +810,7 @@ describe('GitHub Enterprise URLs', () => {
   test('renders the Enterprise Admin category homepage', async () => {
     const adminPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
     const $ = await getDOM(adminPath)
-    expect($(`h3 ~ a[href="${adminPath}/guides"]`).length).toBe(1)
+    expect($(`h2 ~ a[href="${adminPath}/guides"]`).length).toBe(1)
     expect($('h2 a[href="#all-docs"]').length).toBe(1)
   })
 
