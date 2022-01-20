@@ -6,8 +6,9 @@ name: Staging - Deploy PR
 
 # IT'S CRUCIALLY IMPORTANT THAT THIS WORKFLOW IS ONLY ENABLED IN docs!
 
-on:
-  workflow_run:
+on
+  workflow_run:#4428
+  
     workflows:
       - 'Staging - Build PR'
     types:
