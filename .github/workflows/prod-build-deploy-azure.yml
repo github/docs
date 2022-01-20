@@ -79,7 +79,7 @@ jobs:
 
       - name: 'Update docker-compose.prod.yaml template file'
         run: |
-          sed 's|#{IMAGE}#|${DOCKER_IMAGE}|g' docker-compose.prod.tmpl.yaml > docker-compose.prod.yaml
+          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.prod.tmpl.yaml > docker-compose.prod.yaml
 
       - name: 'Apply updated docker-compose.prod.yaml config to preview slot'
         run: |
