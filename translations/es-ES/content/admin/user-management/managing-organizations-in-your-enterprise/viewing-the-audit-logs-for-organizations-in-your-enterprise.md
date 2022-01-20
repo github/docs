@@ -29,7 +29,7 @@ Cada entrada del registro de auditoría muestra información vigente acerca de u
 
 Puedes buscar el registro de auditoría para eventos específicos y exportar los datos del registro de auditoría. Para obtener más información acerca de buscar el registro de auditoría y eventos en una organización específica, consulta "[Revisar el registro de auditoría para tu organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
 
-You can also stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit logs for organizations in your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)."
+You can also stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. Para obtener más información, consulta la sección "[Transmitir las bitácoras de auditoría para las organizaciones de tu cuenta empresarial](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

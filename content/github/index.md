@@ -14,7 +14,6 @@ children:
   - /copilot
   - /customizing-your-github-workflow
   - /extending-github
-  - /working-with-github-support
   - /site-policy
   - /site-policy-deprecated
 ---

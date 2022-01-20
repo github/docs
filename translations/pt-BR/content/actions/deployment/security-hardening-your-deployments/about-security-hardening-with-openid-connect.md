@@ -126,7 +126,7 @@ O token também inclui reivindicações personalizadas fornecidas por {% data va
 | `repository_owner`  | O nome da organização em que o `repositório` é armazenado.                                                                                                                                                                                                                                         |
 | `run_id`            | O ID da execução do fluxo de trabalho que acionou o fluxo de trabalho.                                                                                                                                                                                                                             |
 | `run_number`        | O número de vezes que este fluxo de trabalho foi executado.                                                                                                                                                                                                                                        |
-| `run_attempt`       | O número de vezes que este fluxo de trabalho foi desativado.                                                                                                                                                                                                                                       |
+| `run_attempt`       | The number of times this workflow run has been retried.                                                                                                                                                                                                                                            |
 | `fluxo de trabalho` | Nome do fluxo de trabalho.                                                                                                                                                                                                                                                                         |
 
 ### Definir condições de confiança em funções de nuvem usando as reivindicações do OIDC
@@ -160,7 +160,7 @@ Você pode configurar um assunto que filtra um nome de [ambiente](/actions/deplo
 
 #### Filtrando eventos `pull_request`
 
-Você pode configurar um assunto que filtra o evento [`pull_request`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags). Neste exemplo, a execução do fluxo de trabalho deve ter sido acionada por um evento `pull_request` em um repositório denominado `octo-repo` que pertence à organização `octo-org`:
+You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. Neste exemplo, a execução do fluxo de trabalho deve ter sido acionada por um evento `pull_request` em um repositório denominado `octo-repo` que pertence à organização `octo-org`:
 
 
 |          |                                        |

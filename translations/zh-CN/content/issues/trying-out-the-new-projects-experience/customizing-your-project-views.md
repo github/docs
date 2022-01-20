@@ -26,23 +26,26 @@ Use the project command palette to quickly change settings and run commands in y
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入 "Switch layout"。
 3. Choose the required command. For example, **Switch layout: Table**.
-3. Alternatively, click the drop-down menu next to a view name and click **Table** or **Board**.
+
+Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Table** or **Board**.
 
 ## Showing and hiding fields
 
 You can show or hide a specific field.
 
-In table layout:
+### Showing and hiding fields in table layout
 
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入要执行的操作（"show" 或 "hide"）或字段名称。
 3. Choose the required command. For example, **Show: Milestone**.
-4. 或者，单击表格右侧的 {% octicon "plus" aria-label="the plus icon" %}。 在显示的下拉菜单中，指示要显示或隐藏哪些字段。 {% octicon "check" aria-label="check icon" %} 指示显示哪些字段。
-5. Alternatively, click the drop-down menu next to the field name and click **Hide field**.
 
-In board layout:
+或者，单击表格右侧的 {% octicon "plus" aria-label="the plus icon" %}。 在显示的下拉菜单中，指示要显示或隐藏哪些字段。 {% octicon "check" aria-label="check icon" %} 指示显示哪些字段。
 
-1. Click the drop-down menu next to the view name.
+Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the field name and click **Hide field**.
+
+### Showing and hiding fields in board layout
+
+1. Click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the view name.
 2. Under **configuration**, click {% octicon "list-unordered" aria-label="the unordered list icon" %}.
 3. In the menu that's displayed, select fields to add them and deselect fields to remove them from the view.
 
@@ -67,7 +70,8 @@ In board layout:
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入 "Sort by" 或您想要排序的字段的名称。
 3. Choose the required command. For example, **Sort by: Assignees, asc**.
-4. Alternatively, click the drop-down menu next to the field name that you want to sort by and click **Sort ascending** or **Sort descending**.
+
+Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the field name that you want to sort by and click **Sort ascending** or **Sort descending**.
 
 {% note %}
 
@@ -80,39 +84,53 @@ In board layout:
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入 "Remove sort-by"。
 3. Choose **Remove sort-by**.
-4. Alternatively, click the drop-down menu next to the view name and click the menu item that indicates the current sort.
 
-## Grouping by field values
+Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the view name and click the menu item that indicates the current sort.
 
-In the table layout, you can group items by a custom field value. 对项分组时，如果将项拖动到新组，则应用该组的值。 For example, if you group by "Status" and then drag an item with a status of `In progress` to the `Done` group, the status of the item will switch to `Done`.
+## Grouping by field values in table layout
+
+In the table layout, you can group items by a custom field value. 对项分组时，如果将项拖动到新组，则应用该组的值。 For example, if you group by "Status" and then drag an item with a status of `In progress` to the `Done` group, the status of the item will switch to `Done`. Similarly, when you add a new item to a group, the new item is populated with the value of the group.
 
 {% note %}
 
-**Note:** Currently, you cannot group by title, assignees, repository or labels.
+**Note:** Currently, you cannot group by title, labels, reviewers, or linked pull requests.
 
 {% endnote %}
 
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入 "Group by" 或您想要分组的字段的名称。
 3. Choose the required command. For example, **Group by: Status**.
-4. Alternatively, click the drop-down menu next to the field name that you want to group by and click **Group by values**.
+
+Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the field name that you want to group by and click **Group by values**.
 
 按照类似步骤删除分组。
 
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入 "Remove group-by"。
 3. Choose **Remove group-by**.
-4. Alternatively, click the drop-down menu next to the view name and click the menu item that indicates the current grouping.
 
-## Filtering rows
+Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the view name and click the menu item that indicates the current grouping.
 
-Click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Start typing the field name and value that you want to filter by. 当您输入时，可能的值将会出现。
+## Setting the column field in board layout
+
+In the board layout, you choose any single select or iteration field for your columns. If you drag an item to a new column, the value of that column is applied to the dragged item. For example, if you use the "Status" field for your board columns and then drag an item with a status of `In progress` to the `Done` column, the status of the item will switch to `Done`.
+
+1. {% data reusables.projects.open-command-palette %}
+1. Start typing "Column field by" or the name of the field you want to use for your columns.
+1. Choose the required command. For example, **Column field by: Status**.
+
+Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the board view that you want to modify and click {% octicon "columns" aria-label="the column icon" %} **Column field**. Then select the field that you want to use for the board columns.
+
+## Filtering items
+
+Click {% octicon "filter" aria-label="the filter icon" %} at the top of the table to show the "Filter by keyword or by field" bar. Start typing the field name and value that you want to filter by. 当您输入时，可能的值将会出现。
 
 - To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
 - To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
 - To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
 - To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
 - 多个过滤条件之间用逗号分隔。 For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
+- To filter for the current iteration of an iteration field, use `@current`. For example, `sprint:@current`.
 
 Alternatively, use the command palette.
 
@@ -137,8 +155,10 @@ To add a new view:
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入 "New view"（创建新视图）或 "Duplicate view"（复制当前视图）。
 3. Choose the required command.
-4. 或者，点击右侧视图旁边的 {% octicon "plus" aria-label="the plus icon" %} **New view（新视图）**。
-5. Alternatively, click the drop-down menu next to a view name and click **Duplicate view**.
+
+或者，点击右侧视图旁边的 {% octicon "plus" aria-label="the plus icon" %} **New view（新视图）**。
+
+Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Duplicate view**.
 
 The new view is automatically saved.
 
@@ -154,7 +174,8 @@ To save the current configuration of the view for all project members:
 1. {% data reusables.projects.open-command-palette %}
 1. 开始键入 "Save view" 或 "Save changes to new view"。
 1. Choose the required command.
-1. Alternatively, click the drop-down menu next to a view name and click **Save view** or **Save changes to new view**.
+
+Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Save view** or **Save changes to new view**.
 
 ## Reordering saved views
 
@@ -177,7 +198,8 @@ The name change is automatically saved.
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入 "Delete view"。
 3. Choose the required command.
-4. Alternatively, click the drop-down menu next to a view name and click **Delete view**.
+
+Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Delete view**.
 
 ## 延伸阅读
 

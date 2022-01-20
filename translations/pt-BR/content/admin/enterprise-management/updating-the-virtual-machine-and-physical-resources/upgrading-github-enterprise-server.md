@@ -223,9 +223,9 @@ Em caso de falha ou interrupção da atualização, volte a sua instância ao es
 
 ### Voltar a uma versão de patch
 
-Para reverter uma versão de patch, use o comando `ghe-upgrade` com o switch `--allow-patch-rollback`. Before rolling back, replication must be temporarily stopped by running `ghe-repl-stop` on all replica instances. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+Para reverter uma versão de patch, use o comando `ghe-upgrade` com o switch `--allow-patch-rollback`. Antes de reverter tudo, a replicação deve ser temporariamente parada executando `ghe-repl-stop` em todas as instâncias de réplica. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
-Once the rollback is complete, restart replication by running `ghe-repl-start` on all replicas.
+Uma vez que a reversão estiver completa, reinicie a replicação executando `ghe-repl-start` em todas as réplicas.
 
 Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)".
 

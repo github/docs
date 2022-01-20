@@ -34,9 +34,16 @@ Seu projeto pode acompanhar os rascunhos de problemas, problemas e pull requests
 Os rascunhos são úteis para capturar ideias rapidamente.
 
 1. Coloque seu cursor na linha inferior do projeto, ao lado do {% octicon "plus" aria-label="plus icon" %}.
-2. Digite sua ideia e, em seguida, pressione **Enter**.
+1. Digite sua ideia e, em seguida, pressione **Enter**.
+1. To add body text, click on the title of the draft issue. In the markdown input box that appears, enter the text for the draft issue body, then click **Save**.
 
-Você pode converter rascunhos de problemas em problemas. Para obter mais informações, consulte [Convertendo rascunhos de problema em problemas](#converting-draft-issues-to-issues).
+Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[Converting draft issues to issues](#converting-draft-issues-to-issues)."
+
+{% note %}
+
+**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
+
+{% endnote %}
 
 ### Problemas e pull requests
 
@@ -48,7 +55,7 @@ Você pode converter rascunhos de problemas em problemas. Para obter mais inform
 #### Pesquisando um problema ou pull request
 
 1. Coloque seu cursor na linha inferior do projeto, ao lado do {% octicon "plus" aria-label="plus icon" %}.
-2. Digite `#`.
+2. Digite <kbd>#</kbd>.
 3. Selecione o repositório onde está localizado o pull request ou problema. Você pode digitar parte do nome do repositório para restringir suas opções.
 4. Selecione o problema ou pull request. Você pode digitar parte do título para restringir suas opções.
 
@@ -68,7 +75,7 @@ No layout de tabela:
 1. Clique em {% octicon "triangle-down" aria-label="the item menu" %} no rascunho do problema que você deseja converter.
 2. Selecione **Converter para problema**.
 3. Selecione o repositório ao qual você deseja adicionar o problema.
-4. Como alternativa, edite os campos `responsável`, `etiquetas`, `marco` ou `repository` do rascunho do problema que você deseja converter.
+4. Alternatively, edit the `labels`, `milestone`, or `repository` fields of the draft issue that you want to convert.
 
 Layout do quadro:
 
@@ -81,11 +88,11 @@ Layout do quadro:
 Você pode arquivar um item para manter o contexto sobre o item no projeto, mas removê-lo das visualizações do projeto. Você pode excluir um item para removê-lo do projeto completamente.
 
 1. Selecione o(s) item(ns) para arquivar ou excluir. Para selecionar múltiplos itens, siga um dos passos a seguir:
-     - `cmd + click` (Mac) ou `ctrl + clique ` (Windows/Linux) em cada item.
-     - Selecione um item e, em seguida, `shift + setas para cima` ou `shift + seta para baixo` para selecionar itens adicionais acima ou abaixo do item selecionado inicialmente.
-     - Selecione um item e, em seguida, `shift + clique` em outro item para selecionar todos os itens entre os dois itens.
-     - Insira `cmd + um` (Mac) ou `ctrl + a` (Windows/Linux) para selecionar todos os itens em uma coluna em um layout do quadro ou em um layout da tabela.
-2. Para arquivar todos os itens selecionados, digite `e`. Para excluir todos os itens selecionados, digite `del`. Como alternativa, selecione o {% octicon "triangle-down" aria-label="the item menu" %} (no layout de tabela) ou o {% octicon "kebab-horizontal" aria-label="the item menu" %} (no layout do quadro) e, em seguida, selecione a ação desejada.
+     - <kbd>Command</kbd>+Click (Mac) ou <kbd>Ctrl</kbd>+Click (Windows/Linux) em cada item.
+     - Selecione um item e, em seguida, <kbd>Shift</kbd>+<kbd>↑</kbd> ou <kbd>Shift</kbd>+<kbd>↓</kbd>para selecionar itens adicionais acima ou abaixo do item selecionado inicialmente.
+     - Selecione um item e, em seguida, <kbd>Shift</kbd>+ clique em outro item para selecionar todos os itens entre dois itens.
+     - Insira <kbd>Command</kbd>+<kbd>A</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) para selecionar todos os itens em uma coluna em um layout de tabuleiro ou em um layout de tabela.
+2. Para arquivar todos os itens selecionados, digite <kbd>E</kbd>. Para excluir todos os itens selecionados, digite <kbd>Del</kbd>. Como alternativa, selecione o {% octicon "triangle-down" aria-label="the item menu" %} (no layout de tabela) ou o {% octicon "kebab-horizontal" aria-label="the item menu" %} (no layout do quadro) e, em seguida, selecione a ação desejada.
 
 Você pode restaurar itens arquivados, mas não itens excluídos. Para obter mais informações, consulte [Restaurando itens arquivados](#restoring-archived-items).
 
@@ -99,7 +106,7 @@ Como os valores do campo mudam, eles são sincronizados automaticamente para que
 
 ### Mostrando campos existentes
 
-O seu projeto rastreia informações atualizadas sobre issues e pull requests, incluindo todas as alterações no título, responsáveis, etiquetas, marcos e repositório. Quando seu projeto é inicializado, são exibidos "título" e "responsáveis". Os outros campos permanecem ocultos. Você pode alterar a visibilidade desses campos no seu projeto.
+Your project tracks up-to-date information about issues and pull requests, including any changes to the title, assignees, labels, milestones, repository, reviewers, and linked pull requests. Quando seu projeto é inicializado, são exibidos "título" e "responsáveis". Os outros campos permanecem ocultos. Você pode alterar a visibilidade desses campos no seu projeto.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comece a digitar "mostrar".
@@ -148,3 +155,16 @@ Você pode ver seu projeto como uma tabela ou quadro, agrupar itens por campo, f
 Você pode habilitar ou desabilitar os fluxos de trabalho internos para o seu projeto.
 
 {% data reusables.projects.enable-basic-workflow %}
+
+## Adding your project to a repository
+
+You can list relevant projects in a repository. You can only list projects that are owned by the same user or organization that owns the repository.
+
+In order for repository members to see a project listed in a repository, they must have visibility for the project. For more information, see "[Managing the visibility of your projects (beta)](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)" and "[Managing access to projects (beta)](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)."
+
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your repository.
+1. Clique em {% octicon "table" aria-label="the project icon" %} **Projetos**.
+1. Click **Projects (Beta)** in the side bar.
+1. Click **Add project**.
+1. In the search bar that appears, search for projects that are owned by the same user or organization that owns the repository.
+1. Click on a project to list it in your repository.

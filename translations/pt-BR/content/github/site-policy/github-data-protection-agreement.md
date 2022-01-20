@@ -538,69 +538,69 @@ O importador de dados só divulgará os dados pessoais a terceiros com base em i
 **15.2 Revisão da legalidade e minimização de dados**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The data importer agrees to review the legality of the request for disclosure, in particular whether it remains within the powers granted to the requesting public authority, and to challenge the request if, after careful assessment, it concludes that there are reasonable grounds to consider that the request is unlawful under the laws of the country of destination, applicable obligations under international law and principles of international comity. The data importer shall, under the same conditions, pursue possibilities of appeal. When challenging a request, the data importer shall seek interim measures with a view to suspending the effects of the request until the competent judicial authority has decided on its merits. It shall not disclose the personal data requested until required to do so under the applicable procedural rules. These requirements are without prejudice to the obligations of the data importer under Clause 14(e).</li>
-    <li>The data importer agrees to document its legal assessment and any challenge to the request for disclosure and, to the extent permissible under the laws of the country of destination, make the documentation available to the data exporter. It shall also make it available to the competent supervisory authority on request. </li>
-    <li>The data importer agrees to provide the minimum amount of information permissible when responding to a request for disclosure, based on a reasonable interpretation of the request.</li>
+    <li>O importador de dados concorda em revisar a legalidade da solicitação de divulgação, especialmente se se mantém dentro dos poderes concedidos à autoridade pública requerente e questionar o pedido se, após uma avaliação cuidadosa, concluir que há motivos razoáveis para considerar que a solicitação é ilegal nos termos das leis do país de destino, obrigações aplicáveis nos termos do direito internacional e dos princípios da comidade internacional. O importador de dados irá, nas mesmas condições, procurar possibilidades de recurso. Ao contestar um pedido, o importador de dados deverá procurar medidas provisórias com vista a suspender os efeitos do pedido até que a autoridade judicial competente decida com base nos seus méritos. Ele não divulgará os dados pessoais solicitados até serem obrigados a fazê-lo nos termos das regras processuais aplicáveis. Estes requisitos não prejudicam as obrigações do importador de dados no âmbito da Cláusula 14(e).</li>
+    <li>O importador de dados concorda em documentar a sua avaliação jurídica e qualquer desafio à solicitação de divulgação e, na medida do possível e nos termos da legislação do país de destino, disponibiliza a documentação para o exportador de dados. Ele também o disponibilizará à autoridade de supervisão competente mediante solicitação. </li>
+    <li>O importador de dados concorda em fornecer a quantidade mínima de informação permitida ao responder a um pedido de divulgação, baseado numa interpretação razoável do pedido.</li>
 </ol>
 
-#### SECTION IV – FINAL PROVISIONS
+#### SEÇÃO IV – DISPOSIÇÕES FINAIS
 
-##### Clause 16
+##### Cláusula 16
 
-**Non-compliance with the Clauses and termination**
+**Não conformidade com as Cláusulas e rescisão**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>The data importer shall promptly inform the data exporter if it is unable to comply with these Clauses, for whatever reason.</li>
-    <li>In the event that the data importer is in breach of these Clauses or unable to comply with these Clauses, the data exporter shall suspend the transfer of personal data to the data importer until compliance is again ensured or the contract is terminated. This is without prejudice to Clause 14(f).</li>
-    <li>The data exporter shall be entitled to terminate the contract, insofar as it concerns the processing of personal data under these Clauses, where:</li>
+    <li>O importador de dados informará prontamente o exportador de dados se ele não for capaz de cumprir estas cláusulas, independentemente do motivo.</li>
+    <li>Na hipótese de o importador de dados violar essas Cláusulas ou não puder cumpri-las, o exportador de dados deverá suspender a transferência de dados pessoais para o importador de dados até que o cumprimento seja novamente assegurado ou o contrato seja rescindido. Isto irá dar-se sem prejuízo da Cláusula 14(f).</li>
+    <li>O exportador de dados terá o direito de rescindir o contrato, na medida em que diz respeito ao processamento dos dados pessoais nos termos destas cláusulas, quando:</li>
     <ol style="list-style-type:lower-roman" class="no-styling">
-        <li> the data exporter has suspended the transfer of personal data to the data importer pursuant to paragraph (b) and compliance with these Clauses is not restored within a reasonable time and in any event within one month of suspension;</li>
-        <li> the data importer is in substantial or persistent breach of these Clauses; or</li>
-        <li> the data importer fails to comply with a binding decision of a competent court or supervisory authority regarding its obligations under these Clauses.</li>    
+        <li> o exportador de dados suspendeu a transferência de dados pessoais para o importador de dados, nos termos do parágrafo (b) e o cumprimento destas cláusulas não é restabelecido dentro de um prazo razoável e, em todo o caso, dentro de um mês de suspensão;</li>
+        <li> o importador de dados realizou uma violação substancial ou persistente dessas cláusulas; ou</li>
+        <li> o importador de dados não cumpre uma decisão vinculativa de um tribunal ou autoridade de supervisão competente no que se refere às suas obrigações ao abrigo destas cláusulas.</li>    
     </ol></br>
-    In these cases, it shall inform the competent supervisory authority of such non-compliance. Where the contract involves more than two Parties, the data exporter may exercise this right to termination only with respect to the relevant Party, unless the Parties have agreed otherwise.
-    <li> Personal data that has been transferred prior to the termination of the contract pursuant to paragraph (c) shall at the choice of the data exporter immediately be returned to the data exporter or deleted in its entirety. The same shall apply to any copies of the data. The data importer shall certify the deletion of the data to the data exporter. Até que os dados sejam excluídos ou devolvidos, o importador de dados continuará garantindo a conformidade com estas Cláusculas. In case of local laws applicable to the data importer that prohibit the return or deletion of the transferred personal data, the data importer warrants that it will continue to ensure compliance with these Clauses and will only process the data to the extent and for as long as required under that local law.</li>
-    <li> Either Party may revoke its agreement to be bound by these Clauses where (i) the European Commission adopts a decision pursuant to Article 45(3) of Regulation (EU) 2016/679 that covers the transfer of personal data to which these Clauses apply; or (ii) Regulation (EU) 2016/679 becomes part of the legal framework of the country to which the personal data is transferred. This is without prejudice to other obligations applying to the processing in question under Regulation (EU) 2016/679.</li>
+    Nestes casos, ele informará a autoridade supervisora competente sobre o não cumprimento. Se o contrato envolver mais de duas partes, o exportador de dados poderá exercer este direito de rescisão apenas no que se refere à Parte relevante, a menos que as Partes tenham acordado o contrário.
+    <li> Os dados pessoais que foram transferidos antes da rescisão do contrato, nos termos do parágrafo (c) deverão, à escolha do exportador de dados, ser devolvidos imediatamente ao exportador de dados ou excluídos na sua totalidade. O mesmo irá aplicar-se a quaisquer cópias dos dados. O importador de dados certificará a exclusão dos dados ao exportador de dados. Até que os dados sejam excluídos ou devolvidos, o importador de dados continuará garantindo a conformidade com estas Cláusculas. Em caso de leis locais aplicáveis ao importador de dados que proíbem a devolução ou exclusão dos dados pessoais transferidos, o importador de dados garante que irá continuar assegurando o cumprimento destas cláusulas e que irá processar os dados apenas na medida e durante o tempo exigido por essa lei local.</li>
+    <li> Qualquer uma das partes pode revogar o seu acordo para ficar vinculado a estas cláusulas, sempre que (i) a Comissão Europeia adoptar uma decisão nos termos do artigo 45(3) do Regulamento (CE) 2016/679 que abrange a transferência de dados pessoais a que estas cláusulas se aplicam; ou (ii) o Regulamento (EU) 2016/679 tornar-se parte do quadro jurídico do país para o qual os dados pessoais são transferidos. Isto sem prejuízo de outras obrigações aplicáveis ao processamento em questão nos termos do Regulamento (CE) 2016/679.</li>
 </ol>
 
-##### Clause 17
+##### Cláusula 17
 
-**Governing law**
+**Lei aplicável**
 
-These Clauses shall be governed by the law of one of the EU Member States, provided such law allows for third-party beneficiary rights. The Parties agree that this shall be the law of the Netherlands.
+Estas cláusulas serão regidas pela lei de um dos Estados-membros da UE, desde que essa legislação permita os direitos dos beneficiários de terceiros. As partes estão de acordo em que esta seja a lei dos Países Baixos.
 
-##### Clause 18
+##### Cláusula 18
 
-**Choice of forum and jurisdiction**
+**Escolha do fórum e jurisdição**
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>Any dispute arising from these Clauses shall be resolved by the courts of an EU Member State.</li>
-    <li>The Parties agree that those shall be the courts of the Netherlands.</li>
-    <li>A data subject may also bring legal proceedings against the data exporter and/or data importer before the courts of the Member State in which he/she has his/her habitual residence.</li>
-    <li>The Parties agree to submit themselves to the jurisdiction of such courts.</li>
+    <li>Qualquer litígio decorrente destas cláusulas será resolvido pelos tribunais de um Estado-membro da UE.</li>
+    <li>As partes estão de acordo que serão os tribunais dos Países Baixos.</li>
+    <li>Um titular de dados pode também interpor ações judiciais contra o exportador e/ou importador de dados junto aos tribunais do Estado-membro onde tem a sua residência habitual.</li>
+    <li>As Partes concordam em submeter-se à jurisdição desses tribunais.</li>
 </ol>
 
-## ANNEX I
+## ANEXO I
 
-**to the Standard Contractual Clauses (EU/EEA)**
+**sobre as Cláusulas Contratuais Padrão (EU/EEA)**
 
-### A. LIST OF PARTIES
+### A. LISTA DE PARTES
 
 **Data exporter(s)**: Customer is the data exporter</br> Name: see GitHub Customer Agreement</br> Address: see GitHub Customer Agreement</br> Contact person’s name, position and contact details: see GitHub Customer Agreement</br> Activities relevant to the data transferred under these Clauses:</br> The data exporter is a user of Online Services or Professional Services as defined in the DPA and GitHub Customer Agreement.</br> Signature and date: see GitHub Customer Agreement (the DPA and the Standard Contractual Clauses (EU/EEA) are incorporated into the GitHub Customer Agreement</br> Role (controller/processor): controller (unless otherwise agreed in the Customer Agreement). </br>
 
 **Data importer(s)**:</br> Name: GitHub, Inc.</br> Address: 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</br> Contact person’s name, position and contact details: Frances Wiet, Head of Privacy, fwiet@github.com</br> Activities relevant to the data transferred under these Clauses:</br> GitHub, Inc. is a global producer of software and services </br> Signature and date: see GitHub Customer Agreement (the DPA and the Standard Contractual Clauses (EU/EEA) are incorporated into the GitHub Customer Agreement)</br> Role (controller/processor): processor or, depending on the agreements set forth in the Customer Agreement, subprocessor.
 
-### B. DESCRIPTION OF TRANSFER
+### B. DESCRIÇÃO DA TRANSFERÊNCIA
 
-_Categories of data subjects whose personal data is transferred:_
+_Categorias dos titulares de dados cujos dados pessoais são transferidos:_
 
-Data subjects include the data exporter’s representatives and end-users including employees, contractors, collaborators, and customers of the data exporter. Data subjects may also include individuals attempting to communicate or transfer personal data to users of the services provided by data importer. GitHub acknowledges that, depending on Customer’s use of the Online Service or Professional Services, Customer may elect to include personal data from any of the following types of data subjects in the personal data:
+Os titulares de dados incluem os representantes e usuários finais do exportador, incluindo funcionários, contratados, colaboradores e clientes do exportador de dados. Os titulares de dados também podem incluir indivíduos que tentam comunicar-se ou transferir dados pessoais aos usuários dos serviços fornecidos pelo importador de dados. O GitHub reconhece que, dependendo do uso do Cliente do Serviço On-line ou Serviços Profissionais, o Cliente poderá optar por incluir dados pessoais de qualquer um dos seguintes tipos de titulares de dados nos dados pessoais:
 - Empregados, contratados e trabalhadores temporários (atual, anterior, potencial) do exportador de dados;
 - Os colaboradores/pontos de contato do exportador de dados (pessoas físicas) ou funcionários, contratados ou trabalhadores temporários de colaboradores de entidades legais colaboradores/contactar pessoas (atual, potencial, anterior);
-- Users and other data subjects that are users of data exporter's services;
-- Partners, stakeholders or individuals who actively collaborate, communicate or otherwise interact with employees of the data exporter and/or use communication tools such as apps and websites provided by the data exporter.
+- Os usuários e outros titulares de dados que são usuários dos serviços do exportador;
+- Parceiros, partes interessadas ou indivíduos que colaboram ativamente, comunicam-se ou, de outra forma, interagem com os funcionários do exportador de dados e/ou usam ferramentas de comunicação como aplicativos e sites fornecidos pelo exportador de dados.
 
-_Categories of personal data transferred:_
+_Categorias de dados pessoais transferidos:_
 
 Os dados pessoais transferidos incluídos no e-mail, documentos e outros dados de forma electrônica no contexto dos Serviços On-line ou dos Serviços Profissionais. O GitHub reconhece que, dependendo do uso do Cliente do Serviço On-line ou Serviços Profissionais, o Cliente pode optar por incluir dados pessoais de qualquer uma das seguintes categorias nos dados pessoais:
 - Dados pessoais básicos (por exemplo, local de nascimento, nome da rua e número da casa (endereço), código postal, cidade de residência, país de residência, número de celular, nome, sobrenome, iniciais, endereço de e-mail, gênero, data de nascimento);
@@ -619,118 +619,118 @@ _**Dados confidenciais** transferidos (se aplicável) e restrições aplicadas o
 
 _**A frequência da transferência** (por exemplo, se os dados são transferidos de forma única ou contínua):_
 
-Continuous as part of the Online Services or Professional Services.
+Contínuo como parte dos Serviços On-line ou Serviços Profissionais.
 
-_**Nature of the processing:**_
+_**Natureza do processamento:**_
 
-The personal data transferred will be subject to the following basic processing activities:
+Os dados pessoais transferidos estarão sujeitos às seguintes atividades de processamento:
 <ol style="list-style-type:lower-alpha" class="no-styling">
-  <li><b>Duration and Object of Data Processing</b>. The duration of data processing shall be for the term designated under the applicable GitHub Customer Agreement between data exporter and the data importer. The objective of the data processing is the performance of Online Services and Professional Services.</li>
-  <li><b>Personal Data Access</b>. For the term designated under the applicable GitHub Customer Agreement, data importer will, at its election and as necessary under applicable law, either: (1) provide data exporter with the ability to correct, delete, or block personal data, or (2) make such corrections, deletions, or blockages on its behalf.</li>
-  <li><b>Data Exporter’s Instructions</b>. For Online Services and Professional Services, data importer will only act upon data exporter’s instructions. </li>
+  <li><b>Duração e objeto do processamento de dados</b>. A duração do processamento de dados será conforme o termo indicado pelo Contrato do Cliente GitHub aplicável entre o exportador de dados e o importador de dados. O objetivo do processamento de dados é a prestação dos Serviços On-line e Serviços Profissionais.</li>
+  <li><b>Dados pessoais de acesso</b>. Para o prazo indicado nos termos do Contrato de Cliente do GitHub aplicável, o importador de dados irá, com base no seu critério e conforme necessário nos a lei aplicável: (1) fornecer ao exportador de dados a possibilidade de corrigir, excluir, ou bloquear os dados pessoais, ou (2) fazer essas correções, exclusões ou bloqueios em seu nome.</li>
+  <li><b>Instruções do exportador de dados</b>. Para os Serviços On-line e Serviços Profissionais, o importador de dados atuará apenas com base nas instruções do exportador de dados. </li>
 </ol>
 
-_Purpose(s) of the data transfer and further processing:_
+_Finalidade(s) da transferência e processamento de dados:_
 
-The scope and purpose of processing personal data is described in the “Processing of Personal Data; GDPR” section of the DPA. The data importer operates a global network of data centers and management/support facilities, and processing may take place in any jurisdiction where data importer or its sub-processors operate such facilities in accordance with the “Security Practices and Policies” section of the DPA.
+O escopo e o propósito do processamento de dados pessoais é descrito na seção "Processamento de dados pessoais; GDPR" do DPA. O importador de dados opera uma rede global de centros de dados e instalações de gerenciamento/suporte e o processamento podem ter lugar em qualquer jurisdição onde o importador de dados ou os seus subprocessadores operem essas instalações de acordo com a seção “Práticas de Segurança e Políticas” do DPA.
 
-_The period for which the personal data will be retained, or, if that is not possible, the criteria used to determine that period:_
+_O período durante o qual os dados pessoais serão mantidos ou, se não for possível, os critérios utilizados para determinar esse período:_
 
-Upon expiration or termination of data exporter’s use of Online Services or Professional Services, it may extract personal data and data importer will delete personal data, each in accordance with the DPA Terms applicable to the agreement.
+Após o vencimento ou o cancelamento do uso do exportador de dados de serviços on-line ou de serviços profissionais, poderá extrair dados pessoais e o importador de dados excluirá dados pessoais, cada um de acordo com os Termos do DPA aplicáveis ao contrato.
 
-_For transfers to (sub-) processors, also specify subject matter, nature and duration of the processing:_
+_Para transferências para (sub)processadores, também especifica a matéria do assunto, natureza e duração do processamento:_
 
-In accordance with the DPA, the data importer may hire other companies to provide limited services on data importer’s behalf, such as providing customer support. Any such subcontractors will be permitted to obtain personal data only to deliver the services the data importer has retained them to provide, and they are prohibited from using personal data for any other purpose. Unless a particular subcontractor is replaced ahead of time, the processing will be for the term designated under the applicable GitHub Customer Agreement between data exporter and data importer.
+De acordo com o DPA, o importador de dados pode contratar outras empresas para prestar serviços limitados em nome do importador de dados como, por exemplo, fornecer suporte ao cliente. Any such subcontractors will be permitted to obtain personal data only to deliver the services the data importer has retained them to provide, and they are prohibited from using personal data for any other purpose. A menos que um subcontratante particular seja substituído antecipadamente, o processamento será feito para o prazo designado nos termos do Contrato de Cliente do GitHub aplicável entre o exportador de dados e o importador de dados.
 
-### C. COMPETENT SUPERVISORY AUTHORITY
+### C. AUTORIDADE DE SUPERVISORA COMPETENTE
 
-_Identify the competent supervisory authority/ies in accordance with Clause 13:_
+_Identifique a autoridade supervisora competente, de acordo com a Cláusula 13:_
 
-The supervisory authority with responsibility for ensuring compliance by the data exporter with Regulation (EU) 2016/679.  
-## ANNEX II
+A autoridade supervisora responsável pelo cumprimento da regulamentação (UE) 2016/679 por parte do exportador de dados.  
+## ANEXO II
 
-**to the Standard Contractual Clauses (EU/EEA)**
+**sobre as Cláusulas Contratuais Padrão (EU/EEA)**
 
-**TECHNICAL AND ORGANISATIONAL MEASURES INCLUDING TECHNICAL AND ORGANISATIONAL MEASURES TO ENSURE THE SECURITY OF THE DATA**
+**MEDIDAS TÉCNICAS E ORGANIZACIONAIS QUE INCLUEM MEDIDAS TÉCNICAS E ORGANIZACIONAIS PARA GARANTIR A SEGURANÇA DOS DADOS**
 
-_Description of the technical and organisational measures implemented by the data importer(s) (including any relevant certifications) to ensure an appropriate level of security, taking into account the nature, scope, context and purpose of the processing, and the risks for the rights and freedoms of natural persons._
+_Descrição das medidas técnicas e organizacionais implementadas pelos importadores de dados (incluindo todas as certificações relevantes) para garantir um nível de segurança apropriado tendo em conta a natureza, o âmbito, o contexto e a finalidade do processamento e os riscos para os direitos e liberdades das pessoas físicas._
 
 <ol style="list-style-type:decimal" class="no-styling">
-    <li>Data Security Certifications. Data importer holds the following data security certifications:</li>
+    <li>Certificações de segurança de dados. O importador de dados possui os seguintes certificados de segurança de dados:</li>
     <ul>
-        <li>SOC 1, Type 2; </li>
-        <li>SOC 2, Type 2;</li>
-        <li>NIST, to the extent incorporated for FedRAMP Low-Impact / Tailored ATO.</li>
+        <li>SOC 1, Tipo 2; </li>
+        <li>SOC 2, Tipo 2;</li>
+        <li>NIST, na medida em que incorporado para FedRAMP de baixo impacto / ATO personalizado.</li>
     </ul>
-    <li>Personnel. Data importer’s personnel will not process personal data without authorization. Personnel are obligated to maintain the confidentiality of any such personal data and this obligation continues even after their engagement ends.</li>    
-    <li>Data Privacy Contact. The data privacy officer of the data importer can be reached at the following address: </br></br>
+    <li>Equipe. A equipe do importador de dados não processará os dados pessoais sem autorização. A equipe é obrigada a manter a confidencialidade desses dados pessoais, e essa obrigação continua mesmo após o fim do seu compromisso.</li>    
+    <li>Contato de Privacidade de Dados. O funcionário responsável pela privacidade de dados do importador de dados pode ser encontrado no endereço a seguir: </br></br>
     GitHub, Inc.</br>
     Attn: Privacy</br>
     88 Colin P. Kelly Jr. Street </br>
     San Francisco, California 94107 USA <br></li></br>
-    <li>Technical and Organization Measures. The data importer has implemented and will maintain appropriate technical and organizational measures, internal controls, and information security routines intended to protect personal data, as defined in the Security Practices and Policies section of the DPA, against accidental loss, destruction, or alteration; unauthorized disclosure or access; or unlawful destruction as follows: The technical and organizational measures, internal controls, and information security routines set forth in the Data Security section of the DPA are hereby incorporated into this Annex II to Attachment 1 by this reference and are binding on the data importer as if they were set forth in this Annex 2 to Attachment 1 in their entirety.</li>
+    <li>Medidas técnicas e organizacionais. O importador de dados implementou e manterá medidas técnicas e organizacionais apropriadas, controles internos e rotinas de segurança da informação destinadas a proteger dados pessoais, conforme definido na seção de Práticas de Segurança e Políticas do DPA, contra perda acidental, destruição ou alteração; divulgação ou acesso não autorizado; ou destruição ilegal da seguinte forma: As medidas técnicas e organizacionais, controlos internos, e as rotinas de segurança da informação estabelecidas na seção de Segurança de Dados do DPA estão incorporadas neste Anexo II ao Anexo I por esta referência e são vinculativas para o importador de dados como se fossem estabelecidas neste Anexo 2 ao Anexo 1 em seu inteiro teor.</li>
 </ol>
 
-_For transfers to (sub-) processors, also describe the specific technical and organisational measures to be taken by the (sub-) processor to be able to provide assistance to the controller and, for transfers from a processor to a sub-processor, to the data exporter:_
+_Para transferências para (sub)processadores, também descreve as medidas técnicas e organizacionais específicas a serem tomadas pelo (sub)processadores para poder fornecer assistência ao controlador e, para transferências de um processador para um subprocessador, para o exportador de dados:_
 
-**Vendor management program - third-party risk program**
+**Programa de gerenciamento de fornecedores - programa de risco de terceiros**
 
-The data importer has a vendor risk assessment process, vendor contract clauses and additional data protection agreements with vendors. Vendors undergo reassessment when a new business use case is requested. The data importer’s vendor risk program is structured so all of data importer’s vendors' risk assessments are refreshed two years from the last review date.
+O importador de dados tem um processo de avaliação de risco do fornecedor, cláusulas de contrato do fornecedor e acordos adicionais de proteção de dados com fornecedores. Os fornecedores são reavaliados quando é solicitado um novo caso de uso de negócios. O programa de risco do fornecedor do importador de dados está estruturado para que todas as avaliações de risco do importador de dados sejam atualizadas dois anos a partir da data da última revisão.
 
-Vendors deemed high risk, such as data center providers or other vendors storing or processing data in scope for the data importer’s regulatory or contractual requirements, undergo reassessment annually.
+Fornecedores considerados de alto risco como, por exemplo, fornecedores do centro de dados ou outros fornecedores de armazenamento ou processamento de dados no escopo dos requisitos regulamentares ou contratuais do importador de dados passam por uma reavaliação anual.
 
-## ANNEX III
+## ANEXO III
 
-**to the Standard Contractual Clauses (EU/EEA)**
+**sobre as Cláusulas Contratuais Padrão (EU/EEA)**
 
-**Additional Safeguards Addendum**
+**Adendo de salvaguardas adicionais**
 
-By this Additional Safeguards Addendum to Standard Contractual Clauses (EU/EEA) (this “Addendum”), GitHub, Inc. (“GitHub”) provides additional safeguards to Customer and additional redress to the data subjects to whom Customer’s personal data relates.
+Com este Adendo Adicional de Salvaguardas às Cláusulas Contratuais Padrão (EU/EEA) (este “Adendum”), GitHub, Inc. (“GitHub”) fornece salvaguardas adicionais para o Cliente e reparação adicional aos titulares dos dados ao qual se referem os dados pessoais do Cliente.
 
-This Addendum supplements and is made part of, but is not in variation or modification of, the Standard Contractual Clauses (EU/EEA).
+Este adendo é um complemento e parte constituinte, mas não diverge ou modifica as Cláusulas Contratuais Padrão (EU/EEA).
 
 <ol style="list-style-type:decimal" class="no-styling">
-    <li><u><b>Challenges to Orders</b></u>. In addition to Clause 15.1 of the Standard Contractual Clauses (EU/EEA), in the event GitHub receives an order from any third party for compelled disclosure of any personal data that has been transferred under the Standard Contractual Clauses (EU/EEA), GitHub shall:</li>
+    <li><u><b>Contestações das ordens</b></u>. Além da Cláusula 15.1 das Cláusulas Contratuais Padrão (EU/EEA), no caso de o GitHub receber um pedido de terceiros para divulgação forçada de quaisquer dados pessoais que tenham sido transferidos nos termos das Cláusulas Contratuais Padrão (EU/EEA), o GitHub:</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>use every reasonable effort to redirect the third party to request data directly from Customer;</li>
-        <li>promptly notify Customer, unless prohibited under the law applicable to the requesting third party, and, if prohibited from notifying Customer, use all lawful efforts to obtain the right to waive the prohibition in order to communicate as much information to Customer as soon as possible; and</li>
-        <li>use all lawful efforts to challenge the order for disclosure on the basis of any legal deficiencies under the laws of the requesting party or any relevant conflicts with the law of the European Union or applicable Member State law.</li>
+        <li>fará o possível para redirecionar o terceiro a fim de solicitar dados diretamente do Cliente;</li>
+        <li>irá notificar o cliente prontamente, a menos que seja proibido sob a lei aplicável para terceiros solicitantes, e, na hipótese de ser proibido de notificar o cliente, fará o possível juridicamente para obter o direito de renunciar à proibição, a fim de comunicar ao Cliente o máximo de informação possível; e</li>
+        <li>fará o possível juridicamente para contestar a ordem de divulgação com base em eventuais deficiências jurídicas nos termos das leis da parte requerente ou em quaisquer conflitos relevantes com a legislação da União Europeia ou com a legislação aplicável do Estado-membro.</li>
     </ol></br>
-    For purpose of this section, lawful efforts do not include actions that would result in civil or criminal penalty such as contempt of court under the laws of the relevant jurisdiction. 
-    <li><u><b>Indemnification of Data Subjects</b></u>. Subject to Sections 3 and 4, GitHub shall indemnify a data subject for any material or non-material damage to the data subject caused by GitHub’s disclosure of personal data of the data subject that has been transferred under the Standard Contractual Clauses (EU/EEA) in response to an order from a non-EU/EEA government body or law enforcement agency (a “Relevant Disclosure”). Notwithstanding the foregoing, GitHub shall have no obligation to indemnify the data subject under this Section 2 to the extent the data subject has already received compensation for the same damage, whether from GitHub or otherwise.</li>
-    <li><u><b>Conditions of Indemnification</b></u>. Indemnification under Section 2 is conditional upon the data subject establishing, to GitHub’s reasonable satisfaction, that:</li>
+    Para a finalidade desta seção, os esforços jurídicos não incluem acções que possam resultar em sanções civis ou penais, como o desprezo pelos tribunais ao abrigo das leis da jurisdição relevante. 
+    <li><u><b>Indenização dos Titulares de Dados</b></u>. Subject to Sections 3 and 4, GitHub shall indemnify a data subject for any material or non-material damage to the data subject caused by GitHub’s disclosure of personal data of the data subject that has been transferred under the Standard Contractual Clauses (EU/EEA) in response to an order from a non-EU/EEA government body or law enforcement agency (a “Relevant Disclosure”). Não obstante o exposto, o GitHub não terá nenhuma obrigação de indenizar o titular de dados nos termos desta Seção 2, na medida em que o titular de dados já tenha sido compensado pelos mesmos danos, seja pelo GitHub ou de outro modo.</li>
+    <li><u><b>Condições de Indenização</b></u>. A indenização nos termos da Seção 2 fica condicionada ao estabelecimento do titular dos dados, para satisfação razoável do GitHub, que:</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>GitHub engaged in a Relevant Disclosure;</li>
-        <li>the Relevant Disclosure was the basis of an official proceeding by the non-EU/EEA government body or law enforcement agency against the data subject; and</li>
-        <li>the Relevant Disclosure directly caused the data subject to suffer material or non-material damage.</li>
+        <li>o GitHub participou em uma Divulgação Relevante;</li>
+        <li>a Divulgação Relevante teve por base um processo por parte de um órgão governamental que não era da UE/EEE ou de uma agência de aplicação da lei contra o titular de dados; e</li>
+        <li>a Divulgação Relevante fez com que os titular de dados sofressem danos materiais ou não materiais.</li>
     </ol></br>
-    The data subject bears the burden of proof with respect to conditions a. though c.</br>
-    Notwithstanding the foregoing, GitHub shall have no obligation to indemnify the data subject under Section 2 if GitHub establishes that the Relevant Disclosure did not violate its obligations under Chapter V of the GDPR.</br>
-    <li><u><b>Scope of Damages</b></u>. Indemnification under Section 2 is limited to material and non-material damages as provided in the GDPR and excludes consequential damages and all other damages not resulting from GitHub’s infringement of the GDPR.</li>
-    <li><u><b>Exercise of Rights</b></u>. Rights granted to data subjects under this Addendum may be enforced by the data subject against GitHub irrespective of any restriction in Clauses 3 or 12 of the Standard Contractual Clauses (EU/EEA). The data subject may only bring a claim under this Addendum on an individual basis, and not part of a class, collective, group or representative action. Rights granted to data subjects under this Addendum are personal to the data subject and may not be assigned.</li>
-    <li><u><b>Notice of Change</b></u>. In addition to Clause 14 of the Standard Contractual Clauses (EU/EEA), GitHub agrees and warrants that it has no reason to believe that the legislation applicable to it or its sub-processors, including in any country to which personal data is transferred either by itself or through a sub-processor, prevents it from fulfilling the instructions received from the data exporter and its obligations under this Addendum or the Standard Contractual Clauses (EU/EEA) and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by this Addendum or the Standard Contractual Clauses (EU/EEA), it will promptly notify the change to Customer as soon as it is aware, in which case Customer is entitled to suspend the transfer of data and/or terminate the contract.</li>
-    <li><u><b>Termination</b></u>. This Addendum shall automatically terminate if the European Commission, a competent Member State supervisory authority, or an EU or competent Member State court approves a different lawful transfer mechanism that would be applicable to the data transfers covered by the Standard Contractual Clauses (EU/EEA) (and if such mechanism applies only to some of the data transfers, this Addendum will terminate only with respect to those transfers) and that does not require the additional safeguards set forth in this Addendum.</li>
+    Os titular de dados é responsável pelo ônus da prova no que se refere às condições "a" a "c".</br>
+    Apesar do acima exposto, o GitHub não terá a obrigação de indenizar o totular dos dados na seção 2 se o GitHub estabelecer que a Divulgação Relevante não viola suas obrigações nos termos do Capítulo V do RGPD.</br>
+    <li><u><b>Escopo dos danos</b></u>. A indenização nos termos da Seção 2 está limitada a danos materiais e não materiais, conforme estabelecido no RGPD, e exclui danos consequentes e todos os outros danos resultantes da violação do RGPD por parte do GitHub.</li>
+    <li><u><b>Exercício dos direitos</b></u>. Os direitos concedidos a titulares de dados nos termos deste Adendo podem ser aplicados pelo titular de dados no GitHub, independentemente de qualquer restrição nas Cláusulas 3 ou 12 das Cláusulas Contratuais Padrão (EU/EEA). O titular dos dados só pode apresentar uma reivindicação nos termos deste Adendo numa base individual e não como parte de uma ação de classe, coletiva, de grupo ou ação representativa. Os direitos concedidos aos titulares de dados nos termos deste Adendo são pessoais para o titular de dados e não podem ser atribuídas.</li>
+    <li><u><b>Aviso de alteração</b></u>. In addition to Clause 14 of the Standard Contractual Clauses (EU/EEA), GitHub agrees and warrants that it has no reason to believe that the legislation applicable to it or its sub-processors, including in any country to which personal data is transferred either by itself or through a sub-processor, prevents it from fulfilling the instructions received from the data exporter and its obligations under this Addendum or the Standard Contractual Clauses (EU/EEA) and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by this Addendum or the Standard Contractual Clauses (EU/EEA), it will promptly notify the change to Customer as soon as it is aware, in which case Customer is entitled to suspend the transfer of data and/or terminate the contract.</li>
+    <li><u><b>Rescisão</b></u>. Este Adendo terminará automaticamente se a Comissão Europeia, uma autoridade supervisora competente do Estado-membro ou um tribunal da UE ou do Estado-membro competente aprovar um mecanismo de transferência legal diferente que seria aplicável às transferências de dados abrangidas pelas cláusulas contratuais padrão (EU/EEA) (e se esse mecanismo se aplicar apenas a algumas transferências de dados, este Adendo terminará apenas no que diz respeito a essas transferências) e isso não exige as salvaguardas adicionais estabelecidas no presente Adendo.</li>
 </ol>
 
-<p id="attachment2"><h1>Attachment 2 – The Standard Contractual Clauses (UK)</h1></p>
+<p id="attachment2"><h1>Anexo 2 – As Cláusulas Contratuais Padrão (Reino Unido)</h1></p>
 
-Execution of the GitHub Customer Agreement by Customer includes execution of this Attachment 2, which is countersigned by GitHub, Inc.
+A execução do Contrato do GitHub pelo Cliente inclui a execução deste Anexo 2, que é anulado pelo GitHub, Inc.
 
 Em países onde a aprovação regulatória é necessária para o uso das Cláusulas Contratuais Padrão, estas não podem ser confiadas à Comissão Europeia 2010/87/UE (de fevereiro de 2010) para legitimar a exportação de dados do país, a menos que o Cliente tenha a aprovação regulatória necessária.
 
-Beginning May 25, 2018 and thereafter, references to various Articles from the Directive 95/46/EC in the Standard Contractual Clauses below will be treated as references to the relevant and appropriate Articles in the GDPR.
+A partir de 25 de maio de 2018 e após esse período, qualquer referência aos diversos artigos da Diretiva 95/46/CE nas Cláusulas Contratuais Padrão abaixo será tratada como referência aos artigos relevantes e apropriados no RGPD.
 
 For the purposes of Article 26(2) of Directive 95/46/EC for the transfer of personal data to processors established in third countries which do not ensure an adequate level of data protection, Customer (as data exporter) and GitHub, Inc. (as data importer, whose signature appears below), each a “party,” together “the parties,” have agreed on the following Contractual Clauses (the “Clauses” or “Standard Contractual Clauses”) in order to adduce adequate safeguards with respect to the protection of privacy and fundamental rights and freedoms of individuals for the transfer by the data exporter to the data importer of the personal data specified in Appendix 1.
 
 ### Cláusula 1: Definições
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>'personal data', 'special categories of data', 'process/processing', 'controller', 'processor', 'data subject' and 'supervisory authority' shall have the same meaning as in Directive 95/46/EC of the European Parliament and of the Council of 24 October 1995 on the protection of individuals with regard to the processing of personal data and on the free movement of such data;</li>
-    <li>'the data exporter' means the controller who transfers the personal data;</li>
-    <li>'the data importer' means the processor who agrees to receive from the data exporter personal data intended for processing on his behalf after the transfer in accordance with his instructions and the terms of the Clauses and who is not subject to a third country's system ensuring adequate protection within the meaning of Article 25(1) of Directive 95/46/EC;</li>
-    <li>'the subprocessor' means any processor engaged by the data importer or by any other subprocessor of the data importer who agrees to receive from the data importer or from any other subprocessor of the data importer personal data exclusively intended for processing activities to be carried out on behalf of the data exporter after the transfer in accordance with his instructions, the terms of the Clauses and the terms of the written subcontract;</li>
-    <li>'the applicable data protection law' means the legislation protecting the fundamental rights and freedoms of individuals and, in particular, their right to privacy with respect to the processing of personal data applicable to a data controller in the Member State in which the data exporter is established;</li>
-    <li>'technical and organisational security measures' means those measures aimed at protecting personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing.</li>
+    <li>"dados pessoais", "categorias especiais de dados", "processar/processamento", "controlador", "processador", "titular de dados" e a "autoridade de controle" terão o mesmo significado definido na Directiva 95/46/CE do Parlamento Europeu e do Conselho de 24 de Outubro de 1995 referente à proteção das pessoas fisicas no que se refere ao tratamento de dados pessoais e à livre circulação desses dados;</li>
+    <li>"exportador de dados" significa o controlador que transfere os dados pessoais;</li>
+    <li>"importador de dados" significa o processador que aceita receber dos dados do exportador de dados pessoais destinados ao processamento em seu nome após a transferência, em conformidade com as suas instruções e os termos das cláusulas e que não está sujeito a um sistema de um país terceiro que garanta proteção adequada nos termos do artigo 25(1) do artigo 95/46/CE;</li>
+    <li>"subprocessador" significa qualquer processador envolvido pelo importador de dados ou por qualquer outro subprocessador do importador de dados que concorde em receber dados do importador de dados ou de qualquer outro subprocessador dos dados pessoais do importador destinados exclusivamente a atividades de processamento a serem realizadas em nome do exportador de dados após a transferência, de acordo com suas instruções, termos das Cláusulas e termos do subcontrato escrito;</li>
+    <li>"lei de proteção de dados aplicável" é a legislação que protege os direitos e liberdades fundamentais dos indivíduos, e, em particular, o direito à privacidade no que diz respeito ao processamento de dados pessoais aplicável a um controlador de dados do Estado-membros onde o exportador de dados estiver estabelecido;</li>
+    <li>"medidas de segurança técnicas e organizacionais" são as medidas que visam a proteger os dados pessoais contra a destruição ilegal ou acidental, perda, alteração, divulgação ou acesso não autorizado, em particular quando o processamento envolve a transmissão de dados por meio de uma rede, e contra todas as formas ilegais de processamento.</li>
 </ol>
 
 ### Cláusula 2: Detalhes da transferência
@@ -751,16 +751,16 @@ Os detalhes da transferência e em particular as categorias especiais de dados p
 O exportador de dados concorda e garante:
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>that the processing, including the transfer itself, of the personal data has been and will continue to be carried out in accordance with the relevant provisions of the applicable data protection law (and, where applicable, has been notified to the relevant authorities of the Member State where the data exporter is established) and does not violate the relevant provisions of that State;</li>
-    <li>that it has instructed and throughout the duration of the personal data processing services will instruct the data importer to process the personal data transferred only on the data exporter's behalf and in accordance with the applicable data protection law and the Clauses;</li>
-    <li>that the data importer will provide sufficient guarantees in respect of the technical and organisational security measures specified in Appendix 2 below;</li>
-    <li>that after assessment of the requirements of the applicable data protection law, the security measures are appropriate to protect personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing, and that these measures ensure a level of security appropriate to the risks presented by the processing and the nature of the data to be protected having regard to the state of the art and the cost of their implementation;</li>
-    <li>that it will ensure compliance with the security measures;</li>
-    <li>that, if the transfer involves special categories of data, the data subject has been informed or will be informed before, or as soon as possible after, the transfer that its data could be transmitted to a third country not providing adequate protection within the meaning of Directive 95/46/EC;</li>
-    <li>to forward any notification received from the data importer or any subprocessor pursuant to Clause 5(b) and Clause 8(3) to the data protection supervisory authority if the data exporter decides to continue the transfer or to lift the suspension;</li>
-    <li>to make available to the data subjects upon request a copy of the Clauses, with the exception of Appendix 2, and a summary description of the security measures, as well as a copy of any contract for subprocessing services which has to be made in accordance with the Clauses, unless the Clauses or the contract contain commercial information, in which case it may remove such commercial information;</li>
-    <li>that, in the event of subprocessing, the processing activity is carried out in accordance with Clause 11 by a subprocessor providing at least the same level of protection for the personal data and the rights of data subject as the data importer under the Clauses; and</li>
-    <li>that it will ensure compliance with Clause 4(a) to (i).</li>
+    <li>que o processamento, incluindo a transferência em si, dos dados pessoais foi e continuará sendo executado de acordo com as provisões relevantes aplicáveis à lei de proteção de dados (e, quando aplicável, foi notificado às autoridades responsáveis do Estado-membro onde o exportador de dados está estabelecido) e não viola as provisões relevantes deste Estado;</li>
+    <li>que ele instruiu e que durante a duração dos serviços de processamento de dados pessoais irá instruir o importador de dados sobre o processamento de dados pessoais transferidos apenas no nome do exportador e em concordância com a legislação aplicável e as Cláusulas;</li>
+    <li>que o importador de dados fornecerá garantias suficientes no que se refere às medidas de segurança técnicas e organizacionais especificadas no Anexo 2 abaixo;</li>
+    <li>que após a avaliação dos requerimentos da legislação de proteção aos dados aplicável, as medidas de segurança estejam apropriadas para proteger os dados pessoais contra a destruição ilegal ou acidental, ou a perca acidental, alteração, divulgação ou acesso não autorizado, em particular onde o processamento envolve a transmissão de dados através de uma rede, e contra todas as outras formas ilegais de processamento, e que estas medidas garantam um nível adequado de segurança aos riscos apresentados pelo processamento e pela natureza dos dados a serem protegidos, tendo em conta a conjuntura da questão e o custo de implementação;</li>
+    <li>que garantirá o cumprimento das medidas de segurança;</li>
+    <li>que, se a transferência envolver categorias especiais de dados, o titular dos dados foi informado ou será informado antes, ou o mais depressa possível após a transferência, de que os seus dados poderão ser transmitidos para um terceiro país que não garante um nível de proteção adequado na compreensão da Diretiva 95/46/CE;</li>
+    <li>que encaminhará qualquer notificação recebida do importador de dados ou qualquer subprocessador em conformidade com a Cláusula 5(b) e a Cláusula 8(3) da proteção de dados para a autoridade de supervisão de proteção aos dados se o exportador de dados decidir continuar a transferência ou interromper a suspensão;</li>
+    <li>em disponibilizar aos titulares dos dados, se assim requisitado, uma cópia das Cláusulas, com exceção do Apêndice 2 e uma descrição resumida das medidas de segurança, bem como uma cópia de qualquer contrato de serviços de subprocessamento que precisam ser feitos de acordo com as Cláusulas; a menos que as Cláusulas ou o contrato contenham informações comerciais, onde neste caso é possível remover tais informações comerciais;</li>
+    <li>que, em caso de subprocessamento, a atividade de processamento seja realizada de acordo com a Cláusula 11 por um subprocessador, fornecendo, pelo menos, o mesmo nível de proteção dos dados pessoais e dos direitos do titular de dados como o importador de dados nos termos das Cláusulas; e</li>
+    <li>que garantirá o cumprimento da Cláusula 4(a) para (i).</li>
 </ol>
 
 ### Cláusula 5: Obrigações do importador de dados
@@ -768,8 +768,8 @@ O exportador de dados concorda e garante:
 O importador de dados concorda e garante:
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li>to process the personal data only on behalf of the data exporter and in compliance with its instructions and the Clauses; if it cannot provide such compliance for whatever reasons, it agrees to inform promptly the data exporter of its inability to comply, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract; </li>
-    <li>that it has no reason to believe that the legislation applicable to it prevents it from fulfilling the instructions received from the data exporter and its obligations under the contract and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by the Clauses, it will promptly notify the change to the data exporter as soon as it is aware, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract;</li>
+    <li>processar somente dados pessoais em nome do exportador de dados e em conformidade com as suas instruções e cláusulas; se não puder assegurar tal conformidade por qualquer razão, concorda em informar prontamente o exportador de dados a inaptidão no cumprimento, que nessas circunstâncias, o exportador é autorizado a suspender a transferência de dados e/ou rescindir o contrato; </li>
+    <li>que não tem qualquer razão para crer que a legislação que lhe é aplicável o impede de respeitar as instruções recebidas do exportador de dados e as obrigações que lhe incumbem por força do contrato e que, no caso de haver uma alteração nesta legislação que possa ter um efeito adverso substancial nas garantias e obrigações conferidas pelas cláusulas, notificará imediatamente essa alteração ao exportador de dados, assim que tiver conhecimento, tendo neste caso o exportador de dados o direito de suspender a transferência de dados e/ou de rescindir o contrato;</li>
     <li>that it has implemented the technical and organisational security measures specified in Appendix 2 before processing the personal data transferred;</li>
     <li>that it will promptly notify the data exporter about:</li>
     <ol style="list-style-type:lower-roman" class="no-styling">
@@ -851,11 +851,11 @@ As partes comprometem-se a não alterar as Cláusulas. Isso não impede que as p
 
 **Data importer**: The data importer is GitHub, Inc., a global producer of software and services.
 
-**Data subjects**: Data subjects include the data exporter’s representatives and end-users including employees, contractors, collaborators, and customers of the data exporter. Data subjects may also include individuals attempting to communicate or transfer personal data to users of the services provided by data importer. GitHub acknowledges that, depending on Customer’s use of the Online Service or Professional Services, Customer may elect to include personal data from any of the following types of data subjects in the personal data:
+**Data subjects**: Data subjects include the data exporter’s representatives and end-users including employees, contractors, collaborators, and customers of the data exporter. Os titulares de dados também podem incluir indivíduos que tentam comunicar-se ou transferir dados pessoais aos usuários dos serviços fornecidos pelo importador de dados. O GitHub reconhece que, dependendo do uso do Cliente do Serviço On-line ou Serviços Profissionais, o Cliente poderá optar por incluir dados pessoais de qualquer um dos seguintes tipos de titulares de dados nos dados pessoais:
 - Empregados, contratados e trabalhadores temporários (atual, anterior, potencial) do exportador de dados;
 - Os colaboradores/pontos de contato do exportador de dados (pessoas físicas) ou funcionários, contratados ou trabalhadores temporários de colaboradores de entidades legais colaboradores/contactar pessoas (atual, potencial, anterior);
-- Users and other data subjects that are users of data exporter's services;
-- Partners, stakeholders or individuals who actively collaborate, communicate or otherwise interact with employees of the data exporter and/or use communication tools such as apps and websites provided by the data exporter.
+- Os usuários e outros titulares de dados que são usuários dos serviços do exportador;
+- Parceiros, partes interessadas ou indivíduos que colaboram ativamente, comunicam-se ou, de outra forma, interagem com os funcionários do exportador de dados e/ou usam ferramentas de comunicação como aplicativos e sites fornecidos pelo exportador de dados.
 
 **Categories of data**: The personal data transferred that is included in e-mail, documents and other data in an electronic form in the context of the Online Services or Professional Services. O GitHub reconhece que, dependendo do uso do Cliente do Serviço On-line ou Serviços Profissionais, o Cliente pode optar por incluir dados pessoais de qualquer uma das seguintes categorias nos dados pessoais:
 - Dados pessoais básicos (por exemplo, local de nascimento, nome da rua e número da casa (endereço), código postal, cidade de residência, país de residência, número de celular, nome, sobrenome, iniciais, endereço de e-mail, gênero, data de nascimento);
@@ -873,8 +873,8 @@ As partes comprometem-se a não alterar as Cláusulas. Isso não impede que as p
 **Processing operations**: The personal data transferred will be subject to the following basic processing activities:
 
 <ol style="list-style-type:lower-alpha" class="no-styling">
-    <li><b>Duration and Object of Data Processing.</b> The duration of data processing shall be for the term designated under the applicable GitHub Customer Agreement between data exporter and data importer. The objective of the data processing is the performance of Online Services and Professional Services.</li>
-    <li><b>Scope and Purpose of Data Processing.</b> The scope and purpose of processing personal data is described in the “Processing of Personal Data; GDPR” section of the DPA. The data importer operates a global network of data centers and management/support facilities, and processing may take place in any jurisdiction where data importer or its sub-processors operate such facilities in accordance with the “Security Practices and Policies” section of the DPA.</li>
+    <li><b>Duration and Object of Data Processing.</b> The duration of data processing shall be for the term designated under the applicable GitHub Customer Agreement between data exporter and data importer. O objetivo do processamento de dados é a prestação dos Serviços On-line e Serviços Profissionais.</li>
+    <li><b>Scope and Purpose of Data Processing.</b> The scope and purpose of processing personal data is described in the “Processing of Personal Data; GDPR” section of the DPA. O importador de dados opera uma rede global de centros de dados e instalações de gerenciamento/suporte e o processamento podem ter lugar em qualquer jurisdição onde o importador de dados ou os seus subprocessadores operem essas instalações de acordo com a seção “Práticas de Segurança e Políticas” do DPA.</li>
     <li><b>Personal Data Access.</b> For the term designated under the applicable GitHub Customer Agreement data importer will at its election and as necessary under applicable law, either: (1) provide data exporter with the ability to correct, delete, or block personal data, or (2) make such corrections, deletions, or blockages on its behalf.</li>
     <li><b>Data Exporter’s Instructions.</b> For Online Services and Professional Services, data importer will only act upon data exporter’s instructions as conveyed by GitHub.</li>
     <li><b>Personal Data Deletion or Return.</b> Upon expiration or termination of data exporter’s use of Online Services or Professional Services, it may extract personal data and data importer will delete personal data, each in accordance with the DPA Terms applicable to the agreement.</li>
@@ -887,7 +887,7 @@ As partes comprometem-se a não alterar as Cláusulas. Isso não impede que as p
 Descrição das medidas de segurança técnicas e organizacionais implementadas pelo importador de dados, de acordo com as Cláusulas 4(d) e 5(c):
 
 <ol style="list-style-type:decimal" class="no-styling">
-  <li><b>Personnel.</b> Data importer’s personnel will not process personal data without authorization. Personnel are obligated to maintain the confidentiality of any such personal data and this obligation continues even after their engagement ends.</li>
+  <li><b>Personnel.</b> Data importer’s personnel will not process personal data without authorization. A equipe é obrigada a manter a confidencialidade desses dados pessoais, e essa obrigação continua mesmo após o fim do seu compromisso.</li>
 
   <li><b>Data Privacy Contact.</b> The data privacy officer of the data importer can be reached at the following address:</br>
 GitHub, Inc.</br>
@@ -900,33 +900,33 @@ San Francisco, California 94107 USA</br></li>
 
 ### Appendix 3 to the Standard Contractual Clauses (UK)
 
-**Additional Safeguards Addendum**
+**Adendo de salvaguardas adicionais**
 
 By this Additional Safeguards Addendum to Standard Contractual Clauses (UK) (this “Addendum”), GitHub, Inc. (“GitHub”) provides additional safeguards to Customer and additional redress to the data subjects to whom Customer’s personal data relates.
 
 This Addendum supplements and is made part of, but is not in variation or modification of, the Standard Contractual Clauses (UK).
 
 <ol style="list-style-type:decimal" class="no-styling">
-    <li><u><b>Challenges to Orders</b></u>. In addition to Clause 5(d)(i) of the Standard Contractual Clauses (UK), in the event GitHub receives an order from any third party for compelled disclosure of any personal data that has been transferred under the Standard Contractual Clauses (UK), GitHub shall:</li>
+    <li><u><b>Contestações das ordens</b></u>. In addition to Clause 5(d)(i) of the Standard Contractual Clauses (UK), in the event GitHub receives an order from any third party for compelled disclosure of any personal data that has been transferred under the Standard Contractual Clauses (UK), GitHub shall:</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>use every reasonable effort to redirect the third party to request data directly from Customer;</li>
-        <li>promptly notify Customer, unless prohibited under the law applicable to the requesting third party, and, if prohibited from notifying Customer, use all lawful efforts to obtain the right to waive the prohibition in order to communicate as much information to Customer as soon as possible; and</li>
-        <li>use all lawful efforts to challenge the order for disclosure on the basis of any legal deficiencies under the laws of the requesting party or any relevant conflicts with the law of the European Union or applicable Member State law.</li>
+        <li>fará o possível para redirecionar o terceiro a fim de solicitar dados diretamente do Cliente;</li>
+        <li>irá notificar o cliente prontamente, a menos que seja proibido sob a lei aplicável para terceiros solicitantes, e, na hipótese de ser proibido de notificar o cliente, fará o possível juridicamente para obter o direito de renunciar à proibição, a fim de comunicar ao Cliente o máximo de informação possível; e</li>
+        <li>fará o possível juridicamente para contestar a ordem de divulgação com base em eventuais deficiências jurídicas nos termos das leis da parte requerente ou em quaisquer conflitos relevantes com a legislação da União Europeia ou com a legislação aplicável do Estado-membro.</li>
     </ol></br>
-    For purpose of this section, lawful efforts do not include actions that would result in civil or criminal penalty such as contempt of court under the laws of the relevant jurisdiction. 
-    <li><u><b>Indemnification of Data Subjects</b></u>. Subject to Sections 3 and 4, GitHub shall indemnify a data subject for any material or non-material damage to the data subject caused by GitHub’s disclosure of personal data of the data subject that has been transferred under the Standard Contractual Clauses (UK) in response to an order from a non-EU/EEA government body or law enforcement agency (a “Relevant Disclosure”). Notwithstanding the foregoing, GitHub shall have no obligation to indemnify the data subject under this Section 2 to the extent the data subject has already received compensation for the same damage, whether from GitHub or otherwise.</li>
-    <li><u><b>Conditions of Indemnification</b></u>. Indemnification under Section 2 is conditional upon the data subject establishing, to GitHub’s reasonable satisfaction, that:</li>
+    Para a finalidade desta seção, os esforços jurídicos não incluem acções que possam resultar em sanções civis ou penais, como o desprezo pelos tribunais ao abrigo das leis da jurisdição relevante. 
+    <li><u><b>Indenização dos Titulares de Dados</b></u>. Subject to Sections 3 and 4, GitHub shall indemnify a data subject for any material or non-material damage to the data subject caused by GitHub’s disclosure of personal data of the data subject that has been transferred under the Standard Contractual Clauses (UK) in response to an order from a non-EU/EEA government body or law enforcement agency (a “Relevant Disclosure”). Não obstante o exposto, o GitHub não terá nenhuma obrigação de indenizar o titular de dados nos termos desta Seção 2, na medida em que o titular de dados já tenha sido compensado pelos mesmos danos, seja pelo GitHub ou de outro modo.</li>
+    <li><u><b>Condições de Indenização</b></u>. A indenização nos termos da Seção 2 fica condicionada ao estabelecimento do titular dos dados, para satisfação razoável do GitHub, que:</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>GitHub engaged in a Relevant Disclosure;</li>
-        <li>the Relevant Disclosure was the basis of an official proceeding by the non-EU/EEA government body or law enforcement agency against the data subject; and</li>
-        <li>the Relevant Disclosure directly caused the data subject to suffer material or non-material damage.</li>
+        <li>o GitHub participou em uma Divulgação Relevante;</li>
+        <li>a Divulgação Relevante teve por base um processo por parte de um órgão governamental que não era da UE/EEE ou de uma agência de aplicação da lei contra o titular de dados; e</li>
+        <li>a Divulgação Relevante fez com que os titular de dados sofressem danos materiais ou não materiais.</li>
     </ol></br>
-    The data subject bears the burden of proof with respect to conditions a. though c.</br>
-    Notwithstanding the foregoing, GitHub shall have no obligation to indemnify the data subject under Section 2 if GitHub establishes that the Relevant Disclosure did not violate its obligations under Chapter V of the GDPR. 
-    <li><u><b>Scope of Damages</b></u>. Indemnification under Section 2 is limited to material and non-material damages as provided in the GDPR and excludes consequential damages and all other damages not resulting from GitHub’s infringement of the GDPR.</li>
-    <li><u><b>Exercise of Rights</b></u>. Rights granted to data subjects under this Addendum may be enforced by the data subject against GitHub irrespective of any restriction in Clauses 3 or 6 of the Standard Contractual Clauses (UK). The data subject may only bring a claim under this Addendum on an individual basis, and not part of a class, collective, group or representative action. Rights granted to data subjects under this Addendum are personal to the data subject and may not be assigned.</li>
-    <li><u><b>Notice of Change</b></u>. In addition to Clause 5(b) of the Standard Contractual Clauses (UK), GitHub agrees and warrants that it has no reason to believe that the legislation applicable to it or its sub-processors, including in any country to which personal data is transferred either by itself or through a sub-processor, prevents it from fulfilling the instructions received from the data exporter and its obligations under this Addendum or the Standard Contractual Clauses (UK) and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by this Addendum or the Standard Contractual Clauses (UK), it will promptly notify the change to Customer as soon as it is aware, in which case Customer is entitled to suspend the transfer of data and/or terminate the contract.
-    <li><u><b>Termination</b></u>. This Addendum shall automatically terminate if the European Commission, a competent Member State supervisory authority, or an EU or competent Member State court approves a different lawful transfer mechanism that would be applicable to the data transfers covered by the Standard Contractual Clauses (UK) (and if such mechanism applies only to some of the data transfers, this Addendum will terminate only with respect to those transfers) and that does not require the additional safeguards set forth in this Addendum.</br></br>
+    Os titular de dados é responsável pelo ônus da prova no que se refere às condições "a" a "c".</br>
+    Apesar do acima exposto, o GitHub não terá a obrigação de indenizar o totular dos dados na seção 2 se o GitHub estabelecer que a Divulgação Relevante não viola suas obrigações nos termos do Capítulo V do RGPD. 
+    <li><u><b>Escopo dos danos</b></u>. A indenização nos termos da Seção 2 está limitada a danos materiais e não materiais, conforme estabelecido no RGPD, e exclui danos consequentes e todos os outros danos resultantes da violação do RGPD por parte do GitHub.</li>
+    <li><u><b>Exercício dos direitos</b></u>. Rights granted to data subjects under this Addendum may be enforced by the data subject against GitHub irrespective of any restriction in Clauses 3 or 6 of the Standard Contractual Clauses (UK). O titular dos dados só pode apresentar uma reivindicação nos termos deste Adendo numa base individual e não como parte de uma ação de classe, coletiva, de grupo ou ação representativa. Os direitos concedidos aos titulares de dados nos termos deste Adendo são pessoais para o titular de dados e não podem ser atribuídas.</li>
+    <li><u><b>Aviso de alteração</b></u>. In addition to Clause 5(b) of the Standard Contractual Clauses (UK), GitHub agrees and warrants that it has no reason to believe that the legislation applicable to it or its sub-processors, including in any country to which personal data is transferred either by itself or through a sub-processor, prevents it from fulfilling the instructions received from the data exporter and its obligations under this Addendum or the Standard Contractual Clauses (UK) and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by this Addendum or the Standard Contractual Clauses (UK), it will promptly notify the change to Customer as soon as it is aware, in which case Customer is entitled to suspend the transfer of data and/or terminate the contract.
+    <li><u><b>Rescisão</b></u>. This Addendum shall automatically terminate if the European Commission, a competent Member State supervisory authority, or an EU or competent Member State court approves a different lawful transfer mechanism that would be applicable to the data transfers covered by the Standard Contractual Clauses (UK) (and if such mechanism applies only to some of the data transfers, this Addendum will terminate only with respect to those transfers) and that does not require the additional safeguards set forth in this Addendum.</br></br>
     Signing the Standard Contractual Clauses (UK), Appendix 1, Appendix 2 and 
 </ol>
 
@@ -934,35 +934,35 @@ This Addendum supplements and is made part of, but is not in variation or modifi
 
 GitHub makes the commitments in these GDPR Related Terms, to all customers effective May 25, 2018. These commitments are binding upon GitHub with regard to Customer regardless of (1) the version of the GitHub Customer Agreement and DPA that is otherwise applicable to any given Online Services subscription or (2) any other agreement that references this attachment.
 
-For purposes of these GDPR Related Terms, Customer and GitHub agree that Customer is the controller of Personal Data and GitHub is the processor of such data, except when Customer acts as a processor of Personal Data, in which case GitHub is a subprocessor. These GDPR Related Terms apply to the processing of Personal Data, within the scope of the GDPR, by GitHub on behalf of Customer. These GDPR Related Terms do not limit or reduce any data protection commitments GitHub makes to Customer in the GitHub Customer Agreement or other agreement between GitHub and Customer. These GDPR Related Terms do not apply where GitHub is a controller of Personal Data.
+Para os fins destes Termos Relacionados ao RGPD, o Cliente e o GitHub concordam que o Cliente é o controlador dos Dados Pessoais e o GitHub é o processador desses dados, exceto quando o Cliente atuar como processador de dados pessoais. Neste caso o GitHub será o subprocessador. Estes Termos Relacionados ao RGPD aplicam-se ao processamento de dados pessoais, dentro do escopo do RGPD, pelo GitHub, em nome do Cliente. Estes termos relacionados ao GDPR não limitam ou reduzem quaisquer compromissos de proteção de dados que o GitHub firmar com o Cliente no Contrato de Cliente do GitHub ou outro acordo entre o GitHub e o Cliente. Estes Termos Relacionados ao RGPD não se aplicam quando o GitHub for um controlador de dados pessoais.
 
-**Relevant GDPR Obligations: Articles 28, 32, and 33**
+**Obrigações Relevantes do GDPR: Artigos 28, 32, e 33**
 
 <ol style="list-style-type:decimal" class="no-styling">
-    <li>GitHub shall not engage another processor without prior specific or general written authorisation of Customer. In the case of general written authorisation, GitHub shall inform Customer of any intended changes concerning the addition or replacement of other processors, thereby giving Customer the opportunity to object to such changes. (Article 28(2))</li>
-    <li>Processing by GitHub shall be governed by these GDPR Related Terms under European Union (hereafter “Union”) or Member State law and are binding on GitHub with regard to Customer. The subject-matter and duration of the processing, the nature and purpose of the processing, the type of Personal Data, the categories of data subjects and the obligations and rights of the Customer are set forth in the Customer’s licensing agreement, including these GDPR Related Terms. In particular, GitHub shall:</li>
+    <li>O GitHub não irá contratar outro processador sem uma autorização prévia específica por escrito do Cliente. Na hipótese de uma autorização escrita geral, o GitHub deverá informar ao Cliente quaisquer alterações destinadas à adição ou substituição de outros processadores, dando assim ao cliente a oportunidade de contestar a tais alterações. (Artigo 28(2))</li>
+    <li>O processamento pelo GitHub será regido por esses Termos relacionados ao RGPD na União Europeia (doravante “União”) ou a lei do Estado-membro e a vinculação ao GitHub em relação ao cliente. A matéria e a duração do processamento, a natureza e o propósito do processamento, o tipo de dados pessoais, as categorias de titulares de dados e as obrigações e direitos do Cliente estão estabelecidas no contrato de licenciamento do Cliente, incluindo estes termos relacionados ao RGPD. Em particular, o GitHub:</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>process the Personal Data only on documented instructions from Customer, including with regard to transfers of Personal Data to a third country or an international organisation, unless required to do so by Union or Member State law to which GitHub is subject; in such a case, GitHub shall inform Customer of that legal requirement before processing, unless that law prohibits such information on important grounds of public interest;</li>
-        <li>ensure that persons authorised to process the Personal Data have committed themselves to confidentiality or are under an appropriate statutory obligation of confidentiality;</li>
-        <li>take all measures required pursuant to Article 32 of the GDPR;</li>
-        <li>respect the conditions referred to in paragraphs 1 and 3 for engaging another processor;</li>
-        <li>taking into account the nature of the processing, assist Customer by appropriate technical and organisational measures, insofar as this is possible, for the fulfilment of the Customer’s obligation to respond to requests for exercising the data subject's rights laid down in Chapter III of the GDPR;</li>
-        <li>assist Customer in ensuring compliance with the obligations pursuant to Articles 32 to 36 of the GDPR, taking into account the nature of processing and the information available to GitHub;</li>
-        <li>at the choice of Customer, delete or return all the Personal Data to Customer after the end of the provision of services relating to processing, and delete existing copies unless Union or Member State law requires storage of the Personal Data;</li>
-        <li>make available to Customer all information necessary to demonstrate compliance with the obligations laid down in Article 28 of the GDPR and allow for and contribute to audits, including inspections, conducted by Customer or another auditor mandated by Customer.</li>
+        <li>irá processar os dados pessoais apenas em instruções documentadas do cliente, incluindo a transferência de dados pessoais para um país terceiro ou uma organização internacional, a não ser que seja exigido pela lei da União ou pelo Estado-membro a que o GitHub esteja sujeito. Nesse caso, o GitHub deverá informar o Cliente sobre os requisitos legais antes do processamento, a não ser que essa lei proíba essas informações por razões de interesse público;</li>
+        <li>irá garantir que as pessoas autorizadas a processar os dados pessoais se comprometeram a manter a confidencialidade ou estejam sob uma obrigação legal de confidencialidade;</li>
+        <li>irá tomar todas as medidas exigidas, de acordo com o artigo 32 do RGPD;</li>
+        <li>irá respeitar as condições referidas nos números 1 e 3 para a contratação de outro processador;</li>
+        <li>levando em conta a natureza do processamento, irá auxiliar o Cliente por meio de medidas técnicas e organizacionais, na medida do possível, para o cumprimento da obrigação do cliente de responder às solicitações de exercício dos direitos do titular dos dados estabelecidos no Capítulo III do RGPD;</li>
+        <li>auxiliar o Cliente a garantir a conformidade com as obrigações definidas nos Artigos 32 a 36 do RGPD, considerando a natureza do processamento e as informações disponíveis para o GitHub;</li>
+        <li>à escolha do cliente, excluir ou devolver todos os dados pessoais ao cliente após o fim da oferta de serviços relacionados ao processamento, e excluir cópias existentes, a menos que a legislação da União ou do Estado-membro exija o armazenamento dos Dados Pessoais;</li>
+        <li>irá disponibilizar para o Cliente todas as informações necessárias para demonstrar a conformidade com as obrigações estabelecidas no artigo 28 do RGPD e permitir e contribuir com auditorias, incluindo inspeções, conduzidas pelo cliente ou outro auditor exigido pelo cliente.</li>
     </ol></br>
-    GitHub shall immediately inform Customer if, in its opinion, an instruction infringes the GDPR or other Union or Member State data protection provisions. (Article 28(3))<br></br>
+    O GitHub informará imediatamente ao Cliente se, na sua opinião, uma instrução infringir o RGPD ou outras disposições de proteção de dados da União ou do Estado-membro. (Artigo 28(3))<br></br>
     <li>Where GitHub engages another processor for carrying out specific processing activities on behalf of Customer, the same data protection obligations as set out in these GDPR Related Terms shall be imposed on that other processor by way of a contract or other legal act under Union or Member State law, in particular providing sufficient guarantees to implement appropriate technical and organisational measures in such a manner that the processing will meet the requirements of the GDPR. Where that other processor fails to fulfil its data protection obligations, GitHub shall remain fully liable to the Customer for the performance of that other processor's obligations. (Article 28(4))</li>
     <li>Taking into account the state of the art, the costs of implementation and the nature, scope, context and purposes of processing as well as the risk of varying likelihood and severity for the rights and freedoms of natural persons, Customer and GitHub shall implement appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including inter alia as appropriate:</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
         <li>the pseudonymisation and encryption of Personal Data;</li>
         <li>the ability to ensure the ongoing confidentiality, integrity, availability and resilience of processing systems and services;</li>
-        <li>the ability to restore the availability and access to Personal Data in a timely manner in the event of a physical or technical incident; and</li>
-        <li>a process for regularly testing, assessing and evaluating the effectiveness of technical and organisational measures for ensuring the security of the processing. (Article 32(1))</li>
+        <li>a capacidade de restaurar a disponibilidade e o acesso a dados pessoais em tempo hábil em caso de incidente físico ou técnico; e</li>
+        <li>um processo para testar, avaliar e avaliar regularmente a eficácia das medidas técnicas e organizativas para garantir a segurança do processamento. (Artigo 32(1))</li>
     </ol>
-    <li>In assessing the appropriate level of security, account shall be taken of the risks that are presented by processing, in particular from accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to Personal Data transmitted, stored or otherwise processed (Article 32(2)).</li>
-    <li>Customer and GitHub shall take steps to ensure that any natural person acting under the authority of Customer or GitHub who has access to Personal Data does not process them except on instructions from Customer, unless he or she is required to do so by Union or Member State law (Article 32(4)).</li>
-    <li>GitHub shall notify Customer without undue delay after becoming aware of a Personal Data breach (Article 33(2)). Such notification will include that information a processor must provide to a controller under Article 33(3) to the extent such information is reasonably available to GitHub.</li>
+    <li>Na avaliação do nível de segurança adequado, serão tidos em conta os riscos apresentados pelo processamento, particularmente da destruição acidental ou ilícita, perda, alteração, acesso ou divulgação autorizados de dados pessoais transmitidos, armazenados ou processados de outro modo (Artigo 32(2)).</li>
+    <li>O Cliente e o GitHub tomarão medidas para garantir que qualquer pessoa física que atuar sob a autoridade do Cliente ou do GitHub, que tem acesso aos dados pessoais, não os processe exceto com base nas instruções do Cliente, a menos que seja obrigado a fazê-lo pela legislação da União ou dos Estados-membros (artigo 32(4)).</li>
+    <li>O GitHub notificará o Cliente sem demoras indevidas após tomar conhecimento de uma violação de dados pessoais (Artigo 33(2)). Tal notificação incluirá informações que um processador deve fornecer a um controlador ao nos termos do artigo 33(3), até que essa informação esteja razoavelmente disponível para o GitHub.</li>
 </ol>
 
 ---------------

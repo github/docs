@@ -140,6 +140,8 @@ product_landing:
   guides: 指南
   code_examples: 代码示例
   search_code_examples: 搜索代码示例
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: 显示更多
   explore_people_and_projects: 探索人员和项目
   sorry: 抱歉，找不到结果

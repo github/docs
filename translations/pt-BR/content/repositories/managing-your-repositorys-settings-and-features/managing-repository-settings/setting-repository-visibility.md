@@ -24,7 +24,7 @@ Os proprietários da organização podem restringir a capacidade de alterar a vi
 
 {% ifversion ghec %}
 
-Members of an {% data variables.product.prodname_emu_enterprise %} can only set the visibility of repositories owned by their user account to private, and repositories in their enterprise's organizations can only be private or internal. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+Os membros de um {% data variables.product.prodname_emu_enterprise %} só podem definir a visibilidade de repositórios pertencentes à sua conta de usuário como privada, e os repositórios das organizações de sua empresa só podem ser privados ou internos. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 
 {% endif %}
 
@@ -52,12 +52,12 @@ Recomendamos revisar as seguintes advertências antes de alterar a visibilidade 
 {%- endif %}
 
 {%- ifversion fpt %}
-* Se você estiver usando {% data variables.product.prodname_free_user %} para contas de usuário ou organizações, alguns recursos não estarão disponíveis no repositório depois de alterar a visibilidade para privada. Qualquer site publicado do {% data variables.product.prodname_pages %} terá sua publicação cancelada automaticamente. Se você adicionou um domínio personalizado ao site do {% data variables.product.prodname_pages %}, deverá remover ou atualizar os registros de DNS antes de tornar o repositório privado para evitar o risco de uma aquisição de domínio. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+* Se você estiver usando {% data variables.product.prodname_free_user %} para contas de usuário ou organizações, alguns recursos não estarão disponíveis no repositório depois de alterar a visibilidade para privada. Qualquer site publicado do {% data variables.product.prodname_pages %} terá sua publicação cancelada automaticamente. Se você adicionou um domínio personalizado ao site do {% data variables.product.prodname_pages %}, deverá remover ou atualizar os registros de DNS antes de tornar o repositório privado para evitar o risco de uma aquisição de domínio. Para obter mais informações, consulte "[Produtos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products) e "[Gerenciando um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
 * {% data variables.product.prodname_dotcom %} não incluirá mais o repositório no {% data variables.product.prodname_archive %}. Para obter mais informações, consulte "[Sobre como arquivar conteúdo e dados no {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)".
-* {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working{% ifversion ghec %} unless the repository is owned by an organization that is part of an enterprise with a license for {% data variables.product.prodname_advanced_security %} and sufficient spare seats{% endif %}. {% data reusables.advanced-security.more-info-ghas %}
+* As funcionalidades de {% data variables.product.prodname_GH_advanced_security %}, como {% data variables.product.prodname_code_scanning %}, irão parar de funcionar{% ifversion ghec %} a menos que o repositório pertença a uma organização que faz parte de uma empresa com uma licença para {% data variables.product.prodname_advanced_security %} e estações livres suficientes.{% endif %} {% data reusables.advanced-security.more-info-ghas %}
 {%- endif %}
 
 {%- ifversion ghes %}

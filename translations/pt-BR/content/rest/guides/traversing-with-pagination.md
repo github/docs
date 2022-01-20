@@ -14,7 +14,7 @@ topics:
 shortTitle: Deslocar-se com paginação
 ---
 
-The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume. Na maioria das vezes, você pode até achar que está pedindo _muita_ informação, e, para manter nossos servidores satisfeitos, a API irá automaticamente [paginar os itens solicitados](/rest/overview/resources-in-the-rest-api#pagination).
+A {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API fornece uma vasta riqueza de informações para os desenvolvedores consumirem. Na maioria das vezes, você pode até achar que está pedindo _muita_ informação, e, para manter nossos servidores satisfeitos, a API irá automaticamente [paginar os itens solicitados](/rest/overview/resources-in-the-rest-api#pagination).
 
 Neste guia, vamos fazer algumas chamadas para a API de pesquisa e iterar sobre os resultados usando a paginação. Você pode encontrar o código-fonte completo para este projeto no repositório de [platform-samples][platform samples].
 

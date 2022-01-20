@@ -57,7 +57,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
    Create a personal access token with the `repo` and `read:packages` scopes. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 
-   Set `DOCKER_REGISTRY_SERVER_URL` to `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` to the GitHub username or organization that owns the repository, and `DOCKER_REGISTRY_SERVER_PASSWORD` to your personal access token from above. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
+   Configura `DOCKER_REGISTRY_SERVER_URL` para `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` para el nombre de usuario u organización de GitHub al que pertenezca el repositorio y `DOCKER_REGISTRY_SERVER_PASSWORD` para tu token de acceso personal desde arriba. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
 
    ```shell
     az webapp config appsettings set \
