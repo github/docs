@@ -100,6 +100,7 @@ You can change the machine type of your codespace at any time.
 
 ## Deleting a codespace in {% data variables.product.prodname_vscode %}
 
+{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
 
 ## Switching to the Insiders build of {% data variables.product.prodname_vscode %}

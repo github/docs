@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
 import cx from 'classnames'
-import { useTranslation } from 'components/hooks/useTranslation'
 
 import { Details, useDetails, Text, Dropdown, Box } from '@primer/components'
 import { ChevronDownIcon } from '@primer/octicons-react'
@@ -53,7 +52,6 @@ function PickerOptionsWrapper({ variant, children }: PickerWrapperPropsT) {
 export function Picker({ variant, defaultText, options, ...restProps }: PickerPropsT) {
   const { getDetailsProps, setOpen } = useDetails({ closeOnOutsideClick: true })
   const selectedOption = options.find((option) => option.selected)
-  const { t } = useTranslation(['picker', 'toggle_picker_list'])
 
   return (
     <Details
@@ -67,7 +65,7 @@ export function Picker({ variant, defaultText, options, ...restProps }: PickerPr
       <summary
         className="d-block btn btn-invisible color-fg-default"
         aria-haspopup="true"
-        aria-label={t('toggle_picker_list')}
+        aria-label={selectedOption?.text || defaultText}
       >
         <PickerSummaryWrapper variant={variant}>
           <Text>{selectedOption?.text || defaultText}</Text>
