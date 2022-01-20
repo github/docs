@@ -19,7 +19,7 @@ topics:
 
 {% data variables.contact.github_support %} may ask you to provide additional data in the form of sanitized log files. There are three types of log file you may be asked to provide.
 
-Diagnostic files contain information about a {% data variables.product.prodname_ghe_server %} instance's settings and environment, support bundles contain diagnostics and logs from the past two days, and extended support bundles also contain diagnostics and logs but from the past seven days.
+Los archivos de diagnóstico contienen información sobre los ajustes y de una instancia de {% data variables.product.prodname_ghe_server %} y los paquetes de soporte de ambiente contienen información de diagnóstico y bitácoras de los dos días anteriores y los paquetes de soporte extendido también contienen información de diagnóstico y bitácoras, pero de los siete días anteriores.
 
 ## Crear y compartir archivos de diagnóstico
 

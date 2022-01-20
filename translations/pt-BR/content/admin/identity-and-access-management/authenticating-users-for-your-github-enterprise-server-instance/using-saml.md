@@ -106,7 +106,7 @@ Para especificar mais de um valor para um atributo, use múltiplos elementos de 
 
 {% ifversion ghes %}
 
-## Updating a user's SAML `NameID`
+## Atualizando `NameID` do SAML de um usuário
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Selecione **SAML**. ![Barra lateral "Todos os usuários" nas configurações de administrador do site](/assets/images/enterprise/site-admin-settings/all-users.png)
@@ -114,7 +114,7 @@ Para especificar mais de um valor para um atributo, use múltiplos elementos de 
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 5. À direita de "Atualizar o NameID do SAML", clique em **Editar**. ![Botão "Editar" em "autenticação do SAML" e à direita "Atualizar o NameID do SAML"](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
 6. No campo "NameID", digite o novo `NameID` para o usuário. ![Campo "NameID" na caixa de diálogo modal com NameID digitado](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
-7. Click **Update NameID**. ![Botão "Atualizar o NameID" com o valor do NameID atualizado dentro do modal](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
+7. Clique **Atualizar o NameID**. ![Botão "Atualizar o NameID" com o valor do NameID atualizado dentro do modal](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
 
 {% endif %}
 
@@ -127,7 +127,7 @@ Se remover um usuário do seu provedor de identidade, você também deverá susp
 A mensagem de resposta deve atender aos seguintes requisitos:
 
 - O `<Destination>` elemento deve sempre ser fornecido no documento de resposta raiz e deve corresponder ao URL do ACS  somente quando o documento de resposta raiz estiver assinado. Se for assinada, a declaração será ignorada.
-- O elemento `<Audience>` deve sempre ser fornecido como parte do elemento `<AudienceRestriction>`. It must match the `EntityId` for {% data variables.product.prodname_ghe_server %}. Esta é a URL para a instância do {% data variables.product.prodname_ghe_server %}, como `https://ghe.corp.example.com`.
+- O elemento `<Audience>` deve sempre ser fornecido como parte do elemento `<AudienceRestriction>`. Ele deve corresponder ao `EntityId` para {% data variables.product.prodname_ghe_server %}. Esta é a URL para a instância do {% data variables.product.prodname_ghe_server %}, como `https://ghe.corp.example.com`.
 - Todas as declarações na resposta **devem** ser precedidas de assinatura digital. É possível fazer isso assinando cada elemento `<Assertion>` ou assinando o elemento `<Response>`.
 - Um elemento `<NameID>` deve ser fornecido como parte do elemento `<Subject>`. Qualquer formato de identificador de nome persistente pode ser usado.
 - O atributo `Recipient` deve estar presente e definido na URL do ACS. Por exemplo:

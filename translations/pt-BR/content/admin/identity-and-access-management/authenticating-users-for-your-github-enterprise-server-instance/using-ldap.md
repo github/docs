@@ -90,7 +90,7 @@ Selecione **Disable username and password authentication for Git operations** (D
 
 ![Desabilitar autenticação de senha LDAP na caixa de seleção do Git](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
 
-Quando esta opção estiver selecionada, se tentar usar uma senha para as operações do Git pela linha de comando, o usuário receberá está mensagem de erro: `A autenticação de senha não é permitida para operações do Git. You must use a personal access token.`
+Quando esta opção estiver selecionada, se tentar usar uma senha para as operações do Git pela linha de comando, o usuário receberá está mensagem de erro: `A autenticação de senha não é permitida para operações do Git. Você deve usar um token de acesso pessoal.`
 
 ### Habilitar verificação certificada LDAP
 
@@ -124,8 +124,8 @@ Depois que você habilitar a sincronização LDAP, um trabalho de sincronizaçã
 - Se houver um mapeamento LDAP e a entrada LDAP correspondente no diretório estiver ausente, suspenda o usuário e passe para o seguinte.
 - Se a entrada LDAP correspondente tiver sido marcada como desativada e o usuário ainda não estiver suspenso, suspenda o usuário e passe para o seguinte.
 - Se a entrada LDAP correspondente não estiver marcada como desabilitada, se o usuário estiver suspenso e se a opção _Reativar usuários suspensos_ estiver habilitada na central do administrador, cancele a suspensão do usuário.
-- If one or more restricted user groups are configured on the instance and the corresponding LDAP entry is not in one of these groups, suspend the user.
-- If one or more restricted user groups are configured on the instance, the corresponding LDAP entry is in one of these groups, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
+- Se um ou mais grupos restritos de usuários estiverem configurados na instância e a entrada do LDAP correspondente não for em um desses grupos, suspenda o usuário.
+- Se um ou mais grupos restritos de usuários estiverem configurados na instância, a entrada do LDAP correspondente será em um desses grupos. e _Reativar usuários suspensos_ estiver habilitado no Centro de Administração, cancele a suspensão do usuário.
 - Se a entrada LDAP correspondente incluir um atributo `name`, atualize o nome do perfil do usuário.
 - Se a entrada LDAP correspondente estiver no grupo de administradores, promova o usuário a administrador do site.
 - Se a entrada LDAP correspondente não estiver no grupo de administradores, rebaixe o usuário para uma conta regular.

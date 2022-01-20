@@ -71,7 +71,7 @@ Editar uma discussão fixada não irá alterar a categoria da discussão. Para o
 
 ## Transferir uma discussão
 
-Para transferir uma discussão, você precisa ter permissão de criar discussões no repositório, em que você deseja transferir a discussão.
+Para transferir uma discussão, você precisa ter permissão de criar discussões no repositório, em que você deseja transferir a discussão. You can only transfer discussions between repositories owned by the same user or organization account. You can't transfer a discussion from a private repository to a public repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
