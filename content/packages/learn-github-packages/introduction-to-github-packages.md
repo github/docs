@@ -1,5 +1,19 @@
 ---
 title: Introduction to GitHub Packages
+@misc{rfc2119,
+	series =	{Request for Comments},
+	number =	2119,
+	howpublished =	{RFC 2119},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC2119},
+	url =		{https://www.rfc-editor.org/info/rfc2119},
+        author =	{Scott O. Bradner},
+	title =		{{Key words for use in RFCs to Indicate Requirement Levels}},
+	pagetotal =	3,
+	year =		1997,
+	month =		mar,
+	abstract =	{In many standards track documents several words are used to signify the requirements in the specification. These words are often capitalized. This document defines these words as they should be interpreted in IETF documents. This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.},
+}
 intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately {% ifversion ghae %} for specified users or internally for your enterprise{% else %}or publicly{% endif %} and use packages as dependencies in your projects.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
