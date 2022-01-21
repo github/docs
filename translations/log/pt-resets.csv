@@ -6,11 +6,9 @@ translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-r
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,Listed in localization-support#489
+translations/pt-BR/content/admin/configuration/configuring-github-connect/managing-github-connect.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
-translations/pt-BR/content/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud.md,broken liquid tags
-translations/pt-BR/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-contributions-between-your-enterprise-account-and-githubcom.md,broken liquid tags
-translations/pt-BR/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise.md,broken liquid tags
