@@ -164,10 +164,7 @@ Para aprender mais sobre etiquetas de executores auto-hospedados, consulte ["Usa
 Para saber mais sobre as etiquetas do executor hospedado em {% data variables.product.prodname_dotcom %}, consulte ["Executores e recursos de hardware compatíveis"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
-## Reutilizando fluxos de trabalho
 {% data reusables.actions.reusable-workflows %}
-{% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 

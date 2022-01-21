@@ -105,31 +105,31 @@ Disponível na visão geral no nível da organização.
 
 Disponível na visualização de alerta de digitalização de código. Todos os alertas de digitalização de códigos têm uma das categorias exibidas abaixo. Você pode clicar em qualquer resultado para ver todos os detalhes da regra relevante e a linha de código que acionou o alerta.
 
-| Qualifier           | Descrição                                                                                              |
-| ------------------- | ------------------------------------------------------------------------------------------------------ |
-| `severity:critical` | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como críticos.    |
-| `severity:high`     | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como altos.       |
-| `severity:medium`   | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como médios.      |
-| `severity:low`      | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como baixos.      |
-| `severity:error`    | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como erros.       |
-| `severity:warning`  | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como avisos.      |
-| `severity:note`     | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como observações. |
+| Qualifier           | Descrição                                                                                           |
+| ------------------- | --------------------------------------------------------------------------------------------------- |
+| `severity:critical` | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como críticos. |
+| `severity:high`     | Exibe alertas de {% data variables.product.prodname_code_scanning %} categorizados como altos.    |
+| `severity:medium`   | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as medium.        |
+| `severity:low`      | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as low.           |
+| `severity:error`    | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as errors.        |
+| `severity:warning`  | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings.      |
+| `severity:note`     | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.         |
 
 {% endif %}
 
-## Filtrar por tipos de segredo
+## Filter by secret types
 
-Disponível nas visualizações de alerta de segredos.
+Available in the secret scanning alert views.
 
-| Qualifier                      | Descrição                                                                                                                                                                                                                                                                |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `secret-type:SERVICE_PROVIDER` | Exibe alertas para o segredo e provedor especificados. Para obter mais informações, consulte "[Lista de segredos compatíveis com repositórios privados](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories)         |
-| `secret-type:CUSTOM-PATTERN`   | Exibe alertas de segredos que correspondem ao padrão personalizado especificado. Para obter mais informações, consulte "[Definindo padrões personalizados para digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning). " |
+| Qualifier                      | Descrição                                                                                                                                                                                                                                       |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. For more information, see "[List of supported secrets for private repositories](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |
+| `secret-type:CUSTOM-PATTERN`   | Displays alerts for secrets matching the specified custom pattern. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."                     |
 
-## Filtrar por provedor
+## Filter by provider
 
-Disponível nas visualizações de alerta de segredos.
+Available in the secret scanning alert views.
 
-| Qualifier                | Descrição                                                                                                                                                                                                                                                                              |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `provider:PROVIDER_NAME` | Exibe alertas para todos os problemas de segredos por provedor especificado. Para obter mais informações, consulte "[Lista de segredos compatíveis com repositórios privados](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |
+| Qualifier                | Descrição                                                                                                                                                                                                                                                  |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[List of supported secrets for private repositories](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |

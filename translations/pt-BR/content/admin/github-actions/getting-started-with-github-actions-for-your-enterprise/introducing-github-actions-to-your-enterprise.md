@@ -32,7 +32,7 @@ Em seguida,{% else %}Primeiro,{% endif %} decida se você permitirá ações de 
 
 ![Captura de tela das políticas de {% data variables.product.prodname_actions %}](/assets/images/help/organizations/enterprise-actions-policy.png)
 
-{% ifversion ghec or ghae-issue-4757 %}
+{% ifversion ghec or ghae-issue-4757-and-5856 %}
 Considere combinar o OpenID Connect (OIDC) com fluxos de trabalho reutilizáveis para aplicar implantações consistentes no seu repositório, organização ou empresa. Você pode fazer isso definindo condições de confiança nas funções da nuvem com base em fluxos de trabalho reutilizáveis. Para obter mais informações, consulte "["Usando o OpenID Connect com fluxos de trabalho reutilizáveis"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows).
 {% endif %}
 
@@ -66,9 +66,7 @@ Há um risco significativo em fornecer de ações de repositórios de terceiros 
 
 ## Innersourcing
 
-Think about how your enterprise can use features of {% data variables.product.prodname_actions %} to innersource automation. Innersourcing é uma maneira de incorporar os benefícios das metodologias de código aberto no seu ciclo de desenvolvimento de software interno. Para obter mais informações, consulte [Uma introdução ao innersource ](https://resources.github.com/whitepapers/introduction-to-innersource/) nos recursos de{% data variables.product.company_short %}.
-
-{% data reusables.actions.internal-actions-summary %}
+Pense em como sua empresa pode usar funcionalidades de {% data variables.product.prodname_actions %} para gerar fluxos de trabalho. Innersourcing é uma maneira de incorporar os benefícios das metodologias de código aberto no seu ciclo de desenvolvimento de software interno. Para obter mais informações, consulte [Uma introdução ao innersource ](https://resources.github.com/whitepapers/introduction-to-innersource/) nos recursos de{% data variables.product.company_short %}.
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-4757 %}
 Com fluxos de trabalho reutilizáveis, a sua equipe pode chamar um fluxo de trabalho a partir de outro fluxo de trabalho, evitando duplicação exata. Os fluxos de trabalho reutilizáveis promovem práticas recomendadas, ajudando a sua equipe a usar os fluxos de trabalho bem desenhados e que já foram testados. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
@@ -76,9 +74,7 @@ Com fluxos de trabalho reutilizáveis, a sua equipe pode chamar um fluxo de trab
 
 Para fornecer um ponto de partida para os desenvolvedores que desenvolvem novos fluxos de trabalho, você pode usar fluxos de trabalho iniciais. Isso não só poupa tempo para seus desenvolvedores, mas promove a consistência e as práticas práticas recomendadas na sua empresa. Para obter mais informações, consulte "[Criando fluxos de trabalho iniciais para a sua organização](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)".
 
-{% if not internal-actions %}
 Sempre que seus desenvolvedores de fluxo de trabalho quiserem usar uma ação que seja armazenada em um repositório privado, eles deverão configurar o fluxo de trabalho para clonar o repositório primeiro. Para reduzir o número de repositórios que devem ser clonados, considere agrupar ações comumente usadas em um único repositório. Para obter mais informações, consulte "[Sobre ações personalizadas](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action)".
-{% endif %}
 
 ## Gerenciando recursos
 

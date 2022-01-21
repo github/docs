@@ -13,7 +13,7 @@ topics:
 children:
   - /configuring-your-enterprise
   - /configuring-network-settings
-  - /configuring-github-connect
+  - /managing-connections-between-your-enterprise-accounts
 ---
 
 {% ifversion ghes %}

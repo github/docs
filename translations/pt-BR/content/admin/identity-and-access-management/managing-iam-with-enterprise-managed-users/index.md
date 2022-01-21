@@ -1,5 +1,5 @@
 ---
-title: Gerenciando o IAM com usuários gerenciados pelo Enterprise
+title: Managing IAM with Enterprise Managed Users
 shortTitle: Enterprise Managed Users
 product: '{% data reusables.gated-features.emus %}'
 intro: Você pode gerenciar a identidade e o acesso com o seu provedor de identidade e prover contas que só podem contribuir com para a sua empresa.
