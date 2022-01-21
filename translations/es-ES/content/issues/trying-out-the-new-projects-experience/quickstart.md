@@ -49,6 +49,14 @@ Repite los pasos anteriores algunas veces para agregar propuestas múltiples a t
 
 Para obtener más información sobre otras formas de agregar usuarios a tu proyecto o acerca de otros elementos que puedes agregar a tu proyecto, consulta la sección "[Crear un proyecto](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)".
 
+## Agregar borradores de propuesta a tu proyecto
+
+Posteriormente, agrega un borrador de propuesta a tu proyecto.
+
+1. Coloca tu cursor en la fila inferior del proyecto, junto al {% octicon "plus" aria-label="plus icon" %}.
+1. Teclea tu ida y luego presiona **Enter**.
+1. Haz clic en el título del borrador de propuesta. En la caja de entrad de lenguaje de marcado que se muestra, ingresa más información sobre tu idea y luego haz clic en **Guardar**.
+
 ## Crear un campo para rastrear la prioridad
 
 Ahora, crea un campo personalizado que se llame `Priority` para que contenga los valores: `High`, `Medium`, o `Low`.

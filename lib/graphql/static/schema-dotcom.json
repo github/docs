@@ -33454,6 +33454,86 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "enterpriseOwners",
+          "description": "<p>A list of owners of the organization's enterprise account.</p>",
+          "type": "OrganizationEnterpriseOwnerConnection!",
+          "id": "organizationenterpriseownerconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationenterpriseownerconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for enterprise owners returned from the connection.</p>",
+              "type": {
+                "name": "OrgEnterpriseOwnerOrder",
+                "id": "orgenterpriseownerorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#orgenterpriseownerorder"
+              }
+            },
+            {
+              "name": "organizationRole",
+              "description": "<p>The organization role to filter by.</p>",
+              "type": {
+                "name": "RoleInOrganization",
+                "id": "roleinorganization",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#roleinorganization"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>The search string to look for.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "estimatedNextSponsorsPayoutInCents",
           "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
           "type": "Int!",
@@ -35370,6 +35450,80 @@
           "id": "organization",
           "kind": "objects",
           "href": "/graphql/reference/objects#organization"
+        }
+      ]
+    },
+    {
+      "name": "OrganizationEnterpriseOwnerConnection",
+      "kind": "objects",
+      "id": "organizationenterpriseownerconnection",
+      "href": "/graphql/reference/objects#organizationenterpriseownerconnection",
+      "description": "<p>The connection type for User.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[OrganizationEnterpriseOwnerEdge]",
+          "id": "organizationenterpriseowneredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationenterpriseowneredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[User]",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "OrganizationEnterpriseOwnerEdge",
+      "kind": "objects",
+      "id": "organizationenterpriseowneredge",
+      "href": "/graphql/reference/objects#organizationenterpriseowneredge",
+      "description": "<p>An enterprise owner in the context of an organization that is part of the enterprise.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "organizationRole",
+          "description": "<p>The role of the owner with respect to the organization.</p>",
+          "type": "RoleInOrganization!",
+          "id": "roleinorganization",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#roleinorganization"
         }
       ]
     },
@@ -67446,6 +67600,10 @@
           "description": "<p>Ko-fi funding platform.</p>"
         },
         {
+          "name": "LFX_CROWDFUNDING",
+          "description": "<p>LFX Crowdfunding funding platform.</p>"
+        },
+        {
           "name": "LIBERAPAY",
           "description": "<p>Liberapay funding platform.</p>"
         },
@@ -68149,6 +68307,19 @@
         {
           "name": "UNLIMITED",
           "description": "<p>Legacy Unlimited Plan.</p>"
+        }
+      ]
+    },
+    {
+      "name": "OrgEnterpriseOwnerOrderField",
+      "kind": "enums",
+      "id": "orgenterpriseownerorderfield",
+      "href": "/graphql/reference/enums#orgenterpriseownerorderfield",
+      "description": "<p>Properties by which enterprise owners can be ordered.</p>",
+      "values": [
+        {
+          "name": "LOGIN",
+          "description": "<p>Order enterprise owners by login.</p>"
         }
       ]
     },
@@ -68938,6 +69109,10 @@
       "description": "<p>The possible item types found in a timeline.</p>",
       "values": [
         {
+          "name": "ADDED_TO_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents a<code>added_to_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
           "name": "ADDED_TO_PROJECT_EVENT",
           "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
         },
@@ -69100,6 +69275,10 @@
         {
           "name": "REFERENCED_EVENT",
           "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
         },
         {
           "name": "REMOVED_FROM_PROJECT_EVENT",
@@ -77025,6 +77204,31 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "OrgEnterpriseOwnerOrder",
+      "kind": "inputObjects",
+      "id": "orgenterpriseownerorder",
+      "href": "/graphql/reference/input-objects#orgenterpriseownerorder",
+      "description": "<p>Ordering options for an organization's enterprise owner connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order enterprise owners by.</p>",
+          "type": "OrgEnterpriseOwnerOrderField!",
+          "id": "orgenterpriseownerorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orgenterpriseownerorderfield"
         }
       ]
     },
