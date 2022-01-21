@@ -1,8 +1,19 @@
-# Order is important. The LAST matching pattern has the MOST precedence.
-# gitignore style patterns are used, not globs.
-# https://docs.github.com/articles/about-codeowners
-# https://git-scm.com/docs/gitignore
-
+# ::Request: Pull
+# ::Pull: pull_request
+# pull_request: bitore.sig/BITCORE'@Paradice/Stargazer's
+# title: Build and Deploy
+# Name: Request
+# Request: Pull
+# Pull: pulls_request
+# pulls_request: '[Masterbranch']
+# Pushs: '[TREE']'
+# Tests: ci'@travis.yml
+# Run: heroku'@ci
+# bitore.sig
+# pkg.js
+# package.yarn
+# pkg.js@paradice/bitore.sig
+# 
 # Engineering
 *.js @github/docs-engineering
 *.ts @github/docs-engineering
@@ -33,3 +44,4 @@ package.json @github/docs-engineering
 # Make sure that Octokit maintainers get notified about changes
 # relevant to the Octokit libraries (https://github.com/octokit)
 /content/rest/reference @github/octokit-maintainers
+#::/:Build:: "pkg.js/package.yarn":
