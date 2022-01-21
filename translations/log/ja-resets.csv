@@ -31,10 +31,6 @@ translations/ja-JP/content/admin/configuration/configuring-your-enterprise/confi
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/initializing-github-ae.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
-translations/ja-JP/content/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud.md,broken liquid tags
-translations/ja-JP/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-contributions-between-your-enterprise-account-and-githubcom.md,broken liquid tags
-translations/ja-JP/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom.md,broken liquid tags
-translations/ja-JP/content/admin/configuration/managing-connections-between-your-enterprise-accounts/index.md,broken liquid tags
 translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,Listed in localization-support#489
 translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,parsing error
 translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,broken liquid tags
