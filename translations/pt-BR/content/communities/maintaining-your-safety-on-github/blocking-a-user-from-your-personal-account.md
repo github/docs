@@ -34,8 +34,8 @@ Quando você bloqueia um usuário:
 - Você é removido como colaborador em seus repositórios
 - O patrocínio dele para você é cancelado
 - Qualquer convite pendente de sucessor de uma conta ou de repositório para ou de um usuário bloqueado é cancelado
-- The user is removed as a collaborator from all the Project Boards & Projects (beta) owned by you
-- You are removed as a collaborator from all the Project Boards & Projects (beta) owned by the user
+- O usuário é removido como colaborador de todos os Quadros de Projeto & Projetos (beta) pertencentes a você
+- Você é removido como colaborador de todos os Quadros de Projeto & Projetos (beta) pertencentes ao usuário
 
 Depois que você bloqueou um usuário, ele não pode:
 - Enviar notificações a você, incluindo por [@menção](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) do seu nome de usuário
@@ -48,8 +48,8 @@ Depois que você bloqueou um usuário, ele não pode:
 - Faz referência cruzada de seus repositórios em comentários
 - Bifurque, inspecione, fixe ou favorite seus repositórios
 - Patrocinar você
-- Add you as a collaborator on their Project Boards & Projects (beta)
-- Make changes to your public Project Boards & Projects (beta)
+- Adicione você como colaborador nos seus Quadros de Projetos & Projetos (beta)
+- Faça as alterações nos seus Quadros de Projetos & Projetos (beta)
 
 Nos repositórios que você possui, os usuários bloqueados também não podem:
 - Criar problemas
