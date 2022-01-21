@@ -164,7 +164,10 @@ Para aprender más acerca de las etiquetas auto-hospedadas, consulta la sección
 To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+## Reutilizar flujos de trabajo
 {% data reusables.actions.reusable-workflows %}
+{% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 

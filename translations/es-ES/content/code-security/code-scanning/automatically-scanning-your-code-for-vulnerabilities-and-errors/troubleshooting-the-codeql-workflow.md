@@ -42,7 +42,7 @@ Para producir una salida más detallada de bitácoras, puedes habilitar el regis
 
 Puedes obtener artefactos para que te ayuden a depurar {% data variables.product.prodname_codeql %} si seleccionas un marcador de configuración de depuración. Modifica el paso de `init` de tu archivo de flujo de trabajo de {% data variables.product.prodname_codeql %} y configura `debug: true`.
 
-```
+```yaml
 - name: Initialize CodeQL
   uses: github/codeql-action/init@v1
   with:
@@ -140,11 +140,11 @@ Reemplaza el paso `autobuild` con los mismos comandos de compilación que utiliz
 
 ### Inspecciona la copia de los archivos de código fuente en la base de datos de {% data variables.product.prodname_codeql %}
 Podrías entender por qué algunos archivos de código fuente no se ha analizado si inspeccionas la copia del código fuente que se incluye utilizando la base de datos de {% data variables.product.prodname_codeql %}. Para obtener la base de datos del flujo de trabajo de tus acciones, agrega una acción de `upload-artifact` después del paso de análisis en tu flujo de trabajo de escaneo de código:
-```
+```yaml
 - uses: actions/upload-artifact@v2
   with:
-    name: codeql-database
-    path: ../codeql-database
+    name: {% raw %}codeql-database-${{ matrix.language }}{% endraw %}
+    path: {% raw %}${{ runner.temp }}/codeql_databases{% endraw %}
 ```
 Esto carga la base de datos como un artefacto de acciones que puedes descargar en tu máquina local. Para obtener más información, consulta la sección "[Almacenar artefactos de los flujos de trabajo ](/actions/guides/storing-workflow-data-as-artifacts)".
 
