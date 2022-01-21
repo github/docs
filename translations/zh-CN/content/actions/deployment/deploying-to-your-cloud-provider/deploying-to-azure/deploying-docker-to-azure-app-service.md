@@ -124,19 +124,21 @@ jobs:
           tags: ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
           file: ./Dockerfile
 
-    deploy:
-      runs-on: ubuntu-latest
-      needs: build
-      environment:
-        name: 'production'
-        url: {% raw %}${{ steps.deploy-to-webapp.outputs.webapp-url }}{% endraw %}
+  deploy:
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Lowercase the repo name
-          run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+    needs: build
 
-        - name: Deploy to Azure Web App
-          id: deploy-to-webapp
+    environment:
+      name: 'production'
+      url: {% raw %}${{ steps.deploy-to-webapp.outputs.webapp-url }}{% endraw %}
+
+    steps:
+      - name: Lowercase the repo name
+        run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
         uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
           with:
             app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
@@ -148,6 +150,6 @@ jobs:
 
 以下资源也可能有用：
 
-* For the original starter workflow, see [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* 有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml)。
 * 用于部署 Web 应用的操作是正式的 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

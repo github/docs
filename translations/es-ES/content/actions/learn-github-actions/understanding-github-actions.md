@@ -42,6 +42,8 @@ Tu repositorio puede tener varios flujos de trabajo dentro de él, cada uno de l
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Puedes referenciar un flujo de trabajo dentro de otro flujo de trabajo, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".{% endif %}
 
+Para obtener más información sobre los flujos de trabajo, consulta la sección "[Utilizar flujos de trabajo](/actions/using-workflows)".
+
 ### Eventos
 
 Un evento es una actividad específica en un repositorio, la cual activa una ejecución de flujo de trabajo. Por ejemplo, la actividad puede originarse desde {% data variables.product.prodname_dotcom %} cuando alguien crea una solicitud de cambios, abre una propuesta o sube una confirmación a un repositorio.  También puedes activar una ejecución de flujo de trabajo de acuerdo con una programación si la [publicas en una API de REST](/rest/reference/repos#create-a-repository-dispatch-event) o si lo haces manualmente.
@@ -54,11 +56,15 @@ Un job es un conjunto de _pasos_ en un flujo de trabajo, los cuales se ejecutan 
 
 Puedes configurar las dependencias de un job con otros jobs; predeterminadamente, los jobs no tienen dependencias y se ejecutan en paralelo entre ellos.  Cuando un job lleva una dependencia a otro job, este esperará a que el job dependiente se complete antes de que pueda ejecutarse.  Por ejemplo, puedes tener jobs de compilación múltiple para arquitecturas diferentes que no tengan dependencias y un job de empaquetado que sea dependiente de estos jobs.  Los jobs de compilación se ejecutarán en paralelo y, cuando se hayan completado con éxito, se ejecutará el job de empaquetado.
 
+Para obtener más información sobre los jobs, consulta la sección "[Utilizar jobs](/actions/using-jobs)".
+
 ### Acciones
 
 Una _acción_ es una aplicación personalizada para la plataforma de {% data variables.product.prodname_actions %} que realiza una tarea compleja pero que se repite frecuentemente.  Utiliza una acción para ayudarte a reducir la cantidad de código repetitivo que escribes en tus archivos de flujo de trabajo.  Una acción puede extraer tu repositorio de git desde {% data variables.product.prodname_dotcom %}, configurar la cadena de herramientas correcta para tu ambiente de compilación o configurar la autenticación en tu proveedor de servicios en la nube.
 
 Puedes escribir tus propias acciones o puedes encontrar acciones para utilizar en tus flujos de trabajo dentro de {% data variables.product.prodname_marketplace %}.
+
+Para obtener más información, consulta la sección "[Crear acciones](/actions/creating-actions)".
 
 ### Ejecutores
 
@@ -114,7 +120,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-Especifica el activador de este flujo de trabajo. Este ejemplo utiliza el evento <code>push</code>, así que una ejecución de flujo de trabajo se activa cada que alguien sube un cambio al repositorio o fusiona una solicitud de cambios.  Esto se activa mediante una subida a cada rama; para encontrar ejemplos de la sintaxis que solo se ejecuta en subidas a ramas específicas, rutas o etiquetas, consulta la sección <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">"Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}".</a>
+Especifica el activador de este flujo de trabajo. Este ejemplo utiliza el evento <code>push</code>, así que una ejecución de flujo de trabajo se activa cada que alguien sube un cambio al repositorio o fusiona una solicitud de cambios.  Esto se activa mediante una subida a cada rama; para encontrar ejemplos de la sintaxis que solo se ejecuta en subidas a ramas específicas, rutas o etiquetas, consulta la sección <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">"Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}".</a>
 </td>
 </tr>
 <tr>

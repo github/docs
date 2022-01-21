@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  orphaned-assets-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

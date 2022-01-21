@@ -125,7 +125,7 @@ Arroja `true` si `search` contiene `item`. Si `search` es una matriz, esta funci
 
 #### Ejemplo usando una matriz
 
-`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
+`contains(github.event.issue.labels.*.name, 'bug')` devuelve la información de si la propuesta que está relacionada al evento tiene una etiqueta de "bug" o no.
 
 #### Ejemplo usando una cadena
 

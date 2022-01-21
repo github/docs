@@ -37,7 +37,7 @@ Puedes inhabilitar el uso de los {% data variables.product.prodname_codespaces %
 
 También puedes limitar a los usuarios individuales que pueden utilizar {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Administrar los permisos de los usuarios para tu organización](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)".
 
-You can limit the choice of machine types that are available for repositories owned by your organization. This allows you to prevent people using overly resourced machines for their codespaces. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+Puedes limitar la elección de tipos de máquina que se encuentra disponible para los repositorios que pertenecen a tu organización. Esto te permite prevenir que las personas utilicen máquinas con recursos excedidos para sus codespaces. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
 
 ## Borrar los codespaces sin utilizar
 

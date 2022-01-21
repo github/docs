@@ -127,6 +127,34 @@ Actividad relacionada con una regla de protección de rama. Para obtener más in
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+A Git ref has been successfully synced to a cache replica. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+
+### Disponibilidad
+
+- Webhooks de repositorio
+- Webhooks de organización
+
+### Objeto de carga útil del webhook
+
+| Clave            | Tipo        | Descripción                                                    |
+| ---------------- | ----------- | -------------------------------------------------------------- |
+| `cache_location` | `secuencia` | The location of the cache server that has been updated.        |
+| `ref`            | `secuencia` | The ref that has been updated.                                 |
+| `before`         | `secuencia` | The OID of the ref on the cache replica before it was updated. |
+| `after`          | `secuencia` | The OID of the ref on the cache replica after the update.      |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Ejemplo de carga útil del webhook
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -241,7 +269,7 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 {% note %}
 
-**Nota:** No recibirás un webhook para este evento cuando cargues más de tres etiquetas al mismo tiempo.
+**Nota:** No recibirás un webhook para este evento cuando crees más de tres etiquetas al mismo tiempo.
 
 {% endnote %}
 
@@ -325,10 +353,10 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 ### Objeto de carga útil del webhook
 
-| Clave        | Tipo                                        | Descripción                                                    |
-| ------------ | ------------------------------------------- | -------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| Clave        | Tipo                                        | Descripción                                                     |
+| ------------ | ------------------------------------------- | --------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `Acción`     | `secuencia`                                 | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment` | `objeto`                                    | El [despliegue](/rest/reference/deployments#list-deployments). |
+| `deployment` | `objeto`                                    | The [deployment](/rest/reference/deployments#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -350,14 +378,14 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 ### Objeto de carga útil del webhook
 
-| Clave                              | Tipo                                        | Descripción                                                                                     |
-| ---------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| Clave                              | Tipo                                        | Descripción                                                                                         |
+| ---------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `Acción`                           | `secuencia`                                 | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment_status`                | `objeto`                                    | El [Estado del despliegue](/rest/reference/deployments#list-deployment-statuses).               |
-| `deployment_status["state"]`       | `secuencia`                                 | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                          |
-| `deployment_status["target_url"]`  | `secuencia`                                 | El enlace opcional agregado al estado.                                                          |
-| `deployment_status["description"]` | `secuencia`                                 | La descripción opcional legible para las personas que se agrega al estado.                      |
-| `deployment`                       | `objeto`                                    | El [despliegue](/rest/reference/deployments#list-deployments) con el que se asocia este estado. |
+| `deployment_status`                | `objeto`                                    | The [deployment status](/rest/reference/deployments#list-deployment-statuses).                      |
+| `deployment_status["state"]`       | `secuencia`                                 | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                              |
+| `deployment_status["target_url"]`  | `secuencia`                                 | El enlace opcional agregado al estado.                                                              |
+| `deployment_status["description"]` | `secuencia`                                 | La descripción opcional legible para las personas que se agrega al estado.                          |
+| `deployment`                       | `objeto`                                    | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -381,9 +409,9 @@ Actividad relacionada con un debate. Para obtener más información, consulta la
 
 ### Objeto de carga útil del webhook
 
-| Clave    | Tipo        | Descripción                                                                                                                                                               |
-| -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Acción` | `secuencia` | La acción realizada. Puede ser `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, o `unanswered`. |
+| Clave    | Tipo        | Descripción                                                                                                                                                                                      |
+| -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Acción` | `secuencia` | La acción realizada. Puede ser `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled` o `unlabeled`. |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -857,6 +885,38 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 
 {{ webhookPayloadsForCurrentVersion.ping }}
 
+## project
+
+{% data reusables.webhooks.project_short_desc %}
+
+### Disponibilidad
+
+- Webhooks de repositorio
+- Webhooks de organización
+- Las {% data variables.product.prodname_github_apps %} con el permiso `repository_projects` or `organization_projects`
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Nota**: Este evento no ocurre para los Proyectos (beta).
+
+{% endnote %}
+{% endif %}
+
+### Objeto de carga útil del webhook
+
+{% data reusables.webhooks.project_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Ejemplo de carga útil del webhook
+
+{{ webhookPayloadsForCurrentVersion.project.created }}
+
+{% ifversion fpt or ghes or ghec %}
+
 ## project_card
 
 {% data reusables.webhooks.project_card_short_desc %}
@@ -866,6 +926,14 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 - Webhooks de repositorio
 - Webhooks de organización
 - Las {% data variables.product.prodname_github_apps %} con el permiso `repository_projects` or `organization_projects`
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Nota**: Este evento no ocurre para los Proyectos (beta).
+
+{% endnote %}
+{% endif %}
 
 ### Objeto de carga útil del webhook
 
@@ -901,29 +969,6 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-## project
-
-{% data reusables.webhooks.project_short_desc %}
-
-### Disponibilidad
-
-- Webhooks de repositorio
-- Webhooks de organización
-- Las {% data variables.product.prodname_github_apps %} con el permiso `repository_projects` or `organization_projects`
-
-### Objeto de carga útil del webhook
-
-{% data reusables.webhooks.project_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
-
-### Ejemplo de carga útil del webhook
-
-{{ webhookPayloadsForCurrentVersion.project.created }}
-
-{% ifversion fpt or ghes or ghec %}
 ## public
 
 {% data reusables.webhooks.public_short_desc %}
@@ -1035,29 +1080,29 @@ Las entregas para los eventos `review_requested` y `review_request_removed` tend
 
 ### Objeto de carga útil del webhook
 
-| Clave                      | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ref`                      | `secuencia` | Toda la [`git ref`](/rest/reference/git#refs) que se cargó. Ejemplo: `refs/heads/main` o `refs/tags/v3.14.1`.                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `before`                   | `secuencia` | El SHA de la confirmación más reciente en `ref` antes de la carga.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `after`                    | `secuencia` | El SHA de la confirmación más reciente en `ref` después de la carga.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `created`                  | `boolean`   | Si es que esta subida creó la `ref`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `deleted`                  | `boolean`   | Si es que esta subida borró la `ref`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `forced`                   | `boolean`   | Si es que esta subida fue una subida forzada de la `ref`.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `head_commit`              | `objeto`    | Para las subidas en donde `after` es o apunta a un objeto de confirmación, es una representación expandida de dicha confirmación. Para las subidas en donde `after` se refiere a un objeto de etiqueta anotada, es una representación expandida de la confirmación a la que otra etiqueta apuntó.                                                                                                                                                                                                               |
-| `compare`                  | `secuencia` | URL que muestra los cambios en esta actualización de `ref`, desde la confirmación `before` hasta la de `after`. Para una `ref` recién creada que se basa directamente en la rama predeterminada, esta es la comparación entre el encabezado de la rama predeterminada y la confirmación de `after`. De lo contrario, esto muestra todas las confirmaciones hasta la confirmación de `after`.                                                                                                                    |
-| `commits`                  | `arreglo`   | Un conjunto de objetos de confirmación que describen las confirmaciones subidas. (Las confirmaciones subidas son todas las que se incluyen en el `compare` entre la confirmación de `before` y la de `after`). El arreglo incluye un máximo de 20 confirmaciones. De ser encesario, puedes utilizar la [API de confirmaciones](/rest/reference/repos#commits) para recuperar confirmaciones adicionales. Este límite se aplica a los eventos cronológicos únicamente y no se aplica a las entregas de webhooks. |
-| `commits[][id]`            | `secuencia` | El SHA de la confirmación.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `commits[][timestamp]`     | `secuencia` | La marca de tiempo de tipo ISO 8601 de la confirmación.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `commits[][message]`       | `secuencia` | El mensaje de la confirmación.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `commits[][author]`        | `objeto`    | El autor de git de la confirmación.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `commits[][author][name]`  | `secuencia` | El nombre del autor de git.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `commits[][author][email]` | `secuencia` | La dirección de correo electrónico del autor de git.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `commits[][url]`           | `url`       | URL que apunta al recurso de la API de la confirmación.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `commits[][distinct]`      | `boolean`   | Si la confirmación es distinta de cualquier otra que se haya subido antes.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `commits[][added]`         | `arreglo`   | Un arreglo de archivos que se agregaron en la confirmación.                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `commits[][modified]`      | `arreglo`   | Un areglo de archivos que modificó la confirmación.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `commits[][removed]`       | `arreglo`   | Un arreglo de archivos que se eliminaron en la confirmación.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `pusher`                   | `objeto`    | El usuario que subió la confirmación.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Clave                      | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                  |
+| -------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ref`                      | `secuencia` | Toda la [`git ref`](/rest/reference/git#refs) que se cargó. Ejemplo: `refs/heads/main` o `refs/tags/v3.14.1`.                                                                                                                                                                                                                                                                                |
+| `before`                   | `secuencia` | El SHA de la confirmación más reciente en `ref` antes de la carga.                                                                                                                                                                                                                                                                                                                           |
+| `after`                    | `secuencia` | El SHA de la confirmación más reciente en `ref` después de la carga.                                                                                                                                                                                                                                                                                                                         |
+| `created`                  | `boolean`   | Si es que esta subida creó la `ref`.                                                                                                                                                                                                                                                                                                                                                         |
+| `deleted`                  | `boolean`   | Si es que esta subida borró la `ref`.                                                                                                                                                                                                                                                                                                                                                        |
+| `forced`                   | `boolean`   | Si es que esta subida fue una subida forzada de la `ref`.                                                                                                                                                                                                                                                                                                                                    |
+| `head_commit`              | `objeto`    | Para las subidas en donde `after` es o apunta a un objeto de confirmación, es una representación expandida de dicha confirmación. Para las subidas en donde `after` se refiere a un objeto de etiqueta anotada, es una representación expandida de la confirmación a la que otra etiqueta apuntó.                                                                                            |
+| `compare`                  | `secuencia` | URL que muestra los cambios en esta actualización de `ref`, desde la confirmación `before` hasta la de `after`. Para una `ref` recién creada que se basa directamente en la rama predeterminada, esta es la comparación entre el encabezado de la rama predeterminada y la confirmación de `after`. De lo contrario, esto muestra todas las confirmaciones hasta la confirmación de `after`. |
+| `commits`                  | `arreglo`   | Un conjunto de objetos de confirmación que describen las confirmaciones subidas. (Las confirmaciones subidas son todas las que se incluyen en el `compare` entre la confirmación de `before` y la de `after`).                                                                                                                                                                               |
+| `commits[][id]`            | `secuencia` | El SHA de la confirmación.                                                                                                                                                                                                                                                                                                                                                                   |
+| `commits[][timestamp]`     | `secuencia` | La marca de tiempo de tipo ISO 8601 de la confirmación.                                                                                                                                                                                                                                                                                                                                      |
+| `commits[][message]`       | `secuencia` | El mensaje de la confirmación.                                                                                                                                                                                                                                                                                                                                                               |
+| `commits[][author]`        | `objeto`    | El autor de git de la confirmación.                                                                                                                                                                                                                                                                                                                                                          |
+| `commits[][author][name]`  | `secuencia` | El nombre del autor de git.                                                                                                                                                                                                                                                                                                                                                                  |
+| `commits[][author][email]` | `secuencia` | La dirección de correo electrónico del autor de git.                                                                                                                                                                                                                                                                                                                                         |
+| `commits[][url]`           | `url`       | URL que apunta al recurso de la API de la confirmación.                                                                                                                                                                                                                                                                                                                                      |
+| `commits[][distinct]`      | `boolean`   | Si la confirmación es distinta de cualquier otra que se haya subido antes.                                                                                                                                                                                                                                                                                                                   |
+| `commits[][added]`         | `arreglo`   | Un arreglo de archivos que se agregaron en la confirmación.                                                                                                                                                                                                                                                                                                                                  |
+| `commits[][modified]`      | `arreglo`   | Un areglo de archivos que modificó la confirmación.                                                                                                                                                                                                                                                                                                                                          |
+| `commits[][removed]`       | `arreglo`   | Un arreglo de archivos que se eliminaron en la confirmación.                                                                                                                                                                                                                                                                                                                                 |
+| `pusher`                   | `objeto`    | El usuario que subió la confirmación.                                                                                                                                                                                                                                                                                                                                                        |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
