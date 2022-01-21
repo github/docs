@@ -201,7 +201,7 @@ describe('redirects', () => {
 
     test('hardcoded @latest redirects to latest version', async () => {
       const res = await get('/en/enterprise-server@latest')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(enterpriseHome)
     })
   })
