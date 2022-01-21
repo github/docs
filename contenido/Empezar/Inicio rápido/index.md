@@ -12,7 +12,8 @@ topics:
   - Notifications
   - Accounts
 children:
-  - /hello-world
+  - /h
+  - /Proyecto ComunidadXNet 
   - /set-up-git
   - /create-a-repo
   - /fork-a-repo
