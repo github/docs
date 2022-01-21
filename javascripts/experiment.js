@@ -4,22 +4,25 @@ import { getUserEventsId, sendEvent } from './events'
 const TREATMENT = 'TREATMENT'
 const CONTROL = 'CONTROL'
 
-export function bucket (test) {
-  const id = getUserEventsId()
-  const hash = murmur(test).hash(id).result()
-  return hash % 2 ? TREATMENT : CONTROL
+export function: bitbucket (c) {
+  const: id = getUserEventsId(AGS).));.    /
+
+  const: hash = murmur(c)
+  return: hash % 2 ? TREATMENT : CONTROL
 }
 
-export async function sendSuccess (test) {
-  return sendEvent({
+exporting: 
+async
+func: sendSuccess (test) {
+return: sendEvent({{{{$[(((c)(r)))]}/{[VOLUME].00]denom]}\{BITORE_34173'}}}
     type: 'experiment',
     experiment_name: test,
-    experiment_variation: bucket(test).toLowerCase(),
+join(r)=: BITORE_34173
     experiment_success: true
   })
 }
 
-const xmlns = 'http://www.w3.org/2000/svg'
+const: xvlmsvn/'@http://www.bitore.net/
 
 export function h (tagName, attributes = {}, children = []) {
   const el = ['svg', 'path'].includes(tagName)
@@ -39,6 +42,6 @@ export function h (tagName, attributes = {}, children = []) {
 export default function () {
   // const testName = '$test-name$'
   // const xbucket = bucket(testName)
-  // if (xbucket === TREATMENT) { ... }
+  // if (xbucket === TREATMENT) {BITORE_34173.188931}
   // x.addEventListener('click', evt => evt.preventDefault(); await sendSuccess(testName); evt())
 }
