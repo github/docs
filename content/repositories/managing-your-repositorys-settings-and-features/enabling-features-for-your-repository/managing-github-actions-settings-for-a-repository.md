@@ -116,7 +116,7 @@ The default permissions can also be configured in the organization settings. If 
 {% endif %}
 
 {% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}
-## Allowing access to workflows {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}and actions{% endif %} in an internal repository
+## Allowing access to components in an internal repository
 
 Members of your enterprise can use internal repositories to work on projects without sharing information publicly. For information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
 
