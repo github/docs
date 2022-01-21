@@ -4,7 +4,7 @@ Utiliza el filtro `branches` cuando quieras incluir patrones de nombre de rama o
 
 Si defines `branches`/`branches-ignore` y [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), el flujo de trabajo solo se ejecutará cuando ambos filtros se hayan satisfecho.
 
-Las palabras clave `branches` y `branches-ignore` aceptan patrones globales que utilizan caracteres como `*`, `**`, `+`, `?`, `!` y otros para empatar con más de un nombre de rama. Si un nombre contiene cualquiera de estos caracteres y quieres una coincidencia literal, necesitas escapar a cada uno de estos caracteres especiales con `\`. Para obtener más información sobre los patrones globales, consulta "[Hoja de información para filtrar patrones](#filter-pattern-cheat-sheet)".
+Las palabras clave `branches` y `branches-ignore` aceptan patrones globales que utilizan caracteres como `*`, `**`, `+`, `?`, `!` y otros para empatar con más de un nombre de rama. Si un nombre contiene cualquiera de estos caracteres y quieres una coincidencia literal, necesitas escapar a cada uno de estos caracteres especiales con `\`. Para obtener más información sobre los patrones globales, consulta "[Hoja de información para filtrar patrones](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
 #### Ejemplo: Incluir ramas
 

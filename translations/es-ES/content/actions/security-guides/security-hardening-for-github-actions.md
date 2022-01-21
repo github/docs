@@ -196,6 +196,12 @@ Puedes ayudar a mitigar este riesgo si sigues estas buenas prácticas:
 El mismo principio que se describió anteriormente para utilizar acciones de terceros también aplica para los flujos de trabajo de terceros. Puedes ayudar a mitigar los riesgos asociados con la reutilización de flujos de trabajo si sigues las mismas buenas prácticas que se describen anteriormente. Para obtener más información, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
 
+{% if internal-actions %}
+## Allowing workflows to access internal repositories
+
+{% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+{% endif %}
+
 ## Impacto potencial de un ejecutor puesto en riesgo
 
 Estas secciones consideran algunos de los pasos que puede llevar a cabo un atacante si pueden ejecutar comandos malintencionados en un ejecutor de {% data variables.product.prodname_actions %}.
@@ -232,7 +238,7 @@ El servidor atacante puede utilizar la API de {% ifversion fpt or ghec %}{% data
 
 ## Considerar acceso entre repositorios
 
-{% data variables.product.prodname_actions %} tiene un alcance intencional para un solo repositorio por vez. El `GITHUB_TOKEN` otorga el mismo nivel de acceso que el de un usuario con acceso de escritura, ya que cualquier usuario con este tipo de acceso puede acceder al token si crea o modifica un archivo de flujo de trabajo {% ifversion fpt or ghes > 3.1 or ghae or ghec %}, lo cual eleva los permisos del `GITHUB_TOKEN` en caso de que sea necesario{% endif %}. Los usuarios tienen permisos específicos para cada repositorio, así que, permitir que el `GITHUB_TOKEN` de un repositorio otorgue acceso a otro de ellos impactará el modelo de permisos de {% data variables.product.prodname_dotcom %} si no se implementa con cuidado. De forma similar, se debe tener cuidado al agregar tokens de autenticación de {% data variables.product.prodname_dotcom %} a un flujo de trabajo, ya que esto también puede afectar el modelo de permisos de {% data variables.product.prodname_dotcom %} al otorgar inadvertidamente un acceso amplio a los colaboradores.
+{% data variables.product.prodname_actions %} is intentionally scoped for a single repository at a time. El `GITHUB_TOKEN` otorga el mismo nivel de acceso que el de un usuario con acceso de escritura, ya que cualquier usuario con este tipo de acceso puede acceder al token si crea o modifica un archivo de flujo de trabajo {% ifversion fpt or ghes > 3.1 or ghae or ghec %}, lo cual eleva los permisos del `GITHUB_TOKEN` en caso de que sea necesario{% endif %}. Los usuarios tienen permisos específicos para cada repositorio, así que, permitir que el `GITHUB_TOKEN` de un repositorio otorgue acceso a otro de ellos impactará el modelo de permisos de {% data variables.product.prodname_dotcom %} si no se implementa con cuidado. De forma similar, se debe tener cuidado al agregar tokens de autenticación de {% data variables.product.prodname_dotcom %} a un flujo de trabajo, ya que esto también puede afectar el modelo de permisos de {% data variables.product.prodname_dotcom %} al otorgar inadvertidamente un acceso amplio a los colaboradores.
 
 Tenemos [un plan en el itinerario de {% data variables.product.prodname_dotcom %}](https://github.com/github/roadmap/issues/74) para compatibilizar un flujo que permita acceso entre repositorios dentro de {% data variables.product.product_name %}, pero aún no es una característica compatible. Actualmente, la única forma de realizar interacciones privilegiadas entre repositorios es colocar un token de autenticación de {% data variables.product.prodname_dotcom %} o llave SSH como un secreto dentro del flujo de trabajo. Ya que muchos tipos de tokens de autenticación no permiten el acceso granular a recursos específicos, existe un riesgo significativo en el utilizar el tipo incorrecto de token, ya que puede otorgr un acceso mucho más amplio que lo que se espera.
 
