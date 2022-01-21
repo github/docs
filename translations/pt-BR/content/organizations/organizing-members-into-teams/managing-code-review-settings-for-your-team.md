@@ -57,9 +57,9 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" não ser�
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. Na barra lateral esquerda, clique em **Revisão de Código** ![Botão revisar código](/assets/images/help/teams/review-button.png)
-2. Selecione **Somente notificar os integrantes da equipe solicitados.** ![Notificações da equipe de revisão código](/assets/images/help/teams/review-assignment-notifications.png)
-3. Clique em **Save changes** (Salvar alterações).
+1. Na barra lateral esquerda, clique em **Revisão de Código** ![Botão revisar código](/assets/images/help/teams/review-button.png)
+1. Selecione **Somente notificar os integrantes da equipe solicitados.** ![Notificações da equipe de revisão código](/assets/images/help/teams/review-assignment-notifications.png)
+1. Clique em **Save changes** (Salvar alterações).
 {% endif %}
 
 ## Configurando atribuição automática
@@ -67,24 +67,25 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" não ser�
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. Na barra lateral esquerda, clique em **Revisão de Código** ![Botão revisar código](/assets/images/help/teams/review-button.png)
-6. Selecione **Habilitar atribuição automática**. ![Botão de atribuição automática](/assets/images/help/teams/review-assignment-enable.png)
-7. Em "Quantos membros da equipe devem ser atribuídos para a revisão?, use o menu suspenso e escolha um número de revisores a serem atribuídos a cada pull request. ![Menu suspenso do número de revisores](/assets/images/help/teams/review-assignment-number.png)
-8. Em "Algoritmo de encaminhamento", use o menu suspenso e escolha qual algoritmo você gostaria de usar. Para obter mais informações, consulte "[Algoritmos de encaminhamento](#routing-algorithms)". ![Menu suspenso do algoritmo de encaminhamento](/assets/images/help/teams/review-assignment-algorithm.png)
-9. Opcionalmente, para sempre ignorar determinados membros da equipe, selecione **Nunca atribuir certos integrantes da equipe**. Em seguida, selecione um ou mais integrantes da equipe que você gostaria de ignorar sempre. ![Menu suspenso e caixa de seleção "Nunca atribuir certos integrantes da equipe"](/assets/images/help/teams/review-assignment-skip-members.png)
-{% ifversion fpt or ghec or ghae-issue-5108 or ghes > 3.2 %}
-11. Opcionalmente, para incluir integrantes de equipes secundárias como possíveis revisores ao atribuir pedidos, selecione **Integrantes da equipe secundária**.
-12. Opcionalmente, para contar todos os integrantes cuja avaliação já foi solicitada para o número total de integrantes a atribuir, selecione **Contar as solicitações existentes** existentes.
-13. Opcionalmente, para remover a solicitação de revisão da equipe ao atribuir integrantes da equipe, selecione **Pedido de revisão de equipe**.
-{%- else %}
-10. Opcionalmente, para notificar apenas os integrantes da equipe escolhidos pela atribuição de revisão de código para cada solicitação de revisão de pull request, em "Notificações", selecione **Ao atribuir integrantes da equipe, não notifique toda a equipe.**
+1. Na barra lateral esquerda, clique em **Revisão de Código** ![Botão revisar código](/assets/images/help/teams/review-button.png)
+1. Selecione **Habilitar atribuição automática**. ![Botão de atribuição automática](/assets/images/help/teams/review-assignment-enable.png)
+1. Em "Quantos membros da equipe devem ser atribuídos para a revisão?, use o menu suspenso e escolha um número de revisores a serem atribuídos a cada pull request. ![Menu suspenso do número de revisores](/assets/images/help/teams/review-assignment-number.png)
+1. Em "Algoritmo de encaminhamento", use o menu suspenso e escolha qual algoritmo você gostaria de usar. Para obter mais informações, consulte "[Algoritmos de encaminhamento](#routing-algorithms)". ![Menu suspenso do algoritmo de encaminhamento](/assets/images/help/teams/review-assignment-algorithm.png)
+1. Opcionalmente, para sempre ignorar determinados membros da equipe, selecione **Nunca atribuir certos integrantes da equipe**. Em seguida, selecione um ou mais integrantes da equipe que você gostaria de ignorar sempre. ![Menu suspenso e caixa de seleção "Nunca atribuir certos integrantes da equipe"](/assets/images/help/teams/review-assignment-skip-members.png)
+{% ifversion ghes < 3.4 %}
+1. Opcionalmente, para notificar apenas os integrantes da equipe escolhidos pela atribuição de revisão de código para cada solicitação de revisão de pull request, em "Notificações", selecione **Ao atribuir integrantes da equipe, não notifique toda a equipe.**
 {%- endif %}
-14. Clique em **Save changes** (Salvar alterações).
+{% ifversion fpt or ghec or ghae-issue-5108 or ghes > 3.2 %}
+1. Opcionalmente, para incluir integrantes de equipes secundárias como possíveis revisores ao atribuir pedidos, selecione **Integrantes da equipe secundária**.
+1. Opcionalmente, para contar todos os integrantes cuja avaliação já foi solicitada para o número total de integrantes a atribuir, selecione **Contar as solicitações existentes** existentes.
+1. Opcionalmente, para remover a solicitação de revisão da equipe ao atribuir integrantes da equipe, selecione **Pedido de revisão de equipe**.
+{%- endif %}
+1. Clique em **Save changes** (Salvar alterações).
 
 ## Desabilitando a atribuição automática
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. Selecione **Habilitar atribuição automática** para remover a marca. ![Botão da atribuição da revisão de código](/assets/images/help/teams/review-assignment-enable.png)
-6. Clique em **Save changes** (Salvar alterações).
+1. Selecione **Habilitar atribuição automática** para remover a marca. ![Botão da atribuição da revisão de código](/assets/images/help/teams/review-assignment-enable.png)
+1. Clique em **Save changes** (Salvar alterações).

@@ -1,3 +1,6 @@
+# Redirects are cached in 'lib/redirects/.redirects-cache_*.json'. If changes made here are not being reflected
+# on your local server, delete the cache files and restart your server.
+
 # These urls went from being free-pro-team, but are now versioned for more than one enterprise version and enterprise-cloud
 # Shipped in pull #20947 on 10/15/21
 
@@ -30,14 +33,14 @@
 - /articles/viewing-the-subscription-and-usage-for-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/viewing-the-subscription-and-usage-for-your-enterprise-account
 
-/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/about-identity-and-access-management-for-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/about-identity-and-access-management-for-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 - /admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
 
-/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account
@@ -141,51 +144,58 @@
 - /articles/managing-users-in-your-enterprise-account
 - /articles/managing-users-in-your-enterprise
 
-/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account
 - /admin/authentication/managing-identity-and-access-for-your-enterprise
 
 # These URLs went from being in free-pro-team to ONLY to being in enterprise-cloud only. 
 # Shipped in pull #20947 on 10/15/21
 
-/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/managing-team-synchronization-for-organizations-in-your-enterprise-account
 - /admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
 
-/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta
 - /github/setting-up-and-managing-your-enterprise/configuring-single-sign-on-for-your-enterprise-account-using-okta
 - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta
 - /github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta
 - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta
 - /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta
 
-/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
 - /admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
 
-/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider
 
-/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users
 - /early-access/github/articles/get-started-with-managed-users-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users
 
-/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
 
-/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
 
-/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
 - /early-access/github/articles/configuring-provisioning-for-managed-users-with-okta
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
 
-/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
 
-/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/auditing-activity-in-your-enterprise
+/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/auditing-activity-in-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/auditing-activity-in-your-enterprise
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/auditing-activity-in-your-enterprise
 
 /enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
@@ -392,3 +402,24 @@
 /enterprise-cloud@latest/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group
 - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
 - /organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group
+
+# "About Premium Support" is the combination of three older articles and is now versioned for GHEC and GHES. As it is still
+# linked from site policy and the UI, this ensures those version-less URLs redirect correctly.
+# Shipped in #23217
+
+/enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support
+- /articles/about-github-premium-support
+- /articles/about-github-premium-support-for-github-enterprise-cloud
+- /enterprise/admin/guides/enterprise-support/about-premium-support-for-github-enterprise
+- /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise
+- /admin/enterprise-support/about-github-premium-support-for-github-enterprise
+- /github/working-with-github-support/about-github-premium-support-for-github-enterprise-cloud
+- /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise
+- /support/about-github-support/about-github-premium-support
+- /support/learning-about-github-support/about-github-premium-support
+
+/enterprise-server@latest/support/learning-about-github-support/about-github-premium-support
+- /enterprise/admin/guides/enterprise-support/about-premium-support
+- /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
+- /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
+- /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise-server

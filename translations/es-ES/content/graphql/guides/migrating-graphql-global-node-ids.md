@@ -21,7 +21,7 @@ To learn more about why the legacy global node ID format will be deprecated, see
 
 You only need to follow the migration steps if you store references to GraphQL global node IDs.  These IDs correspond to the `id` field for any object in the schema.  If you don't store any global node IDs, then you can continue to interact with the API with no change.
 
-Additionally, if you currently decode the legacy IDs to extract type information (for example, if you use the first two characters of `PR_kwDOAHz1OX4uYAah` to determine if the object is a pull request), your service will break since the format of the IDs has changed.  You should migrate your service to treat these IDs as opaque strings.  These IDs will be unique, therefore you can rely on them directly as references.
+Adicionalmente, si actualmente descodificas las ID tradicionales para extraer información de tipo (por ejemplo, si utilizas los dos primeros caracteres de `PR_kwDOAHz1OX4uYAah` para determinar si el objeto es una solicitud de cambios), tu servicio se interrumpirá, ya que el formato de las ID cambió.  You should migrate your service to treat these IDs as opaque strings.  These IDs will be unique, therefore you can rely on them directly as references.
 
 
 ## Migrating to the new global IDs
@@ -65,4 +65,4 @@ Note that setting `X-Github-Next-Global-ID` to `1` will affect the return value 
 
 ## Compartir retroalimentación
 
-If you have any concerns about the rollout of this change impacting your app, please [contact {% data variables.product.product_name %}](https://support.github.com/contact) and include information such as your app name so that we can better assist you.
+Si te preocupa que la implementación de este cambio impacte tu app, por favor, [contacta a {% data variables.product.product_name %}](https://support.github.com/contact) e incluye la información del nombre de tu app para que te podamos apoyarte mejor.

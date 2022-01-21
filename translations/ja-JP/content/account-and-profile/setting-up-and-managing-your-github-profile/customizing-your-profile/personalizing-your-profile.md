@@ -26,11 +26,14 @@ shortTitle: Personalize
 
 アカウントにサインアップすると、{% data variables.product.product_name %} はとりあえずランダムなアイデンティコンを生成します。 [アイデンティコン](https://github.com/blog/1586-identicons)は、ユーザ ID のハッシュから生成されるもので、その色やパターンをコントロールする方法はありません。 アイデンティコンは、あなたを表す画像に置き換えることができます。
 
-{% tip %}
+{% note %}
 
-**参考**: プロフィール画像は、1 MB 以下の PNG、JPG または GIF である必要があります。 最高の画質をもたらすには、画像を 500 × 500 ピクセルに収めることを推奨します。
+**Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
 
-{% endtip %}
+* {% endif %}Your profile picture should be a PNG, JPG, or GIF file under 1 MB in size. 最高の画質をもたらすには、画像を 500 × 500 ピクセルに収めることを推奨します。
+{% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
+
+{% endnote %}
 
 ### プロフィール画像を設定する
 

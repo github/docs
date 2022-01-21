@@ -133,14 +133,14 @@ topics:
 
 ## 站点管理员工具
 
-| 操作                      | 描述                                                                                             |
-| ----------------------- | ---------------------------------------------------------------------------------------------- |
-| `staff.disable_repo`    | 站点管理员已禁用对仓库及其所有复刻的访问。                                                                          |
-| `staff.enable_repo`     | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghes > 3.2 %}
-| `staff.exit_fake_login` | A site admin ended an impersonation session on {% data variables.product.product_name %}.      |
+| 操作                      | 描述                                                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------------------------------ |
+| `staff.disable_repo`    | 站点管理员已禁用对仓库及其所有复刻的访问。                                                                                  |
+| `staff.enable_repo`     | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghae or ghes > 3.2 %}
+| `staff.exit_fake_login` | A site admin ended an impersonation session on {% data variables.product.product_name %}.              |
 | `staff.fake_login`      | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
-| `staff.repo_unlock`     | 站点管理员已解锁（临时获得完全访问权限）用户的一个私有仓库。                                                                 |
-| `staff.unlock`          | 站点管理员已解锁（临时获得完全访问权限）用户的所有私有仓库。                                                                 |
+| `staff.repo_unlock`     | 站点管理员已解锁（临时获得完全访问权限）用户的一个私有仓库。                                                                         |
+| `staff.unlock`          | 站点管理员已解锁（临时获得完全访问权限）用户的所有私有仓库。                                                                         |
 
 ## 团队
 

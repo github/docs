@@ -57,7 +57,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
    Create a personal access token with the `repo` and `read:packages` scopes. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 
-   Set `DOCKER_REGISTRY_SERVER_URL` to `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` to the GitHub username or organization that owns the repository, and `DOCKER_REGISTRY_SERVER_PASSWORD` to your personal access token from above. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
+   Configura `DOCKER_REGISTRY_SERVER_URL` para `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` para el nombre de usuario u organización de GitHub al que pertenezca el repositorio y `DOCKER_REGISTRY_SERVER_PASSWORD` para tu token de acceso personal desde arriba. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
 
    ```shell
     az webapp config appsettings set \
@@ -124,19 +124,21 @@ jobs:
           tags: ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
           file: ./Dockerfile
 
-    deploy:
-      runs-on: ubuntu-latest
-      needs: build
-      environment:
-        name: 'production'
-        url: {% raw %}${{ steps.deploy-to-webapp.outputs.webapp-url }}{% endraw %}
+  deploy:
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Lowercase the repo name
-          run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+    needs: build
 
-        - name: Deploy to Azure Web App
-          id: deploy-to-webapp
+    environment:
+      name: 'production'
+      url: {% raw %}${{ steps.deploy-to-webapp.outputs.webapp-url }}{% endraw %}
+
+    steps:
+      - name: Lowercase the repo name
+        run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
         uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
           with:
             app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
