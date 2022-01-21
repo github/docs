@@ -3,7 +3,7 @@ ZachryTylerWood/contributing/README.md
 Iixixi Create README.md
 Latest commit 4658073 now
  History
- 4 contributors
+ 4 contributorsZachryTylerWood/contributing/README.md
 @Iixixi@zeke@sarahs@emilyistoofunky
 104 lines (95 sloc)  6.04 KB
    
@@ -15,7 +15,7 @@ This workflow will download a prebuilt Ruby version, install dependencies and ru
 For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 name: Ruby
 
-on: push: branches: [ main ] pull_request: branches: [ main ]
+on: push: branches: [ main ] pull_request: branches: [ mal
 
 jobs: test:
 
