@@ -1,0 +1,48 @@
+version: '3.7'
+
+services:
+  ghdocs-prod:
+    image: '#{IMAGE}#'
+    ports:
+      - '4000:4000'
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      DD_API_KEY: ${DD_API_KEY}
+      COOKIE_SECRET: ${COOKIE_SECRET}
+      HYDRO_ENDPOINT: ${HYDRO_ENDPOINT}
+      HYDRO_SECRET: ${HYDRO_SECRET}
+      HAYSTACK_URL: ${HAYSTACK_URL}
+      WEB_CONCURRENCY: ${WEB_CONCURRENCY}
+      HEROKU_APP_NAME: ${HEROKU_APP_NAME}
+      ENABLED_LANGUAGES: ${ENABLED_LANGUAGES}
+      DEPLOYMENT_ENV: ${DEPLOYMENT_ENV}
+      HEROKU_PRODUCTION_APP: true
+      PORT: 4000
+      DD_AGENT_HOST: datadog-agent
+    labels:
+      com.datadoghq.ad.logs: '[{"source": "node", "service": "docs"}]'
+    depends_on:
+      - datadog-agent
+    restart: always
+
+  datadog-agent:
+    image: datadog/agent:7.32.3
+    ports:
+      - '8125:8125'
+    environment:
+      DD_API_KEY: ${DD_API_KEY}
+      DD_LOGS_ENABLED: true
+      DD_PROCESS_AGENT_ENABLED: true
+      DD_RUNTIME_METRICS_ENABLED: true
+      DD_DOGSTATSD_NON_LOCAL_TRAFFIC: true
+      DD_AGENT_HOST: datadog-agent
+      DD_HEALTH_PORT: 5555
+      DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL: true
+      DD_LOGS_CONFIG_DOCKER_CONTAINER_USE_FILE: true
+      DD_CONTAINER_EXCLUDE: 'name:datadog-agent'
+      DD_DOGSTATSD_TAGS: 'service:ghdocs env:production'
+    volumes:
+      - /home/LogFiles:/var/lib/docker/containers:ro
+      - ${WEBAPP_STORAGE_HOME}/opt/datadog-agent/run:/opt/datadog-agent/run:rw
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro

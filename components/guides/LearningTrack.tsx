@@ -2,7 +2,7 @@ import cx from 'classnames'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/components'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { FeaturedTrack } from 'components/context/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
 import slugger from 'github-slugger'
@@ -17,14 +17,9 @@ export const LearningTrack = ({ track }: Props) => {
   const [numVisible, setNumVisible] = useState(DEFAULT_VISIBLE_GUIDES)
   const { t } = useTranslation('product_guides')
   const slug = track?.title ? slugger.slug(track?.title) : ''
-  const listRef = useRef<HTMLLIElement>(null)
   const showAll = () => {
     setNumVisible(track?.guides?.length || 0)
   }
-
-  useEffect(() => {
-    if (listRef.current) listRef.current.focus()
-  })
 
   return (
     <div data-testid="learning-track" className="my-3 px-4 col-12 col-md-6">
@@ -62,7 +57,6 @@ export const LearningTrack = ({ track }: Props) => {
                 return {
                   renderItem: () => (
                     <ActionList.Item
-                      ref={listRef}
                       as="li"
                       key={guide.href + track?.trackName}
                       sx={{

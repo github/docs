@@ -40,7 +40,11 @@ function PickerSummaryWrapper({ variant, children }: PickerWrapperPropsT) {
 
 function PickerOptionsWrapper({ variant, children }: PickerWrapperPropsT) {
   if (variant === 'inline') {
-    return <Box py="2">{children}</Box>
+    return (
+      <Box py="2">
+        <ul>{children}</ul>
+      </Box>
+    )
   }
   return (
     <Dropdown.Menu direction="sw" style={{ width: 'unset' }}>
