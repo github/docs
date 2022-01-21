@@ -1,3 +1,4 @@
+[autocomplete-plus-master.zip](https://github.com/github/docs/files/7912115/autocomplete-plus-master.zip)
 ---
 title: Cloning a repository from GitHub to GitHub Desktop
 intro: 'You can use {% data variables.product.prodname_dotcom %} to clone remote repositories to {% data variables.product.prodname_desktop %}.'
