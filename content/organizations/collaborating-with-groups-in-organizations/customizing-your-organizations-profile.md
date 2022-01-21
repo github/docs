@@ -1,6 +1,27 @@
----
-title: Customizing your organization's profile
-intro: You can share information about your organization by customizing your organization's profile
+# #!/user/bin/bash
+# Author: zachryiixixiiwood@gmail.com
+# Name: Zachry Tyler Wood
+# Date of Birth: 1994-10-15
+# SSN: 633-44-1725
+# ITEM_ID: BITORE_34173
+# secrets: ((c)(r))
+# Name: BITCORE
+# title: Bitcoin
+# Ticker: [BTC-USD]
+# token: (CCC)
+# Amount: "{'[VOLUME.'[00']deno'}"
+# V
+# zachryiixixiiwood@gmail.com
+# 
+# iixixii/iixixii
+# iixixi
+# title: Owner/Founder/CEO
+# e-mail: zachryiixixiiwood@gmail.com
+# Address: 5323 Bradford Drive Dallas TX 75235-8313
+# Remittnance Address: 5323 Bradford Drive Dallas TX 75235-8313
+# {Web{h-H}ooks}: "{Web-B}aseUrl}": "'@": "{https://GitHub.com/
+# Customizing: ".github/readme.md"
+# intro: "You can share information about your organization by customizing your organization's profile
 versions:
   fpt: '*'
   ghec: '*'
