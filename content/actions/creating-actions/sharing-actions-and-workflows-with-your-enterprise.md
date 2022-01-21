@@ -12,7 +12,7 @@ shortTitle: Share with your enterprise
 
 {% note %}
 
-**Note:** Allowing workflows to access internal repositories is currently in beta and subject to change.
+**Note:** Allowing workflows to access actions in internal repositories is currently in beta and subject to change.
 
 {% endnote %}
 
