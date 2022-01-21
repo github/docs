@@ -1,5 +1,5 @@
 ---
-title: GitHub Command Palette
+title: blue giant project
 intro: 'Use the command palette in {% data variables.product.product_name %} to navigate, search, and run commands directly from your keyboard.'
 versions:
   feature: 'command-palette'
