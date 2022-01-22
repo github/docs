@@ -4,7 +4,7 @@ intro: Este error significa que el tipo de llave SSH que utilizaste no se recono
 versions:
   fpt: '*'
   ghes: '>=3.2'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 topics:
   - SSH

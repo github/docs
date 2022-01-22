@@ -2,8 +2,8 @@
 title: Assinar commits
 intro: Você pode assinar commits localmente usando GPG ou S/MIME.
 redirect_from:
-  - /articles/signing-commits-and-tags-using-gpg/
-  - /articles/signing-commits-using-gpg/
+  - /articles/signing-commits-and-tags-using-gpg
+  - /articles/signing-commits-using-gpg
   - /articles/signing-commits
   - /github/authenticating-to-github/signing-commits
   - /github/authenticating-to-github/managing-commit-signature-verification/signing-commits
@@ -37,7 +37,7 @@ Se você tiver várias chaves ou estiver tentando assinar commits ou tags com um
 
 1. Ao fazer commit das alterações no branch local, adicione o sinalizador -S flag ao comando git commit:
   ```shell
-  $ git commit -S -m <em>your commit message</em>
+  $ git commit -S -m <em>"your commit message"</em>
   # Creates a signed commit
   ```
 2. Ao usar o GPG, depois de criar o commit, forneça a frase secreta configurada quando você [gerou a chave GPG](/articles/generating-a-new-gpg-key).

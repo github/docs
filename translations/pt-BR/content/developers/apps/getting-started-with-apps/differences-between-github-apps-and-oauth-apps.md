@@ -2,8 +2,8 @@
 title: Diferenças entre os aplicativos GitHub e OAuth
 intro: 'Entender as diferenças entre {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %} ajudará você a decidir qual aplicativo você deseja criar. O {% data variables.product.prodname_oauth_app %} atua como usuário do GitHub, enquanto o {% data variables.product.prodname_github_app %} usa sua própria identidade quando instalado em uma organização ou em repositórios de uma organização.'
 redirect_from:
-  - /early-access/integrations/integrations-vs-oauth-applications/
-  - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type/
+  - /early-access/integrations/integrations-vs-oauth-applications
+  - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type
   - /apps/differences-between-apps
   - /developers/apps/differences-between-github-apps-and-oauth-apps
 versions:
@@ -96,10 +96,10 @@ Ao contrário dos aplicativos OAuth, os aplicativos GitHub têm permissões dire
 
 ## Acesso Git
 
-| Aplicativos do GitHub                                                                                                                                                                                                                                                     | Aplicativos OAuth                                                                                                                                                                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Os aplicativos GitHub solicitam permissão de conteúdo de repositórios e usam seu token de instalação para efetuar a autenticação por meio do [Git baseado em HTTP](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation). | Os aplicativos OAuth solicitam escopo `write:public_key` e [Criar uma chave de implantação](/rest/reference/repos#create-a-deploy-key) por meio da API. Você pode usar essa chave para realizar comandos do Git. |
-| O token é usado como senha HTTP.                                                                                                                                                                                                                                          | O token é usado como nome de usuário HTTP.                                                                                                                                                                       |
+| Aplicativos do GitHub                                                                                                                                                                                                                                                     | Aplicativos OAuth                                                                                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Os aplicativos GitHub solicitam permissão de conteúdo de repositórios e usam seu token de instalação para efetuar a autenticação por meio do [Git baseado em HTTP](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation). | Os aplicativos OAuth solicitam escopo `write:public_key` e [Criar uma chave de implantação](/rest/reference/deployments#create-a-deploy-key) por meio da API. Você pode usar essa chave para realizar comandos do Git. |
+| O token é usado como senha HTTP.                                                                                                                                                                                                                                          | O token é usado como nome de usuário HTTP.                                                                                                                                                                             |
 
 ## Máquina vs. contas de bot
 

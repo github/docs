@@ -1,6 +1,6 @@
 ---
 title: Sobre o cache do repositório
-intro: You can increase the performance of Git read operations for distributed teams and CI farms with repository caching.
+intro: Você pode aumentar o desempenho de operações de leitura do Git para equipes distribuídas e farms de CI com cache de repositórios.
 versions:
   ghes: '>=3.3'
 type: overview
@@ -10,12 +10,12 @@ topics:
 
 {% data reusables.enterprise.repository-caching-release-phase %}
 
-If you have teams and CI farms located around the world, you may experience reduced performance on your primary {% data variables.product.prodname_ghe_server %} instance. Embora georréplicas ativas podem melhorar o desempenho de solicitações de leitura, isso tem o custo de limitar o rendimento da gravação. To reduce load on your primary instance and improve write throughput performance, you can configure a repository cache, an asynchronous read-only mirror of repositories located near these geographically-distributed clients.
+Se você tiver equipes e farms de CI localizadas no mundo todo, você poderá ter um desempenho reduzido na instância primária de {% data variables.product.prodname_ghe_server %}. Embora georréplicas ativas podem melhorar o desempenho de solicitações de leitura, isso tem o custo de limitar o rendimento da gravação. Para reduzir a carga na instância primária e melhorar o desempenho da taxa de transferência, é possível configurar um cache de repositório, um espelho assíncrono de somente leitura de repositórios localizados perto desses clientes distribuídos geograficamente.
 
-A repository cache eliminates the need for {% data variables.product.product_name %} to transmit the same Git data over a long-haul network link multiple times to serve multiple clients, by serving your repository data close to CI farms and distributed teams. For instance, if your primary instance is in North America and you also have a large presence in Asia, you will benefit from setting up the repository cache in Asia for use by CI runners there.
+Um cache de repositório elimina a necessidade de {% data variables.product.product_name %} transmitir os mesmos dados do Git por meio de um link de rede de longo curso várias vezes para servir vários clientes, servindo seus dados do repositório perto de farms de CI e equipes distribuídas. Por exemplo, se a sua instância principal estiver na América do Norte e você também tiver uma forte presença na Ásia, você irá beneficiar-se da criação do cache de repositórios na Ásia para uso dos executores de CI.
 
-The repository cache listens to the primary instance, whether that's a single instance or a geo-replicated set of instances, for changes to Git data. CI farms and other read-heavy consumers clone and fetch from the repository cache instead of the primary instance. Changes are propagated across the network, at periodic intervals, once per cache instance rather than once per client. Git data will typically be visible on the repository cache within several minutes after the data is pushed to the primary instance.
+O cache do repositório escuta a instância principal, seja uma instância única ou um conjunto de instâncias replicadas georreplicado, para alterações nos dados do Git. As farms de CI e outros consumidores muito pesados clonam e buscam do cache do repositório em vez da instância primária. As alterações são propagadas na rede, em intervalos periódicos, uma vez por instância de cache ao invés de uma vez por cliente. Os dados do Git normalmente serão visíveis no cache do repositório dentro de alguns minutos após os dados serem enviados para a instância primária.  {% ifversion ghes > 3.3 %}The [`cache_sync` webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#cache_sync) can be used by CI systems to react to data being available in the cache.{% endif %}
 
-You have fine-grained control over which repositories are allowed to sync to the repository cache.
+Você tem controle refinado sobre quais repositórios estão autorizados a sincronizar com o cache do repositório.
 
-{% data reusables.enterprise.repository-caching-config-summary %} For more information, see "[Configuring a repository cache](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
+{% data reusables.enterprise.repository-caching-config-summary %} Para obter mais informações, consulte "[Configurando um cache do repositório](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)".

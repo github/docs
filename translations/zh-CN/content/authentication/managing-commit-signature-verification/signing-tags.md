@@ -2,7 +2,7 @@
 title: 对标记签名
 intro: 您可以使用 GPG 或 S/MIME 在本地对标记进行签名。
 redirect_from:
-  - /articles/signing-tags-using-gpg/
+  - /articles/signing-tags-using-gpg
   - /articles/signing-tags
   - /github/authenticating-to-github/signing-tags
   - /github/authenticating-to-github/managing-commit-signature-verification/signing-tags

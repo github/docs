@@ -2,7 +2,7 @@
 title: 代码安全指南
 intro: '了解 {% data variables.product.product_name %} 可以帮助您提高代码安全性的不同方式。'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'

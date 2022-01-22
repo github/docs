@@ -3,8 +3,8 @@ title: 编辑项目板
 intro: 您可以编辑现有项目板的标题和说明。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
-  - /articles/editing-a-project/
-  - /articles/editing-and-deleting-a-project/
+  - /articles/editing-a-project
+  - /articles/editing-and-deleting-a-project
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:

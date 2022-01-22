@@ -1,7 +1,7 @@
 ---
 title: Administrar aulas
 intro: 'Puedes crear y administrar un aula para cada curso que impartes utilizando {% data variables.product.prodname_classroom %}.'
-permissions: Organization owners can manage a classroom for an organization.
+permissions: 'Organization owners who are admins for a classroom can manage the classroom for an organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
   fpt: '*'
 redirect_from:
@@ -21,7 +21,7 @@ redirect_from:
 
 Después de crear un aula, {% data variables.product.prodname_classroom %} te pedirá que invites a los asistentes del maestro (TA) y a los administradores a formar parte de ella. Cada aula puede tener uno o más administradores. Los administradores pueden ser maestros, TA o cualquier otro administrador de curso que quieras tenga control sobre las aulas de {% data variables.product.prodname_classroom %}.
 
-Invita a los TA y administradores a tu aula invitando a sus cuentas de usuario en {% data variables.product.product_name %} para que formen parte de tu organización como propietarios de la misma y compartiendo la URL de tu aula. Los propietarios de la organización pueden administrar cualquier aula en ésta. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
+Invita a los TA y administradores a tu aula invitando a sus cuentas de usuario en {% data variables.product.product_name %} para que formen parte de tu organización como propietarios de la misma y compartiendo la URL de tu aula. Los propietarios de la organización pueden administrar cualquier aula en ésta. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" y "[Invitar usuarios para que se unan a tu organización](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
 
 Cuando termines de utilizar un aula, puedes archivarla y referirte a ella, a su registro de alumnos o a sus tareas posteriormente, o puedes borrarla si ya no la necesitas.
 

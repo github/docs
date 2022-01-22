@@ -2,7 +2,7 @@
 title: Sobre wikis
 intro: Você pode hospedar a documentação para seu repositório em um wiki para que outras pessoas possam usar e contribuir com seu projeto.
 redirect_from:
-  - /articles/about-github-wikis/
+  - /articles/about-github-wikis
   - /articles/about-wikis
   - /github/building-a-strong-community/about-wikis
 product: '{% data reusables.gated-features.wikis %}'
@@ -19,7 +19,7 @@ Todos os repositórios em {% ifversion ghae %}{% data variables.product.product_
 
 Com wikis, é possível gravar conteúdo assim como em qualquer outro lugar no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Começando a escrever e formatar no {% data variables.product.prodname_dotcom %}](/articles/getting-started-with-writing-and-formatting-on-github)". Usamos [nossa biblioteca de markup de código aberto](https://github.com/github/markup) para converter diferentes formatos em HTML, de modo que seja possível optar por escrever em markdown ou qualquer outro formato compatível.
 
-{% ifversion fpt or ghes or ghec %}Se você criar um wiki em um repositório público, o wiki ficará disponível para {% ifversion ghes %}qualquer pessoa com acesso para {% data variables.product.product_location %}{% else %}o público{% endif %}. {% endif %}Se você criar um wiki em um repositório interno ou privado, apenas {% ifversion fpt or ghes or ghec %}pessoas{% elsif ghae %}integrantes da empresa{% endif %} com acesso ao repositório poderão acessar o wiki. Para obter mais informações, consulte "[Configurar visibilidade do repositório](/articles/setting-repository-visibility)".
+{% ifversion fpt or ghes or ghec %}Se você criar um wiki em um repositório público, o wiki ficará disponível para {% ifversion ghes %}qualquer pessoa com acesso para {% data variables.product.product_location %}{% else %}o público{% endif %}. {% endif %}Se você criar um wiki em um repositório privado{% ifversion ghec or ghes %} ou interno,{% endif %} apenas {% ifversion fpt or ghes or ghec %}as pessoas{% elsif ghae %}integrantes da empresa{% endif %} com acesso ao repositório poderão acessar o wiki. Para obter mais informações, consulte "[Configurar visibilidade do repositório](/articles/setting-repository-visibility)".
 
 Você pode editar wikis diretamente no {% data variables.product.product_name %} ou editar arquivos wiki localmente. Por padrão, somente as pessoas com acesso de gravação ao repositório podem fazer alterações no wikis, embora você possa permitir que todos em {% data variables.product.product_location %} contribuam para um wiki em {% ifversion ghae %}um repositório interno{% else %}público{% endif %}. Para obter mais informações, consulte "[Alterar permissões de acesso para wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)".
 

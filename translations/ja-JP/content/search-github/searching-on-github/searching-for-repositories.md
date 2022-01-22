@@ -2,7 +2,7 @@
 title: リポジトリを検索する
 intro: '{% data variables.product.product_name %} 上のリポジトリを検索することができます。そして、これらのリポジトリを検索する修飾子を組み合わせることで、検索結果を絞ることができます。'
 redirect_from:
-  - /articles/searching-repositories/
+  - /articles/searching-repositories
   - /articles/searching-for-repositories
   - /github/searching-for-information-on-github/searching-for-repositories
   - /github/searching-for-information-on-github/searching-on-github/searching-for-repositories
@@ -148,7 +148,7 @@ shortTitle: Search for repositories
 
 リポジトリの可視性に基づいて検索を絞り込むことができます。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) は、自分がアクセスできて「pages」という単語を含むプライベートリポジトリにマッチします。
+| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test".{% endif %} | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
 
 {% ifversion fpt or ghec %}
 

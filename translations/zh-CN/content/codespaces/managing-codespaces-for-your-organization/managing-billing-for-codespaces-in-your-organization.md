@@ -1,6 +1,6 @@
 ---
 title: Managing billing for Codespaces in your organization
-shortTitle: Managing billing for Codespaces
+shortTitle: 管理计费
 intro: 'You can check your {% data variables.product.prodname_codespaces %} usage and set usage limits.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
@@ -36,6 +36,8 @@ You can set a usage limit for the codespaces in your organization or repository.
 You can disable the use of {% data variables.product.prodname_codespaces %} in your organization or repository. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)."
 
 You can also limit the individual users who can use {% data variables.product.prodname_codespaces %}. For more information, see "[Managing user permissions for your organization](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)."
+
+You can limit the choice of machine types that are available for repositories owned by your organization. This allows you to prevent people using overly resourced machines for their codespaces. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
 ## Deleting unused codespaces
 

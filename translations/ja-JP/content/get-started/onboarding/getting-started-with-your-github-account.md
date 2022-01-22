@@ -134,7 +134,7 @@ You can use GitHub Issues to organize your work with issues and pull requests an
 Notifications provide updates about the activity on {% data variables.product.prodname_dotcom %} you've subscribed to or participated in. 会話に関心がなくなった場合は、今後受信する通知の種類を、サブスクライブ解除、Watch 解除、またはカスタマイズできます。 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)」を参照してください。
 
 ### 8. {% data variables.product.prodname_pages %} の活用
-You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
+You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. 詳しい情報については、「[{% data variables.product.prodname_pages %} について](/pages/getting-started-with-github-pages/about-github-pages)」を参照してください。
 
 {% ifversion fpt or ghec %}
 ### 9. {% data variables.product.prodname_discussions %}を使用する
@@ -182,14 +182,18 @@ For more information, see "[Securing your software supply chain](/code-security/
 ### 2. Interacting with {% data variables.product.prodname_gcf %}
 {% data reusables.support.ask-and-answer-forum %}
 
-### 3. Learning with {% data variables.product.prodname_learning %}
+### 3. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
+
+{% data reusables.docs.you-can-read-docs-for-your-product %}
+
+### 4. Learning with {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab %}
 
 {% ifversion fpt or ghec %}
-### 4. Supporting the open source community
+### 5. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### 5. {% data variables.contact.github_support %} への連絡
+### 6. {% data variables.contact.github_support %} への連絡
 {% data reusables.getting-started.contact-support %}
 
 {% ifversion fpt %}

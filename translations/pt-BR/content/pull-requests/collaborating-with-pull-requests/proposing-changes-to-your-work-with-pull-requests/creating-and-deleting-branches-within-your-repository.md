@@ -3,7 +3,7 @@ title: Criar e excluir branches no repositório
 intro: 'Você pode criar ou excluir branches diretamente no {% data variables.product.product_name %}.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
-  - /articles/deleting-branches-in-a-pull-request/
+  - /articles/deleting-branches-in-a-pull-request
   - /articles/creating-and-deleting-branches-within-your-repository
   - /github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository
 versions:
@@ -45,6 +45,6 @@ Para obter mais informações, consulte "[Sobre branches](/github/collaborating-
 
 ## Leia mais
 
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[Sobre branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - "[Exibir branches no repositório](/github/administering-a-repository/viewing-branches-in-your-repository)"
 - "[Excluindo e restaurando branches em uma pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"

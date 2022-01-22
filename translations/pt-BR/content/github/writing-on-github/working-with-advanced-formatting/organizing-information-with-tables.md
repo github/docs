@@ -39,6 +39,8 @@ As células podem ter largura variada e não precisam estar alinhadas perfeitame
 
 ![Tabela construída com largura de célula variada](/assets/images/help/writing/table-varied-columns-rendered.png)
 
+{% data reusables.user_settings.enabling-fixed-width-fonts %}
+
 ## Formatar conteúdo dentro da tabela
 
 Você pode usar [formatação](/articles/basic-writing-and-formatting-syntax), como links, blocos de código em linhas e estilos de texto em sua tabela:

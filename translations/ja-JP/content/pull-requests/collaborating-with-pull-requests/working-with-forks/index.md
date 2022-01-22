@@ -2,9 +2,9 @@
 title: フォークを使って作業する
 intro: 'フォークは、{% data variables.product.product_name %} のオープンソース開発でよく使われます。'
 redirect_from:
-  - /github/collaborating-with-issues-and-pull-requests/working-with-forks/
+  - /github/collaborating-with-issues-and-pull-requests/working-with-forks
   - /articles/working-with-forks
-  - /github/collaborating-with-pull-requests/working-with-forks/
+  - /github/collaborating-with-pull-requests/working-with-forks
 versions:
   fpt: '*'
   ghes: '*'

@@ -13,9 +13,10 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Delete a codespace
 ---
 
- 
+
 
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
@@ -25,8 +26,7 @@ topics:
 
 {% endnote %}
 
-{% include tool-switcher %}
-   
+
 {% webui %}
 
 1. Navigate to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces).
@@ -36,13 +36,13 @@ topics:
    ![Delete button](/assets/images/help/codespaces/delete-codespace.png)
 
 {% endwebui %}
-   
+
 {% vscode %}
 
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
 
 {% endvscode %}
-   
+
 
 {% cli %}
 

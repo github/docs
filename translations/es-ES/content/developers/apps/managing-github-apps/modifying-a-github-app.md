@@ -2,7 +2,7 @@
 title: Modificar una GitHub App
 intro: '{% data reusables.shortdesc.modifying_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-github-apps/modifying-a-github-app/
+  - /apps/building-integrations/managing-github-apps/modifying-a-github-app
   - /apps/managing-github-apps/modifying-a-github-app
   - /developers/apps/modifying-a-github-app
 versions:

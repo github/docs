@@ -12,7 +12,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 您可以从工作流程运行页面查看工作流程运行是在进行中，还是已完成。 您必须登录到 {% data variables.product.prodname_dotcom %} 帐户才能查看工作流程运行信息，包括公共仓库。 更多信息请参阅“[GitHub 上的访问权限](/articles/access-permissions-on-github)”。
 

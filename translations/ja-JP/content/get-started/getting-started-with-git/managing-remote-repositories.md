@@ -2,9 +2,9 @@
 title: リモートリポジトリを管理する
 intro: 'お手元のコンピューター上にあるローカルリポジトリと、{% data variables.product.product_name %} にホストされているリポジトリを使用する方法を学びます。'
 redirect_from:
-  - /categories/18/articles/
-  - /remotes/
-  - /categories/managing-remotes/
+  - /categories/18/articles
+  - /remotes
+  - /categories/managing-remotes
   - /articles/managing-remote-repositories
   - /articles/adding-a-remote
   - /github/using-git/adding-a-remote
@@ -109,7 +109,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
 
 次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
 
-You can [use a credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
+[認証情報ヘルパーを使用](/github/getting-started-with-github/caching-your-github-credentials-in-git)すると、Git が GitHub と通信するたびに、GitHub のユーザ名と個人アクセストークンを記憶します。
 
 ### リモート URL の HTTPS から SSH への切り替え
 

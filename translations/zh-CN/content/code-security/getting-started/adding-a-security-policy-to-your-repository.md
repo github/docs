@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -39,7 +39,7 @@ shortTitle: 添加安全策略
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% ifversion ghes > 3.0 or ghae-next %}
+{% ifversion ghes > 3.0 or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 通过创建明确的安全报告说明，用户可以轻松地使用您喜欢的通信通道报告仓库中发现的任何安全漏洞。
 {% endif %}

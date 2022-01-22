@@ -3,7 +3,7 @@ title: Gerenciar versões em repositórios
 intro: Você pode criar versões para empacotar e entregar iterações de um projeto para os usuários.
 redirect_from:
   - /articles/creating-releases
-  - /articles/listing-and-editing-releases/
+  - /articles/listing-and-editing-releases
   - /articles/editing-and-deleting-releases
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
@@ -44,8 +44,6 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
 
 ## Criando uma versão
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -58,7 +56,7 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}![Releases draft button](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Releases draft button](/assets/images/help/releases/draft_release_button.png){% endif %}
 
-4. {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}Click **Choose a tag**, type{% else %}Type{% endif %} a version number for your release{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}, and press **Enter**{% endif %}. Como alternativa, selecione um tag existente.
+4. {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}Click **Escolha uma tag**, digite{% else %}Digite{% endif %} o número de uma versão para a sua versão{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %} e pressione **Enter**{% endif %}. Como alternativa, selecione um tag existente.
    
    {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Insira uma tag](/assets/images/help/releases/releases-tag-create.png)
 
@@ -101,7 +99,7 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    
    {%- ifversion fpt or ghec %}
 
-1. Optionally, if {% data variables.product.prodname_discussions %} are enabled in the repository, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion. ![Caixa de seleção para criar uma discussão de versão e menu suspenso para escolher uma categoria](/assets/images/help/releases/create-release-discussion.png) 
+1. Opcionalmente, se {% data variables.product.prodname_discussions %} estiver habilitado no repositório, selecione **Criar uma discussão para esta versão** e, em seguida, selecione o menu suspenso **Categoria** e clique em uma categoria para a discussão de da versão. ![Caixa de seleção para criar uma discussão de versão e menu suspenso para escolher uma categoria](/assets/images/help/releases/create-release-discussion.png) 
    
    {%- endif %}
 
@@ -117,7 +115,7 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    
    ![Versão publicada com contribuidores @mencionados](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png) 
    
-   {% else %} 
+   {% else %}
    
    ![Versão publicada com contribuidores @mencionados](/assets/images/help/releases/releases-overview-with-contributors.png) 
    
@@ -164,8 +162,6 @@ Se você @mencionar qualquer usuário de {% data variables.product.product_name 
 
 ## Editar uma versão
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -178,7 +174,7 @@ Se você @mencionar qualquer usuário de {% data variables.product.product_name 
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
 
-3. On the right side of the page, next to the release you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}. ![Editar uma versão](/assets/images/help/releases/edit-release-pencil.png) 
+3. No lado direito da página, ao lado da versão que deseja editar, clique em {% octicon "pencil" aria-label="The edit icon" %}. ![Editar uma versão](/assets/images/help/releases/edit-release-pencil.png) 
    
    {% else %}
 
@@ -200,8 +196,6 @@ As versões não podem ser editadas com {% data variables.product.prodname_cli %
 
 ## Excluir uma versão
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -214,7 +208,7 @@ As versões não podem ser editadas com {% data variables.product.prodname_cli %
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
 
-3. On the right side of the page, next to the release you want to delete, click {% octicon "trash" aria-label="The trash icon" %}. ![Excluir uma versão](/assets/images/help/releases/delete-release-trash.png) 
+3. No lado direito da página, ao lado da versão que você deseja excluir, clique em {% octicon "trash" aria-label="The trash icon" %}. ![Excluir uma versão](/assets/images/help/releases/delete-release-trash.png) 
    
    {% else %}
 

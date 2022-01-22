@@ -2,10 +2,10 @@
 title: GitHub ユーザ名の変更
 intro: 'You can change the username for your account on {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %} if your instance uses built-in authentication{% endif %}.'
 redirect_from:
-  - /articles/how-to-change-your-username/
-  - /articles/changing-your-github-user-name/
-  - /articles/renaming-a-user/
-  - /articles/what-happens-when-i-change-my-username/
+  - /articles/how-to-change-your-username
+  - /articles/changing-your-github-user-name
+  - /articles/renaming-a-user
+  - /articles/what-happens-when-i-change-my-username
   - /articles/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username
@@ -62,7 +62,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 - 既存のリポジトリへの Web リンクは引き続き機能します。 変更を加えてから完了するまでに数分かかることがあります。
 - ローカルリポジトリのクローンから古いリモートトラッキング URL へのコマンドラインプッシュは引き続き機能します。
 
-古いユーザ名の新しい所有者が、あなたのリポジトリと同じ名前のリポジトリを作成すると、リダイレクトエントリが上書きされ、リダイレクトは機能しなくなります。 こうしたことが起こることを防ぐため、ユーザ名を変更したら、既存のすべてのリモートリポジトリ URL を更新することをお勧めします。 For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+古いユーザ名の新しい所有者が、あなたのリポジトリと同じ名前のリポジトリを作成すると、リダイレクトエントリが上書きされ、リダイレクトは機能しなくなります。 こうしたことが起こることを防ぐため、ユーザ名を変更したら、既存のすべてのリモートリポジトリ URL を更新することをお勧めします。 詳しい情報については「[リモートリポジトリの管理](/github/getting-started-with-github/managing-remote-repositories)」を参照してください。
 
 ## 前のプロフィールページにリンクする
 

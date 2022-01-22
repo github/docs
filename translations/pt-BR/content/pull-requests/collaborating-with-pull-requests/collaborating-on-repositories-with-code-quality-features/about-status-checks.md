@@ -3,7 +3,7 @@ title: Sobre verificações de status
 intro: As verificações de status permitem que você saiba se seus commits atendem às condições definidas para o repositório com o qual está contribuindo.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
-  - /articles/about-statuses/
+  - /articles/about-statuses
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
   - /github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks

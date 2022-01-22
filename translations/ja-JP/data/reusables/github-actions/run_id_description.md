@@ -1,1 +1,1 @@
-リポジトリ内でユニークな各実行に対する番号。 この番号は、ワークフローの実行をやり直しても変化しません、
+A unique number for each workflow run within a repository. この番号は、ワークフローの実行をやり直しても変化しません、

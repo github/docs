@@ -1,6 +1,6 @@
 ---
 title: Automatizar proyectos (beta)
-intro: 'You can use built-in workflows or the API and {% data variables.product.prodname_actions %} to manage your projects.'
+intro: 'Puedes utiilzar flujos de trabajo integrados o la API y las {% data variables.product.prodname_actions %} para administrar tus proyectos.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -17,23 +17,23 @@ topics:
 
 ## Introducción
 
-You can add automation to help manage your project. Projects (beta) includes built-in workflows that you can configure through the UI. Additionally, you can write custom workflows with the GraphQL API and {% data variables.product.prodname_actions %}.
+Puedes agregar automatización para ayudarte a administrar tu proyecto. Los proyectos (beta) incluyen flujos de trabajo integrados que puedes configurar a través de la IU. Adicionalmente, puedes escribir flujos personalizados con la API de GraphQL y las {% data variables.product.prodname_actions %}.
 
-## Built-in workflows
+## Flujos de trabajo integrados
 
 {% data reusables.projects.about-workflows %}
 
-You can enable or disable the built-in workflows for your project.
+Puedes habilitar o inhabilitar los flujos de trabajo integrados de tu proyecto.
 
 {% data reusables.projects.enable-basic-workflow %}
 
-## {% data variables.product.prodname_actions %} workflows
+## Flujos de trabajo de {% data variables.product.prodname_actions %}
 
-This section demonstrates how to use the GraphQL API and {% data variables.product.prodname_actions %} to add a pull request to an organization project. In the example workflows, when the pull request is marked as "ready for review", a new task is added to the project with a "Status" field set to "Todo", and the current date is added to a custom "Date posted" field.
+Esta sección demuestra cómo utilizar la API de GraphQL y las {% data variables.product.prodname_actions %} para agregar una solicitud de cambios a un proyecto organizacional. En los flujos de trabajo de ejemplo, cuando la solicitud de cambios se marca como "lista para revisión", se agrega una tarea nueva al proyecto con un campo de "Estado" configurado en "Pendiente" y se agrega la fecha actual a un campo personalizado de "Fecha en la que se publicó".
 
-You can copy one of the workflows below and modify it as described in the table below to meet your needs.
+Puedes copiar uno de los siguientes flujos de trabajo y modificarlo de acuerdo con lo descrito en la siguiente tabla para que satisfaga tus necesidades.
 
-Un proyecto puede abarcar repositorios múltiples, pero un flujo de trabajo es específico par aun repositorio. Add the workflow to each repository that you want your project to track. Para obtener más información sobre cómo crear archivos de flujo de trabajo, consulta la sección "[Inicio rápido para las {% data variables.product.prodname_actions %}](/actions/quickstart)".
+Un proyecto puede abarcar repositorios múltiples, pero un flujo de trabajo es específico par aun repositorio. Agrega el flujo de trabajo a cada repositorio que quieras que rastree tu proyecto. Para obtener más información sobre cómo crear archivos de flujo de trabajo, consulta la sección "[Inicio rápido para las {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
 Este artículo asume que tienes un entendimiento básico de las {% data variables.product.prodname_actions %}. Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[{% data variables.product.prodname_actions %}](/actions)".
 
@@ -41,25 +41,25 @@ Para obtener más información sobre otros cambios que puedes hacer a tu proyect
 
 {% note %}
 
-**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access projects (beta). To access projects (beta) you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a personal access token (recommended for user projects). Workflow examples for both approaches are shown below.
+**Nota:** `GITHUB_TOKEN` tiene el alcance del nivel de repositorio y no puede acceder a los proyectos (beta). Para acceder a los proyectos (beta), puedes ya sea crear una {% data variables.product.prodname_github_app %} (recomendado para los proyectos organizacionales) o un token de acceso personal (recomendado para los proyectos de usuario). A continuación se muestran los ejemplos de flujo de trabajo para ambos acercamientos.
 
 {% endnote %}
 
-### Example workflow authenticating with a {% data variables.product.prodname_github_app %}
+### Flujo de trabajo ejemplo autenticándose con una {% data variables.product.prodname_github_app %}
 
-1. Create a {% data variables.product.prodname_github_app %} or choose an existing {% data variables.product.prodname_github_app %} owned by your organization. For more information, see "[Creating a {% data variables.product.prodname_github_app %}](/developers/apps/building-github-apps/creating-a-github-app)."
-2. Give your {% data variables.product.prodname_github_app %} read and write permissions to organization projects. For more information, see "[Editing a {% data variables.product.prodname_github_app %}'s permissions](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)."
+1. Crea una {% data variables.product.prodname_github_app %} o elige una {% data variables.product.prodname_github_app %} existente que le pertenezca a tu organización. Para obtener más información, consulta la sección "[Crear una {% data variables.product.prodname_github_app %}](/developers/apps/building-github-apps/creating-a-github-app)".
+2. Dale a tu {% data variables.product.prodname_github_app %} permisos de lectura y escritura para los proyectos organizacionales. Para obtener más información, consulta la sección "[Editar los permisos de una {% data variables.product.prodname_github_app %}](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)".
 
    {% note %}
 
-   **Note:** You can control your app's permission to organization projects and to repository projects. You must give permission to read and write organization projects; permission to read and write repository projects will not be sufficient.
+   **Nota:** Puedes controlar los permisos de tu app con respecto a los proyectos organizacionales y de repositorio. Debes otorgar permisos de lectura y escritura de proyectos organizacionales; los permisos de lectura y escritura en los proyectos de repositorio no serán suficientes.
 
    {% endnote %}
 
-3. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see "[Installing {% data variables.product.prodname_github_apps %}](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)."
-4. Store your {% data variables.product.prodname_github_app %}'s ID as a secret in your repository or organization. In the following workflow, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/reference/apps#get-an-app)."
-5. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-6. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. Por ejemplo, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, la dirección `https://github.com/orgs/octo-org/projects/5` tiene "5" como número de proyecto.
+3. Instala la {% data variables.product.prodname_github_app %} en tu organización. Instálala para todos los repositorios a los cuales necesita acceso tu proyecto. Para obtener más información, consulta la sección "[Instalar {% data variables.product.prodname_github_apps %}](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)".
+4. Almacena la ID de tu {% data variables.product.prodname_github_app %} como un secreto en tu repositorio u organización. En el siguiente flujo de trabajo, reemplaza `APP_ID` con el nombre del secreto. Puedes encontrar tu ID de app en la página de ajustes de tu app o mediante la API de la misma. Para obtener más información, consulta la sección "[Apps](/rest/reference/apps#get-an-app)".
+5. Generar una llave privada para tu app. Almacena el contenido del archivo resultante como secreto en tu repositorio u organización. (Almacena todo el contenido del archivo, incluyendo `-----BEGIN RSA PRIVATE KEY-----` y `-----END RSA PRIVATE KEY-----`.) En el siguiente flujo de trabajo, reemplaza a `APP_PEM` con el nombre del secreto. Para obtener más información, consulta la sección "[Autenticarse con {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)".
+6. En el siguiente flujo de trabajo, reemplaza a `YOUR_ORGANIZATION` con el nombre de tu organización. Por ejemplo, `octo-org`. Reemplaza a `YOUR_PROJECT_NUMBER` con el número de tu proyecto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, la dirección `https://github.com/orgs/octo-org/projects/5` tiene "5" como número de proyecto.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -162,11 +162,11 @@ jobs:
             }' -f project=$PROJECT_ID -f item=$ITEM_ID -f status_field=$STATUS_FIELD_ID -f status_value={% raw %}${{ env.TODO_OPTION_ID }}{% endraw %} -f date_field=$DATE_FIELD_ID -f date_value=$DATE --silent
 ```
 
-### Example workflow authenticating with a personal access token
+### Flujo de trabajo de ejemplo para autenticarse con un token de acceso personal
 
-1. Create a personal access token with `org:write` scope. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
-2. Save the personal access token as a secret in your repository or organization.
-3. En el siguiente flujo de trabajo, reemplaza a `YOUR_TOKEN` con el nombre del secreto. Replace `YOUR_ORGANIZATION` with the name of your organization. Por ejemplo, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, la dirección `https://github.com/orgs/octo-org/projects/5` tiene "5" como número de proyecto.
+1. Crear un token de acceso personal con el alcance `org:write`. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+2. Guardar el token de acceso personal como secreto en tu organización o repositorio.
+3. En el siguiente flujo de trabajo, reemplaza a `YOUR_TOKEN` con el nombre del secreto. Reemplaza a `YOUR_ORGANIZATION` con el nombre de tu organización. Por ejemplo, `octo-org`. Reemplaza a `YOUR_PROJECT_NUMBER` con el número de tu proyecto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, la dirección `https://github.com/orgs/octo-org/projects/5` tiene "5" como número de proyecto.
 
 ```yaml{:copy}
 name: Add PR to project
@@ -261,9 +261,9 @@ jobs:
 
 ```
 
-### Workflow explanation
+### Explicación del flujo de trabajo
 
-The following table explains sections of the example workflows and shows you how to adapt the workflows for your own use.
+La siguiente tabla explica las secciones de los flujos de trabajo de ejemplo y te muestra cómo adaptar los flujos de trabajo para tu propio uso.
 
 <table class="table-fixed">
 
@@ -299,13 +299,13 @@ Este flujo de trabajo se ejecuta cada que una solicitud de cambios en el reposit
 
 </td>
 <td>
-Uses the <a href="https://github.com/tibdex/github-app-token">tibdex/github-app-token action</a> to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as <code>{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}</code>.
+Utiliza la <a href="https://github.com/tibdex/github-app-token">acción tibdex/github-app-token</a> para generar un token de acceso a la instalación para tu app desde la ID y llave privada de la misma. Se puede acceder al token de acceso a la instalación más adelante en el flujo de trabajo como <code>{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}</code>.
 <br>
 <br>
-Replace <code>APP_ID</code> with the name of the secret that contains your app ID.
+Reemplaza <code>APP_ID</code> con el nombre del secreto que contiene la ID de tu app.
 <br>
 <br>
-Replace <code>APP_PEM</code> with the name of the secret that contains your app private key.
+Reemplaza a <code>APP_PEM</code> con el nombre del secreto que contiene la llave privada de tu app.
 </td>
 </tr>
 
@@ -335,7 +335,7 @@ env:
 Configura las variables para este paso.
 <br>
 <br>
-If you are using a personal access token, replace <code>YOUR_TOKEN</code> with the name of the secret that contains your personal access token.
+Si estás utilizando un token de acceso personal, reemplaza a <code>YOUR_TOKEN</code> con el nombre del secreto que contiene tu token de acceso personal.
 <br>
 <br>
 Reemplaza <code>YOUR_ORGANIZATION</code> con el nombre de tu organización. Por ejemplo, <code>octo-org</code>.

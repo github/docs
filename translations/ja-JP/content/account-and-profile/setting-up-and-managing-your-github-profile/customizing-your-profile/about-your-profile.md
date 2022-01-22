@@ -2,8 +2,8 @@
 title: プロフィールについて
 intro: プロフィールページは、関心のあるリポジトリ、行ったコントリビューション、会話を通じて、あなたの作業の様子を他者に伝えます。
 redirect_from:
-  - /articles/viewing-your-feeds/
-  - /articles/profile-pages/
+  - /articles/viewing-your-feeds
+  - /articles/profile-pages
   - /articles/about-your-profile
   - /github/setting-up-and-managing-your-github-profile/about-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile
@@ -31,7 +31,7 @@ topics:
 あなたのプロフィールにアクセスしたユーザは、次の情報も見ることができます。
 
 - あなたが所有している、もしくはコントリビューションしたリポジトリと Gist。 {% ifversion fpt or ghes or ghec %}You can showcase your best work by pinning repositories and gists to your profile. 詳細は「[プロフィールにアイテムをピン止めする](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)」を参照してください。{% endif %}
-- Star を付けたリポジトリ。 詳しい情報については、「[Star を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)」を参照してください。
+- Repositories you've starred{% ifversion fpt or ghec %} and organized into lists.{% endif %} For more information, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)."
 - あなたが最もアクティブな Organization、リポジトリ、Team でのあなたのアクティビティの概要。 詳しい情報については、「[プロフィール上にアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。{% ifversion fpt or ghec %}
 - {% data variables.product.prodname_pro %} の使用や、{% data variables.product.prodname_arctic_vault %}、{% data variables.product.prodname_sponsors %}、{% data variables.product.company_short %} 開発者プログラムなどのプログラムへの参加を示すバッジ。 詳細は「[プロフィールをパーソナライズする](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)」を参照してください。{% endif %}
 

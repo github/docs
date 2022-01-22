@@ -14,7 +14,5 @@ children:
   - /managing-repository-access-for-your-codespaces
   - /reviewing-your-security-logs-for-codespaces
   - /managing-gpg-verification-for-codespaces
-  - /setting-your-default-editor-for-codespaces
-  - /setting-your-default-region-for-codespaces
 ---
  

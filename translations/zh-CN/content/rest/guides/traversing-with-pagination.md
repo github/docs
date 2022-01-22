@@ -2,7 +2,7 @@
 title: 使用分页遍历
 intro: 通过一些使用搜索 API 的示例，探讨如何使用分页来管理响应。
 redirect_from:
-  - /guides/traversing-with-pagination/
+  - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
 versions:
   fpt: '*'
@@ -14,7 +14,7 @@ topics:
 shortTitle: 使用分页遍历
 ---
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 为开发人员提供了丰富的信息供他们使用。 在很多时候，您甚至会发现自己请求的信息_太多_，为了满足我们的服务器，API 会自动[对请求的项目进行分页][pagination]。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 为开发人员提供了丰富的信息供他们使用。 在很多时候，您甚至会发现自己请求的信息_太多_，为了满足我们的服务器，API 会自动[对请求的项目进行分页](/rest/overview/resources-in-the-rest-api#pagination)。
 
 在本指南中，我们将对 搜索 API 进行一些调用，并使用分页遍历结果。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
 
@@ -205,7 +205,6 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use

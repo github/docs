@@ -2,7 +2,7 @@
 title: Organization 用の OAuth アプリケーションの承認
 intro: '{% data variables.product.prodname_oauth_app %}による Organization のリソースへのアクセスを Organization のメンバーがリクエストしてきた場合、Organization のオーナーはそのリクエストを承認あるいは否認できます。'
 redirect_from:
-  - /articles/approving-third-party-applications-for-your-organization/
+  - /articles/approving-third-party-applications-for-your-organization
   - /articles/approving-oauth-apps-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization
 versions:

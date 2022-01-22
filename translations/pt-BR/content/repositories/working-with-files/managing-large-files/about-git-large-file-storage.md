@@ -2,7 +2,7 @@
 title: Sobre armazenamento de arquivo grande do Git
 intro: '{% data variables.product.product_name %} limita o tamanho dos arquivos permitidos nos repositórios. Para rastrear arquivos além desse limite, você pode usar {% data variables.large_files.product_name_long %}.'
 redirect_from:
-  - /articles/about-large-file-storage/
+  - /articles/about-large-file-storage
   - /articles/about-git-large-file-storage
   - /github/managing-large-files/about-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/about-git-large-file-storage

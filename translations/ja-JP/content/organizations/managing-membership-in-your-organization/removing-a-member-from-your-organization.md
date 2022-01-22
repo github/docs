@@ -24,7 +24,9 @@ Organization からメンバーを削除できるのは、Organization のオー
 **警告:** Organization からメンバーを削除する際は次の点にご注意ください:
 - 有料ライセンスのカウントは自動的にはダウングレードされません。 Organization からユーザを削除したあとに有料シートの数を減らすには、「[Organization の有料ライセンスをダウングレードする](/articles/downgrading-your-organization-s-paid-seats)」の手順に従ってください。
 - 削除されたメンバーは Organization のプライベートリポジトリのプライベートフォークへのアクセスは失いますが、ローカルコピーを自分で持っておくことは可能です。 ただし、ローカルコピーを Organization のリポジトリと同期させることはできません。 そのプライベートフォークは、そのユーザが Organization から削除されてから 3 か月以内に [Organization メンバーとして復帰した](/articles/reinstating-a-former-member-of-your-organization)場合、リストアできます。 最終的に、リポジトリへのアクセスを失った個人に、機密情報や知的財産を確実に削除してもらうのは、あなたの責任です。
--  If your organization is owned by an enterprise account, removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. 詳細は「[Enterprise アカウントについて](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)」を参照してください。
+{%- ifversion ghec %}
+-  Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
+{%- endif %}
 - 削除されたメンバーによって送信され、まだ受け取られていない Organization への招待がある場合はキャンセルされ、アクセスできなくなります。
 
 {% endwarning %}

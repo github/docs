@@ -2,7 +2,7 @@
 title: 活动仪表板
 intro: 活动仪表板提供企业中所有活动的概览。
 redirect_from:
-  - /enterprise/admin/articles/activity-dashboard/
+  - /enterprise/admin/articles/activity-dashboard
   - /enterprise/admin/installation/activity-dashboard
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard

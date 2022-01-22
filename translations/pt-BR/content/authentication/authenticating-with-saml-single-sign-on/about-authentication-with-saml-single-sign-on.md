@@ -1,13 +1,11 @@
 ---
 title: Sobre a autenticação com SAML SSO
-intro: 'Você pode acessar {% ifversion ghae %}{% data variables.product.product_location %}{% elsif fpt %}uma organização que usa o logon único SAML (SSO){% endif %} efetuando a autenticação {% ifversion ghae %}com o logon único SAML (SSO) {% endif %}por meio de um provedor de identidade (IdP).{% ifversion fpt or ghec %} Depois de efetuar a autenticação com o IdP com sucesso a partir de {% data variables.product.product_name %}, você deverá autorizar qualquer token de acesso pessoal, chave SSH ou {% data variables.product.prodname_oauth_app %} que você gostaria de acessar os recursos da organização.{% endif %}'
-product: '{% data reusables.gated-features.saml-sso %}'
+intro: 'Você pode acessar {% ifversion ghae %}{% data variables.product.product_location %}{% elsif ghec %}uma organização que usa o logon único SAML (SSO){% endif %} efetuando a autenticação {% ifversion ghae %}com o logon único SAML (SSO) {% endif %}por meio de um provedor de identidade (IdP).{% ifversion ghec %} Depois de efetuar a autenticação com o IdP em {% data variables.product.product_name %}, você deverá autorizar qualquer token de acesso pessoal, Chave SSH, ou {% data variables.product.prodname_oauth_app %} que você gostaria de acessar os recursos da organização.{% endif %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
   - /github/authenticating-to-github/about-authentication-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -58,5 +56,5 @@ Após o proprietário de uma empresa ou organização habilitar ou aplicar o SSO
 
 ## Leia mais
 
-{% ifversion fpt or ghec %}- "[Sobre identidade e gerenciamento de acesso com logon único SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
+{% ifversion ghec %}- "[Sobre identidade e gerenciamento de acesso com logon único SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
 {% ifversion ghae %}- "[Sobre identidade e gerenciamento de acesso para a sua empresa](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}

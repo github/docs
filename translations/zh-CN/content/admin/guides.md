@@ -3,20 +3,21 @@ title: GitHub Enterprise 指南
 shortTitle: 指南
 intro: '学习如何通过 {% data variables.product.product_name %} 提高开发人员的工作效率和代码质量。'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   ghec: '*'
   ghes: '*'
   ghae: '*'
 learningTracks:
+  - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
   - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
   - '{% ifversion ghes %}deploy_an_instance{% endif %}'
   - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
+  - adopting_github_actions_for_your_enterprise
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_advanced_security{% endif %}'
-  - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
 includeGuides:
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/changing-authentication-methods
@@ -49,15 +50,15 @@ includeGuides:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
   - /admin/configuration/configuring-tls
   - /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
+  - /admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise
   - /admin/configuration/connecting-your-enterprise-account-to-github-enterprise-cloud
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
-  - /admin/configuration/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
+  - /admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise
   - /admin/configuration/enabling-private-mode
   - /admin/configuration/enabling-subdomain-isolation
-  - /admin/configuration/enabling-unified-contributions-between-your-enterprise-account-and-githubcom
-  - /admin/configuration/enabling-unified-search-between-your-enterprise-account-and-githubcom
+  - /admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise
+  - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
   - /admin/configuration/initializing-github-ae
-  - /admin/configuration/managing-github-for-mobile-for-your-enterprise
   - /admin/configuration/network-ports
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/site-admin-dashboard

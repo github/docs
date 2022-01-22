@@ -2,8 +2,8 @@
 title: 跟踪文件中的更改
 intro: 您可以跟踪对文件中各行的更改，了解文件的各部分如何随着时间推移而发生变化。
 redirect_from:
-  - /articles/using-git-blame-to-trace-changes-in-a-file/
-  - /articles/tracing-changes-in-a-file/
+  - /articles/using-git-blame-to-trace-changes-in-a-file
+  - /articles/tracing-changes-in-a-file
   - /articles/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/managing-files-on-github/tracking-changes-in-a-file

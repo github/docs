@@ -2,7 +2,7 @@
 title: GitHub Enterprise Server でロードバランサを使用する
 intro: 'ロードバランサを、単一の {% data variables.product.prodname_ghe_server %} アプライアンス、あるいは High Availability 構成のアプライアンスのペアの前で使ってください。'
 redirect_from:
-  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer/
+  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
@@ -17,6 +17,8 @@ topics:
 shortTitle: Use a load balancer
 ---
 
+## About load balancers
+
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
@@ -29,9 +31,13 @@ shortTitle: Use a load balancer
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
+{% data reusables.enterprise_installation.terminating-tls %}
+
 ### {% data variables.product.product_location %}でのPROXYプロトコルサポートの有効化
 
 アプライアンスとロードバランサの両方でPROXYプロトコルサポートを有効化することを強くおすすめします。 ロードバランサでPROXYプロトコルを有効化する方法については、ベンダーが提供する指示に従ってください。 詳しい情報については[PROXY プロトコルのドキュメンテーション](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt)を参照してください。
+
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -44,8 +50,6 @@ shortTitle: Use a load balancer
 ### {% data variables.product.product_location %}でのX-Forwarded-Forサポートの有効化
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
-
-{% data reusables.enterprise_installation.terminating-tls %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

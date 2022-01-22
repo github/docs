@@ -2,7 +2,7 @@
 title: 集成者最佳实践
 intro: '构建一个能够可靠地与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行交互并为您的用户提供最佳体验。'
 redirect_from:
-  - /guides/best-practices-for-integrators/
+  - /guides/best-practices-for-integrators
   - /v3/guides/best-practices-for-integrators
 versions:
   fpt: '*'

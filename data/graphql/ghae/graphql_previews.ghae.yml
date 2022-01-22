@@ -75,15 +75,6 @@
     - RemovedFromProjectEvent.projectColumnName
   owning_teams:
     - '@github/github-projects'
-- title: Create content attachments
-  description: This preview adds support for creating content attachments.
-  toggled_by: ':corsair-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Mutation.createContentAttachment
-  owning_teams:
-    - '@github/feature-lifecycle'
 - title: Labels Preview
   description: >-
     This preview adds support for adding, updating, creating and deleting

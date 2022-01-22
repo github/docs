@@ -9,7 +9,7 @@ redirect_from:
   - /admin/user-management/managing-global-webhooks
   - /admin/user-management/managing-users-in-your-enterprise/managing-global-webhooks
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
-  - /articles/configuring-webhooks-for-organization-events-in-your-business-account/
+  - /articles/configuring-webhooks-for-organization-events-in-your-business-account
   - /articles/configuring-webhooks-for-organization-events-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/configuring-webhooks-for-organization-events-in-your-enterprise-account

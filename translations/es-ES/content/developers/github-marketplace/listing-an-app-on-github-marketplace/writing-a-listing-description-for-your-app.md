@@ -2,13 +2,13 @@
 title: Escribir la descripción de un listado para tu app
 intro: 'Para [Listar tu app](/marketplace/listing-on-github-marketplace/) en {% data variables.product.prodname_marketplace %}, necesitarás escribir una descripción de ésta y proporcionar imágenes que se apeguen a los lineamientos de GitHub.'
 redirect_from:
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images/
-  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images
+  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
@@ -25,7 +25,7 @@ Aquí te mostramos los lineamientos de los campos que necesitas llenar en la sec
 
 ### Nombre del listado
 
-El nombre de tu listado aparecerá en la [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). El nombre se limita a 255 caracteres y puede ser diferente que aquél de tu app. Your listing cannot have the same name as an existing account on {% data variables.product.product_location %}, unless the name is your own user or organization name.
+El nombre de tu listado aparecerá en la [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). El nombre se limita a 255 caracteres y puede ser diferente que aquél de tu app. Tu listado no puede tener el mismo nombre que el de una cuenta existente en {% data variables.product.product_location %}, a menos de que dicho nombre sea aquél de tu organización o usuario.
 
 ### Descripción muy corta
 

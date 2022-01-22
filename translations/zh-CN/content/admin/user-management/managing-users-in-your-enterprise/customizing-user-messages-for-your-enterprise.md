@@ -2,7 +2,7 @@
 title: 自定义企业的用户消息
 shortTitle: 自定义用户消息
 redirect_from:
-  - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
+  - /enterprise/admin/user-management/creating-a-custom-sign-in-message
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise

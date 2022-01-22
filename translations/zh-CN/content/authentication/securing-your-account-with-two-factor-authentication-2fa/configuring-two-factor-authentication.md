@@ -2,9 +2,9 @@
 title: 配置双重身份验证
 intro: 您可以选择多个选项，以向帐户添加第二个身份验证源。
 redirect_from:
-  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app/
-  - /articles/configuring-two-factor-authentication-via-text-message/
-  - /articles/configuring-two-factor-authentication-via-fido-u2f/
+  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app
+  - /articles/configuring-two-factor-authentication-via-text-message
+  - /articles/configuring-two-factor-authentication-via-fido-u2f
   - /articles/configuring-two-factor-authentication
   - /github/authenticating-to-github/configuring-two-factor-authentication
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication

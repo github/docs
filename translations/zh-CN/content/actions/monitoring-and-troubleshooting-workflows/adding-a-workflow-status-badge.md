@@ -13,7 +13,6 @@ shortTitle: 添加状态徽章
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
@@ -40,8 +39,8 @@ shortTitle: 添加状态徽章
 
 ## 使用 `event` 参数
 
-此 Markdown 示例添加显示通过 `pull_request` 事件触发运行的工作流程状态的徽章。
+This Markdown example adds a badge that displays the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
 
 ```markdown
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
 ```

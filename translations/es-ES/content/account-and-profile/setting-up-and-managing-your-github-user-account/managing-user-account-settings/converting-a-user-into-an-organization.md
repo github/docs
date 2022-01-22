@@ -1,8 +1,8 @@
 ---
 title: Convertir un usuario en una organización
 redirect_from:
-  - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization/
-  - /articles/explaining-the-account-transformation-warning/
+  - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization
+  - /articles/explaining-the-account-transformation-warning
   - /articles/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
@@ -57,7 +57,7 @@ Puedes convertir tu cuenta de usuario personal directamente en una organización
 
 {% tip %}
 
-**Sugerencia**: Cuando conviertas una cuenta de usuario en una organización, agregaremos los colaboradores a los repositorios que le pertenecen a la cuenta de la nueva organización como *colaboradores externos*. Luego puedes invitar a los *colaboradores externos* para que se conviertan en miembros de la organización nueva, si así lo deseas. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+**Sugerencia**: Cuando conviertas una cuenta de usuario en una organización, agregaremos los colaboradores a los repositorios que le pertenecen a la cuenta de la nueva organización como *colaboradores externos*. Luego puedes invitar a los *colaboradores externos* para que se conviertan en miembros de la organización nueva, si así lo deseas. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)".
 
 {% endtip %}
 

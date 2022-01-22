@@ -2,7 +2,7 @@
 title: GitHub Importer でリポジトリをインポートする
 intro: 他のバージョン管理システムにホストされているプロジェクトがある場合は、GitHub Importer ツールを使って自動的に GitHub にインポートすることができます。
 redirect_from:
-  - /articles/importing-from-other-version-control-systems-to-github/
+  - /articles/importing-from-other-version-control-systems-to-github
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:

@@ -15,7 +15,7 @@ topics:
 shortTitle: Eliminar administradores de GitHub Apps
 ---
 
-For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
+Para obtener más información sobre los permisos de administrador de una {% data variables.product.prodname_github_app %}, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)".
 
 ## Eliminar los {% data variables.product.prodname_github_app %} permisos de un administrador para toda la organización
 

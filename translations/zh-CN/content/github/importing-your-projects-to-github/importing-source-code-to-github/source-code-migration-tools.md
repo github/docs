@@ -2,7 +2,7 @@
 title: 源代码迁移工具
 intro: 您可以使用外部工具将项目移动到 GitHub。
 redirect_from:
-  - /articles/importing-from-subversion/
+  - /articles/importing-from-subversion
   - /articles/source-code-migration-tools
   - /github/importing-your-projects-to-github/source-code-migration-tools
 versions:

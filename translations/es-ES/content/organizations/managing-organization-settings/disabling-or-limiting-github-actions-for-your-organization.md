@@ -51,7 +51,7 @@ Puedes inhabilitar todos los flujos de trabajo para una organización o configur
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. Debajo de **Políticas**, selecciona **Permitir las acciones seleccionadas** y agrega tus acciones requeridas a la lista.
-   {%- ifversion ghes %}
+   {%- ifversion ghes > 3.0 %}
    ![Agregar acciones a la lista de permitidos](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
    ![Agregar acciones a la lista de permitidos](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
@@ -86,7 +86,7 @@ Puedes configurar este comportamiento de una organización utilizando los siguie
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Configurar los permisos del `GITHUB_TOKEN` para tu organización
 
 {% data reusables.github-actions.workflow-permissions-intro %}
@@ -95,7 +95,7 @@ Puedes configurar los permisos predeterminados para el `GITHUB_TOKEN` en la conf
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-### Configurar los permisos predeterminados del `GITHUB_TOKEN`
+### Configuring the default `GITHUB_TOKEN` permissions
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

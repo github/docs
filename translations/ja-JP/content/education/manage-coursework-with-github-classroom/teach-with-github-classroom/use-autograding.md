@@ -4,6 +4,7 @@ intro: 課題リポジトリで実行するテストを構成することで、�
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
@@ -20,7 +21,7 @@ redirect_from:
 
 {% data variables.product.prodname_classroom %}の課題に移動して、自動採点テストでどの学生が合格したかの概要を表示できます。 緑色のチェックマークは、その学生がすべてのテストに合格したことを意味します。赤色のXは、その学生が一部またはすべてのテストで不合格だったことを意味します。 1つ以上のテストに得点を与えている場合、課題で獲得できる最高得点が吹き出しに表示されます。
 
-![自動採点結果を含む課題の概要](/assets/images/help/classroom/autograding-hero.png)
+![自動採点結果を含む課題の概要](/assets/images/help/classroom/assignment-individual-hero.png)
 
 ## 採点方法
 
@@ -59,7 +60,7 @@ redirect_from:
 
 新課題の作成時に、自動採点テストを追加できます。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-既存の課題用の自動採点テストを追加、編集、削除できます。 既存の課題用の自動採点テストを変更した場合、既存の課題リポジトリは影響を受けません。 新しいテストを使用するには、学生またはチームが課題を受け入れ、新しい課題リポジトリを作成する必要があります。
+既存の課題用の自動採点テストを追加、編集、削除できます。 All changes made via the Classroom UI will be pushed to the existing student repositories, so use caution when editing your tests.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

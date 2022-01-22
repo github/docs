@@ -32,11 +32,11 @@ If you're a member of a {% data variables.product.prodname_emu_enterprise %}, th
 
 删除复刻不会删除原始上游仓库。 您可以对复刻执行所需的任何更改—添加协作者、重命名文件、生成 {% data variables.product.prodname_pages %}—不会影响原始仓库。{% ifversion fpt or ghec %} 复刻的仓库在删除后无法恢复。 更多信息请参阅“[恢复删除的仓库](/articles/restoring-a-deleted-repository)”。{% endif %}
 
-在开源项目中，复刻常用于迭代想法或更改，然后将其提交回上游仓库。 在用户拥有的复刻中进行更改，然后打开拉取请求以比较您的工作与上游仓库，便可允许对上游仓库具有推送权限的任何推送更改到拉取请求分支。 这可加速协作，让仓库维护员在合并之前于本地从用户拥有的复刻对拉取请求进行提交或运行测试。 不可向组织拥有的复刻授予推送权限。
+在开源项目中，复刻常用于迭代想法或更改，然后将其提交回上游仓库。 When you make changes in your user-owned fork and open a pull request that compares your work to the upstream repository, you can give anyone with push access to the upstream repository permission to push changes to your pull request branch (including deleting the branch). 这可加速协作，让仓库维护员在合并之前于本地从用户拥有的复刻对拉取请求进行提交或运行测试。 不可向组织拥有的复刻授予推送权限。
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-如果以后要从现有仓库的内容创建新仓库，但不想合并上游更改，您可以复制仓库 ，或者，如果该仓库是模板，则使用该仓库作为模板。 更多信息请参阅“[复制仓库](/articles/duplicating-a-repository)”和“[从模板创建仓库](/articles/creating-a-repository-from-a-template)”。
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. 更多信息请参阅“[复制仓库](/articles/duplicating-a-repository)”和“[从模板创建仓库](/articles/creating-a-repository-from-a-template)”。
 
 ## 延伸阅读
 

@@ -51,7 +51,7 @@ end
 ```
 
 Tu ID de cliente y tus llaves secretas de cliente vienen de [la página de configuración de tu aplicación][app settings].
-{% ifversion fpt or ghec %} You should **never, _ever_** store these values in
+{% ifversion fpt or ghec %} **Nunca,_ jamás_** deberías almacenar estos valores en
 {% data variables.product.product_name %} ni en algún otro lugar público, para el caso.{% endif %} Te recomendamos almacenarlos como
 [variables de ambiente][about env vars]--que es exactamente lo que hemos hecho aquí.
 
@@ -67,10 +67,10 @@ Posteriormente, pega este contenido en _views/index.erb_:
     </p>
     <p>
       We're going to now talk to the GitHub API. Ready?
-      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">Click here</a> to begin!</a>
+      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">¡Haz clic aquí</a> para comenzar!
     </p>
     <p>
-      If that link doesn't work, remember to provide your own <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">Client ID</a>!
+      Si ese enlace no funciona, recuerda proporcionar tu propia <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">ID de cliente</a>!
     </p>
   </body>
 </html>
@@ -133,7 +133,7 @@ También, ya que hay una relación jerárquica entre alcances, debes verificar q
 
 No es suficiente verificar los alcances solo antes de hacer las solicitudes, ya que es posible que los usuarios cambien los alcances entre tus solicitudes de verificación y las solicitudes reales. En caso de que esto suceda, las llamadas a la API que esperas tengan éxito podrían fallar con un estado `404` o `401`, o bien, podrían devolver un subconjunto de información diferente.
 
-Para ayudarte a manejar estas situaciones fácilmente, todas las respuestas de la API a las solicitudes que se hagan con tokens válidos también contienen un [encabezado de `X-OAuth-Scopes`][oauth scopes]. Este encabezado contiene la lista de alcances del token que se utilizó para realizar la solicitud. In addition to that, the OAuth Applications API provides an endpoint to {% ifversion fpt or ghes or ghec %} [check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}. Utiliza esta información para detectar los cambios en los alcances de los tokens, y para informar a tus usuarios sobre los cambios disponibles en la funcionalidad de la aplicación.
+Para ayudarte a manejar estas situaciones fácilmente, todas las respuestas de la API a las solicitudes que se hagan con tokens válidos también contienen un [encabezado de `X-OAuth-Scopes`][oauth scopes]. Este encabezado contiene la lista de alcances del token que se utilizó para realizar la solicitud. Adicionalmente a esto, la API de Aplicaciones de OAuth proporciona una terminal para {% ifversion fpt or ghes or ghec %} [verificar la validez de un token](/rest/reference/apps#check-a-token){% else %}[verificar la validez de un token](/rest/reference/apps#check-an-authorization){% endif %}. Utiliza esta información para detectar los cambios en los alcances de los tokens, y para informar a tus usuarios sobre los cambios disponibles en la funcionalidad de la aplicación.
 
 ### Realizar solicitudes autenticadas
 
@@ -265,7 +265,7 @@ get '/callback' do
 end
 ```
 
-La mayoría de este código debería serte familiar. For example, we're still using `RestClient.get` to call out to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and we're still passing our results to be rendered in an ERB template (this time, it's called `advanced.erb`).
+La mayoría de este código debería serte familiar. Por ejemplo, seguimos utilizando `RestClient.get` para llamar a la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} y aún estamos pasando nuestros resultados para que se interpreten en una plantilla ERB (esta vez, se llama `advanced.erb`).
 
 También, ahora tenemos el método `authenticated?`, el cual verifica si el usuario ya se autenticó. Si no, se llamará al método `authenticate!`, el cual lleva a cabo el flujo de OAuth y actualiza la sesión con el token que se otorgó y con los alcances.
 

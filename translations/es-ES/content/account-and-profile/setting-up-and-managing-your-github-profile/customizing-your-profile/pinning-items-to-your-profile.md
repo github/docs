@@ -2,7 +2,7 @@
 title: Anclar elementos a tu perfil
 intro: Puedes fijar gists y repositorios en tu perfil para que otras personas puedan ver tus mejores trabajos rápidamente.
 redirect_from:
-  - /articles/pinning-repositories-to-your-profile/
+  - /articles/pinning-repositories-to-your-profile
   - /articles/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile

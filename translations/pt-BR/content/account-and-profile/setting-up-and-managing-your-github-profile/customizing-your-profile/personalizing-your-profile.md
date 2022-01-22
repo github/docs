@@ -2,11 +2,11 @@
 title: Personalizar seu perfil
 intro: 'É possível compartilhar informações sobre você mesmo com outros usuários do {% data variables.product.product_name %} definindo uma imagem e adicionando uma bio ao seu perfil.'
 redirect_from:
-  - /articles/adding-a-bio-to-your-profile/
-  - /articles/setting-your-profile-picture/
-  - /articles/how-do-i-set-up-my-profile-picture/
-  - /articles/gravatar-problems/
-  - /articles/how-do-i-set-up-my-avatar/
+  - /articles/adding-a-bio-to-your-profile
+  - /articles/setting-your-profile-picture
+  - /articles/how-do-i-set-up-my-profile-picture
+  - /articles/gravatar-problems
+  - /articles/how-do-i-set-up-my-avatar
   - /articles/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
@@ -26,11 +26,14 @@ Sua imagem de perfil ajuda a identificá-lo no {% data variables.product.product
 
 Ao se inscrever em uma conta, o {% data variables.product.product_name %} fornece a você uma "identicon" gerada aleatoriamente. [Sua identicon](https://github.com/blog/1586-identicons) é gerada a partir de um hash de seu ID de usuário e não há como controlar suas cores ou padrão. É possível substituir sua identicon por uma imagem que represente você.
 
-{% tip %}
+{% note %}
 
-**Dica**: Sua imagem de perfil deve ser um arquivo PNG, JPG ou GIF com tamanho menor que 1 MB. Para melhor qualidade de renderização, recomendamos uma imagem de aproximadamente 500 por 500 pixels.
+**Observação{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
 
-{% endtip %}
+* {% endif %}A imagem do seu perfil deve ser um arquivo PNG, JPG ou GIF com tamanho inferior a 1 MB. Para melhor qualidade de renderização, recomendamos uma imagem de aproximadamente 500 por 500 pixels.
+{% ifversion ghec %}* As imagens de perfil do Gravatar não são compatíveis com {% data variables.product.prodname_emus %}.{% endif %}
+
+{% endnote %}
 
 ### Definir uma imagem de perfil
 

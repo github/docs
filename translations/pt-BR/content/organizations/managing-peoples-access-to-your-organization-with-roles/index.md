@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o acesso de pessoas à organização com funções
-intro: 'You can control access to your organizations''s settings and repositories by giving people organization, repository, and team roles.'
+intro: 'É possível controlar o acesso às configurações e repositórios da organização, dando às pessoas funções de organização, repositório e equipe.'
 redirect_from:
   - /articles/managing-people-s-access-to-your-organization-with-roles
   - /articles/managing-peoples-access-to-your-organization-with-roles

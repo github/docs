@@ -2,7 +2,7 @@
 title: アクティビティダッシュボード
 intro: アクティビティダッシュボードで、Enterprise 内のすべてのアクティビティの概要を確認できます。
 redirect_from:
-  - /enterprise/admin/articles/activity-dashboard/
+  - /enterprise/admin/articles/activity-dashboard
   - /enterprise/admin/installation/activity-dashboard
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard

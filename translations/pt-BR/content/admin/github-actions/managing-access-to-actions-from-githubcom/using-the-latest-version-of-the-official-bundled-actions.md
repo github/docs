@@ -3,7 +3,7 @@ title: Usar a versão mais recente das ações agrupadas oficialmente
 intro: 'Você pode atualizar as ações que estão empacotadas com a sua empresa ou usar ações diretamente a partir de {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
 type: how_to
 topics:
   - Actions
@@ -16,7 +16,6 @@ shortTitle: Use as últimas ações empacotadas
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 A instância da sua empresa inclui uma série de ações integradas que podem ser usadas nos seus fluxos de trabalho. Para obter mais informações sobre as ações agrupadas, consulte "[Ações oficiais agrupadas com a sua instância corporativa](/admin/github-actions/about-using-actions-in-your-enterprise#official-actions-bundled-with-your-enterprise-instance)".
 

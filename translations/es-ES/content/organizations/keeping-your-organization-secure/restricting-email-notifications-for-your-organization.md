@@ -4,7 +4,7 @@ intro: 'Para prevenir que se fugue la información de la organización en la scu
 product: '{% data reusables.gated-features.restrict-email-domain %}'
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
-  - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain/
+  - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
   - /articles/restricting-email-notifications-to-an-approved-domain
   - /github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
@@ -29,9 +29,9 @@ Cuando se habilitan las notificaciones por correo electrónico restringidas en u
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-Los colabores externos no están sujetos a las restricciones en las notificaciones por correo electrónico para los dominios verificados o aprobados. For more information about outside collaborators, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+Los colabores externos no están sujetos a las restricciones en las notificaciones por correo electrónico para los dominios verificados o aprobados. Para obtener más información sobre los colaboradores externos, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)".
 
-Si tu organización pertenece a una cuenta empresarial, los miembros de dicha organización podrán recibir notificaciones de cualquier dominio que verifique o apruebe esta cuenta, adicionalmente a cualquier dominio que la misma organización verifique o apruebe. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
+Si tu organización pertenece a una cuenta empresarial, los miembros de dicha organización podrán recibir notificaciones de cualquier dominio que verifique o apruebe esta cuenta, adicionalmente a cualquier dominio que la misma organización verifique o apruebe. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".
 
 ## Restringir las notificciones por correo electrónico
 

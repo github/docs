@@ -22,13 +22,13 @@ You can add query parameters to these URLs to preselect the configuration of a {
 
 The person creating the app can edit the preselected values from the {% data variables.product.prodname_github_app %} registration page, before submitting the app. If you do not include required parameters in the URL query string, like `name`, the person creating the app will need to input a value before submitting the app.
 
-{% ifversion ghes > 3.1 or fpt or ghae-next or ghec %}
+{% ifversion ghes > 3.1 or fpt or ghae or ghec %}
 For apps that require a secret to secure their webhook, the secret's value must be set in the form by the person creating the app, not by using query parameters. For more information, see "[Securing your webhooks](/developers/webhooks-and-events/webhooks/securing-your-webhooks)."
 {% endif %}
 
 The following URL creates a new public app called `octocat-github-app` with a preconfigured description and callback URL. This URL also selects read and write permissions for `checks`, subscribes to the `check_run` and `check_suite` webhook events, and selects the option to request user authorization (OAuth) during installation:
 
-{% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ```text
 {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
@@ -50,7 +50,7 @@ The complete list of available query parameters, permissions, and events is list
 -----|------|-------------
 `name` | `string` | The name of the {% data variables.product.prodname_github_app %}. Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
 `description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
-`url` | `string` | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.{% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}
+`url` | `string` | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 `callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to identify and authorize user-to-server requests. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`.{% else %}
 `callback_url` | `string` | The full URL to redirect to after someone authorizes an installation. This URL is used if your app needs to identify and authorize user-to-server requests.{% endif %}
 `request_oauth_on_install` | `boolean` | If your app authorizes users using the OAuth flow, you can set this option to `true` to allow people to authorize the app when they install it, saving a step. If you select this option, the `setup_url` becomes unavailable and users will be redirected to your `callback_url` after installing the app.
@@ -60,8 +60,8 @@ The complete list of available query parameters, permissions, and events is list
 `webhook_active` | `boolean` | Set to `false` to disable webhook. Webhook is enabled by default.
 `webhook_url` | `string` | The full URL that you would like to send webhook event payloads to.
 {% ifversion ghes < 3.2 or ghae %}`webhook_secret` | `string` | You can specify a secret to secure your webhooks. See "[Securing your webhooks](/webhooks/securing/)" for more details.
-{% endif %}`events` | `array of strings` | Webhook events. Some webhook events require `read` or `write` permissions for a resource before you can select the event when registering a new {% data variables.product.prodname_github_app %}. See the "[{% data variables.product.prodname_github_app %} webhook events](#github-app-webhook-events)" section for available events and their required permissions. You can select multiple events in a query string. For example, `events[]=public&events[]=label`.
-`domain` | `string` | The URL of a content reference.
+{% endif %}`events` | `array of strings` | Webhook events. Some webhook events require `read` or `write` permissions for a resource before you can select the event when registering a new {% data variables.product.prodname_github_app %}. See the "[{% data variables.product.prodname_github_app %} webhook events](#github-app-webhook-events)" section for available events and their required permissions. You can select multiple events in a query string. For example, `events[]=public&events[]=label`.{% ifversion ghes < 3.4 %}
+`domain` | `string` | The URL of a content reference.{% endif %}
 `single_file_name` | `string` | This is a narrowly-scoped permission that allows the app to access a single file in any repository. When you set the `single_file` permission to `read` or `write`, this field provides the path to the single file your {% data variables.product.prodname_github_app %} will manage. {% ifversion fpt or ghes or ghec %} If you need to manage multiple files, see `single_file_paths` below. {% endif %}{% ifversion fpt or ghes or ghec %}
 `single_file_paths` | `array of strings` | This allows the app to access up ten specified files in a repository. When you set the `single_file` permission to `read` or `write`, this array can store the paths for up to ten files that your {% data variables.product.prodname_github_app %} will manage. These files all receive the same permission set by `single_file`, and do not have separate individual permissions. When two or more files are configured, the API returns `multiple_single_files=true`, otherwise it returns `multiple_single_files=false`.{% endif %}
 
@@ -73,8 +73,8 @@ Permission | Description
 ---------- | -----------
 [`administration`](/rest/reference/permissions-required-for-github-apps/#permission-on-administration) | Grants access to various endpoints for organization and repository administration. Can be one of: `none`, `read`, or `write`.{% ifversion fpt or ghec %}
 [`blocking`](/rest/reference/permissions-required-for-github-apps/#permission-on-blocking) | Grants access to the [Blocking Users API](/rest/reference/users#blocking). Can be one of: `none`, `read`, or `write`.{% endif %}
-[`checks`](/rest/reference/permissions-required-for-github-apps/#permission-on-checks) | Grants access to the [Checks API](/rest/reference/checks). Can be one of: `none`, `read`, or `write`.
-`content_references` | Grants access to the "[Create a content attachment](/rest/reference/apps#create-a-content-attachment)" endpoint. Can be one of: `none`, `read`, or `write`.
+[`checks`](/rest/reference/permissions-required-for-github-apps/#permission-on-checks) | Grants access to the [Checks API](/rest/reference/checks). Can be one of: `none`, `read`, or `write`.{% ifversion ghes < 3.4 %}
+`content_references` | Grants access to the "[Create a content attachment](/rest/reference/apps#create-a-content-attachment)" endpoint. Can be one of: `none`, `read`, or `write`.{% endif %}
 [`contents`](/rest/reference/permissions-required-for-github-apps/#permission-on-contents) |  Grants access to various endpoints that allow you to modify repository contents. Can be one of: `none`, `read`, or `write`.
 [`deployments`](/rest/reference/permissions-required-for-github-apps/#permission-on-deployments) | Grants access to the [Deployments API](/rest/reference/repos#deployments). Can be one of: `none`, `read`, or `write`.{% ifversion fpt or ghes or ghec %}
 [`emails`](/rest/reference/permissions-required-for-github-apps/#permission-on-emails) | Grants access to the [Emails API](/rest/reference/users#emails). Can be one of: `none`, `read`, or `write`.{% endif %}
@@ -109,8 +109,8 @@ Webhook event name | Required permission | Description
 ------------------ | ------------------- | -----------
 [`check_run`](/webhooks/event-payloads/#check_run) |`checks` | {% data reusables.webhooks.check_run_short_desc %}
 [`check_suite`](/webhooks/event-payloads/#check_suite) |`checks` | {% data reusables.webhooks.check_suite_short_desc %}
-[`commit_comment`](/webhooks/event-payloads/#commit_comment) | `contents` | {% data reusables.webhooks.commit_comment_short_desc %}
-[`content_reference`](/webhooks/event-payloads/#content_reference) |`content_references` | {% data reusables.webhooks.content_reference_short_desc %}
+[`commit_comment`](/webhooks/event-payloads/#commit_comment) | `contents` | {% data reusables.webhooks.commit_comment_short_desc %}{% ifversion ghes < 3.4 %}
+[`content_reference`](/webhooks/event-payloads/#content_reference) |`content_references` | {% data reusables.webhooks.content_reference_short_desc %}{% endif %}
 [`create`](/webhooks/event-payloads/#create) | `contents` | {% data reusables.webhooks.create_short_desc %}
 [`delete`](/webhooks/event-payloads/#delete) | `contents` | {% data reusables.webhooks.delete_short_desc %}
 [`deployment`](/webhooks/event-payloads/#deployment) | `deployments` | {% data reusables.webhooks.deployment_short_desc %}

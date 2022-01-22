@@ -2,9 +2,9 @@
 title: キーボードショートカット
 intro: '{% data variables.product.prodname_dotcom %} のほぼすべてのページには、アクションを速く実行するためのキーボードショートカットがあります。'
 redirect_from:
-  - /articles/using-keyboard-shortcuts/
-  - /categories/75/articles/
-  - /categories/keyboard-shortcuts/
+  - /articles/using-keyboard-shortcuts
+  - /categories/75/articles
+  - /categories/keyboard-shortcuts
   - /articles/keyboard-shortcuts
   - /github/getting-started-with-github/keyboard-shortcuts
   - /github/getting-started-with-github/using-github/keyboard-shortcuts
@@ -18,6 +18,9 @@ versions:
 ## キーボードショートカットについて
 
 Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. マウスを使用して移動しなくても、これらのキーボードショートカットを使用して、サイト全体でアクションを実行できます。
+
+{% if keyboard-shortcut-accessibility-setting %}
+You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see "[Managing accessibility settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings)."{% endif %}
 
 以下は利用可能なキーボードショートカットのリストです:
 {% if command-palette %}
@@ -51,10 +54,10 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 | キーボードショートカット                                                    | 説明                                                                                                                                                                            |
 | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
-| <kbd>.</kbd>                                                    | Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
+| <kbd>から実行されます。</kbd>                                            | Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
 | <kbd>control b</kbd> または <kbd>command b</kbd>                   | 太字テキストの Markdown 書式を挿入します                                                                                                                                                     |
 | <kbd>control i</kbd> または <kbd>command i</kbd>                   | イタリック体のテキストの Markdown 書式を挿入します                                                                                                                                                |
-| <kbd>control k</kbd> または <kbd>command k</kbd>                   | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae-next or ghes > 3.3 %}
+| <kbd>control k</kbd> または <kbd>command k</kbd>                   | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
 | <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd>        | Inserts Markdown formatting for an ordered list                                                                                                                               |
 | <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd>        | Inserts Markdown formatting for an unordered list                                                                                                                             |
 | <kbd>control shift .</kbd> or <kbd>command shift.</kbd>         | Inserts Markdown formatting for a quote{% endif %}
@@ -89,14 +92,14 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | キーボードショートカット                                              | 説明                                                                                                                                                                                              |
 | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>control b</kbd> または <kbd>command b</kbd>             | 太字テキストの Markdown 書式を挿入します                                                                                                                                                                       |
-| <kbd>control i</kbd> または <kbd>command i</kbd>             | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+| <kbd>control i</kbd> または <kbd>command i</kbd>             | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 | <kbd>control e</kbd> or <kbd>command e</kbd>              | Inserts Markdown formatting for code or a command within a line{% endif %}
 | <kbd>control k</kbd> または <kbd>command k</kbd>             | リンクを作成するための Markdown 書式を挿入します                                                                                                                                                                   |
-| <kbd>control shift p</kbd> または <kbd>command shift p</kbd> | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
+| <kbd>control shift p</kbd> または <kbd>command shift p</kbd> | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd>  | Inserts Markdown formatting for an ordered list                                                                                                                                                 |
 | <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd>  | Inserts Markdown formatting for an unordered list{% endif %}
-| <kbd>control enter</kbd>                                  | コメントをサブミットします                                                                                                                                                                                   |
-| <kbd>control .</kbd>、次に <kbd>control [返信テンプレート番号]</kbd>   | 返信テンプレートメニューを開き、コメントフィールドに返信テンプレートを自動入力します。 詳細は「[返信テンプレートについて](/articles/about-saved-replies)」を参照してください。{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
+| <kbd>control enter</kbd> or <kbd>command enter</kbd>      | コメントをサブミットします                                                                                                                                                                                   |
+| <kbd>control .</kbd>、次に <kbd>control [返信テンプレート番号]</kbd>   | 返信テンプレートメニューを開き、コメントフィールドに返信テンプレートを自動入力します。 詳細は「[返信テンプレートについて](/articles/about-saved-replies)」を参照してください。{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>control shift .</kbd> or <kbd>command shift.</kbd>   | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
 | <kbd>control g</kbd> または <kbd>command g</kbd>             | 提案を挿入します。 詳細は「[プルリクエストで提案された変更をレビューする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」を参照してください。 
 {% endif %}

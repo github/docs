@@ -2,9 +2,9 @@
 title: 管理远程仓库
 intro: '了解如何使用计算机上的本地仓库以及 {% data variables.product.product_name %} 上托管的远程仓库。'
 redirect_from:
-  - /categories/18/articles/
-  - /remotes/
-  - /categories/managing-remotes/
+  - /categories/18/articles
+  - /remotes
+  - /categories/managing-remotes
   - /articles/managing-remote-repositories
   - /articles/adding-a-remote
   - /github/using-git/adding-a-remote

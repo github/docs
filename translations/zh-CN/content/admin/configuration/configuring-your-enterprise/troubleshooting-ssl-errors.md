@@ -2,8 +2,8 @@
 title: 排查 SSL 错误
 intro: 如果您的设备遇到 SSL 问题，可以采取相应措施加以解决。
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-ssl-errors/
-  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
+  - /enterprise/admin/articles/troubleshooting-ssl-errors
+  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors

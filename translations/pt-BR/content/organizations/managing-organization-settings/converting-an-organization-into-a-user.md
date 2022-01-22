@@ -18,7 +18,7 @@ shortTitle: Converter organização em usuário
 
 {% note %}
 
-**Note**: After an account is deleted, the username at the time of deletion becomes unavailable for reuse for 90 days. To reuse an organization's username immediately, you must change the username before you delete the organization.
+**Observação**: Depois que uma conta é excluída, o nome de usuário no momento da exclusão ficará indisponível para reutilização por 90 dias. Para reutilizar o nome de usuário de uma organização imediatamente, você deverá alterar o nome de usuário antes de excluir a organização.
 
  {% endnote %}
 
@@ -26,7 +26,7 @@ shortTitle: Converter organização em usuário
 2. [Altere a função do usuário para um proprietário](/articles/changing-a-person-s-role-to-owner).
 3. {% data variables.product.signin_link %} na nova conta de usuário.
 4. [Transfira cada repositório da organização](/articles/how-to-transfer-a-repository) para a nova conta de usuário.
-5. [Rename the organization](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) to make the current username available.
+5. [Renomeie a organização](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) para tornar o nome de usuário atual disponível.
 6. [Renomeie o usuário](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) para o nome da organização.
 7. [Exclua a organização](/organizations/managing-organization-settings/deleting-an-organization-account).
 

@@ -187,3 +187,4 @@ Success: Replica has been promoted to primary and is now accepting requests.
 ## 延伸阅读
 
 - “[创建高可用性副本](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)”
+- "[Network ports](/admin/configuration/configuring-network-settings/network-ports)"

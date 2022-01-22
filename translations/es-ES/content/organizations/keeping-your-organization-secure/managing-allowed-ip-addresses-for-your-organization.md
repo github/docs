@@ -26,7 +26,7 @@ Puedes restringir el acceso a los activos de la organización configurando un li
 
 Si configuras una lista de direcciones permitidas, también puedes elegir agregar automáticamente a ella cualquier dirección IP que hayas configurado para las {% data variables.product.prodname_github_apps %} que instales en tu organización. El creador de una {% data variables.product.prodname_github_app %} puede configurar una lista de direcciones permitidas para su aplicación, las cuales especifiquen las direcciones IP en las cuales se ejecuta esta. Al heredar la lista de direcciones permitidas en la tuya, estás evitando las solicitudes de conexión de la aplicación que se está rehusando. Para obtener más información, consulta la sección "[Permitir el acceso mediante {% data variables.product.prodname_github_apps %}](#allowing-access-by-github-apps)".
 
-También puedes configurar las direcciones IP permitidas para las organizaciones en una cuenta empresarial. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
+También puedes configurar las direcciones IP permitidas para las organizaciones en una cuenta empresarial. Para obtener más información, consulta la sección "[Requerir políticas para la configuración de seguridad en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
 
 ## Agregar una dirección IP permitida
 
@@ -81,12 +81,4 @@ Para obtener más información sobre cómo crear una lista de direcciones permit
 
 ## Utilizar {% data variables.product.prodname_actions %} con un listado de direcciones IP permitidas
 
-{% ifversion ghae %}
-
-{% data reusables.github-actions.ip-allow-list-hosted-runners %}
-
-{% else %}
-
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
-
-{% endif %}

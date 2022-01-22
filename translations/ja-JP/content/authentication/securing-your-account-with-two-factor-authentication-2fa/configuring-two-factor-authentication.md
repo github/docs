@@ -2,9 +2,9 @@
 title: 2 要素認証を設定する
 intro: 複数のオプションから選択して、アカウントの 2 番目の認証方法を追加できます。
 redirect_from:
-  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app/
-  - /articles/configuring-two-factor-authentication-via-text-message/
-  - /articles/configuring-two-factor-authentication-via-fido-u2f/
+  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app
+  - /articles/configuring-two-factor-authentication-via-text-message
+  - /articles/configuring-two-factor-authentication-via-fido-u2f
   - /articles/configuring-two-factor-authentication
   - /github/authenticating-to-github/configuring-two-factor-authentication
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication

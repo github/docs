@@ -1,8 +1,8 @@
 ---
 title: Bifurcar um repo
 redirect_from:
-  - /fork-a-repo/
-  - /forking/
+  - /fork-a-repo
+  - /forking
   - /articles/fork-a-repo
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
@@ -52,12 +52,11 @@ Se ainda não o fez, primeiro [configure o Git](/articles/set-up-git). Lembre-se
 
 ## Bifurcar um repositório
 
-{% include tool-switcher %}
 {% webui %}
 
-Você pode bifurcar um projeto para propor alterações no repositório upstream ou original. Nesse caso, uma boa prática é sincronizar regularmente sua bifurcação com o repositório upstream. Para isso, é necessário usar Git na linha de comando. Pratique configurando o repositório upstream com o mesmo repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) que você acabou de bifurcar.
+Você pode bifurcar um projeto para propor alterações no repositório upstream ou original. Nesse caso, uma boa prática é sincronizar regularmente sua bifurcação com o repositório upstream. Para isso, é necessário usar Git na linha de comando. Você pode praticar configurando o repositório upstream com o mesmo repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) que você acabou de bifurcar.
 
-1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+1. Em {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, acesse o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
 2. No canto superior direito da página, clique em **Fork** (Bifurcação). ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.jpg)
 
 {% endwebui %}
@@ -87,10 +86,9 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 Agora, você tem uma bifurcação do repositório Spoon-Knife, mas você não tem os arquivos nesse repositório localmente no seu computador.
 
-{% include tool-switcher %}
 {% webui %}
 
-1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
+1. Em {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, acesse **a sua bifurcaçãofork** do repositório Spoon-Knife.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -135,12 +133,11 @@ gh repo fork <em>repository</em> --clone=true
 
 ## Configurar o Git para sincronizar a bifurcação com o repositório original
 
-Ao bifurcar um projeto para propor mudanças no repositório original, é possível configurar o Git para fazer pull de mudanças do repositório original ou upstream no clone local de sua bifurcação.
+Ao bifurcar um projeto para propor mudanças no repositório original, é possível configurar o Git para fazer pull de alterações do repositório original ou upstream no clone local de sua bifurcação.
 
-{% include tool-switcher %}
 {% webui %}
 
-1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+1. Em {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, acesse o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Mude os diretórios para a localidade da bifurcação que você clonou.
@@ -201,7 +198,7 @@ Você pode fazer alterações em uma bifurcação, incluindo:
 ## Localize outro repositório para bifurcar
 Bifurque um repositório para começar a contribuir com um projeto. {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt or ghec %}Você pode navegar em [Explore](https://github.com/explore) (Explorar) para encontrar projetos e começar a contribuir com repositórios de código aberto. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% ifversion fpt or ghec %}Você pode navegar em [Explorar](https://github.com/explore) para encontrar projetos e começar a contribuir com repositórios de código aberto. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 

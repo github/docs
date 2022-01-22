@@ -15,18 +15,23 @@ shortTitle: Administrar grupos de ejecutores
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de los grupos de ejecutores auto-hospedados
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt %}
 {% note %}
 
 **Nota:** Todas las organizaciones tienen un solo grupo de ejecutores auto-hospedados predeterminado. Solo las cuentas empresariales y las organizaciones que pretenezcan a estas pueden crear y administrar grupos de ejecutores auto-hospedados adicionales.
 
 {% endnote %}
+
+Los grupos de ejecutores auto-hospedados se utilizan para controlar el acceso a los ejecutores auto-hospedados. Los administradores de las organizaciones pueden configurar políticas de acceso que controlen qué repositorios en una organización tienen acceso al grupo de ejecutores.
+Si utilizas
+
+{% data variables.product.prodname_ghe_cloud %}, puedes crear grupos de ejecutores adicionales; los administradores empresariales pueden configurar políticas de acceso que controlen qué organizaciones dentro de una empresa pueden acceder al grupo de ejecutores y los administradores organizacionales pueden asignar políticas de acceso granulares de repositorio para el grupo de ejecutores empresarial. Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups).
 {% endif %}
 
+{% ifversion ghec or ghes or ghae %}
 Los grupos de ejecutores auto-hospedados se utilizan para controlar el acceso a los ejecutores auto-hospedados a nivel de empresas y organizaciones. Los administradores de la empresa pueden configurar políticas de acceso que controlan qué organizaciones en la empresa tienen acceso al grupo de ejecutores. Los administradores de las organizaciones pueden configurar políticas de acceso que controlen qué repositorios en una organización tienen acceso al grupo de ejecutores.
 
 Cuando un administrador de empresa otorga acceso a una organización para un grupo de ejecutores, los administradores de organización pueden ver que dicho grupo se lista en la configuración del ejecutor auto-hospedado de la organización. Los administradores de la organización pueden entonces asignar políticas de acceso adicionales para repositorios granulares en el grupo de ejecutores de la empresa.
@@ -41,7 +46,7 @@ Los ejecutores auto-hospedados se asignan automáticamente al grupo predetermina
 
 Cuando creas un grupo, debes elegir una política que defina qué repositorios tienen acceso al grupo ejecutor.
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-groups %}
@@ -66,7 +71,7 @@ Cuando creas un grupo, debes elegir una política que defina qué repositorios t
     ![Agregar un grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Ingresa un nombre para tu grupo de ejecutores y asigna una política para el acceso al repositorio.
 
-   {% ifversion ghes or ghae %} Puedes configurar un grupo de ejecutores para que sea accesible para una lista específica de repositorios o para todos los repositorios de la organización. Predeterminadamente, solo los repositorios privados pueden acceder a los ejecutores en un grupo de ejecutores, pero puedes anular esto. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
+   {% ifversion ghes or ghae %} Puedes configurar un grupo de ejecutores para que sea accesible para una lista específica de repositorios o para todos los repositorios de la organización. Predeterminadamente, solo los repositorios privados pueden acceder a los ejecutores en un grupo de ejecutores, pero puedes anular esto. Esta configuración no puede anularse si se configura un grupo ejecutor de la organización que haya compartido una empresa.{% endif %}
 
    {% warning %}
 
@@ -90,7 +95,7 @@ Los ejecutores auto-hospedados se asignan automáticamente al grupo predetermina
 
 Cuando creas un grupo, debes elegir la política que defina qué organizaciones tienen acceso al grupo de ejecutores.
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
@@ -134,6 +139,7 @@ Cuando creas un grupo, debes elegir la política que defina qué organizaciones 
     ![Agregar opciones de un grupo de ejecutores](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
 1. Da clic en **Guardar grupo** para crear el grupo y aplicar la política.
 {% endif %}
+{% endif %}
 
 ## Cambiar la política de acceso de un grupo de ejecutores auto-hospedados
 
@@ -156,6 +162,8 @@ Puedes actualizar la política de acceso de un grupo ejecutor o renombrarlo.
 {% ifversion ghae or ghes %}
 {% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
+
+{% ifversion ghec or ghes or ghae %}
 ## Agregar ejecutores auto-hospedados a un grupo automáticamente
 
 Puedes utilizar el script de configuración para agregar automáticamente un ejecutor auto-hospedado nuevo a un grupo. Por ejemplo, este comando registra un ejecutor auto-hospedado nuevo y utiliza el parámetro `--runnergroup` para agregarlo a un grupo llamado `rg-runnergroup`.
@@ -173,29 +181,32 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 ## Mover un ejecutor auto-hospedado a un grupo
 
 Si no especificas un grupo de ejecutores durante el proceso de registro, tus ejecutores auto-hospedados nuevos se asignarán automáticamente al grupo predeterminado y después se moverán a otro grupo.
-{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+{% ifversion ghec or ghes > 3.1 or ghae %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
 1. En la lista de "Ejecutores", haz clic en aquél que quieras configurar.
-1. Selecciona el menú desplegable del grupo de ejecutores.
-1. En "Mover el ejecutor al grupo", elige un grupo destino para el ejecutor.
-{% else %}
+2. Selecciona el menú desplegable del grupo de ejecutores.
+3. En "Mover el ejecutor al grupo", elige un grupo destino para el ejecutor.
+{% endif %}
+{% ifversion ghes < 3.2 or ghae %}
 1. En la sección de "Ejecutores auto-hospedados" de la página de configuración, ubica el grupo actual del ejecutor que quieres mover y expande la lista de miembros del grupo. ![Ver los miembros de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-members.png)
-1. Selecciona la casilla junto al ejecutor auto-hospedado y da clic en **Mover a grupo** para ver los destinos disponibles. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move.png)
-1. Para mover el ejecutor, da clic en el grupo de destino. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
+2. Selecciona la casilla junto al ejecutor auto-hospedado y da clic en **Mover a grupo** para ver los destinos disponibles. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move.png)
+3. Para mover el ejecutor, da clic en el grupo de destino. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
 ## Eliminar un grupo de ejecutores auto-hospedados
 
 Los ejecutores auto-hospedados se devuelven automáticamente al grupo predeterminado cuando su grupo se elimina.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion ghes > 3.1 or ghae or ghec %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. En la lista de grupos, a la derecha del grupo que quieras borrar, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-1. Para eliminar el grupo, da clic en **Eliminar grupo**.
-1. Revisa el mensaje de confirmación y da clic en **Eliminar este grupo de ejecutores**.
-{% else %}
+2. Para eliminar el grupo, da clic en **Eliminar grupo**.
+3. Revisa el mensaje de confirmación y da clic en **Eliminar este grupo de ejecutores**.
+{% endif %}
+{% ifversion ghes < 3.2 or ghae %}
 1. En la sección de "Ejecutores auto-hospedados" de la página de ajustes, ubica el grupo que quieras borrar y haz clic en el botón {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ver la configuración del grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. Para eliminar el grupo, da clic en **Eliminar grupo**. ![Ver la configuración del grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-remove.png)
 
 1. Revisa el mensaje de confirmación y da clic en **Eliminar este grupo de ejecutores**.
+{% endif %}
 {% endif %}

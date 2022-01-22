@@ -10,6 +10,9 @@ on:
       - opened
       - reopened
 
+permissions:
+  contents: none
+
 jobs:
   triage:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'

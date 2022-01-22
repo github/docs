@@ -2,7 +2,7 @@
 title: Importar un repositorio con el Importador GitHub
 intro: 'Si tienes un proyecto alojado en otro sistema de control de versión, puedes importarlo automáticamente a GitHub usando la herramienta Importador GitHub.'
 redirect_from:
-  - /articles/importing-from-other-version-control-systems-to-github/
+  - /articles/importing-from-other-version-control-systems-to-github
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:

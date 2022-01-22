@@ -12,7 +12,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 これらの追加ログは、ワークフローを含むリポジトリにシークレットを設定することで有効になるため、同じ権限要件が適用されます。
 

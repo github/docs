@@ -2,7 +2,7 @@
 title: Signing tags
 intro: You can sign tags locally using GPG or S/MIME.
 redirect_from:
-  - /articles/signing-tags-using-gpg/
+  - /articles/signing-tags-using-gpg
   - /articles/signing-tags
   - /github/authenticating-to-github/signing-tags
   - /github/authenticating-to-github/managing-commit-signature-verification/signing-tags

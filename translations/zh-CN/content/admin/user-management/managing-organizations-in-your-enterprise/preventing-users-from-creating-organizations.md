@@ -1,8 +1,8 @@
 ---
 title: 阻止用户创建组织
 redirect_from:
-  - /enterprise/admin/articles/preventing-users-from-creating-organizations/
-  - /enterprise/admin/hidden/preventing-users-from-creating-organizations/
+  - /enterprise/admin/articles/preventing-users-from-creating-organizations
+  - /enterprise/admin/hidden/preventing-users-from-creating-organizations
   - /enterprise/admin/user-management/preventing-users-from-creating-organizations
   - /admin/user-management/preventing-users-from-creating-organizations
 intro: 您可以防止用户在您的企业中创建组织。

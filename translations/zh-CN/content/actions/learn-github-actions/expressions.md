@@ -12,7 +12,6 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About expressions
 
@@ -126,11 +125,11 @@ env:
 
 #### 使用数组的示例
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
 
 #### 使用字符串的示例
 
-`contains('Hello world', 'llo')` 返回 `true`
+`contains('Hello world', 'llo')` 返回 `true`.
 
 ### startsWith
 
@@ -140,7 +139,7 @@ env:
 
 #### 示例
 
-`startsWith('Hello world', 'He')` 返回 `true`
+`startsWith('Hello world', 'He')` 返回 `true`.
 
 ### endsWith
 
@@ -150,7 +149,7 @@ env:
 
 #### 示例
 
-`endsWith('Hello world', 'ld')` 返回 `true`
+`endsWith('Hello world', 'ld')` 返回 `true`.
 
 ### format
 
@@ -160,19 +159,19 @@ env:
 
 #### 示例
 
-返回 'Hello Mona the Octocat'
-
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### 逸出括号示例
+返回 'Hello Mona the Octocat'.
 
-返回 '{Hello Mona the Octocat!}'
+#### 逸出括号示例
 
 {% raw %}
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
+
+返回 '{Hello Mona the Octocat!}'.
 
 ### join
 
@@ -267,9 +266,9 @@ jobs:
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-## 作业状态检查函数
+## 状态检查函数
 
-您可以使用以下状态检查函数作为 `if` 条件中的表达式。 除非您包含其中一个函数，否则 `success()` 的默认状态检查将会应用。 有关 `if` 条件的更多信息，请参阅“[GitHub 操作的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”。
+您可以使用以下状态检查函数作为 `if` 条件中的表达式。 除非您包含其中一个函数，否则 `success()` 的默认状态检查将会应用。 For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
 
 ### success
 
@@ -306,7 +305,7 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 ### failure
 
-在作业的任何之前一步失败时返回 `true`。
+在作业的任何之前一步失败时返回 `true`。 If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
 
 #### 示例
 
@@ -316,6 +315,32 @@ steps:
   - name: The job has failed
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
+
+### Evaluate Status Explicitly
+
+Instead of using one of the methods above, you can evaluate the status of the job or composite action that is executing the step directly:
+
+#### Example for workflow step
+
+```yaml
+steps:
+  ...
+  - name: The job has failed
+    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
+```
+
+This is the same as using `if: failure()` in a job step.
+
+#### Example for composite action step
+
+```yaml
+steps:
+  ...
+  - name: The composite action has failed
+    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
+```
+
+This is the same as using `if: failure()` in a composite action step.
 
 ## 对象过滤器
 

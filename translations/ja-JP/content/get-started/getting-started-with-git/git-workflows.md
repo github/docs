@@ -2,7 +2,7 @@
 title: Git のワークフロー
 intro: '{% data variables.product.prodname_dotcom %} フローは、軽量でブランチベースのワークフローで、規則的にデプロイされる Team とプロジェクトをサポートしています。'
 redirect_from:
-  - /articles/what-is-a-good-git-workflow/
+  - /articles/what-is-a-good-git-workflow
   - /articles/git-workflows
   - /github/using-git/git-workflows
   - /github/getting-started-with-github/git-workflows

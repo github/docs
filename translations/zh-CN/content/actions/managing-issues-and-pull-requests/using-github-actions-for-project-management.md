@@ -14,7 +14,6 @@ topics:
 shortTitle: 项目管理操作
 ---
 
-{% data reusables.actions.ae-beta %}
 
 您可以创建工作流程以使用 {% data variables.product.prodname_actions %} 自动化项目管理任务。 每个工作流程都包含一系列任务，每当工作流程运行时都会自动执行。 例如，您可以创建一个工作流程，在每次创建议题时运行，以添加标签、 留下评论并将议题移动到项目板。
 
