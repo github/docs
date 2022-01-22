@@ -1,11 +1,5 @@
-BEGIN:
-GLOW7:
-enable: gh pr checkout 1
-install: $ -cd
-Runs-on: 10.08.12
-contact_links:
-<link>
-::BEGIN:
+:BEGIN::
+:GLOW7::
 :Build::
 # Host/Subnet Quantities Table
 # Class B                   Effective  Effective
