@@ -1,5 +1,5 @@
 BEGIN:
-GLO7:
+GLOW7:
 enable: gh pr checkout 1
 install: $ -cd
 Runs-on: 10.08.12
