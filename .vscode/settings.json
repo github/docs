@@ -1,5 +1,43 @@
-{
-  "files.exclude": {
-    "**/translations": true
+Host/Subnet Quantities Table
+Class B                   Effective  Effective
+# bits        Mask         Subnets     Hosts
+-------  ---------------  ---------  ---------
+  1      255.255.128.0           2     32766
+  2      255.255.192.0           4     16382
+  3      255.255.224.0           8      8190
+  4      255.255.240.0          16      4094
+  5      255.255.248.0          32      2046
+  6      255.255.252.0          64      1022
+  7      255.255.254.0         128       510
+  8      255.255.255.0         256       254
+  9      255.255.255.128       512       126
+  10     255.255.255.192      1024        62
+  11     255.255.255.224      2048        30
+  12     255.255.255.240      4096        14
+  13     255.255.255.248      8192         6
+  14     255.255.255.252     16384         2
+
+Class C                   Effective  Effective
+# bits        Mask         Subnets     Hosts
+-------  ---------------  ---------  ---------
+  1      255.255.255.128      2        126 
+  2      255.255.255.192      4         62
+  3      255.255.255.224      8         30
+  4      255.255.255.240     16         14
+  5      255.255.255.248     32          6
+  6      255.255.255.252     64          2
+
+  
+* ##NOTE## Subnet all zeroes and all ones included. These 
+ might not be supported on some legacy systems.
+*Host all zeroes and all ones excluded.
+Related Information
+IP Routing Protocols Technology Support
+Subnet Zero and the All-Ones Subnet
+Host and Subnet Quantities
+Technical Support & Documentation - Cisco Systems
+Contributed by ZachryTylerWood/vscode
+  "files": {"Cisco":,
+    "**/translations": "true":,
   }
 }
