@@ -1,12 +1,4 @@
----
-title: Contributing to projects
-intro: Learn how to contribute to a project through forking.
-permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+
 topics:
   - Pull requests
   - Forks
