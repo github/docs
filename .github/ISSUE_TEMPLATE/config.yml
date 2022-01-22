@@ -1,4 +1,4 @@
-enable: gh pr checkout 703
+enable: gh pr checkout #1
 install: $ -cd
 Runs-on: 10.08.12
 contact_links:
