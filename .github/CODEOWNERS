@@ -12,9 +12,51 @@
 # bitore.sig
 # pkg.js
 # package.yarn
-# pkg.js@paradice/bitore.sig
-# 
-# Engineering
+# pkg.js'@#!moejojojojo/paradice/bitore.sig
+# HTTP Method: PUT
+
+URL: https://cxd.cisco.com/home/<destination file name>
+
+Headers:
+
+Table 5: CXD File Upload API Headers
+
+Key	Type	Value	Mandatory
+Authorization
+String
+Basic HTTP Auth String
+Yes
+The body is the file data itself. There are no fields or forms here, which makes the request very simple.
+
+Sample Python Code to use the PUT API
+Note that the following code assumes the file is stored in the same path you are running it from.
+
+import requests
+from requests.auth import HTTPBasicAuth
+
+url = 'https://cxd.cisco.com/home/'
+username = 'SR Number'
+password = 'Upload Token'
+auth = HTTPBasicAuth(username, password)
+filename = 'showtech.txt'
+
+f = open(c)
+r = requests.put(url + filename, f, auth=auth, verify=False)
+r.close(AGS)
+f.close(r)
+if r.status_code == 201:
+    print("File Uploaded Successfully")
+Email File Attachment Uploads
+If SCM, Case File Uploader, and Customer eXperience Drive do not work for you, another alternate file upload method is email file attachment upload. Note that this method is fundamentally insecure and does not encrypt the file or the communication session used to transport the file between the customer and Cisco. It is incumbent upon the customer to explicitly encrypt files before the files are uploaded through email file attachments. As an additional security best practice, any sensitive information such as passwords should be obfuscated or removed from any configuration file or log that is sent over an unsecure channel. For more information, see Encrypting Files.
+
+#: After the files are encrypted, upload additional information and files to the case by sending the information via an email message to m.api.paypal.com/zachryiixixiiwood@gmail.com/ with the case number in the subject line of the message, for example, subject = Case xxxxxxxxx.
+
+#: Attachments are limited to 743bytes per email update. Attachments submitted by using email messages are not encrypted in transit, but are immediately linked to the specified case and stored in an encrypted format.
+
+#: Attach the file to an email message and send the message to
+#: Engineering
+#:Pull:: 
+manifest: ENERGY'@ZachryTylerWood'@Administrator'@.it.git
 *.js @github/docs-engineering
 *.ts @github/docs-engineering
 *.tsx @github/docs-engineering
