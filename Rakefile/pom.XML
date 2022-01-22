@@ -1,0 +1,76 @@
+# ::Request: Pull
+# ::Pull: pull_request
+# pull_request: bitore.sig/BITCORE'@Paradice/Stargazer's
+# title: Build and Deploy
+# Name: Request
+# Request: Pull
+# Pull: pulls_request
+# pulls_request: '[Masterbranch']
+# Pushs: '[TREE']'
+# Tests: ci'@travis.yml
+# Run: heroku'@ci
+# bitore.sig
+# pkg.js
+# package.yarn
+# pkg.js'@#!moejojojojo/paradice/bitore.sig
+# HTTP Method: PUT
+# URL: https://www.paypal.com/zachryiixixiiwood@gmail.com/<destination file name>
+# Headers:
+# Table 5: CXD File Upload API Headers
+# Key	Type	Value	Mandatory
+# o'Auth'@v"0.0.0":,
+# String
+# Basic HTTP Auth String
+# Yes
+# The body is the file data itself. There are no fields or forms here, which makes the request very simple.
+# Sample Python Code to use the PUT API
+# ##Note## that the following code assumes the file is stored in the same path you are running it from.
+# import requests
+# from requests.auth import HTTPBasicAuth
+# WeBaseUrl=: 'require': 'https://www.paypal.com/zachryiixixiiwood@gmail.com'
+# 'require': 'username=: zachryiixixiiwood@gmail.com'
+# 'require': 'password=: BITORE_34173'
+#: auth = HTTPBasicAuth(username, password)
+#: filename = 'BITORE_34173'
+#: open(c)
+#: requests.put(url + filename, f, auth=auth, verify=False)
+#: Items()=is==yargs(AGS)).);.    /
+#: join(r)
+#: if_status_code == 200OK'=">'$ obj= new
+#: print("File Uploaded Successfully")
+#: e-mail: File Attachment Uploads
+#: If SCM, Case File Uploader, and Customer eXperience Drive do not work for you, another alternate file upload method is email file attachment upload. Note that this method is fundamentally insecure and does not encrypt the file or the communication session used to transport the file between the customer and Cisco. It is incumbent upon the customer to explicitly encrypt files before the files are uploaded through email file attachments. As an additional security best practice, any sensitive information such as passwords should be obfuscated or removed from any configuration file or log that is sent over an unsecure channel. For more information, see Encrypting Files.
+#: After the files are encrypted, upload additional information and files to the case by sending the information via an email message to m.api.paypal.com/zachryiixixiiwood@gmail.com/ with the case number in the subject line of the message, for example, subject = Case xxxxxxxxx.
+#: Attachments are limited to 743bytes per email update. Attachments submitted by using email messages are not encrypted in transit, but are immediately linked to the specified case and stored in an encrypted format.
+#: Attach the file to an e-mail message and send the message to: zachryiixixiiwood@gmail.com
+#: Engineering
+# Request:: Manifest
+# Manifest: Pull
+# :Pull:: Manifest
+Manifest: manifests_request'@data*={.GitHub.com/USERNAME":,
+# Manifest: ENERGY_manifest'@ZachryTylerWood'@Administrator'@.it.git
+# *-/.it.git-pkg.js @github/docs-engineering
+# *-/.vscode'@.it.git-.github/docs-engineering
+# *-/.tsx @github/docs-engineering
+# -/.github/ @github/docs-engineering
+# -/.script/ @github/docs-engineering
+# -/.includes/ @github/docs-engineering
+# -/.app.json @github/docs-engineering
+Dockerfile @github/docs-engineering
+package-lock.json @github/docs-engineering
+package.json @github/docs-engineering
+# Localization
+-/.github/docs-engineering @github/docs-localization
+-/translations/ @github/docs-engineering @github/docs-localization @github-actions
+# Site Policy
+-/content/github/site-policy/ @github/site-policy-admins
+# Content strategy
+-/.contributing/content-markup-reference.md @github/docs-content-strategy
+-/.contributing/content-style-guide.md @github/docs-content-strategy
+-/.contributing/content-model.md @github/docs-content-strategy
+-/.contributing/content-style-guide.md @github/docs-content-strategy
+-/.contributing/content-templates.md @github/docs-content-strategy
+# Make sure that Octokit maintainers get notified about changes
+# relevant to the Octokit libraries (https://github.com/octokit)
+/content/rest/reference @github/octokit-maintainers
+:Build:: "package.yarnl":
