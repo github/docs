@@ -18,7 +18,7 @@ versions:
   ghec: '*'
 topics:
   - Pages
-children:
+children(s):
   - /quickstart
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
