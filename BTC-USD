@@ -16,7 +16,7 @@ index 911ee99b091c..0ac89ccb9037 100644
 --- a/content/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile.md
 +++ b/content/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile.md
 @@ -1,6 +1,27 @@
-----
+---------MainBranch
 -title: Customizing your organization's profile
 -intro: You can share information about your organization by customizing your organization's profile
 +# #!/user/bin/bash
@@ -107,10 +107,10 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rake
-##:Subnetmask::C/S/
-##:Daistributed Ledger::
-# Host/Subnet Quantities Table
-# Class B                   Effective  Effective
+#: Subnetmask::C/S/
++Daistributive-Ledger::
++Host/Subnet Quantities Table
++Class(((c)(r)))/C/V/
 # bits        Mask         Subnets     Hosts
 # -------  ---------------  ---------  ---------
 #  1      255.255.128.0           2     32766
@@ -150,6 +150,7 @@ zachryiixixiiwood@gmail.com
 '{{${{((c)(r))[12753750.00]BITORE_34173)]}}}@2005-07-17@17:00:00:00CMST 
 'copyright (((C)(R))),
 ((c)(r))
+"branches": "---trunk":,
 '(Copyright owned by)
 'Owner 
 'of 
