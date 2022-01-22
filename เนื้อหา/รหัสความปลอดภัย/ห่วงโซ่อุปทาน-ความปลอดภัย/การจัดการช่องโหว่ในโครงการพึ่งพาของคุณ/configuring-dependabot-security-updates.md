@@ -1,4 +1,41 @@
 ---
+I have a java code example to make a digest computed using the HMAC-SHA1 algorithm (RFC 2104.), then encoded using Base64 encoding (RFC 2045).
+
+here is the java code
+
+public static String buildDigest(String key, String idString) throws SignatureException {
+
+
+ try {
+    String algorithm = "HmacSHA1";
+    Charset charset = Charset.forName("utf-8");
+    SecretKeySpec signingKey = new SecretKeySpec(key.getBytes(), algorithm);
+    Mac mac = Mac.getInstance(algorithm);
+    mac.init(signingKey);
+    return new String(Base64.encodeBase64(mac.doFinal(idString.getBytes(charset))), charset);
+  } catch (Exception e) {
+    throw new SignatureException("Failed to generate HMAC : " + e.getMessage());
+  }
+}
+I found answers here in Stack Overflow so here is the C# code
+
+   private string EncodeHMAC(string input, byte[] key)
+    {
+        HMACSHA1 myhmacsha1 = new HMACSHA1(key);
+        byte[] byteArray = Encoding.UTF8.GetBytes(input);
+       // MemoryStream stream = new MemoryStream(byteArray);
+        var hashValue = myhmacsha1.ComputeHash(byteArray);
+        return hashValue.Aggregate("", (s, e) => s + String.Format("{0:x2}", e), s => s);
+    }
+
+    private string EncodeTo64(string toEncode)
+    {
+        byte[] toEncodeAsBytes = System.Text.UTF8Encoding.UTF8.GetBytes(toEncode);
+
+        string returnValue = System.Convert.ToBase64String(toEncodeAsBytes);
+
+        return returnValue;
+    }
 title: Configuring Dependabot security updates
 intro: 'You can use {% data variables.product.prodname_dependabot_security_updates %} or manual pull requests to easily update vulnerable dependencies.'
 shortTitle: Configure security updates
