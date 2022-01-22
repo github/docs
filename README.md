@@ -1,4 +1,4 @@
-# GitHub Docs <!-- omit in toc --> 
+# GitHub Docs <!-- contributing.md --> 
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
@@ -58,6 +58,6 @@ All other code in this repository is licensed under the [MIT license](LICENSE-CO
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-## Thanks :purple_heart:
+## Thanks :purple_'<"3'_heart:
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you being part of our :sparkles: community :sparkles: !
