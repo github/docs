@@ -1,20 +1,12 @@
-BEGIN::
+ON:
+BEGIN:
 GLOW7::
-body:
-- From 7c6f167f7e6da27c2524fe3ae9f4a9057d143209 Mon Sep 17 00:00:00 2001
+From 7c6f167f7e6da27c2524fe3ae9f4a9057d143209 Mon Sep 17 00:00:00 2001
 From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
  <zachryiixixiiwood@gmail.com>
-Date: Thu, 20 Jan 2022 18:05:46 -0600
-Subject: [PATCH] Update customizing-your-organizations-profile.md
-
----
- .../customizing-your-organizations-profile.md | 27 ++++++++++++++++---
- 1 file changed, 24 insertions(+), 3 deletions(-)
-
-diff --git a/content/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile.md b/content/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile.md
-index 911ee99b091c..0ac89ccb9037 100644
---- a/content/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile.md
-+++ b/content/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile.md
+"title": "borat":,
+"colaborating": "o'Auth":,
+"-with": "groups-in-organizations/customizing-your-organizations-profile.md":,
 @@ -1,6 +1,27 @@
 ---------MainBranch
 -title: Customizing your organization's profile
@@ -26,7 +18,7 @@ index 911ee99b091c..0ac89ccb9037 100644
 +# SSN: 633-44-1725
 +# ITEM_ID: BITORE_34173
 +# secrets: ((c)(r))
-+# Name: BITCORE
++# Name: BITORE
 +# title: Bitcoin
 +# Ticker: [BTC-USD]
 +# token: (CCC)
@@ -40,7 +32,7 @@ index 911ee99b091c..0ac89ccb9037 100644
 +# e-mail: zachryiixixiiwood@gmail.com
 +# Address: 5323 Bradford Drive Dallas TX 75235-8313
 +# Remittnance Address: 5323 Bradford Drive Dallas TX 75235-8313
-+# {Web{h-H}ooks}: "{Web-B}aseUrl}": "'@": "{https://GitHub.com/
++# {Web{h-H}ooks}: "{We{b-B}aseUrl}": "'@": "{https://GitHub.com/
 +# Customizing: ".github/readme.md"
 +# intro: "You can share information about your organization by customizing your organization's profile
  versions:
