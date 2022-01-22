@@ -1,76 +1,82 @@
----
-title: About pull requests
-intro: 'Pull requests let you tell others about changes you''ve pushed to a branch in a repository on {% data variables.product.product_name %}. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.'
-redirect_from:
-  - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-  - /articles/using-pull-requests
-  - /articles/about-pull-requests
-  - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
-  - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-topics:
-  - Pull requests
----
-## About pull requests
 
-{% note %}
-
-**Note:** When working with pull requests, keep the following in mind:
-* If you're working in the [shared repository model](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models), we recommend that you use a topic branch for your pull request. While you can send pull requests from any branch or commit, with a topic branch you can push follow-up commits if you need to update your proposed changes.
-* When pushing commits to a pull request, don't force push. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
-
-{% endnote %}
-
-You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
-
-After initializing a pull request, you'll see a review page that shows a high-level overview of the changes between your branch (the compare branch) and the repository's base branch. You can add a summary of the proposed changes, review the changes made by commits, add labels, milestones, and assignees, and @mention individual contributors or teams. For more information, see "[Creating a pull request](/articles/creating-a-pull-request)."
-
-Once you've created a pull request, you can push commits from your topic branch to add them to your existing pull request. These commits will appear in chronological order within your pull request and the changes will be visible in the "Files changed" tab.
-
-Other contributors can review your proposed changes, add review comments, contribute to the pull request discussion, and even add commits to the pull request.
-
-{% ifversion fpt or ghec %}
-You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. For more information, see "[Viewing deployment activity for a repository](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)."
-{% endif %}
-
-After you're happy with the proposed changes, you can merge the pull request. If you're working in a shared repository model, you create a pull request and you, or someone else, will merge your changes from your feature branch into the base branch you specify in your pull request. For more information, see "[Merging a pull request](/articles/merging-a-pull-request)."
-
-{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
-
-{% data reusables.pull_requests.close-issues-using-keywords %}
-
-{% tip %}
-
-**Tips:**
-- To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>Option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. For more shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts)."
-- You can squash commits when merging a pull request to gain a more streamlined view of changes. For more information, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
-
-{% endtip %}
-
-You can visit your dashboard to quickly find links to recently updated pull requests you're working on or subscribed to. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
-
-## Draft pull requests
-
-{% data reusables.gated-features.draft-prs %}
-
-When you create a pull request, you can choose to create a pull request that is ready for review or a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review draft pull requests. For more information about creating a draft pull request, see "[Creating a pull request](/articles/creating-a-pull-request)" and "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
-
-{% data reusables.pull_requests.mark-ready-review %} You can convert a pull request to a draft at any time. For more information, see "[Changing the stage of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)."
-
-## Differences between commits on compare and pull request pages
-
-The compare and pull request pages use different methods to calculate the diff for changed files:
-
-- Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
-- Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
-
-## Further reading
-
-- "[Pull request](/articles/github-glossary/#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
-- "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"
-- "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)"
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<rss xmlns:atom="https://www.w3.org/2005/Atom" version="2.0">
+<channel>
+<atom:link href="https://www.pegasusfc.org/event/show_events_from_rss/6907527?tags=6589227" rel="self" type="application/rss+xml"/>
+<title>Pegasus FC Events with tag(s): GU9 Select Black</title>
+<link>https://www.pegasusfc.org/event/show_events_from_rss/6907527?tags=6589227</link>
+<description>Events with tag(s): GU9 Select Black</description>
+<language>en-us</language>
+<ttl>1</ttl>
+<item>
+<title>Saturday January 22, 2022: FC-1 at GU9 Select Black</title>
+<description>Date: Saturday January 22, 2022 <br>Time: 8:45am - 9:30am<br>Location: The Athletico Center, Old Willow Road, Northbrook, IL, USA<br>Tag(s): GU9 Select Black</description>
+<pubDate>Sat, 22 Jan 2022 08:45:00 -0600</pubDate>
+<link>http://www.pegasusfc.org/game/show/33983535</link>
+<guid isPermaLink="false">event_id_33983535_start_date_01_22_22</guid>
+</item>
+<item>
+<title>Monday January 24, 2022: Practice</title>
+<description>Date: Monday January 24, 2022 <br>Time: 4:00pm - 5:15pm<br>Location: 600 Waukegan Road, Northbrook, IL, USA<br>Tag(s): GU9 Select Black<br><br></description>
+<pubDate>Mon, 24 Jan 2022 16:00:00 -0600</pubDate>
+<link>http://www.pegasusfc.org/event/show/497499270</link>
+<guid isPermaLink="false">event_id_497499270_start_date_01_24_22</guid>
+</item>
+<item>
+<title>Saturday January 29, 2022: Hawks at GU9 Select Black</title>
+<description>Date: Saturday January 29, 2022 <br>Time: 8:00am - 8:45am<br>Location: The Athletico Center, Old Willow Road, Northbrook, IL, USA<br>Tag(s): GU9 Select Black</description>
+<pubDate>Sat, 29 Jan 2022 08:00:00 -0600</pubDate>
+<link>http://www.pegasusfc.org/game/show/33983545</link>
+<guid isPermaLink="false">event_id_33983545_start_date_01_29_22</guid>
+</item>
+<item>
+<title>Monday January 31, 2022: Practice</title>
+<description>Date: Monday January 31, 2022 <br>Time: 4:00pm - 5:15pm<br>Location: 600 Waukegan Road, Northbrook, IL, USA<br>Tag(s): GU9 Select Black<br><br></description>
+<pubDate>Mon, 31 Jan 2022 16:00:00 -0600</pubDate>
+<link>http://www.pegasusfc.org/event/show/497499268</link>
+<guid isPermaLink="false">event_id_497499268_start_date_01_31_22</guid>
+</item>
+<item>
+<title>Monday February 7, 2022: Practice</title>
+<description>Date: Monday February 7, 2022 <br>Time: 4:00pm - 5:15pm<br>Location: 600 Waukegan Road, Northbrook, IL, USA<br>Tag(s): GU9 Select Black<br><br></description>
+<pubDate>Mon, 07 Feb 2022 16:00:00 -0600</pubDate>
+<link>http://www.pegasusfc.org/event/show/497499275</link>
+<guid isPermaLink="false">event_id_497499275_start_date_02_07_22</guid>
+</item>
+<item>
+<title>Monday February 14, 2022: Practice</title>
+<description>Date: Monday February 14, 2022 <br>Time: 4:00pm - 5:15pm<br>Location: 600 Waukegan Road, Northbrook, IL, USA<br>Tag(s): GU9 Select Black<br><br></description>
+<pubDate>Mon, 14 Feb 2022 16:00:00 -0600</pubDate>
+<link>http://www.pegasusfc.org/event/show/497499277</link>
+<guid isPermaLink="false">event_id_497499277_start_date_02_14_22</guid>
+</item>
+<item>
+<title>Monday February 21, 2022: Practice</title>
+<description>Date: Monday February 21, 2022 <br>Time: 4:00pm - 5:15pm<br>Location: 600 Waukegan Road, Northbrook, IL, USA<br>Tag(s): GU9 Select Black<br><br></description>
+<pubDate>Mon, 21 Feb 2022 16:00:00 -0600</pubDate>
+<link>http://www.pegasusfc.org/event/show/497499272</link>
+<guid isPermaLink="false">event_id_497499272_start_date_02_21_22</guid>
+</item>
+<item>
+<title>Monday February 28, 2022: Practice</title>
+<description>Date: Monday February 28, 2022 <br>Time: 4:00pm - 5:15pm<br>Location: 600 Waukegan Road, Northbrook, IL, USA<br>Tag(s): GU9 Select Black<br><br></description>
+<pubDate>Mon, 28 Feb 2022 16:00:00 -0600</pubDate>
+<link>http://www.pegasusfc.org/event/show/497499273</link>
+<guid isPermaLink="false">event_id_497499273_start_date_02_28_22</guid>
+</item>
+<item>
+<title>Monday March 7, 2022: Practice</title>
+<description>Date: Monday March 7, 2022 <br>Time: 4:00pm - 5:15pm<br>Location: 600 Waukegan Road, Northbrook, IL, USA<br>Tag(s): GU9 Select Black<br><br></description>
+<pubDate>Mon, 07 Mar 2022 16:00:00 -0600</pubDate>
+<link>http://www.pegasusfc.org/event/show/497499269</link>
+<guid isPermaLink="false">event_id_497499269_start_date_03_07_22</guid>
+</item>
+<item>
+<title>Monday March 14, 2022: Practice</title>
+<description>Date: Monday March 14, 2022 <br>Time: 4:00pm - 5:15pm<br>Location: 600 Waukegan Road, Northbrook, IL, USA<br>Tag(s): GU9 Select Black<br><br></description>
+<pubDate>Mon, 14 Mar 2022 16:00:00 -0500</pubDate>
+<link>http://www.pegasusfc.org/event/show/497499276</link>
+<guid isPermaLink="false">event_id_497499276_start_date_03_14_22</guid>
+</item>
+</channel>
+</rss>
