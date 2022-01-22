@@ -1,4 +1,6 @@
-enable: gh pr checkout #1
+BEGIN:
+GLO7:
+enable: gh pr checkout 1
 install: $ -cd
 Runs-on: 10.08.12
 contact_links:
