@@ -98,7 +98,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | <kbd>control shift p</kbd> 或 <kbd>command shift p</kbd>  | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd> | Inserts Markdown formatting for an ordered list                                                                                                                              |
 | <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd> | Inserts Markdown formatting for an unordered list{% endif %}
-| <kbd>control enter</kbd>                                 | 提交评论                                                                                                                                                                         |
+| <kbd>control enter</kbd> or <kbd>command enter</kbd>     | 提交评论                                                                                                                                                                         |
 | <kbd>control .</kbd>，然后 <kbd>control [已保存回复编号]</kbd>     | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 更多信息请参阅“[关于已保存回复](/articles/about-saved-replies)”。{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>control shift .</kbd> or <kbd>command shift.</kbd>  | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
 | <kbd>control g</kbd> 或 <kbd>command g</kbd>              | 插入建议。 更多信息请参阅“[审查拉取请求中提议的更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。 

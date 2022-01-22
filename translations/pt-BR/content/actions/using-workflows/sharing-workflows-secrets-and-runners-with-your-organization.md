@@ -1,7 +1,7 @@
 ---
 title: 'Compartilhando fluxos de trabalho, segredos e executores com a sua organização'
 shortTitle: Compartilhar fluxos de trabalho com a sua organização
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflows, secrets, and self-hosted runners.'
+intro: 'Aprenda como usar recursos da organização para colaborar com a sua equipe, compartilhando fluxos de trabalho iniciantes, segredos e executores auto-hospedados.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
   - /actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
@@ -18,13 +18,31 @@ type: how_to
 
 ## Visão Geral
 
-Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. Uma organização permite que você armazene e gerencie, centralizadamente, segredos, artefatos e executores auto-hospedados. You can also create starter workflows in the `.github` repository and share them with other users in your organization.
+Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. Uma organização permite que você armazene e gerencie, centralizadamente, segredos, artefatos e executores auto-hospedados. Você também pode criar fluxos de trabalho iniciantes no repositório `.github` e compartilhá-los com outros usuários na sua organização.
 
-## Usando fluxos de trabalho iniciais
+## Sharing {% if internal-actions %}actions and {% endif %}workflows
 
-{% data reusables.actions.workflow-organization-templates %} Para obter mais informações, consulte "[Criando fluxos de trabalho iniciais para a sua organização](/actions/using-workflows/creating-starter-workflows-for-your-organization)".
+{% if internal-actions %}
+You can share both individual actions and entire workflows with your organization, with or without publishing the actions or workflows publicly. You can reuse actions and workflows exactly by referencing them in your workflow file, and you can create starter workflows that provide templates for new workflows.
+{% else %}
+Your organization can share workflows by reusing the workflows exactly or by creating starter workflows that provide templates for new workflows.
+{% endif %}
+
+{% if internal-actions %}
+### Sharing actions with your enterprise
+
+{% data reusables.actions.internal-actions-summary %}
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+### Reutilizando fluxos de trabalho
 
 {% data reusables.actions.reusable-workflows %}
+{% endif %}
+
+### Usando fluxos de trabalho iniciais
+
+{% data reusables.actions.workflow-organization-templates %} Para obter mais informações, consulte "[Criando fluxos de trabalho iniciais para a sua organização](/actions/using-workflows/creating-starter-workflows-for-your-organization)".
 
 ## Compartilhar segredos dentro de uma organização
 

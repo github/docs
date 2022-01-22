@@ -26,7 +26,7 @@ topics:
 
 ## About starter workflows
 
-{% data variables.product.product_name %} offers starter workflows for a variety of languages and tooling. Cuando configuras flujos de trabajo en tu repositorio, {% data variables.product.product_name %} analiza el código en tu repositorio y recomienda flujos de trabajo con base en el lenguaje y marco de trabajo de este. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} will suggest a starter workflow file that installs your Node.js packages and runs your tests.{% if actions-starter-template-ui %} You can search and filter to find relevant starter workflows.{% endif %}
+{% data variables.product.product_name %} offers starter workflows for a variety of languages and tooling. Cuando configuras flujos de trabajo en tu repositorio, {% data variables.product.product_name %} analiza el código en tu repositorio y recomienda flujos de trabajo con base en el lenguaje y marco de trabajo de este. Por ejemplo, si utilizas [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} sugerirá un archivo de flujo de trabajo inicial que instale tus paquetes de Node.js y ejecute tus pruebas.{% if actions-starter-template-ui %} Puedes buscar y filtrar para encontrar flujos de trabajo inicial relevantes.{% endif %}
 
 You can also create your own starter workflow to share with your organization. These starter workflows will appear alongside the {% data variables.product.product_name %}-provided starter workflows. For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
 
