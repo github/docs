@@ -1,4 +1,54 @@
 ---
+Extension: Media RSS (Yahoo)
+
+Extension Name: mrss
+
+Purpose: MediaRSS supplements the enclosure capabilities to handle additional information and media types. MediaRSS' extension allows content publishers to syndicate multimedia content such as TV, video clips, movies, and images. It also allows content to be represented in multiple formats.
+
+
+Declaration: The name space for Media RSS is defined at http://search.yahoo.com/mrss
+
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss">
+
+Elements:
+<media:group> is a sub-element of the <item> tag. It allows for groupoing of media representations (optional element)
+
+<media:content> is a sub-element of either <media:group> or <item> and is used to specify the enclosed media content. It has 14 attributes and most are optional. The "url" attributes specifies the URL to the media and is required unless the <media:player> tag is used.
+
+The rest of the elements are optional and may appear at the <channel>, <item>, <media:content> and/or <media:group> levels. When these are specified at the <channel> or <item> levels they are treated as the defaults and applied to every media object in its scope. For example if a <media:keywords> tag appeared at the channel level it would apply to all in the <media:group> and <media:content> elements in all of the <item> tags.
+
+Elements appearing at more specific levels or deeper override the same element at more general levels. Elements appearing at <media:content> have highest priority, followed by <media:group>, <item> and the <channel> with the lowest priority.
+
+<media:title> the title of the media object
+<media:description> description of the media object
+<media:keywords> a short list or comma separated words and phrases describing the media content.
+<media:thumbnail> image to represent the media. It is possible to use an optional "time" attribute to change the image as the media plays
+<media:category> allows tags or categories to be set for the media
+<media:hash> a "md5" or "sha-1" hash of the media can be used to help verify the integrity and/or look for duplicates
+<media:player> required if <media:content> did not specify the "url" attribute. This tag allows the media object to be accessed through a web browser or media console.
+<media:credit> allows credit to be given to people and entities for the creation of the media.
+<media:copyright> provides a means to specify the copyright if no other copyright module is used, such as creative commons.
+<media:text> allows text to be included with the media object. Some possible uses include transcripts, lyrics, and close captioning. by using the optional attributes it is possible to syncronize the text with the playback of the media.
+<media:restrictions> allows complete control of payback of the media using a wide range of criteria.
+
+
+Example:
+<!-- Snipped for Brevity -->
+<item>
+<title>FeedForAll's Show Tunes and Song</title>
+<link>http://www.feedforall.com/songs.htm</link>
+<description>FeedForAll cool show tunes and lyrics. </description>
+<media:group>
+<media:content url="http://www.feedorall.com/sample.mp3" fileSize="122345" type="audio/mpeg" isDefault="true" expression="sample" bitrate="128" framerate="24" duration="98" height="220" width="300" />
+<media:adult> false </media:adult>
+<media:title> FeedForAll file sample </media:title>
+<media:hash> dfdec888b72151965a34b4b59031290a </media:hash>
+<media:player url="http://www.feedforall.com/player" height="220" width="300" />
+<media:credit role="author"> J Housley </media:credit>
+<media:text type="plain"> FeedForAll supports name space extentions, specifically Yahoo's media RSS </media:text>
+</media:group>
+</item>
+<!--Snipped for Brevity-->
 title: Working with the Docker registry
 intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.{% endif %}'
 product: '{% data reusables.gated-features.packages %}'
