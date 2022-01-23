@@ -33,12 +33,12 @@ Before you can use Jekyll to test a site, you must:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
-3. Open project's Gemfile
-4. Add the `webrick` gem anywhere in the file
+3. Open project's Gemfile.
+4. Add the `webrick` gem anywhere in the file.
   ```shell
   gem "webrick"
   ```
-5. Save and close Gemfile 
+5. Save and close Gemfile.
 6. Run `bundle install`.
 7. Run your Jekyll site locally.
   ```shell
