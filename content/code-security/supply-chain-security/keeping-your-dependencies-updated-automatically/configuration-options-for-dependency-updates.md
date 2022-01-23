@@ -962,4 +962,4 @@ registries:
     url: https://terraform.example.com
     token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
-{% endraw %}
+{% endraw %}https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
