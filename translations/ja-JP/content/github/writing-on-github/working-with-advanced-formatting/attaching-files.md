@@ -43,6 +43,9 @@ The maximum file size is:
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
+{%- if svg-support %}
+* SVG (*.svg*)
+{%- endif %}
 * ログファイル (*.log*)
 * Microsoft Word (*.docx*)、Powerpoint (*.pptx*)、および Excel (*.xlsx*) 文書
 * テキストファイル (*.txt*)
