@@ -43,6 +43,9 @@ topics:
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
+{%- if svg-support %}
+* SVG (*.svg*)
+{%- endif %}
 * 日志文件 (*.log*)
 * Microsoft Word (*.docx*)、Powerpoint (*.pptx*) 和 Excel (*.xlsx*) 文档
 * 文本文件 (*.txt*)
