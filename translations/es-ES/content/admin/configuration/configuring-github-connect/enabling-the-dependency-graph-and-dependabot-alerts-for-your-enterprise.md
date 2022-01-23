@@ -55,7 +55,7 @@ Si habilitas la detección de vulnerabilidades, cuando {% data variables.product
 ### Prerrequisitos
 
 Para que {% data variables.product.product_location %} detecte las dependencias vulnerables y genere {% data variables.product.prodname_dependabot_alerts %}:
-- You must enable {% data variables.product.prodname_github_connect %}. {% ifversion ghae %}This also enables the dependency graph service.{% endif %}{% ifversion ghes or ghae %}For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."{% endif %}
+- You must enable {% data variables.product.prodname_github_connect %}. {% ifversion ghae %}Esto también habilita el servicio de la gráfica de dependencias.{% endif %}{% ifversion ghes or ghae %}Para obtener más información, consulta la sección "[Administrar {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".{% endif %}
 {% ifversion ghes %}- Debes habilitar el servicio de gráficas de dependencia.{% endif %}
 - Debes habilitar el escaneo de vulnerabilidades.
 
