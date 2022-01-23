@@ -1,4 +1,386 @@
+'#' This workflow uses actions that are not certified by GitHub.''
+'#' They are provided by a third-party and are governed by''
+'#' separate terms of service, privacy policy, and support''
+'#' documentation.
+'#' <li>zachryiixixiiwood@gmail.com<li>
+'#' This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.''
+'#' For more information see: https://github.com/denolib/setup-deno''
+# 'name:' Deno''
+'on:''
+  'push:''
+    'branches: '[mainbranch']''
+  'pull_request:''
+    'branches: '[trunk']''
+'jobs:''
+  'test:''
+    'runs-on:' Python.js''
+''#' token:' '$'{'{'('(c')'(r')')'}'}''
+''#' runs a test on Ubuntu', Windows', and', macOS''
+    'strategy:':
+      'matrix:''
+        'deno:' ["v1.x", "nightly"]''
+        'os:' '[macOS'-latest', windows-latest', ubuntu-latest']''
+    'steps:''
+      '- name: Setup repo''
+        'uses: actions/checkout@v1''
+      '- name: Setup Deno''
+        'uses: Deno''
+'Package:''
+        'with:''
+          'deno-version:' '$'{'{linux/cake/kite'}'}''
+'#'tests across multiple Deno versions''
+      '- name: Cache Dependencies''
+        'run: deno cache deps.ts''
+      '- name: Run Tests''
+        'run: deno test''
+'::Build:' sevendre''
+'Return
+' Run''
+
+"login": "octcokit",
+    "id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
+ require'
+require 'json'
+post '/payload' do
+  push = JSON.parse(request.body.read}
+# -loader = :rake
+# -ruby_opts = [Automated updates]
+# -description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+# -deps = [list]
+# -if?=name:(Hash.#:"','")
+# -deps = @name.values.first
+# -name = @name.keys.first
+# -pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+# -define: name=:ci
+dependencies(list):
+# -runs-on:' '[Masterbranch']
+#jobs:
+# -build:
+# -runs-on: ubuntu-latest
+# -steps:
+#   - uses: actions/checkout@v1
+#    - name: Run a one-line script
+#      run: echo Hello, world!
+#    - name: Run a multi-line script
+#      run=:name: echo: hello.World!
+#        echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
+# def initialize(name=:test)
+# name = ci
+# libs = Bash
+# pattern = list
+# options = false
+# test_files = pkg.js
+# verbose = true
+# warning = true
+# loader = :rake
+# rb_opts = []
+# description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+# deps = []
+# if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
+# deps = @name.values.first
+# name=::rake.gems/.specs_keyscutter
+# pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+# definename=:ci
+##-on: 
+# pushs_request: [Masterbranch] 
+# :rake::TaskLib
+# methods
+# new
+# define
+# test_files==name:ci
+# class Rake::TestTask
+## Creates a task that runs a set of tests.
+# require "rake/test.task'@ci@travis.yml.task.new do |-v|
+# t.libs << "test"
+# t.test_files = FileList['test/test*.rb']
+# t.verbose = true
+# If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
+# If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
+# rake test                           
+# run tests normally
+# rake test TEST=just_one_file.rb     
+# run just one test file.
+# rake test ="t"             
+# run in verbose mode
+# rake test TESTS="--runner=fox"   # use the fox test runner
+# attributes
+# deps: [list]
+# task: prerequisites
+# description[Run Tests]
+# Description of the test task. (default is 'Run tests')
+# libs[BITORE_34173]
+# list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
+# loader[test]
+# style of test loader to use. Options are:
+# :rake – rust/rake provided tests loading script (default).
+# :test=: name =rb.dist/src.index = Ruby provided test loading script.
+direct=: $LOAD_PATH uses test using command-line loader.
+name[test]
+# name=: testtask.(default is :test)
+# options[dist]
+# Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
+# pattern[list]
+# Glob pattern to match test files. (default is 'test/test*.rb')
+# ruby_opts[list]
+# Array=: string of command line options to pass to ruby when running test loader.
+# verbose[false]
+# if verbose test outputs desired:= (default is false)
+# warning[Framework]
+# Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
+# access: Public Class Methods
+# Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
+# Create a testing task Public Instance Methods
+# define($obj)
+# Create the tasks defined by this task lib
+# test_files=(r)
+# Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
+<li<signFORM>zachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725<SIGNform/><li/>
+# const-action_script-Automate-build
+Container'type'DOCKER.gui_interactive_banking_and_check_writin_console.config.img.jpng_linked_webpage_base/src/cataloging.gov/ach{WebRoOTurl}
+
+
 name: Lint workflows
+
+ use a JWT to access this endpoint.
+GET/#!/user/bin/Bash/user/bin/bash/usr/bin/Bash
+curl \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/app/hook/config
+JavaScript (@octocokit/core.js)
+'sign-in'@octocokit’: ‘require’: 'secrets': ‘(“(©®)”)’:,
+‘GET’:' '”.app/bitore.net/config.js)
+Response
+Status: 200 OK
+{
+  "content_type": "json",
+  "insecure_ssl": "”0’.0’.0":,
+  "secret": "********",
+  "url": "https://example.com/webhook"
+}
+ 
+ Update a webhook configuration for an app
+Updates the webhook configuration for a GitHub App. For more information about configuring a webhook for your app, see "Creating a GitHub App."
+You must use a JWT to access this endpoint.
+PATCH /app/hook/config
+Parameters
+Name	Type	In	Description
+accept	string	header	Setting to application/vnd.github.v3+json is recommended.
+url	string	body	The URL to which the payloads will be delivered.
+content_type	string	body	The media type used to serialize the payloads. Supported values include json and form. The default is form.
+secret	string	body	If provided, the secret will be used as the key to generate the HMAC hex digest value for delivery signature headers.
+
+
+	Windows
+o	Business
+o	Developer & it.git.it.github.com’@.github.gitit.it/.GitHub/workflow/doc/tests/ci/bitore.sig/mkdir.yarnl/$RAKEFILE.IU@.github.com/gists
+Sign in to "login": "octcokit",
+    "id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
+ require'
+require 'json'
+post '/payload' do
+  push = JSON.parse(request.body.read}
+# -loader = :rake
+# -ruby_opts = [Automated updates]
+# -description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+# -deps = [list]
+# -if?=name:(Hash.#:"','")
+# -deps = @name.values.first
+# -name = @name.keys.first
+# -pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+# -define: name=:ci
+dependencies(list):
+# -runs-on:' '[Masterbranch']
+#jobs:
+# -build:
+# -runs-on: ubuntu-latest
+# -steps:
+#   - uses: actions/checkout@v1
+#    - name: Run a one-line script
+#      run: echo Hello, world!
+#    - name: Run a multi-line script
+#      run=:name: echo: hello.World!
+#        echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
+# def initialize(name=:test)
+# name = ci
+# libs = Bash
+# pattern = list
+# options = false
+# test_files = pkg.js
+# verbose = true
+# warning = true
+# loader = :rake
+# rb_opts = []
+# description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+# deps = []
+# if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
+# deps = @name.values.first
+# name=::rake.gems/.specs_keyscutter
+# pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+# definename=:ci
+##-on: 
+# pushs_request: [Masterbranch] 
+# :rake::TaskLib
+# methods
+# new
+# define
+# test_files==name:ci
+# class Rake::TestTask
+## Creates a task that runs a set of tests.
+# require "rake/test.task'@ci@travis.yml.task.new do |-v|
+# t.libs << "test"
+# t.test_files = FileList['test/test*.rb']
+# t.verbose = true
+# If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
+# If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
+# rake test                           
+# run tests normally
+# rake test TEST=just_one_file.rb     
+# run just one test file.
+# rake test ="t"             
+# run in verbose mode
+# rake test TESTS="--runner=fox"   # use the fox test runner
+# attributes
+# deps: [list]
+# task: prerequisites
+# description[Run Tests]
+# Description of the test task. (default is 'Run tests')
+# libs[BITORE_34173]
+# list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
+# loader[test]
+# style of test loader to use. Options are:
+# :rake – rust/rake provided tests loading script (default).
+# :test=: name =rb.dist/src.index = Ruby provided test loading script.
+direct=: $LOAD_PATH uses test using command-line loader.
+name[test]
+# name=: testtask.(default is :test)
+# options[dist]
+# Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
+# pattern[list]
+# Glob pattern to match test files. (default is 'test/test*.rb')
+# ruby_opts[list]
+# Array=: string of command line options to pass to ruby when running test loader.
+# verbose[false]
+# if verbose test outputs desired:= (default is false)
+# warning[Framework]
+# Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
+# access: Public Class Methods
+# Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
+# Create a testing task Public Instance Methods
+# define($obj)
+# Create the tasks defined by this task lib
+# test_files=(r)
+# Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
+<li<signFORM>zachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725<SIGNform/><li/>
+
+
+Description of the fields in the ACH Fields Setup window in Microsoft Dynamics GP
+Dynamics GP 2010
+INTRODUCTION
+This article describes each field in the ACH Fields Setup window in Microsoft Dynamics GP and in Microsoft Business Solutions - Great Plains.
+More Information
+You can use the ACH Fields Setup window to enter basic information about the files that banks use. Banks use these files to make fund transfers to employees. The following fields are in the ACH Fields Setup window.
+
+Note
+You may have to contact the bank to obtain many of the numbers for the fields.
+	Company Identification: This field contains the 10-digit company ID.
+	Name: This field contains the name of the company.
+	Immediate Origin: This field contains the routing number of the bank or of the credit union that is sending the file.
+	Name: This field contains the name of the bank or the name of the credit union.
+	Immediate Destination: This field contains the routing number of the bank or of the credit union that is receiving the file.
+	Name: This field contains the name of the financial institution.
+	Originating Institution: This field contains the routing number of the originating financial institution. If the routing number is too long, you can omit the first zero.
+	Discretionary Data: Leave this field blank unless you are otherwise advised by the financial institution.
+	Description: The text that is entered here appears on employee statements.
+	Identify Employee By: This field determines which employee ID is used in the ACH file.
+	Include Auto-Settle Line: Select this column if you want to include the debit line, and if you want to balance the ACH file.
+	Routing Number (ASL): This field contains the routing number for the Auto-Settle line.
+	Account Number (ASL): This field contains the payroll account number for the company.
+	Account Type (ASL): This field contains the type of account that is used for the company's payroll.
+	Company Name (ASL): This field contains the name of the company.
+	ACH File Location: This field contains the physical location of the ACH file on the computer system.
+	Next ACH Filename: This field contains the name of next ACH file that is generated.
+	Increment ACH Filename: Select this column if you want the system to generate a file name every time that you create an ACH file.
+     
+SUBSCRIBE RSS FEEDS
+Need more help?
+Expand your skills
+EXPLORE TRAINING
+ 
+Get new features first
+JOIN MICROSOFT INSIDERS 
+ 
+Was this information helpful?
+ 
+Yes No
+What's new
+•	Surface Pro 8
+•	Surface Laptop Studio
+•	Surface Pro X
+•	Surface Go 3
+•	Surface Duo 2
+•	Surface Pro 7+
+•	Windows 11 apps
+•	HoloLens 2
+Microsoft Store
+•	Account profile
+•	Download Center
+•	Microsoft Store support
+•	Returns
+•	Order tracking
+•	Virtual workshops and training
+•	Microsoft Store Promise
+•	Flexible Payments
+Education
+•	Microsoft in education
+•	Office for students
+•	Office 365 for schools
+•	Deals for students & parents
+•	Microsoft Azure in education
+Enterprise
+•	Azure
+•	AppSource
+•	Automotive
+•	Government
+•	Healthcare
+•	Manufacturing
+•	Financial services
+•	Retail
+Developer
+•	Microsoft Visual Studio
+•	Windows Dev Center
+•	Developer Center
+•	Microsoft developer program
+•	Channel 9
+•	Microsoft 365 Dev Center
+•	Microsoft 365 Developer Program
+•	Microsoft Garage
+Company
+•	Careers
+•	About Microsoft
+•	Company news
+•	Privacy at Microsoft
+•	Investors
+•	Diversity and inclusion
+•	Accessibility
+•	Security
+English (United States)
+•	Sitemap
+ 
+•	Contact Microsoft
+ 
+•	Privacy
+ 
+•	Terms of use
+ 
+•	Trademarks
+ 
+•	Safety & eco
+ 
+•	About our ads
+ 
+•	© Microsoft 2022
+
+
 
 # **What it does**: This lints our workflow files.
 # **Why we have it**: We want some level of consistency in our workflow files.
@@ -27,3 +409,2275 @@ jobs:
         uses: cschleiden/actions-linter@0ff16d6ac5103cca6c92e6cbc922b646baaea5be
         with:
           workflows: '[".github/workflows/*.yml"]'
+diff --git a/content/packages/learn-github-packages/introduction-to-github-packages.md b/bitore.sig
+similarity index 100%
+rename from content/packages/learn-github-packages/introduction-to-github-packages.md
+rename to bitore.sig"-------------branches": "'[main']":,
+"title": "constructing...branches...initializing_final_request...,
+"...":,
+"...":,
+"...":,
+"...100'%...finishing..complete...Done.::returns:Response:
+Response:403OK...','...','...=>:404=>redirect.repositories'@usr/bin/bash/user/bin/Bash/bitore.sig/'@repository:type:containers-crates.io/anchors-analysis'@iixixi/iixixi'@.github/workflows/Doc/JavaScript/ci/test/.travis.yml/heroku.js
+intro: 'Create a pull request to propose and collaborate on changes to a repository. These changes are proposed in a *branch*, which ensures that the default branch only contains finished and approved work.'
+permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
+redirect_from:
+  - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
+  - /articles/creating-a-pull-request
+  - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
+versions:
+topics:
+  - Pulls Request
+---branches": "-'[' trunk' ']":,
+
+If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)" and "[About forks](/articles/about-forks)."
+
+You can specify which branch you'd like to merge your changes into when you create your pull request. Pull requests can only be opened between two branches that are different.
+
+{% data reusables.pull_requests.perms-to-open-pull-request %}
+
+{% data reusables.pull_requests.close-issues-using-keywords %}
+
+## Changing the branch range and destination repository
+
+By default, pull requests are based on the parent repository's default branch. For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+
+If the default parent repository isn't correct, you can change both the parent repository and the branch with the drop-down lists. You can also swap your head and base branches with the drop-down lists to establish diffs between reference points. References here must be branch names in your GitHub repository.
+
+![Pull Request editing branches](/assets/images/help/pull_requests/pull-request-review-edit-branch.png)
+
+When thinking about branches, remember that the *base branch* is **where** changes should be applied, the *head branch* contains **what** you would like to be applied.
+
+When you change the base repository, you also change notifications for the pull request. Everyone that can push to the base repository will receive an email notification and see the new pull request in their dashboard the next time they sign in.
+
+When you change any of the information in the branch range, the Commit and Files changed preview areas will update to show your new range.
+
+{% tip %}
+
+**Tips**:
+- Using the compare view, you can set up comparisons across any timeframe. For more information, see "[Comparing commits](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits)."
+- Project maintainers can add a pull request template for a repository. Templates include prompts for information in the body of a pull request. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
+
+{% endtip %}
+
+## Creating the pull request
+
+{% webui %}
+
+{% data reusables.repositories.navigate-to-repo %}
+2. In the "Branch" menu, choose the branch that contains your commits.
+  ![Branch dropdown menu](/assets/images/help/pull_requests/branch-dropdown.png)
+{% data reusables.repositories.new-pull-request %}
+4. Use the _base_ branch dropdown menu to select the branch you'd like to merge your changes into, then use the _compare_ branch drop-down menu to choose the topic branch you made your changes in.
+  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/pull_requests/choose-base-and-compare-branches.png)
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
+
+{% data reusables.repositories.asking-for-review %}
+
+After your pull request has been reviewed, it can be [merged into the repository](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request).
+
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To create a pull request, use the `gh pr create` subcommand.
+
+```shell
+gh pr create
+```
+
+To assign a pull request to an individual, use the `--assignee` or `-a` flags. You can use `@me` to self-assign the pull request.
+
+```shell
+gh pr create --assignee "@octocat"
+```
+
+To specify the branch into which you want the pull request merged, use the `--base` or `-B` flags. To specify the branch that contains commits for your pull request, use the `--head` or `-H` flags.
+
+```shell
+gh pr create --base my-base-branch --head my-changed-branch
+```
+
+To include a title and body for the new pull request, use the `--title` and `--body` flags.
+
+```shell
+gh pr create --title "The bug is fixed" --body "Everything works again"
+```
+
+To mark a pull request as a draft, use the `--draft` flag.
+
+```shell
+gh pr create --draft
+```
+
+To add a labels or milestones to the new pull request, use the `--label` and `--milestone`  flags.
+
+```shell
+gh pr create --label "bug,help wanted" --milestone octocat-milestone
+```
+
+To add the new pull request to a specific project, use the `--project` flag.
+
+```shell
+gh pr create --project octocat-project
+```
+
+To assign an individual or team as reviewers, use the `--reviewer` flag.
+
+```shell
+gh pr create --reviewer monalisa,hubot  --reviewer myorg/team-name
+```
+
+To create the pull request in your default web browser, use the `--web` flag.
+
+```shell
+gh pr create --web
+```
+
+{% rb.mn/.sql/my.sig/readme.md/CONTRIBUTINGME.MD/Contributing.md/README.md/contributing.md.README.MD/CoNtRiBuTiNgMe.Md.rEaDmE.mD/bitore.sig/paradice'@.it.git.gists'@git.github..com/gist/secrets/BITORE_34174/((c)(r))::/:':Build::/:Run::/:Runs::/:BEGIN:CONSTRUCTION::/:START::/:WORFLOW::/:RUNS::/:RUN::/:AUTOMATE::/:AUTOMATES::/:AUTOMATICALLY::/:*logs::backtrace::'*log:'::ALL:comprojectsPImncli %}
+
+{% desktop %}
+
+{% mac %}
+
+1. Switch to the branch that you want to create a pull request for. For more information, see "[Switching between branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)."
+2. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
+  ![The Create Pull Request button](/assets/images/help/desktop/mac-create-pull-request.png)
+4. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes.
+  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/desktop/base-and-compare-branches.png)
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
+
+{% endmac %}
+
+{% windows %}
+
+1. Switch to the branch that you want to create a pull request for. For more information, see "[Switching between branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)."
+2. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
+  ![The Create Pull Request button](/assets/images/help/desktop/windows-create-pull-request.png)
+3. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes.
+  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/desktop/base-and-compare-branches.png)
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
+
+{% deployee-frameworks-window-on: workflos": "dispatch":' %}
+
+{% enddesktop %}
+
+{% ifversion fpt or ghec %}
+
+{% codespaces %}
+
+1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon.
+![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
+1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description.
+![GitHub pull request side bar]": "(/assets/images/help/codespaces/codespaces-commit-pr.png)":,
+1. Click **Create**.
+
+For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+
+{% endcodespaces %}
+
+{% endif %}
+## Further reading
+
+- "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+- "[Changing the base branch of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)"
+- "[Adding issues and pull requests to a project board from the sidebar](/articles/adding-issues-and-pull-requests-to-a-project-board/#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)"
+- "[About automation for issues and pull requests with query parameters](/issues/tracking-your-work-with-issues/creating-issues/about-automation-for-issues-and-pull-requests-with-query-parameters)"
+- "[Assigning issues and pull requests to other GitHub users](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users)"
+- "[Writing on GitHub](/github/writing-on-github)"
+starts::/Run::/Runs::/Build::/Script::/"build_script":,
+
+"build_script": "construction":,
+
+"construction": "Automates":,
+
+"Automates": "Automate":,
+
+"Automate": "meta charset= new":,
+
+"meta charset=": "#fedtag_form":,
+
+
+#{2000}_000000500000
+
+#{31000}_91000022_Securities_and_Exchange_Commission
+
+#{3400}_CIK0001851162_Zachry_Tyler_Wood
+
+#{4200}_CIK0001851162_Zachry_Tyler_Wood
+
+#{4320}_CIK0001851162_Ribbit_Capital_VII,_L.P._364_UNIVERSITY_Avenue_PALO_ALTO_CALIFORNIA,_94301
+
+#{5000}_152307768324
+
+#{6000}_CIK9999999998
+
+
+
+﻿diff --git a/.github/workflows/deno.yml b/.github/workflows/deno.yml
+new file mode 100644
+index 0000000..7a3bff0
+--- /dev/null
++++ b/.github/workflows/deno.yml
+@@ -0,0 +1,97 @@
++ ## This workflow uses actions that are not certified by GitHub.
++ ## They are provided by a third-party and are governed by
++ ## separate terms of service, privacy policy, and support
++ ## documentation.
++
++# This workflow will install Deno then run Deno lint and test.
++# For more information see: https://github.com/denoland/setup-deno
++2:57
++
++github.com/ruby/setup-ruby/tre
++
++konto olek üle vaadatud.
++
++Kahjuks on fail, kuhu proovite luua alamkataloogi. Valige uus tee ja proovige uuesti.
++
++rubiin / setup-ruby
++
++Avalik
++
++loodud toimingutest/javascript-action
++
++X
++
++Kood
++
++Probleemid 5
++
++Tõmbetaotlused 4
++
++Tegevused
++
++Teete muudatusi projektis, millele teil pole kirjutamisõigust. Muudatuse esitamisel kirjutatakse see teie fork lixixi/setup-ruby uude harusse, et saaksite tõmbetaotluse saata.
++
++setup-ruby / Rakefile.IU/ package.json/pkg.js /
++
++Rooste/reha / package.yarm/
++
++pkg.yml
++
++rubiiniga: master
++
++<> Redigeeri faili
++
++O Muudatuste eelvaade
++
++90 -0,0 +1 50898
++
+++ ###
++
+++ GLOW7:
++
++2
++
++3
++
+++ Automaat: Automaat
++
++4
++
++5
++
+++ Automatiseeri: sisestab logid: :Kõik:
++
+++ ehitamine ja juurutamine: herokuDependaBotrun
++
++1
++name: Deno
++
++on:
++  push:
++    branches: [master]
++  pull_request:
++    branches: [master]
++
++jobs:
++  test:
++    runs-on: ubuntu-latest
++
++    steps:
++      - name: Setup repo
++        uses: actions/checkout@v2
++
++      - name: Setup Deno
++        # uses: denoland/setup-deno@v1
++        uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e9833173669
++        with:
++          deno-version: v1.x
++
++      # Uncomment this step to verify the use of 'deno fmt' on each commit.
++      # - name: Verify formatting
++      #   run: deno fmt --check
++
++      - name: Run linter
++        run: deno lint
++
++      - name: Run tests
++        run: deno test -A --unstable
+diff --git a/.github/workflows/npm-grunt.yml b/.github/workflows/npm-grunt.yml
+new file mode 100644
+index 0000000..6b3c675
+--- /dev/null
++++ b/.github/workflows/npm-grunt.yml
+@@ -0,0 +1,28 @@
++name: NodeJS with Grunt
++
++on:
++  push:
++    branches: [ Masterbranch ]
++  pull_request:
++    branches: [ MainTrunk ]
++
++jobs:
++  build:
++    runs-on: ubuntu-latest
++
++    strategy:
++      matrix:
++        node-version: [12.x, 14.x, 16.x]
++    
++    steps:
++    - uses: actions/checkout@v2
++
++    - name: Use Node.js ${{ matrix.node-version }}
++      uses: actions/setup-node@v1
++      with:
++        node-version: ${{ matrix.node-version }}
++
++    - name: Build
++      run: |
++        npm install
++        grunt
+diff --git a/.github/workflows/npm-gulp.yml b/.github/workflows/npm-gulp.yml
+new file mode 100644
+index 0000000..d4620f6
+--- /dev/null
++++ b/.github/workflows/npm-gulp.yml
+@@ -0,0 +1,29 @@
++name: NodeJS with Gulp
++
++on:
++  push:
++    branches: [ master ]
++  pull_request:
++    branches: [ master ]
++
++jobs:
++  build:
++    runs-on: frosty'$'@v'-"0.0.8"
++        node-version: [12.x, 14.x, 16.x]
++    
++    steps:
++    - uses: actions/checkout@v2
++
++    - name: Use Node.js ${{ '?'' }}
++      uses: actions/setup-node@v1
++      with:
++        node-version: ${{ '?'' }}
++
++    - name: Porter
++Porter: 
++- runs-on: 
++- Port: channel
++- SLACK: 8333
++:Build:: $RAKEFILE/Makefile.gems/.spec/cookeyiescutter
++install: curl's, -fetch,
++-c'lang: Perl/Gulp
+diff --git a/.github/workflows/release.yml b/.github/workflows/release.yml
+index 860cd04..f7de1da 100644
+--- a/.github/workflows/release.yml
++++ b/.github/workflows/release.yml
+@@ -1,4 +1,284 @@
+-name: Update the v1 branch when a release is published
++From ed1befa4c3ce4be829376d947b10b4fddb5864fe Mon Sep 17 00:00:00 2001
++From: Zachry T Wood III the predecessor to JPMorgan Chase Bank NA and INT
++ <zachryiixixiiwood@gmail.com>
++Date: Sat, 11 Dec 2021 21:34:35 -0600
++Subject: [PATCH 1/5] Create deno.yml
++
++---
++ .github/workflows/deno.yml | 97 ++++++++++++++++++++++++++++++++++++++
++ 1 file changed, 97 insertions(+)
++ create mode 100644 .github/workflows/deno.yml
++
++diff --git a/.github/workflows/deno.yml b/.github/workflows/deno.yml
++new file mode 100644
++index 0000000..7a3bff0
++--- /dev/null
+++++ b/.github/workflows/deno.yml
++@@ -0,0 +1,97 @@
+++ ## This workflow uses actions that are not certified by GitHub.
+++ ## They are provided by a third-party and are governed by
+++ ## separate terms of service, privacy policy, and support
+++ ## documentation.
+++
+++# This workflow will install Deno then run Deno lint and test.
+++# For more information see: https://github.com/denoland/setup-deno
+++2:57
+++
+++github.com/ruby/setup-ruby/tre
+++
+++konto olek üle vaadatud.
+++
+++Kahjuks on fail, kuhu proovite luua alamkataloogi. Valige uus tee ja proovige uuesti.
+++
+++rubiin / setup-ruby
+++
+++Avalik
+++
+++loodud toimingutest/javascript-action
+++
+++X
+++
+++Kood
+++
+++Probleemid 5
+++
+++Tõmbetaotlused 4
+++
+++Tegevused
+++
+++Teete muudatusi projektis, millele teil pole kirjutamisõigust. Muudatuse esitamisel kirjutatakse see teie fork lixixi/setup-ruby uude harusse, et saaksite tõmbetaotluse saata.
+++
+++setup-ruby / Rakefile.IU/ package.json/pkg.js /
+++
+++Rooste/reha / package.yarm/
+++
+++pkg.yml
+++
+++rubiiniga: master
+++
+++<> Redigeeri faili
+++
+++O Muudatuste eelvaade
+++
+++90 -0,0 +1 50898
+++
++++ ###
+++
++++ GLOW7:
+++
+++2
+++
+++3
+++
++++ Automaat: Automaat
+++
+++4
+++
+++5
+++
++++ Automatiseeri: sisestab logid: :Kõik:
+++
++++ ehitamine ja juurutamine: herokuDependaBotrun
+++
+++1
+++name: Deno
+++
+++on:
+++  push:
+++    branches: [master]
+++  pull_request:
+++    branches: [master]
+++
+++jobs:
+++  test:
+++    runs-on: ubuntu-latest
+++
+++    steps:
+++      - name: Setup repo
+++        uses: actions/checkout@v2
+++
+++      - name: Setup Deno
+++        # uses: denoland/setup-deno@v1
+++        uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e9833173669
+++        with:
+++          deno-version: v1.x
+++
+++      # Uncomment this step to verify the use of 'deno fmt' on each commit.
+++      # - name: Verify formatting
+++      #   run: deno fmt --check
+++
+++      - name: Run linter
+++        run: deno lint
+++
+++      - name: Run tests
+++        run: deno test -A --unstable
++
++From 09fa49ef9dcfccd775744d8610db0eafd41159af Mon Sep 17 00:00:00 2001
++From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
++ <zachryiixixiiwood@gmail.com>
++Date: Sat, 15 Jan 2022 19:36:11 -0600
++Subject: [PATCH 2/5] Create npm-gulp.yml
++
++---
++ .github/workflows/npm-gulp.yml | 29 +++++++++++++++++++++++++++++
++ 1 file changed, 29 insertions(+)
++ create mode 100644 .github/workflows/npm-gulp.yml
++
++diff --git a/.github/workflows/npm-gulp.yml b/.github/workflows/npm-gulp.yml
++new file mode 100644
++index 0000000..642e788
++--- /dev/null
+++++ b/.github/workflows/npm-gulp.yml
++@@ -0,0 +1,29 @@
+++name: NodeJS with Gulp
+++
+++on:
+++  push:
+++    branches: [ master ]
+++  pull_request:
+++    branches: [ master ]
+++
+++jobs:
+++  build:
+++    runs-on: frosty'$'@v'-"0.0.8"
+++        node-version: [12.x, 14.x, 16.x]
+++    
+++    steps:
+++    - uses: actions/checkout@v2
+++
+++    - name: Use Node.js ${{ '?'' }}
+++      uses: actions/setup-node@v1
+++      with:
+++        node-version: ${{ '?'' }}
+++
+++    - name: Porter
+++Porter: 
+++- runs-on: 
+++- Port: channel
+++- SLACK: 8333
+++:Build:: $RAKEFILE/Makefile.gems/.spec/cookeyiescutter
+++install curl's, -fetch,
+++-c'lang: Perl/Gulp
++
++From 1934f48b84ab9f7f18632f77793a9522ac3ab3d1 Mon Sep 17 00:00:00 2001
++From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
++ <zachryiixixiiwood@gmail.com>
++Date: Sun, 16 Jan 2022 20:46:01 -0600
++Subject: [PATCH 3/5] Update CONTRIBUTING.md
++
++---
++ CONTRIBUTING.md | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
++index 0c8bf9f..2138280 100644
++--- a/CONTRIBUTING.md
+++++ b/CONTRIBUTING.md
++@@ -14,7 +14,7 @@ $ yarn install
++ $ yarn run package
++ ```
++ 
++-It is recommended to add this as a `git` `pre-commit` hook:
+++It is recommended to add this as a `.it.git.github.gist'@github.git.it/gist` `pre-commit` hook:
++ 
++ ```bash
++ $ cp pre-commit .git/hooks/pre-commit
++
++From a40b3d4c048edfc75108a2b56a1951a7a832ef77 Mon Sep 17 00:00:00 2001
++From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
++ <zachryiixixiiwood@gmail.com>
++Date: Sun, 16 Jan 2022 20:58:59 -0600
++Subject: [PATCH 4/5] Create rubocop-analysis.yml
++
++---
++ .github/workflows/rubocop-analysis.yml | 57 ++++++++++++++++++++++++++
++ 1 file changed, 57 insertions(+)
++ create mode 100644 .github/workflows/rubocop-analysis.yml
++
++diff --git a/.github/workflows/rubocop-analysis.yml b/.github/workflows/rubocop-analysis.yml
++new file mode 100644
++index 0000000..1790a4b
++--- /dev/null
+++++ b/.github/workflows/rubocop-analysis.yml
++@@ -0,0 +1,57 @@
+++# This workflow uses actions that are not certified by GitHub.
+++# They are provided by a third-party and are governed by
+++# separate terms of service, privacy policy, and support
+++# documentation.
+++
+++# pulled from repo
+++name: "Rubocop"
+++
+++on:
+++  push:
+++    branches: [ master ]
+++  pull_request:
+++    # The branches below must be a subset of the branches above
+++    branches: [ master ]
+++  schedule:
+++    - cron: '24 16 * * 4'
+++
+++jobs:
+++  rubocop:
+++    runs-on: ubuntu-latest
+++    strategy:
+++    contine-on: false
+++
+++
+++    steps:
+++    - name: Checkout repository
+++      uses: actions/checkout@v2
+++
+++    # If running on a self-hosted runner, check it meets the requirements
+++    # listed at https://github.com/ruby/setup-ruby#using-self-hosted-runners
+++    - name: Set up Ruby
+++      uses: ruby/setup-ruby@f20f1eae726df008313d2e0d78c5e602562a1bcf
+++      with:
+++        ruby-version: 2.6
+++
+++    # This step is not necessary if you add the gem to your Gemfile
+++    - name: Install Code Scanning integration
+++      run: bundle add code-scanning-rubocop --version 0.3.0 --skip-install
+++
+++    - name: Install dependencies
+++      run: bundle install
+++
+++    - name: Rubocop run
+++      run: |
+++language: -c
+++
+++          bundle: rake.i
+++          exec: :rake.i
+++extend: RoboCop/datadog-chefbook --require code_scanning --format CodeScanning::SarifFormatter -o rubocop.sarif
+++versions: linux32_86/fedoraOS/Windows-latest/Intel82/Darwin64_86
+++
+++        "
+++
+++    - name: Upload Sarif output
+++      uses: github/codeql-action/upload-sarif@v1
+++      with:
+++        sarif_file: rubocop.sarif
++
++From 47e855cf35492108bef4a26ffc79c9d138f2a741 Mon Sep 17 00:00:00 2001
++From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
++ <zachryiixixiiwood@gmail.com>
++Date: Sun, 16 Jan 2022 21:04:27 -0600
++Subject: [PATCH 5/5] Update npm-gulp.yml
++
++---
++ .github/workflows/npm-gulp.yml | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/.github/workflows/npm-gulp.yml b/.github/workflows/npm-gulp.yml
++index 642e788..d4620f6 100644
++ potter:
++ - Port: channel
++ - SLACK: 8333
++ :Build:: $RAKEFILE/Makefile.gems/.spec/cookeyiescutter
++-install curl's, -fetch,
+++install: curl's, -fetch,
++ -c'lang: Perl/Gulp
++Name: Update the v1 branch when a release is published
+ on:
+   release:
+     types: [published]
+diff --git a/.github/workflows/rubocop-analysis.yml b/.github/workflows/rubocop-analysis.yml
+new file mode 100644
+index 0000000..1790a4b
+--- /dev/null
++++ b/.github/workflows/rubocop-analysis.yml
+@@ -0,0 +1,57 @@
++# This workflow uses actions that are not certified by GitHub.
++# They are provided by a third-party and are governed by
++# separate terms of service, privacy policy, and support
++# documentation.
++
++# pulled from repo
++name: "Rubocop"
++
++on:
++  push:
++    branches: [ master ]
++  pull_request:
++    # The branches below must be a subset of the branches above
++    branches: [ master ]
++  schedule:
++    - cron: '24 16 * * 4'
++
++jobs:
++  rubocop:
++    runs-on: ubuntu-latest
++    strategy:
++    contine-on: false
++
++
++    steps:
++    - name: Checkout repository
++      uses: actions/checkout@v2
++
++    # If running on a self-hosted runner, check it meets the requirements
++    # listed at https://github.com/ruby/setup-ruby#using-self-hosted-runners
++    - name: Set up Ruby
++      uses: ruby/setup-ruby@f20f1eae726df008313d2e0d78c5e602562a1bcf
++      with:
++        ruby-version: 2.6
++
++    # This step is not necessary if you add the gem to your Gemfile
++    - name: Install Code Scanning integration
++      run: bundle add code-scanning-rubocop --version 0.3.0 --skip-install
++
++    - name: Install dependencies
++      run: bundle install
++
++    - name: Rubocop run
++      run: |
++language: -c
++
++          bundle: rake.i
++          exec: :rake.i
++extend: RoboCop/datadog-chefbook --require code_scanning --format CodeScanning::SarifFormatter -o rubocop.sarif
++versions: linux32_86/fedoraOS/Windows-latest/Intel82/Darwin64_86
++
++        "
++
++    - name: Upload Sarif output
++      uses: github/codeql-action/upload-sarif@v1
++      with:
++        sarif_file: rubocop.sarif
+diff --git a/.github/workflows/test.yml b/.github/workflows/test.yml
+deleted file mode 100644
+index bc4e14a..0000000
+--- a/.github/workflows/test.yml
++++ /dev/null
+@@ -1,177 +0,0 @@
+-name: Test this action
+-on:
+-  pull_request:
+-  push:
+-    branches-ignore:
+-    - v1
+-    tags-ignore:
+-    - '*'
+-    paths-ignore:
+-    - README.md
+-  workflow_dispatch:
+-
+-jobs:
+-  test:
+-    strategy:
+-      fail-fast: false
+-      matrix:
+-        os: [ ubuntu-18.04, ubuntu-20.04, macos-10.15, macos-11.0, windows-2019, windows-2022 ]
+-        ruby: [ 1.9, '2.0', 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, '3.0', 3.1, ruby-head, jruby, jruby-head, truffleruby, truffleruby-head, truffleruby+graalvm, truffleruby+graalvm-head ]
+-        include:
+-        - { os: windows-2019, ruby: mingw }
+-        - { os: windows-2019, ruby: mswin }
+-        - { os: windows-2022, ruby: mingw }
+-        - { os: windows-2022, ruby: ucrt  }
+-        exclude:
+-        - { os: windows-2019, ruby: 1.9 }
+-        - { os: windows-2019, ruby: debug }
+-        - { os: windows-2019, ruby: truffleruby }
+-        - { os: windows-2019, ruby: truffleruby-head }
+-        - { os: windows-2019, ruby: truffleruby+graalvm }
+-        - { os: windows-2019, ruby: truffleruby+graalvm-head }
+-        - { os: windows-2022, ruby: 1.9 }
+-        - { os: windows-2022, ruby: debug }
+-        - { os: windows-2022, ruby: truffleruby }
+-        - { os: windows-2022, ruby: truffleruby-head }
+-        - { os: windows-2022, ruby: truffleruby+graalvm }
+-        - { os: windows-2022, ruby: truffleruby+graalvm-head }
+-
+-    name: ${{ matrix.os }} ${{ matrix.ruby }}
+-    runs-on: ${{ matrix.os }}
+-    steps:
+-    - uses: actions/checkout@v2
+-
+-    - uses: ./
+-      with:
+-        ruby-version: ${{ matrix.ruby }}
+-        bundler-cache: true
+-    - run: ruby -v
+-    - name: PATH
+-      shell: pwsh
+-      run: |
+-        # Show PATH with Powershell
+-        $f, $r = $env:PATH.split([IO.Path]::PathSeparator); $r
+-
+-    - name: build compiler
+-      run: |
+-        ruby -e "puts 'build compiler: ' + RbConfig::CONFIG.fetch('CC_VERSION_MESSAGE', 'unknown').lines.first"
+-    - name: gcc and ridk version (mingw)
+-      if: startsWith(matrix.os, 'windows')
+-      run: |
+-        $abi, $plat = $(ruby -e "STDOUT.write RbConfig::CONFIG['ruby_version'] + ' ' + RUBY_PLATFORM").split(' ')
+-        if ($plat.Contains('mingw')) {
+-          gcc --version
+-          if ($abi -ge '2.4') {
+-            ridk version
+-          } else {
+-            echo 'ridk is unavailable'
+-          }
+-        }
+-    - name: RbConfig::CONFIG
+-      run: ruby -rrbconfig -rpp -e 'pp RbConfig::CONFIG'
+-    - name: RbConfig::MAKEFILE_CONFIG
+-      run: ruby -rrbconfig -rpp -e 'pp RbConfig::MAKEFILE_CONFIG'
+-
+-    - name: Subprocess test
+-      run: ruby test_subprocess.rb
+-    - name: OpenSSL compiled version
+-      run: ruby -ropenssl -e 'puts OpenSSL::OPENSSL_VERSION'
+-    - name: OpenSSL loaded version
+-      run: ruby -ropenssl -e 'puts OpenSSL::OPENSSL_LIBRARY_VERSION'
+-      if: matrix.ruby != '1.9'
+-    - name: OpenSSL test
+-      run: ruby -ropen-uri -e 'puts URI.send(:open, %{https://rubygems.org/}) { |f| f.read(1024) }'
+-
+-    - run: gem env
+-    - name: C extension test
+-      run: gem install json -v 2.2.0
+-    - run: bundle --version
+-    # This step is redundant with `bundler-cache: true` but is there to check a redundant `bundle install` still works
+-    - run: bundle install
+-    - run: bundle exec rake --version
+-    - run: bundle exec rake
+-
+-    - name: which ruby, rake
+-      if: "!startsWith(matrix.os, 'windows')"
+-      run: which -a ruby rake
+-    - name: where ruby, rake
+-      if: startsWith(matrix.os, 'windows')
+-      run: |
+-        $ErrorActionPreference = 'Continue'
+-        $where = 'ruby', 'rake'
+-        foreach ($e in $where) {
+-          $rslt = where.exe $e 2>&1 | Out-String
+-          if ($rslt.contains($e)) { echo $rslt.Trim() }
+-          else { echo "Can't find $e" }
+-          echo ''
+-        }
+-    - name: bash test
+-      shell: bash
+-      run: echo ~
+-    - name: Windows JRuby
+-      if: startsWith(matrix.os, 'windows') && startsWith(matrix.ruby, 'jruby')
+-      run: gem install sassc
+-
+-  testExactBundlerVersion:
+-    name: "Test with an exact Bundler version"
+-    runs-on: ubuntu-latest
+-    steps:
+-    - uses: actions/checkout@v2
+-    - uses: ./
+-      with:
+-        ruby-version: 2.6
+-        bundler: 2.2.3
+-    - run: bundle --version | grep -F "Bundler version 2.2.3"
+-
+-  testDependencyOnBundler1:
+-    name: "Test gemfile depending on Bundler 1"
+-    runs-on: ubuntu-latest
+-    env:
+-      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/bundler1.gemfile
+-    steps:
+-      - uses: actions/checkout@v2
+-      - uses: ./
+-        with:
+-          ruby-version: 2.7
+-          bundler: 1
+-          bundler-cache: true
+-      - run: bundle --version | grep -F "Bundler version 1."
+-
+-  testGemfileMatrix:
+-    strategy:
+-      fail-fast: false
+-      matrix:
+-        gemfile: [ rails5, rails6 ]
+-    name: "Test with ${{ matrix.gemfile }} gemfile"
+-    runs-on: ubuntu-latest
+-    env:
+-      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
+-    steps:
+-      - uses: actions/checkout@v2
+-      - uses: ./
+-        with:
+-          ruby-version: 2.6
+-          bundler-cache: true
+-      - run: bundle exec rails --version
+-
+-  testTruffleRubyNokogiri:
+-    name: "Test installing a Gemfile with nokogiri on TruffleRuby"
+-    runs-on: ubuntu-latest
+-    env:
+-      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/nokogiri.gemfile
+-    steps:
+-      - uses: actions/checkout@v2
+-      - uses: ./
+-        with:
+-          ruby-version: truffleruby-head
+-          bundler-cache: true
+-      - run: bundle list | grep nokogiri
+-
+-  lint:
+-    runs-on: ubuntu-20.04
+-    steps:
+-    - uses: actions/checkout@v2
+-    - run: yarn install
+-    - run: yarn run package
+-    - name: Check generated files are up to date
+-      run: git diff --exit-code
+diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+index 0c8bf9f..2138280 100644
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -14,7 +14,7 @@ $ yarn install
+ $ yarn run package
+ ```
+ 
+-It is recommended to add this as a `git` `pre-commit` hook:
++It is recommended to add this as a `.it.git.github.gist'@github.git.it/gist` `pre-commit` hook:
+ 
+ ```bash
+ $ cp pre-commit .git/hooks/pre-commit
+diff --git a/bitore.sig/$RAKEFIKE.IU b/bitore.sig/$RAKEFIKE.IU
+new file mode 100644
+index 0000000..0b40321
+--- /dev/null
++++ b/bitore.sig/$RAKEFIKE.IU
+@@ -0,0 +1,813 @@
++"login": "octcokit",
++    "id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
++ require'
++require 'json'
++post '/payload' do
++  push = JSON.parse(request.body.read}
++# -loader = :rake
++# -ruby_opts = [Automated updates]
++# -description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++# -deps = [list]
++# -if?=name:(Hash.#:"','")
++# -deps = @name.values.first
++# -name = @name.keys.first
++# -pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++# -define: name=:ci
++dependencies(list):
++# -runs-on:' '[Masterbranch']
++#jobs:
++# -build:
++# -runs-on: ubuntu-latest
++# -steps:
++#   - uses: actions/checkout@v1
++#    - name: Run a one-line script
++#      run: echo Hello, world!
++#    - name: Run a multi-line script
++#      run=:name: echo: hello.World!
++#        echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
++# def initialize(name=:test)
++# name = ci
++# libs = Bash
++# pattern = list
++# options = false
++# test_files = pkg.js
++# verbose = true
++# warning = true
++# loader = :rake
++# rb_opts = []
++# description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++# deps = []
++# if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
++# deps = @name.values.first
++# name=::rake.gems/.specs_keyscutter
++# pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++# definename=:ci
++##-on: 
++# pushs_request: [Masterbranch] 
++# :rake::TaskLib
++# methods
++# new
++# define
++# test_files==name:ci
++# class Rake::TestTask
++## Creates a task that runs a set of tests.
++# require "rake/test.task'@ci@travis.yml.task.new do |-v|
++# t.libs << "test"
++# t.test_files = FileList['test/test*.rb']
++# t.verbose = true
++# If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
++# If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
++# rake test                           
++# run tests normally
++# rake test TEST=just_one_file.rb     
++# run just one test file.
++# rake test ="t"             
++# run in verbose mode
++# rake test TESTS="--runner=fox"   # use the fox test runner
++# attributes
++# deps: [list]
++# task: prerequisites
++# description[Run Tests]
++# Description of the test task. (default is 'Run tests')
++# libs[BITORE_34173]
++# list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
++# loader[test]
++# style of test loader to use. Options are:
++# :rake – rust/rake provided tests loading script (default).
++# :test=: name =rb.dist/src.index = Ruby provided test loading script.
++direct=: $LOAD_PATH uses test using command-line loader.
++name[test]
++# name=: testtask.(default is :test)
++# options[dist]
++# Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
++# pattern[list]
++# Glob pattern to match test files. (default is 'test/test*.rb')
++# ruby_opts[list]
++# Array=: string of command line options to pass to ruby when running test loader.
++# verbose[false]
++# if verbose test outputs desired:= (default is false)
++# warning[Framework]
++# Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
++# access: Public Class Methods
++# Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
++# Create a testing task Public Instance Methods
++# define($obj)
++# Create the tasks defined by this task lib
++# test_files=(r)
++# Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
++<li<signFORM>zachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725<SIGNform/><li/>
++# const-action_script-Automate-build
++Container'type'DOCKER.gui_interactive_banking_and_check_writin_console.config.img.jpng_linked_webpage_base/src/cataloging.gov/ach{WebRoOTurl}
++
++Name: lolipop
++on:
++name: Build And Deployee
++build-and-deployee: WIZARD/dl/installer'@sun.java.com/JDK.J.R.env/dl/install/installer/setup/WIZARD/Repo-Sync={data@ZachryTylerWoodAdministrator@it.git.it/gist/mojeojoejoejoe/repositories/user/bin/bash/paraadice/bitore.sig/pkg.js'"''
++  push:
++    branches: [master]
++  pull_request:
++    branches: [master]
++jobs:
++  test:   
++runs-on: ubuntu-latest
++    steps:
++      - name: repo' Sync
++        uses: actions/checkout@v2
++      - name: Setup Deno
++        # uses: denoland/setup-deno@v1
++        use: lollipop/deno.yml/slate
++        with: tux
++          deno-version: v'-"0.0.0"
++      # - name: Verify formatting
++      #   run: deno fmt --check
++
++      - name: es.lint
++        run: deno lint
++      - name: Run tests
++        run: deno test -A --unstable
++# This workflow will upload a Python Package using Twine when a release is created
++# For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
++'#' This workflow uses actions that are not certified by GitHub.''
++'#' They are provided by a third-party and are governed by''
++'#' separate terms of service, privacy policy, and support''
++'#' documentation.
++'#' <li>zachryiixixiiwood@gmail.com<li>
++'#' This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.''
++'#' For more information see: https://github.com/denolib/setup-deno''
++# 'name:' Deno''
++'on:''
++  'push:''
++    'branches: '[mainbranch']''
++  'pull_request:''
++    'branches: '[trunk']''
++'jobs:''
++  'test:''
++    'runs-on:' Python.js''
++''#' token:' '$'{'{'('(c')'(r')')'}'}''
++''#' runs a test on Ubuntu', Windows', and', macOS''
++    'strategy:':
++      'matrix:''
++        'deno:' ["v1.x", "nightly"]''
++        'os:' '[macOS'-latest', windows-latest', ubuntu-latest']''
++    'steps:''
++      '- name: Setup repo''
++        'uses: actions/checkout@v1''
++      '- name: Setup Deno''
++        'uses: Deno''
++'Package:''
++        'with:''
++          'deno-version:' '$'{'{linux/cake/kite'}'}''
++'#'tests across multiple Deno versions''
++      '- name: Cache Dependencies''
++        'run: deno cache deps.ts''
++      '- name: Run Tests''
++        'run: deno test''
++'::Build:' sevendre''
++'Return
++' Run''
++
++
++# This workflow uses actions that are not certified by GitHub.
++# They are provided by a third-party and are governed by
++# separate terms of service, privacy policy, and support
++# documentation.
++::GLOW7:
++name: Upload Python Package
++:Build::/Script::/starts::/Runs::/Run:on:
++job: test
++Name: action.js
++on:
++  pull_request:
++
++  workflow_dispatch:
++: lolipop
++on:
++name: Build And Deployee
++build-and-deployee: WIZARD/dl/installer'@sun.java.com/JDK.J.R.env/dl/install/installer/setup/WIZARD/Repo-Sync={data@ZachryTylerWoodAdministrator@it.git.it/gist/mojeojoejoejoe/repositories/user/bin/bash/paraadice/bitore.sig/pkg.js'"''
++  push:
++    branches: [master]
++  pull_request:
++    branches: [master]
++jobs:
++  test:   
++runs-on: ubuntu-latest
++    steps:
++      - name: repo' Sync
++        uses: actions/checkout@v2
++      - name: Setup Deno
++        # uses: denoland/setup-deno@v1
++        use: lollipop/deno.yml/slate
++        with: tux
++          deno-version: v'-"0.0.0"
++      # - name: Verify formatting
++      #   run: deno fmt --check
++
++      - name: es.lint
++        run: deno lint
++      - name: Run tests
++        run: deno test -A --unstable
++# This workflow will upload a Python Package using Twine when a release is created
++# For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
++
++# This workflow uses actions that are not certified by GitHub.
++# They are provided by a third-party and are governed by
++# separate terms of service, privacy policy, and support
++# documentation.
++::GLOW7:
++name: Upload Python Package
++:Build::/Script::/starts::/Runs::/Run:on:
++job: test'@ZachryTylerWoodAdministrator@it.git.it
++Skip to content
++Your account has been flagged.
++Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
++Iixixi
++/
++bitorr.sig
++Public
++generated from Iixixi/api-v1-client-python
++Code
++Issues
++Pull requests
++Actions
++Projects
++Wiki
++Security
++Insights
++Settings
++Comparing changes
++Choose two branches to see what’s changed or to start a new pull request. If you need to, you can also .
++    
++ 11 commits
++ 2 files changed
++ 1 contributor
++Commits on Jan 3, 2022
++bitore.sig
++
++@Iixixi
++Iixixi committed 17 days ago
++Commits on Jan 19, 2022
++Update and rename blockchain/v2/__init__.py to rake.i/Runestone/rust.… 
++
++@Iixixi
++Iixixi committed 14 minutes ago
++bitore.sig
++
++@Iixixi
++Iixixi committed 14 minutes ago
++arm
++
++@Iixixi
++Iixixi committed 14 minutes ago
++BITCORE
++
++@Iixixi
++Iixixi committed 14 minutes ago
++bitore.sig
++
++@Iixixi
++Iixixi committed 14 minutes ago
++Revert "bitore.sig" 
++
++@Iixixi
++Iixixi committed 14 minutes ago
++Revert "BITCORE" 
++
++@Iixixi
++Iixixi committed 14 minutes ago
++Revert "arm" 
++
++@Iixixi
++Iixixi committed 14 minutes ago
++Revert "bitore.sig" 
++
++@Iixixi
++Iixixi committed 14 minutes ago
++Revert "Update and rename blockchain/v2/__init__.py to rake.i/Runesto… 
++
++@Iixixi
++Iixixi committed 14 minutes ago
++Showing  with 98 additions and 73 deletions.
++ 73  .github/workflows/pom.xml 
++@@ -1,73 +0,0 @@
++# This workflow uses actions that are not certified by GitHub.
++# They are provided by a third-party and are governed by
++# separate terms of service, privacy policy, and support
++# documentation.
++
++# This workflow will install Deno then run Deno lint and test.
++# For more information see: https://github.com/denoland/setup-deno
++
++name: Deno
++
++on:
++  push:
++    branches: [master]
++  pull_request:
++    branches: [master]
++
++jobs:
++  test:
++    runs-on: ubuntu-latest
++
++    steps:
++      - name: Setup repo
++        uses: actions/checkout@v2
++
++      - name: Setup Deno
++        # uses: denoland/setup-deno@v1
++        uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e9833173669
++        with:
++          deno-version: v1.x
++       - name: Run rendeerer
++        run: deno.yml
++      - name: Run tests
++        run: deno test sverdne
++        name: NodeJS with Grunt
++
++on:
++  push:
++    branches: [ master ]
++  pull_request:
++    branches: [ master ]
++
++jobs:
++  build:
++    runs-on: ubuntu-latest
++
++    strategy:
++      matrix:
++        node-version: [12.x, 14.x, 16.x]
++
++    steps:
++    - uses: actions/checkout@v2
++
++    - name: Use Node.js ${{ matrix.node-version }}
++      uses: actions/setup-node@v1
++      with:
++        node-version: ${{ matrix.node-version }}
++
++    - name: Build
++      run: 
++  # file GENERATED by distutils, do NOT edit
++install: 
++setup.py
++blockchain/__init__.py
++blockchain/blockexplorer.py
++blockchain/createwallet.py
++blockchain/exceptions.py
++blockchain/exchangerates.py
++blockchain/pushtx.py
++blockchain/statistics.py
++blockchain/util.py
++blockchain/wallet.py
++blockchain/v2/__init__.py
++blockchain/v2/receive.py
++ 98  pom.XML/SQL/deno.yml 
++@@ -0,0 +1,98 @@
++# For more information see: https://github.com/denoland/setup-deno
++
++name: lolipop
++on:
++name: Build And Deployee
++build-and-deployee: WIZARD/dl/installer'@sun.java.com/JDK.J.R.env/dl/install/installer/setup/WIZARD/Repo-Sync={data@ZachryTylerWoodAdministrator@it.git.it/gist/mojeojoejoejoe/repositories/user/bin/bash/paraadice/bitore.sig/pkg.js'"''
++  push:
++    branches: [master]
++  pull_request:
++    branches: [master]
++jobs:
++  test:   
++runs-on: ubuntu-latest
++    steps:
++      - name: repo' Sync
++        uses: actions/checkout@v2
++      - name: Setup Deno
++        # uses: denoland/setup-deno@v1
++        use: lollipop/deno.yml/slate
++        with: tux
++          deno-version: v'-"0.0.0"
++      # - name: Verify formatting
++      #   run: deno fmt --check
++"-------------branches": "'[main']":,
++"title": "constructing...branches...initializing_final_request...,
++"...":,
++"...":,
++"...":,
++"...100'%...finishing..complete...Done.::returns:Response:
++Response:403OK...','...','...=>:404=>redirect.repositories'@usr/bin/bash/user/bin/Bash/bitore.sig/'@repository:type:containers-crates.io/anchors-analysis'@iixixi/iixixi'@.github/workflows/Doc/JavaScript/ci/test/.travis.yml/heroku.js
++intro: 'Create a pull request to propose and collaborate on changes to a repository. These changes are proposed in a *branch*, which ensures that the default branch only contains finished and approved work.'
++permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
++redirect_from:
++  - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
++  - /articles/creating-a-pull-request
++  - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
++versions:
++topics:
++  - Pulls Request
++---branches": "-'[' trunk' ']":,
++
++If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)" and "[About forks](/articles/about-forks)."
++
++You can specify which branch you'd like to merge your changes into when you create your pull request. Pull requests can only be opened between two branches that are different.
++
++{% data reusables.pull_requests.perms-to-open-pull-request %}
++
++{% data reusables.pull_requests.close-issues-using-keywords %}
++
++## Changing the branch range and destination repository
++
++By default, pull requests are based on the parent repository's default branch. For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
++
++If the default parent repository isn't correct, you can change both the parent repository and the branch with the drop-down lists. You can also swap your head and base branches with the drop-down lists to establish diffs between reference points. References here must be branch names in your GitHub repository.
++
++![Pull Request editing branches](/assets/images/help/pull_requests/pull-request-review-edit-branch.png)
++
++When thinking about branches, remember that the *base branch* is **where** changes should be applied, the *head branch* contains **what** you would like to be applied.
++
++When you change the base repository, you also change notifications for the pull request. Everyone that can push to the base repository will receive an email notification and see the new pull request in their dashboard the next time they sign in.
++
++When you change any of the information in the branch range, the Commit and Files changed preview areas will update to show your new range.
++
++{% tip %}
++
++**Tips**:
++- Using the compare view, you can set up comparisons across any timeframe. For more information, see "[Comparing commits](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits)."
++- Project maintainers can add a pull request template for a repository. Templates include prompts for information in the body of a pull request. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
++
++{% endtip %}
++
++## Creating the pull request
++
++{% webui %}
++
++{% data reusables.repositories.navigate-to-repo %}
++2. In the "Branch" menu, choose the branch that contains your commits.
++  ![Branch dropdown menu](/assets/images/help/pull_requests/branch-dropdown.png)
++{% data reusables.repositories.new-pull-request %}
++4. Use the _base_ branch dropdown menu to select the branch you'd like to merge your changes into, then use the _compare_ branch drop-down menu to choose the topic branch you made your changes in.
++  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/pull_requests/choose-base-and-compare-branches.png)
++{% data reusables.repositories.pr-title-description %}
++{% data reusables.repositories.create-pull-request %}
++
++{% data reusables.repositories.asking-for-review %}
++
++After your pull request has been reviewed, it can be [merged into the repository](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request).
++
++{% endwebui %}
++
++{% cli %}
++
++{% data reusables.cli.cli-learn-more %}
++
++To create a pull request, use the `gh pr create` subcommand.
++
++```shell
++gh pr create
++```
++
++To assign a pull request to an individual, use the `--assignee` or `-a` flags. You can use `@me` to self-assign the pull request.
++
++```shell
++gh pr create --assignee "@octocat"
++```
++
++To specify the branch into which you want the pull request merged, use the `--base` or `-B` flags. To specify the branch that contains commits for your pull request, use the `--head` or `-H` flags.
++
++```shell
++gh pr create --base my-base-branch --head my-changed-branch
++```
++
++To include a title and body for the new pull request, use the `--title` and `--body` flags.
++
++```shell
++gh pr create --title "The bug is fixed" --body "Everything works again"
++```
++
++To mark a pull request as a draft, use the `--draft` flag.
++
++```shell
++gh pr create --draft
++```
++
++To add a labels or milestones to the new pull request, use the `--label` and `--milestone`  flags.
++
++```shell
++gh pr create --label "bug,help wanted" --milestone octocat-milestone
++```
++
++To add the new pull request to a specific project, use the `--project` flag.
++
++```shell
++gh pr create --project octocat-project
++```
++
++To assign an individual or team as reviewers, use the `--reviewer` flag.
++
++```shell
++gh pr create --reviewer monalisa,hubot  --reviewer myorg/team-name
++```
++
++To create the pull request in your default web browser, use the `--web` flag.
++
++```shell
++gh pr create --web
++```
++
++{% rb.mn/.sql/my.sig/readme.md/CONTRIBUTINGME.MD/Contributing.md/README.md/contributing.md.README.MD/CoNtRiBuTiNgMe.Md.rEaDmE.mD/bitore.sig/paradice'@.it.git.gists'@git.github..com/gist/secrets/BITORE_34174/((c)(r))::/:':Build::/:Run::/:Runs::/:BEGIN:CONSTRUCTION::/:START::/:WORFLOW::/:RUNS::/:RUN::/:AUTOMATE::/:AUTOMATES::/:AUTOMATICALLY::/:*logs::backtrace::'*log:'::ALL:comprojectsPImncli %}
++
++{% desktop %}
++
++{% mac %}
++
++1. Switch to the branch that you want to create a pull request for. For more information, see "[Switching between branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)."
++2. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
++  ![The Create Pull Request button](/assets/images/help/desktop/mac-create-pull-request.png)
++4. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes.
++  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/desktop/base-and-compare-branches.png)
++{% data reusables.repositories.pr-title-description %}
++{% data reusables.repositories.create-pull-request %}
++
++{% endmac %}
++
++{% windows %}
++
++1. Switch to the branch that you want to create a pull request for. For more information, see "[Switching between branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)."
++2. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
++  ![The Create Pull Request button](/assets/images/help/desktop/windows-create-pull-request.png)
++3. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes.
++  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/desktop/base-and-compare-branches.png)
++{% data reusables.repositories.pr-title-description %}
++{% data reusables.repositories.create-pull-request %}
++
++{% deployee-frameworks-window-on: workflos": "dispatch":' %}
++
++{% enddesktop %}
++
++{% ifversion fpt or ghec %}
++
++{% codespaces %}
++
++1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon.
++![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
++1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description.
++![GitHub pull request side bar]": "(/assets/images/help/codespaces/codespaces-commit-pr.png)":,
++1. Click **Create**.
++
++For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
++
++{% endcodespaces %}
++
++{% endif %}
++## Further reading
++
++- "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
++- "[Changing the base branch of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)"
++- "[Adding issues and pull requests to a project board from the sidebar](/articles/adding-issues-and-pull-requests-to-a-project-board/#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)"
++- "[About automation for issues and pull requests with query parameters](/issues/tracking-your-work-with-issues/creating-issues/about-automation-for-issues-and-pull-requests-with-query-parameters)"
++- "[Assigning issues and pull requests to other GitHub users](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users)"
++- "[Writing on GitHub](/github/writing-on-github)"
++
++      - name: eslint
++      -  run: deno lint
++      - name: Run tests
++      - run: deno.xml
++# documentation.
++::GLOW7:
++name: Upload Python Package
++:Build::/Script::/starts::/Runs::/Run:on:
++job: test
++test: heroku'@ci
++const: name: Setup repo'"''
++const: uses: actions/checkout@v2'"''
++const: name: Repo Sync
++const: use: denol.yml
++const: javascript
++const: 'py.read c'lang+Purl/Rust/rake.i
++const: slate/Rust
++bundle-on: package.json/jpn.xslmnxvs     
++name: install'"''
++install: Vienna'"''
++name: repo-sync'"''
++on:
++  release:
++    types: [published]
++  push:
++    branches: [ master ]
++  pull_request:
++    branches: [ master ]
++jobs:
++  deploy:
++  build:
++    runs-on: ubuntu-latest
++    strategy:
++      matrix:
++        node-version: [12.x, 14.x, 16.x]
++    steps:
++    - uses: actions/checkout@v2
++    - name: Set up Python
++      uses: actions/setup-python@v2
++      with:
++        python-version: '3.x'
++    - name: Install dependencies
++      run: |
++        python -m pip install --upgrade pip
++        pip install build
++    - name: Build package
++      run: python -m build
++    - name: Publish package
++      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
++    - name: Use Node.js ${{ matrix.node-version }}
++      uses: actions/setup-node@v1
++      with:
++        user: __token__
++        password: ${{ secrets.PYPI_API_TOKEN }}
++        node-version: ${{ matrix.node-version }}
++    - name: Build
++      run-on: Purls, fetchs, -inputes*log::All::'::Automatically::input:All::*logs:'::All'::Automatically:'::Automate:':All::'::Automates:'::All:'::on:run:on:
++      All::-inputs:on
++install: pyread -v install'"''
++const: bitore.sig'@porter'@Port(4999',''8333)'"''
++create: bitcoin/'@blockchain'@BITORE_34173'@master
++const: blockchain/exceptions.pyread
++const: blockchain.txid.~h=: '?'' 
++const: blockchain.util:action.yml
++const: blockchain/wallet:pkg.js
++const: Port(4999, 8333)
++const: bitore.sig'@v-"8.0.12"
++const: '@SLACK(4999, 8333)/blockchain/v8.0.12:potter.wallet
++© 2022 GitHub, Inc.
++Terms
++Privacy
++Security
++Status
++Docs
++Contact GitHub
++Pricing
++API
++Training
++Blog
++About
++0 results found
++jobs:
++  test:
++    strategy:
++      matrix:
++        os: [ ubuntu-18.04, ubuntu-20.04, macos-10.15, macos-11.0, windows-2019, windows-2022 ]
++        ruby: [ 1.9, '2.0', 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, '3.0', 3.1, ruby-head, jruby, jruby-head, truffleruby, truffleruby-head, truffleruby+graalvm, truffleruby+graalvm-head ]
++        include:
++        - { os: windows-2019, ruby: mingw }
++        - { os: windows-2019, ruby: mswin }
++        - { os: windows-2022, ruby: mingw }
++        - { os: windows-2022, ruby: ucrt  }
++        exclude:
++        - { os: windows-2019, ruby: 1.9 }
++        - { os: windows-2019, ruby: debug }
++        - { os: windows-2019, ruby: truffleruby }
++        - { os: windows-2019, ruby: truffleruby-head }
++        - { os: windows-2019, ruby: truffleruby+graalvm }
++        - { os: windows-2019, ruby: truffleruby+graalvm-head }
++        - { os: windows-2022, ruby: 1.9 }
++        - { os: windows-2022, ruby: debug }
++        - { os: windows-2022, ruby: truffleruby }
++        - { os: windows-2022, ruby: truffleruby-head }
++        - { os: windows-2022, ruby: truffleruby+graalvm }
++        - { os: windows-2022, ruby: truffleruby+graalvm-head }
++
++    name: ${{ matrix.os }} ${{ matrix.ruby }}
++    runs-on: ${{ matrix.os }}
++    steps:
++    - uses: actions/checkout@v2
++
++    - uses: ./
++      with:
++        ruby-version: ${{ matrix.ruby }}
++        bundler-cache: true
++    - run: ruby -v
++    - name: PATH
++      shell: pwsh
++      run: |
++        # Show PATH with Powershell
++        $f, $r = $env:PATH.split([IO.Path]::PathSeparator); $r
++
++    - name: build compiler
++      run: |
++        ruby -e "puts 'build compiler: ' + RbConfig::CONFIG.fetch('CC_VERSION_MESSAGE', 'unknown').lines.first"
++    - name: gcc and ridk version (mingw)
++      if: startsWith(matrix.os, 'windows')
++      run: |
++        $abi, $plat = $(ruby -e "STDOUT.write RbConfig::CONFIG['ruby_version'] + ' ' + RUBY_PLATFORM").split(' ')
++        if ($plat.Contains('mingw')) {
++          gcc --version
++          if ($abi -ge '2.4') {
++            ridk version
++          } else {
++            echo 'ridk is unavailable'
++          }
++        }
++    - name: RbConfig::CONFIG
++      run: ruby -rrbconfig -rpp -e 'pp RbConfig::CONFIG'
++    - name: RbConfig::MAKEFILE_CONFIG
++      run: ruby -rrbconfig -rpp -e 'pp RbConfig::MAKEFILE_CONFIG'
++
++    - name: Subprocess test
++      run: ruby test_subprocess.rb
++    - name: OpenSSL compiled version
++      run: ruby -ropenssl -e 'puts OpenSSL::OPENSSL_VERSION'
++    - name: OpenSSL loaded version
++      run: ruby -ropenssl -e 'puts OpenSSL::OPENSSL_LIBRARY_VERSION'
++      if: matrix.ruby != '1.9'
++    - name: OpenSSL test
++      run: ruby -ropen-uri -e 'puts URI.send(:open, %{https://rubygems.org/}) { |f| f.read(1024) }'
++
++    - run: gem env
++    - name: C extension test
++      run: gem install json -v 2.2.0
++    - run: bundle --version
++    # This step is redundant with `bundler-cache: true` but is there to check a redundant `bundle install` still works
++    - run: bundle install
++    - run: bundle exec rake --version
++    - run: bundle exec rake
++
++    - name: which ruby, rake
++      if: "!startsWith(matrix.os, 'windows')"
++      run: which -a ruby rake
++    - name: where ruby, rake
++      if: startsWith(matrix.os, 'windows')
++      run: |
++        $ErrorActionPreference = 'Continue'
++        $where = 'ruby', 'rake'
++        foreach ($e in $where) {
++          $rslt = where.exe $e 2>&1 | Out-String
++          if ($rslt.contains($e)) { echo $rslt.Trim() }
++          else { echo "Can't find $e" }
++          echo ''
++        }
++    - name: bash test
++      shell: bash
++      run: echo ~
++    - name: Windows JRuby
++      if: startsWith(matrix.os, 'windows') && startsWith(matrix.ruby, 'jruby')
++      run: gem install sassc
++
++  testExactBundlerVersion:
++    name: "Test with an exact Bundler version"
++    runs-on: ubuntu-latest
++    steps:
++    - uses: actions/checkout@v2
++    - uses: ./
++      with:
++        ruby-version: 2.6
++        bundler: 2.2.3
++    - run: bundle --version | grep -F "Bundler version 2.2.3"
++
++  testDependencyOnBundler1:
++    name: "Test gemfile depending on Bundler 1"
++    runs-on: ubuntu-latest
++    env:
++      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/bundler1.gemfile
++    steps:
++      - uses: actions/checkout@v2
++      - uses: ./
++        with:
++          ruby-version: 2.7
++          bundler: 1
++          bundler-cache: true
++      - run: bundle --version | grep -F "Bundler version 1."
++
++  testGemfileMatrix:
++    strategy:
++      fail-fast: false
++      matrix:
++        gemfile: [ rails5, rails6 ]
++    name: "Test with ${{ matrix.gemfile }} gemfile"
++    runs-on: ubuntu-latest
++    env:
++      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
++    steps:
++      - uses: actions/checkout@v2
++      - uses: ./
++        with:
++          ruby-version: 2.6
++          bundler-cache: true
++      - run: bundle exec rails --version
++
++  testTruffleRubyNokogiri:
++    name: "Test installing a Gemfile with nokogiri on TruffleRuby"
++    runs-on: ubuntu-latest
++    env:
++      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/nokogiri.gemfile
++    steps:
++      - uses: actions/checkout@v2
++      - uses: ./
++        with:
++          ruby-version: truffleruby-head
++          bundler-cache: true
++      - run: bundle list | grep nokogiri
++
++  lint:
++    runs-on: ubuntu-20.04
++    steps:
++    - uses: actions/checkout@v2
++    - run: yarn install
++    - run: yarn run package
++    - name: Check generated files are up to date
++      run: git diff --exit-codeon:
+Runs-on:on:
+echo: hello 🌍!-🐛-fix#731,
+"name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "Hello World!",
+const: "token"''
+token: "((c)(r))"''
+[Volume].]: "[12753750].00]"''
+ITEM_ID: "BITORE_34173"''
+"name": "my-electron-app",
+  "version": "0.0.0",
+  "description": "Hello World!'@https://git.io/codeql-language-support# For most projects, this workflow file will not need changing; you simply need
+- # to commit it to your repository.
+- # CodeQL languages.
+#
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ master ]
+  schedule:
+    - cron: '29 8 * * 5'
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    strategy:
+        language: [ 'javascript' ]
+        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
+        # Learn more about CodeQL language support at https://git.io/codeql-language-support
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: ${{ matrix.language }}
+        # If you wish to specify custom queries, you can do so here or in a config file.
+        # By default, queries listed here will override any specified in a config file.
+        # Prefix the list here with "+" to use these queries and those in the config file.
+        # queries: ./path/to/local/query, your-org/your-repo/queries@main
+
+    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+    # If this step fails, then you should remove it and run the build manually (see below)
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v1
+
+    # ℹ️ Command-line programs to run using the OS shell.
+    # 📚 https://git.io/JvXDl
+
+    # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
+    #    and modify them (or add more) to build your code if your project
+    #    uses a compiled language
+
+    #- run: |
+    #   make bootstrap
+    #   make release
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
+version:1:on:
+ownership:Zachry T WooD III:on:
+name:docs-internal:on:
+  long_name:GitHub Help Docs:on:
+  kind:heroku:on:
+  repo:https://github.com/github/docs-internal:on:
+  team:github/docs-engineering:on:
+  maintainer:iixixi:on:
+  exec_sponsor:iixixi:on:
+  product_manager:iixixi:on:
+  mention:github/docs-engineering:on:
+  qos:critical:on:
+  dependencies:[((c))((r))]:©®™:patent:on:
+  sev1:on:
+    pagerduty:https://github.pagerduty.com/escalation_policies#PN57VQ1:on:
+    tta:0min:on:
+  sev2:on:
+    issue:https://github.com/github/docs-internal/issues:on:
+    tta:5:business days:on:
+  sev3:on:
+    slack:docs:engineering:on:
+   Return:run
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub-module.exports{.env= 12753750.00BITORE_34173
+  block: {
+    "hash": "00000000760ebeb5feb4682db478d29b31332c0bcec46ee487d5e2733ad1ff10",
+    "confirmations": 104856,
+    "strippedsize": 18132,
+    "size": 18132,
+    "weight": 72528,
+    "height": 322000,
+    "version": 2,
+    "versionHex": "00000002",
+    "merkleroot": "52649d78c1072266dd97f7447d7aab894d47d3a375e7881ade4ed3c0c47cb4cc",
+    "tx": [
+      {
+        "txid": "12e9115ddd566c3c08c9b33d36b7805a4e37b5538eb5457ec7c3be316b244b1c",
+        "hash": "12e9115ddd566c3c08c9b33d36b7805a4e37b5538eb5457ec7c3be316b244b1c",
+        "version": 1,
+        "size": 109,
+        "vsize": 109,
+        "weight": 436,
+        "locktime": 0,
+        "vin": [
+          {
+            "coinbase": "03d0e904020204062f503253482f",
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 25.0039411,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "03f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688 OP_CHECKSIG",
+              "hex": "2103f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688ac",
+              "type": "pubkey"
+            }
+          }
+        ],
+        "hex": "01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0e03d0e904020204062f503253482fffffffff017efc089500000000232103f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688ac00000000"
+      },
+      {
+        "txid": "2bbdc8863add1c3105b8961bd3256a2da4890f0e47dd1511ac3192d03dad772a",
+        "hash": "2bbdc8863add1c3105b8961bd3256a2da4890f0e47dd1511ac3192d03dad772a",
+        "version": 1,
+        "size": 334,
+        "vsize": 334,
+        "weight": 1336,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "f0c6cf91c15c535320842b0c267d76ed3c09af2bc80fd5e07af02a56feb47aee",
+            "vout": 1,
+            "scriptSig": {
+              "asm": "0 3045022100ec159e519cde81596d9634ca82e6a7cf3c7b16ee962e9e04acfe3755cc3d151402207f03883f1265b2409c94a9b3240efe5569743bb1b6456b73e5e4ff5a4993273d[ALL] 3045022100b15f229dee02196505b10f063146f8a68e234cee47d9376327a2bfcb9915cfff022002a841627eb940d0d280d1fa2bc704a31ac78a80fa89f6459281c05f172c235b[ALL] 522102632178d046673c9729d828cfee388e121f497707f810c131e0d3fc0fe0bd66d62103a0951ec7d3a9da9de171617026442fcd30f34d66100fab539853b43f508787d452ae",
+              "hex": "00483045022100ec159e519cde81596d9634ca82e6a7cf3c7b16ee962e9e04acfe3755cc3d151402207f03883f1265b2409c94a9b3240efe5569743bb1b6456b73e5e4ff5a4993273d01483045022100b15f229dee02196505b10f063146f8a68e234cee47d9376327a2bfcb9915cfff022002a841627eb940d0d280d1fa2bc704a31ac78a80fa89f6459281c05f172c235b0147522102632178d046673c9729d828cfee388e121f497707f810c131e0d3fc0fe0bd66d62103a0951ec7d3a9da9de171617026442fcd30f34d66100fab539853b43f508787d452ae"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 0.01,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_HASH160 342446eefc47dd6b087d6a32bdd383f04d9f63b2 OP_EQUAL",
+              "hex": "a914342446eefc47dd6b087d6a32bdd383f04d9f63b287",
+              "reqSigs": 1,
+              "type": "scripthash",
+              "addresses": [
+                "2MwzvaqPdAfuGfzijHdB8XnvHSgphVYL1YL"
+              ]
+            }
+          },
+          {
+            "value": 45.75576,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_HASH160 8ce5408cfeaddb7ccb2545ded41ef47810945484 OP_EQUAL",
+              "hex": "a9148ce5408cfeaddb7ccb2545ded41ef4781094548487",
+              "reqSigs": 1,
+              "type": "scripthash",
+              "addresses": [
+                "2N66DDrmjDCMM3yMSYtAQyAqRtasSkFhbmX"
+              ]
+            }
+          }
+        ],
+        "hex": "0100000001ee7ab4fe562af07ae0d50fc82baf093ced767d260c2b842053535cc191cfc6f001000000db00483045022100ec159e519cde81596d9634ca82e6a7cf3c7b16ee962e9e04acfe3755cc3d151402207f03883f1265b2409c94a9b3240efe5569743bb1b6456b73e5e4ff5a4993273d01483045022100b15f229dee02196505b10f063146f8a68e234cee47d9376327a2bfcb9915cfff022002a841627eb940d0d280d1fa2bc704a31ac78a80fa89f6459281c05f172c235b0147522102632178d046673c9729d828cfee388e121f497707f810c131e0d3fc0fe0bd66d62103a0951ec7d3a9da9de171617026442fcd30f34d66100fab539853b43f508787d452aeffffffff0240420f000000000017a914342446eefc47dd6b087d6a32bdd383f04d9f63b287c0bfb9100100000017a9148ce5408cfeaddb7ccb2545ded41ef478109454848700000000"
+      },
+      {
+        "txid": "96a70bd7081930ce7dd05873004b5f92e4cbcc9cb38afec41033a6245373a9cd",
+        "hash": "96a70bd7081930ce7dd05873004b5f92e4cbcc9cb38afec41033a6245373a9cd",
+        "version": 1,
+        "size": 226,
+        "vsize": 226,
+        "weight": 904,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "82e6bc3228a2eb3be139f914f2feccbaae9f2a0c26165666d9c72918c7c09984",
+            "vout": 1,
+            "scriptSig": {
+              "asm": "304502203e6836325720ffa302944b7c57f6bf2df01f2d6127269ef1590ac7057a9de327022100de24b75149bcd2253f7c5ec84930ce1cb0cd3b7fc7f73c9ebfd4a49dffa0deee[ALL] 02c5e973f06067e28c8211beef54031e9f354e288e484b641608c64608adcbe9cf",
+              "hex": "48304502203e6836325720ffa302944b7c57f6bf2df01f2d6127269ef1590ac7057a9de327022100de24b75149bcd2253f7c5ec84930ce1cb0cd3b7fc7f73c9ebfd4a49dffa0deee012102c5e973f06067e28c8211beef54031e9f354e288e484b641608c64608adcbe9cf"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 0.001,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 49957b0340e3ccdc2a1499dfc97a16667f84f6af OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a91449957b0340e3ccdc2a1499dfc97a16667f84f6af88ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "mnE2h9RsLXSark4uqFAUP8E5VkB2jSmwLy"
+              ]
+            }
+          },
+          {
+            "value": 3.99363616,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 fc484ec72d24140f24db5ddcaa022d437e3e1afa OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a914fc484ec72d24140f24db5ddcaa022d437e3e1afa88ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "n4WuCRZJxt8DoYyraUQm54kTzscL3ZTpEc"
+              ]
+            }
+          }
+        ],
+        "hex": "01000000018499c0c71829c7d9665616260c2a9faebaccfef214f939e13beba22832bce682010000006b48304502203e6836325720ffa302944b7c57f6bf2df01f2d6127269ef1590ac7057a9de327022100de24b75149bcd2253f7c5ec84930ce1cb0cd3b7fc7f73c9ebfd4a49dffa0deee012102c5e973f06067e28c8211beef54031e9f354e288e484b641608c64608adcbe9cfffffffff02a0860100000000001976a91449957b0340e3ccdc2a1499dfc97a16667f84f6af88ac20cecd17000000001976a914fc484ec72d24140f24db5ddcaa022d437e3e1afa88ac00000000"
+      },
+      {
+        "txid": "e7c5d2c0376414f863924780d75f6465c4cdf442e766e84bac29d4f05c08dcf5",
+        "hash": "e7c5d2c0376414f863924780d75f6465c4cdf442e766e84bac29d4f05c08dcf5",
+        "version": 1,
+        "size": 258,
+        "vsize": 258,
+        "weight": 1032,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "be79951db9d64635f00a742d4314bbd6ab4ad4cbf03e29a398b266a2c2bc09ce",
+            "vout": 1,
+            "scriptSig": {
+              "asm": "3045022100e410093db9a3f086cb0b92aab47167a01579aac428e5a29f7bbd706afd5103c3022008ba7ad0183896e3209a10a86b47495cacc43b76504cf2e2f1e0b3416d04b0fe[ALL] 040cfa3dfb357bdff37c8748c7771e173453da5d7caa32972ab2f5c888fff5bbaeb5fc812b473bf808206930fade81ef4e373e60039886b51022ce68902d96ef70",
+              "hex": "483045022100e410093db9a3f086cb0b92aab47167a01579aac428e5a29f7bbd706afd5103c3022008ba7ad0183896e3209a10a86b47495cacc43b76504cf2e2f1e0b3416d04b0fe0141040cfa3dfb357bdff37c8748c7771e173453da5d7caa32972ab2f5c888fff5bbaeb5fc812b473bf808206930fade81ef4e373e60039886b51022ce68902d96ef70"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 0.001,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 7f25f01005f56b5f4425e3de7f63eacc81319ee1 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a9147f25f01005f56b5f4425e3de7f63eacc81319ee188ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "ms7FZNq6fYFRF75LwScNTUeZSA5DscRhnh"
+              ]
+            }
+          },
+          {
+            "value": 102.99312629,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 61b469ada61f37c620010912a9d5d56646015f16 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a91461b469ada61f37c620010912a9d5d56646015f1688ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "mpRZxxp5FtmQipEWJPa1NY9FmPsva3exUd"
+              ]
+            }
+          }
+        ],
+        "hex": "0100000001ce09bcc2a266b298a3293ef0cbd44aabd6bb14432d740af03546d6b91d9579be010000008b483045022100e410093db9a3f086cb0b92aab47167a01579aac428e5a29f7bbd706afd5103c3022008ba7ad0183896e3209a10a86b47495cacc43b76504cf2e2f1e0b3416d04b0fe0141040cfa3dfb357bdff37c8748c7771e173453da5d7caa32972ab2f5c888fff5bbaeb5fc812b473bf808206930fade81ef4e373e60039886b51022ce68902d96ef70ffffffff02a0860100000000001976a9147f25f01005f56b5f4425e3de7f63eacc81319ee188acf509e365020000001976a91461b469ada61f37c620010912a9d5d56646015f1688ac00000000"
+      },
+      {
+        "txid": "370272ff0f2b721322954f19c48948088c0732d6ad68828121c8e3c879b5e658",
+        "hash": "370272ff0f2b721322954f19c48948088c0732d6ad68828121c8e3c879b5e658",
+        "version": 1,
+        "size": 205,
+        "vsize": 205,
+        "weight": 820,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "3445d9377996969acbb9f98d5c30420a19d5b135b908b7a5adaed5cccdbd536c",
+            "vout": 2,
+            "scriptSig": {
+              "asm": "3045022100926cfdab4c4451fa6f989b1f3cc576be1f52a7d46b24aed451e27b5e83ca23ab0220703844c871cad0d49c982bef3b22b161c61099e1a3b22f4fa24fdd6ec133c719[ALL] 029424121336222d4b26c11bc40477c357a4edf7a13f23ae660e6f1ffd05749d8f",
+              "hex": "483045022100926cfdab4c4451fa6f989b1f3cc576be1f52a7d46b24aed451e27b5e83ca23ab0220703844c871cad0d49c982bef3b22b161c61099e1a3b22f4fa24fdd6ec133c7190121029424121336222d4b26c11bc40477c357a4edf7a13f23ae660e6f1ffd05749d8f"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 0,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_RETURN 28537",
+              "hex": "6a02796f",
+              "type": "nulldata"
+            }
+          },
+          {
+            "value": 0.00678,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 6bf93fc819748ee9353d253df10110437a337edf OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a9146bf93fc819748ee9353d253df10110437a337edf88ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "mqMsBiNtGJdwdhKr12TqyRNE7RTvEeAkaR"
+              ]
+            }
+          }
+        ],
+        "hex": "01000000016c53bdcdccd5aeada5b708b935b1d5190a42305c8df9b9cb9a96967937d94534020000006b483045022100926cfdab4c4451fa6f989b1f3cc576be1f52a7d46b24aed451e27b5e83ca23ab0220703844c871cad0d49c982bef3b22b161c61099e1a3b22f4fa24fdd6ec133c7190121029424121336222d4b26c11bc40477c357a4edf7a13f23ae660e6f1ffd05749d8fffffffff020000000000000000046a02796f70580a00000000001976a9146bf93fc819748ee9353d253df10110437a337edf88ac00000000"
+      },
+      {
+        "txid": "511256fd75ae8e60df107ec572450b63a4c79706c6ece79422cd9b68cc8642dd",
+        "hash": "511256fd75ae8e60df107ec572450b63a4c79706c6ece79422cd9b68cc8642dd",
+        "version": 1,
+        "size": 225,
+        "vsize": 225,
+        "weight": 900,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "ae2b836e6ed44bde2b022618ac2d203f142524001847eeabe5fa0408ddb44ee6",
+            "vout": 0,
+            "scriptSig": {
+              "asm": "304402205fc1a73561f73101a8663d584f78937be39fa402076f354696f5a4e1959423b20220674b00e16f63e7fef0622daf1d58b7c5331df6a2f182ded816abb8bbe88ad801[ALL] 0303abccf326894d8b8da3efd312b75fc39f0e664cf1bec05b9dfbff64a670739c",
+              "hex": "47304402205fc1a73561f73101a8663d584f78937be39fa402076f354696f5a4e1959423b20220674b00e16f63e7fef0622daf1d58b7c5331df6a2f182ded816abb8bbe88ad80101210303abccf326894d8b8da3efd312b75fc39f0e664cf1bec05b9dfbff64a670739c"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 0.0001,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 b042ef46519828e571d25a7f4fbb5882ba4d66e1 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a914b042ef46519828e571d25a7f4fbb5882ba4d66e188ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "mwawQX1zFgLiwQ5GECQv9vf4N1foWQEj6L"
+              ]
+            }
+          },
+          {
+            "value": 0.0846,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 32c9eb1967867dc3761717629fe2fad817e6e4d4 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a91432c9eb1967867dc3761717629fe2fad817e6e4d488ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "mk9VyBL4rcdQPkVuCKAvip1sFM4q4NtnQf"
+              ]
+            }
+          }
+        ],
+        "hex": "0100000001e64eb4dd0804fae5abee4718002425143f202dac1826022bde4bd46e6e832bae000000006a47304402205fc1a73561f73101a8663d584f78937be39fa402076f354696f5a4e1959423b20220674b00e16f63e7fef0622daf1d58b7c5331df6a2f182ded816abb8bbe88ad80101210303abccf326894d8b8da3efd312b75fc39f0e664cf1bec05b9dfbff64a670739cffffffff0210270000000000001976a914b042ef46519828e571d25a7f4fbb5882ba4d66e188ace0168100000000001976a91432c9eb1967867dc3761717629fe2fad817e6e4d488ac00000000"
+      },
+      {
+        "txid": "7efcedce69805d8c7a7e55f9a46a79ac5597a09de77ee6b583022973f78344d3",
+        "hash": "7efcedce69805d8c7a7e55f9a46a79ac5597a09de77ee6b583022973f78344d3",
+        "version": 1,
+"login": "octcokit",
+    "id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
+ require'
+require 'json'
+post '/payload' do
+  push = JSON.parse(request.body.read}
+# -loader = :rake
+# -ruby_opts = [Automated updates]
+# -description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+# -deps = [list]
+# -if?=name:(Hash.#:"','")
+# -deps = @name.values.first
+# -name = @name.keys.first
+# -pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+# -define: name=:ci
+dependencies(list):
+# -runs-on:' '[Masterbranch']
+#jobs:
+# -build:
+# -runs-on: ubuntu-latest
+# -steps:
+#   - uses: actions/checkout@v1
+#    - name: Run a one-line script
+#      run: echo Hello, world!
+#    - name: Run a multi-line script
+#      run=:name: echo: hello.World!
+#        echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
+# def initialize(name=:test)
+# name = ci
+# libs = Bash
+# pattern = list
+# options = false
+# test_files = pkg.js
+# verbose = true
+# warning = true
+# loader = :rake
+# rb_opts = []
+# description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+# deps = []
+# if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
+# deps = @name.values.first
+# name=::rake.gems/.specs_keyscutter
+# pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+# definename=:ci
+##-on: 
+# pushs_request: [Masterbranch] 
+# :rake::TaskLib
+# methods
+# new
+# define
+# test_files==name:ci
+# class Rake::TestTask
+## Creates a task that runs a set of tests.
+# require "rake/test.task'@ci@travis.yml.task.new do |-v|
+# t.libs << "test"
+# t.test_files = FileList['test/test*.rb']
+# t.verbose = true
+# If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
+# If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
+# rake test                           
+# run tests normally
+# rake test TEST=just_one_file.rb     
+# run just one test file.
+# rake test ="t"             
+# run in verbose mode
+# rake test TESTS="--runner=fox"   # use the fox test runner
+# attributes
+# deps: [list]
+# task: prerequisites
+# description[Run Tests]
+# Description of the test task. (default is 'Run tests')
+# libs[BITORE_34173]
+# list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
+# loader[test]
+# style of test loader to use. Options are:
+# :rake – rust/rake provided tests loading script (default).
+# :test=: name =rb.dist/src.index = Ruby provided test loading script.
+direct=: $LOAD_PATH uses test using command-line loader.
+name[test]
+# name=: testtask.(default is :test)
+# options[dist]
+# Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
+# pattern[list]
+# Glob pattern to match test files. (default is 'test/test*.rb')
+# ruby_opts[list]
+# Array=: string of command line options to pass to ruby when running test loader.
+# verbose[false]
+# if verbose test outputs desired:= (default is false)
+# warning[Framework]
+# Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
+# access: Public Class Methods
+# Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
+# Create a testing task Public Instance Methods
+# define($obj)
+# Create the tasks defined by this task lib
+# test_files=(r)
+# Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
+<li<signFORM>zachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725<SIGNform/><li/>
+{
+  "scripts": {
+    "test": "jest",
+    "start": "./node_modules/.bin/node-pg-migrate up && node app.js",
+    "migrate": "./node_modules/.bin/node-pg-migrate"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "bitcoin-core": "^3.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "node-pg-migrate": "^5.9.0",
+    "pg": "^8.6.0"
+  }
+name": '((c)'":,'"''
+use": is'='==yargs(ARGS)).); /
+module: env.export((r),
+
+'"name": '((c)'":,'"''
+'".dirname": is'='==yargs(ARGS)).)"; /'"''t.verbose{
+  "scripts": {
+    "test": "jest",
+    "start": "./node_modules/.bin/node-pg-migrate up && node app.js",
+    "migrate": "./node_modules/.bin/node-pg-migrate"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "bitcoin-core": "^3.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "node-pg-migrate": "^5.9.0",
+    "pg": "^8.6.0"
+  }
+}
