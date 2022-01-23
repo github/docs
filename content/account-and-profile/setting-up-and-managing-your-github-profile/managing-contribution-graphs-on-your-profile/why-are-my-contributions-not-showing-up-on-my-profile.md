@@ -68,7 +68,7 @@ If the email address used for the commit is not connected to your account on {% 
 
 {% warning %}
 
-**Warning**: Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts. If you use such an email for your commits, the commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
+**Warning**: Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts. If you use such an email for your commits, then commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
 
 {% endwarning %}
 
