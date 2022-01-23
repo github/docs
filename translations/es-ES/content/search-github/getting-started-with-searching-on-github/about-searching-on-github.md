@@ -70,8 +70,8 @@ Si tuilizas {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_se
 
 {% ifversion fpt or ghes or ghec %}
 
-- "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}
-- "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/github-ae@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_managed %} documentation
+- "[Habilitar la {% data variables.product.prodname_unified_search %} en tu empresa]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" en la documentación de {% data variables.product.prodname_ghe_server %}{% endif %}
+- "[Habilitar la {% data variables.product.prodname_unified_search %} para tu empresa](/github-ae@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" en la documentación de {% data variables.product.prodname_ghe_managed %}
 
 {% ifversion ghes or ghae %}
 
