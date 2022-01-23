@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. To copy a unique URL to your clipboard, find the release you want to link to, right click the title, and copy the URL.
+3. 特定のリリースに対するURLをクリップボードにコピーするには、リンクしたいリリースを探し、タイトルを右クリックして、リンクのアドレスをコピーします。
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
   ![Release title](/assets/images/help/releases/release-title.png)
 {% else %}
@@ -28,4 +28,4 @@ topics:
    {% else %}
    ![[Latest release] タグ](/assets/images/help/releases/release_latest_release_tag.png)
    {% endif %}
-To link directly to a download of your latest release asset that was manually uploaded, link to `/owner/name/releases/latest/download/asset-name.zip`.
+手動でアップロードされた最新のリリースは、`/owner/name/releases/latest/download/asset-name.zip`でダウンロードできます。
