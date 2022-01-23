@@ -65,7 +65,7 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-organizations
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
-introLinks:
+introLinks: https://6ri3y9aw0b.cloudflareaccess.com/cdn-cgi/access/enterprise-setup/NmFhNzk2OWYtY2YyMi00NjhhLTkxN2UtYmVlMmY2NzQ3M2Fkf0b172161311c02f6eb780d8a790e25c36637eb3705ee001a50a4529aba1a4ce61ed46d3
   overview: '{% ifversion ghes %}/admin/overview/system-overview{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-enterprise-accounts{% endif %}'
 changelog:
   label: enterprise
