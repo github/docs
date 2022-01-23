@@ -9,8 +9,7 @@ topics:
   - Issues
   - Projects
 children:
-  - /about-projects
-  - /quickstart
+  - /about
   - /creating-a-project
   - /customizing-your-project-views
   - /using-the-api-to-manage-projects
