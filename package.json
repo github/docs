@@ -119,7 +119,7 @@
     "@types/uuid": "^8.3.3",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.31.1",
-    "async": "^3.2.2",
+    "async": "^3.2.3",
     "babel-loader": "^8.2.3",
     "babel-plugin-styled-components": "^2.0.2",
     "babel-preset-env": "^1.7.0",
