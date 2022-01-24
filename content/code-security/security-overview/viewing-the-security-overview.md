@@ -5,6 +5,7 @@ permissions: Organization owners and security managers can access the security o
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
+  ghae: issue-5503
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -27,7 +28,7 @@ shortTitle: View the security overview
   ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
 
-{% ifversion ghec or ghes > 3.4 %}
+{% ifversion ghec or ghes > 3.4 or ghae-issue-5503 %}
 
 ## Viewing alerts across your organization
 
