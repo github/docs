@@ -1,7 +1,7 @@
 ---
-title: Essential features of GitHub Actions
-shortTitle: Essential features
-intro: '{% data variables.product.prodname_actions %} are designed to help you build robust and dynamic automations. This guide will show you how to craft {% data variables.product.prodname_actions %} workflows that include environment variables, customized scripts, and more.'
+title: GitHub Actions の重要な機能
+shortTitle: 重要な機能
+intro: '{% data variables.product.prodname_actions %} は、堅牢で動的な自動化の構築ができるように設計されています。 このガイドでは、環境変数、カスタマイズされたスクリプトなどを含む {% data variables.product.prodname_actions %} ワークフローを作成する方法を説明します。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,13 +15,13 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Overview
+## 概要
 
-{% data variables.product.prodname_actions %} allow you to customize your workflows to meet the unique needs of your application and team. In this guide, we'll discuss some of the essential customization techniques such as using variables, running scripts, and sharing data and artifacts between jobs.
+{% data variables.product.prodname_actions %} を使用すると、アプリケーションと Team の固有のニーズに合わせてワークフローをカスタマイズできます。 このガイドでは、変数の使用、スクリプトの実行、ジョブ間でのデータと成果物の共有など、いくつかの重要なカスタマイズ手法について説明します。
 
-##  Using variables in your workflows
+## ワークフローで変数を使用する
 
-{% data variables.product.prodname_actions %} include default environment variables for each workflow run. If you need to use custom environment variables, you can set these in your YAML workflow file. This example demonstrates how to create custom variables named `POSTGRES_HOST` and `POSTGRES_PORT`. These variables are then available to the `node client.js` script.
+{% data variables.product.prodname_actions %} には、ワークフロー実行ごとのデフォルトの環境変数が含まれています。 カスタム環境変数を使用する必要がある場合は、YAML ワークフローファイルでこれらを設定できます。 この例は、`POSTGRES_HOST` および `POSTGRES_PORT` という名前のカスタム変数の作成方法を示しています。 これらの変数は、`node client.js` スクリプトで使用できます。
 
 ```yaml
 jobs:
@@ -34,11 +34,11 @@ jobs:
             POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)."
+詳しい情報については、「[環境変数の利用](/actions/configuring-and-managing-workflows/using-environment-variables)」を参照してください。
 
-## Adding scripts to your workflow
+## ワークフローにスクリプトを追加する
 
-You can use actions to run scripts and shell commands, which are then executed on the assigned runner. This example demonstrates how an action can use the `run` keyword to execute `npm install -g bats` on the runner.
+アクションを使用してスクリプトとシェルコマンドを実行し、割り当てられたランナーで実行できます。 この例では、アクションが `run` キーワードを使用して、ランナーで `npm install -g bats` を実行する方法を示しています。
 
 ```yaml
 jobs:
@@ -47,7 +47,7 @@ jobs:
       - run: npm install -g bats
 ```
 
-For example, to run a script as an action, you can store the script in your repository and supply the path and shell type.
+たとえば、スクリプトをアクションとして実行するには、スクリプトをリポジトリに保存し、パスとシェルタイプを指定します。
 
 ```yaml
 jobs:
@@ -58,13 +58,13 @@ jobs:
         shell: bash
 ```
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 
-## Sharing data between jobs
+## ジョブ間でデータを共有する
 
-If your job generates files that you want to share with another job in the same workflow, or if you want to save the files for later reference, you can store them in {% data variables.product.prodname_dotcom %} as _artifacts_. Artifacts are the files created when you build and test your code. For example, artifacts might include binary or package files, test results, screenshots, or log files. Artifacts are associated with the workflow run where they were created and can be used by another job. {% data reusables.actions.reusable-workflow-artifacts %}
+ジョブが同じワークフロー内の別のジョブと共有するファイルを生成する場合、または後で参照できるようにファイルを保存する場合は、それらを_成果物_として {% data variables.product.prodname_dotcom %} に保存できます。 成果物とは、コードをビルドしてテストするときに作成されるファイルのことです。 たとえば、成果物には、バイナリまたパッケージファイル、テスト結果、スクリーンショット、ログファイルなどがあります。 成果物は、それが作成されたワークフロー実行に関連付けられており、別のジョブで使用できます。 {% data reusables.actions.reusable-workflow-artifacts %}
 
-For example, you can create a file and then upload it as an artifact.
+たとえば、ファイルを作成し、それを成果物としてアップロードできます。
 
 ```yaml
 jobs:
@@ -81,7 +81,7 @@ jobs:
           path: output.log
 ```
 
-To download an artifact from a separate workflow run, you can use the `actions/download-artifact` action. For example, you can download the artifact named `output-log-file`.
+別のワークフロー実行から成果物をダウンロードするには、`actions/download-artifact` アクションを使用できます。 たとえば、`output-log-file` という名前の成果物をダウンロードできます。
 
 ```yaml
 jobs:
@@ -95,8 +95,8 @@ jobs:
 
 To download an artifact from the same workflow run, your download job should specify `needs: upload-job-name` so it doesn't start until the upload job finishes.
 
-For more information about artifacts, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+成果物に関する詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)」を参照してください。
 
-## Next steps
+## 次のステップ
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows)."
+{% data variables.product.prodname_actions %} について詳しくは、「[複雑なワークフローを管理する](/actions/learn-github-actions/managing-complex-workflows)」を参照してください。

@@ -1,6 +1,6 @@
 ---
-title: About pull requests
-intro: 'Pull requests let you tell others about changes you''ve pushed to a branch in a repository on {% data variables.product.product_name %}. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.'
+title: プルリクエストについて
+intro: 'プルリクエストは、他者に対してあなたが{% data variables.product.product_name %}上のリポジトリ内のブランチにプッシュした変更について知らせます。 プルリクエストがオープンされると、変更がベースブランチにマージされる前に、可能性のある変更についてコラボレーターと議論し、レビューでき、フォローアップのコメントを追加できます。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
   - /articles/using-pull-requests
@@ -15,29 +15,30 @@ versions:
 topics:
   - Pull requests
 ---
-## About pull requests
+
+## プルリクエストについて
 
 {% note %}
 
-**Note:** When working with pull requests, keep the following in mind:
-* If you're working in the [shared repository model](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models), we recommend that you use a topic branch for your pull request. While you can send pull requests from any branch or commit, with a topic branch you can push follow-up commits if you need to update your proposed changes.
-* When pushing commits to a pull request, don't force push. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
+**メモ:** プルリクエストを使う際には以下のことを念頭に置いてください:
+* [共有リポジトリモデル](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)で作業をしている場合、プルリクエストにはトピックブランチを使うことをおすすめします。 ブランチあるいはコミットからプルリクエストを送ることもできますが、トピックブランチを使えば提案した変更を更新する必要がある場合、フォローアップのコミットをプッシュできます。
+* プルリクエストにコミットをプッシュする場合、フォースプッシュはしないでください。 Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
 
 {% endnote %}
 
 You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
 
-After initializing a pull request, you'll see a review page that shows a high-level overview of the changes between your branch (the compare branch) and the repository's base branch. You can add a summary of the proposed changes, review the changes made by commits, add labels, milestones, and assignees, and @mention individual contributors or teams. For more information, see "[Creating a pull request](/articles/creating-a-pull-request)."
+プルリクエストを初期化すると、あなたのブランチ（比較ブランチ）とリポジトリのベースブランチとの差異の高レベルの概要を示すレビューページが表示されます。 提案した変更の概要を追加したり、コミットによる変更をレビューしたり、ラベルやマイルストーン、アサインされた人を追加したり、個人のコントリビューターやTeamに@メンションできます。 詳しい情報については[プルリクエストの作成](/articles/creating-a-pull-request)を参照してください。
 
-Once you've created a pull request, you can push commits from your topic branch to add them to your existing pull request. These commits will appear in chronological order within your pull request and the changes will be visible in the "Files changed" tab.
+プルリクエストを作成したら、トピックブランチからコミットをプッシュして、それらを既存のプルリクエストに追加できます。 それらのコミットは、プルリクエスト内で時系列順に表示され、変更は"Files changed（変更されたファイル）"タブで見ることができます。
 
-Other contributors can review your proposed changes, add review comments, contribute to the pull request discussion, and even add commits to the pull request.
+他のコントリビューターは、あなたが提案した変更をレビューしたり、レビューコメントを追加したり、プルリクエストのディスカッションにコントリビュートしたり、さらにはプルリクエストにコメントを追加したりできます。
 
 {% ifversion fpt or ghec %}
-You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. For more information, see "[Viewing deployment activity for a repository](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)."
+[Conversation] タブで、ブランチの現在のデプロイメントステータスや過去のデプロイメントのアクティビティに関する情報を確認することができます。 詳細は「[リポジトリのデプロイメントアクティビティを表示する](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)」を参照してください。
 {% endif %}
 
-After you're happy with the proposed changes, you can merge the pull request. If you're working in a shared repository model, you create a pull request and you, or someone else, will merge your changes from your feature branch into the base branch you specify in your pull request. For more information, see "[Merging a pull request](/articles/merging-a-pull-request)."
+提案された変更に満足したなら、プルリクエストをマージできます。 共有リポジトリモデルで作業している場合は、プルリクエストを作成し、あなたか他のユーザが、プルリクエストで指定したベースブランチにフィーチャブランチからの変更をマージします。 詳しい情報については[プルリクエストのマージ](/articles/merging-a-pull-request)を参照してください。
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
@@ -45,32 +46,32 @@ After you're happy with the proposed changes, you can merge the pull request. If
 
 {% tip %}
 
-**Tips:**
-- To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. For more shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts)."
-- You can squash commits when merging a pull request to gain a more streamlined view of changes. For more information, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+**参考:**
+- To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>Option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. その他のショートカットについては「[キーボードのショートカット](/articles/keyboard-shortcuts)」を参照してください。
+- プルリクエストをマージする際には、変更を効率的に見ることができるようにするためにコミットを squash できます。 詳しい情報については[プルリクエストのマージについて](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)を参照してください。
 
 {% endtip %}
 
-You can visit your dashboard to quickly find links to recently updated pull requests you're working on or subscribed to. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+ダッシュボードにアクセスすれば、作業しているかサブスクライブしている最近更新されたプルリクエストへのリンクを素早く見つけることができます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
 
-## Draft pull requests
+## ドラフトプルリクエスト
 
 {% data reusables.gated-features.draft-prs %}
 
-When you create a pull request, you can choose to create a pull request that is ready for review or a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review draft pull requests. For more information about creating a draft pull request, see "[Creating a pull request](/articles/creating-a-pull-request)" and "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
+プルリクエストを作成する際には、レビュー可能なプルリクエストを作成するか、ドラフトのプルリクエストを作成するかを選択できます。 ドラフトのプルリクエストはマージできません。また、コードオーナーにはドラフトのプルリクエストのレビューは自動的にはリクエストされません。 ドラフトのプルリクエストの作成に関する詳しい情報については、「[プルリクエストを作成する](/articles/creating-a-pull-request)」および「[フォークからプルリクエストを作成する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)」を参照してください。
 
-{% data reusables.pull_requests.mark-ready-review %} You can convert a pull request to a draft at any time. For more information, see "[Changing the stage of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)."
+{% data reusables.pull_requests.mark-ready-review %} プルリクエストはいつでもドラフトに変換できます。 詳しい情報については、「[プルリクエストのステージを変更する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)」を参照してください。
 
-## Differences between commits on compare and pull request pages
+## 比較とプルリクエストページのコミットの違い
 
-The compare and pull request pages use different methods to calculate the diff for changed files:
+比較とプルリクエストページは、次のような異なる方法で、変更されたファイルの diff を計算します。
 
-- Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
-- Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
+- 比較ページには、head ref のヒントと、head およびベース ref の現在の共通の先祖 (マージベース) との diff が表示されます。
+- プルリクエストページには、プルリクエストが作成されたときの head ref のヒントと、head およびベース ref の共通の先祖との diff が表示されます。 したがって、比較に使用されるマージベースは異なる場合があります。
 
-## Further reading
+## 参考リンク
 
-- "[Pull request](/articles/github-glossary/#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
+- {% data variables.product.prodname_dotcom %} 用語集中の[プルリクエスト](/articles/github-glossary/#pull-request)
 - "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
-- "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"
-- "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)"
+- 「[プルリクエストへコメントする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)」
+- [プルリクエストのクローズ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)

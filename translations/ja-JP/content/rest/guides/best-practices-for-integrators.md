@@ -1,5 +1,5 @@
 ---
-title: Best practices for integrators
+title: インテグレーターのためのベストプラクティス
 intro: 'Build an app that reliably interacts with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API and provides the best experience for your users.'
 redirect_from:
   - /guides/best-practices-for-integrators
@@ -11,84 +11,63 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Integrator best practices
+shortTitle: インテグレーターのベストプラクティス
 ---
 
 
-Interested in integrating with the GitHub platform? [You're in good company](https://github.com/integrations). This guide will help you build an app that provides the best experience for your users *and* ensure that it's reliably interacting with the API. 
+GitHubプラットフォームとの統合に興味はありますか。 [同じことを思っている仲間がいますよ](https://github.com/integrations)。 このガイドは、ユーザに最高のエクスペリエンスを提供し、かつAPIと確実にやり取りするアプリを構築するために役立ちます。
 
-## Secure payloads delivered from GitHub
+## GitHubから配信されるペイロードの機密を確保する
 
-It's very important that you secure [the payloads sent from GitHub][event-types]. Although no personal information (like passwords) is ever transmitted in a payload, leaking *any* information is not good. Some information that might be sensitive include committer email address or the names of private repositories.
+[GitHubから送信されたペイロード][event-types]の機密を確保することは非常に重要です。 ペイロードでパスワードなどの個人情報が送信されることはないものの、いかなる情報であれ漏洩することは好ましくありません。 コミッターのメールアドレスやプライベートリポジトリの名前などは、機密性が求められる場合があります。
 
-There are several steps you can take to secure receipt of payloads delivered by GitHub:
+いくつかのステップを踏むことで、GitHubから配信されるペイロードを安全に受信できます。
 
-1. Ensure that your receiving server is on an HTTPS connection. By default, GitHub will verify SSL certificates when delivering payloads.{% ifversion fpt or ghec %}
-1. You can add [the IP address we use when delivering hooks](/github/authenticating-to-github/about-githubs-ip-addresses) to your server's allow list. To ensure that you're always checking the right IP address, you can [use the `/meta` endpoint](/rest/reference/meta#meta) to find the address we use.{% endif %}
-1. Provide [a secret token](/webhooks/securing/) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token *per user* of your service. That way, if one token is compromised, no other user would be affected.
+1. 受信サーバーは必ずHTTPS接続にしてください。 デフォルトでは、GitHubはペイロードを配信する際にSSL証明書を検証します。{% ifversion fpt or ghec %}
+1. [フック配信時に使用するIPアドレス](/github/authenticating-to-github/about-githubs-ip-addresses)をサーバーの許可リストに追加できます。 正しいIPアドレスを常に確認していることを確かめるため、[`/meta`エンドポイントを使用して](/rest/reference/meta#meta)GitHubが使用するアドレスを見つけることができます。{% endif %}
+1. ペイロードがGitHubから配信されていることを確実に保証するため、[シークレットトークン](/webhooks/securing/)を提供します。 シークレットトークンを強制することにより、サーバーが受信するあらゆるデータが確実にGitHubから来ていることを保証できます。 サービスの*ユーザごと*に異なるシークレットトークンを提供するのが理想的です。 そうすれば、1つのトークンが侵害されても、他のユーザは影響を受けません。
 
-## Favor asynchronous work over synchronous
+## 同期作業より非同期作業を優先する
 
-GitHub expects that integrations respond within {% ifversion fpt or ghec %}10{% else %}30{% endif %} seconds of receiving the webhook payload. If your service takes longer than that to complete, then GitHub terminates the connection and the payload is lost.
+GitHubは、webhookペイロードを受信後{% ifversion fpt or ghec %}10{% else %}30{% endif %}秒以内にインテグレーションが応答することを求めています。 サービスの応答時間がそれ以上になると、GitHubは接続を中止し、ペイロードは失われます。
 
-Since it's impossible to predict how fast your service will complete, you should do all of "the real work" in a background job. [Resque](https://github.com/resque/resque/) (for Ruby), [RQ](http://python-rq.org/) (for Python), or [RabbitMQ](http://www.rabbitmq.com/) (for Java) are examples of libraries that can handle queuing and processing of background jobs.
+サービスの完了時間を予測することは不可能なので、「実際の作業」のすべてはバックグラウンドジョブで実行すべきです。 バックグラウンドジョブのキューや処理を扱えるライブラリには、[Resque](https://github.com/resque/resque/) (Ruby用)、[RQ](http://python-rq.org/) (Python用)、[RabbitMQ](http://www.rabbitmq.com/)などがあります。
 
-Note that even with a background job running, GitHub still expects your server to respond within {% ifversion fpt or ghec %}ten{% else %}thirty{% endif %} seconds. Your server needs to acknowledge that it received the payload by sending some sort of response. It's critical that your service performs any validations on a payload as soon as possible, so that you can accurately report whether your server will continue with the request or not.
+バックグラウンドジョブが実行中でも、GitHubはサーバが{% ifversion fpt or ghec %}10{% else %}30{% endif %}秒以内で応答することを求めていることに注意してください。 サーバは何らかの応答を送信することにより、ペイロードの受信を確認する必要があります。 サービスがペイロードについての確認を可能な限り速やかに行うことは非常に重要です。そうすることにより、サーバがリクエストを継続するかどうか正確に報告できます。
 
-## Use appropriate HTTP status codes when responding to GitHub
+## GitHubへの応答時に適切なHTTPステータスコードを使用する
 
-Every webhook has its own "Recent Deliveries" section, which lists whether a deployment was successful or not.
+各webhookには、デプロイメントが成功したかどうかを列挙する独自の「最近のデリバリ」セクションがあります。
 
-![Recent Deliveries view](/assets/images/webhooks_recent_deliveries.png)
+![[Recent Deliveries] ビュー](/assets/images/webhooks_recent_deliveries.png)
 
-You should make use of proper HTTP status codes in order to inform users. You can use codes like `201` or `202` to acknowledge receipt of payload that won't be processed (for example, a payload delivered by a branch that's not the default). Reserve the `500` error code for catastrophic failures.
+ユーザへの通知には、適切なHTTPステータスコードを使用するべきです。 (デフォルトでないブランチから配信されたペイロードなど) 処理できないペイロードの受信を知らせるため、`201`や`202`といったコードを使用できます。 `500`のエラーコードは、致命的な障害に用いましょう。
 
-## Provide as much information as possible to the user
+## ユーザにできるだけ多くの情報を提供する
 
-Users can dig into the server responses you send back to GitHub. Ensure that your messages are clear and informative.
+ユーザはGitHubに返信したサーバーの応答を調べることができます。 メッセージは明確で参考になるものとしてください。
 
-![Viewing a payload response](/assets/images/payload_response_tab.png)
+![ペイロードレスポンスの表示](/assets/images/payload_response_tab.png)
 
-## Follow any redirects that the API sends you
+## APIが送信するあらゆるAPIに従う
 
-GitHub is explicit in telling you when a resource has moved by providing a redirect status code. You should follow these redirections. Every redirect response sets the `Location` header with the new URI to go to. If you receive a redirect, it's best to update your code to follow the new URI, in case you're requesting a deprecated path that we might remove.
+GitHubは、リダイレクトのステータスコードを提供することにより、リソースがいつ移動したかを明示します。 このリダイレクトに従ってください。 すべてのリダイレクト応答は、`Location`ヘッダに、移動する新しいURIを設定します。 リダイレクトを受け取ったら、削除する可能性がある非推奨のパスをリクエストしている場合、新しいURIにしたがってコードを更新するようお勧めします。
 
-We've provided [a list of HTTP status codes](/rest#http-redirects) to watch out for when designing your app to follow redirects.
+アプリケーションをリダイレクトに従うよう設計する際に気をつけるべき[HTTPステータスコードのリスト](/rest#http-redirects)をご用意しています。
 
-## Don't manually parse URLs
+## 手動でURLをパースしない
 
-Often, API responses contain data in the form of URLs. For example, when requesting a repository, we'll send a key called `clone_url` with a URL you can use to clone the repository.
+APIレスポンスには、URLの形でデータが含まれていることがよくあります。 たとえば、リポジトリをリクエストするときは、リポジトリをクローンするために使用できるURLの付いた`clone_url`というキーを送信します。
 
-For the stability of your app, you shouldn't try to parse this data or try to guess and construct the format of future URLs. Your app is liable to break if we decide to change the URL.
+アプリケーションの安定性を保つため、このデータをパースしようとしたり、先のURLの形式を予想して作成しようとしたりしないでください。 URLを変更した場合、アプリケーションが壊れるおそれがあります。
 
-For example, when working with paginated results, it's often tempting to construct URLs that append `?page=<number>` to the end. Avoid that temptation. [Our guide on pagination](/guides/traversing-with-pagination) offers some safe tips on dependably following paginated results.
+たとえば、ページネーションされた結果を扱う際は、末尾に`?page=<number>`を付けてURLを構築したいと思うことがあります。 この誘惑に負けてはなりません。 [ページネーションに関するガイド](/guides/traversing-with-pagination)には、ページネーションされた結果を安全に扱うための信頼できるヒントがいくつか掲載されています。
 
-## Check the event type and action before processing the event
+## イベントの処理前にイベントのタイプとアクションを確認する
 
-There are multiple [webhook event types][event-types], and each event can have multiple actions. As GitHub's feature set grows, we will occasionally add new event types or add new actions to existing event types. Ensure that your application explicitly checks the type and action of an event before doing any webhook processing. The `X-GitHub-Event` request header can be used to know which event has been received so that processing can be handled appropriately. Similarly, the payload has a top-level `action` key that can be used to know which action was taken on the relevant object.
+[webhookのイベントタイプ][event-types]は複数あり、各イベントは複数のアクションを持つことができます。 GitHubの機能セットが増えるにつれて、新しいイベントタイプを追加したり、既存のイベントタイプに新しいアクションを追加したりすることがあります。 Webhookの処理を行う前に、イベントのタイプとアクションをアプリケーションが明示的に確認するようにしてください。 `X-GitHub-Event`リクエストヘッダは、受信したイベントの種類を知り、それを適切に処理するために利用できます。 同様に、ペイロードにはトップレベルの`action`キーがあり、関連オブジェクトに対して実行されたアクションを知るために利用できます。
 
-For example, if you have configured a GitHub webhook to "Send me **everything**", your application will begin receiving new event types and actions as they are added. It is therefore **not recommended to use any sort of catch-all else clause**. Take the following code example:
-
-```ruby
-# Not recommended: a catch-all else clause
-def receive
-  event_type = request.headers["X-GitHub-Event"]
-  payload    = request.body
-
-  case event_type
-  when "repository"
-    process_repository(payload)
-  when "issues"
-    process_issues(payload)
-  else
-    process_pull_requests
-  end
-end
-```
-
-In this code example, the `process_repository` and `process_issues` methods will be correctly called if a `repository` or `issues` event was received. However, any other event type would result in `process_pull_requests` being called. As new event types are added, this would result in incorrect behavior and new event types would be processed in the same way that a `pull_request` event would be processed.
-
-Instead, we suggest explicitly checking event types and acting accordingly. In the following code example, we explicitly check for a `pull_request` event and the `else` clause simply logs that we've received a new event type:
+たとえば、GitHubのwebhookを [Send me **everything**] に設定している場合、新しいイベントのタイプやアクションが追加されると、アプリケーションはそれらの受信を開始します。 ですから、**あらゆる類のcatch-all else構文は使用をお勧めしません**。 たとえば、次のコード例をご覧ください。
 
 ```ruby
 # Recommended: explicitly check each event type
@@ -109,9 +88,32 @@ def receive
 end
 ```
 
-Because each event can also have multiple actions, it's recommended that actions are checked similarly. For example, the [`IssuesEvent`](/webhooks/event-payloads/#issues) has several possible actions. These include `opened` when the issue is created, `closed` when the issue is closed, and `assigned` when the issue is assigned to someone.
+このコード例では、`repository`または`issues`イベントを受信すると、`process_repository`および`process_issues`メソッドが正しく呼び出されます。 しかし、他のイベントタイプでは、`process_pull_requests`が呼び出されることになります。 新しいイベントタイプが追加されると、誤った動作を引き起こすことになり、新たなイベントタイプは`pull_request`イベントと同じ方法で処理されることになるでしょう。
 
-As with adding event types, we may add new actions to existing events. It is therefore again **not recommended to use any sort of catch-all else clause** when checking an event's action. Instead, we suggest explicitly checking event actions as we did with the event type. An example of this looks very similar to what we suggested for event types above:
+代わりに、イベントのタイプを明示的に確認し、それに応じて処理するようお勧めします。 次のコード例では、`pull_request`イベントを明示的に確認し、`else`節は新しいイベントタイプを受信したことを単に記録しています。
+
+```ruby
+# Recommended: explicitly check each event type
+def receive
+  event_type = request.headers["X-GitHub-Event"]
+  payload    = JSON.parse(request.body)
+
+  case event_type
+  when "repository"
+    process_repository(payload)
+  when "issues"
+    process_issue(payload)
+  when "pull_request"
+    process_pull_requests(payload)
+  else
+    puts "Oooh, something new from GitHub: #{event_type}"
+  end
+end
+```
+
+各イベントも複数のアクションを持つことができるため、アクションも同様に確認することをお勧めします。 たとえば、[`IssuesEvent`](/webhooks/event-payloads/#issues)ではいくつかのアクションが可能です。 例としては、Issueが作成されたときの`opened`、Issueがクローズしたときの`closed`、Issueが誰かに割り当てられたときの`assigned`が挙げられます。
+
+イベントタイプを追加するのと同じように、既存のイベントに新しいアクションを追加できます。 ですから、イベントのアクションを確認する場合も**>あらゆる類のcatch-all else構文は使用をお勧めしません**。 代わりに、イベントタイプの例と同様、イベントのアクションも明示的に確認するようお勧めします。 この例は、上記のイベントタイプで示したものと非常に似通ったものです。
 
 ```ruby
 # Recommended: explicitly check each action
@@ -129,47 +131,40 @@ def process_issue(payload)
 end
 ```
 
-In this example the `closed` action is checked first before calling the `process_closed` method. Any unidentified actions are logged for future reference.
+この例では、始めに`closed`アクションを確認してから、`process_closed`メソッドを呼びます。 未確認のアクションは、今後の参考のために記録されます。
 
 {% ifversion fpt or ghec %}
 
-## Dealing with rate limits
+## レート制限の扱い
 
-The GitHub API [rate limit](/rest/overview/resources-in-the-rest-api#rate-limiting) ensures that the API is fast and available for everyone.
+GitHub APIの[レート制限](/rest/overview/resources-in-the-rest-api#rate-limiting)は、APIを高速に保ち、すべての人が利用できるために設けられています。
 
-If you hit a rate limit, it's expected that you back off from making requests and try again later when you're permitted to do so. Failure to do so may result in the banning of your app.
+レート制限に達した場合、リクエストを中止し、許可された後で再度お試しください。 リクエストを中止しない場合は、アプリケーションを禁止する場合があります。
 
-You can always [check your rate limit status](/rest/reference/rate-limit) at any time. Checking your rate limit incurs no cost against your rate limit.
+[レート制限ステータスの確認](/rest/reference/rate-limit)はいつでも可能です。 レート制限を確認しても、その通信量はレート制限に影響しません。
 
 ## Dealing with secondary rate limits
 
-[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability.
-To avoid hitting this limit, you should ensure your application follows the guidelines below.
+[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability. この制限に到達することを避けるため、アプリケーションは以下のガイドラインに従うようにしてください。
 
-* Make authenticated requests, or use your application's client ID and secret. Unauthenticated
-  requests are subject to more aggressive secondary rate limiting.
-* Make requests for a single user or client ID serially. Do not make requests for a single user
-  or client ID concurrently.
-* If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user
-  or client ID, wait at least one second between each request.
-* When you have been limited, use the `Retry-After` response header to slow down. The value of the
-  `Retry-After` header will always be an integer, representing the number of seconds you should wait
-  before making requests again. For example, `Retry-After: 30` means you should wait 30 seconds
-  before sending more requests.
-* Requests that create content which triggers notifications, such as issues, comments and pull requests,
-  may be further limited and will not include a `Retry-After` header in the response. Please create this
-  content at a reasonable pace to avoid further limiting.
+* 認証済みのリクエストを行うか、アプリケーションのクライアントIDとシークレットを使用してください。 Unauthenticated requests are subject to more aggressive secondary rate limiting.
+* 単一のユーザまたはクライアントIDに順番にリクエストを行ってください。 単一のユーザまたはクライアントIDのリクエストは同時に行わないでください。
+* 単一のユーザまたはクライアントIDで多数の`POST`、`PATCH`、`PUT`、`DELETE`リクエストを行う場合には、リクエストごとに少なくとも1秒の間隔をとってください。
+* 制限がかかっている間は、速さを遅くするため`Retry-After`レスポンスヘッダを使用します。 `Retry-After`ヘッダの値は常に整数とします。この値は、再度リクエストを行う前に待機すべき秒数を示します。 たとえば、`Retry-After: 30`は、次のリクエストを送信するまで30秒待機する必要があることを意味します。
+* コメント、プルリクエストなど、通知をトリガーするようなコンテンツを作成するリクエストは、さらなる制限が課される場合があり、レスポンスに`Retry-After`ヘッダが含まれません。 さらなる制限を避けるため、こうしたコンテンツを合理的なペースで作成してください。
 
-We reserve the right to change these guidelines as needed to ensure availability.
+当社は、可用性確保のため必要に応じてこれらのガイドラインを変更する権利を留保します。
 
 {% endif %}
 
-## Dealing with API errors
+## APIエラーの扱い
 
-Although your code would never introduce a bug, you may find that you've encountered successive errors when trying to access the API.
+あなたのコードが決してバグを発生させなかったとしても、APIにアクセスしようとするとき立て続けにエラーが発生することがるかもしれません。
 
-Rather than ignore repeated `4xx` and `5xx` status codes, you should ensure that you're correctly interacting with the API. For example, if an endpoint requests a string and you're passing it a numeric value, you're going to receive a `5xx` validation error, and your call won't succeed. Similarly, attempting to access an unauthorized or nonexistent endpoint will result in a `4xx` error.
+繰り返し表示される`4xx`や `5xx`のステータスコードを無視せずに、APIと正しくやり取りしていることを確認してください。 たとえば、エンドポイントが文字列を要求しているのに数値を渡している場合、`5xx`検証エラーが発生し、呼び出しは成功しません。 同様に、許可されていないエンドポイントまたはは存在しないエンドポイントにアクセスしようとすると、`4xx`エラーが発生します。
 
-Intentionally ignoring repeated validation errors may result in the suspension of your app for abuse.
+繰り返し発生する検証エラーを意図的に無視すると、不正利用によりアプリケーションが停止されることがあります。
+
+[event-types]: /webhooks/event-payloads
 
 [event-types]: /webhooks/event-payloads

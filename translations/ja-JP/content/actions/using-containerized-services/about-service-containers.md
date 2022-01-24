@@ -1,6 +1,6 @@
 ---
-title: About service containers
-intro: 'You can use service containers to connect databases, web services, memory caches, and other tools to your workflow.'
+title: サービスコンテナについて
+intro: サービスコンテナを使って、データベース、Webサービス、メモリキャッシュ、あるいはその他のツールをワークフローに接続できます。
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
   - /actions/configuring-and-managing-workflows/about-service-containers
@@ -19,37 +19,37 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About service containers
+## サービスコンテナについて
 
-Service containers are Docker containers that provide a simple and portable way for you to host services that you might need to test or operate your application in a workflow. For example, your workflow might need to run integration tests that require access to a database and memory cache.
+サービスコンテナは、ワークフロー中でアプリケーションをテストもしくは運用するのに必要になるかもしれないサービスをホストするための、シンプルでポータブルな方法を提供するDockerコンテナです。 たとえば、ワークフローでデータベースやメモリキャッシュへのアクセスを必要とする結合テストを実行する必要があるかもしれません。
 
-You can configure service containers for each job in a workflow. {% data variables.product.prodname_dotcom %} creates a fresh Docker container for each service configured in the workflow, and destroys the service container when the job completes. Steps in a job can communicate with all service containers that are part of the same job.
+サービスコンテナは、ワークフロー中のそれぞれのジョブに対して設定できます。 {% data variables.product.prodname_dotcom %}は新しいDockerコンテナをワークフロー中で設定された各サービスに対して作成し、ジョブが完了したときにそのサービスコンテナを破棄します。 ジョブ中のステップは、同じジョブの一部であるすべてのサービスコンテナと通信できます。
 
 {% data reusables.github-actions.docker-container-os-support %}
 
-## Communicating with service containers
+## サービスコンテナとの通信
 
-You can configure jobs in a workflow to run directly on a runner machine or in a Docker container. Communication between a job and its service containers is different depending on whether a job runs directly on the runner machine or in a container.
+ワークフロー中のジョブは、直接ランナーマシン上で実行するようにも、Dockerコンテナ中で実行するようにも設定できます。 ジョブと、ジョブのサービスコンテナとの通信は、ジョブがランナーマシン上で直接実行されているか、コンテナ内で実行されているかによって異なります。
 
-### Running jobs in a container
+### コンテナ内でのジョブの実行
 
-When you run jobs in a container, {% data variables.product.prodname_dotcom %} connects service containers to the job using Docker's user-defined bridge networks. For more information, see "[Use bridge networks](https://docs.docker.com/network/bridge/)" in the Docker documentation.
+コンテナ内でジョブを実行する場合、{% data variables.product.prodname_dotcom %}はDockerのユーザー定義ブリッジネットワークを使ってサービスコンテナをジョブに接続します。 詳しい情報についてはDockerのドキュメンテーションの「[ブリッジネットワークの利用](https://docs.docker.com/network/bridge/)」を参照してください。
 
-Running the job and services in a container simplifies network access. You can access a service container using the label you configure in the workflow. The hostname of the service container is automatically mapped to the label name. For example, if you create a service container with the label `redis`, the hostname of the service container is `redis`.
+コンテナ内でジョブとサービスを実行すれば、ネットワークアクセスはシンプルになります。 サービスコンテナへは、ワークフロー中で設定したラベルを使ってアクセスできます。 サービスコンテナのホスト名は、自動的にラベル名にマップされます。 たとえば`redis`というラベルでサービスコンテナを作成したなら、そのサービスコンテナのホスト名は`redis`になります。
 
-You don't need to configure any ports for service containers. By default, all containers that are part of the same Docker network expose all ports to each other, and no ports are exposed outside of the Docker network.
+サービスコンテナでポートを設定する必要はありません。 デフォルトで、すべてのコンテナは同じDockerネットワークの一部となってお互いにすべてのポートを公開し合い、Dockerネットワークの外部へはポートは公開されません。
 
-### Running jobs on the runner machine
+### ランナーマシン上でのジョブの実行
 
-When running jobs directly on the runner machine, you can access service containers using `localhost:<port>` or `127.0.0.1:<port>`. {% data variables.product.prodname_dotcom %} configures the container network to enable communication from the service container to the Docker host.
+ジョブをランナーマシン上で直接実行する場合、サービスコンテナには`localhost:<port>`もしくは`127.0.0.1:<port>`を使ってアクセスできます。 {% data variables.product.prodname_dotcom %}は、サービスコンテナからDockerホストへの通信を可能にするよう、コンテナネットワークを設定します。
 
-When a job runs directly on a runner machine, the service running in the Docker container does not expose its ports to the job on the runner by default. You need to map ports on the service container to the Docker host. For more information, see "[Mapping Docker host and service container ports](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
+ジョブがランナーマシン上で直接実行されている場合、Dockerコンテナ内で実行されているサービスは、ランナー上で実行しているジョブに対してデフォルトではポートを公開しません。 サービスコンテナ上のポートは、Dockerホストに対してマップする必要があります。 詳しい情報については「[Dockerホストとサービスコンテナのポートのマッピング](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)」を参照してください。
 
-## Creating service containers
+## サービスコンテナの作成
 
-You can use the `services` keyword to create service containers that are part of a job in your workflow. For more information, see [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
+`services`キーワードを使って、ワークフロー内のジョブの一部であるサービスコンテナを作成できます。 詳しい情報については[`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices)を参照してください。
 
-This example creates a service called `redis` in a job called `container-job`. The Docker host in this example is the `node:10.18-jessie` container.
+以下の例は、`container-job`というジョブの中に`redis`というサービスを作成します。 この例でのDockerホストは`node:10.18-jessie`コンテナです。
 
 {% raw %}
 ```yaml{:copy}
@@ -57,41 +57,41 @@ name: Redis container example
 on: push
 
 jobs:
-  # Label of the container job
+  # コンテナジョブのラベル
   container-job:
-    # Containers must run in Linux based operating systems
+    # コンテナはLinuxベースのオペレーティングシステム内で実行する
     runs-on: ubuntu-latest
-    # Docker Hub image that `container-job` executes in
+    # `container-job`が実行されるDocker Hubイメージ
     container: node:10.18-jessie
 
-    # Service containers to run with `container-job`
+    # `container-job`と実行されるサービスコンテナ
     services:
-      # Label used to access the service container
+      # サービスコンテナへのアクセスに使われるラベル
       redis:
-        # Docker Hub image
+        # Docker Hubのイメージ
         image: redis
 ```
 {% endraw %}
 
-## Mapping Docker host and service container ports
+## Dockerホストとサービスコンテナのポートのマッピング
 
-If your job runs in a Docker container, you do not need to map ports on the host or the service container. If your job runs directly on the runner machine, you'll need to map any required service container ports to ports on the host runner machine.
+ジョブがDockerコンテナ内で実行されるなら、ポートをホストあるいはサービスコンテナにマップする必要はありません。 ジョブがランナーマシン上で直接実行されるなら、必要なサービスコンテナのポートはホストランナーマシンのポートにマップしなければなりません。
 
-You can map service containers ports to the Docker host using the `ports` keyword. For more information, see [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
+サービスコンテナのポートは、`ports`キーワードを使ってDockerホストにマップできます。 詳しい情報については[`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices)を参照してください。
 
-| Value of `ports` |	Description |
-|------------------|--------------|
-| `8080:80` |	Maps TCP port 80 in the container to port 8080 on the Docker host. |
-| `8080:80/udp` |	Maps UDP port 80 in the container to port 8080 on the Docker host. |
-| `8080/udp`	| Map a randomly chosen UDP port in the container to UDP port 8080 on the Docker host. |
+| `ports`の値     | 説明                                                |
+| ------------- | ------------------------------------------------- |
+| `8080:80`     | コンテナのTCPのポート80をDockerホストのポート8080にマップします。          |
+| `8080:80/udp` | コンテナのUDPポート80をDockerホストのポート8080にマップします。           |
+| `8080/udp`    | コンテナでランダムに選択したUDPポートをDockerホストのUDPポート8080にマップします。 |
 
-When you map ports using the `ports` keyword, {% data variables.product.prodname_dotcom %} uses the `--publish` command to publish the container’s ports to the Docker host. For more information, see "[Docker container networking](https://docs.docker.com/config/containers/container-networking/)" in the Docker documentation.
+`ports`キーワードを使ってポートをマップする場合、{% data variables.product.prodname_dotcom %}は`--publish`コマンドを使ってコンテナのポートをDockerホストに公開します。 詳しい情報についてはDockerのドキュメンテーションの「[Dockerコンテナのネットワーキング](https://docs.docker.com/config/containers/container-networking/)」を参照してください。
 
-When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#job-context)."
+Dockerホストのポートを指定して、コンテナのポートを指定しなかった場合、コンテナのポートは空いているポートにランダムに割り当てられます。 {% data variables.product.prodname_dotcom %}は割り当てられたコンテナのポートをサービスコンテナのコンテキストに設定します。 たとえば`redis`サービスコンテナに対し、Dockerホストのポート5432を設定したなら、対応するコンテナのポートには`job.services.redis.ports[5432]`コンテキストを使ってアクセスできます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts#job-context)」を参照してください。
 
-### Example mapping Redis ports
+### Redisのポートのマッピングの例
 
-This example maps the service container `redis` port 6379 to the Docker host port 6379.
+以下の例は、サービスコンテナ`redis`のポート6379を、Dockerホストのポート6379にマップします。
 
 {% raw %}
 ```yaml{:copy}
@@ -99,25 +99,25 @@ name: Redis Service Example
 on: push
 
 jobs:
-  # Label of the container job
+  # コンテナジョブのラベル
   runner-job:
-    # You must use a Linux environment when using service containers or container jobs
+    # サービスコンテナもしくはコンテナジョブの利用の際はLinux環境を使わなければならない
     runs-on: ubuntu-latest
 
-    # Service containers to run with `runner-job`
+    # `runner-job`と実行するサービスコンテナ
     services:
-      # Label used to access the service container
+      # サービスコンテナへのアクセスに使われるラベル
       redis:
-        # Docker Hub image
+        # Docker Hubイメージ
         image: redis
         #
         ports:
-          # Opens tcp port 6379 on the host and service container
+          # ホストとサービスコンテナのTCPポート6379をオープンする
           - 6379:6379
 ```
 {% endraw %}
 
-## Further reading
+## 参考リンク
 
-- "[Creating Redis service containers](/actions/automating-your-workflow-with-github-actions/creating-redis-service-containers)"
-- "[Creating PostgreSQL service containers](/actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers)"
+- [Redisサービスコンテナの作成](/actions/automating-your-workflow-with-github-actions/creating-redis-service-containers)
+- [PostgreSQLサービスコンテナの作成](/actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers)

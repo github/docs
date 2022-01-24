@@ -1,6 +1,6 @@
 ---
-title: Moving a team in your organization’s hierarchy
-intro: 'Team maintainers and organization owners can nest a team under a parent team, or change or remove a nested team''s parent.'
+title: Movendo uma equipe na hierarquia da organização
+intro: 'Mantenedores de equipes e proprietários de organizações podem encaixar uma equipe abaixo de uma equipe principal, ou ainda, alterar ou remover uma principal da equipe aninhada.'
 redirect_from:
   - /articles/changing-a-team-s-parent
   - /articles/moving-a-team-in-your-organization-s-hierarchy
@@ -14,34 +14,31 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Move a team
+shortTitle: Mover uma equipe
 ---
 
-Organization owners can change the parent of any team. Team maintainers can change a team's parent if they are maintainers in both the child team and the parent team. Team maintainers without maintainer permissions in the child team can request to add a parent or child team. For more information, see "[Requesting to add or change a parent team](/articles/requesting-to-add-or-change-a-parent-team)" and "[Requesting to add a child team](/articles/requesting-to-add-a-child-team)."
+Proprietários de organizações podem mudar a principal de qualquer equipe. Mantenedores de equipes podem alterar a principal de uma equipe se forem mantenedores da equipe secundária e da equipe principal. Mantenedores de equipe sem permissões de mantenedor na equipe secundária podem solicitar para adicionar uma equipe principal ou secundária. Para obter mais informações, consulte "[Solicitar adição ou alteraração de uma equipe principal](/articles/requesting-to-add-or-change-a-parent-team)" e "[Solicitar adição de uma equipe secundária](/articles/requesting-to-add-a-child-team)".
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
 {% tip %}
 
-**Tips:**
-- You cannot change a team's parent to a secret team. For more information, see "[About teams](/articles/about-teams)."
-- You cannot nest a parent team beneath one of its child teams.
+**Dicas:**
+- Você não pode alterar uma equipe principal para equipe secreta. Para obter mais informações, consulte "[Sobre equipes](/articles/about-teams)".
+- Você não pode encaixar uma equipe principal sob uma de suas equipes secundárias.
 
 {% endtip %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
-4. In the list of teams, click the name of the team whose parent you'd like to change.
-  ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)
+4. Na lista de equipes, clique no nome da equipe cuja principal você deseja alterar. ![Lista das equipes da organização](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}
-6. Use the drop-down menu to choose a parent team, or to remove an existing parent, select **Clear selected value**.
-  ![Drop-down menu listing the organization's teams](/assets/images/help/teams/choose-parent-team.png)
-7. Click **Update**.
+6. Use o menu suspenso para escolher uma equipe principal ou para remover uma principal existente e selecione **Clear selected value** (Limpar valor selecionado). ![Menu suspenso listando as equipes da organização](/assets/images/help/teams/choose-parent-team.png)
+7. Clique em **Atualizar**.
 {% data reusables.repositories.changed-repository-access-permissions %}
-9. Click **Confirm new parent team**.
-  ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
+9. Clique em **Confirm new parent team** (Confirmar nova equipe principal). ![Caixa de diálogo modal com informações sobre as alterações nas permissões de acesso ao repositório](/assets/images/help/teams/confirm-new-parent-team.png)
 
-## Further reading
+## Leia mais
 
-- "[About teams](/articles/about-teams)"
+- "[Sobre equipes](/articles/about-teams)"

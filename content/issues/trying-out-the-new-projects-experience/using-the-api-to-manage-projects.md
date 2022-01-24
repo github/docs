@@ -17,8 +17,6 @@ This article demonstrates how to use the GraphQL API to manage a project. For mo
 
 ## Authentication
 
-{% include tool-switcher %}
-
 {% curl %}
 
 In all of the following cURL examples, replace `TOKEN` with a token that has the `read:org` scope (for queries) or `write:org` scope (for queries and mutations). The token can be a personal access token for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a personal access token, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)."
@@ -66,8 +64,6 @@ To update your project through the API, you will need to know the node ID of the
 
 You can find the node ID of an organization project if you know the organization name and project number. Replace `ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `NUMBER` with the project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
 
-{% include tool-switcher %}
-
 {% curl %}
 ```shell
 curl --request POST \
@@ -91,8 +87,6 @@ gh api graphql -f query='
 {% endcli %}
 
 You can also find the node ID of all projects in your organization. The following example will return the node ID and title of the first 20 projects in an organization. Replace `ORGANIZATION` with the name of your organization. For example, `octo-org`.
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell
@@ -125,8 +119,6 @@ To update your project through the API, you will need to know the node ID of the
 
 You can find the node ID of a user project if you know the project number. Replace `USER` with your user name. For example, `octocat`. Replace `NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/users/octocat/projects/5` has a project number of 5.
 
-{% include tool-switcher %}
-
 {% curl %}
 ```shell
 curl --request POST \
@@ -150,8 +142,6 @@ gh api graphql -f query='
 {% endcli %}
 
 You can also find the node ID for all of your projects. The following example will return the node ID and title of your first 20 projects. Replace `USER` with your username. For example, `octocat`.
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell
@@ -183,8 +173,6 @@ gh api graphql -f query='
 To update the value of a field, you will need to know the node ID of the field. Additionally, you will need to know the ID of the options for single select fields and the ID of the iterations for iteration fields.
 
 The following example will return the ID, name, and settings for the first 20 fields in a project. Replace `PROJECT_ID` with the node ID of your project.
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell
@@ -255,9 +243,13 @@ Each field has an ID. Additionally, single select fields and iteration fields ha
 
 You can query the API to find information about items in your project.
 
-The following example will return the title and ID for the first 20 items in a project. For each item, it will also return the value and name for the first 8 fields in the project. If the item is an issue or pull request, it will return the login of the first 10 assignees. Replace `PROJECT_ID` with the node ID of your project.
+{% note %}
 
-{% include tool-switcher %}
+**Note**: The API will not return information about draft issues.
+
+{% endnote %}
+
+The following example will return the title and ID for the first 20 items in a project. For each item, it will also return the value and name for the first 8 fields in the project. If the item is an issue or pull request, it will return the login of the first 10 assignees. Replace `PROJECT_ID` with the node ID of your project.
 
 {% curl %}
 ```shell
@@ -335,8 +327,6 @@ Use mutations to update projects. For more information, see "[About mutations]({
 
 The following example will add an issue or pull request to your project. Replace `PROJECT_ID` with the node ID of your project. Replace `CONTENT_ID` with the node ID of the issue or pull request that you want to add.
 
-{% include tool-switcher %}
-
 {% curl %}
 ```shell
 curl --request POST \
@@ -378,8 +368,6 @@ If you try to add an item that already exists, the existing item ID is returned 
 ### Updating a custom text, number, or date field
 
 The following example will update the value of a date field for an item. Replace `PROJECT_ID` with the node ID of your project. Replace `ITEM_ID` with the node ID of the item you want to update. Replace `FIELD_ID` with the ID of the field that you want to update.
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell
@@ -425,8 +413,6 @@ The following example will update the value of a single select field for an item
 - `FIELD_ID` -  Replace this with the ID of the single select field that you want to update.
 - `OPTION_ID` - Replace this with the ID of the desired single select option.
 
-{% include tool-switcher %}
-
 {% curl %}
 ```shell
 curl --request POST \
@@ -465,8 +451,6 @@ The following example will update the value of an iteration field for an item.
 - `FIELD_ID` -  Replace this with the ID of the iteration field that you want to update.
 - `ITERATION_ID` - Replace this with the ID of the desired iteration. This can be either an active iteration (from the `iterations` array) or a completed iteration (from the `completed_iterations` array).
 
-{% include tool-switcher %}
-
 {% curl %}
 ```shell
 curl --request POST \
@@ -499,8 +483,6 @@ gh api graphql -f query='
 ### Deleting an item from a project
 
 The following example will delete an item from a project. Replace `PROJECT_ID` with the node ID of your project. Replace `ITEM_ID` with the node ID of the item you want to delete.
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell

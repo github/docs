@@ -1,5 +1,5 @@
 ---
-title: Duplicating a repository
+title: 镜像仓库
 intro: 'To maintain a mirror of a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
 redirect_from:
   - /articles/duplicating-a-repo
@@ -14,7 +14,8 @@ versions:
 topics:
   - Repositories
 ---
-{% ifversion fpt or ghec %} 
+
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -24,81 +25,81 @@ topics:
 
 {% endif %}
 
-Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
+Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. 在以下示例中，`exampleuser/new-repository` 或 `exampleuser/mirrored` 是镜像。
 
-## Mirroring a repository
+## 镜像仓库
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Create a bare clone of the repository.
+2. 创建仓库的裸克隆。
   ```shell
   $ git clone --bare https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>old-repository</em>.git
   ```
-3. Mirror-push to the new repository.
+3. 镜像推送至新仓库。
   ```shell
   $ cd <em>old-repository</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
-4. Remove the temporary local repository you created earlier.
+4. 删除您之前创建的临时本地仓库。
   ```shell
   $ cd ..
   $ rm -rf <em>old-repository</em>
   ```
 
-## Mirroring a repository that contains {% data variables.large_files.product_name_long %} objects
+## 镜像包含 {% data variables.large_files.product_name_long %} 对象的仓库。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Create a bare clone of the repository. Replace the example username with the name of the person or organization who owns the repository, and replace the example repository name with the name of the repository you'd like to duplicate.
+2. 创建仓库的裸克隆。 将示例用户名替换为拥有仓库的个人或组织的名称，并将示例仓库名称替换为要复制的仓库的名称。
   ```shell
   $ git clone --bare https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>old-repository</em>.git
   ```
-3. Navigate to the repository you just cloned.
+3. 导航到刚克隆的仓库。
   ```shell
   $ cd <em>old-repository</em>
   ```
-4. Pull in the repository's {% data variables.large_files.product_name_long %} objects.
+4. 拉取仓库的 {% data variables.large_files.product_name_long %} 对象。
   ```shell
   $ git lfs fetch --all
   ```
-5. Mirror-push to the new repository.
+5. 镜像推送至新仓库。
   ```shell
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
-6. Push the repository's {% data variables.large_files.product_name_long %} objects to your mirror.
+6. 将仓库的 {% data variables.large_files.product_name_long %} 对象推送至镜像。
   ```shell
   $ git lfs push --all https://github.com/<em>exampleuser/new-repository.git</em>
   ```
-7. Remove the temporary local repository you created earlier.
+7. 删除您之前创建的临时本地仓库。
   ```shell
   $ cd ..
   $ rm -rf <em>old-repository</em>
   ```
 
-## Mirroring a repository in another location
+## 镜像其他位置的仓库
 
-If you want to mirror a repository in another location, including getting updates from the original, you can clone a mirror and periodically push the changes.
+如果要镜像其他位置的仓库，包括从原始位置获取更新，可以克隆镜像并定期推送更改。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Create a bare mirrored clone of the repository.
+2. 创建仓库的裸镜像克隆。
   ```shell
   $ git clone --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>repository-to-mirror</em>.git
   ```
-3. Set the push location to your mirror.
+3. 设置到镜像的推送位置。
   ```shell
   $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
-As with a bare clone, a mirrored clone includes all remote branches and tags, but all local references will be overwritten each time you fetch, so it will always be the same as the original repository. Setting the URL for pushes simplifies pushing to your mirror.
+与裸克隆一样，镜像的克隆包括所有远程分支和标记，但每次获取时都会覆盖所有本地引用，因此它始终与原始仓库相同。 设置推送 URL 可简化至镜像的推送。
 
-4. To update your mirror, fetch updates and push.
+4. 如需更新镜像，请获取更新和推送。
   ```shell
   $ git fetch -p origin
   $ git push --mirror
   ```
-{% ifversion fpt or ghec %} 
-## Further reading
+{% ifversion fpt or ghec %}
+## 延伸阅读
 
 * "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
 * "[About Git Large File Storage and GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
-* "[About GitHub Importer](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
+* “[关于 GitHub 导入工具](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)”
 
 {% endif %}

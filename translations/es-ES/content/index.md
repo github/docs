@@ -40,6 +40,7 @@ children:
   - education
   - desktop
   - early-access
+  - support
 childGroups:
   - name: Get started
     octicon: 'RocketIcon'
@@ -92,6 +93,7 @@ childGroups:
     - communities
     - sponsors
     - education
+    - support
 externalProducts:
   atom:
     id: atom

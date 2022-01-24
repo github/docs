@@ -398,6 +398,7 @@ describe('code examples', () => {
     await page.goto('http://localhost:4001/en/actions')
     await page.click('[data-testid=code-examples-input]')
     await page.type('[data-testid=code-examples-input]', 'this should not work')
+    await page.click('[data-testid=code-examples-search-btn]')
     const shownCards = await page.$$('[data-testid=code-example-card]')
     expect(shownCards.length).toBe(0)
     const noResultsMessage = await page.$('[data-testid=code-examples-no-results]')

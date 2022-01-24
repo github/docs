@@ -1,6 +1,6 @@
 ---
-title: Collaborators
-intro: 'The collaborators API allows you to add, invite, and remove collaborators from a repository.'
+title: Colaboradores
+intro: 'A API dos colaboradores permite que você adicione, convide e remova os colaboradores de um repositório.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,23 +12,19 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Collaborators
-
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'collaborators' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Invitations
+## Convites
 
-The Repository Invitations API allows users or external services to invite other users to collaborate on a repo. The invited users (or external services on behalf of invited users) can choose to accept or decline the invitations.
+A API de Convites do Repositório permite que usuários ou serviços externos convidem outros usuários para colaborar em um repositório. Os usuários convidados (ou serviços externos em nome dos usuários convidados) podem optar por aceitar ou recusar os convites.
 
-Note that the `repo:invite` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted
-access to invitations **without** also granting access to repository code, while the
-`repo` scope grants permission to code as well as invitations.
+Observe que o [Escopo OAuth](/developers/apps/scopes-for-oauth-apps) `repo:invite` concede acesso direcionado aos convites **sem** conceder também acesso ao código do repositório. enquanto o escopo `repo` concede permissão ao código e aos convites convites.
 
-### Invite a user to a repository		
+### Convidar um usuário para um repositório
 
-Use the API endpoint for adding a collaborator. For more information, see "[Add a repository collaborator](/rest/reference/collaborators#add-a-repository-collaborator)."
+Use o ponto de extremidade da API para adicionar um colaborador. Para obter mais informações, consulte "[Adicionar um colaborador de repositório](/rest/reference/collaborators#add-a-repository-collaborator)".
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}

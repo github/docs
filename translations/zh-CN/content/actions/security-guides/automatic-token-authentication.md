@@ -1,6 +1,6 @@
 ---
 title: Automatic token authentication
-intro: '{% data variables.product.prodname_dotcom %} provides a token that you can use to authenticate on behalf of {% data variables.product.prodname_actions %}.'
+intro: '{% data variables.product.prodname_dotcom %} 提供一个令牌，可用于代表 {% data variables.product.prodname_actions %} 进行身份验证。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
   - /actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
@@ -17,56 +17,37 @@ shortTitle: Automatic token authentication
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About the `GITHUB_TOKEN` secret
+## 关于 `GITHUB_TOKEN` 密码
 
-At the start of each workflow run, {% data variables.product.prodname_dotcom %} automatically creates a unique `GITHUB_TOKEN` secret to use in your workflow. You can use the `GITHUB_TOKEN` to authenticate in a workflow run.
+在每个工作流程运行开始时，{% data variables.product.prodname_dotcom %} 会自动创建唯一的 `GITHUB_TOKEN` 密码以在工作流程中使用。 您可以使用 `GITHUB_TOKEN` 在工作流程运行中进行身份验证。
 
-When you enable {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dotcom %} installs a {% data variables.product.prodname_github_app %} on your repository. The `GITHUB_TOKEN` secret is a {% data variables.product.prodname_github_app %} installation access token. You can use the installation access token to authenticate on behalf of the {% data variables.product.prodname_github_app %} installed on your repository. The token's permissions are limited to the repository that contains your workflow. For more information, see "[Permissions for the `GITHUB_TOKEN`](#permissions-for-the-github_token)."
+当您启用 {% data variables.product.prodname_actions %} 时，{% data variables.product.prodname_dotcom %} 在您的仓库中安装 {% data variables.product.prodname_github_app %}。 `GITHUB_TOKEN` 密码是一种 {% data variables.product.prodname_github_app %} 安装访问令牌。 您可以使用安装访问令牌代表仓库中安装的 {% data variables.product.prodname_github_app %} 进行身份验证。 令牌的权限仅限于包含您的工作流程的仓库。 更多信息请参阅“[`GITHUB_TOKEN`](#permissions-for-the-github_token) 的权限”。
 
-Before each job begins, {% data variables.product.prodname_dotcom %} fetches an installation access token for the job. The token expires when the job is finished.
+在每个作业开始之前， {% data variables.product.prodname_dotcom %} 将为作业提取安装访问令牌。 令牌在作业完成后过期。
 
-The token is also available in the `github.token` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
+令牌在 `github.token` 上下文中也可用。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)”。
 
-## Using the `GITHUB_TOKEN` in a workflow
+## 在工作流程中使用 `GITHUB_TOKEN`
 
-You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secrets: {%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}. Examples of using the `GITHUB_TOKEN` include passing the token as an input to an action, or using it to make an authenticated {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API request.
+您可以使用标准语法引用密钥以使用 `GITHUB_TOKEN`：{%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}。 Examples of using the `GITHUB_TOKEN` include passing the token as an input to an action, or using it to make an authenticated {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API request.
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% note %}
 
-**Important:** An action can access the `GITHUB_TOKEN` through the `github.token` context even if the workflow does not explicitly pass the `GITHUB_TOKEN` to the action. As a good security practice, you should always make sure that actions only have the minimum access they require by limiting the permissions granted to the `GITHUB_TOKEN`. For more information, see "[Permissions for the `GITHUB_TOKEN`](#permissions-for-the-github_token)."
+**重要：**即使工作流程没有明确将 `GITHUB_TOKEN` 传递到操作，操作也可以通过 `github.token` 上下文访问 `GITHUB_TOKEN` 。 作为一种良好的安全做法，您应该始终通过限制授予 `GITHUB_TOKEN` 的权限，确保操作只有所需的最低访问权限。 更多信息请参阅“[`GITHUB_TOKEN`](#permissions-for-the-github_token) 的权限”。
 
 {% endnote %}
 {% endif %}
 
 {% data reusables.github-actions.actions-do-not-trigger-workflows %}
 
-### Example 1: passing the `GITHUB_TOKEN` as an input
+### 示例 1：将 `GITHUB_TOKEN` 作为输入传递
 
-This example workflow uses the [labeler action](https://github.com/actions/labeler), which requires the `GITHUB_TOKEN` as the value for the `repo-token` input parameter:
+{% data reusables.github-actions.github_token-input-example %}
 
-```yaml
-name: Pull request labeler
+### 例2：调用 REST API
 
-on: [ pull_request_target ]
-
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}permissions:
-  contents: read
-  pull-requests: write
-
-{% endif %}
-jobs:
-  triage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/labeler@v2
-        with:
-          repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```
-
-### Example 2: calling the REST API
-
-You can use the `GITHUB_TOKEN` to make authenticated API calls. This example workflow creates an issue using the {% data variables.product.prodname_dotcom %} REST API:
+您可以使用 `GITHUB_TOKEN` 进行经过验证的 API 调用。 此示例工作流程使用 {% data variables.product.prodname_dotcom %} REST API 创建议题：
 
 ```yaml
 name: Create issue on commit
@@ -87,72 +68,72 @@ jobs:
           --header 'content-type: application/json' \
           --data '{
             "title": "Automated issue for commit: ${% raw %}{{ github.sha }}{% endraw %}",
-            "body": "This issue was automatically created by the GitHub Action workflow **${% raw %}{{ github.workflow }}{% endraw %}**. \n\n The commit hash was: _${% raw %}{{ github.sha }}{% endraw %}_."
+            "body": "This issue was automatically created by the GitHub Action workflow **${% raw %}{{ github.workflow }}{% endraw %}**. \n\n 提交的散列为：_${% raw %}{{ github.sha }}{% endraw %}_.”
             }' \
           --fail
 ```
 
-## Permissions for the `GITHUB_TOKEN`
+## `GITHUB_TOKEN` 的权限
 
-For information about the API endpoints {% data variables.product.prodname_github_apps %} can access with each permission, see "[{% data variables.product.prodname_github_app %} Permissions](/rest/reference/permissions-required-for-github-apps)."
+有关 {% data variables.product.prodname_github_apps %} 可通过各种权限访问的 API 端点的信息，请参阅“[{% data variables.product.prodname_github_app %} 权限](/rest/reference/permissions-required-for-github-apps)”。
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-The following table shows the permissions granted to the `GITHUB_TOKEN` by default. People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
+下表显示默认情况下授予 `GITHUB_TOKEN` 的权限。 People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
-| Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access<br>by forked repos |
-|---------------|-----------------------------|-----------------------------|--------------------------------|
-| actions       | read/write  | none | read |
-| checks        | read/write  | none | read |
-| contents      | read/write  | read | read |
-| deployments   | read/write  | none | read |
-| id-token      | read/write  | none | read |
-| issues        | read/write  | none | read |
-| metadata      | read        | read | read |
-| packages      | read/write  | none | read |
-| pull requests | read/write  | none | read |
-| repository projects | read/write | none | read |
-| security events     | read/write | none | read |
-| statuses      | read/write  | none | read |
+| 作用域                 | 默认访问<br>（允许） | 默认访问<br>（限制） | 复刻的仓库的最大访问权限<br> |
+| ------------------- | ------------------ | ------------------ | ---------------------- |
+| 操作                  | 读/写                | 无                  | 读取                     |
+| 检查                  | 读/写                | 无                  | 读取                     |
+| 内容                  | 读/写                | 读取                 | 读取                     |
+| 部署                  | 读/写                | 无                  | 读取                     |
+| id-token            | 读/写                | 无                  | 读取                     |
+| 议题                  | 读/写                | 无                  | 读取                     |
+| 元数据                 | 读取                 | 读取                 | 读取                     |
+| 包                   | 读/写                | 无                  | 读取                     |
+| pull-requests       | 读/写                | 无                  | 读取                     |
+| repository-projects | 读/写                | 无                  | 读取                     |
+| security-events     | 读/写                | 无                  | 读取                     |
+| 状态                  | 读/写                | 无                  | 读取                     |
 {% else %}
-| Scope    | Access type | Access by forked repos |
-|----------|-------------|--------------------------|
-| actions  | read/write  | read |
-| checks   | read/write  | read |
-| contents | read/write  | read |
-| deployments | read/write | read |
-| issues   | read/write  | read |
-| metadata | read        | read |
-| packages | read/write  | read |
-| pull requests | read/write | read |
-| repository projects | read/write | read |
-| statuses | read/write  | read |
+| 作用域                 | 访问类型 | 通过复刻的仓库访问 |
+| ------------------- | ---- | --------- |
+| 操作                  | 读/写  | 读取        |
+| 检查                  | 读/写  | 读取        |
+| 内容                  | 读/写  | 读取        |
+| 部署                  | 读/写  | 读取        |
+| 议题                  | 读/写  | 读取        |
+| 元数据                 | 读取   | 读取        |
+| 包                   | 读/写  | 读取        |
+| pull-requests       | 读/写  | 读取        |
+| repository-projects | 读/写  | 读取        |
+| 状态                  | 读/写  | 读取        |
 {% endif %}
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-### Modifying the permissions for the `GITHUB_TOKEN`
+### 修改 `GITHUB_TOKEN` 的权限
 
-You can modify the permissions for the `GITHUB_TOKEN` in individual workflow files. If the default permissions for the `GITHUB_TOKEN` are restrictive, you may have to elevate the permissions to allow some actions and commands to run successfully. If the default permissions are permissive, you can edit the workflow file to remove some permissions from the `GITHUB_TOKEN`. As a good security practice, you should grant the `GITHUB_TOKEN` the least required access.
+您可以在个别工作流程文件中修改 `GITHUB_TOKENN` 的权限。 如果 `GITHUB_TOKEN` 的默认权限是限制的，您可能需要提高权限以允许一些操作和命令成功运行。 如果默认权限是允许的，您可以编辑工作流程文件以从 `GITHUB_TOKEN` 中删除某些权限。 作为一种良好的安全做法，您应该授予 `GITHUB_TOKEN` 所需的最小访问权限。
 
-You can see the permissions that `GITHUB_TOKEN` had for a specific job in the "Set up job" section of the workflow run log. For more information, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs)."
+您可以在工作流程运行日志的“设置作业”部分看到 `GITHUB_TOKEN` 对于特定作业的权限。 更多信息请参阅“[使用工作流程运行日志](/actions/managing-workflow-runs/using-workflow-run-logs)”。
 
-You can use the `permissions` key in your workflow file to modify permissions for the `GITHUB_TOKEN` for an entire workflow or for individual jobs. This allows you to configure the minimum required permissions for a workflow or job. When the `permissions` key is used, all unspecified permissions are set to no access, with the exception of the `metadata` scope, which always gets read access.
+您可以在工作流文件中使用 `permissions` 键来修改 `GITHUB_TOKEN` 对于整个工作流或单个作业的权限。 这允许您为工作流程或作业配置所需的最小权限。 使用 `permissions` 键时，所有未指定的权限都设置为没有访问权限，`metadata`范围除外，该范围总是获得读取访问。
 
 {% data reusables.github-actions.forked-write-permission %}
 
-The two workflow examples earlier in this article show the `permissions` key being used at the workflow level, and at the job level. In [Example 1](#example-1-passing-the-github_token-as-an-input) the two permissions are specified for the entire workflow. In [Example 2](#example-2-calling-the-rest-api) write access is granted for one scope for a single job.
+本文前面的两个工作流程示例显示了在工作流程级别和作业级别使用的 `permissions` 键。 在[例 1](#example-1-passing-the-github_token-as-an-input) 中，为整个工作流程指定了两个权限。 在[示例 2](#example-2-calling-the-rest-api) 中，为单个作业的单一范围授予写入访问权限。
 
-For full details of the `permissions` key, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#permissions)."
+有关 `permissions` 键的完整详情，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#permissions)”。
 
-#### How the permissions are calculated for a workflow job
+#### 如何计算工作流程作业的权限
 
-The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
+`GITHUB_TOKEN` 的权限最初设置为企业、组织或仓库的默认设置。 如果默认设置为这些级别中任何级别的限制权限，这将适用于相关的仓库。 例如，如果您在组织级别选择受限制的默认值，则该组织中的所有仓库将使用限制的权限作为默认值。 然后根据工作流程文件中的任何配置（首先在工作流程级别，然后在作业级别）对权限进行调整。 最后，如果工作流程是由复刻的仓库中的拉取请求触发，并且未选择**从拉取请求发送写入令牌到工作流程**设置，则权限调整为将任何写入权限更改为只读。
 
-### Granting additional permissions
+### 授予额外权限
 {% endif %}
 
-If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a personal access token and set it as a secret in your repository:
+如果您需要的令牌需要 `GITHUB_TOKEN` 中未提供的权限，您可以创建个人访问令牌并将其设置为仓库中的密码：
 
-1. Use or create a token with the appropriate permissions for that repository. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
-1. Add the token as a secret in your workflow's repository, and refer to it using the {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+1. 使用或创建具有该仓库适当权限的令牌。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+1. 添加令牌作为工作流程仓库中的密码，然后使用 {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} 语法进行引用。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
