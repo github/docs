@@ -1,6 +1,6 @@
-const patterns = require('../lib/patterns')
+import patterns from '../lib/patterns.js'
 
-module.exports = function handleInvalidPaths (req, res, next) {
+export default function handleInvalidPaths(req, res, next) {
   // prevent open redirect vulnerability
   if (req.path.match(patterns.multipleSlashes)) {
     return next(404)

@@ -29,7 +29,7 @@ In repositories where {% data variables.product.prodname_code_scanning %} is con
 
 If {% data variables.product.prodname_code_scanning %} has any results with a severity of `error`, the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notices and the check succeeds. 
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}You can override the default behavior in your repository settings, by specifying the level of severities that will cause a pull request check failure. For more information, see "[Defining the alert severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-alert-severities-causing-pull-request-check-failure)".
+{% ifversion fpt or ghes > 3.1 or ghae-next %}You can override the default behavior in your repository settings, by specifying the level of severities {% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %}and security severities {% endif %}that will cause a pull request check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
 
 {% endif %}If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then you must either fix or dismiss all error alerts before the pull request can be merged. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
 
@@ -43,7 +43,7 @@ If the repository uses the {% data variables.product.prodname_codeql_workflow %}
 
 ## Triaging an alert on your pull request
 
-When you look at the **Files changed** tab for a pull request, you see annotations for any lines of code that triggered the alert.
+When you look at the **Files changed** tab for a pull request, you see annotations for any lines of code that triggered the alert. The severity of the alert is displayed in the annotation.
 
 ![Alert annotation within a pull request diff](/assets/images/help/repository/code-scanning-pr-annotation.png)
 

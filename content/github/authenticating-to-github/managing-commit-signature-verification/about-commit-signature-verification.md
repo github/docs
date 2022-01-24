@@ -84,7 +84,7 @@ You don't need to upload your public key to {% data variables.product.product_na
 {% ifversion fpt %}
 ## Signature verification for bots
 
-Organizations and {% data variables.product.prodname_github_app %}s that require commit signing can use bots to sign commits. If a commit or tag has a bot signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag as verified.
+Organizations and {% data variables.product.prodname_github_apps %} that require commit signing can use bots to sign commits. If a commit or tag has a bot signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag as verified.
 
 Signature verification for bots will only work if the request is verified and authenticated as the {% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
 {% endif %}

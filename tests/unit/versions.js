@@ -1,9 +1,10 @@
-const revalidator = require('revalidator')
-const allVersions = require('../../lib/all-versions')
-const { latest } = require('../../lib/enterprise-server-releases')
-const schema = require('../helpers/schemas/versions-schema')
-const { getJSON } = require('../helpers/supertest')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+import { jest } from '@jest/globals'
+import revalidator from 'revalidator'
+import allVersions from '../../lib/all-versions.js'
+import { latest } from '../../lib/enterprise-server-releases.js'
+import schema from '../helpers/schemas/versions-schema.js'
+import { getJSON } from '../helpers/supertest.js'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 
 jest.useFakeTimers()
 
@@ -14,7 +15,7 @@ describe('versions module', () => {
   })
 
   test('every version is valid', () => {
-    Object.values(allVersions).forEach(versionObj => {
+    Object.values(allVersions).forEach((versionObj) => {
       const { valid, errors } = revalidator.validate(versionObj, schema)
       const expectation = JSON.stringify({ versionObj, errors }, null, 2)
       expect(valid, expectation).toBe(true)

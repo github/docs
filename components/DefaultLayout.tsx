@@ -11,14 +11,14 @@ import { useTranslation } from './hooks/useTranslation'
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
-  const { page, error, isHomepageVersion } = useMainContext()
+  const { page, error, isHomepageVersion, currentPathWithoutLanguage } = useMainContext()
   const { t } = useTranslation('errors')
   return (
     <div className="d-lg-flex">
       <Head>
         {error === '404' ? (
           <title>{t('oops')}</title>
-        ) : !isHomepageVersion && page.fullTitle ? (
+        ) : (!isHomepageVersion && page.fullTitle) || (currentPathWithoutLanguage.includes('enterprise-server') && page.fullTitle) ? (
           <title>{page.fullTitle}</title>
         ) : null}
 

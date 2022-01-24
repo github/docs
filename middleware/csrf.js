@@ -1,6 +1,7 @@
-const cookieSettings = require('../lib/cookie-settings')
+import cookieSettings from '../lib/cookie-settings.js'
+import xCsurf from 'csurf'
 
-module.exports = require('csurf')({
+export default xCsurf({
   cookie: cookieSettings,
-  ignoreMethods: ['GET', 'HEAD', 'OPTIONS']
+  ignoreMethods: ['GET', 'HEAD', 'OPTIONS'],
 })

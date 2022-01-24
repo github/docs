@@ -1,18 +1,21 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import walk from 'walk-sync'
+import path from 'path'
+import { escapeRegExp } from 'lodash-es'
+import { Tokenizer } from 'liquidjs'
+import frontmatter from '../../lib/read-frontmatter.js'
+import xAllVersions from '../../lib/all-versions.js'
+import { deprecated, oldestSupported } from '../../lib/enterprise-server-releases.js'
 
-const fs = require('fs')
-const walk = require('walk-sync')
-const path = require('path')
-const { escapeRegExp } = require('lodash')
-const { Tokenizer } = require('liquidjs')
-const frontmatter = require('../../lib/read-frontmatter')
-const allVersions = Object.values(require('../../lib/all-versions'))
-const { deprecated, oldestSupported } = require('../../lib/enterprise-server-releases')
+const allVersions = Object.values(xAllVersions)
 const dryRun = ['-d', '--dry-run'].includes(process.argv[2])
 
 const walkFiles = (pathToWalk, ext) => {
-  return walk(path.posix.join(process.cwd(), pathToWalk), { includeBasePath: true, directories: false })
-    .filter(file => file.endsWith(ext) && !file.endsWith('README.md'))
+  return walk(path.posix.join(process.cwd(), pathToWalk), {
+    includeBasePath: true,
+    directories: false,
+  }).filter((file) => file.endsWith(ext) && !file.endsWith('README.md'))
 }
 
 const markdownFiles = walkFiles('content', '.md').concat(walkFiles('data', '.md'))
@@ -21,26 +24,27 @@ const yamlFiles = walkFiles('data', '.yml')
 const operatorsMap = {
   // old: new
   '==': '=',
-  'ver_gt': '>',
-  'ver_lt': '<',
-  '!=': '!=' // noop
+  ver_gt: '>',
+  ver_lt: '<',
+  '!=': '!=', // noop
 }
 
 // [start-readme]
 //
-// Run this script to convert long form Liquid conditionals (e.g., {% if currentVersion == "free-pro-team" %}) to 
+// Run this script to convert long form Liquid conditionals (e.g., {% if currentVersion == "free-pro-team" %}) to
 // the new custom tag (e.g., {% ifversion fpt %}) and also use the short names in versions frontmatter.
 //
 // [end-readme]
 
-async function main () {
-  if (dryRun) console.log('This is a dry run! The script will not write any files. Use for debugging.\n')
+async function main() {
+  if (dryRun)
+    console.log('This is a dry run! The script will not write any files. Use for debugging.\n')
 
   // 1. UPDATE MARKDOWN FILES (CONTENT AND REUSABLES)
   console.log('Updating Liquid conditionals and versions frontmatter in Markdown files...\n')
   for (const file of markdownFiles) {
     // A. UPDATE LIQUID CONDITIONALS IN CONTENT
-    // Create an { old: new } conditionals object so we can get the replacements and 
+    // Create an { old: new } conditionals object so we can get the replacements and
     // make the replacements separately and not do both in nested loops.
     const content = fs.readFileSync(file, 'utf8')
     const contentReplacements = getLiquidReplacements(content, file)
@@ -58,7 +62,9 @@ async function main () {
           .replace(/>=?2\.19/, '*')
 
         // Find the relevant version from the master list so we can access the short name.
-        const versionObj = allVersions.find(version => version.plan === plan || version.shortName === plan)
+        const versionObj = allVersions.find(
+          (version) => version.plan === plan || version.shortName === plan
+        )
         if (!versionObj) {
           console.error(`can't find supported version for ${plan}`)
           process.exit(1)
@@ -94,24 +100,25 @@ async function main () {
   }
 }
 
-main()
-  .then(
-    () => { console.log('Done!') },
-    (err) => {
-      console.error(err)
-      process.exit(1)
-    }
-  )
+main().then(
+  () => {
+    console.log('Done!')
+  },
+  (err) => {
+    console.error(err)
+    process.exit(1)
+  }
+)
 
 // Convenience function to help with readability by removing this large but unneded property.
-function removeInputProps (arrayOfObjects) {
-  return arrayOfObjects.map(obj => {
+function removeInputProps(arrayOfObjects) {
+  return arrayOfObjects.map((obj) => {
     delete obj.input || delete obj.token.input
     return obj
   })
 }
 
-function makeLiquidReplacements (replacementsObj, text) {
+function makeLiquidReplacements(replacementsObj, text) {
   let newText = text
   Object.entries(replacementsObj).forEach(([oldCond, newCond]) => {
     const oldCondRegex = new RegExp(`({%-?)\\s*?${escapeRegExp(oldCond)}\\s*?(-?%})`, 'g')
@@ -134,22 +141,25 @@ function makeLiquidReplacements (replacementsObj, text) {
 // if currentVersion ver_gt "myVersion@myRelease -> ifversion myVersionShort > myRelease
 // if currentVersion ver_lt "myVersion@myRelease -> ifversion myVersionShort < myRelease
 // if enterpriseServerVersions contains currentVersion -> ifversion ghes
-function getLiquidReplacements (content, file) {
+function getLiquidReplacements(content, file) {
   const replacements = {}
 
   const tokenizer = new Tokenizer(content)
   const tokens = removeInputProps(tokenizer.readTopLevelTokens())
-  
+
   tokens
-    .filter(token => (token.name === 'if' || token.name === 'elsif') && token.content.includes('currentVersion'))
-    .map(token => token.content)
-    .forEach(token => {
+    .filter(
+      (token) =>
+        (token.name === 'if' || token.name === 'elsif') && token.content.includes('currentVersion')
+    )
+    .map((token) => token.content)
+    .forEach((token) => {
       const newToken = token.startsWith('if') ? ['ifversion'] : ['elsif']
       // Everything from here on pushes to the `newToken` array to construct the new conditional.
       token
         .replace(/(if|elsif) /, '')
         .split(/ (or|and) /)
-        .forEach(op => {
+        .forEach((op) => {
           if (op === 'or' || op === 'and') {
             newToken.push(op)
             return
@@ -176,7 +186,7 @@ function getLiquidReplacements (content, file) {
           const [plan, release] = opParts[2].slice(1, -1).split('@')
 
           // Find the relevant version from the master list so we can access the short name.
-          const versionObj = allVersions.find(version => version.plan === plan)
+          const versionObj = allVersions.find((version) => version.plan === plan)
 
           if (!versionObj) {
             console.error(`Couldn't find a version for ${plan} in "${token}" in ${file}`)
@@ -187,7 +197,9 @@ function getLiquidReplacements (content, file) {
           if (versionObj.hasNumberedReleases) {
             const newOperator = operatorsMap[operator]
             if (!newOperator) {
-              console.error(`Couldn't find an operator that corresponds to ${operator} in "${token} in "${file}`)
+              console.error(
+                `Couldn't find an operator that corresponds to ${operator} in "${token} in "${file}`
+              )
               process.exit(1)
             }
 
@@ -210,7 +222,8 @@ function getLiquidReplacements (content, file) {
             const lessThanOldestSupported = release === oldestSupported && newOperator === '<'
             // E.g., ghes = 2.20
             const equalsDeprecated = deprecated.includes(release) && newOperator === '='
-            const hasDeprecatedContent = lessThanDeprecated || lessThanOldestSupported || equalsDeprecated
+            const hasDeprecatedContent =
+              lessThanDeprecated || lessThanOldestSupported || equalsDeprecated
 
             // Remove these by hand.
             if (hasDeprecatedContent) {
@@ -246,7 +259,7 @@ function getLiquidReplacements (content, file) {
           // Handle all other non-standard releases, like github-ae@next and github-ae@issue-12345
           newToken.push(`${versionObj.shortName}-${release}`)
         })
-      
+
       replacements[token] = newToken.join(' ')
     })
 

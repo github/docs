@@ -23,7 +23,7 @@ The following guidance provides options on how to handle service disruption to t
 
 In this case, no action on your part is required. Know that we are working diligently to restore service availability. 
 
-Check our [Discussions page](https://github.com/github/feedback/discussions/categories/codespaces-feedback) for any updates on service interruptions. Soon, you'll be able to see the current service status on the [Status Dashboard](https://www.githubstatus.com/). 
+Check our [{% data variables.product.prodname_discussions %} page](https://github.com/github/feedback/discussions/categories/codespaces-feedback) for any updates on service interruptions. Soon, you'll be able to see the current service status on the [Status Dashboard](https://www.githubstatus.com/). 
 
 ## Option 2: Clone the repository locally or edit in the browser
 

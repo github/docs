@@ -196,7 +196,7 @@ For more information, see "[Autolinked references and URLs](/articles/autolinked
 
 ## Content attachments
 
-Some {% data variables.product.prodname_github_app %}s provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
+Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
 
 ![Content attachment](/assets/images/github-apps/content_reference_attachment.png)
 

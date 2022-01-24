@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-
-const fs = require('fs')
-const findExtraneousFiles = require('./helpers/find-extraneous-translation-files')
+import fs from 'fs'
+import findExtraneousFiles from './helpers/find-extraneous-translation-files.js'
 
 // [start-readme]
 //
@@ -13,10 +12,12 @@ const findExtraneousFiles = require('./helpers/find-extraneous-translation-files
 
 main()
 
-async function main () {
+async function main() {
   const files = findExtraneousFiles()
-  console.log(`Found ${files.length} extraneous translation ${files.length === 1 ? 'file' : 'files'}\n\n`)
-  files.forEach(file => {
+  console.log(
+    `Found ${files.length} extraneous translation ${files.length === 1 ? 'file' : 'files'}\n\n`
+  )
+  files.forEach((file) => {
     console.log(file)
     fs.unlinkSync(file)
   })

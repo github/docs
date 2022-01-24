@@ -33656,6 +33656,77 @@
           "href": "/graphql/reference/objects#organizationidentityprovider"
         },
         {
+          "name": "sponsorsActivities",
+          "description": "<p>Events involving this sponsorable, such as new sponsorships.</p>",
+          "type": "SponsorsActivityConnection!",
+          "id": "sponsorsactivityconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for activity returned from the connection.</p>",
+              "type": {
+                "name": "SponsorsActivityOrder",
+                "id": "sponsorsactivityorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsorsactivityorder"
+              }
+            },
+            {
+              "name": "period",
+              "defaultValue": "MONTH",
+              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "type": {
+                "name": "SponsorsActivityPeriod",
+                "id": "sponsorsactivityperiod",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            }
+          ]
+        },
+        {
           "name": "sponsorsListing",
           "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
           "type": "SponsorsListing",
@@ -51916,6 +51987,136 @@
       ]
     },
     {
+      "name": "SponsorsActivity",
+      "kind": "objects",
+      "id": "sponsorsactivity",
+      "href": "/graphql/reference/objects#sponsorsactivity",
+      "description": "<p>An event related to sponsorship activity.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "action",
+          "description": "<p>What action this activity indicates took place.</p>",
+          "type": "SponsorsActivityAction!",
+          "id": "sponsorsactivityaction",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorsactivityaction"
+        },
+        {
+          "name": "previousSponsorsTier",
+          "description": "<p>The tier that the sponsorship used to use, for tier change events.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorstier"
+        },
+        {
+          "name": "sponsor",
+          "description": "<p>The user or organization who triggered this activity and was/is sponsoring the sponsorable.</p>",
+          "type": "Sponsor",
+          "id": "sponsor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsor"
+        },
+        {
+          "name": "sponsorable",
+          "description": "<p>The user or organization that is being sponsored, the maintainer.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#sponsorable"
+        },
+        {
+          "name": "sponsorsTier",
+          "description": "<p>The associated sponsorship tier.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorstier"
+        },
+        {
+          "name": "timestamp",
+          "description": "<p>The timestamp of this event.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsActivityConnection",
+      "kind": "objects",
+      "id": "sponsorsactivityconnection",
+      "href": "/graphql/reference/objects#sponsorsactivityconnection",
+      "description": "<p>The connection type for SponsorsActivity.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorsActivityEdge]",
+          "id": "sponsorsactivityedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivityedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SponsorsActivity]",
+          "id": "sponsorsactivity",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivity"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsActivityEdge",
+      "kind": "objects",
+      "id": "sponsorsactivityedge",
+      "href": "/graphql/reference/objects#sponsorsactivityedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SponsorsActivity",
+          "id": "sponsorsactivity",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivity"
+        }
+      ]
+    },
+    {
       "name": "SponsorsGoal",
       "kind": "objects",
       "id": "sponsorsgoal",
@@ -52120,7 +52321,7 @@
         },
         {
           "name": "closestLesserValueTier",
-          "description": "<p>Get a different tier for this tier's maintainer that is at the same frequency\nas this tier but with a lesser cost. Returns the published tier with the\nmonthly price closest to this tier's without going over.</p>",
+          "description": "<p>Get a different tier for this tier's maintainer that is at the same frequency\nas this tier but with an equal or lesser cost. Returns the published tier with\nthe monthly price closest to this tier's without going over.</p>",
           "type": "SponsorsTier",
           "id": "sponsorstier",
           "kind": "objects",
@@ -59163,6 +59364,77 @@
           ]
         },
         {
+          "name": "sponsorsActivities",
+          "description": "<p>Events involving this sponsorable, such as new sponsorships.</p>",
+          "type": "SponsorsActivityConnection!",
+          "id": "sponsorsactivityconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for activity returned from the connection.</p>",
+              "type": {
+                "name": "SponsorsActivityOrder",
+                "id": "sponsorsactivityorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsorsactivityorder"
+              }
+            },
+            {
+              "name": "period",
+              "defaultValue": "MONTH",
+              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "type": {
+                "name": "SponsorsActivityPeriod",
+                "id": "sponsorsactivityperiod",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            }
+          ]
+        },
+        {
           "name": "sponsorsListing",
           "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
           "type": "SponsorsListing",
@@ -62767,6 +63039,77 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "sponsorsActivities",
+          "description": "<p>Events involving this sponsorable, such as new sponsorships.</p>",
+          "type": "SponsorsActivityConnection!",
+          "id": "sponsorsactivityconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for activity returned from the connection.</p>",
+              "type": {
+                "name": "SponsorsActivityOrder",
+                "id": "sponsorsactivityorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsorsactivityorder"
+              }
+            },
+            {
+              "name": "period",
+              "defaultValue": "MONTH",
+              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "type": {
+                "name": "SponsorsActivityPeriod",
+                "id": "sponsorsactivityperiod",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            }
+          ]
+        },
+        {
           "name": "sponsorsListing",
           "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
           "type": "SponsorsListing",
@@ -66359,6 +66702,10 @@
           "description": "<p>.NET packages hosted at the NuGet Gallery.</p>"
         },
         {
+          "name": "OTHER",
+          "description": "<p>Applications, runtimes, operating systems and other kinds of software.</p>"
+        },
+        {
           "name": "PIP",
           "description": "<p>Python packages hosted at PyPI.org.</p>"
         },
@@ -66450,6 +66797,77 @@
         {
           "name": "LOGIN",
           "description": "<p>Order sponsorable entities by login (username).</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsActivityAction",
+      "kind": "enums",
+      "id": "sponsorsactivityaction",
+      "href": "/graphql/reference/enums#sponsorsactivityaction",
+      "description": "<p>The possible actions that GitHub Sponsors activities can represent.</p>",
+      "values": [
+        {
+          "name": "CANCELLED_SPONSORSHIP",
+          "description": "<p>The activity was cancelling a sponsorship.</p>"
+        },
+        {
+          "name": "NEW_SPONSORSHIP",
+          "description": "<p>The activity was starting a sponsorship.</p>"
+        },
+        {
+          "name": "PENDING_CHANGE",
+          "description": "<p>The activity was scheduling a downgrade or cancellation.</p>"
+        },
+        {
+          "name": "REFUND",
+          "description": "<p>The activity was funds being refunded to the sponsor or GitHub.</p>"
+        },
+        {
+          "name": "SPONSOR_MATCH_DISABLED",
+          "description": "<p>The activity was disabling matching for a previously matched sponsorship.</p>"
+        },
+        {
+          "name": "TIER_CHANGE",
+          "description": "<p>The activity was changing the sponsorship tier, either directly by the sponsor or by a scheduled/pending change.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsActivityOrderField",
+      "kind": "enums",
+      "id": "sponsorsactivityorderfield",
+      "href": "/graphql/reference/enums#sponsorsactivityorderfield",
+      "description": "<p>Properties by which GitHub Sponsors activity connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "TIMESTAMP",
+          "description": "<p>Order activities by when they happened.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsActivityPeriod",
+      "kind": "enums",
+      "id": "sponsorsactivityperiod",
+      "href": "/graphql/reference/enums#sponsorsactivityperiod",
+      "description": "<p>The possible time periods for which Sponsors activities can be requested.</p>",
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>Don't restrict the activity to any date range, include all activity.</p>"
+        },
+        {
+          "name": "DAY",
+          "description": "<p>The previous calendar day.</p>"
+        },
+        {
+          "name": "MONTH",
+          "description": "<p>The previous thirty days.</p>"
+        },
+        {
+          "name": "WEEK",
+          "description": "<p>The previous seven days.</p>"
         }
       ]
     },
@@ -74263,6 +74681,31 @@
           "id": "sponsorableorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#sponsorableorderfield"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsActivityOrder",
+      "kind": "inputObjects",
+      "id": "sponsorsactivityorder",
+      "href": "/graphql/reference/input-objects#sponsorsactivityorder",
+      "description": "<p>Ordering options for GitHub Sponsors activity connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order activity by.</p>",
+          "type": "SponsorsActivityOrderField!",
+          "id": "sponsorsactivityorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorsactivityorderfield"
         }
       ]
     },

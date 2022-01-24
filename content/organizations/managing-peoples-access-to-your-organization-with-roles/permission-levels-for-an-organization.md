@@ -127,9 +127,9 @@ Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% e
 
 ## {% data variables.product.prodname_github_app %} managers
 
-By default, only organization owners can manage the settings of {% data variables.product.prodname_github_app %}s owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_app %}s owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
+By default, only organization owners can manage the settings of {% data variables.product.prodname_github_apps %} owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_apps %} owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
 
-When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_app %}s owned by the organization. For more information, see:
+When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_apps %} owned by the organization. For more information, see:
 
 - "[Adding GitHub App managers in your organization](/articles/adding-github-app-managers-in-your-organization)"
 - "[Removing GitHub App managers from your organization](/articles/removing-github-app-managers-from-your-organization)"

@@ -50,7 +50,10 @@ $ curl https://api.github.com/users/defunkt
 > {
 >   "login": "defunkt",
 >   "id": 2,
->   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
+>   "node_id": "MDQ6VXNlcjI=",
+>   "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4",
+>   "gravatar_id": "",
+>   "url": "https://api.github.com/users/defunkt",
 >   "html_url": "https://github.com/defunkt",
 >   ...
 > }
@@ -61,26 +64,41 @@ Mmmmm, tastes like [JSON][json]. Let's add the `-i` flag to include headers:
 ```shell
 $ curl -i https://api.github.com/users/defunkt
 
-> HTTP/2 200
-> Server: GitHub.com
-> Date: Sun, 11 Nov 2012 18:43:28 GMT
-> Content-Type: application/json; charset=utf-8
-> ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
-> X-RateLimit-Limit: 60
-> X-RateLimit-Remaining: 57
-> X-RateLimit-Reset: 1352660008
-> X-GitHub-Media-Type: github.v3
-> Vary: Accept
-> Cache-Control: public, max-age=60, s-maxage=60
-> X-Content-Type-Options: nosniff
-> Content-Length: 692
-> Last-Modified: Tue, 30 Oct 2012 18:58:42 GMT
-
+> HTTP/2 200 
+> server: GitHub.com
+> date: Thu, 08 Jul 2021 07:04:08 GMT
+> content-type: application/json; charset=utf-8
+> cache-control: public, max-age=60, s-maxage=60
+> vary: Accept, Accept-Encoding, Accept, X-Requested-With
+> etag: W/"61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"
+> last-modified: Fri, 01 Nov 2019 21:56:00 GMT
+> x-github-media-type: github.v3; format=json
+> access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+> access-control-allow-origin: *
+> strict-transport-security: max-age=31536000; includeSubdomains; preload
+> x-frame-options: deny
+> x-content-type-options: nosniff
+> x-xss-protection: 0
+> referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+> content-security-policy: default-src 'none'
+> x-ratelimit-limit: 60
+> x-ratelimit-remaining: 53
+> x-ratelimit-reset: 1625731053
+> x-ratelimit-resource: core
+> x-ratelimit-used: 7
+> accept-ranges: bytes
+> content-length: 1305
+> x-github-request-id: 9F60:7019:ACC5CD5:B03C931:60E6A368
+>
 > {
->   "login": "defunkt",
->   "id": 2,
->   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
->   "html_url": "https://github.com/defunkt",
+>  "login": "defunkt",
+>  "id": 2,
+>  "node_id": "MDQ6VXNlcjI=",
+>  "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4",
+>  "gravatar_id": "",
+>  "url": "https://api.github.com/users/defunkt",
+>  "html_url": "https://github.com/defunkt",
+>
 >   ...
 > }
 ```
@@ -400,7 +418,7 @@ first call we made to get defunkt's profile:
 $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/2 200
-> ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
+> etag: W/"61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"
 ```
 
 In addition to the JSON body, take note of the HTTP status code of `200` and
@@ -409,7 +427,7 @@ The [ETag][etag] is a fingerprint of the response. If we pass that on subsequent
 we can tell the API to give us the resource again, only if it has changed:
 
 ```shell
-$ curl -i -H 'If-None-Match: "bfd85cbf23ac0b0c8a29bee02e7117c6"' \
+$ curl -i -H 'If-None-Match: "61e964bf6efa3bc3f9e8549e56d4db6e0911d8fa20fcd8ab9d88f13d513f26f0"' \
 $    {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/2 304

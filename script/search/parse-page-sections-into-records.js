@@ -1,24 +1,18 @@
+#!/usr/bin/env node
+import { chain } from 'lodash-es'
+import { maxContentLength } from '../../lib/search/config.js'
 // This module takes cheerio page object and divides it into sections
 // using H1,H2 heading elements as section delimiters. The text
 // that follows each heading becomes the content of the search record.
 
-const { chain } = require('lodash')
 const urlPrefix = 'https://docs.github.com'
-const ignoredHeadingSlugs = [
-  'in-this-article',
-  'further-reading'
-]
-const { maxContentLength } = require('../../lib/search/config')
+const ignoredHeadingSlugs = ['in-this-article', 'further-reading']
 
-module.exports = function parsePageSectionsIntoRecords (href, $) {
+export default function parsePageSectionsIntoRecords(href, $) {
   const title = $('h1').text().trim()
   const breadcrumbsArray = $('nav.breadcrumbs a')
     .map((i, el) => {
-      return $(el)
-        .text()
-        .trim()
-        .replace(/\n/g, ' ')
-        .replace(/\s+/g, ' ')
+      return $(el).text().trim().replace(/\n/g, ' ').replace(/\s+/g, ' ')
     })
     .get()
     .slice(0, -1)
@@ -66,7 +60,7 @@ module.exports = function parsePageSectionsIntoRecords (href, $) {
           heading,
           title,
           content,
-          topics
+          topics,
         }
       })
       .get()
@@ -74,24 +68,26 @@ module.exports = function parsePageSectionsIntoRecords (href, $) {
     // There are no sections. Treat the entire article as the record.
     const objectID = href
     const url = [urlPrefix, objectID].join('')
-    const content = $('.article-grid-body p, .article-grid-body ul, .article-grid-body ol, .article-grid-body table')
+    const content = $(
+      '.article-grid-body p, .article-grid-body ul, .article-grid-body ol, .article-grid-body table'
+    )
       .map((i, el) => $(el).text())
       .get()
       .join(' ')
       .trim()
       .slice(0, maxContentLength)
 
-    records = [{
-      objectID,
-      url,
-      breadcrumbs,
-      title,
-      content,
-      topics
-    }]
+    records = [
+      {
+        objectID,
+        url,
+        breadcrumbs,
+        title,
+        content,
+        topics,
+      },
+    ]
   }
 
-  return chain(records)
-    .uniqBy('objectID')
-    .value()
+  return chain(records).uniqBy('objectID').value()
 }

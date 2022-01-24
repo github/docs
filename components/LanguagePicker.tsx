@@ -63,6 +63,7 @@ export const LanguagePicker = ({ variant }: Props) => {
           width: unset;
         }
       `}
+      data-testid="language-picker"
     >
       <summary>
         {selectedLang.nativeName || selectedLang.name}

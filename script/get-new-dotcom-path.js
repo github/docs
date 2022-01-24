@@ -1,9 +1,9 @@
 #!/usr/bin/env node
+import assert from 'assert'
+import { last } from 'lodash-es'
+import fs from 'fs'
+import { execSync } from 'child_process'
 
-const assert = require('assert')
-const { last } = require('lodash')
-const fs = require('fs')
-const { execSync } = require('child_process')
 const markdownExtension = '.md'
 const markdownRegex = new RegExp(`${markdownExtension}$`, 'm')
 

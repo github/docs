@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+import xDotenv from 'dotenv'
+import { execSync } from 'child_process'
+import xRimraf from 'rimraf'
+import fs from 'fs'
+import path from 'path'
+import os from 'os'
 
 // [start-readme]
 //
@@ -8,11 +14,11 @@
 //
 // [end-readme]
 
-require('dotenv').config()
+xDotenv.config()
 const {
   DOCUBOT_REPO_PAT,
   HEROKU_PRODUCTION_APP,
-  GIT_BRANCH // Set by Actions and/or the deployer with the name of the docs-internal branch
+  GIT_BRANCH, // Set by Actions and/or the deployer with the name of the docs-internal branch
 } = process.env
 
 // Exit if PAT is not found
@@ -21,11 +27,7 @@ if (!DOCUBOT_REPO_PAT) {
   process.exit(0)
 }
 
-const { execSync } = require('child_process')
-const rimraf = require('rimraf').sync
-const fs = require('fs')
-const path = require('path')
-const os = require('os')
+const rimraf = xRimraf.sync
 const EA_PRODUCTION_BRANCH = 'main'
 
 // If a branch name is not provided in the environment, attempt to get
@@ -54,14 +56,10 @@ const earlyAccessCloningParentDir = process.env.CI ? os.homedir() : os.tmpdir()
 const earlyAccessCloningDir = path.join(earlyAccessCloningParentDir, earlyAccessRepoName)
 
 const destinationDirNames = ['content', 'data', 'assets/images']
-const destinationDirsMap = destinationDirNames
-  .reduce(
-    (map, dirName) => {
-      map[dirName] = path.join(process.cwd(), dirName, earlyAccessDirName)
-      return map
-    },
-    {}
-  )
+const destinationDirsMap = destinationDirNames.reduce((map, dirName) => {
+  map[dirName] = path.join(process.cwd(), dirName, earlyAccessDirName)
+  return map
+}, {})
 
 // Production vs. staging environment
 // TODO test that this works as expected
@@ -71,20 +69,28 @@ const environment = HEROKU_PRODUCTION_APP ? 'production' : 'staging'
 let earlyAccessBranch = HEROKU_PRODUCTION_APP ? EA_PRODUCTION_BRANCH : currentBranch
 
 // Confirm that the branch exists in the remote
-let branchExists = execSync(`git ls-remote --heads ${earlyAccessFullRepo} ${earlyAccessBranch}`).toString()
+let branchExists = execSync(
+  `git ls-remote --heads ${earlyAccessFullRepo} ${earlyAccessBranch}`
+).toString()
 
 // If the branch did NOT exist, try checking for the default branch instead
 if (!branchExists && earlyAccessBranch !== EA_PRODUCTION_BRANCH) {
-  console.warn(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessRepoName}!`)
+  console.warn(
+    `The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessRepoName}!`
+  )
   console.warn(`Attempting the default branch ${EA_PRODUCTION_BRANCH} instead...`)
 
   earlyAccessBranch = EA_PRODUCTION_BRANCH
-  branchExists = execSync(`git ls-remote --heads ${earlyAccessFullRepo} ${earlyAccessBranch}`).toString()
+  branchExists = execSync(
+    `git ls-remote --heads ${earlyAccessFullRepo} ${earlyAccessBranch}`
+  ).toString()
 }
 
 // If no suitable branch was found, bail out now
 if (!branchExists) {
-  console.error(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessRepoName}!`)
+  console.error(
+    `The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessRepoName}!`
+  )
   console.error('Exiting!')
   process.exit(1)
 }
@@ -97,13 +103,13 @@ console.log(`Setting up: ${earlyAccessCloningDir}`)
 execSync(
   `git clone --single-branch --branch ${earlyAccessBranch} ${earlyAccessFullRepo} ${earlyAccessRepoName}`,
   {
-    cwd: earlyAccessCloningParentDir
+    cwd: earlyAccessCloningParentDir,
   }
 )
 console.log(`Using early-access ${environment} branch: '${earlyAccessBranch}'`)
 
 // Remove all existing early access directories from this repo
-destinationDirNames.forEach(key => rimraf(destinationDirsMap[key]))
+destinationDirNames.forEach((key) => rimraf(destinationDirsMap[key]))
 
 // Move the latest early access source directories into this repo
 destinationDirNames.forEach((dirName) => {

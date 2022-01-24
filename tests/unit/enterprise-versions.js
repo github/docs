@@ -1,12 +1,7 @@
-const patterns = require('../../lib/patterns')
-const {
-  supported,
-  deprecated,
-  all,
-  latest,
-  oldestSupported,
-  nextDeprecationDate
-} = require('../../lib/enterprise-server-releases')
+import patterns from '../../lib/patterns.js'
+import xEnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+const { supported, deprecated, all, latest, oldestSupported, nextDeprecationDate } =
+  xEnterpriseServerReleases
 
 describe('enterpriseServerReleases module', () => {
   test('includes an array of `supported` versions', async () => {

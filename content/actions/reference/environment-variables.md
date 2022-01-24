@@ -64,7 +64,7 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
 | `GITHUB_EVENT_NAME` | The name of the webhook event that triggered the workflow. |
 | `GITHUB_EVENT_PATH` | The path of the file with the complete webhook event payload. For example, `/github/workflow/event.json`. |
-| `GITHUB_WORKSPACE` | The {% data variables.product.prodname_dotcom %} workspace directory path. The workspace directory is a copy of your repository if your workflow uses the [actions/checkout](https://github.com/actions/checkout) action. If you don't use the `actions/checkout` action, the directory will be empty. For example, `/home/runner/work/my-repo-name/my-repo-name`. |
+| `GITHUB_WORKSPACE` | The {% data variables.product.prodname_dotcom %} workspace directory path, initially empty. For example, `/home/runner/work/my-repo-name/my-repo-name`. The [actions/checkout](https://github.com/actions/checkout) action will check out files, by default a copy of your repository, within this directory. |
 | `GITHUB_SHA` | The commit SHA that triggered the workflow. For example, `ffac537e6cbbf934b08745a378932722df287a53`. |
 | `GITHUB_REF` | The branch or tag ref that triggered the workflow. For example, `refs/heads/feature-branch-1`. If neither a branch or tag is available for the event type, the variable will not exist. |
 | `GITHUB_HEAD_REF` | Only set for pull request events. The name of the head branch.

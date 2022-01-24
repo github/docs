@@ -10,6 +10,7 @@ type: tutorial
 topics:
   - CI
   - Ruby
+shortTitle: Build & test Ruby
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -18,6 +18,7 @@ children:
   - /reviewing-your-ssh-keys
   - /reviewing-your-deploy-keys
   - /authorizing-oauth-apps
+  - /authorizing-github-apps
   - /reviewing-your-authorized-integrations
   - /connecting-with-third-party-applications
   - /reviewing-your-authorized-applications-oauth

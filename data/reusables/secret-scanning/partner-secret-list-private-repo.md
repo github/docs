@@ -36,6 +36,10 @@ Azure | Azure Service Management Certificate | azure_management_certificate{% en
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Checkout.com | Checkout.com Test Secret Key | checkout_test_secret_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Clojars | Clojars Deploy Token | clojars_deploy_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
@@ -70,6 +74,10 @@ Facebook | Facebook Access Token | facebook_access_token{% endif %}
 Fastly | Fastly API Token | fastly_api_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Finicity | Finicity App Key | finicity_app_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Flutterwave | Flutterwave Test API Secret Key | flutterwave_test_api_secret_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Frame.io | Frame.io JSON Web Token | frameio_jwt{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
@@ -104,6 +112,10 @@ Intercom | Intercom Access Token | intercom_access_token{% endif %}
 Ionic | Ionic Personal Access Token | ionic_personal_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Ionic | Ionic Refresh Token | ionic_refresh_token{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Linear | Linear API Key | linear_api_key{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-next %}
+Linear | Linear OAuth Access Token | linear_oauth_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Lob | Lob Live API Key | lob_live_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}

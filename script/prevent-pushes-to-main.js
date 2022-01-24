@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-
-const { execSync } = require('child_process')
+import { execSync } from 'child_process'
 
 // [start-readme]
 
@@ -14,9 +13,13 @@ const currentBranch = execSync('git symbolic-ref --short HEAD', { encoding: 'utf
 
 if (currentBranch === productionBranch) {
   console.error('')
-  console.error(`🤚 Whoa! Pushing to the ${productionBranch} branch has been disabled to prevent accidental deployments to production.`)
+  console.error(
+    `🤚 Whoa! Pushing to the ${productionBranch} branch has been disabled to prevent accidental deployments to production.`
+  )
   console.error('')
-  console.error('If you\'re aware of the risks and really want to push to this branch, add --no-verify to bypass this check.')
+  console.error(
+    "If you're aware of the risks and really want to push to this branch, add --no-verify to bypass this check."
+  )
   console.error('')
   process.exit(1)
 }

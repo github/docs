@@ -9,7 +9,7 @@ versions:
 
 {% data reusables.discussions.beta %}
 
-## About collaboration with maintainers using discussions
+## About collaboration with maintainers using {% data variables.product.prodname_discussions %}
 
 {% data reusables.discussions.about-discussions %} If you use or contribute to a project, you can start a discussion to make suggestions and engage with maintainers and community members about your plans, questions, ideas, and feedback. For more information, see "[‎About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
@@ -25,7 +25,7 @@ For more information about participation in discussions, see "[Participating in 
 
 ## Prerequisites
 
-To collaborate with maintainers using discussions, a repository administrator or project maintainer must enable discussions for the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+To collaborate with maintainers in discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
 
 ## Starting a discussion
 

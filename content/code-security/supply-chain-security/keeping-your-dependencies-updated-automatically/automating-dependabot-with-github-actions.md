@@ -5,8 +5,16 @@ permissions: 'People with write permissions to a repository can configure {% dat
 miniTocMaxHeadingLevel: 3
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Actions
+  - Dependabot
+  - Version updates
+  - Security updates
+  - Repositories
+  - Dependencies
+  - Pull requests
+shortTitle: Use Dependabot with actions
 ---
 
 ## About {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %}
@@ -246,7 +254,7 @@ on: pull_request_target
 
 permissions:
   pull-requests: write
-  content: write
+  contents: write
 
 jobs:
   dependabot:
@@ -263,6 +271,7 @@ jobs:
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
 {% endraw %}
 

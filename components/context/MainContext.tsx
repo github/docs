@@ -3,6 +3,7 @@ import pick from 'lodash/pick'
 
 import type { BreadcrumbT } from 'components/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
+import { ExcludesNull } from 'components/lib/ExcludesNull'
 
 type ProductT = {
   external: boolean
@@ -186,7 +187,11 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
 }
 
 // only pull things we need from the product tree, and make sure there are default values instead of `undefined`
-const getCurrentProductTree = (input: any): ProductTreeNode => {
+const getCurrentProductTree = (input: any): ProductTreeNode | null => {
+  if (input.page.hidden) {
+    return null
+  }
+
   return {
     href: input.href,
     renderedShortTitle: input.renderedShortTitle || '',
@@ -197,7 +202,7 @@ const getCurrentProductTree = (input: any): ProductTreeNode => {
       title: input.page.title,
       shortTitle: input.page.shortTitle || '',
     },
-    childPages: (input.childPages || []).map(getCurrentProductTree),
+    childPages: (input.childPages || []).map(getCurrentProductTree).filter(ExcludesNull),
   }
 }
 

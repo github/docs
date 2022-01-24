@@ -11,8 +11,8 @@ shortTitle: Integrate Jira with projects
 ---
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
-3. In the left sidebar, click **{% data variables.product.prodname_oauth_app %}s**.
-![{% data variables.product.prodname_oauth_app %}s tab in the left sidebar](/assets/images/help/settings/developer-settings-oauth-apps.png)
+3. In the left sidebar, click **{% data variables.product.prodname_oauth_apps %}**.
+![{% data variables.product.prodname_oauth_apps %} tab in the left sidebar](/assets/images/help/settings/developer-settings-oauth-apps.png)
 3. Click **Register a new application**.
 4. Under **Application name**, type "Jira".
 5. Under **Homepage URL**, type the full URL to your Jira instance.

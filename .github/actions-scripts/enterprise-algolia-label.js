@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const core = require('@actions/core')
+import fs from 'fs'
+import { setOutput } from '@actions/core'
+
 const eventPayload = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'))
 
 // This workflow-run script does the following:
@@ -19,8 +20,8 @@ if (!(labelsArray && labelsArray.length)) {
 
 // Find the relevant label
 const algoliaLabel = labelsArray
-  .map(label => label.name)
-  .find(label => label.startsWith(labelText))
+  .map((label) => label.name)
+  .find((label) => label.startsWith(labelText))
 
 // Exit early if no relevant label is found
 if (!algoliaLabel) {
@@ -32,5 +33,5 @@ if (!algoliaLabel) {
 const versionToSync = algoliaLabel.split(labelText)[1]
 
 // Store the version so we can access it later in the workflow
-core.setOutput('versionToSync', versionToSync)
+setOutput('versionToSync', versionToSync)
 process.exit(0)

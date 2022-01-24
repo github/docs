@@ -19,7 +19,7 @@ shortTitle: Rate limits
 
 {% ifversion fpt %}
 
-Different server-to-server request rate limits apply to {% data variables.product.prodname_github_app %}s if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account.
+Different server-to-server request rate limits apply to {% data variables.product.prodname_github_apps %} if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account.
 
 ### Normal server-to-server rate limits
 
@@ -31,17 +31,17 @@ Different server-to-server request rate limits apply to {% data variables.produc
 
 ### {% data variables.product.prodname_ghe_cloud %} server-to-server rate limits
 
-{% data variables.product.prodname_github_app %}s that are installed on an organization or repository owned by a {% data variables.product.prodname_ghe_cloud %} account and make server-to-server requests have a rate limit of 15,000 requests per hour.
+{% data variables.product.prodname_github_apps %} that are installed on an organization or repository owned by a {% data variables.product.prodname_ghe_cloud %} account and make server-to-server requests have a rate limit of 15,000 requests per hour.
 
 {% endif %}
 
 ## User-to-server requests
 
-{% data variables.product.prodname_github_app %}s can also act [on behalf of a user](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), making user-to-server requests.
+{% data variables.product.prodname_github_apps %} can also act [on behalf of a user](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), making user-to-server requests.
 
 {% ifversion fpt %}
 
-Different user-to-server request rate limits apply to {% data variables.product.prodname_github_app %}s if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account and the authenticated user also belongs to the same {% data variables.product.prodname_ghe_cloud %} account.
+Different user-to-server request rate limits apply to {% data variables.product.prodname_github_apps %} if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account and the authenticated user also belongs to the same {% data variables.product.prodname_ghe_cloud %} account.
 
 ### Normal user-to-server rate limits
 

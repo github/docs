@@ -15,8 +15,9 @@ export const SidebarProduct = () => {
     // Setting to the top doesn't give enough context of surrounding categories
     activeArticle?.scrollIntoView({ block: 'center' })
     // scrollIntoView affects some articles that are very low in the sidebar
-    // The content scrolls down a bit. This sets the article content back up top
-    window?.scrollTo(0, 0)
+    // The content scrolls down a bit. This sets the article content back up
+    // top unless the route contains a link heading.
+    if (!router.asPath.includes('#')) window?.scrollTo(0, 0)
   }, [])
 
   if (!currentProductTree) {

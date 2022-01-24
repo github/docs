@@ -14,16 +14,15 @@ redirect_from:
 
 After a student accepts an assignment with an online IDE, the README file in the student's assignment repository will contain a button to open the assignment in the IDE. The student can begin working immediately, and no additional configuration is necessary.
 
-![Button for online IDE in README.md for assignment repository](/assets/images/help/classroom/assignment-repository-ide-button-in-readme.png)
+## Supported online IDE
 
-## Supported online IDEs
-
-{% data variables.product.prodname_classroom %} supports the following online IDEs. You can learn more about the student experience for each IDE.
+{% data variables.product.prodname_classroom %} supports the following online IDE. You can learn more about the student experience for each IDE.
 
 | IDE | More information |
 | :- | :- |
 | Microsoft MakeCode Arcade | "[About using MakeCode Arcade with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| Repl.it | "[About using Repl.it with GitHub Classroom](/education/manage-coursework-with-github-classroom/about-using-replit-with-github-classroom)" |
+
+We know cloud IDE integrations are important to your classroom and are working to bring more options. 
 
 ## Configuring an online IDE for an assignment
 
@@ -32,8 +31,6 @@ You can choose the online IDE you'd like to use for an assignment when you creat
 ## Authorizing the OAuth app for an online IDE
 
 The first time you configure an assignment with an online IDE, you must authorize the OAuth app for the online IDE for your organization.
-
-!["Go grant access" button in popover for authorizing OAuth app for online IDE](/assets/images/help/classroom/assignment-ide-go-grant-access-button.png)
 
 For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps)."
 

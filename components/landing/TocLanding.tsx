@@ -8,8 +8,16 @@ import { ArticleList } from 'components/landing/ArticleList'
 import { useTranslation } from 'components/hooks/useTranslation'
 
 export const TocLanding = () => {
-  const { title, introPlainText, tocItems, productCallout, variant, featuredLinks, isEarlyAccess, renderedEarlyAccessPage } =
-    useTocLandingContext()
+  const {
+    title,
+    introPlainText,
+    tocItems,
+    productCallout,
+    variant,
+    featuredLinks,
+    isEarlyAccess,
+    renderedEarlyAccessPage,
+  } = useTocLandingContext()
   const { t } = useTranslation('toc')
 
   return (
@@ -68,14 +76,15 @@ export const TocLanding = () => {
                   </div>
                 </div>
               )}
-              {isEarlyAccess &&
+              {isEarlyAccess && (
                 <div className="markdown-body">
                   <div
                     id="article-contents"
                     className="article-grid-body"
                     dangerouslySetInnerHTML={{ __html: renderedEarlyAccessPage }}
                   />
-                </div>}
+                </div>
+              )}
               <TableOfContents items={tocItems} variant={variant} />
             </div>
           </div>

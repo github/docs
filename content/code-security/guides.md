@@ -54,6 +54,7 @@ includeGuides:
   - /code-security/security-advisories/withdrawing-a-security-advisory
   - /code-security/security-overview/exploring-security-alerts
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates
