@@ -2,7 +2,7 @@
 title: Registro de auditoría
 intro: '{% data variables.product.product_name %} mantiene las bitácoras de los eventos auditados de{% ifversion ghes %} sistemas,{% endif %} usuarios, organizaciones, y repositorios. Los registros son útiles para la depuración y el cumplimiento interno y externo.'
 redirect_from:
-  - /enterprise/admin/articles/audit-logging/
+  - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
   - /enterprise/admin/user-management/audit-logging
   - /admin/user-management/audit-logging

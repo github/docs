@@ -83,11 +83,27 @@ export default function handleRedirects(req, res, next) {
     cacheControl(res)
   }
 
+  const permanent = usePermanentRedirect(req)
+  return res.redirect(permanent ? 301 : 302, redirect)
+}
+
+function usePermanentRedirect(req) {
+  // If the redirect was to essentially swap `enterprise-server@latest`
+  // for `enterprise-server@3.x` then, we definitely don't want to
+  // do a permanent redirect.
+  // When this is the case, we don't want a permanent redirect because
+  // it could overzealously cache in the users' browser which could
+  // be bad when whatever "latest" means changes.
+  if (req.path.includes('/enterprise-server@latest')) return false
+
   // If the redirect involved injecting a language prefix, then don't
   // permanently redirect because that could overly cache in users'
   // browsers if we some day want to make the language redirect
   // depend on a cookie or 'Accept-Language' header.
-  return res.redirect(pathLanguagePrefixed(req.path) ? 301 : 302, redirect)
+  if (pathLanguagePrefixed(req.path)) return true
+
+  // The default is to *not* do a permanent redirect.
+  return false
 }
 
 function removeQueryParams(redirect) {

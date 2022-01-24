@@ -1,5 +1,5 @@
 ---
-title: Extending GitHub
+title: Extensões do GitHub
 redirect_from:
   - /categories/86/articles
   - /categories/automation

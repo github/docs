@@ -1,6 +1,6 @@
 ---
-title: Activity dashboard
-intro: The Activity dashboard gives you an overview of all the activity in your enterprise.
+title: 活动仪表板
+intro: 活动仪表板提供企业中所有活动的概览。
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard
   - /enterprise/admin/installation/activity-dashboard
@@ -12,22 +12,21 @@ versions:
 topics:
   - Enterprise
 ---
-The Activity dashboard provides weekly, monthly, and yearly graphs of the number of:
-- New pull requests
-- Merged pull requests
-- New issues
-- Closed issues
-- New issue comments
-- New repositories
-- New user accounts
-- New organizations
-- New teams
 
-![Activity dashboard](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
+活动仪表板提供以下活动数量的周图、月度图和年度图表：
+- 新拉取请求
+- 已合并拉取请求
+- 新问题
+- 已关闭问题
+- 新问题评论
+- 新仓库
+- 新用户帐户
+- 新组织
+- 新团队
 
-## Accessing the Activity dashboard
+![活动仪表板](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-1. At the top of any page, click **Explore**.
-![Explore tab](/assets/images/enterprise/settings/ent-new-explore.png)
-2. In the upper-right corner, click **Activity**.
-![Activity button](/assets/images/enterprise/activity/activity-button.png)
+## 访问活动仪表板
+
+1. 在任一页面顶部，单击 **Explore**。 ![Explore 选项卡](/assets/images/enterprise/settings/ent-new-explore.png)
+2. 在右上角单击 **Activity**。 ![Activity 按钮](/assets/images/enterprise/activity/activity-button.png)

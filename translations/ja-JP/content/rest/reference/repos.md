@@ -1,5 +1,5 @@
 ---
-title: Repositories
+title: リポジトリ
 intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} repositories.'
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -21,7 +21,7 @@ miniTocMaxHeadingLevel: 3
 {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4742 %}
 ## Autolinks
 
-To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. 詳しい情報については「[外部リソースを参照する自動リンクの設定](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)」を参照してください。
 
 {% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
 
@@ -31,35 +31,34 @@ To help streamline your workflow, you can use the API to add autolinks to extern
 {% endif %}
 
 
-## Contents
+## コンテンツ
 
-These API endpoints let you create, modify, and delete Base64 encoded content in a repository. To request the raw format or rendered HTML (when supported), use custom media types for repository contents.
+これらの API エンドポイントを使用すると、リポジトリ内の Base64 でエンコードされたコンテンツを作成、変更、削除できます。 Raw 形式またはレンダリングされた HTML (サポートされている場合) をリクエストするには、リポジトリのコンテンツにカスタムメディアタイプを使用します。
 
-### Custom media types for repository contents
+### リポジトリコンテンツのカスタムメディアタイプ
 
-[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
+[README](/rest/reference/repos#get-a-repository-readme)、[ファイル](/rest/reference/repos#get-repository-content)、[シンボリックリンク](/rest/reference/repos#get-repository-content)は以下のカスタムメディアタイプをサポートしています。
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
 
-Use the `.raw` media type to retrieve the contents of the file.
+ファイルのコンテンツを取得するには、`.raw` メディアタイプを使ってください。
 
-For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
+Markdown や AsciiDoc などのマークアップファイルでは、`.html` メディアタイプを使用して、レンダリングされた HTML を取得できます。 マークアップ言語は、オープンソースの[マークアップライブラリ](https://github.com/github/markup)を使用して HTML にレンダリングされます。
 
-[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
+[すべてのオブジェクト](/rest/reference/repos#get-repository-content)は、以下のカスタムメディアタイプをサポートしています。
 
     application/vnd.github.VERSION.object
 
-Use the `object` media type parameter to retrieve the contents in a consistent object format regardless of the content type. For example, instead of an array of objects
-for a directory, the response will be an object with an `entries` attribute containing the array of objects.
+コンテンツのタイプに関係なく、一貫したオブジェクトフォーマットを取得するには、`object` メディアタイプパラメータを使用します。 たとえば、レスポンスはディレクトリに対するオブジェクトの配列ではなく、オブジェクトの配列を含む `entries` 属性のオブジェクトになります。
 
-You can read more about the use of media types in the API [here](/rest/overview/media-types).
+API でのメディアタイプの使用について詳しくは、[こちら](/rest/overview/media-types)をご覧ください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Forks
+## フォーク
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'forks' %}{% include rest_operation %}{% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Managing the visibility of your projects (beta)
-intro: 'You can control who can view your projects.'
+title: Gerenciando a visibilidade dos seus projetos (beta)
+intro: Você pode controlar quem pode ver seus projetos.
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -13,19 +13,21 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## About project visibility
+## Sobre a visibilidade do projeto
 
-Projects (beta) can be public or private. For public projects, everyone on the internet can view the project. For private projects, only users granted at least read access can see the project.
+Os projetos (beta) podem ser públicos ou privados. Para projetos públicos, todos na Internet podem ver o projeto. Para projetos privados, apenas usuários concedidos pelo menos acessos de leitura podem ver o projeto.
 
-Only the project visibility is affected; to view an item on the project, someone must have the required permissions for the repository that the item belongs to. If your project includes items from a private repository, people who are not collaborators in the repository will not be able to view items from that repository.
+Apenas a visibilidade do projeto é afetada. Para ver um item no projeto, alguém deve ter as permissões necessárias para o repositório ao qual o item pertence. Se o seu projeto incluir itens de um repositório privado, pessoas que não forem colaboradores no repositório não poderão visualizar os itens desse repositório.
 
-![Project with hidden item](/assets/images/help/projects/hidden-items.png)
+![Projeto com item oculto](/assets/images/help/projects/hidden-items.png)
 
-Only project admins can control project visibility.
+Somente os administradores do projeto podem controlar a visibilidade do projeto.
 
-Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see "[Managing access to projects](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)."
+In private, organization-owned projects, the avatars of users who are current making updates to the project are displayed in the project UI.
 
-## Changing project visibility
+Os administradores do projeto também podem gerenciar o acesso de gravação e administração ao seu projeto e controlar o acesso de leitura para usuários individuais. Para obter mais informações, consulte "[Gerenciando o acesso aos projetos](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)".
+
+## Alterando a visibilidade do projeto
 
 {% data reusables.projects.project-settings %}
-1. Under **Visibility**, select **Private** or **Public**.
+1. Em **Visibilidade**, selecione **Privado** ou **Público**.

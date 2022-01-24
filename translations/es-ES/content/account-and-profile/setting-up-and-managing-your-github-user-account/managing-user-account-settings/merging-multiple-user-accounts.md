@@ -16,9 +16,23 @@ shortTitle: Merge multiple user accounts
 ---
 {% tip %}
 
-**Tip:** We recommend using only one user account to manage both personal and professional repositories.
+{% ifversion ghec %}
+
+**Tip:** {% data variables.product.prodname_emus %} allow an enterprise to provision unique user accounts for its members through an identity provider (IdP). For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)." For other use cases, we recommend using only one user account to manage both personal and professional repositories.
+
+{% else %}
+
+**Tip:** We recommend using only one user account to manage both personal and professional repositories. 
+
+{% endif %}
 
 {% endtip %}
+
+{% warning %}
+
+**Warning:** Organization and repository access permissions aren't transferable between accounts. If the account you want to delete has an existing access permission, an organization owner or repository administrator will need to invite the account that you want to keep.
+
+{% endwarning %}
 
 1. [Transfer any repositories](/articles/how-to-transfer-a-repository) from the account you want to delete to the account you want to keep. Issues, pull requests, and wikis are transferred as well. Verify the repositories exist on the account you want to keep.
 2. [Update the remote URLs](/github/getting-started-with-github/managing-remote-repositories) in any local clones of the repositories that were moved.

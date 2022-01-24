@@ -1,6 +1,6 @@
 ---
-title: What happens to forks when a repository is deleted or changes visibility?
-intro: Deleting your repository or changing its visibility affects that repository's forks.
+title: O que acontece com as bifurcações quando um repositório é excluído ou muda de visibilidade?
+intro: A exclusão do repositório ou a mudança na visibilidade dele afeta as bifurcações desse repositório.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /articles/changing-the-visibility-of-a-network
@@ -14,70 +14,71 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Deleted or changes visibility
+shortTitle: Visibilidade excluída ou alterada
 ---
+
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-## Deleting a private repository
+## Excluir um repositório privado
 
-When you delete a private repository, all of its private forks are also deleted.
+Quando você exclui um repositório privado, todas as bifurcações privadas dele também são excluídas.
 
 {% ifversion fpt or ghes or ghec %}
 
-## Deleting a public repository
+## Excluir um repositório público
 
-When you delete a public repository, one of the existing public forks is chosen to be the new parent repository. All other repositories are forked off of this new parent and subsequent pull requests go to this new parent.
+Quando você exclui um repositório público, uma das bifurcações públicas existentes é escolhida para ser o novo repositório principal. Todos os outros repositórios são bifurcados a partir desse principal e as pull request subsequentes vão para ele também.
 
 {% endif %}
 
-## Private forks and permissions
+## Permissões e bifurcações privadas
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
 {% ifversion fpt or ghes or ghec %}
 
-## Changing a public repository to a private repository
+## Mudar de repositório público para repositório privado
 
-If a public repository is made private, its public forks are split off into a new network. As with deleting a public repository, one of the existing public forks is chosen to be the new parent repository and all other repositories are forked off of this new parent. Subsequent pull requests go to this new parent.
+Se um repositório público passa a ser privado, as bifurcações públicas dele são divididas em uma nova rede. Assim como na exclusão de um repositório público, uma das bifurcações públicas existentes é escolhida para ser o novo repositório principal, todos os outros repositórios são bifurcados a partir dele e as pull requests subsequentes vão para esse repositório também.
 
-In other words, a public repository's forks will remain public in their own separate repository network even after the parent repository is made private. This allows the fork owners to continue to work and collaborate without interruption. If public forks were not moved into a separate network in this way, the owners of those forks would need to get the appropriate [access permissions](/articles/access-permissions-on-github) to pull changes from and submit pull requests to the (now private) parent repository—even though they didn't need those permissions before.
+Ou seja, as bifurcações de um repositório público permanecerão públicas na própria rede de repositório separada, mesmo depois que o repositório principal se tornar privado. Isso permite que os proprietários da bifurcação continuem trabalhando e colaborando sem interrupção. Se as bifurcações públicas não tiverem sido movidas para uma rede separada dessa forma, os proprietários dessas bifurcações precisarão obter as [permissões de acesso](/articles/access-permissions-on-github) apropriadas para fazer pull de alterações do repositório principal (agora privado) e enviar pull requests para ele, ainda que antes não precisassem dessas permissões.
 
 {% ifversion ghes or ghae %}
-If a public repository has anonymous Git read access enabled and the repository is made private, all of the repository's forks will lose anonymous Git read access and return to the default disabled setting. If a forked repository is made public, repository administrators can re-enable anonymous Git read access. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
+Se um repositório público tiver acesso de leitura anônimo do Git habilitado e o repositório passar a ser privado, todas as bifurcações do repositório perderão o acesso de leitura anônimo do Git e retornarão à configuração padrão desabilitada. Se um repositório bifurcado passar a ser público, os administradores dele poderão reabilitar o acesso de leitura anônimo do Git. Para obter mais informações, consulte "[Habilitar acesso de leitura anônimo do Git para um repositório](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)".
 {% endif %}
 
-### Deleting the private repository
+### Excluir o repositório privado
 
-If a public repository is made private and then deleted, its public forks will continue to exist in a separate network.
+Se um repositório público passa ser privado e depois é excluído, as bifurcações públicas dele continuam existindo em uma rede separada.
 
-## Changing a private repository to a public repository
+## Mudar de repositório privado para repositório público
 
-If a private repository is made public, each of its private forks is turned into a standalone private repository and becomes the parent of its own new repository network. Private forks are never automatically made public because they could contain sensitive commits that shouldn't be exposed publicly.
+Se um repositório privado passa a ser público, cada uma das bifurcações privadas dele é transformada em um repositório privado autônomo e se torna o principal da própria rede de repositório nova. As bifurcações privadas nunca são transformadas em públicas de forma automática porque podem conter commits confidenciais que não devem ser expostos publicamente.
 
-### Deleting the public repository
+### Excluir o repositório público
 
-If a private repository is made public and then deleted, its private forks will continue to exist as standalone private repositories in separate networks.
+Se um repositório privado passa a ser público e depois é excluído, as bifurcações privadas dele continuam existindo como repositórios privados autônomos em redes separadas.
 
 {% endif %}
 
 {% ifversion ghes or ghec or ghae %}
 
-## Changing the visibility of an internal repository
+## Alterar a visibilidade de um repositório interno
 
 
 
-If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
+Se a política para a sua empresa permitir a bifurcação, qualquer bifurcação de um repositório interno será privado. Se você alterar a visibilidade de um repositório interno, qualquer bifurcação pertencente a uma organização ou conta de usuário continuará sendo privada.
 
-### Deleting the internal repository
+### Excluir o repositório interno
 
-If you change the visibility of an internal repository and then delete the repository, the forks will continue to exist in a separate network.
+Se você alterar a visibilidade de um repositório interno e, em seguida, excluir o repositório, as bifurcações continuarão a existir em uma rede separada.
 
 {% endif %}
 
-## Further reading
+## Leia mais
 
-- "[Setting repository visibility](/articles/setting-repository-visibility)"
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
-- "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
-- "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"
+- "[Definir a visibilidade de um repositório](/articles/setting-repository-visibility)"
+- "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[Gerenciando a política de bifurcação de seu repositório](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
+- "[Gerenciar a política de bifurcação para sua organização](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
+- "[Aplicando políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"

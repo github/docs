@@ -1,6 +1,6 @@
 ---
-title: Delivering deployments
-intro: 'Using the Deployments REST API, you can build custom tooling that interacts with your server and a third-party app.'
+title: 交付部署
+intro: 使用部署 REST API，您可以构建与您的服务器和第三方应用程序交互的自定义工具。
 redirect_from:
   - /guides/delivering-deployments
   - /guides/automating-deployments-to-integrators
@@ -16,33 +16,23 @@ topics:
  
   
 
-The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with
-the capability to launch them on a server that you own. Combined with
-[the Status API][status API], you'll be able to coordinate your deployments
-the moment your code lands on the default branch.
+[部署 API][deploy API] 为您托管在 {% data variables.product.product_name %} 上的项目提供在您自己的服务器上启动它们的功能。 结合 [状态 API][status API]，您将能够在您的代码到达 `master` 时协调部署。
 
-This guide will use that API to demonstrate a setup that you can use.
-In our scenario, we will:
+本指南将使用该 API 来演示您可以使用的设置。 在我们的场景中，我们将：
 
-* Merge a pull request
-* When the CI is finished, we'll set the pull request's status accordingly.
-* When the pull request is merged, we'll run our deployment to our server.
+* 合并拉取请求
+* 在 CI 完成后，我们将相应地设置拉取请求的状态。
+* 合并拉取请求后，我们将在服务器上运行部署。
 
-Our CI system and host server will be figments of our imagination. They could be
-Heroku, Amazon, or something else entirely. The crux of this guide will be setting up
-and configuring the server managing the communication.
+我们的 CI 系统和主机服务器将是我们想象中的虚拟物。 它们可能是 Heroku、Amazon 或其他完全不同的工具。 本指南的重点是设置和配置负责管理通信的服务器。
 
-If you haven't already, be sure to [download ngrok][ngrok], and learn how
-to [use it][using ngrok]. We find it to be a very useful tool for exposing local
-connections.
+请务必[下载 ngrok][ngrok]（如果尚未下载），并了解如何[使用它][using ngrok]。 我们发现它在暴露本地连接方面是一款非常有用的工具。
 
-Note: you can download the complete source code for this project
-[from the platform-samples repo][platform samples].
+注：您可以[从平台样本仓库][platform samples]下载此项目的完整源代码。
 
-## Writing your server
+## 编写服务器
 
-We'll write a quick Sinatra app to prove that our local connections are working.
-Let's start with this:
+我们将编写一个快速的 Sinatra 应用程序，以证明我们的本地连接工作正常。 首先编写以下代码：
 
 ``` ruby
 require 'sinatra'
@@ -54,31 +44,21 @@ post '/event_handler' do
 end
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
+（如果您不熟悉 Sinatra 的工作方式，建议您阅读 [ Sinatra 指南][Sinatra]）。
 
-Start this server up. By default, Sinatra starts on port `4567`, so you'll want
-to configure ngrok to start listening for that, too.
+启动此服务器。 默认情况下，Sinatra 在端口 `4567` 上启动，因此您还需要配置 ngrok 开始监听。
 
-In order for this server to work, we'll need to set a repository up with a webhook.
-The webhook should be configured to fire whenever a pull request is created, or merged.
-Go ahead and create a repository you're comfortable playing around in. Might we
-suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
-After that, you'll create a new webhook in your repository, feeding it the URL
-that ngrok gave you, and choosing `application/x-www-form-urlencoded` as the
-content type:
+为了使此服务器正常工作，我们需要使用 web 挂钩来设置一个仓库。 Web 挂钩应配置为在创建或合并拉取请求时触发。 继续创建一个您可以自由支配的仓库。 我们可以推荐 [@octocat 的 Spoon/Knife 仓库](https://github.com/octocat/Spoon-Knife)吗？ 之后，您将在自己的仓库中创建新的 web 挂钩，向其馈送 ngrok 给您的 URL，并选择 `application/x-www-form-urlencoded` 作为内容类型：
 
-![A new ngrok URL](/assets/images/webhook_sample_url.png)
+![新的 ngrok URL](/assets/images/webhook_sample_url.png)
 
-Click **Update webhook**. You should see a body response of `Well, it worked!`.
-Great! Click on **Let me select individual events.**, and select the following:
+单击 **Update webhook**。 您应该会看到正文为 `Well, it worked!` 的响应。 太好了！ 单击 **Let me select individual events（让我选择单个事件）**，然后选择以下项：
 
-* Deployment
-* Deployment status
-* Pull Request
+* 部署
+* 部署状态
+* 拉取请求
 
-These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
-occurs. We'll configure our server to *just* handle when pull requests are merged
-right now:
+在发生相关操作时，{% data variables.product.product_name %} 会将这些事件发送到我们的服务器。 我们将服务器配置为*仅*在合并拉取请求时立即处理：
 
 ``` ruby
 post '/event_handler' do
@@ -93,20 +73,15 @@ post '/event_handler' do
 end
 ```
 
-What's going on? Every event that {% data variables.product.product_name %} sends out attached a `X-GitHub-Event`
-HTTP header. We'll only care about the PR events for now. When a pull request is
-merged (its state is `closed`, and `merged` is `true`), we'll kick off a deployment.
+发生了什么？ {% data variables.product.product_name %} 发送的每个事件都附有 `X-GitHub-Event` HTTP 标头。 我们现在只关注拉取请求事件。 当拉取请求被合并时（其状态为 `closed`，并且 `merged` 为 `true`），我们将启动部署。
 
-To test out this proof-of-concept, make some changes in a branch in your test
-repository, open a pull request, and merge it. Your server should respond accordingly!
+要测试此概念验证，请在测试仓库的分支中进行一些更改，打开拉取请求，然后合并它。 您的服务器应该会做出相应的响应！
 
-## Working with deployments
+## 处理部署
 
-With our server in place, the code being reviewed, and our pull request
-merged, we want our project to be deployed.
+服务器已就位，代码在接受审查，拉取请求已合并，现在我们需要部署项目。
 
-We'll start by modifying our event listener to process pull requests when they're
-merged, and start paying attention to deployments:
+我们将首先修改事件侦听器，以便在拉取请求被合并时对其进行处理，并开始关注部署：
 
 ``` ruby
 when "pull_request"
@@ -120,8 +95,7 @@ when "deployment_status"
 end
 ```
 
-Based on the information from the pull request, we'll start by filling out the
-`start_deployment` method:
+根据拉取请求中的信息，我们将首先填写 `start_deployment` 方法：
 
 ``` ruby
 def start_deployment(pull_request)
@@ -131,19 +105,13 @@ def start_deployment(pull_request)
 end
 ```
 
-Deployments can have some metadata attached to them, in the form of a `payload`
-and a `description`. Although these values are optional, it's helpful to use
-for logging and representing information.
+部署可以附加一些元数据，其形式为 `payload` 和 `description`。 尽管这些值是可选的，但对于记录和表示信息很有帮助。
 
-When a new deployment is created, a completely separate event is triggered. That's
-why we have a new `switch` case in the event handler for `deployment`. You can
-use this information to be notified when a deployment has been triggered.
+创建新部署时，将触发完全独立的事件。 因此我们的事件处理程序中有一个用于 `deployment` 的新 `switch` 单元。 在触发部署时，您可以根据此信息得到通知。
 
-Deployments can take a rather long time, so we'll want to listen for various events,
-such as when the deployment was created, and what state it's in.
+部署可能需要很长时间，因此我们需要侦听各种事件，例如，部署创建时间以及部署处于什么状态。
 
-Let's simulate a deployment that does some work, and notice the effect it has on
-the output. First, let's complete our `process_deployment` method:
+让我们模拟一个能够完成某些工作的部署，并注意它对输出的影响。 首先，我们来完成 `process_deployment` 方法：
 
 ``` ruby
 def process_deployment
@@ -157,7 +125,7 @@ def process_deployment
 end
 ```
 
-Finally, we'll simulate storing the status information as console output:
+最后，我们将模拟将状态信息存储为控制台输出：
 
 ``` ruby
 def update_deployment_status
@@ -165,27 +133,20 @@ def update_deployment_status
 end
 ```
 
-Let's break down what's going on. A new deployment is created by `start_deployment`,
-which triggers the `deployment` event. From there, we call `process_deployment`
-to simulate work that's going on. During that processing, we also make a call to
-`create_deployment_status`, which lets a receiver know what's going on, as we
-switch the status to `pending`.
+我们来分析一下发生了什么。 一个新的部署由 `start_support` 创建，它触发 `deployment` 事件。 我们从那里调用 `process_deployment` 来模拟正在进行的工作。 在处理过程中，我们还调用 `create_deployment_status`，当我们将状态切换到 `pending` 时，它让接收者知道发生了什么。
 
-After the deployment is finished, we set the status to `success`.
+部署完成后，我们将状态设置为 `success`。
 
-## Conclusion
+## 结论
 
-At GitHub, we've used a version of [Heaven][heaven] to manage
-our deployments for years. A common flow is essentially the same as the
-server we've built above:
+在 GitHub，我们多年来一直使用 [Heaven][heaven] 版本来管理部署。 共同流程本质上与我们上面构建的服务器基本相同：
 
-* Wait for a response on the state of the CI checks (success or failure)
-* If the required checks succeed, merge the pull request
-* Heaven takes the merged code, and deploys it to staging and production servers
-* In the meantime, Heaven also notifies everyone about the build, via [Hubot][hubot] sitting in our chat rooms
+* 等待 CI 检查状态的响应（成功或失败）
+* 如果所需的检查成功，则合并拉取请求
+* Heaven 提取合并的代码，并将其部署到暂存和生产服务器上
+* 同时。Heaven 还通过坐在我们聊天室中的 [Hubot][hubot] 通知所有人有关构建的信息
 
-That's it! You don't need to build your own deployment setup to use this example.
-You can always rely on [GitHub integrations][integrations].
+搞定！ 使用此示例并不需要构建自己的部署设置。 您始终可以依赖 [GitHub 集成][integrations]。
 
 [deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
@@ -193,11 +154,6 @@ You can always rely on [GitHub integrations][integrations].
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/delivering-deployments
 [Sinatra]: http://www.sinatrarb.com/
-[webhook]: /webhooks/
-[octokit.rb]: https://github.com/octokit/octokit.rb
-[access token]: /articles/creating-an-access-token-for-command-line-use
-[travis api]: https://api.travis-ci.org/docs/
-[janky]: https://github.com/github/janky
 [heaven]: https://github.com/atmos/heaven
 [hubot]: https://github.com/github/hubot
 [integrations]: https://github.com/integrations

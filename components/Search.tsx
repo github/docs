@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, ReactNode, RefObject } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import cx from 'classnames'
-import { ActionList, DropdownMenu, Label, Overlay } from '@primer/components'
+import { ActionList, DropdownMenu, Flash, Label, Overlay } from '@primer/components'
 import { ItemInput } from '@primer/components/lib/ActionList/List'
 
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -176,20 +176,28 @@ export function Search({
             'pt-9 color-bg-default color-shadow-medium position-absolute top-0 right-0',
           styles.resultsContainer,
           isHeaderSearch && styles.resultsContainerHeader,
-          query ? 'd-block' : 'd-none',
-          query && styles.resultsContainerOpen
+          query || searchError ? 'd-block' : 'd-none',
+          (query || searchError) && styles.resultsContainerOpen
         )}
       >
-        <ShowSearchResults
-          anchorRef={inputRef}
-          isHeaderSearch={isHeaderSearch}
-          isMobileSearch={isMobileSearch}
-          isLoading={isLoading}
-          results={previousResults}
-          closeSearch={closeSearch}
-          debug={debug}
-          query={query}
-        />
+        {searchError ? (
+          <ShowSearchError
+            error={searchError}
+            isHeaderSearch={isHeaderSearch}
+            isMobileSearch={isMobileSearch}
+          />
+        ) : (
+          <ShowSearchResults
+            anchorRef={inputRef}
+            isHeaderSearch={isHeaderSearch}
+            isMobileSearch={isMobileSearch}
+            isLoading={isLoading}
+            results={previousResults}
+            closeSearch={closeSearch}
+            debug={debug}
+            query={query}
+          />
+        )}
       </div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
@@ -206,7 +214,7 @@ export function Search({
   )
 
   const SearchInput = (
-    <div data-testid="search" aria-hidden="true">
+    <div data-testid="search">
       <div className="position-relative z-2">
         <form role="search" className="width-full d-flex" noValidate onSubmit={onFormSubmit}>
           <label className="text-normal width-full">
@@ -272,6 +280,33 @@ function useDebounce<T>(value: T, delay?: number): [T, (value: T) => void] {
   }, [value, delay])
 
   return [debouncedValue, setDebouncedValue]
+}
+
+function ShowSearchError({
+  error,
+  isHeaderSearch,
+  isMobileSearch,
+}: {
+  error: Error
+  isHeaderSearch: boolean
+  isMobileSearch: boolean
+}) {
+  const { t } = useTranslation('search')
+  return (
+    <Flash
+      variant="danger"
+      sx={{ margin: isMobileSearch || isHeaderSearch ? '2rem 2rem 0 2em' : '1rem' }}
+    >
+      <p>{t('search_error')}</p>
+      {process.env.NODE_ENV === 'development' && (
+        <p>
+          <small>
+            <code>{error.toString()}</code>
+          </small>
+        </p>
+      )}
+    </Flash>
+  )
 }
 
 function ShowSearchResults({
@@ -347,23 +382,6 @@ function ShowSearchResults({
   }, [selectedVersion])
 
   if (results) {
-    if (results.length === 0) {
-      // When there results, but exactly 0, it matters if this is the overlay or not.
-      if (isHeaderSearch) {
-        return (
-          <div className="mt-5 px-6">
-            {isLoading ? <span>{t('loading')}...</span> : <span>{t('no_results')}.</span>}
-          </div>
-        )
-      } else {
-        return (
-          <p data-testid="no-search-results" className="d-block mt-4">
-            {t('no_results')}.
-          </p>
-        )
-      }
-    }
-
     const ActionListResults = (
       <div
         data-testid="search-results"
@@ -373,7 +391,7 @@ function ShowSearchResults({
           isHeaderSearch && 'overflow-auto'
         )}
       >
-        <div className="mt-4 pb-4 width-full border-bottom">
+        <div className={cx(styles.versionSearchContainer, 'mt-4 pb-4 width-full border-bottom')}>
           <p className={cx(styles.searchWording, 'f6 ml-4 d-inline-block')}>
             You're searching the <strong>{searchVersion}</strong> version.
           </p>
@@ -389,8 +407,16 @@ function ShowSearchResults({
         </div>
         {/* We might have results AND isLoading. For example, the user typed
         a first word, and is now typing more. */}
-        <p className="d-block ml-4 mt-4">
-          {isLoading ? <span>{t('loading')}...</span> : <span>&nbsp;</span>}
+        {isLoading && (
+          <p className="d-block ml-4 mt-4">
+            <span>{t('loading')}...</span>
+          </p>
+        )}
+        <h1 className="ml-4 f2 mt-4">
+          {t('search_results_for')}: {query}
+        </h1>
+        <p className="ml-4 mb-4 text-normal f5">
+          {t('matches_displayed')}: {results.length === 0 ? t('no_results') : results.length}
         </p>
 
         <ActionList
@@ -421,8 +447,8 @@ function ShowSearchResults({
                             score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
                           </small>
                         )}
-                        <div
-                          className={cx('mt-2 d-block f4 text-semibold')}
+                        <h2
+                          className={cx('mt-2 text-normal f3 d-block')}
                           dangerouslySetInnerHTML={{
                             __html: title,
                           }}
@@ -433,7 +459,7 @@ function ShowSearchResults({
                           dangerouslySetInnerHTML={{ __html: content }}
                         />
                         <div
-                          className={'d-block mt-2 opacity-60 text-small'}
+                          className={'d-block mt-2 opacity-70 text-small'}
                           dangerouslySetInnerHTML={
                             breadcrumbs.length === 0
                               ? { __html: `${title}`.replace(/<\/?[^>]+(>|$)|(\/)/g, '') }

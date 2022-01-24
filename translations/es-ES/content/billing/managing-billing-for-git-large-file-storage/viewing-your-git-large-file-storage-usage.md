@@ -3,8 +3,8 @@ title: Ver tu uso de Git Large File Storage
 intro: 'Puedes auditar la cuota de ancho de banda mensual de cuenta y el almacenamiento restante para {% data variables.large_files.product_name_short %}.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-git-large-file-storage-usage
-  - /articles/viewing-storage-and-bandwidth-usage-for-a-personal-account/
-  - /articles/viewing-storage-and-bandwidth-usage-for-an-organization/
+  - /articles/viewing-storage-and-bandwidth-usage-for-a-personal-account
+  - /articles/viewing-storage-and-bandwidth-usage-for-an-organization
   - /articles/viewing-your-git-large-file-storage-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage
 versions:

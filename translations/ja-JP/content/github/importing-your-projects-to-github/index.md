@@ -1,7 +1,7 @@
 ---
-title: Importing your projects to GitHub
+title: GitHub にプロジェクトをインポートする
 intro: 'You can import your source code to {% data variables.product.product_name %} using a variety of different methods.'
-shortTitle: Importing your projects
+shortTitle: プロジェクトのインポート
 redirect_from:
   - /categories/67/articles
   - /categories/importing

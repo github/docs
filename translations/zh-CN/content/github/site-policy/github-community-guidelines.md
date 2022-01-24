@@ -1,5 +1,5 @@
 ---
-title: GitHub Community Guidelines
+title: GitHub 社区指导方针
 redirect_from:
   - /community-guidelines
   - /articles/github-community-guidelines
@@ -10,110 +10,99 @@ topics:
   - Legal
 ---
 
-Millions of developers host millions of projects on GitHub — both open and closed source — and we're honored to play a part in enabling collaboration across the community every day. Together, we all have an exciting opportunity and responsibility to make this a community we can be proud of.
+数百万开发者在 GitHub 上托管了数百万个项目，包括开源和闭源项目，我们很荣幸能够为促进社区的日常协作发挥作用。 走在一起，我们都有机会和责任让这个社区成为我们值得骄傲的地方。
 
-GitHub users worldwide bring wildly different perspectives, ideas, and experiences, and range from people who created their first "Hello World" project last week to the most well-known software developers in the world. We are committed to making GitHub a welcoming environment for all the different voices and perspectives in our community, while maintaining a space where people are free to express themselves.
+GitHub 的用户来自世界各地，有上周才创建其第一个 "Hello World" 项目的新人，也有享誉全球的软件开发高手，他们带来了各种不同的观点、想法和经验。 我们致力于让 GitHub 成为一个海纳百川的环境，接纳各种不同的声音和观点，打造一个所有人都能畅所欲言的空间。
 
-We rely on our community members to communicate expectations, [moderate](#what-if-something-or-someone-offends-you) their projects, and {% data variables.contact.report_abuse %} or {% data variables.contact.report_content %}. By outlining what we expect to see within our community, we hope to help you understand how best to collaborate on GitHub, and what type of actions or content may violate our [Terms of Service](#legal-notices), which include our [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies). We will investigate any abuse reports and may moderate public content on our site that we determine to be in violation of our Terms of Service.
+我们依靠社区成员传达期望、[仲裁](#what-if-something-or-someone-offends-you)他们的项目以及{% data variables.contact.report_abuse %}或{% data variables.contact.report_content %}。 通过概述我们期望社区内出现的情况，我们希望帮助您理解如何在 GitHub 上进行最佳的协作，以及哪种操作或内容可能违反我们的[服务条款](#legal-notices)，包括我们的[可接受使用政策](/github/site-policy/github-acceptable-use-policies)。 我们将调查任何滥用举报，并且可能在我们的网站上仲裁我们确定违反了 GitHub 服务条款的公共内容。
 
-## Building a strong community
+## 建立强大的社区
 
-The primary purpose of the GitHub community is to collaborate on software projects.
-We want people to work better together. Although we maintain the site, this is a community we build *together*, and we need your help to make it the best it can be.
+GitHub 社区的主要目的是协作处理软件项目。 我们希望人们能够更好地协作。 虽然我们维护网站，但这实际上是我们一起构建的*社区*，我们需要大家共同将其打造成最好的工具。
 
-* **Be welcoming and open-minded** - Other collaborators may not have the same experience level or background as you, but that doesn't mean they don't have good ideas to contribute. We encourage you to be welcoming to new collaborators and those just getting started.
+* **包容开放** - 其他协作的经验水平或背景可能与您不同，但这并不意味着他们不能贡献好的想法。 鼓励大家欢迎新的协作者和刚入门的新手。
 
-* **Respect each other.**  Nothing sabotages healthy conversation like rudeness. Be civil and professional, and don’t post anything that a reasonable person would consider offensive, abusive, or hate speech. Don’t harass or grief anyone. Treat each other with dignity and consideration in all interactions.
+* **互相尊重。**粗鲁是正常对话的天敌。 保持礼貌和专业，不要发表被理性的人视为冒犯、侮辱或仇恨的言论。 不要骚扰或打击任何人。 在所有互动中应互相尊重和体谅。
 
-  You may wish to respond to something by disagreeing with it. That’s fine. But remember to criticize ideas, not people. Avoid name-calling, ad hominem attacks, responding to a post’s tone instead of its actual content, and knee-jerk contradiction. Instead, provide reasoned counter-arguments that improve the conversation.
+  您可能要发表反对的意见。 没问题。 但请记住，您的批评要对事不对人。 不要说脏话、人身攻击、纠结于帖子的语气而罔顾其实际内容或制造下意识的矛盾。 而应该提供合理的反驳论据，保持友善的对话。
 
-* **Communicate with empathy** - Disagreements or differences of opinion are a fact of life. Being part of a community means interacting with people from a variety of backgrounds and perspectives, many of which may not be your own. If you disagree with someone, try to understand and share their feelings before you address them. This will promote a respectful and friendly atmosphere where people feel comfortable asking questions, participating in discussions, and making contributions.
+* **共情沟通** - 意见相左或分歧是生活中的常态。 作为社区的一部分，意味着您要与各种背景和观点的人互动，其中许多人的观点可能与您不同。 如果您不同意某人的观点，请先试图理解他们并体会他们的情感，然后再发表意见。 这将有助于营造尊重和友好的氛围，让人舒适自在地提出问题、参与讨论和做出贡献。
 
-* **Be clear and stay on topic** - People use GitHub to get work done and to be more productive. Off-topic comments are a distraction (sometimes welcome, but usually not) from getting work done and being productive. Staying on topic helps produce positive and productive discussions.
+* **清楚明确，紧扣主题** - 人们使用 GitHub 的目的是完成工作和提高效率。 脱离主题的评论对于完成工作和取得成效是一种干扰（有时可能受欢迎，但这种情况很少）。 紧扣主题有助于产生积极和富有成效的讨论。
 
-   Additionally, communicating with strangers on the Internet can be awkward. It's hard to convey or read tone, and sarcasm is frequently misunderstood. Try to use clear language, and think about how it will be received by the other person.
+   此外，在互联网上与陌生人交流可能并不容易。 很难传达或读懂语气，容易被误解为嘲讽。 尽可能清晰表达，并考虑其他人如何理解您的表达。
 
-## What if something or someone offends you?
+## 如果某事或某人冒犯您会怎么样？
 
-We rely on the community to let us know when an issue needs to be addressed. We do not actively monitor the site for offensive content. If you run into something or someone on the site that you find objectionable, here are some tools GitHub provides to help you take action immediately:
+我们通过社区来了解何时需要解决问题。 我们不主动监控网站上的冒犯性内容。 如果您发现网站上有您反感的某事或某人，GitHub 提供了以下工具帮助您立即采取行动：
 
-* **Communicate expectations** - If you participate in a community that has not set their own, community-specific guidelines, encourage them to do so either in the README or [CONTRIBUTING file](/articles/setting-guidelines-for-repository-contributors/), or in [a dedicated code of conduct](/articles/adding-a-code-of-conduct-to-your-project/), by submitting a pull request.
+* **传达期望** - 如果您参与一个没有设置其社区特定指南的社区，请提交拉取请求来建议他们在 README 或 [CONTRIBUTING 文件](/articles/setting-guidelines-for-repository-contributors/)中说明， 或者在[专用行为守则](/articles/adding-a-code-of-conduct-to-your-project/)中规定。
 
-* **Moderate Comments** - If you have [write-access privileges](/articles/repository-permission-levels-for-an-organization/) for a repository, you can edit, delete, or hide anyone's comments on commits, pull requests, and issues. Anyone with read access to a repository can view a comment's edit history. Comment authors and people with write access to a repository can delete sensitive information from a comment's edit history. For more information, see "[Tracking changes in a comment](/articles/tracking-changes-in-a-comment)" and "[Managing disruptive comments](/articles/managing-disruptive-comments)."
+* **仲裁评论** - 如果您对仓库拥有 [写入权限](/articles/repository-permission-levels-for-an-organization/)，则可以编辑、删除或隐藏任何人对提交、拉取请求和议题的评论。 对仓库具有读取权限的任何人都可查看评论的编辑历史记录。 评论作者和具有仓库写入权限的人员可以删除评论编辑历史记录中的敏感信息。 更多信息请参阅“[追踪评论中的变化](/articles/tracking-changes-in-a-comment)”和“[管理破坏性评论](/articles/managing-disruptive-comments)”。
 
-* **Lock Conversations**  - If a discussion in an issue or pull request gets out of control, you can [lock the conversation](/articles/locking-conversations/).
+* **锁定对话**- 如果某个议题或拉取请求中的讨论失控，您可以[锁定对话](/articles/locking-conversations/)。
 
-* **Block Users**  - If you encounter a user who continues to demonstrate poor behavior, you can [block the user from your personal account](/articles/blocking-a-user-from-your-personal-account/) or [block the user from your organization](/articles/blocking-a-user-from-your-organization/).
+* **阻止用户** - 如果您遇到一个连续表现出不良行为的用户，可以[阻止该用户访问您的个人帐户](/articles/blocking-a-user-from-your-personal-account/)或[阻止该用户访问您的组织](/articles/blocking-a-user-from-your-organization/)。
 
-Of course, you can always contact us to {% data variables.contact.report_abuse %} if you need more help dealing with a situation.
+当然，如果您需要更多关于处理某种情况的帮助，可随时联系我们以{% data variables.contact.report_abuse %}。
 
-## What is not allowed?
+## 不允许什么？
 
-We are committed to maintaining a community where users are free to express themselves and challenge one another's ideas, both technical and otherwise. Such discussions, however, are unlikely to foster fruitful dialog when ideas are silenced because community members are being shouted down or are afraid to speak up. That means you should be respectful and civil at all times, and refrain from attacking others on the basis of who they are. We do not tolerate behavior that crosses the line into the following:
+我们致力于维持一个用户能够自由表达意见并对彼此想法（包括技术和其他方面）提出挑战的社区。 但当思想被压制时，这种讨论不可能促进富有成果的对话，因为因为社区成员被禁声或害怕说出来。 因此，您应该始终尊重他人，言行文明，不要对他人有任何人身攻击以谁为由攻击他人。 我们不容忍以下越界行为：
 
-- #### Threats of violence 
-   You may not threaten violence towards others or use the site to organize, promote, or incite acts of real-world violence or terrorism. Think carefully about the words you use, the images you post, and even the software you write, and how they may be interpreted by others. Even if you mean something as a joke, it might not be received that way. If you think that someone else *might* interpret the content you post as a threat, or as promoting violence or terrorism, stop. Don't post it on GitHub. In extraordinary cases, we may report threats of violence to law enforcement if we think there may be a genuine risk of physical harm or a threat to public safety.
+- #### 暴力威胁 不得暴力威胁他人，也不得利用网站组织、宣传或煽动现实世界中的暴力或恐怖主义行为。 仔细考虑您使用的文字、发布的图像、编写的软件以及其他人会如何解读它们。 即使您只是开个玩笑，但别人不见得这样理解。 如果您认为别人*可能*会将您发布的内容解读为威胁或者煽动暴力或恐怖主义， 不要在 GitHub 上发布。 在非常情况下， 如果我们认为可能存在真正的人身伤害风险或公共安全威胁，我们可能会向执法机构报告暴力威胁。
 
-- #### Hate speech and discrimination 
-   While it is not forbidden to broach topics such as age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation, we do not tolerate speech that attacks a person or group of people on the basis of who they are. Just realize that when approached in an aggressive or insulting manner, these (and other) sensitive topics can make others feel unwelcome, or perhaps even unsafe. While there's always the potential for misunderstandings, we expect our community members to remain respectful and civil when discussing sensitive topics.
+- ####仇恨言论和歧视 虽然不禁止谈论年龄、身材、能力、种族、性别认同和表达、经验水平、国籍、外貌、民族、宗教或性认同和性取向等话题，但我们不允许基于身份特征攻击任何个人或群体。 只要认识到以一种侵略性或侮辱性的方式处理这些（及其他）敏感的专题，就可能使其他人感到不受欢迎甚至不安全。 虽然总是存在误解的可能性，但我们期望社区成员在讨论敏感问题时保持尊重和平静。
 
-- #### Bullying and harassment 
-   We do not tolerate bullying or harassment. This means any habitual badgering or intimidation targeted at a specific person or group of people. In general, if your actions are unwanted and you continue to engage in them, there's a good chance you are headed into bullying or harassment territory.
+- #### 欺凌和骚扰 我们不容忍欺凌或骚扰。 这意味着我们不允许针对任何特定个人或群体的典型骚扰或恐吓行为。 一般来说，如果您屡次三番采取多余的行动，就很可能走进了欺凌或骚扰的歧途。
 
-- #### Disrupting the experience of other users 
-   Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on. Behaviors such as repeatedly posting off-topic comments, opening empty or meaningless issues or pull requests, or using any other platform feature in a way that continually disrupts the experience of other users are not allowed. While we encourage maintainers to moderate their own projects on an individual basis, GitHub staff may take further restrictive action against accounts that are engaging in these types of behaviors.
+- ### 破坏其他用户的体验 成为社区的一部分包括认识到您的行为如何影响他人，并与他人及其依赖的平台进行有意义和富有成效的互动。 不允许重复发布与主题无关的评论、开启空洞或无意义的议题或拉取请求，或者以不断破坏其他用户体验的方式使用任何其他平台功能等行为。 虽然我们鼓励维护人员根据个别情况调整自己的项目，但 GitHub 员工可能会对从事此类行为的帐户采取进一步的限制措施。
 
-- #### Impersonation
-   You may not impersonate another person by copying their avatar, posting content under their email address, using a similar username or otherwise posing as someone else. Impersonation is a form of harassment.
+- #### 冒充 不得冒充他人，包括复制他人的头像、使用他人的电子邮件地址发布内容、使用相似用户名或其他冒充方式。 冒充是骚扰的一种形式。
 
-- #### Doxxing and invasion of privacy 
-   Don't post other people's personal information, such as personal, private email addresses, phone numbers, physical addresses, credit card numbers, Social Security/National Identity numbers, or passwords. Depending on the context, such as in the case of intimidation or harassment, we may consider other information, such as photos or videos that were taken or distributed without the subject's consent, to be an invasion of privacy, especially when such material presents a safety risk to the subject.
+- #### 人肉和侵犯隐私 不得发布他人的个人信息，例如个人、私人电子邮件地址、电话号码、实际地址、信用卡号码、社会保障/国民身份号码或密码。 根据具体情况，例如在恐吓或骚扰的情况下，我们可能会认为发布他人信息（例如未经当事人同意而拍摄或散发的照片或视频）是侵犯隐私的行为，特别是当此类材料会给当事人带来安全风险时。
 
-- #### Sexually obscene content
-   Don’t post content that is pornographic. This does not mean that all nudity, or all code and content related to sexuality, is prohibited. We recognize that sexuality is a part of life and non-pornographic sexual content may be a part of your project, or may be presented for educational or artistic purposes. We do not allow obscene sexual content or content that may involve the exploitation or sexualization of minors.
+- #### 性淫秽内容 不得发布色情内容。 但这并不意味着禁止一切裸体或与性有关的所有代码和内容。 我们认识到，性行为是生活的一部分，非色情的性内容可能是您项目的一部分，或者出于教育或艺术目的而呈现。 我们不允许淫秽性内容或可能涉及利用或性化未成年人的内容。
 
-- #### Gratuitously violent content
-   Don’t post violent images, text, or other content without reasonable context or warnings. While it's often okay to include violent content in video games, news reports, and descriptions of historical events, we do not allow violent content that is posted indiscriminately, or that is posted in a way that makes it difficult for other users to avoid (such as a profile avatar or an issue comment). A clear warning or disclaimer in other contexts helps users make an educated decision as to whether or not they want to engage with such content.
+- #### 过激的暴力内容 不得在没有合理的上下文或警告的情况下发布暴力图像、文本或其他内容。 在视频游戏、新闻报道以及对历史事件的描述中通常可以包含暴力内容，但我们不允许不加选择地发布暴力内容，或者以其他用户很难避开的方式发布（例如头像或议题评论）。 在其他情况下发布明确警告或免责声明有助于用户就他们是否想要参与这类内容作出明智的决定。
 
-- #### Misinformation and disinformation
-   You may not post content that presents a distorted view of reality, whether it is inaccurate or false (misinformation) or is intentionally deceptive (disinformation) where such content is likely to result in harm to the public or to interfere with fair and equal opportunities for all to participate in public life. For example, we do not allow content that may put the well-being of groups of people at risk or limit their ability to take part in a free and open society. We encourage active participation in the expression of ideas, perspectives, and experiences and may not be in a position to dispute personal accounts or observations. We generally allow parody and satire that is in line with our Acceptable Use Polices, and we consider context to be important in how information is received and understood; therefore, it may be appropriate to clarify your intentions via disclaimers or other means, as well as the source(s) of your information.
+- #### 错误信息和虚假信息 不得发布歪曲现实的内容，包括不准确或虚假的信息（错误信息），或者故意欺骗的信息（假信息），因为这种内容可能伤害公众，或者干扰所有人公平和平等参与公共生活的机会。 例如，我们不允许可能危及群体福祉或限制他们参与自由和开放社会的内容。 鼓励积极参与表达想法、观点和经验，不得质疑个人帐户或言论。 我们通常允许模仿和讽刺，但要符合我们的“可接受使用政策”，而且我们认为上下文对于如何接收和理解信息很重要；因此，通过免责声明或其他方式澄清您的意图以及您的信息的来源，可能是适当的做法。
 
-- #### Active malware or exploits
-  Being part of a community includes not taking advantage of other members of the community. We do not allow anyone to use our platform in direct support of unlawful attacks that cause technical harms, such as using GitHub as a means to deliver malicious executables or as attack infrastructure, for example by organizing denial of service attacks or managing command and control servers. Technical harms means overconsumption of resources, physical damage, downtime, denial of service, or data loss, with no implicit or explicit dual-use purpose prior to the abuse occurring.
+- #### Active malware or exploits Being part of a community includes not taking advantage of other members of the community. 我们不允许任何人利用我们的平台直接支持造成技术损害的非法攻击， 例如利用 GitHub 作为提供恶意可执行文件的方式或作为攻击基础架构， 例如，组织拒绝服务攻击或管理命令和控制服务器。 技术损害是指资源过度消耗、物理损坏、停机、拒绝服务或数据丢失，在滥用之前没有隐含或明确的双重用途。
 
-  Note that GitHub allows dual-use content and supports the posting of content that is used for research into vulnerabilities, malware, or exploits, as the publication and distribution of such content has educational value and provides a net benefit to the security community. We assume positive intention and use of these projects to promote and drive improvements across the ecosystem. 
+  请注意，GitHub 允许双重用途内容，并支持发布用于研究漏洞、恶意软件或漏洞的内容，因为此类内容的发布和分发具有教育价值，并为安全社区提供净收益。 我们具有积极的意图，并利用这些项目来促进和推动整个生态系统的改善。
 
-  In rare cases of very widespread abuse of dual-use content, we may restrict access to that specific instance of the content to disrupt an ongoing unlawful attack or malware campaign that is leveraging the GitHub platform as an exploit or malware CDN. In most of these instances, restriction takes the form of putting the content behind authentication, but may, as an option of last resort, involve disabling access or full removal where this is not possible (e.g. when posted as a gist). We will also contact the project owners about restrictions put in place where possible. 
+  在极少数非常普遍地滥用两用内容的情况下，我们可能会限制访问该特定内容实例，以破坏利用 GitHub 平台作为漏洞或恶意软件 CDN 的持续非法攻击或恶意软件活动。 在大多数情况下，限制采取将内容置于身份验证背后的形式，但作为最后手段，可能涉及禁用访问或在不可能的情况下完全删除（例如，当作为 Gist 发布时）。 我们还将尽可能联系项目所有者了解实施的限制。
 
-  Restrictions are temporary where feasible, and do not serve the purpose of purging or restricting any specific dual-use content, or copies of that content, from the platform in perpetuity. While we aim to make these rare cases of restriction a collaborative process with project owners, if you do feel your content was unduly restricted, we have an [appeals process](#appeal-and-reinstatement) in place.
+  在可行的情况下，限制是暂时的，无助于永久清除或限制该平台上的任何特定两用内容或该内容的副本。 尽管我们的目标是使这些罕见的限制情况成为与项目所有者的合作过程，但如果您认为您的内容受到了不适当的限制，我们也有[申诉流程](#appeal-and-reinstatement)。
 
-  To facilitate a path to abuse resolution with project maintainers themselves, prior to escalation to GitHub abuse reports, we recommend, but do not require, that repository owners take the following steps when posting potentially harmful security research content:
+  为了便于项目维护者自己找到解决滥用问题的途径，在上报给 GitHub 滥用报告之前，我们建议但不要求仓库所有者在张贴可能有害的安全研究内容时采取下列步骤：
 
-    * Clearly identify and describe any potentially harmful content in a disclaimer in the project’s README.md file or source code comments.
-    * Provide a preferred contact method for any 3rd party abuse inquiries through a SECURITY.md file in the repository (e.g. "Please create an issue on this repository for any questions or concerns"). Such a contact method allows 3rd parties to reach out to project maintainers directly and potentially resolve concerns without the need to file abuse reports.
+    * 在项目的 README.md 文件或源代码评论中，清楚地识别和描述任何可能有害的内容。
+    * 通过仓库中的 SECURITY.md 文件为任何第三方滥用查询提供首选的联系方式（例如，“请在此仓库上为任何问题或疑虑创建议题”）。 这种联系方式允许第三方直接与项目维护者联系，并有可能解决问题，而无需提交滥用报告。
 
-  *GitHub considers the npm registry to be a platform used primarily for installation and run-time use of code, and not for research.*
+  *GitHub 认为 npm 注册表是一个主要用于安装和代码运行时使用的平台，而不是用于研究的平台。*
 
 
-## What happens if someone breaks the rules?
+## 如果有人违反规则会怎么样？
 
-There are a variety of actions that we may take when a user reports inappropriate behavior or content. It usually depends on the exact circumstances of a particular case. We recognize that sometimes people may say or do inappropriate things for any number of reasons. Perhaps they did not realize how their words would be perceived. Or maybe they just let their emotions get the best of them. Of course, sometimes, there are folks who just want to spam or cause trouble.
+当用户举报不当行为或内容时，我们可能会采取各种措施。 它通常取决于特定案例的确切情况。 我们知道，有时人们可能会出于各种原因而去说或去做一些不适当的事情。 也许他们并未意识到自己的言论会被如何解读。 或者他们只是想让自己的情绪得到宣泄。 当然，有时候，有些人只是想散发垃圾信息或存心捣乱。
 
-Each case requires a different approach, and we try to tailor our response to meet the needs of the situation that has been reported. We'll review each abuse report on a case-by-case basis. In each case, we will have a diverse team investigate the content and surrounding facts and respond as appropriate, using these guidelines to guide our decision.
+每种情况都需要采用不同的方法，我们会努力调整对策，以满足报告的具体情况的需要。 我们将逐案审查每一份滥用报告。 在每个案例中，我们都会安排一个多元化的团队，调查内容及相关事实，并以本行为准则为决策指导，采取适当的措施。
 
-Actions we may take in response to an abuse report include but are not limited to:
+为响应滥用举报，我们可能采取的措施包括但不限于：
 
-* Content Removal
-* Content Blocking
-* Account Suspension
-* Account Termination
+* 删除内容
+* 屏蔽内容
+* 帐户暂停
+* 帐户终止
 
-## Appeal and Reinstatement
+## 申诉和恢复
 
-In some cases there may be a basis to reverse an action, for example, based on additional information a user provided, or where a user has addressed the violation and agreed to abide by our Acceptable Use Policies moving forward. If you wish to appeal an enforcement action, please contact [support](https://support.github.com/contact?tags=docs-policy).
+在某些情况下，例如根据用户提供的补充资料，可能有理由推翻某项行动，或在用户已解决违规行为并同意遵守我们的可接受使用政策。 如果您想对强制执行行动提出申诉，请联系[支持](https://support.github.com/contact?tags=docs-policy)。
 
-## Legal Notices
+## 法律声明
 
-We dedicate these Community Guidelines to the public domain for anyone to use, reuse, adapt, or whatever, under the terms of [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+我们将这些社区指导方针专用于公共领域，让所有人根据 [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) 的条款使用、重新使用、调整或适应。
 
-These are only guidelines; they do not modify our [Terms of Service](/articles/github-terms-of-service/) and are not intended to be a complete list. GitHub retains full discretion under the [Terms of Service](/articles/github-terms-of-service/#c-acceptable-use) to remove any content or terminate any accounts for activity that violates our Terms on Acceptable Use. These guidelines describe when we will exercise that discretion.
+这些只是指导方针；不影响我们的[服务条款](/articles/github-terms-of-service/)，也不打算作为完整的清单。 GitHub 保留根据[服务条款](/articles/github-terms-of-service/#c-acceptable-use)完全酌处的权利，可以删除任何内容或终止其活动违反我们可接受使用条款的任何帐户。 这些指导方针说明了我们何时将行使这一酌处权。
