@@ -183,7 +183,7 @@ on:
       logLevel:
         description: 'Log level'
         required: true
-        default: 'warning' {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: choice
         options:
         - info
@@ -191,7 +191,7 @@ on:
         - debug {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: false {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        required: false {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: boolean
       environment:
         description: 'Environment to run tests against'
