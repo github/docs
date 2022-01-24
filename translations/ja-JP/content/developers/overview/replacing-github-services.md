@@ -32,7 +32,7 @@ GitHub Servicesは、webhookとの統合を進めるために非推奨となり�
 
 GitHub Services（Service Hooksと呼ばれることもあります）は、インテグレーションの旧来の方法であり、GitHubがインテグレーターのサービスの一部を[`github-services`リポジトリ](https://github.com/github/github-services)を通じてホストします。 GitHub上で行われたアクションがこれらのサービスをトリガーし、これらのサービスを使ってGitHubの外部のアクションをトリガーできます。
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 ## GitHub Servicesを使っているリポジトリを探す
 アプライアンス上でどのリポジトリがGitHub Servicesを使っているかを特定するためのコマンドラインスクリプトが提供されています。 詳しい情報については[ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report)を参照してください。{% endif %}
 

@@ -13046,6 +13046,11 @@ enum FundingPlatform {
   KO_FI
 
   """
+  LFX Crowdfunding funding platform.
+  """
+  LFX_CROWDFUNDING
+
+  """
   Liberapay funding platform.
   """
   LIBERAPAY
@@ -21141,6 +21146,31 @@ type OrgEnableTwoFactorRequirementAuditEntry implements AuditEntry & Node & Orga
 }
 
 """
+Ordering options for an organization's enterprise owner connections.
+"""
+input OrgEnterpriseOwnerOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order enterprise owners by.
+  """
+  field: OrgEnterpriseOwnerOrderField!
+}
+
+"""
+Properties by which enterprise owners can be ordered.
+"""
+enum OrgEnterpriseOwnerOrderField {
+  """
+  Order enterprise owners by login.
+  """
+  LOGIN
+}
+
+"""
 Audit log entry for a org.invite_member event.
 """
 type OrgInviteMemberAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData {
@@ -23016,6 +23046,46 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   email: String
 
   """
+  A list of owners of the organization's enterprise account.
+  """
+  enterpriseOwners(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for enterprise owners returned from the connection.
+    """
+    orderBy: OrgEnterpriseOwnerOrder = {field: LOGIN, direction: ASC}
+
+    """
+    The organization role to filter by.
+    """
+    organizationRole: RoleInOrganization
+
+    """
+    The search string to look for.
+    """
+    query: String
+  ): OrganizationEnterpriseOwnerConnection!
+
+  """
   The estimated next GitHub Sponsors payout for this user/organization in cents (USD).
   """
   estimatedNextSponsorsPayoutInCents: Int!
@@ -24125,6 +24195,51 @@ type OrganizationEdge {
   The item at the end of the edge.
   """
   node: Organization
+}
+
+"""
+The connection type for User.
+"""
+type OrganizationEnterpriseOwnerConnection {
+  """
+  A list of edges.
+  """
+  edges: [OrganizationEnterpriseOwnerEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [User]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An enterprise owner in the context of an organization that is part of the enterprise.
+"""
+type OrganizationEnterpriseOwnerEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: User
+
+  """
+  The role of the owner with respect to the organization.
+  """
+  organizationRole: RoleInOrganization!
 }
 
 """
@@ -29523,6 +29638,11 @@ The possible item types found in a timeline.
 """
 enum PullRequestTimelineItemsItemType {
   """
+  Represents a 'added_to_merge_queue' event on a given pull request.
+  """
+  ADDED_TO_MERGE_QUEUE_EVENT
+
+  """
   Represents a 'added_to_project' event on a given issue or pull request.
   """
   ADDED_TO_PROJECT_EVENT
@@ -29726,6 +29846,11 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'referenced' event on a given `ReferencedSubject`.
   """
   REFERENCED_EVENT
+
+  """
+  Represents a 'removed_from_merge_queue' event on a given pull request.
+  """
+  REMOVED_FROM_MERGE_QUEUE_EVENT
 
   """
   Represents a 'removed_from_project' event on a given issue or pull request.

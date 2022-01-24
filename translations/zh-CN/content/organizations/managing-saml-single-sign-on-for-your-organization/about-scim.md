@@ -22,6 +22,12 @@ topics:
 - Okta
 - OneLogin
 
+{% note %}
+
+**注：**{% data reusables.scim.nameid-and-username-must-match %}
+
+{% endnote %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 ## 延伸阅读

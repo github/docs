@@ -46,6 +46,12 @@ Você deve habilitar o logon único SAML para sua organização e seu IdP compat
 
 Você deve ter uma identidade SAML vinculada. Para criar uma identidade vinculada, você deve efetuar a autenticação na sua organização usando o SAML SSO e o IdP compatível pelo menos uma vez. Para obter mais informações, consulte "[Autenticar com logon único de SAML](/articles/authenticating-with-saml-single-sign-on)".
 
+As suas configurações do SAML **devem** conter um IdP válido para o campo **Emissor**.
+
+![Campo emissor do SAML](/assets/images/help/saml/saml_issuer.png)
+
+
+
 ### Habilitar a sincronização de equipe para o Azure AD
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}

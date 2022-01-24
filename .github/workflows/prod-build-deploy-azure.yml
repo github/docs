@@ -26,9 +26,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      IMAGE_TAG_BASE: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}
+      DOCKER_IMAGE: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:${{ github.sha }}
 
     steps:
+      - name: 'Az CLI login'
+        uses: azure/login@66d2e78565ab7af265d2b627085bc34c73ce6abb
+        with:
+          creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
+
       - name: 'Docker login'
         uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
         with:
@@ -68,9 +73,64 @@ jobs:
           context: .
           push: true
           target: 'production_early_access'
-          tags: ${{ env.IMAGE_TAG_BASE }}:${{ github.sha }}, ${{ env.IMAGE_TAG_BASE }}:production
+          tags: ${{ env.DOCKER_IMAGE }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: 'Update docker-compose.prod.yaml template file'
+        run: |
+          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.prod.tmpl.yaml > docker-compose.prod.yaml
+
+      - name: 'Apply updated docker-compose.prod.yaml config to preview slot'
+        run: |
+          az webapp config container set --multicontainer-config-type COMPOSE --multicontainer-config-file docker-compose.prod.yaml --slot preview -n ghdocs-prod -g docs-prod
+
+      # Watch preview slot instances to see when all the instances are ready
+      - name: Check that preview slot is ready
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          CHECK_INTERVAL: 10000
+        with:
+          script: |
+            const { execSync } = require('child_process')
+
+            const getStatesForSlot = (slot) => {
+              return JSON.parse(
+                execSync(
+                  `az webapp list-instances --slot ${slot} --query "[].state" -n ghdocs-prod -g docs-prod`,
+                  { encoding: 'utf8' }
+                )
+              )
+            }
+
+            let hasStopped = false
+            const waitDuration = parseInt(process.env.CHECK_INTERVAL, 10) || 10000
+            async function doCheck() {
+              const states = getStatesForSlot('preview')
+              console.log(`Instance states:`, states)
+
+              // We must wait until at-least 1 instance has STOPPED to know we're looking at the "next" deployment and not the "previous" one
+              // That way we don't immediately succeed just because all the previous instances were READY
+              if (!hasStopped) {
+                hasStopped = states.some((s) => s === 'STOPPED')
+              }
+
+              const isAllReady = states.every((s) => s === 'READY')
+
+              if (hasStopped && isAllReady) {
+                process.exit(0) // success
+              }
+
+              console.log(`checking again in ${waitDuration}ms`)
+              setTimeout(doCheck, waitDuration)
+            }
+
+            doCheck()
+
+      # TODO - make a request to verify the preview app version aligns with *this* github action workflow commit sha
+      - name: 'Swap preview slot to production'
+        run: |
+          az webapp deployment slot swap --slot preview --target-slot production -n ghdocs-prod -g docs-prod
 
       # TODO - enable this when we disable the other production deploy
       # - name: Purge Fastly edge cache

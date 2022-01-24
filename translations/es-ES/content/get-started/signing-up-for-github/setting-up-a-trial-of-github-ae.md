@@ -62,5 +62,5 @@ Si necesitas más tiempo para evaluar {% data variables.product.prodname_ghe_man
 
 ## Leer más
 
-- "[Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.prodname_ghe_managed %}](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
+- "[Habilita las características de la {% data variables.product.prodname_advanced_security %} en {% data variables.product.prodname_ghe_managed %}](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
 - "[{% data variables.product.prodname_ghe_managed %} release notes](/github-ae@latest/admin/overview/github-ae-release-notes)" 

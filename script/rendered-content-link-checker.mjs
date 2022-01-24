@@ -19,6 +19,7 @@ import { languageKeys } from '../lib/languages.js'
 import warmServer from '../lib/warm-server.js'
 import renderContent from '../lib/render-content/index.js'
 import { deprecated } from '../lib/enterprise-server-releases.js'
+import readFileAsync from '../lib/readfile-async.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
@@ -65,13 +66,33 @@ program
     }
     return parsed
   })
+  .option(
+    '--list <file>.json',
+    'JSON file containing an array of specific files to check (default: none)',
+    (filePath) => {
+      const resolvedPath = path.resolve(filePath)
+
+      let stats
+      try {
+        stats = fs.statSync(resolvedPath)
+      } catch (error) {
+        // Ignore
+      }
+
+      if (!stats || !stats.isFile()) {
+        throw new InvalidArgumentError('Not an existing file.')
+      }
+
+      return resolvedPath
+    }
+  )
   .arguments('[files...]', 'Specific files to check')
   .parse(process.argv)
 
 main(program.opts(), program.args)
 
 async function main(opts, files) {
-  const { random, language, filter, exit, debug, max, verbose } = opts
+  const { random, language, filter, exit, debug, max, verbose, list } = opts
 
   // Note! The reason we're using `warmServer()` in this script,
   // even though there's no server involved, is because
@@ -88,6 +109,21 @@ async function main(opts, files) {
   console.assert(Array.isArray(languages), `${languages} is not an array`)
   const filters = filter || []
   console.assert(Array.isArray(filters), `${filters} is not an array`)
+
+  if (list && Array.isArray(files) && files.length > 0) {
+    throw new InvalidArgumentError('Cannot specify both --list and a file list.')
+  }
+
+  if (list) {
+    const fileList = JSON.parse(await readFileAsync(list))
+    if (Array.isArray(fileList) && fileList.length > 0) {
+      files = fileList
+    } else {
+      // This must be allowed for empty PRs that accompany docs-early-access repo PRs
+      console.warn('No files found in --list. Exiting...')
+      process.exit(0)
+    }
+  }
 
   if (random) {
     shuffle(pageList)

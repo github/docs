@@ -33,7 +33,7 @@ se refiere al repositorio `codeql` de GitHub, y muestra la versión más recient
 
 La versión de un archivo en el encabezado de una rama puede cambiar cuando se realizan nuevas confirmaciones, por eso si copias la URL normal, el contenido del archivo puede no ser el mismo cuando alguien lo vea más tarde.
 
-## Press <kbd>Y</kbd> to permalink to a file in a specific commit
+## Presiona <kbd>Y</kbd> para obtener un enlace permanente a un archivo en una confirmación específica
 
 Para encontrar un enlace permanente a la versión específica de un archivo que veas, en vez de utilizar el nombre de la rama en la URL (por ejemplo, la parte de `main` en el ejemplo anterior), coloca una id de confirmación.  Esto generará un enlace permanente a la versión exacta del archivo en esa confirmación.  Por ejemplo:
 

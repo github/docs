@@ -125,11 +125,11 @@ env:
 
 #### 配列の利用例
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
 
 #### 文字列の使用例
 
-`contains('Hello world', 'llo')` は、`true` を返します。
+`contains('Hello world', 'llo')` returns `true`.
 
 ### startsWith
 
@@ -139,7 +139,7 @@ env:
 
 #### サンプル
 
-`startsWith('Hello world', 'He')` は、`true` を返します
+`startsWith('Hello world', 'He')` は、`true` を返します.
 
 ### endsWith
 
@@ -149,7 +149,7 @@ env:
 
 #### サンプル
 
-`endsWith('Hello world', 'ld')` は、`true` を返します
+`endsWith('Hello world', 'ld')` は、`true` を返します.
 
 ### format
 
@@ -159,19 +159,19 @@ env:
 
 #### サンプル
 
-'Hello Mona the Octocat' を返します
-
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### 括弧をエスケープするサンプル
+Returns 'Hello Mona the Octocat'.
 
-'{Hello Mona the Octocat!}'を返します。
+#### 括弧をエスケープするサンプル
 
 {% raw %}
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
+
+Returns '{Hello Mona the Octocat!}'.
 
 ### join
 

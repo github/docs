@@ -8,7 +8,11 @@ Adobe | Adobe Service Token | adobe_service_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Adobe | Adobe Short-Lived Access Token | adobe_short_lived_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-Adobe | Adobe JSON Web Token | adobe_jwt{% endif %} Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
+Adobe | Adobe JSON Web Token | adobe_jwt{% endif %} Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Amazon | Amazon OAuth Client ID | amazon_oauth_client_id{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Amazon | Amazon OAuth Client Secret | amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 Amazon Web Services (AWS) | Amazon AWS Session Token | aws_session_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -129,6 +133,8 @@ New Relic | New Relic License Key | new_relic_license_key{% endif %}
 Notion | Notion Integration Token | notion_integration_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Notion | Notion OAuth Client Secret | notion_oauth_client_secret{% endif %} npm | npm Access Token | npm_access_token NuGet | NuGet API Key | nuget_api_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Octopus Deploy | Octopus Deploy API Key | octopus_deploy_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Onfido | Onfido Live API Token | onfido_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -184,6 +190,10 @@ Telegram | Telegram Bot Token | telegram_bot_token{% endif %} Tencent Cloud | Te
 Twilio | Twilio Access Token | twilio_access_token{% endif %} Twilio | Twilio Account String Identifier | twilio_account_sid Twilio | Twilio API Key | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | WorkOS Production API Key | workos_production_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | WorkOS Staging API Key | workos_staging_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
