@@ -76,4 +76,4 @@ El tiempo de respuesta objetivo de ocho horas:
 
 ## Leer más
 
-- "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)"
+- "[Crear un ticket de soporte](/support/contacting-github-support/creating-a-support-ticket)"

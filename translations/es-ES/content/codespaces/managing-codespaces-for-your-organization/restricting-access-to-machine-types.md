@@ -22,7 +22,7 @@ As an organization owner, you may want to configure constraints on the types of 
 
 If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they time out. When the user attempts to resume the codespace they are shown a message telling them that the currenly selected machine type is no longer allowed for this organization and prompting them to choose an alternative machine type.
 
-If you remove higher specification machine types that are required by the {% data variables.product.prodname_codespaces %} configuration for an individual repository in your organization, then it won't be possible to create a codespace for that repository. When someone attempts to create a codespace they will see a message telling them that there are no valid machine types available that meet the requirements of the repository's {% data variables.product.prodname_codespaces %} configuration.
+Si eliminas tipos de máquina con especificaciones más altas, los cuales requiera la configuración de {% data variables.product.prodname_codespaces %} para un repositorio individual de tu organización, entonces no se podrá crear un codespace en dicho repositorio. Cuando alguien intenta crear un codespace, verán un mensaje que les dice que no hay tipos de máquina válidos disponibles que cumplan con los requisitos de la configuración de {% data variables.product.prodname_codespaces %} del repositorio.
 
 {% note %}
 
@@ -33,7 +33,7 @@ If you remove higher specification machine types that are required by the {% dat
 If setting a policy for machine types prevents people from using {% data variables.product.prodname_codespaces %} for a particular repository there are two options:
 
 * You can adjust your policies to specifically remove the restrictions from the affected repository.
-* Anyone who has a codespace that they can no longer access, because of the new policy, can export their codespace to a branch. This branch will contain all of their changes from the codespace. They can then open a new codespace on this branch with a compliant machine type or work on this branch locally. For more information, see "[Exporting changes to a branch](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
+* Anyone who has a codespace that they can no longer access, because of the new policy, can export their codespace to a branch. This branch will contain all of their changes from the codespace. They can then open a new codespace on this branch with a compliant machine type or work on this branch locally. Para obtener más información, consulta la sección "[Exportar cambios a una rama](/codespaces/troubleshooting/exporting-changes-to-a-branch)".
 
 ### Setting organization-wide and repository-specific policies
 
@@ -84,7 +84,7 @@ If you add an organization-wide policy, you should set it to the largest choice 
 
 ## Deleting a policy
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the available machine types](#adding-a-policy-to-limit-the-available-machine-types)."
+1. Muestra la página de "Políticas del Codespace". Para obtener más información, consulta la sección "[Agregar una política para limitar los tipos de máquina disponibles](#adding-a-policy-to-limit-the-available-machine-types)".
 1. Click the delete button to the right of the policy you want to delete.
 
    ![The delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
