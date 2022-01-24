@@ -308,7 +308,7 @@ La variable `STATE_processID` se encontrará entonces exclusivamente disponible 
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## Archivos de ambiente
+## Environment files
 
 Durante la ejecución de un flujo de trabajo, el ejecutor genera archivos temporales que pueden utilizarse para llevar a cabo ciertas acciones. La ruta a estos archivos se expone a través de variables de ambiente. Necesitarás utilizar codificación UTF-8 cuando escribas en estos archivos para garantizar el procesamiento adecuado de los comandos. Se pueden escribir varios comandos en el mismo archivo, separados por líneas nuevas.
 
@@ -347,16 +347,10 @@ Puedes obtener más detalles sobre el UTF-8 y PowerShell Core en esta genial [re
 ## Configurar una variable de ambiente
 
 ``` bash
-echo "{name}={value}" >> $GITHUB_ENV
+echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 ```
 
-Crea o actualiza una variable de ambiente para cualquier paso que sea el siguiente en ejecutarse en un job. El paso que crea o actualiza la variable de ambiente no tiene acceso al valor nuevo, pero todos los pasos subsecuentes en un job tendrán acceso. Las variables de entorno distinguen mayúsculas de minúsculas y puedes incluir puntuación.
-
-{% note %}
-
-**Nota:** Las variables de ambiente deben referenciarse explícitamente utilizando el [contexto`env`](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) en la sintaxis de expresión o mediante el uso del archivo `$GITHUB_ENV` directamente; las variables de ambiente no están disponibles implícitamente en los comandos del shell.
-
-{% endnote %}
+You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. El paso que crea o actualiza la variable de ambiente no tiene acceso al valor nuevo, pero todos los pasos subsecuentes en un job tendrán acceso. The names of environment variables are case-sensitive, and you can include punctuation. Para obtener más información, consulta "[Variables del entorno](/actions/learn-github-actions/environment-variables)".
 
 ### Ejemplo
 

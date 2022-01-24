@@ -20,7 +20,7 @@ This guide addresses specific considerations for migrations. Para obtener inform
 
 ## Planning your migration
 
-Before you begin migrating your enterprise to {% data variables.product.prodname_actions %}, you should identify which workflows will be migrated and how those migrations will affect your teams, then plan how and when you will complete the migrations.
+Antes de que comiences a migrar tu empresa a {% data variables.product.prodname_actions %}, debes identificar qué flujos de trabajo se migrarán y cómo afectarán dichas migraciones a tus equipos, posteriormente, deberás planear cómo y cuándo completarás las migraciones.
 
 ### Leveraging migration specialists
 
