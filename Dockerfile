@@ -5,15 +5,11 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.13.2-alpine@sha256:f21f35732964a96306a84a8c4b5a829f6d3a0c5163237ff4b6b8b34f8d70064b as base
+FROM node:16-alpine as base
 
-# This directory is owned by the node user
-ARG APP_HOME=/home/node/app
+RUN apk add --no-cache make g++ git
 
-# Make sure we don't run anything as the root user
-USER node
-
-WORKDIR $APP_HOME
+WORKDIR /usr/src/docs
 
 
 # ---------------
@@ -21,8 +17,8 @@ WORKDIR $APP_HOME
 # ---------------
 FROM base as all_deps
 
-COPY --chown=node:node .npmrc ./
-COPY --chown=node:node package*.json ./
+COPY .npmrc ./
+COPY package*.json ./
 
 RUN npm ci
 
@@ -63,13 +59,22 @@ RUN npm run build
 # MAIN IMAGE
 # --------------------------------------------------------------------------------
 
-FROM base as production
+FROM node:16-alpine as production
+
+# Let's make our home
+WORKDIR /usr/src/docs
+
+# Ensure our node user owns the directory we're using
+RUN chown node:node /usr/src/docs -R
+
+# This should be our normal running user
+USER node
 
 # Copy just our prod dependencies
-COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules $APP_HOME/node_modules
+COPY --chown=node:node --from=prod_deps /usr/src/docs/node_modules /usr/src/docs/node_modules
 
 # Copy our front-end code
-COPY --chown=node:node --from=builder $APP_HOME/.next $APP_HOME/.next
+COPY --chown=node:node --from=builder /usr/src/docs/.next /usr/src/docs/.next
 
 # We should always be running in production mode
 ENV NODE_ENV production
