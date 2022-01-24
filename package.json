@@ -28,7 +28,7 @@
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
     "dayjs": "^1.10.7",
-    "dotenv": "^10.0.0",
+    "dotenv": "^14.2.0",
     "express": "^4.17.2",
     "express-rate-limit": "^6.0.4",
     "express-timeout-handler": "^2.2.2",
