@@ -42,7 +42,7 @@
     "hast-util-to-string": "^2.0.0",
     "hastscript": "^7.0.2",
     "helmet": "^4.6.0",
-    "highlight.js": "11.2.0",
+    "highlight.js": "11.4.0",
     "highlightjs-graphql": "^1.0.2",
     "hot-shots": "^9.0.0",
     "html-entities": "^2.3.2",
