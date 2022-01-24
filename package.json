@@ -41,7 +41,7 @@
     "hast-util-select": "^5.0.1",
     "hast-util-to-string": "^2.0.0",
     "hastscript": "^7.0.2",
-    "helmet": "^4.6.0",
+    "helmet": "^5.0.2",
     "highlight.js": "11.2.0",
     "highlightjs-graphql": "^1.0.2",
     "hot-shots": "^9.0.0",
