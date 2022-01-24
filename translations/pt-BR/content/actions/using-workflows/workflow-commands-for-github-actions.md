@@ -308,7 +308,7 @@ A variável `STATE_processID` está exclusivamente disponível para o script de 
 console.log("O PID em execução a partir da ação principal é: " +  process.env.STATE_processID);
 ```
 
-## Arquivos de Ambiente
+## Environment files
 
 Durante a execução de um fluxo de trabalho, o executor gera arquivos temporários que podem ser usados para executar certas ações. O caminho para esses arquivos são expostos através de variáveis de ambiente. Você precisará usar a codificação UTF-8 ao escrever para esses arquivos para garantir o processamento adequado dos comandos. Vários comandos podem ser escritos no mesmo arquivo, separados por novas linhas.
 
@@ -347,16 +347,10 @@ Mais detalhes sobre UTF-8 e PowerShell Core encontrados nesta excelente [respost
 ## Definir uma variável de ambiente
 
 ``` bash
-echo "{name}={value}" >> $GITHUB_ENV
+echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 ```
 
-Cria ou atualiza uma variável de ambiente para quaisquer etapas a serem executadas em seguida no trabalho. A etapa que cria ou atualiza a variável de ambiente não tem acesso ao novo valor, mas todos os passos subsequentes em um trabalho terão acesso. As variáveis de ambiente diferenciam maiúsculas de minúsculas e podem ter pontuação.
-
-{% note %}
-
-**Observação:** As variáveis de ambiente devem ser referenciadas explicitamente usando o [`env` contexto](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) na sintaxe de expressão ou por meio do uso do arquivo `$GITHUB_ENV` diretamente. As variáveisde ambiente não estão implicitamente disponíveis nos comandos do shell.
-
-{% endnote %}
+You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. A etapa que cria ou atualiza a variável de ambiente não tem acesso ao novo valor, mas todos os passos subsequentes em um trabalho terão acesso. The names of environment variables are case-sensitive, and you can include punctuation. Para obter mais informações, consulte "[Variáveis de ambiente](/actions/learn-github-actions/environment-variables)".
 
 ### Exemplo
 

@@ -197,9 +197,9 @@ Os mesmos princípios descritos acima para o uso de ações de terceiros também
 {% endif %}
 
 {% if internal-actions %}
-## Allowing workflows to access internal repositories
+## Permitir que os fluxos de trabalho acessem repositórios internos
 
-{% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+{% data reusables.actions.outside-collaborators-internal-actions %} Para obter mais informações, consulte "[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".
 {% endif %}
 
 ## Possível impacto de um executor comprometido
@@ -238,7 +238,7 @@ O servidor invasor pode usar A API de {% ifversion fpt or ghec %}{% data variabl
 
 ## Considerar acesso entre repositórios
 
-{% data variables.product.prodname_actions %} is intentionally scoped for a single repository at a time. O `GITHUB_TOKEN` concede o mesmo nível de acesso que um usuário com acesso de gravação, porque qualquer usuário com acesso de gravação pode acessar esse token criando ou modificando um arquivo de fluxo de trabalho{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, elevando as permissões do `GITHUB_TOKEN` se necessário{% endif %}. Usuários têm permissões específicas para cada repositório. Portanto, permitir que o `GITHUB_TOKEN` de um repositório conceda acesso a outro teria impacto no modelo de permissão de {% data variables.product.prodname_dotcom %} se não fosse implementado cuidadosamente. Da mesma forma, deve-se ter cuidado ao adicionar tokens de autenticação de {% data variables.product.prodname_dotcom %} a um fluxo de trabalho, porque isto também pode afetar o modelo de permissão de {% data variables.product.prodname_dotcom %} concedendo inadvertidamente amplo acesso aos colaboradores.
+O {% data variables.product.prodname_actions %} tem um escopo intencional para um único repositório por vez. O `GITHUB_TOKEN` concede o mesmo nível de acesso que um usuário com acesso de gravação, porque qualquer usuário com acesso de gravação pode acessar esse token criando ou modificando um arquivo de fluxo de trabalho{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, elevando as permissões do `GITHUB_TOKEN` se necessário{% endif %}. Usuários têm permissões específicas para cada repositório. Portanto, permitir que o `GITHUB_TOKEN` de um repositório conceda acesso a outro teria impacto no modelo de permissão de {% data variables.product.prodname_dotcom %} se não fosse implementado cuidadosamente. Da mesma forma, deve-se ter cuidado ao adicionar tokens de autenticação de {% data variables.product.prodname_dotcom %} a um fluxo de trabalho, porque isto também pode afetar o modelo de permissão de {% data variables.product.prodname_dotcom %} concedendo inadvertidamente amplo acesso aos colaboradores.
 
 Temos [ um plano no roteiro de {% data variables.product.prodname_dotcom %}](https://github.com/github/roadmap/issues/74) para suportar um fluxo que permite o acesso de todos os repositórios em {% data variables.product.product_name %}, embora ainda não seja um recurso compatível. Atualmente, a única maneira de executar interações privilegiadas entre repositórios é colocar um token de autenticação do {% data variables.product.prodname_dotcom %} ou chave SSH como um segredo dentro do fluxo de trabalho. Uma vez que muitos tipos de token de autenticação não permitem acesso granular a recursos específicos, há um risco significativo no uso do tipo incorreto de token, pois ele pode conceder acesso muito mais amplo do que o pretendido.
 
