@@ -24,9 +24,9 @@ topics:
 
 Las acciones que utilizas en tu flujo de trabajo pueden definirse en:
 
-- The same repository as your workflow file{% if internal-actions %}
-- An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
-- Any public repository
+- El mismo repositorio que tu archivo de flujo de trabajo{% if internal-actions %}
+- Un repositorio interno con la mismo cuenta empresarial que se configuró para permitir el acceso a los flujos de trabajo{% endif %}
+- Cualquier repositorio público
 - Una imagen del contenedor Docker publicada en Docker Hub
 
 {% data variables.product.prodname_marketplace %} es una ubicación central para que encuentres acciones que crea la comunidad de {% data variables.product.prodname_dotcom %}.{% ifversion fpt or ghec %}La [página de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace/actions/) te permite filtrar de acuerdo con la categoría de las acciones. {% endif %}
@@ -45,9 +45,9 @@ Puedes buscar acciones manualmente o por coincidencia exacta directamente en el 
 
 ## Agregar una acción a tu flujo de trabajo
 
-You can add an action to your workflow by referencing the action in your workflow file.
+Puedes agregar una acción a tu flujo de trabajo si la referencias en tu archivo de flujo de trabajo.
 
-### Adding an action from {% data variables.product.prodname_marketplace %}
+### Agregar una acción desde {% data variables.product.prodname_marketplace %}
 
 La página de descripción de una acción incluye la versión de la acción y la sintaxis de flujo de trabajo que se necesita para usar la acción. Para mantener estable a tu flujo de trabajo, aún cuando se hagan actualizaciones en una acción, puedes referenciar la versión de la acción a utilizar si especificas el número de etiqueta de Git o de Docker en tu archivo de flujo de trabajo.
 
@@ -60,7 +60,7 @@ La página de descripción de una acción incluye la versión de la acción y la
 
 {% endif %}
 
-### Adding an action from the same repository
+### Agregar una acción desde el mismo repositorio
 
 Si se define una acción en el mismo repositorio en el que tu archivo de flujo de trabajo usa la acción, puedes hacer referencia a la acción con ‌`{owner}/{repo}@{ref}` o la sintaxis `./path/to/dir` en tu archivo de flujo de trabajo.
 
@@ -91,11 +91,11 @@ jobs:
 
 El archivo `action.yml` se utiliza para proporcionar metadatos para la acción. Aprende sobre el contenido de este archivo en la sección "[Sintaxis de metadatos para las GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
-### Adding an action from a different repository
+### Agregar una acción desde un repositorio diferente
 
-If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
+Si se define una acción en un repositorio diferente del de tu archivo de flujo de trabajo, puedes referenciarla con la sintaxis `{owner}/{repo}@{ref}` en tu archivo de flujo de trabajo.
 
-The action must be stored in a public repository{% if internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
+La acción debe almacenarse en un repositorio público{% if internal-actions %} o interno que se configure para permitir el acceso a los flujos de trabajo. Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".{% else %}.{% endif %}
 
 ```yaml
 jobs:

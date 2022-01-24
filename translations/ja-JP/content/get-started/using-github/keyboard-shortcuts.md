@@ -98,7 +98,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | <kbd>control shift p</kbd> または <kbd>command shift p</kbd> | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd>  | Inserts Markdown formatting for an ordered list                                                                                                                                                 |
 | <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd>  | Inserts Markdown formatting for an unordered list{% endif %}
-| <kbd>control enter</kbd>                                  | コメントをサブミットします                                                                                                                                                                                   |
+| <kbd>control enter</kbd> or <kbd>command enter</kbd>      | コメントをサブミットします                                                                                                                                                                                   |
 | <kbd>control .</kbd>、次に <kbd>control [返信テンプレート番号]</kbd>   | 返信テンプレートメニューを開き、コメントフィールドに返信テンプレートを自動入力します。 詳細は「[返信テンプレートについて](/articles/about-saved-replies)」を参照してください。{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>control shift .</kbd> or <kbd>command shift.</kbd>   | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
 | <kbd>control g</kbd> または <kbd>command g</kbd>             | 提案を挿入します。 詳細は「[プルリクエストで提案された変更をレビューする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」を参照してください。 

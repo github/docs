@@ -48,9 +48,9 @@ To configure a connection, your proxy configuration must allow connectivity to `
 
 Los propietarios de empresa que también son propietarios de una cuenta de empresa u organización que utiliza {% data variables.product.prodname_ghe_cloud %} pueden habilitar {% data variables.product.prodname_github_connect %}.
 
-If you're connecting {% data variables.product.product_location %} to an organization on {% data variables.product.prodname_ghe_cloud %} that is not owned by an enterprise account, you must sign into {% data variables.product.prodname_dotcom_the_website %} as an organization owner.
+Si estás conectando a {% data variables.product.product_location %} a una organización en {% data variables.product.prodname_ghe_cloud %} que no le pertenezca a una cuenta empresarial, debes iniciar sesión en {% data variables.product.prodname_dotcom_the_website %} como propietario de organización.
 
-If you're connecting {% data variables.product.product_location %} to an organization on {% data variables.product.prodname_ghe_cloud %} that is owned by an enterprise account or to an enterprise account itself, you must sign into {% data variables.product.prodname_dotcom_the_website %} as an enterprise owner.
+Si estás conectando {% data variables.product.product_location %} a una organización de {% data variables.product.prodname_ghe_cloud %} que le pertenezca a una cuenta empresarial o si la conectas a la cuenta empresarial misma, deberás iniciar sesión en {% data variables.product.prodname_dotcom_the_website %} como propietario de empresa.
 
 {% ifversion ghes %}
 1. Iniciar sesión en {% data variables.product.product_location %} y {% data variables.product.prodname_dotcom_the_website %}.
