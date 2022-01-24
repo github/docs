@@ -43,6 +43,9 @@ Archivos compatibles:
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
+{%- if svg-support %}
+* SVG (*.svg*)
+{%- endif %}
 * Archivos de registro (*.log*)
 * Documentos de Microsoft Word (*.docx*), Powerpoint (*.pptx*) y Excel (*.xlsx*)
 * Archivos de texto (*.txt*)

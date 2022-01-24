@@ -133,7 +133,11 @@ jobs:
 
           # Delete all the big search indexes that are NOT English (`*-en-*`)
           pushd lib/search/indexes
-          ls | grep -v '\-en\-' | xargs rm
+          echo "BEFORE...."
+          ls -l
+          ls | grep -ve '\-en\b' | xargs rm
+          echo "AFTER...."
+          ls -l
           popd
 
           # Note! Some day it would be nice to be able to delete

@@ -70,10 +70,10 @@ describe('breadcrumbs', () => {
     })
 
     test('parses Liquid variables inside titles', async () => {
-      const $ = await getDOM('/en/enterprise/admin/enterprise-support')
+      const $ = await getDOM('/en/education/manage-coursework-with-github-classroom')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[1].attribs.title).toBe('Working with support')
+      expect($breadcrumbs[1].attribs.title).toBe('GitHub Classroom')
     })
 
     test('English breadcrumbs link to English pages', async () => {

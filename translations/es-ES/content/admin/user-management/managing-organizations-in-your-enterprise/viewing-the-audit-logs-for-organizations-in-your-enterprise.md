@@ -1,5 +1,5 @@
 ---
-title: Viewing the audit logs for organizations in your enterprise
+title: Ver las bitácoras de auditoría para las organizaciones de tu empresa
 intro: Los propietarios de la empresa pueden ver accciones acumuladas de todas las organizaciones propiedad de una cuenta de empresa en su registro de auditoría.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
@@ -29,7 +29,7 @@ Cada entrada del registro de auditoría muestra información vigente acerca de u
 
 Puedes buscar el registro de auditoría para eventos específicos y exportar los datos del registro de auditoría. Para obtener más información acerca de buscar el registro de auditoría y eventos en una organización específica, consulta "[Revisar el registro de auditoría para tu organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
 
-You can also stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit logs for organizations in your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)."
+También puedes transmitir datos de eventos de Git y de auditorías desde {% data variables.product.prodname_dotcom %} hacia un sistema externo de administración de datos. Para obtener más información, consulta la sección "[Transmitir las bitácoras de auditoría para las organizaciones de tu cuenta empresarial](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

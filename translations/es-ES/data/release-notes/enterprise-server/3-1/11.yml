@@ -16,7 +16,7 @@ sections:
     - 'Users were not warned about potentially dangerous bidirectional unicode characters when viewing files. For more information, see "[Warning about bidirectional Unicode text](https://github.co/hiddenchars)" in {% data variables.product.prodname_blog %}.'
     - 'Hookshot Go sent distribution type metrics that Collectd could not handle, which caused a ballooning of parsing errors.'
   changes:
-    - 'Kafka configuration improvements have been added. When deleting repositories, package files are now immediately deleted from storage account to free up space. `DestroyDeletedPackageVersionsJob` now deletes package files from storage account for stale packages along with metadata records.'
+    - 'Se agregaron mejoras de configuración de Kafka. Al borrar repositorios, ahora se borran los archivos de paquete inmediatamente de la cuenta de almacenamiento para liberar espacio. `DestroyDeletedPackageVersionsJob` ahora borra archivos de paquete de la cuenta de almacenamiento para el caso de los paquetes desactualizados junto con los registros de metadatos.'
   known_issues:
     - 'El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.'
     - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'

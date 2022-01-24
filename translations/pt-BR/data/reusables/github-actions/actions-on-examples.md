@@ -6,7 +6,7 @@ For example, a workflow with the following `on` value will run when a push is ma
 on: push
 ```
 
-### Using a multiple events
+### Using multiple events
 
 You can specify a single event or multiple events. For example, a workflow with the following `on` value will run when a push is made to any branch in the repository or when someone forks the repository:
 

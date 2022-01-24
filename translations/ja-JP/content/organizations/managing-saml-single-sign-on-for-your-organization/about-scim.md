@@ -22,6 +22,12 @@ Organization の {% data variables.product.product_name %} の SCIM API と連�
 - Okta
 - OneLogin
 
+{% note %}
+
+**注釈:** {% data reusables.scim.nameid-and-username-must-match %}
+
+{% endnote %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 ## 参考リンク

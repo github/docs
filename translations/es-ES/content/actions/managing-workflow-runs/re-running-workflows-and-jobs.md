@@ -1,6 +1,6 @@
 ---
-title: Re-running workflows and jobs
-intro: You can re-run a workflow run up to 30 days after its initial run.
+title: Volver a ejecutar flujos de trabajo y jobs
+intro: Puedes volver a ejecutar una ejecución de flujo de trabajo hasta 30 días después de su ejecución inicial.
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -15,9 +15,9 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Re-running all the jobs in a workflow
+## Volver a ejecutar todos los jobs en un flujo de trabajo
 
-El volver a ejecutar un flujo de trabajo utiliza el mismo `GITHUB_SHA` (SHA de confirmación) y `GITHUB_REF` (ref de Git) del evento original que activó la ejecución de flujo de trabajo. You can re-run a workflow for up to 30 days after the initial run.
+El volver a ejecutar un flujo de trabajo utiliza el mismo `GITHUB_SHA` (SHA de confirmación) y `GITHUB_REF` (ref de Git) del evento original que activó la ejecución de flujo de trabajo. Puedes volver a ejecutar un flujo de trabajo hasta por hasta 30 días después de la ejecución inicial.
 
 {% webui %}
 
@@ -26,7 +26,7 @@ El volver a ejecutar un flujo de trabajo utiliza el mismo `GITHUB_SHA` (SHA de c
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
-1. En la esquina superior derecha del flujo de trabajo, utiliza el menú desplegable **Volver a ejecutar jobs** y selecciona **Volver a ejecutar todos los jobs** ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
+1. En la esquina superior derecha del flujo de trabajo, utiliza el menú desplegable **Volver a ejecutar jobs** y selecciona **Volver a ejecutar todos los jobs** ![Menú desplegable de verificaciones de re-ejecución](/assets/images/help/repository/rerun-checks-drop-down.png)
 {% endif %}
 {% ifversion ghes < 3.3 or ghae %}
 1. En la esquina superior derecha del flujo de trabajo, utiliza el menú desplegable **Volver a ejecutar jobs** y selecciona **Volver a ejecutar todos los jobs**. ![Volver a ejecutar el menú desplegable de verificaciones](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
@@ -53,15 +53,15 @@ gh run watch
 {% endcli %}
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
-### Reviewing previous workflow runs
+### Revisar las ejecuciones de flujo de trabajo anteriores
 
-You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. Para obtener más información, consulta la sección "[Obtener una ejecución de flujo de trabajo](/rest/reference/actions#get-a-workflow-run)".
+Puedes ver los resultados desde tus intentos anteriores para ejecutar un flujo de trabajo. También puedes ver las ejecuciones de flujo de trabajo anteriores utilizando la API. Para obtener más información, consulta la sección "[Obtener una ejecución de flujo de trabajo](/rest/reference/actions#get-a-workflow-run)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Any previous run attempts are shown in the left pane. ![Rerun workflow](/assets/images/help/settings/actions-review-workflow-rerun.png)
-1. Click an entry to view its results.
+1. Cualquier intento de ejecución anterior se muestra en el panel izquierdo. ![Volver a ejecutar un flujo de trabajo](/assets/images/help/settings/actions-review-workflow-rerun.png)
+1. Haz clic en una entrada para ver sus resultados.
 
 {% endif %}
