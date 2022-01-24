@@ -102,7 +102,7 @@
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.16.3",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
-    "@babel/plugin-transform-runtime": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.16.10",
     "@babel/preset-env": "^7.16.7",
     "@graphql-inspector/core": "^2.9.0",
     "@graphql-tools/load": "^7.4.1",
