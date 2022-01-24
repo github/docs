@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: View files and changes file changes
+shortTitle: View files and track file changes 
 ---
 ## View or download the raw file content
 
