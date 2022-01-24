@@ -1397,6 +1397,61 @@ on: workflow_dispatch
 
 You can configure custom-defined input properties, default input values, and required inputs for the event directly in your workflow. When you trigger the event, you can provide the `ref` and any `inputs`. When the workflow runs, you can access the input values in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
+This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the `github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment` context properties. 
+
+{% raw %}
+```yaml
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning' 
+        type: choice
+        options:
+        - info
+        - warning
+        - debug 
+      tags:
+        description: 'Test scenario tags'
+        required: false 
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true 
+
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+          echo "Environment: $ENVIRONMENT"
+        env:
+          LEVEL: ${{ github.event.inputs.logLevel }}
+          TAGS: ${{ github.event.inputs.tags }}
+          ENVIRONMENT: ${{ github.event.inputs.environment }}
+```
+{% endraw %}
+
+If you run this workflow from a browser you must enter values for the required inputs manually before the workflow will run.
+
+![Entering inputs for a workflow](/assets/images/help/images/workflow-dispatch-inputs.png)
+
+You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. For example:
+
+```
+gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
+```
+
+For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
+
+
+{% else %}
 This example defines the `name` and `home` inputs and prints them using the `github.event.inputs.name` and `github.event.inputs.home` contexts. If a `home` isn't provided, the default value 'The Octoverse' is printed.
 
 ```yaml
@@ -1424,6 +1479,7 @@ jobs:
           NAME: {% raw %}${{ github.event.inputs.name }}{% endraw %}
           HOME: {% raw %}${{ github.event.inputs.home }}{% endraw %}
 ```
+{% endif %}
 
 ### `workflow_run`
 
