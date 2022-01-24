@@ -46,7 +46,7 @@ Um fluxo de trabalho reutilizável pode ser usado por outro fluxo de trabalho se
 
 * Ambos os fluxos de trabalho estão no mesmo repositório.
 * O fluxo de trabalho chamado é armazenado em um repositório público.{% ifversion ghes or ghec or ghae %}
-* O fluxo de trabalho chamado é armazenado em um repositório interno e as configurações para esse repositório permitem que ele seja acessado. Para obter mais informações, consulte "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)".{% endif %}
+* O fluxo de trabalho chamado é armazenado em um repositório interno e as configurações para esse repositório permitem que ele seja acessado. Para obter mais informações, consulte {% if internal-actions %}"[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Gerenciando configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}.{% endif %}
 
 ## Usando executores
 

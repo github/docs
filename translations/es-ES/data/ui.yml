@@ -14,9 +14,9 @@ header:
     ghes_release_notes_upgrade_release_only: '📣 Este no es el <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">lanzamiento más reciente </a> de Enterprise Server.'
     ghes_release_notes_upgrade_patch_and_release: '📣 Este no es el <a href="#{{ latestPatch }}">lanzamiento de parche más reciente</a> de esta serie de lanzamientos, y no es el<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">último lanzamiento</a> de Enterprise Server.'
 picker:
-  language_picker_default_text: Choose a language
-  product_picker_default_text: All products
-  version_picker_default_text: Choose a version
+  language_picker_default_text: Elige un idioma
+  product_picker_default_text: Todos los productos
+  version_picker_default_text: Elige una versión
 release_notes:
   banner_text: GitHub comenzó a implementar estos cambios en empresas en
 search:
@@ -27,7 +27,7 @@ search:
   search_results_for: Buscar resultados para
   no_content: Sin contenido
   matches_displayed: Coincidencias mostradas
-  search_error: An error occurred trying to perform the search.
+  search_error: Ocurrió un error al intentar realizar la búsqueda.
 homepage:
   explore_by_product: Explorar por producto
   version_picker: Versión

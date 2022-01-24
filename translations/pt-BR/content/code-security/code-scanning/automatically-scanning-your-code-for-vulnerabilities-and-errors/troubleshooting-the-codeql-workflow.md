@@ -42,7 +42,7 @@ Para produzir a saída de log mais detalhada, você pode habilitar o log de depu
 
 Você pode obter artefatos para ajudar você a depurar {% data variables.product.prodname_codeql %}, definindo um sinalizador da configuração de depuração. Modifique a etapa `init` do seu arquivo de fluxo de trabalho {% data variables.product.prodname_codeql %} e defina `debug: true`.
 
-```
+```yaml
 - name: Initialize CodeQL
   uses: github/codeql-action/init@v1
   with:
@@ -137,13 +137,15 @@ Se a sua análise de {% data variables.product.prodname_codeql %} digitalizar me
 Substitua a etapa `autobuild` pelos os mesmos comandos de compilação que você usaria em produção. Isso garante que {% data variables.product.prodname_codeql %} sabe exatamente como compilar todos os arquivos de origem que você deseja digitalizar. Para obter mais informações, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
 ### Inspecionar a cópia dos arquivos de origem no banco de dados de {% data variables.product.prodname_codeql %}
-Talvez você seja possa entender por que alguns arquivos de origem não foram analisados inspecionando a cópia do código-fonte incluído na base de dados de {% data variables.product.prodname_codeql %}. Para obter o banco de dados de seu fluxo de trabalho de ações, adicione uma ação `upload-artifact` após a etapa de análise de seu fluxo de trabalho de digitalização de código:
-```
-- uses: actions/upload-artifact@v2
+Talvez você seja possa entender por que alguns arquivos de origem não foram analisados inspecionando a cópia do código-fonte incluído na base de dados de {% data variables.product.prodname_codeql %}. To obtain the database from your Actions workflow, modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
+
+```yaml
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v1
   with:
-    name: codeql-database
-    path: ../codeql-database
+    debug: true
 ```
+
 Isso faz o upload do banco de dados como um artefato de ações que você pode baixar para a sua máquina local. Para obter mais informações, consulte "[Armazenando artefatos de fluxo de trabalho](/actions/guides/storing-workflow-data-as-artifacts)".
 
 O artefato conterá uma cópia arquivada dos arquivos de origem digitalizados por {% data variables.product.prodname_codeql %} denominada _src.zip_. Se você comparar os arquivos do código-fonte no repositório e os arquivos em _src. ip_, você poderá ver quais tipos de arquivo estarão faltando. Uma vez que você sabe quais tipos de arquivo não estão sendo analisados, é mais fácil entender como você pode precisar alterar o fluxo de trabalho para a análise de {% data variables.product.prodname_codeql %}.

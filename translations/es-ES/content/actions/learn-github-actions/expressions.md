@@ -15,7 +15,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Acerca de las expresiones
 
-Puedes usar expresiones para establecer variables programáticamente en archivos de flujo de trabajo y contextos de acceso. Una expresión puede ser cualquier combinación de valores literales, referencias a un contexto o funciones. Puedes combinar valores literales, referencias de contexto y funciones usando operadores. Para obtener más información sobre los contextos, consulta la sección "[Contextos](/actions/learn-github-actions/contexts)".
+You can use expressions to programmatically set environment variables in workflow files and access contexts. Una expresión puede ser cualquier combinación de valores literales, referencias a un contexto o funciones. Puedes combinar valores literales, referencias de contexto y funciones usando operadores. Para obtener más información sobre los contextos, consulta la sección "[Contextos](/actions/learn-github-actions/contexts)".
 
 Las expresiones se utilizan comúnmente con la palabra clave condicional `if` en un archivo de flujo de trabajo para determinar si un paso debe ejecutar. Cuando un condicional `if` es `true`, se ejecutará el paso.
 
@@ -50,12 +50,12 @@ env:
 
 Como parte de una expresión, puedes usar tipos de datos `boolean`, `null`, `number` o `string`.
 
-| Tipo de datos | Valor literal                                                                           |
-| ------------- | --------------------------------------------------------------------------------------- |
-| `boolean`     | `verdadero` o `falso`                                                                   |
-| `null`        | `null`                                                                                  |
-| `number`      | Cualquier formato de número compatible con JSON.                                        |
-| `secuencia`   | Debes usar comillas simples. Escapar comillas simples literales con una comilla simple. |
+| Tipo de datos | Valor literal                                                                                                                                                                                                                 |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `boolean`     | `verdadero` o `falso`                                                                                                                                                                                                         |
+| `null`        | `null`                                                                                                                                                                                                                        |
+| `number`      | Cualquier formato de número compatible con JSON.                                                                                                                                                                              |
+| `secuencia`   | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
 
 #### Ejemplo
 
@@ -68,8 +68,8 @@ env:
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
   myExponentialNumber: ${{ -2.99-e2 }}
-  myString: ${{ 'Mona the Octocat' }}
-  myEscapedString: ${{ 'It''s open source!' } }}
+  myString: Mona the Octocat
+  myStringInBraces: ${{ 'It''s open source!' }}
 ```
 {% endraw %}
 
@@ -252,7 +252,7 @@ jobs:
 
 Arroja un solo hash para el conjunto de archivos que coincide con el patrón de `path`. Puedes proporcionar un patrón de `path` o `path` múltiples se parados por comas. El `path` está relacionado con el directorio `GITHUB_WORKSPACE` y solo puede incluir archivos dentro del directorio `GITHUB_WORKSPACE`. Esta función calcula un hash SHA-256 individual para cada archivo coincidente, y luego usa esos hashes para calcular un hash SHA-256 final para el conjunto de archivos. Para más información sobre SHA-256, consulta "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
 
-Puedes usar caracteres de coincidencia de patrones para encontrar nombres de archivos. La coincidencia de patrones no distingue mayúsculas de minúsculas en Windows. Para obtener más información acerca de los caracteres compatibles con los patrones, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)".
+Puedes usar caracteres de coincidencia de patrones para encontrar nombres de archivos. La coincidencia de patrones no distingue mayúsculas de minúsculas en Windows. Para obtener más información acerca de los caracteres compatibles con los patrones, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)".
 
 #### Ejemplo con un solo patrón
 

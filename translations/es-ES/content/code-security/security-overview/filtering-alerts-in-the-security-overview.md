@@ -74,18 +74,18 @@ El nivel de riesgo de un repositorio se determina por la cantidad y severidad de
 
 ## Filtra por cantidad de alertas
 
-Available in the organization-level overview.
+Disponible en el resumen a nivel organizacional.
 
-| Qualifier                 | Descripción                                                                                                                                                                      |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>code-scanning:<em>n</em></code> | Muestra los repositorios que tienen *n* alertas del {% data variables.product.prodname_code_scanning %}. This qualifier can use `=`, `>` and `<` comparison operators.   |
-| <code>secret-scanning:<em>n</em></code> | Muestra los repositorios que tienen *n* alertas del {% data variables.product.prodname_secret_scanning %}. This qualifier can use `=`, `>` and `<` comparison operators. |
-| <code>dependabot:<em>n</em></code> | Muestra los repositorios que tienen *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators.           |
+| Qualifier                 | Descripción                                                                                                                                                                                      |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>code-scanning:<em>n</em></code> | Muestra los repositorios que tienen *n* alertas del {% data variables.product.prodname_code_scanning %}. This qualifier can use `=`, `>` and `<` comparison operators.                   |
+| <code>secret-scanning:<em>n</em></code> | Muestra los repositorios que tienen *n* alertas del {% data variables.product.prodname_secret_scanning %}. Este calificador puede utilizar los operadores de comparación `=`, `>` y `<`. |
+| <code>dependabot:<em>n</em></code> | Muestra los repositorios que tienen *n* {% data variables.product.prodname_dependabot_alerts %}. Este calificador puede utilizar los operadores de comparación `=`, `>` y `<`.           |
 
 
 ## Filtrar por equipo
 
-Available in the organization-level overview.
+Disponible en el resumen a nivel organizacional.
 
 | Qualifier                 | Descripción                                                                        |
 | ------------------------- | ---------------------------------------------------------------------------------- |
@@ -93,7 +93,7 @@ Available in the organization-level overview.
 
 ## Filtrar por tema
 
-Available in the organization-level overview.
+Disponible en el resumen a nivel organizacional.
 
 | Qualifier                 | Descripción                                                  |
 | ------------------------- | ------------------------------------------------------------ |
@@ -128,8 +128,8 @@ Available in the secret scanning alert views.
 
 ## Filter by provider
 
-Available in the secret scanning alert views.
+Disponible en las vistas de alerta del escaneo de secretos.
 
-| Qualifier                | Descripción                                                                                                                                                                                                                                                |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[List of supported secrets for private repositories](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |
+| Qualifier                | Descripción                                                                                                                                                                                                                                                                                  |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. Para obtener más información, consulta la sección "[Lista de secretos compatibles para los repositorios privados](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |

@@ -15,7 +15,6 @@ topics:
 type: how_to
 shortTitle: Configure SAML with Okta
 ---
-{% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
 {% data reusables.enterprise-accounts.emu-saml-note %}
 
@@ -27,27 +26,20 @@ SAML SSO controls and secures access to enterprise account resources like organi
 
 {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
-## Prerequisites
-
-{% data reusables.saml.use-classic-ui %}
+Alternatively, you can also configure SAML SSO using Okta for an organization that uses {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Configuring SAML single sign-on and SCIM using Okta](/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta)."
 
 ## Adding the {% data variables.product.prodname_ghe_cloud %} application in Okta
 
-{% data reusables.saml.okta-admin-button %}
+{% data reusables.saml.okta-sign-into-your-account %}
+1. Navigate to the [Github Enterprise Cloud - Enterprise Accounts](https://www.okta.com/integrations/github-enterprise-cloud-enterprise-accounts) application in the Okta Integration Network and click **Add Integration**.
 {% data reusables.saml.okta-dashboard-click-applications %}
-{% data reusables.saml.add-okta-application %}
-{% data reusables.saml.search-ghec-okta %}
-1. Click "{% data variables.product.prodname_ghe_cloud %} - Enterprise Accounts".
-1. Click **Add**.
 1. Optionally, to the right of "Application label", type a descriptive name for the application.
-  ![Application label field](/assets/images/help/saml/okta-application-label.png)
 1. To the right of "{% data variables.product.prodname_dotcom %} Enterprises", type the name of your enterprise account. For example, if your enterprise account's URL is `https://github.com/enterprises/octo-corp`, type `octo-corp`.
-  ![GitHub Enterprises field](/assets/images/help/saml/okta-github-enterprises.png)
 1. Click **Done**.
 
 ## Enabling and testing SAML SSO
 
-{% data reusables.saml.okta-admin-button %}
+{% data reusables.saml.okta-sign-into-your-account %}
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.click-enterprise-account-application %}
 {% data reusables.saml.assign-yourself-to-okta %}
@@ -64,17 +56,3 @@ SAML SSO controls and secures access to enterprise account resources like organi
 1. In Okta, create a group to match each organization owned by your enterprise account. The name of each group must match the account name of the organization (not the organization's display name). For example, if the URL of the organization is `https://github.com/octo-org`, name the group `octo-org`.
 1. Assign the application you created for your enterprise account to each group. {% data variables.product.prodname_dotcom %} will receive all `groups` data for each user.
 1. Add users to groups based on the organizations you'd like users to belong to.
-
-## Enabling SAML user provisioning
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "SAML User Provisioning", select **Enable SAML user provisioning**.
-  ![Checkbox to enable user provisioning with SAML](/assets/images/help/business-accounts/user-provisioning.png)
-1. Click **Save**.
-1. Optionally, enable SAML user deprovisioning.
-   - Select **Enable SAML user deprovisioning**, then click **Save**.
-     ![Checkbox to enable user deprovisioning with SAML](/assets/images/help/business-accounts/saml-deprovisioning.png)
-   - Read the warning, then click **Enable SAML deprovisioning**.
-       ![Enable SAML deprovisioning button](/assets/images/help/business-accounts/saml-deprovisioning-confirm.png)

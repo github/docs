@@ -64,6 +64,8 @@ Uma _ação_ é uma aplicativo personalizado para a plataforma de {% data variab
 
 Você pode gravar suas próprias ações, ou você pode encontrar ações para usar nos seus fluxos de trabalho em {% data variables.product.prodname_marketplace %}.
 
+{% data reusables.actions.internal-actions-summary %}
+
 Para obter mais informações, consulte "[Criar ações](/actions/creating-actions)".
 
 ### Executores

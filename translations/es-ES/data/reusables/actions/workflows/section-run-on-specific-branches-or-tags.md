@@ -7,7 +7,7 @@ Utiliza el filtro de `tags` cuando quieras incluir los patrones de nombre de eti
 
 Si solo defines `tags`/`tag-ignore` o solo `branches`/`branches-ignore`, el flujo de trabajo no se ejecutará para los eventos que afectan la ref de Git indefinida. Si no defines ni `tags`/`tag-ignore` ni `branches`/`branches-ignore`, el flujo de trabajo se ejecutará para los eventos que no afecten a ninguna rama o etiqueta. Si defines `branches`/`branches-ignore` y [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), el flujo de trabajo solo se ejecutará cuando ambos filtros se hayan satisfecho.
 
-Las palabras clave `branches`, `branches-ignore`, `tags`, y `tags-ignore` aceptan patrones globales que utilizan caracteres como `*`, `**`, `+`, `?`, `!` y otros para empatar con más de una rama o nombre de etiqueta. Si un nombre contiene cualquiera de estos caracteres y quieres tener una coincidencia literal, necesitas *escapar* cada uno de estos caracteres especiales con una `\`. Para obtener más información sobre los patrones globales, consulta "[Hoja de información para filtrar patrones](#filter-pattern-cheat-sheet)".
+Las palabras clave `branches`, `branches-ignore`, `tags`, y `tags-ignore` aceptan patrones globales que utilizan caracteres como `*`, `**`, `+`, `?`, `!` y otros para empatar con más de una rama o nombre de etiqueta. Si un nombre contiene cualquiera de estos caracteres y quieres tener una coincidencia literal, necesitas *escapar* cada uno de estos caracteres especiales con una `\`. Para obtener más información sobre los patrones globales, consulta "[Hoja de información para filtrar patrones](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
 #### Ejemplo: Incluyendo ramas y etiquetas
 

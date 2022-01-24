@@ -74,7 +74,7 @@ To enable single sign-on (SSO) for {% data variables.product.prodname_ghe_manage
 
 {% note %}
 
-**Note:** To test your SAML configuration from {% data variables.product.prodname_ghe_managed %}, your Okta user account must be assigned to the {% data variables.product.prodname_ghe_managed %} app.
+**Nota:** Para probar tu configuración de SAML desde {% data variables.product.prodname_ghe_managed %}, tu cuenta de usuario de Okta debe asignarse a la app de {% data variables.product.prodname_ghe_managed %}.
 
 {% endnote %}
 
