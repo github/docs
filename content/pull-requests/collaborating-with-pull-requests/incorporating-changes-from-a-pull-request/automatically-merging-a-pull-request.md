@@ -51,4 +51,4 @@ People with write permissions to a repository and pull request authors can disab
 {% data reusables.repositories.sidebar-pr %}
 1. In the "Pull Requests" list, click the pull request you'd like to disable auto-merge for.
 1. In the merge box, click **Disable auto-merge**.
-  ![Button to disable auto-merge](/assets/images/help/pull_requests/disable-auto-merge-button.png)
+  ![Button to disable auto-merge](/assets/images/help/pull_requests/disable-auto-merge-button.png)k
