@@ -43,4 +43,4 @@ Adicionalmente a poder ver los tickets, también puedes agregar comentarios para
 
 ## Leer más
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Acerca del Soporte de GitHub](/support/learning-about-github-support/about-github-support)"

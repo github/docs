@@ -28,7 +28,7 @@ topics:
 
 Cuando habilitas la búsqueda unificada, los usuarios pueden ver los resultados de búsqueda desde el contenido de {% data variables.product.prodname_dotcom_the_website %} cuando buscan desde {% data variables.product.product_location %}{% ifversion ghae %} en {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
-You can choose to allow search results for public repositories on {% data variables.product.prodname_dotcom_the_website %}, and you can separately choose to allow search results for private repositories on {% data variables.product.prodname_ghe_cloud %}. If you enable unified search for private repositories, users can only search private repositories that they have access to and that are owned by the connected organization or enterprise account. Para obtener más información, consulta [Acerca de buscar en {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)".
+Puedes elegir permitir los resultados de búsqueda para los repositorios públicos de {% data variables.product.prodname_dotcom_the_website %} y puedes elegir por separado permitir los resultados de búsqueda para los repositorios privados en {% data variables.product.prodname_ghe_cloud %}. If you enable unified search for private repositories, users can only search private repositories that they have access to and that are owned by the connected organization or enterprise account. Para obtener más información, consulta [Acerca de buscar en {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)".
 
 Users will never be able to search {% data variables.product.product_location %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments.
 
@@ -38,7 +38,7 @@ Buscar a través de las API REST y GraphQL no incluye {% data variables.product.
 
 ## Habilitar {% data variables.product.prodname_unified_search %}
 
-Before you can enable {% data variables.product.prodname_unified_search %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+Before you can enable {% data variables.product.prodname_unified_search %}, you must enable {% data variables.product.prodname_github_connect %}. Para obtener más información, consulta la sección "[Administrar {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".
 
 {% ifversion ghes %}
 {% data reusables.github-connect.access-dotcom-and-enterprise %}

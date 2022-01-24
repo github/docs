@@ -1,6 +1,6 @@
 ---
 title: Configuring OpenID Connect in HashiCorp Vault
-shortTitle: Configuring OpenID Connect in HashiCorp Vault
+shortTitle: Configurar OpenID Connect en HashiCorp Vault
 intro: Use OpenID Connect within your workflows to authenticate with HashiCorp Vault.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -45,7 +45,7 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 To add OIDC integration to your workflows that allow them to access secrets in Vault, you will need to add the following code changes:
 
-- Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
+- Otorga permiso para recuperar el token del proveedor de OIDC de {% data variables.product.prodname_dotcom %}:
   - The workflow needs `permissions:` settings with the `id-token` value set to `write`. This lets you fetch the OIDC token from every job in the workflow.
 - Request the JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and present it to HashiCorp Vault to receive an access token:
   - Podrías utilizar las [Herramientas de las acciones](https://github.com/actions/toolkit/) para recuperar los tokens para tu job o puedes utilizar la acción [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) para recuperar el JWT y recibir el token de acceso de la bóveda.
@@ -54,7 +54,7 @@ This example demonstrates how to use OIDC with the official action to request a 
 
 ### Agregar ajustes de permisos
 
-The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por ejemplo:
+El flujo de trabajo requerirá una configuración de `permissions` con un valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. Si solo necesitas recuperar un token de OIDC para un solo job, entonces este permiso puede configurarse dentro de dicho job. Por ejemplo:
 
 ```yaml{:copy}
 permissions:

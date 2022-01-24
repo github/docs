@@ -28,7 +28,7 @@ Any actions or workflows stored in the internal repository can be used in workfl
 
 {% endwarning %}
 
-## Sharing actions and workflows with your enterprise
+## Compartir acciones y flujos de trabajo con tu empresa
 
 1. Store the action or workflow in an internal repository. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)".
 1. Configure the repository to allow access to workflows in other private and internal repositories. Para obtener más información, consulta la sección "[Administrar la configuración de {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)".
