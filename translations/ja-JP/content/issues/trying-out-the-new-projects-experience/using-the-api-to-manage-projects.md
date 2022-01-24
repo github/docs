@@ -243,6 +243,12 @@ gh api graphql -f query='
 
 APIでクエリを行い、プロジェクト中のアイテムに関する情報を見つけることができます。
 
+{% note %}
+
+**Note**: The API will not return information about draft issues.
+
+{% endnote %}
+
 以下の例は、プロジェクト中の最初の20個のアイテムのタイトルとIDを返します。 それぞれのアイテムについては、プロジェクト中の最初の8個のフィールドの値と名前も返します。 アイテムがIssueあるいはPull Requestの場合、アサインされた最初の10人のログインも返します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。
 
 {% curl %}

@@ -20,7 +20,7 @@ Ao habilitar o SAML SSO, {% data variables.product.prodname_dotcom %} solicitar�
 
 Você também pode aplicar SAML SSO para a sua organização. {% data reusables.saml.when-you-enforce %} Aplicação remove todos os integrantes e administradores que não tenham efetuado a autenticação por meio do seu IdP da organização. {% data variables.product.company_short %} envia uma notificação de email para cada usuário removido.
 
-Você poderá restaurar integrantes da organização depois que eles tiverem concluído o logon único com êxito. Os privilégios e configurações de acesso dos usuários removidos são salvos por três meses e podem ser restaurados durante este período. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
+Any users removed due to SAML SSO enforcement can rejoin your organization by authenticating via SAML single sign-on. If a user rejoins the organization within three months, the user's access privileges and settings will be restored. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
 
 As contas de bots e serviços que não têm identidades externas configuradas no IdP da sua organização também serão removidas quando você aplicar o SAML SSO. Para obter mais informações sobre bots e contas de serviço, consulte "[Gerenciar bots e contas de serviço com logon único SAML](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)".
 

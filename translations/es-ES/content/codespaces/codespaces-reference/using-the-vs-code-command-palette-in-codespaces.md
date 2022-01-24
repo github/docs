@@ -17,7 +17,7 @@ redirect_from:
 
 ## About the {% data variables.product.prodname_vscode %} Command Palette
 
-La paleta de comandos es una de las características focales de {% data variables.product.prodname_vscode %} y está disponible para que la utilices en Codespaces. The {% data variables.product.prodname_vscode_command_palette %} allows you to access many commands for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information on using the {% data variables.product.prodname_vscode_command_palette %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the Visual Studio Code documentation.
+La paleta de comandos es una de las características focales de {% data variables.product.prodname_vscode %} y está disponible para que la utilices en Codespaces. The {% data variables.product.prodname_vscode_command_palette %} allows you to access many commands for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. Para obtener más información sobre cómo utilizar la {% data variables.product.prodname_vscode_command_palette %}, consulta la sección "[Interfaz de usuario](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" en la documentación de Visual Studio Code.
 
 ## Accessing the {% data variables.product.prodname_vscode_command_palette %}
 

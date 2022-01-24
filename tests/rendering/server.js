@@ -490,9 +490,11 @@ describe('server', () => {
 
     test('dotcom articles on dotcom have Enterprise Admin links with latest GHE version', async () => {
       const $ = await getDOM('/en/articles/setting-up-a-trial-of-github-enterprise-server')
+      // Note any links that might expressed in Markdown as '.../enterprise-server@latest/...'
+      // becomes '.../enterprise-server@<VERSION>/...' when rendered out.
       expect(
         $(
-          `a[href="/en/enterprise-server@latest/admin/installation/setting-up-a-github-enterprise-server-instance"]`
+          `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation/setting-up-a-github-enterprise-server-instance"]`
         ).length
       ).toBe(2)
     })

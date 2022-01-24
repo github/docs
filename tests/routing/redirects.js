@@ -97,7 +97,7 @@ describe('redirects', () => {
     })
 
     test('do not work on other paths that include "search"', async () => {
-      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom`
+      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise`
       const res = await get(reqPath)
       expect(res.statusCode).toBe(200)
     })
@@ -201,7 +201,7 @@ describe('redirects', () => {
 
     test('hardcoded @latest redirects to latest version', async () => {
       const res = await get('/en/enterprise-server@latest')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(enterpriseHome)
     })
   })

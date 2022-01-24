@@ -126,6 +126,34 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+A Git ref has been successfully synced to a cache replica. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+
+### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`cache_location` |`string` | The location of the cache server that has been updated.
+`ref` | `string` | The ref that has been updated.
+`before` | `string` | The OID of the ref on the cache replica before it was updated.
+`after` | `string` | The OID of the ref on the cache replica after the update.
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
