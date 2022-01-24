@@ -1,0 +1,50 @@
+name: Staging - Undeploy Azure PR
+
+# **What it does**: To undeploy PRs from Azure staging environment, i.e. destroy the App and associated resources.
+# **Why we have it**: To save money spent on deployments for closed PRs.
+# **Who does it impact**: All contributors.
+
+on:
+  pull_request:
+    types:
+      - closed
+      - locked
+
+jobs:
+  undeploy:
+    name: Undeploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GITHUB_EVENT_NUMBER: ${{ github.event.number }}
+      IMAGE_REPO: ${{ github.repository }}/pr-${{ github.event.number }}
+
+    steps:
+      - name: 'Set env vars'
+        id: vars
+        run: |
+          REPO_NAME=${GITHUB_REPOSITORY#*\/}
+          echo "APP_NAME=gh${REPO_NAME}-staging-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
+
+      - name: 'Az CLI login'
+        uses: azure/login@66d2e78565ab7af265d2b627085bc34c73ce6abb
+        with:
+          creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
+
+      # Delete web app (which will also delete the App Service plan)
+      # This will succeed even if the app doesn't exist / has already been deleted
+      - name: 'Delete App Service App (which will also delete the App Service plan)'
+        run: |
+          az webapp delete -n $APP_NAME -g docs-nonprod
+
+      # Untag all images under this PR's container registry repo - the container registry will automatically remove untagged images.
+      # This will fail if the IMAGE_REPO doesn't exist, but we don't care
+      - name: 'Untag all docker images for this PR'
+        run: |
+          az acr repository delete -n ghdocs --repository ${{ env.IMAGE_REPO }} -y || true
+
+      # Remove all deployments from this environment and remove the environment
+      - uses: strumwolf/delete-deployment-environment@45c821e46baa405e25410700fe2e9643929706a0
+        with:
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          environment: staging-pr-${{ github.event.number }}
