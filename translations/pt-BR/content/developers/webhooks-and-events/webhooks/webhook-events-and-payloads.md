@@ -140,12 +140,12 @@ A Git ref has been successfully synced to a cache replica. Para obter mais infor
 
 ### Objeto da carga do webhook
 
-| Tecla            | Tipo     | Descrição                                                      |
-| ---------------- | -------- | -------------------------------------------------------------- |
-| `cache_location` | `string` | The location of the cache server that has been updated.        |
-| `ref`            | `string` | The ref that has been updated.                                 |
-| `antes`          | `string` | The OID of the ref on the cache replica before it was updated. |
-| `depois`         | `string` | The OID of the ref on the cache replica after the update.      |
+| Tecla            | Tipo     | Descrição                                                 |
+| ---------------- | -------- | --------------------------------------------------------- |
+| `cache_location` | `string` | A localização do servidor de cache que foi atualizado.    |
+| `ref`            | `string` | A ref que foi atualizada.                                 |
+| `antes`          | `string` | O OID da ref na réplica do cache antes de ser atualizado. |
+| `depois`         | `string` | O OID do ref na réplica do cache após a atualização.      |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
