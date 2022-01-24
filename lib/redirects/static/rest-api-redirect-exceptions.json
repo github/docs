@@ -120,6 +120,5 @@
   "/rest/reference/repos#update-a-webhook-configuration-for-a-repository": "/rest/reference/webhooks#update-a-webhook-configuration-for-a-repository",
   "/rest/reference/repos#get-a-delivery-for-a-repository-webhook": "/rest/reference/webhooks#get-a-delivery-for-a-repository-webhook",
   "/rest/reference/repos#list-deliveries-for-a-repository-webhook": "/rest/reference/webhooks#list-deliveries-for-a-repository-webhook",
-  "/rest/reference/repos#redeliver-a-delivery-for-a-repository-webhook": "/rest/reference/webhooks#redeliver-a-delivery-for-a-repository-webhook",
-  "/rest/reference/repos#statuses": "/rest/reference/commits#commit-statuses"
+  "/rest/reference/repos#redeliver-a-delivery-for-a-repository-webhook": "/rest/reference/webhooks#redeliver-a-delivery-for-a-repository-webhook"
 }
