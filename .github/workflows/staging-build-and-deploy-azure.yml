@@ -28,7 +28,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-staging-azure:
     if: ${{ github.repository == 'github/docs-internal' }}
     name: Build and deploy image to staging App Service
     runs-on: ubuntu-latest

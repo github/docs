@@ -21,7 +21,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-prod-azure:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
