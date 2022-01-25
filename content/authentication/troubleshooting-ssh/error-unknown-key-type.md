@@ -1,4 +1,4 @@
----
+---K.
 title: 'Error: Unknown key type'
 intro: 'This error means that the SSH key type you used was unrecognized or is unsupported by your SSH client. '
 versions:
