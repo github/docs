@@ -114,7 +114,7 @@ jobs:
 
 ## Publishing packages to {% data variables.product.prodname_registry %}
 
-Each time you create a new release, you can trigger a workflow to publish your package. / in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
+Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
 
 You can define a new Maven repository in the publishing block of your _build.gradle_ that points to {% data variables.product.prodname_registry %}.  In that repository configuration, you can also take advantage of environment variables set in your CI workflow run.  You can use the `GITHUB_ACTOR` environment variable as a username, and you can set the `GITHUB_TOKEN` environment variable with your `GITHUB_TOKEN` secret.
 
