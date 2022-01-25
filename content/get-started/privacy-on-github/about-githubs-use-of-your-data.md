@@ -22,7 +22,7 @@ shortTitle: GitHub's use of your data
 
 {% data reusables.user_settings.export-data %} For more information, see "[Requesting an archive of your personal account's data](/articles/requesting-an-archive-of-your-personal-account-s-data)."
 
-If you opt in to data use for a private repository, we will continue to treat your private data, source code, or trade secrets as confidential and private consistent with our [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service). The information we learn only comes from aggregated data. For more information, see "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)."
+If you opt in to data use for a private repository, we will continue to treat your private data, source code, or trade secrets as confidential and private consistent with our [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service). The information we learn only comes from aggregated data. For more information, see "[Managing data use settings for your private repository](/get-started/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)."
 
 We'll announce substantial new features that use metadata or aggregate data on the [{% data variables.product.prodname_dotcom %} blog](https://github.com/blog).
 
