@@ -430,9 +430,11 @@
 - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
 - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
 - /code-security/secret-security/configuring-secret-scanning-for-your-repositories
+- /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
 
 /enterprise-cloud@latest/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
 - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
+- /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
 
 /enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning
 - /github/administering-a-repository/managing-alerts-from-secret-scanning
