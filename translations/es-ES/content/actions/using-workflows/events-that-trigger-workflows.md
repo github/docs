@@ -1397,6 +1397,61 @@ on: workflow_dispatch
 
 Puedes configurar propiedades de entrada definidas personalmente, valores de entrada predeterminados y entradas requeridas para el evento directamente en tu flujo de trabajo. Cuando activas el evento, puedes proporcionar el `ref` y cualquier `inputs`. Cuando se ejecuta el flujod e trabajo, puedes acceder a los valores de entrada en el contexto de `github.event.inputs`. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts)".
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
+This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the `github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment` context properties.
+
+{% raw %}
+```yaml
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning' 
+        type: choice
+        options:
+        - info
+        - warning
+        - debug 
+      tags:
+        description: 'Test scenario tags'
+        required: false 
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true 
+
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+          echo "Environment: $ENVIRONMENT"
+        env:
+          LEVEL: ${{ github.event.inputs.logLevel }}
+          TAGS: ${{ github.event.inputs.tags }}
+          ENVIRONMENT: ${{ github.event.inputs.environment }}
+```
+{% endraw %}
+
+If you run this workflow from a browser you must enter values for the required inputs manually before the workflow will run.
+
+![Entering inputs for a workflow](/assets/images/help/images/workflow-dispatch-inputs.png)
+
+You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. Por ejemplo:
+
+```
+gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
+```
+
+For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
+
+
+{% else %}
 Este ejemplo define las entradas `name` y `home` y las imprime utilizando los contextos `github.event.inputs.name` y `github.event.inputs.home`. Si no se proporciona un `home`, se imprime el valor predeterminado 'The Octoverse'.
 
 ```yaml
@@ -1424,6 +1479,7 @@ jobs:
           NAME: {% raw %}${{ github.event.inputs.name }}{% endraw %}
           HOME: {% raw %}${{ github.event.inputs.home }}{% endraw %}
 ```
+{% endif %}
 
 ### `workflow_run`
 
@@ -1492,7 +1548,7 @@ jobs:
 
 #### Ltimitar tu flujo de trabajo para que se ejecute con base a las ramas
 
-Puedes utilizar el filtro `branches` o `branches-ignore` para especificar en qué ramas se debe ejecutar el flujo de trabajo activador para poder activar tu flujo de trabajo. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)". Por ejemplo, un flujo de trabajo con el siguiente activador solo se ejecutará cuando el flujo de trabajo que se llama `Build` se ejecute en una rama llamada `canary`.
+Puedes utilizar el filtro `branches` o `branches-ignore` para especificar en qué ramas se debe ejecutar el flujo de trabajo activador para poder activar tu flujo de trabajo. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)." Por ejemplo, un flujo de trabajo con el siguiente activador solo se ejecutará cuando el flujo de trabajo que se llama `Build` se ejecute en una rama llamada `canary`.
 
 ```yaml
 on:

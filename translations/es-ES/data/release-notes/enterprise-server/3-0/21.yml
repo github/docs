@@ -3,9 +3,9 @@ sections:
   security_fixes:
     - 'Support bundles could include sensitive files if they met a specific set of conditions.'
   bugs:
-    - 'Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.'
+    - 'El ejecutar `ghe-config-apply` pudo fallar en ocasiones debido a problemas con los permisos en /data/user/tmp/pages`.'
     - 'A misconfiguration in the Management Console caused scheduling errors.'
-    - 'Docker would hold log files open after a log rotation.'
+    - 'Docker retuvo los archivos de bitácora abiertos después de una rotación de bitácoras.'
     - 'GraphQL requests did not set the GITHUB_USER_IP variable in pre-receive hook environments.'
   changes:
     - 'Clarifies explanation of Actions path-style in documentation.'

@@ -26,7 +26,7 @@ topics:
 Você pode criar ações gravando códigos personalizados que interajam com o seu repositório da maneira que você quiser, inclusive fazendo integrações com as APIs do {% data variables.product.prodname_dotcom %} e qualquer API de terceiros disponível publicamente. Por exemplo, as ações podem publicar módulos npm, enviar alertas SMS quando problemas urgentes forem criados ou implantar códigos prontos para produção.
 
 {% ifversion fpt or ghec %}
-É possível gravar suas próprias ações para uso no fluxo de trabalho ou compartilhar as ações que você compilar com a comunidade do {% data variables.product.prodname_dotcom %}. To share actions you've built with everyone, your repository must be public. {% if internal-actions %}To share actions only within your enterprise, your repository must be internal.{% endif %}
+É possível gravar suas próprias ações para uso no fluxo de trabalho ou compartilhar as ações que você compilar com a comunidade do {% data variables.product.prodname_dotcom %}. Para compartilhar as ações que você criou com todas as pessoas, seu repositório deve ser público. {% if internal-actions %}Para compartilhar ações apenas dentro da sua empresa, seu repositório deve ser interno.{% endif %}
 {% endif %}
 
 As ações podem ser executadas diretamente em uma máquina ou em um contêiner Docker. É possível definir as entradas, saídas e variáveis do ambiente de uma ação.
@@ -71,7 +71,7 @@ Ao armazenar uma ação no seu próprio repositório, fica mais fácil para a co
 
 {% data reusables.actions.internal-actions-summary %}
 
-{% ifversion fpt or ghec %}If you're building an action that you don't plan to make available to others, you {% else %} You{% endif %} can store the action's files in any location in your repository. Se você planeja combinar ação, fluxo de trabalho e aplicativo em um só repositório, recomendamos armazenar as ações no diretório `.github`. Por exemplo, `.github/actions/action-a` e `.github/actions/action-b`.
+{% ifversion fpt or ghec %}Se você estiver criando uma ação que não planeja disponibilizar para outras pessoas, você {% else %} Você{% endif %} pode armazenar os arquivos de ação em qualquer local do seu repositório. Se você planeja combinar ação, fluxo de trabalho e aplicativo em um só repositório, recomendamos armazenar as ações no diretório `.github`. Por exemplo, `.github/actions/action-a` e `.github/actions/action-b`.
 
 
 ## Compatibilidade com {% data variables.product.prodname_ghe_server %}
