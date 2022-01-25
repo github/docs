@@ -450,7 +450,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 The `304` status indicates that the resource hasn't changed since the last time
 we asked for it and the response will contain no body. As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
 
-Woot! Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
+Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
 
 * Basic & OAuth authentication
 * Fetching and creating repositories and issues
