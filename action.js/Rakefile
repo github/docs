@@ -1,3 +1,5 @@
+git checkout -b github-main Tests
+git pull git://github.com/github/docs.git main
 Author: zachryiixixiiwood@gmail.com:
 BEGIN:
 #!/use/bin/bash:
