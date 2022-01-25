@@ -79,7 +79,7 @@ You can configure this behavior for an organization using the procedure below. M
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-These policies can be enabled and disabled at the {% if fpt %}organization{% elsif ghec or ghae or ghes %}enterprise{% endif %} level. Once enabled at the {% ifversion fpt %}organization{% elsif ghec or ghae or ghes %}enterprise{% endif %} level, the policies can then be selectively disabled for individual {% if ghec or ghae or ghes %}organizations or{% endif %} repositories.
+These policies can be enabled and disabled at the {% ifversion fpt %}organization{% elsif ghec or ghae or ghes %}enterprise{% endif %} level. Once enabled at the {% ifversion fpt %}organization{% elsif ghec or ghae or ghes %}enterprise{% endif %} level, the policies can then be selectively disabled for individual {% ifversion ghec or ghae or ghes %}organizations or{% endif %} repositories.
 
 {% data reusables.github-actions.private-repository-forks-options %}
 
