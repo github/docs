@@ -57,4 +57,4 @@ Puedes borrar tus codespaces manualmente en https://github.com/codespaces y desd
 
 ## Leer más
 
-- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"
+- "[Administrar la facturación para los codespaces en tu organización](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

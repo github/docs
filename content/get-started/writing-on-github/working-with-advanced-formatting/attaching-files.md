@@ -44,6 +44,9 @@ We support these files:
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
+{%- if svg-support %}
+* SVG (*.svg*)
+{%- endif %}
 * Log files (*.log*)
 * Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
 * Text files (*.txt*)

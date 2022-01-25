@@ -9,7 +9,7 @@ versions:
 
 {% data variables.product.product_name %} inclui uma variedade de atalhos de teclado para que você possa executar as ações no site sem usar seu mouse para navegar. Embora os atalhos sejam úteis para economizar tempo, às vezes eles podem fazer com que {% data variables.product.prodname_dotcom %} seja mais difícil de usar e menos acessível.
 
-Todos os atalhos do teclado estão habilitados por padrão em {% data variables.product.product_name %}, mas você pode escolher desabilitar os atalhos dos botões de caractere nas suas configurações de acessibilidade. This setting does not affect keyboard shortcuts provided by your web browser or {% data variables.product.prodname_dotcom %} shortcuts that use a modifier key such as <kbd>Control</kbd> or <kbd>Command</kbd>.
+Todos os atalhos do teclado estão habilitados por padrão em {% data variables.product.product_name %}, mas você pode escolher desabilitar os atalhos dos botões de caractere nas suas configurações de acessibilidade. Essa configuração não afeta os atalhos do teclado fornecidos pelo seu navegador da web ou os atalhos de {% data variables.product.prodname_dotcom %} que usam uma tecla modificadora, como <kbd>Control</kbd> ou <kbd>Command</kbd>.
 
 ## Gerenciamento de atalhos de chave de caracteres
 

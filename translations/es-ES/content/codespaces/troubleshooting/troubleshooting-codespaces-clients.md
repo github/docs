@@ -21,13 +21,13 @@ Puedes revisar si hay problemas conocidos y registrar problemas nuevos con la ex
 
 ### {% data variables.product.prodname_vscode %} Insiders
 
-{% data variables.product.prodname_vscode %} Insiders is the most frequent release of {% data variables.product.prodname_vscode %}. It has all the latest features and bug fixes, but may also occasionally contain new issues that result in a broken build.
+{% data variables.product.prodname_vscode %} Insiders es el lanzamiento más frecuente de {% data variables.product.prodname_vscode %}. Tiene todas las características y correcciones de errores más recientes, pero también podría contener, ocasionalmente, problemas nuevos que podrían dar como resultado una compilación rota.
 
-If you are using an Insiders build and notice broken behavior, we recommend switching to {% data variables.product.prodname_vscode %} Stable and trying again.
+Si estás utilizando una compilación de Insiders y notas un comportamiento anormal, te recomendamos cambiar a la versión estable de {% data variables.product.prodname_vscode %} e intentarlo de nuevo.
 
-On the desktop version of {% data variables.product.prodname_vscode %}, you can switch to Stable by closing the {% data variables.product.prodname_vscode %} Insiders application, opening the {% data variables.product.prodname_vscode %} Stable application, and re-opening your codespace.
+En la versión de escritorio de {% data variables.product.prodname_vscode %} puedes cambiar a la versión estable si cierras la aplicación de {% data variables.product.prodname_vscode %} Insiders y abres la aplicación estable de {% data variables.product.prodname_vscode %} para luego volver a abrir tu codespace.
 
-On the web version of {% data variables.product.prodname_vscode %}, you can click {% octicon "gear" aria-label="The manage icon" %} in the bottom left of the editor and select **Switch to Stable Version...**. If the web version doesn't load or the {% octicon "gear" aria-label="The manage icon" %} icon isn't available, you can force switching to {% data variables.product.prodname_vscode %} Stable by appending `?vscodeChannel=stable` to your codespace URL and loading the codespace at that URL.
+En la versión web de {% data variables.product.prodname_vscode %}, puedes hacer clic en {% octicon "gear" aria-label="The manage icon" %} en la parte inferior izquierda del editor y seleccionar **Cambiar a la versión estable...**. Si la versión web no carga o si el icono de {% octicon "gear" aria-label="The manage icon" %} no está disponible, puedes forzar el cambio a la versión estable de {% data variables.product.prodname_vscode %} si agregas `?vscodeChannel=stable` a la URL de tu codespace y lo cargas en ella.
 
 Si el problema aún no se soluciona en la versión estable de {% data variables.product.prodname_vscode %}, por favor, sigue las instrucciones de solución de problemas descritas anteriormente.
 

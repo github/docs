@@ -29,7 +29,7 @@ SCIM API 由 SCIM 启用的身份提供程序 (IdP) 用来自动预配 {% data v
 
 ### SAML 和 SCIM 数据的映射
 
-SAML IdP 和 SCIM 客户端必须对每个用户使用匹配的 `NameID` 和 `userName` 值。 这允许通过 SAML 进行身份验证的用户链接到其预配的 SCIM 标识。
+{% data reusables.scim.nameid-and-username-must-match %}
 
 ### 支持的 SCIM 用户属性
 

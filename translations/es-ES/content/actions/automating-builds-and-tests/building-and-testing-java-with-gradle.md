@@ -40,11 +40,11 @@ Te recomendamos que tengas una comprensión básica de Java y del marco de Gradl
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Gradle starter workflow
+## Utilizar el flujo de trabajo inicial de Gradle
 
-{% data variables.product.prodname_dotcom %} provides a Gradle starter workflow that will work for most Gradle-based Java projects. For more information, see the [Gradle starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
+{% data variables.product.prodname_dotcom %} Proporciona un flujo de trabajo inicial de Gradle que funciona con la mayoría de los proyectos de Java basados en Gradle. Para obtener más información, consulta el [Flujo de trabajo inicial de Gradle](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
 
-To get started quickly, you can choose the preconfigured Gradle starter workflow when you create a new workflow. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
+Para comenzar rápidamente, puedes elegir el flujo de trabajo inicial de Gradle preconfigurado cuando crees un flujo de trabajo nuevo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
 También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
@@ -69,7 +69,9 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
-        run: ./gradlew build
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: build
 ```
 
 Este flujo de trabajo realiza los siguientes pasos:
@@ -77,9 +79,9 @@ Este flujo de trabajo realiza los siguientes pasos:
 1. El paso `checkout (comprobación)` descarga una copia de tu repositorio en el ejecutor.
 2. El paso `setup-java` configura el JDK de Java 11 por Adoptium.
 3. El paso de "Validar el wrapper de Gradle" valida la sumas de verificaciones de los archivos JAR del wrapper de Gradle que estén presentes en el árbol fuente.
-4. El paso "Build with Gradle" (construir con Gradle) ejecuta el script contenedor `gradlew` para asegurar que tu código se cree, las pruebas pasen y se pueda crear un paquete.
+4. El paso de "Build with Gradle" crea una compilación utilizando la acción `gradle/gradle-build-action` que proporciona la organización Gadle en {% data variables.product.prodname_dotcom %}. La acción se encarga de invocar a Gradle, recolectar los resultados y almacenar el estado en el caché entre los jobs. Para obtener más información, consulta la sección [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+Los flujos de trabajo iniciales predeterminados son un punto de partida excelente para crear tu flujo de trabajo de prueba y de compilación y puedes personalizarlos de acuerdo con las necesidades de tu proyecto.
 
 {% data reusables.github-actions.example-github-runner %}
 
@@ -104,38 +106,17 @@ steps:
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Run the Gradle package task
-    run: ./gradlew -b ci.gradle package
+    uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+    with:
+      arguments: -b ci.gradle package
 ```
 {% endraw %}
 
 ## Almacenar dependencias en caché
 
-Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes guardar tus dependencias en el caché para acelerar tus ejecuciones de flujo de trabajo. Después de una ejecución exitosa, tu caché de paquete de Gradle local se almacenará en la infraestructura de acciones de GitHub. En las ejecuciones de flujo de trabajo futuras, la caché se restaurará para que las dependencias no necesiten ser descargadas desde los repositorios de paquetes remotos. Puedes guardar las dependencias en caché utilizando simplemente la [acción `setup-java`](https://github.com/marketplace/actions/setup-java-jdk) o puedes utilizar la [Acción `cache`](https://github.com/actions/cache) para tener una configuración personalizada y más avanzada.
+Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, tus dependencias de compilación pueden almacenarse en caché para acelerar tus ejecuciones de flujo de trabajo. Después de una ejecución exitosa, la `gradle/gradle-build-action` guarda en caché las partes importantes del directorio principal del usuario de Gradle. En los jobs futuros, el caché se restablecerá para que los scripts de compilación no necesiten recompilarse y las dependencias no necesiten descargarse desde los repositorios de paquetes remotos.
 
-{% raw %}
-```yaml{:copy}
-steps:
-  - uses: actions/checkout@v2
-  - name: Set up JDK 11
-    uses: actions/setup-java@v2
-    with:
-      java-version: '11'
-      distribution: 'adopt'
-      cache: gradle
-  - name: Validate Gradle wrapper
-    uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-  - name: Build with Gradle
-    run: ./gradlew build
-  - name: Cleanup Gradle Cache
-    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
-    # Restoring these files from a GitHub Actions cache might cause problems for future builds.
-    run: |
-      rm -f ~/.gradle/caches/modules-2/modules-2.lock
-      rm -f ~/.gradle/caches/modules-2/gc.properties
-```
-{% endraw %}
-
-Este flujo de trabajo guardará el contenido del caché de tu paquete local de Gradle, el cual se ubica en los directorios `.gradle/caches` y `.gradle/wrapper` dek directorio de inicio del ejecutor. La clave del caché será el contenido cifrado de los archivos de compilación de gradle (incluyendo las propiedades del archivo de envoltorio (wrapper)), así que cualquier cambio que se realice sobre ellos invalidará el caché.
+El almacenamiento en caché se habilita predeterminadamente cuando se utiliza la acción `gradle/gradle-build-action`. Para obtener más información, consulta [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
 
 ## Empaquetar datos de flujo de trabajo como artefactos
 
@@ -153,7 +134,10 @@ steps:
       distribution: 'adopt'
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-  - run: ./gradlew build
+  - name: Build with Gradle
+    uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+    with:
+      arguments: build
   - uses: actions/upload-artifact@v2
     with:
       name: Package

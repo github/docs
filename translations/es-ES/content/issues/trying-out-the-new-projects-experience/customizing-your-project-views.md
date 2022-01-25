@@ -26,23 +26,26 @@ Puedes ver tu proyecto como una tabla o como un tablero.
 1. {% data reusables.projects.open-command-palette %}
 2. Comienza a teclear "Switch layout".
 3. Elige el comando requerido. Por ejemplo, **Switch layout: Table**.
-3. Como alternativa, haz clic en el menú desplegable junto a un nombre de vista y luego en **Tabla** o **Tablero**.
+
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Tabla** o **Tablero**.
 
 ## Mostrar y ocultar campos
 
 Puedes mostrar u ocultar un campo específico.
 
-En el diseño de la tabla:
+### Mostrar y ocultar los campos en el diseño de tabla
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comienza a teclear la acción que quieres tomar ("show" o "hide") o el nombre del campo.
 3. Elige el comando requerido. Por ejemplo, **Mostrar: Hito**.
-4. Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} a la derecha de la tabla. En el menú desplegable que se muestra, indica qué campos mostrar u ocultar. Un {% octicon "check" aria-label="check icon" %} indica qué campos se muestran.
-5. Como alternativa, haz clic en el menú desplegable junto al nombre de campo y luego en **Ocultar campo**.
 
-En el diseño del tablero:
+Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} a la derecha de la tabla. En el menú desplegable que se muestra, indica qué campos mostrar u ocultar. Un {% octicon "check" aria-label="check icon" %} indica qué campos se muestran.
 
-1. Haz clic en el menú desplegable junto al nombre de vista.
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre del campo y luego en **Ocultar campo**.
+
+### Mostrar y ocultar los campos en diseño de tablero
+
+1. Haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de vista.
 2. Debajo de **configuración**, haz clic en {% octicon "list-unordered" aria-label="the unordered list icon" %}.
 3. En el menú que se muestra, selecciona los campos para agregarlos y deselecciona los campos para eliminarlos de la vista.
 
@@ -67,7 +70,8 @@ En el diseño de tabla, puedes organizar los elementos por valor de campo.
 1. {% data reusables.projects.open-command-palette %}
 2. Comienza a teclear "Sort by" o el nombre del campo por el cual quieras ordenar.
 3. Elige el comando requerido. Por ejemplo, **Clasificar por: Asignados, asc**.
-4. Como alternativa, haz clic en el menú desplegable junto al nombre del campo que quieres ordenar y haz clic en **Ordenar ascendentemente** u **Ordenar descendientemente**.
+
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de campo que quieras organizar y luego en **Ordenar ascendentemente** u **Ordenar descendentemente**.
 
 {% note %}
 
@@ -80,39 +84,53 @@ Sigue pasos similares para eliminar una clasificación.
 1. {% data reusables.projects.open-command-palette %}
 2. Comienza a teclear "Remove sort-by".
 3. Elige **Eliminar el ordenar por**.
-4. Como alternativa, haz clic en el menú desplegable junto al nombre de la vista y haz clic en el elemento de menú que indique a clasificación actual.
 
-## Agrupar por valores de campo
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de vista y luego en el elemento del menú que indique la clasificación actual.
 
-En el diseño de tabla, puedes agrupar elementos por un valor de campo personalizado. Cuando los elementos se agrupan, si arrastras un elemento a un grupo nuevo, se aplica el valor de este grupo. Por ejemplo, si agrupas por "Estado" y luego arrastras un elemento con un estado a `In progress` hacia el grupo `Done`, el estado del elemento cambiará a `Done`.
+## Agrupar por valores de campo en el diseño de tabla
+
+En el diseño de tabla, puedes agrupar elementos por un valor de campo personalizado. Cuando los elementos se agrupan, si arrastras un elemento a un grupo nuevo, se aplica el valor de este grupo. Por ejemplo, si agrupas por "Estado" y luego arrastras un elemento con un estado a `In progress` hacia el grupo `Done`, el estado del elemento cambiará a `Done`. De forma similar, cuando agregues un elemento nuevo a un grupo, este elemento se poblará con el valor del grupo.
 
 {% note %}
 
-**Nota:** Actualmente, no puedes agrupar por título, asignados, repositorio o etiquetas.
+**Nota:** Actualmente, no puedes agrupar por título, etiquetas, revisores o solicitudes de campo enlazadas.
 
 {% endnote %}
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comienza a teclear "Group by" o el nombre del campo por el cual quieres agrupar.
 3. Elige el comando requerido. Por ejemplo, **Agrupar por: Estado**.
-4. Como alternativa, haz clic en el menú desplegable junto al nombre de campo por el cual quieras agrupar y haz clic en **Agrupar por valores**.
+
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de campo por el cual quieras agrupar y luego en **Agrupar por valores**.
 
 Sigue pasos similares para eliminar un agrupamiento.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comienza a teclear "Remove group-by".
 3. Elige **Eliminar el agrupar por**.
-4. Como alternativa, haz clic en un menú descendente para ver el nombre y haz clic en el elemento del menú que indica el agrupamiento actual.
 
-## Filtrar filas
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de vista y luego en el elemento de menú que indica el agrupamiento actual.
 
-Haz clic en {% octicon "search" aria-label="the search icon" %} en la parte superior de la tabla para mostrar la barra de "Filtrar por palabra clave o campo". Comienza a teclear el nombre de campo y valor por el cuál quieras filtrar. Conforme teclees, se mostrarán los posibles valores.
+## Configurar el campo de columna en el diseño del tablero
+
+En el diseño de tablero, puedes elegir cualquier campo simple o de iteración para tus columnas. Si arrastras a un elemento a una columna nueva, el valor de dicha columna se aplicará al elemento que arrastraste. Por ejemplo, si utilizas el campo "Estado" para tus columnas de tablero y luego arrastras un elemento con un estado de `In progress` a la columna `Done`, el estado del elemento se cambiará a `Done`.
+
+1. {% data reusables.projects.open-command-palette %}
+1. Comienza a teclear "Column field by" o el nombre del campo que quieras utilizar para tus columnas.
+1. Elige el comando requerido. Por ejemplo, **Column field by: Status**.
+
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} juento a la vista de tablero que quieras modificar y haz clic en el **campo de columna** {% octicon "columns" aria-label="the column icon" %}. Posteriormente, selecciona el campo que quieras utilizar para las columnas del tablero.
+
+## Filtrar elementos
+
+Haz clic en el {% octicon "filter" aria-label="the filter icon" %} en la parte superior de la tabla para mostrar la barra de "Filtrar por palabra clave o por campo". Comienza a teclear el nombre de campo y valor por el cuál quieras filtrar. Conforme teclees, se mostrarán los posibles valores.
 
 - Para filtrar valores múltiples, sepáralos con una coma. Por ejemplo `label:"good first issue",bug` listará las propuestas con una etiqueta de `good first issue` o de `bug`.
 - Para filtrar la ausencia de un valor específico, coloca `-` antes de tu filtro. Por ejemplo, `-label:"bug"` mostrará solo elementos que no tengan la etiqueta `bug`.
 - Para filtrar de acuerdo a la ausencia de todos los valores, ingresa `no:` seguido del nombre del campo. Por ejemplo, `no:assignee` solo mostrará los elementos que no tengan un asignado.
 - Para filtrar por estado, ingresa `is:`. Por ejemplo, `is: issue` o `is:open`.
 - Separa los filtros múltiples con un espacio. Por ejemplo, `status:"In progress" -label:"bug" no:assignee` solo mostrará los elementos que tengan un estado de `In progress`, que no tengan la etiqueta `bug` y que no tengan un asignado.
+- Para filtrar de acuerdo con la iteración actual de un campo de iteración, utiliza `@current`. Por ejemplo, `sprint:@current`.
 
 Como alternativa, utiliza la paleta de comandos.
 
@@ -137,8 +155,10 @@ Para agregar una vista nueva:
 1. {% data reusables.projects.open-command-palette %}
 2. Comienza a teclear "New view" (para crear una vista nueva) o "Duplicate view" (para duplicar la vista actual).
 3. Elige el comando requerido.
-4. Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} **Vista nueva** junto a la vista que está más hacia la derecha.
-5. Como alternativa, haz clic el menú desplegable junto a un nombre de vista y luego en **Duplicar vista**.
+
+Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} **Vista nueva** junto a la vista que está más hacia la derecha.
+
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Duplicar vista**.
 
 La vista nueva se guarda automáticamente.
 
@@ -154,7 +174,8 @@ Para guardar la configuración actual de la vista para todos los miembros del pr
 1. {% data reusables.projects.open-command-palette %}
 1. Comienza a teclear "Save view" o "Save changes to new view".
 1. Elige el comando requerido.
-1. Como alternativa, haz clic en el menú desplegable junto a un nombre de vista y haz clic en **Guardar vista** o **Guardar cambios en una vista nueva**.
+
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Guardar vista** o en **Guardar cambios en una vista nueva**.
 
 ## Reordenar las vistas guardadas
 
@@ -177,7 +198,8 @@ Para borrar una vista:
 1. {% data reusables.projects.open-command-palette %}
 2. Comienza a teclear "Delete view".
 3. Elige el comando requerido.
-4. Como alternativa, selecciona el menú desplegable junto a un nombre de vista y haz clic en **Borrar vista**.
+
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Borrar vista**.
 
 ## Leer más
 

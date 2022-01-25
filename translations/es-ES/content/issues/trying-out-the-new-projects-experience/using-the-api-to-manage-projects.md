@@ -50,13 +50,13 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-For more information, see "[Forming calls with GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#working-with-variables)."
+Para obtener más información, consulta la sección "[Formar llamados con GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#working-with-variables)".
 
 {% endcli %}
 
 ## Encontrar información sobre los proyectos
 
-Utiliza consultas para obtener datos sobre los proyectos. For more information, see "[About queries]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-queries)."
+Utiliza consultas para obtener datos sobre los proyectos. Paraobtener más información, consulta la sección "[Acerca de las consultas]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-queries)".
 
 ### Encontrar la ID de nodo de un proyecto organizacional
 
@@ -117,7 +117,7 @@ gh api graphql -f query='
 
 Para actualizar tu proyecto a través de la API, necesitarás conocer la ID de nodo del proyecto.
 
-Puedes encontrar la ID de nodo de un proyecto de usuario si conoces el número del mismo. Reemplaza `USER` con tu nombre de usuario. Por ejemplo, `octocat`. Reemplaza `NUMBER` con tu número de proyecto. Para encontrar un número de proyecto, revisa su URL. For example, `https://github.com/users/octocat/projects/5` has a project number of 5.
+Puedes encontrar la ID de nodo de un proyecto de usuario si conoces el número del mismo. Reemplaza `USER` con tu nombre de usuario. Por ejemplo, `octocat`. Reemplaza `NUMBER` con tu número de proyecto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, la dirección `https://github.com/users/octocat/projects/5` tiene "5" tiene "5" como número de proyecto.
 
 {% curl %}
 ```shell
@@ -243,6 +243,12 @@ Cada campo tiene una ID. Adicionalmente, los campos de selección única y de it
 
 Puedes consultar mediante la API para encontrar información sobre los elementos de tu proyecto.
 
+{% note %}
+
+**Nota**: La API no devolverá información sobre los borradores de propuestas.
+
+{% endnote %}
+
 El siguiente ejemplo devolverá el título y la ID de los primeros 20 elementos en un proyecto. Para cada elemento, también devolverá el valor y nombre de los primeros 8 campos en el proyecto. Si el elemento es una propuesta o solicitud de cambios, este devolverá al inicio de sesión de los primeros 10 asignados. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto.
 
 {% curl %}
@@ -296,7 +302,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-Un proyecto podría contener elementos que los usuarios no tengan permiso para ver. In this case, the response will include a redacted item.
+Un proyecto podría contener elementos que los usuarios no tengan permiso para ver. En este caso, la respuesta incluirá el elemento redactado.
 
 ```shell
 {
@@ -357,7 +363,7 @@ La respuesta contendrá la ID de nodo del elemento recién creado.
 }
 ```
 
-If you try to add an item that already exists, the existing item ID is returned instead.
+Si intentas agregar un elemento que ya existe, se devolverá la ID de este.
 
 ### Actualizar un campo personalizado de texto, número o fecha
 

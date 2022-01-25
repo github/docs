@@ -51,6 +51,6 @@ By default, the title of your site is `username.github.io`. You can change the t
 
 ## Siguientes pasos
 
-For more information about how to add additional pages to your site, see "[Adding content to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites)."
+Para obtener más información sobre cómo agregar páginas adicionales a tu sitio, consulta la sección "[Agregar contenido a tu sitio de GitHub Pages utilizando Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites)".
 
 For more information about setting up a {% data variables.product.prodname_pages %} site with Jekyll, see "[About GitHub Pages and Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)."

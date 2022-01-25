@@ -31,11 +31,11 @@ Ya debes estar familiarizado con la sintaxis de YAML y con cómo se utiliza con 
 
 Te recomendamos que tengas un entendimiento básico de los paquetes de Swift. Para obtener más información, consulta la sección "[Paquetes de Swift](https://developer.apple.com/documentation/swift_packages)" en la documentación de desarrollador de Apple.
 
-## Using the Swift starter workflow
+## Utilizar el flujo de trabajo inicial de Swift
 
-{% data variables.product.prodname_dotcom %} provides a Swift starter workflow that should work for most Swift projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [Swift starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
+{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de Swift que debería funcionar par ala mayoría de los proyectos de Swift y esta guía incluye ejemplos que te muestran cómo personalizarlo. Para obtener más información, consulta la sección [Flujo de trabajo inicial de Swift](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+Para comenzar rápidamente, agrega el flujo de trabajo inicial al directorio de `.github/workflows` de tu repositorio.
 
 {% raw %}
 ```yaml{:copy}
@@ -85,10 +85,10 @@ jobs:
         swift: ["5.2", "5.3"]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
-      - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+      - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
-      - uses: actions/checkout@
+      - uses: actions/checkout@v2
       - name: Build
         run: swift build
       - name: Run tests
@@ -102,7 +102,7 @@ Puedes configurar tu job para que utilice una sola versión específica de Swift
 {% raw %}
 ```yaml{:copy}
 steps:
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
   - name: Get swift version
@@ -118,7 +118,7 @@ Puedes utilizar los mismos comandos que usas localmente para compilar y probar t
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
   - name: Build

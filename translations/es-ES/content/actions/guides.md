@@ -1,5 +1,5 @@
 ---
-title: Guides for GitHub Actions
+title: Guías para las GitHub Actions
 intro: 'Estas guías para {% data variables.product.prodname_actions %} incluyen casos de uso y ejemplos específicos que te ayudarán a configurar los flujos de trabajo.'
 allowTitleToDifferFromFilename: true
 layout: product-guides

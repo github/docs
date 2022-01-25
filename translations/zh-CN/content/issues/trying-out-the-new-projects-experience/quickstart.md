@@ -49,6 +49,14 @@ First, create an organization project or a user project.
 
 有关向项目添加议题的其他方法，或有关您可以向项目添加其他项的信息，请参阅“[创建项目](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)”。
 
+## Adding draft issues to your project
+
+Next, add a draft issue to your project.
+
+1. 将光标放在项目底部一行，{% octicon "plus" aria-label="plus icon" %} 的旁边。
+1. 输入您的想法，然后按 **Enter**。
+1. Click on the title of the draft issue. In the markdown input box that appears, enter the some more information about your idea, then click **Save**.
+
 ## 创建字段来跟踪优先级
 
 现在，创建一个名为 `Priority` 的自定义字段，以包含值：`High`、`Medium` 或 `Low`。
