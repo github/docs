@@ -54,3 +54,4 @@ You cannot create a default license file. License files must be added to individ
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 7. In the repository, create one of the supported community health files. Issue templates{% ifversion fpt or ghes or ghec %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see "[Creating new files](/articles/creating-new-files/)."
+https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
