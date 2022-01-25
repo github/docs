@@ -224,7 +224,7 @@ describe('server', () => {
   // see issue 9678
   test('does not use cached intros in map topics', async () => {
     let $ = await getDOM(
-      '/en/get-started/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line'
+      '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line'
     )
     const articleIntro = $('[data-testid="lead"]').text()
     $ = await getDOM(
