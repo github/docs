@@ -472,7 +472,7 @@ Keep learning with the next API guide [Basics of Authentication][auth guide]!
 [issues-api]: /rest/reference/issues
 [link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
-[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
 [users api]: /rest/reference/users#get-a-user
 [auth user api]: /rest/reference/users#get-the-authenticated-user
 [defunkt github]: https://github.com/defunkt
