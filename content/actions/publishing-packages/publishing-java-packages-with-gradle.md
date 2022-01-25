@@ -108,9 +108,9 @@ jobs:
 {% data reusables.github-actions.gradle-workflow-steps %}
 1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to the `OSSRH` Maven repository. The `MAVEN_USERNAME` environment variable will be set with the contents of your `OSSRH_USERNAME` secret, and the `MAVEN_PASSWORD` environment variable will be set with the contents of your `OSSRH_TOKEN` secret.
 
-   Note that the `overwrite-settings` option is set to false to prevent the `setup-java` action from automatically generating an unnecessary `~/.m2/settings.xml` file that require specific environment variables.
-
    For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   
+Note that the `overwrite-settings` option is set to false to prevent the `setup-java` action from automatically generating an unnecessary `~/.m2/settings.xml` file that require specific environment variables.
 
 ## Publishing packages to {% data variables.product.prodname_registry %}
 
