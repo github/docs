@@ -96,4 +96,4 @@ You can also see all the {% data variables.product.prodname_dependabot_alerts %}
 
 - "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)"
 - "[Viewing and updating vulnerable dependencies in your repository](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% endif %}
-{% ifversion fpt or ghec %}- "[Understanding how {% data variables.product.prodname_dotcom %} uses and protects your data](/categories/understanding-how-github-uses-and-protects-your-data)"{% endif %}
+{% ifversion fpt or ghec %}- "[Privacy on {% data variables.product.prodname_dotcom %}](/get-started/privacy-on-github)"{% endif %}
