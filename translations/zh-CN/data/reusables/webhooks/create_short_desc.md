@@ -1,1 +1,1 @@
-Git 分支或标签已创建。 更多信息请参阅“[Git 数据](/rest/reference/git)”REST API。
+Git 分支或标签已创建。 For more information, see the "[Git database](/rest/reference/git#create-a-reference)" REST API.

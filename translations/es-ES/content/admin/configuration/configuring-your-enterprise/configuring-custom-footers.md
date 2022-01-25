@@ -15,7 +15,7 @@ Enterprise owners can configure {% data variables.product.product_name %} to sho
 
 ![Custom footer](/assets/images/enterprise/custom-footer/octodemo-footer.png)
 
-The custom footer is displayed above the {% data variables.product.prodname_dotcom %} footer {% ifversion ghes or ghae %}to all users, on all pages of {% data variables.product.product_name %}{% else %}to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
+El pie de página personalizado se muestra sobre el pie de página de {% data variables.product.prodname_dotcom %} {% ifversion ghes or ghae %}para todos los usuarios, en todas las páginas de {% data variables.product.product_name %}{% else %}para todos los miembros y colaboradores de la empresa, en todas las páginas de organización y repositorios y en aquellas organizaciones que pertenezcan a la empresa{% endif %}.
 
 ## Configuring custom footers for your enterprise
 

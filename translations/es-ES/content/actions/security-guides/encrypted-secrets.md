@@ -53,11 +53,7 @@ Para hacer que un secreto esté disponible para una acción, debes configurar el
 
 Puedes usar y leer secretos cifrados en un archivo de flujo de trabajo si tienes acceso para editar el archivo. Para obtener más información, consulta "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
-{% warning %}
-
-**Advertencia:** {% data variables.product.prodname_dotcom %} redacta automáticamente secretos impresos en el registro, pero debes evitar imprimir secretos en el registro intencionalmente.
-
-{% endwarning %}
+{% data reusables.github-actions.secrets-redaction-warning %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Los secretos de organización y de repositorio se leen cuando una ejecución de flujo de trabajo está en cola y los secretos de ambiente se leen cuando un job que referencia el ambiente comienza.
