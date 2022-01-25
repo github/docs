@@ -1,34 +1,40 @@
-BEGIN:RUN:'"''
+BEGIN:RUN:'"'':,
 
-'"::GLOW7:"':'"''
+'":GLOW7::"':'"'':,
 
-'":RUNS::/ON::'"''
+'":RUNS::'ON:'"'':,
 
-'"ON::/RUNS:'"''
+'"ON::/RUNS:'"'':,
 
-Press::/Start:'"''
+Press::/Start:'"'':,
 
-Press::/task_menu:'"''
+Press::/task_menu:'"'':,
 
-Press::/: "::/Run':run:'"''
+Press::/: "::/Run':run:'"'':,
 
-run-on: unicorn/utf8'"':
+run-on: unicorn/utf8'"':',
 
-::Runs:"on:":'"''
-'"::comst:'"':' 'CONSTRUCTION'@bitore.sig/paradice'"':''
-'"::Request'"':'' '"Pull'"''
-'":Pulls::'"':'' 'pull_request'@bitore.sig/master/graph.mkdir/$Rakefile.IU/PKG.js/package.json.xvlxmnvsx.jpng/Phone/ringtones/Runestone/linux32_86.tar.gz/Windows-latest/WinRawr.unzip/.Zip/flattene.th.100X.pdf.export'@bitore.sig/BITORE./paeparadice/repositoriesl-on:BRANCH: -'[' trunk' ']''Branchestar.gz.unzip
-:Pushs::
+::Runs:"on:":'"'':,
 
-Request: pushs_requests
+'"::comst:'"':' 'CONSTRUCTION'@bitore.sig/paradice'"':'':,
 
-pushs_requeats: '[branches']:''
-'"-' '[mainbranch']''
+'"::Request'"':'' '"Pull'"'':,
 
-'"::/GLOW7::'"':''
-'"-'"'' '"'.txt'"''
+'":Pulls::'"':'' 'pull_request'@bitore.sig/master/graph.mkdir/$Rakefile.IU/PKG.js/package.json.xvlxmnvsx.jpng/Phone/ringtones/Runestone/linux32_86.tar.gz/Windows-latest/WinRawr.unzip/.Zip/flattene.th.100X.pdf.export'@bitore.sig/BITORE./paeparadice/repositoriesl-on:'"'':,
 
-'"::Build:'"':'' '"Script'"':''
+:Pushs::'"'':,
+
+Request: pushs_requests'"'':,
+
+pushs_requeats: '[branches']:'"'':,
+
+'"-' '[mainbranch']'"'':,
+
+'"::/GLOW7::'"':'' '"'.txt'"'':,
+
+'"::Build:'"':'' '"Script:'"'
+
+'"Return s'"':'' 'Run ''
 
 '"'-'"' '"::Name:'"''
 
