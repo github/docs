@@ -78,7 +78,7 @@ The recommended formats explicitly define which versions are used for all direct
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | `dotnet` CLI | .NET languages (C#, C++, F#, VB)  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 {%- if github-actions-in-dependency-graph %}
-| GitHub Actions workflows<sup>[1]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
+| {% data variables.product.prodname_actions %} workflows<sup>[1]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
 {%- ifversion fpt or ghes > 3.2 or ghae %}
 | Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
@@ -94,7 +94,7 @@ The recommended formats explicitly define which versions are used for all direct
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% if github-actions-in-dependency-graph %}
-[1] Any actions, workflows, Docker images or virtual environments referenced using the following syntax will be parsed as dependencies in a GitHub Actions workflow:  `jobs[*].steps[*].uses`, `jobs.<job_id>.uses`, `jobs[*].container.image`, `jobs[*].services[*].image`, `jobs[*].runs-on`. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions)."
+[1] Any actions, workflows, Docker images or virtual environments referenced using the following syntax will be parsed as dependencies in a {% data variables.product.prodname_actions %} workflow:  `jobs[*].steps[*].uses`, `jobs.<job_id>.uses`, `jobs[*].container.image`, `jobs[*].services[*].image`, `jobs[*].runs-on`. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 [2] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
 
@@ -105,7 +105,7 @@ The recommended formats explicitly define which versions are used for all direct
 {% if github-actions-in-dependency-graph %}
 {% note %}
 
-**Note:** GitHub Actions workflow dependencies are now displayed in the dependency graph for informational purposes, but Dependabot alerts for vulnerable dependencies are not currently supported for GitHub Actions workflows.
+**Note:** {% data variables.product.prodname_actions %} workflow dependencies are now displayed in the dependency graph for informational purposes, but Dependabot alerts for vulnerable dependencies are not currently supported for {% data variables.product.prodname_actions %} workflows.
 
 {% endnote %}
 {% endif %}
