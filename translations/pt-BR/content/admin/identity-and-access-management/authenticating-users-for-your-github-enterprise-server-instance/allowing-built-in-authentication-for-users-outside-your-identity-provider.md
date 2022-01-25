@@ -55,6 +55,6 @@ Quando aceitar o convite, o usuário poderá fazer login com seu próprio nome d
 
 ## Leia mais
 
-- "[Using LDAP](/enterprise/admin/authentication/using-ldap)"
+- "[Usando LDAP](/enterprise/admin/authentication/using-ldap)"
 - [Usar SAML](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)
 - [Usar CAS](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-cas)

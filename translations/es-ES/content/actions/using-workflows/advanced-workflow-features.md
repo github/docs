@@ -161,10 +161,13 @@ Un flujo de trabajo solo se ejecutará en un ejecutor que tenga todas las etique
 Para aprender más acerca de las etiquetas auto-hospedadas, consulta la sección ["Utilizar etiquetas con los ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
 {% ifversion fpt or ghes %}
-To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
+Para aprender más sobre las etiquetas de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección ["Ejecutores y recursos de hardware compatibles"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+## Reutilizar flujos de trabajo
 {% data reusables.actions.reusable-workflows %}
+{% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 

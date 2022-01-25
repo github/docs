@@ -22,7 +22,7 @@ Creating a "fork" is producing a personal copy of someone else's project. Forks 
 
 ## Bifurcar un repositorio
 
-This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
+Este tutorial utiliza [el proyecto Spoon-Knife](https://github.com/octocat/Spoon-Knife), un repositorio de prueba que se hospeda en {% data variables.product.prodname_dotcom_the_website %} y te permite probar el flujo de trabajo de la bifurcación y solicitud de cambios.
 
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
 2. Click **Fork**. ![Botón Bifurcar](/assets/images/help/repository/fork_button.jpg)
@@ -98,7 +98,7 @@ git commit -m "a short description of the change"
 
 ```shell
 git add .
-git commit -m "a short description of the change"
+git commit -m "una descripción corta del cambio"
 ```
 
 {% endcli %}
@@ -131,7 +131,7 @@ git push
 
 {% desktop %}
 
-For more information about how to push changes in {% data variables.product.prodname_desktop %}, see "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
+Para obtener más información sobre cómo subir cambios a {% data variables.product.prodname_desktop %}, consulta la sección "[Subir cambios a GtiHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)".
 
 {% enddesktop %}
 
@@ -151,4 +151,4 @@ Pull Requests are an area for discussion. In this case, the Octocat is very busy
 
 ## Finding projects
 
-You've successfully forked and contributed back to a repository. Go forth, and contribute some more!{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+You've successfully forked and contributed back to a repository. ¡Ve y contribuye más!{% ifversion fpt %} Para obtener más información, consulta la sección "[Encontrar formas de contribuir con el código abierto en GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}

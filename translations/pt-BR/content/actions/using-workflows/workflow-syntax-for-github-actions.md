@@ -56,7 +56,7 @@ Nome do fluxo de trabalho. O {% data variables.product.prodname_dotcom %} exibe 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call`
 
-Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+Use `on.workflow_call` para definir as entradas e saídas para um fluxo de trabalho reutilizável. Você também pode mapear os segredos disponíveis para o fluxo de trabalho chamado. Para obter mais informações sobre fluxos de trabalho reutilizáveis, consulte "[Reutilizando fluxos de trabalho](/actions/using-workflows/reusing-workflows)".
 
 ### `on.workflow_call.inputs`
 
@@ -183,7 +183,7 @@ on:
       logLevel:
         description: 'Log level'
         required: true
-        default: 'warning' {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: choice
         options:
         - info
@@ -191,7 +191,7 @@ on:
         - debug {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: false {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        required: false {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: boolean
       environment:
         description: 'Environment to run tests against'
@@ -209,7 +209,7 @@ jobs:
 
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-## `permissions`
+## `permissões`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}
 
@@ -528,7 +528,7 @@ Executa programas de linha de comando usando o shell do sistema operacional. Se 
 
 Por padrão, os comandos run usam shells de não login. Você pode escolher um shell diferente e personalizar o shell usado para executar comandos. Para obter mais informações, consulte [`trabalhos.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
 
-Cada palavra-chave `run` representa um novo processo e shell no ambiente do executor. When you provide multi-line commands, each line runs in the same shell. Por exemplo:
+Cada palavra-chave `run` representa um novo processo e shell no ambiente do executor. Ao fornecer comandos de várias linhas, cada linha será executada no mesmo shell. Por exemplo:
 
 * Um comando de linha única:
 
@@ -918,7 +918,7 @@ O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser ex
 
 `{owner}/{repo}/{path}/{filename}@{ref}`
 
-`{ref}` pode ser um SHA, uma tag de de versão ou um nome de branch. Usar o commit SHA é o mais seguro para a estabilidade e segurança. For more information, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)."
+`{ref}` pode ser um SHA, uma tag de de versão ou um nome de branch. Usar o commit SHA é o mais seguro para a estabilidade e segurança. Para obter mais informações, consulte "[Enrijecimento de segurança para o GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)".
 
 ### Exemplo
 
@@ -979,12 +979,12 @@ Contextos de expressão permitidos: `github`, `needs` e `segredos`.
 
 Você pode usar caracteres especiais nos filtros de caminhos, branches e tags.
 
-- `*`: Matches zero or more characters, but does not match the `/` character. Por exemplo, `Octo*` corresponde a `Octocat`.
+- `*`: Corresponde a zero ou mais caracteres, mas não corresponde ao caractere `/`. Por exemplo, `Octo*` corresponde a `Octocat`.
 - `**`: Corresponde a zero ou mais de qualquer caractere.
 - `?`: Corresponde a zero ou a um dos caracteres anteriores.
 - `+`: Corresponde a um ou mais dos caracteres anteriores.
 - `[]` Corresponde a um caractere listado entre colchetes ou incluído nos intervalos. Os intervalos só podem incluir valores de `a-z`, `A-Z`, e `0-9`. Por exemplo, o intervalo`[0-9a-z]` corresponde a qualquer letra maiúscula ou minúscula. Por exemplo, `[CB]at` corresponde a `Cat` ou `Bat` e `[1-2]00` corresponde a `100` e `200`.
-- `!` No início de um padrão faz com que ele anule padrões positivos anteriores. It has no special meaning if not the first character.
+- `!` No início de um padrão faz com que ele anule padrões positivos anteriores. Não tem nenhum significado especial caso não seja o primeiro caractere.
 
 Os caracteres `*`, `[` e `!` são caracteres especiais em YAML. Se você iniciar um padrão com `*`, `[` ou `!`, você deverá colocá-lo entre aspas.
 
@@ -997,7 +997,7 @@ Os caracteres `*`, `[` e `!` são caracteres especiais em YAML. Se você iniciar
 - **/README.md
 ```
 
-For more information about branch, tag, and path filter syntax, see "[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)", "[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)", and "[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)."
+Par aobte rmais informações sobre branch, tag e sintaxe de filtro do caminho, consulte "[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)", "[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)" e "[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)."
 
 ### Padrões para corresponder branches e tags
 

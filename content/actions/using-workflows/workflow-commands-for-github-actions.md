@@ -307,7 +307,7 @@ The `STATE_processID` variable is then exclusively available to the cleanup scri
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## Environment Files
+## Environment files
 
 During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 
@@ -345,16 +345,10 @@ More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow 
 ## Setting an environment variable
 
 ``` bash
-echo "{name}={value}" >> $GITHUB_ENV
+echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 ```
 
-Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
-
-{% note %}
-
-**Note:** Environment variables must be explicitly referenced using the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) in expression syntax or through use of the `$GITHUB_ENV` file directly; environment variables are not implicitly available in shell commands.
-
-{% endnote %}
+You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables)."
 
 ### Example
 

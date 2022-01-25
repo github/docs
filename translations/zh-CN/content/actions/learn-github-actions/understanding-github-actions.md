@@ -64,6 +64,8 @@ An _action_ is a custom application for the {% data variables.product.prodname_a
 
 You can write your own actions, or you can find actions to use in your workflows in the {% data variables.product.prodname_marketplace %}.
 
+{% data reusables.actions.internal-actions-summary %}
+
 更多信息请参阅“[创建操作](/actions/creating-actions)”。
 
 ### 运行器

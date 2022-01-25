@@ -27,13 +27,13 @@ Você pode visualizar o seu projeto como uma tabela ou como um quadro.
 2. Comece a digitar "Alternar layout".
 3. Escolha o comando necessário. Por exemplo, **Switch layout: Table**.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Table** or **Board**.
+Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado de um nome de exibição e clique em **Tabela** ou **Quadro**.
 
 ## Exibindo e ocultando campos
 
 Você pode mostrar ou ocultar um campo específico.
 
-### Showing and hiding fields in table layout
+### Mostrando e ocultando campos no layout da tabela
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comece a digitar a ação que deseja realizar ("mostrar" ou "ocultar") ou o nome do campo.
@@ -41,11 +41,11 @@ Você pode mostrar ou ocultar um campo específico.
 
 Como alternativa, clique em {% octicon "plus" aria-label="the plus icon" %} à direita da tabela. No menu suspenso que aparece, indique quais campos mostrar ou ocultar. Um {% octicon "check" aria-label="check icon" %} indica quais campos serão exibidos.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the field name and click **Hide field**.
+Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado do nome do campo e clique em **Ocultar o campo**.
 
-### Showing and hiding fields in board layout
+### Mostrando e ocultando campos no layout do quadro
 
-1. Click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the view name.
+1. Clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado do nome da exibição.
 2. Em**Configuração**, clique em {% octicon "list-unordered" aria-label="the unordered list icon" %}.
 3. No menu exibido, selecione os campos para adicioná-los e desmarque os campos para removê-los do modo de exibição.
 
@@ -71,7 +71,7 @@ No layout de tabela, você pode classificar itens por um valor de campo.
 2. Comece a digitar "Ordenar por" ou o nome do campo que deseja ordenar.
 3. Escolha o comando necessário. Por exemplo, **Sort by: Assignees, asc**.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the field name that you want to sort by and click **Sort ascending** or **Sort descending**.
+Alternativamente, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado do campo que você deseja ordenar e clique em **Ordenação ascendente** ou **Ordenação decrescente**.
 
 {% note %}
 
@@ -85,15 +85,15 @@ Siga passos semelhantes para remover uma ordenação.
 2. Comece a digitar "Remover ordenação".
 3. Selecione **Remover ordenação por**.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the view name and click the menu item that indicates the current sort.
+Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado do nome de exibição e clique no item de menu que indica a classificação atual.
 
-## Grouping by field values in table layout
+## Agrupamento por valores de campo no layout de tabela
 
-No layout da tabela, você pode agrupar os itens por um valor de campo personalizado. Quando os itens são agrupados, se você arrastar um item para um novo grupo, será aplicado o valor desse grupo. Por exemplo, se você agrupar por "Status" e, em seguida, arrastar um item com um status de `Em andamento` para o grupo `Concluído` o status do item mudará para `Concluído`. Similarly, when you add a new item to a group, the new item is populated with the value of the group.
+No layout da tabela, você pode agrupar os itens por um valor de campo personalizado. Quando os itens são agrupados, se você arrastar um item para um novo grupo, será aplicado o valor desse grupo. Por exemplo, se você agrupar por "Status" e, em seguida, arrastar um item com um status de `Em andamento` para o grupo `Concluído` o status do item mudará para `Concluído`. Da mesma forma, ao adicionar um novo item a um grupo, o novo item será preenchido com o valor do grupo.
 
 {% note %}
 
-**Note:** Currently, you cannot group by title, labels, reviewers, or linked pull requests.
+**Observação:** Atualmente, você não pode agrupar por títulos, etiquetas, revisores ou pull requests.
 
 {% endnote %}
 
@@ -101,7 +101,7 @@ No layout da tabela, você pode agrupar os itens por um valor de campo personali
 2. Comece a digitar "Agrupar por" ou o nome do campo que você deseja agrupar.
 3. Escolha o comando necessário. Por exemplo, **Agrupar por: Status**.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the field name that you want to group by and click **Group by values**.
+Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado do nome do campo que você deseja agrupar e clique em **Agrupar por valores**.
 
 Siga as etapas semelhantes para remover um agrupamento.
 
@@ -109,17 +109,17 @@ Siga as etapas semelhantes para remover um agrupamento.
 2. Comece a digitar "Remover agrupamento".
 3. Selecione **Remover agrupar por**.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the view name and click the menu item that indicates the current grouping.
+Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado do nome de exibição e clique no item de menu que indica a agrupamento atual.
 
-## Setting the column field in board layout
+## Definir o campo da coluna no layout do quadro
 
-In the board layout, you choose any single select or iteration field for your columns. If you drag an item to a new column, the value of that column is applied to the dragged item. For example, if you use the "Status" field for your board columns and then drag an item with a status of `In progress` to the `Done` column, the status of the item will switch to `Done`.
+No layout do painel, você escolhe qualquer campo de seleção ou iteração para as suas colunas. Se você arrastar um item para uma nova coluna, o valor dessa coluna será aplicado ao item arrastado. For example, if you use the "Status" field for your board columns and then drag an item with a status of `In progress` to the `Done` column, the status of the item will switch to `Done`.
 
 1. {% data reusables.projects.open-command-palette %}
 1. Start typing "Column field by" or the name of the field you want to use for your columns.
-1. Escolha o comando necessário. For example, **Column field by: Status**.
+1. Escolha o comando necessário. Por exemplo, **Column field by: Status**.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the board view that you want to modify and click {% octicon "columns" aria-label="the column icon" %} **Column field**. Then select the field that you want to use for the board columns.
+Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado da exibição do quadro que você deseja modificar e clique no **campo coluna** {% octicon "columns" aria-label="the column icon" %}. Em seguida, selecione o campo que você deseja usar para as colunas do quadro.
 
 ## Filtering items
 

@@ -1,7 +1,7 @@
 
 When using the `workflow_run` event, you can specify what branches the triggering workflow must run on in order to trigger your workflow.
 
-The `branches` and `branches-ignore` filters accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. Si un nombre contiene cualquiera de estos caracteres y quieres tener una coincidencia literal, necesitas *escapar* cada uno de estos caracteres especiales con una `\`. Para obtener más información sobre los patrones globales, consulta "[Hoja de información para filtrar patrones](#filter-pattern-cheat-sheet)".
+Los filtros de `branches` y `branches-ignore` aceptan patrones globales que utilizan caracteres como `*`, `**`, `+`, `?`, `!` y otros para empatar con más de un nombre de rama. Si un nombre contiene cualquiera de estos caracteres y quieres tener una coincidencia literal, necesitas *escapar* cada uno de estos caracteres especiales con una `\`. Para obtener más información sobre los patrones globales, consulta "[Hoja de información para filtrar patrones](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
 For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch whose name starts with `releases/`:
 

@@ -1,7 +1,7 @@
 ---
-title: Setting default values for jobs
-shortTitle: Setting default values for jobs
-intro: 'Define the default settings that will apply to all jobs in the workflow, or all steps in a job.'
+title: Definindo valores padrão para trabalhos
+shortTitle: Definindo valores padrão para trabalhos
+intro: Defina as configurações padrão que serão aplicadas a todos os trabalhos no fluxo de trabalho ou todas as etapas de um trabalho.
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,14 +17,14 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults %}
 
-## Setting default shell and working directory
+## Definindo o shell padrão e diretório de trabalho
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run %}
 
-## Setting default values for a specific job
+## Definindo os valores padrão para um trabalho específico
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job %}
 
-## Setting default shell and working directory for a job
+## Definindo o shell padrão e o diretório de trabalho para um trabalho
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run %}

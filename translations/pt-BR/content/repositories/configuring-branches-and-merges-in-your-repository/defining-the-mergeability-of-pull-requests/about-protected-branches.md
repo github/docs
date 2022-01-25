@@ -84,7 +84,7 @@ Opcionalmente, você pode optar por exigir análises dos proprietários do códi
 
 As verificações de status obrigatórias garantem que todos os testes de CI sejam aprovados antes que os colaboradores possam fazer alterações em um branch protegido. Para obter mais informações, consulte "[Configurar branches protegidos](/articles/configuring-protected-branches/)" e "[Habilitar verificações de status obrigatórias](/articles/enabling-required-status-checks)". Para obter mais informações, consulte "[Sobre verificações de status](/github/collaborating-with-issues-and-pull-requests/about-status-checks)".
 
-Antes de habilitar as verificações de status necessárias, é necessário configurar o repositório para usar a API de status. Para obter mais informações, consulte "[Repositórios](/rest/reference/repos#statuses)" na documentação do REST.
+Antes de habilitar as verificações de status necessárias, é necessário configurar o repositório para usar a API de status. Para obter mais informações, consulte "[Repositórios](/rest/reference/commits#commit-statuses)" na documentação do REST.
 
 Depois de habilitar a verificação de status obrigatória, todas as verificações de status necessárias deverão passar para que os colaboradores possam fazer merge das alterações no branch protegido. Depois que todas as verificações de status necessárias passarem, quaisquer commits devem ser enviados por push para outro branch e, em seguida, mesclados ou enviados por push diretamente para o branch protegido.
 
