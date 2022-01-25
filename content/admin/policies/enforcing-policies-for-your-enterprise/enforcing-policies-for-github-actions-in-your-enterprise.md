@@ -100,6 +100,10 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+These policies can be enabled and disabled at the enterprise level. Once enabled at the enterprise level, the policies can then be selectively disabled for individual organizations or repositories.
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
