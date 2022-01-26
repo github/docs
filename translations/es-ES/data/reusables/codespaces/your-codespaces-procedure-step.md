@@ -1,3 +1,3 @@
-1. In the top right corner of {% data variables.product.product_name %}, click your profile photo, then click **Your codespaces**.
+1. En la esquina superior derecha de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, haz clic en tu foto de perfil y luego en **Tus codespaces**.
 
-  !['Your codespaces' menu option](/assets/images/help/codespaces/your-codespaces-option.png)
+  ![Opción de menú 'Tus codespaces'](/assets/images/help/codespaces/your-codespaces-option.png)

@@ -1,1 +1,0 @@
-Clustering bietet eine bessere Skalierbarkeit, indem die Last auf mehrere Knoten verteilt wird. Diese horizontale Skalierung empfiehlt sich allenfalls für Organisationen mit Zehntausenden Entwicklern.

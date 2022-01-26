@@ -1,28 +1,51 @@
 ---
 title: Browsing security vulnerabilities in the GitHub Advisory Database
 intro: 'The {% data variables.product.prodname_advisory_database %} allows you to browse or search for vulnerabilities that affect open source projects  on {% data variables.product.company_short %}.'
-shortTitle: Browsing the Advisory Database
+shortTitle: Browse Advisory Database
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Alerts
+  - Dependabot
+  - Vulnerabilities
+  - CVEs
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
 
-### About security vulnerabilities
+## About security vulnerabilities
 
 {% data reusables.repositories.a-vulnerability-is %}
 
-{% data variables.product.product_name %} will send you {% data variables.product.prodname_dependabot_alerts %} if we detect that any of the vulnerabilities from the {% data variables.product.prodname_advisory_database %} affect the packages that your repository depends on. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+## About the {% data variables.product.prodname_advisory_database %}
 
-### About the {% data variables.product.prodname_advisory_database %}
+The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities, grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.
 
-The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that have been mapped to packages tracked by the {% data variables.product.company_short %} dependency graph. {% data reusables.repositories.tracks-vulnerabilities %}
+{% data reusables.repositories.tracks-vulnerabilities %}
 
-Each security advisory contains information about the vulnerability, including the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
+### About {% data variables.product.company_short %}-reviewed advisories
+
+{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities that have been mapped to packages tracked by the {% data variables.product.company_short %} dependency graph.
+
+We carefully review each advisory for validity. Each {% data variables.product.company_short %}-reviewed advisory has a full description, and contains both ecosystem and package information.
+
+If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory affects packages you depend on. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+
+### About unreviewed advisories
+
+Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed. 
+
+{% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
+
+## About security advisories
+
+Each security advisory contains information about the vulnerability, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
 
 The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
 - Low
@@ -34,11 +57,16 @@ The {% data variables.product.prodname_advisory_database %} uses the CVSS levels
 
 {% data reusables.repositories.github-security-lab %}
 
-### Accessing an advisory in the {% data variables.product.prodname_advisory_database %}
+## Accessing an advisory in the {% data variables.product.prodname_advisory_database %}
 
 1. Navigate to https://github.com/advisories.
 2. Optionally, to filter the list, use any of the drop-down menus.
   ![Dropdown filters](/assets/images/help/security/advisory-database-dropdown-filters.png)
+   {% tip %}
+
+   **Tip:** You can use the sidebar on the left to explore  {% data variables.product.company_short %}-reviewed and unreviewed advisories separately.
+
+   {% endtip %}
 3. Click on any advisory to view details.
 
 {% note %}
@@ -47,7 +75,7 @@ The database is also accessible using the GraphQL API. For more information, see
 
 {% endnote %}
 
-### Searching the {% data variables.product.prodname_advisory_database %}
+## Searching the {% data variables.product.prodname_advisory_database %}
 
 You can search the database, and use qualifiers to narrow your search. For example, you can search for advisories created on a certain date, in a specific ecosystem, or in a particular library.
 
@@ -57,6 +85,8 @@ You can search the database, and use qualifiers to narrow your search. For examp
 
 | Qualifier  | Example |
 | ------------- | ------------- |
+| `type:reviewed`| [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories. |
+| `type:unreviewed`| [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) will show unreviewed advisories. |
 | `GHSA-ID`| [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) will show the advisory with this {% data variables.product.prodname_advisory_database %} ID. |
 | `CVE-ID`| [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) will show the advisory with this CVE ID number. |
 | `ecosystem:ECOSYSTEM`| [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) will show only advisories affecting NPM packages. |
@@ -72,9 +102,9 @@ You can search the database, and use qualifiers to narrow your search. For examp
 | `created:YYYY-MM-DD`| [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) will show only advisories created on this date. |
 | `updated:YYYY-MM-DD`| [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) will show only advisories updated on this date. |
 
-### Viewing your vulnerable repositories
+## Viewing your vulnerable repositories
 
-For any vulnerability in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories have a {% data variables.product.prodname_dependabot %} alert for that vulnerability. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)."
+For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)."
 
 1. Navigate to https://github.com/advisories.
 2. Click an advisory.
@@ -84,6 +114,6 @@ For any vulnerability in the {% data variables.product.prodname_advisory_databas
    ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
 5. For more details about the vulnerability, and for advice on how to fix the vulnerable repository, click the repository name.
 
-### Further reading
+## Further reading
 
 - MITRE's [definition of "vulnerability"](https://cve.mitre.org/about/terminology.html#vulnerability)

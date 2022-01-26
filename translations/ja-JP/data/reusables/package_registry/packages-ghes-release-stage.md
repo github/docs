@@ -1,7 +1,1 @@
-{% if currentVersion == "enterprise-server@2.22" %}
-{% note %}
-
-**ノート:** {% data variables.product.prodname_registry %}は現在{% data variables.product.prodname_ghe_server %} 2.22でベータです。 {% data variables.product.product_location %}のベータに参加するには、[サインアップフォーム](https://resources.github.com/beta-signup/)を使ってください。
-
-{% endnote %}
-{% endif %}
+<!-- 2148AF7B-5FF8-4B28-A808-D692FEE2225A -->

@@ -5,22 +5,23 @@ redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Commit & review changes
 ---
-### About commits
+## About commits
 
 {% data reusables.commits.about-commits %} You can also add a co-author on any commits you collaborate on.
 
 {% data reusables.desktop.update-email-address %} For more information, see ["Configuring Git for GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)."
 
-### Choosing a branch and making changes
+## Choosing a branch and making changes
 
 1. [Create a new branch](/desktop/guides/contributing-to-projects/managing-branches), or select an existing branch by clicking {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
 
   ![Drop down menu to switch your current branch](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
-### Choosing how to display diffs
+## Choosing how to display diffs
 
 You can change the way diffs are displayed in {% data variables.product.prodname_desktop %} to suit your reviewing needs.
 
@@ -36,7 +37,7 @@ If you need to see more of the file than {% data variables.product.prodname_desk
 
 ![Expand diff view](/assets/images/help/desktop/expand-diff-view.png)
 
-### Selecting changes to include in a commit
+## Selecting changes to include in a commit
 
 As you make changes to files in your text editor and save them locally, you will also see the changes in {% data variables.product.prodname_desktop %}.
 
@@ -53,7 +54,7 @@ As you make changes to files in your text editor and save them locally, you will
 
   ![Select checkboxes next to the files you want to commit](/assets/images/help/desktop/commit-some.png)
 
-#### Creating a partial commit
+### Creating a partial commit
 
 If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. The rest of your changes will remain intact, so that you can make additional modifications and commits. This allows you to make separate, meaningful commits, such as keeping line break changes in a commit separate from code or prose changes.
 
@@ -61,12 +62,12 @@ To exclude changed lines from your commit, click one or more changed lines so th
 
   ![Unselected lines in a file](/assets/images/help/desktop/partial-commit.png)
 
-### Discarding changes
+## Discarding changes
 If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
 
 Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
 
-#### Discarding changes in one or more files
+### Discarding changes in one or more files
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -76,7 +77,7 @@ Discarded changes are saved in a dated file in the Trash. You can recover discar
 
   ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-#### Discarding changes in one or more lines
+### Discarding changes in one or more lines
 You can discard one or more changed lines that are uncommitted.
 
 {% note %}
@@ -94,20 +95,20 @@ To discard a group of changed lines, right click the vertical bar to the right o
   ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### Write a commit message and push your changes
+## Write a commit message and push your changes
 
 Once you're satisfied with the changes you've chosen to include in your commit, write your commit message and push your changes. If you've collaborated on a commit, you can also attribute a commit to more than one author.
 
 {% note %}
 
-**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[Managing tags](/desktop/contributing-to-projects/managing-tags)."
+**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[Managing tags](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)."
 
 {% endnote %}
 
 {% data reusables.desktop.commit-message %}
 
   ![Commit message field](/assets/images/help/desktop/commit-message.png)
-2. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
+1. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
 
   ![Add a co-author to the commit message](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}

@@ -1,10 +1,10 @@
 ---
 title: Prácticas de Privacidad Globales
 redirect_from:
-  - /eu-safe-harbor/
+  - /eu-safe-harbor
   - /articles/global-privacy-practices
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -16,13 +16,13 @@ GitHub Proporciona el mismo estándar alto de protección de privacidad—tal co
 
 GitHub también cumple con ciertos marcos de trabajo relacionados con la transferencia de los datos desde el Área Económica Europea, el Reino Unido y Suiza (colectivamente conocidos como "UE") hacia los Estados Unidos. Cuando GitHub se involucra en dichas transferencias, GitHub se basa en las Cláusulas Contractuales Estándar como el mecanismo legal para ayudarlo a garantizar tus derechos y que tu información personal viaje con la protección adecuada. Adicionalmente, GitHub está certificado en los Marcos de Trabajo de Escudo de Privacidad de UE-U. S. A. y Suiza-U. S. A. Para aprender más sobre las decisiones de la Comisión Europea sobre la transferencia internacioal de datos, consulta este artículo en el [Sitio web de la Comisión Europea](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en).
 
-### Cláusulas Contractuales Estándar
+## Cláusulas Contractuales Estándar
 
 GitHub se basa en las Cláusulas Contractuales Estándar aprobadas por la Comisión Europea ("SCCs") como un mecanismo legal para las transferencia de datos desde la UE. Las SCCs son compromisos contractuales entre compañías que transfieren datos personales que las vinculan para proteger la privacidad y seguridad de dichos datos. GitHub adoptó las SCCs para que los flujos de datos necesarios puedan protegerse cuando se transfieren hacia afuera de la UE a países que la Comisión Europea no ha estimado pueden proteger los datos personales adecuadamente, incluyendo el proteger la transferencia de estos hacia los Estados Unidos.
 
 Para aprender más sobre las SCCs, consulta este artículo en el [Sitio web dela Comisión Europea](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en).
 
-### Marco del Escudo de Privacidad
+## Marco del Escudo de Privacidad
 
 GitHub está certificado en los Marcos de Trabajo de Escudo de Privacidad de UE-U. S. A y U. S. A-Suiza y en los compromisos que éstos conllevan, a pear de que GitHub no se basa en el Marco de Trabajo de Escudo de Privacidad de UE-U. S. A. como una base legal para transferencias de información personal ante el juicio de la Corte de Justicia de la UE en el caso C-311/18.
 
@@ -60,13 +60,13 @@ Los Marcos de Trabajo del Escudo de Privacidad se basan en siete principios, y G
   - Exigimos a nuestros empleados que respeten nuestras promesas de privacidad y la violación de nuestras políticas de privacidad está sujeta a una acción disciplinaria e inclusive hasta la terminación del empleo.
 
 
-#### Proceso de resolución de disputas
+### Proceso de resolución de disputas
 
 Como se explica a detalle en la sección de [Resolución de Quejas](/github/site-policy/github-privacy-statement#resolving-complaints) de nuestra [Declaración de Privacidad](/github/site-policy/github-privacy-statement), te exhortamos a contactarnos en caso de que tengas alguna queja relacionada con el Escudo de Privacidad (o sobre la privacidad en general). Para cualquier queja que no pueda resolverse directamente con GitHub, hemos escogido cooperar con la Autoridad de Protección de datos de la UE reelevante, o con un panel establecido por las autoridades europeas de protección de datos, para resolver disputas con los individuos de la UE, y con la Comisión Federal para la Protección de Datos y la Información (FDPIC, por sus siglas en inglés) para resolver las disputas con los individuos suizos. Por favor contáctanos si deseas que te dirijamos a los contactos de tu autoridad de protección de datos.
 
 Además, si eres residente de un estado miembro de la UE, tienes derecho a presentar una queja ante tu autoridad supervisora local.
 
-#### Arbitraje independiente
+### Arbitraje independiente
 
 En determinadas circunstancias limitadas, la UE, el Espacio Económico Europeo (EEE), Suiza y las personas del Reino Unido pueden recurrir al arbitraje vinculante del Escudo de privacidad como último recurso, si todas las demás formas de resolución de disputas no tuvieron éxito. Para obtener más información acerca de este método de resolución y su disponibilidad, consulta más detalles sobre el [Escudo de privacidad](https://www.privacyshield.gov/article?id=ANNEX-I-introduction). El arbitraje no es obligatorio, es una herramienta que puedes utilizar si así lo decides.
 

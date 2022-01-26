@@ -5,8 +5,10 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/uninstalling-github-desktop
   - /desktop/installing-and-configuring-github-desktop/uninstalling-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 卸载 GitHub Desktop
 ---
+
 {% mac %}
 
 1. 在 Finder 窗口中，导航到 Applications 文件夹。 ![Finder 窗口中的 Applications 文件夹](/assets/images/help/desktop/applications-folder.png)

@@ -2,17 +2,18 @@
 title: Creating an OAuth App
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps
   - /apps/building-oauth-apps/creating-an-oauth-app
   - /developers/apps/creating-an-oauth-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 ---
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **Note:** {% data reusables.apps.maximum-oauth-apps-allowed %}
@@ -46,7 +47,7 @@ topics:
 ![Field for a description of your app](/assets/images/oauth-apps/oauth_apps_application_description.png)
 9. In "Authorization callback URL", type the callback URL of your app.
 ![Field for the authorization callback URL of your app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
    {% note %}
 
    **Note:** OAuth Apps cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.

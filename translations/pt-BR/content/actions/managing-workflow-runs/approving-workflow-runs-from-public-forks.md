@@ -1,14 +1,23 @@
 ---
 title: Aprovando execuções de fluxo de trabalho das bifurcações públicas
-intro: 'Quando um primeiro contribuidor envia um pull request para um repositório público, um mantenedor com acesso de gravação deverá aprovar qualquer execução de fluxo de trabalho.'
-product: '{% data reusables.gated-features.actions %}'
+intro: 'Quando um colaborador externo envia um pull request para um repositório público, é possível que um mantenedor com acesso de gravação tenha de aprovar qualquer execução de fluxo de trabalho.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Aprovar execução da bifurcação pública
 ---
 
-As bifurcações de repositórios públicos podem enviar pull requests que proponham alterações nos fluxos de trabalho de {% data variables.product.prodname_actions %} de um repositório. Embora os fluxos de trabalho das bifurcações não tenham acesso a dados confidenciais como segredos, podem ser uma dor de cabeça para os mantenedores se forem modificados para fins abusivos. Para ajudar a evitar isso, os fluxos de trabalho em pull requests não são executados automaticamente se forem recebidos de contribuidores pela primeira vez e devem ser aprovados primeiro.
+## Sobre as execuções de fluxo de trabalho a partir de bifurcações públicas
 
-Os mantenedores com acesso de gravação ao repositório podem usar o procedimento a seguir para revisar e executar fluxos de trabalho em pull requests dos primeiros colaboradores. Após um contribuidor ter pelo menos um pull request mesclado no repositório de um projeto, todos os pull requests futuros da bifurcação daquele contribuidor executarão automaticamente os fluxos de trabalho.
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+Você pode configurar os requisitos de aprovação de fluxo de trabalho para um [repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks), [organização](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks) ou [empresa](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise).
+
+As execuções de fluxo de trabalho que estão aguardando aprovação por mais de 30 dias são excluídas automaticamente.
+
+## Aprovando as execuções do fluxo de trabalho em um pull request a partir de uma bifurcação pública
+
+Os mantenedores com acesso de gravação a um repositório podem usar o seguinte procedimento para revisar e executar fluxos de trabalho em pull requests de colaboradores que exigem aprovação.
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}

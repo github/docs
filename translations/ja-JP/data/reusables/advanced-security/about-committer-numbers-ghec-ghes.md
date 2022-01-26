@@ -1,14 +1,14 @@
-{% data variables.product.product_location %} の {% data variables.product.prodname_GH_advanced_security %} の 2 つのコミッター数を記録して表示します。
+We record and display two numbers of committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.product_location %}:
 
-- **コミッター**は、Organization 内の少なくとも 1 つの{% if currentVersion == "free-pro-team@latest" %}プライベート{% endif %}リポジトリに貢献し、Enterprise ライセンスのシートを使用するコミッターの数です。 つまり、Organization のメンバー、外部のコラボレータでもあるか、Enterprise 内の Organization に参加するための保留中の招待状を持っています。
-- **このリポジトリ/Organization に固有**は、このリポジトリまたはこの Organization のリポジトリにのみコントリビュートしたコミッターの数です。 この数値は、そのリポジトリまたは Organization の {% data variables.product.prodname_GH_advanced_security %} を無効にすることで解放できるライセンスシートの数を示しています。
+- **Committers** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}repository in an organization and who use a seat in your enterprise license. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise.
+- **Unique to this repository/organization** is the number of committers who contributed only to this repository, or to repositories in this organization. This number shows how many license seats you can free up by disabling {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
 
-一意のコミッターがない場合、これは、すべてのアクティブなコミッターが {% data variables.product.prodname_GH_advanced_security %} を使用する他のリポジトリまたは Organization にもコントリビュートしているということです。 そのリポジトリまたは Organization の機能を無効にしても、ライセンスのシートは解放されません。
+If there are no unique committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Disabling the feature for that repository or organization would not free any seats on your license.
 
-ユーザをEnterpriseアカウントから削除すると、そのユーザのライセンスは24時間以内に解放されます。
+When you remove a user from your enterprise account, the user's license is freed within 24 hours.
 
 {% note %}
 
-**ノート:** ユーザは複数のリポジトリもしくはOrganizationに貢献できます。 使用状況はEnterpriseアカウント全体にわたって計測され、各ユーザがいくつのリポジトリあるいはOrganizationに貢献していても、1つのシートしか使わないことを保証します。
+**Note:** Users can contribute to multiple repositories or organizations. Usage is measured across the whole enterprise account to ensure that each member uses one seat regardless of how many repositories or organizations the user contributes to.
 
 {% endnote %}

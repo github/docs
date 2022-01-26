@@ -1,7 +1,7 @@
-{% if  currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 {% note %}
 
-**Note:** There is a maximum of 8 high availability replicas (both passive and active/geo replicas) allowed for {% data variables.product.product_name %}.
+**Observação:** Há um máximo de 8 réplicas de disponibilidade alta (passiva e ativas/georreplicas) permitidos em {% data variables.product.product_name %}.
 
 {% endnote %}
 

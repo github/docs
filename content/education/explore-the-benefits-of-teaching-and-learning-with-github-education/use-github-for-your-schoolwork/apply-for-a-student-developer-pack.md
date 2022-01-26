@@ -7,11 +7,12 @@ redirect_from:
   - /articles/applying-for-a-student-developer-pack
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Apply for a student pack
 ---
 {% data reusables.education.about-github-education-link %}
 
-### Requirements
+## Requirements
 
 To be eligible for the {% data variables.product.prodname_student_pack %}, you must:
 - Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
@@ -31,7 +32,7 @@ During your tenure as a student, you may be prompted to periodically re-verify y
 
 For information about renewing your {% data variables.product.prodname_student_pack %}, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)."
 
-### Applying for a {% data variables.product.prodname_student_pack %}
+## Applying for a {% data variables.product.prodname_student_pack %}
 
 {% data reusables.education.benefits-page %}
 3. Under "Which best describes your academic status?", select **Student**.
@@ -42,13 +43,13 @@ For information about renewing your {% data variables.product.prodname_student_p
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### Expiration and renewals
+## Expiration and renewals
 
 Once your {% data variables.product.prodname_student_pack %} access expires, you may reapply if you're still eligible, although some of our partner offers cannot renew. Most of the timed offers from our partners start once you set them up. For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
 
 To see when your free access to the {% data variables.product.prodname_student_pack %} expires, visit your account's [billing settings](https://github.com/settings/billing).
 
-### Further reading
+## Further reading
 
 - "[Why wasn't my application for a {% data variables.product.prodname_student_pack %} approved?](/articles/why-wasn-t-my-application-for-a-student-developer-pack-approved)"
 - "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"

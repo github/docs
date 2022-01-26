@@ -1,1 +1,0 @@
-Du kannst auch {% data variables.product.prodname_security_advisories %} verwenden, um die Details einer bereits an einer anderen Stelle offen gelegten Sicherheitslücke erneut zu veröffentlichen, indem Du die Details der Sicherheitslücke kopierst und in eine neue Sicherheitsempfehlung einfügst.

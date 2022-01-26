@@ -1,4 +1,3 @@
-.algolia-cache
 .search-cache
 .DS_Store
 .env
@@ -9,11 +8,12 @@ coverage/
 /assets/images/early-access
 /content/early-access
 /data/early-access
-dist
 .next
+.eslintcache
+*.tsbuildinfo
 
 # blc: broken link checker
 blc_output.log
 blc_output_internal.log
-/dist/
 broken_links.md
+lib/redirects/.redirects-cache_*.json

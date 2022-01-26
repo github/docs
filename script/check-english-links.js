@@ -1,21 +1,5 @@
 #!/usr/bin/env node
 
-const path = require('path')
-const fs = require('fs')
-const linkinator = require('linkinator')
-const program = require('commander')
-const { pull, uniq } = require('lodash')
-const checker = new linkinator.LinkChecker()
-const rimraf = require('rimraf').sync
-const mkdirp = require('mkdirp').sync
-const root = 'https://docs.github.com'
-const englishRoot = `${root}/en`
-const { deprecated } = require('../lib/enterprise-server-releases')
-const got = require('got')
-
-// Links with these codes may or may not really be broken.
-const retryStatusCodes = [429, 503, 'Invalid']
-
 // [start-readme]
 //
 // This script runs once per day via a scheduled GitHub Action to check all links in
@@ -26,20 +10,49 @@ const retryStatusCodes = [429, 503, 'Invalid']
 //
 // [end-readme]
 
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import { LinkChecker } from 'linkinator'
+import program from 'commander'
+import { pull, uniq } from 'lodash-es'
+import rimraf from 'rimraf'
+import mkdirp from 'mkdirp'
+import { deprecated } from '../lib/enterprise-server-releases.js'
+import got from 'got'
+import excludedLinks from '../lib/excluded-links.js'
+import libLanguages from '../lib/languages.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const checker = new LinkChecker()
+const root = 'https://docs.github.com'
+const englishRoot = `${root}/en`
+
+// Links with these codes may or may not really be broken.
+const retryStatusCodes = [429, 503, 'Invalid']
+
 program
   .description('Check all links in the English docs.')
-  .option('-d, --dry-run', 'Turn off recursion to get a fast minimal report (useful for previewing output).')
-  .option('-r, --do-not-retry', `Do not retry broken links with status codes ${retryStatusCodes.join(', ')}.`)
-  .option('-p, --path <PATH>', `Provide an optional path to check. Best used with --dry-run. Default: ${englishRoot}`)
+  .option(
+    '-d, --dry-run',
+    'Turn off recursion to get a fast minimal report (useful for previewing output).'
+  )
+  .option(
+    '-r, --do-not-retry',
+    `Do not retry broken links with status codes ${retryStatusCodes.join(', ')}.`
+  )
+  .option(
+    '-p, --path <PATH>',
+    `Provide an optional path to check. Best used with --dry-run. Default: ${englishRoot}`
+  )
   .parse(process.argv)
 
 // Skip excluded links defined in separate file.
-const excludedLinks = require('../lib/excluded-links')
 
 // Skip non-English content.
-const languagesToSkip = Object.keys(require('../lib/languages'))
-  .filter(code => code !== 'en')
-  .map(code => `${root}/${code}`)
+const languagesToSkip = Object.keys(libLanguages)
+  .filter((code) => code !== 'en')
+  .map((code) => new RegExp(`${root}/${code}`))
 
 // Skip deprecated Enterprise content.
 // Capture the old format https://docs.github.com/enterprise/2.1/
@@ -53,23 +66,31 @@ const config = {
   recurse: !program.opts().dryRun,
   silent: true,
   // The values in this array are treated as regexes.
-  linksToSkip: [
-    enterpriseReleasesToSkip,
-    ...languagesToSkip,
-    ...excludedLinks
-  ]
+  linksToSkip: linksToSkipFactory([enterpriseReleasesToSkip, ...languagesToSkip, ...excludedLinks]),
+}
+
+// Return a function that can as quickly as possible check if a certain
+// href input should be skipped.
+// Do this so we can use a `Set` and a `iterable.some()` for a speedier
+// check. The default implementation in Linkinator, if you set
+// the `linksToSkip` config to be an array, it will, for every URL it
+// checks turn that into a new regex every single time.
+function linksToSkipFactory(regexAndURLs) {
+  const set = new Set(regexAndURLs.filter((regexOrURL) => typeof regexOrURL === 'string'))
+  const regexes = regexAndURLs.filter((regexOrURL) => regexOrURL instanceof RegExp)
+  return (href) => set.has(href) || regexes.some((regex) => regex.test(href))
 }
 
 main()
 
-async function main () {
+async function main() {
   // Clear and recreate a directory for logs.
   const logFile = path.join(__dirname, '../.linkinator/full.log')
-  rimraf(path.dirname(logFile))
-  mkdirp(path.dirname(logFile))
+  rimraf.sync(path.dirname(logFile))
+  await mkdirp(path.dirname(logFile))
 
   // Update CLI output and append to logfile after each checked link.
-  checker.on('link', result => {
+  checker.on('link', (result) => {
     // We don't need to dump all of the HTTP and HTML details
     delete result.failureDetails
 
@@ -81,28 +102,31 @@ async function main () {
 
   // Scan is complete! Filter the results for broken links.
   const brokenLinks = result
-    .filter(link => link.state === 'BROKEN')
+    .filter((link) => link.state === 'BROKEN')
     // Coerce undefined status codes into `Invalid` strings so we can display them.
     // Without this, undefined codes get JSON.stringified as `0`, which is not useful output.
-    .map(link => { link.status = link.status || 'Invalid'; return link })
+    .map((link) => {
+      link.status = link.status || 'Invalid'
+      return link
+    })
 
   if (!program.opts().doNotRetry) {
     // Links to retry individually.
-    const linksToRetry = brokenLinks
-      .filter(link => retryStatusCodes.includes(link.status))
+    const linksToRetry = brokenLinks.filter((link) => retryStatusCodes.includes(link.status))
 
-    await Promise.all(linksToRetry
-      .map(async (link) => {
+    await Promise.all(
+      linksToRetry.map(async (link) => {
         try {
           // got throws an HTTPError if response code is not 2xx or 3xx.
           // If got succeeds, we can remove the link from the list.
           await got(link.url)
           pull(brokenLinks, link)
-        // If got fails, do nothing. The link is already in the broken list.
+          // If got fails, do nothing. The link is already in the broken list.
         } catch (err) {
           // noop
         }
-      }))
+      })
+    )
   }
 
   // Exit successfully if no broken links!
@@ -119,20 +143,21 @@ async function main () {
   process.exit(1)
 }
 
-function displayBrokenLinks (brokenLinks) {
+function displayBrokenLinks(brokenLinks) {
   // Sort results by status code.
-  const allStatusCodes = uniq(brokenLinks
-    // Coerce undefined status codes into `Invalid` strings so we can display them.
-    // Without this, undefined codes get JSON.stringified as `0`, which is not useful output.
-    .map(link => link.status || 'Invalid')
+  const allStatusCodes = uniq(
+    brokenLinks
+      // Coerce undefined status codes into `Invalid` strings so we can display them.
+      // Without this, undefined codes get JSON.stringified as `0`, which is not useful output.
+      .map((link) => link.status || 'Invalid')
   )
 
-  allStatusCodes.forEach(statusCode => {
-    const brokenLinksForStatus = brokenLinks.filter(x => x.status === statusCode)
+  allStatusCodes.forEach((statusCode) => {
+    const brokenLinksForStatus = brokenLinks.filter((x) => x.status === statusCode)
 
     console.log(`## Status ${statusCode}: Found ${brokenLinksForStatus.length} broken links`)
     console.log('```')
-    brokenLinksForStatus.forEach(brokenLinkObj => {
+    brokenLinksForStatus.forEach((brokenLinkObj) => {
       // We don't need to dump all of the HTTP and HTML details
       delete brokenLinkObj.failureDetails
 

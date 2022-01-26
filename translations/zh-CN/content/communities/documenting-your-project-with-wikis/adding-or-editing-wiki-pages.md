@@ -2,22 +2,24 @@
 title: 添加或编辑 wiki 页面
 intro: '您可以直接在 {% data variables.product.product_name %} 或者本地使用命令行添加和编辑 wiki 页面。'
 redirect_from:
-  - /articles/adding-wiki-pages-via-the-online-interface/
-  - /articles/editing-wiki-pages-via-the-online-interface/
-  - /articles/adding-and-editing-wik-pages-locally/
-  - /articles/adding-and-editing-wiki-pages-locally/
+  - /articles/adding-wiki-pages-via-the-online-interface
+  - /articles/editing-wiki-pages-via-the-online-interface
+  - /articles/adding-and-editing-wik-pages-locally
+  - /articles/adding-and-editing-wiki-pages-locally
   - /articles/adding-or-editing-wiki-pages
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: 管理 wiki 网页
 ---
 
-### 添加 wiki 页面
+## 添加 wiki 页面
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -27,7 +29,7 @@ topics:
 6. 输入提交消息，描述所添加的新文件。 ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
 7. 要提交更改到 wiki，请单击 **Save Page（保存页面）**。
 
-### 编辑 wiki 页面
+## 编辑 wiki 页面
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -36,11 +38,11 @@ topics:
 6. 输入提交消息，描述您的更改。 ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
 7. 要提交更改到 wiki，请单击 **Save Page（保存页面）**。
 
-### 本地添加或编辑 wiki 页面
+## 本地添加或编辑 wiki 页面
 
 Wiki 是 Git 仓库的一部分，因此您可以在本地进行更改，然后使用 Git 工作流程将它们推送到仓库。
 
-#### 克隆 wiki 到计算机
+### 克隆 wiki 到计算机
 
 每个 wiki 都提供一种将其内容克隆到计算机的简易方式。 您可以选择使用提供的 URL 将仓库克隆到计算机：
 
@@ -51,7 +53,7 @@ $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.w
 
 在克隆 wiki 后，可以添加新文件、编辑现有文件以及提交更改。 您与协作者在操作 wiki 时可以创建分支，但只有推送到默认分支的更改才会生效并供读者使用。
 
-### 关于 wiki 文件名
+## 关于 wiki 文件名
 
 文件名确定 wiki 页面的标题，文件扩展名确定 wiki 内容如何呈现。
 

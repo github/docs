@@ -2,23 +2,26 @@
 title: Elaborar uma listagem para o seu aplicativo
 intro: 'Ao criar uma listagem do {% data variables.product.prodname_marketplace %}, o GitHub salva-na no modo rascunho até que você envie o aplicativo para aprovação. Sua listagem mostra aos clientes como podem usar seu aplicativo.'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/listing-an-app-on-github-marketplace/
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/removing-a-listing-from-github-marketplace/
-  - /apps/marketplace/managing-github-marketplace-listings/removing-a-listing-from-github-marketplace/
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/editing-a-github-marketplace-listing/
-  - /apps/marketplace/managing-github-marketplace-listings/editing-a-github-marketplace-listing/
-  - /apps/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
+  - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/listing-an-app-on-github-marketplace
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/listing-an-app-on-github-marketplace
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/removing-a-listing-from-github-marketplace
+  - /apps/marketplace/managing-github-marketplace-listings/removing-a-listing-from-github-marketplace
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/editing-a-github-marketplace-listing
+  - /apps/marketplace/managing-github-marketplace-listings/editing-a-github-marketplace-listing
+  - /apps/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /developers/github-marketplace/drafting-a-listing-for-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Elabore um anúncio para aplicativos
 ---
-### Crie um novo rascunho da listagem do {% data variables.product.prodname_marketplace %}
+
+## Crie um novo rascunho da listagem do {% data variables.product.prodname_marketplace %}
 
 Você só pode criar rascunhos de listagem para aplicativos públicos. Antes de criar o seu rascunho de listagem, você pode ler as diretrizes a seguir para escrever e definir configurações na sua listagem do {% data variables.product.prodname_marketplace %}:
 
@@ -40,10 +43,7 @@ Para criar uma listagem do {% data variables.product.prodname_marketplace %}:
 
   ![Seleção do tipo de aplicativo](/assets/images/settings/apps_choose_app.png)
 
-4. Selecione o aplicativo que você gostaria de adicionar a
-
-{% data variables.product.prodname_marketplace %}.
-![Seleção de aplicativo para listagem do {% data variables.product.prodname_marketplace %}](/assets/images/github-apps/github_apps_select-app.png)
+4. Selecione o aplicativo que você gostaria de adicionar ao {% data variables.product.prodname_marketplace %}. ![Seleção de aplicativo para listagem do {% data variables.product.prodname_marketplace %}](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.edit_marketplace_listing %}
 5. Uma vez criado um novo rascunho da listagem, você verá um resumo das seções que você precisará visitar antes da sua listagem do {% data variables.product.prodname_marketplace %} ser concluída. ![Listagem do GitHub Marketplace](/assets/images/marketplace/marketplace_listing_overview.png)
 
@@ -54,14 +54,14 @@ Para criar uma listagem do {% data variables.product.prodname_marketplace %}:
 
 {% endnote %}
 
-### Editar sua listagem
+## Editar sua listagem
 
 Após criar um rascunho da listagem do {% data variables.product.prodname_marketplace %}, você poderá voltar e modificar as informações na sua listagem a qualquer momento. Se o seu aplicativo já está aprovado e encontra-se no {% data variables.product.prodname_marketplace %}, você pode editar as informações e imagens na sua listagem, mas você não poderá alterar os planos de preços existentes publicados. Consulte "[Configurando um plano de preços de listagem do {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/). "
 
-### Enviar o seu aplicativo
+## Enviar o seu aplicativo
 
-Após concluir a sua listagem do {% data variables.product.prodname_marketplace %}, você poderá enviá-la para revisão na página **Visão geral**. Você vai precisar ler e aceitar o "[{% data variables.product.prodname_marketplace %} Contrato de desenvolvedor](/articles/github-marketplace-developer-agreement/)" e, em seguida, você poderá clicar em **Enviar para revisão**. Depois de enviar seu aplicativo para análise, um especialista em integração entrará em contato com você com informações adicionais sobre o processo de integração.
+Após concluir a sua listagem do {% data variables.product.prodname_marketplace %}, você poderá enviá-la para revisão na página **Visão geral**. Você vai precisar ler e aceitar o "[{% data variables.product.prodname_marketplace %} Contrato de desenvolvedor](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)" e, em seguida, você poderá clicar em **Enviar para revisão**. Depois de enviar seu aplicativo para análise, um especialista em integração entrará em contato com você com informações adicionais sobre o processo de integração.
 
-### Remover uma listagem do {% data variables.product.prodname_marketplace %}
+## Remover uma listagem do {% data variables.product.prodname_marketplace %}
 
 Se você não quiser mais listar seu aplicativo em {% data variables.product.prodname_marketplace %}, entre em contato {% data variables.contact.contact_support %} para remover o seu anúncio.

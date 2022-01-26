@@ -5,14 +5,16 @@ redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: RESTからGraphQLへの移行
 ---
 
-### APIのロジックに関する差異
+## APIのロジックに関する差異
 
 RESTからGraphQLへの移行は、APIロジックの大きな変化を示します。 スタイルとしてのRESTと仕様としてのGraphQLとの違いのために、REST APIの呼び出しをGraphQL APIのクエリに1対1で置き換えることは難しく、しばしば望ましくないことになります。 移行の具体的な例を以下に示しました。
 

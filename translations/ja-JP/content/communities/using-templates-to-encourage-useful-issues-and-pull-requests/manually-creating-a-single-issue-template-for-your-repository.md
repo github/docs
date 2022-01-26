@@ -2,15 +2,17 @@
 title: リポジトリ用の単一 Issue テンプレートを手動で作成する
 intro: 手動で作成した Issue テンプレートをリポジトリに追加すると、プロジェクトのコントリビューターは自動的に Issue の本体でテンプレートの内容が見えるようになります。
 redirect_from:
-  - /articles/creating-an-issue-template-for-your-repository/
+  - /articles/creating-an-issue-template-for-your-repository
   - /articles/manually-creating-a-single-issue-template-for-your-repository
   - /github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Issue テンプレートの作成
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -32,23 +34,23 @@ assignees: octocat
 ```
 {% note %}
 
-**注釈:** フロントマター値に `:` などの YAML 予約文字が含まれている場合は、値全体を引用符で囲む必要があります。 たとえば、`":bug: Bug"` または `":new: triage needed, :bug: bug"` などです。
+**注釈:** フロントマター値に `:` などの YAML特殊文字が含まれている場合は、値全体を引用符で囲む必要があります。 たとえば、`":bug: Bug"` または `":new: triage needed, :bug: bug"` などです。
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-### Issue テンプレートを追加する
+## Issue テンプレートを追加する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -66,7 +68,7 @@ assignees: octocat
 {% data reusables.files.choose_commit_branch %} テンプレートがリポジトリのデフォルトブランチにマージされると、コラボレーターがテンプレートを使用できるようになります。
 {% data reusables.files.propose_new_file %}
 
-### 参考リンク
+## 参考リンク
 
 - [Issueとプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)
 - [リポジトリ用に Issue テンプレートを設定する](/articles/configuring-issue-templates-for-your-repository)
