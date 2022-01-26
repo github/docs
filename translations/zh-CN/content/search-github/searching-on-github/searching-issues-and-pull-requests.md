@@ -176,7 +176,7 @@ shortTitle: 搜索议题和 PR
 
 ## 按提交状态搜索
 
-您可以基于提交的状态过滤拉取请求。 这在使用 [Status API](/rest/reference/repos#statuses) 或 CI 服务时特别有用。
+您可以基于提交的状态过滤拉取请求。 This is especially useful if you are using [the Status API](/rest/reference/repos#statuses) or a CI service.
 
 | 限定符              | 示例                                                                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
