@@ -46,7 +46,7 @@ Um fluxo de trabalho reutilizável pode ser usado por outro fluxo de trabalho se
 
 * Ambos os fluxos de trabalho estão no mesmo repositório.
 * O fluxo de trabalho chamado é armazenado em um repositório público.{% ifversion ghes or ghec or ghae %}
-* O fluxo de trabalho chamado é armazenado em um repositório interno e as configurações para esse repositório permitem que ele seja acessado. For more information, see {% if internal-actions %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}
+* O fluxo de trabalho chamado é armazenado em um repositório interno e as configurações para esse repositório permitem que ele seja acessado. Para obter mais informações, consulte {% if internal-actions %}"[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Gerenciando configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}.{% endif %}
 
 ## Usando executores
 
@@ -164,9 +164,9 @@ Você chama um fluxo de trabalho reutilizável usando a chave `usa`. Ao contrár
 
 [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-Você faz referência a arquivos reutilizáveis do fluxo de trabalho usando a sintaxe:
+You reference reusable workflow files using {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}one of the following syntaxes:{% else %}the syntax:{% endif %}
 
-`{owner}/{repo}/{path}/{filename}@{ref}`
+{% data reusables.actions.reusable-workflow-calling-syntax %}
 
 Você pode chamar vários fluxos de trabalho, fazendo referência a cada um em um trabalho separado.
 

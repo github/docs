@@ -137,8 +137,8 @@ These commands are available from all scopes.
 
 | Command | Behavior|
 | :- | :- | :- |
-|`Import repository`|Create a new repository by importing a project from another version control system. For more information, see "[Importing a repository with GitHub importer](/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)."  |
-|`New gist`|Open a new gist. For more information, see "[Creating a gist](/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)." |
+|`Import repository`|Create a new repository by importing a project from another version control system. For more information, see "[Importing a repository with GitHub importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)."  |
+|`New gist`|Open a new gist. For more information, see "[Creating a gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)." |
 |`New organization`|Create a new organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." |
 |`New project`|Create a new project board. For more information, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."  |
 |`New repository`|Create a new repository from scratch. For more information, see "[Creating a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository)." |

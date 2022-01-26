@@ -62,7 +62,7 @@ Available in the organization-level and team-level overview.
 
 ## Filtrar por nivel de riesgo para los repositorios
 
-El nivel de riesgo de un repositorio se determina por la cantidad y severidad de las alertas de las características de seguridad. Si no están habilitadas una o más características de seguridad para un repositorio, este tendrá un nivel de riesgo desconocido. Si un repositorio no tiene riesgos que detecten las características de seguridad, este tendrá un nivel de riesgo claro. Available in the organization-level overview.
+El nivel de riesgo de un repositorio se determina por la cantidad y severidad de las alertas de las características de seguridad. Si no están habilitadas una o más características de seguridad para un repositorio, este tendrá un nivel de riesgo desconocido. Si un repositorio no tiene riesgos que detecten las características de seguridad, este tendrá un nivel de riesgo claro. Disponible en el resumen a nivel organizacional.
 
 | Qualifier      | Descripción                                                          |
 | -------------- | -------------------------------------------------------------------- |
@@ -74,18 +74,18 @@ El nivel de riesgo de un repositorio se determina por la cantidad y severidad de
 
 ## Filtra por cantidad de alertas
 
-Available in the organization-level overview.
+Disponible en el resumen a nivel organizacional.
 
-| Qualifier                 | Descripción                                                                                                                                                                      |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>code-scanning:<em>n</em></code> | Muestra los repositorios que tienen *n* alertas del {% data variables.product.prodname_code_scanning %}. This qualifier can use `=`, `>` and `<` comparison operators.   |
-| <code>secret-scanning:<em>n</em></code> | Muestra los repositorios que tienen *n* alertas del {% data variables.product.prodname_secret_scanning %}. This qualifier can use `=`, `>` and `<` comparison operators. |
-| <code>dependabot:<em>n</em></code> | Muestra los repositorios que tienen *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators.           |
+| Qualifier                 | Descripción                                                                                                                                                                                      |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>code-scanning:<em>n</em></code> | Muestra los repositorios que tienen *n* alertas del {% data variables.product.prodname_code_scanning %}. Este calificador puede utilizar los operadores de comparación `=`, `>` y `<`.   |
+| <code>secret-scanning:<em>n</em></code> | Muestra los repositorios que tienen *n* alertas del {% data variables.product.prodname_secret_scanning %}. Este calificador puede utilizar los operadores de comparación `=`, `>` y `<`. |
+| <code>dependabot:<em>n</em></code> | Muestra los repositorios que tienen *n* {% data variables.product.prodname_dependabot_alerts %}. Este calificador puede utilizar los operadores de comparación `=`, `>` y `<`.           |
 
 
 ## Filtrar por equipo
 
-Available in the organization-level overview.
+Disponible en el resumen a nivel organizacional.
 
 | Qualifier                 | Descripción                                                                        |
 | ------------------------- | ---------------------------------------------------------------------------------- |
@@ -93,7 +93,7 @@ Available in the organization-level overview.
 
 ## Filtrar por tema
 
-Available in the organization-level overview.
+Disponible en el resumen a nivel organizacional.
 
 | Qualifier                 | Descripción                                                  |
 | ------------------------- | ------------------------------------------------------------ |
@@ -119,17 +119,18 @@ Available in the code scanning alert views. All code scanning alerts have one of
 
 ## Filter by secret types
 
-Available in the secret scanning alert views.
+Disponible en las vistas de alerta del escaneo de secretos.
 
-| Qualifier                      | Descripción                                                                                                                                                                                                                                     |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. For more information, see "[List of supported secrets for private repositories](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |
-| `secret-type:CUSTOM-PATTERN`   | Displays alerts for secrets matching the specified custom pattern. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."                     |
+| Qualifier                                                                                                                                                                                  | Descripción                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `secret-type:SERVICE_PROVIDER`                                                                                                                                                             | Displays alerts for the specified secret and provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners) |
+| `secret-type:CUSTOM-PATTERN`                                                                                                                                                               | Displays alerts for secrets matching the specified custom pattern.                                                                                                                                                 |
+| {% ifversion not fpt %}For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %} |                                                                                                                                                                                                                    |
 
 ## Filter by provider
 
-Available in the secret scanning alert views.
+Disponible en las vistas de alerta del escaneo de secretos.
 
-| Qualifier                | Descripción                                                                                                                                                                                                                                                |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[List of supported secrets for private repositories](/code-security/secret-scanning/about-secret-scanning#list-of-supported-secrets-for-private-repositories) |
+| Qualifier                | Descripción                                                                                                                                                                                                                   |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners) |

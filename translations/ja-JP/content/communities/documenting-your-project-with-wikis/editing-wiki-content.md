@@ -48,7 +48,7 @@ topics:
 ## サポートされる MediaWiki 形式
 
 ウィキがどのマークアップ言語で書かれたかにかかわらず、特定の MediaWiki 構文を常に使用できます。
-- リンク ([Asciidoc を除く](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Links ([except AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
 - 水平罫線: `---`
 - 省略記号エンティティ (`&delta;` や `&euro;` など)
 

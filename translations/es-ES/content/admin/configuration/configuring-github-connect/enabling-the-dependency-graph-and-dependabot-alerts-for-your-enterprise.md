@@ -55,7 +55,7 @@ Si habilitas la detección de vulnerabilidades, cuando {% data variables.product
 ### Prerrequisitos
 
 Para que {% data variables.product.product_location %} detecte las dependencias vulnerables y genere {% data variables.product.prodname_dependabot_alerts %}:
-- You must enable {% data variables.product.prodname_github_connect %}. {% ifversion ghae %}This also enables the dependency graph service.{% endif %}{% ifversion ghes or ghae %}For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."{% endif %}
+- You must enable {% data variables.product.prodname_github_connect %}. {% ifversion ghae %}Esto también habilita el servicio de la gráfica de dependencias.{% endif %}{% ifversion ghes or ghae %}Para obtener más información, consulta la sección "[Administrar {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".{% endif %}
 {% ifversion ghes %}- Debes habilitar el servicio de gráficas de dependencia.{% endif %}
 - Debes habilitar el escaneo de vulnerabilidades.
 
@@ -115,7 +115,7 @@ Antes de habilitar {% data variables.product.prodname_dependabot_alerts %} para 
    {% endtip %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
-Cuando habilitas las {% data variables.product.prodname_dependabot_alerts %}, deberías considerar también configurar las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_dependabot_security_updates %}. Esta característica permite que los desarrolladores arreglen las vulnerabilidades en sus dependencias. For more information, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+Cuando habilitas las {% data variables.product.prodname_dependabot_alerts %}, deberías considerar también configurar las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_dependabot_security_updates %}. Esta característica permite que los desarrolladores arreglen las vulnerabilidades en sus dependencias. Para obtener más información, consulta la sección "[Configurar la seguridad y actualizaciones de versión del {% data variables.product.prodname_dependabot %} en tu empresa](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)".
 {% endif %}
 
 ## Ver las dependencias vulnerables en {% data variables.product.product_location %}

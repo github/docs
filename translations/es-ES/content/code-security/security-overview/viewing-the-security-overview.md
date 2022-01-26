@@ -40,7 +40,7 @@ shortTitle: View the security overview
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click **Security**. ![Repository security tab](/assets/images/help/repository/security-tab.png)
 2. In the security sidebar, select the view you want to open. ![Repository view alert subset](/assets/images/help/repository/repo-security-side-panel.png)
-3. Opcionalmente, filtra la lista de alertas. Each view has its own selection of available filters. Puedes hacer clic en varios filtros de los menús desplegables de filtros para especificar tu búsqueda. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)." ![Drop down filter menus in the repository secret scanning alerts view](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
+3. Opcionalmente, filtra la lista de alertas. Cada vista tiene su propia selección de filtros disponibles. Puedes hacer clic en varios filtros de los menús desplegables de filtros para especificar tu búsqueda. También puedes teclear calificadores de búsqueda en el campo de búsqueda. Para obtener más información sobre los calificadores disponibles, consulta la sección "[Filtrar las alertas en el resumen de seguridad](/code-security/security-overview/filtering-alerts-in-the-security-overview)". ![Drop down filter menus in the repository secret scanning alerts view](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
 
 {% endif %}
 

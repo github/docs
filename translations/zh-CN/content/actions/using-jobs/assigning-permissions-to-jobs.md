@@ -5,7 +5,7 @@ intro: Modify the default permissions granted to `GITHUB_TOKEN`.
 versions:
   fpt: '*'
   ghes: '> 3.1'
-  ghae: ghae-next
+  ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
 ---

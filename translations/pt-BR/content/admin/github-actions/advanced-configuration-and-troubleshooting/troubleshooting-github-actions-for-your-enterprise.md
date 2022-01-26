@@ -14,6 +14,10 @@ redirect_from:
 shortTitle: Solução de problemas do GitHub Actions
 ---
 
+## Checking the health of {% data variables.product.prodname_actions %}
+
+You can check the health of {% data variables.product.prodname_actions %} on {% data variables.product.product_location %} with the `ghe-actions-check` command-line utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+
 ## Configurar executores auto-hospedados ao usar um certificado autoassinado por {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.actions.enterprise-self-signed-cert %} Para obter mais informações, consulte "[Configurar TLS](/admin/configuration/configuring-tls)".

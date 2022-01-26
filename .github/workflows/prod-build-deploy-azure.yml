@@ -21,7 +21,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-prod-azure:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@66d2e78565ab7af265d2b627085bc34c73ce6abb
+        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
         with:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
 
@@ -68,7 +68,7 @@ jobs:
           GIT_BRANCH: main
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@a66e35b9cbcf4ad0ea91ffcaf7bbad63ad9e0229
+        uses: docker/build-push-action@1814d3dfb36d6f84174e61f4a4b05bd84089a4b9
         with:
           context: .
           push: true
@@ -87,7 +87,7 @@ jobs:
 
       # Watch preview slot instances to see when all the instances are ready
       - name: Check that preview slot is ready
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
         env:
           CHECK_INTERVAL: 10000
         with:

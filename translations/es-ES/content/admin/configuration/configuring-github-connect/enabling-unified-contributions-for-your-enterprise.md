@@ -27,17 +27,17 @@ topics:
 
 Como propietario de empresa, puedes permitir que los usuarios finales envíen cuentas de contribuciones anonimizadas para su trabajo desde {% data variables.product.product_location %} hacia su gráfica de contribuciones de {% data variables.product.prodname_dotcom_the_website %}.
 
-After you enable {% data variables.product.prodname_unified_contributions %}, before individual users can send contribution counts from {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, each user must also connect their personal account on {% data variables.product.product_name %} with a personal account on {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Enviar contribuciones empresariales a tu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
+Después de habilitar las {% data variables.product.prodname_unified_contributions %}, antes de que los usuarios individuales puedan enviar conteos de contribuciones de {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %}, cada uno de ellos también debe conectar su cuenta personal de {% data variables.product.product_name %} con una cuenta personal de {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Enviar contribuciones empresariales a tu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
 
 {% data reusables.github-connect.sync-frequency %}
 
-If the enterprise owner disables the functionality or individual users opt out of the connection, the contribution counts from {% data variables.product.product_name %} will be deleted on {% data variables.product.prodname_dotcom_the_website %}. If the user reconnects their profiles after disabling them, the contribution counts for the past 90 days are restored.
+Si el propietario de la empresa inhabilita la funcionalidad o si los usuarios individuales deciden no participar en la conexión, el conteo de contribuciones de {% data variables.product.product_name %} se borrará en {% data variables.product.prodname_dotcom_the_website %}. If the user reconnects their profiles after disabling them, the contribution counts for the past 90 days are restored.
 
 {% data variables.product.product_name %} **solo** envía el recuento de contribución y la fuente de ({% data variables.product.product_name %}) para los usuarios conectados. No envía ningún tipo de información sobre la contribución o cómo se realizó.
 
 ## Enabling unified contributions
 
-Before enabling {% data variables.product.prodname_unified_contributions %} on {% data variables.product.product_location %}, you must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+Before enabling {% data variables.product.prodname_unified_contributions %} on {% data variables.product.product_location %}, you must enable {% data variables.product.prodname_github_connect %}. Para obtener más información, consulta la sección "[Administrar {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".
 
 {% ifversion ghes %}
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
