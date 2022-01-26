@@ -28,7 +28,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-staging-azure:
     if: ${{ github.repository == 'github/docs-internal' }}
     name: Build and deploy image to staging App Service
     runs-on: ubuntu-latest
@@ -38,6 +38,7 @@ jobs:
       url: ${{ steps.deploy.outputs.defaultHostName }}
     env:
       GITHUB_EVENT_NUMBER: ${{ github.event.number }}
+      RESOURCE_GROUP: docs-nonprod
       NONPROD_REGISTRY_USERNAME: ghdocs
       # Image tag is unique to each workflow run so that it always triggers a new deployment
       DOCKER_IMAGE: ${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}/pr-${{ github.event.number }}:${{ github.event.pull_request.head.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -48,6 +49,7 @@ jobs:
         run: |
           REPO_NAME=${GITHUB_REPOSITORY#*\/}
           echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
+          echo "DEPLOYMENT_NAME=${REPO_NAME}-pr-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
           echo "APP_NAME=gh${REPO_NAME}-staging-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
 
       - name: 'Az CLI login'
@@ -99,15 +101,21 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
+      - name: 'Cancel any existing deployments for this PR'
+        run: |
+          az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ env.RESOURCE_GROUP }} || true
+
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
         id: deploy
         uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
         with:
-          resourceGroupName: docs-nonprod
+          resourceGroupName: ${{ env.RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
           template: ./staging-azure-deploy-template.json
+          deploymentName: ${{ env.DEPLOYMENT_NAME }}
           parameters: appName="${{ env.APP_NAME }}"
             location="East US"
             linuxFxVersion="DOCKER|${{ env.DOCKER_IMAGE }}"

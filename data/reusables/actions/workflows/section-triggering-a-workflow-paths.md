@@ -52,7 +52,7 @@ on:
       - '!sub-project/docs/**'
 ```
 
-### Git diff comparisons
+#### Git diff comparisons
 
 {% note %}
 

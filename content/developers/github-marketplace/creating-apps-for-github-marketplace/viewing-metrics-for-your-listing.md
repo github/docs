@@ -28,7 +28,7 @@ The Insights page displays these performance metrics, for the selected time peri
 
 * **Subscription value:** Total possible revenue (in US dollars) for subscriptions. This value represents the possible revenue if no plans or free trials are cancelled and all credit transactions are successful. The subscription value includes the full value for plans that begin with a free trial in the selected time period, even when there are no financial transactions in that time period. The subscription value also includes the full value of upgraded plans in the selected time period but does not include the prorated amount. To see and download individual transactions, see "[GitHub Marketplace transactions](/marketplace/github-marketplace-transactions/)."
 * **Visitors:** Number of people that have viewed a page in your GitHub Apps listing. This number includes both logged in and logged out visitors.
-* **Pageviews:** Number of views the pages in your GitHub App's listing received. A single visitor can generate more than one pageview.
+* **Pageviews:** Number of views the pages in your GitHub App's listing received. A single visitor can generate more than one page view.
 
 {% note %}
 
