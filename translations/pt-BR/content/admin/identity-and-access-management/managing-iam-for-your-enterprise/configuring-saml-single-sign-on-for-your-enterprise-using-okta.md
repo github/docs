@@ -26,12 +26,12 @@ O SAML SSO controla e protege o acesso a recursos da conta corporativa, como, po
 
 {% data reusables.saml.switching-from-org-to-enterprise %} Para obter mais informações, consulte "[Alterando sua configuração do SAML de uma organização para uma conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)".
 
-Alternatively, you can also configure SAML SSO using Okta for an organization that uses {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Configuring SAML single sign-on and SCIM using Okta](/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta)" (Configurar SAML logon único e SCIM usando Okta)
+Como alternativa, você também pode configurar SAML SSO usando o Okta para uma organização que usa {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Configuring SAML single sign-on and SCIM using Okta](/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta)" (Configurar SAML logon único e SCIM usando Okta)
 
 ## Adicionar o aplicativo {% data variables.product.prodname_ghe_cloud %} no Okta
 
 {% data reusables.saml.okta-sign-into-your-account %}
-1. Navigate to the [Github Enterprise Cloud - Enterprise Accounts](https://www.okta.com/integrations/github-enterprise-cloud-enterprise-accounts) application in the Okta Integration Network and click **Add Integration**.
+1. Acesse o aplicativo [Github Enterprise Cloud - Enterprise Accounts](https://www.okta.com/integrations/github-enterprise-cloud-enterprise-accounts) na rede de integração do Okta e clique em **Adicionar integração**.
 {% data reusables.saml.okta-dashboard-click-applications %}
 1. Opcionalmente, à direita do "Etiqueta do aplicativo", digite um nome descritivo para o aplicativo.
 1. À direita da "Empresas de {% data variables.product.prodname_dotcom %}", digite o nome da conta corporativa. Por exemplo, se a URL da conta corporativa for `https://github.com/enterprises/octo-corp`, digite `octo-corp`.

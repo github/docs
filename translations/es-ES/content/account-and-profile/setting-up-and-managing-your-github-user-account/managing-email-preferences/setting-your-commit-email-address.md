@@ -89,7 +89,7 @@ Puedes utilizar el comando `git config` para cambiar la dirección de correo ele
 
 {% data variables.product.product_name %} utiliza la dirección de correo electrónico que se configuró en tus ajustes locales de Git para asociar las confirmaciones que se suben desde la línea de comandos con tu cuenta en {% data variables.product.product_location %}.
 
-Puedes cambiar la dirección de correo electrónico asociada a las confirmaciones que realizas en un repositorio único. Esto sustituirá tus configuraciones globales de Git en este único repositorio, pero no afectará otros repositorios.
+Puedes cambiar la dirección de correo electrónico asociada a las confirmaciones que realizas en un repositorio único. This will override your global Git configuration settings in this one repository, but will not affect any other repositories.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Cambia el directorio de trabajo actual al repositorio local donde deseas configurar la dirección de correo electrónico que asocias con tus confirmaciones de Git.

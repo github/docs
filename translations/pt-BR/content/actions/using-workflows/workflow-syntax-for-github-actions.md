@@ -914,11 +914,9 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
-O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job.
+O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use one of the following syntaxes:{% endif %}
 
-`{owner}/{repo}/{path}/{filename}@{ref}`
-
-`{ref}` pode ser um SHA, uma tag de de versão ou um nome de branch. Usar o commit SHA é o mais seguro para a estabilidade e segurança. Para obter mais informações, consulte "[Enrijecimento de segurança para o GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)".
+{% data reusables.actions.reusable-workflow-calling-syntax %}
 
 ### Exemplo
 

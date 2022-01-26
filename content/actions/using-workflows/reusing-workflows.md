@@ -110,7 +110,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: ./.github/actions/my-action@v1
+         - uses: ./.github/actions/my-action
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -151,7 +151,7 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/my-action@v1
+      - uses: ./.github/actions/my-action
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}

@@ -141,11 +141,11 @@ translations/ja-JP/content/education/manage-coursework-with-github-classroom/tea
 translations/ja-JP/content/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain.md,broken liquid tags
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,Listed in localization-support#489
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,parsing error
+translations/ja-JP/content/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository.md,broken liquid tags
 translations/ja-JP/content/get-started/quickstart/git-and-github-learning-resources.md,broken liquid tags
 translations/ja-JP/content/get-started/using-github/github-mobile.md,broken liquid tags
+translations/ja-JP/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
 translations/ja-JP/content/github/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,broken liquid tags
-translations/ja-JP/content/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository.md,broken liquid tags
-translations/ja-JP/content/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
 translations/ja-JP/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,broken liquid tags
 translations/ja-JP/content/organizations/collaborating-with-your-team/about-team-discussions.md,Listed in localization-support#489
 translations/ja-JP/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,Listed in localization-support#489
@@ -252,6 +252,5 @@ translations/ja-JP/data/reusables/repositories/deleted_forks_from_private_reposi
 translations/ja-JP/data/reusables/rest-api/dotcom-only-guide-note.md,broken liquid tags
 translations/ja-JP/data/reusables/saml/contact-support-if-your-idp-is-unavailable.md,broken liquid tags
 translations/ja-JP/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
-translations/ja-JP/data/reusables/secret-scanning/about-secret-scanning.md,broken liquid tags
 translations/ja-JP/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/ja-JP/data/reusables/support/submit-a-ticket.md,broken liquid tags
