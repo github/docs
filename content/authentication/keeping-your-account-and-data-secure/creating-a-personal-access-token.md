@@ -8,6 +8,7 @@ redirect_from:
   - /github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
+  - /github/extending-github/git-automation-with-oauth-tokens
 versions:
   fpt: '*'
   ghes: '*'

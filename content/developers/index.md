@@ -11,6 +11,4 @@ children:
   - /webhooks-and-events
   - /apps
   - /github-marketplace
-  - /customizing-your-github-workflow
-  - /extending-github
 ---
