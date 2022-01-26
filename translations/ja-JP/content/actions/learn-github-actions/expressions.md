@@ -15,7 +15,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About expressions
 
-プログラムでワークフローファイルの変数を設定したり、コンテキストにアクセスするために、式を利用できます。 式で使えるのは、リテラル値、コンテキストへの参照、関数の組み合わせです。 リテラル、コンテキストへの参照、および関数を組み合わせるには、演算子を使います。 For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+You can use expressions to programmatically set environment variables in workflow files and access contexts. 式で使えるのは、リテラル値、コンテキストへの参照、関数の組み合わせです。 リテラル、コンテキストへの参照、および関数を組み合わせるには、演算子を使います。 For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
 
 式は、ステップを実行すべきか判断するための `if` 条件キーワードをワークフローファイル内に記述して使用するのが一般的です。 `if`条件が`true`になれば、ステップは実行されます。
 
@@ -50,16 +50,17 @@ env:
 
 式の一部として、`boolean`、`null`、`number`、または`string`のデータ型を使用できます。
 
-| データ型      | リテラル値                                                |
-| --------- | ---------------------------------------------------- |
-| `boolean` | `true` または `false`                                   |
-| `null`    | `null`                                               |
-| `number`  | JSONでサポートされている任意の数値書式。                               |
-| `string`  | 一重引用符で囲む必要があります。 一重引用符そのものを使用するには、一重引用符でエスケープしてください。 |
+| データ型      | リテラル値                                                                                                                                                                                                                         |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `boolean` | `true` または `false`                                                                                                                                                                                                            |
+| `null`    | `null`                                                                                                                                                                                                                        |
+| `number`  | JSONでサポートされている任意の数値書式。                                                                                                                                                                                                        |
+| `string`  | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
 
 #### サンプル
 
 {% raw %}
+
 ```yaml
 env:
   myNull: ${{ null }}
@@ -68,27 +69,28 @@ env:
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
   myExponentialNumber: ${{ -2.99-e2 }}
-  myString: ${{ 'Mona the Octocat' }}
-  myEscapedString: ${{ 'It''s open source!' }}
+  myString: Mona the Octocat
+  myStringInBraces: ${{ 'It''s open source!' }}
 ```
+
 {% endraw %}
 
 ## 演算子
 
-| 演算子                       | 説明        |
-| ------------------------- | --------- |
-| `( )`                     | 論理グループ化   |
-| `[ ]`                     | インデックス    |
-| `から実行されます。`               | プロパティ参照外し |
-| `!`                       | 否定        |
-| `<`                    | 小なり       |
-| `<=`                   | 以下        |
-| `>`                    | 大なり       |
-| `>=`                   | 以上        |
-| `==`                      | 等しい       |
-| `!=`                      | 等しくない     |
-| `&&`              | AND       |
-| <code>\|\|</code> | OR        |
+| 演算子                       | 説明                    |
+| ------------------------- | --------------------- |
+| `( )`                     | 論理グループ化               |
+| `[ ]`                     | インデックス                |
+| `から実行されます。`               | Property de-reference |
+| `!`                       | 否定                    |
+| `<`                    | 小なり                   |
+| `<=`                   | 以下                    |
+| `>`                    | 大なり                   |
+| `>=`                   | 以上                    |
+| `==`                      | 等しい                   |
+| `!=`                      | 等しくない                 |
+| `&&`              | AND                   |
+| <code>\|\|</code> | OR                    |
 
 {% data variables.product.prodname_dotcom %} は、等価性を緩やかに比較します。
 
@@ -252,7 +254,7 @@ jobs:
 
 `path`パターンにマッチするファイル群から単一のハッシュを返します。 単一の `path` パターンまたはコンマで区切られた複数の `path` パターンを指定できます。 `path`は`GITHUB_WORKSPACE`ディレクトリに対する相対であり、含められるのは`GITHUB_WORKSPACE`内のファイルだけです。 この関数はマッチしたそれぞれのファイルに対するSHA-256ハッシュを計算し、それらのハッシュを使ってファイルの集合に対する最終的なSHA-256ハッシュを計算します。 SHA-256に関する詳しい情報については「[SHA-2](https://en.wikipedia.org/wiki/SHA-2)」を参照してください。
 
-パターンマッチング文字を使ってファイル名をマッチさせることができます。 パターンマッチングは、Windowsでは大文字小文字を区別しません。 サポートされているパターンマッチング文字に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)」を参照してください。
+パターンマッチング文字を使ってファイル名をマッチさせることができます。 パターンマッチングは、Windowsでは大文字小文字を区別しません。 サポートされているパターンマッチング文字に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)」を参照してください。
 
 #### 単一のパターンの例
 

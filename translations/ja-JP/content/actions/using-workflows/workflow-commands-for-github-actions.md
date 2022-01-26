@@ -308,7 +308,7 @@ console.log('::save-state name=processID::12345')
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## 環境ファイル
+## Environment files
 
 ワークフローの実行中に、ランナーは特定のアクションを実行する際に使用できる一時ファイルを生成します。 これらのファイルへのパスは、環境変数を介して公開されます。 コマンドを適切に処理するには、これらのファイルに書き込むときに UTF-8 エンコーディングを使用する必要があります。 複数のコマンドを、改行で区切って同じファイルに書き込むことができます。
 
@@ -347,16 +347,10 @@ More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow 
 ## 環境変数の設定
 
 ``` bash
-echo "{name}={value}" >> $GITHUB_ENV
+echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 ```
 
-Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. 環境変数では、大文字と小文字が区別され、句読点を含めることができます。
-
-{% note %}
-
-**Note:** Environment variables must be explicitly referenced using the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) in expression syntax or through use of the `$GITHUB_ENV` file directly; environment variables are not implicitly available in shell commands.
-
-{% endnote %}
+You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. 詳しい情報については、「[環境変数](/actions/learn-github-actions/environment-variables)」を参照してください。
 
 ### サンプル
 

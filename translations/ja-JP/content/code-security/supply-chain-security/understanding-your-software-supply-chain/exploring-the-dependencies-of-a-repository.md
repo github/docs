@@ -114,5 +114,5 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 - [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
 - [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository){% ifversion fpt or ghec %}
 - [Organization のインサイトを表示する](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)
-- [{% data variables.product.prodname_dotcom %}によるデータの利用と保護の方法の理解](/github/understanding-how-github-uses-and-protects-your-data)
+- [{% data variables.product.prodname_dotcom %}によるデータの利用と保護の方法の理解](/get-started/privacy-on-github)
 {% endif %}
