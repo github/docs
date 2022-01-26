@@ -5,7 +5,7 @@ Use the `paths` filter when you want to include file path patterns or when you w
 
 If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
 
-The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. 更多信息请参阅“[过滤器模式备忘清单](#filter-pattern-cheat-sheet)”。
+The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. 更多信息请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
 
 #### 示例：包括路径
 

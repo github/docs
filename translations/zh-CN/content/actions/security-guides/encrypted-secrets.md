@@ -53,11 +53,7 @@ versions:
 
 如果您拥有编辑文件的权限，便可在工作流程文件中使用和读取加密密码。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/github/getting-started-with-github/access-permissions-on-github)”。
 
-{% warning %}
-
-**警告：**{% data variables.product.prodname_dotcom %} 自动将密码编写到日志，但您应避免有意将密码打印到日志。
-
-{% endwarning %}
+{% data reusables.github-actions.secrets-redaction-warning %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 当工作流程运行排队时读取组织和仓库机密，在引用环境的作业开始时读取环境机密。

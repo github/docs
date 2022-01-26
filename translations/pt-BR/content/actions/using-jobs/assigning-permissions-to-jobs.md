@@ -1,11 +1,11 @@
 ---
-title: Assigning permissions to jobs
-shortTitle: Assigning permissions to jobs
-intro: Modify the default permissions granted to `GITHUB_TOKEN`.
+title: Atribuindo permissões aos trabalhos
+shortTitle: Atribuindo permissões aos trabalhos
+intro: Modifique as permissões padrão concedidas para `GITHUB_TOKEN`.
 versions:
   fpt: '*'
   ghes: '> 3.1'
-  ghae: ghae-next
+  ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
 ---
@@ -17,6 +17,6 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}
 
-## Assigning permissions to a specific job
+## Atribuindo permissões a um trabalho específico
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}

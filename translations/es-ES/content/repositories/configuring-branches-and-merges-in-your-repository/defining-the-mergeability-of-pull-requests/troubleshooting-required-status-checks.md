@@ -112,7 +112,7 @@ Ahora las verificaciones siempre pasarán cuando alguien envíe una solicitud de
 
 {% endnote %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. Si ves un mensaje similar al siguiente, entonces deberías verificar que la app esperada haya configurado la verificación que se lista en la caja de fusión.
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}También es posible que una rama protegida requiera verificaciones de estado desde una {% data variables.product.prodname_github_app %}. Si ves un mensaje similar al siguiente, entonces deberías verificar que la app esperada haya configurado la verificación que se lista en la caja de fusión.
 
 ```
 La {% data variables.product.prodname_github_app %} esperada no configuró la "compilación" de la verificación de estado requerida.

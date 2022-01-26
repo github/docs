@@ -1,7 +1,7 @@
 ---
-title: Using environments for jobs
-shortTitle: Using environments for jobs
-intro: Specify an environment for a job.
+title: Usando ambientes para trabalhos
+shortTitle: Usando ambientes para trabalhos
+intro: Especifique um ambiente para um trabalho.
 versions:
   fpt: '*'
   ghes: '> 3.0'

@@ -35,13 +35,13 @@ Os rascunhos são úteis para capturar ideias rapidamente.
 
 1. Coloque seu cursor na linha inferior do projeto, ao lado do {% octicon "plus" aria-label="plus icon" %}.
 1. Digite sua ideia e, em seguida, pressione **Enter**.
-1. To add body text, click on the title of the draft issue. In the markdown input box that appears, enter the text for the draft issue body, then click **Save**.
+1. Para adicionar texto, clique no título do problema do rascunho. Na caixa de entrada do markdown que será exibida, digite o texto para o texto do problema do rascunho e clique em **Salvar**.
 
-Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[Converting draft issues to issues](#converting-draft-issues-to-issues)."
+Os problemas do rascunho podem ter um título, texto, responsável e quaisquer campos personalizados do seu projeto. Para preencher o repositório, etiquetas ou marcos para o rascunho de um problema, você deverá primeiro converter o rascunho do problema em um problema. Para obter mais informações, consulte "[Convertendo rascunhos de problema em problemas](#converting-draft-issues-to-issues). "
 
 {% note %}
 
-**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
+**Observação**: Os usuários não receberão notificações quando forem atribuídos ou mencionados em um rascunho de problema, a menos que o rascunho do probelam seja convertido em um problema.
 
 {% endnote %}
 
@@ -75,7 +75,7 @@ No layout de tabela:
 1. Clique em {% octicon "triangle-down" aria-label="the item menu" %} no rascunho do problema que você deseja converter.
 2. Selecione **Converter para problema**.
 3. Selecione o repositório ao qual você deseja adicionar o problema.
-4. Alternatively, edit the `labels`, `milestone`, or `repository` fields of the draft issue that you want to convert.
+4. Como alternativa, edite os campos `etiquetas`, `marco` ou `repository` do rascunho do problema que você deseja converter.
 
 Layout do quadro:
 

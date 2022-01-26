@@ -23,9 +23,9 @@ Search API は、見つけたい特定の項目を検索するために役立ち
 
 ### レート制限
 
-Search API にはカスタムレート制限があります。 リクエストに[基本認証](/rest#authentication)、[OAuth](/rest#authentication)、または[クライアント ID とシークレット](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)を使用する場合は、1 分間に最大 30 件のリクエストが行えます。 認証されていないリクエストでは、レート制限により 1 分間あたり最大 10 件のリクエストが行えます。
-
 {% data reusables.enterprise.rate_limit %}
+
+Search API にはカスタムレート制限があります。 リクエストに[基本認証](/rest#authentication)、[OAuth](/rest#authentication)、または[クライアント ID とシークレット](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)を使用する場合は、1 分間に最大 30 件のリクエストが行えます。 認証されていないリクエストでは、レート制限により 1 分間あたり最大 10 件のリクエストが行えます。
 
 現在のレート制限状態を確認する方法の詳細については、[レート制限ドキュメンテーション](/rest/reference/rate-limit)を参照してください。
 

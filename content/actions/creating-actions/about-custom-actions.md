@@ -26,7 +26,7 @@ topics:
 You can create actions by writing custom code that interacts with your repository in any way you'd like, including integrating with {% data variables.product.prodname_dotcom %}'s APIs and any publicly available third-party API. For example, an action can publish npm modules, send SMS alerts when urgent issues are created, or deploy production-ready code.
 
 {% ifversion fpt or ghec %}
-You can write your own actions to use in your workflow or share the actions you build with the {% data variables.product.prodname_dotcom %} community. To share actions you've built, your repository must be public.
+You can write your own actions to use in your workflow or share the actions you build with the {% data variables.product.prodname_dotcom %} community. To share actions you've built with everyone, your repository must be public. {% if internal-actions %}To share actions only within your enterprise, your repository must be internal.{% endif %}
 {% endif %}
 
 Actions can run directly on a machine or in a Docker container. You can define an action's inputs, outputs, and environment variables.
@@ -69,7 +69,10 @@ If you're developing an action for other people to use, we recommend keeping the
 Storing an action in its own repository makes it easier for the {% data variables.product.prodname_dotcom %} community to discover the action, narrows the scope of the code base for developers fixing issues and extending the action, and decouples the action's versioning from the versioning of other application code.
 {% endif %}
 
-{% ifversion fpt or ghec %}If you're building an action that you don't plan to make available to the public, you {% else %} You{% endif %} can store the action's files in any location in your repository. If you plan to combine action, workflow, and application code in a single repository, we recommend storing actions in the `.github` directory. For example, `.github/actions/action-a` and `.github/actions/action-b`.
+{% data reusables.actions.internal-actions-summary %}
+
+{% ifversion fpt or ghec %}If you're building an action that you don't plan to make available to others, you {% else %} You{% endif %} can store the action's files in any location in your repository. If you plan to combine action, workflow, and application code in a single repository, we recommend storing actions in the `.github` directory. For example, `.github/actions/action-a` and `.github/actions/action-b`.
+
 
 ## Compatibility with {% data variables.product.prodname_ghe_server %}
 

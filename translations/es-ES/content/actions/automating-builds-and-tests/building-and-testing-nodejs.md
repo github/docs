@@ -189,7 +189,7 @@ steps:
   run: yarn
 ```
 
-De forma alternativa, puede pasar `--frozen-lockfile` para instalar las versiones en el archivo *yarn.lock* y evitar actualizaciones al archivo *yarn.lock*.
+De forma alternativa, puede pasar `--frozen-lockfile` para instalar las versiones en el archivo `yarn.lock` y evitar actualizaciones al archivo `yarn.lock`.
 
 ```yaml{:copy}
 steps:
