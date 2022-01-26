@@ -3,10 +3,10 @@ title: 支払い請求先メールアドレスを設定する
 intro: 'お客様の支払い請求先メールアドレスに、{% data variables.product.product_name %} が領収書およびその他の請求関連の連絡を送ります。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-your-billing-email
-  - /articles/setting-your-personal-account-s-billing-email/
-  - /articles/can-i-change-what-email-address-received-my-github-receipt/
-  - '/articles/how-do-i-change-the-billing-email,setting-your-billing-email/'
-  - /articles/setting-your-organization-s-billing-email/
+  - /articles/setting-your-personal-account-s-billing-email
+  - /articles/can-i-change-what-email-address-received-my-github-receipt
+  - '/articles/how-do-i-change-the-billing-email,setting-your-billing-email'
+  - /articles/setting-your-organization-s-billing-email
   - /articles/setting-your-billing-email
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/setting-your-billing-email
 versions:

@@ -43,7 +43,7 @@ topics:
 ブランチ保護ルールごとに、次の設定を有効にするか無効にするかを選択できます。
 - [マージ前に Pull Request レビュー必須](#require-pull-request-reviews-before-merging)
 - [マージ前にステータスチェック必須](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 - [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
 - [署名済みコミットの必須化](#require-signed-commits)
 - [直線状の履歴必須](#require-linear-history)
@@ -88,11 +88,7 @@ remote: error: Changes have been requested.
 
 ステータスチェック必須を有効にすると、すべてのステータスチェック必須がパスしないと、コラボレータは保護されたブランチにマージできません。 必須ステータスチェックをパスしたら、コミットを別のブランチにプッシュしてから、マージするか、保護されたブランチに直接プッシュする必要があります。
 
-{% note %}
-
-**注釈:** リポジトリへの書き込み権限があるユーザまたはインテグレーションなら誰でも、リポジトリのステータスチェックを任意のステータスに設定できます。 {% data variables.product.company_short %} は、チェックの作者が、特定の名前でチェックを作成したり、既存のステータスを変更したりする権限を持っているかを確認しません。 プルリクエストをマージする前に、マージボックスにリストされている各ステータスの作者が想定された人物であることを確認する必要があります。
-
-{% endnote %}
+Any person or integration with write permissions to a repository can set the state of any status check in the repository{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app that has recently set this check as the expected source of status updates.{% endif %} If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
 
 必須ステータスチェックのタイプは、\[loose\] (寛容)、\[strict\] (厳格) のいずれかに設定できます。 選択した必須ステータスチェックのタイプにより、マージする前にブランチをベースブランチとともに最新にする必要があるかどうかが決まります。
 
@@ -104,7 +100,7 @@ remote: error: Changes have been requested.
 
 トラブルシューティング情報については、「[必須ステータスチェックのトラブルシューティング](/github/administering-a-repository/troubleshooting-required-status-checks)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Require conversation resolution before merging
 
 Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
@@ -143,6 +139,8 @@ Requires all comments on the pull request to be resolved before it can be merged
 
 {% data reusables.pull_requests.merge-queue-beta %}
 {% data reusables.pull_requests.merge-queue-overview %}
+
+{% data reusables.pull_requests.merge-queue-merging-method %}
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
@@ -156,13 +154,23 @@ Requires all comments on the pull request to be resolved before it can be merged
 You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
-ブランチ制限を有効にすると、権限を与えられたユーザ、チーム、またはアプリのみが保護されたブランチにプッシュできます。 保護されたブランチの設定で、保護されたブランチへのプッシュアクセスを使用して、ユーザ、チーム、またはアプリを表示および編集できます。
+ブランチ制限を有効にすると、権限を与えられたユーザ、チーム、またはアプリのみが保護されたブランチにプッシュできます。 保護されたブランチの設定で、保護されたブランチへのプッシュアクセスを使用して、ユーザ、チーム、またはアプリを表示および編集できます。 When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging if the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
 
 ユーザ、チーム、またはリポジトリへの write 権限を持つインストール済みの {% data variables.product.prodname_github_apps %} にのみ、保護されたブランチへのプッシュアクセス付与できます。 リポジトリへの管理者権限を持つユーザとアプリケーションは、いつでも保護されたブランチにプッシュできます。
 
 ### フォースプッシュを許可
 
-デフォルトでは、{% data variables.product.product_name %}はすべての保護されたブランチでフォースプッシュをブロックします。 保護されたブランチのフォースプッシュを有効にすると、少なくともリポジトリへの書き込み権限を持つユーザは、管理者権限を持つブランチを含め、ブランチをフォースプッシュできます。
+{% ifversion fpt or ghec %}
+デフォルトでは、{% data variables.product.product_name %}はすべての保護されたブランチでフォースプッシュをブロックします。 When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
+
+1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
+1. Allow only specific people or teams to force push to the branch.
+
+If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+
+{% else %}
+デフォルトでは、{% data variables.product.product_name %}はすべての保護されたブランチでフォースプッシュをブロックします。 保護されたブランチのフォースプッシュを有効にすると、少なくともリポジトリへの書き込み権限を持つユーザは、管理者権限を持つブランチを含め、ブランチをフォースプッシュできます。 If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+{% endif %}
 
 フォースプッシュを有効化しても、他のブランチ保護ルールは上書きされません。 たとえば、ブランチに直線状のコミット履歴が必要な場合、そのブランチにマージコミットをフォースプッシュすることはできません。
 

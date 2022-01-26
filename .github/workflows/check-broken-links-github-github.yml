@@ -9,6 +9,9 @@ on:
   schedule:
     - cron: '20 13 * * 1' # run every Monday at 1:20PM UTC
 
+permissions:
+  contents: read
+
 # **IMPORTANT:** Do not change the FREEZE environment variable set here!
 # This workflow runs on a recurring basis. To temporarily disable it (e.g.,
 # during a docs deployment freeze), add an Actions Secret to the repo settings
@@ -36,10 +39,10 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Setup Node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -59,11 +62,11 @@ jobs:
       #
       # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
 
-      - if: ${{ failure() }}
+      - if: ${{ failure() && env.FREEZE != 'true' }}
         name: Get title for issue
         id: check
         run: echo "::set-output name=title::$(head -1 broken_github_github_links.md)"
-      - if: ${{ failure() }}
+      - if: ${{ failure() && env.FREEZE != 'true'}}
         name: Create issue from file
         id: github-github-broken-link-report
         uses: peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e

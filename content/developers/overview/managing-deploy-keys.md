@@ -2,7 +2,7 @@
 title: Managing deploy keys
 intro: Learn different ways to manage SSH keys on your servers when you automate deployment scripts and which way is best for you.
 redirect_from:
-  - /guides/managing-deploy-keys/
+  - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
 versions:
   fpt: '*'
@@ -79,7 +79,7 @@ See [our guide on Git automation with tokens][git-automation].
 
 #### Setup
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public/private rsa key pair.
+1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair key pair.
 2. In the upper-right corner of any {% data variables.product.product_name %} page, click your profile photo, then click **Your profile**. ![Navigation to profile](/assets/images/profile-page.png)
 3. On your profile page, click **Repositories**, then click the name of your repository. ![Repositories link](/assets/images/repos.png)
 4. From your repository, click **Settings**. ![Repository settings](/assets/images/repo-settings.png)
@@ -185,3 +185,7 @@ This means that you cannot automate the creation of accounts. But if you want to
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
+
+## Further reading
+- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+

@@ -2,8 +2,8 @@
 title: 关于自述文件
 intro: 您可以将自述文件添加到仓库，告知其他人您的项目为什么有用，他们可以对您的项目做什么，以及他们可以如何使用。
 redirect_from:
-  - /articles/section-links-on-readmes-and-blob-pages/
-  - /articles/relative-links-in-readmes/
+  - /articles/section-links-on-readmes-and-blob-pages
+  - /articles/relative-links-in-readmes
   - /articles/about-readmes
   - /github/creating-cloning-and-archiving-repositories/about-readmes
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes
@@ -41,19 +41,13 @@ topics:
 
 ![用户名/用户名仓库上的自述文件](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
 ## 为 README 文件自动生成的目录
 
 对于仓库中任何 Markdown 文件（包括 README 文件）的视图，{% data variables.product.product_name %} 将自动生成基于章节标题的目录。 您可以通过单击渲染页面左上侧的 {% octicon "list-unordered" aria-label="The unordered list icon" %}  菜单图标来查看 README 文件的目录。
 
 ![自动生成目录的自述文件](/assets/images/help/repository/readme-automatic-toc.png)
-
-自动生成的目录默认对仓库中所有 Markdown 文件启用，但您可以对您的仓库禁用此功能。
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. 在“Features（功能）”下，取消选择 **Table of contents（目录）**。 ![仓库的自动目录设置](/assets/images/help/repository/readme-automatic-toc-setting.png)
 
 {% endif %}
 

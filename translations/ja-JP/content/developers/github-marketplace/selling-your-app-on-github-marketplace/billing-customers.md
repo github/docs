@@ -2,8 +2,8 @@
 title: 顧客への課金
 intro: '{% data variables.product.prodname_marketplace %}上のアプリケーションは、GitHubの課金ガイドラインと、推奨サービスのサポートを遵守しなければなりません。 弊社のガイドラインに従うことで、顧客は予想外のことなく支払いプロセスを進んで行きやすくなります。'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace/
-  - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace
+  - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace
   - /marketplace/selling-your-app/billing-customers-in-github-marketplace
   - /developers/github-marketplace/billing-customers
 versions:

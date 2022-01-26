@@ -89,9 +89,9 @@ Se você efetuar a autenticação sem {% data variables.product.prodname_cli %},
 
 ### Autorizando para logon único SAML
 
-{% ifversion fpt or ghec %}Para usar um token de acesso pessoal ou chave SSH para acessar os recursos que pertencem a uma organização que usa o logon único SAML, você também deve autorizar o token pessoal ou chave SSH. Para obter mais informações consulte "[Autorizar um token de acesso pessoal para usar com logon único SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" ou "[Autorizando uma chave SSH para uso com o logon único SAML](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on).{% endif %}
+{% ifversion fpt or ghec %}Para usar um token de acesso pessoal ou chave SSH para acessar os recursos que pertencem a uma organização que usa o logon único SAML, você também deve autorizar o token pessoal ou chave SSH. Para mais informações, consulte "[Autorizando um token de acesso pessoal para usar com logon único SAML ](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" ou "[Autorizando uma chave SSH para usar com o logon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 
 

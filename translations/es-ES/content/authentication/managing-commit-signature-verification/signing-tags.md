@@ -2,7 +2,7 @@
 title: Firmar etiquetas
 intro: Puedes firmar las etiquetas localmente utilizando GPG o S/MIME.
 redirect_from:
-  - /articles/signing-tags-using-gpg/
+  - /articles/signing-tags-using-gpg
   - /articles/signing-tags
   - /github/authenticating-to-github/signing-tags
   - /github/authenticating-to-github/managing-commit-signature-verification/signing-tags

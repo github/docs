@@ -26,7 +26,7 @@ Organization の代理でコミットを作成するには、以下の条件を�
   - `org` は Organization のログイン名
   - `name@organization.com` は Organization のドメイン内
 
-Organization は、オープンソースの取り組みにおいて、`name@organization.com` のメールアドレスを公開連絡先として使うことができます。
+Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
 
 ## コマンドラインで `on-behalf-of` バッジを付けてコミットを作成する
 

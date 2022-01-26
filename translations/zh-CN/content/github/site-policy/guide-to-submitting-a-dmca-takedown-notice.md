@@ -1,8 +1,8 @@
 ---
 title: 提交 DMCA 删除通知的指南
 redirect_from:
-  - /dmca-notice-how-to/
-  - /articles/dmca-notice-how-to/
+  - /dmca-notice-how-to
+  - /articles/dmca-notice-how-to
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
   fpt: '*'

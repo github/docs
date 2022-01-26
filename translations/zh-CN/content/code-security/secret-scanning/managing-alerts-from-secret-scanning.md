@@ -6,7 +6,6 @@ redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
   - /code-security/secret-security/managing-alerts-from-secret-scanning
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -25,14 +24,14 @@ shortTitle: 管理秘密警报
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. 在左侧边栏中，单击 **Secret scanning alerts（机密扫描警报）**。
+1. 在左侧边栏中，单击 **Secret scanning alerts（机密扫描警报）**。
    {% ifversion fpt or ghes or ghec %}
    !["Secret scanning alerts（机密扫描警报）" 选项卡](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
    !["Secret scanning alerts（机密扫描警报）" 选项卡](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
-4. 在“Secret scanning（密码扫描）”下，单击要查看的警报。
+1. 在“Secret scanning（密码扫描）”下，单击要查看的警报。
    {% ifversion fpt or ghec %}
    ![来自密码扫描的警报](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
@@ -42,7 +41,7 @@ shortTitle: 管理秘密警报
    {% ifversion ghae %}
    ![来自密码扫描的警报](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
-5. （可选）使用“Mark as（标记为）”下拉菜单，单击原因以解决警报。
+1. Optionally, select the {% ifversion fpt or ghec %}"Close as"{% elsif ghes or ghae %}"Mark as"{% endif %} drop-down menu and click a reason for resolving an alert.
    {% ifversion fpt or ghec %}
    ![用于解决来自密码扫描的警报的下拉菜单](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}

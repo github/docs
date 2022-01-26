@@ -1,7 +1,6 @@
 ---
 title: Managing team synchronization for your organization
 intro: 'You can enable and disable team synchronization between your identity provider (IdP) and your organization on {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.team-synchronization %}'
 redirect_from:
   - /articles/synchronizing-teams-between-your-identity-provider-and-github
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
@@ -10,7 +9,6 @@ redirect_from:
 permissions: Organization owners can manage team synchronization for an organization.
 miniTocMaxHeadingLevel: 3
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -19,8 +17,6 @@ shortTitle: Manage team synchronization
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}
-
-{% data reusables.gated-features.okta-team-sync %}
 
 ## About team synchronization
 
@@ -50,6 +46,12 @@ You must enable SAML single sign-on for your organization and your supported IdP
 
 You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
 
+Your SAML settings **must** contain a valid IdP URL for the **Issuer** field. 
+
+![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
+
+
+
 ### Enabling team synchronization for Azure AD
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
@@ -65,12 +67,22 @@ You must have a linked SAML identity. To create a linked identity, you must auth
 
 ### Enabling team synchronization for Okta
 
+Okta team synchronization requires that SAML and SCIM with Okta have already been set up for your organization.
+
+To avoid potential team synchronization errors with Okta, we recommend that you confirm that SCIM linked identities are correctly set up for all organization members who are members of your chosen Okta groups, before enabling team synchronization on {% data variables.product.prodname_dotcom %}. 
+
+If an organization member does not have a linked SCIM identity, then team synchronization will not work as expected and the user may not be added or removed from teams as expected. If any of these users are missing a SCIM linked identity, you will need to re-provision them.
+
+For help on provisioning users that have missing a missing SCIM linked identity, see "[Troubleshooting identity and access management](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)."
+
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
+{% data reusables.identity-and-permissions.team-sync-confirm-scim %}
+1. Consider enforcing SAML in your organization to ensure that organization members link their SAML and SCIM identities. For more information, see "[Enforcing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)."
 {% data reusables.identity-and-permissions.enable-team-sync-okta %}
 7. Under your organization's name, type a valid SSWS token and the URL to your Okta instance.
   ![Enable team synchronization Okta organization form](/assets/images/help/teams/confirm-team-synchronization-okta-organization.png)

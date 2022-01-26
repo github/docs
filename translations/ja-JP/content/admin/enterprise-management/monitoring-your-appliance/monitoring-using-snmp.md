@@ -3,7 +3,7 @@ title: SNMP での監視
 intro: '{% data variables.product.prodname_enterprise %}は、SNMP経由でディスクの使用や CPU の使用率、メモリーの使用などのデータを提供します。'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
-  - /enterprise/admin/articles/monitoring-using-snmp/
+  - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:

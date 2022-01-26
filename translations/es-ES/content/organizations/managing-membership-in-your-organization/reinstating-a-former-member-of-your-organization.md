@@ -1,6 +1,6 @@
 ---
 title: Volver a admitir a un miembro anterior de tu organización
-intro: 'Organization owners can {% ifversion fpt or ghec %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
+intro: 'Los propietarios de la organización pueden {% ifversion fpt or ghec %}invitar a miembros anteriores de la organización para volverse a unir a{% else %}agregar a miembros anteriores a{% endif%} tu organización y elegir si quieren restablecer el rol, permisos de acceso, bifurcaciones y configuraciones anteriores de dicha persona.'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/reinstating-a-former-member-of-your-organization
@@ -18,7 +18,20 @@ shortTitle: Reinstaurar a un miembro
 
 ## Acerca de la reinstauración de miembros
 
-Si [eliminas a un usuario de tu organizción](/articles/removing-a-member-from-your-organization){% ifversion ghae %} o{% else %}{% endif %}[ conviertes a un miembro de la organización en colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator){% ifversion not ghae %} o si un usuario se elimina de tu orgnización porque [requeriste que los miembros y colaboradores externos habilitaran la autenticación bifactorial (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, los privilegios de acceso y las configuraciones del usuario se guardarán durante tres meses. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+If a user is removed from your organization in one of the following ways, the user's access privileges and settings are saved for three months.
+
+- You manually removed the user from your organization. For more information, see "[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."{% ifversion not ghae %}
+- The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
+- The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[Enforcing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+- You converted an organization member to an outside collaborator. Para obtener más información, consulta la sección "[Convertir a un miembro de la organización en colaborador externo](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
+
+Puedes restablecer los privilegios del usuario si los vuelves a{% ifversion fpt or ghec %}invitar{% else %} agregar{% endif %} a la organización dentro de este periodo de tiempo.
+
+{% note %}
+
+**Note:** {% data reusables.saml.removed-users-can-rejoin %} You do not need to invite these users to rejoin. Instead, the user can sign into their personal account, navigate to the organization, and click the banner to authenticate via SAML single sign-on.
+
+{% endnote %}
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 

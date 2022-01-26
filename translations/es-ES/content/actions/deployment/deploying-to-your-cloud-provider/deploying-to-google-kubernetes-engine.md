@@ -19,7 +19,6 @@ shortTitle: Desplegar hacia Google Kubernetes Engine
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -115,7 +114,7 @@ Este procedimiento demuestra cómo crear la cuenta de servicio para tu integraci
 Almacenar el nombre de tu proyecto como un secreto llamado `GKE_PROJECT`. Para obtener más información sobre cómo almacenar un secreto, consulta la sección "[Secretos cifrados](/actions/security-guides/encrypted-secrets)".
 
 ### (Opcional) Configurar kustomize
-Kustomize es una herramietna opcional que se utiliza para administrar las especificaciones YAML. Después de crear un archivo de _kustomization_, el flujo de trabajo que se muestra a continuación puede utilizarse para configurar dinámicamente los campos de la imagen y agregar el resultado a `kubectl`. Para obtener más información, consulta la sección [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
+Kustomize es una herramietna opcional que se utiliza para administrar las especificaciones YAML. After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. Para obtener más información, consulta la sección [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Opcional) Configurar un ambiente de despliegue

@@ -21,13 +21,13 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
 このガイドは、Pythonパッケージのビルド、テスト、公開の方法を紹介します。
 
-{% ifversion ghae %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %} {% data variables.product.prodname_dotcom %} ホストランナーには、Python および PyPy などのソフトウェアがプリインストールされたツールキャッシュがあります。 自分では何もインストールする必要がありません！ 最新のソフトウェアと、Python および PyPy のプリインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 {% endif %}
 
@@ -42,11 +42,11 @@ Python、PyPy、pipの基本的な理解をしておくことをおすすめし�
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Pythonワークフローテンプレートでの開始
+## Using the Python starter workflow
 
-{% data variables.product.prodname_dotcom %}は、ほとんどのPythonプロジェクトで使えるPythonのワークフローテンプレートを提供しています。 このガイドには、テンプレートのカスタマイズに利用できる例が含まれます。 詳しい情報については、「[Python のワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml)」を参照してください。
+{% data variables.product.prodname_dotcom %} provides a Python starter workflow that should work for most Python projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Python starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
-手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml{:copy}
@@ -241,38 +241,24 @@ steps:
 
 ### 依存関係のキャッシング
 
-{% data variables.product.prodname_dotcom %} ホストランナーを使用する場合、一意のキーを使用してpipの依存関係をキャッシュし、[`cache`](https://github.com/marketplace/actions/cache)アクションを使用して将来のワークフローを実行するときに依存関係を復元できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-python` action](https://github.com/actions/setup-python).
 
-ランナーのオペレーティングシステムによって、pipは依存関係を様々な場所にキャッシュします。 キャッシュする必要があるパスは、使用するオペレーティングシステムによって以下のUbuntuの例とは異なるかもしれません。 詳しい情報については、「[Python のキャッシングの例](https://github.com/actions/cache/blob/main/examples.md#python---pip)」を参照してください。
+The following example caches dependencies for pip.
 
-{% raw %}
 ```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
-- name: Setup Python
-  uses: actions/setup-python@v2
+- uses: actions/setup-python@v2
   with:
-    python-version: '3.x'
-- name: Cache pip
-  uses: actions/cache@v2
-  with:
-    # このパスは Ubuntu に固有です
-    path: ~/.cache/pip
-    # 対応する要件ファイルにキャッシュヒットがあるかどうかを確認する
-    key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-    restore-keys: |
-      ${{ runner.os }}-pip-
-      ${{ runner.os }}-
-- name: Install dependencies
-  run: pip install -r requirements.txt
+    python-version: '3.9'
+    cache: 'pip'
+- run: pip install -r requirements.txt
+- run: pip test
 ```
-{% endraw %}
 
-{% note %}
+By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip or `Pipfile.lock` for pipenv) in the whole repository. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching packages dependencies</a>" in the `setup-python` actions README.
 
-**ノート：** 依存関係の数によっては、依存関係キャッシュを使う方が高速になることがあります。 多くの大きな依存関係を持つプロジェクトでは、ダウンロードに必要な時間を節約できるので、パフォーマンスの向上が見られるでしょう。 依存関係が少ないプロジェクトでは、大きなパフォーマンスの向上は見られないかもしれず、pipがキャッシュされた依存関係をインストールする方法のために、パフォーマンスがやや低下さえするかもしれません。 パフォーマンスはプロジェクトによって異なります。
-
-{% endnote %}
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). ランナーのオペレーティングシステムによって、pipは依存関係を様々な場所にキャッシュします。 The path you'll need to cache may differ from the Ubuntu example above, depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip) in the `cache` action repository.
 
 ## コードのテスト
 
@@ -440,4 +426,4 @@ jobs:
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
 
-テンプレートワークフローに関する詳しい情報については、「[`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)」を参照してください。
+For more information about the starter workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

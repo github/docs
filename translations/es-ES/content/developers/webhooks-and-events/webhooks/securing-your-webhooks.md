@@ -37,7 +37,7 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 ## Validar cargas útiles de GitHub
 
-Cuando se configura tu token secreto, {% data variables.product.product_name %} lo utiliza para crear una firma de hash con cada carga útil. This hash signature is included with the headers of each request as `X-Hub-Signature-256`.
+Cuando se configura tu token secreto, {% data variables.product.product_name %} lo utiliza para crear una firma de hash con cada carga útil. Esta firma de hash se incluye con los encabezados de cada solicitud como `X-Hub-Signature-256`.
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
@@ -85,7 +85,7 @@ end
 
 Tus implementaciones de lenguaje y de servidor pueden diferir de esta muestra de código. Sin embargo, hay varias cosas muy importantes que destacar:
 
-* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
+* Sin importar qué implementación utilices, la firma de hash comenzará con `sha256=`, utilizando la llave de tu token secreto y el cuerpo de tu carga útil.
 
 * **No se recomienda** utilizar un simple operador de `==`. Un método como el de [`secure_compare`][secure_compare] lleva a cabo una secuencia de comparación de "tiempo constante" que ayuda a mitigar algunos ataques de temporalidad en contra de las operaciones de igualdad habituales.
 

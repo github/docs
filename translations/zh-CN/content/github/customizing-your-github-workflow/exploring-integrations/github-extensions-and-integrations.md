@@ -2,7 +2,7 @@
 title: GitHub 扩展和集成
 intro: '通过 {% data variables.product.product_name %} 扩展可在第三方应用程序中无缝使用 {% data variables.product.product_name %} 仓库。'
 redirect_from:
-  - /articles/about-github-extensions-for-third-party-applications/
+  - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
 versions:

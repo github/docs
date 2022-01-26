@@ -2,7 +2,7 @@
 title: 结合使用 GitHub Enterprise Server 和负载均衡器
 intro: '在单个 {% data variables.product.prodname_ghe_server %} 设备或一对采用高可用性配置的设备前方使用负载均衡器。'
 redirect_from:
-  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer/
+  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
@@ -17,6 +17,8 @@ topics:
 shortTitle: 使用负载平衡器
 ---
 
+## About load balancers
+
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
@@ -29,9 +31,13 @@ shortTitle: 使用负载平衡器
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
+{% data reusables.enterprise_installation.terminating-tls %}
+
 ### 在 {% data variables.product.product_location %} 上启用 PROXY 协议支持
 
 强烈建议同时为您的设备和负载均衡器启用 PROXY 协议支持。 按照您的供应商提供的说明操作，在负载均衡器上启用 PROXY 协议。 更多信息请参阅 [PROXY 协议文档](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt)。
+
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -44,8 +50,6 @@ shortTitle: 使用负载平衡器
 ### 在 {% data variables.product.product_location %} 上启用 X-Forwarded-For 支持
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
-
-{% data reusables.enterprise_installation.terminating-tls %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

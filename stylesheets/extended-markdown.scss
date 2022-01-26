@@ -15,7 +15,7 @@
   }
 
   p:not(:first-child) {
-    margin-top: 15px;
+    margin-top: 1rem;
   }
 
   &.note pre code {
@@ -24,7 +24,11 @@
 
   &.note pre {
     background: none;
-    padding: 10px 10px 10px 0;
+    padding: 0.5rem 0.5rem 0.5rem 0;
     margin-bottom: 0;
   }
+}
+
+.warning {
+  font-weight: normal;
 }

@@ -1,12 +1,10 @@
 ---
 title: Enforcing SAML single sign-on for your organization
 intro: Organization owners and admins can enforce SAML SSO so that all organization members must authenticate via an identity provider (IdP).
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enforcing-saml-single-sign-on-for-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -22,7 +20,7 @@ When you enable SAML SSO, {% data variables.product.prodname_dotcom %} will prom
 
 You can also enforce SAML SSO for your organization. {% data reusables.saml.when-you-enforce %} Enforcement removes any members and administrators who have not authenticated via your IdP from the organization. {% data variables.product.company_short %} sends an email notification to each removed user. 
 
-You can restore organization members once they successfully complete single sign-on. Removed users' access privileges and settings are saved for three months and can be restored during this time frame. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
+{% data reusables.saml.removed-users-can-rejoin %} If a user rejoins the organization within three months, the user's access privileges and settings will be restored. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
 
 Bots and service accounts that do not have external identities set up in your organization's IdP will also be removed when you enforce SAML SSO. For more information about bots and service accounts, see "[Managing bots and service accounts with SAML single sign-on](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)."
 

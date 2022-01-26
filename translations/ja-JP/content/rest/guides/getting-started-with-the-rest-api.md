@@ -2,7 +2,7 @@
 title: REST APIを使ってみる
 intro: 認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。
 redirect_from:
-  - /guides/getting-started/
+  - /guides/getting-started
   - /v3/guides/getting-started
 versions:
   fpt: '*'
@@ -23,7 +23,7 @@ shortTitle: 始めましょう - REST API
 
 ほとんどのアプリケーションは、任意の言語において既存の[ラッパーライブラリ][wrappers]を使用しています。ただ、まずは基底となっているAPI HTTPメソッドについて知ることが大切です。
 
-There's no easier way to kick the tires than through [cURL][curl].{% ifversion fpt or ghec %} If you are using an alternative client, note that you are required to send a valid [User Agent header](/rest/overview/resources-in-the-rest-api#user-agent-required) in your request.{% endif %}
+ちょっと試しにやってみるだけなら、[cURL][curl]を使うのが一番簡単です。{% ifversion fpt or ghec %}別のクライアントを使用している場合、リクエストで有効な [ユーザエージェントのヘッダ](/rest/overview/resources-in-the-rest-api#user-agent-required)を送信する必要があることに注意してください。{% endif %}
 
 ### Hello World
 
@@ -60,7 +60,7 @@ $ curl https://api.github.com/users/defunkt
 ```shell
 $ curl -i https://api.github.com/users/defunkt
 
-> HTTP/2 200 
+> HTTP/2 200
 > server: GitHub.com
 > date: Thu, 08 Jul 2021 07:04:08 GMT
 > content-type: application/json; charset=utf-8
@@ -104,7 +104,7 @@ $ curl -i https://api.github.com/users/defunkt
 `X-`で始まるヘッダはすべてカスタムヘッダで、HTTPの仕様にはありません。 例:
 
 * `X-GitHub-Media-Type`の値は`github.v3`です。 これは、レスポンスの[メディアタイプ][media types]を伝えています。 メディアタイプは、出力をAPI v3にするために役立ちました。 これについては、後ほど詳しく説明します。
-* `X-RateLimit-Limit`と`X-RateLimit-Remaining`のヘッダに注目してください。 この2つのヘッダは、1つのローリング期間 (通常は1時間) に[1つのクライアントが行えるリクエストの数][rate-limiting]と、クライアントが既に消費したリクエストの数を示しています。
+* `X-RateLimit-Limit`と`X-RateLimit-Remaining`のヘッダに注目してください。 This pair of headers indicate [how many requests a client can make][rate-limiting] in a rolling time period (typically an hour) and how many of those requests the client has already spent.
 
 ## 認証
 
@@ -203,7 +203,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 同様に、[認証済みのユーザのリポジトリを表示][user repos api]できます。
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -221,9 +221,10 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 これらの呼び出しから返される情報は、認証時にトークンが持っているスコープにより異なります。
 
-{% ifversion not ghae %}
-* `public_repo` [スコープ][scopes]を持つトークンは、GitHub.com上で見るためのアクセス権を私たちが持つすべてのパブリックリポジトリを含むレスポンスを返します。{% endif %}
-* `repo` [スコープ][scopes]を持つトークンは、{% data variables.product.product_location %}上で私たちが見るためのアクセスを持つすべての{% ifversion not ghae %}パブリック{% else %}インターナル{% endif %}及びプライベートリポジトリを含むレスポンスを返します。
+{%- ifversion fpt or ghec or ghes %}
+* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on {% data variables.product.product_location %}.
+{%- endif %}
+* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories we have access to see on {% data variables.product.product_location %}.
 
 [Docs][repos-api]に記載されている通り、これらのメソッドは`type`パラメータを取り、これによって、ユーザがリポジトリに対して持つアクセス権に基づき、返されるリポジトリをフィルタリングできます。 こうすることで、直接所有するリポジトリ、Organizationのリポジトリ、またはチームによりユーザがコラボレーションするリポジトリに限定してフェッチすることができます。
 
@@ -240,7 +241,7 @@ $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=own
 詳細情報や設定オプションを含んだいくつかのJSONを`POST`する必要があります。
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     -d '{ \
         "name": "blog", \
         "auto_init": true, \
@@ -268,14 +269,14 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 
 あれれ？ どこにいったのでしょう。 リポジトリを_プライベート_にして作成したので、表示するには認証する必要があります。 古参のHTTPユーザの方なら、`403`が出ると思っていたかもしれません。 Since we don't want to leak information about private repositories, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API returns a `404` in this case, as if to say "we can neither confirm nor deny the existence of this repository."
 
-## 問題
+## Issue
 
 {% data variables.product.product_name %}のIssue用UIは、「必要十分」なワークフローを提供しつつ、邪魔にならないということを目指しています。 {% data variables.product.product_name %} [Issues API][issues-api]を使えば、他のツールからデータを引き出したり、Issueを作成したりして、あなたのTeamに合ったワークフローを作成できます。
 
 GitHub.comと同じように、Issues APIは認証されたユーザがIssueを表示するためのメソッドをいくつか提供します。 [すべてのIssueを表示][get issues api]するには、`GET /issues`を呼び出します。
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -283,7 +284,7 @@ $ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next o
 /orgs/<org>/issues`を呼び出します。
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -316,7 +317,7 @@ Issueのリストでページネーションを行う方法を確認したので
 Issueを作成するには認証される必要があるので、ヘッダにOAuthトークンを渡します。 また、タイトル、本文、およびJSONの本文にあるラベルを、Issueを作成したい、リポジトリ以下の`/issues`パスに渡します。
 
 ```shell
-$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
+$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \
@@ -387,7 +388,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 > HTTP/2 304
 ```
 
-`304`ステータスは、直近のリクエストからリソースが変更されておらず、レスポンスには本文が含まれないことを示しています。 特典として、`304`レスポンスは[レート制限][rate-limiting]にカウントされません。
+`304`ステータスは、直近のリクエストからリソースが変更されておらず、レスポンスには本文が含まれないことを示しています。 As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
 
 ヤッター！ Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
 
@@ -411,8 +412,8 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 [issues-api]: /rest/reference/issues
 [link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
-[rate-limiting]: /rest#rate-limiting
-[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
 [users api]: /rest/reference/users#get-a-user
 [defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt

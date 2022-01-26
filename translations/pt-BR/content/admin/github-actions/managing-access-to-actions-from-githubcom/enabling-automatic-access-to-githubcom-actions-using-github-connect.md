@@ -7,7 +7,7 @@ redirect_from:
   - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
 type: how_to
 topics:
   - Actions
@@ -19,9 +19,13 @@ shortTitle: Usar GitHub Connect para ações
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+## Sobre o acesso automático a ações de {% data variables.product.prodname_dotcom_the_website %}
+
 Por padrão, os fluxos de trabalho {% data variables.product.prodname_actions %} em {% data variables.product.product_name %} não podem usar ações diretamente de {% data variables.product.prodname_dotcom_the_website %} ou [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
 Para tornar todas as ações de {% data variables.product.prodname_dotcom_the_website %} disponíveis na sua instância corporativa, você pode usar {% data variables.product.prodname_github_connect %} para integrar {% data variables.product.product_name %} a {% data variables.product.prodname_ghe_cloud %}. Para saber outras formas de acessar ações a partir da {% data variables.product.prodname_dotcom_the_website %}, consulte "[Sobre o uso de ações na sua empresa](/admin/github-actions/about-using-actions-in-your-enterprise)".
+
+Para usar ações de {% data variables.product.prodname_dotcom_the_website %}, seus executores auto-hospedados devem conseguir fazer o download das ações públicas de `api.github.com`.
 
 ## Habilitar o acesso automático a todas as ações de {% data variables.product.prodname_dotcom_the_website %}
 

@@ -18,7 +18,6 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概览
 
@@ -41,7 +40,7 @@ miniTocMaxHeadingLevel: 3
     - 审核密码的使用方式，以帮助确保按预期方式处理密码。 您可以通过检查执行工作流程的仓库的源代码并检查工作流程中使用的任何操作来进行审核。 例如，确认它们未发送到非预期主机，或明确打印到日志输出。
     - 在测试有效/无效输入后查看工作流程的运行日志，并确认密码已正确编校或未显示。 您调用的命令或工具如何向 `STDOUT` 和 `STDERR` 发送错误并不总是很明显，密码随后可能会在错误日志中生成错误。 因此，在测试有效和无效的输入后，最好是手动查看工作流程日志。
 - **使用最小范围的凭据**
-    - 确保工作流程中使用的凭据具有所需的最小权限，并请注意，任何对仓库具有写入权限的用户都可访问仓库中配置的所有密码。 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    - 确保工作流程中使用的凭据具有所需的最小权限，并请注意，任何对仓库具有写入权限的用户都可访问仓库中配置的所有密码。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     - Actions 可以使用 `GITHUB_TOKEN` 从 `github.token` 上下文访问它。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)”。 因此，您应该确保 `GITHUB_TOKEN` 获得所需的最低权限。 将 `GITHUB_TOKENN` 的默认权限设置为只读取仓库内容是良好的安全做法。 然后可以根据需要增加工作流程文件中个别任务的权限。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。 {% endif %}
 - **审核并轮换注册密码**
     - 定期查查已注册的密码，以确认它们仍是必需的。 删除不再需要的密码。
@@ -197,6 +196,12 @@ with:
 The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
+{% if internal-actions %}
+## Allowing workflows to access internal repositories
+
+{% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+{% endif %}
+
 ## 受损运行器的潜在影响
 
 这些部分考虑了当攻击者能够对 {% data variables.product.prodname_actions %} 运行器运行恶意命令时可以采取的一些步骤。
@@ -233,14 +238,14 @@ The attacker server can use the {% ifversion fpt or ghec %}{% data variables.pro
 
 ## 考虑跨仓库访问
 
-{% data variables.product.prodname_actions %} 的范围有意设为每次一个仓库。 The `GITHUB_TOKEN` grants the same level of access as a write-access user, because any write-access user can access this token by creating or modifying a workflow file{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}, elevating the permissions of the `GITHUB_TOKEN` if necessary{% endif %}. 用户对每个仓库都有特定权限，因此，如果不谨慎实施，一个仓库的 `GITHUB_TOKEN` 库授予对另一个仓库的访问权限将会影响 {% data variables.product.prodname_dotcom %} 权限模型。 同样，在向工作流程添加 {% data variables.product.prodname_dotcom %} 授权令牌时也必须谨慎，因为这也会因无意中向协作者授予一般权限而影响 {% data variables.product.prodname_dotcom %} 权限模型。
+{% data variables.product.prodname_actions %} is intentionally scoped for a single repository at a time. The `GITHUB_TOKEN` grants the same level of access as a write-access user, because any write-access user can access this token by creating or modifying a workflow file{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, elevating the permissions of the `GITHUB_TOKEN` if necessary{% endif %}. 用户对每个仓库都有特定权限，因此，如果不谨慎实施，一个仓库的 `GITHUB_TOKEN` 库授予对另一个仓库的访问权限将会影响 {% data variables.product.prodname_dotcom %} 权限模型。 同样，在向工作流程添加 {% data variables.product.prodname_dotcom %} 授权令牌时也必须谨慎，因为这也会因无意中向协作者授予一般权限而影响 {% data variables.product.prodname_dotcom %} 权限模型。
 
 我们已经[制定 {% data variables.product.prodname_dotcom %} 路线图](https://github.com/github/roadmap/issues/74)，以支持允许在 {% data variables.product.product_name %} 内跨仓库访问的流程，但这还不是一项受支持的功能。 目前，执行特权跨仓库交互的唯一方法就是将 {% data variables.product.prodname_dotcom %} 身份验证令牌或 SSH 密钥作为工作流程中的密码。 由于许多身份验证令牌类型不允许对特定资源进行细致的访问，因此使用错误的令牌类型存在很大风险，因为它可以授予比预期范围更广泛的访问。
 
 此列表描述建议用于在工作流程中访问仓库数据的方法，按优先顺序降序排列：
 
 1. **`GITHUB_TOKEN`**
-    -  此令牌被故意扩展到单个调用工作流程的仓库，并且{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}可以有 {% else %}具有 {% endif %}与仓库的写入用户相同的访问权限。 令牌在每个作业开始之前创建，在作业完成时过期。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
+    -  此令牌被故意扩展到单个调用工作流程的仓库，并且{% ifversion fpt or ghes > 3.1 or ghae or ghec %}可以有 {% else %}具有 {% endif %}与仓库的写入用户相同的访问权限。 令牌在每个作业开始之前创建，在作业完成时过期。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
     - 应尽可能使用 `GITHUB_TOKEN`。
 2. **仓库部署密钥**
     - 部署密钥是唯一授予对单个存储库的读取或写入访问权限的凭据类型之一，可用于与工作流程中的另一个仓库进行交互。 更多信息请参阅“[管理部署密钥](/developers/overview/managing-deploy-keys#deploy-keys)”。
@@ -255,11 +260,13 @@ The attacker server can use the {% ifversion fpt or ghec %}{% data variables.pro
 
 ## 自托管运行器的强化
 
+{% ifversion fpt %}
 **{% data variables.product.prodname_dotcom %} 托管的**运行程序在临时和干净的隔离虚拟机中执行代码，这意味着无法持续破坏此环境，可以访问的信息不会超过引导过程中此环境中存在的信息。
+{% endif %}
 
-{% data variables.product.product_name %} 上**自托管**的运行器不能保证在临时干净的虚拟机中运行，并且可能会持续受到工作流程中不受信任的代码的损害。
+{% ifversion fpt %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-因此，自托管的运行器几乎[永远不能用于 {% data variables.product.product_name %} 上的公共仓库](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)，因为任何用户都可以打开针对仓库的拉取请求并破坏环境。 Similarly, be cautious when using self-hosted runners on private repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. 尽管工作流程可以通过使用环境和必需的审查来控制对环境密钥的访问，但是这些工作流程不是在隔离的环境中运行，在自托管运行程器上运行时仍然容易遭受相同的风险。
+{% ifversion fpt %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. 尽管工作流程可以通过使用环境和必需的审查来控制对环境密钥的访问，但是这些工作流程不是在隔离的环境中运行，在自托管运行程器上运行时仍然容易遭受相同的风险。
 
 在组织或企业级别定义自托管运行器时， {% data variables.product.product_name %} 可将多个仓库中的工作流程安排到同一个运行器中。 因此，这些环境的安全危害可能会导致广泛的影响。 为了帮助缩小损害范围，可以通过将自托管运行器组织到单独的组中来创建边界。 更多信息请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
 
@@ -329,19 +336,19 @@ If you are using {% data variables.product.prodname_actions %} to deploy to a cl
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enterprise.register_self_hosted_runner`  | 在注册新的自托管运行器时触发。 更多信息请参阅“[将自托管运行器添加到企业](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise)”。                                                                                                                                                                           |
 | `enterprise.remove_self_hosted_runner`    | 当自托管运行器被移除时触发。                                                                                                                                                                                                                                                                                                                |
-| `enterprise.runner_group_runners_updated` | 当运行器组成员列表更新时触发。 更多信息请参阅“[为组织设置组中的自托管运行器](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”。{% ifversion fpt or ghes > 3.1  or ghae-issue-1157 or ghec %}
+| `enterprise.runner_group_runners_updated` | 当运行器组成员列表更新时触发。 更多信息请参阅“[为组织设置组中的自托管运行器](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”。{% ifversion fpt or ghes > 3.1  or ghae or ghec %}
 | `enterprise.self_hosted_runner_online`    | 当运行器应用程序启动时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。                                                                                                             |
 | `enterprise.self_hosted_runner_offline`   | 当运行器应用程序停止时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。{% endif %}
 | `enterprise.self_hosted_runner_updated`   | 当运行器应用程序更新时触发。 可以使用 REST API 和 UI 查看。 当您将审核日志导出为 JSON 数据或 CSV 文件时，此事件不包括在内。 更多信息请参阅“[关于自托管的运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”和“[审查组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)”。 |
 | `org.register_self_hosted_runner`         | 在注册新的自托管运行器时触发。 更多信息请参阅“[将自托管运行器添加到组织](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)”。                                                                                                                                                                         |
 | `org.remove_self_hosted_runner`           | 当自托管运行器被移除时触发。 更多信息请参阅“[从组织移除运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)”。                                                                                                                                                                                    |
 | `org.runner_group_runners_updated`        | 当运行器组成员列表更新时触发。 更多信息请参阅“[为组织设置组中的自托管运行器](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”。                                                                                                                                                                                                    |
-| `org.runner_group_updated`                | 当自托管运行器组的配置改变时触发。 更多信息请参阅“[更改自托管运行器组的访问策略](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”。{% ifversion fpt or ghes > 3.1 or ghae-issue-1157 or ghec %}
+| `org.runner_group_updated`                | 当自托管运行器组的配置改变时触发。 更多信息请参阅“[更改自托管运行器组的访问策略](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”。{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 | `org.self_hosted_runner_online`           | 当运行器应用程序启动时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。                                                                                                             |
 | `org.self_hosted_runner_offline`          | 当运行器应用程序停止时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。{% endif %}
 | `org.self_hosted_runner_updated`          | 当运行器应用程序更新时触发。 可以使用 REST API 和 UI 查看；在 JSON /CSV 导出中不可见。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”。                                                                                                                                                          |
 | `repo.register_self_hosted_runner`        | 在注册新的自托管运行器时触发。 更多信息请参阅“[将自托管运行器添加到仓库](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)”。                                                                                                                                                                            |
-| `repo.remove_self_hosted_runner`          | 当自托管运行器被移除时触发。 更多信息请参阅“[从仓库删除运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)”。{% ifversion fpt or ghes > 3.1 or ghae-issue-1157 or ghec %}
+| `repo.remove_self_hosted_runner`          | 当自托管运行器被移除时触发。 更多信息请参阅“[从仓库删除运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)”。{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 | `repo.self_hosted_runner_online`          | 当运行器应用程序启动时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。                                                                                                             |
 | `repo.self_hosted_runner_offline`         | 当运行器应用程序停止时触发。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 更多信息请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。{% endif %}
 | `repo.self_hosted_runner_updated`         | 当运行器应用程序更新时触发。 可以使用 REST API 和 UI 查看；在 JSON /CSV 导出中不可见。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)”。                                                                                                                                                          |

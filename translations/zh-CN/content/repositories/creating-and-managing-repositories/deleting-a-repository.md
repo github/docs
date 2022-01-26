@@ -2,8 +2,8 @@
 title: 删除仓库
 intro: 如果您是组织所有者或拥有仓库或复刻的管理员权限，可删除任何仓库或复刻。 删除复刻仓库不会删除上游仓库。
 redirect_from:
-  - /delete-a-repo/
-  - /deleting-a-repo/
+  - /delete-a-repo
+  - /deleting-a-repo
   - /articles/deleting-a-repository
   - /github/administering-a-repository/deleting-a-repository
   - /github/administering-a-repository/managing-repository-settings/deleting-a-repository
@@ -25,7 +25,7 @@ topics:
 **警告**：
 
 - 删除仓库将**永久**删除发行版附件和团队权限。 此操作**必须**完成。
-- Deleting a private or internal repository will delete all forks of the repository.
+- Deleting a private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository will delete all forks of the repository.
 
 {% endwarning %}
 

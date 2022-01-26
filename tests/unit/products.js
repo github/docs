@@ -5,7 +5,7 @@ import schema from '../helpers/schemas/products-schema.js'
 import { getDOM, getJSON } from '../helpers/supertest.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('products module', () => {
   test('is an object with product ids as keys', () => {
@@ -29,8 +29,8 @@ describe('mobile-only products nav', () => {
     // Enterprise server
     ['/en/enterprise/admin', 'Enterprise administrators'],
     [
-      '/en/enterprise/user/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line',
-      'GitHub',
+      '/en/enterprise/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line',
+      'Get started',
     ],
 
     ['/desktop', 'GitHub Desktop'],

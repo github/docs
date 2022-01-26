@@ -13,8 +13,10 @@ import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import compression from 'compression'
-import disableCachingOnSafari from './disable-caching-on-safari.js'
-import setFastlySurrogateKey from './set-fastly-surrogate-key.js'
+import {
+  setDefaultFastlySurrogateKey,
+  setManualFastlySurrogateKey,
+} from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import catchBadAcceptLanguage from './catch-bad-accept-language.js'
 import reqUtils from './req-utils.js'
@@ -31,10 +33,12 @@ import helpToDocs from './redirects/help-to-docs.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
 import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
+import spotContentFlaws from './spot-content-flaws.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import events from './events.js'
 import search from './search.js'
+import healthz from './healthz.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
@@ -57,9 +61,11 @@ import featuredLinks from './featured-links.js'
 import learningTrack from './learning-track.js'
 import next from './next.js'
 import renderPage from './render-page.js'
+import assetPreprocessing from './asset-preprocessing.js'
 
-const { NODE_ENV } = process.env
+const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
+const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
 // Catch unhandled promise rejections and passing them to Express's error handler
@@ -73,13 +79,58 @@ export default function (app) {
   if (!isTest) app.use(timeout)
   app.use(abort)
 
-  // *** Development tools ***
-  app.use(morgan('dev', { skip: (req, res) => !isDevelopment }))
+  // *** Request logging ***
+  // Enabled in development and azure deployed environments
+  // Not enabled in Heroku because the Heroku router + papertrail already logs the request information
+  app.use(
+    morgan(isAzureDeployment ? 'combined' : 'dev', {
+      skip: (req, res) => !(isDevelopment || isAzureDeployment),
+    })
+  )
 
   // *** Observability ***
   if (process.env.DD_API_KEY) {
     app.use(datadog)
   }
+
+  // Must appear before static assets and all other requests
+  // otherwise we won't be able to benefit from that functionality
+  // for static assets as well.
+  app.use(setDefaultFastlySurrogateKey)
+
+  // Must come before `csrf` otherwise you get a Set-Cookie on successful
+  // asset requests. And it can come before `rateLimit` because if it's a
+  // 200 OK, the rate limiting won't matter anyway.
+  // archivedEnterpriseVersionsAssets must come before static/assets
+  app.use(
+    asyncMiddleware(
+      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
+    )
+  )
+  // This must come before the express.static('assets') middleware.
+  app.use(assetPreprocessing)
+  // By specifying '/assets/cb-' and not just '/assets/' we
+  // avoid possibly legacy enterprise assets URLs and asset image URLs
+  // that don't have the cache-busting piece in it.
+  app.use('/assets/cb-', setManualFastlySurrogateKey)
+  app.use(
+    '/assets/',
+    express.static('assets', {
+      index: false,
+      etag: false,
+      // Can be aggressive because images inside the content get unique
+      // URLs with a cache busting prefix.
+      maxAge: '7 days',
+    })
+  )
+  app.use(
+    '/public/',
+    express.static('data/graphql', {
+      index: false,
+      etag: false,
+      maxAge: '7 days', // A bit longer since releases are more sparse
+    })
+  )
 
   // *** Early exits ***
   // Don't use the proxy's IP, use the requester's for rate limiting
@@ -87,7 +138,7 @@ export default function (app) {
   app.set('trust proxy', 1)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
-  app.use(instrument(handleNextDataPath, './handle-next-data-path'))
+  app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
   // *** Security ***
   app.use(cors)
@@ -109,8 +160,6 @@ export default function (app) {
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
   app.use(compression())
-  app.use(disableCachingOnSafari)
-  app.use(setFastlySurrogateKey)
   app.use(catchBadAcceptLanguage)
 
   // *** Config and context for redirects ***
@@ -130,39 +179,16 @@ export default function (app) {
 
   // *** Config and context for rendering ***
   app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(asyncMiddleware(instrument(spotContentFlaws, './spot-content-flaws'))) // Must come after findPage
   app.use(instrument(blockRobots, './block-robots'))
 
   // Check for a dropped connection before proceeding
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, 2xx responses ***
-  // I largely ordered these by use frequency
-  // archivedEnterpriseVersionsAssets must come before static/assets
-  app.use(
-    asyncMiddleware(
-      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
-    )
-  )
-  app.use(
-    '/assets',
-    express.static('assets', {
-      index: false,
-      etag: false,
-      lastModified: false,
-      maxAge: '1 day', // Relatively short in case we update images
-    })
-  )
-  app.use(
-    '/public',
-    express.static('data/graphql', {
-      index: false,
-      etag: false,
-      lastModified: false,
-      maxAge: '7 days', // A bit longer since releases are more sparse
-    })
-  )
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
+  app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
@@ -186,7 +212,7 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
   app.use(instrument(graphQL, './contextualizers/graphql'))
-  app.use(instrument(rest, './contextualizers/rest'))
+  app.use(asyncMiddleware(instrument(rest, './contextualizers/rest')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))

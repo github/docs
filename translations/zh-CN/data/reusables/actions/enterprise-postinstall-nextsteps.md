@@ -1,3 +1,3 @@
-### 后续步骤
+### Next steps
 
-配置运行成功完成后， {% data variables.product.prodname_actions %} 将在 {% data variables.product.product_location %} 上启用。 有关后续步骤，例如管理 {% data variables.product.prodname_actions %} 访问权限和添加自托管运行器，请返回到“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)”。
+After the configuration run has successfully completed, {% data variables.product.prodname_actions %} will be enabled on {% data variables.product.product_location %}. For your next steps, such as managing {% data variables.product.prodname_actions %} access permissions and adding self-hosted runners, return to "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)."

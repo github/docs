@@ -2,7 +2,7 @@
 title: リモートリポジトリから変更を取得する
 intro: 一般的な Git コマンドを使用して、リモートリポジトリにアクセスできます。
 redirect_from:
-  - /articles/fetching-a-remote/
+  - /articles/fetching-a-remote
   - /articles/getting-changes-from-a-remote-repository
   - /github/using-git/getting-changes-from-a-remote-repository
   - /github/getting-started-with-github/getting-changes-from-a-remote-repository
@@ -52,7 +52,7 @@ $ git fetch <em>remotename</em>
 # リモートリポジトリへの更新をフェッチする
 ```
 
-Otherwise, you can always add a new remote and then fetch. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Otherwise, you can always add a new remote and then fetch. 詳しい情報については「[リモートリポジトリの管理](/github/getting-started-with-github/managing-remote-repositories)」を参照してください。
 
 ## ローカルブランチに変更をマージする
 
@@ -74,7 +74,7 @@ $ git pull <em>remotename</em> <em>branchname</em>
 # オンライン更新をローカル作業にマージ
 ```
 
-`pull` は、取得された変更のマージを実行するため、`pull` コマンドの実行前にローカルの作業がコミットされていることを確認する必要があります。 If you run into \[a merge conflict\](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line you cannot resolve, or if you decide to quit the merge, you can use `git merge --abort` to take the branch back to where it was in before you pulled.
+`pull` は、取得された変更のマージを実行するため、`pull` コマンドの実行前にローカルの作業がコミットされていることを確認する必要があります。 解決できない[マージコンフリクト](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)が発生した場合、あるいはマージを中止したい場合は、`git merge --abort` を使用して、プルを行う前の状態にブランチを戻すことができます。
 
 ## 参考リンク
 

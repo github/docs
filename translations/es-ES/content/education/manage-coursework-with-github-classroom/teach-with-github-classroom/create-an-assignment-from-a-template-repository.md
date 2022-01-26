@@ -1,6 +1,7 @@
 ---
 title: Crear una tarea desde un repositorio de plantilla
 intro: 'Puedes crear una tarea desde un repositorio de plantilla para proporcionar a tus alumnos código inicial, documentación y otros recursos.'
+permissions: 'Organization owners who are admins for a classroom can create an assignment from a template repository that is public or owned by the organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
   fpt: '*'
 redirect_from:

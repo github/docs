@@ -2,8 +2,8 @@
 title: 新しい SSH キーを生成して ssh-agent に追加する
 intro: 既存の SSH キーをチェックした後、新しい SSH キーを生成して認証に使用し、ssh-agent に追加できます。
 redirect_from:
-  - /articles/adding-a-new-ssh-key-to-the-ssh-agent/
-  - /articles/generating-a-new-ssh-key/
+  - /articles/adding-a-new-ssh-key-to-the-ssh-agent
+  - /articles/generating-a-new-ssh-key
   - /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
@@ -21,7 +21,7 @@ shortTitle: Generate new SSH key
 
 If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/github/authenticating-to-github/checking-for-existing-ssh-keys)."
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
 If you want to use a hardware security key to authenticate to {% data variables.product.product_name %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
 
@@ -89,7 +89,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
 
 ## SSH キーを ssh-agent に追加する
 
-Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">エージェントに SSH キーを追加する際、デフォルトの macOS の `ssh-add` コマンドを使用してください。[macports](https://www.macports.org/)、[homebrew] (http://brew.sh/)、またはその他の外部ソースによってインストールされたアプリケーションは使用しないでください。</span>
+Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">エージェントに SSH キーを追加する際、デフォルトの macOS の `ssh-add` コマンドを使用してください。[macports](https://www.macports.org/)、[homebrew](http://brew.sh/)、またはその他の外部ソースによってインストールされたアプリケーションは使用しないでください。</span>
 
 {% mac %}
 
@@ -191,7 +191,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% endlinux %}
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## Generating a new SSH key for a hardware security key
 
 If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)."
@@ -253,6 +253,6 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
 - 「[SSHについて](/articles/about-ssh)」
 - [SSH キーのパスフレーズを使う](/articles/working-with-ssh-key-passphrases)
-{%- ifversion fpt %}
-- [SAML シングルサインオンで使うためにSSHキーを認可する](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)
+{%- ifversion fpt or ghec %}
+- "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
 {%- endif %}

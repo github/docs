@@ -446,7 +446,7 @@ O problema foi fixado.
 
 ## ready_for_review
 
-A draft pull request was marked as ready for review.
+Um rascunho de pull request foi marcado como pronto para revisão.
 
 ### Disponibilidade
 

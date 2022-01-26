@@ -3,7 +3,7 @@ title: What happens to forks when a repository is deleted or changes visibility?
 intro: Deleting your repository or changing its visibility affects that repository's forks.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
-  - /articles/changing-the-visibility-of-a-network/
+  - /articles/changing-the-visibility-of-a-network
   - /articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /github/collaborating-with-issues-and-pull-requests/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /github/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
@@ -60,15 +60,11 @@ If a private repository is made public and then deleted, its private forks will 
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
+{% ifversion ghes or ghec or ghae %}
 
 ## Changing the visibility of an internal repository
 
-{% note %}
 
-**Note:** {% data reusables.gated-features.internal-repos %}
-
-{% endnote %}
 
 If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
 

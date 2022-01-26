@@ -1,9 +1,9 @@
 ---
-title: 关于提交签名验证
-intro: '使用 GPG 或 S/MIME，您可以在本地对标记和提交进行签名。 这些标记或提交在 {% data variables.product.product_name %} 上标示为已验证，便于其他人信任更改来自可信的来源。'
+title: About commit signature verification
+intro: 'Using GPG or S/MIME, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can be confident that the changes come from a trusted source.'
 redirect_from:
-  - /articles/about-gpg-commit-and-tag-signatures/
-  - /articles/about-gpg/
+  - /articles/about-gpg-commit-and-tag-signatures
+  - /articles/about-gpg
   - /articles/about-commit-signature-verification
   - /github/authenticating-to-github/about-commit-signature-verification
   - /github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification
@@ -15,85 +15,84 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: 提交签名验证
+shortTitle: Commit signature verification
 ---
+## About commit signature verification
 
-## 关于提交签名验证
+You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag {% ifversion fpt or ghec %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
 
-您可以在本地签署提交和标签，让其他人对您所做更改的源充满信心。 如果提交或标签具有可加密验证的 GPG 或 S/MIME 签名，GitHub 会对提交或标签标记 {% ifversion fpt or ghec %}“已验证”或“部分验证”{% else %}“已验证”{% endif %}
-
-![验证的提交](/assets/images/help/commits/verified-commit.png)
+![Verified commit](/assets/images/help/commits/verified-commit.png)
 
 {% ifversion fpt or ghec %}
-提交和标签具有以下验证状态，具体取决于您是否启用了警戒模式。 默认情况下未启用警戒模式。 有关如何启用警戒模式的更多信息，请参阅“[显示所有提交的验证状态](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)”。
+Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-### 默认状态
+### Default statuses
 
-| 状态      | 描述             |
-| ------- | -------------- |
-| **已验证** | 提交已签名且签名已成功验证。 |
-| **未验证** | 提交已签名，但签名无法验证。 |
-| 无验证状态   | 提交未签名。         |
+| Status         | Description |
+| -------------- | ----------- |
+| **Verified**   | The commit is signed and the signature was successfully verified.
+| **Unverified** | The commit is signed but the signature could not be verified.
+| No verification status | The commit is not signed.
 
-### 启用了警戒模式的状态
+### Statuses with vigilant mode enabled
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
 {% else %}
-如果提交或标记具有无法验证的签名，则 {% data variables.product.product_name %} 会将提交或标记标示为“未验证”。
+If a commit or tag has a signature that can't be verified, {% data variables.product.product_name %} marks the commit or tag "Unverified."
 {% endif %}
 
-仓库管理员可对分析实施必要的提交签名，以阻止未签名和验证的所有提交。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-signed-commits)”。
+Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
 {% ifversion fpt or ghec %}
-{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface. 由 {% data variables.product.product_name %} 签名的提交在 {% data variables.product.product_name %} 上将具有已验证的状态。 您可以使用 https://github.com/web-flow.gpg 上的公钥本地验证签名。 钥匙的完整指纹是 `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`。 您可以选择在 {% data variables.product.prodname_codespaces %} 中使用 {% data variables.product.product_name %} 对您的提交进行签名。 有关对您的代码空间启用 GPG 验证的更多信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)”。
+{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface. Commits signed by {% data variables.product.product_name %} will have a verified status on {% data variables.product.product_name %}. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg. The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
 {% endif %}
 
-## GPG 提交签名验证
+## GPG commit signature verification
 
-您可以使用 GPG 通过自己生成的 GPG 密钥对验证签名。
+You can use GPG to sign commits with a GPG key that you generate yourself.
 
 {% data variables.product.product_name %} uses OpenPGP libraries to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
-要使用 GPG 对提交签名并在 {% data variables.product.product_name %} 上验证这些提交，请执行以下步骤：
+To sign commits using GPG and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
-1. [检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)
-2. [生成新 GPG 密钥](/articles/generating-a-new-gpg-key)
-3. [新增 GPG 密钥到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)
-4. [将您的签名密钥告诉 Git](/articles/telling-git-about-your-signing-key)
-5. [对提交签名](/articles/signing-commits)
-6. [对标记签名](/articles/signing-tags)
+1. [Check for existing GPG keys](/articles/checking-for-existing-gpg-keys)
+2. [Generate a new GPG key](/articles/generating-a-new-gpg-key)
+3. [Add a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)
+4. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
+5. [Sign commits](/articles/signing-commits)
+6. [Sign tags](/articles/signing-tags)
 
-## S/MIME 提交签名验证
+## S/MIME commit signature verification
 
-您可以使用 S/MIME 通过组织颁发的 X.509 密钥对提交签名。
+You can use S/MIME to sign commits with an X.509 key issued by your organization.
 
-{% data variables.product.product_name %} 使用 [Debian ca 证书包](https://packages.debian.org/hu/jessie/ca-certificates)（Mozilla 浏览器使用的相同信任库）确认您本地签名的提交和标记可根据可信根证书中的公钥加密验证。
+{% data variables.product.product_name %} uses [the Debian ca-certificates package](https://packages.debian.org/hu/jessie/ca-certificates), the same trust store used by Mozilla browsers, to confirm that your locally signed commits and tags are cryptographically verifiable against a public key in a trusted root certificate.
 
 {% data reusables.gpg.smime-git-version %}
 
-要使用 S/MIME 对提交签名并在 {% data variables.product.product_name %} 上验证这些提交，请执行以下步骤：
+To sign commits using S/MIME and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
-1. [将您的签名密钥告诉 Git](/articles/telling-git-about-your-signing-key)
-2. [对提交签名](/articles/signing-commits)
-3. [对标记签名](/articles/signing-tags)
+1. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
+2. [Sign commits](/articles/signing-commits)
+3. [Sign tags](/articles/signing-tags)
 
-无需将公钥上传到 {% data variables.product.product_name %}。
+You don't need to upload your public key to {% data variables.product.product_name %}.
 
 {% ifversion fpt or ghec %}
-## 自动程序的签名验证
+## Signature verification for bots
 
-需要提交签名的组织和 {% data variables.product.prodname_github_apps %} 可使用自动程序对提交签名。 如果提交或标记具有密码可验证的自动程序签名，则 {% data variables.product.product_name %} 会将提交或标记标示为已验证。
+Organizations and {% data variables.product.prodname_github_apps %} that require commit signing can use bots to sign commits. If a commit or tag has a bot signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag as verified.
 
-自动程序的签名验证仅在请求被验证为 {% data variables.product.prodname_github_app %} 或自动程序并且不含自定义作者信息、自定义提交者信息、自定义签名信息（如提交 API）时才有效。
+Signature verification for bots will only work if the request is verified and authenticated as the {% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
 {% endif %}
 
-## 延伸阅读
+## Further reading
 
-- "[对提交签名](/articles/signing-commits)"
-- "[对标记签名](/articles/signing-tags)"
-- "[提交签名验证故障排除](/articles/troubleshooting-commit-signature-verification)"
+- "[Signing commits](/articles/signing-commits)"
+- "[Signing tags](/articles/signing-tags)"
+- "[Troubleshooting commit signature verification](/articles/troubleshooting-commit-signature-verification)"

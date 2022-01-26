@@ -2,9 +2,9 @@
 title: Atalhos de teclado
 intro: 'Quase todas as páginas no {% data variables.product.prodname_dotcom %} tem um atalho de teclado que executa as ações mais rapidamente.'
 redirect_from:
-  - /articles/using-keyboard-shortcuts/
-  - /categories/75/articles/
-  - /categories/keyboard-shortcuts/
+  - /articles/using-keyboard-shortcuts
+  - /categories/75/articles
+  - /categories/keyboard-shortcuts
   - /articles/keyboard-shortcuts
   - /github/getting-started-with-github/keyboard-shortcuts
   - /github/getting-started-with-github/using-github/keyboard-shortcuts
@@ -17,11 +17,14 @@ versions:
 
 ## Sobre atalhos do teclado
 
-Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. Você pode usar esses atalhos de teclado para executar ações no site sem precisar usar o mouse para navegar.
+Digitar <kbd>?</kbd> no {% data variables.product.prodname_dotcom %} exibe uma caixa de diálogo que lista os atalhos de teclado disponíveis para essa página. Você pode usar esses atalhos de teclado para executar ações no site sem precisar usar o mouse para navegar.
+
+{% if keyboard-shortcut-accessibility-setting %}
+É possível desabilitar os atalhos de teclas de caractere, ao mesmo tempo em que permite que os atalhos que usam teclas modificadoras, nas suas configurações de acessibilidade. Para obter mais informações, consulte "[Gerenciar configurações de acessibilidade](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings)".{% endif %}
 
 Veja abaixo uma lista dos atalhos de teclado disponíveis.
 {% if command-palette %}
-The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+O {% data variables.product.prodname_command_palette %} também fornece acesso rápido a uma ampla gama de ações, sem a necessidade de lembrar os atalhos de teclado. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## Atalhos para o site
 
@@ -33,7 +36,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 {% if command-palette %}
 
-<kbd>control</kbd><kbd>k</kbd> or <kbd>command</kbd><kbd>k</kbd> | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Ctl</kbd><kbd>alt</kbd><kbd>k</kbd> or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+<kbd>control</kbd><kbd>k</kbd> ou <kbd>command</kbd><kbd>k</kbd> | Abre o {% data variables.product.prodname_command_palette %}. Se você está editando o texto Markdown, abra a paleta de comando com <kbd>Ctl</kbd><kbd>alt</kbd><kbd>k</kbd> ou <kbd>⌘</kbd><kbd>opção</kbd><kbd>k</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## Repositórios
 
@@ -49,26 +52,26 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 ## Edição de código-fonte
 
-| Atalho                                                          | Descrição                                                                                                                                                                                           |
-| --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
-| <kbd>.</kbd>                                                    | Abre um repositório ou um pull request no editor baseado na web. Para obter mais informações, consulte "[Editor baseado na web](/codespaces/developing-in-codespaces/web-based-editor)".{% endif %}
-| <kbd>control b</kbd> ou <kbd>command b</kbd>                    | Insere formatação Markdown para texto em negrito                                                                                                                                                    |
-| <kbd>control i</kbd> ou <kbd>command i</kbd>                    | Insere formatação Markdown para texto em itálico                                                                                                                                                    |
-| <kbd>control k</kbd> ou <kbd>command k</kbd>                    | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae-next or ghes > 3.3 %}
-| <kbd>control shift 7</kbd> ou <kbd>command shift 7</kbd>        | Insere a formatação de Markdown para uma lista ordenada                                                                                                                                             |
-| <kbd>control shift 8</kbd> ou <kbd>command shift 8</kbd>        | Inserts Markdown formatting for an unordered list                                                                                                                                                   |
-| <kbd>control shift .</kbd> ou <kbd>command shift.</kbd>         | Inserts Markdown formatting for a quote{% endif %}
-| <kbd>e</kbd>                                                    | Abra o arquivo de código-fonte na aba **Editar arquivo**                                                                                                                                            |
-| <kbd>control f</kbd> ou <kbd>command f</kbd>                    | Começa a pesquisar no editor de arquivo                                                                                                                                                             |
-| <kbd>control g</kbd> ou <kbd>command g</kbd>                    | Localiza o próximo                                                                                                                                                                                  |
-| <kbd>control shift g</kbd> or <kbd>command shift g</kbd>        | Localiza o anterior                                                                                                                                                                                 |
-| <kbd>control shift f</kbd> or <kbd>command option f</kbd>       | Substitui                                                                                                                                                                                           |
-| <kbd>control shift r</kbd> or <kbd>command shift option f</kbd> | Substitui todos                                                                                                                                                                                     |
-| <kbd>alt g</kbd>                                                | Pula para linha                                                                                                                                                                                     |
-| <kbd>control z</kbd> ou <kbd>command z</kbd>                    | Desfaz                                                                                                                                                                                              |
-| <kbd>control y</kbd> ou <kbd>command y</kbd>                    | Refaz                                                                                                                                                                                               |
-| <kbd>command shift p</kbd>                                      | Alterna entre as abas **Edit file** (Editar aquivo) e **Preview changes** (Visualizar alterações)                                                                                                   |
-| <kbd>control s</kbd> ou <kbd>comando s</kbd>                    | Escrever uma mensagem de commit                                                                                                                                                                     |
+| Atalho                                                         | Descrição                                                                                                                                                                                           |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
+| <kbd>.</kbd>                                                   | Abre um repositório ou um pull request no editor baseado na web. Para obter mais informações, consulte "[Editor baseado na web](/codespaces/developing-in-codespaces/web-based-editor)".{% endif %}
+| <kbd>control b</kbd> ou <kbd>command b</kbd>                   | Insere formatação Markdown para texto em negrito                                                                                                                                                    |
+| <kbd>control i</kbd> ou <kbd>command i</kbd>                   | Insere formatação Markdown para texto em itálico                                                                                                                                                    |
+| <kbd>control k</kbd> ou <kbd>command k</kbd>                   | Insere a formatação de Markdown para criar o link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
+| <kbd>control shift 7</kbd> ou <kbd>command shift 7</kbd>       | Insere a formatação de Markdown para uma lista ordenada                                                                                                                                             |
+| <kbd>control shift 8</kbd> ou <kbd>command shift 8</kbd>       | Insere a formatação Markdown para uma lista não ordenada                                                                                                                                            |
+| <kbd>control shift .</kbd> ou <kbd>command shift.</kbd>        | Insere a formatação Markdown para uma citação{% endif %}
+| <kbd>e</kbd>                                                   | Abra o arquivo de código-fonte na aba **Editar arquivo**                                                                                                                                            |
+| <kbd>control f</kbd> ou <kbd>command f</kbd>                   | Começa a pesquisar no editor de arquivo                                                                                                                                                             |
+| <kbd>control g</kbd> ou <kbd>command g</kbd>                   | Localiza o próximo                                                                                                                                                                                  |
+| <kbd>control shift g</kbd> ou <kbd>command shift g</kbd>       | Localiza o anterior                                                                                                                                                                                 |
+| <kbd>control shift f</kbd> ou <kbd>command opção f</kbd>       | Substitui                                                                                                                                                                                           |
+| <kbd>control shift r</kbd> ou <kbd>command shift opção f</kbd> | Substitui todos                                                                                                                                                                                     |
+| <kbd>alt g</kbd>                                               | Pula para linha                                                                                                                                                                                     |
+| <kbd>control z</kbd> ou <kbd>command z</kbd>                   | Desfaz                                                                                                                                                                                              |
+| <kbd>control y</kbd> ou <kbd>command y</kbd>                   | Refaz                                                                                                                                                                                               |
+| <kbd>command shift p</kbd>                                     | Alterna entre as abas **Edit file** (Editar aquivo) e **Preview changes** (Visualizar alterações)                                                                                                   |
+| <kbd>control s</kbd> ou <kbd>comando s</kbd>                   | Escrever uma mensagem de commit                                                                                                                                                                     |
 
 Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://codemirror.net/doc/manual.html#commands).
 
@@ -89,14 +92,14 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | Atalho                                                               | Descrição                                                                                                                                                                                                                                                      |
 | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>control b</kbd> ou <kbd>command b</kbd>                         | Insere formatação Markdown para texto em negrito                                                                                                                                                                                                               |
-| <kbd>control i</kbd> ou <kbd>command i</kbd>                         | Insere a formatação Markdown para texto em itálico{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+| <kbd>control i</kbd> ou <kbd>command i</kbd>                         | Insere a formatação Markdown para texto em itálico{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 | <kbd>controle e</kbd> ou <kbd>comando e</kbd>                        | Insere a formatação Markdown para código ou um comando dentro da linha{% endif %}
 | <kbd>control k</kbd> ou <kbd>command k</kbd>                         | Insere formatação Markdown para criar um link                                                                                                                                                                                                                  |
-| <kbd>control shift p</kbd> ou <kbd>command shift p</kbd>             | Alterna entre as abas de comentários **Escrever** e **Visualizar**{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
+| <kbd>control shift p</kbd> ou <kbd>command shift p</kbd>             | Alterna entre as abas de comentários **Escrever** e **Visualizar**{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>control shift 7</kbd> ou <kbd>command shift 7</kbd>             | Insere a formatação de Markdown para uma lista ordenada                                                                                                                                                                                                        |
 | <kbd>control shift 8</kbd> ou <kbd>command shift 8</kbd>             | Insere a formatação Markdown para uma lista não ordenada{% endif %}
-| <kbd>control enter</kbd>                                             | Envia um comentário                                                                                                                                                                                                                                            |
-| <kbd>control .</kbd> e <kbd>control [número de resposta salvo]</kbd> | Abre o menu de respostas salvas e autocompleta o campo de comentário com uma resposta salva. Para obter mais informações, consulte "[Sobre respostas salvas](/articles/about-saved-replies)".{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
+| <kbd>control enter</kbd> ou <kbd>command enter</kbd>                 | Envia um comentário                                                                                                                                                                                                                                            |
+| <kbd>control .</kbd> e <kbd>control [número de resposta salvo]</kbd> | Abre o menu de respostas salvas e autocompleta o campo de comentário com uma resposta salva. Para obter mais informações, consulte "[Sobre respostas salvas](/articles/about-saved-replies)".{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>control shift .</kbd> ou <kbd>command shift.</kbd>              | Insere a formatação Markdown para uma citação{% endif %}{% ifversion fpt or ghec %}
 | <kbd>control g</kbd> ou <kbd>command g</kbd>                         | Insere uma sugestão. Para obter mais informações, consulte "[Revisar alterações propostas em uma pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)". 
 {% endif %}

@@ -2,8 +2,8 @@
 title: Autenticar com os aplicativos GitHub
 intro: '{% data reusables.shortdesc.authenticating_with_github_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/
-  - /apps/building-github-apps/authentication-options-for-github-apps/
+  - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps
+  - /apps/building-github-apps/authentication-options-for-github-apps
   - /apps/building-github-apps/authenticating-with-github-apps
   - /developers/apps/authenticating-with-github-apps
 versions:
@@ -39,7 +39,7 @@ Para gerar uma chave privada:
 {% endnote %}
 
 ## Verificar chaves privadas
-{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
+O {% data variables.product.product_name %} gera uma impressão digital para cada par de chave privada e pública usando a função hash SHA-256. Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
 
 Para verificar uma chave privada:
 

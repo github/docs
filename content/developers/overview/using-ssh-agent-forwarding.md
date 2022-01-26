@@ -2,7 +2,7 @@
 title: Using SSH agent forwarding
 intro: 'To simplify deploying to a server, you can set up SSH agent forwarding to securely use local SSH keys.'
 redirect_from:
-  - /guides/using-ssh-agent-forwarding/
+  - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
 versions:
   fpt: '*'
@@ -79,7 +79,7 @@ Here are some things to look out for when troubleshooting SSH agent forwarding.
 
 ### You must be using an SSH URL to check out code
 
-SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the *.git/config* file on your server and ensure the URL is an SSH-style URL like below:
+SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the `.git/config` file on your server and ensure the URL is an SSH-style URL like below:
 
 ```shell
 [remote "origin"]
@@ -107,7 +107,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-In the example above, the file *~/.ssh/config* is loaded first, then */etc/ssh_config* is read.  We can inspect that file to see if it's overriding our options by running the following commands:
+In the example above, the file `~/.ssh/config` is loaded first, then `/etc/ssh_config` is read.  We can inspect that file to see if it's overriding our options by running the following commands:
 
 ```shell
 $ cat /etc/ssh_config
@@ -117,7 +117,7 @@ $ cat /etc/ssh_config
 >   ForwardAgent no
 ```
 
-In this example, our */etc/ssh_config* file specifically says `ForwardAgent no`, which is a way to block agent forwarding. Deleting this line from the file should get agent forwarding working once more.
+In this example, our `/etc/ssh_config` file specifically says `ForwardAgent no`, which is a way to block agent forwarding. Deleting this line from the file should get agent forwarding working once more.
 
 ### Your server must allow SSH agent forwarding on inbound connections
 

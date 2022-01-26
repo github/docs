@@ -37,7 +37,7 @@ shortTitle: リポジトリへのライセンスの追加
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

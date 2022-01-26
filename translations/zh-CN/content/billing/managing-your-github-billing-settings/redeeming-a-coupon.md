@@ -3,9 +3,9 @@ title: 兑换优惠券
 intro: '如果您有优惠券，可以将其兑换为付费的 {% data variables.product.prodname_dotcom %} 订阅。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
-  - /articles/where-do-i-add-a-coupon-code/
-  - /articles/redeeming-a-coupon-for-your-personal-account/
-  - /articles/redeeming-a-coupon-for-organizations/
+  - /articles/where-do-i-add-a-coupon-code
+  - /articles/redeeming-a-coupon-for-your-personal-account
+  - /articles/redeeming-a-coupon-for-organizations
   - /articles/redeeming-a-coupon
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:

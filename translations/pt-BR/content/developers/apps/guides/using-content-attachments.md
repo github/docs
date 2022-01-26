@@ -5,10 +5,7 @@ redirect_from:
   - /apps/using-content-attachments
   - /developers/apps/using-content-attachments
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  ghes: <3.4
 topics:
   - GitHub Apps
 ---
@@ -122,7 +119,7 @@ curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
 }'
 ```
 
-For more information on `node_id`, see "[Using Global Node IDs]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)."
+Para obter mais informações sobre `node_id`, consulte "[Usando IDs de nós globais]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)".
 
 ## Exemplo de uso de manifestos do Probot e do aplicativo GitHub
 

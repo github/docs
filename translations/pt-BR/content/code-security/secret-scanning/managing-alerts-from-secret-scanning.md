@@ -6,7 +6,6 @@ redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
   - /code-security/secret-security/managing-alerts-from-secret-scanning
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -25,14 +24,14 @@ shortTitle: Gerenciar alertas de segredos
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. Na barra lateral esquerda, clique em **Alertas de varredura de segredo**.
+1. Na barra lateral esquerda, clique em **Alertas de varredura de segredo**.
    {% ifversion fpt or ghes or ghec %}
    ![Aba "Alertas de varredura de segredo "](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
    ![Aba "Alertas de varredura de segredo "](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
-4. Em "Escaneamento de segredos", clique no alerta que desejar visualizar.
+1. Em "Escaneamento de segredos", clique no alerta que desejar visualizar.
    {% ifversion fpt or ghec %}
    ![Lista de alertas do escaneamento secreto](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
@@ -42,7 +41,7 @@ shortTitle: Gerenciar alertas de segredos
    {% ifversion ghae %}
    ![Lista de alertas do escaneamento secreto](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
-5. Opcionalmente, use o menu suspenso "Marcar como" e clique em um motivo para resolver um alerta.
+1. Como alternativa, selecione o menu suspenso {% ifversion fpt or ghec %}"Fechar como"{% elsif ghes or ghae %}"Marcar como"{% endif %} e clique em um motivo para resolver um alerta.
    {% ifversion fpt or ghec %}
    ![Menu suspenso para resolver um alerta do escaneamento de segredo](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}

@@ -2,8 +2,8 @@
 title: ファイルへのパーマリンクを取得する
 intro: '{% data variables.product.product_location %} でファイルを表示する際に y キーを押すと、URL を、表示されているファイルと完全に同じバージョンへのパーマリンクへと更新できます。'
 redirect_from:
-  - /articles/getting-a-permanent-link-to-a-file/
-  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
+  - /articles/getting-a-permanent-link-to-a-file
+  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
   - /articles/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/managing-files-on-github/getting-permanent-links-to-files
@@ -33,7 +33,7 @@ GitHub の `codeql` リポジトリを参照し、`main` ブランチの現在�
 
 ブランチのヘッドにあるファイルのバージョンは、新たなコミットが行われるたびに変更される場合があるため、通常の URL をコピーすると、後で他のユーザが見るときはファイルのコンテンツが同一ではない場合があります。
 
-## <kbd>y</kbd> を押して特定のコミット内のファイルへのパーマリンクを取得
+## Press <kbd>Y</kbd> to permalink to a file in a specific commit
 
 表示されるファイルの特定のバージョンへのパーマリンクについては、URL でブランチ名を使用する代わりに (つまり、上記の例の `main` 部分)、コミット ID を入力します。  これにより、そのコミットの完全に同じバージョンに永続的にリンクされます。  例:
 

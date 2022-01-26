@@ -9,6 +9,9 @@ on:
     types:
       - labeled
 
+permissions:
+  contents: read
+
 jobs:
   comment-that-approved:
     name: Add review template

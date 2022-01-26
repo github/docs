@@ -20,7 +20,7 @@ GitHub を利用する際、数多くの追加製品や機能 (「追加製品�
 
 - **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, Pages, and SQL Server Images.
 
-- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, {% ifversion ghae-next %}Connect, {% endif %}Dependabot Preview, GitHub Enterprise Importer, Packages and Pages.
+- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages and Pages.
 
 ## アクション
 GitHubアクションでは、カスタムソフトウェア開発のライフサイクルにわたるワークフローをGitHubリポジトリに直接作成することができます。 Actionsは、使用量に基づいて課金されます。 [Actionsのドキュメント](/actions)には、計算量やストレージ容量 (アカウントのプランによって異なる)、およびActionsの使用分数の監視方法や利用限度の設定方法などの詳細情報が記載されています。
@@ -68,7 +68,7 @@ Codespaces allows you to load extensions from the Microsoft Visual Studio Market
 The generally available version of Codespaces is not currently available for U.S. government customers. アメリカ合衆国の祝日 government customers may continue to use the Codespaces Beta Preview under separate terms. See [Beta Preview terms](/github/site-policy/github-terms-of-service#j-beta-previews).
 
 ## Connect
-GitHub Connect を使うと、GitHub Enterprise Server{% ifversion ghae-next %}やGitHub AE {% endif %}インスタンスとGitHub.comのGitHub Enterprise Cloud OrganizationまたはEnterpriseアカウントとの間で特定の機能やデータを共有できます。 GitHub Connectを有効化するには、GitHub Enterprise CloudまたはGitHub.comに最低1つのアカウントを持ち、GitHub Enterprise Server{% ifversion ghae-next %}またはGitHub AE{% endif %}の最低1つのライセンスインスタンスを持っている必要があります。 Connect経由でのGitHub Enterprise CloudまたはGitHub.comの利用は、GitHub Enterprise CloudまたはGitHub.comのライセンスに基づく規約が適用されます。 「個人データ」の利用には、「[GitHubのプライバシーについての声明](/github/site-policy/github-privacy-statement)」が適用されます。
+With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server or GitHub AE instance and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed instance of GitHub Enterprise Server or GitHub AE. Connect経由でのGitHub Enterprise CloudまたはGitHub.comの利用は、GitHub Enterprise CloudまたはGitHub.comのライセンスに基づく規約が適用されます。 「個人データ」の利用には、「[GitHubのプライバシーについての声明](/github/site-policy/github-privacy-statement)」が適用されます。
 
 ## GitHub Enterprise Importer
 Importer is a framework for exporting data from other sources to be imported to the GitHub platform. Importer is provided “AS-IS”.
@@ -89,10 +89,10 @@ GitHubコースの使用、ならびにお客様ご自身によるコース資�
 ## npm
 npm はソフトウェアパッケージのホスティングサービスであり、ソフトウェアパッケージをプライベートまたパブリックでホストでき、パッケージをプロジェクト中で依存関係として使えるようになります。 npm はJavaScriptエコシステムのためのレコードのレジストリです。 npm 公開レジストリの利用は無料ですが、プライベートパッケージを公開したり、チームを使用してプライベートパッケージを管理したい場合には有料となります。 [npm ドキュメント](https://docs.npmjs.com/)にはアカウントの種類の制限や、[プライベートパッケージ](https://docs.npmjs.com/about-private-packages)および[Organization](https://docs.npmjs.com/organizations)の管理方法についての詳細が記載されています。 npm registryレジストリの利用規程は、[オープンソース規約](https://www.npmjs.com/policies/open-source-terms)に概説されています。 また、npm [solo](https://www.npmjs.com/policies/solo-plan)と[org](https://www.npmjs.com/policies/orgs-plan)の両方のプランに補足条項があります。 npmの利用には、npm[利用規約](https://www.npmjs.com/policies/terms)が適用されます。
 
-## パッケージ
+## Packages
 GitHub Packagesはソフトウェアパッケージのホスティングサービスであり、ソフトウェアパッケージをプライベートもしくはパブリックでホストでき、パッケージをプロジェクト中で依存関係として使えるようになります GitHub Packagesは、使用量に基づいて課金されます。 [Packagesのドキュメント](/packages/learn-github-packages/introduction-to-github-packages)には、帯域幅やストレージ容量 (アカウントのプランによって異なる)、およびPackagesの使用量の監視方法や利用限度の設定方法などの詳細情報が記載されています。 Packagesの帯域幅使用量は[「GitHub利用規定」](/github/site-policy/github-acceptable-use-policies)によって制限されます。
 
-## ページ
+## Pages
 
 各「アカウント」には、[GitHub Pagesの静的ホスティングサービス](/github/working-with-github-pages/about-github-pages)へのアクセス権があります。 GitHub Pages は静的Webページをホストするためのサービスですが、主に個人および組織のプロジェクトのためのショーケースの役割をはたしています。
 

@@ -2,7 +2,7 @@
 title: 限制仓库中的交互
 intro: 您可以临时对公共仓库中的某些用户限制活动一段时间。
 redirect_from:
-  - /articles/limiting-interactions-with-your-repository/
+  - /articles/limiting-interactions-with-your-repository
   - /articles/limiting-interactions-in-your-repository
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:

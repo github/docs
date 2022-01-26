@@ -15,11 +15,11 @@ topics:
 shortTitle: Restringir la creación de repositorios
 ---
 
-Puedes elegir si los miembros pueden crear repositorios en tu organización o no. Si permites que los miembros creen repositorios, puedes elegir qué tipos de repositorios pueden crear.{% ifversion fpt or ghec %} Para permitir que los miembros creen únicamente repositorios privados, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}.{% endif %} Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
+Puedes elegir si los miembros pueden crear repositorios en tu organización o no. Si permites que los miembros creen repositorios, puedes elegir qué tipos de repositorios pueden crear.{% ifversion fpt or ghec %} Para permitir que los miembros creen solo repositorios privados, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}.{% endif %}{% ifversion fpt %} Para obtener más información, consulta la sección "[Acerca de los repositorios](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories)" en la documentación de {% data variables.product.prodname_ghe_cloud %}{% endif %}.
 
 Los propietarios de la organización siempre pueden crear cualquier tipo de repositorio.
-
-{% ifversion fpt or ghec %}Los propietarios de empresas{% else %}administradores de sitio{% endif %} pueden restringir las opciones que tienes disponibles para la política de creación de repositorios de tu organización. For more information, see "[Restricting repository creation in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."
+{% ifversion ghec or ghae or ghes %}
+{% ifversion ghec or ghae %}Los propietarios de empresas{% elsif ghes %}Los administradores de sitio{% endif %} pueden restringir las opciones que tienes disponibles para la política de creación de repositorios de tu organización. {% ifversion ghec or ghes or ghae %} Para obtener más información, consulta la sección "[Restringir la creación de repositorios en tu empresa.](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)".{% endif %}{% endif %}
 
 {% warning %}
 
@@ -27,10 +27,14 @@ Los propietarios de la organización siempre pueden crear cualquier tipo de repo
 
 {% endwarning %}
 
-{% data reusables.organizations.internal-repos-enterprise %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Debajo de "Creación de repositorios", selecciona una o más opciones. ![Opciones de creación de repositorio](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. Debajo de "Creación de repositorios", selecciona una o más opciones.
+
+   {%- ifversion ghes or ghec or ghae %}
+   ![Opciones de creación de repositorio](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+   {%- elsif fpt %}
+   ![Opciones de creación de repositorio](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {%- endif %}
 6. Haz clic en **Save ** (guardar).

@@ -2,7 +2,7 @@
 title: Solucionar problemas de erros na solicitação de token de acesso do OAuth
 intro: '{% data reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors/
+  - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /developers/apps/troubleshooting-oauth-app-access-token-request-errors
 versions:

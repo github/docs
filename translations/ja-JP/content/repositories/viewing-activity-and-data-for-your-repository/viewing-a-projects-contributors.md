@@ -2,8 +2,8 @@
 title: プロジェクトのコントリビューターを表示する
 intro: 'リポジトリへのコミットにコントリビュートした人{% ifversion fpt or ghec %}とその依存関係{% endif %}を表示できます。'
 redirect_from:
-  - /articles/i-don-t-see-myself-in-the-contributions-graph/
-  - /articles/viewing-contribution-activity-in-a-repository/
+  - /articles/i-don-t-see-myself-in-the-contributions-graph
+  - /articles/viewing-contribution-activity-in-a-repository
   - /articles/viewing-a-projects-contributors
   - /github/visualizing-repository-data-with-graphs/viewing-a-projects-contributors
   - /github/visualizing-repository-data-with-graphs/accessing-basic-repository-data/viewing-a-projects-contributors

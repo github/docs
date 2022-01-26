@@ -1,4 +1,4 @@
 {% ifversion ghes or ghae-issue-4864 %}
 Enterprise owners must enable
-{% data variables.product.product_location %} 警示 {% data variables.product.prodname_dependabot %} 的漏洞依赖项，您才能使用这些功能。 更多信息请参阅“[在企业帐户上启用依赖关系图和 {% data variables.product.prodname_dependabot_alerts %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)”。
+{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies for {% data variables.product.product_location %} before you can use this feature. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
 {% endif %}

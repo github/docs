@@ -21,10 +21,10 @@ Puedes configurar permisos base que apliquen a todos los miembros de una organiz
 
 {% ifversion fpt or ghec %}Predeterminadamente, los miembros de una organización tendrán permisos de **Lectura** para los repositorios de la misma{% endif %}
 
-If someone with admin access to an organization's repository grants a member a higher level of access for the repository, the higher level of access overrides the base permission.
+Si alguien con permisos administrativos en un repositorio de una organización otorga un nivel de acceso superior a un miembro para dicho repositorio, este nivel de acceso superior anulará el permiso base.
 
 {% ifversion ghec %}
-If you've created a custom repository role with an inherited role that is lower access than your organization's base permissions, any members assigned to that role will default to the organization's base permissions rather than the inherited role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+Si creaste un rol de repositorio personalizado con un rol heredado que tenga un acceso menor que los permisos base de tu organización, cualquier miembro que se haya asignado a ese rol tendrá los permisos base predeterminados de la organización en vez de los del rol heredado. Para obtener más información, consulta la sección "[Administrar los roles personalizados de repositorio en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
 {% endif %}
 
 ## Configurar los permisos base
@@ -37,5 +37,5 @@ If you've created a custom repository role with an inherited role that is lower 
 
 ## Leer más
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - "[Agregar colaboradores externos a repositorios de tu organización](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)"

@@ -2,7 +2,7 @@
 title: デプロイキーの管理
 intro: デプロイメントのスクリプトを自動化する際にサーバー上のSSHキーを管理する様々な方法と、どれが最適な方法かを学んでください。
 redirect_from:
-  - /guides/managing-deploy-keys/
+  - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
 versions:
   fpt: '*'
@@ -177,6 +177,9 @@ GitHub Appは{% data variables.product.product_name %}でも主役級の存在�
 1. サーバー上で[`ssh-keygen`の手順を実行][generating-ssh-keys]し、公開鍵をマシンユーザアカウントに添付してください。
 2. マシンユーザアカウントに自動化したいリポジトリへのアクセスを付与してください。 これは、アカウントを[コラボレータ][collaborator]、[外部のコラボレータ][outside-collaborator]として、あるいはOrganization内の[Team][team]に追加することでも行えます。
 
+## 参考リンク
+- [通知を設定する](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
@@ -185,3 +188,4 @@ GitHub Appは{% data variables.product.product_name %}でも主役級の存在�
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
+

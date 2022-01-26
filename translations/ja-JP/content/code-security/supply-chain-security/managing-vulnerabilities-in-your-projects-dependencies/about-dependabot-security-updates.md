@@ -29,7 +29,7 @@ topics:
 
 {% data variables.product.prodname_dependabot_security_updates %} で、リポジトリ内の脆弱性のある依存関係を簡単に修正できます。 この機能を有効にすると、リポジトリの依存関係グラフで脆弱性のある依存関係に対して {% data variables.product.prodname_dependabot %} アラートが発生すると、{% data variables.product.prodname_dependabot %} は自動的にそれを修正しようとします。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」 および「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
 
-{% data variables.product.prodname_dotcom %}は、最近公開された{% data variables.product.prodname_dotcom %}セキュリティアドバイザリによって公開された脆弱性に影響されるリポジトリに{% data variables.product.prodname_dependabot %}アラートを送信することがあります。 {% data reusables.security-advisory.link-browsing-advisory-db %}
+{% data variables.product.prodname_dotcom %} may send  {% data variables.product.prodname_dependabot_alerts %} to repositories affected by a vulnerability disclosed by a recently published {% data variables.product.prodname_dotcom %} security advisory. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 {% data variables.product.prodname_dependabot %} は、リポジトリの依存関係グラフを中断することなく、脆弱性のある依存関係を修正バージョンにアップグレードできるかどうかを確認します。 次に、 {% data variables.product.prodname_dependabot %} はプルリクエストを発生させて、パッチを含む最小バージョンに依存関係を更新し、プルリクエストを {% data variables.product.prodname_dependabot %} アラートにリンクするか、アラートのエラーを報告します。 詳しい情報については、「[{% data variables.product.prodname_dependabot %} エラーのトラブルシューティング](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)」を参照してください。
 

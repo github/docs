@@ -2,9 +2,9 @@
 title: 配置双重身份验证
 intro: 您可以选择多个选项，以向帐户添加第二个身份验证源。
 redirect_from:
-  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app/
-  - /articles/configuring-two-factor-authentication-via-text-message/
-  - /articles/configuring-two-factor-authentication-via-fido-u2f/
+  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app
+  - /articles/configuring-two-factor-authentication-via-text-message
+  - /articles/configuring-two-factor-authentication-via-fido-u2f
   - /articles/configuring-two-factor-authentication
   - /github/authenticating-to-github/configuring-two-factor-authentication
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
@@ -122,6 +122,20 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 8. 按照安全密钥的文档激活安全密钥。 ![提示安全密钥](/assets/images/help/2fa/security-key-prompt.png)
 9.  确认您已下载并且能够访问恢复代码。 如果尚未下载，或者要生成另一组代码，请下载代码并将其保存在安全位置。 如果无法访问自己的帐户，您可以使用恢复代码来恢复帐户访问。 更多信息请参阅“[丢失 2FA 凭据时恢复帐户](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)”。 ![下载恢复代码按钮](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
+
+{% ifversion fpt or ghec %}
+## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
+
+You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.
+
+Once you have configured a TOTP application, or SMS, you can also use {% data variables.product.prodname_mobile %} to authenticate. If, in the future, you no longer have access to {% data variables.product.prodname_mobile %}, you will still be able to use security keys or TOTP applications to sign in.
+
+1. You must have already configured 2FA via a TOTP mobile app or via SMS.
+2. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+3. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+
+After signing in, you can now use your device for 2FA.
+{% endif %}
 
 ## 延伸阅读
 

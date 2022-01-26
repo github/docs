@@ -3,7 +3,7 @@ title: テーマ設定を管理する
 intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
 versions:
   fpt: '*'
-  ghae: next
+  ghae: '*'
   ghes: '>=3.2'
   ghec: '*'
 topics:
@@ -22,16 +22,14 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 
 {% note %}
 
-**Note:** The colorblind themes are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
+**Note:** The colorblind themes and light high contrast theme are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
 
 {% endnote %}
 
 {% endif %}
 
 {% data reusables.user_settings.access_settings %}
-1. [User settings] サイドバーで、[**Appearance**] をクリックします。
-
-   ![[User settings] サイドバーの [Appearance] タブ](/assets/images/help/settings/appearance-tab.png)
+{% data reusables.user_settings.appearance-settings %}
 
 1. Under "Theme mode", select the drop-down menu, then click a theme preference.
 

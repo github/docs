@@ -20,7 +20,7 @@ shortTitle: Requerir 2FA en la organización
 
 {% ifversion fpt or ghec %}
 
-También puedes requerir autenticación bifactorial para las organizaciones en una empresa. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
+También puedes requerir autenticación bifactorial para las organizaciones en una empresa. Para obtener más información, consulta la sección "[Requerir políticas para la configuración de seguridad en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
 
 {% endif %}
 

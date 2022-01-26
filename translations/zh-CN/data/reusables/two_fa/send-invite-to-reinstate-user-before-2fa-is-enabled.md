@@ -1,3 +1,3 @@
 {% ifversion fpt or ghec %}
-在用户启用双重身份验证之前，您可以向他们发送邀请以恢复其权限和对组织的访问，但他们必须启用双重身份验证之后才能接受邀请以重新加入组织。
+If a user was removed from your organization because you required members and outside collaborators to enable 2FA, you can send an invitation to reinstate a user's privileges and access to the organization before they have enabled two-factor authentication, but they must enable 2FA before they can accept your invitation to rejoin the organization.
 {% endif %}

@@ -2,9 +2,9 @@
 title: Configurar la autenticación de dos factores
 intro: Puedes elegir entre varias opciones para añadir una segunda fuente de autenticación a tu cuenta.
 redirect_from:
-  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app/
-  - /articles/configuring-two-factor-authentication-via-text-message/
-  - /articles/configuring-two-factor-authentication-via-fido-u2f/
+  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app
+  - /articles/configuring-two-factor-authentication-via-text-message
+  - /articles/configuring-two-factor-authentication-via-fido-u2f
   - /articles/configuring-two-factor-authentication
   - /github/authenticating-to-github/configuring-two-factor-authentication
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
@@ -58,7 +58,7 @@ Una aplicación de contraseña única basada en el tiempo (TOTP) genera automát
 6. Debajo de "Verificación de autenticación", realiza alguan de las siguientes acciones:
     - Escanea el código QR con la app del dispositivo móvil. Luego de escanear, la app muestra un código de seis dígitos que puedes ingresar en {% data variables.product.product_name %}.
     - Si no puedes escanear el código QR, haz clic en **ingresa este código de texto** para ver un código que puedas ingresar manualmente en tu app de TOTP en su lugar. ![Haz clic para ingresar este código](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
-7. The TOTP mobile application saves your account on {% data variables.product.product_location %} and generates a new authentication code every few seconds. En {% data variables.product.product_name %}, teclea el código en el campo debajo de "Ingresa el código de seis dígitos de la aplicación". Si tus códigos de recuperación no se muestran automáticamente, haz clic en **Continuar**. ![Campo para ingresar código de TOTP](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
+7. La aplicación móvil TOTP guarda tu cuenta en {% data variables.product.product_location %} y genera un código de autenticación nuevo cada pocos segundos. En {% data variables.product.product_name %}, teclea el código en el campo debajo de "Ingresa el código de seis dígitos de la aplicación". Si tus códigos de recuperación no se muestran automáticamente, haz clic en **Continuar**. ![Campo para ingresar código de TOTP](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
 {%- else %}
 5. En la página de autenticación de dos factores, haz clic en **Set up using an app** (Configurar mediante una app).
@@ -70,7 +70,7 @@ Una aplicación de contraseña única basada en el tiempo (TOTP) genera automát
 8. En la página de autenticación de dos factores, realiza una de las siguientes opciones:
     - Escanea el código QR con la app del dispositivo móvil. Luego de escanear, la app muestra un código de seis dígitos que puedes ingresar en {% data variables.product.product_name %}.
     - Si no puedes escanear el código QR, haz clic en **enter this text code** (escribir este código de texto) para ver un código que puedas copiar e ingresar manualmente en {% data variables.product.product_name %}. ![Haz clic para ingresar este código](/assets/images/help/2fa/totp-click-enter-code.png)
-9. The TOTP mobile application saves your account on {% data variables.product.product_location %} and generates a new authentication code every few seconds. En {% data variables.product.product_name %}, en la página 2FA, escribe el código y haz clic en **Enable** (Habilitar). ![Campo TOTP Enable (Habilitar TOTP)](/assets/images/help/2fa/totp-enter-code.png)
+9. La aplicación móvil TOTP guarda tu cuenta en {% data variables.product.product_location %} y genera un código de autenticación nuevo cada pocos segundos. En {% data variables.product.product_name %}, en la página 2FA, escribe el código y haz clic en **Enable** (Habilitar). ![Campo TOTP Enable (Habilitar TOTP)](/assets/images/help/2fa/totp-enter-code.png)
 {%- endif %}
 {% data reusables.two_fa.test_2fa_immediately %}
 
@@ -122,6 +122,20 @@ La autenticación con una clave de seguridad es *secundaria* para la autenticaci
 8. Activa tu clave de seguridad, seguida por la documentación de tu clave de seguridad.![Solicitar una clave de seguridad](/assets/images/help/2fa/security-key-prompt.png)
 9.  Confirma que has descargado tus códigos de recuperación y puedes acceder a ellos. Si aún no lo has hecho, o si deseas generar otro conjunto de códigos, descarga tus códigos y guárdalos en un lugar seguro. Si pierdes el acceso a tu cuenta, puedes usar tus códigos de recuperación para volver a ingresar a tu cuenta. Para obtener más información, consulta "[Recuperar tu cuenta si pierdes tus credenciales de 2FA](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)". ![Botón Download recovery codes (Descargar códigos de recuperación)](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
+
+{% ifversion fpt or ghec %}
+## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
+
+You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.
+
+Once you have configured a TOTP application, or SMS, you can also use {% data variables.product.prodname_mobile %} to authenticate. If, in the future, you no longer have access to {% data variables.product.prodname_mobile %}, you will still be able to use security keys or TOTP applications to sign in.
+
+1. You must have already configured 2FA via a TOTP mobile app or via SMS.
+2. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+3. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+
+After signing in, you can now use your device for 2FA.
+{% endif %}
 
 ## Leer más
 

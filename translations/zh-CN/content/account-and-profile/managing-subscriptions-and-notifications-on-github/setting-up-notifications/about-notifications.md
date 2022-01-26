@@ -2,7 +2,7 @@
 title: 关于通知
 intro: '通知提供有关您在 {% data variables.product.product_location %} 上已订阅活动的更新。 您可以使用通知收件箱来自定义、分类和管理更新。'
 redirect_from:
-  - /articles/notifications/
+  - /articles/notifications
   - /articles/about-notifications
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications-beta
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications
@@ -29,7 +29,7 @@ topics:
 您可以选择订阅关于以下内容的通知：
 - 关于特定议题、拉取请求或 Gist 的对话。
 - 仓库或团队讨论中的所有活动。
-- CI 活动，例如仓库中使用 {% data variables.product.prodname_actions %} 设置的工作流程的状态。 {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+- CI 活动，例如仓库中使用 {% data variables.product.prodname_actions %} 设置的工作流程的状态。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - 仓库 {% data reusables.notifications-v2.custom-notification-types %} (如果启用)。{% else %}
 - 在仓库中发布。{% endif %}
 
@@ -64,7 +64,7 @@ topics:
 要自定义如何接收特定拉取请求或议题的更新，可以在议题或拉取请求中配置首选项。 更多信息请参阅“[对单个通知进行分类](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)”。
 
 {% ifversion fpt or ghes or ghec %}
-您可以在 {% data variables.product.prodname_mobile %} 应用程序中自定义和安排推送通知。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)”。
+您可以在 {% data variables.product.prodname_mobile %} 应用程序中自定义和安排推送通知。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)”。
 {% endif %}
 
 ## 接收通知的原因
@@ -101,4 +101,4 @@ topics:
 
 ## 反馈和支持
 
-如果您对通知有反馈或功能请求，请使用[通知反馈表](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback)。
+If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).

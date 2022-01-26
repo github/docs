@@ -1,13 +1,14 @@
 ---
 title: Recursos en la API de REST
-intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
+intro: 'Aprende cómo navegar en los recursos que proporciona la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.'
 redirect_from:
-  - /rest/initialize-the-repo/
+  - /rest/initialize-the-repo
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
+miniTocMaxHeadingLevel: 3
 topics:
   - API
 ---
@@ -23,13 +24,13 @@ Predeterminadamente, todas las solicitudes a `{% data variables.product.api_url_
 
 {% ifversion fpt or ghec %}
 
-For information about GitHub's GraphQL API, see the [v4 documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). For information about migrating to GraphQL, see "[Migrating from REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)."
+Para obtener más información acerca de la API de GraphQL de GitHub, consulta la [documentación de la V4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). Para obtener más información acerca de cómo migrarse a GraphQL, consulta la sección "[Migrarse desde REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)".
 
 {% endif %}
 
 ## Modelo
 
-{% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  Todos los datos se
+{% ifversion fpt or ghec %}Todos los accesos de las API son através de HTTPS y se accede a{% else %}La API{% endif %} desde `{% data variables.product.api_url_code %}`.  Todos los datos se
 envían y reciben como JSON.
 
 ```shell
@@ -53,7 +54,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 Los campos en blanco se incluyen como `null` en vez de omitirse.
 
-All timestamps return in UTC time, ISO 8601 format:
+Todas las marcas de tiempo se devuelven en formato UTC, ISO 8601:
 
     AAAA-MM-DDTHH:MM:SSZ
 
@@ -110,10 +111,10 @@ Lee [más acerca de OAuth2](/apps/building-oauth-apps/).  Nota que los tokens de
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-El utilizar tu `client_id` y `client_secret` _no_ te autentica como un usuario, únicamente identifica tu aplicación de OAuth para incrementar tu límite de tasa. Los permisos se otorgan únicamente a usuarios, no a aplicaciones, y úicamente obtendrás datos que un usuario no autenticado vería. Es por esto que deberías utilizar únicamente la llave/secreto de OAuth2 en escenarios de servidor a servidor. No compartas el secreto de cliente de tu aplicación de OAuth con tus usuarios.
+Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. Los permisos se otorgan únicamente a usuarios, no a aplicaciones, y úicamente obtendrás datos que un usuario no autenticado vería. Es por esto que deberías utilizar únicamente la llave/secreto de OAuth2 en escenarios de servidor a servidor. Don't leak your OAuth App's client secret to your users.
 
 {% ifversion ghes %}
-No podrás autenticarte utilizndo tu llave y secreto de OAuth2 si estás en modo privado, y el intentarlo regresará el mensaje `401 Unauthorized`. For more information, see "[Enabling private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
+No podrás autenticarte utilizndo tu llave y secreto de OAuth2 si estás en modo privado, y el intentarlo regresará el mensaje `401 Unauthorized`. Para obtener más información, consulta la sección "[Habilitar el modo privado](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
 {% endif %}
 {% endif %}
 
@@ -176,7 +177,7 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 ## IDs de nodo globales de GraphQL
 
-See the guide on "[Using Global Node IDs]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+Consulta la guía sobre cómo "[Utilizar las ID de Nodo Global]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" para obtener información detallada sobre cómo encontrar las `node_id` a través de la API de REST y utilizarlas en las operaciones de GraphQL.
 
 ## Errores de cliente
 
@@ -311,21 +312,53 @@ Los valores de `rel` posibles son:
 
 ## Limitación de tasas
 
-Para las solicitudes de la API que utilizan Autenticación Básica u OAuth, puedes hacer hasta 5,000 solicitudes por hora. Las solicitudes autenticadas se asocian con el usuario autenticado, sin importar si se utilizó [Autenticación Básica](#basic-authentication) o [un token OAuth](#oauth2-token-sent-in-a-header). Esto significa que todas las aplicaciones de OAuth que autorice un usuario compartirán la misma cuota de 5,000 solicitudes por hora cuando se autentiquen con tokens diferentes que pertenezcan al mismo usuario.
+Different types of API requests to {% data variables.product.product_location %} are subject to different rate limits.
 
-{% ifversion fpt or ghec %}
-
-Para los usuarios que pertenezcan a una cuenta de {% data variables.product.prodname_ghe_cloud %}, las solicitudes que se hacen utilizando un token de OAuth para los recursos que pertenecen a la misma cuenta de {% data variables.product.prodname_ghe_cloud %} tienen un límite incrementado de 15,000 solicitudes por hora.
-
-{% endif %}
-
-Cuando utilizas el `GITHUB_TOKEN` integrado en GitHub Actions, el límite de tasa es de 1,000 solicitudes por hora por repositorio. Para las organizaciones que pertenecen a una cuenta de GitHub Enterprise Cloud, este límite será de 15,000 solicitudes por hora por repositorio.
-
-Para las solicitudes no autenticadas, el límite de tasa permite hasta 60 solicitudes por hora. Las solicitudes no autenticadas se asocian con la dirección IP que las origina, y no con el usuario que realiza la solicitud.
+Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
 
 {% data reusables.enterprise.rate_limit %}
 
-Nota que [la API de búsqueda tiene reglas personalizadas de límite de tasa](/rest/reference/search#rate-limit).
+{% data reusables.rest-api.always-check-your-limit %}
+
+### Requests from user accounts
+
+Direct API requests that you authenticate with a personal access token are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
+
+{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
+
+{% data reusables.apps.user-to-server-rate-limits %}
+
+{% ifversion fpt or ghec %}
+
+{% data reusables.apps.user-to-server-rate-limits-ghec %}
+
+{% ifversion fpt or ghec or ghes %}
+
+Para las solicitudes no autenticadas, el límite de tasa permite hasta 60 solicitudes por hora. Unauthenticated requests are associated with the originating IP address, and not the person making requests.
+
+{% endif %}
+
+{% endif %}
+
+### Requests from GitHub Apps
+
+Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)."
+
+### Requests from GitHub Actions
+
+You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. Para obtener más información, consulta la sección "[Autenticación automática de tokens](/actions/security-guides/automatic-token-authentication)".
+
+When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.product.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
+
+### Checking your rate limit status
+
+The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
+
+#### Rate Limit API
+
+You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
+
+#### Rate limit HTTP headers
 
 Los encabezados HTTP recuperados para cualquier solicitud de la API muestran tu estado actual de límite de tasa:
 
@@ -366,11 +399,9 @@ Si excedes el límite de tasa, se regresará una respuesta de error:
 > }
 ```
 
-Puedes [revisar tu estado de límite de tasa](/rest/reference/rate-limit) sin incurrir en una consulta de la API.
+### Increasing the unauthenticated rate limit for OAuth Apps
 
-### Incrementar el límite de tasa de no autenticados para las aplicaciones de OAuth
-
-Si tu aplicación de OAuth necesita hacer llamados no autenticados con un límite de tasa más alto, puedes pasar la ID de cliente y secreto de tu app ante la ruta de la terminal.
+If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
@@ -584,14 +615,14 @@ Un enlace que se ve así:
 
 ## Zonas horarias
 
-Algunas solicitudes que crean datos nuevos, tales como aquellas para crear una confirmación nueva, te permiten proporcionar información sobre la zona horaria cuando especificas o generas marcas de tiempo. We apply the following rules, in order of priority, to determine timezone information for such API calls.
+Algunas solicitudes que crean datos nuevos, tales como aquellas para crear una confirmación nueva, te permiten proporcionar información sobre la zona horaria cuando especificas o generas marcas de tiempo. Aplicamos las siguientes reglas, en orden de prioridad, para determinar la información de la zona horaria para los llamados a la API.
 
 * [Proporcionar explícitamente una marca de tiempo de tipo ISO 8601 con información de la zona horaria](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
 * [Utilizar el encabezado de `Time-Zone`](#using-the-time-zone-header)
 * [Utilizar la última zona horaria conocida del usuario](#using-the-last-known-timezone-for-the-user)
 * [Poner como defecto UTC en ausencia de otra información de zona horaria](#defaulting-to-utc-without-other-timezone-information)
 
-Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
+Toma en cuenta que estas reglas se aplican únicamente a los datos que se pasan a la API y no a los que esta devuelve. Tal como se menciona en "[Modelo](#schema)", las API devuelve las marcas de tiempo en formato UTC, ISO 8601.
 
 ### Proporcionar explícitamente una marca de tiempo de tipo ISO 8601 con información de la zona horaria
 

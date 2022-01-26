@@ -2,8 +2,8 @@
 title: Entregar implantações
 intro: 'Ao usar a API RESt de implantações, você pode criar ferramentas personalizadas que interagem com seu servidor e um aplicativo de terceiros.'
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
   fpt: '*'

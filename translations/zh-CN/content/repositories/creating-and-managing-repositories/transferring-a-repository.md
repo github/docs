@@ -2,15 +2,15 @@
 title: 转让仓库
 intro: 您可以将仓库转让给其他用户或组织帐户。
 redirect_from:
-  - /articles/about-repository-transfers/
-  - /move-a-repo/
-  - /moving-a-repo/
-  - /articles/what-is-transferred-with-a-repository/
-  - /articles/what-is-transferred-with-a-repo/
-  - /articles/how-to-transfer-a-repo/
-  - /articles/how-to-transfer-a-repository/
-  - /articles/transferring-a-repository-owned-by-your-personal-account/
-  - /articles/transferring-a-repository-owned-by-your-organization/
+  - /articles/about-repository-transfers
+  - /move-a-repo
+  - /moving-a-repo
+  - /articles/what-is-transferred-with-a-repository
+  - /articles/what-is-transferred-with-a-repo
+  - /articles/how-to-transfer-a-repo
+  - /articles/how-to-transfer-a-repository
+  - /articles/transferring-a-repository-owned-by-your-personal-account
+  - /articles/transferring-a-repository-owned-by-your-organization
   - /articles/transferring-a-repository
   - /github/administering-a-repository/transferring-a-repository
   - /github/administering-a-repository/managing-repository-settings/transferring-a-repository
@@ -31,7 +31,8 @@ Prerequisites for repository transfers:
 - When you transfer a repository that you own to another user account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. 如果新所有者在一天之内没有接受转让，则邀请将过期。{% endif %}
 - 要将您拥有的仓库转让给一个组织，您必须拥有在目标组织中创建仓库的权限。
 - 目标帐户不得具有相同名称的仓库，或位于同一网络中的复刻。
-- 仓库原来的所有者将添加为已转让仓库的协作者。 已转让仓库的其他协作者保持不变。
+- 仓库原来的所有者将添加为已转让仓库的协作者。 Other collaborators to the transferred repository remain intact.{% ifversion ghec or ghes or ghae %}
+- Internal repositories can't be transferred.{% endif %}
 - 私有复刻无法进行转让。
 
 {% ifversion fpt or ghec %}如果您将私有仓库转让给 {% data variables.product.prodname_free_user %} 用户或组织帐户，该仓库将无法访问比如受保护分支和 {% data variables.product.prodname_pages %} 之类的功能。 {% data reusables.gated-features.more-info %}{% endif %}

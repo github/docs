@@ -3,7 +3,7 @@ title: Adicionar observações a um quadro de projeto
 intro: Você pode adicionar observações a um quadro de projeto para que sirvam como lembretes de tarefas ou para adicionar informações relacionadas ao quadro de projeto.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
-  - /articles/adding-notes-to-a-project/
+  - /articles/adding-notes-to-a-project
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:

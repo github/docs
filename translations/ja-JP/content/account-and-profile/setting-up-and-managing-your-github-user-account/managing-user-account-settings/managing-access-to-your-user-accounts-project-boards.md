@@ -2,7 +2,7 @@
 title: ユーザ アカウントのプロジェクトボードに対するアクセスを管理する
 intro: プロジェクトボードのオーナーは、コラボレーターを追加または削除して、そのプロジェクトボードに対する権限をカスタマイズすることができます。
 redirect_from:
-  - /articles/managing-project-boards-in-your-repository-or-organization/
+  - /articles/managing-project-boards-in-your-repository-or-organization
   - /articles/managing-access-to-your-user-account-s-project-boards
   - /articles/managing-access-to-your-user-accounts-project-boards
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-user-accounts-project-boards

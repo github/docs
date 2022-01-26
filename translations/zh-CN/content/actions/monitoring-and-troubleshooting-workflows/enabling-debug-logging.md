@@ -12,7 +12,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 这些额外的日志将通过在包含工作流程的仓库中设置密码来启用，因此将应用相同的权限要求：
 

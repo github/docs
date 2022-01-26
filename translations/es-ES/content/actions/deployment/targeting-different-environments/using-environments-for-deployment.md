@@ -15,7 +15,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de los ambientes
 
@@ -26,14 +25,16 @@ Puedes configurr ambientes con reglas de protección y secretos. Cuando un job d
 {% ifversion fpt %}
 {% note %}
 
-**Note:** If you don't use {% data variables.product.prodname_ghe_cloud %} and convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. Si conviertes tu repositorio en público nuevamente, tendrás acceso a cualquier regla de protección y secreto de ambiente que hubieras configurado previamente. {% data reusables.enterprise.link-to-ghec-trial %}
+**Note:** You can only configure environments for public repositories. Si conviertes un repositorio de público a privado, cualquier regla de protección o secretos de ambiente que hubieses configurado se ingorarán y no podrás configurar ningún ambiente. Si conviertes tu repositorio en público nuevamente, tendrás acceso a cualquier regla de protección y secreto de ambiente que hubieras configurado previamente.
+
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can configure environments for private repositories. Para obtener más información, consulta la sección [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment). {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
 
 ## Reglas de protección de ambiente
 
-Las reglas de protección de ambiente requieren que pasen condiciones específicas antes de que un job que referencia al ambiente pueda proceder. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}Puedes utilizar las reglas de protección de ambiente para requerir una aprobación manual, retrasar un job, o restringir el ambiente a ramas específicas.{% else %}Puedes utilizar la protección de ambiente para requerir una aprobación manual o retrasar un job.{% endif %}
+Las reglas de protección de ambiente requieren que pasen condiciones específicas antes de que un job que referencia al ambiente pueda proceder. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Puedes utilizar las reglas de protección de ambiente para requerir una aprobación manual, retrasar un job, o restringir el ambiente a ramas específicas.{% else %}Puedes utilizar la protección de ambiente para requerir una aprobación manual o retrasar un job.{% endif %}
 
 ### Revisores requeridos
 
@@ -45,7 +46,7 @@ Para obtener más información sobre cómo revisar jobs que referencian un ambie
 
 Utiliza un temporizador de espera para retrasar un job durante una cantidad de tiempo específica después de que el job se active inicialmente. El tiempo (en minutos) debe ser un número entero entre 0 y 43,200 (30 días).
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ### Ramas de despliegue
 
 Utiliza ramas de despliegue para restringir las ramas que pueden hacer despliegues en el ambiente. A continuación encnotrarás las opciones para las ramas de despliegue de un ambiente:
@@ -82,7 +83,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 2. Optionally, specify the amount of time to wait before allowing workflow jobs that use this environment to proceed.
    1. Select **Wait timer**.
    1. Enter the number of minutes to wait.
-   1. Click **Save protection rules**.
+   1. Haz clic en **Guardar reglas de protección**.
 3. Optionally, specify what branches can deploy to this environment. For more information about the possible values, see "[Deployment branches](#deployment-branches)."
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches**, enter the branch name patterns that you want to allow.
@@ -92,7 +93,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
    1. Enter the secret value.
    1. Haz clic en **Agregar secreto** (Agregar secreto).
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}También puedes crear y configurar ambientes a través de la API de REST. Para obtener más información, consulta las secciones de "[Ambientes](/rest/reference/repos#environments)" y "[Secretos](/rest/reference/actions#secrets)".{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes crear y configurar ambientes a través de la API de REST. Para obtener más información, consulta las secciones de "[Ambientes](/rest/reference/repos#environments)" y "[Secretos](/rest/reference/actions#secrets)".{% endif %}
 
 El ejecutar un flujo de trabajo que referencie un ambiente que no existe creará un ambiente con el nombre referenciado. El ambiente recién creado no tendrá configurada ninguna regla de protección o secreto. Cualquiera que pueda editar flujos de trabajo en el repositorio podrá crear ambientes a través de un archivo de flujo de trabajo, pero solo los administradoresd e repositorio pueden configurar el ambiente.
 
@@ -116,13 +117,13 @@ El borrar un ambiente borrará todos los secretos y reglas de protección asocia
 1. Junto al ambiente que quieres borrar, haz clic en {% octicon "trash" aria-label="The trash icon" %}.
 2. Da clic en **Entiendo, borra este ambiente**.
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}También puedes borrar los ambientes a través de la API de REST Para obtener más información, consulta la sección "[Ambientes](/rest/reference/repos#environments)".{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes borrar los ambientes a través de la API de REST Para obtener más información, consulta la sección "[Ambientes](/rest/reference/repos#environments)".{% endif %}
 
 ## How environments relate to deployments
 
 {% data reusables.actions.environment-deployment-event %}
 
-You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[Repositories](/rest/reference/repos#deployments)" (REST API), "[Objects]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#deployment)" (GraphQL API), or "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
+You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. Para obtener más información, consulta las secciones "[Repositorios](/rest/reference/repos#deployments)" (API de REST), "[Objetos]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#deployment)"(API de GraphQL) o "[Cargas útiles y eventos de Webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)".
 
 ## Pasos siguientes
 

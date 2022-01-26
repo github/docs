@@ -22,7 +22,6 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -37,11 +36,11 @@ Te recomendamos que tengas una comprensión básica de Node.js, YAML, las opcion
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Comenzar con una plantilla de flujo de trabajo de Node.js
+## Utilizar el flujo de trabajo inicial de Node.js
 
-{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Node.js que funcionará para la mayoría de los proyectos Node.js. Esta guía incluye ejemplos de npm y Yarn que puedes usar para personalizar la plantilla. Para obtener más información, consulta la [Plantilla de flujo de trabajo Node.js](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
+{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de Node.js que funcionará para la mayoría de los proyectos de Node.js. Esta guía incluye ejemplos de Yarn y de npm que puedes utilizar para personalizar el flujo de trabajo inicial. Para obtener más información, consulta el [flujo de trabajo inicial de Node.js](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-Para comenzar rápidamente, agrega la plantilla al directorio `.github/workflows` de tu repositorio. El flujo de trabajo que se muestra a continuación asume que la rama predeterminada de tu repositorio es `main`.
+Para comenzar rápidamente, agrega el flujo de trabajo inicial al directorio de `.github/workflows` de tu repositorio. El flujo de trabajo que se muestra a continuación asume que la rama predeterminada de tu repositorio es `main`.
 
 {% raw %}
 ```yaml{:copy}
@@ -82,7 +81,7 @@ La forma más fácil de especificar una versión de Node.js es por medio de la a
 
 La acción `setup-node` toma una versión de Node.js como una entrada y configura esa versión en el ejecutor. La acción `setup-node` encuentra una versión específica de Node.js de la caché de herramientas en cada ejecutor y añade los binarios necesarios a `PATH`, que continúan para el resto del trabajo. Usar la acción `setup-node` es la forma recomendada de usar Node.js con {% data variables.product.prodname_actions %} porque asegura un comportamiento consistente a través de diferentes ejecutores y diferentes versiones de Node.js. Si estás usando un ejecutor autoalojado, debes instalar Node.js y añadirlo a `PATH`.
 
-La plantilla incluye una estrategia de matriz que crea y prueba tu código con cuatro versiones de Node.js: 10.x, 12.x, 14.x, y 15.x. La 'x' es un carácter comodín que coincide con el último lanzamiento menor y de parche disponible para una versión. Cada versión de Node.js especificada en la matriz `node-version` crea un trabajo que ejecuta los mismos pasos.
+El flujo de trabajo inicial incluye una estrategia de matriz que compila y prueba tu código con cuatro versiones de Node.js: 10.x, 12.x, 14.x y 15.x. La 'x' es un carácter comodín que coincide con el último lanzamiento menor y de parche disponible para una versión. Cada versión de Node.js especificada en la matriz `node-version` crea un trabajo que ejecuta los mismos pasos.
 
 Cada trabajo puede acceder al valor definido en la matriz `node-version` por medio del contexto `matrix`. La acción `setup-node` utiliza el contexto como la entrada `node-version`. La acción `setup-node` configura cada trabajo con una versión diferente de Node.js antes de construir y probar código. Para obtener más información acerca de las estrategias y los contextos de la matriz, consulta las secciones "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" y "[Contextos](/actions/learn-github-actions/contexts)".
 
@@ -135,7 +134,7 @@ jobs:
 {% endraw %}
 
 Si no especificas una versión de Node.js, {% data variables.product.prodname_dotcom %} utiliza la versión de Node.js por defecto del entorno.
-{% ifversion ghae %} Consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)" para obtener instrucciones para asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario.
+{% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %}
 {% else %} Para obtener más información, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
@@ -190,7 +189,7 @@ steps:
   run: yarn
 ```
 
-De forma alternativa, puede pasar `--frozen-lockfile` para instalar las versiones en el archivo *yarn.lock* y evitar actualizaciones al archivo *yarn.lock*.
+De forma alternativa, puede pasar `--frozen-lockfile` para instalar las versiones en el archivo `yarn.lock` y evitar actualizaciones al archivo `yarn.lock`.
 
 ```yaml{:copy}
 steps:
@@ -288,7 +287,7 @@ steps:
 - run: pnpm test
 ```
 
-Para guardar las dependencias en caché, debes tener un archivo de  `package-lock.json`, `yarn.lock`, o `pnpm-lock.yaml` en la raíz del repositorio. Si necesitas una personalización más flexible, puedes utilizar la [`acción cache`](https://github.com/marketplace/actions/cache). Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+Si tienes un requisito personalizado o necesitas controles más exactos para almacenar en caché, puedes utilizar la [acción `cache`](https://github.com/marketplace/actions/cache). Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
 
 ## Construir y probar tu código
 

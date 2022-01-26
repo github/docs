@@ -33,6 +33,16 @@ export const Header = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const close = (e: { key: string }) => {
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', close)
+    return () => window.removeEventListener('keydown', close)
+  }, [])
+
   return (
     <div
       className={cx(
@@ -76,7 +86,7 @@ export const Header = () => {
         {/* mobile header */}
         <div className="d-lg-none" data-testid="mobile-header">
           <div className="d-flex flex-justify-between">
-            <div className="d-flex flex-items-center" id="github-logo-mobile" role="banner">
+            <div className="d-flex flex-items-center" id="github-logo-mobile">
               <Link aria-hidden="true" tabIndex={-1} href={`/${router.locale}`}>
                 <MarkGithubIcon size={32} className="color-fg-default" />
               </Link>
@@ -89,16 +99,17 @@ export const Header = () => {
               </Link>
             </div>
 
-            <div>
+            <nav>
               <button
                 className="btn"
                 data-testid="mobile-menu-button"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Navigation Menu"
+                aria-expanded={isMenuOpen ? 'true' : 'false'}
               >
                 {isMenuOpen ? <XIcon size="small" /> : <ThreeBarsIcon size="small" />}
               </button>
-            </div>
+            </nav>
           </div>
 
           {/* mobile menu contents */}
@@ -128,6 +139,8 @@ export const Header = () => {
           </div>
         </div>
       </header>
+      {/* Adding Portal Root here for DropdownMenu and ActionList Search Results */}
+      <div id="__primerPortalRoot__" className={cx(styles.portalRoot)} />
     </div>
   )
 }

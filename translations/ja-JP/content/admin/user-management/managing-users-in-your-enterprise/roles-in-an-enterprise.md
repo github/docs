@@ -1,11 +1,10 @@
 ---
 title: Enterprise におけるロール
 intro: Enterprise 内の全員が Enterprise のメンバーです。 Enterprise の設定とデータへのアクセスを制御するために、Enterprise のメンバーにさまざまなロールを割り当てることができます。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
-  - /articles/permission-levels-for-a-business-account/
+  - /articles/permission-levels-for-a-business-account
   - /articles/roles-for-an-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise
 versions:
@@ -42,7 +41,7 @@ Enterprise オーナーは、Enterprise の完全な管理権限を持ち、以�
 
 Enterprise オーナーは、Organization のオーナーになるか、Organization が所有するリポジトリに直接アクセスする権限を与えられない限り、Organization の設定またはコンテンツにはアクセスできません。 同様に、Enterprise の Organization のオーナーは、Enterprise のオーナーにならない限り、Enterprise にはアクセスできません。
 
-Enterprise のオーナーは、Enterprise 内の少なくとも 1 つの Organization のオーナーまたはメンバーである場合にのみ、ライセンスを消費できます。 {% ifversion ghec %}Enterprise のオーナーは {% data variables.product.prodname_dotcom %} に個人アカウントを持っている必要があります。{% endif %} ベストプラクティスとして、ビジネスへのリスクを軽減するために、Enterprise のオーナーを数人にすることをお勧めします。
+Enterprise のオーナーは、Enterprise 内の少なくとも 1 つの Organization のオーナーまたはメンバーである場合にのみ、ライセンスを消費できます。 Even if an enterprise owner has a role in multiple organizations, they will consume a single license. {% ifversion ghec %}Enterprise のオーナーは {% data variables.product.prodname_dotcom %} に個人アカウントを持っている必要があります。{% endif %} ベストプラクティスとして、ビジネスへのリスクを軽減するために、Enterprise のオーナーを数人にすることをお勧めします。
 
 ## Enterprise メンバー
 

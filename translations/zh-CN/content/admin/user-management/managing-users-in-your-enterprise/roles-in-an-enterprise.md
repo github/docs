@@ -1,11 +1,10 @@
 ---
 title: 企业中的角色
 intro: 企业中的每个人都是企业的成员。 要控制对企业的设置和数据的访问权限，您可以为企业成员分配不同的角色。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
-  - /articles/permission-levels-for-a-business-account/
+  - /articles/permission-levels-for-a-business-account
   - /articles/roles-for-an-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise
 versions:
@@ -35,14 +34,14 @@ topics:
 
 企业所有者可以完全控制企业，并可以采取所有操作，包括：
 - 管理管理员
-- {% ifversion ghec %}添加和删除{% elsif ghae or ghes %}管理{% endif %}{% elsif ghae or ghes %}{% endif %}企业中的组织{% ifversion ghec %}。
+- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise
 - 管理企业设置
 - 在组织范围内强制实施政策
 {% ifversion ghec %}- 管理帐单设置{% endif %}
 
 企业所有者无法访问组织设置或内容，除非将其设为组织所有者或授予直接访问组织所拥有仓库的权限。 同样，除非您将其设为企业所有者，否则企业中的组织所有者无权访问企业。
 
-企业所有者仅在他们是企业中至少一个组织的所有者或成员时才可使用许可证。 {% ifversion ghec %}企业所有者必须在 {% data variables.product.prodname_dotcom %} 上拥有个人帐户。{% endif %} 作为最佳实践，我们建议只将少数人设为公司的企业所有者，以降低业务风险。
+企业所有者仅在他们是企业中至少一个组织的所有者或成员时才可使用许可证。 Even if an enterprise owner has a role in multiple organizations, they will consume a single license. {% ifversion ghec %}企业所有者必须在 {% data variables.product.prodname_dotcom %} 上拥有个人帐户。{% endif %} 作为最佳实践，我们建议只将少数人设为公司的企业所有者，以降低业务风险。
 
 ## 企业成员
 

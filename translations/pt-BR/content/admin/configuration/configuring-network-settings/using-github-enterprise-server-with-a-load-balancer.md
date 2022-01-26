@@ -2,7 +2,7 @@
 title: Usar o GitHub Enterprise Server com balanceador de carga
 intro: 'Use um balanceador de carga na frente de um appliance ou de um par de appliances do {% data variables.product.prodname_ghe_server %} em uma configuração de alta disponibilidade.'
 redirect_from:
-  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer/
+  - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
@@ -17,6 +17,8 @@ topics:
 shortTitle: Use um balanceador de carga
 ---
 
+## Sobre balanceadores de carga
+
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
@@ -29,9 +31,13 @@ Como as conexões do cliente com o {% data variables.product.prodname_ghe_server
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
+{% data reusables.enterprise_installation.terminating-tls %}
+
 ### Habilitar o suporte de protocolo PROXY na {% data variables.product.product_location %}
 
 É altamente recomendável ativar o suporte de protocolo PROXY para o appliance e o balanceador de carga. Use as instruções do fornecedor para habilitar o protocolo PROXY no balanceador de carga. Para obter mais informações, consulte a [documentação do protocolo PROXY](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
+
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -44,8 +50,6 @@ Como as conexões do cliente com o {% data variables.product.prodname_ghe_server
 ### Habilitar o suporte X-Forwarded-For na {% data variables.product.product_location %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
-
-{% data reusables.enterprise_installation.terminating-tls %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

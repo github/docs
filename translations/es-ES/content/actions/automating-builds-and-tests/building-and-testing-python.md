@@ -1,6 +1,6 @@
 ---
-title: Crear y probar en Python
-intro: Puedes crear un flujo de trabajo de integración continua (CI) para construir y probar tu proyecto de Python.
+title: Building and testing Python
+intro: You can create a continuous integration (CI) workflow to build and test your Python project.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
@@ -15,38 +15,38 @@ hidden: true
 topics:
   - CI
   - Python
-shortTitle: Crear & probar con Python
+shortTitle: Build & test Python
 hasExperimentalAlternative: true
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## Introducción
+## Introduction
 
-Esta guía te muestra cómo construir, probar y publicar un paquete de Python.
+This guide shows you how to build, test, and publish a Python package.
 
-{% ifversion ghae %} Consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)" para obtener instrucciones para asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario.
-{% else %}Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen una caché de herramientas con un software preinstalado que incluye Python y PyPy. ¡No tienes que instalar nada! Para obtener una lista completa de software actualizado y de las versiones preinstaladas de Python y PyPy, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
+{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-## Prerrequisitos
+## Prerequisites
 
-Deberías estar familiarizado con YAML y la sintaxis para las {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Aprende sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
+You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-Te recomendamos que tengas una comprensión básica de Python, PyPy y pip. Para obtener más información, consulta:
-- [Comenzar con Python](https://www.python.org/about/gettingstarted/)
+We recommend that you have a basic understanding of Python, PyPy, and pip. For more information, see:
+- [Getting started with Python](https://www.python.org/about/gettingstarted/)
 - [PyPy](https://pypy.org/)
-- [Administrador de paquetes pip](https://pypi.org/project/pip/)
+- [Pip package manager](https://pypi.org/project/pip/)
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Comenzar con la plantilla de flujo de trabajo de Python
+## Using the Python starter workflow
 
-{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Python que debería funcionar para la mayoría de los proyectos de Python. Esta guía incluye ejemplos que puedes usar para personalizar la plantilla. Para obtener más información, consulta la [Plantilla de flujo de trabajo de Python](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
+{% data variables.product.prodname_dotcom %} provides a Python starter workflow that should work for most Python projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Python starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
-Para comenzar rápidamente, agrega la plantilla al directorio `.github/workflows` de tu repositorio.
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml{:copy}
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -85,25 +85,25 @@ jobs:
 ```
 {% endraw %}
 
-## Especificar una versión de Python
+## Specifying a Python version
 
-Para usar una versión preinstalada de Python o PyPy en un ejecutor alojado {% data variables.product.prodname_dotcom %}, usa la acción `setup-python`. Esta acción encuentra una versión específica de Python o PyPy desde la caché de herramientas en cada ejecutor y agrega los binarios necesarios para `PATH`, que persiste durante el resto del trabajo. Si una versión específica de Python no está pre-instalada en el cache de herramientas, la acción `setup-python` se descargará y configurará la versión adecuada desde el repositorio <a hrhttps://github.com/actions/python-versions">`python-versions`</a>.
+To use a pre-installed version of Python or PyPy on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `setup-python` action. This action finds a specific version of Python or PyPy from the tools cache on each runner and adds the necessary binaries to `PATH`, which persists for the rest of the job. If a specific version of Python is not pre-installed in the tools cache, the `setup-python` action will download and set up the appropriate version from the [`python-versions`](https://github.com/actions/python-versions) repository.
 
-Usar el `setup-action` es la forma recomendada de usar Python con {% data variables.product.prodname_actions %} porque garantiza un comportamiento consistente a través de diferentes ejecutores y diferentes versiones de Python. Si estás usando un ejecutor alojado, debes instalar Python y añadirlo a `PATH`. Para obtener más información, consulta la acción [`setup-python`](https://github.com/marketplace/actions/setup-python).
+Using the `setup-python` action is the recommended way of using Python with {% data variables.product.prodname_actions %} because it ensures consistent behavior across different runners and different versions of Python. If you are using a self-hosted runner, you must install Python and add it to `PATH`. For more information, see the [`setup-python` action](https://github.com/marketplace/actions/setup-python).
 
-La tabla que aparece a continuación describe las ubicaciones de la caché de herramientas en cada ejecutor alojado {% data variables.product.prodname_dotcom %}.
+The table below describes the locations for the tools cache in each {% data variables.product.prodname_dotcom %}-hosted runner.
 
-|                                         | Ubuntu                          | Mac                                      | Windows                                    |
-| --------------------------------------- | ------------------------------- | ---------------------------------------- | ------------------------------------------ |
-| **Directorio de caché de herramientas** | `/opt/hostedtoolcache/*`        | `/Users/runner/hostedtoolcache/*`        | `C:\hostedtoolcache\windows\ *`         |
-| **Caché de herramientas de Python**     | `/opt/hostedtoolcache/Python/*` | `/Users/runner/hostedtoolcache/Python/*` | `C:\hostedtoolcache\windows\Python\ *` |
-| **Caché de la herramienta de PyPy**     | `/opt/hostedtoolcache/PyPy/*`   | `/Users/runner/hostedtoolcache/PyPy/*`   | `C:\hostedtoolcache\windows\PyPy\ *`   |
+|| Ubuntu | Mac | Windows |
+|------|-------|------|----------|
+|**Tool Cache Directory** |`/opt/hostedtoolcache/*`|`/Users/runner/hostedtoolcache/*`|`C:\hostedtoolcache\windows\*`|
+|**Python Tool Cache**|`/opt/hostedtoolcache/Python/*`|`/Users/runner/hostedtoolcache/Python/*`|`C:\hostedtoolcache\windows\Python\*`|
+|**PyPy Tool Cache**|`/opt/hostedtoolcache/PyPy/*`|`/Users/runner/hostedtoolcache/PyPy/*`|`C:\hostedtoolcache\windows\PyPy\*`|
 
-Si estás utilizando un ejecutor auto-hospedado, puedes configurarlo para utilizar la acción `setup-python` para administrar tus dependencias. Para obtener más información, consulta la sección [utilizar setup-python con un ejecutor auto-hospedado](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner) en el README de `setup-python`.
+If you are using a self-hosted runner, you can configure the runner to use the `setup-python` action to manage your dependencies. For more information, see [using setup-python with a self-hosted runner](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner) in the `setup-python` README.
 
-{% data variables.product.prodname_dotcom %} admite la sintaxis de control de versiones semántico. Para obtener más información, consulta "[Usar versiones semánticas](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)" y "[Especificación de control de versiones semántico](https://semver.org/)."
+{% data variables.product.prodname_dotcom %} supports semantic versioning syntax. For more information, see "[Using semantic versioning](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)" and the "[Semantic versioning specification](https://semver.org/)."
 
-### Usar múltiples versiones de Python
+### Using multiple Python versions
 
 {% raw %}
 ```yaml{:copy}
@@ -116,10 +116,10 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
-      # Puedes usar las versiones de PyPy en python-version.
+      # You can use PyPy versions in python-version.
       # For example, pypy2 and pypy3
       matrix:
-        python-version: [2.7, 3.6, 3.7, 3.8, 3.9]
+        python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -133,9 +133,9 @@ jobs:
 ```
 {% endraw %}
 
-### Usar una versión de Python específica
+### Using a specific Python version
 
-Puedes configurar una versión específica de Python. Por ejemplo, 3.8. Como alternativa, puedes utilizar una sintaxis de versión semántica para obtener el último lanzamiento menor. En este ejemplo se usa el último lanzamiento menor de Python 3.
+You can configure a specific version of python. For example, 3.8. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
 {% raw %}
 ```yaml{:copy}
@@ -163,11 +163,11 @@ jobs:
 ```
 {% endraw %}
 
-### Excluir una versión
+### Excluding a version
 
-Si especificas una versión de Python que no está disponible, `setup-python` falla con un error como: `##[error]Versión 3.4 con Arch x64 not found`. El mensaje de error incluye las versiones disponibles.
+If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.4 with arch x64 not found`. The error message includes the available versions.
 
-También puedes usar la palabra clave `exclude` en tu flujo de trabajo si hay una configuración de Python que no deseas ejecutar. Para obtener más información, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)".
+You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
 
 {% raw %}
 ```yaml{:copy}
@@ -182,30 +182,30 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9, pypy2, pypy3]
+        python-version: ["3.6", "3.7", "3.8", "3.9", pypy2, pypy3]
         exclude:
           - os: macos-latest
-            python-version: 3.6
+            python-version: "3.6"
           - os: windows-latest
-            python-version: 3.6
+            python-version: "3.6"
 ```
 {% endraw %}
 
-### Usar la versión de Python predeterminada
+### Using the default Python version
 
-Recomendamos usar `setup-python` para configurar la versión de Python que se usa en tus flujos de trabajo porque ayuda a hacer que tus dependencias sean explícitas. Si no usas `setup-python`, la versión predeterminada de Python establecida en `PATH` se usa en cualquier shell cuando llamas `python`. La versión predeterminada de Python varía entre los ejecutores alojados {% data variables.product.prodname_dotcom %}, que pueden causar cambios inesperados o usar una versión anterior a la esperada.
+We recommend using `setup-python` to configure the version of Python used in your workflows because it helps make your dependencies explicit. If you don't use `setup-python`, the default version of Python set in `PATH` is used in any shell when you call `python`. The default version of Python varies between {% data variables.product.prodname_dotcom %}-hosted runners, which may cause unexpected changes or use an older version than expected.
 
-| Ejecutor alojado {% data variables.product.prodname_dotcom %} | Descripción                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ubuntu                                                        | Los ejecutores de Ubuntu tienen múltiples versiones de Python del sistema instaladas bajo `/usr/bin/python` y `/usr/bin/python3`. Las versiones de Python que vienen empaquetadas con Ubuntu se suman a las versiones que {% data variables.product.prodname_dotcom %} instala en la caché de herramientas.                                                                                                         |
-| Windows                                                       | Excluyendo las versiones de Python que están en la caché de herramientas, Windows no se envía con una versión equivalente de Python del sistema. Para mantener un comportamiento consistente con otros ejecutores y para permitir que Python se use de forma integrada sin la acción `setup-python`, {% data variables.product.prodname_dotcom %} agrega algunas versiones desde la caché de herramientas a `PATH`. |
-| macOS                                                         | Los ejecutores de macOS tienen más de una versión de Python del sistema instalada, además de las versiones que son parte de la caché de las herramientas. Las versiones de Python del sistema se encuentran en el directorio `/usr/local/Cellar/python/*`.                                                                                                                                                          |
+| {% data variables.product.prodname_dotcom %}-hosted runner | Description |
+|----|----|
+| Ubuntu | Ubuntu runners have multiple versions of system Python installed under `/usr/bin/python` and `/usr/bin/python3`. The Python versions that come packaged with Ubuntu are in addition to the versions that {% data variables.product.prodname_dotcom %} installs in the tools cache. |
+| Windows | Excluding the versions of Python that are in the tools cache, Windows does not ship with an equivalent version of system Python. To maintain consistent behavior with other runners and to allow Python to be used out-of-the-box without the `setup-python` action, {% data variables.product.prodname_dotcom %} adds a few versions from the tools cache to `PATH`.|
+| macOS | The macOS runners have more than one version of system Python installed, in addition to the versions that are part of the tools cache. The system Python versions are located in the `/usr/local/Cellar/python/*` directory. |
 
-## Instalar dependencias
+## Installing dependencies
 
-Los ejecutores alojados {% data variables.product.prodname_dotcom %} tienen instalado el administrador del paquete pip. Puedes usar pip para instalar dependencias desde el registro del paquete de PyPI antes de construir y probar tu código. Por ejemplo, el YAML que aparece a continuación instala o actualiza el instalador del paquete `pip` y los paquetes `setuptools` y `wheel`.
+{% data variables.product.prodname_dotcom %}-hosted runners have the pip package manager installed. You can use pip to install dependencies from the PyPI package registry before building and testing your code. For example, the YAML below installs or upgrades the `pip` package installer and the `setuptools` and `wheel` packages.
 
-Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, también puedes guardar las dependencias en el caché para acelerar tu flujo de trabajo. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 {% raw %}
 ```yaml{:copy}
@@ -220,9 +220,9 @@ steps:
 ```
 {% endraw %}
 
-### Archivo de requisitos
+### Requirements file
 
-Después de actualizar `pip`, un siguiente paso típico es instalar dependencias desde *requirements.txt*. Para obtener más información, consulta la sección de [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
+After you update `pip`, a typical next step is to install dependencies from *requirements.txt*. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
 
 {% raw %}
 ```yaml{:copy}
@@ -239,48 +239,34 @@ steps:
 ```
 {% endraw %}
 
-### Dependencias de almacenamiento en caché
+### Caching Dependencies
 
-Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes guardar las dependencias pip en el caché utilizando una clave única y restaurar las dependencias cuando ejecutes flujos de trabajo subsecuentes, utilizando la acción [`cache`](https://github.com/marketplace/actions/cache). Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-python` action](https://github.com/actions/setup-python).
 
-Pip almacena en caché las dependencias en diferentes ubicaciones, en función del sistema operativo del ejecutor. La ruta que necesitarás para almacenar en caché puede diferir del ejemplo de Ubuntu que aparece a continuación, según el sistema operativo que uses. Para obtener más información, consulta los [Ejemplos de almacenamiento en caché de Python](https://github.com/actions/cache/blob/main/examples.md#python---pip).
+The following example caches dependencies for pip.
 
-{% raw %}
 ```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
-- name: Setup Python
-  uses: actions/setup-python@v2
+- uses: actions/setup-python@v2
   with:
-    python-version: '3.x'
-- name: Cache pip
-  uses: actions/cache@v2
-  with:
-    # This path is specific to Ubuntu
-    path: ~/.cache/pip
-    # Look to see if there is a cache hit for the corresponding requirements file
-    key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-    restore-keys: |
-      ${{ runner.os }}-pip-
-      ${{ runner.os }}-
-- name: Install dependencies
-  run: pip install -r requirements.txt
+    python-version: '3.9'
+    cache: 'pip'
+- run: pip install -r requirements.txt
+- run: pip test
 ```
-{% endraw %}
 
-{% note %}
+By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip or `Pipfile.lock` for pipenv) in the whole repository. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching packages dependencies</a>" in the `setup-python` actions README. 
 
-**Nota:** Dependiendo de la cantidad de dependencias, puede ser más rápido usar la caché de dependencias. Los proyectos con muchas dependencias de gran tamaño deberían ver un aumento del rendimiento, ya que reduce el tiempo necesario para la descarga. Los proyectos con menos dependencias pueden no ver un aumento significativo del rendimiento e incluso pueden ver una ligera disminución debido a la manera en que pip instala las dependencias almacenadas en caché. El rendimiento varía de un proyecto a otro.
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example above, depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip) in the `cache` action repository.
 
-{% endnote %}
+## Testing your code
 
-## Probar tu código
+You can use the same commands that you use locally to build and test your code.
 
-Puedes usar los mismos comandos que usas de forma local para construir y probar tu código.
+### Testing with pytest and pytest-cov
 
-### Pruebas con pytest y pytest-cov
-
-Este ejemplo instala o actualiza `pytest` y `pytest-cov`. A continuación, se ejecutan y se emiten pruebas en formato JUnit, mientras que los resultados de la cobertura de código se emiten en Cobertura. Para obtener más información, consulta [JUnit](https://junit.org/junit5/) y [Cobertura](https://cobertura.github.io/Cobertura/).
+This example installs or upgrades `pytest` and `pytest-cov`. Tests are then run and output in JUnit format while code coverage results are output in Cobertura. For more information, see [JUnit](https://junit.org/junit5/) and [Cobertura](https://cobertura.github.io/cobertura/).
 
 {% raw %}
 ```yaml{:copy}
@@ -302,9 +288,9 @@ steps:
 ```
 {% endraw %}
 
-### Usar Flake8 para el código lint
+### Using Flake8 to lint code
 
-En el siguiente ejemplo se instala o actualiza `flake8` y se usa para limpiar todos los archivos. Para obtener más información, consulta [Flake8](http://flake8.pycqa.org/en/latest/).
+The following example installs or upgrades `flake8` and uses it to lint all files. For more information, see [Flake8](http://flake8.pycqa.org/en/latest/).
 
 {% raw %}
 ```yaml{:copy}
@@ -326,11 +312,11 @@ steps:
 ```
 {% endraw %}
 
-El paso de limpieza de código se configuró con `continue-on-error: true`. Esto prevendrá que el flujo de trabajo falle si el paso de limpieza de código no tiene éxito. Una vez que hayas abordado todos los errores de limpieza de código, puedes eliminar esta opción para que el flujo de trabajo atrape propuestas nuevas.
+The linting step has `continue-on-error: true` set. This will keep the workflow from failing if the linting step doesn't succeed. Once you've addressed all of the linting errors, you can remove this option so the workflow will catch new issues.
 
-### Ejecutar pruebas con tox
+### Running tests with tox
 
-Con {% data variables.product.prodname_actions %}, puedes ejecutar pruebas con tox y repartir el trabajo a través de múltiples trabajos. Necesitarás invocar tox utilizando la opción `-e py` para elegir la versión de Python en tu `PATH`, en lugar de especificar una versión específica. Para obtener más información, consulta [tox](https://tox.readthedocs.io/en/latest/).
+With {% data variables.product.prodname_actions %}, you can run tests with tox and spread the work across multiple jobs. You'll need to invoke tox using the `-e py` option to choose the version of Python in your `PATH`, rather than specifying a specific version. For more information, see [tox](https://tox.readthedocs.io/en/latest/).
 
 {% raw %}
 ```yaml{:copy}
@@ -344,7 +330,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [3.7, 3.8, 3.9]
+        python: ["3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -360,11 +346,11 @@ jobs:
 ```
 {% endraw %}
 
-## Empaquetar datos de flujo de trabajo como artefactos
+## Packaging workflow data as artifacts
 
-Puedes cargar artefactos para ver después de que se complete un flujo de trabajo. Por ejemplo, es posible que debas guardar los archivos de registro, los vaciados de memoria, los resultados de las pruebas o las capturas de pantalla. Para obtener más información, consulta "[Conservar datos de flujo de trabajo mediante artefactos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
+You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-En el siguiente ejemplo se muestra cómo puedes usar la acción `upload-artifact` para archivar los resultados de las pruebas de ejecución `pytest`. Para obtener más información, consulta la acción [`upload-artifact`](https://github.com/actions/upload-artifact).
+The following example demonstrates how you can use the `upload-artifact` action to archive test results from running `pytest`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
 {% raw %}
 ```yaml{:copy}
@@ -378,7 +364,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -403,11 +389,11 @@ jobs:
 ```
 {% endraw %}
 
-## Publicar en registros de paquetes
+## Publishing to package registries
 
-Puedes configurar tu flujo de trabajo para publicar tu paquete de Python a un registro de paquetes una vez que pasen tus pruebas de IC. Esta sección demuestra cómo puedes utilizar {% data variables.product.prodname_actions %} para cargar to paquete a PyPI cada vez que [publicas un lanzamiento](/github/administering-a-repository/managing-releases-in-a-repository).
+You can configure your workflow to publish your Python package to a package registry once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you [publish a release](/github/administering-a-repository/managing-releases-in-a-repository). 
 
-Para este ejemplo, necesitarás crear dos [Tokens de la API de PyPI](https://pypi.org/help/#apitoken). Puedes utilizar secretos para almacenar los tokens de acceso o las credenciales que se necesitan publicar en tu paquete. Para obtener más información, consulta "[Crear y usar secretos cifrados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -440,4 +426,4 @@ jobs:
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
 
-Para obtener más información sobre la plantilla de flujo de trabajo, consulta a [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
+For more information about the starter workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

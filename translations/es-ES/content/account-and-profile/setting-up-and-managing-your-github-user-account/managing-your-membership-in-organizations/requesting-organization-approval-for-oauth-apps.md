@@ -2,8 +2,8 @@
 title: Solicitar aprobación de la organización para OAuth Apps
 intro: 'Los miembros de la organización pueden solicitar que un propietario apruebe el acceso a los recursos de la organización para {% data variables.product.prodname_oauth_app %}.'
 redirect_from:
-  - /articles/requesting-organization-approval-for-third-party-applications/
-  - /articles/requesting-organization-approval-for-your-authorized-applications/
+  - /articles/requesting-organization-approval-for-third-party-applications
+  - /articles/requesting-organization-approval-for-your-authorized-applications
   - /articles/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps
