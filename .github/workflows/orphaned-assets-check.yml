@@ -1,0 +1,30 @@
+name: 'Orphaned assets check'
+
+# **What it does**: Checks that there are no files in ./assets/ that aren't mentioned in any source file.
+# **Why we have it**: To avoid orphans into the repo.
+# **Who does it impact**: Docs content.
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  orphaned-assets-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+
+      - name: Setup node
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        with:
+          node-version: 16.13.x
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Check for orphaned assets
+        run: ./script/find-orphaned-assets.mjs --verbose --exit

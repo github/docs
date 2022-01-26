@@ -1,6 +1,6 @@
 ---
-title: Creating a GitHub App using URL parameters
-intro: 'You can preselect the settings of a new {% data variables.product.prodname_github_app %} using URL [query parameters](https://en.wikipedia.org/wiki/Query_string) to quickly set up the new {% data variables.product.prodname_github_app %}''s configuration.'
+title: URL パラメータを使用して GitHub App を作成する
+intro: '新しい {% data variables.product.prodname_github_app %} の構成を迅速に設定するため、URL [クエリパラメータ] (https://en.wikipedia.org/wiki/Query_string) を使用して新しい {% data variables.product.prodname_github_app %} の設定を事前設定できます。'
 redirect_from:
   - /apps/building-github-apps/creating-github-apps-using-url-parameters
   - /developers/apps/creating-a-github-app-using-url-parameters
@@ -11,22 +11,23 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: App creation query parameters
+shortTitle: アプリケーション作成のクエリパラメータ
 ---
-## About {% data variables.product.prodname_github_app %} URL parameters
 
-You can add query parameters to these URLs to preselect the configuration of a {% data variables.product.prodname_github_app %} on a personal or organization account:
+## {% data variables.product.prodname_github_app %} URL パラメータについて
 
-* **User account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* **Organization account:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
+個人または Organization アカウントで、{% data variables.product.prodname_github_app %} の構成を事前設定する以下の URL をクエリパラメータに追加できます。
 
-The person creating the app can edit the preselected values from the {% data variables.product.prodname_github_app %} registration page, before submitting the app. If you do not include required parameters in the URL query string, like `name`, the person creating the app will need to input a value before submitting the app.
+* **ユーザアカウント:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **Organization アカウント:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
+
+アプリケーションを作成するユーザは、アプリケーションをサブミットする前に {% data variables.product.prodname_github_app %} 登録ページから事前設定する値を編集できます。 URL クエリ文字列に `name` などの必須の値を含めない場合、アプリケーションを作成するユーザが、アプリケーションをサブミットする前に値を入力する必要があります。
 
 {% ifversion ghes > 3.1 or fpt or ghae or ghec %}
-For apps that require a secret to secure their webhook, the secret's value must be set in the form by the person creating the app, not by using query parameters. For more information, see "[Securing your webhooks](/developers/webhooks-and-events/webhooks/securing-your-webhooks)."
+webhook を保護するためにシークレットが必要なアプリケーションの場合、シークレットの値はクエリパラメータではなく、アプリケーションを作成する人がフォームに設定する必要があります。 詳しい情報については「[webhookをセキュアにする](/developers/webhooks-and-events/webhooks/securing-your-webhooks)」を参照してください。
 {% endif %}
 
-The following URL creates a new public app called `octocat-github-app` with a preconfigured description and callback URL. This URL also selects read and write permissions for `checks`, subscribes to the `check_run` and `check_suite` webhook events, and selects the option to request user authorization (OAuth) during installation:
+以下の URL は、説明とコールバック URL が事前設定された、`octocat-github-app` という新しい公開アプリケーションを作成します。 また、この URL は`checks` の読み取りおよび書き込み権限を選択し、`check_run` および `check_suite` webhook イベントにサブスクライブし、インストール時にユーザの認可 (OAuth) をリクエストするオプションを選択します。
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
@@ -42,102 +43,102 @@ The following URL creates a new public app called `octocat-github-app` with a pr
 
 {% endif %}
 
-The complete list of available query parameters, permissions, and events is listed in the sections below.
+使用可能なクエリパラメータ、権限、およびイベントの完全なリストを、以下のセクションに記載します。
 
 ## {% data variables.product.prodname_github_app %} configuration parameters
 
- Name | Type | Description
------|------|-------------
-`name` | `string` | The name of the {% data variables.product.prodname_github_app %}. Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
-`description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
-`url` | `string` | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-`callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to identify and authorize user-to-server requests. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`.{% else %}
-`callback_url` | `string` | The full URL to redirect to after someone authorizes an installation. This URL is used if your app needs to identify and authorize user-to-server requests.{% endif %}
-`request_oauth_on_install` | `boolean` | If your app authorizes users using the OAuth flow, you can set this option to `true` to allow people to authorize the app when they install it, saving a step. If you select this option, the `setup_url` becomes unavailable and users will be redirected to your `callback_url` after installing the app.
-`setup_url` | `string` | The full URL to redirect to after someone installs the {% data variables.product.prodname_github_app %} if the app requires additional setup after installation.
-`setup_on_update` | `boolean` | Set to `true` to redirect people to the setup URL when installations have been updated, for example, after repositories are added or removed.
-`public` | `boolean` | Set to `true` when your {% data variables.product.prodname_github_app %} is available to the public or `false` when it is only accessible to the owner of the app.
-`webhook_active` | `boolean` | Set to `false` to disable webhook. Webhook is enabled by default.
-`webhook_url` | `string` | The full URL that you would like to send webhook event payloads to.
-{% ifversion ghes < 3.2 or ghae %}`webhook_secret` | `string` | You can specify a secret to secure your webhooks. See "[Securing your webhooks](/webhooks/securing/)" for more details.
-{% endif %}`events` | `array of strings` | Webhook events. Some webhook events require `read` or `write` permissions for a resource before you can select the event when registering a new {% data variables.product.prodname_github_app %}. See the "[{% data variables.product.prodname_github_app %} webhook events](#github-app-webhook-events)" section for available events and their required permissions. You can select multiple events in a query string. For example, `events[]=public&events[]=label`.{% ifversion ghes < 3.4 %}
-`domain` | `string` | The URL of a content reference.{% endif %}
-`single_file_name` | `string` | This is a narrowly-scoped permission that allows the app to access a single file in any repository. When you set the `single_file` permission to `read` or `write`, this field provides the path to the single file your {% data variables.product.prodname_github_app %} will manage. {% ifversion fpt or ghes or ghec %} If you need to manage multiple files, see `single_file_paths` below. {% endif %}{% ifversion fpt or ghes or ghec %}
-`single_file_paths` | `array of strings` | This allows the app to access up ten specified files in a repository. When you set the `single_file` permission to `read` or `write`, this array can store the paths for up to ten files that your {% data variables.product.prodname_github_app %} will manage. These files all receive the same permission set by `single_file`, and do not have separate individual permissions. When two or more files are configured, the API returns `multiple_single_files=true`, otherwise it returns `multiple_single_files=false`.{% endif %}
+ | 名前                                                 | 種類                 | 説明                                                                                                                                                                                                                                                                                                                                                                                   |
+ | -------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+ | `name`                                             | `string`           | {% data variables.product.prodname_github_app %} の名前。 アプリケーションには簡潔で明快な名前を付けましょう。 アプリケーションの名前は、既存の GitHub ユーザと同じ名前にできません。ただし、その名前があなた自身のユーザ名や Organization 名である場合は例外です。 インテグレーションが動作すると、ユーザインターフェース上にアプリケーション名のスラッグが表示されます。                                                                                                                                                         |
+ | `説明`                                               | `string`           | {% data variables.product.prodname_github_app %} の説明。                                                                                                                                                                                                                                                                                                                              |
+ | `url`                                              | `string`           | {% data variables.product.prodname_github_app %}のウェブサイトの完全なURL。{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
+ | `callback_urls`                                    | `array of strings` | インストールの承認後にリダイレクトする完全な URL。 最大 10 個のコールバック URL を指定できます。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。 たとえば、`callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`などです。{% else %}
+ | `callback_url`                                     | `string`           | インストールの承認後にリダイレクトする完全な URL。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。{% endif %}
+ | `request_oauth_on_install`                         | `boolean`          | アプリケーションが OAuth フローを使用してユーザを認可する場合、このオプションを `true` にして、インストール時にアプリケーションを認可し、ステップを省略するように設定できます。 このオプションを選択した場合、`setup_url` が利用できなくなり、アプリケーションのインストール後はあなたが設定した `callback_url` にリダイレクトされます。                                                                                                                                                                                           |
+ | `setup_url`                                        | `string`           | {% data variables.product.prodname_github_app %} アプリケーションをインストール後に追加セットアップが必要な場合に、リダイレクトする完全な URL。                                                                                                                                                                                                                                                                                 |
+ | `setup_on_update`                                  | `boolean`          | `true` に設定すると、たとえばリポジトリが追加や削除された後など、インストールしたアプリケーションが更新された場合に、ユーザをセットアップ URL にリダイレクトします。                                                                                                                                                                                                                                                                                             |
+ | `public`                                           | `boolean`          | {% data variables.product.prodname_github_app %} を公開する場合には `true` に、アプリケーションの所有者のみがアクセスできるようにするには `false` を設定。                                                                                                                                                                                                                                                                     |
+ | `webhook_active`                                   | `boolean`          | Set to `false` to disable webhook. Webhook is enabled by default.                                                                                                                                                                                                                                                                                                                    |
+ | `webhook_url`                                      | `string`           | webhook イベントペイロードを送信する完全な URL。                                                                                                                                                                                                                                                                                                                                                       |
+ | {% ifversion ghes < 3.2 or ghae %}`webhook_secret` | `string`           | webhook を保護するためのシークレットを指定できます。 詳細は「[webhook を保護する](/webhooks/securing/)」を参照。                                                                                                                                                                                                                                                                                                         |
+ | {% endif %}`events`                                | `array of strings` | webhook イベント. 一部の webhook イベントでは、新しい {% data variables.product.prodname_github_app %} を登録する際、イベントを選択するために`read` または `write` 権限が必要です。 利用可能なイベントと、それに必要な権限については、「[{% data variables.product.prodname_github_app %} webhook イベント](#github-app-webhook-events)」セクションを参照してください。 クエリ文字列では、複数のイベントを選択できます。 For example, `events[]=public&events[]=label`.{% ifversion ghes < 3.4 %}
+ | `ドメイン`                                             | `string`           | The URL of a content reference.{% endif %}
+ | `single_file_name`                                 | `string`           | これは、アプリケーションが任意のリポジトリの単一のファイルにアクセスできるようにするための、スコープの狭い権限です。 `single_file` 権限を `read` または `write` に設定すると、このフィールドは {% data variables.product.prodname_github_app %} が扱う単一のファイルへのパスを指定します。 {% ifversion fpt or ghes or ghec %}複数のファイルを扱う必要がある場合、以下の `single_file_paths` を参照してください。 {% endif %}{% ifversion fpt or ghes or ghec %}
+ | `single_file_paths`                                | `array of strings` | アプリケーションが、リポジトリ内の指定した最大 10 ファイルにアクセスできるようにします。 `single_file` 権限を `read` または `write` に設定すると、この配列は {% data variables.product.prodname_github_app %} が扱う最大 10 個のファイルへのパスを格納できます。 これらのファイルには、それぞれ別々の権限があたえられるでのではなく、すべて `single_file` が設定したものと同じ権限が与えられます。 2 つ以上のファイルが設定されている場合、API は `multiple_single_files=true` を返し、それ以外の場合は `multiple_single_files=false` を返します。{% endif %}
 
-## {% data variables.product.prodname_github_app %} permissions
+## {% data variables.product.prodname_github_app %} の権限
 
-You can select permissions in a query string using the permission name in the following table as the query parameter name and the permission type as the query value. For example, to select `Read & write` permissions in the user interface for `contents`, your query string would include `&contents=write`. To select `Read-only` permissions in the user interface for `blocking`, your query string would include `&blocking=read`. To select `no-access` in the user interface for `checks`, your query string would not include the `checks` permission.
+以下の表にある権限名をクエリパラメータ名として、権限タイプをクエリの値として使用することで、クエリ文字列で権限を設定できます。 たとえば、`contents` のユーザインターフェースに `Read & write` 権限を設定するには、クエリ文字列に `&contents=write` を含めます。 `blocking` のユーザインターフェースに `Read-only` 権限を設定するには、クエリ文字列に `&blocking=read` を含めます。 `checks` のユーザインターフェースに `no-access` を設定するには、クエリ文字列に `checks` 権限を含めないようにします。
 
-Permission | Description
----------- | -----------
-[`administration`](/rest/reference/permissions-required-for-github-apps/#permission-on-administration) | Grants access to various endpoints for organization and repository administration. Can be one of: `none`, `read`, or `write`.{% ifversion fpt or ghec %}
-[`blocking`](/rest/reference/permissions-required-for-github-apps/#permission-on-blocking) | Grants access to the [Blocking Users API](/rest/reference/users#blocking). Can be one of: `none`, `read`, or `write`.{% endif %}
-[`checks`](/rest/reference/permissions-required-for-github-apps/#permission-on-checks) | Grants access to the [Checks API](/rest/reference/checks). Can be one of: `none`, `read`, or `write`.{% ifversion ghes < 3.4 %}
-`content_references` | Grants access to the "[Create a content attachment](/rest/reference/apps#create-a-content-attachment)" endpoint. Can be one of: `none`, `read`, or `write`.{% endif %}
-[`contents`](/rest/reference/permissions-required-for-github-apps/#permission-on-contents) |  Grants access to various endpoints that allow you to modify repository contents. Can be one of: `none`, `read`, or `write`.
-[`deployments`](/rest/reference/permissions-required-for-github-apps/#permission-on-deployments) | Grants access to the [Deployments API](/rest/reference/repos#deployments). Can be one of: `none`, `read`, or `write`.{% ifversion fpt or ghes or ghec %}
-[`emails`](/rest/reference/permissions-required-for-github-apps/#permission-on-emails) | Grants access to the [Emails API](/rest/reference/users#emails). Can be one of: `none`, `read`, or `write`.{% endif %}
-[`followers`](/rest/reference/permissions-required-for-github-apps/#permission-on-followers) | Grants access to the [Followers API](/rest/reference/users#followers). Can be one of: `none`, `read`, or `write`.
-[`gpg_keys`](/rest/reference/permissions-required-for-github-apps/#permission-on-gpg-keys) | Grants access to the [GPG Keys API](/rest/reference/users#gpg-keys). Can be one of: `none`, `read`, or `write`.
-[`issues`](/rest/reference/permissions-required-for-github-apps/#permission-on-issues) | Grants access to the [Issues API](/rest/reference/issues). Can be one of: `none`, `read`, or `write`.
-[`keys`](/rest/reference/permissions-required-for-github-apps/#permission-on-keys) | Grants access to the [Public Keys API](/rest/reference/users#keys). Can be one of: `none`, `read`, or `write`.
-[`members`](/rest/reference/permissions-required-for-github-apps/#permission-on-members) |  Grants access to manage an organization's members. Can be one of: `none`, `read`, or `write`.{% ifversion fpt or ghec %}
-[`metadata`](/rest/reference/permissions-required-for-github-apps/#metadata-permissions) | Grants access to read-only endpoints that do not leak sensitive data. Can be `read` or `none`. Defaults to `read` when you set any permission, or defaults to `none` when you don't specify any permissions for the {% data variables.product.prodname_github_app %}.
-[`organization_administration`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-administration) | Grants access to "[Update an organization](/rest/reference/orgs#update-an-organization)" endpoint and the [Organization Interaction Restrictions API](/rest/reference/interactions#set-interaction-restrictions-for-an-organization). Can be one of: `none`, `read`, or `write`.{% endif %}
-[`organization_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-hooks) | Grants access to the [Organization Webhooks API](/rest/reference/orgs#webhooks/). Can be one of: `none`, `read`, or `write`.
-`organization_plan` | Grants access to get information about an organization's plan using the "[Get an organization](/rest/reference/orgs#get-an-organization)" endpoint. Can be one of: `none` or `read`.
-[`organization_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-projects) |  Grants access to the [Projects API](/rest/reference/projects). Can be one of: `none`, `read`, `write`, or `admin`.{% ifversion fpt or ghec %}
-[`organization_user_blocking`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-projects) | Grants access to the [Blocking Organization Users API](/rest/reference/orgs#blocking). Can be one of: `none`, `read`, or `write`.{% endif %}
-[`pages`](/rest/reference/permissions-required-for-github-apps/#permission-on-pages) | Grants access to the [Pages API](/rest/reference/repos#pages). Can be one of: `none`, `read`, or `write`.
-`plan` | Grants access to get information about a user's GitHub plan using the "[Get a user](/rest/reference/users#get-a-user)" endpoint. Can be one of: `none` or `read`.
-[`pull_requests`](/rest/reference/permissions-required-for-github-apps/#permission-on-pull-requests) | Grants access to various pull request endpoints. Can be one of: `none`, `read`, or `write`.
-[`repository_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-hooks) | Grants access to the [Repository Webhooks API](/rest/reference/repos#hooks). Can be one of: `none`, `read`, or `write`.
-[`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects) |  Grants access to the [Projects API](/rest/reference/projects). Can be one of: `none`, `read`, `write`, or `admin`.{% ifversion fpt or ghes > 3.0 or ghec %}
-[`secret_scanning_alerts`](/rest/reference/permissions-required-for-github-apps/#permission-on-secret-scanning-alerts) |  Grants access to the [Secret scanning API](/rest/reference/secret-scanning). Can be one of: `none`, `read`, or `write`.{% endif %}{% ifversion fpt or ghes or ghec %}
-[`security_events`](/rest/reference/permissions-required-for-github-apps/#permission-on-security-events) |  Grants access to the [Code scanning API](/rest/reference/code-scanning/). Can be one of: `none`, `read`, or `write`.{% endif %}
-[`single_file`](/rest/reference/permissions-required-for-github-apps/#permission-on-single-file) | Grants access to the [Contents API](/rest/reference/repos#contents). Can be one of: `none`, `read`, or `write`.
-[`starring`](/rest/reference/permissions-required-for-github-apps/#permission-on-starring) | Grants access to the [Starring API](/rest/reference/activity#starring). Can be one of: `none`, `read`, or `write`.
-[`statuses`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses) | Grants access to the [Statuses API](/rest/reference/repos#statuses). Can be one of: `none`, `read`, or `write`.
-[`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions) | Grants access to the [Team Discussions API](/rest/reference/teams#discussions) and the [Team Discussion Comments API](/rest/reference/teams#discussion-comments). Can be one of: `none`, `read`, or `write`.{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-`vulnerability_alerts`| Grants access to receive security alerts for vulnerable dependencies in a repository. See "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)" to learn more. Can be one of: `none` or `read`.{% endif %}
-`watching` | Grants access to list and change repositories a user is subscribed to. Can be one of: `none`, `read`, or `write`.
+| 権限                                                                                                                               | 説明                                                                                                                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`administration`](/rest/reference/permissions-required-for-github-apps/#permission-on-administration)                           | Organization およびリポジトリ管理のためのさまざまなエンドポイントにアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% ifversion fpt or ghec %}
+| [`blocking`](/rest/reference/permissions-required-for-github-apps/#permission-on-blocking)                                       | [Blocking Users API](/rest/reference/users#blocking) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}
+| [`checks`](/rest/reference/permissions-required-for-github-apps/#permission-on-checks)                                           | [Checks API](/rest/reference/checks) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% ifversion ghes < 3.4 %}
+| `content_references`                                                                                                             | 「[コンテンツ添付の作成](/rest/reference/apps#create-a-content-attachment)」エンドポイントへのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}
+| [`contents`](/rest/reference/permissions-required-for-github-apps/#permission-on-contents)                                       | さまざまなエンドポイントにアクセス権を付与し、リポジトリのコンテンツを変更できるようにします。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                |
+| [`deployments`](/rest/reference/permissions-required-for-github-apps/#permission-on-deployments)                                 | [Deployments API](/rest/reference/repos#deployments) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% ifversion fpt or ghes or ghec %}
+| [`emails`](/rest/reference/permissions-required-for-github-apps/#permission-on-emails)                                           | [Emails API](/rest/reference/users#emails) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}
+| [`followers`](/rest/reference/permissions-required-for-github-apps/#permission-on-followers)                                     | [Followers API](/rest/reference/users#followers) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                |
+| [`gpg_keys`](/rest/reference/permissions-required-for-github-apps/#permission-on-gpg-keys)                                       | [GPG Keys API](/rest/reference/users#gpg-keys) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                  |
+| [`issues`](/rest/reference/permissions-required-for-github-apps/#permission-on-issues)                                           | [Issues API](/rest/reference/issues) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                            |
+| [`keys`](/rest/reference/permissions-required-for-github-apps/#permission-on-keys)                                               | [Public Keys API](/rest/reference/users#keys) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                   |
+| [`members`](/rest/reference/permissions-required-for-github-apps/#permission-on-members)                                         | Organization のメンバーへのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% ifversion fpt or ghec %}
+| [`メタデータ`](/rest/reference/permissions-required-for-github-apps/#metadata-permissions)                                            | 機密データを漏洩しない、読み取り専用のエンドポイントへのアクセス権を付与します。 `read`、`none` のいずれかです。 {% data variables.product.prodname_github_app %} に何らかの権限を設定した場合、デフォルトは `read` となり、権限を指定しなかった場合、デフォルトは `none` となります。                                                                         |
+| [`organization_administration`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-administration) | 「[Organization の更新](/rest/reference/orgs#update-an-organization)」エンドポイントと、[Organization Interaction Restrictions API](/rest/reference/interactions#set-interaction-restrictions-for-an-organization) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}
+| [`organization_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-hooks)                   | [Organization Webhooks API](/rest/reference/orgs#webhooks/) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                     |
+| `organization_plan`                                                                                                              | 「[Organization の取得](/rest/reference/orgs#get-an-organization)」エンドポイントを使用して Organization のプランについての情報を取得するためのアクセス権を付与します。 `none`、`read` のいずれかです。                                                                                                                |
+| [`organization_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-projects)             | [Projects API](/rest/reference/projects) へのアクセス権を付与します。 `none`、`read`、`write`、`admin` のいずれかです。{% ifversion fpt or ghec %}
+| [`organization_user_blocking`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-projects)        | [Blocking Organization Users API](/rest/reference/orgs#blocking) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}
+| [`pages`](/rest/reference/permissions-required-for-github-apps/#permission-on-pages)                                             | [Pages API](/rest/reference/repos#pages) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                        |
+| `plan`                                                                                                                           | 「[ユーザの取得](/rest/reference/users#get-a-user)」エンドポイントを使用してユーザの GitHub プランについての情報を取得するためのアクセス権を付与します。 `none`、`read` のいずれかです。                                                                                                                                     |
+| [`pull_requests`](/rest/reference/permissions-required-for-github-apps/#permission-on-pull-requests)                             | さまざまなプルリクエストエンドポイントへのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                              |
+| [`repository_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-hooks)                       | [Repository Webhooks API](/rest/reference/repos#hooks) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                          |
+| [`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects)                 | [Projects API](/rest/reference/projects) へのアクセス権を付与します。 `none`、`read`、`write`、`admin` のいずれかです。{% ifversion fpt or ghes > 3.0 or ghec %}
+| [`secret_scanning_alerts`](/rest/reference/permissions-required-for-github-apps/#permission-on-secret-scanning-alerts)           | [Secret scanning API](/rest/reference/secret-scanning) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}{% ifversion fpt or ghes or ghec %}
+| [`security_events`](/rest/reference/permissions-required-for-github-apps/#permission-on-security-events)                         | [Code scanning API](/rest/reference/code-scanning/) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}
+| [`single_file`](/rest/reference/permissions-required-for-github-apps/#permission-on-single-file)                                 | [Contents API](/rest/reference/repos#contents) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                  |
+| [`starring`](/rest/reference/permissions-required-for-github-apps/#permission-on-starring)                                       | [Starring API](/rest/reference/activity#starring) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                               |
+| [`statuses`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses)                                       | [Statuses API](/rest/reference/repos#statuses) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                  |
+| [`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions)                       | [Team Discussions API](/rest/reference/teams#discussions) および [Team Discussion Comments API](/rest/reference/teams#discussion-comments) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| `vulnerability_alerts`                                                                                                           | リポジトリ内の脆弱性のある依存関係に対するセキュリティアラートを受信するためのアクセス権を付与します。 詳細は「[脆弱性のある依存関係に関するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照。 `none`、`read` のいずれかです。{% endif %}
+| `Watch`                                                                                                                          | リストへのアクセス権を付与し、ユーザがサブスクライブするリポジトリの変更を許可します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                    |
 
-## {% data variables.product.prodname_github_app %} webhook events
+## {% data variables.product.prodname_github_app %} webhook イベント
 
-Webhook event name | Required permission | Description
------------------- | ------------------- | -----------
-[`check_run`](/webhooks/event-payloads/#check_run) |`checks` | {% data reusables.webhooks.check_run_short_desc %}
-[`check_suite`](/webhooks/event-payloads/#check_suite) |`checks` | {% data reusables.webhooks.check_suite_short_desc %}
-[`commit_comment`](/webhooks/event-payloads/#commit_comment) | `contents` | {% data reusables.webhooks.commit_comment_short_desc %}{% ifversion ghes < 3.4 %}
-[`content_reference`](/webhooks/event-payloads/#content_reference) |`content_references` | {% data reusables.webhooks.content_reference_short_desc %}{% endif %}
-[`create`](/webhooks/event-payloads/#create) | `contents` | {% data reusables.webhooks.create_short_desc %}
-[`delete`](/webhooks/event-payloads/#delete) | `contents` | {% data reusables.webhooks.delete_short_desc %}
-[`deployment`](/webhooks/event-payloads/#deployment) | `deployments` | {% data reusables.webhooks.deployment_short_desc %}
-[`deployment_status`](/webhooks/event-payloads/#deployment_status) | `deployments` | {% data reusables.webhooks.deployment_status_short_desc %}
-[`fork`](/webhooks/event-payloads/#fork) | `contents` | {% data reusables.webhooks.fork_short_desc %}
-[`gollum`](/webhooks/event-payloads/#gollum) | `contents` | {% data reusables.webhooks.gollum_short_desc %}
-[`issues`](/webhooks/event-payloads/#issues) | `issues` | {% data reusables.webhooks.issues_short_desc %}
-[`issue_comment`](/webhooks/event-payloads/#issue_comment) | `issues` | {% data reusables.webhooks.issue_comment_short_desc %}
-[`label`](/webhooks/event-payloads/#label) | `metadata` | {% data reusables.webhooks.label_short_desc %}
-[`member`](/webhooks/event-payloads/#member) | `members` | {% data reusables.webhooks.member_short_desc %}
-[`membership`](/webhooks/event-payloads/#membership) | `members` | {% data reusables.webhooks.membership_short_desc %}
-[`milestone`](/webhooks/event-payloads/#milestone) | `pull_request` | {% data reusables.webhooks.milestone_short_desc %}{% ifversion fpt or ghec %}
-[`org_block`](/webhooks/event-payloads/#org_block) | `organization_administration` | {% data reusables.webhooks.org_block_short_desc %}{% endif %}
-[`organization`](/webhooks/event-payloads/#organization) | `members` | {% data reusables.webhooks.organization_short_desc %}
-[`page_build`](/webhooks/event-payloads/#page_build) | `pages` | {% data reusables.webhooks.page_build_short_desc %}
-[`project`](/webhooks/event-payloads/#project) | `repository_projects` or `organization_projects` | {% data reusables.webhooks.project_short_desc %}
-[`project_card`](/webhooks/event-payloads/#project_card) | `repository_projects` or `organization_projects` | {% data reusables.webhooks.project_card_short_desc %}
-[`project_column`](/webhooks/event-payloads/#project_column) | `repository_projects` or `organization_projects` | {% data reusables.webhooks.project_column_short_desc %}
-[`public`](/webhooks/event-payloads/#public) | `metadata` | {% data reusables.webhooks.public_short_desc %}
-[`pull_request`](/webhooks/event-payloads/#pull_request) | `pull_requests` | {% data reusables.webhooks.pull_request_short_desc %}
-[`pull_request_review`](/webhooks/event-payloads/#pull_request_review) | `pull_request` | {% data reusables.webhooks.pull_request_review_short_desc %}
-[`pull_request_review_comment`](/webhooks/event-payloads/#pull_request_review_comment) | `pull_request` | {% data reusables.webhooks.pull_request_review_comment_short_desc %}
-[`push`](/webhooks/event-payloads/#push) | `contents` | {% data reusables.webhooks.push_short_desc %}
-[`release`](/webhooks/event-payloads/#release) | `contents` | {% data reusables.webhooks.release_short_desc %}
-[`repository`](/webhooks/event-payloads/#repository) |`metadata` | {% data reusables.webhooks.repository_short_desc %}{% ifversion fpt or ghec %}
-[`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) | `contents` | Allows integrators using GitHub Actions to trigger custom events.{% endif %}
-[`status`](/webhooks/event-payloads/#status) | `statuses` | {% data reusables.webhooks.status_short_desc %}
-[`team`](/webhooks/event-payloads/#team) | `members` | {% data reusables.webhooks.team_short_desc %}
-[`team_add`](/webhooks/event-payloads/#team_add) | `members` | {% data reusables.webhooks.team_add_short_desc %}
-[`watch`](/webhooks/event-payloads/#watch) | `metadata` | {% data reusables.webhooks.watch_short_desc %}
+| Webhook イベント名                                                                          | 必要な権限                                             | 説明                                                                                  |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| [`check_run`](/webhooks/event-payloads/#check_run)                                     | `checks`                                          | {% data reusables.webhooks.check_run_short_desc %}
+| [`check_suite`](/webhooks/event-payloads/#check_suite)                                 | `checks`                                          | {% data reusables.webhooks.check_suite_short_desc %}
+| [`commit_comment`](/webhooks/event-payloads/#commit_comment)                           | `contents`                                        | {% data reusables.webhooks.commit_comment_short_desc %}{% ifversion ghes < 3.4 %}
+| [`content_reference`](/webhooks/event-payloads/#content_reference)                     | `content_references`                              | {% data reusables.webhooks.content_reference_short_desc %}{% endif %}
+| [`create`](/webhooks/event-payloads/#create)                                           | `contents`                                        | {% data reusables.webhooks.create_short_desc %}
+| [`delete`](/webhooks/event-payloads/#delete)                                           | `contents`                                        | {% data reusables.webhooks.delete_short_desc %}
+| [`deployment`](/webhooks/event-payloads/#deployment)                                   | `deployments`                                     | {% data reusables.webhooks.deployment_short_desc %}
+| [`deployment_status`](/webhooks/event-payloads/#deployment_status)                     | `deployments`                                     | {% data reusables.webhooks.deployment_status_short_desc %}
+| [`フォーク`](/webhooks/event-payloads/#fork)                                               | `contents`                                        | {% data reusables.webhooks.fork_short_desc %}
+| [`gollum`](/webhooks/event-payloads/#gollum)                                           | `contents`                                        | {% data reusables.webhooks.gollum_short_desc %}
+| [`issues`](/webhooks/event-payloads/#issues)                                           | `issues`                                          | {% data reusables.webhooks.issues_short_desc %}
+| [`issue_comment`](/webhooks/event-payloads/#issue_comment)                             | `issues`                                          | {% data reusables.webhooks.issue_comment_short_desc %}
+| [`ラベル`](/webhooks/event-payloads/#label)                                               | `メタデータ`                                           | {% data reusables.webhooks.label_short_desc %}
+| [`メンバー`](/webhooks/event-payloads/#member)                                             | `members`                                         | {% data reusables.webhooks.member_short_desc %}
+| [`membership`](/webhooks/event-payloads/#membership)                                   | `members`                                         | {% data reusables.webhooks.membership_short_desc %}
+| [`マイルストーン`](/webhooks/event-payloads/#milestone)                                       | `pull_request`                                    | {% data reusables.webhooks.milestone_short_desc %}{% ifversion fpt or ghec %}
+| [`org_block`](/webhooks/event-payloads/#org_block)                                     | `organization_administration`                     | {% data reusables.webhooks.org_block_short_desc %}{% endif %}
+| [`Organization`](/webhooks/event-payloads/#organization)                               | `members`                                         | {% data reusables.webhooks.organization_short_desc %}
+| [`page_build`](/webhooks/event-payloads/#page_build)                                   | `pages`                                           | {% data reusables.webhooks.page_build_short_desc %}
+| [`project`](/webhooks/event-payloads/#project)                                         | `repository_projects` または `organization_projects` | {% data reusables.webhooks.project_short_desc %}
+| [`project_card`](/webhooks/event-payloads/#project_card)                               | `repository_projects` または `organization_projects` | {% data reusables.webhooks.project_card_short_desc %}
+| [`project_column`](/webhooks/event-payloads/#project_column)                           | `repository_projects` または `organization_projects` | {% data reusables.webhooks.project_column_short_desc %}
+| [`public`](/webhooks/event-payloads/#public)                                           | `メタデータ`                                           | {% data reusables.webhooks.public_short_desc %}
+| [`pull_request`](/webhooks/event-payloads/#pull_request)                               | `pull_requests`                                   | {% data reusables.webhooks.pull_request_short_desc %}
+| [`pull_request_review`](/webhooks/event-payloads/#pull_request_review)                 | `pull_request`                                    | {% data reusables.webhooks.pull_request_review_short_desc %}
+| [`pull_request_review_comment`](/webhooks/event-payloads/#pull_request_review_comment) | `pull_request`                                    | {% data reusables.webhooks.pull_request_review_comment_short_desc %}
+| [`プッシュ`](/webhooks/event-payloads/#push)                                               | `contents`                                        | {% data reusables.webhooks.push_short_desc %}
+| [`リリース`](/webhooks/event-payloads/#release)                                            | `contents`                                        | {% data reusables.webhooks.release_short_desc %}
+| [`リポジトリ`](/webhooks/event-payloads/#repository)                                        | `メタデータ`                                           | {% data reusables.webhooks.repository_short_desc %}{% ifversion fpt or ghec %}
+| [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch)                 | `contents`                                        | GitHub Action を使用するインテグレーターがカスタムイベントをトリガーできるようにします。{% endif %}
+| [`ステータス`](/webhooks/event-payloads/#status)                                            | `statuses`                                        | {% data reusables.webhooks.status_short_desc %}
+| [`Team`](/webhooks/event-payloads/#team)                                               | `members`                                         | {% data reusables.webhooks.team_short_desc %}
+| [`team_add`](/webhooks/event-payloads/#team_add)                                       | `members`                                         | {% data reusables.webhooks.team_add_short_desc %}
+| [`Watch`](/webhooks/event-payloads/#watch)                                             | `メタデータ`                                           | {% data reusables.webhooks.watch_short_desc %}

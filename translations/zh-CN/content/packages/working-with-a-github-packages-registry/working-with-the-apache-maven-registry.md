@@ -191,4 +191,4 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 ## Further reading
 
 - "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
-- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

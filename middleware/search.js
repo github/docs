@@ -37,7 +37,7 @@ router.get('/', async function postSearch(req, res, next) {
     console.error(err)
     // Only reply if the headers have not been sent and the request was not aborted...
     if (!res.headersSent && !req.aborted) {
-      return res.status(400).json([])
+      return res.status(400).json({ error: err.toString() })
     }
   }
 })

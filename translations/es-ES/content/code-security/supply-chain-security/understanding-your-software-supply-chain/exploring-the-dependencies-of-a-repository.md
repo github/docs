@@ -34,7 +34,7 @@ The dependency graph shows the dependencies{% ifversion fpt or ghec %} and depen
 ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
 {% ifversion ghes or ghae-issue-4864 %}
-Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."
+Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
 {% endif %}
 
 ### Dependencies view
@@ -84,9 +84,9 @@ You can disable the dependency graph at any time by clicking **Disable** next to
 
 ## Changing the "Used by" package
 
-If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)." 
+If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
 
-The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects. 
+The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
 
 !["Used by" sidebar section](/assets/images/help/repository/used-by-section.png)
 
@@ -116,5 +116,5 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
 - "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
-- "[Understanding how {% data variables.product.prodname_dotcom %} uses and protects your data](/github/understanding-how-github-uses-and-protects-your-data)"
+- "[Understanding how {% data variables.product.prodname_dotcom %} uses and protects your data](/get-started/privacy-on-github)"
 {% endif %}

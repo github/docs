@@ -1,6 +1,6 @@
 ---
-title: About SCIM
-intro: 'With System for Cross-domain Identity Management (SCIM), administrators can automate the exchange of user identity information between systems.'
+title: SCIM について
+intro: System for Cross-domain Identity Management (SCIM) を使うと、管理者はユーザの識別情報のシステム間での交換を自動化できます。
 redirect_from:
   - /articles/about-scim
   - /github/setting-up-and-managing-organizations-and-teams/about-scim
@@ -13,20 +13,26 @@ topics:
 
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
-If you use [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) in your organization, you can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.product_name %}. For example, an administrator can deprovision an organization member using SCIM and automatically remove the member from the organization.
+[SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) を Organization 内で使うと、Organization のメンバーの {% data variables.product.product_name %}へのアクセスの追加、管理、削除のための SCIM を実装できます。 たとえば、管理者は Organization のメンバーのデプロビジョニングに SCIM を使い、自動的にメンバーを Organization から削除できます。
 
-If you use SAML SSO without implementing SCIM, you won't have automatic deprovisioning. When organization members' sessions expire after their access is removed from the IdP, they aren't automatically removed from the organization. Authorized tokens grant access to the organization even after their sessions expire. To remove access, organization administrators can either manually remove the authorized token from the organization or automate its removal with SCIM.
+SCIM を実装せずに SAML SSO を使った場合、自動のプロビジョニング解除は行われません。 Organization のメンバーのアクセスが ldP から削除された後、セッションの有効期限が切れても、そのメンバーは Organization から自動的には削除されません。 認証済みのトークンにより、セッションが期限切れになった後も Organization へのアクセスが許可されます。 アクセスを削除するには、Organization の管理者は手動で認証済みのトークンを Organization から削除するか、その削除を SCIM で自動化します。
 
-These identity providers are compatible with the {% data variables.product.product_name %} SCIM API for organizations. For more information, see [SCIM](/rest/reference/scim) in the {% ifversion ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API documentation.
+Organization の {% data variables.product.product_name %} の SCIM API と連携できるアイデンティティプロバイダとして、以下のものがあります。 For more information, see [SCIM](/rest/reference/scim) in the {% ifversion ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API documentation.
 - Azure AD
 - Okta
 - OneLogin
 
+{% note %}
+
+**注釈:** {% data reusables.scim.nameid-and-username-must-match %}
+
+{% endnote %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
-## Further reading
+## 参考リンク
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Connecting your identity provider to your organization](/articles/connecting-your-identity-provider-to-your-organization)"
-- "[Enabling and testing SAML single sign-on for your organization](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)"
-- "[Viewing and managing a member's SAML access to your organization](/github/setting-up-and-managing-organizations-and-teams//viewing-and-managing-a-members-saml-access-to-your-organization)"
+- [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)
+- [アイデンティティプロバイダの Organization への接続](/articles/connecting-your-identity-provider-to-your-organization)
+- [Organization での SAML シングルサインオンの有効化とテスト](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)
+- [Organization へのメンバーの SAML アクセスの表示と管理](/github/setting-up-and-managing-organizations-and-teams//viewing-and-managing-a-members-saml-access-to-your-organization)

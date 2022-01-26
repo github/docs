@@ -1,12 +1,12 @@
 ---
-title: About your personal dashboard
+title: Acerca de tu tablero personal
 redirect_from:
   - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github
   - /articles/opting-into-the-public-beta-for-a-new-dashboard
   - /articles/about-your-personal-dashboard
   - /github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard
-intro: 'You can visit your personal dashboard to keep track of issues and pull requests you''re working on or following, navigate to your top repositories and team pages, stay updated on recent activities in organizations and repositories you''re subscribed to, and explore recommended repositories.'
+intro: 'Puedes visitar tu tablero personal para hacer un seguimiento de las propuestas y las solicitudes de extracción que estás siguiendo o en las que estás trabajando, navegar hacia las páginas de equipo y tus repositorios principales, estar actualizado sobres las actividadess recientes en las organizaciones y los repositorios en los que estás suscripto y explorar los repositorios recomendados.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,49 +14,50 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Your personal dashboard
+shortTitle: Tu tablero personal
 ---
-## Accessing your personal dashboard
 
-Your personal dashboard is the first page you'll see when you sign in on {% data variables.product.product_name %}.
+## Acceder a tu tablero personal
 
-To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_name %}.
+Tu tablero personal es la primera página que verás cuando inicias sesión en {% data variables.product.product_name %}.
 
-## Finding your recent activity
+Para acceder a tu tablero personal una vez que has iniciado sesión, haz clic en el {% octicon "mark-github" aria-label="The github octocat logo" %} en la esquina superior izquierda de cualquier página en {% data variables.product.product_name %}.
 
-In the "Recent activity" section of your news feed, you can quickly find and follow up with recently updated issues and pull requests you're working on. Under "Recent activity", you can preview up to 12 recent updates made in the last two weeks.
+## Encontrar tu actividad reciente
+
+En la sección "Recent activity" (Actividad reciente) de tus noticias, rápidamente puedes encontrar las propuestas y solicitudes de extracción recién actualizadas en las que estás trabajando y hacerles el seguimiento. En "Recent activity" (Actividad reciente), puedes previsualizar hasta 12 actualizaciones recientes, realizadas durante las últimas dos semanas.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
-## Finding your top repositories and teams
+## Encontrar tus equipos y repositorios principales
 
-In the left sidebar of your dashboard, you can access the top repositories and teams you use.
+En la barra lateral izquierda de tu tablero, puedes acceder a los equipos y los repositorios principales que usas.
 
-![list of repositories and teams from different organizations](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
+![listado de repositorios y equipos de diferentes organizaciones](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
-The list of top repositories is automatically generated, and can include any repository you have interacted with, whether it's owned directly by your account or not. Interactions include making commits and opening or commenting on issues and pull requests. The list of top repositories cannot be edited, but repositories will drop off the list 4 months after you last interacted with them.
+La lista de repositorios principales se genera automáticamente y puede incluir cualquier repositorio con el que hayas interactuado, ya sea que pertenezca directamente a tu cuenta o no. Las interacciones incluyen el realizar confirmaciones y abrir o comentar en propuestas y solicitudes de cambios. La lista de repositorios principales no puede editarse, pero los repositorios saldrán de la lista en 4 meses después de la última interacción que hayas tenido con ellos.
 
-You can also find a list of your recently visited repositories, teams, and project boards when you click into the search bar at the top of any page on {% data variables.product.product_name %}.
+También puedes encontrar un listado de los repositorios, los equipos y los tableros de proyecto recientemente visitados al hacer clic en la barra de búsqueda en la parte principal de cualquier página en {% data variables.product.product_name %}.
 
-## Staying updated with activity from the community
+## Estar actualizado con la actividad desde tu organización
 
-In the "All activity" section of your news feed, you can view updates from repositories you're subscribed to and people you follow. The "All activity" section shows updates from repositories you watch or have starred, and from users you follow.
+En la sección "All activity" (Todas las actividades) de tus noticias, puedes ver las actualizaciones de los repositorios a los que estás suscrito y de las personas que sigues. La sección "All activity" (Todas las actividades) muestra las actualizaciones de los repositorios que observas o has marcado con una estrella, y de los usuarios a quienes sigues.
 
-You'll see updates in your news feed when a user you follow:
-- Stars a repository.
-- Follows another user.{% ifversion fpt or ghes or ghec %}
-- Creates a public repository.{% endif %}
-- Opens an issue or pull request with "help wanted" or "good first issue" label on a repository you're watching.
-- Pushes commits to a repository you watch.{% ifversion fpt or ghes or ghec %}
-- Forks a public repository.{% endif %}
-- Publishes a new release.
+Verás actualizaciones en tus noticias cuando un usuario que sigues:
+- Destaca un repositorio.
+- Sigue otro usuario.{% ifversion fpt or ghes or ghec %}
+- Crea un repositorio público.{% endif %}
+- Abre una propuesta o una solicitud de extracción con la etiqueta "se busca ayuda" o "primera buena propuesta" en un repositorio que estás mirando.
+- Sube las confirmaciones a un repositorio que estés observando.{% ifversion fpt or ghes or ghec %}
+- Bifurque un repositorio público.{% endif %}
+- Publica un lanzamiento nuevo.
 
-For more information about starring repositories and following people, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)" and "[Following people](/articles/following-people)."
+Para obtener más información acerca de cómo destacar repositorios y seguir personas, consulta "[Guardar repositorios con estrellas](/articles/saving-repositories-with-stars/)" y "[Seguir a personas](/articles/following-people)".
 
-## Exploring recommended repositories
+## Explorar los repositorios recomendados
 
-In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% ifversion fpt or ghec %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+Puedes explorar los repositorios recomendados en tus comunidades en la sección "Explorar repositorios" en el costado derecho de tu tablero. Las recomendaciones se basan en repositorios que has visitado o a los que has marcado con una estrella, las personas que sigues, y la actividad dentro de los repositorios a los cuales tienes acceso. {% ifversion fpt or ghec %}Para obtener más información, consulta "[Encontrar maneras de contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}
 
-## Further reading
+## Leer más
 
-- "[About your organization dashboard](/articles/about-your-organization-dashboard)"
+- "[Acerca del tablero de tu organización](/articles/about-your-organization-dashboard)"

@@ -97,8 +97,6 @@ prodname_matching_fund: 'GitHub 赞助者匹配基金'
 #GitHub Advanced Security
 prodname_GH_advanced_security: 'GitHub Advanced Security'
 prodname_advanced_security: 'Advanced Security'
-#Security Center
-prodname_security_center: '安全中心'
 #Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'

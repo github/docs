@@ -1,6 +1,6 @@
 ---
-title: Using the API to manage projects (beta)
-intro: You can use the GraphQL API to find information about projects and to update projects.
+title: Utilizar la API para administrar proyectos (beta)
+intro: Puedes utilizar la API de GraphQL para encontrar información acerca de los proyectos y para actualizarlos.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,17 +11,15 @@ topics:
   - Projects
 ---
 
-This article demonstrates how to use the GraphQL API to manage a project. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating projects (beta)](/issues/trying-out-the-new-projects-experience/automating-projects)." For a full list of the available data types, see "[Reference](/graphql/reference)."
+El artículo muestra cómo utilizar la API de GraphQL para administrar un proyecto. Para obtener más información sobre cómo utilizar la API en un flujo de trabajo de {% data variables.product.prodname_actions %}, consulta la sección "[Automatizar proyectos (beta)](/issues/trying-out-the-new-projects-experience/automating-projects)". Para encontrar una lista completa de los tipos de datos disponibles, consulta la "[Referencia](/graphql/reference)".
 
 {% data reusables.projects.projects-beta %}
 
-## Authentication
-
-{% include tool-switcher %}
+## Autenticación
 
 {% curl %}
 
-In all of the following cURL examples, replace `TOKEN` with a token that has the `read:org` scope (for queries) or `write:org` scope (for queries and mutations). The token can be a personal access token for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a personal access token, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)."
+En el resto de los ejemplos de cURL, reemplaza a `TOKEN` con un token que tenga el alcance `read:org` (para las consultas) o `write:org` (para las consultas y mutaciones). El token puede ser un token personal de acceso para un usuario o un token de acceso a la instalación para una {% data variables.product.prodname_github_app %}. Para obtener más información acerca de cómo crear un token de acceso personal, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)". Para obtener más información sobre cómo crear un token de acceso a la instalación para una {% data variables.product.prodname_github_app %}, consulta la sección "[Autenticarse con {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)".
 
 {% endcurl %}
 
@@ -29,15 +27,15 @@ In all of the following cURL examples, replace `TOKEN` with a token that has the
 
 {% data reusables.cli.cli-learn-more %}
 
-Before running {% data variables.product.prodname_cli %} commands, you must authenticate by running `gh auth login --scopes "write:org"`. If you only need to read, but not edit, projects, you can omit the `--scopes` argument. For more information on command line authentication, see "[gh auth login](https://cli.github.com/manual/gh_auth_login)."
+Antes de ejecutar comandos del {% data variables.product.prodname_cli %}, debes autenticarte ejecutando `gh auth login --scopes "write:org"`. Si solo necesitas leer, mas no editar, los proyectos, puedes omitir el argumento `--scopes`. Para obtener más información sobre la autenticación por la línea de comandos, consulta la sección "[gh auth login](https://cli.github.com/manual/gh_auth_login)".
 
 {% endcli %}
 
 {% cli %}
 
-## Using variables
+## Utilizar variables
 
-In all of the following examples, you can use variables to simplify your scripts. Use `-F` to pass a variable that is a number, Boolean, or null. Use `-f` for other variables. For example,
+Puedes utilizar variables para simplificar tus scripts en todos los ejemplos siguientes. Utiliza `-F` para pasar una variable que sea un número, un booleano o nula. Utiliza `-f` para otras variables. Por ejemplo,
 
 ```shell
 my_org="octo-org"
@@ -52,21 +50,19 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-For more information, see "[Forming calls with GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#working-with-variables)."
+Para obtener más información, consulta la sección "[Formar llamados con GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#working-with-variables)".
 
 {% endcli %}
 
-## Finding information about projects
+## Encontrar información sobre los proyectos
 
-Use queries to get data about projects. For more information, see "[About queries]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-queries)."
+Utiliza consultas para obtener datos sobre los proyectos. Paraobtener más información, consulta la sección "[Acerca de las consultas]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-queries)".
 
-### Finding the node ID of an organization project
+### Encontrar la ID de nodo de un proyecto organizacional
 
-To update your project through the API, you will need to know the node ID of the project.
+Para actualizar tu proyecto a través de la API, necesitarás conocer la ID de nodo del proyecto.
 
-You can find the node ID of an organization project if you know the organization name and project number. Replace `ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `NUMBER` with the project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
-
-{% include tool-switcher %}
+Puedes encontrar la ID de nodo de un proyecto organizacional si conoces el nombre de la organización y el número de proyecto. Reemplaza `ORGANIZATION` con el nombre de tu organización. Por ejemplo, `octo-org`. Reemplaza `NUMBER` con el número de proyecto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, la dirección `https://github.com/orgs/octo-org/projects/5` tiene "5" como número de proyecto.
 
 {% curl %}
 ```shell
@@ -90,9 +86,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-You can also find the node ID of all projects in your organization. The following example will return the node ID and title of the first 20 projects in an organization. Replace `ORGANIZATION` with the name of your organization. For example, `octo-org`.
-
-{% include tool-switcher %}
+También puedes encontrar la ID de nodo de todos los proyectos en tu organización. El siguiente ejemplo devolverá la ID de nodo y el título de los primeros 20 proyectos en una organización. Reemplaza `ORGANIZATION` con el nombre de tu organización. Por ejemplo, `octo-org`.
 
 {% curl %}
 ```shell
@@ -119,13 +113,11 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Finding the node ID of a user project
+### Encontrar la ID de nodo de un proyecto de usuario
 
-To update your project through the API, you will need to know the node ID of the project.
+Para actualizar tu proyecto a través de la API, necesitarás conocer la ID de nodo del proyecto.
 
-You can find the node ID of a user project if you know the project number. Replace `USER` with your user name. For example, `octocat`. Replace `NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/users/octocat/projects/5` has a project number of 5.
-
-{% include tool-switcher %}
+Puedes encontrar la ID de nodo de un proyecto de usuario si conoces el número del mismo. Reemplaza `USER` con tu nombre de usuario. Por ejemplo, `octocat`. Reemplaza `NUMBER` con tu número de proyecto. Para encontrar un número de proyecto, revisa su URL. Por ejemplo, la dirección `https://github.com/users/octocat/projects/5` tiene "5" tiene "5" como número de proyecto.
 
 {% curl %}
 ```shell
@@ -149,9 +141,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-You can also find the node ID for all of your projects. The following example will return the node ID and title of your first 20 projects. Replace `USER` with your username. For example, `octocat`.
-
-{% include tool-switcher %}
+También puedes encontrar la ID de nodo de todos tus proyectos. El siguiente ejemplo devolverá la ID de nodo y el título de tus primeros 20 proyectos. Reemplaza a `USER` con tu nombre de usuario. Por ejemplo, `octocat`.
 
 {% curl %}
 ```shell
@@ -178,13 +168,11 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Finding the node ID of a field
+### Encontrar la ID de nodo de un campo
 
-To update the value of a field, you will need to know the node ID of the field. Additionally, you will need to know the ID of the options for single select fields and the ID of the iterations for iteration fields.
+Para actualizar el valor de un campo, necesitarás conocer la ID de nodo del mismo. Adicionalmente, necesitarás saber la ID de las opciones para los campos de selección única y la ID de las iteraciones de los campos de iteración.
 
-The following example will return the ID, name, and settings for the first 20 fields in a project. Replace `PROJECT_ID` with the node ID of your project.
-
-{% include tool-switcher %}
+El siguiente ejemplo devolverá la ID, nombre y configuración de los primeros 20 campos de un proyecto. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto.
 
 {% curl %}
 ```shell
@@ -214,7 +202,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-The response will look similar to the following example:
+La respuesta se verá de forma similar al siguiente ejemplo:
 
 ```json
 {
@@ -249,15 +237,19 @@ The response will look similar to the following example:
 }
 ```
 
-Each field has an ID. Additionally, single select fields and iteration fields have a `settings` value. In the single select settings, you can find the ID of each option for the single select. In the iteration settings, you can find the duration of the iteration, the start day of the iteration (from 1 for Monday to 7 for Sunday), the list of incomplete iterations, and the list of completed iterations. For each iteration in the lists of iterations, you can find the ID, title, duration, and start date of the iteration.
+Cada campo tiene una ID. Adicionalmente, los campos de selección única y de iteración tienen un valor de `settings`. En los ajustes de selección única, puedes encontrar la ID de cada opción de la selección única. En los ajustes de iteración, puedes encontrar la duración de estas, el día de inicio de la iteración (desde 1 para los lunes hasta 7 para los domingos), la lista de iteraciones incompletas y la lista de iteraciones completas. Para cada iteración en las listas de iteraciones, puedes encontrar la ID, título, duración y fecha de inicio de ella.
 
-### Finding information about items in a project
+### Encontrar información sobre los elementos en un proyecto
 
-You can query the API to find information about items in your project.
+Puedes consultar mediante la API para encontrar información sobre los elementos de tu proyecto.
 
-The following example will return the title and ID for the first 20 items in a project. For each item, it will also return the value and name for the first 8 fields in the project. If the item is an issue or pull request, it will return the login of the first 10 assignees. Replace `PROJECT_ID` with the node ID of your project.
+{% note %}
 
-{% include tool-switcher %}
+**Nota**: La API no devolverá información sobre los borradores de propuestas.
+
+{% endnote %}
+
+El siguiente ejemplo devolverá el título y la ID de los primeros 20 elementos en un proyecto. Para cada elemento, también devolverá el valor y nombre de los primeros 8 campos en el proyecto. Si el elemento es una propuesta o solicitud de cambios, este devolverá al inicio de sesión de los primeros 10 asignados. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto.
 
 {% curl %}
 ```shell
@@ -310,7 +302,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-A project may contain items that a user does not have permission to view. In this case, the response will include redacted item.
+Un proyecto podría contener elementos que los usuarios no tengan permiso para ver. En este caso, la respuesta incluirá el elemento redactado.
 
 ```shell
 {
@@ -321,21 +313,19 @@ A project may contain items that a user does not have permission to view. In thi
 }
 ```
 
-## Updating projects
+## Actualizar los proyectos
 
-Use mutations to update projects. For more information, see "[About mutations]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-mutations)."
+Utiliza las mutaciones para actualizar los proyectos. Para obtener más información, consulta la sección "[Acerca de las mutaciones]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-mutations)".
 
 {% note %}
 
-**Note:** You cannot add and update an item in the same call. You must use `addProjectNextItem` to add the item and then use `updateProjectNextItemField` to update the item.
+**Nota:** No puedes agregar y actualizar un elemento en el mismo llamado. Debes utilizar `addProjectNextItem` para agregar el elemento y luego `updateProjectNextItemField` para actualizarlo.
 
 {% endnote %}
 
-### Adding an item to a project
+### Agregar un elemento a un proyecto
 
-The following example will add an issue or pull request to your project. Replace `PROJECT_ID` with the node ID of your project. Replace `CONTENT_ID` with the node ID of the issue or pull request that you want to add.
-
-{% include tool-switcher %}
+El siguiente ejemplo agregará una propuesta o solicitud de cambios a tu proyecto. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto. Reemplaza a `CONTENT_ID` con la ID de nodo de la propuesta o solicitud de cambios que quieras agregar.
 
 {% curl %}
 ```shell
@@ -359,7 +349,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-The response will contain the node ID of the newly created item.
+La respuesta contendrá la ID de nodo del elemento recién creado.
 
 ```json
 {
@@ -373,13 +363,11 @@ The response will contain the node ID of the newly created item.
 }
 ```
 
-If you try add an item that already exists, the existing item ID is returned instead.
+Si intentas agregar un elemento que ya existe, se devolverá la ID de este.
 
-### Updating a custom text, number, or date field
+### Actualizar un campo personalizado de texto, número o fecha
 
-The following example will update the value of a date field for an item. Replace `PROJECT_ID` with the node ID of your project. Replace `ITEM_ID` with the node ID of the item you want to update. Replace `FIELD_ID` with the ID of the field that you want to update.
-
-{% include tool-switcher %}
+El siguiente ejemplo actualizará el valor de un campo de fecha para un elemento. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto. Reemplaza a `ITEM_ID` con la ID de nodo del elemento que quieras actualizar. Reemplaza a `FIELD_ID` con la ID del campo que quieras actualizar.
 
 {% curl %}
 ```shell
@@ -412,20 +400,18 @@ gh api graphql -f query='
 
 {% note %}
 
-**Note:** You cannot use `updateProjectNextItemField` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you must use the [addAssigneesToAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addassigneestoassignable), [removeAssigneesFromAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removeassigneesfromassignable), [addLabelsToLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addlabelstolabelable), [removeLabelsFromLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removelabelsfromlabelable), [updateIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updateissue), [updatePullRequest]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updatepullrequest), or [transferIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#transferissue) mutations.
+**Nota:** No puedes utilizar `updateProjectNextItemField` para cambiar `Assignees`, `Labels`, `Milestone`, o `Repository` ya que estos campos son propiedades de las solicitudes de cambio y propuestas y no de los elementos del proyecto. En vez de esto, debes utilizar las mutaciones [addAssigneesToAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addassigneestoassignable), [removeAssigneesFromAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removeassigneesfromassignable), [addLabelsToLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addlabelstolabelable), [removeLabelsFromLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removelabelsfromlabelable), [updateIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updateissue), [updatePullRequest]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updatepullrequest) o [transferIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#transferissue).
 
 {% endnote %}
 
-### Updating a single select field
+### Actualizar un campo de selección simple
 
-The following example will update the value of a single select field for an item.
+El siguiente ejemplo actualizará el valor de un campo de selección simple para un elemento.
 
-- `PROJECT_ID` - Replace this with the node ID of your project.
-- `ITEM_ID` - Replace this with the node ID of the item you want to update.
-- `FIELD_ID` -  Replace this with the ID of the single select field that you want to update.
-- `OPTION_ID` - Replace this with the ID of the desired single select option.
-
-{% include tool-switcher %}
+- `PROJECT_ID` - Reemplázalo con la ID de nodo de tu proyecto.
+- `ITEM_ID` - Reemplázalo con la ID de nodo del elemento que quieras actualizar.
+- `FIELD_ID` -  Reemplaza esto con la ID de un campo de selección simple que quieras actualizar.
+- `OPTION_ID` - Reemplaza esto con la ID de la opción de selección simple deseada.
 
 {% curl %}
 ```shell
@@ -456,16 +442,14 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Updating an iteration field
+### Actualizar un campo de iteración
 
-The following example will update the value of an iteration field for an item.
+El siguiente ejemplo actualizará el valor de un campo de iteración para un elemento.
 
-- `PROJECT_ID` - Replace this with the node ID of your project.
-- `ITEM_ID` - Replace this with the node ID of the item you want to update.
-- `FIELD_ID` -  Replace this with the ID of the iteration field that you want to update.
-- `ITERATION_ID` - Replace this with the ID of the desired iteration. This can be either an active iteration (from the `iterations` array) or a completed iteration (from the `completed_iterations` array).
-
-{% include tool-switcher %}
+- `PROJECT_ID` - Reemplázalo con la ID de nodo de tu proyecto.
+- `ITEM_ID` - Reemplázalo con la ID de nodo del elemento que quieras actualizar.
+- `FIELD_ID` -  Reemplaza esto con la ID del campo de iteración que quieras actualizar.
+- `ITERATION_ID` - Reemplaza esto con la ID de la iteración deseada. Esto puede ser ya sea la iteración activa (desde el arreglo `iterations`) o una iteración completa (desde el arreglo `completed_iterations`).
 
 {% curl %}
 ```shell
@@ -496,11 +480,9 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Deleting an item from a project
+### Borrar un elemento de un proyecto
 
-The following example will delete an item from a project. Replace `PROJECT_ID` with the node ID of your project. Replace `ITEM_ID` with the node ID of the item you want to delete.
-
-{% include tool-switcher %}
+El siguiente ejemplo borrará un elemento de un proyecto. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto. Reemplaza `ITEM_ID` con la ID de nodo del elemento que quieras borrar.
 
 {% curl %}
 ```shell

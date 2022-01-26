@@ -1,5 +1,4 @@
 import { get } from 'lodash-es'
-import QuickLRU from 'quick-lru'
 
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
@@ -8,8 +7,8 @@ import statsd from '../lib/statsd.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
 
-function cacheOnReq(fn, minSize = 1024, lruMaxSize = 1000) {
-  const cache = new QuickLRU({ maxSize: lruMaxSize })
+function cacheOnReq(fn) {
+  const cache = new Map()
 
   return async function (req) {
     const path = req.pagePath || req.path
@@ -32,7 +31,7 @@ function cacheOnReq(fn, minSize = 1024, lruMaxSize = 1000) {
     }
     const result = await fn(req)
 
-    if (result && isCacheable && result.length > minSize) {
+    if (result && isCacheable) {
       cache.set(path, result)
     }
     return result
@@ -69,50 +68,21 @@ async function buildRenderedPage(req) {
 async function buildMiniTocItems(req) {
   const { context } = req
   const { page } = context
-  const path = req.pagePath || req.path
 
   // get mini TOC items on articles
   if (!page.showMiniToc) {
     return
   }
 
-  const miniTocItems = getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
-
-  // handle special-case prerendered GraphQL objects page
-  if (path.endsWith('graphql/reference/objects')) {
-    // concat the markdown source miniToc items and the prerendered miniToc items
-    return miniTocItems.concat(context.graphql.prerenderedObjectsForCurrentVersion.miniToc)
-  }
-
-  // handle special-case prerendered GraphQL input objects page
-  if (path.endsWith('graphql/reference/input-objects')) {
-    // concat the markdown source miniToc items and the prerendered miniToc items
-    return miniTocItems.concat(context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc)
-  }
-
-  // handle special-case prerendered GraphQL mutations page
-  if (path.endsWith('graphql/reference/mutations')) {
-    // concat the markdown source miniToc items and the prerendered miniToc items
-    return miniTocItems.concat(context.graphql.prerenderedMutationsForCurrentVersion.miniToc)
-  }
-
-  return miniTocItems
+  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
 }
 
-// The avergage size of buildRenderedPage() is about 22KB.
-// The median in 7KB. By only caching those larger than 10KB we avoid
-// putting too much into the cache.
-const wrapRenderedPage = cacheOnReq(buildRenderedPage, 10 * 1024)
-// const wrapMiniTocItems = cacheOnReq(buildMiniTocItems)
+const wrapRenderedPage = cacheOnReq(buildRenderedPage)
 
 export default async function renderPage(req, res, next) {
   const { context } = req
   const { page } = context
   const path = req.pagePath || req.path
-
-  if (path.startsWith('/storybook')) {
-    return nextHandleRequest(req, res)
-  }
 
   // render a 404 page
   if (!page) {

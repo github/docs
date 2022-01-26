@@ -1,6 +1,6 @@
 ---
-title: Transferring an issue to another repository
-intro: 'To move an issue to a better fitting repository, you can transfer open issues to other repositories.'
+title: Transferir una propuesta a otro repositorio
+intro: 'Para mover una propuesta a un repositorio al que mejor se ajuste, puedes transferir propuestas abiertas a otros repositorios.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/transferring-an-issue-to-another-repository
   - /articles/transferring-an-issue-to-another-repository
@@ -13,31 +13,27 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Transfer an issue
+shortTitle: Transferir una propuesta
 ---
-To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes or ghec %}You can't transfer an issue from a private repository to a public repository.{% endif %}
+Para transferir una propuesta abierta a otro repositorio, debes tener acceso de escritura en el repositorio en el cual se encuentra la propuesta y en el que la recibirá cuando la transfieras. Para obtener más información, consulta la sección "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
-When you transfer an issue, comments and assignees are retained. The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[About project boards](/articles/about-project-boards)."
+Solo puedes transferir propuestas entre repositorios que son propiedad del mismo usuario o de la misma cuenta de la organización. {% ifversion fpt or ghes or ghec %}No puedes transferir una propuesta desde un repositorio privado hacia un repositorio público.{% endif %}
 
-People or teams who are mentioned in the issue will receive a notification letting them know that the issue has been transferred to a new repository. The original URL redirects to the new issue's URL. People who don't have read permissions in the new repository will see a banner letting them know that the issue has been transferred to a new repository that they can't access.
+Cuando transfieres un informe de problemas, se retendrá tanto los comentarios como las personas asignadas. No se retendrán los hitos y etiquetas de la propuesta. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."
 
-## Transferring an open issue to another repository
+Las personas o equipos que se mencionan en la propuesta recibirán una notificación que les haga saber que la propuesta se transfirió a un repositorio nuevo. La URL original se redirige a la URL nueva de la propuesta. Las personas que no tengan permisos de lectura en el repositorio nuevo verán un anuncio que les hará saber que la propuesta se transfirió a un repositorio nuevo al que no pueden acceder.
 
-{% include tool-switcher %}
+## Transferir una propuesta abierta a otro repositorio
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue you'd like to transfer.
-4. In the right sidebar, click **Transfer issue**.
-![Button to transfer issue](/assets/images/help/repository/transfer-issue.png)
-5. Use the **Choose a repository** drop-down menu, and select the repository you want to transfer the issue to.
-![Choose a repository selection](/assets/images/help/repository/choose-a-repository.png)
-6. Click **Transfer issue**.
-![Transfer issue button](/assets/images/help/repository/transfer-issue-button.png)
+3. En la lista de propuestas, haz clic en la propuesta que quieres transferir.
+4. En la barra lateral derecha, haz clic en **Transfer issue** (Transferir propuesta). ![Botón para transferir propuesta](/assets/images/help/repository/transfer-issue.png)
+5. Utiliza el menú desplegable **Choose a repository** (Elegir un repositorio) y selecciona el repositorio al que quieres transferir la propuesta. ![Elige una selección de repositorio](/assets/images/help/repository/choose-a-repository.png)
+6. Haz clic en **Transfer issue** (Transferir propuesta). ![Botón Transfer issue (Transferir propuesta)](/assets/images/help/repository/transfer-issue-button.png)
 
 {% endwebui %}
 
@@ -45,7 +41,7 @@ People or teams who are mentioned in the issue will receive a notification letti
 
 {% data reusables.cli.cli-learn-more %}
 
-To transfer an issue, use the `gh issue transfer` subcommand. Replace the `issue` parameter with the number or URL of the issue. Replace the `{% ifversion ghes %}hostname/{% endif %}owner/repo` parameter with the {% ifversion ghes %}URL{% else %}name{% endif %} of the repository that you want to transfer the issue to, such as `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`.
+Para transferir una propuesta, utiliza el subcomando `gh issue transfer`. Reemplaza el parámetro `issue` con el número o URL de la propuesta. Reemplaza el parámetro `{% ifversion ghes %}hostname/{% endif %}owner/repo` con {% ifversion ghes %}la URL{% else %}el nombre{% endif %} del repositorio al que quieras transferir la propuesta, tal como `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`.
 
 ```shell
 gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}owner/repo</em>
@@ -53,8 +49,8 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 {% endcli %}
 
-## Further reading
+## Leer más
 
-- "[About issues](/articles/about-issues)"
-- "[Reviewing your security log](/articles/reviewing-your-security-log)"
-- "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)"
+- "[Acerca de las propuestas](/articles/about-issues)"
+- "[Revisar tu registro de seguridad](/articles/reviewing-your-security-log)"
+- "[Revisar el registro de auditoría para tu organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)"

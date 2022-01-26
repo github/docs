@@ -1,6 +1,6 @@
 ---
-title: Managing access to your personal repositories
-intro: You can give people collaborator access to repositories owned by your personal account.
+title: Administrar el acceso a tus repositorios personales
+intro: Puedes otorgarle a las personas acceso de colaborador a los repositorios que sean propiedad de tu cuenta personal.
 redirect_from:
   - /categories/101/articles
   - /categories/managing-repository-collaborators
@@ -20,6 +20,6 @@ children:
   - /removing-a-collaborator-from-a-personal-repository
   - /removing-yourself-from-a-collaborators-repository
   - /maintaining-ownership-continuity-of-your-user-accounts-repositories
-shortTitle: Access to your repositories
+shortTitle: Acceder a tus repositorios
 ---
 
