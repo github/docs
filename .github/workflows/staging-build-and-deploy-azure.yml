@@ -53,7 +53,7 @@ jobs:
           echo "APP_NAME=gh${REPO_NAME}-staging-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
 
       - name: 'Az CLI login'
-        uses: azure/login@66d2e78565ab7af265d2b627085bc34c73ce6abb
+        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
@@ -92,7 +92,7 @@ jobs:
         run: npm install dotenv && node script/early-access/clone-for-build.js
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@a66e35b9cbcf4ad0ea91ffcaf7bbad63ad9e0229
+        uses: docker/build-push-action@1814d3dfb36d6f84174e61f4a4b05bd84089a4b9
         with:
           context: .
           push: true
