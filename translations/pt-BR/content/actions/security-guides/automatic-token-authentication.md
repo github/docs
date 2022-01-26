@@ -137,3 +137,7 @@ Se você precisa de um token que exige premissões que não estão disponíveis 
 
 1. Use ou crie um token com as permissões adequadas para o repositório. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
 1. Adicione o token como um segredo no repositório do fluxo de trabalho e refira-se a ele usando a sintaxe {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %}. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+
+### Leia mais
+
+- "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)"

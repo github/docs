@@ -164,9 +164,9 @@ Você chama um fluxo de trabalho reutilizável usando a chave `usa`. Ao contrár
 
 [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-Você faz referência a arquivos reutilizáveis do fluxo de trabalho usando a sintaxe:
+You reference reusable workflow files using {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}one of the following syntaxes:{% else %}the syntax:{% endif %}
 
-`{owner}/{repo}/{path}/{filename}@{ref}`
+{% data reusables.actions.reusable-workflow-calling-syntax %}
 
 Você pode chamar vários fluxos de trabalho, fazendo referência a cada um em um trabalho separado.
 
