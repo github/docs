@@ -1,0 +1,37 @@
+https://images.app.goo.gl/eAnHTFLk9uWjAbHP74.0.0 com.azure.android azure-communication-chat 1.1.0-beta.4 aar Microsoft Azure Android Client Library Chat SDK For Communication Service This package contains the Android client library Chat SDK for Microsoft Azure Communication Service. https://github.com/Azure/azure-sdk-for-android The MIT License (MIT) http://opensource.org/licenses/MIT microsoft Microsoft scm:git:https://github.com/Azure/azure-sdk-for-android.git scm:git:https://github.com/Azure/azure-sdk-for-android.git https://github.com/Azure/azure-sdk-for-android com.azure.android azure-core 1.0.0-beta.9 compile com.azure.android azure-core-credential 1.0.0-beta.9 compile com.azure.android azure-core-http 1.0.0-beta.9 compile com.azure.android azure-core-logging 1.0.0-beta.9 compile com.azure.android azure-core-rest 1.0.0-beta.9 compile net.sourceforge.streamsupport android-retrofuture 1.7.4 compile com.azure.android azure-communication-common 1.0.1 compile com.azure.android azure-core-http-okhttp 1.0.0-beta.9 runtime com.microsoft trouter-client-android 0.1.1 runtime https://htet-corporation-business-networking-company.business.site/?utm_source=gmb&utm_medium=referraleng/common/scripts/artifact-metadata-parsing.ps1eng/common/scripts/copy-docs-to-blobstorage.ps1Thanks for contacting Google Business Profile Support! For your reference, your case ID is 2-7906000031837eng/common/scripts/stress-testing/stress-test-deployment-lib.ps1
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
