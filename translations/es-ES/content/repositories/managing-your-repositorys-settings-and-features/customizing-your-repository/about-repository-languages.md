@@ -2,11 +2,11 @@
 title: Acerca de los idiomas del repositorio
 intro: Los archivos y los directorios dentro de un repositorio determinan los idiomas que componen el repositorio. Puedes ver los idiomas de un repositorio para obtener una descripción general rápida del repositorio.
 redirect_from:
-  - /articles/my-repository-is-marked-as-the-wrong-language/
-  - /articles/why-isn-t-my-favorite-language-recognized/
-  - /articles/my-repo-is-marked-as-the-wrong-language/
-  - /articles/why-isn-t-sql-recognized-as-a-language/
-  - /articles/why-isn-t-my-favorite-language-recognized-by-github/
+  - /articles/my-repository-is-marked-as-the-wrong-language
+  - /articles/why-isn-t-my-favorite-language-recognized
+  - /articles/my-repo-is-marked-as-the-wrong-language
+  - /articles/why-isn-t-sql-recognized-as-a-language
+  - /articles/why-isn-t-my-favorite-language-recognized-by-github
   - /articles/about-repository-languages
   - /github/creating-cloning-and-archiving-repositories/about-repository-languages
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repository-languages

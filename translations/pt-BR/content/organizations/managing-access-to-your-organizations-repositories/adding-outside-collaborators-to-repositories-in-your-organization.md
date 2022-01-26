@@ -20,10 +20,10 @@ permissions: People with admin access to a repository can add an outside collabo
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
-An organization owner can restrict the ability to invite collaborators. Para obter mais informações, consulte "[Configurar permissões para adicionar colaboradores externos](/articles/setting-permissions-for-adding-outside-collaborators)".
+O proprietário da organização pode restringir a capacidade de convidar colaboradores. Para obter mais informações, consulte "[Configurar permissões para adicionar colaboradores externos](/articles/setting-permissions-for-adding-outside-collaborators)".
 
 {% ifversion ghes %}
-Before you can add someone as an outside collaborator on a repository, the person must have a user account on {% data variables.product.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site admin can create a user account for the person. Para obter mais informações, consulte "[Usar autenticação integrada](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)".
+Antes de adicionar alguém como colaborador externo em um repositório, a pessoa deve ter uma conta de usuário em {% data variables.product.product_location %}. Se a empresa usa um sistema de autenticação externa, como SAML ou LDAP, a pessoa que você deseja adicionar deverá efetuar o login por meio desse sistema para criar uma conta. Se a pessoa não tiver acesso ao sistema de autenticação e a autenticação integrada estiver habilitada para a sua empresa, um administrador do site poderá criar uma conta de usuário para a pessoa. Para obter mais informações, consulte "[Usar autenticação integrada](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)".
 {% endif %}
 
 {% ifversion not ghae %}

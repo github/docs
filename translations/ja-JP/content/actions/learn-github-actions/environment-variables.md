@@ -1,6 +1,6 @@
 ---
-title: Environment variables
-intro: '{% data variables.product.prodname_dotcom %} sets default environment variables for each {% data variables.product.prodname_actions %} workflow run. You can also set custom environment variables in your workflow file.'
+title: 環境変数
+intro: '{% data variables.product.prodname_dotcom %}はそれぞれの{% data variables.product.prodname_actions %}ワークフローの実行に対してデフォルトの環境変数を設定します。 ワークフローファイル中でカスタムの環境変数を設定することもできます。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
   - /actions/automating-your-workflow-with-github-actions/using-environment-variables
@@ -16,11 +16,11 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About environment variables
+## 環境変数について
 
-{% data variables.product.prodname_dotcom %} sets default environment variables that are available to every step in a workflow run. Environment variables are case-sensitive. Commands run in actions or steps can create, read, and modify environment variables.
+{% data variables.product.prodname_dotcom %}は、ワークフローの実行におけるどのステップでも使用できる、デフォルトの環境変数を設定します。 環境変数では、大文字小文字は区別されます。 アクションあるいはステップ内で実行されるコマンドは、環境変数を作成、読み取り、変更することができます。
 
-To set custom environment variables, you need to specify the variables in the workflow file. You can define environment variables for a step, job, or entire workflow using the [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv), [`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv), and [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) keywords. For more information, see "[Workflow syntax for {% data variables.product.prodname_dotcom %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
+カスタムの環境変数を設定するには、ワークフローファイル中でその変数を指定しなければなりません。 [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)、[`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv)、[`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)といったキーワードを使って、ステップ、ジョブ、あるいはワークフロー全体の環境変数を定義できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %}のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)」を参照してください。
 
 {% raw %}
 ```yaml
@@ -40,61 +40,51 @@ jobs:
 ```
 {% endraw %}
 
-To use the value of an environment variable in a workflow file, you should use the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). If you want to use the value of an environment variable inside a runner, you can use the runner operating system's normal method for reading environment variables.
+環境変数の値をワークフローファイル内で使うには、[`env`コンテキスト](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)を使わなければなりません。 環境変数の値をランナー内で使いたいなら、ランナーのオペレーティングシステムで環境変数を読む通常の方法が使えます。
 
-If you use the workflow file's `run` key to read environment variables from within the runner operating system (as shown in the example above), the variable is substituted in the runner operating system after the job is sent to the runner. For other parts of a workflow file, you must use the `env` context to read environment variables; this is because workflow keys (such as `if`) require the variable to be substituted during workflow processing before it is sent to the runner.
+ワークフローファイルの`run`キーを使って環境変数をランナーのオペレーティングシステム内から読む場合（上の例のように）、ジョブがランナーに送られた後に変数はランナーのオペレーティングシステム内で置き換えられます。 ワークフローファイルの他の部分では、環境変数を読むために`env`コンテキストを使わなければなりません。これは、ワークフローのキー（`if`など）で、ワークフローがランナーに送られる前に変数が置き換えられなければならないためです。
 
-You can also use the `GITHUB_ENV` environment file to set an environment variable that the following steps in a job can use. The environment file can be used directly by an action or as a shell command in a workflow file using the `run` keyword. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)."
+You can also use the `GITHUB_ENV` environment file to set an environment variable that the following steps in a job can use. The environment file can be used directly by an action or as a shell command in a workflow file using the `run` keyword. 詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)」を参照してください。
 
-## Default environment variables
+## デフォルトの環境変数
 
-We strongly recommend that actions use environment variables to access the filesystem rather than using hardcoded file paths. {% data variables.product.prodname_dotcom %} sets environment variables for actions to use in all runner environments.
+アクションでは、ファイルシステムにアクセスするとき、ハードコードされたファイルパスを使うのではなく環境変数を使用することを強くお勧めします。 {% data variables.product.prodname_dotcom %}は、すべてのランナー環境でアクションが使用する環境変数を設定します。
 
-| Environment variable | Description |
-| ---------------------|------------ |
-| `CI` | Always set to `true`. |
-| `GITHUB_WORKFLOW` | The name of the workflow. |
-| `GITHUB_RUN_ID` | {% data reusables.github-actions.run_id_description %} |
-| `GITHUB_RUN_NUMBER` | {% data reusables.github-actions.run_number_description %} |
-| `GITHUB_JOB` | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
-| `GITHUB_ACTION` | The unique identifier (`id`) of the action. |
-| `GITHUB_ACTION_PATH` | The path where your action is located. You can use this path to access files located in the same repository as your action. This variable is only supported in composite actions. |
-| `GITHUB_ACTIONS` | Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow. You can use this variable to differentiate when tests are being run locally or by {% data variables.product.prodname_actions %}.
-| `GITHUB_ACTOR` | The name of the person or app that initiated the workflow. For example, `octocat`. |
-| `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
-| `GITHUB_EVENT_NAME` | The name of the webhook event that triggered the workflow. |
-| `GITHUB_EVENT_PATH` | The path of the file with the complete webhook event payload. For example, `/github/workflow/event.json`. |
-| `GITHUB_WORKSPACE` | The {% data variables.product.prodname_dotcom %} workspace directory path, initially empty. For example, `/home/runner/work/my-repo-name/my-repo-name`. The [actions/checkout](https://github.com/actions/checkout) action will check out files, by default a copy of your repository, within this directory. |
-| `GITHUB_SHA` | The commit SHA that triggered the workflow. For example, `ffac537e6cbbf934b08745a378932722df287a53`. |
-| `GITHUB_REF` | The branch or tag ref that triggered the workflow. For example, `refs/heads/feature-branch-1`. If neither a branch or tag is available for the event type, the variable will not exist. |
+| 環境変数                 | 説明                                                                                                                                                                                                                                                                                                         |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CI`                 | 常に`true`に設定されます。                                                                                                                                                                                                                                                                                           |
+| `GITHUB_WORKFLOW`    | ワークフローの名前。                                                                                                                                                                                                                                                                                                 |
+| `GITHUB_RUN_ID`      | {% data reusables.github-actions.run_id_description %}
+| `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
+| `GITHUB_JOB`         | 現在のジョブの [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                                                        |
+| `GITHUB_ACTION`      | アクションの一意の識別子 (`id`)。                                                                                                                                                                                                                                                                                       |
+| `GITHUB_ACTION_PATH` | アクションが置かれているパス。 このパスを使用して、アクションと同じリポジトリにあるファイルにアクセスできます。 This variable is only supported in composite actions.                                                                                                                                                                                             |
+| `GITHUB_ACTIONS`     | {% data variables.product.prodname_actions %}がワークフローを実行しているときは常に`true`に設定されます。 この変数は、テストがローカルで実行されているときと、{% data variables.product.prodname_actions %}によって実行されているときを区別するために利用できます。                                                                                                                         |
+| `GITHUB_ACTOR`       | ワークフローを開始するユーザまたはアプリの名前。 `octocat`などです。                                                                                                                                                                                                                                                                    |
+| `GITHUB_REPOSITORY`  | 所有者およびリポジトリの名前。 `octocat/Hello-World`などです。                                                                                                                                                                                                                                                                 |
+| `GITHUB_EVENT_NAME`  | ワークフローをトリガーしたwebhookイベントの名前。                                                                                                                                                                                                                                                                               |
+| `GITHUB_EVENT_PATH`  | 完了したwebhookイベントペイロードのファイルのパス。 `/github/workflow/event.json`などです。                                                                                                                                                                                                                                           |
+| `GITHUB_WORKSPACE`   | The {% data variables.product.prodname_dotcom %} workspace directory path, initially empty. たとえば、`/home/runner/work/my-repo-name/my-repo-name`となります。 The [actions/checkout](https://github.com/actions/checkout) action will check out files, by default a copy of your repository, within this directory. |
+| `GITHUB_SHA`         | ワークフローをトリガーしたコミットSHA。 たとえば、`ffac537e6cbbf934b08745a378932722df287a53`です。                                                                                                                                                                                                                                   |
+| `GITHUB_REF`         | ワークフローをトリガーしたブランチまたはタグref。 たとえば、`refs/heads/feature-branch-1`です。 イベントタイプのブランチもタグも利用できない場合、変数は存在しません。                                                                                                                                                                                                       |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
-| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} |
-| `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
-| `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} |
+| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} | | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} | | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
-| `GITHUB_HEAD_REF` | Only set for pull request events. The name of the head branch.
-| `GITHUB_BASE_REF` | Only set for pull request events. The name of the base branch.
-| `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
-| `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`.
-| `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`.
-| `RUNNER_NAME` | {% data reusables.actions.runner-name-description %}
-| `RUNNER_OS` | {% data reusables.actions.runner-os-description %}{% if actions-runner-arch-envvars %}
-| `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %}{% endif %}
-| `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
+| `GITHUB_HEAD_REF` | Only set for pull request events. headブランチの名前です。 | `GITHUB_BASE_REF` | Only set for pull request events. ベースブランチの名前です。 | `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`. | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`. | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`. | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} | `RUNNER_OS` | {% data reusables.actions.runner-os-description %}{% if actions-runner-arch-envvars %} | `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %}{% endif %} | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
 {% ifversion not ghae %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %}{% endif %}
 
 {% tip %}
 
-**Note:** If you need to use a workflow run's URL from within a job, you can combine these environment variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+**ノート:** ワークフローの実行のURLをジョブの中から使う必要がある場合は、`$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`というようにこれらの環境変数を組み合わせることができます。
 
 {% endtip %}
 
-### Determining when to use default environment variables or contexts
+### デフォルトの環境変数を使う場合とコンテキストを使う場合の判断
 
 {% data reusables.github-actions.using-context-or-environment-variables %}
 
-## Naming conventions for environment variables
+## 環境変数の命名規則
 
-When you set a custom environment variable, you cannot use any of the default environment variable names listed above with the prefix `GITHUB_`. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
+カスタム環境変数を設定する場合、接頭辞の `GITHUB_` が付いた上記のデフォルトの環境変数名を使用することはできません。 これらのデフォルトの環境変数のいずれかの値をオーバーライドしようとすると、割り当ては無視されます。
 
-Any new environment variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `HOME` and `GITHUB_WORKSPACE` default variables are exceptions to this convention because the words "home" and "workspace" already imply a location.
+ファイルシステム上の場所を指すように設定した新しい環境変数がある場合は、`_PATH`サフィックスを指定する必要があります。 デフォルトの変数`HOME`と`GITHUB_WORKSPACE`は、「home」および「workspace」という言葉で最初から場所であることがわかっているため、この規則の例外です。

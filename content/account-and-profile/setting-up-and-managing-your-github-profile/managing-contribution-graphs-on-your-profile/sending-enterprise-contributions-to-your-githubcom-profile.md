@@ -2,7 +2,7 @@
 title: Sending enterprise contributions to your GitHub.com profile
 intro: 'You can highlight your work on {% data variables.product.prodname_enterprise %} by sending the contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile.'
 redirect_from:
-  - /articles/sending-your-github-enterprise-contributions-to-your-github-com-profile/
+  - /articles/sending-your-github-enterprise-contributions-to-your-github-com-profile
   - /articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile
   - /articles/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
   - /github/setting-up-and-managing-your-github-profile/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
@@ -28,7 +28,7 @@ For more information about how contributions are calculated, see "[Managing cont
 {% note %}
 
 **Notes:**
-- The connection between your accounts is governed by <a href="/articles/github-privacy-statement/" class="dotcom-only">GitHub's Privacy Statement</a> and users enabling the connection agree to the <a href="/articles/github-terms-of-service/" class="dotcom-only">GitHub's Terms of Service</a>.
+- The connection between your accounts is governed by [GitHub's Privacy Statement](/free-pro-team@latest/github/site-policy/github-privacy-statement/) and users enabling the connection agree to the [GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service).
 
 - Before you can connect your {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} profile to your {% data variables.product.prodname_dotcom_the_website %} profile, your enterprise owner must enable {% data variables.product.prodname_github_connect %} and enable contribution sharing between the environments. For more information, contact your enterprise owner.
 

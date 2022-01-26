@@ -31,8 +31,8 @@ export const TableOfContents = (props: Props) => {
                   text: title,
                   renderItem: () => (
                     <ActionList.Item>
-                      <li key={href} className="f4 d-list-item width-full">
-                        <Link className="d-block width-full" href={href}>
+                      <li key={href} className="f4 d-list-item width-full list-style-none">
+                        <Link className="d-block width-full text-underline" href={href}>
                           {title}
                         </Link>
                         {(childTocItems || []).length > 0 && (
@@ -48,8 +48,11 @@ export const TableOfContents = (props: Props) => {
                                 return null
                               }
                               return (
-                                <li key={childItem.fullPath} className="f4 d-block width-full">
-                                  <Link className="d-block width-full" href={childItem.fullPath}>
+                                <li key={childItem.fullPath} className="f4 d-block width-full m-2">
+                                  <Link
+                                    className="d-block width-full text-underline"
+                                    href={childItem.fullPath}
+                                  >
                                     {childItem.title}
                                   </Link>
                                 </li>

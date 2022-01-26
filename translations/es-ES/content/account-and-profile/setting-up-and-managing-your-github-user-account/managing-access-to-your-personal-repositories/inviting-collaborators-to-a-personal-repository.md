@@ -2,8 +2,8 @@
 title: Invitar colaboradores a un repositorio personal
 intro: 'Puedes {% ifversion fpt or ghec %}invitar usuarios para convertir{% else %}agregar usuarios como{% endif %} colaboradores de tu repositorio personal.'
 redirect_from:
-  - /articles/how-do-i-add-a-collaborator/
-  - /articles/adding-collaborators-to-a-personal-repository/
+  - /articles/how-do-i-add-a-collaborator
+  - /articles/adding-collaborators-to-a-personal-repository
   - /articles/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository

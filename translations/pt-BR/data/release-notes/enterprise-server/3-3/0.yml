@@ -1,6 +1,6 @@
 ---
 date: '2021-12-07'
-intro: Para obter instruções de atualização, consulte "[Atualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+intro: For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."<br><br>**Note:** We are aware of an issue where {% data variables.product.prodname_actions %} may fail to start automatically following the upgrade to {% data variables.product.prodname_ghe_server %} 3.3. To resolve, connect to the appliance via SSH and run the `ghe-actions-start` command.
 sections:
   features:
     - 
@@ -44,6 +44,7 @@ sections:
         - '{% data variables.product.prodname_ghe_server %} 3.3 includes the public beta of a repository cache for geographically-distributed teams and CI infrastructure. The repository cache keeps a read-only copy of your repositories available in additional geographies, which prevents clients from downloading duplicate Git content from your primary instance. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
         - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the user impersonation process. An impersonation session now requires a justification for the impersonation, actions are recorded in the audit log as being performed as an impersonated user, and the user who is impersonated will receive an email notification that they have been impersonated by an enterprise administrator. For more information, see "[Impersonating a user](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
         - A new stream processing service has been added to facilitate the growing set of events that are published to the audit log, including events associated with Git and {% data variables.product.prodname_actions %} activity.
+        - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features. [Updated 2021-12-09]
     - 
       heading: Token Changes
       notes:
@@ -139,7 +140,7 @@ sections:
       notes:
         - Most REST API previews have graduated and are now an official part of the API. Preview headers are no longer required for most REST API endpoints, but will still function as expected if you specify a graduated preview in the `Accept` header of a request. For previews that still require specifying the preview in the `Accept` header of a request, see "[API previews](/rest/overview/api-previews)."
         - 'You can now use the REST API to configure custom autolinks to external resources. The REST API now provides beta `GET`/`POST`/`DELETE` endpoints which you can use to view, add, or delete custom autolinks associated with a repository. For more information, see "[Autolinks](/rest/reference/repos#autolinks)."'
-        - 'You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Repositories](/rest/reference/repos#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.'
+        - 'You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.'
         - 'Enterprise administrators on GitHub Enterprise Server can now use the REST API to enable or disable Git LFS for a repository. For more information, see "[Repositories](/rest/reference/repos#git-lfs)."'
         - 'You can now use the REST API to query the audit log for an enterprise. While audit log forwarding provides the ability to retain and analyze data with your own toolkit and determine patterns over time, the new endpoint can help you perform limited analysis on recent events. For more information, see "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)" in the REST API documentation.'
         - GitHub App user-to-server API requests can now read public resources using the REST API. This includes, for example, the ability to list a public repository's issues and pull requests, and to access a public repository's comments and content.
@@ -159,6 +160,7 @@ sections:
   #bugs:
   #- PLACEHOLDER
   known_issues:
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.
     - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
@@ -166,6 +168,7 @@ sections:
     - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
   deprecations:
     - 
       heading: Deprecation of GitHub Enterprise Server 2.22

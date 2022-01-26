@@ -1,6 +1,6 @@
 ---
-title: Building and testing Swift
-intro: You can create a continuous integration (CI) workflow to build and test your Swift project.
+title: 构建和测试 Swift
+intro: 您可以创建持续集成 (CI) 工作流程来构建和测试您的 Swift 项目。
 redirect_from:
   - /actions/guides/building-and-testing-swift
 versions:
@@ -12,30 +12,30 @@ type: tutorial
 topics:
   - CI
   - Swift
-shortTitle: Build & test Swift
+shortTitle: 构建和测试 Swift
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## 简介
 
-This guide shows you how to build and test a Swift package.
+本指南介绍如何构建和测试 Swift 包。
 
 {% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, the necessary Swift dependencies are required. {% data reusables.actions.self-hosted-runners-software %}
-{% else %}{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, and the Ubuntu and macOS runners include the dependencies for building Swift packages. For a full list of up-to-date software and the preinstalled versions of Swift and Xcode, see "[About GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."{% endif %}
+{% else %}{% data variables.product.prodname_dotcom %} 托管的运行器带有预装软件的工具缓存，Ubuntu 和 macOS 运行器包括用于构建 Swift 包的依赖项。 有关最新版软件以及 Swift 和 Xcode 预安装版本的完整列表，请参阅“[关于 GitHub 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)”。{% endif %}
 
-## Prerequisites
+## 基本要求
 
-You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+您应该已经熟悉 YAML 语法及其如何与 {% data variables.product.prodname_actions %} 结合使用。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
 
-We recommend that you have a basic understanding of Swift packages. For more information, see "[Swift Packages](https://developer.apple.com/documentation/swift_packages)" in the Apple developer documentation.
+我们建议您对 Swift 包有基本的了解。 更多信息请参阅 Apple 开发者文档中的“[Swift 包](https://developer.apple.com/documentation/swift_packages)”。
 
-## Starting with the Swift workflow template
+## Using the Swift starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Swift workflow template that should work for most Swift projects, and this guide includes examples that show you how to customize this template. For more information, see the [Swift workflow template](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
+{% data variables.product.prodname_dotcom %} provides a Swift starter workflow that should work for most Swift projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [Swift starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
 
-To get started quickly, add the template to the `.github/workflows` directory of your repository.
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml{:copy}
@@ -57,17 +57,17 @@ jobs:
 ```
 {% endraw %}
 
-## Specifying a Swift version
+## 指定 Swift 版本
 
-To use a specific preinstalled version of Swift on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `fwal/setup-swift` action. This action finds a specific version of Swift from the tools cache on the runner and adds the necessary binaries to `PATH`. These changes will persist for the remainder of a job. For more information, see the [`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift) action.
+要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用特定的预安装 Swift 版本，请使用 `fwal/setup-swift` 操作。 此操作从运行器上的工具缓存中查找特定版本的 Swift，并将必要的二进制文件添加到 `PATH`。 这些更改将持续用于作业的其余部分。 更多信息请参阅 [`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift) 操作。
 
-If you are using a self-hosted runner, you must install your desired Swift versions and add them to `PATH`.
+如果使用自托管运行器，则必须安装所需的 Swift 版本并将它们添加到 `PATH`。
 
-The examples below demonstrate using the `fwal/setup-swift` action.
+下面的示例演示了如何使用 `fwal/setup-swift` 操作。
 
-### Using multiple Swift versions
+### 使用多个 Swift 版本
 
-You can configure your job to use a multiple versions of Swift in a build matrix.
+您可以将作业配置为在构建矩阵中使用多个版本的 Swift。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -85,24 +85,24 @@ jobs:
         swift: ["5.2", "5.3"]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
-      - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+      - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
-      - uses: actions/checkout@
+      - uses: actions/checkout@v2
       - name: Build
         run: swift build
       - name: Run tests
         run: swift test
 ```
 
-### Using a single specific Swift version
+### 使用单个特定的 Swift 版本
 
-You can configure your job to use a single specific version of Swift, such as `5.3.3`.
+您可以将作业配置为使用单个特定版本的 Swift，例如 `5.3.3`。
 
 {% raw %}
 ```yaml{:copy}
 steps:
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
   - name: Get swift version
@@ -110,15 +110,15 @@ steps:
 ```
 {% endraw %}
 
-## Building and testing your code
+## 构建和测试代码
 
-You can use the same commands that you use locally to build and test your code using Swift. This example demonstrates how to use `swift build` and `swift test` in a job:
+您可以使用与本地相同的命令来使用 Swift 构建和测试代码。 此示例演示如何在作业中使用 `swift build` 和 `swift test`：
 
 {% raw %}
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: fwal/setup-swift@d43a564349d1341cd990cfbd70d94d63b8899475
+  - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
   - name: Build

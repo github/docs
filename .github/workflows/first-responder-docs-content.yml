@@ -13,6 +13,9 @@ on:
       - closed
       - unlabeled
 
+permissions:
+  contents: none
+
 jobs:
   first-responder-triage-pr:
     name: Triage PR to FR project board

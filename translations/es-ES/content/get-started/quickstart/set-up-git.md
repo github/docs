@@ -1,14 +1,14 @@
 ---
 title: Configurar Git
 redirect_from:
-  - /git-installation-redirect/
-  - /linux-git-installation/
-  - /linux-set-up-git/
-  - /mac-git-installation/
-  - /mac-set-up-git/
-  - /set-up-git-redirect/
-  - /win-git-installation/
-  - /win-set-up-git/
+  - /git-installation-redirect
+  - /linux-git-installation
+  - /linux-set-up-git
+  - /mac-git-installation
+  - /mac-set-up-git
+  - /set-up-git-redirect
+  - /win-git-installation
+  - /win-set-up-git
   - /articles/set-up-git
   - /github/getting-started-with-github/set-up-git
   - /github/getting-started-with-github/quickstart/set-up-git
@@ -41,6 +41,16 @@ Si no deseas trabajar con archivos de forma local, {% data variables.product.pro
 ## Configurar Git
 
 1. [Descarga e instala la última versión de Git](https://git-scm.com/downloads).
+
+{% note %}
+
+**Nota**: Si estás utilizando un dispositivo con Chrome OS, necesitarás realizar configuraciones adicionales:
+
+1. Instala un emulador de terminal como Termux desde la Google Play Store en tu dispositivo Chrome OS.
+2. Instala Git desde el emulador de terminal que instalaste. Por ejemplo, ingresa `apt install git` en Termux y teclea `y` cuando se te indique.
+
+{% endnote %}
+
 2. [Configura tu nombre de usuario en Git](/github/getting-started-with-github/setting-your-username-in-git).
 3. [Configura tu dirección de correo electrónico de confirmación en Git](/articles/setting-your-commit-email-address).
 
@@ -68,6 +78,6 @@ Si clonas [con SSH](/github/getting-started-with-github/about-remote-repositorie
 
 Puedes crear una copia de un repositorio si la bifurcas y propones los cambios que quieres ver si afectar al repositorio de nivel superior. Para obtener más información, consulta "[Bifurcar un repositorio](/articles/fork-a-repo)."
 
-Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. Puedes interactuar con las personas, repositorios y organizaciones conectándote y siguiéndolos en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sé sociable ](/articles/be-social)".
+Cada repositorio de {% data variables.product.prodname_dotcom %} le pertenece a una persona u organización. Puedes interactuar con las personas, repositorios y organizaciones conectándote y siguiéndolos en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sé sociable ](/articles/be-social)".
 
 {% data reusables.support.connect-in-the-forum-bootcamp %}

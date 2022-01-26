@@ -2,8 +2,8 @@
 title: Recuperar tu contraseña de clave SSH
 intro: 'Si perdiste tu contraseña de clave SSH, según el sistema operativo que utilices, puedes recuperarla o generar una nueva contraseña de clave SSH.'
 redirect_from:
-  - /articles/how-do-i-recover-my-passphrase/
-  - /articles/how-do-i-recover-my-ssh-key-passphrase/
+  - /articles/how-do-i-recover-my-passphrase
+  - /articles/how-do-i-recover-my-ssh-key-passphrase
   - /articles/recovering-your-ssh-key-passphrase
   - /github/authenticating-to-github/recovering-your-ssh-key-passphrase
   - /github/authenticating-to-github/troubleshooting-ssh/recovering-your-ssh-key-passphrase

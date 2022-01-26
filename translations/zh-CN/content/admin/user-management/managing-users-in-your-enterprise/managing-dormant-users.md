@@ -1,9 +1,9 @@
 ---
 title: 管理休眠用户
 redirect_from:
-  - /enterprise/admin/articles/dormant-users/
-  - /enterprise/admin/articles/viewing-dormant-users/
-  - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
+  - /enterprise/admin/articles/dormant-users
+  - /enterprise/admin/articles/viewing-dormant-users
+  - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant
   - /enterprise/admin/user-management/managing-dormant-users
   - /admin/user-management/managing-dormant-users
 intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'

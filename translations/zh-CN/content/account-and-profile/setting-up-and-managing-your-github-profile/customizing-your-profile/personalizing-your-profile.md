@@ -2,11 +2,11 @@
 title: 个性化您的个人资料
 intro: '您可以在个人资料中设置头像和添加个人简历，与其他 {% data variables.product.product_name %} 用户共享您自己的信息。'
 redirect_from:
-  - /articles/adding-a-bio-to-your-profile/
-  - /articles/setting-your-profile-picture/
-  - /articles/how-do-i-set-up-my-profile-picture/
-  - /articles/gravatar-problems/
-  - /articles/how-do-i-set-up-my-avatar/
+  - /articles/adding-a-bio-to-your-profile
+  - /articles/setting-your-profile-picture
+  - /articles/how-do-i-set-up-my-profile-picture
+  - /articles/gravatar-problems
+  - /articles/how-do-i-set-up-my-avatar
   - /articles/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
@@ -26,11 +26,14 @@ shortTitle: 个性化
 
 在注册帐户时，{% data variables.product.product_name %} 会提供一个随机生成的“默认肖像”。 [默认肖像](https://github.com/blog/1586-identicons)从用户 ID 的哈希生成，因此无法控制其颜色或图案。 您可以将默认肖像替换为能代表您的图片。
 
-{% tip %}
+{% note %}
 
-**提示**：头像应为 1 MB 以下的 PNG、JPG 或 GIF 文件。 为获取质量最佳的渲染，建议图像的像素保持在大约 500 x 500 像素。
+**Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
 
-{% endtip %}
+* {% endif %}Your profile picture should be a PNG, JPG, or GIF file under 1 MB in size. 为获取质量最佳的渲染，建议图像的像素保持在大约 500 x 500 像素。
+{% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
+
+{% endnote %}
 
 ### 设置头像
 

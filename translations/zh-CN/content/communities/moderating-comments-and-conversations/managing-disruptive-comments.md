@@ -2,8 +2,8 @@
 title: 管理破坏性评论
 intro: '您可以{% ifversion fpt or ghec %}隐藏、编辑、{% else %}编辑{% endif %}或删除对议题、拉取请求和提交的评论。'
 redirect_from:
-  - /articles/editing-a-comment/
-  - /articles/deleting-a-comment/
+  - /articles/editing-a-comment
+  - /articles/deleting-a-comment
   - /articles/managing-disruptive-comments
   - /github/building-a-strong-community/managing-disruptive-comments
 versions:

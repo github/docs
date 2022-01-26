@@ -2,15 +2,15 @@
 title: Transferring a repository
 intro: You can transfer repositories to other users or organization accounts.
 redirect_from:
-  - /articles/about-repository-transfers/
-  - /move-a-repo/
-  - /moving-a-repo/
-  - /articles/what-is-transferred-with-a-repository/
-  - /articles/what-is-transferred-with-a-repo/
-  - /articles/how-to-transfer-a-repo/
-  - /articles/how-to-transfer-a-repository/
-  - /articles/transferring-a-repository-owned-by-your-personal-account/
-  - /articles/transferring-a-repository-owned-by-your-organization/
+  - /articles/about-repository-transfers
+  - /move-a-repo
+  - /moving-a-repo
+  - /articles/what-is-transferred-with-a-repository
+  - /articles/what-is-transferred-with-a-repo
+  - /articles/how-to-transfer-a-repo
+  - /articles/how-to-transfer-a-repository
+  - /articles/transferring-a-repository-owned-by-your-personal-account
+  - /articles/transferring-a-repository-owned-by-your-organization
   - /articles/transferring-a-repository
   - /github/administering-a-repository/transferring-a-repository
   - /github/administering-a-repository/managing-repository-settings/transferring-a-repository

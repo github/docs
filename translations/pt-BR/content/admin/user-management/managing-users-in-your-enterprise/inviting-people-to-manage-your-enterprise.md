@@ -1,12 +1,11 @@
 ---
 title: Convidar pessoas para gerenciar sua empresa
 intro: 'Você pode {% ifversion ghec %}convidar pessoas para se tornarem proprietários corporativos ou gerentes de cobrança para{% elsif ghes %}adicionar proprietários corporativos à conta corporativa{% endif %}. Você também pode remover proprietários corporativos {% ifversion ghec %}ou gerentes de cobrança {% endif %}que não precisam mais de acesso à conta corporativa.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
-  - /articles/inviting-people-to-collaborate-in-your-business-account/
+  - /articles/inviting-people-to-collaborate-in-your-business-account
   - /articles/inviting-people-to-manage-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
 versions:

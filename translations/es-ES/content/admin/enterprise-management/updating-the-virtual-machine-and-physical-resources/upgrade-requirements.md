@@ -1,9 +1,9 @@
 ---
-title: Upgrade requirements
-intro: 'Before upgrading {% data variables.product.prodname_ghe_server %}, review these recommendations and requirements to plan your upgrade strategy.'
+title: Requisitos de actualización
+intro: 'Antes de actualizar el {% data variables.product.prodname_ghe_server %}, revisa estas recomendaciones y requisitos para planificar tu estrategia de actualización.'
 redirect_from:
   - /enterprise/admin/installation/upgrade-requirements
-  - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release/
+  - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
 versions:
@@ -13,41 +13,42 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 {% note %}
 
-**Notes:**
-{% ifversion ghes < 3.3 %}- Features such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, {% data variables.product.prodname_mobile %} and {% data variables.product.prodname_GH_advanced_security %} are available on {% data variables.product.prodname_ghe_server %} 3.0 or higher. We highly recommend upgrading to 3.0 or later releases to take advantage of critical security updates, bug fixes and feature enhancements.{% endif %}
-- Upgrade packages are available at [enterprise.github.com](https://enterprise.github.com/releases) for supported versions. Verify the availability of the upgrade packages you will need to complete the upgrade. If a package is not available, contact {% data variables.contact.contact_ent_support %} for assistance.
-- If you're using {% data variables.product.prodname_ghe_server %} Clustering, see "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)" in the {% data variables.product.prodname_ghe_server %} Clustering Guide for specific instructions unique to clustering.
-- The release notes for {% data variables.product.prodname_ghe_server %} provide a comprehensive list of new features for every version of {% data variables.product.prodname_ghe_server %}. For more information, see the [releases page](https://enterprise.github.com/releases).
+**Notas:**
+{% ifversion ghes < 3.3 %}- Las características tales como {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, {% data variables.product.prodname_mobile %} y {% data variables.product.prodname_GH_advanced_security %} se encuentran disponibles en {% data variables.product.prodname_ghe_server %} 3.0 o superior. Te recomendamos ampliamente actualizar a la versión 3.0 o superior de los lanzamientos para que tengas todas las ventajas de las actualizaciones de seguridad, correcciones de errores y mejoras de características.{% endif %}
+- Los paquetes de actualización están disponibles en [enterprise.github.com](https://enterprise.github.com/releases) para las versiones admitidas. Verifica la disponibilidad de los paquetes de actualización, deberás completar la actualización. Si un paquete no está disponible, contacta a {% data variables.contact.contact_ent_support %} para obtener ayuda.
+- Si estás usando una Agrupación del {% data variables.product.prodname_ghe_server %}, consulta "[Actualizar una agrupación](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)" en la Guía de Agrupación del {% data variables.product.prodname_ghe_server %} para obtener instrucciones específicas únicas para agrupaciones.
+- Estas notas de lanzamiento para el {% data variables.product.prodname_ghe_server %} brindan una lista detallada de las nuevas características de cada versión del {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta las [páginas de lanzamiento](https://enterprise.github.com/releases).
 
 {% endnote %}
 
-## Recommendations
+## Recomendaciones
 
-- Include as few upgrades as possible in your upgrade process. For example, instead of upgrading from {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} to {{ enterpriseServerReleases.supported[1] }} to {{ enterpriseServerReleases.latest }}, you could upgrade from {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} to {{ enterpriseServerReleases.latest }}. Use the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
-- If you’re several versions behind, upgrade {% data variables.product.product_location %} as far forward as possible with each step of your upgrade process. Using the latest version possible on each upgrade allows you to take advantage of performance improvements and bug fixes. For example, you could upgrade from {% data variables.product.prodname_enterprise %} 2.7 to 2.8 to 2.10, but upgrading from {% data variables.product.prodname_enterprise %} 2.7 to 2.9 to 2.10 uses a later version in the second step.
-- Use the latest patch release when upgrading. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
-- Use a staging instance to test the upgrade steps. For more information, see "[Setting up a staging instance](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)."
-- When running multiple upgrades, wait at least 24 hours between feature upgrades to allow data migrations and upgrade tasks running in the background to fully complete.
-- Take a snapshot before upgrading your virtual machine. For more information, see "[Taking a snapshot](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot)." 
-- Ensure you have a recent, successful backup of your instance. For more information, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README.md file](https://github.com/github/backup-utils#readme).
+- Incluye tantas nuevas actualizaciones como sea posible en tu proceso de actualización. Por ejemplo, en lugar de actualizar desde {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} a {{ enterpriseServerReleases.supported[1] }} a {{ enterpriseServerReleases.latest }}, podrías actualizar desde {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} a {{ enterpriseServerReleases.latest }}. Utiliza el [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) para encontrar la ruta de mejora desde tu versión de lanzamiento actual.
+- Si estás varias versiones desactualizado, actualiza {% data variables.product.product_location %} tanto como sea posible con cada paso de tu proceso de actualización. Utilizar la versión más reciente posible en cada actualización te permite aprovechar las mejoras de desempeño y las correcciones de errores. Por ejemplo, podrías actualizar desde {% data variables.product.prodname_enterprise %} 2.7 a 2.8 a 2.10, pero actualizar desde {% data variables.product.prodname_enterprise %} 2.7 a 2.9 a 2.10 utiliza una versión posterior en el segundo paso.
+- Utiliza el lanzamiento de patch más reciente cuando actualices. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
+- Utiliza una instancia de preparación para probar los pasos de actualización. Para obtener más información, consulta "[Configurar una instancia de preparación](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)."
+- Cuando ejecutas varias mejoras, espera por lo menos 24 horas entre las mejoras a las características para permitir que se completen totalmente las migraciones de datos y actualizaciones de las tareas que se ejecutan en segundo plano.
+- Toma una captura de pantalla antes de que mejores tu máquina virtual. Para obtener más información, consulta "[Tomar una instantánea](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot)."
+- Asegúrate de que tienes un respaldo reciente y exitoso de tu instancia. Para obtener más información, consulta el archivo README.md en [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 
-## Requirements
+## Requisitos
 
-- You must upgrade from a feature release that's **at most** two releases behind. For example, to upgrade to {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}, you must be on {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} or {{ enterpriseServerReleases.supported[2] }}.
-- When upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users.
+- Debes actualizar desde una característica de lanzamiento que sea **como máximo** dos lanzamientos anteriores. Por ejemplo, para actualizar a {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}, debes estar en {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} o {{ enterpriseServerReleases.supported[2] }}.
+- Cuando hagas una mejora mediante un paquete de mejora, programa una ventana de mantenimiento para los usuarios finales de {% data variables.product.prodname_ghe_server %}.
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
-- A hotpatch may require downtime if the affected services (like kernel, MySQL, or Elasticsearch) require a VM reboot or a service restart. You'll be notified when a reboot or restart is required. You can complete the reboot or restart at a later time.
-- Additional root storage must be available when upgrading through hotpatching, as it installs multiple versions of certain services until the upgrade is complete. Pre-flight checks will notify you if you don't have enough root disk storage.
-- When upgrading through hotpatching, your instance cannot be too heavily loaded, as it may impact the hotpatching process. Pre-flight checks will consider the load average and the upgrade will fail if the load average is too high.- Upgrading to {% data variables.product.prodname_ghe_server %} 2.17 migrates your audit logs from Elasticsearch to MySQL. This migration also increases the amount of time and disk space it takes to restore a snapshot. Before migrating, check the number of bytes in your Elasticsearch audit log indices with this command:
+- Es posible que un hotpatch requiera tiempo de inactividad si los servicios afectados (como kernel, MySQL, o Elasticsearch) requieren un reinicio de VM o un reinicio del servicio. Se te notificará cuando se necesite reiniciar. Puedes completar el reinicio más tarde.
+- Es necesario que haya un almacenamiento raíz adicional disponible cuando se actualiza a través de un hotpatch, ya que instala múltiples versiones de determinados servicios hasta que se completa la actualización. El control de prevuelo te notificará si no tienes suficiente almacenamiento de disco raíz.
+- Cuando se actualiza a través de un hotpatch, tu instancia no puede estar muy cargada, ya que puede impactar el proceso del hotpatch. Los controles de pre-vuelo considerarán la carga promedio y, posteriormente, la mejora fallará si dicha carga promedio es demasiado alta. - Mejorar a {% data variables.product.prodname_ghe_server %} 2.17 migrará sus registros de auditoría de Elasicsearch a MySQL. Esta migración también incrementa la cantidad de tiempo y el espacio en disco que lleva restaurar una instantánea. Antes de migrar, controla el número de bytes en tus índices de registro de auditoría de ElasticSearch con este comando:
 ``` shell
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```
-Use the number to estimate the amount of disk space the MySQL audit logs will need. The script also monitors your free disk space while the import is in progress. Monitoring this number is especially useful if your free disk space is close to the amount of disk space necessary for migration.
+Utiliza el número para estimar la cantidad de espacio de disco que los registros de auditoría de MySQL necesitarán. El script también controla tu espacio libre en disco mientras la importación está en progreso. Controlar este número es especialmente útil si tu espacio libre en disco está cerca de la cantidad de espacio en disco necesaria para la migración.
 
 {% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
-## Next steps
+## Pasos siguientes
 
-After reviewing these recommendations and requirements, you can upgrade {% data variables.product.prodname_ghe_server %}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)."
+Después de revisar estas recomendaciones y requisitos, puedes actualizar el {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)."

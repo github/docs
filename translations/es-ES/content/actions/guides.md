@@ -1,6 +1,6 @@
 ---
-title: Guides for GitHub Actions
-intro: 'These guides for {% data variables.product.prodname_actions %} include specific use cases and examples to help you configure workflows.'
+title: Guías para las GitHub Actions
+intro: 'Estas guías para {% data variables.product.prodname_actions %} incluyen casos de uso y ejemplos específicos que te ayudarán a configurar los flujos de trabajo.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -20,7 +20,7 @@ includeGuides:
   - /actions/quickstart
   - /actions/learn-github-actions/introduction-to-github-actions
   - /actions/creating-actions/creating-a-docker-container-action
-  - /actions/learn-github-actions/using-workflow-templates
+  - /actions/learn-github-actions/using-starter-workflows
   - /actions/automating-builds-and-tests/building-and-testing-python
   - /actions/automating-builds-and-tests/building-and-testing-nodejs
   - /actions/publishing-packages/about-packaging-with-github-actions
@@ -43,7 +43,6 @@ includeGuides:
   - /actions/using-containerized-services/creating-redis-service-containers
   - /actions/using-containerized-services/creating-postgresql-service-containers
   - /actions/deployment/deploying-to-amazon-elastic-container-service
-  - /actions/deployment/deploying-to-azure-app-service
   - /actions/deployment/deploying-to-google-kubernetes-engine
   - /actions/learn-github-actions/essential-features-of-github-actions
   - /actions/security-guides/security-hardening-for-github-actions
@@ -64,5 +63,13 @@ includeGuides:
   - /actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
+  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-docker-to-azure-app-service
+  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-java-to-azure-app-service
+  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-net-to-azure-app-service
+  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-nodejs-to-azure-app-service
+  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-php-to-azure-app-service
+  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-python-to-azure-app-service
+  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app
+  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-kubernetes-service
 ---
 

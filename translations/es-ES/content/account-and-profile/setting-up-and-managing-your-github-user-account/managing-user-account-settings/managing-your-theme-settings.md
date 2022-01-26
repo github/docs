@@ -3,7 +3,7 @@ title: Managing your theme settings
 intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
 versions:
   fpt: '*'
-  ghae: next
+  ghae: '*'
   ghes: '>=3.2'
   ghec: '*'
 topics:
@@ -29,9 +29,7 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 {% endif %}
 
 {% data reusables.user_settings.access_settings %}
-1. In the user settings sidebar, click **Appearance**.
-
-   !["Appearance" tab in user settings sidebar](/assets/images/help/settings/appearance-tab.png)
+{% data reusables.user_settings.appearance-settings %}
 
 1. Under "Theme mode", select the drop-down menu, then click a theme preference.
 

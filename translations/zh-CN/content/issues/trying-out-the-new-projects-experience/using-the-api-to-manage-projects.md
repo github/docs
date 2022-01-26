@@ -17,8 +17,6 @@ topics:
 
 ## 身份验证
 
-{% include tool-switcher %}
-
 {% curl %}
 
 在所有下面的 cURL 示例中， 将 `TOKENN` 替换为具有 `read:org` 范围（对于查询）或 `write:org` 范围（对于查询和突变）的令牌。 The token can be a personal access token for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a personal access token, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)."
@@ -52,21 +50,19 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-更多信息请参阅“[使用 GraphQL 创建调用]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#working-with-variables)”。
+For more information, see "[Forming calls with GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#working-with-variables)."
 
 {% endcli %}
 
 ## 查找项目信息
 
-使用查询获取项目数据。 更多信息请参阅“[关于查询]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-queries)。”
+使用查询获取项目数据。 For more information, see "[About queries]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-queries)."
 
 ### Finding the node ID of an organization project
 
 要通过 API 更新您的项目，您需要知道项目的节点 ID。
 
 You can find the node ID of an organization project if you know the organization name and project number. 将 `ORGANIZATION` 替换为您的组织名称。 例如 `octo-org`。 Replace `NUMBER` with the project number. 要查找项目编号，请查看项目 URL。 例如，`https://github.com/orgs/octo-org/projects/5` 有一个编号为 5 的项目。
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell
@@ -91,8 +87,6 @@ gh api graphql -f query='
 {% endcli %}
 
 您也可以在组织中找到所有项目的节点 ID。 下面的示例将返回组织中前 20 个项目的节点 ID 和标题。 将 `ORGANIZATION` 替换为您的组织名称。 例如 `octo-org`。
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell
@@ -123,9 +117,7 @@ gh api graphql -f query='
 
 要通过 API 更新您的项目，您需要知道项目的节点 ID。
 
-You can find the node ID of a user project if you know the project number. Replace `USER` with your user name. 例如 `octocat`。 将 `NUMBER` 替换为项目编号。 要查找项目编号，请查看项目 URL。 例如，`https://github.com/users/octocat/projects/5` 有一个编号为 5 的项目。
-
-{% include tool-switcher %}
+You can find the node ID of a user project if you know the project number. Replace `USER` with your user name. 例如 `octocat`。 将 `NUMBER` 替换为项目编号。 要查找项目编号，请查看项目 URL。 For example, `https://github.com/users/octocat/projects/5` has a project number of 5.
 
 {% curl %}
 ```shell
@@ -150,8 +142,6 @@ gh api graphql -f query='
 {% endcli %}
 
 You can also find the node ID for all of your projects. The following example will return the node ID and title of your first 20 projects. Replace `USER` with your username. 例如 `octocat`。
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell
@@ -183,8 +173,6 @@ gh api graphql -f query='
 要更新字段的值，您需要知道字段的节点 ID。 Additionally, you will need to know the ID of the options for single select fields and the ID of the iterations for iteration fields.
 
 下面的示例将返回项目中前 20 个字段的 ID、名称和设置。 将 `PROJECT_ID` 替换为项目的节点 ID。
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell
@@ -255,9 +243,13 @@ gh api graphql -f query='
 
 您可以查询 API 来查找项目中各项的信息。
 
-下面的示例将返回项目中前 20 个字段的名称和 ID。 对于每个项目，它还将返回项目前 8 个字段的值和名称。 如果项目是议题或拉取请求，它将返回前 10 个受理人的登录名。 将 `PROJECT_ID` 替换为项目的节点 ID。
+{% note %}
 
-{% include tool-switcher %}
+**Note**: The API will not return information about draft issues.
+
+{% endnote %}
+
+下面的示例将返回项目中前 20 个字段的名称和 ID。 对于每个项目，它还将返回项目前 8 个字段的值和名称。 如果项目是议题或拉取请求，它将返回前 10 个受理人的登录名。 将 `PROJECT_ID` 替换为项目的节点 ID。
 
 {% curl %}
 ```shell
@@ -310,7 +302,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-项目可能包含用户无权查看的项。 在这种情况下，响应将包括已编辑的项。
+项目可能包含用户无权查看的项。 In this case, the response will include a redacted item.
 
 ```shell
 {
@@ -334,8 +326,6 @@ gh api graphql -f query='
 ### 添加项到项目
 
 以下示例将向您的项目添加议题或拉取请求。 将 `PROJECT_ID` 替换为项目的节点 ID。 将 `CONT_ID` 替换为议题的节点 ID 或您想要添加的拉取请求。
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell
@@ -373,13 +363,11 @@ gh api graphql -f query='
 }
 ```
 
-如果您尝试添加已经存在的项，则返回现有项 ID。
+If you try to add an item that already exists, the existing item ID is returned instead.
 
 ### Updating a custom text, number, or date field
 
 The following example will update the value of a date field for an item. 将 `PROJECT_ID` 替换为项目的节点 ID。 将 `ITEM_ID` 替换为您想要更新的项的节点 ID。 将 `FIELD_ID` 替换为您想要更新的字段的 ID。
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell
@@ -425,8 +413,6 @@ The following example will update the value of a single select field for an item
 - `FIELD_ID` -  Replace this with the ID of the single select field that you want to update.
 - `OPTION_ID` - Replace this with the ID of the desired single select option.
 
-{% include tool-switcher %}
-
 {% curl %}
 ```shell
 curl --request POST \
@@ -465,8 +451,6 @@ The following example will update the value of an iteration field for an item.
 - `FIELD_ID` -  Replace this with the ID of the iteration field that you want to update.
 - `ITERATION_ID` - Replace this with the ID of the desired iteration. This can be either an active iteration (from the `iterations` array) or a completed iteration (from the `completed_iterations` array).
 
-{% include tool-switcher %}
-
 {% curl %}
 ```shell
 curl --request POST \
@@ -499,8 +483,6 @@ gh api graphql -f query='
 ### 从项目中删除项
 
 下面的示例将从项目中删除一个项。 将 `PROJECT_ID` 替换为项目的节点 ID。 将 `ITEM_ID` 替换为您想要删除的项的节点 ID。
-
-{% include tool-switcher %}
 
 {% curl %}
 ```shell

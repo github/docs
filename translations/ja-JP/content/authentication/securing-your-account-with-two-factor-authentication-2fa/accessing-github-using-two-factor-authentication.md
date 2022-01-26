@@ -2,9 +2,9 @@
 title: 2 要素認証を利用した GitHub へのアクセス
 intro: '2FA を有効にすると、{% data variables.product.product_name %} にサインインするときに、2FA 認証コードとパスワードを入力するように求められます。'
 redirect_from:
-  - /articles/providing-your-2fa-security-code/
-  - /articles/providing-your-2fa-authentication-code/
-  - /articles/authenticating-to-github-using-fido-u2f-via-nfc/
+  - /articles/providing-your-2fa-security-code
+  - /articles/providing-your-2fa-authentication-code
+  - /articles/authenticating-to-github-using-fido-u2f-via-nfc
   - /articles/accessing-github-using-two-factor-authentication
   - /github/authenticating-to-github/accessing-github-using-two-factor-authentication
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication

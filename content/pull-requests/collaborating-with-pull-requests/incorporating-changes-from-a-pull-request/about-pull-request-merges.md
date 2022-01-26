@@ -3,7 +3,7 @@ title: About pull request merges
 intro: 'You can [merge pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) by retaining all the commits in a feature branch, squashing all commits into a single commit, or by rebasing individual commits from the `head` branch onto the `base` branch.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
-  - /articles/about-pull-request-merge-squashing/
+  - /articles/about-pull-request-merge-squashing
   - /articles/about-pull-request-merges
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-merges
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges

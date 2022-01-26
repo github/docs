@@ -1,7 +1,7 @@
 ---
 title: ユーザデータの法的リクエストに関するガイドライン
 redirect_from:
-  - /law-enforcement-guidelines/
+  - /law-enforcement-guidelines
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
   fpt: '*'

@@ -3,7 +3,7 @@ title: Criar um quadro de projeto
 intro: 'Os quadros de projeto podem ser usados para criar fluxos de trabalho personalizados adequados às suas necessidades, como rastreamento e priorização de trabalho de recursos específicos, roteiros abrangentes ou, até mesmo, checklists de versão.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
-  - /articles/creating-a-project/
+  - /articles/creating-a-project
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:

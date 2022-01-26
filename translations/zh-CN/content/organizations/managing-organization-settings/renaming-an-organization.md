@@ -2,7 +2,7 @@
 title: 重命名组织
 intro: 如果您的项目或公司已更改名称，您可以更新组织的名称以匹配。
 redirect_from:
-  - /articles/what-happens-when-i-change-my-organization-s-name/
+  - /articles/what-happens-when-i-change-my-organization-s-name
   - /articles/renaming-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/renaming-an-organization
 versions:
@@ -36,7 +36,7 @@ topics:
 更改组织的名称后：
 - 指向以前组织资料页面的链接（例如 `https://{% data variables.command_line.backticks %}/previousorgname`）将返回 404 错误。 我们建议您更新其他站点指向组织的链接{% ifversion fpt or ghec %}，例如 LinkedIn 或 Twitter 个人资料{% endif %}。
 - 使用旧组织名称的 API 请求将返回 404 错误。 我们建议您更新 API 请求中的旧组织名称。
-- 对于使用旧组织名称的团队，没有自动[@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)重定向。{% ifversion fpt or ghec %}
+- 对于使用旧组织名称的团队，没有自动[@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)重定向。{% ifversion ghec %}
 - 如果为组织启用了 SAML 单点登录 (SSO)，则必须在身份提供商 (IdP) 上更新 {% data variables.product.prodname_ghe_cloud %} 的应用程序中的组织名称。 如果您不更新 IdP 上的组织名称，组织成员将无法使用您的 IdP 身份验证来访问组织的资源。 更多信息请参阅“[将身份提供程序连接到组织](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)”。{% endif %}
 
 ## 更改组织的名称

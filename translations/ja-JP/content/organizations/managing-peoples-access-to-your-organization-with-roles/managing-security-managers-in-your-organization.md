@@ -21,10 +21,14 @@ permissions: Organization owners can assign the security manager role.
 Members of a team with the security manager role have only the permissions required to effectively manage security for the organization.
 
 - Read access on all repositories in the organization, in addition to any existing repository access
-- Write access on all security alerts in the organization
-- Access to the organization's security overview
-- The ability to configure security settings at the organization level, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}
-- The ability to configure security settings at the repository level, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}
+- Write access on all security alerts in the organization {% ifversion not fpt %}
+- Access to the organization's security overview {% endif %}
+- The ability to configure security settings at the organization level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+- The ability to configure security settings at the repository level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+
+{% ifversion fpt %}
+Additional functionality, including a security overview for the organization, is available in organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %}. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
+{% endif %}
 
 If a team has the security manager role, people with admin access to the team and a specific repository can change the team's level of access to that repository but cannot remove the access. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion ghes %}."{% else %} and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."{% endif %}
 

@@ -13,7 +13,7 @@ shortTitle: GitHub AE trial
 You can set up a 90-day trial to evaluate {% data variables.product.prodname_ghe_managed %}. This process allows you to deploy a {% data variables.product.prodname_ghe_managed %} account in your existing Azure region. 
 
 - **{% data variables.product.prodname_ghe_managed %} account**: The Azure resource that contains the required components, including the instance.
-- **{% data variables.product.prodname_ghe_managed %} portal**: The Azure management tool at https://portal.azure.com. This is used to deploy the {% data variables.product.prodname_ghe_managed %} account.
+- **{% data variables.product.prodname_ghe_managed %} portal**: The Azure management tool at [https://portal.azure.com](https://portal.azure.com). This is used to deploy the {% data variables.product.prodname_ghe_managed %} account.
 
 ## Setting up your trial of {% data variables.product.prodname_ghe_managed %}
 

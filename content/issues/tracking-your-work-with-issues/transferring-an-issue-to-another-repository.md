@@ -25,8 +25,6 @@ People or teams who are mentioned in the issue will receive a notification letti
 
 ## Transferring an open issue to another repository
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}

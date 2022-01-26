@@ -2,7 +2,7 @@
 title: 关于仓库图
 intro: 仓库图可帮助您查看和分析仓库的数据。
 redirect_from:
-  - /articles/using-graphs/
+  - /articles/using-graphs
   - /articles/about-repository-graphs
   - /github/visualizing-repository-data-with-graphs/about-repository-graphs
   - /github/visualizing-repository-data-with-graphs/accessing-basic-repository-data/about-repository-graphs

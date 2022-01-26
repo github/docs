@@ -2,7 +2,7 @@
 title: Criar um servidor de CI
 intro: Crie o seu próprio sistema CI usando a API de status.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'
@@ -84,7 +84,7 @@ Para testar esta prova de conceito, faça algumas alterações em um branch no r
 
 Já que configuramos o nosso servidor, estamos prontos para iniciar nosso primeiro requisito, que é configurar (e atualizar) os status de CI. Observe que a sempre que você atualizar o seu servidor, você poderá clicar em **Entregar novamente** para enviar a mesma carga. Não há necessidade de fazer um novo pull request toda vez que você fizer uma alteração!
 
-Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb] to manage our interactions. Vamos configurar esse cliente com
+Como estamos interagindo com a {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, usaremos [Octokit.rb][octokit.rb] para gerenciar nossas interações. Vamos configurar esse cliente com
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -132,7 +132,7 @@ No GitHub, usamos uma versão do [Janky][janky] para gerenciar a nossa CI durant
 
 Toda esta comunicação é canalizada de volta para nossas salas de bate-papo. Você não precisa construir sua própria configuração de CI para usar este exemplo. Você sempre pode confiar nas[Integrações do GitHub][integrations].
 
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/reference/commits#commit-statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

@@ -2,8 +2,8 @@
 title: Gerenciar cancelamento de plano
 intro: 'O cancelamento de um aplicativo de {% data variables.product.prodname_marketplace %} aciona o webhook do evento [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) com a ação `cancelado`, que dá início ao fluxo de cancelamento.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans
   - /marketplace/integrating-with-the-github-marketplace-api/cancelling-plans
   - /developers/github-marketplace/handling-plan-cancellations
 versions:

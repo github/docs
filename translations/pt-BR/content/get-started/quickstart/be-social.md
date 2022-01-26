@@ -1,7 +1,7 @@
 ---
 title: Interações sociais
 redirect_from:
-  - /be-social/
+  - /be-social
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social

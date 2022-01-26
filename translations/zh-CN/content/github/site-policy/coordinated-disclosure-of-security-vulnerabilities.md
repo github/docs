@@ -1,8 +1,8 @@
 ---
 title: Coordinated Disclosure of Security Vulnerabilities
 redirect_from:
-  - /responsible-disclosure/
-  - /coordinated-disclosure/
+  - /responsible-disclosure
+  - /coordinated-disclosure
   - /articles/responsible-disclosure-of-security-vulnerabilities
   - /site-policy/responsible-disclosure-of-security-vulnerabilities
 versions:

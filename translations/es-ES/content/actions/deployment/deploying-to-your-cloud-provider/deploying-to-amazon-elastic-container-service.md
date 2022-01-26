@@ -19,7 +19,6 @@ shortTitle: Desplegar hacia Amazon ECS
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -31,7 +30,7 @@ En cada subida nueva a `main` en tu repositorio de {% data variables.product.com
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and ["Configuring OpenID Connect in Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
+**Nota**: {% data reusables.actions.about-oidc-short-overview %} y ["Configurar OpenID Connect en Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
 
 {% endnote %}
 

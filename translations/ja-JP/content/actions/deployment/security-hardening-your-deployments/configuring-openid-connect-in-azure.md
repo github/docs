@@ -1,11 +1,11 @@
 ---
 title: Configuring OpenID Connect in Azure
 shortTitle: Configuring OpenID Connect in Azure
-intro: 'Use OpenID Connect within your workflows to authenticate with Azure.'
+intro: Use OpenID Connect within your workflows to authenticate with Azure.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
 type: tutorial
 topics:
@@ -15,13 +15,13 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Overview
+## 概要
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Azure, without needing to store the Azure credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. 
+OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Azure, without needing to store the Azure credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
 
 This guide gives an overview of how to configure Azure to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`azure/login`](https://github.com/Azure/login) action that uses tokens to authenticate to Azure and access resources.
 
-## Prerequisites
+## 必要な環境
 
 {% data reusables.actions.oidc-link-to-intro %}
 
@@ -42,7 +42,7 @@ Additional guidance for configuring the identity provider:
 - For security hardening, make sure you've reviewed ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see ["Configuring the subject in your cloud provider"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
 - For the `audience` setting,  `api://AzureADTokenExchange` is the recommended value, but you can also specify other values here.
 
-## Updating your {% data variables.product.prodname_actions %} workflow
+## {% data variables.product.prodname_actions %} ワークフローを更新する
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
@@ -50,14 +50,14 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 ### Adding permissions settings
 
-The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. For example:
+The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. 例:
 
 ```yaml{:copy}
 permissions:
   id-token: write
 ```
 
-You may need to specify additional permissions here, depending on your workflow's requirements. 
+You may need to specify additional permissions here, depending on your workflow's requirements.
 
 ### Requesting the access token
 
@@ -83,7 +83,7 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-  
+
       - name: 'Run az commands'
         run: |
           az account show

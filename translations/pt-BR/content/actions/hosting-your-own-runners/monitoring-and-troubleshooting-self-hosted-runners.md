@@ -36,13 +36,13 @@ shortTitle: Monitor & troubleshoot
 
 ## Reviewing the self-hosted runner application log files
 
-You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory, and a new one is generated each time the application is started. The filename begins with *Runner_*, and is followed by a UTC timestamp of when the application was started.
+You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory where you installed the runner application, and a new log is generated each time the application is started. The filename begins with *Runner_*, and is followed by a UTC timestamp of when the application was started.
 
 For detailed logs on workflow job executions, see the next section describing the *Worker_* files.
 
 ## Reviewing a job's log file
 
-The self-hosted runner application creates a detailed log file for each job that it processes. These files are stored in the `_diag` directory, and the filename begins with *Worker_*.
+The self-hosted runner application creates a detailed log file for each job that it processes. These files are stored in the `_diag` directory where you installed the runner application, and the filename begins with *Worker_*.
 
 {% linux %}
 
@@ -53,6 +53,13 @@ For Linux-based self-hosted runners running the application using a service, you
 ```shell
 $ cat ~/actions-runner/.service
 actions.runner.octo-org-octo-repo.runner01.service
+```
+
+If this fails due to the service being installed elsewhere, you can find the service name in the list of running services. For example, on most Linux systems you can use the `systemctl` command:
+
+```shell
+$ systemctl --type=service | grep actions.runner
+actions.runner.octo-org-octo-repo.hostname.service loaded active running GitHub Actions Runner (octo-org-octo-repo.hostname)
 ```
 
 You can use `journalctl` to monitor the real-time activity of the self-hosted runner:
@@ -156,7 +163,7 @@ You can view the update activities in the *Runner_* log files. For example:
 [Feb 12 12:37:07 INFO SelfUpdater] An update is available.
 ```
 
-In addition, you can find more information in the _SelfUpdate_ log files located in the `_diag` directory.
+In addition, you can find more information in the _SelfUpdate_ log files located in the `_diag` directory where you installed the runner application.
 
 {% linux %}
 
