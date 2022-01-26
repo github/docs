@@ -20,9 +20,9 @@ topics:
 
 ## リリースについて
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
 ![リリースの概要](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% elsif ghes > 3.3 or ghae-issue-4972 %}
+{% elsif ghae-issue-4972 %}
 ![リリースの概要](/assets/images/help/releases/releases-overview-with-contributors.png)
 {% else %}
 ![リリースの概要](/assets/images/help/releases/releases-overview.png)
@@ -36,7 +36,7 @@ topics:
 
 リポジトリへの読み取りアクセス権を持つ人はリリースを表示および比較できますが、リリースの管理はリポジトリへの書き込み権限を持つ人のみができます。 詳細は「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository)」を参照してください。
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
 
 You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
 

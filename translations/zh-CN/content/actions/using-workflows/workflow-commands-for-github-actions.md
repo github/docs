@@ -308,7 +308,7 @@ console.log('::save-state name=processID::12345')
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## 环境文件
+## Environment files
 
 在工作流程执行期间，运行器生成可用于执行某些操作的临时文件。 这些文件的路径通过环境变量显示。 写入这些文件时，您需要使用 UTF-8 编码，以确保正确处理命令。 多个命令可以写入同一个文件，用换行符分隔。
 
@@ -347,16 +347,10 @@ More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow 
 ## 设置环境变量
 
 ``` bash
-echo "{name}={value}" >> $GITHUB_ENV
+echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 ```
 
-为作业中接下来运行的任何步骤创建或更新环境变量。 创建或更新环境变量的步骤无法访问新值，但在作业中的所有后续步骤均可访问。 环境变量区分大小写，并且可以包含标点符号。
-
-{% note %}
-
-**Note:** Environment variables must be explicitly referenced using the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) in expression syntax or through use of the `$GITHUB_ENV` file directly; environment variables are not implicitly available in shell commands.
-
-{% endnote %}
+You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. 创建或更新环境变量的步骤无法访问新值，但在作业中的所有后续步骤均可访问。 The names of environment variables are case-sensitive, and you can include punctuation. 更多信息请参阅“[环境变量](/actions/learn-github-actions/environment-variables)”。
 
 ### 示例
 

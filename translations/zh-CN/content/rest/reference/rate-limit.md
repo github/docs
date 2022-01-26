@@ -30,6 +30,6 @@ REST API 概述文档描述了[速率限制规则](/rest/overview/resources-in-t
 
 * `integration_manifest` 对象提供 [GitHub 应用程序清单代码转换](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration)端点的速率限制状态。
 
-有关速率限制响应中标头和值的更多信息，请参阅“[速率限制](/rest#rate-limiting)”。
+For more information on the headers and values in the rate limit response, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
 
 {% include rest_operations_at_current_path %}

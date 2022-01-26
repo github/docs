@@ -448,8 +448,8 @@ While most of your API interaction should occur using your server-to-server inst
 {% ifversion fpt or ghec %}
 #### Organization Team Sync
 
-* [List idp groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
-* [Create or update idp group connections](/rest/reference/teams#create-or-update-idp-group-connections)
+* [List IdP groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
+* [Create or update IdP group connections](/rest/reference/teams#create-or-update-idp-group-connections)
 * [List IdP groups for an organization](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 

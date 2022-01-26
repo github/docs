@@ -53,7 +53,7 @@ Se você adicionar uma lista de tarefas ao texto de um problema, isso significa 
 
 {% tip %}
 
-**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+**Dica:** Você não pode criar itens de lista de tarefas em problemas fechados ou problemas com pull requests vinculados.
 
 {% endtip %}
 

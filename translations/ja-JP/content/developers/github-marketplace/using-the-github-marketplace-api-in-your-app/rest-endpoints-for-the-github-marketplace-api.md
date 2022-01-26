@@ -28,6 +28,6 @@ shortTitle: REST API
 
 {% note %}
 
-**ノート:** [REST APIのためのレート制限](/rest#rate-limiting)は、{% data variables.product.prodname_marketplace %} APIのすべてのエンドポイントに適用されます。
+**ノート:** [REST APIのためのレート制限](/rest/overview/resources-in-the-rest-api#rate-limiting)は、{% data variables.product.prodname_marketplace %} APIのすべてのエンドポイントに適用されます。
 
 {% endnote %}

@@ -1,7 +1,7 @@
 ---
-title: Using workflows
-shortTitle: Using workflows
-intro: 'Creating and managing {% data variables.product.prodname_actions %} workflows.'
+title: Usando fluxos de trabalho
+shortTitle: Usando fluxos de trabalho
+intro: 'Criando e gerenciando fluxos de trabalho de {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
   - /articles/creating-a-workflow-with-github-actions

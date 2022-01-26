@@ -1,6 +1,6 @@
 ---
 title: Configuring OpenID Connect in Google Cloud Platform
-shortTitle: Configuring OpenID Connect in Google Cloud Platform
+shortTitle: Configurar OpenID Connect en Google Cloud Platform
 intro: Use OpenID Connect within your workflows to authenticate with Google Cloud Platform.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -17,9 +17,9 @@ topics:
 
 ## Resumen
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Google Cloud Platform (GCP), without needing to store the GCP credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
+OpenID Connect (OIDC) permite que tus flujos de trabajo de {% data variables.product.prodname_actions %} accedan a recursos en la Plataforma de Google Cloud (GCP) sin necesidad de almacenar sus credenciales como secretos de {% data variables.product.prodname_dotcom %} de larga duración.
 
-This guide gives an overview of how to configure GCP to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`google-github-actions/auth`](https://github.com/google-github-actions/auth) action that uses tokens to authenticate to GCP and access resources.
+Esta guía te proporciona un resumen de cómo configurar GCP para que confíe en el OIDC de {% data variables.product.prodname_dotcom %} como una entidad federada e incluye un ejemplo de flujo de trabajo para la acción [`google-github-actions/auth`](https://github.com/google-github-actions/auth) que utiliza tokens para autenticarse al GCP para acceder a los recursos.
 
 ## Prerrequisitos
 
@@ -35,9 +35,9 @@ To configure the OIDC identity provider in GCP, you will need to perform the fol
 2. Configure the mapping and add conditions.
 3. Connect the new pool to a service account.
 
-Additional guidance for configuring the identity provider:
+Orientación adicional para configurar el proveedor de identidad:
 
-- For security hardening, make sure you've reviewed ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see ["Configuring the subject in your cloud provider"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
+- Para fortalecer la seguridad, asegúrate de haber revisado la sección ["Configurar la confianza de OIDC con la nube"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). Por ejemplo, consulta ["Configurar el tema en tu proveedor de servicios en la nube"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
 - For the service account to be available for configuration, it needs to be assigned to the `roles/iam.workloadIdentityUser` role. Para obtener más información, consulta la "[Documentación de GCP](https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.114275588.-285296507.1634918453#conditions)".
 - The Issuer URL to use: `https://token.actions.githubusercontent.com`
 
@@ -49,7 +49,7 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 ### Agregar ajustes de permisos
 
-The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por ejemplo:
+El flujo de trabajo requerirá una configuración de `permissions` con un valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. Si solo necesitas recuperar un token de OIDC para un solo job, entonces este permiso puede configurarse dentro de dicho job. Por ejemplo:
 
 ```yaml{:copy}
 permissions:
