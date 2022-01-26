@@ -1,4 +1,4 @@
----
+Merge---
 title: Access permissions on GitHub
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 topics:
   - Permissions
-  - Accounts
+  - Accounts @noxious15
 shortTitle: Access permissions
 ---
 
@@ -25,7 +25,7 @@ shortTitle: Access permissions
 
 Roles work differently for different types of accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
-## Personal user accounts
+## Personal user accounts is:noxious15
 
 A repository owned by a user account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)."
 
