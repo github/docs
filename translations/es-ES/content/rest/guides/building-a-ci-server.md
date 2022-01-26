@@ -132,7 +132,7 @@ En GitHub, utilizamos una versión de [Janky][janky] durante años para administ
 
 Todas estas comunicaciones se canalizan de vuelta a nuestras salas de chat. No necesitas crear tu propia configuración de IC para utilizar este ejemplo. Siempre puedes confiar en las [Integraciones de GitHub][integrations].
 
-[status API]: /rest/reference/commits#commit-statuses
+[status API]: /rest/reference/repos#statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server
