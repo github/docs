@@ -2,7 +2,7 @@
 title: Visualizando versões e tags do seu repositório
 intro: Você pode visualizar o histórico cronológico do seu repositório pelo número da versão da versão ou da tag.
 redirect_from:
-  - /articles/working-with-tags/
+  - /articles/working-with-tags
   - /articles/viewing-your-repositorys-tags
   - /github/administering-a-repository/viewing-your-repositorys-tags
   - /github/administering-a-repository/viewing-your-repositorys-releases-and-tags

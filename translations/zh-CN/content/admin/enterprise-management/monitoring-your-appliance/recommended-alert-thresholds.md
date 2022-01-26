@@ -2,7 +2,7 @@
 title: 建议的警报阈值
 intro: '您可以配置警报来提前通知系统资源问题，以免它们影响您的 {% data variables.product.prodname_ghe_server %} 设备的性能。'
 redirect_from:
-  - /enterprise/admin/guides/installation/about-recommended-alert-thresholds/
+  - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/recommended-alert-thresholds
   - /enterprise/admin/enterprise-management/recommended-alert-thresholds

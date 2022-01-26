@@ -6,7 +6,7 @@
 {% elsif ghec or ghes or ghae %}
 1. セルフホストランナーが登録されているところへアクセスしてください:
    * **In an organization**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-   * {% ifversion ghec %}**Enterpriseアカウントを使っている場合**: `https://github.com/enterprises/ENTERPRISE-NAME`にアクセスして、Enterpriseアカウントに移動してください。`ENTERPRISE-NAME`は自分のEnterpriseアカウント名に置き換えてください。{% elsif ghes or ghae %}**Enterpriseレベルランナーを使っている場合**:
+   * {% ifversion ghec %}**If using an enterprise account**: navigate to your enterprise account by clicking your profile photo in the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, then clicking **Your enterprises**, then clicking the enterprise.{% elsif ghes or ghae %}**If using an enterprise-level runner**:
 
      1. 任意のページの右上で {% octicon "rocket" aria-label="The rocket ship" %} をクリックします。
      1. 左のサイドバーで**Enterprise overview（Enterpriseの概要）**をクリックしてください。

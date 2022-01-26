@@ -1,9 +1,9 @@
 ---
 title: About webhooks
 redirect_from:
-  - /post-receive-hooks/
-  - /articles/post-receive-hooks/
-  - /articles/creating-webhooks/
+  - /post-receive-hooks
+  - /articles/post-receive-hooks
+  - /articles/creating-webhooks
   - /articles/about-webhooks
 intro: Webhooks provide a way for notifications to be delivered to an external web server whenever certain actions occur on a repository or organization.
 versions:

@@ -2,8 +2,8 @@
 title: GitHub Marketplace APIのためのwebhookイベント
 intro: '{% data variables.product.prodname_marketplace %}アプリケーションは、ユーザのプランに対する変更に関する情報を、Marketplaceの購入イベントwebhookから受け取ります。 Marketplaceの購入イベントは、ユーザが支払いプランの購入、キャンセル、変更をした場合にトリガーされます。'
 redirect_from:
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/
+  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:

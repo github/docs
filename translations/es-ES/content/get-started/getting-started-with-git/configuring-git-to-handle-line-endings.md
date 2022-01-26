@@ -2,9 +2,9 @@
 title: Configurar Git para manejar finales de línea
 intro: 'Para evitar problemas en tus diferencias, puedes configurar Git para manejar correctamente los finales de línea.'
 redirect_from:
-  - /dealing-with-lineendings/
-  - /line-endings/
-  - /articles/dealing-with-line-endings/
+  - /dealing-with-lineendings
+  - /line-endings
+  - /articles/dealing-with-line-endings
   - /articles/configuring-git-to-handle-line-endings
   - /github/using-git/configuring-git-to-handle-line-endings
   - /github/getting-started-with-github/configuring-git-to-handle-line-endings

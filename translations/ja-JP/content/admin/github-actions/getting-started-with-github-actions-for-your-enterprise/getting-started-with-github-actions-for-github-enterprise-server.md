@@ -61,38 +61,23 @@ The peak quantity of concurrent jobs running without performance loss depends on
 
 {%- ifversion ghes < 3.2 %}
 
-| vCPUs | Memory | Maximum job throughput |
-| :--- | :--- | :--- |
-| 4 | 32 GB | Demo or light testing |
-| 8 | 64 GB | 25 jobs |
-| 16 | 160 GB | 35 jobs |
-| 32 | 256 GB | 100 jobs |
+{% data reusables.actions.hardware-requirements-before %}
 
 {%- endif %}
 
 {%- ifversion ghes = 3.2 %}
 
-| vCPUs | Memory | Maximum Concurrency*|
-| :--- | :--- | :--- |
-| 32 | 128 GB | 1000 jobs |
-| 64 | 256 GB | 1300 jobs |
-| 96 | 384 GB | 2200 jobs |
+{% data reusables.actions.hardware-requirements-3.2 %}
 
-*Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
 
 {%- endif %}
 
 {%- ifversion ghes > 3.2 %}
 
-| vCPUs | Memory | Maximum Concurrency*|
-| :--- | :--- | :--- |
-| 8 | 64 GB | 300 jobs |
-| 16 | 160 GB | 700 jobs |
-| 32 | 128 GB | 1300 jobs |
-| 64 | 256 GB | 2000 jobs |
-| 96 | 384 GB | 4000 jobs |
+{% data reusables.actions.hardware-requirements-after %}
 
-*Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
 
 {%- endif %}
 
@@ -127,6 +112,8 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 **Note:** These are the only storage providers that {% data variables.product.company_short %} supports and can provide assistance with. Other S3 API-compatible storage providers are unlikely to work due to differences from the S3 API. [Contact us](https://support.github.com/contact) to request support for additional storage providers.
 
 {% endnote %}
+
+Before you enable {% data variables.product.prodname_actions %}, you can test your storage configuration from the administrative shell with the `ghe-actions-precheck` utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
 ## Networking considerations
 

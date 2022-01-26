@@ -2,7 +2,7 @@
 title: Organization のリポジトリへの個人のアクセスを管理する
 intro: Organization が所有するリポジトリへの個人のアクセスを管理できます。
 redirect_from:
-  - /articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program/
+  - /articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program
   - /articles/managing-an-individual-s-access-to-an-organization-repository
   - /articles/managing-an-individuals-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-repository

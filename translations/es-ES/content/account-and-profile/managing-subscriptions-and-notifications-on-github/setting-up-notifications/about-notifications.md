@@ -2,7 +2,7 @@
 title: Acerca de las notificaciones
 intro: 'Las notificaciones proporcionan actualizaciones sobre las actividades de {% data variables.product.product_location %} a las que te hayas suscrito. Puedes utilizar la bandeja de notificaciones para personalizar, clasificar y administrar tus actualizaciones.'
 redirect_from:
-  - /articles/notifications/
+  - /articles/notifications
   - /articles/about-notifications
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications-beta
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications
@@ -29,7 +29,7 @@ Puedes elegir recibir actualizaciones continuas sobre actividades específicas e
 Puedes elegir suscribirte a las notificaciones de:
 - Una conversación sobre un informe de problemas, solicitud de extracción o gist específico.
 - Todas las actividades en un repositorio o en un debate de equipo.
-- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - Repositorio {% data reusables.notifications-v2.custom-notification-types %} (si se habilitó).{% else %}
 - Lanzamientos en un repositorio.{% endif %}
 
@@ -64,7 +64,7 @@ Para poder seguir administrando tus suscripciones, revisa los repositorios que s
 Para personalizar la manera en la que deseas recibir actualizaciones para solicitudes de extracción o informes de problemas específicos, puedes configurar tus preferencias dentro de las mismas. Para obtener más información, consulta la sección "[Clasificar una sola notificación](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
 
 {% ifversion fpt or ghes or ghec %}
-Puedes personalizar y programar notificaciones de subida en la app de {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)".
+Puedes personalizar y programar notificaciones de subida en la app de {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)".
 {% endif %}
 
 ## Razones para que recibas notificaciones
@@ -101,4 +101,4 @@ Las notificaciones que no se marquen como **Guardadas** se mantendrán por 5 mes
 
 ## Retroalimentación y soporte
 
-Si tienes retroalimentación o alguna solicitud de características, utiliza el [formato de retroalimentación para notificaciones](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback).
+If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).

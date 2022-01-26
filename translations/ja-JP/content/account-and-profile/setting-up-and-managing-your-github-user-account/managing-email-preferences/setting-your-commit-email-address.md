@@ -2,13 +2,13 @@
 title: コミットメールアドレスを設定する
 intro: '{% data variables.product.product_location %} とコンピュータ上でコミットを作成するために使用するメールアドレスを設定できます。'
 redirect_from:
-  - /articles/keeping-your-email-address-private/
-  - /articles/setting-your-commit-email-address-on-github/
-  - /articles/about-commit-email-addresses/
-  - /articles/git-email-settings/
-  - /articles/setting-your-email-in-git/
-  - /articles/set-your-user-name-email-and-github-token/
-  - /articles/setting-your-commit-email-address-in-git/
+  - /articles/keeping-your-email-address-private
+  - /articles/setting-your-commit-email-address-on-github
+  - /articles/about-commit-email-addresses
+  - /articles/git-email-settings
+  - /articles/setting-your-email-in-git
+  - /articles/set-your-user-name-email-and-github-token
+  - /articles/setting-your-commit-email-address-in-git
   - /articles/setting-your-commit-email-address
   - /github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
@@ -89,7 +89,7 @@ If you use your `noreply` email address for {% data variables.product.product_na
 
 {% data variables.product.product_name %} uses the email address set in your local Git configuration to associate commits pushed from the command line with your account on {% data variables.product.product_location %}.
 
-単一のリポジトリで作成するコミットに関連するメールアドレスを変更できます。 この 1 つのリポジトリの Git コンフィグ設定を上書きしますが、他のリポジトリには影響しません。
+単一のリポジトリで作成するコミットに関連するメールアドレスを変更できます。 This will override your global Git configuration settings in this one repository, but will not affect any other repositories.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 現在のワーキングディレクトリを Git コミットと関連付けたメールアドレスを設定したいローカルリポジトリに変更します。

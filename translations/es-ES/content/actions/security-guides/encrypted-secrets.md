@@ -16,7 +16,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de los secretos cifrados
 
@@ -54,11 +53,7 @@ Para hacer que un secreto esté disponible para una acción, debes configurar el
 
 Puedes usar y leer secretos cifrados en un archivo de flujo de trabajo si tienes acceso para editar el archivo. Para obtener más información, consulta "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
-{% warning %}
-
-**Advertencia:** {% data variables.product.prodname_dotcom %} redacta automáticamente secretos impresos en el registro, pero debes evitar imprimir secretos en el registro intencionalmente.
-
-{% endwarning %}
+{% data reusables.github-actions.secrets-redaction-warning %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Los secretos de organización y de repositorio se leen cuando una ejecución de flujo de trabajo está en cola y los secretos de ambiente se leen cuando un job que referencia el ambiente comienza.
@@ -79,8 +74,6 @@ Cuando generes credenciales, te recomendamos que otorgues los mínimos permisos 
 ## Crear secretos cifrados para un repositorio
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -122,8 +115,6 @@ Para listar todos los secretos del repositorio, utiliza el subcomando `gh secret
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -160,8 +151,6 @@ gh secret list --env <em>environment-name</em>
 Cuando creas un secreto en una organización, puedes utilizar una política para limitar el acceso de los repositorios a este. Por ejemplo, puedes otorgar acceso a todos los repositorios, o limitarlo a solo los repositorios privados o a una lista específica de estos.
 
 {% data reusables.github-actions.permissions-statement-secrets-organization %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -232,7 +221,7 @@ Puedes revisar qué políticas de acceso se están aplicando a un secreto en tu 
 
 {% endnote %}
 
-Para proporcionar una acción con un secreto como variable de entrada o de entorno, puedes usar el contexto de `secrets` para acceder a los secretos que has creado en tu repositorio. Para obtener más información, consulta las secciones de "[Contextos](/actions/learn-github-actions/contexts)" y "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
+Para proporcionar una acción con un secreto como una variable de entrada o de entorno, puedes usar el contexto de `secretos` para acceder a los secretos que has creado en tu repositorio. Para obtener más información, consulta las secciones de "[Contextos](/actions/learn-github-actions/contexts)" y "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
 
 {% raw %}
 ```yaml

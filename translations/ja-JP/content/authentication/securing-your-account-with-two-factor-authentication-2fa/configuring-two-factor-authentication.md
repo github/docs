@@ -2,9 +2,9 @@
 title: 2 要素認証を設定する
 intro: 複数のオプションから選択して、アカウントの 2 番目の認証方法を追加できます。
 redirect_from:
-  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app/
-  - /articles/configuring-two-factor-authentication-via-text-message/
-  - /articles/configuring-two-factor-authentication-via-fido-u2f/
+  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app
+  - /articles/configuring-two-factor-authentication-via-text-message
+  - /articles/configuring-two-factor-authentication-via-fido-u2f
   - /articles/configuring-two-factor-authentication
   - /github/authenticating-to-github/configuring-two-factor-authentication
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
@@ -122,6 +122,20 @@ TOTP モバイルアプリを使って認証できない場合は、SMS メッ�
 8. お手持ちのセキュリティキーのドキュメンテーションに従い、セキュリティキーをアクティベートします。 ![セキュリティキーのプロンプト](/assets/images/help/2fa/security-key-prompt.png)
 9.  リカバリコードをダウンロードしていて、アクセスできることを確認してください。 まだコードをダウンロードしていないか、コードのセットをもう 1 つ生成したい場合は、コードをダウンロードして、安全な場所に保存します。 アカウントにアクセスできなくなった場合、リカバリコードを使ってアカウントへのアクセスを回復できます。 詳しい情報については[2FA クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)を参照してください。 ![[Download recovery codes] ボタン](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
+
+{% ifversion fpt or ghec %}
+## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
+
+You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.
+
+Once you have configured a TOTP application, or SMS, you can also use {% data variables.product.prodname_mobile %} to authenticate. If, in the future, you no longer have access to {% data variables.product.prodname_mobile %}, you will still be able to use security keys or TOTP applications to sign in.
+
+1. You must have already configured 2FA via a TOTP mobile app or via SMS.
+2. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+3. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+
+After signing in, you can now use your device for 2FA.
+{% endif %}
 
 ## 参考リンク
 

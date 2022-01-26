@@ -3,7 +3,7 @@ title: Configurar permissões para adicionar colaboradores externos
 intro: 'Para proteger os dados da organização e o o número de licenças pagas usadas, você pode permitir que somente proprietários convidem colaboradores externos para os repositórios da organização.'
 product: '{% data reusables.gated-features.restrict-add-collaborator %}'
 redirect_from:
-  - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories/
+  - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
   - /articles/setting-permissions-for-adding-outside-collaborators
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-adding-outside-collaborators
 versions:

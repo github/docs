@@ -2,7 +2,7 @@
 title: 审核日志
 intro: '{% data variables.product.product_name %} 会保留已审计 {% ifversion ghes %} 系统、{% endif %}用户、组织和仓库事件的日志。 日志可用于调试以及内部和外部合规。'
 redirect_from:
-  - /enterprise/admin/articles/audit-logging/
+  - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
   - /enterprise/admin/user-management/audit-logging
   - /admin/user-management/audit-logging

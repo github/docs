@@ -65,21 +65,29 @@ shortTitle: Increase storage capacity
 {% endwarning %}
 
 1. {% data variables.product.prodname_ghe_server %} アプライアンスに新しいディスクを取り付けます。
-2. `parted` コマンドを実行して、ディスクをフォーマットします。
+1. `parted` コマンドを実行して、ディスクをフォーマットします。
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-3. `ghe-upgrade` コマンドを実行して、完全なプラットフォーム固有のパッケージを新たにパーティション分割されたディスクにインストールします。 `github-enterprise-2.11.9.hpkg` などのユニバーサルなホットパッチのアップブレードパッケージは、期待通りに動作しません。 After the `ghe-upgrade` command completes, application services will automatically terminate.
+1. To stop replication, run the `ghe-repl-stop` command.
+
+   ```shell
+   $ ghe-repl-stop
+   ```
+
+1. `ghe-upgrade` コマンドを実行して、完全なプラットフォーム固有のパッケージを新たにパーティション分割されたディスクにインストールします。 `github-enterprise-2.11.9.hpkg` などのユニバーサルなホットパッチのアップブレードパッケージは、期待通りに動作しません。 After the `ghe-upgrade` command completes, application services will automatically terminate.
 
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. アプライアンスをシャットダウンします。
+1. アプライアンスをシャットダウンします。
   ```shell
   $ sudo poweroff
   ```
-5. ハイパーバイザーで、古いルートディスクを取り外し、古いルートディスクと同じ場所に新しいルートディスクを取り付けます。
-6. アプライアンスを起動します。
-7. Ensure system services are functioning correctly, then release maintenance mode. 詳しい情報については、「[メンテナンスモードの有効化とスケジューリング](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)」を参照してください。
+1. ハイパーバイザーで、古いルートディスクを取り外し、古いルートディスクと同じ場所に新しいルートディスクを取り付けます。
+1. アプライアンスを起動します。
+1. Ensure system services are functioning correctly, then release maintenance mode. 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
+
+If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.

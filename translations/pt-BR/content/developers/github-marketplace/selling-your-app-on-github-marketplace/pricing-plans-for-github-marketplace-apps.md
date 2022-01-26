@@ -2,7 +2,7 @@
 title: Planos de preços para aplicativos do GitHub Marketplace
 intro: 'Os planos de preços permitem que você forneça ao seu aplicativo diferentes níveis de serviço ou recursos. Você pode oferecer até 10 planos de preços na sua listagem do {% data variables.product.prodname_marketplace %}.'
 redirect_from:
-  - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans/
+  - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
@@ -15,7 +15,7 @@ shortTitle: Preços de planos para os aplicativos
 
 Os planos de preços de {% data variables.product.prodname_marketplace %} podem ser grátis, fixos ou por unidade. Os preços são definidos, exibidos e processados em dólares. Os planos pagos são restritos a aplicativos publicados por editores verificados. Para obter mais informações sobre como se tornar um editor verificado, consulte "[Candidatar-se à verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
-Customers purchase your app using a payment method attached to their account on {% data variables.product.product_location %}, without having to leave {% data variables.product.prodname_dotcom_the_website %}. Você não precisa escrever um código para realizar transações de cobrança, mas deverá gerenciar eventos da API de {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Usar a API de {% data variables.product.prodname_marketplace %} no seu aplicativo](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
+Os clientes compram seu aplicativo usando um método de pagamento anexado à sua conta em {% data variables.product.product_location %}, sem ter que sair de {% data variables.product.prodname_dotcom_the_website %}. Você não precisa escrever um código para realizar transações de cobrança, mas deverá gerenciar eventos da API de {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Usar a API de {% data variables.product.prodname_marketplace %} no seu aplicativo](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
 Se o aplicativo que você está listando no {% data variables.product.prodname_marketplace %} tiver várias opções de plano, você poderá definir os planos de preços correspondentes. Por exemplo, se o app tiver duas opções de plano, um plano de código aberto e um plano profissional, você poderá criar um plano de preços grátis para o seu plano de código aberto e um plano de preço fixo para o seu plano profissional. Cada listagem do {% data variables.product.prodname_marketplace %} deve ter um preço anual e um preço mensal para todos os planos listados.
 

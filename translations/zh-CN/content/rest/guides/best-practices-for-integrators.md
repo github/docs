@@ -2,7 +2,7 @@
 title: 集成者最佳实践
 intro: '构建一个能够可靠地与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行交互并为您的用户提供最佳体验。'
 redirect_from:
-  - /guides/best-practices-for-integrators/
+  - /guides/best-practices-for-integrators
   - /v3/guides/best-practices-for-integrators
 versions:
   fpt: '*'
@@ -131,7 +131,7 @@ end
 
 在此示例中，在调用 `process_closed` 方法之前会先检查 `closed` 操作。 任何未识别的操作都会被记录以供将来参考。
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghae %}
 
 ## 处理速率限制
 

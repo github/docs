@@ -2,7 +2,7 @@
 title: Site admin dashboard
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %}'
 redirect_from:
-  - /enterprise/admin/articles/site-admin-dashboard/
+  - /enterprise/admin/articles/site-admin-dashboard
   - /enterprise/admin/installation/site-admin-dashboard
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
@@ -56,8 +56,8 @@ If you need to get information on the users, organizations, and repositories in 
 Specifically, you can download CSV reports that list
 
 - all users
-- all users who have been active within the last month
-- all users who have been inactive for one month or more
+- all active users
+- all [dormant users](/admin/user-management/managing-dormant-users)
 - all users who have been suspended
 - all organizations
 - all repositories

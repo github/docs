@@ -50,13 +50,13 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`enterprise`](#enterprise-category-actions) | Contains activities related to enterprise settings. | {% endif %}
 | [`hook`](#hook-category-actions) | Contains all activities related to webhooks.
 | [`integration_installation_request`](#integration_installation_request-category-actions) | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |
-| [`ip_allow_list`](#ip_allow_list) | Contains activitites related to enabling or disabling the IP allow list for an organization.
+| [`ip_allow_list`](#ip_allow_list) | Contains activities related to enabling or disabling the IP allow list for an organization.
 | [`ip_allow_list_entry`](#ip_allow_list_entry) | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.
 | [`issue`](#issue-category-actions) | Contains activities related to deleting an issue. {% ifversion fpt or ghec %}
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
 | [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% ifversion fpt or ghes > 3.0 or ghec %}
 | [`members_can_create_pages`](#members_can_create_pages-category-actions) | Contains all activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
-| [`org`](#org-category-actions) | Contains activities related to organization membership.{% ifversion fpt or ghec %}
+| [`org`](#org-category-actions) | Contains activities related to organization membership.{% ifversion ghec %}
 | [`org_credential_authorization`](#org_credential_authorization-category-actions) | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% ifversion fpt or ghes or ghae or ghec %}
 | [`organization_label`](#organization_label-category-actions) | Contains all activities related to default labels for repositories in your organization.{% endif %}
 | [`oauth_application`](#oauth_application-category-actions) | Contains all activities related to OAuth Apps.{% ifversion fpt or ghes > 3.0 or ghec %}
@@ -68,13 +68,13 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`repo`](#repo-category-actions) | Contains activities related to the repositories owned by your organization.{% ifversion fpt or ghec %}
 | [`repository_advisory`](#repository_advisory-category-actions) | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 | [`repository_content_analysis`](#repository_content_analysis-category-actions) | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).{% endif %}{% ifversion fpt or ghec %}
-| [`repository_dependency_graph`](#repository_dependency_graph-category-actions) | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}
-| [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| [`repository_dependency_graph`](#repository_dependency_graph-category-actions) | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae or ghec %}
+| [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions) | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% ifversion fpt or ghec %}
 | [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.{% endif %}{% ifversion ghec %}
-| [`role`](#role-category-actions) | Contains all activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).{% endif %}
+| [`role`](#role-category-actions) | Contains all activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).{% endif %}{% ifversion ghes or ghae or ghec %}
 | [`secret_scanning`](#secret_scanning-category-actions) | Contains organization-level configuration activities for secret scanning in existing repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-| [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions) | Contains organization-level configuration activities for secret scanning for new repositories created in the organization. {% ifversion fpt or ghec %}
+| [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions) | Contains organization-level configuration activities for secret scanning for new repositories created in the organization. {% endif %}{% ifversion fpt or ghec %}
 | [`sponsors`](#sponsors-category-actions) | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}
 | [`team`](#team-category-actions) | Contains all activities related to teams in your organization.
 | [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -423,12 +423,12 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
 | `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% ifversion fpt or ghes or ghec %}
 | `create_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is created for an organization. For more information, see "[Creating encrypted secrets for an organization](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."{% endif %} {% ifversion fpt or ghec %}
-| `disable_oauth_app_restrictions` | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.
-| `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}
+| `disable_oauth_app_restrictions` | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
+| `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}{% endif %}
 | `disable_member_team_creation_permission` | Triggered when an organization owner limits team creation to owners. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)." |{% ifversion not ghae %}
 | `disable_two_factor_requirement` | Triggered when an owner disables a two-factor authentication requirement for all members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}{% ifversion fpt or ghec %}
-| `enable_oauth_app_restrictions` | Triggered when an owner [enables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/enabling-oauth-app-access-restrictions-for-your-organization) for your organization.
-| `enable_saml` | Triggered when an organization admin [enables SAML single sign-on](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) for an organization.{% endif %}
+| `enable_oauth_app_restrictions` | Triggered when an owner [enables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/enabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
+| `enable_saml` | Triggered when an organization admin [enables SAML single sign-on](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) for an organization.{% endif %}{% endif %}
 | `enable_member_team_creation_permission` | Triggered when an organization owner allows members to create teams. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)." |{% ifversion not ghae %}
 | `enable_two_factor_requirement` | Triggered when an owner requires two-factor authentication for all members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}{% ifversion fpt or ghec %}
 | `invite_member` | Triggered when [a new user was invited to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization).
@@ -440,7 +440,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `remove_billing_manager` | Triggered when an [owner removes a billing manager from an organization](/articles/removing-a-billing-manager-from-your-organization/) or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and a billing manager doesn't use 2FA or disables 2FA. |{% endif %}
 | `remove_member` | Triggered when an [owner removes a member from an organization](/articles/removing-a-member-from-your-organization/){% ifversion not ghae %} or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an organization member doesn't use 2FA or disables 2FA{% endif %}. Also triggered when an [organization member removes themselves](/articles/removing-yourself-from-an-organization/) from an organization.|
 | `remove_outside_collaborator` | Triggered when an owner removes an outside collaborator from an organization{% ifversion not ghae %} or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an outside collaborator does not use 2FA or disables 2FA{% endif %}. |
-| `remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from an organization](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)." {% ifversion fpt or ghec %}
+| `remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from an organization](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)." {% ifversion ghec %}
 | `revoke_external_identity` | Triggered when an organization owner revokes a member's linked identity. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)."
 | `revoke_sso_session` | Triggered when an organization owner revokes a member's SAML session. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)." {% endif %}
 | `runner_group_created` | Triggered when a self-hosted runner group is created. For more information, see "[Creating a self-hosted runner group for an organization](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)."
@@ -464,7 +464,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update_saml_provider_settings` | Triggered when an organization's SAML provider settings are updated.
 | `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the Corporate Terms of Service. For more information, see "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."{% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 ### `org_credential_authorization` category actions
 
 | Action | Description
@@ -515,7 +515,6 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 | Action | Description
 |------------------|-------------------
-| `clear` | Triggered when a payment method on file is [removed](/articles/removing-a-payment-method).
 | `create` |  Triggered when a new payment method is added, such as a new credit card or PayPal account.
 | `update` | Triggered when an existing payment method is updated.
 
@@ -550,7 +549,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update_require_code_owner_review ` | Triggered when enforcement of required Code Owner review is updated on a branch.
 | `dismiss_stale_reviews ` | Triggered when enforcement of dismissing stale pull requests is updated on a branch.
 | `update_signature_requirement_enforcement_level ` | Triggered when enforcement of required commit signing is updated on a branch.
-| `update_pull_request_reviews_enforcement_level ` | Triggered when enforcement of required pull request reviews is updated on a branch.
+| `update_pull_request_reviews_enforcement_level ` | Triggered when enforcement of required pull request reviews is updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
 | `update_required_status_checks_enforcement_level ` | Triggered when enforcement of required status checks is updated on a branch.
 | `update_strict_required_status_checks_policy` | Triggered when the requirement for a branch to be up to date before merging is changed.
 | `rejected_ref_update ` | Triggered when a branch update attempt is rejected.
@@ -650,8 +649,8 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 | Action | Description
 |------------------|-------------------
-| `enable` | Triggered when an organization owner or person with admin access to the repository [enables data use settings for a private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository).
-| `disable` | Triggered when an organization owner or person with admin access to the repository [disables data use settings for a private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository).
+| `enable` | Triggered when an organization owner or person with admin access to the repository [enables data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
+| `disable` | Triggered when an organization owner or person with admin access to the repository [disables data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
 
 {% endif %}{% ifversion fpt or ghec %}
 
@@ -662,15 +661,15 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `disable` | Triggered when a repository owner or person with admin access to the repository disables the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository.
 
-{% endif %}
+{% endif %}{% ifversion ghec or ghes or ghae %}
 ### `repository_secret_scanning` category actions
 
 | Action | Description
 |------------------|-------------------
-| `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-| `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a {% ifversion fpt or ghec %}private {% endif %}repository.
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.
 
-{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+{% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ### `repository_vulnerability_alert` category actions
 
 | Action | Description
@@ -697,20 +696,21 @@ For more information, see "[Managing the publication of {% data variables.produc
 |`update` | Triggered when an organization owner edits an existing custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 
 {% endif %}
-
+{% ifversion ghec or ghes or ghae %}
 ### `secret_scanning` category actions
 
 | Action | Description
 |------------------|-------------------
-| `disable` | Triggered when an organization owner disables secret scanning for all existing{% ifversion fpt or ghec %}, private{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-| `enable` | Triggered when an organization owner enables secret scanning for all existing{% ifversion fpt or ghec %}, private{% endif %} repositories.
+| `disable` | Triggered when an organization owner disables secret scanning for all existing{% ifversion ghec %}, private or internal{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| `enable` | Triggered when an organization owner enables secret scanning for all existing{% ifversion ghec %}, private or internal{% endif %} repositories.
 
 ### `secret_scanning_new_repos` category actions
 
 | Action | Description
 |------------------|-------------------
-| `disable` | Triggered when an organization owner disables secret scanning for all new {% ifversion fpt or ghec %}private {% endif %}repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-| `enable` | Triggered when an organization owner enables secret scanning for all new {% ifversion fpt or ghec %}private {% endif %}repositories.
+| `disable` | Triggered when an organization owner disables secret scanning for all new {% ifversion ghec %}private or internal {% endif %}repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| `enable` | Triggered when an organization owner enables secret scanning for all new {% ifversion ghec %}private or internal {% endif %}repositories.
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ### `sponsors` category actions

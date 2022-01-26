@@ -3,7 +3,7 @@ title: Adding issues and pull requests to a project board
 intro: You can add issues and pull requests to a project board in the form of cards and triage them into columns.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
-  - /articles/adding-issues-and-pull-requests-to-a-project/
+  - /articles/adding-issues-and-pull-requests-to-a-project
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:

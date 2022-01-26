@@ -2,7 +2,7 @@
 title: 指南
 intro: 了解如何开始使用 REST API、身份验证以及如何使用 REST API 完成各种任务。
 redirect_from:
-  - /guides/
+  - /guides
   - /v3/guides
 versions:
   fpt: '*'

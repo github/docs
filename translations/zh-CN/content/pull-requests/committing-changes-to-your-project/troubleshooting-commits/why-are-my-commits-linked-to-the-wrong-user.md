@@ -1,7 +1,7 @@
 ---
 title: 我的提交为什么链接到错误的用户？
 redirect_from:
-  - /articles/how-do-i-get-my-commits-to-link-to-my-github-account/
+  - /articles/how-do-i-get-my-commits-to-link-to-my-github-account
   - /articles/why-are-my-commits-linked-to-the-wrong-user
   - /github/committing-changes-to-your-project/why-are-my-commits-linked-to-the-wrong-user
   - /github/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user

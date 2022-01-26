@@ -2,7 +2,7 @@
 title: Audit log を検索する
 intro: サイト管理者は、Enterprise で監査されたアクションの広範なリストを検索できます。
 redirect_from:
-  - /enterprise/admin/articles/searching-the-audit-log/
+  - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
   - /enterprise/admin/user-management/searching-the-audit-log
   - /admin/user-management/searching-the-audit-log

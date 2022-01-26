@@ -3,8 +3,8 @@ title: 关于议题
 intro: '使用 {% data variables.product.prodname_github_issues %} 追踪在 {% data variables.product.company_short %} 上的想法、反馈、任务或缺陷。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-issues
-  - /articles/creating-issues/
-  - /articles/about-issues/
+  - /articles/creating-issues
+  - /articles/about-issues
   - /github/managing-your-work-on-github/about-issues
   - /issues/tracking-your-work-with-issues/creating-issues/about-issues
 versions:
@@ -45,7 +45,7 @@ topics:
 ## 高效沟通
 
 您可以在议题中@提及能访问您的仓库的协作者，以提请他们注意评论。 要将相关议题链接到同一仓库，您可以键入 `#`，后接议题标题的一部分，然后点击要链接的议题。 为了沟通责任，您可以分配议题。 如果您发现自己经常输入相同的评论，可以使用已保存的回复。
-{% ifversion fpt or ghec %} 更多信息请参阅“[基本编写和格式语法](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)”和“[将议题和拉取请求分配到其他 GitHub 用户](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)”。
+{% ifversion fpt or ghec %} 更多信息请参阅“[基本编写和格式语法](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)”和“[将议题和拉取请求分配到其他 GitHub 用户](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)”。
 
 ## 比较议题和讨论
 

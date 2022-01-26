@@ -13,6 +13,15 @@ on:
       - reopened
       - synchronize
 
+permissions:
+  # This is needed by dorny/paths-filter
+  pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   check-internal-changes:
     if: github.repository == 'github/docs-internal' && github.event.pull_request.user.login != 'Octomerger'
@@ -60,7 +69,7 @@ jobs:
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Setup Node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm

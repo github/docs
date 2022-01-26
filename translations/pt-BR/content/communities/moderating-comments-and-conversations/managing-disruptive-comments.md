@@ -2,8 +2,8 @@
 title: Gerenciar comentários conflituosos
 intro: 'Você pode {% ifversion fpt or ghec %}ocultar, editar,{% else %}editar{% endif %} ou excluir comentários sobre problemas, pull request e commits.'
 redirect_from:
-  - /articles/editing-a-comment/
-  - /articles/deleting-a-comment/
+  - /articles/editing-a-comment
+  - /articles/deleting-a-comment
   - /articles/managing-disruptive-comments
   - /github/building-a-strong-community/managing-disruptive-comments
 versions:

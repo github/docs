@@ -2,7 +2,7 @@
 title: リポジトリグラフについて
 intro: リポジトリグラフは、リポジトリのデータを見たり分析したりするための役に立ちます。
 redirect_from:
-  - /articles/using-graphs/
+  - /articles/using-graphs
   - /articles/about-repository-graphs
   - /github/visualizing-repository-data-with-graphs/about-repository-graphs
   - /github/visualizing-repository-data-with-graphs/accessing-basic-repository-data/about-repository-graphs

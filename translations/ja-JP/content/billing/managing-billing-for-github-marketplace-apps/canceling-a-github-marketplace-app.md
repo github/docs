@@ -3,8 +3,8 @@ title: GitHub Marketplace アプリケーションのキャンセル
 intro: '{% data variables.product.prodname_marketplace %}のアプリケーションは、いつでもアカウントからキャンセルおよび削除できます。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/canceling-a-github-marketplace-app
-  - /articles/canceling-an-app-for-your-personal-account/
-  - /articles/canceling-an-app-for-your-organization/
+  - /articles/canceling-an-app-for-your-personal-account
+  - /articles/canceling-an-app-for-your-organization
   - /articles/canceling-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app
 versions:

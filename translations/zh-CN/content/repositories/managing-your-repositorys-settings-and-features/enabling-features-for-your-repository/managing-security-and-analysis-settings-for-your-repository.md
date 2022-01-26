@@ -3,8 +3,8 @@ title: 管理仓库的安全性和分析设置
 intro: '您可以控制功能以保护 {% data variables.product.prodname_dotcom %} 上项目的安全并分析其中的代码。'
 permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
-  - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories/
-  - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organizations-repositories/
+  - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories
+  - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organizations-repositories
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization
   - /github/managing-security-vulnerabilities/managing-alerts-for-vulnerable-dependencies-in-your-organization
   - /github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository
@@ -33,12 +33,15 @@ shortTitle: 安全和分析
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 ![公共仓库中"Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-public.png)
+4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**.{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-public.png){% elsif ghec %}
+!["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-public.png){% endif %}
 {% endif %}
 
 ## 为私有仓库启用或禁用安全和分析功能{% ifversion fpt or ghec %}{% endif %}
 
-您可以管理{% ifversion fpt or ghec %}私有或内部 {% endif %}仓库的安全性和分析功能。{% ifversion fpt or ghes or ghec %} 如果您的组织属于拥有 {% data variables.product.prodname_GH_advanced_security %} 许可证的企业，则额外选项可用。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}
+You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository.{% ifversion ghes or ghec %} If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
+{% elsif fpt %} Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} have extra options available. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories).
+{% endif %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
@@ -46,14 +49,19 @@ shortTitle: 安全和分析
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 {% ifversion fpt or ghes > 3.0 or ghec %}
-4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion fpt or ghec %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% elsif ghes > 3.2 %}
+4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 {% ifversion not fpt %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% endif %}{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
+!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.2 %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% else %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
+
+  {% ifversion not fpt %}
   {% note %}
 
-  **注意：**如果您禁用 {% data variables.product.prodname_GH_advanced_security %}、{% ifversion fpt or ghec %}依赖项审核、{% endif %}{% data variables.product.prodname_secret_scanning %} 和 {% data variables.product.prodname_code_scanning %} 都会禁用。 任何工作流程、SARIF上传或 {% data variables.product.prodname_code_scanning %} 的 API 调用都将失败。
-  {% endnote %}
+  **Note:** If you disable {% data variables.product.prodname_GH_advanced_security %}, {% ifversion ghec %}dependency review, {% endif %}{% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_code_scanning %} are disabled. 任何工作流程、SARIF上传或 {% data variables.product.prodname_code_scanning %} 的 API 调用都将失败。
+  {% endnote %}{% endif %}
+
   {% endif %}
+
   {% ifversion ghes = 3.0 %}
 4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
@@ -63,7 +71,7 @@ shortTitle: 安全和分析
 
 ## 授予对安全警报的访问权限
 
-为组织中的仓库启用 {% ifversion not ghae %}{% data variables.product.prodname_dependabot %} 或 {% endif %}{% data variables.product.prodname_secret_scanning %} 警报之后，组织所有者和仓库管理员默认可以查看警报。 您可以授予其他团队和人员访问仓库的警报。
+Security alerts for a repository are visible to people with admin access to the repository and, when the repository is owned by an organization, organization owners. You can give additional teams and people access to the alerts.
 
 {% note %}
 
