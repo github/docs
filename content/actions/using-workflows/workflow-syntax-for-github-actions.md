@@ -149,7 +149,7 @@ jobs:
 
     steps:
       - name: Pass the received secret to an action
-        uses: ./.github/actions/my-action@v1
+        uses: ./.github/actions/my-action
         with:
           token: ${{ secrets.access-token }}
 ```
