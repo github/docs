@@ -23,9 +23,9 @@ miniTocMaxHeadingLevel: 3
 
 ### 速率限制
 
-搜索 API 有自定义速率限制。 对于使用[基本身份验证](/rest#authentication)、[OAuth](/rest#authentication) 或[客户端 ID 和密码](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)的请求，您每分钟最多可以提出 30 个请求。 对于未经身份验证的请求，速率限制允许您每分钟最多提出 10 个请求。
-
 {% data reusables.enterprise.rate_limit %}
+
+搜索 API 有自定义速率限制。 对于使用[基本身份验证](/rest#authentication)、[OAuth](/rest#authentication) 或[客户端 ID 和密码](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)的请求，您每分钟最多可以提出 30 个请求。 对于未经身份验证的请求，速率限制允许您每分钟最多提出 10 个请求。
 
 请参阅[速率限制文档](/rest/reference/rate-limit)，以详细了解如何确定您的当前速率限制状态。
 
