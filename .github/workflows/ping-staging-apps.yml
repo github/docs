@@ -29,3 +29,4 @@ jobs:
         run: npm ci
       - name: Run script
         run: script/ping-staging-apps.js
+
