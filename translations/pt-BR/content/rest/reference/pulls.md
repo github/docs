@@ -45,7 +45,7 @@ Pull Requests têm estas relações de link possíveis:
 | `review_comments` | O local da API dos [comentários da revisão](/rest/reference/pulls#comments) deste Pull Request.                                                                      |
 | `review_comment`  | O [modelo de URL](/rest#hypermedia) para construir o local da API para um [comentário de revisão](/rest/reference/pulls#comments) no repositório deste Pull Request. |
 | `commits`         | O local da API dos [commits](#list-commits-on-a-pull-request) deste Pull Request.                                                                                    |
-| `Status`          | O local da API dos [status do commit](/rest/reference/commits#commit-statuses) deste pull request, que são os status no seu branch `principal`.                      |
+| `Status`          | O local da API dos [status do commit](/rest/reference/repos#statuses) deste pull request, que são os status no seu branch `principal`.                               |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

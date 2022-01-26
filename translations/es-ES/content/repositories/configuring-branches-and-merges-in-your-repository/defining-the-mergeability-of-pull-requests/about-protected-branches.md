@@ -83,7 +83,7 @@ Optionally, you can choose to require reviews from code owners. If you do, any p
 
 Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)."
 
-Before you can enable required status checks, you must configure the repository to use the status API. For more information, see "[Repositories](/rest/reference/commits#commit-statuses)" in the REST documentation.
+Before you can enable required status checks, you must configure the repository to use the status API. For more information, see "[Repositories](/rest/reference/repos#statuses)" in the REST documentation.
 
 After enabling required status checks, all required status checks must pass before collaborators can merge changes into the protected branch. After all required status checks pass, any commits must either be pushed to another branch and then merged or pushed directly to the protected branch.
 
