@@ -114,6 +114,8 @@ Para habilitar {% data variables.product.prodname_actions %} en {% data variable
 
 {% endnote %}
 
+Before you enable {% data variables.product.prodname_actions %}, you can test your storage configuration from the administrative shell with the `ghe-actions-precheck` utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+
 ## Consideraciones de las conexiones
 
 {% data reusables.actions.proxy-considerations %} Para obtener más información sobre cómo utilizar un proxy con {% data variables.product.prodname_ghe_server %}, consulta la sección "[Configurar un servidor proxy saliente](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)".

@@ -164,9 +164,9 @@ Se llama a un flujo de trabajo reutilizable utilizando la palabra clave `uses`. 
 
 [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-Se referencian los archivos de flujo de trabajo reutilizables utilizando la sintaxis:
+You reference reusable workflow files using {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}one of the following syntaxes:{% else %}the syntax:{% endif %}
 
-`{owner}/{repo}/{path}/{filename}@{ref}`
+{% data reusables.actions.reusable-workflow-calling-syntax %}
 
 Puedes llamar a flujos de trabajo múltiples, referenciando cada uno en un job separado.
 
