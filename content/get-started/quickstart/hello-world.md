@@ -80,7 +80,7 @@ Here at {% data variables.product.product_name %}, our developers, writers, and 
 
 Now you have two branches, `main` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new branch.
 
-## Making and committing changes
+## Making and committing changes aa
 
 When you created a new branch in the previous step, {% data variables.product.product_name %} brought you to the code page for your new `readme-edits` branch, which is a copy of `main`.
 
