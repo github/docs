@@ -60,6 +60,7 @@ Como parte de una expresión, puedes usar tipos de datos `boolean`, `null`, `num
 #### Ejemplo
 
 {% raw %}
+
 ```yaml
 env:
   myNull: ${{ null }}
@@ -71,24 +72,25 @@ env:
   myString: Mona the Octocat
   myStringInBraces: ${{ 'It''s open source!' }}
 ```
+
 {% endraw %}
 
 ## Operadores
 
-| Operador                  | Descripción                |
-| ------------------------- | -------------------------- |
-| `( )`                     | Agrupación lógica          |
-| `[ ]`                     | Índice                     |
-| `.`                       | Desreferencia de propiedad |
-| `!`                       | No                         |
-| `<`                    | Menor que                  |
-| `<`                    | Menor o igual              |
-| `>`                    | Mayor que                  |
-| `>=`                   | Mayor o igual              |
-| `==`                      | Igual                      |
-| `!=`                      | No es igual                |
-| `&&`              | Y                          |
-| <code>\|\|</code> | O                          |
+| Operador                  | Descripción           |
+| ------------------------- | --------------------- |
+| `( )`                     | Agrupación lógica     |
+| `[ ]`                     | Índice                |
+| `.`                       | Property de-reference |
+| `!`                       | No                    |
+| `<`                    | Menor que             |
+| `<`                    | Menor o igual         |
+| `>`                    | Mayor que             |
+| `>=`                   | Mayor o igual         |
+| `==`                      | Igual                 |
+| `!=`                      | No es igual           |
+| `&&`              | Y                     |
+| <code>\|\|</code> | O                     |
 
 {% data variables.product.prodname_dotcom %} realiza comparaciones de igualdad flexible.
 

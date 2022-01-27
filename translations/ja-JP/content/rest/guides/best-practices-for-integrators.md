@@ -133,7 +133,7 @@ end
 
 この例では、始めに`closed`アクションを確認してから、`process_closed`メソッドを呼びます。 未確認のアクションは、今後の参考のために記録されます。
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghae %}
 
 ## レート制限の扱い
 

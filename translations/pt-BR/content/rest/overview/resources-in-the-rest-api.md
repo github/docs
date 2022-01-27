@@ -8,6 +8,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+miniTocMaxHeadingLevel: 3
 topics:
   - API
 ---
@@ -110,7 +111,7 @@ Leia [mais sobre o OAuth2](/apps/building-oauth-apps/).  Observe que os tokens d
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-Usar o seu `client_id` e `client_secret` _ não_ autenticam você como usuário. Isso apenas irá identificar o seu aplicativo OAuth para aumentar o seu limite de taxa. As permissões só são concedidas a usuários, não aplicativos, e você só obterá dados que um usuário não autenticado visualizaria. Por este motivo, você só deve usar a chave/segredo OAuth2 em cenários de servidor para servidor. Não compartilhe o segredo do cliente do aplicativo OAuth com os seus usuários.
+Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. As permissões só são concedidas a usuários, não aplicativos, e você só obterá dados que um usuário não autenticado visualizaria. Por este motivo, você só deve usar a chave/segredo OAuth2 em cenários de servidor para servidor. Don't leak your OAuth App's client secret to your users.
 
 {% ifversion ghes %}
 Você não conseguirá efetuar a autenticação usando sua chave e segredo do OAuth2 enquanto estiver no modo privado e essa tentativa de autenticação irá retornar `401 Unauthorized`. Para obter mais informações, consulte "[Habilitar o modo privado](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
@@ -317,21 +318,53 @@ Os valores de `rel` possíveis são:
 
 ## Limite de taxa
 
-Para solicitações de API que usam a Autenticação Básica ou OAuth, você pode criar até 5.000 solicitações por hora. As solicitações de autenticação são associadas ao usuário autenticado, independentemente de [Autenticação Básica](#basic-authentication) ou [um token do OAuth](#oauth2-token-sent-in-a-header) ter sido usado. Isto significa que todos os aplicativos OAuth autorizados por um usuário compartilham a mesma cota de 5.000 solicitações por hora quando eles são autenticados com diferentes tokens pertencentes ao mesmo usuário.
+Different types of API requests to {% data variables.product.product_location %} are subject to different rate limits.
 
-{% ifversion fpt or ghec %}
-
-Para usuários que pertencem a uma conta {% data variables.product.prodname_ghe_cloud %}, solicitações feitas usando um token OAuth para recursos pertencentes à mesma conta de {% data variables.product.prodname_ghe_cloud %} têm um aumento de 15.000 solicitações por hora no limite.
-
-{% endif %}
-
-Ao usar o `GITHUB_TOKEN` embutido no GitHub Actions, o limite de taxa será de 1.000 solicitações por hora por repositório. Para organizações que pertencem a uma conta no GitHub Enterprise Cloud, este limite é de 15.000 solicitações por hora por repositório.
-
-Para solicitações não autenticadas, o limite de taxa permite até 60 solicitações por hora. Solicitações não autenticadas estão associadas ao endereço IP original, e não ao usuário que faz solicitações.
+Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
 
 {% data reusables.enterprise.rate_limit %}
 
-Observe que [a API de pesquisa tem regras de limite de taxa personalizadas](/rest/reference/search#rate-limit).
+{% data reusables.rest-api.always-check-your-limit %}
+
+### Requests from user accounts
+
+Direct API requests that you authenticate with a personal access token are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
+
+{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
+
+{% data reusables.apps.user-to-server-rate-limits %}
+
+{% ifversion fpt or ghec %}
+
+{% data reusables.apps.user-to-server-rate-limits-ghec %}
+
+{% ifversion fpt or ghec or ghes %}
+
+Para solicitações não autenticadas, o limite de taxa permite até 60 solicitações por hora. Unauthenticated requests are associated with the originating IP address, and not the person making requests.
+
+{% endif %}
+
+{% endif %}
+
+### Requests from GitHub Apps
+
+Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)."
+
+### Requests from GitHub Actions
+
+You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)".
+
+When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.product.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
+
+### Checking your rate limit status
+
+The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
+
+#### Rate Limit API
+
+You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
+
+#### Rate limit HTTP headers
 
 Os cabeçalhos HTTP retornados de qualquer solicitação de API mostram o seu status atual de limite de taxa:
 
@@ -372,11 +405,9 @@ Se você exceder o limite de taxa, uma resposta do erro retorna:
 > }
 ```
 
-Você pode [verificar o status do seu limite de taxa](/rest/reference/rate-limit) sem a incorrer em uma consulta da API.
+### Increasing the unauthenticated rate limit for OAuth Apps
 
-### Aumentar o limite de taxa não autenticado para aplicativos OAuth
-
-Se o seu aplicativo OAuth precisar fazer chamadas não autenticadas com um limite de taxa mais alto, você poderá passar o ID e o segredo do cliente do seu aplicativo antes do encaminhamento de pontos de extremidade.
+If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos

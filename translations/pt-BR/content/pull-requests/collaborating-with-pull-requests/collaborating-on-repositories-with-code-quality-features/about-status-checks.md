@@ -35,7 +35,7 @@ Há dois tipos de verificação de status no {% data variables.product.product_n
 
 As _Verificações_ são diferentes dos _status_ na medida que fornecem anotações de linha, mensagens mais detalhadas e só estão disponíveis para uso com {% data variables.product.prodname_github_apps %}.
 
-Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)" e "[Status](/rest/reference/commits#commit-statuses)".
+Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)" e "[Status](/rest/reference/repos#statuses)".
 
 ## Verificações
 

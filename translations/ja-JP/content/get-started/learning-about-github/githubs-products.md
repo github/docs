@@ -47,11 +47,11 @@ When you read {% data variables.product.prodname_docs %}, make sure to select th
 - プライベートリポジトリでの高度なツールとインサイト：
   - 必須のプルリクエストレビュー担当者
   - 複数のプルリクエストレビュー担当者
-  - 自動リンクのリファレンス
-  - {% data variables.product.prodname_pages %}
-  - Wiki
   - 保護されたブランチ
   - コードオーナー
+  - 自動リンクされたリファレンス
+  - {% data variables.product.prodname_pages %}
+  - Wiki
   - リポジトリインサイトグラフ: パルス、コントリビューター、トラフィック、コミット、コード頻度、ネットワーク、およびフォーク
 
 ## Organization の {% data variables.product.prodname_free_team %}
@@ -74,14 +74,14 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 - プライベートリポジトリでの高度なツールとインサイト：
   - 必須のプルリクエストレビュー担当者
   - 複数のプルリクエストレビュー担当者
-  - {% data variables.product.prodname_pages %}
-  - Wiki
-  - 保護されたブランチ
-  - コードオーナー
-  - リポジトリインサイトグラフ: パルス、コントリビューター、トラフィック、コミット、コード頻度、ネットワーク、およびフォーク
   - ドラフトプルリクエスト
   - Teamのプルリクエストレビュー担当者
+  - 保護されたブランチ
+  - コードオーナー
   - スケジュールされたリマインダー
+  - {% data variables.product.prodname_pages %}
+  - Wiki
+  - リポジトリインサイトグラフ: パルス、コントリビューター、トラフィック、コミット、コード頻度、ネットワーク、およびフォーク
 {% ifversion fpt or ghec %}
 - The option to enable {% data variables.product.prodname_github_codespaces %}
   - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."

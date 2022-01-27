@@ -28,7 +28,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-staging-azure:
     if: ${{ github.repository == 'github/docs-internal' }}
     name: Build and deploy image to staging App Service
     runs-on: ubuntu-latest
@@ -38,6 +38,7 @@ jobs:
       url: ${{ steps.deploy.outputs.defaultHostName }}
     env:
       GITHUB_EVENT_NUMBER: ${{ github.event.number }}
+      RESOURCE_GROUP: docs-nonprod
       NONPROD_REGISTRY_USERNAME: ghdocs
       # Image tag is unique to each workflow run so that it always triggers a new deployment
       DOCKER_IMAGE: ${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}/pr-${{ github.event.number }}:${{ github.event.pull_request.head.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -48,10 +49,11 @@ jobs:
         run: |
           REPO_NAME=${GITHUB_REPOSITORY#*\/}
           echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
+          echo "DEPLOYMENT_NAME=${REPO_NAME}-pr-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
           echo "APP_NAME=gh${REPO_NAME}-staging-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
 
       - name: 'Az CLI login'
-        uses: azure/login@66d2e78565ab7af265d2b627085bc34c73ce6abb
+        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
@@ -65,6 +67,14 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
 
+      - name: Cache Docker layers
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
       - name: Check out repo
         uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
         with:
@@ -76,12 +86,6 @@ jobs:
       - name: Check out LFS objects
         run: git lfs checkout
 
-      - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
-        with:
-          node-version: 16.13.x
-          cache: npm
-
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Clone early access
         env:
@@ -90,14 +94,23 @@ jobs:
         run: npm install dotenv && node script/early-access/clone-for-build.js
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@a66e35b9cbcf4ad0ea91ffcaf7bbad63ad9e0229
+        uses: docker/build-push-action@1814d3dfb36d6f84174e61f4a4b05bd84089a4b9
         with:
           context: .
           push: true
           target: ${{ fromJSON('["production", "production_early_access"]')[github.repository == 'github/docs-internal'] }}
           tags: ${{ env.DOCKER_IMAGE }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          # we only pull the `main` cache image
+          cache-from: |
+            type=local,src=/tmp/.buildx-cache
+            type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main
+          # `main-docker-cache.yml` handles updating the remote cache so we don't pollute it with PR specific code
+          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+
+      # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
+      - name: 'Cancel any existing deployments for this PR'
+        run: |
+          az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ env.RESOURCE_GROUP }} || true
 
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
@@ -105,9 +118,10 @@ jobs:
         id: deploy
         uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
         with:
-          resourceGroupName: docs-nonprod
+          resourceGroupName: ${{ env.RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
           template: ./staging-azure-deploy-template.json
+          deploymentName: ${{ env.DEPLOYMENT_NAME }}
           parameters: appName="${{ env.APP_NAME }}"
             location="East US"
             linuxFxVersion="DOCKER|${{ env.DOCKER_IMAGE }}"
@@ -116,3 +130,11 @@ jobs:
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
 
       - run: echo ${{ steps.deploy.outputs.defaultHostName }}
+
+      - # Fixes cache growth problem
+        # https://github.com/docker/build-push-action/issues/252
+        # https://github.com/moby/buildkit/issues/1896
+        name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache

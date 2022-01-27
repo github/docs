@@ -89,7 +89,7 @@ If you use your `noreply` email address for {% data variables.product.product_na
 
 {% data variables.product.product_name %} uses the email address set in your local Git configuration to associate commits pushed from the command line with your account on {% data variables.product.product_location %}.
 
-単一のリポジトリで作成するコミットに関連するメールアドレスを変更できます。 この 1 つのリポジトリの Git コンフィグ設定を上書きしますが、他のリポジトリには影響しません。
+単一のリポジトリで作成するコミットに関連するメールアドレスを変更できます。 This will override your global Git configuration settings in this one repository, but will not affect any other repositories.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 現在のワーキングディレクトリを Git コミットと関連付けたメールアドレスを設定したいローカルリポジトリに変更します。
