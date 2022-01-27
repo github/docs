@@ -41,7 +41,9 @@ shortTitle: Upgrading GHES
 
 ## スナップショットの取得
 
-スナップショットは、ある時点での仮想マシン（VM）のチェックポイントです。 アップグレードに失敗した場合にスナップショットからVMを回復できるよう、仮想マシンをアップグレードする前にスナップショットを取っておくことを強くおすすめします。 新しいフィーチャリリースにアップグレードするなら、VM のスナップショットを取らなければなりません。 パッチリリースへのアップグレードをするなら、既存のデータディスクをアタッチできます。
+スナップショットは、ある時点での仮想マシン（VM）のチェックポイントです。 アップグレードに失敗した場合にスナップショットからVMを回復できるよう、仮想マシンをアップグレードする前にスナップショットを取っておくことを強くおすすめします。 We only recommend taking a VM snapshot when the appliance is powered down or in maintenance mode and all background jobs have finished.
+
+新しいフィーチャリリースにアップグレードするなら、VM のスナップショットを取らなければなりません。 パッチリリースへのアップグレードをするなら、既存のデータディスクをアタッチできます。
 
 スナップショットには2種類あります。
 
@@ -67,7 +69,9 @@ shortTitle: Upgrading GHES
 
 ## ホットパッチでのアップグレード
 
-{% data reusables.enterprise_installation.hotpatching-explanation %}{% data variables.enterprise.management_console %} を使うと、ホットパッチを即座にインストールすることや、後にインストールするようにスケジュールすることができます。 管理シェルを使って `ghe-upgrade` ユーティリティでホットパッチをインストールすることもできます。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
+{% data reusables.enterprise_installation.hotpatching-explanation %}
+
+Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. 管理シェルを使って `ghe-upgrade` ユーティリティでホットパッチをインストールすることもできます。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
 
 {% note %}
 
@@ -83,6 +87,10 @@ shortTitle: Upgrading GHES
 ### ホットパッチでの単一のアプライアンスのアップグレード
 
 #### {% data variables.enterprise.management_console %} を使ってホットパッチをインストールする
+
+You can use the {% data variables.enterprise.management_console %} to upgrade with a hotpatch by enabling automatic updates. You will then be presented with the latest available version of {% data variables.product.prodname_ghe_server %} that you can upgrade to.
+
+If the upgrade target you're presented with is a feature release instead of a patch release, you cannot use the {% data variables.enterprise.management_console %} to install a hotpatch. You must install the hotpatch using the administrative shell instead. For more information, see "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
 
 1. 自動アップデートを有効化してください。 詳しい情報については「[自動アップデートの有効化](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)」を参照してください。
 {% data reusables.enterprise_site_admin_settings.access-settings %}

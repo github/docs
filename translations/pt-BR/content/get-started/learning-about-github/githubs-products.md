@@ -47,11 +47,11 @@ Além dos recursos disponíveis no {% data variables.product.prodname_free_user 
 - Ferramentas avançadas e insights em repositórios privados:
   - Revisores de pull request necessários
   - Múltiplos revisores de pull request
+  - Branches protegidos
+  - Proprietários de código
   - Referências autovinculadas
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - Branches protegidos
-  - Proprietários de código
   - Gráficos de informações de repositório: Pulse, contribuidores, tráfego, commits, frequência de códigos, rede e bifurcações
 
 ## {% data variables.product.prodname_free_team %} para organizações
@@ -74,14 +74,14 @@ Além dos recursos disponíveis no {% data variables.product.prodname_free_team 
 - Ferramentas avançadas e insights em repositórios privados:
   - Revisores de pull request necessários
   - Múltiplos revisores de pull request
-  - {% data variables.product.prodname_pages %}
-  - Wikis
-  - Branches protegidos
-  - Proprietários de código
-  - Gráficos de informações de repositório: Pulse, contribuidores, tráfego, commits, frequência de códigos, rede e bifurcações
   - Pull requests de rascunho
   - Equipe de revisores de pull request
+  - Branches protegidos
+  - Proprietários de código
   - Lembretes agendados
+  - {% data variables.product.prodname_pages %}
+  - Wikis
+  - Gráficos de informações de repositório: Pulse, contribuidores, tráfego, commits, frequência de códigos, rede e bifurcações
 {% ifversion fpt or ghec %}
 - A opção para habilitar {% data variables.product.prodname_github_codespaces %}
   - Os proprietários da organização podem habilitar {% data variables.product.prodname_github_codespaces %} para a organização definindo um limite de gastos e concedendo permissões de usuário aos integrantes da sua organização. Para obter mais informações, consulte "[Habilitando codespaces para a sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)".

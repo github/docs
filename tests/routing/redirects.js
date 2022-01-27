@@ -97,7 +97,7 @@ describe('redirects', () => {
     })
 
     test('do not work on other paths that include "search"', async () => {
-      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom`
+      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise`
       const res = await get(reqPath)
       expect(res.statusCode).toBe(200)
     })
@@ -201,7 +201,7 @@ describe('redirects', () => {
 
     test('hardcoded @latest redirects to latest version', async () => {
       const res = await get('/en/enterprise-server@latest')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(enterpriseHome)
     })
   })
@@ -347,12 +347,12 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/fork-a-repo`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(
-        `/en/enterprise/${enterpriseServerReleases.latest}/user/articles/about-writing-and-formatting-on-github`
+        `/en/enterprise/${enterpriseServerReleases.latest}/user/articles/fork-a-repo`
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
@@ -366,28 +366,28 @@ describe('redirects', () => {
 
     test('no language code redirects to english', async () => {
       const res = await get(
-        `/enterprise/${enterpriseServerReleases.latest}/user/articles/about-writing-and-formatting-on-github`
+        `/enterprise/${enterpriseServerReleases.latest}/user/articles/fork-a-repo`
       )
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version', async () => {
-      const res = await get('/en/enterprise/user/articles/about-writing-and-formatting-on-github')
+      const res = await get('/en/enterprise/articles/fork-a-repo')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise/user/articles/about-writing-and-formatting-on-github')
+      const res = await get('/ja/enterprise/articles/fork-a-repo')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseUserArticle)
     })
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
-    const redirectFromPath = '/articles/about-writing-and-formatting-on-github'
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/fork-a-repo`
+    const redirectFromPath = '/articles/fork-a-repo'
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('redirects to expected article', async () => {

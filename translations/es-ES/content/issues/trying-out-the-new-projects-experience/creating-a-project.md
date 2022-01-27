@@ -34,9 +34,16 @@ Tu proyecto puede rastrear borradores de propuestas, propuestas, y solicitudes d
 Los borradores de propuestas son útiles si quieres capturar ideas rápidamente.
 
 1. Coloca tu cursor en la fila inferior del proyecto, junto al {% octicon "plus" aria-label="plus icon" %}.
-2. Teclea tu ida y luego presiona **Enter**.
+1. Teclea tu ida y luego presiona **Enter**.
+1. Para agregar cuerpo de texto, haz clic en el título del borrador de propuesta. En la caja de entrada de lenguaje de marcado que se muestra, ingresa el texto para el cuerpo del borrador de propuesta y luego haz clic en **Guardar**.
 
-Puedes convertir los borradores de propuestas en propuestas. Para obtener más información, consulta la sección [Convertir borradores de propuestas en propuestas](#converting-draft-issues-to-issues).
+Los borradores de propuesta pueden tener un título, cuerpo de texto, asignados y cualquier campo personalizado desde tu proyecto. Para poder poblar el repositorio, las etiquetas o hitos de un borrador de propuesta, primero debes convertirla en una propuesta formal. Para obtener más información, consulta la sección "[Convertir los borradores de propuesta en propuestas formales](#converting-draft-issues-to-issues)".
+
+{% note %}
+
+**Nota**: Los usuarios no recibirán notificaciones cuando se les asigne o se les mencione en un borrador de propuesta, a menos de que este se convierta en una propuesta formal.
+
+{% endnote %}
 
 ### Propuestas y solicitudes de extracción
 
@@ -68,7 +75,7 @@ En el diseño de la tabla:
 1. Haz clic en el {% octicon "triangle-down" aria-label="the item menu" %} en el borrador de propuesta que quieras convertir.
 2. Selecciona **Convertir en propuesta**.
 3. Selecciona el repositorio al cual quieras agregar la propuesta.
-4. Como alternativa, edita los campos de `assignee`, `labels`, `milestone` o `repository` en el borrador de propuesta que quieras convertir.
+4. Como alternativa, edita los campos `labels`, `milestone` o `repository` del borrador de propuesta que quieras convertir.
 
 En el diseño del tablero:
 
@@ -81,11 +88,11 @@ En el diseño del tablero:
 Puedes archivar un elemento para mantener el contexto sobre este en el proyecto, pero eliminarlo de las vistas del proyecto. Puedes borrar un elemento para eliminarlo por completo del proyecto.
 
 1. Selecciona el(los) elemento(s) a archivar o borrar. Para seleccionar elementos múltiples, realiza alguna de las siguientes acciones:
-     - <kbd>Command</kbd>+Click (Mac) or <kbd>Ctrl</kbd>+Click (Windows/Linux) each item.
-     - Select an item then <kbd>Shift</kbd>+<kbd>↑</kbd> or <kbd>Shift</kbd>+<kbd>↓</kbd> to select additional items above or below the initially selected item.
-     - Select an item then <kbd>Shift</kbd>+Click another item to select all items between the two items.
-     - Enter <kbd>Command</kbd>+<kbd>A</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
-2. To archive all selected items, enter <kbd>E</kbd>. To delete all selected items, enter <kbd>Del</kbd>. Como alternativa, selecciona el {% octicon "triangle-down" aria-label="the item menu" %} (en el diseño de tabla) o el {% octicon "kebab-horizontal" aria-label="the item menu" %} (en el diseño de tablero) y luego selecciona la acción deseada.
+     - <kbd>Command</kbd>+Clic (Mac) o <kbd>Ctrl</kbd>+Click (Windows/Linux) en cada elemento.
+     - Selecciona un elemento y luego presiona <kbd>Shift</kbd>+<kbd>↑</kbd> o <kbd>Shift</kbd>+<kbd>↓</kbd> para seleccionar los elementos adicionales sobre o debajo del que seleccionaste inicialmente.
+     - Selecciona un elemento y luego presiona <kbd>Shift</kbd>+Clic en otro elemento para seleccionar todos los elementos entre dos de ellos.
+     - Ingresa <kbd>Command</kbd>+<kbd>A</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) para seleccionar todos los elementos en una columna en un diseño amplio o todos los elementos en un diseño de tabla.
+2. Para archivar todos los elementos seleccionados, ingresa <kbd>E</kbd>. Para borrar todos los elementos seleccionados, ingresa <kbd>Del</kbd>. Como alternativa, selecciona el {% octicon "triangle-down" aria-label="the item menu" %} (en el diseño de tabla) o el {% octicon "kebab-horizontal" aria-label="the item menu" %} (en el diseño de tablero) y luego selecciona la acción deseada.
 
 Puedes restablecer los elementos archivados, pero no los borrados. Para obtener más información, consulta la sección de [Cómo restaurar los elementos archivados](#restoring-archived-items).
 
@@ -99,7 +106,7 @@ Conforme cambian los valores de los campos, estos se sincronizan automáticament
 
 ### Mostrar campos existentes
 
-Tu proyecto rastrea la información actualizada de las propuestas y solicitudes de cambio, incluyendo cualquier cambio al título, asignados, etiquetas, hitos y repositorio. Cuando tu proyecto inicializa, se muestran el "título" y los "asignados"; los otros campos están ocultos. Puedes cambiar la visibilidad de estos campos en tu proyecto.
+Tu proyecto rastrea la información actualizada de las propuestas y solicitudes de cambio, incluyendo cualquier cambio en el título, asignados, etiquetas, hitos, repositorios, revisores y solicitudes de cambio enlazadas. Cuando tu proyecto inicializa, se muestran el "título" y los "asignados"; los otros campos están ocultos. Puedes cambiar la visibilidad de estos campos en tu proyecto.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comienza a teclear "show".
@@ -148,3 +155,16 @@ Puedes ver tu proyecto como una tabla o tablero, agrupar los elementos por campo
 Puedes habilitar o inhabilitar los flujos de trabajo integrados de tu proyecto.
 
 {% data reusables.projects.enable-basic-workflow %}
+
+## Agregar tu proyecto a un repositorio
+
+Puedes listar los proyectos relevantes en un repositorio. Solo puedes listar proyectos que le pertenezcan al mismo usuario u organización propietaria del repositorio.
+
+Para que los miembros de los repositorios vean un proyecto que se lista en dichos repositorios, deben tener visibilidad del proyecto. Para obtener más información, consulta las secciones "[Administrar la visibilidad de tus proyectos (beta)](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)" y "[Administrar el acceso a los proyectos (beta)](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)".
+
+1. En {% data variables.product.prodname_dotcom %}, navega a la página principal de tu repositorio.
+1. Haz clic en {% octicon "table" aria-label="the project icon" %} **Proyectos**.
+1. Haz clic en **Proyectos (Beta)** en la barra lateral.
+1. Haz clic en **Agregar proyecto**.
+1. En la barra de búsqueda que se muestra, busca los proyectos que le pertenezcan al mismo usuario u organización propietaria del repositorio.
+1. Haz clic en un proyecto para listarlo en tu repositorio.

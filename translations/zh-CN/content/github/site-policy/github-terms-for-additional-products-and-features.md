@@ -20,7 +20,7 @@ topics:
 
 - **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, Pages, and SQL Server Images.
 
-- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, {% ifversion ghae %}Connect, {% endif %}Dependabot Preview, GitHub Enterprise Importer, Packages and Pages.
+- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages and Pages.
 
 ## 操作
 GitHub Actions 使您能够直接在您的 GitHub 仓库中创建自定义软件开发生命周期工作流程。 Actions 按使用情况计费。 [Actions 文档](/actions)包含详细信息，包括计算和存储量（取决于您的帐户计划）以及如何监控您的 Actions 分钟使用和设置使用限制。
@@ -68,7 +68,7 @@ Codespaces allows you to load extensions from the Microsoft Visual Studio Market
 Codespaces 的一般版本目前不适用于美国。 政府客户。 美国 government customers may continue to use the Codespaces Beta Preview under separate terms. See [Beta Preview terms](/github/site-policy/github-terms-of-service#j-beta-previews).
 
 ## Connect
-使用 GitHub Connect，您可以在 GitHub Enterprise Server {% ifversion ghae %}或 GitHub AE {% endif %}实例与您的GitHub Enterprise Cloud 组织或 GitHub.com 上的企业帐户之间分享某些功能和数据。 要启用 GitHub Connect，您必须在 GitHub Enterprise Cloud 或 GitHub.com 上至少有一 (1) 个帐户，以及一 (1) 个许可的 GitHub Enterprise Server{% ifversion ghae %} 或 GitHub AE{% endif %} 实例。 您通过 Connect 使用 GitHub Enterprise Cloud 或 GitHub.com 是由您许可 GitHub Enterprise Cloud 或 GitHub.com的条款管理的。 个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管制。
+With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server or GitHub AE instance and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed instance of GitHub Enterprise Server or GitHub AE. 您通过 Connect 使用 GitHub Enterprise Cloud 或 GitHub.com 是由您许可 GitHub Enterprise Cloud 或 GitHub.com的条款管理的。 个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管制。
 
 ## GitHub Enterprise Importer
 Importer is a framework for exporting data from other sources to be imported to the GitHub platform. Importer is provided “AS-IS”.

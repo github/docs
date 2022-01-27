@@ -49,6 +49,14 @@ Repita os passos acima algumas vezes para adicionar vários problemas ao seu pro
 
 Para obter mais informações sobre outras formas de adicionar problemas ao seu projeto, ou sobre outros itens que você pode adicionar ao seu projeto, consulte "[Criando um projeto](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)."
 
+## Adicionando rascunhos de problemas ao seu projeto
+
+Em seguida, adicione um rascunho ao seu projeto.
+
+1. Coloque seu cursor na linha inferior do projeto, ao lado do {% octicon "plus" aria-label="plus icon" %}.
+1. Digite sua ideia e, em seguida, pressione **Enter**.
+1. Clique no título do rascunho do problema. Na caixa de entrada do markdown que será exibida, insira mais informações sobre a sua ideia e, em seguida, clique em **Salvar**.
+
 ## Criando um campo para monitorar a prioridade
 
 Agora, crie um campo personalizado denominado `Prioridade` para conter os valores: `Alto`, `Médio` ou `Baixo`.

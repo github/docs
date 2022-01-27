@@ -111,6 +111,23 @@ export const ArticlePage = () => {
     }
   }, [])
 
+  // Scrollable code blocks in our REST API docs and elsewhere aren't accessible
+  // via keyboard navigation without setting tabindex="0".  But we don't want to set
+  // this attribute on every `<pre>` code block, only the ones where there are scroll
+  // bars because the content isn't all visible.
+  useEffect(() => {
+    const codeBlocks = document.querySelectorAll<HTMLPreElement>('pre')
+
+    codeBlocks.forEach((codeBlock) => {
+      if (
+        codeBlock.scrollWidth > codeBlock.clientWidth ||
+        codeBlock.scrollHeight > codeBlock.clientHeight
+      ) {
+        codeBlock.setAttribute('tabindex', '0')
+      }
+    })
+  }, [])
+
   return (
     <DefaultLayout>
       {/* Doesn't matter *where* this is included because it will

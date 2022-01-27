@@ -22,6 +22,12 @@ Estes provedores de identidade são compatíveis com a API de SCIM de {% data va
 - Okta
 - OneLogin
 
+{% note %}
+
+**Observação:** {% data reusables.scim.nameid-and-username-must-match %}
+
+{% endnote %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 ## Leia mais
