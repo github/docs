@@ -87,7 +87,7 @@ You can configure this behavior for a repository using the procedure below. Modi
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-These policies can be enabled and disabled at the {% ifversion fpt %}organization{% elsif ghec or ghae or ghes %}enterprise{% endif %} level. Once enabled at the {% ifversion fpt %}organization{% elsif ghec or ghae or ghes %}enterprise{% endif %} level, the policies can then be selectively disabled for individual repositories.
+If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
 
 {% data reusables.github-actions.private-repository-forks-options %}
 
