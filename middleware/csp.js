@@ -35,7 +35,6 @@ export default function csp(req, res, next) {
       objectSrc: ["'self'"],
       scriptSrc: [
         "'self'",
-        'data:',
         // For use during development only! This allows us to use a performant webpack devtool setting (eval)
         // https://webpack.js.org/configuration/devtool/#devtool
         isDev && "'unsafe-eval'",
