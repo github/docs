@@ -42,11 +42,10 @@ export default function csp(req, res, next) {
       ].filter(Boolean),
       frameSrc: [
         // exceptions for GraphQL Explorer
-        'https://graphql-explorer.githubapp.com', // production env
         'https://graphql.github.com/',
-        'http://localhost:3000', // development env
+        isDev && 'http://localhost:3000', // development env
         'https://www.youtube-nocookie.com',
-      ],
+      ].filter(Boolean),
       styleSrc: ["'self'", "'unsafe-inline'"],
       childSrc: [
         "'self'", // exception for search in deprecated GHE versions
