@@ -23,9 +23,9 @@ A menos de que se proporcione algún otro tipo de opción como parámetro de con
 
 ### Limite de tasa
 
-La API de Búsqueda tiene un límite de tasa personalizado. Para las solicitudes que utilizan [Autenticación Básica](/rest#authentication), [OAuth](/rest#authentication), o [secreto e ID de cliente](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), puedes hacer hasta 30 solicitudes por minuto. Para las solicitudes sin autenticar, el límite de tasa te permite hacer hasta 10 por minuto.
-
 {% data reusables.enterprise.rate_limit %}
+
+La API de Búsqueda tiene un límite de tasa personalizado. Para las solicitudes que utilizan [Autenticación Básica](/rest#authentication), [OAuth](/rest#authentication), o [secreto e ID de cliente](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), puedes hacer hasta 30 solicitudes por minuto. Para las solicitudes sin autenticar, el límite de tasa te permite hacer hasta 10 por minuto.
 
 Consulta la [documentación del límite de tasa](/rest/reference/rate-limit) para obtener más detalles sobre cómo determinar tu estado de límite de tasa actual.
 

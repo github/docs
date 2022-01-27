@@ -111,26 +111,26 @@ Sigue pasos similares para eliminar un agrupamiento.
 
 Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de vista y luego en el elemento de menú que indica el agrupamiento actual.
 
-## Setting the column field in board layout
+## Configurar el campo de columna en el diseño del tablero
 
-In the board layout, you choose any single select or iteration field for your columns. If you drag an item to a new column, the value of that column is applied to the dragged item. For example, if you use the "Status" field for your board columns and then drag an item with a status of `In progress` to the `Done` column, the status of the item will switch to `Done`.
+En el diseño de tablero, puedes elegir cualquier campo simple o de iteración para tus columnas. Si arrastras a un elemento a una columna nueva, el valor de dicha columna se aplicará al elemento que arrastraste. Por ejemplo, si utilizas el campo "Estado" para tus columnas de tablero y luego arrastras un elemento con un estado de `In progress` a la columna `Done`, el estado del elemento se cambiará a `Done`.
 
 1. {% data reusables.projects.open-command-palette %}
-1. Start typing "Column field by" or the name of the field you want to use for your columns.
-1. Elige el comando requerido. For example, **Column field by: Status**.
+1. Comienza a teclear "Column field by" o el nombre del campo que quieras utilizar para tus columnas.
+1. Elige el comando requerido. Por ejemplo, **Column field by: Status**.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to the board view that you want to modify and click {% octicon "columns" aria-label="the column icon" %} **Column field**. Then select the field that you want to use for the board columns.
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} juento a la vista de tablero que quieras modificar y haz clic en el **campo de columna** {% octicon "columns" aria-label="the column icon" %}. Posteriormente, selecciona el campo que quieras utilizar para las columnas del tablero.
 
-## Filtering items
+## Filtrar elementos
 
-Click {% octicon "filter" aria-label="the filter icon" %} at the top of the table to show the "Filter by keyword or by field" bar. Comienza a teclear el nombre de campo y valor por el cuál quieras filtrar. Conforme teclees, se mostrarán los posibles valores.
+Haz clic en el {% octicon "filter" aria-label="the filter icon" %} en la parte superior de la tabla para mostrar la barra de "Filtrar por palabra clave o por campo". Comienza a teclear el nombre de campo y valor por el cuál quieras filtrar. Conforme teclees, se mostrarán los posibles valores.
 
 - Para filtrar valores múltiples, sepáralos con una coma. Por ejemplo `label:"good first issue",bug` listará las propuestas con una etiqueta de `good first issue` o de `bug`.
 - Para filtrar la ausencia de un valor específico, coloca `-` antes de tu filtro. Por ejemplo, `-label:"bug"` mostrará solo elementos que no tengan la etiqueta `bug`.
 - Para filtrar de acuerdo a la ausencia de todos los valores, ingresa `no:` seguido del nombre del campo. Por ejemplo, `no:assignee` solo mostrará los elementos que no tengan un asignado.
 - Para filtrar por estado, ingresa `is:`. Por ejemplo, `is: issue` o `is:open`.
 - Separa los filtros múltiples con un espacio. Por ejemplo, `status:"In progress" -label:"bug" no:assignee` solo mostrará los elementos que tengan un estado de `In progress`, que no tengan la etiqueta `bug` y que no tengan un asignado.
-- To filter for the current iteration of an iteration field, use `@current`. For example, `sprint:@current`.
+- Para filtrar de acuerdo con la iteración actual de un campo de iteración, utiliza `@current`. Por ejemplo, `sprint:@current`.
 
 Como alternativa, utiliza la paleta de comandos.
 
@@ -158,7 +158,7 @@ Para agregar una vista nueva:
 
 Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} **Vista nueva** junto a la vista que está más hacia la derecha.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Duplicate view**.
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Duplicar vista**.
 
 La vista nueva se guarda automáticamente.
 
@@ -175,7 +175,7 @@ Para guardar la configuración actual de la vista para todos los miembros del pr
 1. Comienza a teclear "Save view" o "Save changes to new view".
 1. Elige el comando requerido.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Save view** or **Save changes to new view**.
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Guardar vista** o en **Guardar cambios en una vista nueva**.
 
 ## Reordenar las vistas guardadas
 
@@ -199,7 +199,7 @@ Para borrar una vista:
 2. Comienza a teclear "Delete view".
 3. Elige el comando requerido.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Delete view**.
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Borrar vista**.
 
 ## Leer más
 

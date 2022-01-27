@@ -68,6 +68,6 @@ gh run watch
 
 ## Executar um fluxo de trabalho usando a API REST
 
-When using the REST API, you configure the `inputs` and `ref` as request body parameters. Se as entradas forem omitidas, serão usados os valores-padrão definidos no arquivo de fluxo de trabalho.
+Ao usar a API REST, você configura as `entradas` e `ref` como parâmetros do texto da solicitação. Se as entradas forem omitidas, serão usados os valores-padrão definidos no arquivo de fluxo de trabalho.
 
-For more information about using the REST API, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)."
+Para obter mais informações sobre o uso da API REST, consulte o "[Criar um evento de envio de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)".

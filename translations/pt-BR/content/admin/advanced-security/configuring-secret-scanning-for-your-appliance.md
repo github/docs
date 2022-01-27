@@ -20,7 +20,7 @@ topics:
 
 ## Sobre o {% data variables.product.prodname_secret_scanning %}
 
-{% data reusables.secret-scanning.about-secret-scanning %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning).
+If someone checks a secret with a known pattern into a repository, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. Os administradores do repositório são notificados sobre qualquer submissão que contém um segredo e podem visualizar rapidamente todos os segredos detectados na aba Segurança do repositório. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)
 
 ## Verificando se a sua licença inclui {% data variables.product.prodname_GH_advanced_security %}
 

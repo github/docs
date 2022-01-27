@@ -5,7 +5,7 @@ intro: Run a single job at a time.
 versions:
   fpt: '*'
   ghes: '> 3.1'
-  ghae: ghae-next
+  ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
 ---
