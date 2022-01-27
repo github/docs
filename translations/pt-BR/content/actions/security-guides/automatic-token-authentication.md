@@ -140,4 +140,4 @@ Se você precisa de um token que exige premissões que não estão disponíveis 
 
 ### Leia mais
 
-- "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)"
+- "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)"
