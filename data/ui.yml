@@ -171,8 +171,7 @@ product_landing:
   browse_all_docs: Browse all docs
   explore_release_notes: Explore release notes
 product_guides:
-  start: Start
-  start_path: Start path
+  start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
   guides: '{{ productMap[currentProduct].name }} guides'
