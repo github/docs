@@ -1,4 +1,4 @@
----
+---trunk
 title: OpenAPI description
 intro: 'The {% data variables.product.product_name %} REST API is fully described in an OpenAPI 3.0 compliant document.'
 versions:
@@ -7,10 +7,10 @@ versions:
   ghec: '*'
 topics:
   - API
----
+---main
 
 ## About OpenAPI descriptions
-
+mainbranch
 [OpenAPI](https://swagger.io/docs/specification/about/) is a standard specification for describing REST APIs. OpenAPI descriptions allow both humans and machines to discover the capabilities of an API without needing to first read documentation or understand the implementation. {% data variables.product.company_short %} has made its REST API publicly available as an OpenAPI 3.0 compliant document.
 
 ## Getting the {% data variables.product.company_short %} OpenAPI description
