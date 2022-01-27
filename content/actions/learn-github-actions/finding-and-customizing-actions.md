@@ -49,7 +49,7 @@ You can search and browse actions directly in your repository's workflow editor.
 
 You can add an action to your workflow by referencing the action in your workflow file. 
 
-You can view the dependencies of your {% data variables.product.prodname_actions %} workflows in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
 
 ### Adding an action from {% data variables.product.prodname_marketplace %}
 
