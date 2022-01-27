@@ -101,7 +101,7 @@ Available in the organization-level overview.
 | -------- | -------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-5503 %}
+{% if security-overview-views %}
 
 ## Filter by severity
 

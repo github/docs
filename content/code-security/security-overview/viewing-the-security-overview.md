@@ -28,7 +28,7 @@ shortTitle: View the security overview
   ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-5503 %}
+{% if security-overview-views %}
 
 ## Viewing alerts across your organization
 
