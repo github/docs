@@ -105,7 +105,7 @@ The recommended formats explicitly define which versions are used for all direct
 {% if github-actions-in-dependency-graph %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_actions %} workflow dependencies are now displayed in the dependency graph for informational purposes, but Dependabot alerts for vulnerable dependencies are not currently supported for {% data variables.product.prodname_actions %} workflows.
+**Note:** {% data variables.product.prodname_actions %} workflow dependencies are displayed in the dependency graph for information. Dependabot alerts are not currently supported for {% data variables.product.prodname_actions %} workflows.
 
 {% endnote %}
 {% endif %}
