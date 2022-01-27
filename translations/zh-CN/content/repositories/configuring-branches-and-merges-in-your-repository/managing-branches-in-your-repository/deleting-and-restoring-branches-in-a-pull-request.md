@@ -1,6 +1,6 @@
 ---
-title: Deleting and restoring branches in a pull request
-intro: 'If you have write access in a repository, you can delete branches that are associated with closed or merged pull requests. You cannot delete branches that are associated with open pull requests.'
+title: 删除和恢复拉取请求中的分支
+intro: 如果拥有仓库的写入权限，可删除与已关闭或已合并拉取请求关联的分支。 无法删除与已打开拉取请求关联的分支。
 redirect_from:
   - /articles/tidying-up-pull-requests
   - /articles/restoring-branches-in-a-pull-request
@@ -17,31 +17,30 @@ topics:
   - Repositories
 shortTitle: Delete & restore branches
 ---
-## Deleting a branch used for a pull request
 
-You can delete a branch that is associated with a pull request if the pull request has been merged or closed and there are no other open pull requests referencing the branch. For information on closing branches that are not associated with pull requests, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
+## 删除用于拉取请求的分支
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.list-closed-pull-requests %}
-4. In the list of pull requests, click the pull request that's associated with the branch that you want to delete.
-5. Near the bottom of the pull request, click **Delete branch**.
-   ![Delete branch button](/assets/images/help/pull_requests/delete_branch_button.png)
-
-   This button isn't displayed if there's currently an open pull request for this branch.
-
-## Restoring a deleted branch
-
-You can restore the head branch of a closed pull request.
+如果拉取请求已合并或关闭，并且没有打开的其他拉取请求在引用分支，则可以删除与该拉取请求关联的分支。 有关关闭未与拉取请求关联的分支的信息，请参阅“[在存储库中创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.list-closed-pull-requests %}
-4. In the list of pull requests, click the pull request that's associated with the branch that you want to restore.
-5. Near the bottom of the pull request, click **Restore branch**.
-   ![Restore deleted branch button](/assets/images/help/branches/branches-restore-deleted.png)
+4. 在拉取请求列表中，单击与要删除分支关联的拉取请求。
+5. 在拉取请求底部附近，单击 **Delete branch（删除分支）**。 ![删除分支按钮](/assets/images/help/pull_requests/delete_branch_button.png)
 
-## Further reading
+   如果此分支当前有打开的拉取请求，则不显示此按钮。
 
-- "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)"
-- "[Managing the automatic deletion of branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)"
+## 恢复已删除分支
+
+可恢复已关闭拉取请求的头部分支。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.list-closed-pull-requests %}
+4. 在拉取请求列表中，单击与要回复分支关联的拉取请求。
+5. 在拉取请求底部附近，单击 **恢复分支**。 ![恢复已删除分支按钮](/assets/images/help/branches/branches-restore-deleted.png)
+
+## 延伸阅读
+
+- “[在仓库内创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)”
+- "[管理分支的自动删除](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."。

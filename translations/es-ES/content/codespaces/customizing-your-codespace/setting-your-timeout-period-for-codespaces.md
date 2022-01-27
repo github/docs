@@ -18,29 +18,28 @@ A codespace will stop running after a period of inactivity. You can specify the 
 
 {% endwarning %}
 
-## Setting your default timeout
-
-{% include tool-switcher %}
-
 {% webui %}
+
+## Setting your default timeout
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
-1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours).
-   ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
+1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours). ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
 
 {% endwebui %}
 
 {% cli %}
 
+## Setting your timeout period
+
 {% data reusables.cli.cli-learn-more %}
 
-To set the timeout period, use the `idle-timeout` argument with the `codespace create` subcommand. Specify the time in minutes, followed by `m`. The time must be between 5 minutes and 240 minutes (5 hours).
+To set the timeout period when you create a codespace, use the `idle-timeout` argument with the `codespace create` subcommand. Specify the time in minutes, followed by `m`. The time must be between 5 minutes and 240 minutes (4 hours).
 
 ```shell
 gh codespace create --idle-timeout 90m
 ```
 
-If you do not specify a timeout period when creating a codespace, then your default timeout period will be used. You cannot currently specify a default timeout period for all future codespaces through {% data variables.product.prodname_cli %}.
+If you don't specify a timeout period when you create a codespace, then the default timeout period will be used. For information about setting a default timeout period, click the "Web browser" tab on this page. You can't currently specify a default timeout period through {% data variables.product.prodname_cli %}.
 
 {% endcli %}

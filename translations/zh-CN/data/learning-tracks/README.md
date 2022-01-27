@@ -33,7 +33,10 @@
 
 Liquid 条件**不**需要用用于指南的 YAML 文件中的版本控制。 只有适用于当前版本的学习跟踪指南才会自动呈现。 如果没有任何属于当前版本的指南的跟踪，学习跟踪部分将不会呈现。
 
-还支持在产品的学习跟踪 YML 数据中的明确版本。 例如：
+还支持在产品的学习跟踪 YML 数据中的明确版本。 格式和允许值与 [frontmatter 版本属性](/content#versions)相同。
+
+例如：
+
 ```
 learning_track_name:
   title: 'Learning track title'
@@ -45,6 +48,7 @@ learning_track_name:
    - /path/to/guide1
    - /path/to/guide2
 ```
+
 如果不包含 `版本` 属性，它假定跟踪在所有版本中可用。
 
 ## 架构执行

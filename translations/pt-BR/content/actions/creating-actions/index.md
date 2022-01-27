@@ -1,12 +1,12 @@
 ---
-title: Creating actions
-intro: 'You can create your own actions, use and customize actions shared by the {% data variables.product.prodname_dotcom %} community, or write and share the actions you build.'
+title: Criar ações
+intro: 'Você pode criar as suas próprias ações, usar e personalizar ações compartilhadas pela comunidade {% data variables.product.prodname_dotcom %} ou escrever e compartilhar as ações que você criar.'
 redirect_from:
   - /articles/building-actions
   - /github/automating-your-workflow-with-github-actions/building-actions
   - /actions/automating-your-workflow-with-github-actions/building-actions
   - /actions/building-actions
-  - /articles/creating-a-github-action/
+  - /articles/creating-a-github-action
 versions:
   fpt: '*'
   ghes: '*'
@@ -21,8 +21,10 @@ children:
   - /dockerfile-support-for-github-actions
   - /setting-exit-codes-for-actions
   - /publishing-actions-in-github-marketplace
+  - /sharing-actions-and-workflows-with-your-enterprise
   - /releasing-and-maintaining-actions
   - /developing-a-third-party-cli-action
 ---
+
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -92,5 +92,4 @@ To reduce the number of paid seats your organization uses, you can remove member
 - "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"
 - "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
 - "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
-- "[Removing a payment method](/articles/removing-a-payment-method)"
 - "[About per-user pricing](/articles/about-per-user-pricing)"

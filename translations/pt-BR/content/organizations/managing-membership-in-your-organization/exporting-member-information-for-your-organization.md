@@ -1,6 +1,6 @@
 ---
-title: Exporting member information for your organization
-intro: You can export information about members in your organization, directly from the user interface.
+title: Exportando as informações de integrante para a sua organização
+intro: 'Você pode exportar informações sobre os integrantes da sua organização, diretamente da interface do usuário.'
 permissions: Organization owners can export member information for their organization.
 versions:
   fpt: '*'
@@ -10,14 +10,22 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Export member information
+shortTitle: Exportar informações do integrante
 ---
 
-You can export information about members in your organization. This is useful if you want to perform an audit of users within the organization. The exported information includes username and display name details, and whether the membership is public or private.
+Você pode exportar informações sobre os integrantes da sua organização. Isso é útil se você deseja realizar uma auditoria aos usuários dentro da organização.
 
-You can get member information directly from the {% data variables.product.product_name %} user interface, or using APIs. This article explains how to obtain member information from within {% data variables.product.product_name %}.
+As informações exportadas incluem:
+- Detalhes do nome de usuário e exibição
+- Se o usuário tem autenticação de dois fatores habilitada
+- Se a associação é pública ou privada
+- Se o usuário é um proprietário ou integrante da organização
+- Data e hora da última atividade do usuário (para uma lista completa da atividade relevante, consulte "[Gerenciando usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
+- The user's SAML NameID, if available
 
-For more information about the APIs, see our [GraphQL API](/graphql/reference/objects#user) and [REST API](/rest/reference/users) documentation about users.
+Você pode obter informações dos membros diretamente da interface de usuário {% data variables.product.product_name %} ou usando APIs. Este artigo explica como obter informações dos membros de dentro de {% data variables.product.product_name %}.
+
+Para obter mais informações sobre as APIs, consulte a nossa [API do GraphQL](/graphql/reference/objects#user) e [API REST](/rest/reference/users) documentação sobre os usuários.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

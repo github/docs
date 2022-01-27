@@ -1,5 +1,5 @@
 ---
-title: Disabling OAuth App access restrictions for your organization
+title: Organization の OAuth App アクセス制限の無効化
 intro: 'Organization owners can disable restrictions on the {% data variables.product.prodname_oauth_apps %} that have access to the organization''s resources.'
 redirect_from:
   - /articles/disabling-third-party-application-restrictions-for-your-organization
@@ -11,19 +11,17 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Disable OAuth App
+shortTitle: OAuth Appの無効化
 ---
 
 {% danger %}
 
-**Warning**: When you disable {% data variables.product.prodname_oauth_app %} access restrictions for your organization, any organization member will automatically authorize {% data variables.product.prodname_oauth_app %} access to the organization's private resources when they approve an application for use in their personal account settings.
+**警告**: Organization で {% data variables.product.prodname_oauth_app %} のアクセス制限を無効化すると、Organization のメンバーであれば誰でも、個人アカウント設定でアプリケーションの使用を承認していれば、自動的に {% data variables.product.prodname_oauth_app %} から Organization のプライベートリソースへのアクセスが認証されます。
 
 {% enddanger %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
-5. Click **Remove restrictions**.
-  ![Remove restrictions button](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
-6. After you review the information about disabling third-party application restrictions, click **Yes, remove application restrictions**.
-  ![Remove confirmation button](/assets/images/help/settings/settings-third-party-confirm-disable.png)
+5. [**Remove restrictions**] をクリックします。 ![[Remove restrictions] ボタン](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
+6. サードパーティアプリケーション制限の無効化に関する情報を確認したら、[**Yes, remove application restrictions**] (はい、アプリケーション制限を削除します) をクリックします。 ![[Remove confirmation] ボタン](/assets/images/help/settings/settings-third-party-confirm-disable.png)

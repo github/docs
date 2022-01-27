@@ -58,7 +58,7 @@ When a customer purchases your app, you must send the customer through the OAuth
 
 * If your app is an {% data variables.product.prodname_oauth_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Installation URL**. Follow the steps in "[Authorizing {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)."
 
-For either type of app, the first step is to redirect the customer to https://github.com/login/oauth/authorize.
+For either type of app, the first step is to redirect the customer to [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize).
 
 After the customer completes the authorization, your app receives an OAuth access token for the customer. You'll need this token for the next step.
 

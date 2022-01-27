@@ -1,6 +1,6 @@
 ---
-title: Managing team access to an organization repository
-intro: 'You can give a team access to a repository, remove a team''s access to a repository, or change a team''s permission level for a repository.'
+title: Organization リポジトリへの Team のアクセスを管理する
+intro: リポジトリへのチームアクセスを付与、リポジトリへのチームアクセスを削除、またはリポジトリへのチームの権限レベルを変更することができます。
 redirect_from:
   - /articles/managing-team-access-to-an-organization-repository-early-access-program
   - /articles/managing-team-access-to-an-organization-repository
@@ -13,35 +13,32 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Manage team access
+shortTitle: Teamのアクセスの管理
 ---
 
-People with admin access to a repository can manage team access to the repository. Team maintainers can remove a team's access to a repository.
+リポジトリに対して管理者権限がある人は、リポジトリへのチームアクセスを管理できます。 チームメンテナは、リポジトリへのチームアクセスを削除できます。
 
 {% warning %}
 
-**Warnings:**
-- You can change a team's permission level if the team has direct access to a repository. If the team's access to the repository is inherited from a parent team, you must change the parent team's access to the repository.
-- If you add or remove repository access for a parent team, each of that parent's child teams will also receive or lose access to the repository. For more information, see "[About teams](/articles/about-teams)."
+**警告:**
+- チームがリポジトリに直接アクセスできる場合は、チームの権限レベルを変更できます。 リポジトリへのチームのアクセスが親チームから継承される場合は、リポジトリへの親チームのアクセスを変更する必要があります。
+- 親チームのリポジトリへのアクセスを追加または削除すると、その親の子チームそれぞれでも、同じリポジトリへのアクセスが追加または削除されます。 詳しい情報については[Team について](/articles/about-teams)を参照してください。
 
 {% endwarning %}
 
-## Giving a team access to a repository
+## リポジトリへのアクセスをチームに付与する
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
-5. Above the list of repositories, click **Add repository**.
-  ![The Add repository button](/assets/images/help/organizations/add-repositories-button.png)
-6. Type the name of a repository, then click **Add repository to team**.
-  ![Repository search field](/assets/images/help/organizations/team-repositories-add.png)
-7. Optionally, to the right of the repository name, use the drop-down menu and choose a different permission level for the team.
-  ![Repository access level dropdown](/assets/images/help/organizations/team-repositories-change-permission-level.png)
+5. リポジトリ リストの上にある [**Add repository**] をクリックします。 ![[Add repository] ボタン](/assets/images/help/organizations/add-repositories-button.png)
+6. リポジトリの名前を入力して、[**Add repository to team**] をクリックします。 ![リポジトリ検索フィールド](/assets/images/help/organizations/team-repositories-add.png)
+7. オプションで、リポジトリ名の右にあるドロップダウンメニューを使って、チームの権限レベルを変更することもできます ![リポジトリのアクセス レベルのドロップダウン](/assets/images/help/organizations/team-repositories-change-permission-level.png)
 
-## Removing a team's access to a repository
+## リポジトリへのチームのアクセスを削除する
 
-You can remove a team's access to a repository if the team has direct access to a repository. If a team's access to the repository is inherited from a parent team, you must remove the repository from the parent team in order to remove the repository from child teams.
+チームがリポジトリに直接アクセスできる場合は、リポジトリへのチームのアクセスを削除できます。 リポジトリへのチームのアクセスが親チームから継承される場合、子チームからリポジトリを削除するには親チームからリポジトリを削除する必要があります。
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
@@ -49,13 +46,10 @@ You can remove a team's access to a repository if the team has direct access to 
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
-5. Select the repository or repositories you'd like to remove from the team.
-  ![List of team repositories with the checkboxes for some repositories selected](/assets/images/help/teams/select-team-repositories-bulk.png)
-6. Above the list of repositories, use the drop-down menu, and click **Remove from team**.
-  ![Drop-down menu with the option to remove a repository from a team](/assets/images/help/teams/remove-team-repo-dropdown.png)
-7. Review the repository or repositories that will be removed from the team, then click **Remove repositories**.
-  ![Modal box with a list of repositories that the team will no longer have access to](/assets/images/help/teams/confirm-remove-team-repos.png)
+5. チームから削除するリポジトリ (複数選択も可) を選択します。 ![いくつかのリポジトリがチェックボックスで選択されたチーム リポジトリのリスト](/assets/images/help/teams/select-team-repositories-bulk.png)
+6. リポジトリ リストの上にあるドロップダウン メニューで、[**Remove from team**] をクリックします。 ![チームからリポジトリを削除するオプションのあるドロップダウン メニュー](/assets/images/help/teams/remove-team-repo-dropdown.png)
+7. チームから削除されるリポジトリをレビューし、[**Remove repositories**] をクリックします。 ![チームがアクセスできなくなったリポジトリのリストがあるモーダル ボックス](/assets/images/help/teams/confirm-remove-team-repos.png)
 
-## Further reading
+## 参考リンク
 
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

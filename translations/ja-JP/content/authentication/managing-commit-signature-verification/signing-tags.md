@@ -1,6 +1,6 @@
 ---
-title: Signing tags
-intro: You can sign tags locally using GPG or S/MIME.
+title: タグに署名する
+intro: GPG または S/MIME を使用してローカルでタグに署名できます。
 redirect_from:
   - /articles/signing-tags-using-gpg
   - /articles/signing-tags
@@ -15,25 +15,26 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
-1. To sign a tag, add `-s` to your `git tag` command.
+1. タグに署名するには、`git tag` コマンドに `-s` を追加します。
   ```shell
   $ git tag -s <em>mytag</em>
-  # Creates a signed tag
+  # 署名済みのタグを作成する
   ```
-2. Verify your signed tag it by running `git tag -v [tag-name]`.
+2. `git tag -v [tag-name]`を実行して、署名したタグをベリファイします。
   ```shell
   $ git tag -v <em>mytag</em>
-  # Verifies the signed tag
+  # 署名済みのタグを検証する
   ```
 
-## Further reading
+## 参考リンク
 
-- "[Viewing your repository's tags](/articles/viewing-your-repositorys-tags)"
-- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-- "[Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)"
-- "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-- "[Signing commits](/articles/signing-commits)"
+- [リポジトリのタグを表示する](/articles/viewing-your-repositorys-tags)
+- [既存の GPG キーのチェック](/articles/checking-for-existing-gpg-keys)
+- [新しい GPG キーの生成](/articles/generating-a-new-gpg-key)
+- [GitHub アカウントへの新しい GPG キーの追加](/articles/adding-a-new-gpg-key-to-your-github-account)
+- 「[Git へ署名キーを伝える](/articles/telling-git-about-your-signing-key)」
+- [GPG キーとメールの関連付け](/articles/associating-an-email-with-your-gpg-key)
+- 「[コミットに署名する](/articles/signing-commits)」

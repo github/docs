@@ -3,7 +3,7 @@ title: 过滤拉取请求中的文件
 intro: 要快速查看大型拉取请求中的更改，您可以过滤已更改的文件。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
-  - /articles/filtering-files-in-a-pull-request-by-file-type/
+  - /articles/filtering-files-in-a-pull-request-by-file-type
   - /articles/filtering-files-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/filtering-files-in-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request

@@ -46,6 +46,12 @@ You must enable SAML single sign-on for your organization and your supported IdP
 
 You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
 
+Your SAML settings **must** contain a valid IdP URL for the **Issuer** field. 
+
+![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
+
+
+
 ### Enabling team synchronization for Azure AD
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
@@ -65,7 +71,7 @@ Okta team synchronization requires that SAML and SCIM with Okta have already bee
 
 To avoid potential team synchronization errors with Okta, we recommend that you confirm that SCIM linked identities are correctly set up for all organization members who are members of your chosen Okta groups, before enabling team synchronization on {% data variables.product.prodname_dotcom %}. 
 
-If an organization member does not have a linked SCIM identity, then team synchronization will not work as expected and the user may not be added or removed from teams as expected. If any of these users are missing a SCIM linked identity, you will need to reprovision them.
+If an organization member does not have a linked SCIM identity, then team synchronization will not work as expected and the user may not be added or removed from teams as expected. If any of these users are missing a SCIM linked identity, you will need to re-provision them.
 
 For help on provisioning users that have missing a missing SCIM linked identity, see "[Troubleshooting identity and access management](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)."
 

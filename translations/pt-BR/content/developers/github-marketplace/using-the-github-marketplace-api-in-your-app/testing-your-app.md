@@ -2,8 +2,8 @@
 title: Testar seu aplicativo
 intro: 'O GitHub recomenda testar seu aplicativo com APIs e webhooks antes de enviar sua listagem para o {% data variables.product.prodname_marketplace %}, para que você possa oferecer uma experiência ideal para os clientes. Antes que um especialista em integração aprove seu aplicativo, ele deverá tratar adequadamente os fluxos de cobrança.'
 redirect_from:
-  - /apps/marketplace/testing-apps-apis-and-webhooks/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
+  - /apps/marketplace/testing-apps-apis-and-webhooks
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
   - /marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
   - /developers/github-marketplace/testing-your-app
 versions:

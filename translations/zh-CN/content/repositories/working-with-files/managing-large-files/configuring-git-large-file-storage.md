@@ -1,6 +1,6 @@
 ---
-title: Configuring Git Large File Storage
-intro: 'Once [{% data variables.large_files.product_name_short %} is installed](/articles/installing-git-large-file-storage/), you need to associate it with a large file in your repository.'
+title: 配置 Git Large File Storage
+intro: '安装 [{% data variables.large_files.product_name_short %}] 后 (/articles/installing-git-large-file-storage/)，需要将其与仓库中的大文件相关联。'
 redirect_from:
   - /articles/configuring-large-file-storage
   - /articles/configuring-git-large-file-storage
@@ -11,9 +11,10 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Configure Git LFS
+shortTitle: 配置 Git LFS
 ---
-If there are existing files in your repository that you'd like to use {% data variables.product.product_name %} with, you need to first remove them from the repository and then add them to {% data variables.large_files.product_name_short %} locally. For more information, see "[Moving a file in your repository to {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)."
+
+如果仓库中存在要用于 {% data variables.product.product_name %} 的现有文件，则需要先从仓库中删除它们，然后在本地将其添加到 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[将仓库中的文件移动到 {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)”。
 
 {% data reusables.large_files.resolving-upload-failures %}
 
@@ -21,46 +22,46 @@ If there are existing files in your repository that you'd like to use {% data va
 
 {% tip %}
 
-**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. For more information, see "[Configuring Git Large File Storage on GitHub Enterprise Server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)."
+**注：**尝试向 {% data variables.product.product_name %} 推送大文件之前，请确保在您的企业上启用了 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[在 GitHub Enterprise Server 上配置 Git Large File Storage](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
 
 {% endtip %}
 
 {% endif %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change your current working directory to an existing repository you'd like to use with {% data variables.large_files.product_name_short %}.
-3. To associate a file type in your repository with {% data variables.large_files.product_name_short %}, enter `git {% data variables.large_files.command_name %} track` followed by the name of the file extension you want to automatically upload to {% data variables.large_files.product_name_short %}.
+2. 将当前工作目录更改为要用于 {% data variables.large_files.product_name_short %} 的现有仓库。
+3. 要将仓库中的文件类型与 {% data variables.large_files.product_name_short %} 相关联，请输入 `git {% data variables.large_files.command_name %} track`，后跟要自动上传到 {% data variables.large_files.product_name_short %} 的文件扩展名。
 
-  For example, to associate a _.psd_ file, enter the following command:
+  例如，要关联 _.psd_ 文件，请输入以下命令：
   ```shell
   $ git {% data variables.large_files.command_name %} track "*.psd"
   > Adding path *.psd
   ```
-  Every file type you want to associate with {% data variables.large_files.product_name_short %} will need to be added with `git {% data variables.large_files.command_name %} track`. This command amends your repository's *.gitattributes* file and associates large files with {% data variables.large_files.product_name_short %}.
+  要与 {% data variables.large_files.product_name_short %} 关联的每个文件类型都需要添加 `git {% data variables.large_files.command_name %} track`。 此命令将修改仓库的 *.gitattributes* 文件，并将大文件与 {% data variables.large_files.product_name_short %} 相关联。
 
   {% tip %}
 
-  **Tip:** We strongly suggest that you commit your local *.gitattributes* file into your repository. Relying on a global *.gitattributes* file associated with {% data variables.large_files.product_name_short %} may cause conflicts when contributing to other Git projects.
+  **提示：**我们强烈建议您将本地 *.gitattributes* 文件提交到仓库中。 依赖与 {% data variables.large_files.product_name_short %} 关联的全局 *.gitattributes* 文件，可能会导致在参与其他 Git 项目时发生冲突。
 
   {% endtip %}
 
-4. Add a file to the repository matching the extension you've associated:
+4. 将文件添加到与关联的扩展名相匹配的仓库：
   ```shell
   $ git add path/to/file.psd
   ```
-5. Commit the file and push it to {% data variables.product.product_name %}:
+5. 提交文件并将其推送到 {% data variables.product.product_name %}：
   ```shell
   $ git commit -m "add file.psd"
   $ git push
   ```
-  You should see some diagnostic information about your file upload:
+  您会看到一些有关文件上传的诊断信息：
   ```shell
   > Sending file.psd
   > 44.74 MB / 81.04 MB  55.21 % 14s
   > 64.74 MB / 81.04 MB  79.21 % 3s
   ```
 
-## Further reading
+## 延伸阅读
 
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
-- "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}
+- "[使用 {% data variables.large_files.product_name_long %} 进行协作](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
+- "[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

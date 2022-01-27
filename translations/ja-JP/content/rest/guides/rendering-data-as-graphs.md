@@ -2,7 +2,7 @@
 title: データをグラフとしてレンダリングする
 intro: D3.jsライブラリとRuby Octokitを使用して、リポジトリからプログラミング言語を視覚化する方法を学びましょう。
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
   fpt: '*'

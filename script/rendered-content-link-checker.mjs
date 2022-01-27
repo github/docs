@@ -16,10 +16,10 @@ import chalk from 'chalk'
 import shortVersions from '../middleware/contextualizers/short-versions.js'
 import contextualize from '../middleware/context.js'
 import { languageKeys } from '../lib/languages.js'
-import { loadPages, loadPageMap, loadUnversionedTree } from '../lib/page-data.js'
-import loadRedirects from '../lib/redirects/precompile.js'
+import warmServer from '../lib/warm-server.js'
 import renderContent from '../lib/render-content/index.js'
 import { deprecated } from '../lib/enterprise-server-releases.js'
+import readFileAsync from '../lib/readfile-async.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
@@ -66,34 +66,64 @@ program
     }
     return parsed
   })
+  .option(
+    '--list <file>.json',
+    'JSON file containing an array of specific files to check (default: none)',
+    (filePath) => {
+      const resolvedPath = path.resolve(filePath)
+
+      let stats
+      try {
+        stats = fs.statSync(resolvedPath)
+      } catch (error) {
+        // Ignore
+      }
+
+      if (!stats || !stats.isFile()) {
+        throw new InvalidArgumentError('Not an existing file.')
+      }
+
+      return resolvedPath
+    }
+  )
   .arguments('[files...]', 'Specific files to check')
   .parse(process.argv)
 
 main(program.opts(), program.args)
 
 async function main(opts, files) {
-  const { random, language, filter, exit, debug, max, verbose } = opts
+  const { random, language, filter, exit, debug, max, verbose, list } = opts
 
-  debug && console.time('loadUnversionedTree')
-  const unversionedTree = await loadUnversionedTree()
-  debug && console.timeEnd('loadUnversionedTree')
-
-  debug && console.time('loadPages')
-  const pageList = await loadPages(unversionedTree)
-  debug && console.timeEnd('loadPages')
-
-  debug && console.time('loadPageMap')
-  const pageMap = await loadPageMap(pageList)
-  debug && console.timeEnd('loadPageMap')
-
-  debug && console.time('loadRedirects')
-  const redirects = await loadRedirects(pageList)
-  debug && console.timeEnd('loadRedirects')
+  // Note! The reason we're using `warmServer()` in this script,
+  // even though there's no server involved, is because
+  // the `contextualize()` function calls it.
+  // And because warmServer() is actually idempotent, meaning it's
+  // cheap to call it more than once, it would be expensive to call it
+  // twice unnecessarily.
+  // If we'd manually do the same operations that `warmServer()` does
+  // here (e.g. `loadPageMap()`), we'd end up having to do it all over
+  // again, the next time `contextualize()` is called.
+  const { redirects, pages: pageMap, pageList } = await warmServer()
 
   const languages = language || []
   console.assert(Array.isArray(languages), `${languages} is not an array`)
   const filters = filter || []
   console.assert(Array.isArray(filters), `${filters} is not an array`)
+
+  if (list && Array.isArray(files) && files.length > 0) {
+    throw new InvalidArgumentError('Cannot specify both --list and a file list.')
+  }
+
+  if (list) {
+    const fileList = JSON.parse(await readFileAsync(list))
+    if (Array.isArray(fileList) && fileList.length > 0) {
+      files = fileList
+    } else {
+      // This must be allowed for empty PRs that accompany docs-early-access repo PRs
+      console.warn('No files found in --list. Exiting...')
+      process.exit(0)
+    }
+  }
 
   if (random) {
     shuffle(pageList)
@@ -129,12 +159,17 @@ async function main(opts, files) {
 function printGlobalCacheHitRatio() {
   const hits = globalCacheHitCount
   const misses = globalCacheMissCount
-  console.log(
-    `Cache hit ratio: ${hits.toLocaleString()} of ${(misses + hits).toLocaleString()} (${(
-      (100 * hits) /
-      (misses + hits)
-    ).toFixed(1)}%)`
-  )
+  // It could be that the files that were tested didn't have a single
+  // link in them. In that case, there's no cache misses or hits at all.
+  // So avoid the division by zero.
+  if (misses + hits) {
+    console.log(
+      `Cache hit ratio: ${hits.toLocaleString()} of ${(misses + hits).toLocaleString()} (${(
+        (100 * hits) /
+        (misses + hits)
+      ).toFixed(1)}%)`
+    )
+  }
 }
 
 function getDurationString(date1, date2) {

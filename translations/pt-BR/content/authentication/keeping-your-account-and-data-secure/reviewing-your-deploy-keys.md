@@ -1,6 +1,6 @@
 ---
-title: Reviewing your deploy keys
-intro: You should review deploy keys to ensure that there aren't any unauthorized (or possibly compromised) keys. You can also approve existing deploy keys that are valid.
+title: Revisar suas chaves de implantação
+intro: Você deve revisar as chaves de implantação para verificar se há chaves não autorizadas (ou potencialmente comprometidas). Você também pode aprovar as chaves de implantação que são válidas.
 redirect_from:
   - /articles/reviewing-your-deploy-keys
   - /github/authenticating-to-github/reviewing-your-deploy-keys
@@ -13,16 +13,15 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Deploy keys
+shortTitle: Chaves de implantação
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. In the left sidebar, click **Deploy keys**.
-![Deploy keys setting](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
-4. On the Deploy keys page, take note of the deploy keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid deploy keys you'd like to keep, click **Approve**.
-	![Deploy key list](/assets/images/help/settings/settings-deploy-key-review.png)
+3. Na barra lateral esquerda, clique em **Deploy keys** (Chaves de implantação). ![Configuração das chaves de implantação](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
+4. Na página das chaves de implantação, anote as chaves de implantação associadas à sua conta. Para as chaves não reconhecidas ou desatualizadas, clique em **Delete** (Excluir). Se houver chaves de implantação válidas que deseja manter, clique em **Approve** (Aprovar). ![Lista de chaves de implantação](/assets/images/help/settings/settings-deploy-key-review.png)
 
-For more information, see "[Managing deploy keys](/guides/managing-deploy-keys)."
+Para obter mais informações, consulte "[Gerenciar chaves de implantação](/guides/managing-deploy-keys)".
 
-## Further reading
-- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+## Leia mais
+- [Configurar notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

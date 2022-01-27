@@ -1,6 +1,6 @@
 ---
-title: Setting permissions for adding outside collaborators
-intro: 'To protect your organization''s data and the number of paid licenses used in your organization, you can allow only owners to invite outside collaborators to organization repositories.'
+title: 外部のコラボレーターを追加するための権限を設定する
+intro: Organization のデータを保護し、Organization 内で使用されている有料ライセンスの数が無駄遣いされないようにするために、外部コラボレーターを Organization のリポジトリに招待することをオーナーのみに許可できます。
 product: '{% data reusables.gated-features.restrict-add-collaborator %}'
 redirect_from:
   - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
@@ -14,16 +14,15 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Set collaborator policy
+shortTitle: コラボレータポリシーの設定
 ---
 
-Organization owners, and members with admin privileges for a repository, can invite outside collaborators to work on the repository. You can also restrict outside collaborator invite permissions to only organization owners.
+リポジトリに対する管理者権限を持つ Organization のオーナーとメンバーは、リポジトリで作業するように外部のコラボレーターを招待できます。 外部のコラボレーターの招待権限を、Organization のオーナーに制限することもできます。
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository invitations", select **Allow members to invite outside collaborators to repositories for this organization**.
-  ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png)
-6. Click **Save**.
+5. [Repository invitations] の下で、[**Allow members to invite outside collaborators to repositories for this organization**] を選択します。 ![外部コラボレーターを Organization リポジトリに招待することをメンバーに許可するためのチェックボックス](/assets/images/help/organizations/repo-invitations-checkbox-updated.png)
+6. [**Save**] をクリックします。

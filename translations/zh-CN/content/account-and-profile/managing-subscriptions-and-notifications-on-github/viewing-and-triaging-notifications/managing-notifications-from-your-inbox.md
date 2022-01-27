@@ -1,6 +1,6 @@
 ---
-title: Managing notifications from your inbox
-intro: 'Use your inbox to quickly triage and sync your notifications across email{% ifversion fpt or ghes or ghec %} and mobile{% endif %}.'
+title: 从收件箱管理通知
+intro: '使用收件箱快速分类并在电子邮件{% ifversion fpt or ghes or ghec %}与手机{% endif %}之间同步您的通知。'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -13,102 +13,103 @@ versions:
   ghec: '*'
 topics:
   - Notifications
-shortTitle: Manage from your inbox
+shortTitle: 从收件箱管理
 ---
+
 {% ifversion ghes %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
 
-## About your inbox
+## 关于收件箱
 
 {% ifversion fpt or ghes or ghec %}
-{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)”。
 {% endif %}
 
-To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
+要访问通知收件箱，请在任意页面的右上角单击 {% octicon "bell" aria-label="The notifications bell" %}。
 
-  ![Notification indicating any unread message](/assets/images/help/notifications/notifications_general_existence_indicator.png)
+  ![表示任何未读消息的通知](/assets/images/help/notifications/notifications_general_existence_indicator.png)
 
-Your inbox shows all of the notifications that you haven't unsubscribed to or marked as **Done.** You can customize your inbox to best suit your workflow using filters, viewing all or just unread notifications, and grouping your notifications to get a quick overview.
+收件箱显示您尚未取消订阅或标记为**完成**的所有通知。您可以使用过滤器自定义收件箱，使之最适合您的工作流程，查看所有通知或只查看未读通知，对通知分组通知以获取快速概览。
 
-  ![inbox view](/assets/images/help/notifications-v2/inbox-view.png)
+  ![收件箱视图](/assets/images/help/notifications-v2/inbox-view.png)
 
-By default, your inbox will show read and unread notifications. To only see unread notifications, click **Unread** or use the `is:unread` query.
+默认情况下，您的收件箱将显示已读和未读通知。 如果只想查看未读通知，请单击 **Unread（未读）**或使用 `is:unread` 查询。
 
-  ![unread inbox view](/assets/images/help/notifications-v2/unread-inbox-view.png)
+  ![未读收件箱视图](/assets/images/help/notifications-v2/unread-inbox-view.png)
 
-## Triaging options
+## 分类选项
 
-You have several options for triaging notifications from your inbox.
+有多个选项可对收件箱中的通知进行分类。
 
-| Triaging option | Description |
-|-----------------|-------------|
-| Save            | Saves your notification for later review. To save a notification, to the right of the notification, click {% octicon "bookmark" aria-label="The bookmark icon" %}. <br> <br> Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day. |
-| Done            | Marks a notification as completed and removes the notification from your inbox. You can see all completed notifications by clicking **Done** in the sidebar or with the `is:done` query. Notifications marked as **Done** are saved for 5 months.
-| Unsubscribe     | Automatically removes the notification from your inbox and unsubscribes you from the conversation until you are @mentioned, a team you're on is @mentioned, or you're requested for review.
-| Read            | Marks a notification as read. To only view read notifications in your inbox, use the `is:read` query. This query doesn't include notifications marked as **Done**.
-| Unread          | Marks notification as unread. To only view unread notifications in your inbox, use the `is:unread` query. |
+| 分类选项 | 描述                                                                                                                                                                                                  |
+| ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 保存   | 保存通知供以后查看。 要保存通知，在通知右侧单击 {% octicon "bookmark" aria-label="The bookmark icon" %}。 <br> <br> 保存的通知无限期保存，可单击侧边栏中的 **Saved（已保存）** 或通过 `is:saved` 查询查看。 如果您保存的通知超过5个月并且变成未保存，通知将在一天内从收件箱消失。 |
+| 已完成  | 将通知标记为已完成，并从收件箱中删除通知。 您可以单击侧边栏中的 **Done（完成）**或通过 `is:done` 查询来看到所有已完成的通知。 标记为 **Done（完成）**的通知将保存 5 个月。                                                                                              |
+| 取消订阅 | 自动从收件箱中删除通知并退订对话，仅当您被@提及、您所在的团队被@提及或者请求您进行审查时才会收到通知。                                                                                                                                                |
+| 读取   | 将通知标记为已读。 要在收件箱中只查看已读通知，可使用 `is:read` 查询。 此查询不包含标记为 **Done（完成）**的通知。                                                                                                                                |
+| 未读   | 将通知标记为未读。 要在收件箱中只查看未读通知，可使用 `is:unread` 查询。                                                                                                                                                         |
 
-To see the available keyboard shortcuts, see "[Keyboard Shortcuts](/github/getting-started-with-github/keyboard-shortcuts#notifications)."
+要查看可用的键盘快捷键，请参阅“[键盘快捷键](/github/getting-started-with-github/keyboard-shortcuts#notifications)”。
 
-Before choosing a triage option, you can preview your notification's details first and investigate. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification)."
+在选择分类选项之前，您可以先预览通知的详细信息并进行调查。 更多信息请参阅“[对单个通知进行分类](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification)”。
 
-## Triaging multiple notifications at the same time
+## 同时对多种通知分类
 
-To triage multiple notifications at once, select the relevant notifications and use the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down to choose a triage option.
+要一次对多种通知分类，请选择相关通知并使用 {% octicon "kebab-horizontal" aria-label="The edit icon" %} 下拉列表以选择分类选项。
 
-![Drop-down menu with triage options and selected notifications](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
+![带有分类选项和选定通知的下拉菜单](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
 
-## Default notification filters
+## 默认通知过滤器
 
-By default, your inbox has filters for when you are assigned, participating in a thread, requested to review a pull request, or when your username is @mentioned directly or a team you're a member of is @mentioned.
+默认情况下，收件箱中有针对您被分配任务、参与帖子、请求审查拉取请求的过滤器，或者针对您的用户名被直接 @提及或您所属团队被 @提及的过滤器。
 
-  ![Default custom filters](/assets/images/help/notifications-v2/default-filters.png)
+  ![默认自定义过滤器](/assets/images/help/notifications-v2/default-filters.png)
 
-## Customizing your inbox with custom filters
+## 使用自定义过滤器自定义收件箱
 
-You can add up to 15 of your own custom filters.
+您可以添加最多 15 个自定义过滤器。
 
 {% data reusables.notifications.access_notifications %}
-2. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="The Gear icon" %}.
+2. 若要打开过滤器设置，在左侧边栏的“Filters（过滤器）”旁边，单击 {% octicon "gear" aria-label="The Gear icon" %}。
 
   {% tip %}
 
-  **Tip:** You can quickly preview a filter's inbox results by creating a query in your inbox view and clicking **Save**, which opens the custom filter settings.
+  **提示：**您可以通过在收件箱视图中创建查询并单击**Save（保存）**快速预览过滤器收件箱结果， 这将打开自定义过滤器设置。
 
   {% endtip %}
 
-3. Add a name for your filter and a filter query. For example, to only see notifications for a specific repository, you can create a filter using the query `repo:octocat/open-source-project-name reason:participating`. You can also add emojis with a native emoji keyboard. For a list of supported search queries, see "[Supported queries for custom filters](#supported-queries-for-custom-filters)."
+3. 为过滤器和过滤器查询添加名称。 例如，如果只想看特定仓库的通知，可以使用查询 `repo:octocat/open-source-project-name reason:participating` 创建一个过滤器。 您也可以用原生表情键盘添加表情符号。 有关受支持的搜索查询的列表，请参阅“[支持的自定义过滤器查询](#supported-queries-for-custom-filters)”。
 
-  ![Custom filter example](/assets/images/help/notifications-v2/custom-filter-example.png)
+  ![自定义过滤器示例](/assets/images/help/notifications-v2/custom-filter-example.png)
 
-4. Click **Create**.
+4. 单击 **Create（创建）**。
 
-## Custom filter limitations
+## 自定义过滤器限制
 
-Custom filters do not currently support:
-  - Full text search in your inbox, including searching for pull request or issue titles.
-  - Distinguishing between the `is:issue`, `is:pr`, and `is:pull-request` query filters. These queries will return both issues and pull requests.
-  - Creating more than 15 custom filters.
-  - Changing the default filters or their order.
-  - Search [exclusion](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
+自定义过滤器当前不支持：
+  - 收件箱中的全文搜索，包括搜索拉取请求或议题标题。
+  - 区分 `is:issue`、`is:pr` 及 `is:pull-request` 查询过滤器。 这些查询将返回议题和拉取请求。
+  - 创建超过 15 个自定义过滤器。
+  - 更改默认过滤器或其顺序。
+  - 使用 `NOT` 或 `-QUALIFIER` 进行[排除](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results)搜索。
 
-## Supported queries for custom filters
+## 支持的自定义过滤器查询
 
-These are the types of filters that you can use:
-  - Filter by repository with `repo:`
-  - Filter by discussion type with `is:`
-  - Filter by notification reason with `reason:`{% ifversion fpt or ghec %}
-  - Filter by notification author with `author:`
-  - Filter by organization with `org:`{% endif %}
+以下是您可以使用的过滤器类型：
+  - 使用 `repo:` 按仓库过滤
+  - 使用 `is:` 按讨论类型过滤
+  - 使用 `reason:` 按通知原因过滤{% ifversion fpt or ghec %}
+  - 使用 `author:` 按通知作者过滤
+  - 使用 `org:` 按组织过滤{% endif %}
 
-### Supported `repo:` queries
+### 支持的 `repo:` 查询
 
-To add a `repo:` filter, you must include the owner of the repository in the query: `repo:owner/repository`. An owner is the organization or the user who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octo-repo` will show notifications triggered in the octo-repo repository within the octo-org organization.
+要添加 `repo:` 过滤器，您必须在查询中包含仓库的所有者：`repo:owner/repository`。 所有者是拥有触发通知的 {% data variables.product.prodname_dotcom %} 资产的组织或用户。 例如，`repo:octo-org/octo-repo` 将会显示在 octo-org 组织内的 octo-repo 仓库中触发的通知。
 
-### Supported `is:` queries
+### 支持的 `is:` 查询
 
-To filter notifications for specific activity on {% data variables.product.product_location %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
+要在 {% data variables.product.product_location %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
 
 - `is:check-suite`
 - `is:commit`
@@ -122,67 +123,67 @@ To filter notifications for specific activity on {% data variables.product.produ
 - `is:discussion`{% endif %}
 
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+有关减少 {% data variables.product.prodname_dependabot_alerts %} 通知干扰的信息，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
 {% endif %}
 
-You can also use the `is:` query to describe how the notification was triaged.
+您还可以使用 `is:` 查询来描述如何对通知进行分类。
 
 - `is:saved`
 - `is:done`
 - `is:unread`
 - `is:read`
 
-### Supported `reason:` queries
+### 支持的 `reason:` 查询
 
-To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)."
+要根据收到更新的原因过滤通知，您可以使用 `reason:` 查询。 例如，要查看当您（或您所属团队）被请求审查拉取请求时的通知，请使用 `reason:review-requested`。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)”。
 
-| Query | Description |
-|-----------------|-------------|
-| `reason:assign` | When there's an update on an issue or pull request you've been assigned to.
-| `reason:author` | When you opened a pull request or issue and there has been an update or new comment.
-| `reason:comment`| When you commented on an issue, pull request, or team discussion.
-| `reason:participating` | When you have commented on an issue, pull request, or team discussion or you have been @mentioned.
-| `reason:invitation` | When you're invited to a team, organization, or repository.
-| `reason:manual` | When you click **Subscribe** on an issue or pull request you weren't already subscribed to.
-| `reason:mention` | You were directly @mentioned.
-| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-| `reason:security-alert` | When a security alert is issued for a repository.{% endif %}
-| `reason:state-change`  | When the state of a pull request or issue is changed. For example, an issue is closed or a pull request is merged.
-| `reason:team-mention` | When a team you're a member of is @mentioned.
-| `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
+| 查询                        | 描述                                                                       |
+| ------------------------- | ------------------------------------------------------------------------ |
+| `reason:assign`           | 分配给您的议题或拉取请求有更新时。                                                        |
+| `reason:author`           | 当您打开拉取请求或议题并且有更新或新评论时。                                                   |
+| `reason:comment`          | 当您评论了议题、拉取请求或团队讨论时。                                                      |
+| `reason:participating`    | 当您评论了议题、拉取请求或团队讨论或者被@提及时。                                                |
+| `reason:invitation`       | 当您被邀请加入团队、组织或仓库时。                                                        |
+| `reason:manual`           | 当您在尚未订阅的议题或拉取请求上单击 **Subscribe（订阅）**时。                                   |
+| `reason:mention`          | 您被直接@提及。                                                                 |
+| `reason:review-requested` | 您或您所属的团队被请求审查拉取请求。{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| `reason:security-alert`   | 为仓库发出安全警报时。{% endif %}
+| `reason:state-change`     | 当拉取请求或议题的状态改变时。 例如，议题已关闭或拉取请求合并时。                                        |
+| `reason:team-mention`     | 您所在的团队被@提及时。                                                             |
+| `reason:ci-activity`      | 当仓库有 CI 更新时，例如新的工作流程运行状态。                                                |
 
 {% ifversion fpt or ghec %}
-### Supported `author:` queries
+### 支持的 `author:` 查询
 
-To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.
+要按用户过滤通知，您可以使用 `author:` 查询。 作者是指与通知相关的线程（议题、拉取请求、Gist、讨论等）的原作者。 例如，要查看与 Octocat 用户创建的线程相关的通知，请使用 `author:octocat`。
 
-### Supported `org:` queries
+### 支持的 `org:` 查询
 
-To filter notifications by organization, you can use the  `org` query. The organization you need to specify in the query is the organization of the repository for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
+要按组织过滤通知，您可以使用 `org` 查询。 您需要在查询中指定的组织是与您在 {% data variables.product.prodname_dotcom %} 上收到的通知相关之仓库所属的组织。 如果您属于多个组织，并且想要查看特定组织的通知，则此查询很有用。
 
-For example, to see notifications from the octo-org organization, use `org:octo-org`. 
+例如，要查看来自 octo-org 组织的通知，请使用 `org:octo-org`。
 
 {% endif %}
 
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-## {% data variables.product.prodname_dependabot %} custom filters
+## {% data variables.product.prodname_dependabot %} 自定义过滤器
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
-If you use {% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
-- `is:repository_vulnerability_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
-- `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
-- `author:app/dependabot` to show notifications generated by {% data variables.product.prodname_dependabot %}. This includes {% data variables.product.prodname_dependabot_alerts %}, security update pull requests, and version update pull requests.
+如果您使用 {% data variables.product.prodname_dependabot %} 来保持依赖项更新，您可以使用并保存这些自定义过滤器：
+- `is:repository_vulnerability_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知。
+- `reason:security_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知和安全更新拉取请求。
+- `author:app/dependabot`，显示 {% data variables.product.prodname_dependabot %} 生成的通知。 这包括 {% data variables.product.prodname_dependabot_alerts %}、安全更新拉取请求和版本更新拉取请求。
 
-For more information about {% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
+有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于管理有漏洞的依赖项](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)”。
 {% endif %}
 
 {% ifversion ghes < 3.3 or ghae-issue-4864 %}
 
 If you use {% data variables.product.prodname_dependabot %} to tell you about vulnerable dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
-- `is:repository_vulnerability_alert` 
+- `is:repository_vulnerability_alert`
 - `reason:security_alert`
 
-For more information about {% data variables.product.prodname_dependabot %}, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于有漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
 {% endif %}
