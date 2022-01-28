@@ -23,7 +23,6 @@ topics:
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
-{% data reusables.code-scanning.beta %}
 
 ## About {% data variables.product.prodname_code_scanning %} results on pull requests
 

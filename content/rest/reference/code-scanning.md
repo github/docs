@@ -17,7 +17,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.code-scanning.beta %}
 
 The {% data variables.product.prodname_code_scanning %} API lets you retrieve and update {% data variables.product.prodname_code_scanning %} alerts from a repository. You can use the endpoints to create automated reports for the {% data variables.product.prodname_code_scanning %} alerts in an organization or upload analysis results generated using offline {% data variables.product.prodname_code_scanning %} tools. For more information, see "[Finding security vulnerabilities and errors in your code](/github/finding-security-vulnerabilities-and-errors-in-your-code)."
 

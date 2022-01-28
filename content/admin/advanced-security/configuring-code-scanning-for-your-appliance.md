@@ -17,8 +17,6 @@ topics:
   - Security
 ---
 
-{% data reusables.code-scanning.beta %}
-
 ## About {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.about-code-scanning %}

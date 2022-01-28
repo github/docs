@@ -26,7 +26,6 @@ shortTitle: Configure code scanning
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
 ## About {% data variables.product.prodname_code_scanning %} configuration
