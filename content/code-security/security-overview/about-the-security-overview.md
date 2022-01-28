@@ -15,6 +15,8 @@ topics:
   - Security overview
   - Advanced Security
   - Alerts
+  - Dependabot
+  - Dependencies
   - Organizations
   - Teams
 shortTitle: About security overview
@@ -26,7 +28,7 @@ shortTitle: About security overview
 
 You can use the security overview for a high-level view of the security status of your organization or to identify problematic repositories that require intervention.
 
-- At the organization-level, the security overview displays aggregate and repository-specific security information for repositories owned by your organization.
+- At the organization-level, the security overview displays aggregate and repository-specific security information for repositories owned by your organization. You can also filter information per security feature.
 - At the team-level, the security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
 - At the repository-level, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features not currently in use.
 
