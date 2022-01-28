@@ -1,3 +1,4 @@
+[opencollective-main.zip](https://github.com/github/docs/files/7956401/opencollective-main.zip)
 ---
 title: Viewing the subscription and usage for your enterprise account
 intro: 'You can view the current {% ifversion ghec %}subscription, {% endif %}license usage{% ifversion ghec %}, invoices, payment history, and other billing information{% endif %} for {% ifversion ghec %}your enterprise account{% elsif ghes %}{% data variables.product.product_location_enterprise %}{% endif %}.'
