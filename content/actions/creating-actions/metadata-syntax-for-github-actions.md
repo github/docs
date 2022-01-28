@@ -140,11 +140,11 @@ For more information on how to use context syntax, see "[Contexts](/actions/lear
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example using Node.js v12
+### Example using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'main.js'
 ```
 
@@ -152,8 +152,8 @@ runs:
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).  
 
-- Use `node12` for Node.js v12.
-- Use `node16` for Node.js v16.
+- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+- Use `node16` for Node.js v16.{% endif %}
 
 ### `runs.main`
 
@@ -167,7 +167,7 @@ In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -175,7 +175,8 @@ runs:
 
 ### `pre-if`
 
-**Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`.
+**Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`. In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
+
 Note that the `step` context is unavailable, as no steps have run yet.
 
 In this example, `cleanup.js` only runs on Linux-based runners:
@@ -193,7 +194,7 @@ In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
   post: 'cleanup.js'
 ```
@@ -202,7 +203,7 @@ The `post:` action always runs by default but you can override this using `post-
 
 ### `post-if`
 
-**Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`.
+**Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`. In `post-if`, status check functions evaluate against the job's status, not the action's own status.
 
 For example, this `cleanup.js` will only run on Linux-based runners:
 
@@ -263,6 +264,37 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 **Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 {% else %}
 **Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+#### `runs.steps[*].if`
+
+**Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
+
+{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+
+**Example: Using contexts**
+
+ This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
+
+ ```yaml
+steps:
+  - run: echo This event is a pull request that had an assignee removed.
+    if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
+```
+
+**Example: Using status check functions**
+
+The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+
+```yaml
+steps:
+  - name: My first step
+    uses: octo-org/action-name@main
+  - name: My backup step
+    if: {% raw %}${{ failure() }}{% endraw %}
+    uses: actions/heroku@1.0.0
+```
 {% endif %}
 
 #### `runs.steps[*].name`

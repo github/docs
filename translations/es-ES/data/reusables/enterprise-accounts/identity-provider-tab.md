@@ -1,1 +1,0 @@
-1. Dentro del nombre de tu cuenta de empresa, haz clic en {% octicon "key" aria-label="The key icon" %} **Proveedor de identidad**. ![Pestaña de "proveedor de identidad" en la barra lateral de la empresa](/assets/images/help/enterprises/enterprise-account-identity-provider-tab.png)

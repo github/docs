@@ -1,9 +1,9 @@
 ---
 title: Agregar personas a los equipos
 redirect_from:
-  - /enterprise/admin/articles/adding-teams/
-  - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
-  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
+  - /enterprise/admin/articles/adding-teams
+  - /enterprise/admin/articles/adding-or-inviting-people-to-teams
+  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams
   - /enterprise/admin/user-management/adding-people-to-teams
   - /admin/user-management/adding-people-to-teams
 intro: 'Una vez que se ha creado un equipo, los administradores de la organización pueden agregar usuarios desde {% data variables.product.product_location %} al equipo y determinar a qué repositorios tienen acceso.'

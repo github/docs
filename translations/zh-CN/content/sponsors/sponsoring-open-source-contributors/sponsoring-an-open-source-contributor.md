@@ -37,6 +37,8 @@ shortTitle: 赞助贡献者
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
+You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
+
 如果被赞助帐户撤销的等级，您将仍保留在该等级，直到您选择其他等级或取消订阅。 更多信息请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”。
 
 如果您要赞助的帐户在 {% data variables.product.prodname_sponsors %} 上还没有个人资料，您可以建议该帐户加入。 更多信息请参阅“[为用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”和“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”。

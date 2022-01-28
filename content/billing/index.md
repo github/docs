@@ -28,7 +28,6 @@ featuredLinks:
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server{% endif %}'
     - '{% ifversion ghae %}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
   guideCards:  
-    - /billing/managing-your-github-billing-settings/removing-a-payment-method
     - /billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process
     - /billing/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise{% endif %}'

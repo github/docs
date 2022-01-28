@@ -1,6 +1,6 @@
 ---
-title: Associating text editors with Git
-intro: Use a text editor to open and edit your files with Git.
+title: 关联文本编辑器与 Git
+intro: 使用文本编辑器打开文件并通过 Git 编辑。
 redirect_from:
   - /textmate
   - /articles/using-textmate-as-your-default-editor
@@ -14,43 +14,44 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Associate text editors
+shortTitle: 关联文本编辑器
 ---
+
 {% mac %}
 
-## Using Atom as your editor
+## 使用 Atom 作为编辑器
 
-1. Install [Atom](https://atom.io/). For more information, see "[Installing Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" in the Atom documentation.
+1. 安装 [Atom](https://atom.io/)。 更多信息请参阅 Atom 文档中的“[安装 Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 输入此命令：
   ```shell
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using Visual Studio Code as your editor
+## 使用 Visual Studio Code 作为编辑器
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). For more information, see "[Setting up Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" in the VS Code documentation.
+1. 安装 [Visual Studio Code](https://code.visualstudio.com/) (VS Code)。 更多信息请参阅 VS Code 文档中的“[设置 Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 输入此命令：
   ```shell
   $ git config --global core.editor "code --wait"
  ```
 
-## Using Sublime Text as your editor
+## 使用 Sublime Text 作为编辑器
 
-1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
+1. 安装 [Sublime Text](https://www.sublimetext.com/)。 更多信息请参阅 Sublime Text 文档中的“[安装](https://docs.sublimetext.io/guide/getting-started/installation.html)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 输入此命令：
   ```shell
   $ git config --global core.editor "subl -n -w"
   ```
 
-## Using TextMate as your editor
+## 使用 TextMate 作为编辑器
 
-1. Install [TextMate](https://macromates.com/).
-2. Install TextMate's `mate` shell utility. For more information, see "[mate and rmate](https://macromates.com/blog/2011/mate-and-rmate/)" in the TextMate documentation.
+1. 安装 [TextMate](https://macromates.com/)。
+2. 安装 TextMate 的 `mate` shell 实用程序。 更多信息请参阅 TextMate 文档中的“[mate 和 rmate](https://macromates.com/blog/2011/mate-and-rmate/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-4. Type this command:
+4. 输入此命令：
   ```shell
   $ git config --global core.editor "mate -w"
   ```
@@ -58,38 +59,38 @@ shortTitle: Associate text editors
 
 {% windows %}
 
-## Using Atom as your editor
+## 使用 Atom 作为编辑器
 
-1. Install [Atom](https://atom.io/). For more information, see "[Installing Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" in the Atom documentation.
+1. 安装 [Atom](https://atom.io/)。 更多信息请参阅 Atom 文档中的“[安装 Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 输入此命令：
   ```shell
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using Visual Studio Code as your editor
+## 使用 Visual Studio Code 作为编辑器
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). For more information, see "[Setting up Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" in the VS Code documentation.
+1. 安装 [Visual Studio Code](https://code.visualstudio.com/) (VS Code)。 更多信息请参阅 VS Code 文档中的“[设置 Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 输入此命令：
   ```shell
   $ git config --global core.editor "code --wait"
  ```
 
-## Using Sublime Text as your editor
+## 使用 Sublime Text 作为编辑器
 
-1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
+1. 安装 [Sublime Text](https://www.sublimetext.com/)。 更多信息请参阅 Sublime Text 文档中的“[安装](https://docs.sublimetext.io/guide/getting-started/installation.html)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 输入此命令：
   ```shell
   $ git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe' -w"
   ```
 
-## Using Notepad++ as your editor
+## 使用 Notepad++ 作为编辑器
 
-1. Install Notepad++ from https://notepad-plus-plus.org/. For more information, see "[Getting started](https://npp-user-manual.org/docs/getting-started/)" in the Notepad++ documentation.
+1. 从 https://notepad-plus-plus.org/ 安装 Notepad++。 更多信息请参阅 Notepad++ 文档中的“[入门指南](https://npp-user-manual.org/docs/getting-started/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 输入此命令：
   ```shell
   $ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
   ```
@@ -97,29 +98,29 @@ shortTitle: Associate text editors
 
 {% linux %}
 
-## Using Atom as your editor
+## 使用 Atom 作为编辑器
 
-1. Install [Atom](https://atom.io/). For more information, see "[Installing Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" in the Atom documentation.
+1. 安装 [Atom](https://atom.io/)。 更多信息请参阅 Atom 文档中的“[安装 Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 输入此命令：
   ```shell
   $ git config --global core.editor "atom --wait"
   ```
 
-## Using Visual Studio Code as your editor
+## 使用 Visual Studio Code 作为编辑器
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). For more information, see "[Setting up Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" in the VS Code documentation.
+1. 安装 [Visual Studio Code](https://code.visualstudio.com/) (VS Code)。 更多信息请参阅 VS Code 文档中的“[设置 Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 输入此命令：
   ```shell
   $ git config --global core.editor "code --wait"
  ```
 
-## Using Sublime Text as your editor
+## 使用 Sublime Text 作为编辑器
 
-1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
+1. 安装 [Sublime Text](https://www.sublimetext.com/)。 更多信息请参阅 Sublime Text 文档中的“[安装](https://docs.sublimetext.io/guide/getting-started/installation.html)”。
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Type this command:
+3. 输入此命令：
   ```shell
   $ git config --global core.editor "subl -n -w"
   ```

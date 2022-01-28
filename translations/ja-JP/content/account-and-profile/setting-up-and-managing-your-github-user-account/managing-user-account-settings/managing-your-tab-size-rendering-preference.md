@@ -3,7 +3,7 @@ title: Managing your tab size rendering preference
 intro: You can manage the number of spaces a tab is equal to for your user account.
 versions:
   fpt: '*'
-  ghae: ghae-issue-5083
+  ghae: issue-5083
   ghes: '>=3.4'
   ghec: '*'
 topics:

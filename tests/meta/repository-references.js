@@ -54,6 +54,7 @@ const PUBLIC_REPOS = new Set([
   'insights-releases',
   'help-docs-archived-enterprise-versions',
   'stack-graphs',
+  'codespaces-precache',
 ])
 
 const ALLOW_DOCS_PATHS = [

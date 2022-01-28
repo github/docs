@@ -1,6 +1,6 @@
 ---
-title: Prebuilding Codespaces for your project
-intro: You can configure your project to prebuild a codespace automatically each time you push a change to your repository.
+title: Pre-compilar Codespaces para tu proyecto
+intro: Puedes configurar tu proyecto para que pre-configure un codespace automáticamente cada que subes un cambio a tu repositorio.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,17 +10,17 @@ topics:
   - Set up
   - Fundamentals
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: Prebuild Codespaces
+shortTitle: Precompilar Codespaces
 ---
 
 {% note %}
 
-**Note:** This feature is currently in private preview.
+**Nota:** Esta característica actualmente se encuentra en vista previa.
 
 {% endnote %}
 
-## About prebuilding a Codespace
+## Acerca de pre-compilar un Codespace
 
-Prebuilding your codespaces allows you to be more productive and access your codespace faster. This is because any source code, editor extensions, project dependencies, commands, or configurations have already been downloaded, installed, and applied before you begin your coding session. Once you push changes to your repository, {% data variables.product.prodname_codespaces %} automatically handles configuring the builds.
+El Pre-compilar tu codespace te permite ser más productivo y acceder a tu codespace más rápido. Esto es porque cualquier tipo de código fuente, extensiones de editor, dependencias de proyecto, comandos o configuraciones ya se habrán descargado, instalad y aplicado antes de que comiences tu sesión de desarrollo. Una vez que subes los cambios a tu repositorio, {% data variables.product.prodname_codespaces %} maneja automáticamente la configuración de compilaciones.
 
-The ability to prebuild Codespaces is currently in private preview. To get access to this feature, contact codespaces@github.com.
+La capacidad de pre-compilar un Codespace actualmente se encuentra en vista previa privada. Para obtener acceso a esta característica, contacta a codespaces@github.com.
