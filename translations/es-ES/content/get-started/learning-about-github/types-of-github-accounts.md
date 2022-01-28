@@ -84,6 +84,6 @@ Tu cuenta empresarial es una recolección de todas las organizaciones {% ifversi
 ## Leer más
 
 {% ifversion fpt or ghec %}
-- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"{% endif %}
+- "[Registrarse para obtener una cuenta nueva de {% data variables.product.prodname_dotcom %} ](/articles/signing-up-for-a-new-github-account)"{% endif %}
 - "[Crear una cuenta de organización nueva](/articles/creating-a-new-organization-account)"
-- [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources
+- Video de [Organizar a las personas para tener una colaboración exitosa](https://vimeo.com/333786093) en los Recursos de {% data variables.product.company_short %}

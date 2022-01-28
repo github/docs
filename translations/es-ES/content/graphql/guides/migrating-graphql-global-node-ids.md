@@ -65,4 +65,4 @@ Note that setting `X-Github-Next-Global-ID` to `1` will affect the return value 
 
 ## Compartir retroalimentación
 
-If you have any concerns about the rollout of this change impacting your app, please [contact {% data variables.product.product_name %}](https://support.github.com/contact) and include information such as your app name so that we can better assist you.
+Si te preocupa que la implementación de este cambio impacte tu app, por favor, [contacta a {% data variables.product.product_name %}](https://support.github.com/contact) e incluye la información del nombre de tu app para que te podamos apoyarte mejor.

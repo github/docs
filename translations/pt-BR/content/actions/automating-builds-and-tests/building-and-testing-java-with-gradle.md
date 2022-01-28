@@ -79,7 +79,7 @@ Este fluxo de trabalho executa os seguintes passos:
 1. O `checkout` faz o download de uma cópia do seu repositório no executor.
 2. A etapa `setup-java` configura o Java 11 JDK pelo Adoptium.
 3. A etapa "Validar o invólucro do Gradle" valida as somas de verificação dos arquivos JAR do Gradle Wrapper presentes na árvore de origem.
-4. The "Build with Gradle" step does a build using the `gradle/gradle-build-action` action provided by the Gradle organization on {% data variables.product.prodname_dotcom %}. The action takes care of invoking Gradle, collecting results, and caching state between jobs. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
+4. A etapa "Criação com Gradle" faz uma construção usando a ação `gradle/gradle-build-action` fornecida pela organização do Gradle em {% data variables.product.prodname_dotcom %}. A acção tem a preocupação de invocar o Gradle, de recolher resultados e de manter o estado de cache entre os trabalho. Para obter mais informações, consulte [`nota/gradle-build-action`](https://github.com/gradle/gradle-build-action).
 
 Os fluxos de trabalho inicial padrão são excelentes pontos de partida ao criar seu fluxo de trabalho de criação e teste, e você pode personalizar o fluxo de trabalho inicial para atender às necessidades do seu projeto.
 
@@ -114,9 +114,9 @@ steps:
 
 ## Memorizar dependências
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, your build dependencies can be cached to speed up your workflow runs. After a successful run, the `gradle/gradle-build-action` caches important parts of the Gradle user home directory. In future jobs, the cache will be restored so that build scripts won't need to be recompiled and dependencies won't need to be downloaded from remote package repositories.
+Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, as dependências de construção podem ser armazenadas em cache para acelerar a execução do seu fluxo de trabalho. Após uma execução bem-sucedida, a ação `gradle/gradle-build-action` armazena em cache partes importantes do diretório inicial do usuário do Gradle. Em trabalhos futuros, o cache será restaurado para que os scripts de compilação não precisem ser recalculados e as dependências não precisem ser baixadas a partir de repositórios remotos de pacotes.
 
-Caching is enabled by default when using the `gradle/gradle-build-action` action. For more information, see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
+O cache é habilitado por padrão ao usar a ação `grades/gradle-build-action`. Para obter mais informações, consulte [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
 
 ## Empacotar dados do fluxo de trabalho como artefatos
 

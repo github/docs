@@ -10,7 +10,7 @@ sections:
     - 'If Ubuntu''s Uncomplicated Firewall (UFW) status was inactive, a client could not clearly see it in the logs.'
     - 'Some pages and Git-related background jobs might not run in cluster mode with certain cluster configurations.'
     - 'The enterprise audit log page would not display audit events for {% data variables.product.prodname_secret_scanning %}.'
-    - 'Users were not warned about potentially dangerous bidirectional unicode characters when viewing files. For more information, see "[Warning about bidirectional Unicode text](https://github.co/hiddenchars)" in {% data variables.product.prodname_blog %}.'
+    - 'No se advirtió a los usuarios sobre los caracteres bidireccionales y peligrosos de unicode al visualizar los archivos. Para obtener más información, consulta la sección "[Advertencia sobre el texto bidireccional de Unicode](https://github.co/hiddenchars)" en el {% data variables.product.prodname_blog %}.'
     - 'Hookshot Go sent distribution type metrics that Collectd could not handle, which caused a ballooning of parsing errors.'
     - 'Public repositories displayed unexpected results from {% data variables.product.prodname_secret_scanning %} with a type of `Unknown Token`.'
   known_issues:

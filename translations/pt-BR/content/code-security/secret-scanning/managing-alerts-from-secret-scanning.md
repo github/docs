@@ -6,7 +6,6 @@ redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
   - /code-security/secret-security/managing-alerts-from-secret-scanning
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

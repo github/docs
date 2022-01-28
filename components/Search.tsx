@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, ReactNode, RefObject } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import cx from 'classnames'
-import { ActionList, DropdownMenu, Label, Overlay } from '@primer/components'
+import { ActionList, DropdownMenu, Flash, Label, Overlay } from '@primer/components'
 import { ItemInput } from '@primer/components/lib/ActionList/List'
 
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -176,20 +176,28 @@ export function Search({
             'pt-9 color-bg-default color-shadow-medium position-absolute top-0 right-0',
           styles.resultsContainer,
           isHeaderSearch && styles.resultsContainerHeader,
-          query ? 'd-block' : 'd-none',
-          query && styles.resultsContainerOpen
+          query || searchError ? 'd-block' : 'd-none',
+          (query || searchError) && styles.resultsContainerOpen
         )}
       >
-        <ShowSearchResults
-          anchorRef={inputRef}
-          isHeaderSearch={isHeaderSearch}
-          isMobileSearch={isMobileSearch}
-          isLoading={isLoading}
-          results={previousResults}
-          closeSearch={closeSearch}
-          debug={debug}
-          query={query}
-        />
+        {searchError ? (
+          <ShowSearchError
+            error={searchError}
+            isHeaderSearch={isHeaderSearch}
+            isMobileSearch={isMobileSearch}
+          />
+        ) : (
+          <ShowSearchResults
+            anchorRef={inputRef}
+            isHeaderSearch={isHeaderSearch}
+            isMobileSearch={isMobileSearch}
+            isLoading={isLoading}
+            results={previousResults}
+            closeSearch={closeSearch}
+            debug={debug}
+            query={query}
+          />
+        )}
       </div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
@@ -272,6 +280,33 @@ function useDebounce<T>(value: T, delay?: number): [T, (value: T) => void] {
   }, [value, delay])
 
   return [debouncedValue, setDebouncedValue]
+}
+
+function ShowSearchError({
+  error,
+  isHeaderSearch,
+  isMobileSearch,
+}: {
+  error: Error
+  isHeaderSearch: boolean
+  isMobileSearch: boolean
+}) {
+  const { t } = useTranslation('search')
+  return (
+    <Flash
+      variant="danger"
+      sx={{ margin: isMobileSearch || isHeaderSearch ? '2rem 2rem 0 2em' : '1rem' }}
+    >
+      <p>{t('search_error')}</p>
+      {process.env.NODE_ENV === 'development' && (
+        <p>
+          <small>
+            <code>{error.toString()}</code>
+          </small>
+        </p>
+      )}
+    </Flash>
+  )
 }
 
 function ShowSearchResults({

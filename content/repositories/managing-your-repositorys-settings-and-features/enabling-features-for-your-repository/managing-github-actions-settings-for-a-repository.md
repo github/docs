@@ -46,7 +46,9 @@ You can disable all workflows for a repository or set a policy that configures w
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Actions permissions**, select an option.
+
   ![Set actions policy for this organization](/assets/images/help/repository/actions-policy.png)
+
 1. Click **Save**.
 
 ## Allowing specific actions to run
@@ -57,12 +59,14 @@ You can disable all workflows for a repository or set a policy that configures w
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list.
+
    {%- ifversion ghes > 3.0 %}
    ![Add actions to allow list](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
    ![Add actions to allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
-2. Click **Save**.
+
+1. Click **Save**.
 
 {% ifversion fpt or ghec %}
 ## Configuring required approval for workflows from public forks
@@ -82,6 +86,10 @@ You can configure this behavior for a repository using the procedure below. Modi
 ## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}
+
+If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
+
+{% data reusables.github-actions.private-repository-forks-options %}
 
 ### Configuring the private fork policy for a repository
 
@@ -105,7 +113,9 @@ The default permissions can also be configured in the organization settings. If 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+
   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+
 1. Click **Save** to apply the settings.
 {% endif %}
 
@@ -114,16 +124,18 @@ The default permissions can also be configured in the organization settings. If 
 
 Members of your enterprise can use internal repositories to work on projects without sharing information publicly. For information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
 
-To configure whether workflows in an internal repository can be accessed from outside the repository:
+You can configure whether {% if internal-actions%}actions and {% endif %}workflows in an internal repository can be accessed from outside the repository.{% if internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% endif %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
 1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
 {% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Access**, choose one of the access settings:
-   ![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png)
-   * **Not accessible** - Workflows in other repositories can't use workflows in this repository.
-   * **Accessible from repositories in the '&lt;organization name&gt;' organization** - Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.
-   * **Accessible from repositories in the '&lt;enterprise name&gt;' enterprise** - Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.
+   
+   {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png){% else %}![Set the access to Actions components](/assets/images/enterprise/3.4/actions-access-settings.png){% endif %}
+   
+   * **Not accessible** - Workflows in other repositories cannot access this repository.
+   * **Accessible from repositories in the 'ORGANIZATION NAME' organization** - {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.{% endif %}
+   * **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.{% endif %}
 1. Click **Save** to apply the settings.
 {% endif %}
 

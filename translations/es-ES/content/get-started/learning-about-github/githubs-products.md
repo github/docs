@@ -47,11 +47,11 @@ Adicionalmente a las características disponibles con {% data variables.product.
 - Herramientas y perspectivas avanzadas en repositorios privados:
   - Revisores requeridos para solicitudes de extracción
   - Revisores múltiples para solicitudes de extracción
-  - Referencias auto-vinculadas
-  - {% data variables.product.prodname_pages %}
-  - Wikis
   - Ramas protegidas
   - Propietarios del código
+  - Referencias auto-enlazadas
+  - {% data variables.product.prodname_pages %}
+  - Wikis
   - Gráficos de información del repositorio: pulso, contribuyentes, tráfico, confirmaciones, frecuencia de código, red y bifurcaciones
 
 ## {% data variables.product.prodname_free_team %} para organizaciones
@@ -74,14 +74,14 @@ Adicionalmente a las características disponibles con {% data variables.product.
 - Herramientas y perspectivas avanzadas en repositorios privados:
   - Revisores requeridos para solicitudes de extracción
   - Revisores múltiples para solicitudes de extracción
-  - {% data variables.product.prodname_pages %}
-  - Wikis
-  - Ramas protegidas
-  - Propietarios del código
-  - Gráficos de información del repositorio: pulso, contribuyentes, tráfico, confirmaciones, frecuencia de código, red y bifurcaciones
   - Solicitudes de extracción en borrador
   - Revisores de equipo para solicitudes de extracción
+  - Ramas protegidas
+  - Propietarios del código
   - Recordatorios programados
+  - {% data variables.product.prodname_pages %}
+  - Wikis
+  - Gráficos de información del repositorio: pulso, contribuyentes, tráfico, confirmaciones, frecuencia de código, red y bifurcaciones
 {% ifversion fpt or ghec %}
 - La opción para habilitar {% data variables.product.prodname_github_codespaces %}
   - Los propietarios de organizaciones pueden habilitar los {% data variables.product.prodname_github_codespaces %} para la organización si configuran un límite de gastos y otorgan permisos de usuario para los miembros de su organziación. Para obtener más información, consulta la sección "[Habilitar los Codespaces para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)".

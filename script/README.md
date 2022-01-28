@@ -60,13 +60,6 @@ This script is run automatically when you run the server locally. It checks whet
 ---
 
 
-### [`check-internal-links.js`](check-internal-links.js)
-
-This script runs in CI via GitHub Action to check all *internal* links in English content, not including deprecated Enterprise Server content. This is different from script/check-english-links.js, which checks *all* links in the site, both internal and external, and is much slower.
-
----
-
-
 ### [`content-migrations/extended-markdown-tags.js`](content-migrations/extended-markdown-tags.js)
 
 

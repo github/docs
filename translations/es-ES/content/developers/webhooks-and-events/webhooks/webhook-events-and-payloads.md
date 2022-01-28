@@ -127,6 +127,34 @@ Actividad relacionada con una regla de protección de rama. Para obtener más in
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+Se sincronizó una Git ref exitosamente en una réplica de caché. Para obtener más información, consulta la sección "[Acerca del almacenamiento en caché de repositorios](/admin/enterprise-management/caching-repositories/about-repository-caching)".
+
+### Disponibilidad
+
+- Webhooks de repositorio
+- Webhooks de organización
+
+### Objeto de carga útil del webhook
+
+| Clave            | Tipo        | Descripción                                                        |
+| ---------------- | ----------- | ------------------------------------------------------------------ |
+| `cache_location` | `secuencia` | La ubicación del servidor caché que se actualizó.                  |
+| `ref`            | `secuencia` | La ref que se actualizó.                                           |
+| `before`         | `secuencia` | La OID del ref en la réplica de caché antes de que se actualizara. |
+| `after`          | `secuencia` | La OID del ref en la réplica de caché después de la actualización. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Ejemplo de carga útil del webhook
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -353,7 +381,7 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 | Clave                              | Tipo                                        | Descripción                                                                                     |
 | ---------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `Acción`                           | `secuencia`                                 | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment_status`                | `objeto`                                    | El [Estado del despliegue](/rest/reference/deployments#list-deployment-statuses).               |
+| `deployment_status`                | `objeto`                                    | El [estado del despliegue](/rest/reference/deployments#list-deployment-statuses).               |
 | `deployment_status["state"]`       | `secuencia`                                 | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                          |
 | `deployment_status["target_url"]`  | `secuencia`                                 | El enlace opcional agregado al estado.                                                          |
 | `deployment_status["description"]` | `secuencia`                                 | La descripción opcional legible para las personas que se agrega al estado.                      |

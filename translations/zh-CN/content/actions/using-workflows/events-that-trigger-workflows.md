@@ -1397,6 +1397,61 @@ on: workflow_dispatch
 
 您可以直接在工作流程中配置事件的自定义输入属性、默认输入值和必要输入。 When you trigger the event, you can provide the `ref` and any `inputs`. 当工作流程运行时，您可以访问 `github.event.inputs` 上下文中的输入值。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
+This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the `github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment` context properties.
+
+{% raw %}
+```yaml
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning' 
+        type: choice
+        options:
+        - info
+        - warning
+        - debug 
+      tags:
+        description: 'Test scenario tags'
+        required: false 
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true 
+
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+          echo "Environment: $ENVIRONMENT"
+        env:
+          LEVEL: ${{ github.event.inputs.logLevel }}
+          TAGS: ${{ github.event.inputs.tags }}
+          ENVIRONMENT: ${{ github.event.inputs.environment }}
+```
+{% endraw %}
+
+If you run this workflow from a browser you must enter values for the required inputs manually before the workflow will run.
+
+![Entering inputs for a workflow](/assets/images/help/images/workflow-dispatch-inputs.png)
+
+You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. 例如：
+
+```
+gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
+```
+
+For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
+
+
+{% else %}
 此示例定义了 `name` 和 `home` 输入，并使用 `github.event.inputs.name` 和 `github.event.inputs.home` 上下文打印。 如果未提供 `home` ，则打印默认值“The Octoverse”。
 
 ```yaml
@@ -1424,6 +1479,7 @@ jobs:
           NAME: {% raw %}${{ github.event.inputs.name }}{% endraw %}
           HOME: {% raw %}${{ github.event.inputs.home }}{% endraw %}
 ```
+{% endif %}
 
 ### `workflow_run`
 
@@ -1492,7 +1548,7 @@ jobs:
 
 #### Limiting your workflow to run based on branches
 
-You can use the `branches` or `branches-ignore` filter to specify what branches the triggering workflow must run on in order to trigger your workflow. 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)”。 For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch named `canary`.
+You can use the `branches` or `branches-ignore` filter to specify what branches the triggering workflow must run on in order to trigger your workflow. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)." For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch named `canary`.
 
 ```yaml
 on:

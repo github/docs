@@ -449,8 +449,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 {% ifversion fpt or ghec %}
 #### Sincronizar equipe da organização
 
-* [Listar grupos de idp para uma equipe](/rest/reference/teams#list-idp-groups-for-a-team)
-* [Criar ou atualizar conexões do grupo de idp](/rest/reference/teams#create-or-update-idp-group-connections)
+* [Listar grupos de IdP para uma equipe](/rest/reference/teams#list-idp-groups-for-a-team)
+* [Criar ou atualizar conexões de grupo de IdP](/rest/reference/teams#create-or-update-idp-group-connections)
 * [Listar grupos de IdP para uma organização](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 

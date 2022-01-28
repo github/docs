@@ -10,7 +10,7 @@ topics:
   - Support
 ---
 
-When you contact {% data variables.contact.enterprise_support %}, you can choose one of {% ifversion ghes or ghae %}four{% else %}three{% endif %} priorities for the ticket: {% ifversion ghes or ghae %}{% data variables.product.support_ticket_priority_urgent %},{% endif %} {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
+Cuando contactas al {% data variables.contact.enterprise_support %}, puedes elegir una de {% ifversion ghes or ghae %}cuatro{% else %}tres{% endif %} prioridades para el ticket: {% ifversion ghes or ghae %}{% data variables.product.support_ticket_priority_urgent %},{% endif %} {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} o {% data variables.product.support_ticket_priority_low %}.
 
 {% ifversion ghes or ghae %}
 
@@ -76,4 +76,4 @@ El tiempo de respuesta objetivo de ocho horas:
 
 ## Leer más
 
-- "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)"
+- "[Crear un ticket de soporte](/support/contacting-github-support/creating-a-support-ticket)"

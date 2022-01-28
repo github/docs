@@ -41,7 +41,9 @@ shortTitle: 升级 GHES
 
 ## 生成快照
 
-快照是虚拟机 (VM) 在某一时间点的检查点。 强烈建议在升级虚拟机之前生成快照，这样一来，如果升级失败，您可以将 VM 还原到快照状态。 如果您要升级到新的功能版本，则必须生成 VM 快照。 如果您要升级到补丁版本，可以连接现有数据磁盘。
+快照是虚拟机 (VM) 在某一时间点的检查点。 强烈建议在升级虚拟机之前生成快照，这样一来，如果升级失败，您可以将 VM 还原到快照状态。 We only recommend taking a VM snapshot when the appliance is powered down or in maintenance mode and all background jobs have finished.
+
+如果您要升级到新的功能版本，则必须生成 VM 快照。 如果您要升级到补丁版本，可以连接现有数据磁盘。
 
 有两种类型的快照：
 
@@ -67,7 +69,9 @@ shortTitle: 升级 GHES
 
 ## 使用热补丁升级
 
-{% data reusables.enterprise_installation.hotpatching-explanation %} 利用 {% data variables.enterprise.management_console %}，您可以立即安装热补丁，也可以排定稍后安装热补丁。 您可以使用管理 shell 的 `ghe-upgrade` 实用程序安装热补丁。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
+{% data reusables.enterprise_installation.hotpatching-explanation %}
+
+Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. 您可以使用管理 shell 的 `ghe-upgrade` 实用程序安装热补丁。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
 
 {% note %}
 
@@ -83,6 +87,10 @@ shortTitle: 升级 GHES
 ### 使用热补丁升级单个设备
 
 #### 使用 {% data variables.enterprise.management_console %} 安装热补丁
+
+You can use the {% data variables.enterprise.management_console %} to upgrade with a hotpatch by enabling automatic updates. You will then be presented with the latest available version of {% data variables.product.prodname_ghe_server %} that you can upgrade to.
+
+If the upgrade target you're presented with is a feature release instead of a patch release, you cannot use the {% data variables.enterprise.management_console %} to install a hotpatch. You must install the hotpatch using the administrative shell instead. For more information, see "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
 
 1. 启用自动更新。 更多信息请参阅“[启用自动更新](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)”。
 {% data reusables.enterprise_site_admin_settings.access-settings %}

@@ -86,7 +86,7 @@ export const Header = () => {
         {/* mobile header */}
         <div className="d-lg-none" data-testid="mobile-header">
           <div className="d-flex flex-justify-between">
-            <div className="d-flex flex-items-center" id="github-logo-mobile" role="banner">
+            <div className="d-flex flex-items-center" id="github-logo-mobile">
               <Link aria-hidden="true" tabIndex={-1} href={`/${router.locale}`}>
                 <MarkGithubIcon size={32} className="color-fg-default" />
               </Link>

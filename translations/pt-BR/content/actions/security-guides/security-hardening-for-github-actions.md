@@ -196,6 +196,12 @@ Você pode ajudar a mitigar esse risco seguindo estas boas práticas:
 Os mesmos princípios descritos acima para o uso de ações de terceiros também se aplicam ao uso de fluxos de trabalho de terceiros. Você pode ajudar a mitigar os riscos associados à reutilização de fluxos de trabalho, seguindo as mesmas práticas recomendadas descritas acima. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
 
+{% if internal-actions %}
+## Permitir que os fluxos de trabalho acessem repositórios internos
+
+{% data reusables.actions.outside-collaborators-internal-actions %} Para obter mais informações, consulte "[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".
+{% endif %}
+
 ## Possível impacto de um executor comprometido
 
 Essas seções consideram alguns das etapas que um invasor pode dar se for capaz de executar comandos maliciosos em um executor de {% data variables.product.prodname_actions %}.
