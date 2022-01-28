@@ -31,9 +31,9 @@
           -->
         <tr>
           <td><code>accept</code></td>
-          <td class="opacity-70">string</td>
-          <td class="opacity-70">header</td>
-          <td class="opacity-70">
+          <td>string</td>
+          <td>header</td>
+          <td>
             <p>
               {%- if operation.hasRequiredPreviews -%} This API is under preview
               and subject to change. {%- else -%} Setting to
@@ -52,9 +52,9 @@
         {%- for param in operation.parameters -%}
         <tr>
           <td><code>{{ param.name }}</code></td>
-          <td class="opacity-70">{{ param.schema.type }}</td>
-          <td class="opacity-70">{{ param.in }}</td>
-          <td class="opacity-70">
+          <td>{{ param.schema.type }}</td>
+          <td>{{ param.in }}</td>
+          <td>
             {{ param.descriptionHTML }} {%- if param.schema.default != nil -%}
             Default: <code>{{ param.schema.default }}</code>
             {%- endif -%}
@@ -63,9 +63,9 @@
         {%- endfor -%} {%- for bodyParam in operation.bodyParameters -%}
         <tr>
           <td><code>{{ bodyParam.name }}</code></td>
-          <td class="opacity-70">{{ bodyParam.type }}</td>
-          <td class="opacity-70">{{ bodyParam.in }}</td>
-          <td class="opacity-70">
+          <td>{{ bodyParam.type }}</td>
+          <td>{{ bodyParam.in }}</td>
+          <td>
             {{ bodyParam.description }} {%- if bodyParam.default != nil -%}
             Default: <code>{{ bodyParam.default }}</code>
             {%- endif -%}
@@ -95,10 +95,10 @@
                 <tbody>
                   {%- for childParam in childParamsGroup.params -%}
                   <tr>
-                    <td class="opacity-70 color-bg-subtle">
+                    <td class="color-bg-subtle">
                       <code>{{ childParam.name }}</code> ({{ childParam.type }})
                     </td>
-                    <td class="opacity-70 color-bg-subtle">{{ childParam.description }}</td>
+                    <td class="color-bg-subtle">{{ childParam.description }}</td>
                   </tr>
                   {%- endfor -%}
                 </tbody>
