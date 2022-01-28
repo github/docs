@@ -1,4 +1,4 @@
----
+Etx
 title: Quickstart for projects (beta)
 intro: 'Experience the speed, flexibility, and customization of projects (beta) by creating a project in this interactive guide.'
 allowTitleToDifferFromFilename: true
