@@ -2,7 +2,7 @@ import { difference } from 'lodash-es'
 import { getJSON } from '../helpers/supertest.js'
 import { latest } from '../../lib/enterprise-server-releases.js'
 import { allVersions } from '../../lib/all-versions.js'
-import webhookPayloads from '../../lib/webhooks'
+import getWebhookPayloads from '../../lib/webhooks'
 import { jest } from '@jest/globals'
 
 const allVersionValues = Object.values(allVersions)
@@ -24,6 +24,8 @@ const ghaePayloadVersion = allVersionValues.find(
 
 describe('webhook payloads', () => {
   jest.setTimeout(3 * 60 * 1000)
+
+  const webhookPayloads = getWebhookPayloads()
 
   test('have expected top-level keys', () => {
     payloadVersions.forEach((version) => {
