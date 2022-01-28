@@ -53,7 +53,8 @@ describe('webhook payloads', () => {
     const payloadLines = payloadString.split('\n')
 
     expect(payloadLines.length).toBeGreaterThan(5)
-    expect(payloadLines[2].trim()).toBe('```json')
+    expect(payloadLines[0].includes('data-highlight="json"')).toBe(true)
+    expect(payloadLines[2].trim()).toBe('```')
     expect(payloadLines[3].trim()).toBe('{')
     expect(payloadLines[payloadLines.length - 3].trim()).toBe('```')
   })
@@ -82,8 +83,8 @@ describe('webhook payloads', () => {
 
     const ghesPayloadString = getPayloadString(ghesPayloadsWithFallbacks[dotcomOnlyPayload])
     const ghaePayloadString = getPayloadString(ghaePayloadsWithFallbacks[dotcomOnlyPayload])
-    expect(ghesPayloadString.includes('```json')).toBe(true)
-    expect(ghaePayloadString.includes('```json')).toBe(true)
+    expect(ghesPayloadString.includes('data-highlight="json"')).toBe(true)
+    expect(ghaePayloadString.includes('data-highlight="json"')).toBe(true)
   })
 })
 
