@@ -3,7 +3,7 @@ title: Upgrade requirements
 intro: 'Before upgrading {% data variables.product.prodname_ghe_server %}, review these recommendations and requirements to plan your upgrade strategy.'
 redirect_from:
   - /enterprise/admin/installation/upgrade-requirements
-  - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release/
+  - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
 versions:
@@ -40,7 +40,8 @@ topics:
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
 - A hotpatch may require downtime if the affected services (like kernel, MySQL, or Elasticsearch) require a VM reboot or a service restart. You'll be notified when a reboot or restart is required. You can complete the reboot or restart at a later time.
 - Additional root storage must be available when upgrading through hotpatching, as it installs multiple versions of certain services until the upgrade is complete. Pre-flight checks will notify you if you don't have enough root disk storage.
-- When upgrading through hotpatching, your instance cannot be too heavily loaded, as it may impact the hotpatching process. Pre-flight checks will consider the load average and the upgrade will fail if the load average is too high.- Upgrading to {% data variables.product.prodname_ghe_server %} 2.17 migrates your audit logs from Elasticsearch to MySQL. This migration also increases the amount of time and disk space it takes to restore a snapshot. Before migrating, check the number of bytes in your Elasticsearch audit log indices with this command:
+- When upgrading through hotpatching, your instance cannot be too heavily loaded, as it may impact the hotpatching process.
+- Upgrading to {% data variables.product.prodname_ghe_server %} 2.17 migrates your audit logs from Elasticsearch to MySQL. This migration also increases the amount of time and disk space it takes to restore a snapshot. Before migrating, check the number of bytes in your Elasticsearch audit log indices with this command:
 ``` shell
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```

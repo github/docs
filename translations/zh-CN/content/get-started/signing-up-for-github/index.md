@@ -1,6 +1,6 @@
 ---
-title: Signing up for GitHub
-intro: 'Start using {% data variables.product.prodname_dotcom %} for yourself or your team.'
+title: 注册 GitHub
+intro: '开始为自己或您的团队使用 {% data variables.product.prodname_dotcom %}。'
 redirect_from:
   - /articles/signing-up-for-github
   - /github/getting-started-with-github/signing-up-for-github

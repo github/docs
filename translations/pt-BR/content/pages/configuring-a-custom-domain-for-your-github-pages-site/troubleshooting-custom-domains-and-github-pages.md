@@ -2,9 +2,9 @@
 title: Solucionar problemas de domínios personalizados e do GitHub Pages
 intro: 'Você pode verificar os erros comuns para resolver problemas com domínios personalizados ou HTTPS no seu site do {% data variables.product.prodname_pages %}.'
 redirect_from:
-  - /articles/my-custom-domain-isn-t-working/
-  - /articles/custom-domain-isn-t-working/
-  - /articles/troubleshooting-custom-domains/
+  - /articles/my-custom-domain-isn-t-working
+  - /articles/custom-domain-isn-t-working
+  - /articles/troubleshooting-custom-domains
   - /articles/troubleshooting-custom-domains-and-github-pages
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'

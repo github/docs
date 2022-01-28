@@ -36,13 +36,13 @@ shortTitle: Monitor & troubleshoot
 
 ## Reviewing the self-hosted runner application log files
 
-You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory, and a new one is generated each time the application is started. The filename begins with *Runner_*, and is followed by a UTC timestamp of when the application was started.
+You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory where you installed the runner application, and a new log is generated each time the application is started. The filename begins with *Runner_*, and is followed by a UTC timestamp of when the application was started.
 
 For detailed logs on workflow job executions, see the next section describing the *Worker_* files.
 
 ## Reviewing a job's log file
 
-The self-hosted runner application creates a detailed log file for each job that it processes. These files are stored in the `_diag` directory, and the filename begins with *Worker_*.
+The self-hosted runner application creates a detailed log file for each job that it processes. These files are stored in the `_diag` directory where you installed the runner application, and the filename begins with *Worker_*.
 
 {% linux %}
 
@@ -80,14 +80,14 @@ Feb 11 16:06:54 runner01 runsvc.sh[962]: 2020-02-11 16:06:54Z: Running job: test
 Feb 11 16:07:10 runner01 runsvc.sh[962]: 2020-02-11 16:07:10Z: Job testAction completed with result: Succeeded
 ```
 
-To view the systemd configuration, you can locate the service file here: `/etc/systemd/system/actions.runner.<org>-<repo>.<runnerName>.service`.
+To view the `systemd` configuration, you can locate the service file here: `/etc/systemd/system/actions.runner.<org>-<repo>.<runnerName>.service`.
 If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service)."
 
 {% endlinux %}
 
 {% mac %}
 
-## Using launchd to check the self-hosted runner application service
+## Using `launchd` to check the self-hosted runner application service
 
 For macOS-based self-hosted runners running the application as a service, you can use `launchctl` to monitor their real-time activity. The default launchd-based service uses the following naming convention: `actions.runner.<org>-<repo>.<runnerName>`. This name is truncated if it exceeds 80 characters, so the preferred way of finding the service's name is by checking the _.service_ file in the runner directory:
 
@@ -106,9 +106,9 @@ Started:
 379 0 actions.runner.example.runner01
 ```
 
-The resulting output includes the process ID and the name of the application’s launchd service.
+The resulting output includes the process ID and the name of the application’s `launchd` service.
 
-To view the launchd configuration, you can locate the service file here: `/Users/exampleUsername/Library/LaunchAgents/actions.runner.<repoName>.<runnerName>.service`.
+To view the `launchd` configuration, you can locate the service file here: `/Users/exampleUsername/Library/LaunchAgents/actions.runner.<repoName>.<runnerName>.service`.
 If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1)."
 
 {% endmac %}
@@ -163,7 +163,7 @@ You can view the update activities in the *Runner_* log files. For example:
 [Feb 12 12:37:07 INFO SelfUpdater] An update is available.
 ```
 
-In addition, you can find more information in the _SelfUpdate_ log files located in the `_diag` directory.
+In addition, you can find more information in the _SelfUpdate_ log files located in the `_diag` directory where you installed the runner application.
 
 {% linux %}
 
@@ -196,7 +196,7 @@ If your job fails with the following error:
 dial unix /var/run/docker.sock: connect: permission denied
 ```
 
-Check that the self-hosted runner's service account has permission to use the Docker service. You can identify this account by checking the configuration of the self-hosted runner in systemd. For example:
+Check that the self-hosted runner's service account has permission to use the Docker service. You can identify this account by checking the configuration of the self-hosted runner in `systemd`. For example:
 
 ```shell
 $ sudo systemctl show -p User actions.runner.octo-org-octo-repo.runner01.service

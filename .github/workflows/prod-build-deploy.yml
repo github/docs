@@ -14,9 +14,11 @@ permissions:
   contents: read
   deployments: write
 
+# This allows a subsequently queued workflow run to take priority over
+# previously queued runs but NOT interrupt currently executing runs
 concurrency:
   group: '${{ github.workflow }}'
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
@@ -34,7 +36,7 @@ jobs:
         run: git lfs checkout
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -51,6 +53,12 @@ jobs:
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: main
+
+      - name: Cache nextjs build
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
       - name: Build
         run: npm run build
@@ -89,7 +97,7 @@ jobs:
 
       - name: Create a Heroku build source
         id: build-source
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
         env:
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
         with:
@@ -144,7 +152,7 @@ jobs:
         run: .github/actions-scripts/prod-deploy.js
 
       - name: Mark the deployment as inactive if timed out
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
         if: ${{ steps.deploy.outcome == 'cancelled' }}
         env:
           DEPLOYMENT_ID: ${{ steps.deploy.outputs.deploymentId }}

@@ -1,8 +1,8 @@
 ---
 title: Automação Git com tokens OAuth
 redirect_from:
-  - /articles/git-over-https-using-oauth-token/
-  - /articles/git-over-http-using-oauth-token/
+  - /articles/git-over-https-using-oauth-token
+  - /articles/git-over-http-using-oauth-token
   - /articles/git-automation-with-oauth-tokens
 intro: 'Você pode usar tokens OAuth para interagir com {% data variables.product.product_name %} por meio de scripts automatizados.'
 versions:

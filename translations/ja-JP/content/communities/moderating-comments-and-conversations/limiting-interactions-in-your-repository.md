@@ -2,7 +2,7 @@
 title: リポジトリでのインタラクションを制限する
 intro: パブリックリポジトリ上の特定のユーザに対して、一定期間アクティビティ制限を適用することができます。
 redirect_from:
-  - /articles/limiting-interactions-with-your-repository/
+  - /articles/limiting-interactions-with-your-repository
   - /articles/limiting-interactions-in-your-repository
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:

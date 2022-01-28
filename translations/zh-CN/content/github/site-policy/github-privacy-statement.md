@@ -1,12 +1,12 @@
 ---
 title: GitHub 隐私声明
 redirect_from:
-  - /privacy/
-  - /privacy-policy/
-  - /privacy-statement/
-  - /github-privacy-policy/
-  - /articles/github-privacy-policy/
-  - /articles/github-privacy-statement/
+  - /privacy
+  - /privacy-policy
+  - /privacy-statement
+  - /github-privacy-policy
+  - /articles/github-privacy-policy
+  - /articles/github-privacy-statement
 versions:
   fpt: '*'
 topics:

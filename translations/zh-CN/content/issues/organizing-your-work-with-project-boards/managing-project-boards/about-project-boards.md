@@ -3,7 +3,7 @@ title: 关于项目板
 intro: '{% data variables.product.product_name %} 上的项目板帮助您组织工作和排列工作的优先级。 您可以为特定功能工作、全面的路线图甚至发布检查列表创建项目板。 通过项目板可以灵活地创建适合需求的自定义工作流程。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
-  - /articles/about-projects/
+  - /articles/about-projects
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:

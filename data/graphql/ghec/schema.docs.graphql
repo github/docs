@@ -1692,6 +1692,31 @@ type BranchProtectionRule implements Node {
   ): BranchProtectionRuleConflictConnection!
 
   """
+  A list of actors able to force push for this branch protection rule.
+  """
+  bypassForcePushAllowances(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): BypassForcePushAllowanceConnection!
+
+  """
   A list of actors able to bypass PRs for this branch protection rule.
   """
   bypassPullRequestAllowances(
@@ -1986,6 +2011,62 @@ type BranchProtectionRuleEdge {
   The item at the end of the edge.
   """
   node: BranchProtectionRule
+}
+
+"""
+A team or user who has the ability to bypass a force push requirement on a protected branch.
+"""
+type BypassForcePushAllowance implements Node {
+  """
+  The actor that can dismiss.
+  """
+  actor: BranchActorAllowanceActor
+
+  """
+  Identifies the branch protection rule associated with the allowed user or team.
+  """
+  branchProtectionRule: BranchProtectionRule
+  id: ID!
+}
+
+"""
+The connection type for BypassForcePushAllowance.
+"""
+type BypassForcePushAllowanceConnection {
+  """
+  A list of edges.
+  """
+  edges: [BypassForcePushAllowanceEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [BypassForcePushAllowance]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type BypassForcePushAllowanceEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: BypassForcePushAllowance
 }
 
 """
@@ -5433,6 +5514,11 @@ input CreateBranchProtectionRuleInput {
   Are force pushes allowed on this branch.
   """
   allowsForcePushes: Boolean
+
+  """
+  A list of User or Team IDs allowed to bypass force push targeting matching branches.
+  """
+  bypassForcePushActorIds: [ID!]
 
   """
   A list of User or Team IDs allowed to bypass pull requests targeting matching branches.
@@ -9858,6 +9944,11 @@ type Enterprise implements Node {
     The search string to look for.
     """
     query: String
+
+    """
+    The viewer's role in an organization.
+    """
+    viewerOrganizationRole: RoleInOrganization
   ): OrganizationConnection!
 
   """
@@ -12955,6 +13046,11 @@ enum FundingPlatform {
   KO_FI
 
   """
+  LFX Crowdfunding funding platform.
+  """
+  LFX_CROWDFUNDING
+
+  """
   Liberapay funding platform.
   """
   LIBERAPAY
@@ -14202,7 +14298,7 @@ union IpAllowListOwner = App | Enterprise | Organization
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
 """
-type Issue implements Assignable & Closable & Comment & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
+type Issue implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectNextOwner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
   """
   Reason that the conversation was locked.
   """
@@ -14458,6 +14554,51 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     """
     last: Int
   ): ProjectCardConnection!
+
+  """
+  Find a project by project (beta) number.
+  """
+  projectNext(
+    """
+    The project (beta) number.
+    """
+    number: Int!
+  ): ProjectNext
+
+  """
+  A list of project (beta) items under the owner.
+  """
+  projectsNext(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    A project (beta) to search for under the the owner.
+    """
+    query: String
+
+    """
+    How to order the returned projects (beta).
+    """
+    sortBy: ProjectNextOrderField = TITLE
+  ): ProjectNextConnection!
 
   """
   Identifies when the comment was published at.
@@ -19278,6 +19419,16 @@ type Mutation {
   ): UpdateNotificationRestrictionSettingPayload
 
   """
+  Sets whether private repository forks are enabled for an organization.
+  """
+  updateOrganizationAllowPrivateRepositoryForkingSetting(
+    """
+    Parameters for UpdateOrganizationAllowPrivateRepositoryForkingSetting
+    """
+    input: UpdateOrganizationAllowPrivateRepositoryForkingSettingInput!
+  ): UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload
+
+  """
   Updates an existing project.
   """
   updateProject(
@@ -20992,6 +21143,31 @@ type OrgEnableTwoFactorRequirementAuditEntry implements AuditEntry & Node & Orga
   The HTTP URL for the user.
   """
   userUrl: URI
+}
+
+"""
+Ordering options for an organization's enterprise owner connections.
+"""
+input OrgEnterpriseOwnerOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order enterprise owners by.
+  """
+  field: OrgEnterpriseOwnerOrderField!
+}
+
+"""
+Properties by which enterprise owners can be ordered.
+"""
+enum OrgEnterpriseOwnerOrderField {
+  """
+  Order enterprise owners by login.
+  """
+  LOGIN
 }
 
 """
@@ -22870,6 +23046,46 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   email: String
 
   """
+  A list of owners of the organization's enterprise account.
+  """
+  enterpriseOwners(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for enterprise owners returned from the connection.
+    """
+    orderBy: OrgEnterpriseOwnerOrder = {field: LOGIN, direction: ASC}
+
+    """
+    The organization role to filter by.
+    """
+    organizationRole: RoleInOrganization
+
+    """
+    The search string to look for.
+    """
+    query: String
+  ): OrganizationEnterpriseOwnerConnection!
+
+  """
   The estimated next GitHub Sponsors payout for this user/organization in cents (USD).
   """
   estimatedNextSponsorsPayoutInCents: Int!
@@ -22990,6 +23206,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     orderBy: UserStatusOrder = {field: UPDATED_AT, direction: DESC}
   ): UserStatusConnection!
+
+  """
+  Members can fork private repositories in this organization
+  """
+  membersCanForkPrivateRepositories: Boolean!
 
   """
   A list of users who are members of this organization.
@@ -23192,11 +23413,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): Project
 
   """
-  Find project by project next number.
+  Find a project by project (beta) number.
   """
   projectNext(
     """
-    The project next number.
+    The project (beta) number.
     """
     number: Int!
   ): ProjectNext
@@ -23242,7 +23463,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): ProjectConnection!
 
   """
-  A list of project next items under the owner.
+  A list of project (beta) items under the owner.
   """
   projectsNext(
     """
@@ -23264,6 +23485,16 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    A project (beta) to search for under the the owner.
+    """
+    query: String
+
+    """
+    How to order the returned projects (beta).
+    """
+    sortBy: ProjectNextOrderField = TITLE
   ): ProjectNextConnection!
 
   """
@@ -23927,7 +24158,7 @@ type OrganizationAuditEntryEdge {
 }
 
 """
-The connection type for Organization.
+A list of organizations managed by an enterprise.
 """
 type OrganizationConnection {
   """
@@ -23964,6 +24195,51 @@ type OrganizationEdge {
   The item at the end of the edge.
   """
   node: Organization
+}
+
+"""
+The connection type for User.
+"""
+type OrganizationEnterpriseOwnerConnection {
+  """
+  A list of edges.
+  """
+  edges: [OrganizationEnterpriseOwnerEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [User]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An enterprise owner in the context of an organization that is part of the enterprise.
+"""
+type OrganizationEnterpriseOwnerEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: User
+
+  """
+  The role of the owner with respect to the organization.
+  """
+  organizationRole: RoleInOrganization!
 }
 
 """
@@ -26651,23 +26927,48 @@ type ProjectNextItemFieldValueEdge {
 }
 
 """
-Represents an owner of a Project.
+Properties by which the return project can be ordered.
+"""
+enum ProjectNextOrderField {
+  """
+  The project's date and time of creation
+  """
+  CREATED_AT
+
+  """
+  The project's number
+  """
+  NUMBER
+
+  """
+  The project's title
+  """
+  TITLE
+
+  """
+  The project's date and time of update
+  """
+  UPDATED_AT
+}
+
+"""
+Represents an owner of a project (beta).
 """
 interface ProjectNextOwner {
   id: ID!
 
   """
-  Find project by project next number.
+  Find a project by project (beta) number.
   """
   projectNext(
     """
-    The project next number.
+    The project (beta) number.
     """
     number: Int!
   ): ProjectNext
 
   """
-  A list of project next items under the owner.
+  A list of project (beta) items under the owner.
   """
   projectsNext(
     """
@@ -26689,6 +26990,16 @@ interface ProjectNextOwner {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    A project (beta) to search for under the the owner.
+    """
+    query: String
+
+    """
+    How to order the returned projects (beta).
+    """
+    sortBy: ProjectNextOrderField = TITLE
   ): ProjectNextConnection!
 }
 
@@ -26961,7 +27272,7 @@ type PublicKeyEdge {
 """
 A repository pull request.
 """
-type PullRequest implements Assignable & Closable & Comment & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
+type PullRequest implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectNextOwner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
   """
   Reason that the conversation was locked.
   """
@@ -27475,6 +27786,51 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     """
     last: Int
   ): ProjectCardConnection!
+
+  """
+  Find a project by project (beta) number.
+  """
+  projectNext(
+    """
+    The project (beta) number.
+    """
+    number: Int!
+  ): ProjectNext
+
+  """
+  A list of project (beta) items under the owner.
+  """
+  projectsNext(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    A project (beta) to search for under the the owner.
+    """
+    query: String
+
+    """
+    How to order the returned projects (beta).
+    """
+    sortBy: ProjectNextOrderField = TITLE
+  ): ProjectNextConnection!
 
   """
   Identifies when the comment was published at.
@@ -29282,6 +29638,11 @@ The possible item types found in a timeline.
 """
 enum PullRequestTimelineItemsItemType {
   """
+  Represents a 'added_to_merge_queue' event on a given pull request.
+  """
+  ADDED_TO_MERGE_QUEUE_EVENT
+
+  """
   Represents a 'added_to_project' event on a given issue or pull request.
   """
   ADDED_TO_PROJECT_EVENT
@@ -29487,6 +29848,11 @@ enum PullRequestTimelineItemsItemType {
   REFERENCED_EVENT
 
   """
+  Represents a 'removed_from_merge_queue' event on a given pull request.
+  """
+  REMOVED_FROM_MERGE_QUEUE_EVENT
+
+  """
   Represents a 'removed_from_project' event on a given issue or pull request.
   """
   REMOVED_FROM_PROJECT_EVENT
@@ -29599,9 +29965,9 @@ type Push implements Node {
   previousSha: GitObjectID
 
   """
-  The user who pushed
+  The actor who pushed
   """
-  pusher: User!
+  pusher: Actor!
 
   """
   The repository that was pushed to
@@ -37400,6 +37766,26 @@ type ReviewStatusHovercardContext implements HovercardContext {
 }
 
 """
+Possible roles a user may have in relation to an organization.
+"""
+enum RoleInOrganization {
+  """
+  A user who is a direct member of the organization.
+  """
+  DIRECT_MEMBER
+
+  """
+  A user with full administrative access to the organization.
+  """
+  OWNER
+
+  """
+  A user who is unaffiliated with the organization.
+  """
+  UNAFFILIATED
+}
+
+"""
 The possible digest algorithms used to sign SAML requests for an identity provider.
 """
 enum SamlDigestAlgorithm {
@@ -43039,6 +43425,11 @@ input UpdateBranchProtectionRuleInput {
   branchProtectionRuleId: ID! @possibleTypes(concreteTypes: ["BranchProtectionRule"])
 
   """
+  A list of User or Team IDs allowed to bypass force push targeting matching branches.
+  """
+  bypassForcePushActorIds: [ID!]
+
+  """
   A list of User or Team IDs allowed to bypass pull requests targeting matching branches.
   """
   bypassPullRequestActorIds: [ID!]
@@ -44353,6 +44744,46 @@ type UpdateNotificationRestrictionSettingPayload {
   The owner on which the setting was updated.
   """
   owner: VerifiableDomainOwner
+}
+
+"""
+Autogenerated input type of UpdateOrganizationAllowPrivateRepositoryForkingSetting
+"""
+input UpdateOrganizationAllowPrivateRepositoryForkingSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  Enable forking of private repositories in the organization?
+  """
+  forkingEnabled: Boolean!
+
+  """
+  The ID of the organization on which to set the allow private repository forking setting.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+}
+
+"""
+Autogenerated return type of UpdateOrganizationAllowPrivateRepositoryForkingSetting
+"""
+type UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  A message confirming the result of updating the allow private repository forking setting.
+  """
+  message: String
+
+  """
+  The organization with the updated allow private repository forking setting.
+  """
+  organization: Organization
 }
 
 """
@@ -45719,11 +46150,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   ): Project
 
   """
-  Find project by project next number.
+  Find a project by project (beta) number.
   """
   projectNext(
     """
-    The project next number.
+    The project (beta) number.
     """
     number: Int!
   ): ProjectNext
@@ -45769,7 +46200,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   ): ProjectConnection!
 
   """
-  A list of project next items under the owner.
+  A list of project (beta) items under the owner.
   """
   projectsNext(
     """
@@ -45791,6 +46222,16 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    A project (beta) to search for under the the owner.
+    """
+    query: String
+
+    """
+    How to order the returned projects (beta).
+    """
+    sortBy: ProjectNextOrderField = TITLE
   ): ProjectNextConnection!
 
   """

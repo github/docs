@@ -2,7 +2,7 @@
 title: 監査ログ
 intro: '{% data variables.product.product_name %} は、{% ifversion ghes %}監査対象システム、{% endif %}ユーザ、Organization、リポジトリのイベントのログを保持します。 ログはデバッグや内部および外部のコンプライアンスに役立ちます。'
 redirect_from:
-  - /enterprise/admin/articles/audit-logging/
+  - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
   - /enterprise/admin/user-management/audit-logging
   - /admin/user-management/audit-logging

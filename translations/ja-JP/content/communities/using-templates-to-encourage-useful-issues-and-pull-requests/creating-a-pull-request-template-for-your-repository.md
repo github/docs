@@ -1,6 +1,6 @@
 ---
-title: Creating a pull request template for your repository
-intro: 'When you add a pull request template to your repository, project contributors will automatically see the template''s contents in the pull request body.'
+title: リポジトリ用のプルリクエストテンプレートの作成
+intro: リポジトリにプルリクエストのテンプレートを追加すると、プロジェクトのコントリビューターはプルリクエストの本体にテンプレートの内容を自動的に見ることになります。
 redirect_from:
   - /articles/creating-a-pull-request-template-for-your-repository
   - /github/building-a-strong-community/creating-a-pull-request-template-for-your-repository
@@ -11,42 +11,38 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Create a PR template
+shortTitle: PR テンプレートの作成
 ---
 
-For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
+詳しい情報については[Issue およびPull Requestのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
 
-You can create a *PULL_REQUEST_TEMPLATE/* subdirectory in any of the supported folders to contain multiple pull request templates, and use the `template` query parameter to specify the template that will fill the pull request body. For more information, see "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)."
+サポートしているどのフォルダにでも *PULL_REQUEST_TEMPLATE/* サブディレクトリを作成し、プルリクエストテンプレートを複数含めることができます。また、`template` クエリパラメータでプルリクエストの本文に使用するテンプレートを指定できます。 詳細は「[クエリパラメータによる Issue およびプルリクエストの自動化について](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)」を参照してください。
 
 {% ifversion fpt or ghes or ghec %}
 
-You can create default pull request templates for your organization{% ifversion fpt or ghes or ghec %} or user account{% endif %}. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Organization {% ifversion fpt or ghes or ghec %}またはユーザアカウント{% endif %}のデフォルトのプルリクエストテンプレートを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% endif %}
 
-## Adding a pull request template
+## プルリクエストテンプレートの追加
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field:
-    -  To make your pull request template visible in the repository's root directory, name the pull request template `pull_request_template.md`.
-  ![New pull request template name in root directory](/assets/images/help/repository/pr-template-file-name.png)
-    - To make your pull request template visible in the repository's `docs` directory, name the pull request template `docs/pull_request_template.md`.
-  ![New pull request template in docs directory](/assets/images/help/repository/pr-template-file-name-docs.png)
-    - To store your file in a hidden directory, name the pull request template `.github/pull_request_template.md`.
-  ![New pull request template in hidden directory](/assets/images/help/repository/pr-template-hidden-directory.png)
-    - To create multiple pull request templates and use the `template` query parameter to specify a template to fill the pull request body, type *.github/PULL_REQUEST_TEMPLATE/*, then the name of your pull request template. For example, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. You can also store multiple pull request templates in a `PULL_REQUEST_TEMPLATE` subdirectory within the root or `docs/` directories. For more information, see "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)."
-  ![New multiple pull request template in hidden directory](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
-4. In the body of the new file, add your pull request template. This could include:
-    - A [reference to a related issue](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) in your repository.
-    - A description of the changes proposed in the pull request.
-    - [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) of the person or team responsible for reviewing proposed changes.
+3. ファイル名フィールドで:
+    -  プルリクエストテンプレートをリポジトリのルートディレクトリで表示するには、プルリクエストテンプレートに `.github/pull_request_template.md` という名前を付けます。 ![ルートディレクトリの新しいプルリクエストテンプレート名](/assets/images/help/repository/pr-template-file-name.png)
+    - プルリクエストテンプレートをリポジトリの `docs` ディレクトリで表示するには、プルリクエストテンプレートに `docs/pull_request_template.md`という名前を付けます。 ![docs ディレクトリの新しいプルリクエストテンプレート](/assets/images/help/repository/pr-template-file-name-docs.png)
+    - ファイルを隠しディレクトリに保存するには、プルリクエストテンプレートに `.github/pull_request_template.md` という名前を付けます。 ![隠しディレクトリの新しいプルリクエストテンプレート](/assets/images/help/repository/pr-template-hidden-directory.png)
+    - プルリクエストテンプレートを複数作成し、`template` クエリパラメータでプルリクエストの本文に使用するテンプレートを指定するには、*.github/PULL_REQUEST_TEMPLATE/* と入力し、続けてプルリクエストテンプレートの名前を入力します。 たとえば、`.github/PULL_REQUEST_TEMPLATE/pull_request_template.md` です。 複数のプルリクエストテンプレートをルートディレクトリや `docs/` ディレクトリにある `PULL_REQUEST_TEMPLATE` サブディレクトリに格納することもできます。 詳細は「[クエリパラメータによる Issue およびプルリクエストの自動化について](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)」を参照してください。 ![隠しディレクトリの複数の新しいプルリクエストテンプレート](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
+4. 新しいファイルの本文にプルリクエストテンプレートを追加します。 そこに盛り込むべき項目として、以下のようなものがあります:
+    - リポジトリ内の[関連する Issue への参照](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests)。
+    - プルリクエストで提案された変更の説明。
+    - 提案された変更のレビューを担当する個人やチームの[@メンション](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)。
 {% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %} Templates are available to collaborators when they are merged into the repository's default branch.
+{% data reusables.files.choose_commit_branch %} テンプレートがリポジトリのデフォルトブランチにマージされると、コラボレーターがテンプレートを使用できるようになります。
 {% data reusables.files.propose_new_file %}
 
-## Further reading
+## 参考リンク
 
-- "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
-- "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"
-- "[Creating a pull request](/articles/creating-a-pull-request)"
+- [Issueとプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)
+- 「[クエリパラメータによる Issue およびプルリクエストの自動化について](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)」
+- [プルリクエストの作成](/articles/creating-a-pull-request)

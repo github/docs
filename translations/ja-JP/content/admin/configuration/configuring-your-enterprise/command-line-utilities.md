@@ -2,8 +2,8 @@
 title: Command-line utilities
 intro: '{% data variables.product.prodname_ghe_server %} includes a variety of utilities to help resolve particular problems or perform specific tasks.'
 redirect_from:
-  - /enterprise/admin/articles/viewing-all-services/
-  - /enterprise/admin/articles/command-line-utilities/
+  - /enterprise/admin/articles/viewing-all-services
+  - /enterprise/admin/articles/command-line-utilities
   - /enterprise/admin/installation/command-line-utilities
   - /enterprise/admin/configuration/command-line-utilities
   - /admin/configuration/command-line-utilities
@@ -667,6 +667,32 @@ You can add the optional `--prune` argument to remove unreachable Git objects th
 ghe-repo-gc <em>username</em>/<em>reponame</em>
 ```
 
+## {% data variables.product.prodname_actions %}
+
+### ghe-actions-check
+
+This utility checks that all services for {% data variables.product.prodname_actions %} are healthy. For more information, see  "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)" and "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)."
+
+```shell
+ghe-actions-check
+```
+
+### ghe-actions-precheck
+
+This utility tests the blob storage configuration for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}. You can use the utility to verify your storage configuration before you enable {% data variables.product.prodname_actions %} for your instance.
+
+For more information about the configuration of {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
+
+```shell
+ghe-actions-precheck -p [<em>provider</em>] -cs ["<em>connectionstring</em>"]
+```
+
+If your storage system is configured correctly, you'll see the following output.
+
+```
+All Storage tests passed
+```
+
 ## Import and export
 
 ### ghe-migrator
@@ -836,7 +862,7 @@ This utility will enforce the default organization membership visibility setting
 ghe-org-membership-update --visibility=<em>SETTING</em>
 ```
 
-### ghe-user-csv
+### `ghe-user-csv`
 
 This utility exports a list of all the users in the installation into CSV format. The CSV file includes the email address, which type of user they are (e.g., admin, user), how many repositories they have, how many SSH keys, how many organization memberships, last logged IP address, etc. Use the `-h` flag for more options.
 

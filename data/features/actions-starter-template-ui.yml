@@ -1,0 +1,5 @@
+# Reference: #5169.
+# Documentation for the Actions starter template UI updates
+versions:
+  fpt: '*'
+  ghec: '*'

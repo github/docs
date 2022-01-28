@@ -165,7 +165,7 @@ GitHub App Manifests allow people to create preconfigured GitHub Apps. See "[Cre
 
 ## Deployment statuses
 
-You can now update the `environment` of a [deployment status](/rest/reference/repos#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
+You can now update the `environment` of a [deployment status](/rest/reference/deployments#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
 
 **Custom media type:** `flash-preview`
 **Announced:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)

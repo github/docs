@@ -19,19 +19,19 @@ Este guia demonstra como usar projetos (beta) para planejar e acompanhar o traba
 
 ## Pré-requisitos
 
-You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. Para obter mais informações sobre a criação de uma organização, consulte "[Criar uma nova organização a partir do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
+Você pode criar um projeto de organização ou um projeto de usuário. Para criar um projeto de organização, você precisa de uma organização de {% data variables.product.prodname_dotcom %}. Para obter mais informações sobre a criação de uma organização, consulte "[Criar uma nova organização a partir do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
-In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. Para obter mais informações sobre a criação de problemas, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue)".
+Neste guia, você adicionará problemas existentes de repositórios pertencentes à sua organização (para projetos de organização) ou por você (para projetos de usuário) ao seu novo projeto. Para obter mais informações sobre a criação de problemas, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue)".
 
 ## Criando um projeto
 
-First, create an organization project or a user project.
+Primeiro, crie um projeto de organização ou um projeto de usuário.
 
-### Creating an organization project
+### Criando um projeto de organização
 
 {% data reusables.projects.create-project %}
 
-### Creating a user project
+### Criando um projeto de usuário
 
 {% data reusables.projects.create-user-project %}
 
@@ -48,6 +48,14 @@ Quando seu novo projeto for iniciado, ele irá solicitar que você adicione iten
 Repita os passos acima algumas vezes para adicionar vários problemas ao seu projeto.
 
 Para obter mais informações sobre outras formas de adicionar problemas ao seu projeto, ou sobre outros itens que você pode adicionar ao seu projeto, consulte "[Criando um projeto](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)."
+
+## Adicionando rascunhos de problemas ao seu projeto
+
+Em seguida, adicione um rascunho ao seu projeto.
+
+1. Coloque seu cursor na linha inferior do projeto, ao lado do {% octicon "plus" aria-label="plus icon" %}.
+1. Digite sua ideia e, em seguida, pressione **Enter**.
+1. Clique no título do rascunho do problema. Na caixa de entrada do markdown que será exibida, insira mais informações sobre a sua ideia e, em seguida, clique em **Salvar**.
 
 ## Criando um campo para monitorar a prioridade
 
@@ -96,11 +104,11 @@ Você pode compartilhar a URL com seu time para manter todos alinhados com as pr
 
 Quando a visualização é salva, qualquer pessoa que abrir o projeto verá a visualização salva. Aqui, você agrupou por prioridade, mas você também pode adicionar outros modificadores como ordenação, filtro ou layout. Em seguida, você criará uma nova exibição com o layout modificado.
 
-## Adding a board layout
+## Adicionando um layout de quadro
 
 Para ver o progresso dos problemas do seu projeto, você pode alternar para o layout do quadro.
 
-The board layout is based on the status field, so specify a status for each issue in your project.
+O layout do quadro é baseado no campo de status. Portanto, especifique um status para cada problema no seu projeto.
 
 ![Status do exemplo](/assets/images/help/projects/status_example.png)
 
@@ -126,15 +134,15 @@ Para indicar o propósito da visão, dê um nome descritivo.
 
 ![Prioridades de exemplo](/assets/images/help/projects/project-view-switch.gif)
 
-## Configure built-in automation
+## Configure a automação integrada
 
-Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
+Por fim, adicione um fluxo de trabalho construído para definir o status como **Todo** quando um item for adicionado ao seu projeto.
 
 1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
-2. Under **Default workflows**, click **Item added to project**.
-3. Next to **When**, ensure that both `issues` and `pull requests` are selected.
-4. Next to **Set**, select **Status:Todo**.
-5. Click the **Disabled** toggle to enable the workflow.
+2. Em **Fluxos de trabalho padrão**, clique em **Item adicionado ao projeto**.
+3. Ao lado de **Quando**, certifique-se de que `problemas` e `pull requests` estejam selecionados.
+4. Ao lado de **Definir**, selecione **Status:Todo**.
+5. Clique na opção **Desabilitada** para habilitar o fluxo de trabalho.
 
 ## Próximas etapas
 

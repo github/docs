@@ -1,4 +1,4 @@
-{% ifversion ghae %}Se as políticas da empresa permitem a bifurcação de repositórios internos e privados, Você{% else %}Você{% endif %} pode criar um fork de um repositório para a sua conta de usuário ou para qualquer organização onde você tenha permissões de criação de repositório. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+{% ifversion ghae %}Se as políticas da empresa permitem a bifurcação de repositórios internos e privados, Você{% else %}Você{% endif %} pode criar um fork de um repositório para a sua conta de usuário ou para qualquer organização onde você tenha permissões de criação de repositório. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
 {% ifversion fpt or ghes or ghec %}
 

@@ -210,7 +210,7 @@ sections:
         - You can now use the REST API to configure custom autolinks to external resources. The REST API now provides beta `GET`/`POST`/`DELETE` endpoints which you can use to view, add, or delete custom autolinks associated with a repository. For more information, see "[Autolinks](/rest/reference/repos#autolinks)."
 
         # https://github.com/github/releases/issues/1578
-        - You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Repositories](/rest/reference/repos#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.
+        - You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.
 
         # https://github.com/github/releases/issues/1527
         - Enterprise administrators on GitHub Enterprise Server can now use the REST API to enable or disable Git LFS for a repository. For more information, see "[Repositories](/rest/reference/repos#git-lfs)."

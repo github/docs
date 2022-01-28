@@ -2,7 +2,7 @@
 title: Getting started with the REST API
 intro: 'Learn the foundations for using the REST API, starting with authentication and some endpoint examples.'
 redirect_from:
-  - /guides/getting-started/
+  - /guides/getting-started
   - /v3/guides/getting-started
 versions:
   fpt: '*'
@@ -450,7 +450,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 The `304` status indicates that the resource hasn't changed since the last time
 we asked for it and the response will contain no body. As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
 
-Woot! Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
+Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
 
 * Basic & OAuth authentication
 * Fetching and creating repositories and issues
@@ -472,7 +472,7 @@ Keep learning with the next API guide [Basics of Authentication][auth guide]!
 [issues-api]: /rest/reference/issues
 [link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
-[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
 [users api]: /rest/reference/users#get-a-user
 [auth user api]: /rest/reference/users#get-the-authenticated-user
 [defunkt github]: https://github.com/defunkt

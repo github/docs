@@ -1,61 +1,60 @@
 ---
-title: Adding a pull request to the merge queue
-intro: If merge queues are enabled for the repository, you can add your pull requests to the merge queue once all the required checks have passed. {% data variables.product.product_name %} will merge the pull requests for you.
+title: Adicionando um pull request à fila de merge
+intro: 'Se as filas de merge estiverem habilitadas para o repositório, você poderá adicionar seus pull requests à fila de merge assim que todas as verificações necessárias tiverem passado. {% data variables.product.product_name %} fará merge dos pull requests para você.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Add PR to merge queue
-redirect_from:  
+shortTitle: Adicionar PR à fila de merge
+redirect_from:
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
 ---
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
-## About pull request merge queue
+## Sobre a a fila de merge do pull request
 
 {% data reusables.pull_requests.merge-queue-overview-short %}
 {% data reusables.pull_requests.merge-queue-references %}
 
-## Adding a pull request to the merge queue
+## Adicionando um pull request à fila de merge
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-1. In the "Pull Requests" list, click the pull request you'd like to add to the merge queue.
-1. Click **Add to merge queue** to add your pull request to the merge queue. This enables the default **Queue and merge in a group** option. Alternatively, you can:
-   - Add your pull request to the front of the queue by selecting the **Add to merge queue** drop down menu, and clicking **Jump the queue** (only available to repository maintainers and administrators).
-   - Directly merge your pull request by selecting the **Add to merge queue** drop down menu, and clicking **Directly merge** (only available to repository administrators).
-   ![Merge queue options](/assets/images/help/pull_requests/merge-queue-options.png)
+1. Na lista "Pull Requests", clique no pull request que você deseja adicionar à fila de merge.
+1. Clique **Adicionar à fila de merge** para adicionar seu pull request à fila de merge. Isso habilita a opção padrão **Fila e merge em um grupo**. Como alternativa, você pode:
+   - Adicione seu pull request à frente da fila, selecionando o menu suspenso **Adicionar à gila de merge** e clicando em **Pular a fila** (disponível apenas para mantenedores e administradores do repositório).
+   - Faça o merge direto do seu pull request selecionando o menu suspenso **Adicionar à fila de merge** e clicando em **Fazer merge diretamente** (disponível apenas para administradores do repositório). ![Opções da fila de merge](/assets/images/help/pull_requests/merge-queue-options.png)
 
-   {% tip %} 
+   {% tip %}
 
-   **Tip:** The **Add to merge queue** button is only enabled once the pull request meets all the review/approval and status check requirements.
+   **Dica:** O botão **Adicionar à fila de merge** só é habilitado quando o pull request atender a todos os requisitos de revisão/aprovação e verificação de status.
 
    {% endtip %}
-2. Confirm you want to add the pull request to the merge queue by clicking **Confirm add to merge queue**.
-   {% data variables.product.product_name %} adds the pull request to the merge queue and will merge it for you.
+2. Confirme que você deseja adicionar o pull request à fila de merge clicando em **Confirmar a adição à fila de merge**.
+   {% data variables.product.product_name %} adiciona o pull request à fila de merge e irá fazer o merge para você.
 
-## Viewing the merge queue
+## Visualizando a fila de merge
 
-You can view the merge queue in various places on {% data variables.product.product_name %}.
+Você pode visualizar a fila de merge em vários lugares em {% data variables.product.product_name %}.
 
-   - On the **Branches** page for the repository. We recommend you use this route if you don't have or don't know about a pull request already in the queue, and if you want to see what's in the queue. For more information, see "[Viewing branches in your repository](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)."
+   - Na página **Branches** para o repositório. Recomendamos que você use encaminhamento rota se você não tiver ou não conhecer um pull request já na fila e se você quiser ver o que está na fila. Para obter mais informações, consulte "[Visualizar branches no seu repositório](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)".
 
-  ![View merge queue in Branches page](/assets/images/help/pull_requests/merge-queue-branches-page.png)
+  ![Visualizar fila de merge na página de Branches](/assets/images/help/pull_requests/merge-queue-branches-page.png)
 
-- On the **Pull requests** page of your repository, click {% octicon "clock" aria-label="The clock symbol" %}.
+- Na página **Pull requests** do seu repositório, clique em {% octicon "clock" aria-label="The clock symbol" %}.
 
-  ![View merge queue on Pull requests page](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
+  ![Visualizar fila de merge na página de Pull requests](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
 
-- On your pull request, scroll down to the section with the checks, and click **View merge queue**.
+- No seu pull request, role para baixo para a seção com as verificações e clique em **Visualizar fila de merge**.
 
-  ![View Merge queue button on pull request](/assets/images/help/pull_requests/view-merge-queue-button.png)
+  ![Ver botão de fila de merge no pull request](/assets/images/help/pull_requests/view-merge-queue-button.png)
 
-The merge queue view shows the pull requests that are currently in the queue, with your pull requests clearly marked.
+A exibição da fila de merge mostra os pull requests que estão atualmente na fila, com seus pull requests claramente marcados.
 
-![Merge queue view](/assets/images/help/pull_requests/merge-queue-view.png)
+![Visualização da fila de merge](/assets/images/help/pull_requests/merge-queue-view.png)
 
-## Handling pull requests removed from the merge queue
-	
+## Manipulação de pull requests removidos da fila de merge
+
 {% data reusables.pull_requests.merge-queue-reject %}

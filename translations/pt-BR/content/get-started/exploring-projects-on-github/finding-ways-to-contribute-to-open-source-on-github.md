@@ -1,6 +1,6 @@
 ---
-title: Finding ways to contribute to open source on GitHub
-intro: 'You can find ways to contribute to open source projects on {% data variables.product.product_location %} that are relevant to you.'
+title: Encontrando maneiras de contribuir com o código aberto no GitHub
+intro: 'Você pode encontrar maneiras de contribuir para projetos de código aberto em {% data variables.product.product_location %} que são relevantes para você.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on
@@ -16,41 +16,42 @@ versions:
   ghec: '*'
 topics:
   - Open Source
-shortTitle: Contribute to open source
+shortTitle: Contribuir para o código aberto
 ---
-## Discovering relevant projects
 
-If there's a particular topic that interests you, visit `github.com/topics/<topic>`. For example, if you are interested in machine learning, you can find relevant projects and good first issues by visiting https://github.com/topics/machine-learning. You can browse popular topics by visiting [Topics](https://github.com/topics). You can also search for repositories that match a topic you're interested in. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories#search-by-topic)."
+## Descobrir projetos relevantes
 
-If you've been active on {% data variables.product.product_location %}, you can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore](https://github.com/explore). You can also sign up for the Explore newsletter to receive emails about opportunities to contribute to {% data variables.product.product_name %} based on your interests. To sign up, see [Explore email newsletter](https://github.com/explore/subscribe).
+Se houver um tópico específico que lhe interessa, visite `github.com/topics/<topic>`. Por exemplo, se você estiver interessado em aprendizado de máquina, poderá encontrar projetos relevantes e bons problemas visitando https://github.com/topics/machine-learning. Você pode navegar por tópicos populares visitando [Tópicos](https://github.com/topics). Você também pode procurar repositórios que correspondam a um tópico do seu interesse. Para obter mais informações, consulte "[Pesquisar repositórios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)".
 
-Keep up with recent activity from repositories you watch and people you follow in the "All activity" section of your personal dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+Se você esteve ativo em {% data variables.product.product_location %}, você pode encontrar recomendações personalizadas para projetos e bons problemas iniciais com base em suas contribuições anteriores, estrelas e outras atividades em [Explorar](https://github.com/explore). Você também pode se inscrever no boletim informativo Explorar para receber e-mails sobre oportunidades de contribuir para {% data variables.product.product_name %} com base em seus interesses. Para se inscrever, consulte [Explorar newsletter de e-mail](https://github.com/explore/subscribe).
+
+Acompanhe atividades recentes em repositórios que você inspeciona e de pessoas que segue na seção "All activity" (Todas as atividades) de seu painel pessoal. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
 
 {% data reusables.support.ask-and-answer-forum %}
 
-## Finding good first issues
+## Encontrando bons problemas iniciais
 
-If you already know what project you want to work on, you can find beginner-friendly issues in that repository by visiting `github.com/<owner>/<repository>/contribute`. For an example, you can find ways to make your first contribution to `electron/electron` at https://github.com/electron/electron/contribute.
+Se você já sabe em qual projeto deseja trabalhar, poderá encontrar problemas para iniciantes nesse repositório, visitando `github.com/<owner>/<repository>/contribute`. Por exemplo, você pode encontrar maneiras de fazer sua primeira contribuição para `electron/electron` em https://github.com/electron/electron/contribute.
 
-## Opening an issue
+## Abrir um problema
 
-If you encounter a bug in an open source project, check if the bug has already been reported. If the bug has not been reported, you can open an issue to report the bug according to the project's contribution guidelines.
+Se você encontrar um erro em um projeto de código aberto, verifique se o erro já foi informado. Se o erro não foi informado, você pode abrir um problema para relatar o erro de acordo com as diretrizes de contribuição do projeto.
 
-## Validating an issue or pull request
+## Validando um problema ou pull request
 
-There are a variety of ways that you can contribute to open source projects.
+Existem várias maneiras de contribuir para projetos de código aberto.
 
-### Reproducing a reported bug
-You can contribute to an open source project by validating an issue or adding additional context to an existing issue. 
+### Reproduzindo um erro relatado
+Você pode contribuir para um projeto de código aberto validando um problema ou adicionando um contexto adicional a um problema existente.
 
-### Testing a pull request
-You can contribute to an open source project by merging a pull request into your local copy of the project and testing the changes. Add the outcome of your testing in a comment on the pull request.
+### Testando um pull request
+Você pode contribuir para um projeto de código aberto, fazendo o merge de um pull request na sua cópia local do projeto e testando as alterações. Adicione o resultado do seu teste em um comentário no pull request.
 
-### Updating issues
-You can contribute to an open source project by adding additional information to existing issues.
+### Atualizando problemas
+Você pode contribuir para um projeto de código aberto, incluindo informações adicionais para problemas existentes.
 
 
-## Further reading
+## Leia mais
 
-- "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"
-- "[About your organization dashboard](/articles/about-your-organization-dashboard)"
+- "[Classificar seu repositório com tópicos](/articles/classifying-your-repository-with-topics)"
+- "[Sobre o painel da sua organização](/articles/about-your-organization-dashboard)"

@@ -2,7 +2,7 @@
 title: コメントを扱う
 intro: REST API を使用すると、プルリクエスト、Issue、およびコミットにある、コメントにアクセスして管理できます。
 redirect_from:
-  - /guides/working-with-comments/
+  - /guides/working-with-comments
   - /v3/guides/working-with-comments
 versions:
   fpt: '*'
@@ -73,7 +73,7 @@ end
 
 ## コミットのコメント
 
-最後のタイプのコメントは、特に個々のコミットで発生します。 このため、[コミットのコメント API][commit comment API] を使用します。
+最後のタイプのコメントは、特に個々のコミットで発生します。 For this reason, they make use of [the commit comment API][commit comment API].
 
 コミットのコメントを取得するには、コミットの SHA1 を使用します。 言い換えれば、プルリクエストに関する識別子は全く使用しません。 次に例を示します。
 
@@ -104,4 +104,4 @@ end
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [PR Review API]: /rest/reference/pulls#comments
-[commit comment API]: /rest/reference/repos#get-a-commit-comment
+[commit comment API]: /rest/reference/commits#get-a-commit-comment

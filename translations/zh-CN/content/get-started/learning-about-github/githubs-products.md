@@ -21,7 +21,11 @@ topics:
 
 ## 关于 {% data variables.product.prodname_dotcom %} 的产品
 
-{% data variables.product.prodname_dotcom %} 提供免费和付费产品。 您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。 {% data reusables.products.product-roadmap %}
+{% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to user accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+
+您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。 {% data reusables.products.product-roadmap %}
+
+When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your product. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ## 用户帐户的 {% data variables.product.prodname_free_user %}
 
@@ -43,11 +47,11 @@ topics:
 - 私有仓库中的高级工具和洞察力：
   - 必需拉取请求审查
   - 多个拉取请求审查者
+  - 受保护分支
+  - 代码所有者
   - 自动链接的引用
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - 受保护分支
-  - 代码所有者
   - 仓库洞察图：脉冲、贡献者、流量、提交、代码频率、网络和复刻
 
 ## 组织的 {% data variables.product.prodname_free_team %}
@@ -70,14 +74,14 @@ topics:
 - 私有仓库中的高级工具和洞察力：
   - 必需拉取请求审查
   - 多个拉取请求审查者
-  - {% data variables.product.prodname_pages %}
-  - Wikis
-  - 受保护分支
-  - 代码所有者
-  - 仓库洞察图：脉冲、贡献者、流量、提交、代码频率、网络和复刻
   - 草稿拉取请求
   - 团队拉取请求审查
+  - 受保护分支
+  - 代码所有者
   - 预定提醒
+  - {% data variables.product.prodname_pages %}
+  - Wikis
+  - 仓库洞察图：脉冲、贡献者、流量、提交、代码频率、网络和复刻
 {% ifversion fpt or ghec %}
 - The option to enable {% data variables.product.prodname_github_codespaces %}
   - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."

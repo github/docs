@@ -3,7 +3,7 @@ title: 配置 collectd
 intro: '{% data variables.product.prodname_enterprise %} 可以通过“collectd”收集数据并将数据发送到外部“collectd”服务器。 除了其他指标外，我们还会收集标准数据集，例如 CPU 利用率、内存与磁盘使用量、网络接口流量与错误，以及 VM 的总负荷。'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
-  - /enterprise/admin/articles/configuring-collectd/
+  - /enterprise/admin/articles/configuring-collectd
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:

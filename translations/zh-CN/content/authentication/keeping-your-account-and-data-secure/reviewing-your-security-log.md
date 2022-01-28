@@ -1,6 +1,6 @@
 ---
-title: Reviewing your security log
-intro: You can review the security log for your user account to better understand actions you've performed and actions others have performed that involve you.
+title: 审查您的安全日志
+intro: 您可以查看用户帐户的安全日志，以更好地了解您执行的操作以及其他人执行的与您有关的操作。
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-your-security-log
@@ -14,254 +14,248 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Security log
+shortTitle: 安全日志
 ---
-## Accessing your security log
 
-The security log lists all actions performed within the last 90 days.
+## 访问安全日志
+
+安全日志列出了过去 90 天内执行的所有操作。
 
 {% data reusables.user_settings.access_settings %}
 {% ifversion fpt or ghae or ghes or ghec %}
-2. In the user settings sidebar, click **Security log**.
-  ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
+2. 在用户设置侧边栏中，单击 **Security log（安全日志）**。 ![安全日志选项卡](/assets/images/help/settings/audit-log-tab.png)
 {% else %}
 {% data reusables.user_settings.security %}
-3. Under "Security history," your log is displayed.
-  ![Security log](/assets/images/help/settings/user_security_log.png)
-4. Click on an entry to see more information about the event.
-  ![Security log](/assets/images/help/settings/user_security_history_action.png)
+3. 在“Security history（安全历史记录）”下，将显示您的日志。 ![安全日志](/assets/images/help/settings/user_security_log.png)
+4. 单击条目以查看有关该事件的更多信息。 ![安全日志](/assets/images/help/settings/user_security_history_action.png)
 {% endif %}
 
 {% ifversion fpt or ghae or ghes or ghec %}
-## Searching your security log
+## 搜索安全日志
 
 {% data reusables.audit_log.audit-log-search %}
 
-### Search based on the action performed
+### 基于执行的操作搜索
 {% else %}
-## Understanding events in your security log
+## 了解安全日志中的事件
 {% endif %}
 
-The events listed in your security log are triggered by your actions. Actions are grouped into the following categories:
+安全日志中列出的事件由您的操作触发。 操作分为以下几类：
 
-| Category name | Description
-|------------------|-------------------{% ifversion fpt or ghec %}
-| [`billing`](#billing-category-actions) | Contains all activities related to your billing information.
-| [`codespaces`](#codespaces-category-actions) | Contains all activities related to {% data variables.product.prodname_codespaces %}. For more information, see "[About {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-codespaces)."
-| [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
-| [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}
-| [`oauth_access`](#oauth_access-category-actions) | Contains all activities related to [{% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps) you've connected with.{% ifversion fpt or ghec %}
-| [`payment_method`](#payment_method-category-actions) | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.{% endif %}
-| [`profile_picture`](#profile_picture-category-actions) | Contains all activities related to your profile picture.
-| [`project`](#project-category-actions) | Contains all activities related to project boards.
-| [`public_key`](#public_key-category-actions) | Contains all activities related to [your public SSH keys](/articles/adding-a-new-ssh-key-to-your-github-account).
-| [`repo`](#repo-category-actions) | Contains all activities related to the repositories you own.{% ifversion fpt or ghec %}
-| [`sponsors`](#sponsors-category-actions) | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% ifversion ghes or ghae %}
-| [`team`](#team-category-actions) | Contains all activities related to teams you are a part of.{% endif %}{% ifversion not ghae %}
-| [`two_factor_authentication`](#two_factor_authentication-category-actions) | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
-| [`user`](#user-category-actions) | Contains all activities related to your account.
+| 类别名称                                                                                   | 描述                                                                                                                                                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
+| [`计费，帐单`](#billing-category-actions)                                                   | 包含与帐单信息相关的所有活动。                                                                                                                                                                                                                                                                                                  |
+| [`codespaces`](#codespaces-category-actions)                                           | 包含与 {% data variables.product.prodname_codespaces %} 相关的所有活动。 更多信息请参阅“[关于 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-codespaces)”。                                                                                                                        |
+| [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | 包含与签署 {% data variables.product.prodname_marketplace %} 开发者协议相关的所有活动。                                                                                                                                                                                                                                            |
+| [`marketplace_listing`](#marketplace_listing-category-actions)                         | 包含与 {% data variables.product.prodname_marketplace %} 中列出的应用程序相关的所有活动。{% endif %}
+| [`oauth_access`](#oauth_access-category-actions)                                       | Contains all activities related to [{% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps) you've connected with.{% ifversion fpt or ghec %}
+| [`payment_method`](#payment_method-category-actions)                                   | 包含与 {% data variables.product.prodname_dotcom %} 订阅支付相关的所有活动。{% endif %}
+| [`profile_picture`](#profile_picture-category-actions)                                 | 包含与头像相关的所有活动。                                                                                                                                                                                                                                                                                                    |
+| [`project`](#project-category-actions)                                                 | 包含与项目板相关的所有活动。                                                                                                                                                                                                                                                                                                   |
+| [`public_key`](#public_key-category-actions)                                           | 包含与[公共 SSH 密钥](/articles/adding-a-new-ssh-key-to-your-github-account)相关的所有活动。                                                                                                                                                                                                                                    |
+| [`repo`](#repo-category-actions)                                                       | Contains all activities related to the repositories you own.{% ifversion fpt or ghec %}
+| [`sponsors`](#sponsors-category-actions)                                               | 包含与 {% data variables.product.prodname_sponsors %}和赞助者按钮相关的所有事件（请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”和“[在仓库中显示赞助者按钮](/articles/displaying-a-sponsor-button-in-your-repository)”）{% endif %}{% ifversion ghes or ghae %}
+| [`团队`](#team-category-actions)                                                         | 包含与您所在团队相关的所有活动。{% endif %}{% ifversion not ghae %}
+| [`two_factor_authentication`](#two_factor_authentication-category-actions)             | 包含与[双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)相关的所有活动。{% endif %}
+| [`用户`](#user-category-actions)                                                         | 包含与您的帐户相关的所有活动。                                                                                                                                                                                                                                                                                                  |
 
 {% ifversion fpt or ghec %}
 
-## Exporting your security log
+## 导出安全日志
 
 {% data reusables.audit_log.export-log %}
 {% data reusables.audit_log.exported-log-keys-and-values %}
 
 {% endif %}
 
-## Security log actions
+## 安全日志操作
 
-An overview of some of the most common actions that are recorded as events in the security log.
+安全日志中记录为事件的一些最常见操作的概述。
 
 {% ifversion fpt or ghec %}
 
-### `billing` category actions
+### `billing` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `change_billing_type` | Triggered when you [change how you pay](/articles/adding-or-editing-a-payment-method) for {% data variables.product.prodname_dotcom %}.
-| `change_email` | Triggered when you [change your email address](/articles/changing-your-primary-email-address).
+| 操作                    | 描述                                                                                                          |
+| --------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `change_billing_type` | 当您[更改 {% data variables.product.prodname_dotcom %} 的支付方式](/articles/adding-or-editing-a-payment-method)时触发。 |
+| `change_email`        | 当您[更改您的电子邮件地址](/articles/changing-your-primary-email-address)时触发。                                           |
 
-### `codespaces` category actions
+### `codespaces` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `create` | Triggered when you [create a codespace](/github/developing-online-with-codespaces/creating-a-codespace).
-| `resume` | Triggered when you resume a suspended codespace.
-| `delete` | Triggered when you [delete a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).
-| `manage_access_and_security` | Triggered when you update [the repositories a codespace has access to](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
-| `trusted_repositories_access_update` | Triggered when you change your user account's [access and security setting for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
+| 操作                                   | 描述                                                                                                                                                                |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create`                             | 当您[创建代码空间](/github/developing-online-with-codespaces/creating-a-codespace)时触发。                                                                                    |
+| `resume`                             | 恢复暂停的代码空间时触发。                                                                                                                                                     |
+| `delete`                             | 当您[删除代码空间](/github/developing-online-with-codespaces/deleting-a-codespace)时触发。                                                                                    |
+| `manage_access_and_security`         | 当您更新[代码空间可以访问的仓库时](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)触发。                                                      |
+| `trusted_repositories_access_update` | 当您更改用户帐户的 [{% data variables.product.prodname_codespaces %} 访问权限和安全设置](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)时触发。 |
 
-### `marketplace_agreement_signature` category actions
+### `marketplace_agreement_signature` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `create` | Triggered when you sign the {% data variables.product.prodname_marketplace %} Developer Agreement.
+| 操作       | 描述                                                              |
+| -------- | --------------------------------------------------------------- |
+| `create` | 在签署 {% data variables.product.prodname_marketplace %} 开发者协议时触发。 |
 
-### `marketplace_listing` category actions
+### `marketplace_listing` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `approve` | Triggered when your listing is approved for inclusion in {% data variables.product.prodname_marketplace %}.
-| `create` | Triggered when you create a listing for your app in {% data variables.product.prodname_marketplace %}.
-| `delist` | Triggered when your listing is removed from {% data variables.product.prodname_marketplace %}.
-| `redraft` | Triggered when your listing is sent back to draft state.
-| `reject` | Triggered when your listing is not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
+| 操作        | 描述                                                                   |
+| --------- | -------------------------------------------------------------------- |
+| `批准`      | 当您的列表被批准包含在 {% data variables.product.prodname_marketplace %} 中时触发。  |
+| `create`  | 当您在 {% data variables.product.prodname_marketplace %} 中为应用程序创建列表时触发。 |
+| `delist`  | 当您的列表从 {% data variables.product.prodname_marketplace %} 中被删除时触发。    |
+| `redraft` | 将您的列表被返回到草稿状态时触发。                                                    |
+| `reject`  | 当您的列表被拒绝包含在 {% data variables.product.prodname_marketplace %} 中时触发。  |
 
 {% endif %}
 
-### `oauth_authorization` category actions
+### `oauth_authority` 类别操作
 
-| Action | Description
-|------------------|-------------------
-| `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).
+| 操作        | 描述                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create`  | 当您[授予 {% data variables.product.prodname_oauth_app %} 访问权限](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)时触发。                                                                                                                                                                                                                                       |
 | `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
 
 {% ifversion fpt or ghec %}
 
-### `payment_method` category actions
+### `payment_method` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `clear` | Triggered when [a payment method](/articles/removing-a-payment-method) on file is removed.
-| `create` | Triggered when a new payment method is added, such as a new credit card or PayPal account.
-| `update` | Triggered when an existing payment method is updated.
+| 操作       | 描述                                |
+| -------- | --------------------------------- |
+| `create` | 在添加新的付款方式（例如新的信用卡或 PayPal 帐户）时触发。 |
+| `update` | 当现有付款方式被更新时触发。                    |
 
 {% endif %}
 
-### `profile_picture` category actions
+### `profile_picture` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `update` | Triggered when you [set or update your profile picture](/articles/setting-your-profile-picture/).
+| 操作       | 描述                                                           |
+| -------- | ------------------------------------------------------------ |
+| `update` | 当您[设置或更新个人资料图片](/articles/setting-your-profile-picture/)时触发。 |
 
-### `project` category actions
+### `project` 类操作
 
-| Action | Description
-|--------------------|---------------------
-| `access` | Triggered when a project board's visibility is changed.
-| `create` | Triggered when a project board is created.
-| `rename` | Triggered when a project board is renamed.
-| `update` | Triggered when a project board is updated.
-| `delete` | Triggered when a project board is deleted.
-| `link`   | Triggered when a repository is linked to a project board.
-| `unlink` | Triggered when a repository is unlinked from a project board.
-| `update_user_permission` | Triggered when an outside collaborator is added to or removed from a project board or has their permission level changed.
+| 操作                       | 描述                                |
+| ------------------------ | --------------------------------- |
+| `access`                 | 当项目板的可见性被更改时触发。                   |
+| `create`                 | 在创建项目板时触发。                        |
+| `rename`                 | 当项目板被重命名时触发。                      |
+| `update`                 | 当项目板被更新时触发。                       |
+| `delete`                 | 在删除项目板时触发。                        |
+| `link`                   | 当仓库被链接到项目板时触发。                    |
+| `unlink`                 | 当仓库从项目板解除链接时触发。                   |
+| `update_user_permission` | 在项目板中添加或删除外部协作者时，或者他们的权限级别被更改时触发。 |
 
-### `public_key` category actions
+### `public_key` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `create` | Triggered when you [add a new public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/adding-a-new-ssh-key-to-your-github-account).
-| `delete` | Triggered when you [remove a public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/reviewing-your-ssh-keys).
+| 操作       | 描述                                                                                                                                                                                                                                                         |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create` | Triggered when you [add a new public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/adding-a-new-ssh-key-to-your-github-account). |
+| `delete` | Triggered when you [remove a public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/reviewing-your-ssh-keys).                      |
 
-### `repo` category actions
+### `repo` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `access` | Triggered when you a repository you own is [switched from "private" to "public"](/articles/making-a-private-repository-public) (or vice versa).
-| `add_member` | Triggered when a {% data variables.product.product_name %} user is {% ifversion fpt or ghec %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository.
-| `add_topic` | Triggered when a repository owner [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.
-| `archived` | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% ifversion ghes %}
-| `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
-| `config.enable_anonymous_git_access` | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
-| `config.lock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is locked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).
-| `config.unlock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is unlocked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
-| `create` | Triggered when [a new repository is created](/articles/creating-a-new-repository).
-| `destroy` |  Triggered when [a repository is deleted](/articles/deleting-a-repository).{% ifversion fpt or ghec %}
-| `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
-| `enable` | Triggered when a repository is re-enabled.{% endif %}
-| `remove_member` | Triggered when a {% data variables.product.product_name %} user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).
-| `remove_topic` | Triggered when a repository owner removes a topic from a repository.
-| `rename` | Triggered when [a repository is renamed](/articles/renaming-a-repository).
-| `transfer` | Triggered when [a repository is transferred](/articles/how-to-transfer-a-repository).
-| `transfer_start` | Triggered when a repository transfer is about to occur.
-| `unarchived` | Triggered when a repository owner unarchives a repository.
+| 操作                                    | 描述                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `access`                              | 当您拥有的仓库[从“私有”切换到“公共”](/articles/making-a-private-repository-public)（反之亦然）时触发。                                                                                                                                                                                                                                                |
+| `add_member`                          | Triggered when a {% data variables.product.product_name %} user is {% ifversion fpt or ghec %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository. |
+| `add_topic`                           | 当仓库所有者向仓库[添加主题](/articles/classifying-your-repository-with-topics)时触发。                                                                                                                                                                                                                                                       |
+| `archived`                            | 当仓库所有者[存档仓库](/articles/about-archiving-repositories)时触发。{% ifversion ghes %}
+| `config.disable_anonymous_git_access` | 当公共仓库中[禁用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                                                                                                |
+| `config.enable_anonymous_git_access`  | 当公共仓库中[启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                                                                                                |
+| `config.lock_anonymous_git_access`    | 当仓库的[匿名 Git 读取权限设置被锁定](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)时触发。                                                                                                                                                                           |
+| `config.unlock_anonymous_git_access`  | 当仓库的[匿名 Git 读取权限设置被解锁](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)时触发。{% endif %}
+| `create`                              | 在[创建新仓库](/articles/creating-a-new-repository)时触发。                                                                                                                                                                                                                                                                            |
+| `destroy`                             | 当[仓库被删除](/articles/deleting-a-repository)时触发。{% ifversion fpt or ghec %}
+| `禁用`                                  | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
+| `启用`                                  | 在重新启用仓库时触发。{% endif %}
+| `remove_member`                       | 从[仓库中删除 {% data variables.product.product_name %} 用户的协作者身份](/articles/removing-a-collaborator-from-a-personal-repository)时触发。                                                                                                                                                                                                |
+| `remove_topic`                        | 当仓库所有者从仓库中删除主题时触发。                                                                                                                                                                                                                                                                                                           |
+| `rename`                              | 当[仓库被重命名](/articles/renaming-a-repository)时触发。                                                                                                                                                                                                                                                                               |
+| `转让`                                  | 当[仓库被转让](/articles/how-to-transfer-a-repository)时触发。                                                                                                                                                                                                                                                                         |
+| `transfer_start`                      | 在仓库转让即将发生时触发。                                                                                                                                                                                                                                                                                                                |
+| `unarchived`                          | 当仓库所有者取消存档仓库时触发。                                                                                                                                                                                                                                                                                                             |
 
 {% ifversion fpt or ghec %}
-### `sponsors` category actions
+### `sponsors` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `custom_amount_settings_change` | Triggered when you enable or disable custom amounts, or when you change the suggested custom amount (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")
-| `repo_funding_links_file_action` | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
-| `sponsor_sponsorship_cancel` | Triggered when you cancel a sponsorship (see "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
-| `sponsor_sponsorship_create` | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")
-| `sponsor_sponsorship_payment_complete` | Triggered after you sponsor an account and your payment has been processed (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")
-| `sponsor_sponsorship_preference_change` | Triggered when you change whether you receive email updates from a sponsored developer (see "[Managing your sponsorship](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)")
-| `sponsor_sponsorship_tier_change` | Triggered when you upgrade or downgrade your sponsorship (see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
-| `sponsored_developer_approve` | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| `sponsored_developer_create` | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| `sponsored_developer_disable` | Triggered when your {% data variables.product.prodname_sponsors %} account is disabled
-| `sponsored_developer_redraft` | Triggered when your {% data variables.product.prodname_sponsors %} account is returned to draft state from approved state
-| `sponsored_developer_profile_update` | Triggered when you edit your sponsored developer profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)")
-| `sponsored_developer_request_approval` | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)")
-| `sponsored_developer_update_newsletter_send` | Triggered when you send an email update to your sponsors (see "[Contacting your sponsors](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)")
-| `waitlist_invite_sponsored_developer` | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| `waitlist_join` | Triggered when you join the waitlist to become a sponsored developer (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
+| 操作                                            | 描述                                                                                                                                                                                                                                                                                                              |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `custom_amount_settings_change`               | 启用或禁用自定义金额时或更改建议的自定义金额时触发（请参阅“[管理您的赞助级别](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)”）                                                                                                                                                                   |
+| `repo_funding_links_file_action`              | 更改仓库中的 FUNDING 文件时触发（请参阅“[在仓库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”）                                                                                                                                                                                                               |
+| `sponsor_sponsorship_cancel`                  | 当您取消赞助时触发（请参阅“[降级赞助](/articles/downgrading-a-sponsorship)”）                                                                                                                                                                                                                                                     |
+| `sponsor_sponsorship_create`                  | 当您赞助帐户时触发（请参阅“[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”）                                                                                                                                                                                                  |
+| `sponsor_sponsorship_payment_complete`        | 当您赞助一个帐户并且您的付款已经处理完毕后触发（请参阅“[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”）                                                                                                                                                                                    |
+| `sponsor_sponsorship_preference_change`       | 当您更改是否接收被赞助开发者的电子邮件更新时触发（请参阅“[管理赞助](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)”）                                                                                                                                                                                                  |
+| `sponsor_sponsorship_tier_change`             | 当您升级或降级赞助时触发（请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”）                                                                                                                                                                                                      |
+| `sponsored_developer_approve`                 | 当您的 {% data variables.product.prodname_sponsors %} 帐户被批准时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）                                                                         |
+| `sponsored_developer_create`                  | 当您的 {% data variables.product.prodname_sponsors %} 帐户创建时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）                                                                          |
+| `sponsored_developer_disable`                 | 帐户 {% data variables.product.prodname_sponsors %} 禁用时触发                                                                                                                                                                                                                                                         |
+| `sponsored_developer_redraft`                 | 当您的 {% data variables.product.prodname_sponsors %} 帐户从已批准状态恢复为草稿状态时触发                                                                                                                                                                                                                                           |
+| `sponsored_developer_profile_update`          | 在编辑您的被赞助开发者个人资料时触发（请参阅“[编辑 {% data variables.product.prodname_sponsors %} 的个人资料详细信息](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)”）                                                                                                               |
+| `sponsored_developer_request_approval`        | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)") |
+| `sponsored_developer_tier_description_update` | 当您更改赞助等级的说明时触发（请参阅“[管理赞助等级](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)”）                                                                                                                                                                                         |
+| `sponsored_developer_update_newsletter_send`  | 当您向赞助者发送电子邮件更新时触发（请参阅“[联系赞助者](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)”）                                                                                                                                                                                              |
+| `waitlist_invite_sponsored_developer`         | 当您从等候名单被邀请加入 {% data variables.product.prodname_sponsors %} 时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）                                                                     |
+| `waitlist_join`                               | 当您加入成为被赞助开发者的等候名单时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）                                                                                                                |
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### `successor_invitation` category actions
+### `successor_invitation` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `accept` | Triggered when you accept a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| `cancel` | Triggered when you cancel a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| `create` | Triggered when you create a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| `decline` | Triggered when you decline a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| `revoke` | Triggered when you revoke a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
+| 操作        | 描述                                                                                                                                                                |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accept`  | 当您接受继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
+| `cancel`  | 当您取消继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
+| `create`  | 当您创建继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
+| `decline` | 当您拒绝继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
+| `revoke`  | 当您撤销继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
 {% endif %}
 
 {% ifversion ghes or ghae %}
 
-### `team` category actions
+### `team` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `add_member` | Triggered when a member of an organization you belong to [adds you to a team](/articles/adding-organization-members-to-a-team).
-| `add_repository` | Triggered when a team you are a member of is given control of a repository.
-| `create` | Triggered when a new team in an organization you belong to is created.
-| `destroy` | Triggered when a team you are a member of is deleted from the organization.
-| `remove_member` | Triggered when a member of an organization is [removed from a team](/articles/removing-organization-members-from-a-team) you are a member of.
-| `remove_repository` | Triggered when a repository is no longer under a team's control.
+| 操作                  | 描述                                                                       |
+| ------------------- | ------------------------------------------------------------------------ |
+| `add_member`        | 当您所属组织的成员[将您添加到团队](/articles/adding-organization-members-to-a-team)时触发。  |
+| `add_repository`    | 当您所属团队被授予控制仓库的权限时触发。                                                     |
+| `create`            | 当您所属组织中创建了新团队时触发。                                                        |
+| `destroy`           | 当您所属团队从组织中被删除时触发。                                                        |
+| `remove_member`     | [从您所属团队中删除组织成员](/articles/removing-organization-members-from-a-team)时触发。 |
+| `remove_repository` | 当仓库不再受团队控制时触发。                                                           |
 
 {% endif %}
 
 {% ifversion not ghae %}
-### `two_factor_authentication` category actions
+### `two_factor_authentication` 类操作
 
-| Action | Description
-|------------------|-------------------
-| `enabled` | Triggered when [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) is enabled.
-| `disabled` | Triggered when two-factor authentication is disabled.
+| 操作         | 描述                                                                                  |
+| ---------- | ----------------------------------------------------------------------------------- |
+| `enabled`  | 在启用[双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)时触发。 |
+| `disabled` | 在禁用双重身份验证时触发。                                                                       |
 {% endif %}
 
-### `user` category actions
+### `user` 类操作
 
-| Action | Description
-|--------------------|---------------------
-| `add_email` | Triggered when you {% ifversion not ghae %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.{% ifversion fpt or ghec %}
-| `codespaces_trusted_repo_access_granted` | Triggered when you [allow the codespaces you create for a repository to access other repositories owned by your user account](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces.
-| `codespaces_trusted_repo_access_revoked` | Triggered when you [disallow the codespaces you create for a repository to access other repositories owned by your user account](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. {% endif %}
-| `create` | Triggered when you create a new user account.{% ifversion not ghae %}
-| `change_password` | Triggered when you change your password.
-| `forgot_password` | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).{% endif %}
-| `hide_private_contributions_count` | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).
-| `login` | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes or ghae %}
-`mandatory_message_viewed`   | Triggered when you view a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
-| `failed_login` | Triggered when you failed to log in successfully.
-| `remove_email` | Triggered when you remove an email address.
-| `rename` | Triggered when you rename your account.{% ifversion fpt or ghec %}
-| `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %}
-| `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% ifversion not ghae %}
-| `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+| 操作                                                                                                                                                                       | 描述                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| `add_email`                                                                                                                                                              | 当您                                                                                                                           |
+| {% ifversion not ghae %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.{% ifversion fpt or ghec %} |                                                                                                                              |
+| `codespaces_trusted_repo_access_granted`                                                                                                                                 | 当您[允许为某个仓库创建的代码空间访问您的用户帐户拥有的其他仓库]时触发(/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)。 |
+| `codespaces_trusted_repo_access_revoked`                                                                                                                                 | 当您[禁止为某个仓库创建的代码空间访问您的用户帐户拥有的其他仓库]时触发(/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)。 |{% endif %}
+| `create`                                                                                                                                                                 | 在创建新帐户时触发。{% ifversion not ghae %}
+| `change_password`                                                                                                                                                        | 当您更改密码时触发。                                                                                                                   |
+| `forgot_password`                                                                                                                                                        | 在您要求[重置密码](/articles/how-can-i-reset-my-password)时触发。{% endif %}
+| `hide_private_contributions_count`                                                                                                                                       | 当您[在个人资料中隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。                             |
+| `login`                                                                                                                                                                  | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes or ghae %}
 
-### `user_status` category actions
 
-| Action | Description
-|--------------------|---------------------
-| `update` | Triggered when you set or change the status on your profile. For more information, see "[Setting a status](/articles/personalizing-your-profile/#setting-a-status)."
-| `destroy` | Triggered when you clear the status on your profile.
+`mandatory_message_viewed`   | 当您查看必读消息时触发（更多信息请参阅“[自定义用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise)” | |{% endif %}| | `failed_login` | 当您未能成功登录时触发。 | `remove_email` | 当您删除电子邮件地址时触发。 | `rename` | Triggered when you rename your account.{% ifversion fpt or ghec %} | `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% ifversion not ghae %} | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+
+### `user_status` 类操作
+
+| 操作        | 描述                                                                                           |
+| --------- | -------------------------------------------------------------------------------------------- |
+| `update`  | 当您在个人资料中设置或更改状态时触发。 更多信息请参阅“[设置状态](/articles/personalizing-your-profile/#setting-a-status)”。 |
+| `destroy` | 当您在个人资料中清除状态时触发。                                                                             |

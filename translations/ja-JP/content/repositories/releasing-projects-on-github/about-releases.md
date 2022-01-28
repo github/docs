@@ -1,6 +1,6 @@
 ---
-title: About releases
-intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
+title: リリースについて
+intro: 他の人が使用できるようにソフトウェア、リリースノート、バイナリファイルへのリンクをパッケージしたリリースを作成できます。
 redirect_from:
   - /articles/downloading-files-from-the-command-line
   - /articles/downloading-files-with-curl
@@ -17,42 +17,43 @@ versions:
 topics:
   - Repositories
 ---
-## About releases
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-![An overview of releases](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% elsif ghes > 3.3 or ghae-issue-4972 %}
-![An overview of releases](/assets/images/help/releases/releases-overview-with-contributors.png)
+## リリースについて
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
+![リリースの概要](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
+{% elsif ghae-issue-4972 %}
+![リリースの概要](/assets/images/help/releases/releases-overview-with-contributors.png)
 {% else %}
-![An overview of releases](/assets/images/help/releases/releases-overview.png)
+![リリースの概要](/assets/images/help/releases/releases-overview.png)
 {% endif %}
 
-Releases are deployable software iterations you can package and make available for a wider audience to download and use.
+リリースは、パッケージ化して、より多くのユーザがダウンロードして使用できるようにすることができるデプロイ可能なソフトウェアのイテレーションです。
 
-Releases are based on [Git tags](https://git-scm.com/book/en/Git-Basics-Tagging), which mark a specific point in your repository's history. A tag date may be different than a release date since they can be created at different times. For more information about viewing your existing tags, see "[Viewing your repository's releases and tags](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)."
+リリースは [Git タグ](https://git-scm.com/book/en/Git-Basics-Tagging)に基づきます。タグは、リポジトリの履歴の特定の地点をマークするものです。 タグの日付は異なる時点で作成できるため、リリースの日付とは異なる場合があります。 既存のタグの表示に関する詳細は「[リポジトリのリリースとタグを表示する](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)」を参照してください。
 
-You can receive notifications when new releases are published in a repository without receiving notifications about other updates to the repository. For more information, see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching releases for a repository](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}."
+リポジトリで新しいリリースが公開されたときに通知を受け取り、リポジトリで他の更新があったときには通知を受け取らないでいることができます。 詳しい情報については、{% ifversion fpt or ghae or ghes or ghec %}「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}「[リポジトリのリリースを Watch および Watch 解除する](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}」を参照してください。
 
-Anyone with read access to a repository can view and compare releases, but only people with write permissions to a repository can manage releases. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)."
+リポジトリへの読み取りアクセス権を持つ人はリリースを表示および比較できますが、リリースの管理はリポジトリへの書き込み権限を持つ人のみができます。 詳細は「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository)」を参照してください。
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
 
 You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
 
-People with admin permissions to a repository can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+リポジトリへの管理者権限を持つユーザは、{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトを、{% data variables.product.product_name %} がリリースごとに作成する ZIP ファイルと tarball に含めるかどうかを選択できます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 {% endif %}
 
 {% ifversion fpt or ghec %}
-If a release fixes a security vulnerability, you should publish a security advisory in your repository. {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. For more information, see "[About GitHub Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+リリースでセキュリティの脆弱性が修正された場合は、リポジトリにセキュリティアドバイザリを公開する必要があります。 {% data variables.product.prodname_dotcom %} は公開された各セキュリティアドバイザリを確認し、それを使用して、影響を受けるリポジトリに {% data variables.product.prodname_dependabot_alerts %} を送信できます。 詳しい情報については、「[GitHub セキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 を参照してください。
 
-You can view the **Dependents** tab of the dependency graph to see which repositories and packages depend on code in your repository, and may therefore be affected by a new release. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+リポジトリ内のコードに依存しているリポジトリとパッケージを確認するために、依存関係グラフの [**依存関係**] タブを表示することができますが、それによって、新しいリリースの影響を受ける可能性があります。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 {% endif %}
 
-You can also use the Releases API to gather information, such as the number of times people download a release asset. For more information, see "[Releases](/rest/reference/repos#releases)."
+リリースAPIを使用して、リリースアセットがダウンロードされた回数などの情報を収集することもできます。 詳しい情報については、「[リリース](/rest/reference/repos#releases)」を参照してください。
 
 {% ifversion fpt or ghec %}
-## Storage and bandwidth quotas
+## ストレージと帯域幅の容量
 
- Each file included in a release must be under {% data variables.large_files.max_file_size %}. There is no limit on the total size of a release, nor bandwidth usage.
+ リリースに含まれる各ファイルは、{% data variables.large_files.max_file_size %}以下でなければなりません。 リリースの合計サイズにも帯域幅の使用量にも制限はありません。
 
 {% endif %}

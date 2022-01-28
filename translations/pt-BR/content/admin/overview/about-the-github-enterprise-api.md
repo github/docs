@@ -3,9 +3,9 @@ title: Sobre a API do GitHub Enterprise
 intro: '{% data variables.product.product_name %} é compatível com APIs REST e do GraphQL.'
 redirect_from:
   - /enterprise/admin/installation/about-the-github-enterprise-server-api
-  - /enterprise/admin/articles/about-the-enterprise-api/
-  - /enterprise/admin/articles/using-the-api/
-  - /enterprise/admin/categories/api/
+  - /enterprise/admin/articles/about-the-enterprise-api
+  - /enterprise/admin/articles/using-the-api
+  - /enterprise/admin/categories/api
   - /enterprise/admin/overview/about-the-github-enterprise-server-api
   - /admin/overview/about-the-github-enterprise-server-api
 versions:

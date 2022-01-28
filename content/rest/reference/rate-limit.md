@@ -31,6 +31,6 @@ objects:
 
 * The `integration_manifest` object provides your rate limit status for the [GitHub App Manifest code conversion](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration) endpoint.
 
-For more information on the headers and values in the rate limit response, see "[Rate limiting](/rest#rate-limiting)."
+For more information on the headers and values in the rate limit response, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
 
 {% include rest_operations_at_current_path %}
