@@ -3,7 +3,10 @@ title: GitHub Registered Developer Agreement
 redirect_from:
   - /articles/github-registered-developer-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
 ---
 GitHub is fortunate to have many developers integrating with our platform. We think that’s awesome, and we want to make that experience even better.  GitHub’s Developer Program (the “Program”) helps us to connect with you, share information with you, and support your creative efforts better than ever before. The special relationship between GitHub and the developer community that the Program creates requires a special set of terms. Welcome to the Registered Developer Agreement (“Agreement”).
 
@@ -85,7 +88,7 @@ This Agreement is a legal agreement between you (“you”) and GitHub, Inc. (�
 
 13. **Proprietary Rights**
 
-  You agree that GitHub and its licensors own all right, title and interest in and to the API, the Pre-release Materials, and all other GitHub products and services; all information and data relating to their configurations and combinations; and all modifications to and derivative works of any of the foregoing. You agree not to remove, alter, cover or obfuscate any copyright or other proprietary rights notices we place on or embed in the API, the Pre-release Materials, or any other other GitHub products and services.
+  You agree that GitHub and its licensors own all right, title and interest in and to the API, the Pre-release Materials, and all other GitHub products and services; all information and data relating to their configurations and combinations; and all modifications to and derivative works of any of the foregoing. You agree not to remove, alter, cover or obfuscate any copyright or other proprietary rights notices we place on or embed in the API, the Pre-release Materials, or any other GitHub products and services.
 
 14. **Government Users**
 

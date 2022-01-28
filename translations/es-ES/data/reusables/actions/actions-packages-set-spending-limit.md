@@ -1,0 +1,1 @@
+Puedes configurar un límite de gastos específico o, en algunas cuentas, permitir gastos ilimitados. El límite de gastos aplica a tus excedentes combinados para {% data variables.product.prodname_registry %} y {% data variables.product.prodname_actions %}.

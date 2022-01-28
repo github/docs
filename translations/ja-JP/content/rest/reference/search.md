@@ -1,15 +1,21 @@
 ---
 title: 検索
+intro: '{% data variables.product.product_name %} Search APIを使うと、特定のアイテムを効率的に検索できます。'
 redirect_from:
   - /v3/search
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 Search API は、見つけたい特定の項目を検索するために役立ちます。 たとえば、リポジトリ内のユーザや特定のファイルを見つけることができます。 Google で検索を実行するのと同じように考えてください。 Search API は、探している 1 つの結果 (または探しているいくつかの結果) を見つけるために役立つよう設計されています。 Google で検索する場合と同じように、ニーズに最も合う項目を見つけるため、検索結果を数ページ表示したい場合もあるでしょう。 こうしたニーズを満たすため、{% data variables.product.product_name %} Search API では**各検索につき 最大 1,000 件の結果**を提供します。
 
-クエリを使って、検索を絞り込めます。 検索クエリ構文の詳細については、「[検索クエリの構築](/v3/search/#constructing-a-search-query)」を参照してください。
+クエリを使って、検索を絞り込めます。 検索クエリ構文の詳細については、「[検索クエリの構築](/rest/reference/search#constructing-a-search-query)」を参照してください。
 
 ### 検索結果を順番づける
 
@@ -17,9 +23,9 @@ Search API は、見つけたい特定の項目を検索するために役立ち
 
 ### レート制限
 
-Search API にはカスタムレート制限があります。 リクエストに[基本認証](/v3/#authentication)、[OAuth](/v3/#authentication)、または[クライアント ID とシークレット](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications)を使用する場合は、1 分間に最大 30 件のリクエストが行えます。 認証されていないリクエストでは、レート制限により 1 分間あたり最大 10 件のリクエストが行えます。
-
 {% data reusables.enterprise.rate_limit %}
+
+Search API にはカスタムレート制限があります。 リクエストに[基本認証](/rest#authentication)、[OAuth](/rest#authentication)、または[クライアント ID とシークレット](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)を使用する場合は、1 分間に最大 30 件のリクエストが行えます。 認証されていないリクエストでは、レート制限により 1 分間あたり最大 10 件のリクエストが行えます。
 
 現在のレート制限状態を確認する方法の詳細については、[レート制限ドキュメンテーション](/rest/reference/rate-limit)を参照してください。
 
@@ -27,19 +33,25 @@ Search API にはカスタムレート制限があります。 リクエスト�
 
 Search API の各エンドポイントでは、{% data variables.product.product_name %} で検索を行うために[クエリパラメータ](https://en.wikipedia.org/wiki/Query_string)を使用します。 エンドポイントとクエリパラメータを含める例については、Search API の個々のエンドポイントを参照してください。
 
-クエリには、GitHub.com でサポートされている検索修飾子を任意に組み合わせて使用できます。 検索クエリの形式は次のとおりです。
+クエリには、{% data variables.product.product_name %} でサポートされている検索修飾子を任意に組み合わせて使用できます。 検索クエリの形式は次のとおりです。
 
 ```
-q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
+SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
 たとえば、README ファイルに `GitHub` と `Octocat` という言葉が含まれている、`defunkt` が所有する_リポジトリ_をすべて検索する場合、_検索リポジトリ_エンドポイントに次のクエリを使用します。
 
 ```
-q=GitHub+Octocat+in:readme+user:defunkt
+GitHub Octocat in:readme user:defunkt
 ```
 
-使用可能な修飾子の完全な一覧、フォーマット、使用例については、「[GitHub での検索](/articles/searching-on-github/)」を参照してください。 特定の数量、日付に一致させたり、検索結果から除外したりするために演算子を使う方法の詳細については、「[検索構文を理解する](/articles/understanding-the-search-syntax/)」を参照してください。
+**ノート:** クエリ文字列の構築には、使用する言語の優先 HTML エンコーダを必ず使用してしてください。 例:
+```javascript
+// JavaScript
+const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
+```
+
+See "[Searching on GitHub](/search-github/searching-on-github)" for a complete list of available qualifiers, their format, and an example of how to use them. For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
 
 ### クエリの長さの制限
 
@@ -57,7 +69,7 @@ Search API は、以下のクエリをサポートしていません。
 
 ### アクセスエラーまたは検索結果の欠落
 
-検索クエリでは、認証に成功してリポジトリにアクセスできるようにする必要があります。そうしない場合は、`422 Unprocessible Entry` エラーと、「Validation Failed」というメッセージが表示されます。 たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
+You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
 
 検索クエリで複数のリソースをリクエストする場合、レスポンスにはあなたがアクセスできるリソースのみが含まれ、返されないリソースを一覧表示するようなエラーメッセージは**表示されません**。
 

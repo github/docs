@@ -1,1 +1,1 @@
-If the image's container registry requires authentication to pull the image, you can use `credentials` to set a `map` of the `username` and `password`. The credentials are the same values that you would provide to the [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) command.
+If the image's container registry requires authentication to pull the image, you can use `jobs.<job_id>.container.credentials` to set a `map` of the `username` and `password`. 凭据与您提供给 [`Docker 登录`](https://docs.docker.com/engine/reference/commandline/login/) 命令的值相同。

@@ -1,15 +1,21 @@
 ---
 title: Gist
+intro: 'The Gists API enables the authorized user to list, create, update and delete the public gists on {% data variables.product.product_name %}.'
 redirect_from:
   - /v3/gists
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### 認証
 
-You can read public gists {% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "2.9" %}and create them for anonymous users without a token.{% else %} anonymously, but you must be signed into GitHub to create gists.{% endif %} To read or write gists on a user's behalf, you need the gist OAuth scope and a token. 詳しい情報については、「[OAuth App のスコープ](/developers/apps/scopes-for-oauth-apps)」を参照してください。
+パブリック Gist {% ifversion ghae or ghes %} を読んで、トークンなしで匿名ユーザ向けに作成できます。{% else %} 匿名でも、Gist を作成するには GitHub にサインインする必要があります。{% endif %}ユーザに代わって Gist を読み書きするには、Gist OAuth スコープとトークンが必要です。 詳しい情報については、「[OAuth App のスコープ](/developers/apps/scopes-for-oauth-apps)」を参照してください。
 
 <!-- When an OAuth client does not have the gists scope, the API will return a 404 "Not Found" response regardless of the validity of the credentials. The API will return a 401 "Bad credentials" response if the gists scope was given to the application but the credentials are invalid. -->
 

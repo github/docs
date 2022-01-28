@@ -1,1 +1,1 @@
-Atividade relacionada a uma instalação do aplicativo GitHub. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST da "[Instalação do aplicativo GitHub](/v3/apps/)".
+Atividade relacionada a uma instalação do aplicativo GitHub. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST da "[Instalação do aplicativo GitHub](/rest/reference/apps)".

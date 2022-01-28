@@ -1,1 +1,0 @@
-Promoting a replica does not automatically set up replication for existing appliances. After promoting a replica, if desired, you can set up replication from the new primary to existing appliances and the previous primary.

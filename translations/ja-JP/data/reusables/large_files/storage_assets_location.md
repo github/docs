@@ -1,1 +1,3 @@
-デフォルトでは、{% data variables.large_files.product_name_long %}クライアントは大きなアセットをGitリポジトリをホストしているのと同じサーバーに保存します。 {% data variables.product.prodname_ghe_server %}アプライアンス上で{% data variables.large_files.product_name_short %}が有効化されている場合、大きなアセットは`/data/user/storage`のデータパーティションに保存されます。
+{% ifversion ghes %}
+By default, the {% data variables.large_files.product_name_long %} client stores large assets on the same server that hosts the Git repository. When {% data variables.large_files.product_name_short %} is enabled on {% data variables.product.product_location %}, large assets are stored on the data partition in `/data/user/storage`.
+{% endif %}

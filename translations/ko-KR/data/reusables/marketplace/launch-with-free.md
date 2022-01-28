@@ -1,1 +1,0 @@
-You can submit both an unverified and verified app. This will allow you to launch with a free version of your app. Once GitHub verifies your app, your listing will change from unverified to verified in {% data variables.product.prodname_marketplace %} and GitHub will publish your new pricing plans.

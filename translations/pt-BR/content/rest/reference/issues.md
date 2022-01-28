@@ -1,10 +1,16 @@
 ---
 title: Problemas
+intro: 'A API de Problemas permite que você visualize e gerencie problemas, incluindo responsáveis de problemas, comentários, etiquetas e marcos.'
 redirect_from:
   - /v3/issues
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Tipos de mídia personalizados para problemas
@@ -32,7 +38,7 @@ Para obter mais informações sobre os tipos de mídia, consulte "[Tipos de míd
 
 A API de Comentários do Problema é compatível com listagem, visualização, edição e criação de comentários em problemas e pull requests.
 
-Os comentários do problema usam [estes tipos de mídia personalizados](#custom-media-types). Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/v3/media/).
+Os comentários do problema usam [estes tipos de mídia personalizados](#custom-media-types). Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}

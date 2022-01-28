@@ -1,10 +1,16 @@
 ---
 title: 议题
+intro: Issues API 使您能够查看和管理议题，包括议题受理人、评论、标签和里程碑。
 redirect_from:
   - /v3/issues
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### 议题的自定义媒体类型
@@ -32,7 +38,7 @@ versions:
 
 议题评论 API 支持列出、查看、编辑和创建对议题和拉取请求的评论。
 
-议题评论使用[这些自定义媒体类型](#custom-media-types)。 您可以在[此处](/v3/media/)阅读有关 API 中媒体类型使用情况的更多信息。
+议题评论使用[这些自定义媒体类型](#custom-media-types)。 您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}

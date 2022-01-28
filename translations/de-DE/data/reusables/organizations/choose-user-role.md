@@ -1,1 +1,0 @@
-1. Wenn die Person, die Du einlädst, noch nie Mitglied der Organisation war oder wenn Du ihre Privilegien gelöscht hast, wähle eine Rolle für den Benutzer. ![Optionen, um den Benutzer zu einem Mitglied oder Inhaber zu machen](/assets/images/help/organizations/choose-new-member-role.png)

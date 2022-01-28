@@ -1,1 +1,1 @@
-When a [repository is added to a team](/v3/teams/#add-or-update-team-repository-permissions).
+When a [repository is added to a team](/rest/reference/teams#add-or-update-team-repository-permissions).

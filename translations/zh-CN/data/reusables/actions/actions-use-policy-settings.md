@@ -1,3 +1,3 @@
-If you choose the option to **Allow specific actions**, there are additional options that you can configure. For more information, see "[Allowing specific actions to run](#allowing-specific-actions-to-run)."
+如果您选择 **Allow select actions（允许选择操作）**，则允许本地操作，并且还有允许其他特定操作的其他选项。 更多信息请参阅“[允许特定操作运行](#allowing-specific-actions-to-run)”。
 
-When you allow local actions only, the policy blocks all access to actions authored by {% data variables.product.prodname_dotcom %}. For example, the [`actions/checkout`](https://github.com/actions/checkout) would not be accessible.
+如果只允许本地操作，则策略会阻止对 {% data variables.product.prodname_dotcom %} 创建的操作的所有访问。 For example, the [`actions/checkout`](https://github.com/actions/checkout) action would not be accessible.

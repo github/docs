@@ -1,3 +1,3 @@
 Key | Type | Description
 ----|------|-------------
-`forkee`|`object` | The created [`repository`](/v3/repos/#get-a-repository) resource.
+`forkee`|`object` | The created [`repository`](/rest/reference/repos#get-a-repository) resource.

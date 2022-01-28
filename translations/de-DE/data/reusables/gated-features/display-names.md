@@ -1,1 +1,0 @@
-Die Möglichkeit, dass Mitglieder die Profilnamen von Kommentarautoren sehen können, ist verfügbar mit {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_server %} 2.18+, und {% data variables.product.prodname_ghe_cloud %}. Weiter Informationen findest Du unter „[GitHub Produkte](/articles/githubs-products)."

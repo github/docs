@@ -1,1 +1,0 @@
-1. Unter „{% data variables.product.prodname_sponsors %}", rechts neben dem unterstützten Open-Source-Mitarbeiter, klicke neben Deinem gespendeten Betrag auf {% octicon "triangle-down" aria-label="The down triangle octicon" %}, dann klicke auf **Change tier** (Stufe ändern). ![Schaltfläche „Change tier" (Stufe ändern)](/assets/images/help/billing/edit-sponsor-billing.png)

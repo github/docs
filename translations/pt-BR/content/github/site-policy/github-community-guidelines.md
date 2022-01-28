@@ -1,19 +1,22 @@
 ---
 title: Diretrizes da comunidade do GitHub
 redirect_from:
-  - /community-guidelines/
+  - /community-guidelines
   - /articles/github-community-guidelines
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Milhões de desenvolvedores hospedam milhões de projetos no GitHub — tanto código aberto quanto fechado — e temos orgulho de viabilizarmos a colaboração de toda a comunidade todos os dias. Juntos, temos uma empolgante oportunidade e a responsabilidade de tornar esta comunidade algo do qual podemos nos orgulhar.
 
 Usuários do GitHub em todo o mundo trazem perspectivas, ideias e experiências extremamente diferentes, abrangendo desde pessoas que criaram seu primeiro projeto "Olá Mundo" na semana passada até os mais conhecidos desenvolvedores de software do mundo. Estamos empenhados em fazer do GitHub um ambiente acolhedor para todas as diferentes vozes e perspectivas da nossa comunidade, mantendo um espaço onde as pessoas são livres para se expressarem.
 
-Contamos com os membros de nossa comunidade para comunicar expectativas, [moderar](#what-if-something-or-someone-offends-you) seus projetos e {% data variables.contact.report_abuse %} ou {% data variables.contact.report_content %}. Não procuramos ativamente conteúdo para moderar. Explicando o que esperamos ver em nossa comunidade, esperamos ajudá-lo a compreender como colaborar no GitHub, e que tipo de ações ou conteúdo podem violar nossos [Termos de Serviço](#legal-notices). Investigaremos quaisquer denúncias de abuso e podemos moderar o conteúdo público em nosso site que definirmos como violador de nossos Termos de Serviço.
+Contamos com os membros de nossa comunidade para comunicar expectativas, [moderar](#what-if-something-or-someone-offends-you) seus projetos e {% data variables.contact.report_abuse %} ou {% data variables.contact.report_content %}. Ao definir o que esperamos ver em nossa comunidade, esperamos ajudá-lo a entender a melhora forma para colaborar no GitHub e que tipo de ações ou conteúdo podem violar nossos [Termos de Serviço](#legal-notices), que incluem nossas [Políticas de Uso Aceitáveis](/github/site-policy/github-acceptable-use-policies). Investigaremos quaisquer denúncias de abuso e podemos moderar o conteúdo público em nosso site que definirmos como violador de nossos Termos de Serviço.
 
-### Criar uma comunidade integrada
+## Criar uma comunidade integrada
 
 A finalidade principal da comunidade do GitHub é colaborar em projetos de software. Queremos que as pessoas trabalhem melhor em conjunto. Embora mantenhamos o site, essa é uma comunidade que construímos *juntos*, e precisamos da sua ajuda para torná-la a melhor possível.
 
@@ -29,7 +32,7 @@ A finalidade principal da comunidade do GitHub é colaborar em projetos de softw
 
    Além disso, comunicar-se com estranhos na internet pode ser desafiador. É difícil comunicar ou ler no tom desejado, e o sarcasmo é frequentemente mal interpretado. Tente usar uma linguagem clara, e pense em como ela será recebida pela outra pessoa.
 
-### E se algo ou alguém ofender você?
+## E se algo ou alguém ofender você?
 
 Contamos com a comunidade para nos informar quando um problema precisa ser resolvido. Não monitoramos ativamente o site para conteúdo ofensivo. Se você encontrar alguma coisa ou alguém no site que você considere censurável, aqui estão algumas ferramentas que o GitHub fornece para ajudá-lo a agir imediatamente:
 
@@ -43,30 +46,45 @@ Contamos com a comunidade para nos informar quando um problema precisa ser resol
 
 Claro, você sempre pode entrar em contato conosco em {% data variables.contact.report_abuse %} se precisar de mais ajuda para lidar com uma situação.
 
-### O que não é permitido?
+## O que não é permitido?
 
 Estamos comprometidos em manter uma comunidade onde os usuários são livres para se expressarem e desafiarem as ideias uns dos outros, tanto ideias técnicas como outras. No entanto, essas discussões não promovem diálogos frutíferos quando as ideias são silenciadas porque membros da comunidade estão sendo constrangidos ou têm medo de falar. Isso significa que devemos ser sempre respeitosos e cordiais, e evitarmos atacar os outros com base no que eles são. Não toleramos comportamentos que cruzam os seguintes limites:
 
-* **Ameaças de violência** - Você não pode ameaçar terceiros ou usar o site para organizar, promover ou incitar atos de violência ou terrorismo no mundo real. Pense cuidadosamente sobre as palavras que você usa, as imagens que você publica, e até mesmo o software que você escreve, e como podem ser interpretados pelos outros. Mesmo que pretenda fazer uma piada, isso poderá ser interpretado de outra forma. Se você acha que outra pessoa *pode* interpretar o conteúdo que você postou como uma ameaça, ou como uma promoção da violência ou como terrorismo, pare. Não publique isso no GitHub. Em casos excepcionais, podemos relatar ameaças de violência às autoridades competentes, se acreditarmos que pode haver um risco genuíno de danos físicos ou uma ameaça à segurança pública.
+- #### Ameaças de violência Você não pode ameaçar terceiros ou usar o site para organizar, promover ou incitar atos de violência ou terrorismo no mundo real. Pense cuidadosamente sobre as palavras que você usa, as imagens que você publica, e até mesmo o software que você escreve, e como podem ser interpretados pelos outros. Mesmo que pretenda fazer uma piada, isso poderá ser interpretado de outra forma. Se você acha que outra pessoa *pode* interpretar o conteúdo que você postou como uma ameaça, ou como uma promoção da violência ou como terrorismo, pare. Não publique isso no GitHub. Em casos excepcionais, podemos relatar ameaças de violência às autoridades competentes, se acreditarmos que pode haver um risco genuíno de danos físicos ou uma ameaça à segurança pública.
 
-* **Discurso de ódio e discriminação** - embora não seja proibido abordar tópicos como idade, tamanho do corpo, deficiência física, etnia, identidade e expressão de gênero, nível de experiência, nacionalidade, aparência pessoal, raça, religião ou identidade e orientação sexual, não toleramos discursos que ataquem uma pessoa ou um grupo de pessoas com base em quem elas são. Perceba que quando abordados de forma agressiva ou insultante, estes (e outros) tópicos sensíveis podem fazer com que terceiros se sintam indesejados, ou até mesmo vulneráveis. Embora haja sempre o potencial para mal-entendidos, esperamos que os membros da nossa comunidade permaneçam respeitosos e cordiais quando discutirem temas sensíveis.
+- #### Discurso de ódio e discriminação Embora não seja proibido abordar tópicos como idade, tamanho do corpo, deficiência física, etnia, identidade e expressão de gênero, nível de experiência, nacionalidade, aparência pessoal, raça, religião ou identidade e orientação sexual, não toleramos discursos que ataquem uma pessoa ou um grupo de pessoas com base em quem elas são. Perceba que quando abordados de forma agressiva ou insultante, estes (e outros) tópicos sensíveis podem fazer com que terceiros se sintam indesejados, ou até mesmo vulneráveis. Embora haja sempre o potencial para mal-entendidos, esperamos que os membros da nossa comunidade permaneçam respeitosos e cordiais quando discutirem temas sensíveis.
 
-* **Bullying e assédio** - Não toleramos bullying ou assédio. Isto significa qualquer tipo de insulto ou intimidação habitual dirigida a uma pessoa ou grupo específico de pessoas. Em geral, se suas ações são indesejadas e você continua com o mesmo comportamento, há uma boa chance de você estar praticando bullying ou assédio.
+- #### Bullying e assédio Não toleramos bullying ou assédio. Isto significa qualquer tipo de insulto ou intimidação habitual dirigida a uma pessoa ou grupo específico de pessoas. Em geral, se suas ações são indesejadas e você continua com o mesmo comportamento, há uma boa chance de você estar praticando bullying ou assédio.
 
-* **Falsidade ideológica** - Você não pode tentar enganar terceiros mentindo sobre sua identidade copiando o avatar de outra pessoa, postando conteúdo com endereço de e-mail de terceiros, usando um nome de usuário semelhante ou apresentando-se como outra pessoa. A falsidade ideológica é uma forma de assédio.
+- #### Interromper a experiência de outros usuários Ser parte de uma comunidade inclui reconhecer como seu comportamento afeta os outros e envolver-se em interações significativas e produtivas com as pessoas e a plataforma de que dependem. Não são permitidos comportamentos como postar repetidamente comentários que fogem ao tópico, abrir problemas ou pull requests vazios ou sem sentido ou usar qualquer recurso de outra plataforma de uma forma que perturbe continuamente a experiência de outros usuários. Embora incentivemos os mantenedores a moderar os seus próprios projetos individualmente, a equipe do GitHub pode ter uma ação restritiva contra contas que estão se envolvendo com esses tipos de comportamento.
 
-* **Doxxing e invasão de privacidade** - Não publique informações pessoais de outras pessoas, como números de telefone, endereços de e-mail privados, endereços físicos, números de cartão de crédito, números de seguro social/identidade nacional ou senhas. Dependendo do contexto, como no caso de intimidação ou assédio, podemos considerar que outras informações, como fotos ou vídeos que foram tirados ou distribuídos sem o consentimento do indivíduo, constituem invasão da privacidade, especialmente quando esse material representa um risco para a segurança do indivíduo.
+- #### Personificação Você não pode personificar outra pessoa, copiando o seu avatar, postando conteúdo no seu endereço de e-mail e usando um nome de usuário similar ou passar-se por outra pessoa. A falsidade ideológica é uma forma de assédio.
 
-* **Conteúdo sexualmente obsceno** - Não publique conteúdo pornográfico. Isto não significa que seja proibida qualquer nudez, ou qualquer código ou conteúdo relacionados com sexualidade. Reconhecemos que a sexualidade faz parte da vida e que o conteúdo sexual não pornográfico pode fazer parte do seu projeto, ou que possa ser apresentado para fins educacionais ou artísticos. Não permitimos conteúdos sexuais obscenos ou conteúdos que possam envolver a exploração ou a sexualização de menores.
+- #### Doxxing e invasão de privacidade Não poste informações pessoais de outras pessoas, como endereços de e-mail pessoais e privados, números de telefone, endereços físicos, números de cartão de crédito, números de previdência social/identidade nacional ou senhas. Dependendo do contexto, como no caso de intimidação ou assédio, podemos considerar que outras informações, como fotos ou vídeos que foram tirados ou distribuídos sem o consentimento do indivíduo, constituem invasão da privacidade, especialmente quando esse material representa um risco para a segurança do indivíduo.
 
-* **Conteúdo gratuitamente violento** - Não publique imagens, texto ou outro conteúdo violento sem um contexto razoável ou avisos. Embora muitas vezes não haja problema em incluir conteúdo violento em videogames, boletins e descrições de eventos históricos, não permitimos conteúdos violentos que sejam publicados indiscriminadamente, ou que sejam postados de uma forma que seja difícil evitar ter acesso a eles (como um avatar de perfil ou um comentário de problema). Um aviso claro ou uma declaração em outros contextos ajudam os usuários a tomarem uma decisão sobre se querem ou não se envolver com tal conteúdo.
+- #### Conteúdo sexualmente obsceno Não publique conteúdo pornográfico. Isto não significa que seja proibida qualquer nudez, ou qualquer código ou conteúdo relacionados com sexualidade. Reconhecemos que a sexualidade faz parte da vida e que o conteúdo sexual não pornográfico pode fazer parte do seu projeto, ou que possa ser apresentado para fins educacionais ou artísticos. Não permitimos conteúdos sexuais obscenos ou conteúdos que possam envolver a exploração ou a sexualização de menores.
 
-* **Informação errada e desinformação** - Você não pode postar conteúdo que apresente uma visão distorcida da realidade, seja ela imprecisa ou falsa (informação errada) ou intencionalmente enganosa (desinformação) porque esse conteúdo provavelmente resultará em danos ao público ou interferirá em oportunidades justas e iguais para todos participarem da vida pública. Por exemplo, não permitimos conteúdo que possa colocar o bem-estar de grupos de pessoas em risco ou limitar sua capacidade de participar de uma sociedade livre e aberta. Incentivamos a participação ativa na expressão de ideias, perspectivas e experiências e não se pode estar em posição de disputar contas ou observações pessoais. Geralmente, permitimos paródias e sátiras alinhadas com nossas Políticas de Uso Aceitável, e consideramos o contexto importante na forma como as informações são recebidas e compreendidas; portanto, pode ser apropriado esclarecer suas intenções através de isenções de responsabilidade ou outros meios, bem como a fonte(s) de suas informações.
+- #### Conteúdo gratuitamente violento Não publique imagens, texto ou outro conteúdo violento sem um contexto razoável ou avisos. Embora muitas vezes não haja problema em incluir conteúdo violento em videogames, boletins e descrições de eventos históricos, não permitimos conteúdos violentos que sejam publicados indiscriminadamente, ou que sejam postados de uma forma que seja difícil evitar ter acesso a eles (como um avatar de perfil ou um comentário de problema). Um aviso claro ou uma declaração em outros contextos ajudam os usuários a tomarem uma decisão sobre se querem ou não se envolver com tal conteúdo.
 
-* **Malware ativo ou exploits** - Fazer parte de uma comunidade inclui não tirar proveito de outros integrantes dela. Não permitimos que ninguém use nossa plataforma para explorar entrega, como por exemplo, usando o GitHub como meio de fornecer maliciosos executáveis, ou como infraestrutura de ataques, ou ainda, organizando ataques de negação de serviço ou gerenciando servidores de comando e controle. No entanto, não proibimos a publicação de código-fonte que poderia ser utilizado para desenvolver malware ou exploits, já que a publicação e distribuição de tal código-fonte tem valor educacional e fornece benefícios para a comunidade de segurança.
+- #### Informação errada e desinformação Você não pode postar conteúdo que apresente uma visão distorcida da realidade, seja ela imprecisa ou falsa (informação errada) ou intencionalmente enganosa (desinformação) porque esse conteúdo provavelmente resultará em danos ao público ou interferirá em oportunidades justas e iguais para todos participarem da vida pública. Por exemplo, não permitimos conteúdo que possa colocar o bem-estar de grupos de pessoas em risco ou limitar sua capacidade de participar de uma sociedade livre e aberta. Incentivamos a participação ativa na expressão de ideias, perspectivas e experiências e não se pode estar em posição de disputar contas ou observações pessoais. Geralmente, permitimos paródias e sátiras alinhadas com nossas Políticas de Uso Aceitável, e consideramos o contexto importante na forma como as informações são recebidas e compreendidas; portanto, pode ser apropriado esclarecer suas intenções através de isenções de responsabilidade ou outros meios, bem como a fonte(s) de suas informações.
+
+- #### Active malware or exploits Being part of a community includes not taking advantage of other members of the community. Não permitimos que ninguém utilize a nossa plataforma em apoio direto de ataques ilegais que causam danos técnicos, como usar o GitHub como um meio de fornecer executáveis maliciosos ou como infraestrutura de ataque, por exemplo, organizando ataques de negação serviço ou gerenciando servidores de comando e controle. Prejuízos técnicos significam excesso de recursos, danos físicos, tempo de inatividade, negação de serviço ou perda de dados, sem qualquer propósito implícito ou explícito de dupla utilização antes de ocorrer o abuso.
+
+  Observe que o GitHub permite conteúdo de dupla utilização e é compatível com a postagem de conteúdo usado para pesquisa em vulnerabilidades, malware, ou exploração, uma vez que a publicação e distribuição de tal conteúdo tem valor educacional e proporciona um benefício líquido para a comunidade de segurança. Nós supomos uma intenção positiva e a utilização destes projetos para promover e gerar melhoria do ecossistema.
+
+  Em casos raros de abuso muito generalizado de conteúdo de dupla utilização, podemos restringir o acesso a essa instância específica do conteúdo para interromper um ataque ilegal ou uma campanha de malware que aproveita a plataforma GitHub como um exploit ou malware CDN. Na maioria dessas instâncias, a restrição assume a forma de colocar o conteúdo por trás da autenticação. No entanto, como opção de último recurso, pode envolver a desabilitação do acesso ou a remoção total quando isso não for possível (p. ex., quando postado como um gist). Também entraremos em contato com os proprietários dos projetos sobre restrições implementadas sempre que possível.
+
+  As restrições são temporárias quando possíveis e não servem o propósito de eliminar ou restringir qualquer conteúdo específico de dupla utilização ou cópias desse conteúdo da plataforma. Embora procuremos fazer desses raros casos de restrição um processo de colaboração com os proprietários do projeto, se você sentir que seu conteúdo foi restrito indevidamente, temos um [processo de recursos](#appeal-and-reinstatement) em vigor.
+
+  Para facilitar um caminho para a resolução de abuso com os próprios mantenedores do projeto, antes da escalada aos relatórios de abuso do GitHub, recomendamos, embora não exigimos, que os proprietários do repositório sigam as etapas a seguir ao postar conteúdo de pesquisa de segurança potencialmente prejudicial:
+
+    * Identifique e descreva claramente qualquer conteúdo potencialmente nocivo em uma isenção de responsabilidade no arquivo README.md do projeto ou comentários do código-fonte.
+    * Forneça um método de contato preferido para qualquer consulta referente ao abuso de terceiros por meio de um arquivo SECURITY.md no repositório (por exemplo, "Crie um problema neste repositório para quaisquer dúvidas ou preocupações"). Esse método de contato permite que terceiros entrem em contato com os mantenedores do projeto diretamente e possivelmente resolvam as questões sem a necessidade de abrir relatórios de abuso.
+
+  *O GitHub considera o registro npm como uma plataforma usada principalmente para o uso do código em tempo de execução e não para pesquisas.*
 
 
-### O que acontece se alguém violar as regras?
+## O que acontece se alguém violar as regras?
 
 Há uma variedade de ações que podemos tomar quando um usuário reportar comportamento ou conteúdo inapropriado. Normalmente, depende das circunstâncias exatas de um caso específico. Reconhecemos que, por vezes, as pessoas podem dizer ou fazer coisas inapropriadas por várias razões. Talvez não tenha percebido a forma como suas palavras seriam entendidas. Ou talvez apenas deixam que suas emoções o conduzam. É claro que, muitas vezes, há pessoas que querem apenas fazer spam ou causar problemas.
 
@@ -79,7 +97,11 @@ Ações que podemos fazer em resposta a uma denúncia de abuso incluem, mas não
 * Suspensão de Conta
 * Encerramento da Conta
 
-### Avisos Legais
+## Apelação e reinstauração
+
+Em alguns casos, pode haver uma base para reverter uma ação, por exemplo, com base em informações adicionais fornecidas por um usuário ou quando um usuário tiver resolvido a violação e concordado em seguir nossas Políticas de Uso Aceitáveis desse momento em diante. Se você deseja recorrer de uma ação de execução, entre em contato com o [suporte](https://support.github.com/contact?tags=docs-policy).
+
+## Avisos Legais
 
 Colocamos essas Diretrizes da Comunidade em domínio público para que qualquer pessoa use, reutilize, adapte, ou seja o que for, nos termos de [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 

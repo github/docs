@@ -1,0 +1,1 @@
+É altamente recomendável que você configure a TLS em {% data variables.product.prodname_ghe_server %} com um certificado assinado por uma autoridade confiável. Embora um certificado autoassinado possa funcionar, é necessária uma configuração extra para os seus executores auto-hospedados, e não é recomendado para ambientes de produção.

@@ -1,20 +1,19 @@
 ---
 title: Enterprise のポリシーを設定する
-intro: '{% data variables.product.prodname_enterprise %} でポリシーを設定することで、リスクを軽減し、品質を向上させることができます。'
+intro: '{% data variables.product.product_name %} でポリシーを設定することで、リスクを軽減し、品質を向上させることができます。'
 redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 versions:
-  enterprise-server: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - Enterprise
+children:
+  - /enforcing-policies-for-your-enterprise
+  - /enforcing-policy-with-pre-receive-hooks
+shortTitle: Set policies
 ---
 
-
-### 目次
-
-{% topic_link_in_list /enforcing-policies-for-your-enterprise %}
-    {% link_in_list /enforcing-repository-management-policies-in-your-enterprise %}
-{% topic_link_in_list /enforcing-policy-with-pre-receive-hooks %}
-    {% link_in_list /about-pre-receive-hooks %}
-    {% link_in_list /creating-a-pre-receive-hook-environment %}
-    {% link_in_list /creating-a-pre-receive-hook-script %}
-    {% link_in_list /managing-pre-receive-hooks-on-the-github-enterprise-server-appliance %}

@@ -1,17 +1,24 @@
 ---
 title: 组织
+intro: 'Organizations API 允许您控制和管理所有 {% data variables.product.product_name %} 组织。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
+{% ifversion fpt or ghec %}
 ## 阻止用户
 
 用于对调用进行身份验证的令牌必须具有 `admin:org` 作用域才可对组织进行任何阻止调用。 否则，响应将返回 `HTTP 404`。
@@ -19,6 +26,8 @@ versions:
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'blocking' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## 成员
 
@@ -32,9 +41,19 @@ versions:
   {% if operation.subcategory == 'outside-collaborators' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghes > 3.4  %}
+## Custom repository roles
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'custom_roles' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
+
 ## Web 挂钩
 
-组织 web 挂钩允许您在组织内发生特定事件时接收 HTTP `POST` 有效负载。 订阅这些事件可以构建对 {% data variables.product.prodname_dotcom %}.com 上的操作做出反应的集成。 有关您可以订阅的操作的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 事件类型](/developers/webhooks-and-events/github-event-types)”。
+组织 web 挂钩允许您在组织内发生特定事件时接收 HTTP `POST` 有效负载。 {% data reusables.webhooks.webhooks-rest-api-links %}
+
+有关您可以订阅的操作的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 事件类型](/developers/webhooks-and-events/github-event-types)”。
 
 ### 范围和限制
 
@@ -56,5 +75,5 @@ versions:
 {% data variables.product.product_name %} 发送时将附带几个 HTTP 标头，以区分事件类型和有效负载标识符。 更多信息请参阅 [web 挂钩标头](/webhooks/event-payloads/#delivery-headers)。
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'hooks' %}{% include rest_operation %}{% endif %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}

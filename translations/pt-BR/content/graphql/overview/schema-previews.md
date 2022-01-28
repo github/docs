@@ -4,15 +4,19 @@ intro: 'Você pode visualizar os próximos recursos e alterações para o esquem
 redirect_from:
   - /v4/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
-### Sobre pré-visualizações de esquemas
+## Sobre pré-visualizações de esquemas
 
 Durante o período de pré-visualização, poderemos alterar alguns recursos com base no feedback do desenvolvedor. Se fizermos alterações, iremos anunciá-las no [blogue do desenvolvedor](https://developer.github.com/changes/) sem aviso prévio.
 
-Para acessar uma pré-visualização de esquema, você deverá fornecer um [tipo de mídia personalizado](/v3/media) no cabeçalho `Aceitar` para as suas solicitações. A documentação dos recursos para cada pré-visualização especifica qual tipo de mídia personalizado deve ser fornecido.
+Para acessar uma pré-visualização de esquema, você deverá fornecer um [tipo de mídia personalizado](/rest/overview/media-types) no cabeçalho `Aceitar` para as suas solicitações. A documentação dos recursos para cada pré-visualização especifica qual tipo de mídia personalizado deve ser fornecido.
 
 {% note %}
 
@@ -21,7 +25,7 @@ Para acessar uma pré-visualização de esquema, você deverá fornecer um [tipo
 {% endnote %}
 
 {% for preview in graphql.previewsForCurrentVersion %}
-### {{ preview.title }}
+## {{ preview.title }}
 
 {{ preview.description }}
 

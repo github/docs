@@ -1,1 +1,1 @@
-**Contributors only:** When you limit interactions to `contributors_only`,  users who have not previously contributed and are not collaborators will be temporarily restricted
+**Contributors only（コントリビューターのみ）:**インタラクションを`contributors_only`に制限すると、以前にコントリビューションしておらず、コラボレーターでもないユーザは一時的に制限されます。

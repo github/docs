@@ -1,1 +1,1 @@
-アプリケーションのキャンセルもしくは無料へのアプリケーションのダウングレードは、{% data variables.product.prodname_dotcom %}上の[other paid subcriptions（その他の有料プラン）](/articles/about-billing-on-github)には影響しません。 {% data variables.product.prodname_dotcom %} の有料プランをすべて停止したい場合は、それぞれの有料プランを 1 つずつダウングレードする必要があります。
+アプリケーションのキャンセルや無料へのダウングレードは、{% data variables.product.prodname_dotcom %}上の[他の有料サブスクリプション](/articles/about-billing-on-github)には影響しません。 {% data variables.product.prodname_dotcom %} の有料プランをすべて停止したい場合は、それぞれの有料プランを 1 つずつダウングレードする必要があります。

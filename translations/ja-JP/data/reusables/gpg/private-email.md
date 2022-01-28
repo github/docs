@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
-To keep your email address private, use your
-{% data variables.product.product_name %}-provided `no-reply` email address.
+{% ifversion fpt or ghec %}
+メールアドレスをプライベートにしておくには、
+{% data variables.product.product_name %}が提供する`no-reply`メールアドレスを使ってください。
 {% endif %}

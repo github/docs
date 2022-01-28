@@ -1,0 +1,2 @@
+9. 在待验证的域右侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Continue verifying（继续验证）**。 ![继续验证域按钮](/assets/images/help/organizations/continue-verifying-domain.png)
+10. 单击 **Verify（验证）**。 ![验证按钮](/assets/images/help/organizations/verify-domain-final-button.png)

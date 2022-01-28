@@ -1,0 +1,36 @@
+---
+contact_ent_support: '[Soporte de GitHub Enterprise](https://support.github.com/contact?tags=docs-generic)'
+contact_support: >-
+  {% ifversion fpt or ghec %}[Soporte de GitHub](https://support.github.com/contact?tags=docs-generic){% elsif ghes %}tu administrador de sitio{% elsif ghae %}tu propietario de empresa{% endif %}
+report_abuse: >-
+  {% ifversion fpt or ghec %}[Report abuse](https://github.com/contact/report-abuse){% endif %}
+report_content: >-
+  {% ifversion fpt or ghec %}[Report content](https://github.com/contact/report-content){% endif %}
+contact_dmca: >-
+  {% ifversion fpt or ghec %}[Copyright claims form](https://github.com/contact/dmca){% endif %}
+contact_privacy: >-
+  {% ifversion fpt or ghec %}[Privacy contact form](https://github.com/contact/privacy){% endif %}
+contact_enterprise_sales: "[Equipo de ventas de GitHub](https://github.com/enterprise/contact)"
+contact_feedback_actions: '[Feedback discussion for GitHub Actions](https://github.com/github/feedback/discussions/categories/actions-and-packages-feedback)'
+#The team that provides Standard Support
+enterprise_support: 'Soporte para GitHub Enterprise'
+#The larger team that includes Enterprise Support and Premium Support
+github_support: 'Soporte de GitHub'
+#The team that provides Premium Support
+premium_support: 'Soporte prémium de GitHub'
+#Enterprise Support portal (previously the Zendesk portal at enterprise.githubsupport.com)
+enterprise_portal: 'Portal de soporte de GitHub'
+contact_enterprise_portal: '[GitHub Support portal](https://support.github.com/contact?tags=docs-generic)'
+#Azure support (GitHub AE) portal
+ae_azure_portal: 'Portal de Soporte de Azure'
+contact_ae_portal: '[Portal de Soporte de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
+#GitHub Support portal (for dotcom - this sends users to a contact form)
+support_portal: 'Portal de soporte de GitHub'
+contact_support_portal: '[GitHub Support portal](https://support.github.com/contact?tags=docs-generic)'
+#GitHub Support portal (this sends users to the Support landing page)
+landing_page_portal: 'Portal de soporte de GitHub'
+contact_landing_page_portal: '[GitHub Support portal](https://support.github.com/)'
+#The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)
+community_support: 'Soporte de la Comunidad de GitHub'
+#The GitHub Community forum
+community_support_forum: '[Comunidad de Soporte de GitHub](https://github.community/)'

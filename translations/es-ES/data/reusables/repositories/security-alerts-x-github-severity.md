@@ -1,0 +1,1 @@
+Las notificaciones por correo electrónico de las {% data variables.product.prodname_dependabot_alerts %} que afectan uno o más repositorios, incluyen el campo de encabezado  `X-GitHub-Severity`. Puedes utilizar el valor del campo de encabezado `X-GitHub-Severity` para filtrar las notificaciones por correo electrónico de las {% data variables.product.prodname_dependabot_alerts %}.

@@ -1,23 +1,25 @@
 ---
-title: Disabling and enabling a workflow
-intro: '{% data variables.product.prodname_dotcom %} または REST API を使用して、ワークフローを無効化したり、再度有効化したりすることができます。'
-product: '{% data reusables.gated-features.actions %}'
+title: ワークフローの無効化と有効化
+intro: '{% data variables.product.prodname_dotcom %} UI、REST API、または {% data variables.product.prodname_cli %} を使用して、ワークフローを無効化したり再度有効化したりすることができます。'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.23'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Disable & enable a workflow
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-Disabling a workflow allows you to stop a workflow from being triggered without having to delete the file from the repo. You can easily re-enable the workflow again on {% data variables.product.prodname_dotcom %}. REST API を使用して、ワークフローを無効化または有効化することもできます。 詳しい情報については、「[アクション REST API](/rest/reference/actions#workflows)」を参照してください。
+ワークフローを無効にすると、リポジトリからファイルを削除することなく、ワークフローがトリガーされないようにすることができます。 {% data variables.product.prodname_dotcom %} でワークフローを簡単に再度有効にすることができます。
 
-Temporarily disabling a workflow can be useful in many scenarios. These are a few examples where disabling a workflow might be helpful:
+ワークフローを一時的に無効にすると、多くのシナリオで役立つことがあります。 以下は、ワークフローを無効すると便利な場合の例の一部です。
 
-- A workflow error that produces too many or wrong requests, impacting external services negatively.
-- A workflow that is not critical and is consuming too many minutes on your account.
-- A workflow that sends requests to a service that is down.
-- Workflows on a forked repository that aren't needed (for example, scheduled workflows).
+- リクエストが多すぎるまたは間違っていて、外部サービスに悪影響を与えるワークフローエラー。
+- 重要ではないが、アカウントの時間を消費しすぎるワークフロー。
+- ダウンしているサービスにリクエストを送信するワークフロー。
+- フォークされたリポジトリ上の不要なワークフロー（スケジュールされたワークフローなど）。
 
 {% warning %}
 
@@ -25,21 +27,51 @@ Temporarily disabling a workflow can be useful in many scenarios. These are a fe
 
 {% endwarning %}
 
-### Disabling a workflow
+REST API を使用して、ワークフローを無効化または有効化することもできます。 詳しい情報については、「[Actions REST API](/rest/reference/actions#workflows)」を参照してください。
 
-You can manually disable a workflow so that it won't execute any workflow runs. A disabled workflow is not deleted, and can be re-enabled.
+## ワークフローの無効化
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workflow you want to disable. ![アクション選択ワークフロー](/assets/images/actions-select-workflow.png)
-1. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![actions kebab menu](/assets/images/help/repository/actions-workflow-menu-kebab.png)
-1. Click **Disable workflow**. ![actions disable workflow](/assets/images/help/repository/actions-disable-workflow.png) The disabled workflow is marked {% octicon "stop" aria-label="The stop icon" %} to indicate its status. ![actions list disabled workflow](/assets/images/help/repository/actions-find-disabled-workflow.png)
-
-### Enabling a workflow
-
-You can re-enable a workflow that was previously disabled.
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workflow you want to enable. ![actions select disabled workflow](/assets/images/help/repository/actions-select-disabled-workflow.png)
-1. Click **Enable workflow**. ![actions enable workflow](/assets/images/help/repository/actions-enable-workflow.png)
+1. 左サイドバーで、無効にするワークフローをクリックします。 ![アクション選択ワークフロー](/assets/images/actions-select-workflow.png)
+1. {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。 ![アクションケバブメニュー](/assets/images/help/repository/actions-workflow-menu-kebab.png)
+1. [**Disable workflow**] をクリックします。 ![actions disable workflow](/assets/images/help/repository/actions-disable-workflow.png)無効化されたワークフローには、そのステータスを示すために {% octicon "stop" aria-label="The stop icon" %} のマークが付けられます。 ![無効なワークフローをリストするアクション](/assets/images/help/repository/actions-find-disabled-workflow.png)
+
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+ワークフローを無効化するには、`workflow disable` サブコマンドを使用します。 `workflow` を、無効化するワークフローの名前、ID、またはファイル名のいずれかに置き換えます。 たとえば、`"Link Checker"`、`1234567`、`"link-check-test.yml"` などです。 ワークフローを指定しない場合、{% data variables.product.prodname_cli %} はワークフローを選択するためのインタラクティブメニューを返します。
+
+```shell
+gh workflow disable <em>workflow</em>
+```
+
+{% endcli %}
+
+## ワークフローの有効化
+
+{% webui %}
+
+以前、無効化したワークフローを再度有効化することができます。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+1. 左サイドバーで、有効にするワークフローをクリックします。 ![無効なワークフローを選択するアクション](/assets/images/help/repository/actions-select-disabled-workflow.png)
+1. [**Enable workflow**] をクリックします。 ![ワークフローを有効にするアクション](/assets/images/help/repository/actions-enable-workflow.png)
+
+{% endwebui %}
+
+{% cli %}
+
+ワークフローを有効化するには、`workflow enable` サブコマンドを使用します。 `workflow` を、有効化するワークフローの名前、ID、またはファイル名のいずれかに置き換えます。 たとえば、`"Link Checker"`、`1234567`、`"link-check-test.yml"` などです。 ワークフローを指定しない場合、{% data variables.product.prodname_cli %} はワークフローを選択するためのインタラクティブメニューを返します。
+
+```shell
+gh workflow enable <em>workflow</em>
+```
+
+{% endcli %}

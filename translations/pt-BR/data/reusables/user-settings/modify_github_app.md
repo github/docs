@@ -1,1 +1,1 @@
-1. Selecione o aplicativo do GitHub que você deseja modificar. ![Seleção de aplicativo](/assets/images/github-apps/github_apps_select-app.png)
+1. To the right of the {% data variables.product.prodname_github_app %} you want to modify, click **Edit**. ![Seleção de aplicativo](/assets/images/github-apps/github_apps_select-app.png)

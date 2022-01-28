@@ -1,1 +1,0 @@
-Autolinks sind verfügbar in Repositorys mit {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, und {% data variables.product.prodname_ghe_server %}. {% if currentVersion == "free-pro-team@latest" %}{% data reusables.gated-features.more-info %}{% endif %}

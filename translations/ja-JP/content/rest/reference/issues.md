@@ -1,10 +1,16 @@
 ---
-title: 問題
+title: Issue
+intro: 'The Issues API enables you to view and manage issues, including issue assignees, comments, labels, and milestones.'
 redirect_from:
   - /v3/issues
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Issue のカスタムメディアタイプ
@@ -32,7 +38,7 @@ Issue についてサポートされているメディアタイプは次のと�
 
 Issue コメント API は、Issue およびプルリクエストに関するリスト、表示、編集、コメントの作成に対応しています。
 
-Issue コメントは、[3 つのカスタムメディアタイプ](#custom-media-types)を使用します。 API におけるメディアタイプの使用に関する詳細は、[こちら](/v3/media/)を参照してください。
+Issue コメントは、[3 つのカスタムメディアタイプ](#custom-media-types)を使用します。 API におけるメディアタイプの使用に関する詳細は、[こちら](/rest/overview/media-types)を参照してください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}

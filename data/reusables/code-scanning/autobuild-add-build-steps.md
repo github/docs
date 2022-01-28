@@ -1,1 +1,1 @@
-If the C/C++, C#, or Java code in your repository has a non-standard build process, `autobuild` may fail. You will need to remove the `autobuild` step from the workflow, and manually add build steps. 
+If the C/C++, C#, or Java code in your repository has a non-standard build process, `autobuild` may fail. You will need to remove the `autobuild` step from the workflow, and manually add build steps. If you want to specify which Go files in your repository to extract, you will need to add build steps.

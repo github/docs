@@ -1,3 +1,3 @@
-If you choose the option to **Allow specific actions**, there are additional options that you can configure. For more information, see "[Allowing specific actions to run](#allowing-specific-actions-to-run)."
+**Allow select actions（アクションの選択を許可）**を選択すると、ローカルアクションが許可され、他の特定のアクションを許可するための追加のオプションがあります。 詳しい情報については「[特定のアクションの実行の許可](#allowing-specific-actions-to-run)」を参照してください。
 
-When you allow local actions only, the policy blocks all access to actions authored by {% data variables.product.prodname_dotcom %}. For example, the [`actions/checkout`](https://github.com/actions/checkout) would not be accessible.
+ローカルアクションだけを許可した場合、そのポリシーは{% data variables.product.prodname_dotcom %}が作成したアクションへのすべてのアクセスをブロックします。 For example, the [`actions/checkout`](https://github.com/actions/checkout) action would not be accessible.

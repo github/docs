@@ -1,1 +1,0 @@
-- **Job matrix** - A job matrix can generate a maximum of 256 jobs per workflow run. Dieses Limit gilt auch für selbst-gehostete Läufer.

@@ -1,8 +1,8 @@
 {% note %}
 
-**Note:** Project card details are now shown in REST API responses for project-related issue and timeline events. This feature is now available for developers to preview. For details, see the [blog post](https://developer.github.com/changes/2018-09-05-project-card-events).
+**ノート:** プロジェクトカードの詳細は、プロジェクト関連のissue及びタイムラインイベントのREST APIレスポンス中に示されるようになりました。 この機能は、プレビューとして開発者が利用できるようになりました。 詳細については[ブログポスト](https://developer.github.com/changes/2018-09-05-project-card-events)を参照してください。
 
-To receive the `project_card` attribute, project boards must be [enabled](/articles/disabling-project-boards-in-a-repository) for a repository, and you must provide a custom [media type](/v3/media) in the `Accept` header:
+`project_card` 属性を受け取るには、リポジトリでプロジェクトボードが[有効化](/articles/disabling-project-boards-in-a-repository)されていなければならず、カスタムの[メディアタイプ](/rest/overview/media-types)を`Accept`ヘッダで提供しなければなりません。
 
 ```
 application/vnd.github.starfox-preview+json

@@ -1,0 +1,1 @@
+您将在初始化过程中输入SAML IdP 的详细信息，以配置 {% data variables.product.product_name %} 的身份和访问管理。 更多信息请参阅“[初始化 {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae#connecting-your-idp-to-your-enterprise)。”

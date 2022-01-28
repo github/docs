@@ -1,1 +1,0 @@
-Anyone can publish an action in {% data variables.product.prodname_marketplace %} as long as they meet the terms of service. Unlike apps, {% data variables.product.prodname_actions %} listed in {% data variables.product.prodname_marketplace %} are not verified by {% data variables.product.prodname_dotcom %}.

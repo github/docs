@@ -1,1 +1,0 @@
-Die Möglichkeit, das Hinzufügen von externen Mitarbeiten zu Inhabern einzuschränken, ist verfügbar mit {% data variables.product.prodname_ghe_cloud %}. Weiter Informationen findest Du unter „[GitHub Produkte](/articles/githubs-products)."

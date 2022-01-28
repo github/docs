@@ -1,0 +1,1 @@
+Los mantenedores pueden utilizar categorías con el formato de anuncio para compartir información, lanzamientos o eventos. Para mantener a los debates de estas categorías con un enfoque en las actualizaciones importantes, solo las personas con permisos de mantenedor o administrador pueden crear debates, pero cualquiera puede comentar y responder.
