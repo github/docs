@@ -74,3 +74,4 @@ The compare and pull request pages use different methods to calculate the diff f
 - "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"
 - "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)"
+![904CE36C-DACD-4927-AE90-9221C2E3F9AB](https://user-images.githubusercontent.com/89319287/151629577-24c39352-60ee-4e2f-ac0d-f77210b59d1a.jpeg)
