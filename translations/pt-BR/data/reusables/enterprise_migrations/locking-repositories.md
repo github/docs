@@ -1,7 +1,7 @@
 {% tip %}
 
-**Note:** Locking a repository prevents all read or write access to the repository. You cannot associate new teams or collaborators with a locked repository.
-If you're performing a trial run, you do not need to lock the repository. When you migrate data from a repository that's in use,
+**Note:** Locking a repository prevents all write access to the repository. Não é possível associar novas equipes ou colaboradores a um repositório bloqueado.
+Se você estiver realizando uma execução de teste, você não precisará bloquear o repositório. Ao fazer a migração dos dados de um repositório que está em uso,
 
-{% data variables.product.company_short %} strongly recommends locking the repository. Para obter mais informações, consulte "[Sobre migrações](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
+{% data variables.product.company_short %} recomenda fortemente o bloqueio do repositório. Para obter mais informações, consulte "[Sobre migrações](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
 {% endtip %}

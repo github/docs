@@ -1,1 +1,0 @@
-The {% data variables.product.prodname_component_kit %} uses {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_actions %} to power interactive elements within the {% data variables.product.prodname_dotcom %} UI. For example, you can guide repository users with next steps or prompt them to accept license agreements.

@@ -2,17 +2,19 @@
 title: GitHub Marketplace APIのためのwebhookイベント
 intro: '{% data variables.product.prodname_marketplace %}アプリケーションは、ユーザのプランに対する変更に関する情報を、Marketplaceの購入イベントwebhookから受け取ります。 Marketplaceの購入イベントは、ユーザが支払いプランの購入、キャンセル、変更をした場合にトリガーされます。'
 redirect_from:
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/
+  - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: webhook イベント
 ---
 
-### {% data variables.product.prodname_marketplace %}購入webhookのペイロード
+## {% data variables.product.prodname_marketplace %}購入webhookのペイロード
 
 webhookの`POST`リクエストには、特別なヘッダがあります。 詳細については「[webhookの配信ヘッダ](/webhooks/event-payloads/#delivery-headers)」を参照してください。 GitHubは、失敗した配信の試行を再送信しません。 GitHubが送信したすべてのwebhookのペイロードを、アプリケーションが確実に受信できるようにしてください。
 
@@ -58,17 +60,17 @@ webhookの`POST`リクエストには、特別なヘッダがあります。 詳
 
 <br/>
 
-#### `purchased`イベントのサンプルwebhookペイロード
+### `purchased`イベントのサンプルwebhookペイロード
 次の例は、`purchased`イベントのペイロードを示しています。
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
-#### `changed`イベントのサンプルwebhookペイロード
+### `changed`イベントのサンプルwebhookペイロード
 
 プランの変更には、アップグレードとダウンロードがあります。 この例は、`changed`、`pending_change`、および`pending_change_cancelled`イベントのペイロードを表しています。 このアクションは、これら3つのイベントのうちどれが発生したかを示します。
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.changed }}
 
-#### `cancelled`イベントのサンプルwebhookペイロード
+### `cancelled`イベントのサンプルwebhookペイロード
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.cancelled }}

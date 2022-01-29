@@ -3,16 +3,19 @@ title: 删除项目板
 intro: 如果您不再需要访问现有项目板的内容，可将其删除。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
-  - /articles/deleting-a-project/
+  - /articles/deleting-a-project
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -26,7 +29,7 @@ topics:
 4. 单击 **Delete project（删除项目）**。 ![删除项目按钮](/assets/images/help/projects/delete-project-button.png)
 5. 如需确认要删除项目板，请单击 **OK（确定）**。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关闭项目板](/articles/closing-a-project-board)"
 - “[在仓库中禁用项目板](/articles/disabling-project-boards-in-a-repository)”

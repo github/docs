@@ -7,7 +7,7 @@ redirect_from:
   - /articles/about-campus-experts
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% data variables.product.prodname_dotcom %}Campus Expertsとして、公の場でのスピーチのスキル、テクニカルライティング、コミュニティのリーダーシップ、ソフトウェア開発のスキルを学んでください。

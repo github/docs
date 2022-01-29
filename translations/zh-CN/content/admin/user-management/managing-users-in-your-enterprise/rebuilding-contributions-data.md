@@ -2,16 +2,17 @@
 title: 重构贡献数据
 intro: 您可以重构贡献数据，将现有提交链接到用户帐户。
 redirect_from:
-  - /enterprise/admin/articles/rebuilding-contributions-data/
+  - /enterprise/admin/articles/rebuilding-contributions-data
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Repositories
   - User account
+shortTitle: 重建贡献
 ---
 
 将提交推送到 {% data variables.product.prodname_enterprise %} 时，如果新提交和现有提交关联到同一个电子邮件地址，此提交会链接到用户帐户。 不过，在用户注册新电子邮件地址或创建新帐户时，*不会*追溯地链接现有提交。

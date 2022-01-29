@@ -1,10 +1,17 @@
+{% ifversion fpt %}
+1. Navega a la página principal de la organización o repositorio en donde se registró tu grupo de ejecutores auto-hospedados.
+2. Haz clic en {% octicon "gear" aria-label="The Settings gear" %} **Ajustes**.
+3. En la barra lateral izquierda, da clic en **Acciones**.
+4. Haz clic en **Ejecutores**.
+{% elsif ghec or ghes or ghae %}
 1. Navega a donde está registrado tu ejecutor auto-hospedado:
-   * **En un repositorio organizacional**: navega a la página principal y da clic en {% octicon "gear" aria-label="The Settings gear" %} **Configuración**.
-   * {% if currentVersion == "free-pro-team@latest" %}**Si estás utilizando una cuenta empresarial**: navega hasta tu cuenta empresrial al visitar `https://github.com/enterprises/ENTERPRISE-NAME`, reemplazando a `ENTERPRISE-NAME` con el nombre de tu cuenta empresarial.{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}**Si utilizas un ejecutor a nivel empresarial**:
-
+   * **En un repositorio organizacional**: navega a la página principal y da clic en {% octicon "gear" aria-label="The Settings gear" %} **Configuración**. {% ifversion ghec %}
+   * **Si utilizas una cuenta empresarial**: navega a ella haciendo clic en tu foto de perfil en la esquina superior derecha de {% data variables.product.prodname_dotcom_the_website %} y luego haz clic en **Tu empresa** y, después, en la empresa.{% elsif ghes or ghae %}
+   * **Si utilizas un ejecutor a nivel de empresa**:
      1. En la esquina superior derecha de cualquier página, da clic en {% octicon "rocket" aria-label="The rocket ship" %}.
-     1. En la barra lateral izquierda, da clic en **Resumen empresarial**.
-     1. {% endif %} En la barra lateral de empresa, {% octicon "law" aria-label="The law icon" %} **Políticas**.
-1. Navega a los ajustes de {% data variables.product.prodname_actions %}:
-   * **En una organización o repositorio**: Haz clic en **Acciones** en la barra lateral izquierda{% if currentVersion == "free-pro-team@latest" %} y luego en **Ejecutores**{% endif %}.
-   * {% if currentVersion == "free-pro-team@latest" %}**Si estás utilizand una cuenta empresarial**:{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}**Si estás utilizando un ejecutor a nivel empresarial**:{% endif %} Haz clic en **Acciones** debajo de "{% octicon "law" aria-label="The law icon" %} Políticas"{% if currentVersion == "free-pro-team@latest" %}, y luego en la pestaña de **Ejecutores** {% endif %}.
+     2. En la barra lateral izquierda, da clic en **Resumen empresarial**.
+     3. En la barra lateral de la empresa, haz clic en {% octicon "law" aria-label="The law icon" %} **Políticas**.{% endif %}
+2. Navega a los ajustes de {% data variables.product.prodname_actions %}:
+   * **En una organización o repositorio**: Haz clic **Actions** en la barra lateral izquierda{% ifversion fpt or ghes > 3.1 or ghae or ghec %} y luego en **Ejecutores**{% endif %}.{% ifversion ghec or ghae or ghes %}
+   * {% ifversion ghec %}**Si estás utilizand una cuenta empresarial**:{% elsif ghes or ghae %}**Si estás utilizando un ejecutor a nivel empresarial**:{% endif %} Haz clic en **Acciones** debajo de "{% octicon "law" aria-label="The law icon" %} Políticas"{% ifversion ghes > 3.1 or ghae or ghec %}, y luego en la pestaña de **Ejecutores** {% endif %}.{% endif %}
+{% endif %}

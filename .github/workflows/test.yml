@@ -8,67 +8,89 @@ name: Node.js Tests
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
   pull_request:
 
-env:
-  CI: true
+permissions:
+  contents: read
+  # Needed for the 'trilom/file-changes-action' action
+  pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   test:
     # Run on self-hosted if the private repo or ubuntu-latest if the public repo
     # See pull # 17442 in the private repo for context
-    runs-on: ${{ fromJson('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
         # The same array lives in test-windows.yml, so make any updates there too.
-        test-group: [content, graphql, meta, rendering, routing, unit, linting]
+        test-group:
+          [
+            content,
+            graphql,
+            meta,
+            rendering,
+            routing,
+            unit,
+            linting,
+            translations,
+          ]
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
 
-      - name: Setup node
-        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+      - name: Gather files changed
+        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
+        id: get_diff_files
         with:
-          node-version: 16.x
+          # So that `steps.get_diff_files.outputs.files` becomes
+          # a string like `foo.js path/bar.md`
+          output: ' '
 
-      - name: Get npm cache directory
-        id: npm-cache
+      - name: Insight into changed files
         run: |
-          echo "::set-output name=dir::$(npm config get cache)"
 
-      - name: Cache node modules
-        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
+          # Must to do this because the list of files can be HUGE. Especially
+          # in a repo-sync when there are lots of translation files involved.
+          echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
+
+      - name: Setup node
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: 16.13.x
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Clone early access
-        run: npm run heroku-postbuild
+      - name: Clone early access
+        if: ${{ github.repository == 'github/docs-internal' }}
+        run: script/early-access/clone-for-build.js
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: ${{ github.head_ref || github.ref }}
 
-      - if: ${{ github.repository != 'github/docs-internal' }}
-        name: Run build script
+      - name: Cache nextjs build
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
+      - name: Run build script
         run: npm run build
 
       - name: Run tests
-        run: npx jest tests/${{ matrix.test-group }}/
         env:
-          NODE_OPTIONS: '--max_old_space_size=8192'
+          DIFF_FILE: get_diff_files.txt
+        run: npm test -- tests/${{ matrix.test-group }}/

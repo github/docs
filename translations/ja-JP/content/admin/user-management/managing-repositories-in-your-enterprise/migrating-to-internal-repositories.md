@@ -7,18 +7,19 @@ redirect_from:
   - /admin/user-management/migrating-to-internal-repositories
 permissions: Site administrators can migrate to internal repositories.
 versions:
-  enterprise-server: '>=2.20'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Privacy
   - Repositories
   - Security
+shortTitle: Internal repository migration
 ---
 
-### インターナルリポジトリについて
+## インターナルリポジトリについて
 
-インターナルリポジトリは、{% data variables.product.prodname_ghe_server %} 2.20+で利用できます。 {% data reusables.repositories.about-internal-repos %} 詳しい情報については「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)」を参照してください。
+インターナルリポジトリは、{% data variables.product.prodname_ghe_server %} 2.20+で利用できます。 {% data reusables.repositories.about-internal-repos %} For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 {% data variables.product.prodname_ghe_server %}の将来のリリースでは、リポジトリの可視性の動作を調整し、パブリック、インターナル、プライベートという用語が{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_ghe_cloud %}の開発者に対して統一的な意味合いを持つようにします。
 
@@ -36,14 +37,16 @@ topics:
 
 プライベートモードを有効化していないなら、移行スクリプトは何もしません。
 
-### 移行の実施
+## 移行の実施
 
 1. 管理シェルに接続します。 詳しい情報については「[管理シェル（SSH）にアクセスする](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)」を参照してください。
-{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 2. 移行コマンドを実行してください。
+
    ```shell
    github-env bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w |  tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
+
 {% else %}
 2. `/data/github/current`ディレクトリにアクセスしてください。
    ```shell
@@ -57,6 +60,6 @@ topics:
 
 ログの出力は、ターミナルと`/tmp/convert_public_ghes_repos_to_internal.log`に対して行われます。
 
-### 参考リンク
+## 参考リンク
 
 - [プライベートモードの有効化](/enterprise/admin/installation/enabling-private-mode)

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Filter by milestone
@@ -31,8 +32,5 @@ shortTitle: Filter by milestone
 
 ## Further reading
 
-- "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"
-- "[Sorting issues and pull requests](/articles/sorting-issues-and-pull-requests)"
-- "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)"
-- "[Sharing filters](/articles/sharing-filters)"
+- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
 - "[Filtering cards on a project board](/articles/filtering-cards-on-a-project-board)"

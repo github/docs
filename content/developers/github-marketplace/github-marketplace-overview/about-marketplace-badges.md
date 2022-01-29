@@ -6,6 +6,7 @@ redirect_from:
   - /developers/github-marketplace/about-marketplace-badges
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 ## For GitHub Apps
 
@@ -29,7 +30,7 @@ Some apps on the {% data variables.product.prodname_marketplace %} have the {% o
 
 For more information about the requirements for listing an app on {% data variables.product.prodname_marketplace %}, see "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
 
-For information on finding apps to use, see "[Searching {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)."
+For information on finding apps to use, see "[Searching {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)."
 
 ## For GitHub actions 
 

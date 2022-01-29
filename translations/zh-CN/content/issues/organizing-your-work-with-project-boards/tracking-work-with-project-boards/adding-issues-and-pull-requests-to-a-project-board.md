@@ -3,16 +3,20 @@ title: 添加议题和拉取请求到项目板
 intro: 您可以通过卡片的形式将议题和拉取请求添加到项目板，并且分类到各列中。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
-  - /articles/adding-issues-and-pull-requests-to-a-project/
+  - /articles/adding-issues-and-pull-requests-to-a-project
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: 将议题和 PR 添加到板中
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 您可通过以下方式将议题或拉取请求卡添加到项目板：
 - 从侧栏的 **Triage（分类）**部分拖动卡片。
@@ -33,7 +37,7 @@ topics:
 
 {% data reusables.project-management.link-repos-to-project-board %} 在搜索要添加到项目板的议题和拉取请求时，搜索会自动将范围限于您链接的仓库。 您可以删除这些限定符以搜索所有组织仓库。 更多信息请参阅“[链接仓库到项目板](/articles/linking-a-repository-to-a-project-board)”。
 
-### 添加议题和拉取请求到项目板
+## 添加议题和拉取请求到项目板
 
 1. 导航到您要在其中添加议题和拉取请求的项目板。
 2. 在项目板中，单击 {% octicon "plus" aria-label="The plus icon" %} **Add cards（添加卡）**。 ![添加卡按钮](/assets/images/help/projects/add-cards-button.png)
@@ -54,7 +58,7 @@ topics:
 
     {% endtip %}
 
-### 从侧栏添加议题和拉取请求到项目板
+## 从侧栏添加议题和拉取请求到项目板
 
 1. 在议题或拉取请求右侧单击 **Projects（项目）{% octicon "gear" aria-label="The Gear icon" %}**。 ![侧栏中的项目板按钮](/assets/images/help/projects/sidebar-project.png)
 2. 单击要添加到其中的项目板对应的 **Recent（最近）**、**Repository（仓库）**、**User（用户）**或 **Organization（组织）**选项卡。 ![最近、仓库和组织选项卡](/assets/images/help/projects/sidebar-project-tabs.png)
@@ -62,7 +66,7 @@ topics:
 4. 选择要添加议题或拉取请求的一个或多个项目板。 ![选择的项目板](/assets/images/help/projects/sidebar-select-project.png)
 5. 单击 {% octicon "triangle-down" aria-label="The down triangle icon" %}，然后单击您希望议题或拉取请求所在的列。 该卡将移到您选择的项目板列的底部。 ![将卡移至列菜单](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于项目板](/articles/about-project-boards)"
 - "[编辑项目板](/articles/editing-a-project-board)"

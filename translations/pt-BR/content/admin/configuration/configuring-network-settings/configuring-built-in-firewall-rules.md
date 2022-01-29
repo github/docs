@@ -2,21 +2,22 @@
 title: Configurar regras de firewall integrado
 intro: 'É possível exibir as regras padrão de firewall e personalizar outras regras da {% data variables.product.product_location %}.'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-firewall-settings/
+  - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-built-in-firewall-rules
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configurar regras do firewall
 ---
 
-### Sobre o firewall da {% data variables.product.product_location %}
+## Sobre o firewall da {% data variables.product.product_location %}
 
 O {% data variables.product.prodname_ghe_server %} usa o Uncomplicated Firewall (UFW) do Ubuntu no appliance virtual. Para obter mais informações, consulte "[UFW](https://help.ubuntu.com/community/UFW)" na documentação do Ubuntu. O {% data variables.product.prodname_ghe_server %} atualiza automaticamente a lista de desbloqueio de firewall dos serviços permitidos em cada versão.
 
@@ -24,7 +25,7 @@ Depois da instalação do {% data variables.product.prodname_ghe_server %}, toda
 
 O firewall UFW também abre várias outras portas necessárias para o funcionamento adequado do {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre o conjunto de regras da UFW, consulte [o README da UFW](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
-### Exibir as regras padrão de firewall
+## Exibir as regras padrão de firewall
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Para exibir as regras de firewall padrão, use o comando `sudo ufw status`. Você verá um conteúdo semelhante a este:
@@ -55,7 +56,7 @@ O firewall UFW também abre várias outras portas necessárias para o funcioname
   > ghe-9418 (v6)              ALLOW       Anywhere (v6)
   ```
 
-### Adicionar regras personalizadas de firewall
+## Adicionar regras personalizadas de firewall
 
 {% warning %}
 
@@ -70,12 +71,12 @@ O firewall UFW também abre várias outras portas necessárias para o funcioname
   ```
 3. Para fazer backup das regras personalizadas de firewall, use o comando `cp` a fim de movê-las para um novo arquivo.
   ```shell
-  $ sudo cp -r /lib/ufw ~/ufw.backup
+  $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
 Após a atualização da {% data variables.product.product_location %}, você deve reaplicar suas regras personalizadas de firewall. Para isso, é recomendável criar um script.
 
-### Restaurar as regras padrão de firewall
+## Restaurar as regras padrão de firewall
 
 Se a alteração das regras do firewall ocasionar erros, você poderá redefinir as regras originais no backup.
 
@@ -88,7 +89,7 @@ Se a alteração das regras do firewall ocasionar erros, você poderá redefinir
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Para restaurar as regras de backup anteriores, copie-as de volta para o firewall com o comando `cp`.
   ```shell
-  $ sudo cp -f ~/ufw.backup/*rules /lib/ufw
+  $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
 3. Reinicie o firewall com o comando `systemctl`.
   ```shell

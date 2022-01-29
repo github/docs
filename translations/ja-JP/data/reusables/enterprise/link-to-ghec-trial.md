@@ -1,0 +1,1 @@
+For more information about how you can try {% data variables.product.prodname_ghe_cloud %} for free, see "[Setting up a trial of {% data variables.product.prodname_ghe_cloud %}]({% ifversion ghae %}/enterprise-cloud@latest{% endif %}/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)."

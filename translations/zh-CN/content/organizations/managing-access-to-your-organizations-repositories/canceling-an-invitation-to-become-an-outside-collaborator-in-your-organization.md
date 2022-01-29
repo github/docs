@@ -5,10 +5,12 @@ permissions: Organization owners can cancel an invitation to become an outside c
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-an-invitation-to-become-an-outside-collaborator-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 取消协作者邀请
 ---
 
 您可以查看所有待定邀请（邀请成为组织拥有的任何仓库上的外部协作者）人员列表。

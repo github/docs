@@ -2,15 +2,17 @@
 title: 转让 OAuth 应用程序的所有权
 intro: '{% data reusables.shortdesc.transferring_ownership_of_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/transferring-ownership-of-an-oauth-app/
+  - /apps/building-integrations/managing-oauth-apps/transferring-ownership-of-an-oauth-app
   - /apps/managing-oauth-apps/transferring-ownership-of-an-oauth-app
   - /developers/apps/transferring-ownership-of-an-oauth-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
+shortTitle: 转移所有权
 ---
 
 {% data reusables.user-settings.access_settings %}

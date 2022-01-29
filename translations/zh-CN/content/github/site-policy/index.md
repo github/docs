@@ -1,10 +1,10 @@
 ---
 title: 站点策略
 redirect_from:
-  - /categories/61/articles/
+  - /categories/61/articles
   - /categories/site-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -12,10 +12,10 @@ children:
   - /github-terms-of-service
   - /github-corporate-terms-of-service
   - /github-privacy-statement
-  - /github-data-protection-agreement-non-enterprise-customers
+  - /github-data-protection-agreement
   - /global-privacy-practices
-  - /github-insights-and-data-protection-for-your-organization
   - /github-sponsors-additional-terms
+  - /github-codespaces-privacy-statement
   - /github-terms-for-additional-products-and-features
   - /github-logo-policy
   - /github-username-policy
@@ -27,7 +27,7 @@ children:
   - /github-private-information-removal-policy
   - /github-subprocessors-and-cookies
   - /github-bug-bounty-program-legal-safe-harbor
-  - /responsible-disclosure-of-security-vulnerabilities
+  - /coordinated-disclosure-of-security-vulnerabilities
   - /guidelines-for-legal-requests-of-user-data
   - /github-government-takedown-policy
   - /github-acceptable-use-policies
@@ -37,7 +37,6 @@ children:
   - /github-registered-developer-agreement
   - /github-marketplace-terms-of-service
   - /github-marketplace-developer-agreement
-  - /github-pre-release-program
   - /github-research-program-terms
   - /github-open-source-applications-terms-and-conditions
   - /github-and-trade-controls

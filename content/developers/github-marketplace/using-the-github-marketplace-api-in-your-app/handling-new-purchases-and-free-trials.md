@@ -2,13 +2,14 @@
 title: Handling new purchases and free trials
 intro: 'When a customer purchases a paid plan, free trial, or the free version of your {% data variables.product.prodname_marketplace %} app, you''ll receive the [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) webhook with the `purchased` action, which kicks off the purchasing flow.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-github-apps/
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-oauth-apps/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-github-apps
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-oauth-apps
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /developers/github-marketplace/handling-new-purchases-and-free-trials
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: New purchases & free trials
@@ -57,7 +58,7 @@ When a customer purchases your app, you must send the customer through the OAuth
 
 * If your app is an {% data variables.product.prodname_oauth_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Installation URL**. Follow the steps in "[Authorizing {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)."
 
-For either type of app, the first step is to redirect the customer to https://github.com/login/oauth/authorize.
+For either type of app, the first step is to redirect the customer to [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize).
 
 After the customer completes the authorization, your app receives an OAuth access token for the customer. You'll need this token for the next step.
 

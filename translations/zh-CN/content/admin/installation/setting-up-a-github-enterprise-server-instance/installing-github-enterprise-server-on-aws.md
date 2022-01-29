@@ -1,108 +1,115 @@
 ---
-title: 在 AWS 上安装 GitHub Enterprise Server
-intro: '要在 Amazon Web Services (AWS) 上安装 {% data variables.product.prodname_ghe_server %}，您必须启动 Amazon Elastic Compute Cloud (EC2) 实例并创建和连接单独的 Amazon Elastic Block Store (EBS) 数据卷。'
+title: Installing GitHub Enterprise Server on AWS
+intro: 'To install {% data variables.product.prodname_ghe_server %} on Amazon Web Services (AWS), you must launch an Amazon Elastic Compute Cloud (EC2) instance and create and attach a separate Amazon Elastic Block Store (EBS) data volume.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-aws/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-aws
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
   - /admin/installation/installing-github-enterprise-server-on-aws
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
+shortTitle: Install on AWS
 ---
-
-### 基本要求
+## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
-- 您必须具有能够启动 EC2 实例和创建 EBS 卷的 AWS 帐户。 更多信息请参阅 [Amazon Web Services 网站](https://aws.amazon.com/)。
-- 启动 {% data variables.product.product_location %} 所需的大部分操作也可以使用 AWS 管理控制台执行。 不过，我们建议安装 AWS 命令行接口 (CLI) 进行初始设置。 下文介绍了使用 AWS CLI 的示例。 更多信息请参阅 Amzon 指南“[使用 AWS 管理控制台](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)”和“[什么是 AWS 命令行接口](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)”。
+- You must have an AWS account capable of launching EC2 instances and creating EBS volumes. For more information, see the [Amazon Web Services website](https://aws.amazon.com/).
+- Most actions needed to launch {% data variables.product.product_location %} may also be performed using the AWS management console. However, we recommend installing the AWS command line interface (CLI) for initial setup. Examples using the AWS CLI are included below. For more information, see Amazon's guides "[Working with the AWS Management Console](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" and "[What is the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)."
 
-本指南假定您已熟悉以下 AWS 概念：
+This guide assumes you are familiar with the following AWS concepts:
 
- - [启动 EC2 实例](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html)
- - [管理 EBS 卷](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
- - [使用安全组](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html)（用于管理对实例的网络访问）
- - [弹性 IP 地址 (EIP)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)（强烈建议用于生产环境）
- - [EC2 和 Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html)（如果计划启动到 Virtual Private Cloud）
- - [AWS 定价](https://aws.amazon.com/pricing/)（用于计算和管理成本）
+ - [Launching EC2 Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html)
+ - [Managing EBS Volumes](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
+ - [Using Security Groups](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) (For managing network access to your instance)
+ - [Elastic IP Addresses (EIP)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) (Strongly recommended for production environments)
+ - [EC2 and Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (If you plan to launch into a Virtual Private Cloud)
+ - [AWS Pricing](https://aws.amazon.com/pricing/) (For calculating and managing costs)
 
- 本指南建议在 AWS 上设置 {% data variables.product.product_location %} 时使用最小权限原则。 更多信息请参阅 [AWS 身份和访问管理 (IAM) 文档](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)。
+For an architectural overview, see the "[AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)". 
 
-### 硬件考量因素
+This guide recommends the principle of least privilege when setting up {% data variables.product.product_location %} on AWS. For more information, refer to the [AWS Identity and Access Management (IAM) documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
+
+## Hardware considerations
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### 确定实例类型
+## Determining the instance type
 
-在 AWS 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的设备类型。 要查看 {% data variables.product.product_name %} 的最低要求，请参阅“[最低要求](#minimum-requirements)”。
+Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-### 选择 {% data variables.product.prodname_ghe_server %} AMI
+## Selecting the {% data variables.product.prodname_ghe_server %} AMI
 
-您可以使用 {% data variables.product.prodname_ghe_server %} 门户或 AWS CLI 为 {% data variables.product.prodname_ghe_server %} 选择 Amazon Machine Image (AMI)。
+You can select an Amazon Machine Image (AMI) for {% data variables.product.prodname_ghe_server %} using the {% data variables.product.prodname_ghe_server %} portal or the AWS CLI.
 
-{% data variables.product.prodname_ghe_server %} 的 AMI 适用于 AWS GovCloud（美国东部和美国西部）区域。 因此，受特定法规要求约束的美国客户可以在符合联邦要求的云环境中运行 {% data variables.product.prodname_ghe_server %}。 更多关于 AWS 符合联邦和其他标准的合规信息，请参阅 [AWS 的 GovCloud (US) 页面](http://aws.amazon.com/govcloud-us/)以及 [AWS 的合规页面](https://aws.amazon.com/compliance/)。
+AMIs for {% data variables.product.prodname_ghe_server %} are available in the AWS GovCloud (US-East and US-West) region. This allows US customers with specific regulatory requirements to run {% data variables.product.prodname_ghe_server %} in a federally compliant cloud environment. For more information on AWS's compliance with federal and other standards, see [AWS's GovCloud (US) page](http://aws.amazon.com/govcloud-us/) and [AWS's compliance page](https://aws.amazon.com/compliance/).
 
-#### 使用 {% data variables.product.prodname_ghe_server %} 门户选择 AMI
+### Using the {% data variables.product.prodname_ghe_server %} portal to select an AMI
 
 {% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-appliance %}
-3. 在 Select your platform 下拉菜单中，单击 **Amazon Web Services**。
-4. 在 Select your AWS region 下拉菜单中，选择所需地区。
-5. 记下显示的 AMI ID。
+3. In the Select your platform drop-down menu, click **Amazon Web Services**.
+4. In the Select your AWS region drop-down menu, choose your desired region.
+5. Take note of the AMI ID that is displayed.
 
-#### 使用 AWS CLI 选择 AMI
+### Using the AWS CLI to select an AMI
 
-1. 使用 AWS CLI 获取由 {% data variables.product.prodname_dotcom %} 的 AWS 所有者 ID（`025577942450` 代表 GovCloud，`895557238572` 代表其他地区）发布的 {% data variables.product.prodname_ghe_server %} 映像列表。 更多信息请参阅 AWS 文档中的“[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)”。
+1. Using the AWS CLI, get a list of {% data variables.product.prodname_ghe_server %} images published by {% data variables.product.prodname_dotcom %}'s AWS owner IDs (`025577942450` for GovCloud, and `895557238572` for other regions). For more information, see "[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)" in the AWS documentation.
   ```shell
   aws ec2 describe-images \
   --owners <em>OWNER ID</em> \
   --query 'sort_by(Images,&Name)[*].{Name:Name,ImageID:ImageId}' \
   --output=text
   ```
-2. 记下最新 {% data variables.product.prodname_ghe_server %} 映像的 AMI ID。
+2. Take note of the AMI ID for the latest {% data variables.product.prodname_ghe_server %} image.
 
-### 创建安全组
+## Creating a security group
 
-如果是首次设置 AMI，您需要创建安全组并为下表中的每个端口添加新的安全组规则。 更多信息请参阅 AWS 指南“[使用安全组](http://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-sg.html)”。
+If you're setting up your AMI for the first time, you will need to create a security group and add a new security group rule for each port in the table below. For more information, see the AWS guide "[Using Security Groups](http://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-sg.html)."
 
-1. 使用 AWS CLI 创建新的安全组。 更多信息请参阅 AWS 文档中的“[create-security-group](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)”。
+1. Using the AWS CLI, create a new security group. For more information, see "[create-security-group](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)" in the AWS documentation.
   ```shell
   $ aws ec2 create-security-group --group-name <em>SECURITY_GROUP_NAME</em> --description "<em>SECURITY GROUP DESCRIPTION</em>"
   ```
 
-2. 记下新创建的安全组的安全组 ID (`sg-xxxxxxxx`)。
+2. Take note of the security group ID (`sg-xxxxxxxx`) of your newly created security group.
 
-3. 为下表中的每个端口创建安全组规则。 更多信息请参阅 AWS 文档中的 "[authorize-security-group-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html)"。
+3. Create a security group rule for each of the ports in the table below. For more information, see "[authorize-security-group-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html)" in the AWS documentation.
   ```shell
   $ aws ec2 authorize-security-group-ingress --group-id <em>SECURITY_GROUP_ID</em> --protocol <em>PROTOCOL</em> --port <em>PORT_NUMBER</em> --cidr <em>SOURCE IP RANGE</em>
   ```
-  此表列出了每个端口的用途。
+  This table identifies what each port is used for.
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-### 创建 {% data variables.product.prodname_ghe_server %} 实例
+## Creating the {% data variables.product.prodname_ghe_server %} instance
 
-要创建实例，您需要使用 {% data variables.product.prodname_ghe_server %} AMI 启动 EC2 实例，并连接额外的存储卷来存储实例数据。 更多信息请参阅“[硬件考量因素](#hardware-considerations)”。
+To create the instance, you'll need to launch an EC2 instance with your {% data variables.product.prodname_ghe_server %} AMI and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
 
 {% note %}
 
-**注：**您可以加密数据磁盘以获得更高的安全级别，并确保写入实例的所有数据都受到保护。 使用加密磁盘会对性能稍有影响。 如果您决定要对卷加密，我们强烈建议您在首次启动实例**之前**进行加密。 更多信息请参阅[关于 EBS 加密的 Amazon 指南](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)。
+**Note:** You can encrypt the data disk to gain an extra level of security and ensure that any data you write to your instance is protected. There is a slight performance impact when using encrypted disks. If you decide to encrypt your volume, we strongly recommend doing so **before** starting your instance for the first time.
+ For more information, see the [Amazon guide on EBS encryption](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
 
 {% endnote %}
 
 {% warning %}
 
-**警告**：如果您决定在配置完实例后启用加密，则需要将数据迁移到加密卷，此过程将导致用户停机一段时间。
+**Warning:** If you decide to enable encryption after you've configured your instance, you will need to migrate your data to the encrypted volume, which will incur some downtime for your users.
 
 {% endwarning %}
 
-#### 启动 EC2 实例
+### Launching an EC2 instance
 
-在 AWS CLI 中，使用 AMI 以及您创建的安全组启动 EC2 实例。 附上新的块设备，以用作实例数据的存储卷，并根据您的用户许可数配置大小。 更多信息请参阅 AWS 文档中的 "[run-instances](http://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html)"。
+In the AWS CLI, launch an EC2 instance using your AMI and the security group you created. Attach a new block device to use as a storage volume for your instance data, and configure the size based on your user license count. For more information, see "[run-instances](http://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html)" in the AWS documentation.
 
 ```shell
 aws ec2 run-instances \
@@ -114,21 +121,21 @@ aws ec2 run-instances \
   --ebs-optimized
 ```
 
-#### 分配弹性 IP 并将其与实例关联
+### Allocating an Elastic IP and associating it with the instance
 
-如果是生产实例，我们强烈建议先分配弹性 IP (EIP) 并将其与实例关联，然后再继续进行 {% data variables.product.prodname_ghe_server %} 配置。 否则，实例重新启动后将无法保留公共 IP 地址。 更多信息请参阅 Amazon 文档中的“[分配弹性 IP 地址](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)”和“[将弹性 IP 地址与运行的实例关联](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)”。
+If this is a production instance, we strongly recommend allocating an Elastic IP (EIP) and associating it with the instance before proceeding to {% data variables.product.prodname_ghe_server %} configuration. Otherwise, the public IP address of the instance will not be retained after instance restarts. For more information, see "[Allocating an Elastic IP Address](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)" and "[Associating an Elastic IP Address with a Running Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)" in the Amazon documentation.  
 
-如果采用生产高可用性配置，主实例和副本实例均应分配单独的 EIP。 更多信息请参阅“[配置 {% data variables.product.prodname_ghe_server %} 以实现高可用性](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)”。
+Both primary and replica instances should be assigned separate EIPs in production High Availability configurations. For more information, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
 
-### 配置 {% data variables.product.prodname_ghe_server %} 实例
+## Configuring the {% data variables.product.prodname_ghe_server %} instance
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} 更多信息请参阅“[配置 {% data variables.product.prodname_ghe_server %} 设备](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)”。
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### 延伸阅读
+## Further reading
 
-- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
-- "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

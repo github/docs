@@ -1,8 +1,8 @@
 ---
 title: Guide to Submitting a DMCA Counter Notice
 redirect_from:
-  - /dmca-counter-notice-how-to/
-  - /articles/dmca-counter-notice-how-to/
+  - /dmca-counter-notice-how-to
+  - /articles/dmca-counter-notice-how-to
   - /articles/guide-to-submitting-a-dmca-counter-notice
 versions:
   fpt: '*'

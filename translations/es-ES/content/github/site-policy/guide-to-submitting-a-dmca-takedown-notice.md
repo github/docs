@@ -1,11 +1,11 @@
 ---
 title: Guía para enviar un aviso de retiro de DMCA
 redirect_from:
-  - /dmca-notice-how-to/
-  - /articles/dmca-notice-how-to/
+  - /dmca-notice-how-to
+  - /articles/dmca-notice-how-to
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -17,7 +17,7 @@ Debido al tipo de contenido de los hosts de GitHub (principalmente de código de
 
 Como en todas las cuestiones jurídicas, siempre es mejor consultar con un profesional sobre tus preguntas o situación específicas. Te recomendamos enfáticamente que lo hagas antes de emprender cualquier acción que pueda afectar tus derechos. Esta guía no es asesoramiento legal y no debería ser tomada como tal.
 
-### Antes de comenzar
+## Antes de comenzar
 
 ***Di la Verdad.*** La DMCA requiere que prestes atención a los hechos en tu queja de derechos de autor *bajo pena de perjurio*. Es un crimen federal mentir intencionadamente en una declaración jurada. (*Consulta* [el Código de lso EE.UU. , Título 18, Sección 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) La presentación de información falsa también podría resultar en responsabilidad civil, es decir, podrías ser demandado por daños monetarios. La DMCA por sí misma [proporciona daños](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations) contra cualquier persona que, a sabiendas, tergiversa materialmente dicha actividad o material infractor.
 
@@ -49,7 +49,7 @@ Esta lista no es exhaustiva, por lo que hablar con un profesional legal sobre tu
 
 ***GitHub no es el juez.*** GitHub ejerce poca discreción en el proceso además de determinar si las notificaciones cumplen con los requisitos mínimos de la DMCA. Corresponde a las partes (y a sus abogados) evaluar el mérito de sus reclamaciones, teniendo en cuenta que los avisos deben realizarse bajo pena de perjurio.
 
-### Tu queja debe ...
+## Tu queja debe ...
 
 1. **Incluir la siguiente declaración: "He leído y entendido la guía de GitHub para presentar una notificación de DMCA.** No nos negaremos a procesar una queja completa si no incluye esta declaración. Pero sabremos que no has leído estas directrices y podríamos solicitarte que regreses y lo lleves a cabo.
 
@@ -70,14 +70,14 @@ Esta lista no es exhaustiva, por lo que hablar con un profesional legal sobre tu
 
 9. **Incluye tu firma física o electrónica.**
 
-### Quejas sobre Tecnología de Anti Elusión
+## Quejas sobre Tecnología de Anti Elusión
 
 La Ley de Derechos de Autor también prohíbe la elusión de medidas tecnológicas que controlen eficazmente el acceso a las obras protegidas por los derechos de autor. Si crees que el contenido que se hospeda en GitHub viola esta prohibición, por favor, envíanos un reporte mediante nuestro {% data variables.contact.contact_dmca %}. Un reclamo de evasión debe incluir los siguientes detalles sobre las medidas técnicas puestas en marcha y sobre la forma en la que el proyecto acusado las evade. Específicamente, la notificación a GitHub debe incluir las declaraciones que describan:
 1. Cuáles son las medidas técnicas;
 2. Cómo controlan el acceso al material con derechos de autor de forma efectiva; y
 3. Cómo se diseñó el proyecto actusado para evadir las medidas de protección tecnológica que se describen con anterioridad.
 
-### Como presentar tu queja
+## Como presentar tu queja
 
 La forma más rápida de obtener una respuesta es ingresar tu información y responder a todas las preguntas de nuestro {% data variables.contact.contact_dmca %}.
 
