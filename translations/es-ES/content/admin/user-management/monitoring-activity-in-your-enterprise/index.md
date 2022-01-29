@@ -1,11 +1,13 @@
 ---
 title: Monitorear la actividad en tu empresa
+intro: Puedes ver la actividad si aprovechas los tableros y bitácoras de tu empresa.
 redirect_from:
   - /enterprise/admin/installation/monitoring-activity-on-your-github-enterprise-server-instance
   - /enterprise/admin/user-management/monitoring-activity-in-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -15,5 +17,7 @@ children:
   - /audited-actions
   - /viewing-push-logs
   - /log-forwarding
+  - /managing-global-webhooks
+shortTitle: Monitorear tu empresa
 ---
 

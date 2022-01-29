@@ -7,12 +7,13 @@ redirect_from:
   - /articles/applying-for-a-student-developer-pack
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Aplicar para un paquete de estudiante
 ---
 
 {% data reusables.education.about-github-education-link %}
 
-### Requisitos
+## Requisitos
 
 Para ser elegible para el {% data variables.product.prodname_student_pack %}, debes:
 - Estar inscrito actualmente en un curso que otorgue un título o diploma que garantice un curso de estudio como colegio, escuela secundaria, facultad, universidad, escolarización en casa o institución educativa similar
@@ -32,7 +33,7 @@ Es posible que se te pida periódicamente que vuelvas a verificar tu estado acad
 
 Para obtener información sobre cómo renovar tu {% data variables.product.prodname_student_pack %}, consulta "[Caducidad y renovaciones](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)".
 
-### Aplicar para un {% data variables.product.prodname_student_pack %}
+## Aplicar para un {% data variables.product.prodname_student_pack %}
 
 {% data reusables.education.benefits-page %}
 3. En "¿Qué es lo que mejor describe tu estado académico?", selecciona **Student** (Estudiante). ![Selecciona el estado académico](/assets/images/help/education/academic-status-student.png)
@@ -42,13 +43,13 @@ Para obtener información sobre cómo renovar tu {% data variables.product.prodn
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### Caducidad y renovaciones
+## Caducidad y renovaciones
 
 Una vez que caduca tu acceso a {% data variables.product.prodname_student_pack %}, puedes volver a aplicar si sigues siendo elegible, aunque es posible que las ofertas de algunos socios no puedan renovarse. La mayoría de las ofertas regulares de nuestros socios comiencen una vez que las configuraste. Para obtener más información, consulta la página [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
 
 Para ver cuándo caduca tu acceso gratis al {% data variables.product.prodname_student_pack %}, visita los [ajustes de facturación](https://github.com/settings/billing).
 
-### Leer más
+## Leer más
 
 - "[¿Por qué no aprobaron mi aplicación para un {% data variables.product.prodname_student_pack %}?](/articles/why-wasn-t-my-application-for-a-student-developer-pack-approved)"
 - "[Registrarse para una nueva cuenta de {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)"

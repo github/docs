@@ -1,1 +1,2 @@
-1. 在侧边栏中，单击 **{% data variables.product.prodname_dependabot %}**。 ![{% data variables.product.prodname_dependabot %} 密钥边栏选项](/assets/images/help/dependabot/dependabot-secrets.png)
+1. In the sidebar, click **{% data variables.product.prodname_dependabot %}**.{% ifversion fpt or ghec %} ![{% data variables.product.prodname_dependabot %} secrets sidebar option](/assets/images/help/dependabot/dependabot-secrets.png){% else %}
+![{% data variables.product.prodname_dependabot %} secrets sidebar option](/assets/images/enterprise/3.3/dependabot/dependabot-secrets.png){% endif %}

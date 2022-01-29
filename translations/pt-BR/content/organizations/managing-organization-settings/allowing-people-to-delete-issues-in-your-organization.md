@@ -5,17 +5,19 @@ redirect_from:
   - /articles/allowing-people-to-delete-issues-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-delete-issues-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Permitir exclusão de problema
 ---
 
 Por padrão, os problemas não podem ser excluídos dos repositórios de uma organização. Um proprietário da organização deve habilitar esse recurso primeiro para todos os repositórios da organização.
 
-Uma vez habilitado, os proprietários da organização e as pessoas com permissões de administrador em um repositório pertencente à organização podem excluir os problemas. As pessoas com permissões de administrador em um repositório incluem integrantes da organização e colaboradores externos com privilégios administrativos. Para obter mais informações, consulte "[ Níveis de permissão do repositório da organização](/articles/repository-permission-levels-for-an-organization/)" e "[Excluir um problema](/articles/deleting-an-issue)".
+Uma vez habilitado, os proprietários da organização e as pessoas com acesso de administrador em um repositório pertencente à organização podem excluir os problemas. As pessoas com acesso de administrador em um repositório incluem integrantes da organização e colaboradores externos aos quais foi dado acesso de administrador. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" e "[Excluindo um problema](/articles/deleting-an-issue)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -5,17 +5,18 @@ intro: É possível configurar sua empresa para atender às necessidades da sua 
 redirect_from:
   - /enterprise/admin/configuration
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
   - /configuring-your-enterprise
   - /configuring-network-settings
-  - /managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
+  - /configuring-github-connect
 ---
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 {% note %}
 
 **Observação:** Para configurar {% data variables.product.prodname_actions %} ou {% data variables.product.prodname_registry %} para sua empresa, veja "[Gerenciar o GitHub Actions para a sua empresa](/admin/github-actions)" ou "[Gerenciar pacotes do GitHub para a sua empresa](/admin/packages)".

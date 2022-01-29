@@ -1,1 +1,0 @@
-Puedes aprobar el acceso para una dirección IP única o para un rango de ellas utilizando notación CIDR. Para obtener más información, consulta "[Notación CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)" en Wikipedia.

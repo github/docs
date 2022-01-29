@@ -1,1 +1,0 @@
-1. Klicke auf der Seitenleiste „Settings“ (Einstellungen) auf **Audit log** (Auditprotokoll). ![Organisations-Auditprotokolleinstellungen auf der Seitenleiste](/assets/images/help/organizations/org-settings-audit-log.png)

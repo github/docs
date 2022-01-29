@@ -4,7 +4,8 @@ intro: '{% data variables.product.product_name %} コミュニティによって
 redirect_from:
   - /articles/exploring-integrations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 children:
   - /about-integrations
   - /about-github-marketplace

@@ -1,0 +1,1 @@
+Las invitaciones pendientes vencerán después de 7 días, restableciendo cualquier licencia sin reclamar.{% ifversion ghec %} Si tu proveedor de identidad genera una invitación, esta no vencerá.{% endif %}

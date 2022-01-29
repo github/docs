@@ -7,17 +7,19 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: 赞助贡献者
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### 关于赞助
+## 关于赞助
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -27,13 +29,15 @@ topics:
 - 作为重视开源的组织，培养品牌知名度
 - 感谢开源开发者构建库来补充您的组织提供的产品
 
-您可以使用信用卡赞助 {% data variables.product.product_name %} 上的帐户。 如果您的组织希望按发票付款，请[联系我们](https://support.github.com/contact/org-sponsors-waitlist)。
+您可以使用信用卡赞助 {% data variables.product.product_name %} 上的帐户。 如果您的组织想要通过发票付款，您可以在 [通过发票支付 {% data variables.product.prodname_sponsors %}](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice) 上了解更多信息。
 
 {% data reusables.sponsors.no-fees %} 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)”。
 
 使用信用卡赞助帐户后，更改将立即生效。 {% data reusables.sponsors.prorated-sponsorship %}
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
+
+You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
 
 如果被赞助帐户撤销的等级，您将仍保留在该等级，直到您选择其他等级或取消订阅。 更多信息请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”。
 
@@ -43,11 +47,11 @@ topics:
 
 {% note %}
 
-**注：**{% data variables.product.prodname_dotcom %} 对开发者如何介绍自己概不负责，{% data variables.product.prodname_dotcom %} 也不为任何被赞助的开源项目背书。 索赔由接受资助的开发者自行负责。 请确保在建立信任之后提供赞助。 更多信息请参阅 [{% data variables.product.prodname_sponsors %} 附加条款](/github/site-policy/github-sponsors-additional-terms)。
+**注：**{% data variables.product.prodname_dotcom %} 对开发者如何介绍自己概不负责，{% data variables.product.prodname_dotcom %} 也不为任何被赞助的开源项目背书。 索赔由接受资助的开发者自行负责。 请确保在建立信任之后提供赞助。 更多信息请参阅 [{% data variables.product.prodname_sponsors %} 附加条款](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)。
 
 {% endnote %}
 
-### 赞助帐户
+## 赞助帐户
 
 在赞助帐户之前，您必须拥有经过验证的电子邮件地址。 更多信息请参阅“[验证电子邮件地址](/github/getting-started-with-github/verifying-your-email-address)”。
 

@@ -4,8 +4,9 @@ shortTitle: Managing GitHub packages with workflows
 intro: 'You can safely publish and consume packages by building custom workflows that can also build, test, and deploy your code.'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /publishing-and-installing-a-package-with-github-actions
   - /example-workflows-for-publishing-a-package

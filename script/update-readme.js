@@ -1,13 +1,4 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs'
-import walk from 'walk-sync'
-import dedent from 'dedent'
-import { difference } from 'lodash-es'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const readme = path.join(__dirname, 'README.md')
 
 // [start-readme]
 //
@@ -15,6 +6,17 @@ const readme = path.join(__dirname, 'README.md')
 // in each script, and adds the comment to `script/README.md`.
 //
 // [end-readme]
+
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs/promises'
+import walk from 'walk-sync'
+import dedent from 'dedent'
+import { difference } from 'lodash-es'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const readme = path.join(__dirname, 'README.md')
 
 const startComment = 'start-readme'
 const endComment = 'end-readme'
@@ -33,12 +35,11 @@ const otherScripts = difference(allScripts, scriptsToRuleThemAll)
 
 // build an object with script name as key and readme comment as value
 const allComments = {}
-allScripts.forEach((script) => {
+for (const script of allScripts) {
   const fullPath = path.join(__dirname, script)
 
   let addToReadme = false
-  const readmeComment = fs
-    .readFileSync(fullPath, 'utf8')
+  const readmeComment = (await fs.readFile(fullPath, 'utf8'))
     .split('\n')
     .filter((cmt) => {
       if (startCommentRegex.test(cmt)) addToReadme = true
@@ -56,7 +57,7 @@ allScripts.forEach((script) => {
     .replace(/\n\n/g, '\n\n\n    ')
     // remove single newlines
     .replace(/\n(?!\n)/g, ' ')
-})
+}
 
 // turn the script names/comments into itemized lists in the README
 const template = `# Scripts
@@ -73,10 +74,10 @@ ${createTemplate(otherScripts)}
 `
 
 // update the readme
-if (template === fs.readFileSync(readme, 'utf8')) {
+if (template === (await fs.readFile(readme, 'utf8'))) {
   console.log('The README is up-to-date!')
 } else {
-  fs.writeFileSync(readme, template)
+  await fs.writeFile(readme, template)
   console.log('The README.md has been updated!')
 }
 

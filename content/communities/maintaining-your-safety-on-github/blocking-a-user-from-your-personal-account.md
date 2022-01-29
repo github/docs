@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Block from your account
@@ -33,6 +34,8 @@ When you block a user:
 - You are removed as a collaborator on their repositories
 - Their sponsorship of you is cancelled
 - Any pending repository or account successor invitations to or from the blocked user are cancelled
+- The user is removed as a collaborator from all the Project Boards & Projects (beta) owned by you
+- You are removed as a collaborator from all the Project Boards & Projects (beta) owned by the user
 
 After you've blocked a user, they cannot:
 - Send you any notifications, including by [@mentioning](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) your username
@@ -45,6 +48,8 @@ After you've blocked a user, they cannot:
 - Cross-reference your repositories in comments
 - Fork, watch, pin, or star your repositories
 - Sponsor you
+- Add you as a collaborator on their Project Boards & Projects (beta)
+- Make changes to your public Project Boards & Projects (beta)
 
 In repositories you own, blocked users also cannot:
 - Open issues

@@ -7,17 +7,19 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Patrocina a un contribuyente
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### Acerca de los patrocinios
+## Acerca de los patrocinios
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -27,13 +29,15 @@ Puedes patrocinar una cuenta en nombre de tu cuenta de usuario para invertir en 
 - Desarrollar una conciencia de marca como una organización que valora el código abierto
 - Agradecer a los desarrolladores de código abierto por crear bibliotecas que complementan el producto que ofrece tu organización
 
-Puedes utilizar una tarjeta de crédito para patrocinar una cuenta en {% data variables.product.product_name %}. Si tu organización quiere pagar por factura, [contáctanos](https://support.github.com/contact/org-sponsors-waitlist).
+Puedes utilizar una tarjeta de crédito para patrocinar una cuenta en {% data variables.product.product_name %}. Si tu organización quiere pagar por factura, puedes leer más en la sección de [Pagar {% data variables.product.prodname_sponsors %} por factura](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
 
 {% data reusables.sponsors.no-fees %} Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)".
 
 Cuando patrocinas una cuenta utilizando una tarjeta de crédito, el cargo tomará efecto de inmediato. {% data reusables.sponsors.prorated-sponsorship %}
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
+
+Puedes elegir si quieres mostrar tu patrocinio públicamente. Los patrocinios de una sola vez permanecen visibles durante un mes.
 
 Si la cuenta patrocinada retira tu nivel, éste permanecerá configurado hasta que elijas uno diferente o hasta que canceles tu suscripción. Para obtener más información, consulta "[Actualizar un patrocinio](/articles/upgrading-a-sponsorship)" y "[Bajar de categoría un patrocinio](/articles/downgrading-a-sponsorship)."
 
@@ -43,11 +47,11 @@ Si la cuenta que quieres patrocinar no tiene un perfil en {% data variables.prod
 
 {% note %}
 
-**Nota:**{% data variables.product.prodname_dotcom %} no se responzabiliza por cómo se auto-representan los desarrolladores ni tampoco respalda ninguno de los proyectos de código abierto patrocinados. Las alegaciones son responsabilidad total del desarrollador que recibe los fondos. Asegúrate de que confías en una persona antes de ofrecerle un patrocinio. Para obtener más información, consulta la sección de [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/github/site-policy/github-sponsors-additional-terms).
+**Nota:** {% data variables.product.prodname_dotcom %} no se hace responsable de la forma en la que los desarrolladores se representan a sí mismos y {% data variables.product.prodname_dotcom %} tampoco respalda ningún proyecto de código abierto patrocinado. Las alegaciones son responsabilidad total del desarrollador que recibe los fondos. Asegúrate de que confías en una persona antes de ofrecerle un patrocinio. Para obtener más información, consulta la sección de [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
 
 {% endnote %}
 
-### Patrocinar una cuenta
+## Patrocinar una cuenta
 
 Antes de que puedas patrocinar una cuenta, debes tener una dirección de correo electrónico verificada. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/github/getting-started-with-github/verifying-your-email-address)".
 

@@ -1,1 +1,0 @@
-1. Klicke im Abschnitt „Organizations“ (Organisationen) auf **New organization** (Neue Organisation). ![Schaltfläche zum Erstellen einer neuen Organisation](/assets/images/help/settings/new-org-button.png)

@@ -1,96 +1,105 @@
 ---
-title: Acerca del gráfico de dependencias
-intro: Puedes utilizar la gráfica de dependencias para identificar todas las dependencias de tus proyectos. La gráfica de dependencias es compatible con una variedad de ecosistemas de paquetes populares.
+title: About the dependency graph
+intro: You can use the dependency graph to identify all your project's dependencies. The dependency graph supports a range of popular package ecosystems.
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/about-the-dependency-graph
   - /code-security/supply-chain-security/about-the-dependency-graph
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '*'
+  ghae: issue-4864
+  ghec: '*'
 type: overview
 topics:
   - Dependency graph
   - Dependencies
   - Repositories
+shortTitle: Dependency graph
 ---
-
 <!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 <!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->
 
-### Disponibilidad de la gráfica de dependencias
+## Dependency graph availability
 
-La gráfica de dependencias se encuentra disponible para cada{% if currentVersion == "free-pro-team@latest" %} repositorio público{% endif %} que define las dependencias en un ecosistema de paquetes compatible utilizando un formato de archivo compatible.{% if currentVersion == "free-pro-team@latest" %} Los administradores del repositorio también pueden configurar la gráfica de dependencias para los repositorios privados.{% endif %}
+{% ifversion fpt or ghec %}The dependency graph is available for every public repository that defines dependencies in a supported package ecosystem using a supported file format. Repository administrators can also set up the dependency graph for private repositories.{% endif %}
 
-{% data reusables.repositories.enable-security-alerts %}
+{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
-### Acerca del gráfico de dependencias
+## About the dependency graph
 
-La gráfica de dependencias es un resumen de los archivos de bloqueo y de manifiesto que se almacenan en un repositorio. Para cada repositorio, muestra{% if currentVersion == "free-pro-team@latest" %}:
+The dependency graph is a summary of the manifest and lock files stored in a repository. For each repository, it shows{% ifversion fpt or ghec %}:
 
-- Las dependencias, ecosistemas y paquetes de los cuales depende
-- Los dependientes, repositorios y paquetes que dependen de ella{% else %} dependencias, es decir, los ecosistemas y los paquetes de los cuales depende. {% data variables.product.prodname_ghe_server %} no calcula información alguna sobre los dependientes, repositorios y paquetes que dependen de un repositorio.{% endif %}
+- Dependencies, the ecosystems and packages it depends on
+- Dependents, the repositories and packages that depend on it{% else %} dependencies, that is, the ecosystems and packages it depends on. {% data variables.product.product_name %} does not calculate information about dependents, the repositories and packages that depend on a repository.{% endif %}
 
-Cuando subes una confirmación a {% data variables.product.product_name %} que cambia o agrega un archivo bloqueado o de manifiesto compatible a la rama predeterminada, la gráfica de dependencias se actualiza automáticamente.{% if currentVersion == "free-pro-team@latest" %} Adicionalmente, la gráfica se actualiza cuando cualquiera carga un cambio al repositorio de una de tus dependencias.{% endif %} Para obtener más información sobre los archivos de manifiesto y ecosistemas compatibles, consulta la sección "[Ecosistemas de paquetes compatibles](#supported-package-ecosystems)" más adelante.
+When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %} For information on the supported ecosystems and manifest files, see "[Supported package ecosystems](#supported-package-ecosystems)" below.
 
-{% if currentVersion == "free-pro-team@latest" %}
-Cuando creas una solicitud de cambios que contenga los cambios de las dependencias que apuntan a la rama predeterminada, {% data variables.product.prodname_dotcom %} utiliza la gráfica de dependencias para agregar revisiones de dependencia a la solicitud de cambios. Estas indican si las dependencias contendrán vulnerabilidades y, si es el caso, la versión de la dependencia en la cual se arregló la vulnerabilidad. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 {% endif %}
 
-### Dependencias que se incluyen
+## Dependencies included
 
-La gráfica de dependencias incluye todas las dependencias de un repositorio que se describan en los archivos de manifiesto y de bloqueo o sus equivalentes para los ecosistemas compatibles. Esto incluye:
+The dependency graph includes all the dependencies of a repository that are detailed in the manifest and lock files, or their equivalent, for supported ecosystems. This includes:
 
-- Las dependencias directas que se definen explícitamente en el archivo de manifiesto o de bloqueo
-- Las dependencias indirectas de estas dependencias directas, también conocidas como dependencias transitorias o sub-dependencias
+- Direct dependencies, that are explicitly defined in a manifest or lock file
+- Indirect dependencies of these direct dependencies, also known as transitive dependencies or sub-dependencies
 
-La gráfica de dependencias identifica las dependencias indirectas{% if currentVersion == "free-pro-team@latest" %} ya sea explícitamente desde un archivo bloqueado o mediante la verificación de las dependencias de tus dependencias directas. Para la gráfica más confiable, debes utilizar archivos de bloqueo (o su equivalente), ya que estos definen exactamente qué versiones de las dependencias directas e indirectas estás utilizando actualmente. Si utilizas archivos de bloqueo, también te aseguras de que todos los contribuyentes del repositorio están utilizando las mismas versiones, lo cual te facilitará el probar y depurar el código{% else %} de los archivos de bloqueo{% endif %}.
+The dependency graph identifies indirect dependencies{% ifversion fpt or ghec %} either explicitly from a lock file or by checking the dependencies of your direct dependencies. For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}.
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Dependientes incluídos
+{% ifversion fpt or ghec %}
+## Dependents included
 
-Para los repositorios públicos, únicamente se reportan los repositorios públicos que dependen de éste o de los paquetes que publicas. Esta información no se reporta para los repositorios privados.{% endif %}
+For public repositories, only public repositories that depend on it or on packages that it publishes are reported. This information is not reported for private repositories.{% endif %}
 
-### Utiizar la gráfica de dependencias
+## Using the dependency graph
 
-Puedes utilizar la gráfica de dependencias para:
+You can use the dependency graph to:
 
-- Explora los repositorios de los cuales depende tu código{% if currentVersion == "free-pro-team@latest" %} y aquellos que dependen de él{% endif %}. Para obtener más información, consulta la sección "[Explorar las dependencias de un repositorio](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)". {% if currentVersion == "free-pro-team@latest" %}
-- Ver en un solo tablero un resumen de las dependencias que se utilizan en los repositorios de tu organización. Para obtener más información, consulta "[Ver información de tu organización](/articles/viewing-insights-for-your-organization#viewing-organization-dependency-insights)".{% endif %}
-- Ver y actualizar las dependencias vulnerables de tu repositorio. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".{% if currentVersion == "free-pro-team@latest" %}
-- Consulta la información sobre las dependencias vulnerables en las solicitudes de cambios. Para obtener más información, consulta la sección "[Revisar los cambios de dependencia en una solicitud de cambios](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)".{% endif %}
+- Explore the repositories your code depends on{% ifversion fpt or ghec %}, and those that depend on it{% endif %}. For more information, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)." {% ifversion fpt or ghec %}
+- View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization#viewing-organization-dependency-insights)."{% endif %}
+- View and update vulnerable dependencies for your repository. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."{% ifversion fpt or ghes > 3.1 or ghec %}
+- See information about vulnerable dependencies in pull requests. For more information, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."{% endif %}
 
-### Habilitar la gráfica de dependencias
+## Enabling the dependency graph
 
-{% if currentVersion == "free-pro-team@latest" %}Para generar una gráfica de dependencias, {% data variables.product.product_name %} necesita acceso de solo lectura a los archivos bloqueados y de manifiesto de la dependencia para el repositorio en cuestión. La gráfica de dependencias se genera automáticamente para todos los repositorios públicos y puedes elegir habilitarla para los privados. For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."
+{% ifversion fpt or ghec %}To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}Si la gráfica de dependencias no se encuentra disponible en tu sistema, tu administrador de sitio puede habilitarla junto con las {% data variables.product.prodname_dependabot_alerts %}. Para obtener más información, consulta la sección "[Habilitar las alertas para las dependencias vulnerables en {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)".{% endif %}
+{% ifversion ghes or ghae %}If the dependency graph is not available in your system, your enterprise owner can enable the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. For more information, see  "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."{% endif %}
 
-Cuando la gráfica de dependencias se habilita por primera vez, cualquier manifiesto y archivo de bloqueo para los ecosistemas compatibles se pasarán de inmediato. La gráfica se llena en cuestión de minutos habitualmente, pero esto puede tardar más para los repositorios que tengan muchas dependencias. Una vez que se habilite, la gráfica se actualiza automáticamente con cada subida al repositorio{% if currentVersion == "free-pro-team@latest" %} y con cada subida a otros repositorios en la gráfica{% endif %}.
+When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% ifversion fpt or ghec %} and every push to other repositories in the graph{% endif %}.
 
-### Ecosistemas de paquetes compatibles
+## Supported package ecosystems
 
-Los formatos recomendados definen explícitamente qué versiones se utilizan para todas las dependencias directas e indirectas. Si utilizas estos formatos, tu gráfica de dependencias será más precisa. También refleja la configuración actual de la compilación y habilita la gráfica de dependencias para reportar vulnerabilidades tanto en las dependencias directas como en las indirectas.{% if currentVersion == "free-pro-team@latest" %} Las dependencias directas que se infieran de un archivo de manifiesto (o de su equivalente) se excluirán de las verificaciones para las dependencias vulnerables.{% endif %}
+The recommended formats explicitly define which versions are used for all direct and all indirect dependencies. If you use these formats, your dependency graph is more accurate. It also reflects the current build set up and enables the dependency graph to report vulnerabilities in both direct and indirect dependencies.{% ifversion fpt or ghec %} Indirect dependencies that are inferred from a manifest file (or equivalent) are excluded from the checks for vulnerable dependencies.{% endif %}
 
-| Administración de paquetes | Idiomas                          | Formatos recomendados                                  | Todos los formatos compatibles                                            |
-| -------------------------- | -------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------- |
-| Composer                   | PHP                              | `composer.lock`                                        | `composer.json`, `composer.lock`                                          |
-| `dotnet` CLI               | .NET languages (C#, C++, F#, VB) | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
-| Maven                      | Java, Scala                      | `pom.xml`                                              | `pom.xml`                                                                 |
-| npm                        | JavaScript                       | `package-lock.json`                                    | `package-lock.json`, `package.json`                                       |
-| Python PIP                 | Python                           | `requirements.txt`, `pipfile.lock`                     | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`*                |
-| RubyGems                   | Ruby                             | `Gemfile.lock`                                         | `Gemfile.lock`, `Gemfile`, `*.gemspec`                                    |
-| Yarn                       | JavaScript                       | `yarn.lock`                                            | `package.json`, `yarn.lock`                                               |
+| Package manager | Languages | Recommended formats | All supported formats |
+| --- | --- | --- | ---|
+| Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
+| `dotnet` CLI | .NET languages (C#, C++, F#, VB)  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
+{%- ifversion fpt or ghes > 3.2 or ghae %}
+| Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
+{%- elsif ghes = 3.2 %}
+| Go modules | Go | `go.mod` | `go.mod` |
+{%- endif %}
+| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
+| npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
+| Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`* |
+{%- ifversion fpt or ghes > 3.3 %}
+| Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |{% endif %}
+| RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
+| Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% note %}
 
-**Nota:** Si listas tus dependencias de Python dentro de un archivo `setup.py`, es probable que no podamos analizar y listar cada una de las dependencias en tu proyecto.
+**Note:** If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
 
 {% endnote %}
 
-### Leer más
+## Further reading
 
-- "[Gráfica de dependencias](https://en.wikipedia.org/wiki/Dependency_graph)" en Wikipedia
-- "[Explorando las dependencias de un repositorio](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Ver la información de tu organización](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
-- "[Ver y actualizar las dependencias vulnerables en tu repositorio](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
-- "[Solucionar problemas en la detección de dependencias vulnerables](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"
+- "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia
+- "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"{% ifversion fpt or ghec %}
+- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
+- "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
+- "[Troubleshooting the detection of vulnerable dependencies](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"

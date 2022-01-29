@@ -2,16 +2,18 @@
 title: 从团队中删除组织成员
 intro: 具有*所有者*或*团队维护员*权限的人员可以从团队中删除团队成员。 如果人员不再需要团队授予的仓库访问权限，或者人员不再关注团队的项目，则可能有必要这样做。
 redirect_from:
-  - /articles/removing-organization-members-from-a-team-early-access-program/
+  - /articles/removing-organization-members-from-a-team-early-access-program
   - /articles/removing-organization-members-from-a-team
   - /github/setting-up-and-managing-organizations-and-teams/removing-organization-members-from-a-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 删除成员
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}

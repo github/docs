@@ -3,16 +3,20 @@ title: Agregar propuestas y solicitudes de extracción a un tablero de proyecto
 intro: Puedes agregar propuestas y solicitudes de extracción a un tablero de proyecto en la forma de tarjetas y jerarquizarlas en columnas.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
-  - /articles/adding-issues-and-pull-requests-to-a-project/
+  - /articles/adding-issues-and-pull-requests-to-a-project
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Agrega propuestas & solicitudes de cambio a un tablero
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Puedes agregar propuestas o tarjetas de solicitudes de extracción a un tablero de proyecto al:
 - Arrastrar tarjetas desde la sección **Triage** (Jerarquizar) en la barra lateral.
@@ -33,7 +37,7 @@ Puedes poner un máximo de 2500 tarjetas en cada columna del proyecto. Si una co
 
 {% data reusables.project-management.link-repos-to-project-board %} Cuando buscas propuestas y solicitudes de extracción para agregar a tu tablero de proyecto, la búsqueda automáticamente llega a tus repositorios relacionados. Puedes eliminar estos calificadores para buscar dentro de todos los repositorios de la organización. Para obtener más información, consulta "[Vincular un repositorio con un tablero de proyecto](/articles/linking-a-repository-to-a-project-board)".
 
-### Agregar propuestas y solicitudes de extracción a un tablero de proyecto
+## Agregar propuestas y solicitudes de extracción a un tablero de proyecto
 
 1. Navegue hasta el tablero de proyecto donde deseas agregar propuestas y solicitudes de extracción.
 2. En tu tablero de proyecto, haz clic en {% octicon "plus" aria-label="The plus icon" %} **Add cards** (Agregar tarjetas). ![Agregar botón de tarjetas](/assets/images/help/projects/add-cards-button.png)
@@ -54,7 +58,7 @@ Puedes poner un máximo de 2500 tarjetas en cada columna del proyecto. Si una co
 
     {% endtip %}
 
-### Agregar propuestas y solicitudes de extracción a un tablero de proyecto de la barra lateral
+## Agregar propuestas y solicitudes de extracción a un tablero de proyecto de la barra lateral
 
 1. En el lateral derecho de una propuesta o solicitud de extracción, haz clic en **Projects{% octicon "gear" aria-label="The Gear icon" %} (Proyectos**. ![Botón del tablero de proyecto en la barra lateral](/assets/images/help/projects/sidebar-project.png)
 2. Da clic en la pestaña **Reciente**,**Repositorio**,**Usuario**, u **Organización** del tablero de proyecto que te gustaría agregar. ![Pestañas Recent (Reciente), Repository (Repositorio) y Organization (Organización)](/assets/images/help/projects/sidebar-project-tabs.png)
@@ -62,7 +66,7 @@ Puedes poner un máximo de 2500 tarjetas en cada columna del proyecto. Si una co
 4. Selecciona uno o más tableros de proyecto en donde quieras agregar la propuesta o solicitud de cambios. ![Tablero de proyecto seleccionado](/assets/images/help/projects/sidebar-select-project.png)
 5. Haz clic en {% octicon "triangle-down" aria-label="The down triangle icon" %}, luego haz clic en la columna en la que quieras colocar tu propuesta o solicitud de extracción. La tarjeta se moverá al final de la columna del tablero de proyecto que selecciones. ![Menú Move card to column (Mover tarjeta a la columna)](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
-### Leer más
+## Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Editar un tablero de proyecto](/articles/editing-a-project-board)"

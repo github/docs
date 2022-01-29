@@ -6,17 +6,19 @@ redirect_from:
   - /articles/viewing-insights-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Organizationインサイトの表示
 ---
 
-Organization のメンバー全員が Organization のインサイトを表示できます。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
+Organization のメンバー全員が Organization のインサイトを表示できます。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 Organization のメンバーが、コードについてコラボレートや作業をするため {% data variables.product.product_name %} をどう使っているかについて、より深く理解するために、Organization activity insights を使用できます。 dependency insights は、Organization のオープンソース利用について追跡、レポート、および行動するため役立ちます。
 
-### Organization activity insights を表示する
+## Organization activity insights を表示する
 
 {% note %}
 
@@ -32,7 +34,14 @@ Organization activity insights を使えば、Issue やプルリクエストア�
 4. オプションで、ページ右上において、表示するデータを直近**1 週間**、**1 か月**、 **1 年**から選びます。 ![org insights を表示する期間を選択する](/assets/images/help/organizations/org-insights-time-period.png)
 5. オプションで、ページ右上において、データを表示するリポジトリを最大 3 つまで選んで、[**Apply**] をクリックします。 ![org insights を表示するリポジトリを選択する](/assets/images/help/organizations/org-insights-repos.png)
 
-### Organization dependency insights を表示する
+## Organization dependency insights を表示する
+
+{% note %}
+
+**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).
+
+{% endnote %}
+
 dependency insights を使えば、あなたの Organization が頼るオープンソースプロジェクトの脆弱性、ライセンスその他の重要情報を表示できます。
 
 {% data reusables.profile.access_org %}
@@ -43,8 +52,8 @@ dependency insights を使えば、あなたの Organization が頼るオープ�
 6. [**Open security advisories**] および [**Licenses**] グラフの結果をクリックすることで、脆弱性ステータス、ライセンスまたはその 2 つを組み合わせてフィルタリングできます。 ![Organization の脆弱性およびライセンスのグラフ](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
 7. 各脆弱性の隣にある [{% octicon "package" aria-label="The package icon" %} **dependents**] をクリックして、Organization でどの依存関係が各ライブラリを使っているかを表示できます。 ![Organization の脆弱性のある依存関係](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)
 
-### 参考リンク
+## 参考リンク
  - [Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)
  - [リポジトリの依存関係を見る](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)
- - [Organization dependency insights の可視性を変更する](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)
- - [Enterprise アカウントに dependency insights に関するポリシーを施行する](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)
+ - "[Changing the visibility of your organization's dependency insights](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"{% ifversion ghec %}
+- "[Enforcing policies for dependency insights in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)"{% endif %}

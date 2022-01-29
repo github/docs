@@ -5,16 +5,14 @@ redirect_from:
   - /apps/using-content-attachments
   - /developers/apps/using-content-attachments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: <3.4
 topics:
   - GitHub Apps
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
-### 关于内容附件
+## 关于内容附件
 
 GitHub 应用程序可以注册将触发 `content_reference` 事件的域。 当有人在正文或者议题或拉取请求的注释中包含链接到注册域的 URL 时，应用程序会收到 [`content_reference` web 挂钩](/webhooks/event-payloads/#content_reference)。 您可以使用内容附件直观地为添加到议题或拉取请求的 URL 提供更多的上下文或数据。 URL 必须是完全合格的 URL，以 `http://` 或 `https://` 开头。 作为 Markdown 链接一部分的 URL 将被忽略，不会触发 `content_reference` 事件。
 
@@ -29,7 +27,7 @@ GitHub 应用程序可以注册将触发 `content_reference` 事件的域。 当
 
 有关配置 GitHub 应用程序权限和事件订阅所需的步骤，请参阅“[创建 GitHub 应用程序](/apps/building-github-apps/creating-a-github-app/)”或“[编辑 GitHub 应用程序的权限](/apps/managing-github-apps/editing-a-github-app-s-permissions/)”。
 
-### 实现内容附件流程
+## 实现内容附件流程
 
 内容附件流程向您显示议题或拉取请求中的 URL、`content_reference` web 挂钩事件以及使用额外信息更新议题或拉取请求所需调用的 REST API 端点之间的关系。
 
@@ -67,16 +65,16 @@ GitHub 应用程序可以注册将触发 `content_reference` 事件的域。 当
 
 `body` 参数可包含 Markdown：
 
-    ```shell
-    curl -X POST \
-      https://api.github.com/repos/Codertocat/Hello-World/content_references/17/attachments \
-      -H 'Accept: application/vnd.github.corsair-preview+json' \
-      -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
-      -d '{
-        "title": "[A-1234] Error found in core/models.py file",
-        "body": "You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n self.save()"
-    }'
-    ```
+```shell
+curl -X POST \
+  {% data variables.product.api_url_code %}/repos/Codertocat/Hello-World/content_references/17/attachments \
+  -H 'Accept: application/vnd.github.corsair-preview+json' \
+  -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
+  -d '{
+    "title": "[A-1234] Error found in core/models.py file",
+    "body": "You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n self.save()"
+}'
+```
 
 有关创建和安装令牌的更多信息，请参阅“[验证为 GitHub 应用程序](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)”。
 
@@ -84,7 +82,7 @@ GitHub 应用程序可以注册将触发 `content_reference` 事件的域。 当
 
 ![附加到议题引用的内容](/assets/images/github-apps/content_reference_attachment.png)
 
-### 在 GraphQL 中使用内容附件
+## 在 GraphQL 中使用内容附件
 我们在 [`content_reference` web 挂钩](/webhooks/event-payloads/#content_reference)中提供 `node_id`，以便您可以在 GraphQL API 中引用 `createContentAttachment` 突变。
 
 {% data reusables.pre-release-program.corsair-preview %}
@@ -112,7 +110,7 @@ mutation {
 示例 cURL：
 
 ```shell
-curl -X "POST" "https://api.github.com/graphql" \
+curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
      -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
      -H 'Accept: application/vnd.github.corsair-preview+json' \
      -H 'Content-Type: application/json; charset=utf-8' \
@@ -121,9 +119,9 @@ curl -X "POST" "https://api.github.com/graphql" \
 }'
 ```
 
-有关 `node_id` 的更多信息，请参阅“[使用全局节点 ID](/graphql/guides/using-global-node-ids)”。
+有关 `node_id` 的更多信息，请参阅“[使用全局节点 ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)”。
 
-### 使用 Probot 和 GitHub 应用程序清单的示例
+## 使用 Probot 和 GitHub 应用程序清单的示例
 
 要快速设置可使用 {% data variables.product.prodname_unfurls %} API 的 GitHub 应用程序，您可以使用 [Probot](https://probot.github.io/)。 要了解 Probot 如何使用 GitHub 应用程序清单，请参阅“[从清单创建 GitHub 应用程序](/apps/building-github-apps/creating-github-apps-from-a-manifest/)”。
 

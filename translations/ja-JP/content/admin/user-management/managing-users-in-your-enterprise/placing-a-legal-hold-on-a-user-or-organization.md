@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
   - /admin/user-management/placing-a-legal-hold-on-a-user-or-organization
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Organizations
   - User account
+shortTitle: Place a legal hold
 ---
 
 通常は、誰かがリポジトリを削除するとそのリポジトリは90日間はディスク上にあり、サイト管理ダッシュボード経由でリストアできます。 90日を過ぎると、そのリポジトリはパージされ、恒久的に削除されます。 ユーザあるいはOrganizationに訴訟ホールドを配置すると、所有しているリポジトリは無期限にリストアできるようになります。

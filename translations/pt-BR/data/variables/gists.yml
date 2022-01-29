@@ -1,7 +1,7 @@
 ---
 gist_homepage: >-
-  {% if currentVersion == "free-pro-team@latest" %}[página principal do gist](https://gist.github.com/){% elsif currentVersion == "github-ae@latest" %}página principal del gist, `http(s)://gist.[nome de host)`,{% else %}página principal do gist, `http(s)://[hostname]/gist` o `http(s)://gist.[hostname]` se os subdomínios são habilitados{% endif %}
+  {% ifversion fpt or ghec %}[gist home page](https://gist.github.com/){% elsif ghae %}gist home page, `http(s)://gist.[hostname]`{% else %}gist home page, `http(s)://[hostname]/gist` or `http(s)://gist.[hostname]` if subdomains are enabled{% endif %}
 gist_search_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Pesquisa de Gists](https://gist.github.com/search){% elsif currentVersion == "github-ae@latest" %}Pesquisa de Gists, `http(s)://gist.[hostname]/search`,{% else %}Búsqueda de Gists, `http(s)://[hostname]/gist/search` o `http(s)://gist.[hostname]/search` se os subdomínios estiverem habilitados{% endif %}
+  {% ifversion fpt or ghec %}[Gist Search](https://gist.github.com/search){% elsif ghae %}Gist Search, `http(s)://gist.[hostname]/search`{% else %}Gist Search, `http(s)://[hostname]/gist/search` or `http(s)://gist.[hostname]/search` if subdomains are enabled{% endif %}
 discover_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Discover](https://gist.github.com/discover){% elsif currentVersion == "github-ae@latest" %}Descubra, `http(s)://gist.[hostname]/discover`,{% else %}Descubra, `http(s)://[hostname]/gist/discover` o `http(s)://gist.[hostname]/discover` se os subdomínios estiverem habilitados{% endif %}
+  {% ifversion fpt or ghec %}[Discover](https://gist.github.com/discover){% elsif ghae %}Discover, `http(s)://gist.[hostname]/discover`{% else %}Discover, `http(s)://[hostname]/gist/discover` or `http(s)://gist.[hostname]/discover` if subdomains are enabled{% endif %}

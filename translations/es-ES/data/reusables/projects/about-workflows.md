@@ -1,0 +1,3 @@
+Projects (beta) includes built-in workflows that you can use to update the **Status** of items based on certain events. For example, you can automatically set the status to **Todo** when an item is added to your project or set the status to **Done** when an issue is closed.
+
+Cuando inicializa tu proyecto, se habilitan dos flujos de trabajo predeterminadamente: Cuando se cierran las propuestas o solicitudes de cambio de tu proyecto, su estado se muestra como **Done** y cuando estas se fusionan, se muestra también como **Done**.

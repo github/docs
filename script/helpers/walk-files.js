@@ -1,12 +1,13 @@
 #!/usr/bin/env node
-import path from 'path'
-import walk from 'walk-sync'
 
 // [start-readme]
 //
 // A helper that returns an array of files for a given path and file extension.
 //
 // [end-readme]
+
+import path from 'path'
+import walk from 'walk-sync'
 
 export default function walkFiles(dir, ext, opts = {}) {
   const dirPath = path.posix.join(process.cwd(), dir)

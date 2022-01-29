@@ -2,15 +2,17 @@
 title: リストのメトリクスの参照
 intro: '{% data variables.product.prodname_marketplace %} Insightsのページは、{% data variables.product.prodname_github_app %}のメトリクスを表示します。 このメトリクスを使って{% data variables.product.prodname_github_app %}のパフォーマンスを追跡し、価格、プラン、無料トライアル、マーケティングキャンペーンの効果の可視化の方法に関する判断を、より多くの情報に基づいて行えます。'
 redirect_from:
-  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/github-marketplace-insights/
+  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/github-marketplace-insights
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: リストのメトリクスの表示
 ---
 
 過去の日（24時間）、週、月、あるいは{% data variables.product.prodname_github_app %}がリストされた期間全体に対するメトリクスを見ることができます。
@@ -21,7 +23,7 @@ topics:
 
 {% endnote %}
 
-### パフォーマンスメトリクス
+## パフォーマンスメトリクス
 
 Insightsページには、選択された期間に対する以下のパフォーマンスメトリクスが表示されます。
 
@@ -35,7 +37,7 @@ Insightsページには、選択された期間に対する以下のパフォー
 
 {% endnote %}
 
-#### コンバージョンパフォーマンス
+### コンバージョンパフォーマンス
 
 * **Unique visitors to landing page:** GitHub Appのランディングページを閲覧した人数。
 * **Unique visitors to checkout page:** GitHub Appのチェックアウトページのいずれかを閲覧した人数。
@@ -48,7 +50,7 @@ Insightsページには、選択された期間に対する以下のパフォー
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Select the {% data variables.product.prodname_github_app %} that you'd like to view Insights for.
+4. Insightを表示させる{% data variables.product.prodname_github_app %}を選択します。
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. **Insights**タブをクリックしてください。
 7. Insightsページの右上にあるPeriod（期間）ドロップダウンをクリックして、異なる期間を選択することもできます。 ![Marketplaceの期間](/assets/images/marketplace/marketplace_insights_time_period.png)

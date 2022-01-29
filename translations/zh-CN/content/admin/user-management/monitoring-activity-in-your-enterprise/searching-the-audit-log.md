@@ -2,13 +2,13 @@
 title: 搜索审核日志
 intro: 站点管理员可以在企业上搜索已审核操作的广泛列表。
 redirect_from:
-  - /enterprise/admin/articles/searching-the-audit-log/
+  - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
   - /enterprise/admin/user-management/searching-the-audit-log
   - /admin/user-management/searching-the-audit-log
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,7 +16,7 @@ topics:
   - Logging
 ---
 
-### 搜索查询语法
+## 搜索查询语法
 
 由一个或多个键值对（以 AND/OR 逻辑运算符分隔）构成一个搜索查询。
 
@@ -43,7 +43,7 @@ topics:
 
 有关操作的完整列表，请参阅“[审核的操作](/admin/user-management/audited-actions)”。
 
-### 搜索审核日志
+## 搜索审核日志
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

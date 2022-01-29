@@ -1,1 +1,1 @@
-1. https://enterprise.github.com/support/bundles/new にアクセスして Support Bundle をアップロードします。
+1. https://support.github.com/uploads にアクセスして Support Bundle をアップロードします。

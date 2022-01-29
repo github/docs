@@ -1,12 +1,13 @@
 ---
 title: 计费
+intro: 'With the Billing API, you can monitor the charges and usage {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} for a user or organization.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
-
-您可以通过计费 API 监控用户和组织的 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 费用和使用情况。
 
 您可以获取企业的帐单信息。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#billing)”REST API。
 

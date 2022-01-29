@@ -1,80 +1,106 @@
 import cx from 'classnames'
 import dayjs from 'dayjs'
+import { ActionList } from '@primer/components'
 
 import { Link } from 'components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { FeaturedLink } from 'components/context/ProductLandingContext'
-import { TruncateLines } from 'components/TruncateLines'
+import { TruncateLines } from 'components/ui/TruncateLines'
+import { BumpLink } from 'components/ui/BumpLink'
 
-type Props = {
+export type ArticleListPropsT = {
   title?: string
   viewAllHref?: string
+  viewAllTitleText?: string
   articles: Array<FeaturedLink>
-  variant?: 'compact' | 'spaced'
-  titleVariant?: 'large' | 'default'
 }
+
 export const ArticleList = ({
   title,
   viewAllHref,
+  viewAllTitleText,
   articles,
-  variant = 'compact',
-  titleVariant = 'default',
-}: Props) => {
+}: ArticleListPropsT) => {
   return (
     <>
       {title && (
         <div className="mb-4 d-flex flex-items-baseline">
-          <h3
-            className={cx(
-              titleVariant === 'large'
-                ? 'f4 text-normal text-mono text-uppercase'
-                : 'f5 text-normal text-mono underline-dashed color-text-secondary'
-            )}
-          >
-            {title}
-          </h3>
+          <h2 className={cx('f4 text-semibold')}>{title}</h2>
           {viewAllHref && (
-            <Link href={viewAllHref} className="ml-4">
+            <Link
+              href={viewAllHref}
+              className="ml-4"
+              {...(viewAllTitleText ? { title: viewAllTitleText } : {})}
+            >
               View all <ArrowRightIcon size={14} className="v-align-middle" />
             </Link>
           )}
         </div>
       )}
 
-      <ul className="list-style-none" data-testid="article-list">
-        {articles.map((link) => {
-          return (
-            <li key={link.href} className={cx(variant === 'compact' && 'border-top')}>
-              <Link
-                href={link.href}
-                className="link-with-intro Bump-link--hover no-underline d-block py-3"
+      <ActionList
+        {...{ as: 'ul' }}
+        data-testid="article-list"
+        items={articles.map((link) => {
+          return {
+            renderItem: () => (
+              <ActionList.Item
+                as="li"
+                key={link.href}
+                className={cx('border-top')}
+                sx={{
+                  borderRadius: 0,
+                  ':hover': {
+                    borderRadius: 0,
+                  },
+                }}
               >
-                <h4 className="link-with-intro-title">
-                  <span dangerouslySetInnerHTML={{ __html: link.title }} />
-                  <span className="Bump-link-symbol">→</span>
-                </h4>
-                {!link.hideIntro && link.intro && (
-                  <TruncateLines
-                    as="p"
-                    maxLines={variant === 'spaced' ? 6 : 2}
-                    className="link-with-intro-intro color-text-secondary mb-0 mt-1"
-                  >
-                    <span dangerouslySetInnerHTML={{ __html: link.intro }} />
-                  </TruncateLines>
-                )}
-                {link.date && (
-                  <time
-                    className="tooltipped tooltipped-n color-text-tertiary text-mono mt-1"
-                    aria-label={dayjs(link.date).format('LLL')}
-                  >
-                    {dayjs(link.date).format('MMMM DD')}
-                  </time>
-                )}
-              </Link>
-            </li>
-          )
+                <BumpLink
+                  as={Link}
+                  href={link.href}
+                  className="py-3"
+                  title={
+                    !link.hideIntro && link.intro ? (
+                      <h3 className="f4" data-testid="link-with-intro-title">
+                        <span
+                          dangerouslySetInnerHTML={
+                            link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
+                          }
+                        />
+                      </h3>
+                    ) : (
+                      <span
+                        className="f4 text-bold d-block"
+                        data-testid="link-with-intro-title"
+                        dangerouslySetInnerHTML={
+                          link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
+                        }
+                      ></span>
+                    )
+                  }
+                >
+                  {!link.hideIntro && link.intro && (
+                    <TruncateLines as="p" maxLines={2} className="color-fg-muted mb-0 mt-1">
+                      <span
+                        data-testid="link-with-intro-intro"
+                        dangerouslySetInnerHTML={{ __html: link.intro }}
+                      />
+                    </TruncateLines>
+                  )}
+                  {link.date && (
+                    <time
+                      className="tooltipped tooltipped-n color-fg-muted text-mono mt-1"
+                      aria-label={dayjs(link.date).format('MMMM DD')}
+                    >
+                      {dayjs(link.date).format('MMMM DD')}
+                    </time>
+                  )}
+                </BumpLink>
+              </ActionList.Item>
+            ),
+          }
         })}
-      </ul>
+      ></ActionList>
     </>
   )
 }

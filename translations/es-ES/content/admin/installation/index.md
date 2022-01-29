@@ -3,14 +3,14 @@ title: 'Instalar {% data variables.product.prodname_enterprise %}'
 shortTitle: Instalar
 intro: 'Los administradores de sistema y los especialistas de seguridad y de operaciones pueden instalar {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
-  - /enterprise/admin-guide/
-  - /enterprise/admin/guides/installation/
-  - /enterprise/admin/categories/customization/
-  - /enterprise/admin/categories/general/
-  - /enterprise/admin/categories/logging-and-monitoring/
+  - /enterprise/admin-guide
+  - /enterprise/admin/guides/installation
+  - /enterprise/admin/categories/customization
+  - /enterprise/admin/categories/general
+  - /enterprise/admin/categories/logging-and-monitoring
   - /enterprise/admin/installation
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

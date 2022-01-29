@@ -49,6 +49,7 @@ describe('siteData module (English)', () => {
   })
 
   // TODO: re-enable once Janky flakyness is resolved
+  // Docs Engineering issue: 964
   test.skip('backfills missing translated site data with English values', async () => {
     const newFile = path.join(__dirname, '../../data/newfile.yml')
     await fs.writeFile(newFile, 'newvalue: bar')
@@ -76,14 +77,12 @@ describe('siteData module (English)', () => {
   })
 
   test('includes markdown files as data', async () => {
-    const reusable = get(
-      data,
-      'en.site.data.reusables.enterprise_enterprise_support.submit-support-ticket-first-section'
-    )
+    const reusable = get(data, 'en.site.data.reusables.support.submit-a-ticket')
     expect(typeof reusable).toBe('string')
     expect(reusable.includes('1. ')).toBe(true)
   })
 
+  // Docs Engineering issue: 965
   test.skip('encodes bracketed parentheses to prevent them from becoming links', async () => {
     const reusable = get(data, 'ja.site.data.reusables.organizations.team_name')
     const expectation = `reusable should contain a bracket followed by a space. Actual value: ${reusable}`

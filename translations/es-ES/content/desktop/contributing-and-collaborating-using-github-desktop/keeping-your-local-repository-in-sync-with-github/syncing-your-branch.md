@@ -5,10 +5,10 @@ redirect_from:
   - /desktop/contributing-to-projects/syncing-your-branch
   - /desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### Acerca de la sincronización de ramas
+## Acerca de la sincronización de ramas
 
 Puedes sincronizar tu rama local con el repositorio remoto si extraes cualquier confirmación que se haya agregado a la rama en {% data variables.product.product_name %} desde la última vez que lo sincronizaste. Si realizas confirmaciones desde otro dispositivo o si muchas personas colaboran con el proyecto, necesitarás sincronizar tu rama local para mantenerla actualizada.
 
@@ -21,7 +21,7 @@ Algunos flujos de trabajo requieren o se benefician con el rebase en vez de con 
 
 
 
-### Extraer tu rama local de la rama remota
+## Extraer tu rama local de la rama remota
 
 1. En {% data variables.product.prodname_desktop %}, utiliza el menú desplegable de {% octicon "git-branch" aria-label="The branch icon" %} **Rama Actual** y selecciona la rama local que quieres actualizar.
 2.  Para verificar las confirmaciones en la rama remota, da clic en **Obtener origen** ![El botón Fetch origin (Buscar origen)](/assets/images/help/desktop/fetch-button.png)
@@ -32,7 +32,7 @@ Algunos flujos de trabajo requieren o se benefician con el rebase en vez de con 
 
 
 
-### Fusionar otra rama en tu rama de proyecto
+## Fusionar otra rama en tu rama de proyecto
 
 {% data reusables.desktop.current-branch-menu %}
 
@@ -56,7 +56,7 @@ Algunos flujos de trabajo requieren o se benefician con el rebase en vez de con 
 
 
 
-### Rebasar tu rama de proyecto en otra rama
+## Rebasar tu rama de proyecto en otra rama
 
 {% mac %}
 
@@ -88,7 +88,25 @@ Algunos flujos de trabajo requieren o se benefician con el rebase en vez de con 
 
 
 
-### Leer más
+## Combinar y fusionar otra rama en tu rama de proyecto
+
+1. Utiliza el menú desplegable de la **Rama** y haz clic en **Combinar y fusionar en la rama actual**. ![Combinar y fusionar en el menú desplegable de la rama](/assets/images/help/desktop/squash-and-merge-menu.png)
+
+2. Haz clic en la rama que quieras fusionar en la rama actual y luego en **Combinar y fusionar**. ![Botón de combinar y fusionar](/assets/images/help/desktop/squash-and-merge-selection.png) 
+   
+   {% note %}
+   
+   **Nota:** En caso de que haya conflictos para fusionar, {% data variables.product.prodname_desktop %} te notificará sobre el botón de **Combinar y fusionar**. No podrás combinar y fusionar la rama hasta que hayas resuelto todos los conflictos.
+   
+   {% endnote %}
+   
+   
+   
+   {% data reusables.desktop.push-origin %}
+
+
+
+## Leer más
 
 - "[Extraer](/github/getting-started-with-github/github-glossary#pull)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Fusionar](/github/getting-started-with-github/github-glossary#merge)" en el glosario de {% data variables.product.prodname_dotcom %}

@@ -1,4 +1,14 @@
 #!/usr/bin/env node
+
+// [start-readme]
+//
+// Run this script to add versions frontmatter and Liquid conditionals for
+// GitHub AE, based on anything currently versioned for the specified release
+// of Enterprise Server. This script should be run as part of the Enterprise
+// Server release process.
+//
+// [end-readme]
+
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
@@ -11,15 +21,6 @@ import { getLiquidConditionals } from '../helpers/get-liquid-conditionals.js'
 const contentPath = path.join(process.cwd(), 'content')
 const dataPath = path.join(process.cwd(), 'data')
 const translationsPath = path.join(process.cwd(), 'translations')
-
-// [start-readme]
-//
-// Run this script to add versions frontmatter and Liquid conditionals for
-// GitHub AE, based on anything currently versioned for the specified release
-// of Enterprise Server. This script should be run as part of the Enterprise
-// Server release process.
-//
-// [end-readme]
 
 program
   .description(

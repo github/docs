@@ -1,4 +1,4 @@
-export default function () {
+export default function localization() {
   const linkToEnglish = document.querySelector('#to-english-doc') as HTMLAnchorElement
 
   if (linkToEnglish) {

@@ -2,24 +2,21 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import lunr from 'lunr'
-import xLunrStemmerSupport from 'lunr-languages/lunr.stemmer.support.js'
-import xTinyseg from 'lunr-languages/tinyseg.js'
-import xLunrJa from 'lunr-languages/lunr.ja.js'
-import xLunrEs from 'lunr-languages/lunr.es.js'
-import xLunrPt from 'lunr-languages/lunr.pt.js'
-import xLunrDe from 'lunr-languages/lunr.de.js'
-import xFs from 'fs'
-import rank from './rank.js'
+import lunrStemmerSupport from 'lunr-languages/lunr.stemmer.support.js'
+import tinyseg from 'lunr-languages/tinyseg.js'
+import lunrJa from 'lunr-languages/lunr.ja.js'
+import lunrEs from 'lunr-languages/lunr.es.js'
+import lunrPt from 'lunr-languages/lunr.pt.js'
+import fs from 'fs/promises'
 import validateRecords from './validate-records.js'
 import { compress } from '../../lib/search/compress.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-xLunrStemmerSupport(lunr)
-xTinyseg(lunr)
-xLunrJa(lunr)
-xLunrEs(lunr)
-xLunrPt(lunr)
-xLunrDe(lunr)
-const fs = xFs.promises
+lunrStemmerSupport(lunr)
+tinyseg(lunr)
+lunrJa(lunr)
+lunrEs(lunr)
+lunrPt(lunr)
 
 export default class LunrIndex {
   constructor(name, records) {
@@ -27,7 +24,6 @@ export default class LunrIndex {
 
     // Add custom rankings
     this.records = records.map((record) => {
-      record.customRanking = rank(record)
       return record
     })
 
@@ -46,19 +42,24 @@ export default class LunrIndex {
 
     this.index = lunr(function constructIndex() {
       // No arrow here!
-      if (['ja', 'es', 'pt', 'de'].includes(language)) {
+      if (['ja', 'es', 'pt'].includes(language)) {
         this.use(lunr[language])
       }
 
+      // By default Lunr considers the `-` character to be a word boundary.
+      // This allows hyphens to be included in the search index.
+      // If you change this, remember to make it match the indexing separator
+      // in lib/search/lunr-search.js so the query is tokenized
+      // identically to the way it was indexed.
+      this.tokenizer.separator = /[\s]+/
+
       this.ref('objectID')
       this.field('url')
-      this.field('slug')
       this.field('breadcrumbs')
-      this.field('heading')
-      this.field('title')
+      this.field('headings', { boost: 3 })
+      this.field('title', { boost: 5 })
       this.field('content')
       this.field('topics')
-      this.field('customRanking')
 
       this.metadataWhitelist = ['position']
 

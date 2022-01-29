@@ -4,18 +4,20 @@ intro: 'Los propietarios de organización pueden inhabilitar, habilitar y limita
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Inhabilitar o limitar las acciones
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Acerca de los permisos de {% data variables.product.prodname_actions %} para tu organización
+## Acerca de los permisos de {% data variables.product.prodname_actions %} para tu organización
 
 {% data reusables.github-actions.disabling-github-actions %}Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[Acerca de {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)".
 
@@ -23,21 +25,7 @@ Puedes habilitar {% data variables.product.prodname_actions %} para todos los re
 
 De manera alterna, puedes habilitar {% data variables.product.prodname_actions %} para todos los repositorios en tu organización, pero limitando las acciones que un flujo de trabajo puede ejecutar. {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
-
-### Administrar los permisos de {% data variables.product.prodname_actions %} para tu organización
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Debajo de **Acciones locales y de terceros**, selecciona una opción. ![Habilitar, inhabilitar o limitar acciones para esta organización](/assets/images/help/repository/enable-org-actions.png)
-1. Haz clic en **Save ** (guardar).
-
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-
-### Administrar los permisos de {% data variables.product.prodname_actions %} para tu organización
+## Administrar los permisos de {% data variables.product.prodname_actions %} para tu organización
 
 Puedes inhabilitar todos los flujos de trabajo para una organización o configurar una política que configure qué acciones pueden utilizarse en una organización.
 
@@ -45,7 +33,7 @@ Puedes inhabilitar todos los flujos de trabajo para una organización o configur
 
 {% note %}
 
-**Nota:** Tal vez no puedas administrar estas configuraciones si la empresa que administra tu organización tiene una política que lo anule. Para obtener más información {% if currentVersion == "free-pro-team@latest" %}"[Requerir las políticas de {% data variables.product.prodname_actions %} en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% else %}"[Requerir las políticas de {% data variables.product.prodname_actions %} para tu empresa](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
+**Nota:** Tal vez no puedas administrar estas configuraciones si la empresa que administra tu organización tiene una política que lo anule. Para obtener más información, consulta la sección "[Requerir políticas para la {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)".
 
 {% endnote %}
 
@@ -55,24 +43,42 @@ Puedes inhabilitar todos los flujos de trabajo para una organización o configur
 1. Debajo de **Políticas**, selecciona una opción. ![Configurar la política de acciones para esta organización](/assets/images/help/organizations/actions-policy.png)
 1. Haz clic en **Save ** (guardar).
 
-### Permitir que se ejecuten acciones específicas
+## Permitir que se ejecuten acciones específicas
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Debajo de **Políticas**, selecciona **Permitir las acciones seleccionadas** y agrega tus acciones requeridas a la lista. ![Agregar acciones a la lista de permitidos](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. Debajo de **Políticas**, selecciona **Permitir las acciones seleccionadas** y agrega tus acciones requeridas a la lista.
+   {%- ifversion ghes > 3.0 %}
+   ![Agregar acciones a la lista de permitidos](/assets/images/help/organizations/actions-policy-allow-list.png)
+   {%- else %}
+   ![Agregar acciones a la lista de permitidos](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   {%- endif %}
 1. Haz clic en **Save ** (guardar).
 
+{% ifversion fpt or ghec %}
+## Configurar las aprobaciones requeridas para los flujos de trabajo desde las bifurcaciones pùblicas
+
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+Puedes configurar este comportamiento de una organización utilizando los siguientes procedimientos. El modificar este ajuste anula el ajuste de configuraciòn a nivel empresarial.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.github-actions.workflows-from-public-fork-setting %}
+
+{% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### Habilitar flujos de trabajo para las bifurcaciones de repositorios privados
+{% ifversion fpt or ghes or ghec %}
+## Habilitar flujos de trabajo para las bifurcaciones de repositorios privados
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-#### Configurar la política de bifurcaciones privadas para una organización
+### Configurar la política de bifurcaciones privadas para una organización
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -80,8 +86,8 @@ Puedes inhabilitar todos los flujos de trabajo para una organización o configur
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-### Configurar los permisos del `GITHUB_TOKEN` para tu organización
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+## Configurar los permisos del `GITHUB_TOKEN` para tu organización
 
 {% data reusables.github-actions.workflow-permissions-intro %}
 
@@ -89,7 +95,7 @@ Puedes configurar los permisos predeterminados para el `GITHUB_TOKEN` en la conf
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-#### Configurar los permisos predeterminados del `GITHUB_TOKEN`
+### Configuring the default `GITHUB_TOKEN` permissions
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

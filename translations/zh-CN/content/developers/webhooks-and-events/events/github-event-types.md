@@ -1,25 +1,25 @@
 ---
 title: GitHub 事件类型
 intro: '对于 {% data variables.product.prodname_dotcom %} 事件 API，了解每个事件类型、{% data variables.product.prodname_dotcom %} 上的触发操作以及每个事件的唯一属性。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
 
 事件 API 可以返回 GitHub 上的活动触发的不同类型事件。 每个时间响应包含共享属性，但具有由其事件类型确定的唯一 `payload` 对象。 [事件对象公共属性](#event-object-common-properties)描述所有事件共享的属性，而每个事件类型描述特定事件唯一的 `payload` 属性。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 {% endif %}
 
-### 事件对象公共属性
+## 事件对象公共属性
 
 从事件 API 端点返回的事件对象具有相同的结构。
 
@@ -40,7 +40,7 @@ topics:
 | `repo.url`            | 用于检索仓库对象的 REST API URL，其中包括更多仓库信息。                                                  |
 | `payload`             | 事件有效负载对象对于事件类型是唯一的。 关于事件 API `payload` 对象，请参阅下面的事件类型。                               |
 
-#### WatchEvent 事件对象示例
+### WatchEvent 事件对象示例
 
 此示例显示了使用[事件 API](/rest/reference/activity#events) 时 [WatchEvent](#watchevent) 响应的格式。
 
@@ -81,115 +81,115 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 ]
 ```
 
-### CommitCommentEvent
+## CommitCommentEvent
 
 {% data reusables.webhooks.commit_comment_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.commit_comment_properties %}
 
-### CreateEvent
+## CreateEvent
 
 {% data reusables.webhooks.create_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.create_properties %}
 
-### DeleteEvent
+## DeleteEvent
 
 {% data reusables.webhooks.delete_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.delete_properties %}
 
-### ForkEvent
+## ForkEvent
 
 {% data reusables.webhooks.fork_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.fork_properties %}
 
-### GollumEvent
+## GollumEvent
 
 {% data reusables.webhooks.gollum_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.gollum_properties %}
 
-### IssueCommentEvent
+## IssueCommentEvent
 
 {% data reusables.webhooks.issue_comment_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.issue_comment_webhook_properties %}
 {% data reusables.webhooks.issue_comment_properties %}
 
-### IssuesEvent
+## IssuesEvent
 
 {% data reusables.webhooks.issues_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.issue_event_api_properties %}
 {% data reusables.webhooks.issue_properties %}
 
-### MemberEvent
+## MemberEvent
 
 {% data reusables.webhooks.member_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### PublicEvent
+{% ifversion fpt or ghes or ghec %}
+## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 此事件返回一个空 `payload` 对象。
 {% endif %}
-### PullRequestEvent
+## PullRequestEvent
 
 {% data reusables.webhooks.pull_request_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
 
-### PullRequestReviewEvent
+## PullRequestReviewEvent
 
 {% data reusables.webhooks.pull_request_review_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 | 键              | 类型    | 描述                      |
 | -------------- | ----- | ----------------------- |
@@ -197,24 +197,24 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 | `pull_request` | `对象`  | 与审查相关的拉取请求。             |
 | `审查`           | `对象`  | 受影响的审查。                 |
 
-### PullRequestReviewCommentEvent
+## PullRequestReviewCommentEvent
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
 
-### PushEvent
+## PushEvent
 
 {% data reusables.webhooks.push_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 | 键                          | 类型    | 描述                                                                                                                     |
 | -------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -233,34 +233,34 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 | `commits[][url]`           | `url` | 指向提交 API 资源的 URL。                                                                                                      |
 | `commits[][distinct]`      | `布尔值` | 此提交是否与之前推送的任何提交不同。                                                                                                     |
 
-### ReleaseEvent
+## ReleaseEvent
 
 {% data reusables.webhooks.release_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### SponsorshipEvent
+{% ifversion fpt or ghec %}
+## SponsorshipEvent
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.sponsorship_event_api_properties %}
 {% data reusables.webhooks.sponsorship_properties %}
 {% endif %}
 
-### WatchEvent
+## WatchEvent
 
 {% data reusables.webhooks.watch_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### 事件 `payload` 对象
+### 事件 `payload` 对象
 
 {% data reusables.webhooks.watch_properties %}

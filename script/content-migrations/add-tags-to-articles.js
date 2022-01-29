@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 import fs from 'fs'
 import path from 'path'
-import xXlsxPopulate from 'xlsx-populate'
+import XlsxPopulate from 'xlsx-populate' // this is an optional dependency, install with `npm i --include=optional`
 import readFrontmatter from '../../lib/read-frontmatter.js'
-
-const XlsxPopulate = xXlsxPopulate // this is an optional dependency, install with `npm i --include=optional`
 
 const START_ROW = 2
 

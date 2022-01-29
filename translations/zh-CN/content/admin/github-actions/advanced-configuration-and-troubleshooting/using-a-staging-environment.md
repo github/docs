@@ -1,8 +1,8 @@
 ---
-title: 使用暂存环境
-intro: '了解在 {% data variables.product.prodname_ghe_server %} 暂存环境中使用 {% data variables.product.prodname_actions %}。'
+title: Using a staging environment
+intro: 'Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging environments.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Actions
@@ -11,24 +11,24 @@ topics:
   - Upgrades
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
+shortTitle: Use a staging area
 ---
+It can be useful to have a staging or testing environment for {% data variables.product.product_location %}, so that you can test updates or new features before implementing them in your production environment.
 
-为 {% data variables.product.product_location %} 提供临时或测试环境会有用，这样您就可以在生产环境中实施更新或新功能之前进行测试。
+A common way to create the staging environment is to use a backup of your production instance and restore it to the staging environment.
 
-创建暂存环境的常见方法是使用生产实例的备份并将其恢复到暂存环境。
+When setting up a {% data variables.product.prodname_ghe_server %} staging environment that has {% data variables.product.prodname_actions %} enabled, you must use a different external storage configuration for {% data variables.product.prodname_actions %} storage than your production environment uses. Otherwise, your staging environment will write to the same external storage as production.
 
-在设置启用 {% data variables.product.prodname_actions %} 的 {% data variables.product.prodname_ghe_server %} 暂存环境时，您必须对 {% data variables.product.prodname_actions %} 存储使用与生产环境所用不同的外部存储配置。 否则，您的暂存环境将写入与生产相同的外部存储。
+Expect to see `404` errors in your staging environment when trying to view logs or artifacts from existing {% data variables.product.prodname_actions %} workflow runs, because that data will be missing from your staging storage location.
 
-在尝试从现有的 {% data variables.product.prodname_actions %} 工作流程查看日志或工件时，预期会看到 `404` 错误， 因为暂存位置中缺少该数据。
+Although it is not required for {% data variables.product.prodname_actions %} to be functional in your staging environment, you can optionally copy the files from the production storage location to the staging storage location.
 
-虽然这不是 {% data variables.product.prodname_actions %} 在暂存环境中运行所必需的，但您可以选择性地将文件从生产存储位置复制到暂存位置。
-
-* 对于 Azure 存储帐户，您可以使用 [`azcop`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account)。 例如：
+* For an Azure storage account, you can use [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account). For example:
 
   ```shell
   azcopy copy 'https://<em>SOURCE-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/<em>SAS-TOKEN</em>' 'https://<em>DESTINATION-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/' --recursive
   ```
-* 对于 Amazon S3 存储桶，您可以使用 [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html)。 例如：
+* For Amazon S3 buckets, you can use [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). For example:
 
   ```shell
   aws s3 sync s3://<em>SOURCE-BUCKET</em> s3://<em>DESTINATION-BUCKET</em>

@@ -6,11 +6,13 @@ redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-milestone
   - /github/managing-your-work-on-github/filtering-issues-and-pull-requests-by-milestone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Filtrar por hito
 ---
 
 {% tip %}
@@ -28,10 +30,7 @@ topics:
 3. Selecciona **Hitos** para ver una lista de todos los hitos disponibles para el repositorio. ![Botón Hitos](/assets/images/help/issues/issues_milestone_button.png)
 4. Selecciona el hito que te interesa en la lista. En la página del hito puedes ver información relevante sobre el hito, incluidas todas las propuestas y solicitudes de extracción asociadas con él. Para obtener más información, consulta "[Acerca de los hitos](/articles/about-milestones)".
 
-### Leer más
+## Leer más
 
-- [Filtrar propuestas y solicitudes de extracción](/articles/filtering-issues-and-pull-requests)"
-- [Clasificar propuestas y solicitudes de extracción](/articles/sorting-issues-and-pull-requests)"
-- "[Usar la búsqueda para filtrar propuestas y solicitudes de extracción](/articles/using-search-to-filter-issues-and-pull-requests)"
-- "[Compartir filtros](/articles/sharing-filters)"
+- "[Filtrar y buscar propuestas y solicitudes de cambios](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
 - "[Filtrar tarjetas en un tablero de proyecto](/articles/filtering-cards-on-a-project-board)"

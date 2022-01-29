@@ -6,11 +6,13 @@ redirect_from:
   - /github/building-a-strong-community/creating-a-team-discussion
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team-discussion
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: 创建团队讨论
 ---
 
 {% data reusables.organizations.team-discussions-permissions %} 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
@@ -23,7 +25,7 @@ topics:
 7. （可选）使用下拉菜单选择您的帖子是私密还是公开。 ![团队讨论隐私设置菜单](/assets/images/help/projects/team-discussions-privacy-menu.png)
 8. 单击 **Comment（注释）**。 ![创建新的团队讨论评论按钮](/assets/images/help/projects/team-discussions-comment-button.png)
 
-### 延伸阅读
+## 延伸阅读
 
   - "[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)"
   - "[编辑或删除团队讨论](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

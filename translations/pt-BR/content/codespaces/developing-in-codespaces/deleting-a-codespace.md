@@ -1,29 +1,64 @@
 ---
 title: Excluir um codespace
 intro: Você pode excluir um codespace de que você não precisa mais.
-permissions: Anyone can delete a codespace owned by their user account.
+product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
   - /github/developing-online-with-codespaces/deleting-a-codespace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Excluir um codespace
 ---
 
-{% data reusables.codespaces.release-stage %}
+
 
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
-1. Acesse o repositório onde você criou o codespace. Selecione **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces** e, em seguida, clique em {% octicon "gear" aria-label="The Settings gear" %}. Isto irá exibir todo o {% data variables.product.prodname_codespaces %} que você criou no repositório. ![Aba Codespaces](/assets/images/help/codespaces/codespaces-manage.png)
+{% note %}
 
-  Como alternativa, você pode ver todos os códigos existentes na sua conta de usuário em [github.com/codespaces](https://github.com/codespaces).
+**Observação:** Somente a pessoa que criou um codespace pode excluí-lo. Atualmente, não há forma de os proprietários da organização excluírem os codespaces criados dentro de sua organização.
 
-2. À direita do código que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, depois em **{% octicon "trash" aria-label="The trash icon" %} Apagar** ![Botão excluir](/assets/images/help/codespaces/delete-codespace.png)
+{% endnote %}
 
-### Excluir um codespace em {% data variables.product.prodname_vscode %}
 
-Para obter informações sobre como excluir um codespace em {% data variables.product.prodname_vscode %}, consulte "[Usando codespaces no Visual Studio](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#deleting-a-codespace-in-visual-studio-code)".
+{% webui %}
+
+1. Acesse a página "Seus codespaces" em [github.com/codespaces](https://github.com/codespaces).
+
+2. À direita do código que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, depois em **{% octicon "trash" aria-label="The trash icon" %} Apagar**
+
+   ![Botão excluir](/assets/images/help/codespaces/delete-codespace.png)
+
+{% endwebui %}
+
+{% vscode %}
+
+{% data reusables.codespaces.deleting-a-codespace-in-vscode %}
+
+{% endvscode %}
+
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+Para excluir um codespace, use o comando `gh codespace delete` e, em seguida, escolha um codespace na lista que for exibida.
+
+```shell
+gh codespace delete
+```
+
+Se você tiver alterações não salvas, será solicitado que você confirme a exclusão. Você pode usar o sinalizador `-f` para forçar a exclusão, evitando a instrução.
+
+Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_delete).
+
+{% endcli %}
+
+## Leia mais
+- [Ciclo de vida dos codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)

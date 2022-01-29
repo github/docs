@@ -4,7 +4,7 @@ import cheerio from 'cheerio'
 import createApp from '../../lib/app.js'
 import { jest } from '@jest/globals'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)
@@ -56,7 +56,7 @@ describe('POST /events', () => {
       referrer: 'https://github.com/github/docs',
       search: '?q=is%3Aissue+is%3Aopen+example+',
       href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
-      site_language: 'en',
+      path_language: 'en',
 
       // Device information
       os: 'linux',
@@ -211,13 +211,13 @@ describe('POST /events', () => {
         400
       ))
 
-    it('should site_language is a valid option', () =>
+    it('should path_language is a valid option', () =>
       checkEvent(
         {
           ...pageExample,
           context: {
             ...pageExample.context,
-            site_language: 'nl',
+            path_language: 'nl',
           },
         },
         400

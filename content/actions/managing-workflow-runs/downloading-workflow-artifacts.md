@@ -1,24 +1,20 @@
 ---
 title: Downloading workflow artifacts
 intro: You can download archived artifacts before they automatically expire.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Download workflow artifacts
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %} By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and you can customize this retention period, depending on the type of repository. For more information, see "[Configuring the retention period for GitHub Actions artifacts and logs in your repository](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% endif %}
-{% ifversion ghes = 2.22 %} {% data variables.product.product_name %} stores full build logs and artifacts for 90 days.{% endif %}
+By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and you can customize this retention period, depending on the type of repository. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."
 
 {% data reusables.repositories.permissions-statement-read %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -27,7 +23,7 @@ shortTitle: Download workflow artifacts
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Under **Artifacts**, click the artifact you want to download.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down-updated.png)
     {% else %}
     ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down.png)
@@ -37,9 +33,7 @@ shortTitle: Download workflow artifacts
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
-
-{% data reusables.actions.actions-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 {% data variables.product.prodname_cli %} will download each artifact into separate directories based on the artifact name. If only a single artifact is specified, it will be extracted into the current directory.
 
