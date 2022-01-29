@@ -25,8 +25,8 @@ shortTitle: Ver visão geral de segurança
 {% data reusables.organizations.security-overview %}
 1. Para visualizar informações agregadas sobre tipos de alertas, clique em **Mostrar mais**. ![Botão mostrar mais](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-
 {% ifversion ghec or ghes > 3.4 %}
+1. Alternatively and optionally, use the sidebar on the left to filter information per security feature. On each page, you can use filters that are specific to each feature to fine-tune your search. ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
 ## Visualizando alertas em toda a sua organização
 
