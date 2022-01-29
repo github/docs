@@ -1,4 +1,4 @@
----
+Github Apps
 title: Apps
 intro: You can automate and streamline your workflow by building your own apps.
 redirect_from:
