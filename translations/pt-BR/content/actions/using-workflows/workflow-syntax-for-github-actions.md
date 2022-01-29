@@ -149,7 +149,7 @@ jobs:
 
     steps:
       - name: Pass the received secret to an action
-        uses: ./.github/actions/my-action@v1
+        uses: ./.github/actions/my-action
         with:
           token: ${{ secrets.access-token }}
 ```
@@ -171,42 +171,7 @@ Um booleano que especifica se o segredo deve ser fornecido.
 
 ## `on.workflow_dispatch.inputs`
 
-Ao usar o evento `workflow_dispatch`, você pode, opcionalmente, especificar as entradas que são passadas para o fluxo de trabalho.
-
-O fluxo de trabalho acionado recebe as entradas no contexto `github.event.inputs`. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts#github-context)".
-
-### Exemplo
-```yaml
-on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-        type: choice
-        options:
-        - info
-        - warning
-        - debug {% endif %}
-      tags:
-        description: 'Test scenario tags'
-        required: false {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-        type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true {% endif %}
-
-jobs:
-  print-tag:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Print the input tag to STDOUT
-        run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
-```
-
+{% data reusables.github-actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissões`
@@ -914,7 +879,7 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
-O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use one of the following syntaxes:{% endif %}
+O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use uma das seguintes sintaxes:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 

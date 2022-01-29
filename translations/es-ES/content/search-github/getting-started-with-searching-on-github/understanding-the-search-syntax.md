@@ -73,9 +73,10 @@ Puedes excluir resultados que contengan una determinada palabra utilizando la si
 
 Otra manera de reducir los resultados de búsqueda es excluir determinados subconjuntos. Puedes usar como prefijo de cualquier calificador de búsqueda un `-` para excluir todos los resultados que coincidan con ese calificador.
 
-| Consulta                   | Ejemplo                                                                                                                                                                                                                         |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>-<em>CALIFICADOR</em></code> | **[menciones:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** busca propuestas que mencionan a @defunkt y no estén en repositorios de la organización de GitHub. |
+| Consulta                   | Ejemplo                                                                                                                                                                                                                                         |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>-<em>CALIFICADOR</em></code> | **[`cats stars:>10 -language:javascript`](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** matches repositories with the word "cats" that have more than 10 stars but are not written in JavaScript. |
+|                            | **[`mentions:defunkt -org:github`](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization                        |
 
 ## Utiliza comillas para las consultas con espacios en blanco
 

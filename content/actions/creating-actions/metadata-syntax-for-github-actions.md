@@ -266,6 +266,7 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 **Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 {% endif %}
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 #### `runs.steps[*].if`
 
 **Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
@@ -294,6 +295,7 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@1.0.0
 ```
+{% endif %}
 
 #### `runs.steps[*].name`
 
