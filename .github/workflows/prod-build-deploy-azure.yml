@@ -25,6 +25,9 @@ jobs:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    environment:
+      name: production-azure
+      url: 'https://docs.github.com'
     env:
       DOCKER_IMAGE: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:${{ github.sha }}
 
@@ -87,7 +90,7 @@ jobs:
 
       # Watch preview slot instances to see when all the instances are ready
       - name: Check that preview slot is ready
-        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           CHECK_INTERVAL: 10000
         with:

@@ -114,7 +114,7 @@ O {% data variables.product.prodname_actions %} usa armazenamento do blob para a
 
 {% endnote %}
 
-Before you enable {% data variables.product.prodname_actions %}, you can test your storage configuration from the administrative shell with the `ghe-actions-precheck` utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+Antes de habilitar o {% data variables.product.prodname_actions %}, você pode testar a sua configuração de armazenamento a partir do shell administrativo com o utilitário `ghe-actions-precheck`. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" e "[Acessando o shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
 
 ## Considerações de rede
 
