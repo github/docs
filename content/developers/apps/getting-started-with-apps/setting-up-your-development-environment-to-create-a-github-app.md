@@ -300,7 +300,7 @@ An _installation_ refers to any user or organization account that has installed 
 def authenticate_installation(payload)
   installation_id = payload['installation']['id']
   installation_token = @app_client.create_app_installation_access_token(installation_id)[:token]
-  @installation_client = Octokit::Client.new(bearer_token: installation_token)
+  @installation_client = Octokit::Client.new(access_token: installation_token)
 end
 ```
 
