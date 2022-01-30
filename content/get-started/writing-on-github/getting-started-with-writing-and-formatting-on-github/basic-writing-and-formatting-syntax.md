@@ -1,4 +1,4 @@
----
+--https://myoctocat.com/assets/images/base-octocat.svg
 title: Basic writing and formatting syntax
 intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
 redirect_from:
