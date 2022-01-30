@@ -104,7 +104,7 @@ $ curl -i https://api.github.com/users/defunkt
 任何以 `X-` 开头的标头都是自定义标头，不包含在 HTTP 规范中。 例如：
 
 * `X-GitHub-Media-Type` 的值为 `github.v3`。 这让我们知道响应的[媒体类型][media types]。 媒体类型帮助我们在 API v3 中对输出进行版本控制。 我们稍后再详细讨论。
-* 请注意 `X-RateLimit-Limit` 和 `X-RateLimit-Remaining` 标头。 这对标头指示在滚动时间段（通常为一小时）内[一个客户端可以发出多少个请求][rate-limiting]，以及该客户端已使用多少个此类请求。
+* 请注意 `X-RateLimit-Limit` 和 `X-RateLimit-Remaining` 标头。 This pair of headers indicate [how many requests a client can make][rate-limiting] in a rolling time period (typically an hour) and how many of those requests the client has already spent.
 
 ## 身份验证
 
@@ -388,7 +388,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 > HTTP/2 304
 ```
 
-`304` 状态表示该资源自上次请求以来没有发生改变，该响应将不包含任何正文。 另外，`304` 响应不计入您的[速率限制][rate-limiting]。
+`304` 状态表示该资源自上次请求以来没有发生改变，该响应将不包含任何正文。 As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
 
 耶！ 现在您了解 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 的基础知识了！
 
@@ -412,8 +412,8 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 [issues-api]: /rest/reference/issues
 [link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
-[rate-limiting]: /rest#rate-limiting
-[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
 [users api]: /rest/reference/users#get-a-user
 [defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt

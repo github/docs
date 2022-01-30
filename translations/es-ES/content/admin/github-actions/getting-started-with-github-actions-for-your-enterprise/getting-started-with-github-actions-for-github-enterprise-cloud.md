@@ -13,7 +13,7 @@ topics:
 
 ## Acerca del {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_cloud %}
 
-{% data variables.product.prodname_actions %} is enabled for your enterprise by default. To get started using {% data variables.product.prodname_actions %} within your enterprise, you can manage the policies that control how enterprise members use {% data variables.product.prodname_actions %} and optionally add self-hosted runners to run workflows.
+{% data variables.product.prodname_actions %} is enabled for your enterprise by default. Para comenzar a utilizar las {% data variables.product.prodname_actions %} dentro de tu empresa, puedes administrar las políticas que controlan cómo los miembros empresariales utilizan estas {% data variables.product.prodname_actions %} y, opcionalmente, agregar ejecutores auto-hospedados a los flujos de trabajo.
 
 {% data reusables.actions.introducing-enterprise %}
 
@@ -25,7 +25,7 @@ You can use policies to control how enterprise members use {% data variables.pro
 
 ## Agregar ejecutores
 
-To run {% data variables.product.prodname_actions %} workflows, you need to use runners. {% data reusables.actions.about-runners %} If you use {% data variables.product.company_short %}-hosted runners, you will be be billed based on consumption after exhausting the minutes included in {% data variables.product.product_name %}, while self-hosted runners are free. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
+To run {% data variables.product.prodname_actions %} workflows, you need to use runners. {% data reusables.actions.about-runners %} Si utilizas ejecutores hospedados en {% data variables.product.company_short %}, se te facturará con base en el consumo después de agotar los minutos que se incluyen en {% data variables.product.product_name %}, mientras que los ejecutores auto-hospedados son gratuitos. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 
 Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 

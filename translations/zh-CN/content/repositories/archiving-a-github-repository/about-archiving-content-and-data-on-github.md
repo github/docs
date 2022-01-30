@@ -30,7 +30,7 @@ shortTitle: 存档内容和数据
 
 负责任地使用存档包括尊重用户的隐私。 更多信息请参阅“[GitHub 上的公共信息](/free-pro-team@latest/github/site-policy/github-privacy-statement#public-information-on-github)”。
 
-您可以选择退出仓库的 {% data variables.product.prodname_archive %}。 更多信息请参阅“[选择加入或退出公共仓库的 {% data variables.product.prodname_archive %}](/github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)”。
+您可以选择退出仓库的 {% data variables.product.prodname_archive %}。 更多信息请参阅“[选择加入或退出公共仓库的 {% data variables.product.prodname_archive %}](/get-started/privacy-on-github/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)”。
 
 ## 添加开源许可以增强可存档性
 

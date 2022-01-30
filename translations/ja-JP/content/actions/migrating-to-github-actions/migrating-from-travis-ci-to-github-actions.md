@@ -101,7 +101,7 @@ jobs:
 
 ### 特定のブランチをターゲットにする
 
-Travis CI と {% data variables.product.prodname_actions %} はどちらも、CI を特定のブランチにターゲット設定できます。 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)」を参照してください。
+Travis CI と {% data variables.product.prodname_actions %} はどちらも、CI を特定のブランチにターゲット設定できます。 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
 
 以下が、それぞれのシステムの構文の例です。
 

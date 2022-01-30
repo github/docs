@@ -1,6 +1,6 @@
 ---
 title: Releasing and maintaining actions
-shortTitle: Releasing and maintaining actions
+shortTitle: Lanzar y mantener las acciones
 intro: You can leverage automation and open source best practices to release and maintain actions.
 type: tutorial
 topics:
@@ -64,13 +64,13 @@ Here is an example process that you can follow to automatically run tests, creat
 
    * When a pull request is opened, either from a branch or a fork, your testing workflow will again run the tests, this time with the merge commit.
 
-   * **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. If your tests or other workflows triggered upon pull request require access to secrets, consider using a different event like a [manual trigger](/actions/reference/events-that-trigger-workflows#manual-events) or a [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Read more [here](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
+   * **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. Su tus pruebas u otros flujos de trabajo que se activaron en la solicitud de cambios requieren acceso a secretos, considera utilizar un evento diferente como un [activador manual](/actions/reference/events-that-trigger-workflows#manual-events) o una [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Read more [here](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
 
 3. Create a semantically tagged release. {% ifversion fpt or ghec %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} Para obtener más información, consulta las secciones "[Adminsitrar los lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} y "[Publicar acciones en {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
 
    * When a release is published or edited, your release workflow will automatically take care of compilation and adjusting tags.
 
-   * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" and "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
+   * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. Para obtener más información, consulta la sección "[Acerca de las acciones personalizadas](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" y "[Acerca del versionamiento semántico](https://docs.npmjs.com/about-semantic-versioning).
 
 ### Resultados
 

@@ -14,7 +14,9 @@ header:
     ghes_release_notes_upgrade_release_only: '📣 これはEnterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。'
     ghes_release_notes_upgrade_patch_and_release: '📣 これはこのリリースシリーズの<a href="#{{ latestPatch }}">最新パッチリリース</a>ではなく、これはEnterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。'
 picker:
-  toggle_picker_list: Toggle picker list
+  language_picker_default_text: Choose a language
+  product_picker_default_text: All products
+  version_picker_default_text: Choose a version
 release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
@@ -25,6 +27,7 @@ search:
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
+  search_error: An error occurred trying to perform the search.
 homepage:
   explore_by_product: 製品で調べる
   version_picker: バージョン
@@ -140,6 +143,8 @@ product_landing:
   guides: ガイド
   code_examples: コード例
   search_code_examples: 検索コードの例
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: 詳細を表示
   explore_people_and_projects: 人やプロジェクトを調べる
   sorry: 検索結果はありません

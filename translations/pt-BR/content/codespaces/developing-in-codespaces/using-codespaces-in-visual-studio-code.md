@@ -100,6 +100,7 @@ Você pode alterar o tipo de máquina do seu codespace a qualquer momento.
 
 ## Excluir um codespace em {% data variables.product.prodname_vscode %}
 
+{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
 
 ## Alternando para a compilação de Insiders de {% data variables.product.prodname_vscode %}

@@ -76,7 +76,7 @@
           <td colspan="4" class="has-nested-table">
             {%- for childParamsGroup in bodyParam.childParamsGroups -%}
             <details>
-              <summary class="color-fg-muted">
+              <summary role="button" aria-expanded="false" class="keyboard-focus color-fg-muted">
                 <span
                   class="d-inline-block mb-3"
                   id="{{ operation.slug }}-{{ childParamsGroup.id }}"
@@ -85,14 +85,20 @@
                   childParamsGroup.parentType }}</span
                 >
               </summary>
-              <table>
+              <table class="ml-4 mb-4 mt-2 color-bg-subtle">
+                <thead>
+                  <tr>
+                    <th>Name (Type)</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
                 <tbody>
                   {%- for childParam in childParamsGroup.params -%}
                   <tr>
-                    <td class="opacity-70">
+                    <td class="opacity-70 color-bg-subtle">
                       <code>{{ childParam.name }}</code> ({{ childParam.type }})
                     </td>
-                    <td class="opacity-70">{{ childParam.description }}</td>
+                    <td class="opacity-70 color-bg-subtle">{{ childParam.description }}</td>
                   </tr>
                   {%- endfor -%}
                 </tbody>

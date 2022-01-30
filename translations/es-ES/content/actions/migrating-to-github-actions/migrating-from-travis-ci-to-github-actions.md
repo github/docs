@@ -101,7 +101,7 @@ jobs:
 
 ### Apuntar a ramas específicas
 
-Tanto Travis CI como {% data variables.product.prodname_actions %} te permiten apuntar tu IC a una rama específica. Para obtener más información, consultala sección "[Sintaxis de flujo de trabajo para GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
+Tanto Travis CI como {% data variables.product.prodname_actions %} te permiten apuntar tu IC a una rama específica. Para obtener más información, consultala sección "[Sintaxis de flujo de trabajo para GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
 
 Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 
