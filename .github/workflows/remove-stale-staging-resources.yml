@@ -1,4 +1,4 @@
-name: Remove stale staging resources
+
 
 # **What it does**:
 # This cleans up any rogue staging applications and environments that outlasted
