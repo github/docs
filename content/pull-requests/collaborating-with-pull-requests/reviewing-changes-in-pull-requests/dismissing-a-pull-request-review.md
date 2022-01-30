@@ -33,3 +33,4 @@ This changes the status of the review to a review comment. When you dismiss a re
 - "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
 - "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
 - "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
