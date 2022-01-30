@@ -43,3 +43,4 @@ To use a shorter and more memorable domain for your private {% data variables.pr
   {% data reusables.pages.twenty-minutes-to-publish %}
 
   {% endnote %}
+https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
