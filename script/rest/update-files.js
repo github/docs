@@ -145,7 +145,7 @@ async function updateRedirectOverrides() {
     redirects[oldUrl] = `/rest/reference/${value.category}#${anchor}`
   }
   await writeFile(
-    'lib/redirects/static/rest-api-redirect-exceptions.json',
+    'lib/redirects/static/client-side-rest-api-redirects.json',
     JSON.stringify(redirects, null, 2),
     'utf8'
   )

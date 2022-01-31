@@ -30,3 +30,4 @@ services:
     environment:
       DD_API_KEY: ${DD_API_KEY}
       DD_AGENT_HOST: datadog-agent
+      DD_HISTOGRAM_PERCENTILES: 0.99 0.95 0.50
