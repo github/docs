@@ -31,7 +31,7 @@ If you reach this limit, consider deleting package versions or contact Support f
 
 ## Authenticating to {% data variables.product.prodname_registry %}
 
-{% data reusables.package_registry.authenticate-packages %}
+{ % data reusables.package_registry.authenticate-packages % }
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
