@@ -672,7 +672,7 @@ ghe-repo-gc <em>username</em>/<em>reponame</em>
 
 ### ghe-actions-check
 
-This utility checks that all services for {% data variables.product.prodname_actions %} are healthy. For more information, see  "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)" and "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)."
+Este utilitário verifica se todos os serviços para {% data variables.product.prodname_actions %} são saudáveis. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)" e "[Solução de problemas {% data variables.product.prodname_actions %} para a sua empresa](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)".
 
 ```shell
 ghe-actions-check
@@ -680,18 +680,18 @@ ghe-actions-check
 
 ### ghe-actions-precheck
 
-This utility tests the blob storage configuration for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}. You can use the utility to verify your storage configuration before you enable {% data variables.product.prodname_actions %} for your instance.
+Este utilitário testa a configuração de armazenamento do blob para {% data variables.product.prodname_actions %} em {% data variables.product.product_location %}. Você pode usar o utilitário para verificar sua configuração de armazenamento antes de habilitar o {% data variables.product.prodname_actions %} para sua instância.
 
-For more information about the configuration of {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
+Para obter mais informações sobre a configuração de {% data variables.product.prodname_actions %}, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} por {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)".
 
 ```shell
 ghe-actions-precheck -p [<em>provider</em>] -cs ["<em>connectionstring</em>"]
 ```
 
-If your storage system is configured correctly, you'll see the following output.
+Se o sistema de armazenamento estiver configurado corretamente, você verá a seguinte saída.
 
 ```
-All Storage tests passed
+Todos os testes de armazenamento aprovados
 ```
 
 ## Importação e exportação
@@ -711,28 +711,28 @@ git-import-detect
 
 ### git-import-hg-raw
 
-Este utilitário importa um repositório Mercurial para este repositório Git. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário importa um repositório Mercurial para este repositório Git. Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-hg-raw
 ```
 
 ### git-import-svn-raw
 
-Este utilitário importa histórico do Subversion e dados de arquivos para um branch do Git. Trata-se de uma cópia direta da árvore, ignorando qualquer distinção de trunk ou branch. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário importa histórico do Subversion e dados de arquivos para um branch do Git. Trata-se de uma cópia direta da árvore, ignorando qualquer distinção de trunk ou branch. Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-svn-raw
 ```
 
 ### git-import-tfs-raw
 
-Este utilitário faz a importação a partir do Controle de Versão da Fundação da Equipe (TFVC). For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário faz a importação a partir do Controle de Versão da Fundação da Equipe (TFVC). Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-tfs-raw
 ```
 
 ### git-import-rewrite
 
-Este utilitário reescreve o repositório importado. Isso dá a você a oportunidade de renomear autores e, para o Subversion e TFVC, produz branches Git baseados em pastas. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário reescreve o repositório importado. Isso dá a você a oportunidade de renomear autores e, para o Subversion e TFVC, produz branches Git baseados em pastas. Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-rewrite
 ```
@@ -857,7 +857,7 @@ ghe-license-usage
 
 ### ghe-org-membership-update
 
-Este utilitário aplicará a configuração padrão de visibilidade da associação da organização a todos os integrantes da sua instância. For more information, see "[Configuring visibility for organization membership](/enterprise/{{ currentVersion }}/admin/guides/user-management/configuring-visibility-for-organization-membership)." As opções de configuração são `públicas` ou `privadas`.
+Este utilitário aplicará a configuração padrão de visibilidade da associação da organização a todos os integrantes da sua instância. Para obter mais informações, consulte "[Configurar a visibilidade da associação à organização](/enterprise/{{ currentVersion }}/admin/guides/user-management/configuring-visibility-for-organization-membership)". As opções de configuração são `públicas` ou `privadas`.
 
 ```shell
 ghe-org-membership-update --visibility=<em>SETTING</em>

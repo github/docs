@@ -74,6 +74,10 @@ const asyncMiddleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
 
+// The IP address that Fastly regards as the true client making the request w/ fallback to req.ip
+morgan.token('client-ip', (req) => req.headers['Fastly-Client-IP'] || req.ip)
+const productionLogFormat = `:client-ip - ":method :url" :status - :response-time ms`
+
 export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
@@ -83,7 +87,7 @@ export default function (app) {
   // Enabled in development and azure deployed environments
   // Not enabled in Heroku because the Heroku router + papertrail already logs the request information
   app.use(
-    morgan(isAzureDeployment ? 'combined' : 'dev', {
+    morgan(isAzureDeployment ? productionLogFormat : 'dev', {
       skip: (req, res) => !(isDevelopment || isAzureDeployment),
     })
   )

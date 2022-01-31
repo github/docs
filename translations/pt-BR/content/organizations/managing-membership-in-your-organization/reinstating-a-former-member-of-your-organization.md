@@ -23,7 +23,7 @@ If a user is removed from your organization in one of the following ways, the us
 - You manually removed the user from your organization. For more information, see "[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."{% ifversion not ghae %}
 - The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
 - The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[Enforcing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
-- You converted an organization member to an outside collaborator. For more information, see "[Converting an organization member to an outside collaborator](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
+- You converted an organization member to an outside collaborator. Para obter mais informações, consulte "[Convertendo um integrante da organização em um colaborador externo](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
 
 Você poderá restaurar os privilégios do usuário se {% ifversion fpt or ghec %}convidá-lo{% else %}adicioná-lo{% endif %} novamente na organização durante esse período.
 
@@ -35,8 +35,8 @@ Você poderá restaurar os privilégios do usuário se {% ifversion fpt or ghec 
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
-When you reinstate a former organization member, you can restore:
- - The user's role in the organization
+Ao restabelecer um ex-integrante da organização, você pode restaurar:
+ - A função do usuário na organização
  - As bifurcações privadas de repositórios de propriedade da organização
  - A associação nas equipes da organização
  - Os acessos e permissões anteriores nos repositórios da organização
@@ -45,11 +45,11 @@ When you reinstate a former organization member, you can restore:
  - As assinaturas do repositório (configurações de notificação para inspecionar, não inspecionar ou ignorar as atividades de um repositório)
 
 {% ifversion ghes %}
-If an organization member was removed from the organization because they did not use two-factor authentication and your organization still requires members to use 2FA, the former member must enable two-factor authentication before you can reinstate their membership.
+Se um integrante foi removido da organização por não usar a autenticação de dois fatores e a organização ainda exigir essa autenticação, o ex-integrante precisará habilitar a autenticação de dois fatores antes de você restabelecer a associação.
 {% endif %}
 
 {% ifversion fpt or ghec %}
-If your organization has a paid per-user subscription, an unused license must be available before you can reinstate a former organization member. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-scim %}
+Se a sua organização tem uma assinatura paga por usuário, uma licença não utilizada deve estar disponível antes de você poder restabelecer um antigo integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-scim %}
 {% endif %}
 
 ## Restabelecer ex-integrantes da organização

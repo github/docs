@@ -52,7 +52,7 @@ on:
       - '!sub-project/docs/**'
 ```
 
-### Comparaciones de diferencias de Git
+#### Comparaciones de diferencias de Git
 
 {% note %}
 

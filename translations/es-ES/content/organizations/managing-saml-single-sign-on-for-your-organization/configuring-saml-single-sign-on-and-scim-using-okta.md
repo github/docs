@@ -31,24 +31,11 @@ Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for
 
 ## Agregar la aplicación {% data variables.product.prodname_ghe_cloud %} en Okta
 
-{% data reusables.saml.okta-sign-into-your-account %}
-1. Navigate to the [Github Enterprise Cloud - Organization](https://www.okta.com/integrations/github-enterprise-cloud-organization) application in the Okta Integration Network and click **Add Integration**.
-1. Opcionalmente, a la derecha de la "Etiqueta de aplicación", teclea un nombre descriptivo para la aplicación.
-1. En el campo **Organización de GitHub**, teclea el nombre de tu organización de {% data variables.product.product_location %}. Por ejemplo, si la URL de de tu organizaciòn es https://github.com/octo-org, el nombre de organizaciòn serìa `octo-org`.
-1. Haz clic en **Done** (listo).
-
-## Habilitar y probar el SSO de SAML
-
-{% data reusables.saml.okta-sign-into-your-account %}
-{% data reusables.saml.okta-dashboard-click-applications %}
-{% data reusables.saml.okta-applications-click-ghec-application-label %}
-{% data reusables.saml.assign-yourself-to-okta %}
 {% data reusables.saml.okta-sign-on-tab %}
 {% data reusables.saml.okta-view-setup-instructions %}
 1. Habilita y prueba el SSO de SAML en {% data variables.product.prodname_dotcom %} utilizando la URL de registro, URL del emisor, y certificados pùblicos de la guìa "Còmo configurar SAML 2.0". Para obtener más información, consulta "[Habilitar y probar el inicio de sesión único para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization)".
 
 ## Configurar el aprovisionamiento de acceso con SCIM en Okta
-
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
 {% data reusables.saml.okta-provisioning-tab %}
