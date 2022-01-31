@@ -19,4 +19,4 @@ We do our best to support Firefox's latest [Extended Support Release](https://ww
 
 ## Beta and developer builds
 
-You may encounter unexpected bugs in beta and developer builds of our supported browsers. If you encounter a bug on {% data variables.product.product_name %} in one of these unreleased builds, please verify that it also exists in the stable version of the same browser. If the bug only exists in the unstable version, consider reporting the bug to the browser developer.
+You may encounter unexpected bugs in beta and developer builds of our supported browsers. If you encounter a bug on {% data variables.product.product_name %} in one of these unreleased builds, please verify that it also exists in the stable version of the same browser. If the bug only exists in the unstable version, consider reporting the bug to the browser developer.gh pr checkout is the best way to get a new one to use for the first time and then the next step is to get the latest version of the open source code repositories managed through our GitHub organizations and the web site is the best way to get a good start on the web site design 
