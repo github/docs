@@ -15,7 +15,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Sobre as expressões
 
-You can use expressions to programmatically set environment variables in workflow files and access contexts. Uma expressão pode ser qualquer combinação de valores literais, referências a um contexto ou funções. É possível combinar literais, referências de contexto e funções usando operadores. Para obter mais informações sobre os contextos, consulte "[Contextos](/actions/learn-github-actions/contexts)".
+Você pode usar expressões para definir variáveis de ambiente programaticamente em arquivos de fluxo de trabalho e contextos de acesso. Uma expressão pode ser qualquer combinação de valores literais, referências a um contexto ou funções. É possível combinar literais, referências de contexto e funções usando operadores. Para obter mais informações sobre os contextos, consulte "[Contextos](/actions/learn-github-actions/contexts)".
 
 Expressões são comumente usadas com a condicional `if` palavra-chave em um arquivo de fluxo de trabalho para determinar se uma etapa deve ser executada. Quando uma condicional `if` for `true`, a etapa será executada.
 
@@ -50,16 +50,17 @@ env:
 
 Como parte da expressão, você pode usar os tipos de dados `boolean`, `null`, `number` ou `string`.
 
-| Tipo de dados | Valor do literal                                                                                                                                                                                                              |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `boolean`     | `true` ou `false`                                                                                                                                                                                                             |
-| `null`        | `null`                                                                                                                                                                                                                        |
-| `number`      | Qualquer formato de número aceito por JSON.                                                                                                                                                                                   |
-| `string`      | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
+| Tipo de dados | Valor do literal                                                                                                                                                                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `boolean`     | `true` ou `false`                                                                                                                                                                                                         |
+| `null`        | `null`                                                                                                                                                                                                                    |
+| `number`      | Qualquer formato de número aceito por JSON.                                                                                                                                                                               |
+| `string`      | Você não precisa anexar strings em {% raw %}${{{% endraw %} e {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
 
 #### Exemplo
 
 {% raw %}
+
 ```yaml
 env:
   myNull: ${{ null }}
@@ -71,24 +72,25 @@ env:
   myString: Mona the Octocat
   myStringInBraces: ${{ 'It''s open source!' }}
 ```
+
 {% endraw %}
 
 ## Operadores
 
-| Operador                  | Descrição                    |
-| ------------------------- | ---------------------------- |
-| `( )`                     | Agrupamento lógico           |
-| `[ ]`                     | Índice                       |
-| `.`                       | Desreferência de propriedade |
-| `!`                       | Não                          |
-| `<`                    | Menor que                    |
-| `<=`                   | Menor ou igual               |
-| `>`                    | Maior que                    |
-| `>=`                   | Maior ou igual               |
-| `==`                      | Igual                        |
-| `!=`                      | Não igual                    |
-| `&&`              | E                            |
-| <code>\|\|</code> | Ou                           |
+| Operador                  | Descrição             |
+| ------------------------- | --------------------- |
+| `( )`                     | Agrupamento lógico    |
+| `[ ]`                     | Índice                |
+| `.`                       | Property de-reference |
+| `!`                       | Não                   |
+| `<`                    | Menor que             |
+| `<=`                   | Menor ou igual        |
+| `>`                    | Maior que             |
+| `>=`                   | Maior ou igual        |
+| `==`                      | Igual                 |
+| `!=`                      | Não igual             |
+| `&&`              | E                     |
+| <code>\|\|</code> | Ou                    |
 
 O {% data variables.product.prodname_dotcom %} faz comparações livres de igualdade.
 
@@ -266,9 +268,15 @@ Cria um hash para arquivos de `pacote-lock.json` e `Gemfile.lock` no repositóri
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ## Funções de verificação de status
 
 Você pode usar as funções de verificação de status a seguir como expressões nas condicionais `if`. Uma verificação de status padrão de `success()` é aplicada, a menos que você inclua uma dessas funções. Para obter mais informações sobre as condicionais `if`, consulte "[Sintaxe fluxo de trabalho para o GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" e "[Sintaxe de metadados para o GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+{% else %}
+## Check Functions
+Você pode usar as funções de verificação de status a seguir como expressões nas condicionais `if`. Uma verificação de status padrão de `success()` é aplicada, a menos que você inclua uma dessas funções. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% endif %}
 
 ### success
 
@@ -316,6 +324,7 @@ etapas:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ### Avaliar status explicitamente
 
 Em vez de usar um dos métodos acima, você pode avaliar o status do trabalho ou ação composta que está executando a etapa diretamente:
@@ -341,6 +350,7 @@ etapas:
 ```
 
 Isso é o mesmo que usar `if: failure()` em um passo de ação composta.
+{% endif %}
 
 ## Filtros de objeto
 

@@ -439,3 +439,4 @@
 /enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning
 - /github/administering-a-repository/managing-alerts-from-secret-scanning
 - /code-security/secret-security/managing-alerts-from-secret-scanning
+- /code-security/secret-scanning/managing-alerts-from-secret-scanning

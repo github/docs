@@ -266,6 +266,7 @@ Para obtener más información, consulta la sección "[``](/actions/reference/co
 **Requerido** El shell en donde quieres ejecutar el comando. Puedes utilizar cualquiera de los shells listados [aquí](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Requerido si se configuró `run`.
 {% endif %}
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 #### `runs.steps[*].if`
 
 **Opcional** Puedes utilizar el condicional `if` para prevenir que un paso se ejecute a menos de que se cumpla con una condición. Puedes usar cualquier contexto y expresión admitidos para crear un condicional.
@@ -294,6 +295,7 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@1.0.0
 ```
+{% endif %}
 
 #### `runs.steps[*].name`
 
@@ -364,7 +366,7 @@ runs:
 
 ## `runs` para acciones de Docker
 
-**Requerido** Configura la imagen utilizada para la acción de Docker.
+**Requerido** Configura la imagen que se utiliza para la acción de Docker.
 
 ### Ejemplo utilizando un Dockerfile en tu repositorio
 

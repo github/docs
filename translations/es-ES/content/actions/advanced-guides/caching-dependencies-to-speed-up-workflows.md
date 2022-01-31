@@ -88,7 +88,7 @@ Para más información, consulta [`actions/cache`](https://github.com/actions/ca
 ### Parámetros de entrada para la acción `chache`
 
 - `key`: **Obligatorio** La clave que se crea cuando se guarda una memoria caché y la clave utilizada para buscar una caché. Puede ser cualquier combinación de variables, valores de contexto, cadenas estáticas y funciones. Las claves tienen una longitud máxima de 512 caracteres y las claves más largas que la longitud máxima provocarán un error en la acción.
-- `path`: **Obligatorio** La ruta del archivo en el ejecutor para almacenar en caché o restaurar. La ruta debe ser absoluta o relativa al directorio de trabajo.
+- `path`: **Obligatorio** La ruta del archivo en el ejecutor para almacenar en caché o restaurar. The path can be an absolute path or relative to the workspace directory.
   - Las rutas pueden ser tanto directorios o solo archivos, y los patrones estilo glob son compatibles.
   - Con la `v2` de la acción `cache`, puedes especificar una ruta sencilla o puedes agregar rutas múltiples en líneas separadas. Por ejemplo:
     ```

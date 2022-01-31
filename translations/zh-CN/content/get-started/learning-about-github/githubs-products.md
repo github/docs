@@ -47,11 +47,11 @@ When you read {% data variables.product.prodname_docs %}, make sure to select th
 - 私有仓库中的高级工具和洞察力：
   - 必需拉取请求审查
   - 多个拉取请求审查者
+  - 受保护分支
+  - 代码所有者
   - 自动链接的引用
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - 受保护分支
-  - 代码所有者
   - 仓库洞察图：脉冲、贡献者、流量、提交、代码频率、网络和复刻
 
 ## 组织的 {% data variables.product.prodname_free_team %}
@@ -74,14 +74,14 @@ When you read {% data variables.product.prodname_docs %}, make sure to select th
 - 私有仓库中的高级工具和洞察力：
   - 必需拉取请求审查
   - 多个拉取请求审查者
-  - {% data variables.product.prodname_pages %}
-  - Wikis
-  - 受保护分支
-  - 代码所有者
-  - 仓库洞察图：脉冲、贡献者、流量、提交、代码频率、网络和复刻
   - 草稿拉取请求
   - 团队拉取请求审查
+  - 受保护分支
+  - 代码所有者
   - 预定提醒
+  - {% data variables.product.prodname_pages %}
+  - Wikis
+  - 仓库洞察图：脉冲、贡献者、流量、提交、代码频率、网络和复刻
 {% ifversion fpt or ghec %}
 - The option to enable {% data variables.product.prodname_github_codespaces %}
   - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
