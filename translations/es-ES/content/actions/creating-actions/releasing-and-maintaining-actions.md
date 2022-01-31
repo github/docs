@@ -1,6 +1,6 @@
 ---
 title: Releasing and maintaining actions
-shortTitle: Releasing and maintaining actions
+shortTitle: Lanzar y mantener las acciones
 intro: You can leverage automation and open source best practices to release and maintain actions.
 type: tutorial
 topics:
@@ -70,7 +70,7 @@ Here is an example process that you can follow to automatically run tests, creat
 
    * When a release is published or edited, your release workflow will automatically take care of compilation and adjusting tags.
 
-   * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" and "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
+   * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. Para obtener más información, consulta la sección "[Acerca de las acciones personalizadas](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" y "[Acerca del versionamiento semántico](https://docs.npmjs.com/about-semantic-versioning).
 
 ### Resultados
 

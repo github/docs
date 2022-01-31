@@ -131,7 +131,7 @@ Atividade relacionada a uma regra de proteção do branch. Para obter mais infor
 {% ifversion ghes > 3.3 %}
 ## cache_sync
 
-A Git ref has been successfully synced to a cache replica. Para obter mais informações, consulte "[Sobre o cache do repositório](/admin/enterprise-management/caching-repositories/about-repository-caching)".
+Um ref do Git foi sincronizado com sucesso para uma réplica de cache. Para obter mais informações, consulte "[Sobre o cache do repositório](/admin/enterprise-management/caching-repositories/about-repository-caching)".
 
 ### Disponibilidade
 
@@ -140,12 +140,12 @@ A Git ref has been successfully synced to a cache replica. Para obter mais infor
 
 ### Objeto da carga do webhook
 
-| Tecla            | Tipo     | Descrição                                                      |
-| ---------------- | -------- | -------------------------------------------------------------- |
-| `cache_location` | `string` | The location of the cache server that has been updated.        |
-| `ref`            | `string` | The ref that has been updated.                                 |
-| `antes`          | `string` | The OID of the ref on the cache replica before it was updated. |
-| `depois`         | `string` | The OID of the ref on the cache replica after the update.      |
+| Tecla            | Tipo     | Descrição                                                 |
+| ---------------- | -------- | --------------------------------------------------------- |
+| `cache_location` | `string` | A localização do servidor de cache que foi atualizado.    |
+| `ref`            | `string` | A ref que foi atualizada.                                 |
+| `antes`          | `string` | O OID da ref na réplica do cache antes de ser atualizado. |
+| `depois`         | `string` | O OID do ref na réplica do cache após a atualização.      |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -269,7 +269,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you create more than three tags at once.
+**Observação:** Você não receberá um webhook para este evento ao criar mais de três tags de uma só vez.
 
 {% endnote %}
 
@@ -353,10 +353,10 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 ### Objeto da carga do webhook
 
-| Tecla         | Tipo                                        | Descrição                                                       |
-| ------------- | ------------------------------------------- | --------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| Tecla         | Tipo                                        | Descrição                                                      |
+| ------------- | ------------------------------------------- | -------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `Ação`        | `string`                                    | A ação realizada. Pode ser `criado`.{% endif %}
-| `implantação` | `objeto`                                    | The [deployment](/rest/reference/deployments#list-deployments). |
+| `implantação` | `objeto`                                    | A [implantação](/rest/reference/deployments#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -378,14 +378,14 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 ### Objeto da carga do webhook
 
-| Tecla                              | Tipo                                        | Descrição                                                                                           |
-| ---------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| Tecla                              | Tipo                                        | Descrição                                                                                        |
+| ---------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------ |{% ifversion fpt or ghes or ghae or ghec %}
 | `Ação`                             | `string`                                    | A ação realizada. Pode ser `criado`.{% endif %}
-| `implantação_status`               | `objeto`                                    | The [deployment status](/rest/reference/deployments#list-deployment-statuses).                      |
-| `deployment_status["state"]`       | `string`                                    | O novo estado. Pode ser `pendente`, `sucesso`, `falha` ou `erro`.                                   |
-| `deployment_status["target_url"]`  | `string`                                    | O link opcional adicionado ao status.                                                               |
-| `deployment_status["description"]` | `string`                                    | A descrição opcional legível para pessoas adicionada ao status.                                     |
-| `implantação`                      | `objeto`                                    | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with. |
+| `implantação_status`               | `objeto`                                    | O [status da implantação](/rest/reference/deployments#list-deployment-statuses).                 |
+| `deployment_status["state"]`       | `string`                                    | O novo estado. Pode ser `pendente`, `sucesso`, `falha` ou `erro`.                                |
+| `deployment_status["target_url"]`  | `string`                                    | O link opcional adicionado ao status.                                                            |
+| `deployment_status["description"]` | `string`                                    | A descrição opcional legível para pessoas adicionada ao status.                                  |
+| `implantação`                      | `objeto`                                    | A [implantação](/rest/reference/deployments#list-deployments) à qual este status está associado. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -409,9 +409,9 @@ Atividade relacionada a uma discussão. Para obter mais informações, consulte 
 
 ### Objeto da carga do webhook
 
-| Tecla  | Tipo     | Descrição                                                                                                                                                                                    |
-| ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação` | `string` | A ação realizada. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled`, or `unlabeled`. |
+| Tecla  | Tipo     | Descrição                                                                                                                                                                                     |
+| ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação` | `string` | A ação realizada. Pode ser `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled` ou `unlabeled`. |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -536,7 +536,7 @@ Este evento ocorre quando alguém revoga a autorização de um {% data variables
 
 {{ webhookPayloadsForCurrentVersion.gollum }}
 
-## installation
+## instalação
 
 {% data reusables.webhooks.installation_short_desc %}
 
@@ -898,7 +898,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for Projects (beta).
+**Observação**: Este evento não ocorre para Projetos (beta).
 
 {% endnote %}
 {% endif %}
@@ -930,7 +930,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: This event does not occur for Projects (beta).
+**Observação**: Este evento não ocorre para Projetos (beta).
 
 {% endnote %}
 {% endif %}

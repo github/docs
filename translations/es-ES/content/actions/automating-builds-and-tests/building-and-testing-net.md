@@ -35,6 +35,7 @@ Te recomendamos que tengas un entendimiento básico de .NET Core SDK. Para obten
 Para comenzar rápidamente, agrega el flujo de trabajo inicial al directorio de `.github/workflows` de tu repositorio.
 
 {% raw %}
+
 ```yaml
 name: dotnet package
 
@@ -61,6 +62,7 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 ```
+
 {% endraw %}
 
 ## Especificar una versión de .NET
@@ -227,7 +229,7 @@ jobs:
 
 ## Publicar en registros de paquetes
 
-Puedes configurar tu flujo de trabajo para publicar tu paquete de Dotnet a un registro de paquetes cuando pasen tus pruebas de IC. Puedes utilizar secretos de los repositorios para almacenar cualquier token o credenciales que se necesiten para publicar tu binario. El siguiente ejemplo crea y publica un paquete en el {% data variables.product.prodname_registry %} utilizando `dotnet core cli`.
+You can configure your workflow to publish your .NET package to a package registry when your CI tests pass. Puedes utilizar secretos de los repositorios para almacenar cualquier token o credenciales que se necesiten para publicar tu binario. El siguiente ejemplo crea y publica un paquete en el {% data variables.product.prodname_registry %} utilizando `dotnet core cli`.
 
 ```yaml
 name: Upload dotnet package

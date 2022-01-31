@@ -55,7 +55,7 @@ Em seguida, adicione um rascunho ao seu projeto.
 
 1. Coloque seu cursor na linha inferior do projeto, ao lado do {% octicon "plus" aria-label="plus icon" %}.
 1. Digite sua ideia e, em seguida, pressione **Enter**.
-1. Clique no título do rascunho do problema. In the markdown input box that appears, enter the some more information about your idea, then click **Save**.
+1. Clique no título do rascunho do problema. Na caixa de entrada do markdown que será exibida, insira mais informações sobre a sua ideia e, em seguida, clique em **Salvar**.
 
 ## Criando um campo para monitorar a prioridade
 
