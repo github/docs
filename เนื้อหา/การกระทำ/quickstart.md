@@ -1,4 +1,63 @@
 ---
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+fleet_script_tasks:
+  script: &ref_1
+    - python --version
+fleet_install_tasks:
+  install: &ref_0
+    - pip install -r requirements.txt
+matrix:
+  fast_finish: true
+  include:
+    - name: Python 3.8 on Windows
+      os: windows
+      language: shell
+      env:
+        - 'PATH=/c/Python38:/c/Python38/Scripts:$PATH'
+      before_install:
+        - choco install python --version 3.8.1
+        - pip install virtualenv
+        - virtualenv $HOME/venv
+        - source $HOME/venv/Scripts/activate
+      install: *ref_0
+      script: *ref_1
+      after_success:
+        - deactivate
+    - name: 'Windows Server, version 1809'
+      os: windows
+      language: shell
+      env: 'PATH=/c/Python37:/c/Python37/Scripts:$PATH'
+      before_install:
+        - choco install python --version 3.7.3
+        - python -m pip install virtualenv
+        - virtualenv $HOME/venv
+        - source $HOME/venv/Scripts/activate
+      script:
+        - systeminfo
+        - wmic OS get OSArchitecture
+        - wmic process list full
+        - tasklist
+        - net start
+        - sc query
+      after_success:
+        - deactivate
+
 title: Quickstart for GitHub Actions
 intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
 allowTitleToDifferFromFilename: true
