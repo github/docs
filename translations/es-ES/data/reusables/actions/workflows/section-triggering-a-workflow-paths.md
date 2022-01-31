@@ -5,7 +5,7 @@ Utiliza el filtro `paths` cuando quieras incluir los patrones de ruta de archivo
 
 If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
 
-The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. Para obtener más información, consulta "[Hoja de referencia de patrones de filtro](#filter-pattern-cheat-sheet)".
+The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. Para obtener más información, consulta "[Hoja de referencia de patrones de filtro](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
 #### Ejemplo: Incluyendo rutas
 
@@ -52,7 +52,7 @@ on:
       - '!sub-project/docs/**'
 ```
 
-### Comparaciones de diferencias de Git
+#### Comparaciones de diferencias de Git
 
 {% note %}
 

@@ -68,7 +68,9 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
  サイトを `gh-pages` ブランチから公開する場合には、`gh-pages` ブランチを作成してチェックアウトします。
  ```shell
  $ git checkout --orphan gh-pages
- # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
+ # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
+ $ git rm -rf 
+ # Removes the contents from your default branch from the working directory
  ```
 1. 新しい Jekyll サイトを作成するには、`jekyll new` コマンドを使用します。
    ```shell

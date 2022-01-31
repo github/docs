@@ -1,1 +1,1 @@
-1. Verify the endpoint, then click **Save**.
+1. Después de que hayas verificado la terminal con éxito, haz clic en **Guardar**.

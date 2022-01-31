@@ -133,14 +133,14 @@ topics:
 
 ## サイトアドミンのツール
 
-| アクション                   | 説明                                                                                             |
-| ----------------------- | ---------------------------------------------------------------------------------------------- |
-| `staff.disable_repo`    | サイトアドミンがリポジトリとその全てのフォークへのアクセスを無効にしました。                                                         |
-| `staff.enable_repo`     | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghes > 3.2 %}
-| `staff.exit_fake_login` | A site admin ended an impersonation session on {% data variables.product.product_name %}.      |
+| アクション                   | 説明                                                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------------------------------ |
+| `staff.disable_repo`    | サイトアドミンがリポジトリとその全てのフォークへのアクセスを無効にしました。                                                                 |
+| `staff.enable_repo`     | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghae or ghes > 3.2 %}
+| `staff.exit_fake_login` | A site admin ended an impersonation session on {% data variables.product.product_name %}.              |
 | `staff.fake_login`      | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
-| `staff.repo_unlock`     | サイトアドミンがユーザのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                                                 |
-| `staff.unlock`          | サイトアドミンがユーザの全てのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                                              |
+| `staff.repo_unlock`     | サイトアドミンがユーザのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                                                         |
+| `staff.unlock`          | サイトアドミンがユーザの全てのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                                                      |
 
 ## Team
 

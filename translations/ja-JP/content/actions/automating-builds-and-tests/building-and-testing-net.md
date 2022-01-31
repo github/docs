@@ -35,6 +35,7 @@ YAMLの構文と、{% data variables.product.prodname_actions %}でのYAMLの使
 To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
+
 ```yaml
 name: dotnet package
 
@@ -61,6 +62,7 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 ```
+
 {% endraw %}
 
 ## .NETのバージョンの指定
@@ -227,7 +229,7 @@ jobs:
 
 ## パッケージレジストリへの公開
 
-CIテストにパスしたら、Dotnetパッケージをパッケージレジストリに公開するようにワークフローを設定できます。 バイナリを公開するのに必要なトークンや認証情報を保存するために、リポジトリシークレットを使うことができます。 以下の例では、`dotnet core cli`を使ってパッケージを作成し、{% data variables.product.prodname_registry %}に公開しています。
+You can configure your workflow to publish your .NET package to a package registry when your CI tests pass. バイナリを公開するのに必要なトークンや認証情報を保存するために、リポジトリシークレットを使うことができます。 以下の例では、`dotnet core cli`を使ってパッケージを作成し、{% data variables.product.prodname_registry %}に公開しています。
 
 ```yaml
 name: Upload dotnet package

@@ -131,7 +131,7 @@ end
 
 Neste exemplo, a ação `fechada` é verificada antes de chamar o método `process_closed`. Quaisquer ações não identificadas são registradas para referência futura.
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghae %}
 
 ## Lidar com limites de taxa
 

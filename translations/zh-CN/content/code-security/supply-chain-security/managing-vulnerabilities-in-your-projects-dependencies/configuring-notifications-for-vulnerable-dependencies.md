@@ -33,7 +33,7 @@ topics:
 {% ifversion ghes or ghae-issue-4864 %}
 默认情况下，如果您的企业所有者已配置电子邮件以获取有关企业的通知，您将收到 {% data variables.product.prodname_dependabot_alerts %} 电子邮件。
 
-企业所有者也可以在没有通知的情况下启用 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[在企业帐户上启用依赖关系图和 {% data variables.product.prodname_dependabot_alerts %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)”。
+企业所有者也可以在没有通知的情况下启用 {% data variables.product.prodname_dependabot_alerts %}。 For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
 {% endif %}
 
 ## 配置 {% data variables.product.prodname_dependabot_alerts %} 的通知

@@ -2,7 +2,7 @@
 1. Navega a la página principal de la organización o repositorio en donde se registró tu grupo de ejecutores auto-hospedados.
 2. Haz clic en {% octicon "gear" aria-label="The Settings gear" %} **Ajustes**.
 3. En la barra lateral izquierda, da clic en **Acciones**.
-4. Click **Runners**.
+4. Haz clic en **Ejecutores**.
 {% elsif ghec or ghes or ghae %}
 1. Navega a donde está registrado tu ejecutor auto-hospedado:
    * **En un repositorio organizacional**: navega a la página principal y da clic en {% octicon "gear" aria-label="The Settings gear" %} **Configuración**. {% ifversion ghec %}

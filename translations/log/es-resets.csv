@@ -45,8 +45,6 @@ translations/es-ES/content/admin/advanced-security/enabling-github-advanced-secu
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
-translations/es-ES/content/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud.md,broken liquid tags
-translations/es-ES/content/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account.md,Listed in localization-support#489
 translations/es-ES/content/admin/enterprise-management/caching-repositories/about-repository-caching.md,Listed in localization-support#489
 translations/es-ES/content/admin/enterprise-management/caching-repositories/configuring-a-repository-cache.md,Listed in localization-support#489
 translations/es-ES/content/admin/enterprise-management/caching-repositories/index.md,Listed in localization-support#489
@@ -204,7 +202,6 @@ translations/es-ES/content/github/site-policy/coordinated-disclosure-of-security
 translations/es-ES/content/github/site-policy/github-bug-bounty-program-legal-safe-harbor.md,Listed in localization-support#489
 translations/es-ES/content/github/site-policy/github-terms-for-additional-products-and-features.md,Listed in localization-support#489
 translations/es-ES/content/github/site-policy/index.md,Listed in localization-support#489
-translations/es-ES/content/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md,Listed in localization-support#489
 translations/es-ES/content/graphql/overview/breaking-changes.md,Listed in localization-support#489
 translations/es-ES/content/index.md,Listed in localization-support#489
 translations/es-ES/content/issues/tracking-your-work-with-issues/about-task-lists.md,Listed in localization-support#489

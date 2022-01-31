@@ -22,7 +22,7 @@ Crie suas próprias ferramentas que integram-se perfeitamente ao lugar que você
 
 ## Assuma a empresa
 
-Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
+Envie um e-mail para <a href="mailto:partnerships@github.com">partnerships@github.com</a> para solicitar licenças de desenvolvedor para criar e testar seu aplicativo para {% data variables.product.prodname_ghe_server %}.
 
 
 ## Você tem uma integração que é compatível com o GitHub?

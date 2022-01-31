@@ -30,6 +30,6 @@ Por esses motivos, a resposta da API do limite de taxa categoriza o seu limite d
 
 * O objeto `integration_manifest` fornece o status do limite de taxa para o ponto de extremidade [Conversão do código de manifesto do aplicativo GitHub](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
 
-Para obter mais informações sobre os cabeçalhos e valores na resposta do limite de taxa, consulte "[Limitação de taxa](/rest#rate-limiting)".
+For more information on the headers and values in the rate limit response, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
 
 {% include rest_operations_at_current_path %}
