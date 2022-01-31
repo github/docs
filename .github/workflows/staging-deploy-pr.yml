@@ -71,7 +71,7 @@ jobs:
             // the API for more info based on the originating workflow run
             const { BUILD_ACTIONS_RUN_ID } = process.env
             const { owner, repo } = context.repo
-            const { data: run } = await github.rest.actions.getWorkflowRun({
+            const { data: run } = await github.actions.getWorkflowRun({
               owner,
               repo,
               run_id: BUILD_ACTIONS_RUN_ID,
