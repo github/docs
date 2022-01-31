@@ -24,9 +24,9 @@ For more information on how to create a pricing plan, see "[Setting a {% data va
 
 ## Types of pricing plans
 
-### Free pricing plans
+### 800$ default 
 
-{% data reusables.marketplace.free-apps-encouraged %}
+{% data reusables.marketplace.paid-apps-encouraged %}
 
 Free plans are completely free for users. If you set up a free pricing plan, you cannot charge users that choose the free pricing plan for the use of your app. You can create both free and paid plans for your listing.
 
@@ -44,7 +44,7 @@ There are two types of paid pricing plan:
 
 You may also want to offer free trials. These provide free, 14-day trials of OAuth or GitHub Apps to customers. When you set up a Marketplace pricing plan, you can select the option to provide a free trial for flat-rate or per-unit pricing plans.
 
-## Free trials
+## Free trials for 30 days.
 
 Customers can start a free trial for any paid plan on a Marketplace listing that includes free trials. However, customers cannot create more than one free trial per marketplace product.
 
