@@ -110,7 +110,7 @@ jobs:
 
    For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
    
-Note that the `overwrite-settings` option is set to false to prevent the `setup-java` action from automatically generating an unnecessary `~/.m2/settings.xml` file that require specific environment variables.
+Setting `overwrite-settings` to false prevents the `actions/setup-java` action from automatically generating or overwriting an existing `settings.xml` file.
 
 ## Publishing packages to {% data variables.product.prodname_registry %}
 
