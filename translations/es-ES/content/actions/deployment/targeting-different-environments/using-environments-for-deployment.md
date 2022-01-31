@@ -83,7 +83,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 2. Optionally, specify the amount of time to wait before allowing workflow jobs that use this environment to proceed.
    1. Select **Wait timer**.
    1. Enter the number of minutes to wait.
-   1. Click **Save protection rules**.
+   1. Haz clic en **Guardar reglas de protección**.
 3. Optionally, specify what branches can deploy to this environment. For more information about the possible values, see "[Deployment branches](#deployment-branches)."
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches**, enter the branch name patterns that you want to allow.
@@ -123,7 +123,7 @@ El borrar un ambiente borrará todos los secretos y reglas de protección asocia
 
 {% data reusables.actions.environment-deployment-event %}
 
-You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[Repositories](/rest/reference/repos#deployments)" (REST API), "[Objects]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#deployment)" (GraphQL API), or "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
+You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. Para obtener más información, consulta las secciones "[Repositorios](/rest/reference/repos#deployments)" (API de REST), "[Objetos]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#deployment)"(API de GraphQL) o "[Cargas útiles y eventos de Webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)".
 
 ## Pasos siguientes
 

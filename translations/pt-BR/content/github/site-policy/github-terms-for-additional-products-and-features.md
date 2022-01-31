@@ -20,7 +20,7 @@ Ao usar as Funcionalidades e Produtos Adicionais, você também concorda com os 
 
 - Os usuários do **GitHub Enterprise Server** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança Avançada, Dados de Consultoria, Conexões, Visualização de Dependabot, Importador do GitHub Enterprise, Laboratório de Aprendizado, Pacotes, Páginas e Imagens de Servidor SQL.
 
-- Os usuários do **GitHub AE** podem ter acesso aos seguintes produtos e funcionalidades: ações, segurança avançada, dados de consultoria, {% ifversion ghae %}conexões, {% endif %}visualização de dependência, Importador do GitHub Enterprise, pacotes e páginas.
+- Os usuários do **GitHub AE** podem ter acesso aos seguintes produtos e funcionalidades: ações, segurança avançada, dados de consultoria, conexões, visualização de dependência, Importador do GitHub Enterprise, pacotes e páginas.
 
 ## Ações
 As Ações GitHub permitem criar fluxos de trabalho personalizados do ciclo de vida de desenvolvimento de softwares diretamente no seu repositório GitHub. Ações são cobradas conforme o uso. A [Documentação de ações](/actions) inclui detalhes, que abrangem quantidades de computação e armazenamento (dependendo do plano da sua conta) e como monitorar seus minutos de ação de uso e definir limites de uso.
@@ -68,7 +68,7 @@ Os Codespaces permitem que você carregue extensões do Marketplace do Microsoft
 A versão geralmente disponível do Codespaces não está disponível atualmente para os clientes de governo dos EUA. EUA os clientes governamentais podem continuar usando a Visualização Beta de Codespaces em termos separados. Consulte [Termos de Visualização Beta](/github/site-policy/github-terms-of-service#j-beta-previews).
 
 ## Connect
-Com GitHub Connect, você pode compartilhar certas funcionalidades e dados entre seu GitHub Enterprise Server {% ifversion ghae %}ou sua instância do GitHub AE {% endif %}e sua organização do GitHub Enterprise Cloud ou conta corporativa no GitHub.com. Para habilitar o GitHub Connect, você precisa ter ao menos uma (1) conta no GitHub Enterprise Cloud ou GitHub.com e uma (1) instância licenciada do GitHub Enterprise Server{% ifversion ghae %} ou GitHub AE{% endif %}. O seu uso do GitHub Enterprise Cloud ou GitHub.com por meio do Connect é regido pelos termos sob os quais você licencia o GitHub Enterprise Cloud ou GitHub.com. O uso de dados pessoais é regido pela [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
+Com GitHub Connect, você pode compartilhar certas funcionalidades e dados entre seu GitHub Enterprise Server ou sua instância do GitHub AE e sua organização do GitHub Enterprise Cloud ou conta corporativa no GitHub.com. Para habilitar o GitHub Connect, você precisa ter ao menos uma (1) conta no GitHub Enterprise Cloud ou GitHub.com e uma (1) instância licenciada do GitHub Enterprise Server ou GitHub AE. O seu uso do GitHub Enterprise Cloud ou GitHub.com por meio do Connect é regido pelos termos sob os quais você licencia o GitHub Enterprise Cloud ou GitHub.com. O uso de dados pessoais é regido pela [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
 
 ## Importador do GitHub Enterprise
 O Importador é uma estrutura para exportar dados de outras fontes a serem importados para a plataforma GitHub. O Importador é fornecido como se apresenta.

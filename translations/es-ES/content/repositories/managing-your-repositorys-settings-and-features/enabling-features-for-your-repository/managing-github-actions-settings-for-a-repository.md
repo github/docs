@@ -45,7 +45,10 @@ Puedes inhabilitar todos los flujos de trabajo para un repositorio o configurar 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Debajo de **Permisos de las acciones**, selecciona una opción. ![Configurar la política de acciones para esta organización](/assets/images/help/repository/actions-policy.png)
+1. Debajo de **Permisos de las acciones**, selecciona una opción.
+
+  ![Configurar la política de acciones para esta organización](/assets/images/help/repository/actions-policy.png)
+
 1. Haz clic en **Save ** (guardar).
 
 ## Permitir que se ejecuten acciones específicas
@@ -56,12 +59,14 @@ Puedes inhabilitar todos los flujos de trabajo para un repositorio o configurar 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 1. Debajo de **Permisos de las acciones**, selecciona **Permitir acciones seleccionadas** y agrega tus acciones requeridas a la lista.
+
    {%- ifversion ghes > 3.0 %}
    ![Agregar acciones a la lista de permitidos](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
    ![Agregar acciones a la lista de permitidos](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
-2. Haz clic en **Save ** (guardar).
+
+1. Haz clic en **Save ** (guardar).
 
 {% ifversion fpt or ghec %}
 ## Configurar las aprobaciones requeridas para los flujos de trabajo desde las bifurcaciones pùblicas
@@ -103,7 +108,10 @@ También pueden configurarse los permisos predeterminados en los ajustes de la o
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Debajo de **Permisos del flujo de trabajo**, elige si quieres que el `GITHUB_TOKEN` tenga permisos de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`. ![Configurar los permisos del GITHUB_TOKEN para este repositorio](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+1. Debajo de **Permisos del flujo de trabajo**, elige si quieres que el `GITHUB_TOKEN` tenga permisos de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`.
+
+  ![Configurar los permisos del GITHUB_TOKEN para este repositorio](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+
 1. Da clic en **Guardar** para aplicar la configuración.
 {% endif %}
 
@@ -112,15 +120,18 @@ También pueden configurarse los permisos predeterminados en los ajustes de la o
 
 Los miembros de tu empresa pueden utilizar repositorios internos para trabajar en proyectos sin compartir información públicamente. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)".
 
-Para configurar si se puede acceder desde un repositorio externo a los flujos de trabajo de un repositorio interno:
+Puedes configurar si se puede acceder a{% if internal-actions%}las acciones y {% endif %}flujos de trabajo de un repositorio interno desde fuera de este.{% if internal-actions %} Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".{% endif %}
 
 1. En {% data variables.product.prodname_dotcom %}, navega hasta la página principal del repositorio interno.
 1. Debajo de tu nombre de repositorio, haz clic en {% octicon "gear" aria-label="The gear icon" %}**Configuración**.
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Debajo de **Acceso**, elige uno de los ajustes de acceso: ![Configurar el acceso a los componentes de las acciones](/assets/images/help/settings/actions-access-settings.png)
-   * **No accesible** - Los flujos de trabajo en otros repositorios no pueden utilizar flujos de trabajo en este repositorio.
-   * **Accesible desde los repositorios en la '&lt;organization name&gt;' organización ** - Los flujos de trabajo en otros repositorios pueden utilizar los flujos de trabajo en este repositorio si son parte de la misma organización y su visibilidad es privada o interna.
-   * **Accesible desde los repositorios en la '&lt;enterprise name&gt;' empresa ** - Los flujos de trabajo en otros repositorios pueden utilizar los flujos de trabajo en este repositorio si son parte de la misma empresa y su visibilidad es privada o interna.
+1. Debajo de **Acceso**, elige uno de los ajustes de acceso:
+
+   {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png){% else %}![Set the access to Actions components](/assets/images/enterprise/3.4/actions-access-settings.png){% endif %}
+
+   * **Sin acceso** - Los flujos de trabajo en otros repositorios no pueden acceder a este.
+   * **Con acceso desde los repositorios de la organización 'ORGANIZATION NAME'** - {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}Los flujos de trabajo en otros repositorios que sean parte de la organización 'ORGANIZATION NAME' pueden acceder a las acciones y flujos de trabajo de este repositorio. Se permite el acceso solo desde los repositorios internos o privados.{% else %}Los flujos de trabajo en otros repositorios pueden utilizar flujos de trabajo en este si son parte de la misma organización y su visibilidad es privada o interna.{% endif %}
+   * **Con acceso desde los repositorios de la empresa 'ENTERPRISE NAME'** - {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}Los flujos de trabajo en otros repositorios que son parte de la empresa 'ENTERPRISE NAME' pueden acceder a las acciones y flujos de trabajo de este repositorio. Se permite el acceso únicamente desde los repositorios internos o privados.{% else %}Los flujos de trabajo en otros repositorios pueden utilizar aquellos en este repositorio si son parte de la misma empresa y su visibilidad es privada o interna.{% endif %}
 1. Da clic en **Guardar** para aplicar la configuración.
 {% endif %}
 

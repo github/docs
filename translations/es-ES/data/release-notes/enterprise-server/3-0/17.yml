@@ -5,17 +5,17 @@ sections:
     - 'Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/27034, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
   bugs:
     - 'Los ganchos de recepción personalizados fallaron debido a los límites demasiado restrictivos en la memoria virtual o CPU. {% comment %}https://github.com/github/enterprise2/pull/26971, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
-    - 'Attempting to wipe all existing configuration settings with `ghe-cleanup-settings` failed to restart the Management Console service. {% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
-    - 'During replication teardown via `ghe-repl-teardown` Memcached failed to be restarted. {% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
-    - 'During periods of high load, users would receive HTTP 503 status codes when upstream services failed internal healthchecks. {% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
+    - 'El intento de borrar todos los ajustes de configuración existentes con `ghe-cleanup-settings` falló en reiniciar el servicio de la Consola de Administración. {% comment %} https://github.com/github/enterprise2/pull/26986, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'Durante el desmonte de replicación a través de `ghe-repl-teardown`, Memcached falló en reiniciar. {% comment %} https://github.com/github/enterprise2/pull/26992, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
+    - 'Durante los periodos de carga alta, los usuarios recibieron códigos de estado HTTP 503 cuando los servicios ascendentes fallaron sus revisiones de salud interna. {% comment %} https://github.com/github/enterprise2/pull/27081, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
     - 'Se prohibió que los ambientes de los ganchos de pre-recepción llamaran el comando cat a través de BusyBox en Alpine.{% comment %} https://github.com/github/enterprise2/pull/27114, https://github.com/github/enterprise2/pull/27094 {% endcomment %}'
-    - 'The external database password was logged in plaintext. {% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
-    - 'An erroneous `jq` error message may have been displayed when running `ghe-config-apply`. {% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
+    - 'La contraseña de la base de datos externa se registró en texto simple. {% comment %} https://github.com/github/enterprise2/pull/27172, https://github.com/github/enterprise2/pull/26413 {% endcomment %}'
+    - 'Pudo haberse mostrado un mensaje de error de `jq` erróneo al ejecutar `ghe-config-apply`. {% comment %} https://github.com/github/enterprise2/pull/27203, https://github.com/github/enterprise2/pull/26784 {% endcomment %}'
     - 'La recuperación de fallos desde un centro de datos de un clúster primario hacia uno de un clúster secundario fue exitosa, pero recuperarse de los fallos nuevamente hacia el centro de datos del clúster primario original no pudo promover los índices de Elasticsearch. {% comment %} https://github.com/github/github/pull/193180, https://github.com/github/github/pull/192447 {% endcomment %}'
-    - 'The Site Admin page for repository self-hosted runners returned an HTTP 500. {% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
+    - 'La página de administrador de sitio para los ejecutores auto-hospedados del repositorio devolvió un HTTP 500 {% comment %} https://github.com/github/github/pull/194205 {% endcomment %}'
     - 'En algunos casos, los Administradores de GitHub Enterprise que intentaron ver la página de `Usuarios inactivos` recibieron una respuesta de tipo `502 Bad Gateway` o `504 Gateway Timeout`. {% comment %} https://github.com/github/github/pull/194259, https://github.com/github/github/pull/193609 {% endcomment %}'
   changes:
-    - 'More effectively delete Webhook logs that fall out of the Webhook log retention window. {% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
+    - 'Se borraron bitácoras de webhook de forma más efectiva, las cuales salían de la ventana de retención de bitácoras de webhook. {% comment %} https://github.com/github/enterprise2/pull/27157 {% endcomment %}'
   known_issues:
     - En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.

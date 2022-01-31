@@ -1,1 +1,1 @@
-GitHub Appのレート制限は、トラフィックのレートを制御するための役に立ちます。
+Rate limits for {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} help control the rate of traffic to {% data variables.product.product_location %}. 

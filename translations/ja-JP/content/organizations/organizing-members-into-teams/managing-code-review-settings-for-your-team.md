@@ -57,9 +57,9 @@ Any team members that have set their status to "Busy" will not be selected for r
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
-2. Select **Only notify requested team members.** ![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
-3. [**Save changes**] をクリックします。
+1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
+1. Select **Only notify requested team members.** ![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
+1. [**Save changes**] をクリックします。
 {% endif %}
 
 ## Configuring auto assignment
@@ -67,24 +67,25 @@ Any team members that have set their status to "Busy" will not be selected for r
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
-6. [**Enable auto assignment**] を選択します。 ![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
-7. [How many team members should be assigned to review?] でドロップダウンメニューを使用し、各プルリクエストに割り当てるレビュー担当者の数を選択します。 ![[Number of reviewers] ドロップダウン](/assets/images/help/teams/review-assignment-number.png)
-8. [Routing algorithm] のドロップダウンメニューで、使用するアルゴリズムを選択します。 詳細は、「[ルーティングアルゴリズム](#routing-algorithms)」を参照してください。 ![[Routing algorithm] ドロップダウン](/assets/images/help/teams/review-assignment-algorithm.png)
-9. オプションで、Team の特定メンバーを常にスキップする場合は、[**Never assign certain team members**] を選択します。 次に、スキップする 1 つ以上の Team メンバーを選択します。 ![[Never assign certain team members] チェックボックスとラジオボタン](/assets/images/help/teams/review-assignment-skip-members.png)
-{% ifversion fpt or ghec or ghae-issue-5108 or ghes > 3.2 %}
-11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
-12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
-13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.
-{%- else %}
-10. オプションで、プルレビューリクエストごとのコードレビュー割り当てによって選択された Teamメンバーのみに通知する場合は、[Notifications] で[**If assigning team members, don't notify the entire team.**] を選択します。
+1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
+1. [**Enable auto assignment**] を選択します。 ![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
+1. [How many team members should be assigned to review?] でドロップダウンメニューを使用し、各プルリクエストに割り当てるレビュー担当者の数を選択します。 ![[Number of reviewers] ドロップダウン](/assets/images/help/teams/review-assignment-number.png)
+1. [Routing algorithm] のドロップダウンメニューで、使用するアルゴリズムを選択します。 詳細は、「[ルーティングアルゴリズム](#routing-algorithms)」を参照してください。 ![[Routing algorithm] ドロップダウン](/assets/images/help/teams/review-assignment-algorithm.png)
+1. オプションで、Team の特定メンバーを常にスキップする場合は、[**Never assign certain team members**] を選択します。 次に、スキップする 1 つ以上の Team メンバーを選択します。 ![[Never assign certain team members] チェックボックスとラジオボタン](/assets/images/help/teams/review-assignment-skip-members.png)
+{% ifversion ghes < 3.4 %}
+1. オプションで、プルレビューリクエストごとのコードレビュー割り当てによって選択された Teamメンバーのみに通知する場合は、[Notifications] で[**If assigning team members, don't notify the entire team.**] を選択します。
 {%- endif %}
-14. [**Save changes**] をクリックします。
+{% ifversion fpt or ghec or ghae-issue-5108 or ghes > 3.2 %}
+1. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
+1. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
+1. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.
+{%- endif %}
+1. [**Save changes**] をクリックします。
 
 ## Disabling auto assignment
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. [**Enable auto assignment**] を選択してチェックマークを外します。 ![[Code review assignment] ボタン](/assets/images/help/teams/review-assignment-enable.png)
-6. [**Save changes**] をクリックします。
+1. [**Enable auto assignment**] を選択してチェックマークを外します。 ![[Code review assignment] ボタン](/assets/images/help/teams/review-assignment-enable.png)
+1. [**Save changes**] をクリックします。

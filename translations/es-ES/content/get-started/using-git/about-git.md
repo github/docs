@@ -42,9 +42,9 @@ Through platforms like {% data variables.product.product_name %}, Git also provi
 
 ## How {% data variables.product.product_name %} works
 
-{% data variables.product.product_name %} hosts Git repositories and provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the {% data variables.product.prodname_marketplace %}. With collaboration layers like the {% data variables.product.product_name %} flow, a community of 15 million developers, and an ecosystem with hundreds of integrations, {% data variables.product.product_name %} changes the way software is built.
+{% data variables.product.product_name %} hospeda repositorios de Git y proporciona a los desarrolladores las herramientas para generar un código mejor mediante características de línea de comandos, propuestas (debates en hilo), solicitudes de cambio, revisión de código o el uso de un conjunto de apps gratuitas y de pago en {% data variables.product.prodname_marketplace %}. Con las capas de colaboración tales como el flujo de {% data variables.product.product_name %}, una comunidad de 15 millones de desarrolladores y un ecosistema con cientos de integraciones, {% data variables.product.product_name %} cambia la forma en la que se crea el software.
 
-{% data variables.product.product_name %} builds collaboration directly into the development process. Work is organized into repositories where developers can outline requirements or direction and set expectations for team members. Then, using the {% data variables.product.product_name %} flow, developers simply create a branch to work on updates, commit changes to save them, open a pull request to propose and discuss changes, and merge pull requests once everyone is on the same page. Para obtener más información, consulta la sección "[Flujo de GitHub](/get-started/quickstart/github-flow)".
+{% data variables.product.product_name %} builds collaboration directly into the development process. Work is organized into repositories where developers can outline requirements or direction and set expectations for team members. Posteriormente, utilizando el flujo de {% data variables.product.product_name %}, los desarrolladores simplemente crean una rama para trabajar en las actualizaciones, confirmar cambios para guardarlos, abrir una solicitud de cambios para proponerlos y debatirlos y fusionar solicitudes de cambio una vez que todos estén de acuerdo. Para obtener más información, consulta la sección "[Flujo de GitHub](/get-started/quickstart/github-flow)".
 
 ## {% data variables.product.product_name %} and the command line
 
@@ -129,7 +129,7 @@ git push --set-upstream origin main
 
 ### Example: contribute to an existing branch on {% data variables.product.product_name %}
 
-This example assumes that you already have a project called `repo` on the machine and that a new branch has been pushed to {% data variables.product.product_name %} since the last time changes were made locally.
+Este ejemplo asumen que ya tienes un proyecto llamado `repo` en la máquina y que se subió una rama nueva a {% data variables.product.product_name %} desde la última vez que se realizaron los cambios localmente.
 
 ```bash
 # change into the `repo` directory
