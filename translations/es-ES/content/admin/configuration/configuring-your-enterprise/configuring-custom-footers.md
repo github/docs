@@ -4,6 +4,7 @@ intro: 'You can give users easy access to enterprise-specific links by adding cu
 versions:
   ghec: '*'
   ghes: '>=3.4'
+  ghae: issue-5487
 type: how_to
 topics:
   - Enterprise
@@ -15,7 +16,7 @@ Enterprise owners can configure {% data variables.product.product_name %} to sho
 
 ![Custom footer](/assets/images/enterprise/custom-footer/octodemo-footer.png)
 
-El pie de página personalizado se muestra sobre el pie de página de {% data variables.product.prodname_dotcom %} {% ifversion ghes or ghae %}para todos los usuarios, en todas las páginas de {% data variables.product.product_name %}{% else %}para todos los miembros y colaboradores de la empresa, en todas las páginas de organización y repositorios y en aquellas organizaciones que pertenezcan a la empresa{% endif %}.
+El pie de página personalizado se muestra sobre el pie de página de {% data variables.product.prodname_dotcom %} {% ifversion ghes or ghae %}para todos los usuarios, en todas las páginas de {% data variables.product.product_name %}{% elsif ghec %}para todos los miembros y colaboradores de la empresa, en todas las páginas de organización y repositorios y en aquellas organizaciones que pertenezcan a la empresa{% endif %}.
 
 ## Configuring custom footers for your enterprise
 

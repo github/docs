@@ -50,7 +50,7 @@ Para incentivar as pessoas a fazer a atualização, você pode exibir uma URL de
 
 Você pode redirecionar os usuários da interface de usuário do seu aplicativo no GitHub, usando uma URL de atualização:
 
-```
+```text
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 

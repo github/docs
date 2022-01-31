@@ -15,6 +15,8 @@ topics:
   - Security overview
   - Advanced Security
   - Alerts
+  - Dependabot
+  - Dependencies
   - Organizations
   - Teams
 shortTitle: About security overview
@@ -26,7 +28,7 @@ shortTitle: About security overview
 
 You can use the security overview for a high-level view of the security status of your organization or to identify problematic repositories that require intervention.
 
-- At the organization-level, the security overview displays aggregate and repository-specific security information for repositories owned by your organization.
+- At the organization-level, the security overview displays aggregate and repository-specific security information for repositories owned by your organization. You can also filter information per security feature.
 - At the team-level, the security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
 - At the repository-level, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features not currently in use.
 
@@ -40,7 +42,7 @@ The application security team at your company can use the security overview for 
 
 In the security overview, you can view, sort, and filter alerts to understand the security risks in your organization and in specific repositories. The security summary is highly interactive, allowing you to investigate specific categories of information, based on qualifiers like alert risk level, alert type, and feature enablement. You can also apply multiple filters to focus on narrower areas of interest. For example, you can identify private repositories that have a high number of {% data variables.product.prodname_dependabot_alerts %} or repositories that have no {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
 
-{% ifversion ghec or ghes > 3.4 %}
+{% if security-overview-views %}
 
 In the security overview, at both the organization and repository level, there are dedicated views for specific security features, such as secret scanning alerts and code scanning alerts. You can use these views to limit your analysis to a specific set of alerts, and narrow the results further with a range of filters specific to each view. For example, in the secret scanning alert view, you can use the `Secret type` filter to view only secret scanning alerts for a specific secret, like a GitHub Personal Access Token. At the repository level, you can use the security overview to assess the specific repository's current security status, and configure any additional security features not yet in use on the repository.
 

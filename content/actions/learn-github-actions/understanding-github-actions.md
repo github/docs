@@ -64,6 +64,8 @@ An _action_ is a custom application for the {% data variables.product.prodname_a
 
 You can write your own actions, or you can find actions to use in your workflows in the {% data variables.product.prodname_marketplace %}.
 
+{% data reusables.actions.internal-actions-summary %}
+
 For more information, see "[Creating actions](/actions/creating-actions)."
 
 ### Runners
@@ -260,3 +262,8 @@ To understand how billing works for {% data variables.product.prodname_actions %
 ## Contacting support
 
 {% data reusables.github-actions.contacting-support %}
+
+## Further reading
+
+{% ifversion ghec or ghes or ghae %}
+- "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}

@@ -101,4 +101,4 @@ topics:
 
 ## 反馈和支持
 
-如果您对通知有反馈或功能请求，请使用[通知反馈表](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback)。
+If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).

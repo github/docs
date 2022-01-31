@@ -54,7 +54,7 @@ Para obter orientação sobre uma implantação em fases da segurança avançada
 
     - {% data variables.product.prodname_code_scanning_capc %}, consulte "[Configurando {% data variables.product.prodname_code_scanning %} para seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
     - {% data variables.product.prodname_secret_scanning_caps %}, consulte "[Configurando {% data variables.product.prodname_secret_scanning %} para seu dispositivo](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
-    - {% data variables.product.prodname_dependabot %}, consulte "[Habilitando o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %} na conta corporativa](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)".
+    - {% data variables.product.prodname_dependabot %}, consulte "[Habilitando o gráfico de dependência e {% data variables.product.prodname_dependabot_alerts %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
 
 ## Habilitar e desabilitar funcionalidades de {% data variables.product.prodname_GH_advanced_security %}
 

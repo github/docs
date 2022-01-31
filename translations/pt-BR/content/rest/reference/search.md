@@ -23,9 +23,9 @@ A menos que outra opção de ordenamento seja fornecida como um parâmetro de co
 
 ### Limite de taxa
 
-A API de pesquisa tem um limite de taxa personalizado. Para solicitações que usam a [Autenticação Básica](/rest#authentication)[OAuth ](/rest#authentication) ou [ID e segredo do cliente e](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), você pode fazer até 30 solicitações por minuto. Para solicitações não autenticadas, o limite de taxa permite que você faça até 10 solicitações por minuto.
-
 {% data reusables.enterprise.rate_limit %}
+
+A API de pesquisa tem um limite de taxa personalizado. Para solicitações que usam a [Autenticação Básica](/rest#authentication)[OAuth ](/rest#authentication) ou [ID e segredo do cliente e](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), você pode fazer até 30 solicitações por minuto. Para solicitações não autenticadas, o limite de taxa permite que você faça até 10 solicitações por minuto.
 
 Veja a [documentação do limite de taxa](/rest/reference/rate-limit) para obter informações sobre a determinação do seu status atual de limite de taxa.
 

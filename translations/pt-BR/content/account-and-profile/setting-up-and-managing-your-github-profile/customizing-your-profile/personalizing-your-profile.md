@@ -28,10 +28,10 @@ Ao se inscrever em uma conta, o {% data variables.product.product_name %} fornec
 
 {% note %}
 
-**Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
+**Observação{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
 
-* {% endif %}Your profile picture should be a PNG, JPG, or GIF file under 1 MB in size. Para melhor qualidade de renderização, recomendamos uma imagem de aproximadamente 500 por 500 pixels.
-{% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
+* {% endif %}A imagem do seu perfil deve ser um arquivo PNG, JPG ou GIF com tamanho inferior a 1 MB. Para melhor qualidade de renderização, recomendamos uma imagem de aproximadamente 500 por 500 pixels.
+{% ifversion ghec %}* As imagens de perfil do Gravatar não são compatíveis com {% data variables.product.prodname_emus %}.{% endif %}
 
 {% endnote %}
 

@@ -1,5 +1,5 @@
 ---
-title: Identity and access management
+title: Gerenciamento de identidade e acesso
 intro: Você pode configurar como os usuários acessam sua empresa.
 redirect_from:
   - /enterprise/admin/authentication

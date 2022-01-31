@@ -127,6 +127,34 @@ webhook によって設定されている URL エンドポイントに配信さ�
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+A Git ref has been successfully synced to a cache replica. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+
+### webhook ペイロードオブジェクト
+
+| キー               | 種類       | 説明                                                             |
+| ---------------- | -------- | -------------------------------------------------------------- |
+| `cache_location` | `string` | The location of the cache server that has been updated.        |
+| `ref`            | `string` | The ref that has been updated.                                 |
+| `before`         | `string` | The OID of the ref on the cache replica before it was updated. |
+| `after`          | `string` | The OID of the ref on the cache replica after the update.      |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -191,7 +219,7 @@ webhook によって設定されている URL エンドポイントに配信さ�
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 `sender`オブジェクトは、他の全てのアクションに対して{% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}empty{% endif %}です。
+`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
 
 ### webhook ペイロードの例
 
@@ -325,10 +353,10 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー           | 種類                                          | 説明                                                       |
-| ------------ | ------------------------------------------- | -------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| キー           | 種類                                          | 説明                                                              |
+| ------------ | ------------------------------------------- | --------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `action`     | `string`                                    | 実行されたアクション。 `created` を指定可。{% endif %}
-| `deployment` | `オブジェクト`                                    | [デプロイメント](/rest/reference/deployments#list-deployments)。 |
+| `deployment` | `オブジェクト`                                    | The [deployment](/rest/reference/deployments#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -350,14 +378,14 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー                                 | 種類                                          | 説明                                                                         |
-| ---------------------------------- | ------------------------------------------- | -------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| キー                                 | 種類                                          | 説明                                                                                                  |
+| ---------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `action`                           | `string`                                    | 実行されたアクション。 `created` を指定可。{% endif %}
-| `deployment_status`                | `オブジェクト`                                    | [デプロイメントステータス](/rest/reference/deployments#list-deployment-statuses)。      |
-| `deployment_status["state"]`       | `string`                                    | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                    |
-| `deployment_status["target_url"]`  | `string`                                    | ステータスに追加されたオプションのリンク。                                                      |
-| `deployment_status["description"]` | `string`                                    | オプションの人間可読の説明がステータスに追加。                                                    |
-| `deployment`                       | `オブジェクト`                                    | このステータスが関連付けられている [デプロイメント](/rest/reference/deployments#list-deployments)。 |
+| `deployment_status`                | `オブジェクト`                                    | The [deployment status](/rest/reference/deployments#list-deployment-statuses).                      |
+| `deployment_status["state"]`       | `string`                                    | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                                             |
+| `deployment_status["target_url"]`  | `string`                                    | ステータスに追加されたオプションのリンク。                                                                               |
+| `deployment_status["description"]` | `string`                                    | オプションの人間可読の説明がステータスに追加。                                                                             |
+| `deployment`                       | `オブジェクト`                                    | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -508,7 +536,7 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {{ webhookPayloadsForCurrentVersion.gollum }}
 
-## インストール
+## installation
 
 {% data reusables.webhooks.installation_short_desc %}
 

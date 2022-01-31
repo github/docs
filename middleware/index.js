@@ -74,6 +74,10 @@ const asyncMiddleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
 
+// The IP address that Fastly regards as the true client making the request w/ fallback to req.ip
+morgan.token('client-ip', (req) => req.headers['Fastly-Client-IP'] || req.ip)
+const productionLogFormat = `:client-ip - ":method :url" :status - :response-time ms`
+
 export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
@@ -83,7 +87,7 @@ export default function (app) {
   // Enabled in development and azure deployed environments
   // Not enabled in Heroku because the Heroku router + papertrail already logs the request information
   app.use(
-    morgan(isAzureDeployment ? 'combined' : 'dev', {
+    morgan(isAzureDeployment ? productionLogFormat : 'dev', {
       skip: (req, res) => !(isDevelopment || isAzureDeployment),
     })
   )
@@ -138,7 +142,7 @@ export default function (app) {
   app.set('trust proxy', 1)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
-  app.use(instrument(handleNextDataPath, './handle-next-data-path'))
+  app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
   // *** Security ***
   app.use(cors)
@@ -212,7 +216,7 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
   app.use(instrument(graphQL, './contextualizers/graphql'))
-  app.use(instrument(rest, './contextualizers/rest'))
+  app.use(asyncMiddleware(instrument(rest, './contextualizers/rest')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))

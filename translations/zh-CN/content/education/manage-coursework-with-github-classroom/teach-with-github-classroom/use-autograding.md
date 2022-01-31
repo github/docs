@@ -60,7 +60,7 @@ redirect_from:
 
 您可以在创建新作业时添加自动评分测试。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-您可以添加、编辑或删除现有作业的自动评分测试。 如果您更改现有作业的自动评分测试，现有作业仓库将不会受到影响。 学生或团队必须接受作业并创建一个新的作业仓库来使用新的测试。
+您可以添加、编辑或删除现有作业的自动评分测试。 All changes made via the Classroom UI will be pushed to the existing student repositories, so use caution when editing your tests.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

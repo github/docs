@@ -6,12 +6,13 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
-  fpt: '*'
   ghes: '>=3.2'
   ghae: '*'
   ghec: '*'
+type: how_to
 topics:
-  - Repositories
+  - Advanced Security
+  - Secret scanning
 ---
 
 {% ifversion ghes < 3.3 or ghae %}
@@ -24,7 +25,7 @@ topics:
 
 ## About custom patterns for {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.company_short %} performs {% data variables.product.prodname_secret_scanning %} on {% ifversion fpt or ghec %}public and private{% endif %} repositories for secret patterns provided by {% data variables.product.company_short %} and {% data variables.product.company_short %} partners. For more information on the {% data variables.product.prodname_secret_scanning %} partner program, see "<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Secret scanning partner program</a>."
+{% data variables.product.company_short %} performs {% data variables.product.prodname_secret_scanning %} on {% ifversion fpt or ghec %}public and private{% endif %} repositories for secret patterns provided by {% data variables.product.company_short %} and {% data variables.product.company_short %} partners. {% data reusables.secret-scanning.partner-program-link %} For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)."
 
 However, there can be situations where you want to scan for other secret patterns in your {% ifversion fpt or ghec %}private{% endif %} repositories. For example, you might have a secret pattern that is internal to your organization. For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt or ghec %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 
 {%- ifversion fpt or ghec or ghes > 3.3 %} 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per {% ifversion fpt or ghec %}private{% endif %} repository.
@@ -46,7 +47,16 @@ However, there can be situations where you want to scan for other secret pattern
 
 ## Regular expression syntax for custom patterns
 
-Custom patterns for {% data variables.product.prodname_secret_scanning %} are specified as regular expressions. {% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
+Custom patterns for {% data variables.product.prodname_secret_scanning %} are specified as one or more regular expressions.
+
+- **Secret format:** an expression that describes the format of the secret itself.
+- **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.
+- **After secret:** an expression that describes the characters that come after the secret. By default, this is set to `\z|[^0-9A-Za-z]` which means that the secret must be followed by a new line or a non-alphanumeric character.
+- **Additional match requirements:** one or more optional expressions that the secret itself must or must not match.
+
+For simple tokens you will usually only need to specify a secret format. The other fields provide flexibility so that you can specify more complex secrets without creating complex regular expressions.  For an example of a custom pattern, see "[Example of a custom pattern specified using additional requirements](#example-of-a-custom-pattern-specified-using-additional-requirements)" below.
+
+{% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
 
 ## Defining a custom pattern for a repository
 
@@ -60,6 +70,35 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 
 After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+
+### Example of a custom pattern specified using additional requirements
+
+A company has an internal token with five characteristics. They use the different fields to specify how to identify tokens as follows:
+
+| **Characteristic** | **Field and regular expression** |
+|----------------|------------------------------|
+| Length between 5 and 10 characters | Secret format: `[$#%@AA-Za-z0-9]{5,10}` |
+| Does not end in a `.` | After secret: `[^\.]` |
+| Contains numbers and uppercase letters | Additional requirements: secret must match `[A-Z]` and `[0-9]` |
+| Does not include more than one lowercase letter in a row | Additional requirements: secret must not match `[a-z]{2,}` |
+| Contains one of `$%@!` | Additional requirements: secret must match `[$%@!]` |
+
+These tokens would match the custom pattern described above:
+
+```
+a9@AAfT!         # Secret string match: a9@AAfT
+ee95GG@ZA942@aa  # Secret string match: @ZA942@a
+a9@AA!ee9        # Secret string match: a9@AA
+```
+
+These strings would not match the custom pattern described above:
+
+```
+a9@AA.!
+a@AAAAA
+aa9@AA!ee9
+aAAAe9
+```
 
 ## Defining a custom pattern for an organization
 
