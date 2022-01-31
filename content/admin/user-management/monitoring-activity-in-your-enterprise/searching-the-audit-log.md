@@ -2,20 +2,20 @@
 title: Searching the audit log
 intro: Site administrators can search an extensive list of audited actions on the enterprise.
 redirect_from:
-  - /enterprise/admin/articles/searching-the-audit-log/
+  - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
   - /enterprise/admin/user-management/searching-the-audit-log
   - /admin/user-management/searching-the-audit-log
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
   - Enterprise
   - Logging
 ---
-### Search query syntax
+## Search query syntax
 
 Compose a search query from one or more key:value pairs separated by AND/OR logical operators.
 
@@ -42,7 +42,7 @@ For example, to see all actions that have affected the repository `octocat/Spoon
 
 For a full list of actions, see "[Audited actions](/admin/user-management/audited-actions)."
 
-### Searching the audit log
+## Searching the audit log
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

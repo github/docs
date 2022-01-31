@@ -2,12 +2,13 @@
 title: Crear un servidor de IC
 intro: Crea tu propio sistema de IC utilizando la API de Estados.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -27,7 +28,7 @@ Si aún no lo has hecho, asegúrate de [descargar ngrok][ngrok], y de aprender a
 
 Nota: puedes descargar todo el código fuente para este proyecto [del repo platform-samples][platform samples].
 
-### Escribir tu servidor
+## Escribir tu servidor
 
 Escribiremos una app de Sinatra rápidamente para probar que nuestras conexiones locales estén funcionando. Comencemos con esto:
 
@@ -79,11 +80,11 @@ end
 
 Para probar esta prueba de concepto, haz algunos cambios en una rama de tu repositorio de pruebas, y abre una solicitud de extracción. ¡Tu servidor deberá responder de acuerdo con los casos!
 
-### Trabajar con los estados
+## Trabajar con los estados
 
 Ya que configuramos el servidor, estamos listos para comenzar con nuestro primer requisito, que es configurar (y actualizar) los estados de IC. Nota que en cualquier momento que actualices tu servidor, puedes dar clic en **Volver a entregar** para enviar la misma carga útil. ¡No necesitas hacer una solicitud de extracción cada que haces un cambio!
 
-Ya que estamos interactuando con la API de {% data variables.product.product_name %}, utilizaremos a [Octokit.rb][octokit.rb] para administrar nuestras interacciones. Configuraremos a ese cliente con
+Ya que estamos interactuando con la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, utilizaremos [Octokit.rb][octokit.rb] para administrar nuestras interacciones. Configuraremos a ese cliente con
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -121,7 +122,7 @@ def process_pull_request(pull_request)
 end
 ```
 
-### Conclusión
+## Conclusión
 
 En GitHub, utilizamos una versión de [Janky][janky] durante años para administrar nuestra IC. El flujo básico es esencial y exactamente el mismo que en el servidor que acabamos de crear. En GitHub, nosotros:
 
@@ -131,7 +132,7 @@ En GitHub, utilizamos una versión de [Janky][janky] durante años para administ
 
 Todas estas comunicaciones se canalizan de vuelta a nuestras salas de chat. No necesitas crear tu propia configuración de IC para utilizar este ejemplo. Siempre puedes confiar en las [Integraciones de GitHub][integrations].
 
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/reference/commits#commit-statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

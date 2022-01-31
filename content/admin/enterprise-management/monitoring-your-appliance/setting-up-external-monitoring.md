@@ -6,19 +6,20 @@ redirect_from:
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
   - /admin/enterprise-management/setting-up-external-monitoring
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Set up external monitoring
 ---
-### About SNMP
+## About SNMP
 
 Simple Network Management Protocol (SNMP) is a widely supported method of monitoring network devices and servers. SNMP is disabled by default but can be configured through the {% data variables.product.prodname_enterprise %} monitor dashboard. UDP port 161 must be open and reachable from your network management station. For more information, see "[Monitoring using SNMP](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)."
 
-### About collectd
+## About collectd
 
 collectd is an open source statistics collection and reporting daemon with built-in support for writing to RRD files. Statistics on CPU utilization, memory and disk consumption, network interface traffic and errors, and system load can be forwarded to an external collectd server where graphs, analysis, and alerting may be configured using a wide range of available tools and plugins. To configure `collectd` forwarding, see "[Configuring collectd](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-collectd/)".
 

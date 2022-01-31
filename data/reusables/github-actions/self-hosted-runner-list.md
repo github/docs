@@ -1,1 +1,1 @@
- 1. Locate the list of runners under {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %}.
+ 1. Locate the list of runners under {% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}.

@@ -3,13 +3,14 @@ title: Organizations and teams
 shortTitle: Organizations
 intro: Collaborate across many projects while managing access to projects and data and customizing settings for your organization.
 redirect_from:
-  - /articles/about-improved-organization-permissions/
+  - /articles/about-improved-organization-permissions
   - /categories/setting-up-and-managing-organizations-and-teams
   - /github/setting-up-and-managing-organizations-and-teams
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams

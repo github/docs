@@ -4,7 +4,8 @@ redirect_from:
   - /v3/oauth_authorizations
   - /v3/oauth-authorizations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+miniTocMaxHeadingLevel: 3
 ---
 
 Puedes utilizar esta API para administrar el acceso que las aplicaciones de OAuth tienen en tu cuenta. Solo puedes acceder a esta API a través de la [Autenticación Básica](/rest/overview/other-authentication-methods#basic-authentication) utilizando tu nombre de usuario y contraseña, y no los tokens.

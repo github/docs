@@ -8,13 +8,26 @@ header:
     localization_complete: ドキュメントには頻繁に更新が加えられ、その都度公開されています。本ページの翻訳はまだ未完成な部分があることをご了承ください。最新の情報については、<a id="to-english-doc" href="/en">英語のドキュメンテーション</a>をご参照ください。本ページの翻訳に問題がある場合は<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">こちらまで</a>ご連絡ください。
     localization_in_progress: こんにちは！このページは開発中か、まだ翻訳中です。最新の正しい情報を得るには、<a id="to-english-doc" href="/en">英語のドキュメンテーション</a>にアクセスしてください。
     early_access: '📣 このURLは公に<b>共有しないで</b>ください。このページには、早期アクセスの機能に関する内容が含まれています。'
-    ghes_release_notes_use_latest: 最新のセキュリティ、パフォーマンス、バグフィックスのために、最新のリリースをお使いください。
-    ghes_release_notes_upgrade_patch_only: '📣 これはEnterprise Serverの<a href="#{{ latestPatch }}">最新パッチリリース</a>ではありません。{% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_release_only: '📣 これはEnterprise Sererの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。{% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_patch_and_release: '📣 これは、このリリースシリーズの<a href="#{{ latestPatch }}">最新のパッチリリース</a>ではなく、Enterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>でもありません。{% data ui.header.notices.ghes_release_notes_use_latest %}'
+    release_notes_use_latest: 最新のセキュリティ、パフォーマンス、バグフィックスのために、最新のリリースをお使いください。
+    #GHES release notes
+    ghes_release_notes_upgrade_patch_only: '📣 これはEnterprise Serverの<a href="#{{ latestPatch }}">最新のパッチリリース</a>ではありません。'
+    ghes_release_notes_upgrade_release_only: '📣 これはEnterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。'
+    ghes_release_notes_upgrade_patch_and_release: '📣 これはこのリリースシリーズの<a href="#{{ latestPatch }}">最新パッチリリース</a>ではなく、これはEnterprise Serverの<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新リリース</a>ではありません。'
+picker:
+  language_picker_default_text: Choose a language
+  product_picker_default_text: All products
+  version_picker_default_text: Choose a version
+release_notes:
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: お困りですか？
   placeholder: トピックや製品などの検索
+  loading: ロード中
+  no_results: 結果が見つかりませんでした
+  search_results_for: Search results for
+  no_content: No content
+  matches_displayed: Matches displayed
+  search_error: An error occurred trying to perform the search.
 homepage:
   explore_by_product: 製品で調べる
   version_picker: バージョン
@@ -23,9 +36,12 @@ toc:
   popular: 人気
   guides: ガイド
   whats_new: 更新情報
+  videos: 動画
 pages:
-  article_version: '記事のバージョン：'
+  article_version: 'Article version'
   miniToc: 'ここには以下の内容があります:'
+  contributor_callout: この記事は、次の人によってコントリビュートされ、管理されています。
+  all_enterprise_releases: All Enterprise releases
 errors:
   oops: 問題が発生しています。
   something_went_wrong: 何か問題が生じています。
@@ -35,19 +51,21 @@ support:
   still_need_help: 問題がまだ解決していませんか？
   contact_support: サポートへの連絡
   ask_community: GitHubコミュニティで質問する
-helpfulness:
+survey:
   able_to_find: このドキュメントは役立ちましたか？
   yes: true
   no: false
-  yes_feedback: 新しいドキュメントの機能とアップデートについて学びたいですか？アップデートのためにサインアップを！
-  email_placeholder: email@example.com
-  no_feedback: 私たちはドキュメントを継続的に改善しています。改善の方法をお聞かせください。
-  comment_label: 改善の方法をお知らせください。
+  comment_yes_label: うまくできていることをお知らせください。
+  comment_no_label: 改善の方法をお知らせください。
   optional: 任意
   required: 必須
-  email_label: さらに質問がある場合、ご連絡差し上げてもよいでしょうか？
+  email_placeholder: email@example.com
+  email_label: If we can contact you with more questions, please enter your email address
+  email_validation: Please enter a valid email address
   send: 送信
-  feedback: ありがとうございます。フィードバックが送信されました。
+  feedback: ありがとうございます！フィードバックをいただきました。
+  not_support: 返信が必要な場合は、サポートにお問い合わせください。
+  privacy_policy: プライバシーポリシー
 contribution_cta:
   title: これらのドキュメントを素晴らしいものにするのを手伝ってください！
   body: GitHubのすべてのドキュメントはオープンソースです。間違っていたり、はっきりしないところがありましたか？Pull Requestをお送りください。
@@ -125,6 +143,8 @@ product_landing:
   guides: ガイド
   code_examples: コード例
   search_code_examples: 検索コードの例
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: 詳細を表示
   explore_people_and_projects: 人やプロジェクトを調べる
   sorry: 検索結果はありません
@@ -140,7 +160,7 @@ product_landing:
   upgrade_from: アップグレード元
   browse_all_docs: すべてのドキュメントの参照
   explore_release_notes: リリースノートを調べる
-product_sublanding:
+product_guides:
   start: 開始
   start_path: 開始パス
   learning_paths: '{{ productMap[currentProduct].name }}の学習パス'
@@ -149,10 +169,15 @@ product_sublanding:
   more_guides: その他のガイド
   load_more: さらにガイドをロード
   all_guides: 'すべての{{ productMap[currentProduct].name }}のガイド'
+  filter_instructions: Filter the guide list using these controls
   filters:
     type: 種類
     topic: トピック
     all: すべて
+  guides_found:
+    multiple: '{n} guides found'
+    one: 1 guide found
+    none: No guides found
   guide_types:
     overview: 概要
     quick_start: クイックスタート
@@ -162,7 +187,6 @@ product_sublanding:
 learning_track_nav:
   prevGuide: 前のガイド
   nextGuide: 次のガイド
-contributor_callout: この記事は、次の人によってコントリビュートされ、管理されています。
 toggle_images:
   off: 画像はオフです。クリックして表示
   on: 画像はオンです。クリックして隠す

@@ -2,14 +2,14 @@
 title: Enabling private mode
 intro: 'In private mode, {% data variables.product.prodname_ghe_server %} requires every user to sign in to access the installation.'
 redirect_from:
-  - /enterprise/admin/articles/private-mode/
-  - /enterprise/admin/guides/installation/security/
-  - /enterprise/admin/guides/installation/securing-your-instance/
+  - /enterprise/admin/articles/private-mode
+  - /enterprise/admin/guides/installation/security
+  - /enterprise/admin/guides/installation/securing-your-instance
   - /enterprise/admin/installation/enabling-private-mode
   - /enterprise/admin/configuration/enabling-private-mode
   - /admin/configuration/enabling-private-mode
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management

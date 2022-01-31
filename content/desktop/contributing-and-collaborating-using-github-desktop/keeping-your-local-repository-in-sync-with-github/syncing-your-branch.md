@@ -5,9 +5,9 @@ redirect_from:
   - /desktop/contributing-to-projects/syncing-your-branch
   - /desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
-### About branch synchronization
+## About branch synchronization
 
 You can sync your local branch with the remote repository by pulling any commits that have been added to the branch on {% data variables.product.product_name %} since the last time you synced. If you make commits from another device or if multiple people contribute to a project, you will need to sync your local branch to keep the branch updated.
 
@@ -17,7 +17,7 @@ To add changes from one branch to another branch, you can merge the branches. To
 
 Some workflows require or benefit from rebasing instead of merging. By rebasing you can reorder, edit, or squash commits together. For more information, see "[About Git rebase](/github/getting-started-with-github/about-git-rebase)" and "[Rebasing your project branch onto another branch](#rebasing-your-project-branch-onto-another-branch)."
 
-### Pulling to your local branch from the remote
+## Pulling to your local branch from the remote
 
 1. In {% data variables.product.prodname_desktop %}, use the {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** drop-down, and select the local branch you want to update.
 2.  To check for commits on the remote branch, click **Fetch origin**
@@ -26,7 +26,7 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 ![The Pull origin button](/assets/images/help/desktop/pull-button.png)
 {% data reusables.desktop.resolve-merge-conflicts %}
 
-### Merging another branch into your project branch
+## Merging another branch into your project branch
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.choose-a-branch-to-merge %}
@@ -41,7 +41,7 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
    ![The Merge button](/assets/images/help/desktop/merge-branch-button.png)
 {% data reusables.desktop.push-origin %}
 
-### Rebasing your project branch onto another branch
+## Rebasing your project branch onto another branch
 
 {% mac %}
 
@@ -71,7 +71,20 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
 {% endwindows %}
 
-### Further Reading
+## Squashing and merging another branch into your project branch
+
+1. Use the **Branch** drop-down and click **Squash and Merge into Current Branch**.
+![Squash and merge in branch dropdown](/assets/images/help/desktop/squash-and-merge-menu.png)
+2. Click the branch you want to merge into the current branch, then click **Squash and merge**.
+![Squash and merge  button](/assets/images/help/desktop/squash-and-merge-selection.png)
+   {% note %}
+
+   **Note:** If there are merge conflicts, {% data variables.product.prodname_desktop %} will warn you above the **Squash and merge** button. You will not be able to squash and merge the branch until you have resolved all conflicts.
+
+   {% endnote %}
+{% data reusables.desktop.push-origin %}
+
+## Further Reading
 - "[Pull](/github/getting-started-with-github/github-glossary#pull)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Merge](/github/getting-started-with-github/github-glossary#merge)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Rebase](/github/getting-started-with-github/github-glossary#rebase)" in the {% data variables.product.prodname_dotcom %} glossary

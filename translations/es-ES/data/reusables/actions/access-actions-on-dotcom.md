@@ -1,0 +1,1 @@
+Si los usuarios de tu empresa necesitan acceso a otras acciones desde {% data variables.product.prodname_dotcom_the_website %} o {% data variables.product.prodname_marketplace %}, hay algunas cuantas opciones de configuración.

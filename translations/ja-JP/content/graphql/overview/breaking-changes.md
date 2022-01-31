@@ -4,14 +4,15 @@ intro: '最近の、及び今後の{% data variables.product.prodname_dotcom %} 
 redirect_from:
   - /v4/breaking_changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 破壊的変更について
+## 破壊的変更について
 
 破壊的変更は、インテグレーターからのアクションが必要になるかもしれない変更です。 これらの変更は、2つに分類されます。
 
@@ -23,11 +24,11 @@ topics:
 今後の破壊的変更のアナウンスは、遅くてもGraphQLスキーマに対して変更を行う3ヶ月前にアナウンスを行い、インテグレーターに必要な調整を行う時間を提供します。 変更は、四半期の初日（1月1日、4月1日、7月1日、10月1日）に適用されます。 たとえば、変更を1月115日にアナウンスした場合、その変更は7月1日に行われます。
 
 {% for date in graphql.upcomingChangesForCurrentVersion %}
-### {{ date[0] }}にスケジュールされた変更
+## {{ date[0] }}にスケジュールされた変更
 
 {% for change in date[1] %}
 <ul>
-<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-info color-bg-info{% endif %}">{% if change.criticality == 'breaking' %}破壊的{% else %}危険{% endif %}</span>変更が<code>{{ change.location }}</code>に対して行われます。
+<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-accent-emphasis color-bg-accent{% endif %}">{% if change.criticality == 'breaking' %}破壊的{% else %}危険{% endif %}</span>変更が<code>{{ change.location }}</code>に対して行われます。
 
 <p><b>説明：</b>{{ change.description }}</p>
 

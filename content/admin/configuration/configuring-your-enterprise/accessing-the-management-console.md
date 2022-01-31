@@ -2,23 +2,24 @@
 title: Accessing the management console
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
-  - /enterprise/admin/articles/about-the-management-console/
-  - /enterprise/admin/articles/management-console-for-emergency-recovery/
-  - /enterprise/admin/articles/web-based-management-console/
-  - /enterprise/admin/categories/management-console/
-  - /enterprise/admin/articles/accessing-the-management-console/
-  - /enterprise/admin/guides/installation/web-based-management-console/
+  - /enterprise/admin/articles/about-the-management-console
+  - /enterprise/admin/articles/management-console-for-emergency-recovery
+  - /enterprise/admin/articles/web-based-management-console
+  - /enterprise/admin/categories/management-console
+  - /enterprise/admin/articles/accessing-the-management-console
+  - /enterprise/admin/guides/installation/web-based-management-console
   - /enterprise/admin/installation/accessing-the-management-console
   - /enterprise/admin/configuration/accessing-the-management-console
   - /admin/configuration/accessing-the-management-console
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
+shortTitle: Access the management console
 ---
-### About the {% data variables.enterprise.management_console %}
+## About the {% data variables.enterprise.management_console %}
 
 Use the {% data variables.enterprise.management_console %} for basic administrative activities:
 - **Initial setup**: Walk through the initial setup process when first launching {% data variables.product.product_location %} by visiting {% data variables.product.product_location %}'s IP address in your browser.
@@ -31,15 +32,17 @@ You can always reach the {% data variables.enterprise.management_console %} usin
 
 To access the {% data variables.enterprise.management_console %}, you must use the administrator password established during initial setup of {% data variables.product.product_location %}. You must also be able to connect to the virtual machine host on port 8443. If you're having trouble reaching the {% data variables.enterprise.management_console %}, please check intermediate firewall and security group configurations.
 
-### Accessing the {% data variables.enterprise.management_console %} as a site administrator
+The {% data variables.enterprise.management_console %} password hash is stored in `/data/user/common/secrets.conf`, and that file is automatically synced from the primary appliance to any high-availability replicas. Any change to the primary's password will automatically be replicated to high-availability replicas. For more information about high availability, see "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
 
-The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your {% data variables.product.prodname_enterprise %} license](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license)."
+## Accessing the {% data variables.enterprise.management_console %} as a site administrator
+
+The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### Accessing the {% data variables.enterprise.management_console %} as an unauthenticated user
+## Accessing the {% data variables.enterprise.management_console %} as an unauthenticated user
 
 1. Visit this URL in your browser, replacing `hostname` with your actual {% data variables.product.prodname_ghe_server %} hostname or IP address:
   ```shell
@@ -47,7 +50,7 @@ The first time that you access the {% data variables.enterprise.management_conso
   ```
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### Unlocking the {% data variables.enterprise.management_console %} after failed login attempts
+## Unlocking the {% data variables.enterprise.management_console %} after failed login attempts
 
 The {% data variables.enterprise.management_console %} locks after ten failed login attempts are made in the span of ten minutes. You must wait for the login screen to automatically unlock before attempting to log in again. The login screen automatically unlocks as soon as the previous ten minute period contains fewer than ten failed login attempts. The counter resets after a successful login occurs.
 

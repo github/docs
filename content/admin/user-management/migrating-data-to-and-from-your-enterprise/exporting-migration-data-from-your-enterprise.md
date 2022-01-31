@@ -2,23 +2,24 @@
 title: Exporting migration data from your enterprise
 intro: 'To change platforms or move from a trial instance to a production instance, you can export migration data from a {% data variables.product.prodname_ghe_server %} instance by preparing the instance, locking the repositories, and generating a migration archive.'
 redirect_from:
-  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
+  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
   - /enterprise/admin/migrations/preparing-the-github-enterprise-server-source-instance
   - /enterprise/admin/migrations/exporting-the-github-enterprise-server-source-repositories
-  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance/
-  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories/
+  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance
+  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Export from your enterprise
 ---
-### Preparing the {% data variables.product.prodname_ghe_server %} source instance
+## Preparing the {% data variables.product.prodname_ghe_server %} source instance
 
 1. Verify that you are a site administrator on the {% data variables.product.prodname_ghe_server %} source. The best way to do this is to verify that you can [SSH into the instance](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
 
@@ -26,7 +27,7 @@ topics:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Exporting the {% data variables.product.prodname_ghe_server %} source repositories
+## Exporting the {% data variables.product.prodname_ghe_server %} source repositories
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 

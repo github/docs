@@ -1,13 +1,16 @@
 ---
 title: Pulls
+intro: 'A API Pulls permite que você liste, veja, edite, crie e até mesmo faça merge de pull requests.'
 redirect_from:
   - /v3/pulls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 A API do Pull Request permite que você liste, visualize, edite, crie e até mesmo faça merge de pull requests. Comentários em pull requests podem ser gerenciados através da [API de Comentários do Problema](/rest/reference/issues#comments).
@@ -27,8 +30,6 @@ Estes são os tipos de mídia compatíveis com pull requests.
 
 Para obter mais informações, consulte "[tipos de mídia personalizados](/rest/overview/media-types)".
 
-<a id="diff-error">
-
 Se um diff estiver corrompido, entre em contato com {% data variables.contact.contact_support %}. Inclua o nome e o ID do pull request do repositório na sua mensagem.
 
 ### Relações do Link
@@ -44,7 +45,7 @@ Pull Requests têm estas relações de link possíveis:
 | `review_comments` | O local da API dos [comentários da revisão](/rest/reference/pulls#comments) deste Pull Request.                                                                      |
 | `review_comment`  | O [modelo de URL](/rest#hypermedia) para construir o local da API para um [comentário de revisão](/rest/reference/pulls#comments) no repositório deste Pull Request. |
 | `commits`         | O local da API dos [commits](#list-commits-on-a-pull-request) deste Pull Request.                                                                                    |
-| `Status`          | O local da API dos [status do commit](/rest/reference/repos#statuses) deste pull request, que são os status no seu branch `principal`.                               |
+| `Status`          | O local da API dos [status do commit](/rest/reference/commits#commit-statuses) deste pull request, que são os status no seu branch `principal`.                      |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -60,7 +61,7 @@ As revisões de pull request são grupos de comentários de revisão de pull req
 
 ## Comentários de revisão
 
-Os comentários de revisão de pull request são comentários em uma parte do diff unificado feitos durante uma revisão de pull request. Comentários de commit e comentários de problemas são são diferentes dos comentários de revisão de pull request. Você aplica comentários de submissão diretamente para um commit e aplica comentários de problema sem fazer referência a uma parte do diff unificado. Para obter mais informações, consulte "[Criar um comentário de commit](/rest/reference/git#create-a-commit)" e "[Criar um comentário de problema](/rest/reference/issues#create-an-issue-comment)".
+Os comentários de revisão de pull request são comentários em uma parte do diff unificado feitos durante uma revisão de pull request. Comentários de commit e comentários de problemas são são diferentes dos comentários de revisão de pull request. Você aplica comentários de submissão diretamente para um commit e aplica comentários de problema sem fazer referência a uma parte do diff unificado. Para obter mais informações, consulte "[Criar um comentário de commit](/rest/reference/commits#create-a-commit-comment)" e "[Criar um comentário de problema](/rest/reference/issues#create-an-issue-comment)".
 
 ### Tipos de mídia personalizados para comentários de revisão de pull request
 

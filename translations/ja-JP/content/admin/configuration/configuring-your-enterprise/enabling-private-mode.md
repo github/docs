@@ -2,14 +2,14 @@
 title: プライベートモードの有効化
 intro: 'プライベートモードでは、{% data variables.product.prodname_ghe_server %} はインストールにアクセスするすべてのユーザーにサインインを求めます。'
 redirect_from:
-  - /enterprise/admin/articles/private-mode/
-  - /enterprise/admin/guides/installation/security/
-  - /enterprise/admin/guides/installation/securing-your-instance/
+  - /enterprise/admin/articles/private-mode
+  - /enterprise/admin/guides/installation/security
+  - /enterprise/admin/guides/installation/securing-your-instance
   - /enterprise/admin/installation/enabling-private-mode
   - /enterprise/admin/configuration/enabling-private-mode
   - /admin/configuration/enabling-private-mode
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
@@ -21,6 +21,7 @@ topics:
   - Privacy
   - Security
 ---
+
 {% data variables.product.product_location %}がインターネット経由でパブリックにアクセス可能になっている場合、プライベートモードを有効化しなければなりません。 プライベートモードでは、ユーザは`git://`経由でリポジトリを匿名クローンすることはできません。 ビルトイン認証も有効化されている場合、新しいユーザがインスタンスにアカウントを作成するには管理者が招待しなければなりません。 詳しい情報については"[ビルトイン認証の利用](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)"を参照してください。
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}

@@ -5,10 +5,12 @@ redirect_from:
   - /articles/adding-a-license-to-a-repository
   - /github/building-a-strong-community/adding-a-license-to-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Agrega una licencia a un repositorio
 ---
 
 Si incluyes una licencia detectable en tu repositorio, las personas que visiten tu repositorio la verán en la parte superior de la página del repositorio. Para leer el archivo de licencia completa, haz clic en el nombre de la licencia.
@@ -17,10 +19,10 @@ Si incluyes una licencia detectable en tu repositorio, las personas que visiten 
 
 Las licencias de código abierto permiten que otras personas usen, cambien y distribuyan el proyecto en tu repositorio. Para más información sobre las licencias de repositorios, consulta "[Licenciar un repositorio](/articles/licensing-a-repository)".
 
-### Incluir una licencia de código abierto en tu repositorio
+## Incluir una licencia de código abierto en tu repositorio
 
 <!--Dotcom version uses the license tool-->
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. En el campo del nombre del archivo, escribe *LICENSE* o *LICENSE.md* (todo en mayúscula).
@@ -35,7 +37,7 @@ Las licencias de código abierto permiten que otras personas usen, cambien y dis
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% ifversion ghes %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -48,6 +50,6 @@ Las licencias de código abierto permiten que otras personas usen, cambien y dis
 
 {% endif %}
 
-### Leer más
+## Leer más
 
 - "[Configurar pautas para los colaboradores de repositorios](/articles/setting-guidelines-for-repository-contributors)"
