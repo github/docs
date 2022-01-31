@@ -5,6 +5,7 @@ permissions: Organization owners and security managers can access the security o
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
+  ghae: issue-4554
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -100,11 +101,11 @@ Available in the organization-level overview.
 | -------- | -------- |
 | <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
 
-{% ifversion ghec or ghes > 3.4 %}
+{% if security-overview-views %}
 
 ## Filter by severity
 
-Available in the code scanning alert views. All code scanning alerts have one of the categories shown below. You can click any result to see full details of the relevant rule, and the line of code that triggered the alert. 
+Available in the code scanning alert views. All code scanning alerts have one of the categories shown below. You can click any result to see full details of the relevant rule, and the line of code that triggered the alert.
 
 | Qualifier | Description |
 | -------- | -------- |
