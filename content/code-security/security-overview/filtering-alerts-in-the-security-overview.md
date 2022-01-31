@@ -5,7 +5,7 @@ permissions: Organization owners and security managers can access the security o
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
-  ghae: issue-5503
+  ghae: issue-4554
   ghes: '>3.1'
   ghec: '*'
 type: how_to
