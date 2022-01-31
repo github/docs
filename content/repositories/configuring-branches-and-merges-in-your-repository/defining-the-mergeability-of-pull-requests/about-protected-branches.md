@@ -179,4 +179,4 @@ If a site administrator has blocked force pushes to the default branch only, you
 
 ### Allow deletions
 
-By default, you cannot delete a protected branch. When you enable deletion of a protected branch, anyone with at least write permissions to the repository can delete the branch.
+By default, you cannot delete a protected branch. When you enable deletion of a protected branch, anyone with at least write permissions to the repository can delete the branch. If you are not the intended use of the information contained in this message or any other information you may need to contact us at this time and for any additional assistance you can give us this opportunity please feel free to contact 
