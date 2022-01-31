@@ -96,7 +96,7 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        uses: gradle/gradle-build-action@bc3340afc5e3cc44f2321809ac090d731c13c514
         with:
           arguments: publish
         env:
@@ -167,7 +167,7 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        uses: gradle/gradle-build-action@bc3340afc5e3cc44f2321809ac090d731c13c514
         with:
           arguments: publish
         env:
@@ -246,7 +246,7 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        uses: gradle/gradle-build-action@bc3340afc5e3cc44f2321809ac090d731c13c514
         with:
           arguments: publish
         env: {% raw %}
