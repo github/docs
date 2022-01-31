@@ -77,15 +77,15 @@ describe('breadcrumbs', () => {
     })
 
     test('English breadcrumbs link to English pages', async () => {
-      const $ = await getDOM('/en/github/importing-your-projects-to-github')
+      const $ = await getDOM('/en/get-started/learning-about-github')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs[0].attribs.href).toBe('/en/github')
+      expect($breadcrumbs[0].attribs.href).toBe('/en/get-started')
     })
 
     test('localized breadcrumbs link to localize pages', async () => {
-      const $ = await getDOM('/ja/github/importing-your-projects-to-github')
+      const $ = await getDOM('/ja/get-started/learning-about-github')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs[0].attribs.href).toBe('/ja/github')
+      expect($breadcrumbs[0].attribs.href).toBe('/ja/get-started')
     })
   })
 

@@ -27,29 +27,25 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 | 推送个人资料更新 | When you update a user's profile in Okta, Okta will update the metadata for the user's membership in your organization on {% data variables.product.product_location %}. |
 | 重新激活用户   | When you reactivate a user in Okta, Okta will send an email invitation for the user to rejoin your organization on {% data variables.product.product_location %}.        |
 
-## 基本要求
-
-{% data reusables.saml.use-classic-ui %}
+Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for enterprise accounts is only available with Enterprise Managed Users. For more information, see "[Configuring SAML single sign-on for your enterprise using Okta](/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)" and "[Configuring SCIM provisioning for Enterprise Managed Users with Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)."
 
 ## 在 Okta 中添加 {% data variables.product.prodname_ghe_cloud %} 应用程序
 
-{% data reusables.saml.okta-dashboard-click-applications %}
-{% data reusables.saml.add-okta-application %}
-{% data reusables.saml.search-ghec-okta %}
-4. 在“Github Enterprise Cloud - Organization（Github Enterprise Cloud - 组织）”的右侧单击 **Add（添加）**。 ![对 {% data variables.product.prodname_ghe_cloud %} 应用程序单击"Add（添加）"](/assets/images/help/saml/okta-add-ghec-application.png)
-
-5. In the **GitHub Organization** field, type the name of your organization on {% data variables.product.product_location %}. 例如，如果组织的 URL 是 https://github.com/octo-org，则组织名称为 `octo-org`。 ![键入 GitHub 组织名称](/assets/images/help/saml/okta-github-organization-name.png)
-
-6. 单击 **Done（完成）**。
+{% data reusables.saml.okta-sign-into-your-account %}
+1. Navigate to the [Github Enterprise Cloud - Organization](https://www.okta.com/integrations/github-enterprise-cloud-organization) application in the Okta Integration Network and click **Add Integration**.
+1. （可选）在“Application label（应用程序标签）”右边输入应用程序的描述性名称。
+1. In the **GitHub Organization** field, type the name of your organization on {% data variables.product.product_location %}. 例如，如果组织的 URL 是 https://github.com/octo-org，则组织名称为 `octo-org`。
+1. 单击 **Done（完成）**。
 
 ## 启用和测试 SAML SSO
 
+{% data reusables.saml.okta-sign-into-your-account %}
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
 {% data reusables.saml.assign-yourself-to-okta %}
 {% data reusables.saml.okta-sign-on-tab %}
 {% data reusables.saml.okta-view-setup-instructions %}
-6. 按照“如何配置 SAML 2.0”指南，使用登录 URL、发行机构 URL 和公共证书在 {% data variables.product.prodname_dotcom %} 上启用并测试 SAML SSO。 更多信息请参阅“[对组织启用并测试 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)”。
+1. 按照“如何配置 SAML 2.0”指南，使用登录 URL、发行机构 URL 和公共证书在 {% data variables.product.prodname_dotcom %} 上启用并测试 SAML SSO。 更多信息请参阅“[对组织启用并测试 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization)”。
 
 ## 在 Okta 中使用 SCIM 配置访问配置
 
@@ -58,18 +54,17 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 {% data reusables.saml.okta-provisioning-tab %}
 {% data reusables.saml.okta-configure-api-integration %}
 {% data reusables.saml.okta-enable-api-integration %}
+1. 单击 **Authenticate with Github Enterprise Cloud - Organization（向 Github Enterprise Cloud 验证 - 组织）**。
+1. 在组织名称的右侧，单击 **Grant（授予）**。
 
-
-6. 单击 **Authenticate with Github Enterprise Cloud - Organization（向 Github Enterprise Cloud 验证 - 组织）**。 ![Okta 应用程序的"Authenticate with Github Enterprise Cloud - Organization（ 向 Github Enterprise Cloud 验证 - 组织）"按钮](/assets/images/help/saml/okta-authenticate-with-ghec-organization.png)
-
-7. 在组织名称的右侧，单击 **Grant（授予）**。 ![用于授权 Okta SCIM 集成访问组织的"Grant（授予）"按钮](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)
+  ![用于授权 Okta SCIM 集成访问组织的"Grant（授予）"按钮](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)
 
   {% note %}
 
   **注**：如果在列表中看不到您的组织，请在浏览器中访问 `https://github.com/orgs/ORGANIZATION-NAME/sso`，并使用 IdP 上的管理员帐户通过 SAML SSO 向您的组织验证身份。 例如，如果您的组织名称是 `octo-org`，则 URL 是 `https://github.com/orgs/octo-org/so`。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”。
 
   {% endnote %}
-1. 单击 **Authorize OktaOAN（授权 OktaOAN）**。 ![用于授权 Okta SCIM 集成访问组织的"Authorize OktaOAN（授权 OktaOAN）"按钮](/assets/images/help/saml/okta-scim-integration-authorize-oktaoan.png)
+1. 单击 **Authorize OktaOAN（授权 OktaOAN）**。
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}
 

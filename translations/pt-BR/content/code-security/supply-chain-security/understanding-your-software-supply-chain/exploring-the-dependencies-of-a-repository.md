@@ -114,5 +114,5 @@ Se um arquivo de manifesto ou de bloqueio não for processado, suas dependência
 - "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Visualizar e atualizar dependências vulneráveis no seu repositório](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
 - "[Visualizar informações da organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
-- "[Entender como o {% data variables.product.prodname_dotcom %} usa e protege seus dados](/github/understanding-how-github-uses-and-protects-your-data)"
+- "[Entender como o {% data variables.product.prodname_dotcom %} usa e protege seus dados](/get-started/privacy-on-github)"
 {% endif %}

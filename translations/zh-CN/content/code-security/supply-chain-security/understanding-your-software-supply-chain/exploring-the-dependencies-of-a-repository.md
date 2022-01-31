@@ -114,5 +114,5 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 - “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
 - "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
 - "[查看用于组织的洞见](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
-- "[了解 {% data variables.product.prodname_dotcom %} 如何使用和保护数据](/github/understanding-how-github-uses-and-protects-your-data)"
+- "[了解 {% data variables.product.prodname_dotcom %} 如何使用和保护数据](/get-started/privacy-on-github)"
 {% endif %}

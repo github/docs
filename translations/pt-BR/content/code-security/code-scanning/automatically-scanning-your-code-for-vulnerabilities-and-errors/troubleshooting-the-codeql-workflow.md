@@ -137,7 +137,7 @@ Se a sua análise de {% data variables.product.prodname_codeql %} digitalizar me
 Substitua a etapa `autobuild` pelos os mesmos comandos de compilação que você usaria em produção. Isso garante que {% data variables.product.prodname_codeql %} sabe exatamente como compilar todos os arquivos de origem que você deseja digitalizar. Para obter mais informações, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
 ### Inspecionar a cópia dos arquivos de origem no banco de dados de {% data variables.product.prodname_codeql %}
-Talvez você seja possa entender por que alguns arquivos de origem não foram analisados inspecionando a cópia do código-fonte incluído na base de dados de {% data variables.product.prodname_codeql %}. To obtain the database from your Actions workflow, modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
+Talvez você seja possa entender por que alguns arquivos de origem não foram analisados inspecionando a cópia do código-fonte incluído na base de dados de {% data variables.product.prodname_codeql %}. Para obter o banco de dados a partir do seu fluxo de trabalho, modifique a etapa `init` do seu arquivo de fluxo de trabalho de {% data variables.product.prodname_codeql %} e defina `debug: true`.
 
 ```yaml
 - name: Initialize CodeQL

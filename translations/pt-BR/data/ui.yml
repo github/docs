@@ -13,6 +13,7 @@ header:
     ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
     ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
     ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+  sign_up_cta: inscrever
 picker:
   language_picker_default_text: Choose a language
   product_picker_default_text: All products
@@ -161,8 +162,7 @@ product_landing:
   browse_all_docs: Browse all docs
   explore_release_notes: Explore release notes
 product_guides:
-  start: Início
-  start_path: Caminho de início
+  start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'
   learning_paths_desc: Os caminhos de aprendizado são uma coleção de guias que ajudam você a dominar um assunto específico.
   guides: '{{ productMap[currentProduct].name }} guides'

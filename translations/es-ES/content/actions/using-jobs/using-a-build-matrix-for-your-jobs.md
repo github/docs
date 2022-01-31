@@ -1,6 +1,6 @@
 ---
 title: Using a build matrix for your jobs
-shortTitle: Using a build matrix for your jobs
+shortTitle: Utilizar una matriz de compilación para tus jobs
 intro: Create a build matrix and define variations for each job.
 versions:
   fpt: '*'

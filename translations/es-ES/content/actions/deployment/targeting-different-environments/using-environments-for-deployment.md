@@ -83,7 +83,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 2. Optionally, specify the amount of time to wait before allowing workflow jobs that use this environment to proceed.
    1. Select **Wait timer**.
    1. Enter the number of minutes to wait.
-   1. Click **Save protection rules**.
+   1. Haz clic en **Guardar reglas de protección**.
 3. Optionally, specify what branches can deploy to this environment. For more information about the possible values, see "[Deployment branches](#deployment-branches)."
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches**, enter the branch name patterns that you want to allow.

@@ -132,6 +132,20 @@ Authentication with a security key is *secondary* to authentication with a TOTP 
 	![Download recovery codes button](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
+{% ifversion fpt or ghec %}
+## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
+
+You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.
+
+Once you have configured a TOTP application, or SMS, you can also use {% data variables.product.prodname_mobile %} to authenticate. If, in the future, you no longer have access to {% data variables.product.prodname_mobile %}, you will still be able to use security keys or TOTP applications to sign in.
+
+1. You must have already configured 2FA via a TOTP mobile app or via SMS.
+2. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+3. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+
+After signing in, you can now use your device for 2FA.
+{% endif %}
+
 ## Further reading
 
 - "[About two-factor authentication](/articles/about-two-factor-authentication)"

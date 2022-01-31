@@ -1,6 +1,6 @@
 ---
 title: Using conditions to control job execution
-shortTitle: Using conditions to control job execution
+shortTitle: Utilizar condiciones para controlar la ejecución de jobs
 intro: Prevent a job from running unless your conditions are met.
 versions:
   fpt: '*'
