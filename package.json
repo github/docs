@@ -122,7 +122,6 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-styled-components": "^2.0.2",
     "babel-preset-env": "^1.7.0",
-    "bottleneck": "^2.19.5",
     "chalk": "^5.0.0",
     "change-case": "^4.1.2",
     "commander": "^8.3.0",
@@ -182,6 +181,7 @@
   "license": "(MIT AND CC-BY-4.0)",
   "name": "docs.github.com",
   "optionalDependencies": {
+    "bottleneck": "^2.19.5",
     "esm": "^3.2.25",
     "image-size": "^1.0.0",
     "jest-puppeteer": "^5.0.4",
