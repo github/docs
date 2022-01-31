@@ -15,11 +15,11 @@ topics:
 shortTitle: Sobre a configuração HA
 ---
 
-Quando você configura alta disponibilidade, há uma configuração automatizada de replicação assíncrona e unidirecional de todos os armazenamentos de dados (repositórios do Git, MySQL, Redis e Elasticsearch) do appliance primário para o appliance réplica. Most {% data variables.product.prodname_ghe_server %} configuration settings are also replicated, including the {% data variables.enterprise.management_console %} password. Para obter mais informações, consulte "[Acessando o console de gerenciamento](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
+Quando você configura alta disponibilidade, há uma configuração automatizada de replicação assíncrona e unidirecional de todos os armazenamentos de dados (repositórios do Git, MySQL, Redis e Elasticsearch) do appliance primário para o appliance réplica. A maioria das configurações de {% data variables.product.prodname_ghe_server %} também são replicadas, incluindo a senha de {% data variables.enterprise.management_console %}. Para obter mais informações, consulte "[Acessando o console de gerenciamento](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
 
 O {% data variables.product.prodname_ghe_server %} dá suporte a uma configuração ativa/passiva, em que o appliance réplica é executado em espera com os serviços de banco de dados em execução no modo de replicação, mas os serviços de aplicativos são interrompidos.
 
-After replication has been established, the {% data variables.enterprise.management_console %} is no longer accessible on replica appliances. If you navigate to the replica's IP address or hostname on port 8443, you'll see a "Server in replication mode" message, which indicates that the appliance is currently configured as a replica.
+Após a replicação ser estabelecida, o {% data variables.enterprise.management_console %} se torna inacessível nos dispositivos da réplica. Se você acessar o endereço IP da réplica ou nome do host na porta 8443, verá uma mensagem "Servidor no modo de replicação", o que indica que o dispositivo está atualmente configurado como uma réplica.
 {% data reusables.enterprise_installation.replica-limit %}
 
 ## Cenários de falha
@@ -45,13 +45,13 @@ Com o failover DNS, use valores curtos de TTL nos registros DNS que apontam para
 
 Durante o failover, você deve deixar o appliance primário no modo de manutenção e redirecionar seus registros DNS para o endereço IP do appliance réplica. O tempo para redirecionar o tráfego do appliance primário para o de réplica dependerá da configuração do TTL e do tempo necessário para atualizar os registros DNS.
 
-Se estiver usando replicação geográfica, você deverá configurar o DNS de localização geográfica para direcionar o tráfego à réplica mais próxima. For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."
+Se estiver usando replicação geográfica, você deverá configurar o DNS de localização geográfica para direcionar o tráfego à réplica mais próxima. Para obter mais informações, consulte "[Sobre a replicação geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)".
 
 ### Balanceador de carga
 
 {% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-Durante o failover, você deve deixar o appliance principal em modo de manutenção. É possível configurar o balanceador de carga para detectar automaticamente quando o de réplica for promovido a primário, ou ele pode exigir uma alteração manual na configuração. Antes que o de réplica responda ao tráfego do usuário, você deve promovê-lo manualmente a primário. For more information, see "[Using {% data variables.product.prodname_ghe_server %} with a load balancer](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
+Durante o failover, você deve deixar o appliance principal em modo de manutenção. É possível configurar o balanceador de carga para detectar automaticamente quando o de réplica for promovido a primário, ou ele pode exigir uma alteração manual na configuração. Antes que o de réplica responda ao tráfego do usuário, você deve promovê-lo manualmente a primário. Para obter mais informações, consulte "[Usar o {% data variables.product.prodname_ghe_server %} com balanceador de carga](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)".
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 

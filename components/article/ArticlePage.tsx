@@ -22,6 +22,7 @@ import { ToolPicker } from 'components/article/ToolPicker'
 const ClientSideRedirectExceptions = dynamic(() => import('./ClientsideRedirectExceptions'), {
   ssr: false,
 })
+const ClientSideHighlightJS = dynamic(() => import('./ClientSideHighlightJS'), { ssr: false })
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -50,7 +51,7 @@ const interactiveAlternatives: Record<string, { href: string }> = {
 }
 
 export const ArticlePage = () => {
-  const router = useRouter()
+  const { asPath } = useRouter()
   const {
     title,
     intro,
@@ -65,7 +66,7 @@ export const ArticlePage = () => {
     currentLearningTrack,
   } = useArticleContext()
   const { t } = useTranslation('pages')
-  const currentPath = router.asPath.split('?')[0]
+  const currentPath = asPath.split('?')[0]
 
   const renderTocItem = (item: MiniTocItem) => {
     return (
@@ -111,6 +112,24 @@ export const ArticlePage = () => {
     }
   }, [])
 
+  // If the page contains `[data-highlight]` blocks, these pages need
+  // syntax highlighting. But not every page needs it, so it's conditionally
+  // lazy-loaded on the client.
+  const [lazyLoadHighlightJS, setLazyLoadHighlightJS] = useState(false)
+  useEffect(() => {
+    // It doesn't need to use querySelector because all we care about is if
+    // there is greater than zero of these in the DOM.
+    // Note! This "core selector", which determines whether to bother
+    // or not, needs to match what's used inside ClientSideHighlightJS.tsx
+    if (document.querySelector('[data-highlight]')) {
+      setLazyLoadHighlightJS(true)
+    }
+
+    // Important to depend on the current path because the first page you
+    // load, before any client-side navigation, might not need it, but the
+    // consecutive one does.
+  }, [asPath])
+
   // Scrollable code blocks in our REST API docs and elsewhere aren't accessible
   // via keyboard navigation without setting tabindex="0".  But we don't want to set
   // this attribute on every `<pre>` code block, only the ones where there are scroll
@@ -133,6 +152,10 @@ export const ArticlePage = () => {
       {/* Doesn't matter *where* this is included because it will
       never render anything. It always just return null. */}
       {loadClientsideRedirectExceptions && <ClientSideRedirectExceptions />}
+
+      {/* Doesn't matter *where* this is included because it will
+      never render anything. It always just return null. */}
+      {lazyLoadHighlightJS && <ClientSideHighlightJS />}
 
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
