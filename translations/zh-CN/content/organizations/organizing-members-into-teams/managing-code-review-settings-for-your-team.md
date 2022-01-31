@@ -57,9 +57,9 @@ When code owners are automatically requested for review, the team is still remov
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
-2. Select **Only notify requested team members.** ![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
-3. 单击 **Save changes（保存更改）**。
+1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
+1. Select **Only notify requested team members.** ![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
+1. 单击 **Save changes（保存更改）**。
 {% endif %}
 
 ## Configuring auto assignment
@@ -67,24 +67,25 @@ When code owners are automatically requested for review, the team is still remov
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
-6. 选择 **Enable auto assignment（启用自动分配）**。 ![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
-7. 在“How many team members should be assigned to review?（应分配多少团队成员进行审查？）”下，使用下拉菜单选择多个要分配给每个拉取请求的审查者。 ![审查者人数下拉列表](/assets/images/help/teams/review-assignment-number.png)
-8. 在“Routing algorithm（路由算法）”下，使用下拉菜单选择要使用的算法。 更多信息请参阅“[路由算法](#routing-algorithms)”。 ![路由算法下拉列表](/assets/images/help/teams/review-assignment-algorithm.png)
-9. （可选）要始终跳过某些团队成员，请选择 **Never assign certain team members（永不分配某些团队成员）**。 然后，选择要始终跳过的一个或多个团队成员。 ![永不分配某些团队成员复选框和下拉列表](/assets/images/help/teams/review-assignment-skip-members.png)
-{% ifversion fpt or ghec or ghae-issue-5108 or ghes > 3.2 %}
-11. （可选）在分配请求时，要将子团队成员作为潜在审查者，请选择 **Child team members（子团队成员）**。
-12. （可选）要根据可分配的成员总数计算已要求审查的成员，选择 **Count existing requests（计算现有请求）**。
-13. （可选）在分配团队成员时，要从团队中删除审核请求，请选择 **Team review request（团队审核请求）**。
-{%- else %}
-10. （可选）要对每个拉取请求审查只通知代码审查分配所选择的团队成员，在“Notifications（通知）”下选择 **If assigning team members, don't notify the entire team（如果分配团队成员，请不要通知整个团队）**。
+1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
+1. 选择 **Enable auto assignment（启用自动分配）**。 ![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
+1. 在“How many team members should be assigned to review?（应分配多少团队成员进行审查？）”下，使用下拉菜单选择多个要分配给每个拉取请求的审查者。 ![审查者人数下拉列表](/assets/images/help/teams/review-assignment-number.png)
+1. 在“Routing algorithm（路由算法）”下，使用下拉菜单选择要使用的算法。 更多信息请参阅“[路由算法](#routing-algorithms)”。 ![路由算法下拉列表](/assets/images/help/teams/review-assignment-algorithm.png)
+1. （可选）要始终跳过某些团队成员，请选择 **Never assign certain team members（永不分配某些团队成员）**。 然后，选择要始终跳过的一个或多个团队成员。 ![永不分配某些团队成员复选框和下拉列表](/assets/images/help/teams/review-assignment-skip-members.png)
+{% ifversion ghes < 3.4 %}
+1. （可选）要对每个拉取请求审查只通知代码审查分配所选择的团队成员，在“Notifications（通知）”下选择 **If assigning team members, don't notify the entire team（如果分配团队成员，请不要通知整个团队）**。
 {%- endif %}
-14. 单击 **Save changes（保存更改）**。
+{% ifversion fpt or ghec or ghae-issue-5108 or ghes > 3.2 %}
+1. （可选）在分配请求时，要将子团队成员作为潜在审查者，请选择 **Child team members（子团队成员）**。
+1. （可选）要根据可分配的成员总数计算已要求审查的成员，选择 **Count existing requests（计算现有请求）**。
+1. （可选）在分配团队成员时，要从团队中删除审核请求，请选择 **Team review request（团队审核请求）**。
+{%- endif %}
+1. 单击 **Save changes（保存更改）**。
 
 ## Disabling auto assignment
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. 选择 **Enable auto assignment（启用自动分配）**以删除复选标记。 ![代码审查分配按钮](/assets/images/help/teams/review-assignment-enable.png)
-6. 单击 **Save changes（保存更改）**。
+1. 选择 **Enable auto assignment（启用自动分配）**以删除复选标记。 ![代码审查分配按钮](/assets/images/help/teams/review-assignment-enable.png)
+1. 单击 **Save changes（保存更改）**。

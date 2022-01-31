@@ -34,9 +34,16 @@ topics:
 草稿议题有助于快速捕获想法。
 
 1. 将光标放在项目底部一行，{% octicon "plus" aria-label="plus icon" %} 的旁边。
-2. 输入您的想法，然后按 **Enter**。
+1. 输入您的想法，然后按 **Enter**。
+1. To add body text, click on the title of the draft issue. In the markdown input box that appears, enter the text for the draft issue body, then click **Save**.
 
-You can convert draft issues into issues. For more information, see [Converting draft issues to issues](#converting-draft-issues-to-issues).
+Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[Converting draft issues to issues](#converting-draft-issues-to-issues)."
+
+{% note %}
+
+**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
+
+{% endnote %}
 
 ### 议题和拉取请求
 
@@ -68,7 +75,7 @@ In table layout:
 1. Click the {% octicon "triangle-down" aria-label="the item menu" %} on the draft issue that you want to convert.
 2. Select **Convert to issue**.
 3. Select the repository that you want to add the issue to.
-4. Alternatively, edit the `assignee`, `labels`, `milestone`, or `repository` fields of the draft issue that you want to convert.
+4. Alternatively, edit the `labels`, `milestone`, or `repository` fields of the draft issue that you want to convert.
 
 In board layout:
 
@@ -99,7 +106,7 @@ To restore an archived item, navigate to the issue or pull request. In the proje
 
 ### 显示现有字段
 
-您的项目跟踪有关议题和拉取请求的最新信息，包括标题、受理人、标签、里程碑和仓库的任何更改。 当项目初始化时，会显示“标题”和“受理人”；其他字段隐藏。 您可以更改项目中这些字段的可见性。
+Your project tracks up-to-date information about issues and pull requests, including any changes to the title, assignees, labels, milestones, repository, reviewers, and linked pull requests. 当项目初始化时，会显示“标题”和“受理人”；其他字段隐藏。 您可以更改项目中这些字段的可见性。
 
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入 "show"。
@@ -148,3 +155,16 @@ You can later edit the drop down options for single select and iteration fields.
 You can enable or disable the built-in workflows for your project.
 
 {% data reusables.projects.enable-basic-workflow %}
+
+## Adding your project to a repository
+
+You can list relevant projects in a repository. You can only list projects that are owned by the same user or organization that owns the repository.
+
+In order for repository members to see a project listed in a repository, they must have visibility for the project. For more information, see "[Managing the visibility of your projects (beta)](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)" and "[Managing access to projects (beta)](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)."
+
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your repository.
+1. 单击 {% octicon "table" aria-label="the project icon" %} **Projects（项目）**。
+1. Click **Projects (Beta)** in the side bar.
+1. Click **Add project**.
+1. In the search bar that appears, search for projects that are owned by the same user or organization that owns the repository.
+1. Click on a project to list it in your repository.

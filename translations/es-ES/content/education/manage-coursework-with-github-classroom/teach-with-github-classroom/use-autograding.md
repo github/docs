@@ -60,7 +60,7 @@ Una prueba de comando de ejecución ejecuta un comando de configuración y luego
 
 Puedes agregar pruebas de calificación automática durante la creación de una tarea nueva. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-Puedes agregar, editar o borrar las pruebas de calificación automática para una tarea existente. Si cambias las pruebas de calificación automática para una tarea existente, los repositorios de tareas existentes no se verán afectados. Un alumno o equipo debe aceptar la tarea y crear un repositorio de tareas nuevo para utilizar las pruebas nuevas.
+Puedes agregar, editar o borrar las pruebas de calificación automática para una tarea existente. Todos los cambios que se hagan a través de la IU del aula se subirán a los repositorios existentes de los alumnos, así que edita tus pruebas con cuidado.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

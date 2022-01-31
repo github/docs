@@ -46,11 +46,11 @@ In addition to the features available with {% data variables.product.prodname_fr
 - Advanced tools and insights in private repositories:
   - Required pull request reviewers
   - Multiple pull request reviewers
+  - Protected branches
+  - Code owners
   - Auto-linked references
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - Protected branches
-  - Code owners
   - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
 
 ## {% data variables.product.prodname_free_team %} for organizations
@@ -73,14 +73,14 @@ In addition to the features available with {% data variables.product.prodname_fr
 - Advanced tools and insights in private repositories:
   - Required pull request reviewers
   - Multiple pull request reviewers
-  - {% data variables.product.prodname_pages %}
-  - Wikis
-  - Protected branches
-  - Code owners
-  - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
   - Draft pull requests
   - Team pull request reviewers
+  - Protected branches
+  - Code owners
   - Scheduled reminders
+  - {% data variables.product.prodname_pages %}
+  - Wikis
+  - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
 {% ifversion fpt or ghec %}
 - The option to enable {% data variables.product.prodname_github_codespaces %}
   - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."

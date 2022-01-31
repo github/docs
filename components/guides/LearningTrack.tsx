@@ -2,7 +2,7 @@ import cx from 'classnames'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/components'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { FeaturedTrack } from 'components/context/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
 import slugger from 'github-slugger'
@@ -17,14 +17,9 @@ export const LearningTrack = ({ track }: Props) => {
   const [numVisible, setNumVisible] = useState(DEFAULT_VISIBLE_GUIDES)
   const { t } = useTranslation('product_guides')
   const slug = track?.title ? slugger.slug(track?.title) : ''
-  const listRef = useRef<HTMLLIElement>(null)
   const showAll = () => {
     setNumVisible(track?.guides?.length || 0)
   }
-
-  useEffect(() => {
-    if (listRef.current) listRef.current.focus()
-  })
 
   return (
     <div data-testid="learning-track" className="my-3 px-4 col-12 col-md-6">
@@ -62,7 +57,6 @@ export const LearningTrack = ({ track }: Props) => {
                 return {
                   renderItem: () => (
                     <ActionList.Item
-                      ref={listRef}
                       as="li"
                       key={guide.href + track?.trackName}
                       sx={{
@@ -114,22 +108,29 @@ export const LearningTrack = ({ track }: Props) => {
             ></ActionList>
           </div>
         )}
-        {(track?.guides?.length || 0) > numVisible ? (
+        {
           <button
-            className="Box-footer btn-link border-top-0 position-relative text-center text-bold color-fg-accent pt-1 pb-3 col-12"
+            className={
+              'Box-footer btn-link border-top-0 position-relative text-center text-bold color-fg-accent pt-1 pb-3 col-12 ' +
+              ((track?.guides?.length || 0) <= numVisible && cx(styles.removeHoverEvents))
+            }
             onClick={showAll}
           >
-            <div
-              className={cx('position-absolute left-0 right-0 py-5', styles.fadeBottom)}
-              style={{ bottom: '50px' }}
-            ></div>
-            <span>
-              Show {(track?.guides?.length || 0) - numVisible} {t(`more_guides`)}
-            </span>
+            {(track?.guides?.length || 0) > numVisible ? (
+              <div>
+                <div
+                  className={cx('position-absolute left-0 right-0 py-5', styles.fadeBottom)}
+                  style={{ bottom: '50px' }}
+                />
+                <span>
+                  Show {(track?.guides?.length || 0) - numVisible} {t(`more_guides`)}
+                </span>
+              </div>
+            ) : (
+              <span className="color-fg-default">All guides shown</span>
+            )}
           </button>
-        ) : (
-          <div />
-        )}
+        }
       </div>
     </div>
   )

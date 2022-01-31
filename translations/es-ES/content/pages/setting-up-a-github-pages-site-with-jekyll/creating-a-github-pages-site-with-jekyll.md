@@ -68,7 +68,9 @@ Antes de que puedas usar Jekyll para crear un sitio de {% data variables.product
  Si decides publicar tu sitio desde la rama `gh-pages`, crea y controla la rama `gh-pages`.
  ```shell
  $ git checkout --orphan gh-pages
- # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
+ # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
+ $ git rm -rf 
+ # Removes the contents from your default branch from the working directory
  ```
 1. Para crear un sitio nuevo de Jekyll, utiliza el comando `jekyll new`:
    ```shell
