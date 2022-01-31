@@ -45,7 +45,7 @@ Name | Description
 `review_comments`| The API location of this Pull Request's [Review comments](/rest/reference/pulls#comments).
 `review_comment`| The [URL template](/rest#hypermedia) to construct the API location for a [Review comment](/rest/reference/pulls#comments) in this Pull Request's repository.
 `commits`|The API location of this Pull Request's [commits](#list-commits-on-a-pull-request).
-`statuses`| The API location of this Pull Request's [commit statuses](/rest/reference/repos#statuses), which are the statuses of its `head` branch.
+`statuses`| The API location of this Pull Request's [commit statuses](/rest/reference/commits#commit-statuses), which are the statuses of its `head` branch.
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
