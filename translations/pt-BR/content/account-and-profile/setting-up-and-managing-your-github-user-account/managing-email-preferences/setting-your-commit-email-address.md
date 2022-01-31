@@ -89,7 +89,7 @@ Você pode usar o comando `git config` para alterar o endereço de e-mail associ
 
 {% data variables.product.product_name %} usa o endereço de e-mail definido na sua configuração local do Git para associar commits enviados por push a partir da linha de comando para sua conta em {% data variables.product.product_location %}.
 
-Você pode alterar o endereço de e-mail associado aos commits feitos em um repositório específico. This will override your global Git configuration settings in this one repository, but will not affect any other repositories.
+Você pode alterar o endereço de e-mail associado aos commits feitos em um repositório específico. Isso sobrescreverá as definições de configuração global do Git no repositório em questão, mas não afetará nenhum outro repositório.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Altere o diretório de trabalho atual para o repositório local no qual deseja configurar o endereço de e-mail associado aos commits do Git.

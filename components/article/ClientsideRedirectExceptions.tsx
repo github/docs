@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-import overrides from '../../lib/redirects/static/rest-api-redirect-exceptions.json'
-const overrideRedirects: Record<string, string> = overrides
+import restApiOverrides from '../../lib/redirects/static/client-side-rest-api-redirects.json'
+import productOverrides from '../../lib/redirects/static/client-side-product-redirects.json'
+const overrideRedirects: Record<string, string> = { ...restApiOverrides, ...productOverrides }
 
 export default function ClientSideRedirectExceptions() {
   const router = useRouter()
