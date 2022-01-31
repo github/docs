@@ -348,3 +348,4 @@ You can narrow your search to issues and pull requests that are missing certain 
 ## Further reading
 
 - "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
