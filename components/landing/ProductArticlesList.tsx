@@ -35,7 +35,7 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
   return (
     <div className="col-12 col-lg-4 mb-6 height-full">
       <h3 className="mb-3 f4">
-        <Link className="color-unset" href={treeNode.href}>
+        <Link className="color-unset text-underline" href={treeNode.href}>
           {treeNode.renderedFullTitle}
         </Link>
       </h3>
