@@ -78,7 +78,7 @@ You can re-enable a workflow that was previously disabled.
 To enable a workflow, use the `workflow enable` subcommand. Replace `workflow` with either the name, ID, or file name of the workflow you want to enable. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`. If you don't specify a workflow, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a workflow.
 
 ```shell
-gh workflow enable <em>workflow</em>
+gh workflow enable <em>workflow</th>
 ```
 
 {% endcli %}
