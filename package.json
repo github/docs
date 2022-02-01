@@ -72,7 +72,7 @@
     "rehype-highlight": "^5.0.2",
     "rehype-raw": "^6.1.1",
     "rehype-slug": "^5.0.1",
-    "rehype-stringify": "^9.0.2",
+    "rehype-stringify": "^9.0.3",
     "remark-code-extra": "^1.0.1",
     "remark-gemoji-to-emoji": "^1.1.0",
     "remark-gfm": "^3.0.1",
