@@ -728,8 +728,8 @@ describe('server', () => {
   describe('categories and map topics', () => {
     test('adds links to categories on the dotcom homepage', async () => {
       const $ = await getDOM('/en/github')
-      expect($('a[href="/en/github/customizing-your-github-workflow"]').length).toBe(1)
-      expect($('a[href="#customizing-your-github-workflow"]').length).toBe(0)
+      expect($('a[href="/en/github/copilot"]').length).toBe(1)
+      expect($('a[href="#copilot"]').length).toBe(0)
     })
 
     test('adds links to map topics on a category homepage', async () => {
