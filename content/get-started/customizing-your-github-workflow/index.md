@@ -7,6 +7,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghae: '*'
+  ghes: '*'
 children:
   - /exploring-integrations
   - /purchasing-and-installing-apps-in-github-marketplace

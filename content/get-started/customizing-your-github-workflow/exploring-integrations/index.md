@@ -7,6 +7,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /about-integrations
   - /about-webhooks
