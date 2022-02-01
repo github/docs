@@ -26,7 +26,7 @@ O nome do código também está incluído em muitos dos arquivos de registro. Po
 
 ### IDs de codespaces
 
-Cada código tem também um ID (identificador). Ele não é exibido por padrão em {% data variables.product.prodname_vscode %}. Portanto, é possível que você precise atualizar as configurações para a extensão {% data variables.product.prodname_github_codespaces %} antes de acessar o ID.
+Todos os codespaces também possuem um ID (identificador). Ele não é exibido por padrão em {% data variables.product.prodname_vscode %}. Portanto, é possível que você precise atualizar as configurações para a extensão {% data variables.product.prodname_github_codespaces %} antes de acessar o ID.
 
 1. Em {% data variables.product.prodname_vscode %}, navegador ou área de trabalho, na barra de atividades à esquerda, clique em **Explorador remoto** para mostrar as informações para o codespace.
 2. Se a barra lateral incluir uma seção "Desempenho do codespace", passe o mouse sobre o "ID do codespace" e clique no ícone da área de transferência para copiar o ID.

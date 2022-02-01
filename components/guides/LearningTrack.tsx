@@ -25,7 +25,7 @@ export const LearningTrack = ({ track }: Props) => {
     <div data-testid="learning-track" className="my-3 px-4 col-12 col-md-6">
       <div className="Box d-flex flex-column">
         <div className="Box-header color-bg-subtle p-4 d-flex flex-1 flex-items-start flex-wrap">
-          <div className="d-flex flex-auto flex-items-start col-8 col-md-12 col-xl-8">
+          <div className="d-flex flex-auto flex-items-start col-7 col-md-7 col-xl-7">
             <div className="my-xl-0 mr-xl-3">
               <h3 id={slug} className={cx('mb-3 color-text f3 text-semibold', styles.hashAnchor)}>
                 <a className="color-unset" href={`#${slug}`}>
@@ -38,13 +38,13 @@ export const LearningTrack = ({ track }: Props) => {
             </div>
           </div>
           <a
+            {...{ 'aria-label': `${track?.title} - ${t('start_path')}` }}
             className="d-inline-flex btn no-wrap mt-3 mt-md-0 flex-items-center flex-justify-center"
-            role="button"
             href={`${track?.guides && track?.guides[0].href}?learn=${
               track?.trackName
             }&learnProduct=${track?.trackProduct}`}
           >
-            <span>{t('start')}</span>
+            <span>{t('start_path')}</span>
             <ArrowRightIcon size={20} className="ml-2" />
           </a>
         </div>
