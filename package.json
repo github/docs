@@ -50,7 +50,7 @@
     "js-cookie": "^3.0.1",
     "js-yaml": "^4.1.0",
     "kleur": "4.1.4",
-    "liquidjs": "^9.22.1",
+    "liquidjs": "^9.34.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "lunr": "^2.3.9",
