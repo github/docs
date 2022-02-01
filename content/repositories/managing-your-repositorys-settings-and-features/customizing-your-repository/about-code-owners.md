@@ -51,7 +51,7 @@ A CODEOWNERS file uses a pattern that follows most of the same rules used in [gi
 
 If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
 
-CODEOWNERS paths are case sensitive, because GitHub uses a case sensitive file system. Since CODEOWNERS are evaluated by GitHub, even systems (e.g. MacOS) that are case insensitive should ensure that paths and files are cased correctly in the CODEOWNERS file.
+CODEOWNERS paths are case sensitive, because {% data variables.product.prodname_dotcom %} uses a case sensitive file system. Since CODEOWNERS are evaluated by {% data variables.product.prodname_dotcom %}, even systems that are case insensitive (for example, macOS) must use paths and files that are cased correctly in the CODEOWNERS file.
 ### Example of a CODEOWNERS file
 ```
 # This is a comment.
