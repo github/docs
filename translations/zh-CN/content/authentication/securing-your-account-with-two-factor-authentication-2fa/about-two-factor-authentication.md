@@ -18,6 +18,10 @@ shortTitle: 关于 2FA
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
+{% ifversion fpt or ghec %}
+In addition to security keys, you can also use {% data variables.product.prodname_mobile %} for 2FA after configuring a TOTP mobile app or text messages. {% data variables.product.prodname_mobile %} uses public-key cryptography to secure your account, allowing you to use any mobile device that you've used to signed in to {% data variables.product.prodname_mobile %} as your second factor.
+{% endif %}
+
 您还可以配置其他恢复方法，以防无法访问双重身份验证凭据。 有关设置 2FA 的更多信息，请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”和“[配置双重身份验证恢复方法](/articles/configuring-two-factor-authentication-recovery-methods)”。
 
 为确保帐户安全，**强烈**建议启用 2FA，不仅在 {% data variables.product.product_name %} 上启用，在支持 2FA 的其他网站和应用程序上也要启用。 您可以启用 2FA 以访问 {% data variables.product.product_name %} 和 {% data variables.product.prodname_desktop %}。

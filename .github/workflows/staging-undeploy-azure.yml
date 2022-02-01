@@ -1,0 +1,59 @@
+name: Staging - Undeploy Azure PR
+
+# **What it does**: To undeploy PRs from Azure staging environment, i.e. destroy the App and associated resources.
+# **Why we have it**: To save money spent on deployments for closed PRs.
+# **Who does it impact**: All contributors.
+
+on:
+  pull_request:
+    types:
+      - closed
+      - locked
+
+jobs:
+  undeploy:
+    name: Undeploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GITHUB_EVENT_NUMBER: ${{ github.event.number }}
+      STAGING_RESOURCE_GROUPS: 4
+      NONPROD_REGISTRY_NAME: ghdocs
+      IMAGE_REPO: ${{ github.repository }}/pr-${{ github.event.number }}
+
+    steps:
+      - name: 'Set env vars'
+        id: vars
+        run: |
+          REPO_NAME=${GITHUB_REPOSITORY#*\/}
+          echo "RESOURCE_GROUP=preview-env-${REPO_NAME}-$((${GITHUB_EVENT_NUMBER} % ${STAGING_RESOURCE_GROUPS}))" >> $GITHUB_ENV
+          echo "DEPLOYMENT_NAME=${REPO_NAME}-pr-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
+          echo "APP_NAME=gh${REPO_NAME}-staging-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
+
+      - name: 'Az CLI login'
+        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        with:
+          creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
+
+      # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
+      - name: 'Cancel any in progress deployments'
+        run: |
+          az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ env.RESOURCE_GROUP }} || true
+
+      # Delete web app (which will also delete the App Service plan)
+      # This will succeed even if the app doesn't exist / has already been deleted
+      - name: 'Delete App Service App (which will also delete the App Service plan)'
+        run: |
+          az webapp delete -n ${{ env.APP_NAME }} -g ${{ env.RESOURCE_GROUP }}
+
+      # Untag all images under this PR's container registry repo - the container registry will automatically remove untagged images.
+      # This will fail if the IMAGE_REPO doesn't exist, but we don't care
+      - name: 'Untag all docker images for this PR'
+        run: |
+          az acr repository delete -n ${{ env.NONPROD_REGISTRY_NAME }} --repository ${{ env.IMAGE_REPO }} -y || true
+
+      # Remove all GitHub deployments from this environment and remove the environment
+      - uses: strumwolf/delete-deployment-environment@45c821e46baa405e25410700fe2e9643929706a0
+        with:
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          environment: staging-pr-${{ github.event.number }}

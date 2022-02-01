@@ -36,7 +36,7 @@ jobs:
         run: git lfs checkout
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -55,7 +55,7 @@ jobs:
           GIT_BRANCH: main
 
       - name: Cache nextjs build
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -182,12 +182,12 @@ jobs:
             })
             console.log('⏲️ Deployment status: error - The deployment timed out...')
 
-      - name: Purge Fastly edge cache
-        env:
-          FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
-          FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
-          FASTLY_SURROGATE_KEY: 'every-deployment'
-        run: .github/actions-scripts/purge-fastly-edge-cache.js
+      # - name: Purge Fastly edge cache
+      #   env:
+      #     FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
+      #     FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
+      #     FASTLY_SURROGATE_KEY: 'every-deployment'
+      #   run: .github/actions-scripts/purge-fastly-edge-cache.js
 
       - name: Send Slack notification if workflow failed
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340

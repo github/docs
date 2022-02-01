@@ -13,7 +13,15 @@ topics:
 shortTitle: Export member information
 ---
 
-You can export information about members in your organization. This is useful if you want to perform an audit of users within the organization. The exported information includes username and display name details, and whether the membership is public or private.
+You can export information about members in your organization. This is useful if you want to perform an audit of users within the organization.
+
+The exported information includes:
+- Username and display name details
+- Whether the user has two-factor authentication enabled
+- Whether the membership is public or private
+- Whether the user is an organization owner or member
+- Datetime of the user's last activity (for a full list of relevant activity, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
+- The user's SAML NameID, if available
 
 You can get member information directly from the {% data variables.product.product_name %} user interface, or using APIs. This article explains how to obtain member information from within {% data variables.product.product_name %}.
 

@@ -13,7 +13,6 @@ import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import compression from 'compression'
-import disableCachingOnSafari from './disable-caching-on-safari.js'
 import {
   setDefaultFastlySurrogateKey,
   setManualFastlySurrogateKey,
@@ -30,7 +29,6 @@ import detectLanguage from './detect-language.js'
 import context from './context.js'
 import shortVersions from './contextualizers/short-versions.js'
 import redirectsExternal from './redirects/external.js'
-import helpToDocs from './redirects/help-to-docs.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
 import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
@@ -64,8 +62,9 @@ import next from './next.js'
 import renderPage from './render-page.js'
 import assetPreprocessing from './asset-preprocessing.js'
 
-const { NODE_ENV } = process.env
+const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
+const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
 // Catch unhandled promise rejections and passing them to Express's error handler
@@ -74,13 +73,23 @@ const asyncMiddleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
 
+// The IP address that Fastly regards as the true client making the request w/ fallback to req.ip
+morgan.token('client-ip', (req) => req.headers['Fastly-Client-IP'] || req.ip)
+const productionLogFormat = `:client-ip - ":method :url" :status - :response-time ms`
+
 export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
   app.use(abort)
 
-  // *** Development tools ***
-  app.use(morgan('dev', { skip: (req, res) => !isDevelopment }))
+  // *** Request logging ***
+  // Enabled in development and azure deployed environments
+  // Not enabled in Heroku because the Heroku router + papertrail already logs the request information
+  app.use(
+    morgan(isAzureDeployment ? productionLogFormat : 'dev', {
+      skip: (req, res) => !(isDevelopment || isAzureDeployment),
+    })
+  )
 
   // *** Observability ***
   if (process.env.DD_API_KEY) {
@@ -132,7 +141,7 @@ export default function (app) {
   app.set('trust proxy', 1)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
-  app.use(instrument(handleNextDataPath, './handle-next-data-path'))
+  app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
   // *** Security ***
   app.use(cors)
@@ -154,7 +163,6 @@ export default function (app) {
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
   app.use(compression())
-  app.use(disableCachingOnSafari)
   app.use(catchBadAcceptLanguage)
 
   // *** Config and context for redirects ***
@@ -168,7 +176,6 @@ export default function (app) {
   // I ordered these by use frequency
   app.use(connectSlashes(false))
   app.use(instrument(redirectsExternal, './redirects/external'))
-  app.use(instrument(helpToDocs, './redirects/help-to-docs'))
   app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
 
@@ -207,7 +214,7 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
   app.use(instrument(graphQL, './contextualizers/graphql'))
-  app.use(instrument(rest, './contextualizers/rest'))
+  app.use(asyncMiddleware(instrument(rest, './contextualizers/rest')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))

@@ -198,68 +198,12 @@ jobs:
           color: failure
           text: Staging build failed for PR ${{ needs.pr-metadata.outputs.url }} at commit ${{ needs.pr-metadata.outputs.head_sha }}. See ${{ env.BUILD_ACTIONS_RUN_LOG }}. This run was ${{ env.ACTIONS_RUN_LOG }}.
 
-  check-pr-before-prepare:
-    needs: pr-metadata
-    if: >-
-      ${{
-        needs.pr-metadata.outputs.number != '0' &&
-        github.event.workflow_run.conclusion == 'success'
-      }}
-    runs-on: ubuntu-latest
-    # This timeout should match or exceed the value of the timeout for Undeploy
-    timeout-minutes: 5
-    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
-    # progress for this PR branch.
-    concurrency:
-      group: 'PR Staging @ ${{ needs.pr-metadata.outputs.head_label }}'
-      cancel-in-progress: true
-    outputs:
-      pull_request_state: ${{ steps.check-pr.outputs.state }}
-    steps:
-      - name: Check pull request state
-        id: check-pr
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
-        env:
-          PR_NUMBER: ${{ needs.pr-metadata.outputs.number }}
-        with:
-          script: |
-            // Equivalent of the 'await-sleep' module without the install
-            const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-
-            const blockingLabel = 'automated-block-deploy'
-            const { owner, repo } = context.repo
-            const startTime = Date.now()
-
-            let pullRequest = {}
-            let blocked = true
-
-            // Keep polling the PR until the blocking label has been removed
-            while (blocked) {
-              const { data: pr } = await github.pulls.get({
-                owner,
-                repo,
-                pull_number: process.env.PR_NUMBER
-              })
-
-              blocked = pr.labels.some(({ name }) => name === blockingLabel)
-              if (blocked) {
-                console.warn(`WARNING! PR currently has blocking label "${blockingLabel}" (after ${Date.now() - startTime} ms). Will check again soon...`)
-                await sleep(15000) // Wait 15 seconds and check again
-              } else {
-                console.log(`PR was unblocked (after ${Date.now() - startTime} ms)!`)
-                pullRequest = pr
-              }
-            }
-
-            core.setOutput('state', pullRequest.state)
-
   prepare-for-deploy:
-    needs: [pr-metadata, check-pr-before-prepare]
-    if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
+    needs: pr-metadata
+    if: ${{ needs.pr-metadata.outputs.state == 'open' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
-    # progress for this PR branch.
+    # This interrupts Build and Deploy workflow runs in progress for this PR branch.
     concurrency:
       group: 'PR Staging @ ${{ needs.pr-metadata.outputs.head_label }}'
       cancel-in-progress: true
@@ -297,7 +241,7 @@ jobs:
         run: git lfs checkout
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -395,8 +339,7 @@ jobs:
     needs: [pr-metadata, prepare-for-deploy]
     runs-on: ubuntu-latest
     timeout-minutes: 1
-    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
-    # progress for this PR branch.
+    # This interrupts Build and Deploy workflow runs in progress for this PR branch.
     concurrency:
       group: 'PR Staging @ ${{ needs.pr-metadata.outputs.head_label }}'
       cancel-in-progress: true
@@ -423,8 +366,7 @@ jobs:
     if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
-    # progress for this PR branch.
+    # This interrupts Build and Deploy workflow runs in progress for this PR branch.
     concurrency:
       group: 'PR Staging @ ${{ needs.pr-metadata.outputs.head_label }}'
       cancel-in-progress: true
@@ -433,7 +375,7 @@ jobs:
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm

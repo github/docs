@@ -1,7 +1,6 @@
 ---
-title: Inviting people to manage your enterprise
-intro: 'You can {% ifversion ghec %}invite people to become enterprise owners or billing managers for{% elsif ghes %}add enterprise owners to{% endif %} your enterprise account. You can also remove enterprise owners {% ifversion ghec %}or billing managers {% endif %}who no longer need access to the enterprise account.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
+title: Convidar pessoas para gerenciar sua empresa
+intro: 'Você pode {% ifversion ghec %}convidar pessoas para se tornarem proprietários corporativos ou gerentes de cobrança para{% elsif ghes %}adicionar proprietários corporativos à conta corporativa{% endif %}. Você também pode remover proprietários corporativos {% ifversion ghec %}ou gerentes de cobrança {% endif %}que não precisam mais de acesso à conta corporativa.'
 permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
@@ -17,64 +16,59 @@ topics:
   - Administrator
   - Enterprise
   - User account
-shortTitle: Invite people to manage
+shortTitle: Convidar pessoas para gerenciar
 ---
 
-## About users who can manage your enterprise account
+## Sobre os usuários que podem gerenciar a sua conta corporativa
 
-{% data reusables.enterprise-accounts.enterprise-administrators %} For more information, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+{% data reusables.enterprise-accounts.enterprise-administrators %} Para obter mais informações, consulte "[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 
 {% ifversion ghes %}
 
-If you want to manage owners and billing managers for an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, see "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+Se você deseja gerenciar os proprietários e gerentes de cobrança para uma conta corporativa em {% data variables.product.prodname_dotcom_the_website %}, consulte "[Convidando pessoas para gerenciar sua empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)" na documentação do {% data variables.product.prodname_ghe_cloud %}.
 
 {% endif %}
 
 {% ifversion ghec %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, enterprise owners can only be added or removed through your identity provider. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+Se sua empresa usa {% data variables.product.prodname_emus %}, os proprietários da empresa só poderão ser adicionados ou removidos por meio do seu provedor de identidade. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 
 {% endif %}
 
 {% tip %}
 
-**Tip:** For more information on managing users within an organization owned by your enterprise account, see "[Managing membership in your organization](/articles/managing-membership-in-your-organization)" and "[Managing people's access to your organization with roles](/articles/managing-peoples-access-to-your-organization-with-roles)."
+**Dica:** para obter mais informações sobre como gerenciar usuários em uma organização de sua conta corporativa, consulte "[Gerenciar integrantes em sua organização](/articles/managing-membership-in-your-organization)" e "[Gerenciar acessos de pessoas à sua organização com funções](/articles/managing-peoples-access-to-your-organization-with-roles)".
 
 {% endtip %}
 
-## {% ifversion ghec %}Inviting{% elsif ghes %}Adding{% endif %} an enterprise administrator to your enterprise account
+## {% ifversion ghec %}Convidando{% elsif ghes %}adicionando{% endif %} um administrador corporativo à sua conta corporativa
 
-{% ifversion ghec %}After you invite someone to join the enterprise account, they must accept the emailed invitation before they can access the enterprise account. Pending invitations will expire after 7 days.{% endif %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-1. In the left sidebar, click **Administrators**.
-  ![Administrators tab in the left sidebar](/assets/images/help/business-accounts/administrators-tab.png)
-1. Above the list of administrators, click {% ifversion ghec %}**Invite admin**{% elsif ghes %}**Add owner**{% endif %}.
-  {% ifversion ghec %}
-  !["Invite admin" button above the list of enterprise owners](/assets/images/help/business-accounts/invite-admin-button.png)
-  {% elsif ghes %}
-  !["Add owner" button above the list of enterprise owners](/assets/images/help/business-accounts/add-owner-button.png)
-  {% endif %}
-1. Type the username, full name, or email address of the person you want to invite to become an enterprise administrator, then select the appropriate person from the results.
-  ![Modal box with field to type a person's username, full name, or email address, and Invite button](/assets/images/help/business-accounts/invite-admins-modal-button.png){% ifversion ghec %}
-1. Select **Owner** or **Billing Manager**.
-  ![Modal box with role choices](/assets/images/help/business-accounts/invite-admins-roles.png)
-1. Click **Send Invitation**.
-  ![Send invitation button](/assets/images/help/business-accounts/invite-admins-send-invitation.png){% endif %}{% ifversion ghes %}
-1. Click **Add**.
-  !["Add" button](/assets/images/help/business-accounts/add-administrator-add-button.png){% endif %}
-
-## Removing an enterprise administrator from your enterprise account
-
-Only enterprise owners can remove other enterprise administrators from the enterprise account.
+{% ifversion ghec %}Depois de convidar alguém para juntar-se à conta corporativa, a pessoa deverá aceitar o convite por e-mail antes que possa acessar a conta corporativa. Convites pendentes vencem após 7 dias.{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click **Remove owner**{% ifversion ghec %} or **Remove billing manager**{% endif %}.
+1. Na barra lateral esquerda, clique em **Administrators** (Administradores). ![Aba Administrators (Administradores) na barra lateral esquerda](/assets/images/help/business-accounts/administrators-tab.png)
+1. Acima da lista de administradores, clique em {% ifversion ghec %}**Convidar administrador**{% elsif ghes %}**Add proprietário**{% endif %}.
   {% ifversion ghec %}
-  ![Settings gear with menu option to remove an enterprise administrator](/assets/images/help/business-accounts/remove-admin.png)
+  ![Botão "Convidar administrador" acima da lista de proprietários corporativos](/assets/images/help/business-accounts/invite-admin-button.png)
   {% elsif ghes %}
-  ![Settings gear with menu option to remove an enterprise administrator](/assets/images/help/business-accounts/ghes-remove-owner.png)
+  ![Botão "Adicionar o proprietário" acima da lista de proprietários corporativos](/assets/images/help/business-accounts/add-owner-button.png)
   {% endif %}
-1. Read the confirmation, then click **Remove owner**{% ifversion ghec %} or **Remove billing manager**{% endif %}.
+1. Digite o nome de usuário, nome completo ou endereço de e-mail da pessoa que você quer convidar para ser um administrador corporativo e depois selecione a pessoa adequada a partir dos resultados. ![Modal box with field to type a person's username, full name, or email address, and Invite button](/assets/images/help/business-accounts/invite-admins-modal-button.png){% ifversion ghec %}
+1. Selecione **Owner** (Proprietário) ou **Billing Manager** (Gerente de cobrança). ![Caixa de diálogo modal com opções de funções](/assets/images/help/business-accounts/invite-admins-roles.png)
+1. Clique em **Send Invitation** (Enviar convite). ![Send invitation button](/assets/images/help/business-accounts/invite-admins-send-invitation.png){% endif %}{% ifversion ghes %}
+1. Clique em **Salvar**. !["Add" button](/assets/images/help/business-accounts/add-administrator-add-button.png){% endif %}
+
+## Remover um administrador de sua conta corporativa
+
+Somente proprietários corporativos podem remover outros administradores corporativos da conta corporativa.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. Ao lado do nome de usuário da pessoa que você deseja remover, clique em {% octicon "gear" aria-label="The Settings gear" %} e, em seguida, clique em **Remover proprietário**{% ifversion ghec %} ou **Remover gerente de cobrança**{% endif %}.
+  {% ifversion ghec %}
+  ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/remove-admin.png)
+  {% elsif ghes %}
+  ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/ghes-remove-owner.png)
+  {% endif %}
+1. Leia a confirmação, clique **Remover proprietário**{% ifversion ghec %} ou **Remover gerente de cobrança**{% endif %}.

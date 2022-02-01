@@ -21,15 +21,11 @@ shortTitle: Security log
 The security log lists all actions performed within the last 90 days.
 
 {% data reusables.user_settings.access_settings %}
-{% ifversion fpt or ghae or ghes or ghec %}
-2. In the user settings sidebar, click **Security log**.
-  ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-label="The log icon" %} Security log**.
 {% else %}
-{% data reusables.user_settings.security %}
-3. Under "Security history," your log is displayed.
-  ![Security log](/assets/images/help/settings/user_security_log.png)
-4. Click on an entry to see more information about the event.
-  ![Security log](/assets/images/help/settings/user_security_history_action.png)
+1. In the user settings sidebar, click **Security log**.
+  ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
 {% ifversion fpt or ghae or ghes or ghec %}
@@ -124,7 +120,6 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |------------------|-------------------
-| `clear` | Triggered when [a payment method](/articles/removing-a-payment-method) on file is removed.
 | `create` | Triggered when a new payment method is added, such as a new credit card or PayPal account.
 | `update` | Triggered when an existing payment method is updated.
 

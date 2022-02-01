@@ -1,22 +1,23 @@
 ---
-title: Supported browsers
+title: サポートされているブラウザ
 redirect_from:
   - /articles/why-doesn-t-graphs-work-with-ie-8
   - /articles/why-don-t-graphs-work-with-ie8
   - /articles/supported-browsers
   - /github/getting-started-with-github/supported-browsers
   - /github/getting-started-with-github/using-github/supported-browsers
-intro: 'We design {% data variables.product.product_name %} to support the latest web browsers. We support the current versions of [Chrome](https://www.google.com/chrome/), [Firefox](http://www.mozilla.org/firefox/), [Safari](http://www.apple.com/safari/), and [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge).'
+intro: '{% data variables.product.product_name %} は、最新の Web ブラウザをサポートするよう設計されています。 [Chrome](https://www.google.com/chrome/)、[Firefox](http://www.mozilla.org/firefox/)、[Safari](http://www.apple.com/safari/)、[Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge)の現在のバージョンがサポートされています。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
-## Firefox Extended Support Release
 
-We do our best to support Firefox's latest [Extended Support Release](https://www.mozilla.org/en-US/firefox/organizations/) (ESR). Older versions of Firefox may disable some features on {% data variables.product.product_name %} and require the latest version of Firefox.
+## Firefox の延長サポートリリース
 
-## Beta and developer builds
+弊社は Firefox の最新の[拡張サポートサービス](https://www.mozilla.org/en-US/firefox/organizations/) (ESR) をサポートするのに最善を尽くしています。 Firefox の古いバージョンは、{% data variables.product.product_name %} のいくつかの機能を作動させなくする可能性がありますので、Firefox の最新バージョンが必要です。
 
-You may encounter unexpected bugs in beta and developer builds of our supported browsers. If you encounter a bug on {% data variables.product.product_name %} in one of these unreleased builds, please verify that it also exists in the stable version of the same browser. If the bug only exists in the unstable version, consider reporting the bug to the browser developer.
+## ベータ版および開発者版
+
+サポートしているブラウザのベータ版や開発者版では予期しないバグに出くわす可能性があります。 このようなリリースされていないビルドで、{% data variables.product.product_name %} 上のバグに出くわした場合、同じブラウザの正式バージョンでも存在するかどうか確認してください。 もしバグが非公式バージョンに限って存在する場合、バグをブラウザのデベロッパーに報告することを検討してください。

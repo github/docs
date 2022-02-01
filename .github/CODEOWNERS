@@ -17,6 +17,7 @@ package-lock.json @github/docs-engineering
 package.json @github/docs-engineering
 
 # Localization
+/.github/actions-scripts/create-translation-batch-pr.js @github/docs-localization
 /.github/workflows/create-translation-batch-pr.yml @github/docs-localization
 /.github/workflows/crowdin.yml @github/docs-localization
 /crowdin*.yml @github/docs-engineering @github/docs-localization

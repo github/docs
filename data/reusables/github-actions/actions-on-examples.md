@@ -1,34 +1,19 @@
-## Example: Using a single event
+### Using a single event
 
-```yaml
-# Triggered when code is pushed to any branch in a repository
-on: push
-```
+{% data reusables.github-actions.on-single-example %}
 
-## Example: Using a list of events
+### Using multiple events
 
-```yaml
-# Triggers the workflow on push or pull request events
-on: [push, pull_request]
-```
+{% data reusables.github-actions.on-multiple-example %}
 
-## Example: Using multiple events with activity types or configuration
+### Using activity types
 
-If you need to specify activity types or configuration for an event, you must configure each event separately. You must append a colon (`:`) to all events, including events without configuration.
+{% data reusables.github-actions.actions-activity-types %}
 
-```yaml
-on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  # Also trigger on page_build, as well as release created events
-  page_build:
-  release:
-    types: # This configuration does not affect the page_build event above
-      - created
-```
+### Using filters
+
+{% data reusables.github-actions.actions-filters %}
+
+### Using activity types and filters with multiple events
+
+{% data reusables.github-actions.actions-multiple-types %}

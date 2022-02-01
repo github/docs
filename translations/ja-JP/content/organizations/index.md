@@ -1,7 +1,7 @@
 ---
-title: Organizations and teams
-shortTitle: Organizations
-intro: Collaborate across many projects while managing access to projects and data and customizing settings for your organization.
+title: Organization および Team
+shortTitle: Organization
+intro: プロジェクトおよびデータへのアクセスを管理し、Organization の設定をカスタマイズしながら、多くのプロジェクトにわたってコラボレーションします。
 redirect_from:
   - /articles/about-improved-organization-permissions
   - /categories/setting-up-and-managing-organizations-and-teams

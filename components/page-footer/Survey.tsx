@@ -6,6 +6,8 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
 import { sendEvent, EventType } from 'components/lib/events'
 
+import styles from './Survey.module.scss'
+
 enum ViewState {
   START = 'START',
   YES = 'YES',
@@ -17,6 +19,7 @@ export const Survey = () => {
   const { asPath } = useRouter()
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
+  const [isEmailError, setIsEmailError] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
 
   useEffect(() => {
@@ -26,6 +29,19 @@ export const Survey = () => {
     setState(ViewState.START)
   }, [asPath])
 
+  useEffect(() => {
+    // After the form is submitted we need to manually set the focus since we
+    // remove the form inputs after submit.  The privacy policy link is the
+    // next focusable element in the footer so we focus that.
+    if (state === ViewState.END) {
+      document
+        .querySelector<HTMLAnchorElement>(
+          'footer a[href="/github/site-policy/github-privacy-statement"]'
+        )
+        ?.focus()
+    }
+  }, [state])
+
   function vote(state: ViewState) {
     return () => {
       trackEvent(getFormData())
@@ -33,10 +49,28 @@ export const Survey = () => {
     }
   }
 
+  // Though we set `type="email"` on the email address input which gives us browser
+  // validation of the field, that has accessibility issues (e.g. some screen
+  // readers won't read the error message) so we need to do manual validation
+  // ourselves.
+  function handleEmailInputChange() {
+    const emailRegex = /[^@\s.][^@\s]*@\[?[a-z0-9.-]+\]?/i
+    const surveyEmail = getFormData()?.get('survey-email')?.toString()
+
+    if (surveyEmail?.length === 0 || surveyEmail?.match(emailRegex)) {
+      setIsEmailError(false)
+    } else {
+      setIsEmailError(true)
+    }
+  }
+
   function submit(evt: React.FormEvent) {
     evt.preventDefault()
     trackEvent(getFormData())
-    setState(ViewState.END)
+    if (!isEmailError) {
+      setState(ViewState.END)
+      setIsEmailError(false)
+    }
   }
 
   function getFormData() {
@@ -54,33 +88,39 @@ export const Survey = () => {
       {state !== ViewState.END && (
         <div className="radio-group mb-2">
           <input
+            className={cx(styles.visuallyHidden, styles.customRadio)}
             id="survey-yes"
             type="radio"
             name="survey-vote"
             value="Y"
             aria-label={t`yes`}
-            hidden
             onChange={vote(ViewState.YES)}
             checked={state === ViewState.YES}
           />
           <label
-            className={cx('btn mr-1', state === ViewState.YES && 'color-bg-accent-emphasis')}
+            className={cx(
+              'btn mr-1 color-border-accent-emphasis',
+              state === ViewState.YES && 'color-bg-accent-emphasis'
+            )}
             htmlFor="survey-yes"
           >
             <ThumbsupIcon size={16} className={state === ViewState.YES ? '' : 'color-fg-muted'} />
           </label>
           <input
+            className={cx(styles.visuallyHidden, styles.customRadio)}
             id="survey-no"
             type="radio"
             name="survey-vote"
             value="N"
             aria-label={t`no`}
-            hidden
             onChange={vote(ViewState.NO)}
             checked={state === ViewState.NO}
           />
           <label
-            className={cx('btn', state === ViewState.NO && 'color-bg-danger-emphasis')}
+            className={cx(
+              'btn color-border-accent-emphasis',
+              state === ViewState.NO && 'color-bg-danger-emphasis'
+            )}
             htmlFor="survey-no"
           >
             <ThumbsdownIcon size={16} className={state === ViewState.NO ? '' : 'color-fg-muted'} />
@@ -104,7 +144,7 @@ export const Survey = () => {
               id="survey-comment"
             ></textarea>
           </p>
-          <p>
+          <div className={cx('form-group', isEmailError ? 'warn' : '')}>
             <label className="d-block mb-1 f6" htmlFor="survey-email">
               {t`email_label`}
               <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
@@ -115,18 +155,33 @@ export const Survey = () => {
               name="survey-email"
               id="survey-email"
               placeholder={t`email_placeholder`}
+              onChange={handleEmailInputChange}
+              aria-invalid={isEmailError}
+              {...(isEmailError ? { 'aria-describedby': 'email-input-validation' } : {})}
             />
-            <span className="f6 color-fg-muted">{t`not_support`}</span>
-          </p>
+            {isEmailError && (
+              <p className="note warning" id="email-input-validation">
+                {t`email_validation`}
+              </p>
+            )}
+          </div>
+          <span className="f6 color-fg-muted">{t`not_support`}</span>
           <div className="d-flex flex-justify-end flex-items-center mt-3">
             <button
               type="button"
               className="btn btn-sm btn-invisible mr-3"
-              onClick={() => setState(ViewState.START)}
+              onClick={() => {
+                setState(ViewState.START)
+                setIsEmailError(false)
+              }}
             >
               Cancel
             </button>
-            <button type="submit" className="btn btn-sm">
+            <button
+              disabled={isEmailError}
+              type="submit"
+              className="btn btn-sm color-border-accent-emphasis"
+            >
               {t`send`}
             </button>
           </div>
@@ -134,7 +189,7 @@ export const Survey = () => {
       )}
 
       {state === ViewState.END && (
-        <p className="color-fg-muted f6" data-testid="survey-end">{t`feedback`}</p>
+        <p role="status" className="color-fg-muted f6" data-testid="survey-end">{t`feedback`}</p>
       )}
 
       <Link

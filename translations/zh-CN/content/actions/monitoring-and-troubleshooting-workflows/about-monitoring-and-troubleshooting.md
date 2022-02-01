@@ -17,56 +17,56 @@ miniTocMaxHeadingLevel: 3
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
-### Using the visualization graph
+### 使用可视化图表
 
-Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug workflows. For example:
+每个工作流程运行都会生成一个实时图表，说明运行进度。 您可以使用此图表来监控和调试工作流程。 例如：
 
-   ![Workflow graph](/assets/images/help/images/workflow-graph.png)
+   ![工作流程图表](/assets/images/help/images/workflow-graph.png)
 
-For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)." 
+For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)."
 
 {% endif %}
 
-### Adding a workflow status badge
+### 添加工作流程状态徽章
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-For more information, see "[Adding a workflow status badge](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)."
+更多信息请参阅“[添加工作流程状态徽章](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)”。
 
 {% ifversion fpt or ghec %}
-### Viewing job execution time
+### 查看作业执行时间
 
-To identify how long a job took to run, you can view its execution time. For example:
+To identify how long a job took to run, you can view its execution time. 例如：
 
-   ![Run and billable time details link](/assets/images/help/repository/view-run-billable-time.png)
+   ![运行和可计费时间详细信息链接](/assets/images/help/repository/view-run-billable-time.png)
 
-For more information, see "[Viewing job execution time](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)."
+更多信息请参阅“[查看作业执行时间](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)”。
 {% endif %}
 
-### Viewing workflow run history
+### 查看工作流程运行历史记录
 
-You can view the status of each job and step in a workflow. For example:
+You can view the status of each job and step in a workflow. 例如：
 
-   ![Name of workflow run](/assets/images/help/repository/run-name.png)
+   ![工作流程运行的名称](/assets/images/help/repository/run-name.png)
 
-For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+更多信息请参阅“[查看工作流程运行历史记录](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)”。
 
 ## Troubleshooting your workflows
 
-### Using workflow run logs
+### 使用工作流程运行日志
 
-Each workflow run generates activity logs that you can view, search, and download. For example:
+Each workflow run generates activity logs that you can view, search, and download. 例如：
 
-   ![Super linter workflow results](/assets/images/help/repository/super-linter-workflow-results-updated-2.png)
+   ![Super linter 工作流程结果](/assets/images/help/repository/super-linter-workflow-results-updated-2.png)
 
-For more information, see "[Using workflow run logs](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
+更多信息请参阅“[使用工作流程运行日志](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)”。
 
-### Enabling debug logging
+### 启用调试日志
 
-If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging. For more information, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."
+如果工作流程日志没有提供足够的详细信息来诊断工作流程、作业或步骤未按预期工作的原因，您可以启用额外的调试日志。 更多信息请参阅“[启用调试日志记录](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)”。
 
-## Monitoring and troubleshooting self-hosted runners
+## 自托管运行器的监控和故障排除
 
-If you use self-hosted runners, you can view their activity and diagnose common issues. 
+If you use self-hosted runners, you can view their activity and diagnose common issues.
 
-For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+更多信息请参阅“[自托管运行器监控和故障排除](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)”。

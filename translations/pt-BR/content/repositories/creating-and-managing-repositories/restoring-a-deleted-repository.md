@@ -50,5 +50,5 @@ Restaurar um repositório não vai restaurar anexos de versão nem permissões d
 - "[Excluir um repositório](/articles/deleting-a-repository)"
 
 {% else %}
-Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
+Normalmente, repositórios excluídos podem ser restaurados dentro de 90 dias por um administrador do site {% data variables.product.prodname_enterprise %}. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
 {% endif %}

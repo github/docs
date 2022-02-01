@@ -14,8 +14,7 @@
   <h4>{% data ui.products.graphql.reference.values %}</h4>
   {% for value in item.values %}
   <p><strong>{{ value.name }}</strong></p>
-  <p>{{ value.description }}</p>
+  {{ value.description }}
   {% endfor %}
   </div>
-  <hr />
 </div>

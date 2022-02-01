@@ -11,6 +11,10 @@ Adobe | Adobe Short-Lived Access Token | adobe_short_lived_access_token{% endif 
 Adobe | Adobe JSON Web Token | adobe_jwt{% endif %}
 Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
 Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Amazon | Amazon OAuth Client ID | amazon_oauth_client_id{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Amazon | Amazon OAuth Client Secret | amazon_oauth_client_secret{% endif %}
 Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id
 Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -113,7 +117,9 @@ Google | Google OAuth Client Secret | google_oauth_client_secret{% endif %}
 Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Grafana | Grafana API Key | grafana_api_key{% endif %}
-Hashicorp Terraform | Terraform Cloud / Enterprise API Token | terraform_api_token
+HashiCorp | Terraform Cloud / Enterprise API Token | terraform_api_token
+HashiCorp | HashiCorp Vault Batch Token | hashicorp_vault_batch_token
+HashiCorp | HashiCorp Vault Service Token | hashicorp_vault_service_token
 Hubspot | Hubspot API Key | hubspot_api_key
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Intercom | Intercom Access Token | intercom_access_token{% endif %}
@@ -141,6 +147,10 @@ Mapbox | Mapbox Secret Access Token | mapbox_secret_access_token{% endif %}
 MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Meta | Facebook Access Token | facebook_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Midtrans | Midtrans Production Server Key | midtrans_production_server_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Midtrans | Midtrans Sandbox Server Key | midtrans_sandbox_server_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 New Relic | New Relic Personal API Key | new_relic_personal_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -155,6 +165,8 @@ Notion | Notion Integration Token | notion_integration_token{% endif %}
 Notion | Notion OAuth Client Secret | notion_oauth_client_secret{% endif %}
 npm | npm Access Token | npm_access_token
 NuGet | NuGet API Key | nuget_api_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Octopus Deploy | Octopus Deploy API Key | octopus_deploy_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Onfido | Onfido Live API Token | onfido_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -184,6 +196,8 @@ PyPI | PyPI API Token | pypi_api_token{% endif %}
 RubyGems | RubyGems API Key | rubygems_api_key{% endif %}
 Samsara | Samsara API Token | samsara_api_token
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae %}
+Segment | Segment Public API Token | segment_public_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 SendGrid | SendGrid API Key | sendgrid_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -233,9 +247,19 @@ Twilio | Twilio Account String Identifier | twilio_account_sid
 Twilio | Twilio API Key | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | WorkOS Production API Key | workos_production_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | WorkOS Staging API Key | workos_staging_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Yandex.Cloud IAM Cookie | yandex_cloud_iam_cookie{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Yandex.Cloud IAM Token | yandex_cloud_iam_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Dictionary API Key | yandex_dictionary_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Predictor API Key | yandex_predictor_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Translate API Key | yandex_translate_api_key{% endif %}

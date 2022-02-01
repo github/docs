@@ -1,5 +1,5 @@
 ---
-title: About Git subtree merges
+title: Sobre merges de subárvore do Git
 redirect_from:
   - /articles/working-with-subtree-merge
   - /subtree-merge
@@ -7,38 +7,39 @@ redirect_from:
   - /github/using-git/about-git-subtree-merges
   - /github/getting-started-with-github/about-git-subtree-merges
   - /github/getting-started-with-github/using-git/about-git-subtree-merges
-intro: 'If you need to manage multiple projects within a single repository, you can use a *subtree merge* to handle all the references.'
+intro: 'Se precisar gerenciar vários projetos em um único repositório, você poderá usar um *merge de subárvore* para manipular todas as referências.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
-## About subtree merges
 
-Typically, a subtree merge is used to contain a repository within a repository. The "subrepository" is stored in a folder of the main repository.
+## Sobre merges de subárvore
 
-The best way to explain subtree merges is to show by example. We will:
+Normalmente, um merge de subárvore é usado para conter um repositório dentro de outro repositório. O "sub-repositório" é armazenado em uma pasta do repositório principal.
 
-- Make an empty repository called `test` that represents our project
-- Merge another repository into it as a subtree called `Spoon-Knife`.
-- The `test` project will use that subproject as if it were part of the same repository.
-- Fetch updates from `Spoon-Knife` into our `test` project.
+A melhor maneira de explicar merges de subárvore é mostrar com exemplo. O que faremos:
 
-## Setting up the empty repository for a subtree merge
+- Criar um repositório vazio chamado `test` que represente nosso projeto
+- Fazer merge de outro repositório nele como uma subárvore chamada `Spoon-Knife`.
+- O projeto `test` usará esse subprojeto como se ele fosse parte do mesmo repositório.
+- Fazer fetch de atualizações em `Spoon-Knife` em nosso projeto `test`.
+
+## Configurar o repositório vazio para um merge de subárvore
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Create a new directory and navigate to it.
+2. Crie um novo diretório e navegue até ele.
   ```shell
   $ mkdir test
   $ cd test
   ```
-3. Initialize a new Git repository.
+3. Inicialize um novo repositório Git.
   ```shell
   $ git init
   > Initialized empty Git repository in /Users/octocat/tmp/test/.git/
   ```
-4. Create and commit a new file.
+4. Crie e faça commit de um novo arquivo.
   ```shell
   $ touch .gitignore
   $ git add .gitignore
@@ -48,9 +49,9 @@ The best way to explain subtree merges is to show by example. We will:
   >  create mode 100644 .gitignore
   ```
 
-## Adding a new repository as a subtree
+## Adicionar um novo repositório como uma subárvore
 
-1. Add a new remote URL pointing to the separate project that we're interested in.
+1. Adicione uma nova URL remota apontando para o projeto separado em que estávamos interessados.
   ```shell
   $ git remote add -f spoon-knife git@github.com:octocat/Spoon-Knife.git
   > Updating spoon-knife
@@ -63,52 +64,52 @@ The best way to explain subtree merges is to show by example. We will:
   > From git://github.com/octocat/Spoon-Knife
   >  * [new branch]      main     -> Spoon-Knife/main
   ```
-2. Merge the `Spoon-Knife` project into the local Git project. This doesn't change any of your files locally, but it does prepare Git for the next step.
+2. Faça merge do projeto `Spoon-Knife` no projeto Git local. Isso não muda qualquer um de seus arquivos localmente, mas prepara o Git para a próxima etapa.
 
-  If you're using Git 2.9 or above:
+  Se você estiver usando o Git 2.9 ou superior:
   ```shell
   $ git merge -s ours --no-commit --allow-unrelated-histories spoon-knife/main
   > Automatic merge went well; stopped before committing as requested
   ```
 
-  If you're using Git 2.8 or below:
+  Se estiver usando o Git 2.8 ou abaixo:
   ```shell
   $ git merge -s ours --no-commit spoon-knife/main
   > Automatic merge went well; stopped before committing as requested
   ```
-3. Create a new directory called **spoon-knife**, and copy the Git history of the `Spoon-Knife` project into it.
+3. Crie um diretório chamado **spoon-knife** e copie o histórico do projeto `Spoon-Knife` do Git nele.
   ```shell
   $ git read-tree --prefix=spoon-knife/ -u spoon-knife/main
   ```
-4. Commit the changes to keep them safe.
+4. Faça commit das alterações para mantê-las seguras.
   ```shell
   $ git commit -m "Subtree merged in spoon-knife"
   > [main fe0ca25] Subtree merged in spoon-knife
   ```
 
-Although we've only added one subproject, any number of subprojects can be incorporated into a Git repository.
+Embora tenhamos adicionado apenas um subprojeto, qualquer número de subprojetos pode ser incorporado a um repositório Git.
 
 {% tip %}
 
-**Tip**: If you create a fresh clone of the repository in the future,  the remotes you've added will not be created for you. You will have to add them again using [the `git remote add` command](/github/getting-started-with-github/managing-remote-repositories).
+**Dica**: se, futuramente, você criar um clone do repositório, os remotes adicionados não serão criados para você. Será preciso adicioná-los novamente usando [o comando `git remote add`](/github/getting-started-with-github/managing-remote-repositories).
 
 {% endtip %}
 
-## Synchronizing with updates and changes
+## Sincronizar com atualizações e alterações
 
-When a subproject is added, it is not automatically kept in sync with the upstream changes. You will need to update the subproject with the following command:
+Quando um subprojeto é adicionado, ele não é mantido automaticamente em sincronia com as alterações de upstream. Você precisará atualizar o subprojeto com o seguinte comando:
 
 ```shell
 $ git pull -s subtree <em>remotename</em> <em>branchname</em>
 ```
 
-For the example above, this would be:
+Para o exemplo acima, o comando seria:
 
 ```shell
 $ git pull -s subtree spoon-knife main
 ```
 
-## Further reading
+## Leia mais
 
-- [The "Advanced Merging" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
-- "[How to use the subtree merge strategy](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"
+- [O capítulo "Mesclagem avançada" do livro _Pro Git_](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
+- "[Como usar a estratégia de merge de subárvore](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"

@@ -1,6 +1,6 @@
 ---
-title: Apply for an educator or researcher discount
-intro: 'If you''re an educator or a researcher, you can apply to receive {% data variables.product.prodname_team %} for your organization account for free.'
+title: 教育者割引または研究者割引への応募
+intro: '教育者もしくは研究者は、Organization アカウントに対して無料で {% data variables.product.prodname_team %} を受けるために応募できます。'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
@@ -14,15 +14,16 @@ versions:
   fpt: '*'
 shortTitle: Apply for a discount
 ---
-## About educator and researcher discounts
+
+## 教育者および研究者に対する割引について
 
 {% data reusables.education.about-github-education-link %}
 
 {% data reusables.education.educator-requirements %}
 
-For more information about user accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
+{% data variables.product.product_name %}のユーザアカウント作成に関する詳しい情報については「[新規{% data variables.product.prodname_dotcom %}アカウントにサインアップする](/github/getting-started-with-github/signing-up-for-a-new-github-account)」を参照してください。
 
-## Applying for an educator or researcher discount
+## 教育者割引または研究者割引に応募する
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -32,30 +33,28 @@ For more information about user accounts on {% data variables.product.product_na
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-## Upgrading your organization
+## Organization をアップグレードする
 
-After your request for an educator or researcher discount has been approved, you can upgrade the organizations you use with your learning community to {% data variables.product.prodname_team %}, which allows unlimited users and private repositories with full features, for free. You can upgrade an existing organization or create a new organization to upgrade.
+教育者もしくは研究者割引のリクエストが承認されると、学習コミュニティで利用する Organization を {% data variables.product.prodname_team %} にアップグレードできます。これで、無料で無制限のユーザとプライベートリポジトリの全ての機能が利用できるようになります。 既存の Organization をアップグレードするか、アップグレードする新しい Organization を作成できます。
 
-### Upgrading an existing organization
+### 既存の Organization をアップグレードする
 
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-### Upgrading a new organization
+### 新しい Organization をアップグレードする
 
 {% data reusables.education.upgrade-page %}
-1. Click {% octicon "plus" aria-label="The plus symbol" %} **Create an organization**.
-  ![Create an organization button](/assets/images/help/education/create-org-button.png)
-3. Read the information, then click **Create organization**.
-  ![Create organization button](/assets/images/help/education/create-organization-button.png)
-4. Under "Choose your plan", click **Choose {% data variables.product.prodname_free_team %}**.
-5. Follow the prompts to create your organization.
+1. [{% octicon "plus" aria-label="The plus symbol" %} **Create an organization**] をクリックします。 ![[Create an organization] ボタン](/assets/images/help/education/create-org-button.png)
+3. 情報を読んで、[**Create organization**] をクリックします。 ![[Create organization] ボタン](/assets/images/help/education/create-organization-button.png)
+4. [Choose a plan] の下で、[**Choose {% data variables.product.prodname_free_team %}**] をクリックします。
+5. プロンプトに従って Organization を作成します。
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-## Further reading
+## 参考リンク
 
-- "[Why wasn't my application for an educator or researcher discount approved?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
+- [教育者あるいは研究者割引が承認されなかった理由は？](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)
 - [{% data variables.product.prodname_education %}](https://education.github.com)
-- [{% data variables.product.prodname_classroom %} Videos](https://classroom.github.com/videos)
+- [{% data variables.product.prodname_classroom %}ビデオ](https://classroom.github.com/videos)
 - [{% data variables.product.prodname_education_community %}](https://education.github.community/)

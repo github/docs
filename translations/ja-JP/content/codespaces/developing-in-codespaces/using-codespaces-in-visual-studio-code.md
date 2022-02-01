@@ -36,28 +36,28 @@ Use the {% data variables.product.prodname_vs %} Marketplace to install the [{% 
 {% mac %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Click **Sign in to view {% data variables.product.prodname_dotcom %}...**.
+1. Click **Sign in to view {% data variables.product.prodname_dotcom %}...**.
 
    ![Signing in to view {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode-mac.png)
 
-3. To authorize {% data variables.product.prodname_vscode %} to access your account on {% data variables.product.product_name %}, click **Allow**.
-4. Sign in to {% data variables.product.product_name %} to approve the extension.
+1. To authorize {% data variables.product.prodname_vscode %} to access your account on {% data variables.product.product_name %}, click **Allow**.
+1. Sign in to {% data variables.product.product_name %} to approve the extension.
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Use the "REMOTE EXPLORER" drop-down, then click **{% data variables.product.prodname_github_codespaces %}**.
+1. Use the "REMOTE EXPLORER" drop-down, then click **{% data variables.product.prodname_github_codespaces %}**.
 
    ![The {% data variables.product.prodname_codespaces %} header](/assets/images/help/codespaces/codespaces-header-vscode.png)
 
-3. Click **Sign in to view {% data variables.product.prodname_codespaces %}...**.
+1. Click **Sign in to view {% data variables.product.prodname_codespaces %}...**.
 
    ![Signing in to view {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode.png)
 
-4. To authorize {% data variables.product.prodname_vscode %} to access your account on {% data variables.product.product_name %}, click **Allow**.
-5. Sign in to {% data variables.product.product_name %} to approve the extension.
+1. To authorize {% data variables.product.prodname_vscode %} to access your account on {% data variables.product.product_name %}, click **Allow**.
+1. Sign in to {% data variables.product.product_name %} to approve the extension.
 
 {% endwindows %}
 
@@ -68,8 +68,8 @@ Use the {% data variables.product.prodname_vs %} Marketplace to install the [{% 
 ## Opening a codespace in {% data variables.product.prodname_vscode %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Under "Codespaces", click the codespace you want to develop in.
-3. Click the Connect to Codespace icon.
+1. Under "Codespaces", click the codespace you want to develop in.
+1. Click the Connect to Codespace icon.
 
    ![The Connect to Codespace icon in {% data variables.product.prodname_vscode %}](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
 
@@ -80,20 +80,27 @@ Use the {% data variables.product.prodname_vs %} Marketplace to install the [{% 
 You can change the machine type of your codespace at any time.
 
 1. In {% data variables.product.prodname_vscode %}, open the Command Palette (`shift command P` / `shift control P`).
-2. Search for and select "Codespaces: Change Machine Type."
+1. Search for and select "Codespaces: Change Machine Type."
 
    ![Searching for a branch to create a new {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/vscode-change-machine-type-option.png)
 
-3. Click the codespace that you want to change.
+1. Click the codespace that you want to change.
 
    ![Searching for a branch to create a new {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/vscode-change-machine-choose-repo.png)
 
-4. Choose the machine type you want to use. 
+1. Choose the machine type you want to use. 
 
-If the codespace is currently running, a message is displayed asking if you would like to restart and reconnect to your codespace now. Click **Yes** if you want to change the machine type used for this codespace immediately. If you click **No**, or if the codespace is not currently running, the change will take effect the next time the codespace restarts.
+   {% data reusables.codespaces.codespaces-machine-type-availability %}
+
+1. If the codespace is currently running, a message is displayed asking if you would like to restart and reconnect to your codespace now.
+
+   Click **Yes** if you want to change the machine type used for this codespace immediately.
+   
+   If you click **No**, or if the codespace is not currently running, the change will take effect the next time the codespace restarts.
 
 ## Deleting a codespace in {% data variables.product.prodname_vscode %}
 
+{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
 
 ## Switching to the Insiders build of {% data variables.product.prodname_vscode %}
