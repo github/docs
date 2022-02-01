@@ -180,7 +180,7 @@ You can view the full list of LDAP users who have access to your instance and pr
 3. In the left sidebar, click **LDAP users**.
 ![LDAP users tab](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
 4. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
-![LDAP search](/assets/images/enterprise/site-admin-settings/ldap-users-search.png)
+![LDAP search](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
 
 ## Updating LDAP accounts
 
