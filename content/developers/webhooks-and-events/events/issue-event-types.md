@@ -320,6 +320,16 @@ The pull request's `HEAD` branch was restored to the last known commit.
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
+## head_ref_force_pushed
+
+In the responses returned by the Timeline events and Issue events APIs for PRs that have been force-pushed, events of type head_ref_force_pushed can be found.
+
+### Availability
+
+|Issue type | Issue events API | Timeline events API|
+|:----------|:----------------:|:-----------------:|
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
+
 ### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
