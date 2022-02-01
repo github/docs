@@ -1,1 +1,1 @@
-1. En la barra lateral izquierda, da clic en **Contenido reportado**. !["Contenido reportado" en la barra lateral de configuración del repositorio](/assets/images/help/repository/repo-settings-reported-content.png)
+1. In the "Access" section of the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Reported content**.

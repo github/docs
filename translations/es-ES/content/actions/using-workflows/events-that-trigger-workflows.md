@@ -1187,7 +1187,7 @@ on:
 | ------------------------------------------ | ------------------ | ------------------------------------------ | ------------------------------------------ |
 | El mismo que el flujo de trabajo que llama | n/a                | El mismo que el flujo de trabajo que llama | El mismo que el flujo de trabajo que llama |
 
-`workflow_call` se utiliza para indicar que un flujo de trabajo puede llamar a otro. Cuando se activa un flujo de trabajo con el evento `workflow_call`, la carga útil del evento en el flujo de trabajo llamado es la misma del flujo de trabajo llamante. Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
+`workflow_call` se utiliza para indicar que un flujo de trabajo puede llamar a otro. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 
 El siguiente ejemplo solo ejecuta el flujo de trabajo cuando se le llama desde otro flujo de trabajo:
 

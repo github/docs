@@ -1,1 +1,1 @@
-1. En la barra lateral de Configuración de tu organización, da clic en **Usuarios bloqueados**. ![Usuarios bloqueados en la configuración de la organización](/assets/images/help/organizations/org-settings-block-users.png)
+1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation**, then click **Blocked users**.

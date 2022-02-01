@@ -26,8 +26,7 @@ Puedes configurar recordatorios programados para solicitudes de revisión a nive
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Botón de recordatorios programados](/assets/images/help/profile/scheduled-reminders-profile.png)
-3. Da clic en **Editar** a un costado de la organización para la cual quieres programar un recordatorio. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
+1. Da clic en **Editar** a un costado de la organización para la cual quieres programar un recordatorio. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.add-reminder %}
 {% data reusables.reminders.authorize-slack %}
 {% data reusables.reminders.days-dropdown %}
@@ -41,16 +40,14 @@ Puedes configurar recordatorios programados para solicitudes de revisión a nive
 ## Administrar recordatorios programados para tu cuenta de usuario
 {% data reusables.user_settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Botón de recordatorios programados](/assets/images/help/profile/scheduled-reminders-profile.png)
-3. Da clic en **Editar** a un costado de la organización para la cual quieres editar los recordatorios programados. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
+1. Da clic en **Editar** a un costado de la organización para la cual quieres editar los recordatorios programados. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
 ## Borrar recordatorios programados para tu cuenta de usuario
 {% data reusables.user_settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Botón de recordatorios programados](/assets/images/help/profile/scheduled-reminders-profile.png)
-3. Da clic en **Editar** a un costado de la organización para la cual quieres borrar un recordatorio. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
+1. Da clic en **Editar** a un costado de la organización para la cual quieres borrar un recordatorio. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.delete %}
 
 ## Leer más
