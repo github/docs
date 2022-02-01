@@ -47,6 +47,8 @@ Você pode pesquisar ações diretamente no seu editor do seu fluxo de trabalho 
 
 Você pode adicionar uma ação ao seu fluxo de trabalho fazendo referência à ação no arquivo do seu fluxo de trabalho.
 
+You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+
 ### Adicionando uma ação de {% data variables.product.prodname_marketplace %}
 
 Uma página de lista de ações incluem a versão da ação e a sintaxe do fluxo de trabalho necessárias para usar a ação. Para manter seu fluxo de trabalho estável mesmo quando atualizações são feitas em uma ação, você pode fazer referência à versão da ação a ser usada especificando o Git ou da tag do Docker no arquivo de fluxo de trabalho.

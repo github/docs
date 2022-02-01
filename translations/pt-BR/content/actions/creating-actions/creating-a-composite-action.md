@@ -84,7 +84,9 @@ Antes de começar, você criará um repositório em {% ifversion ghae %}{% data 
         - id: random-number-generator
           run: echo "::set-output name=random-id::$(echo $RANDOM)"
           shell: bash
-        - run: ${{ github.action_path }}/goodbye.sh
+        - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+          shell: bash          
+        - run: goodbye.sh
           shell: bash
     ```
     {% endraw %}

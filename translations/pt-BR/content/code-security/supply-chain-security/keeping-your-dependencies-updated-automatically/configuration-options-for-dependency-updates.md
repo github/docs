@@ -27,7 +27,9 @@ shortTitle: Opções de configuração
 
 O arquivo de configuração do {% data variables.product.prodname_dependabot %} , *dependabot.yml*, usa a sintaxe YAML. Se você não souber o que é YAMLe quiser saber mais, consulte "[Aprender a usar YAML em cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
-Você deve armazenar este arquivo no diretório `.github` do seu repositório. Ao adicionar ou atualizar o arquivo *dependabot.yml* , isso aciona uma verificação imediata de atualizações de versão. Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar um pull request para uma atualização de segurança. Para obter mais informações, consulte "[Habilitando e desabilitando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)" e "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)".
+Você deve armazenar este arquivo no diretório `.github` do seu repositório. Ao adicionar ou atualizar o arquivo *dependabot.yml* , isso aciona uma verificação imediata de atualizações de versão. For more information and an example, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)."
+
+Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar um pull request para uma atualização de segurança.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
 O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. Opcionalmente, você pode incluir uma chave de `registro` de nível superior. O arquivo deve começar com a `versão: 2`.
 
@@ -489,9 +491,9 @@ updates:
 
 ### `registros`
 
-Para permitir que {% data variables.product.prodname_dependabot %} acesse um registro de pacote privado ao executar uma atualização de versão, você deverá incluir uma configuração de `registros` com a configuração de `atualizações` relevante. Pode permitir que todos os registros definidos sejam usados configurando `registros` como `"*"`. Como alternativa, você pode listar os registros que a atualização pode usar. Para isso, use o nome do registro conforme definido na seção de `registros` do arquivo _dependabot.yml_.
+Para permitir que {% data variables.product.prodname_dependabot %} acesse um registro de pacote privado ao executar uma atualização de versão, você deverá incluir uma configuração de `registros` com a configuração de `atualizações` relevante. Pode permitir que todos os registros definidos sejam usados configurando `registros` como `"*"`. Como alternativa, você pode listar os registros que a atualização pode usar. Para isso, use o nome do registro conforme definido na seção de `registros` do arquivo _dependabot.yml_. For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
 
-Para permitir que {% data variables.product.prodname_dependabot %} use os gerenciadores de pacote `bundler`, `mix` e `pip` para atualizar dependências em registros privados, você pode optar por permitir a execução de código externo. Para obter mais informações, consulte [`insecure-external-code-execution`](#insecure-external-code-execution).
+Para permitir que {% data variables.product.prodname_dependabot %} use os gerenciadores de pacote `bundler`, `mix` e `pip` para atualizar dependências em registros privados, você pode optar por permitir a execução de código externo. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
 
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 

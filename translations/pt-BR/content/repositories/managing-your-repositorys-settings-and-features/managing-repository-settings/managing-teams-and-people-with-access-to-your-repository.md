@@ -28,7 +28,7 @@ Para obter mais informações sobre funções do repositório, consulte "[Nívei
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 4. Em "Gerenciar acesso", no campo de busca, comece a digitar o nome da equipe ou pessoa que você gostaria de encontrar. ![Campo de busca para lista de filtros de equipes ou pessoas com acesso](/assets/images/help/repository/manage-access-filter.png)
 
 ## Alterando as permissões para uma equipe ou pessoa
@@ -42,7 +42,7 @@ Para obter mais informações sobre funções do repositório, consulte "[Nívei
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. No campo de busca, comece a digitar o nome da equipe ou pessoa para convidar, depois clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma equipe ou pessoa para convidar ao repositório](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Em "Escolher uma função", selecione o a função do repositório para conceder à equipe ou pessoa. Em seguida, clique em **Adicionar NOME ao REPOSITÓRIO**. ![Selecionando permissões para a equipe ou pessoa](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
@@ -51,7 +51,7 @@ Para obter mais informações sobre funções do repositório, consulte "[Nívei
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 4. Em "Gerenciar acesso", localize a equipe ou pessoa cujo acesso você deseja remover e clique em {% octicon "trash" aria-label="The trash icon" %}. ![ícone da lixeira para remover acesso](/assets/images/help/repository/manage-access-remove.png)
 
 ## Leia mais

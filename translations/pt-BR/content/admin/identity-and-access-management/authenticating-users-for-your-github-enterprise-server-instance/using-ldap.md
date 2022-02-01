@@ -178,7 +178,7 @@ O {% data variables.product.prodname_ghe_server %} é compatível com as seguint
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. Na barra lateral esquerda, clique em **LDAP users** (Usuários LDAP). ![Guia de usuários LDAP](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
-4. Para procurar um usuário, digite um nome (total ou parcialmente) do usuário e clique em **Search** (Pesquisar). Os usuários serão exibidos nos resultados da pesquisa. Se o usuário não existir, clique em **Create** (Criar) para provisionar a nova conta. ![Pesquisa LDAP](/assets/images/enterprise/site-admin-settings/ldap-users-search.png)
+4. Para procurar um usuário, digite um nome (total ou parcialmente) do usuário e clique em **Search** (Pesquisar). Os usuários serão exibidos nos resultados da pesquisa. Se o usuário não existir, clique em **Create** (Criar) para provisionar a nova conta. ![Pesquisa LDAP](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
 
 ## Atualizar contas LDAP
 
