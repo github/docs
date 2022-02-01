@@ -138,6 +138,9 @@ async function main() {
   // Format and display the results.
   console.log(`${brokenLinks.length} broken links found on docs.github.com\n`)
   displayBrokenLinks(brokenLinks)
+  console.log(
+    '\nIf links are "false positives" (e.g. can only be opened by a browser) consider making a pull request that edits `lib/excluded-links.js`.'
+  )
 
   // Exit unsuccessfully if broken links are found.
   process.exit(1)
