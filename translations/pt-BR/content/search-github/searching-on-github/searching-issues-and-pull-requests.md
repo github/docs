@@ -176,7 +176,7 @@ Você pode usar o qualificador `project` para encontrar problemas associados a u
 
 ## Pesquisar por status do commit
 
-Você pode filtrar pull requests com base no status dos commits. This is especially useful if you are using [the Status API](/rest/reference/repos#statuses) or a CI service.
+Você pode filtrar pull requests com base no status dos commits. This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
 
 | Qualifier        | Exemplo                                                                                                                                                                                                                                       |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

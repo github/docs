@@ -29,8 +29,8 @@ While forks of private repositories are deleted when a collaborator is removed, 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% data reusables.repositories.click-collaborators-teams %}
 4. To the right of the collaborator you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
   ![Button to remove collaborator](/assets/images/help/repository/collaborator-remove.png)
 {% else %}

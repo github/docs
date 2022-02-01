@@ -127,13 +127,20 @@ You can use activity types and filters to further control when your workflow wil
 
 {% data reusables.github-actions.workflow-dispatch-inputs %}
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+## Defining inputs, outputs, and secrets for reusable workflows
+
+You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+
+{% endif %}
+
 ## Utilizar la información de los eventos
 
 La información acerca del evento que activó una ejecución de flujo de trabajo se encuentra disponible en el contexto `github.event`. Las propiedades en el contexto `github.event` dependen del tipo de evento que activó el flujo de trabajo. Por ejemplo, un flujo de trabajo que se activa cuando se etiqueta una propuesta tendrá la información sobre la propuesta y etiqueta.
 
 ### Ver todas las propiedades de un evento
 
-Referencia la documentación de evento de webhook para las propiedades comunes y cargas útiles de ejemplo. Para obtener más información, consulta la sección "[eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)".
+Referencia la documentación de evento de webhook para las propiedades comunes y cargas útiles de ejemplo. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
 
 También puedes imprimir todo el contexto `github.event` para ver qué propiedades están disponibles para el evento que activó tu flujo de trabajo:
 
