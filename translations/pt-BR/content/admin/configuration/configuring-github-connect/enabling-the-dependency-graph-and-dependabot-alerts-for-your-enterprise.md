@@ -1,6 +1,6 @@
 ---
-title: Enabling the dependency graph and Dependabot alerts for your enterprise
-intro: 'You can allow users on {% data variables.product.product_location %} to find and fix vulnerabilities in code dependencies by enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %}.'
+title: Habilitando o gráfico de dependências e alertas de dependências para a sua empresa
+intro: 'Você pode permitir que os usuários de {% data variables.product.product_location %} encontrem e corrijam vulnerabilidades em dependências de código, habilitando o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %}.'
 miniTocMaxHeadingLevel: 3
 shortTitle: Dependabot
 redirect_from:
@@ -55,7 +55,7 @@ Se você habilitar a detecção de vulnerabilidade, quando {% data variables.pro
 ### Pré-requisitos
 
 Para {% data variables.product.product_location %} detectar dependências vulneráveis e gerar {% data variables.product.prodname_dependabot_alerts %}:
-- You must enable {% data variables.product.prodname_github_connect %}. {% ifversion ghae %}This also enables the dependency graph service.{% endif %}{% ifversion ghes or ghae %}For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."{% endif %}
+- Você deve habilitar {% data variables.product.prodname_github_connect %}. {% ifversion ghae %}Isso também habilita o serviço gráfico de dependência.{% endif %}{% ifversion ghes or ghae %}Para obter mais informações, consulte"[Gerenciando {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".{% endif %}
 {% ifversion ghes %}- Você deve habilitar o serviço do gráfico de dependências.{% endif %}
 - Você deve habilitar a digitalização de vulnerabilidade.
 

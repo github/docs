@@ -238,7 +238,7 @@ jobs:
 
 ## Limpiar tu código
 
-El siguiente ejemplo instala `rubocop` y lo utiliza para limpiar todos los archivos. Para obtener más información, consulta la sección [Rubocop](https://github.com/rubocop-hq/rubocop). Puedes [configurar Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir cuáles serán las reglas de limpieza específicas.
+El siguiente ejemplo instala `rubocop` y lo utiliza para limpiar todos los archivos. For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). Puedes [configurar Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir cuáles serán las reglas de limpieza específicas.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}

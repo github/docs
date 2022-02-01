@@ -75,50 +75,50 @@ Para obter informações sobre como criar ou acessar sua chave de acesso e chave
    * Seu ID da chave de acesso. Por exemplo, `ABCAIOSFODNN7EXAMPLE1`.
    * Sua chave do segredo. Por exemplo, `aBJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
 
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-s3.png)
+   ![Insira as configurações de transmissão](/assets/images/help/enterprises/audit-stream-add-s3.png)
 
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Amazon S3 endpoint.
+1. Clique **Verificar ponto de extremidade** para verificar se {% data variables.product.prodname_dotcom %} pode conectar-se e gravar no ponto de extremidade do Amazon S3.
 
    ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check.png)
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-### Setting up streaming to Azure Blob Storage
+### Configurando a transmissão para o Azure Blob Storage
 
-Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have created a storage account and a container in Microsoft Azure. For details, see the Microsoft documentation, "[Introduction to Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)."
+Antes de configurar uma transmissão em {% data variables.product.prodname_dotcom %}, você deve primeiro ter criado uma conta de armazenamento e um contêiner no Microsoft Azure. Para obter detalhes, consulte a documentação da Microsoft, "[Introdução ao Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)".
 
-To configure the stream in {% data variables.product.prodname_dotcom %} you need the URL of a SAS token.
+Para configurar a transmissão em {% data variables.product.prodname_dotcom %}, você precisa da URL de um token SAS.
 
 **No portal do Microsoft Azure**:
-1. On the Home page, click **Storage Accounts**.
-2. Click the name of the storage account you want to use, then click **Containers**.
+1. Na página inicial, clique em **Contas de armazenamento**.
+2. Clique no nome da conta de armazenamento que você deseja usar e clique em **Contêineres**.
 
-   ![The Containers link in Azure](/assets/images/azure/azure-storage-containers.png)
+   ![O link dos contêineres no Azure](/assets/images/azure/azure-storage-containers.png)
 
-1. Click the name of the container you want to use.
-1. Click **Shared access tokens**.
+1. Clique no nome do contêiner que você deseja usar.
+1. Clique **Tokens de acesso compartilhados**.
 
-   ![The shared access token link in Azure](/assets/images/azure/azure-storage-shared-access-tokens.png)
+   ![O link do token de acesso compartilhado no Azure](/assets/images/azure/azure-storage-shared-access-tokens.png)
 
-1. In the **Permissions** drop-down menu, change the permissions to only allow `Create` and `Write`.
+1. No menu suspenso **Permissões**, altere as permissões para somente permitir `Criar` e `Gravar`.
 
-   ![The permissions drop-down menu](/assets/images/azure/azure-storage-permissions.png)
+   ![Menu suspenso de permissões](/assets/images/azure/azure-storage-permissions.png)
 
-1. Set an expiry date that complies with your secret rotation policy.
-1. Click **Generate SAS token and URL**.
-1. Copy the value of the **Blob SAS URL** field that's displayed. You will use this URL in {% data variables.product.prodname_dotcom %}.
+1. Defina uma data de validade que esteja em conformidade com sua política de rotação de segredo.
+1. Clique em **Gerar token SAS e URL**.
+1. Copie o valor do campo **Blob SAS URL** que é exibido. Você usará este URL em {% data variables.product.prodname_dotcom %}.
 
 **Em {% data variables.product.prodname_dotcom %}**:
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
-1. Click **Configure stream** and select **Azure Blob Storage**.
+1. Clique **Configurar a transmissão** e selecione **Azure Blob Storage**.
 
-   ![Choose Azure Blob Storage from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-azureblob.png)
+   ![Escolha o Azure Blob Storage a partir do menu suspenso](/assets/images/help/enterprises/audit-stream-choice-azureblob.png)
 
-1. On the configuration page, enter the blob SAS URL that you copied in Azure. The **Container** field is auto-filled based on the URL.
+1. Na página de configuração, insira a URL do SAS do blob que você copiou no Azure. O campo **Contêiner** é preenchido automaticamente com base na URL.
 
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-azureblob.png)
+   ![Insira as configurações de transmissão](/assets/images/help/enterprises/audit-stream-add-azureblob.png)
 
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Blob Storage endpoint.
+1. Clique em **Verificar ponto de extremidade** para verificar se {% data variables.product.prodname_dotcom %} pode conectar e gravar no ponto de Azure Blob Storage.
 
    ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check.png)
 
@@ -131,11 +131,11 @@ Antes de configurar uma transmissão em {% data variables.product.prodname_dotco
 Você precisa de duas informações sobre seu centro de eventos: o nome da sua instância e a sequência de caracteres de conexão.
 
 **No portal do Microsoft Azure**:
-1. Search for "Event Hubs".
+1. Pesquise "Centros de Evento".
 
-   ![The Azure portal search box](/assets/images/azure/azure-resources-search.png)
+   ![Caixa de pesquisa do portal Azure](/assets/images/azure/azure-resources-search.png)
 
-1. Select **Event Hubs**. Os nomes dos centros de eventos serão listados.
+1. Selecione **Centros de evento**. Os nomes dos centros de eventos serão listados.
 
    ![Uma lista de centros de eventos](/assets/images/help/enterprises/azure-event-hubs-list.png)
 
@@ -159,9 +159,9 @@ Você precisa de duas informações sobre seu centro de eventos: o nome da sua i
    * O nome da instância do Centro de Eventos do Azure.
    * A string de conexão.
 
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-azure.png)
+   ![Insira as configurações de transmissão](/assets/images/help/enterprises/audit-stream-add-azure.png)
 
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
+1. Clique **Check endpoint** para verificar se {% data variables.product.prodname_dotcom %} pode conectar e gravar no ponto de extremidade do Centro de Eventos do Azure.
 
    ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check.png)
 
@@ -214,12 +214,12 @@ Para transmitir os logs de auditoria para o Coletor de Eventos HTTP (HEC) do Spl
 
    * Um token que {% data variables.product.prodname_dotcom %} pode usar para efetuar a autenticação no aplicativo de terceiros.
 
-   ![Enter the stream settings](/assets/images/help/enterprises/audit-stream-add-splunk.png)
+   ![Insira as configurações de transmissão](/assets/images/help/enterprises/audit-stream-add-splunk.png)
 
 1. Deixe a caixa de seleção **Habilitar verificação SSL** marcada.
 
     Os logs de auditoria são sempre transmitidos como dados criptografados. No entanto, com esta opção selecionada, {% data variables.product.prodname_dotcom %} verifica o certificado SSL da sua instância do Splunk ao realizar os eventos. A verificação SSL ajuda a garantir que os eventos sejam entregues no ponto de extremidade da sua URL de forma segura. Você pode limpar a seleção desta opção, mas recomendamos que saia da verificação SSL habilitada.
-1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Splunk endpoint. ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check-splunk.png)
+1. Clique **Verificar ponto de extremidade** para verificar se {% data variables.product.prodname_dotcom %} pode conectar-se e gravar no ponto de extremidade do Splunk. ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check-splunk.png)
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 ## Pausando a transmissão do log de auditoria

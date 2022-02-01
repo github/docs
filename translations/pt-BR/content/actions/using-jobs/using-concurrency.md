@@ -5,7 +5,7 @@ intro: Execute um único trabalho de cada vez.
 versions:
   fpt: '*'
   ghes: '> 3.1'
-  ghae: ghae-next
+  ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 4
 ---

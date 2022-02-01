@@ -57,7 +57,10 @@ children:
   - /learning-about-github
   - /signing-up-for-github
   - /using-github
+  - /writing-on-github
+  - /importing-your-projects-to-github
   - /exploring-projects-on-github
   - /getting-started-with-git
   - /using-git
+  - /privacy-on-github
 ---

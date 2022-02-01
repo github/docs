@@ -60,6 +60,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 #### Example
 
 {% raw %}
+
 ```yaml
 env:
   myNull: ${{ null }}
@@ -71,6 +72,7 @@ env:
   myString: Mona the Octocat
   myStringInBraces: ${{ 'It''s open source!' }}
 ```
+
 {% endraw %}
 
 ## Operators
@@ -79,7 +81,7 @@ env:
 | ---         | ---         |
 | `( )`       | Logical grouping |
 | `[ ]`       | Index
-| `.`         | Property dereference |
+| `.`         | Property de-reference |
 | `!`         | Not |
 | `<`         | Less than |
 | `<=`        | Less than or equal |
@@ -266,9 +268,15 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ## Status check functions
 
 You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+{% else %}
+## Check Functions
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% endif %}
 
 ### success
 
@@ -316,6 +324,7 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ### Evaluate Status Explicitly
 
 Instead of using one of the methods above, you can evaluate the status of the job or composite action that is executing the step directly:
@@ -341,6 +350,7 @@ steps:
 ```
 
 This is the same as using `if: failure()` in a composite action step.
+{% endif %}
 
 ## Object filters
 

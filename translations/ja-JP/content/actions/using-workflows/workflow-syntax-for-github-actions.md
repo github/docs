@@ -183,7 +183,7 @@ on:
       logLevel:
         description: 'Log level'
         required: true
-        default: 'warning' {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: choice
         options:
         - info
@@ -191,7 +191,7 @@ on:
         - debug {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: false {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        required: false {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: boolean
       environment:
         description: 'Environment to run tests against'
@@ -914,11 +914,9 @@ volumes:
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
-The location and version of a reusable workflow file to run as a job.
+The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use one of the following syntaxes:{% endif %}
 
-`{owner}/{repo}/{path}/{filename}@{ref}`
-
-`{ref}` can be a SHA, a release tag, or a branch name. Using the commit SHA is the safest for stability and security. For more information, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)."
+{% data reusables.actions.reusable-workflow-calling-syntax %}
 
 ### サンプル
 

@@ -456,7 +456,7 @@ O contexto do `executor` contém informações sobre o executor que está execut
 | `runner.temp`       | `string` | {% data reusables.actions.runner-temp-directory-description %}
 | `runner.tool_cache` | `string` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}
 {%- comment %}
-A propriedade `runner.workspace` não é documentada propositalmente. It is an early Actions property that now isn't relevant for users, compared to `github.workspace`. It is kept around for compatibility. | `runner.workspace` | `string` | |
+A propriedade `runner.workspace` não é documentada propositalmente. É uma propriedade antecipada das ações que agora não é relevante para os usuários, em comparação com `github.workspace`. É mantido por uma questão de compatibilidade. | `runner.workspace` | `string` | |
 {%- endcomment %}
 
 ### Exemplo de conteúdo do contexto do `executor`
@@ -471,7 +471,7 @@ O contexto de exemplo a seguir é de um executor do Linux hospedado em {% data v
   "tool_cache": "/opt/hostedtoolcache",
   "temp": "/home/runner/work/_temp"
   {%- comment %}
-  # The `runner.workspace` property is purposefully not documented. It is an early Actions property that now isn't relevant for users, compared to `github.workspace`. It is kept around for compatibility.
+  # The `runner.workspace` property is purposefully not documented. É uma propriedade antecipada das ações que agora não é relevante para os usuários, em comparação com `github.workspace`. É mantido por uma questão de compatibilidade.
   "workspace": "/home/runner/work/hello-world"
   {%- endcomment %}
 }
@@ -479,7 +479,7 @@ O contexto de exemplo a seguir é de um executor do Linux hospedado em {% data v
 
 ### Exemplo de uso do contexto do contexto do `executor`
 
-This example workflow uses the `runner` context to set the path to the temporary directory to write logs, and if the workflow fails, it uploads those logs as artifact.
+Este exemplo de fluxo de trabalho usa o contexto `executor` para definir o caminho para o diretório temporário e gravar registros e se, o fluxo de trabalho falhar, ele irá fazer o uplad dos registros como artefatos.
 
 {% raw %}
 ```yaml{:copy}
@@ -586,20 +586,20 @@ jobs:
 ```
 {% endraw %}
 
-## `matrix` context
+## Contexto `matriz`
 
-For workflows with a build matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a build matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
+Para fluxos de trabalho com uma matriz de construção, o contexto `matriz` contém as propriedades definidas no arquivo do fluxo de trabalho que se aplicam ao trabalho atual. Por exemplo, se você configurar uma matriz de construção com as chaves `os` e `nó`, o objeto do contexto `matriz` irá incluir as propriedades `os` e `nó` com os valores usados para o trabalho atual.
 
-There are no standard properties in the `matrix` context, only those which are defined in the workflow file.
+Não há propriedades padrão no contexto `matriz`, apenas as que são definidas no arquivo do fluxo de trabalho.
 
-| Nome da propriedade            | Tipo     | Descrição                                                                                                                                                                                                                                                  |
-| ------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `matrix`                       | `objeto` | This context is only available for jobs in a build matrix, and changes for each job in a workflow run. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
-| `matrix.<property_name>` | `string` | The value of a matrix property.                                                                                                                                                                                                                            |
+| Nome da propriedade            | Tipo     | Descrição                                                                                                                                                                                                                                                                                            |
+| ------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `matrix`                       | `objeto` | Esse contexto só está disponível para trabalhos em uma matriz de compilação e alterações para cada trabalho na execução de um fluxo de trabalho. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
+| `matrix.<property_name>` | `string` | O valor da propriedade de uma matriz.                                                                                                                                                                                                                                                                |
 
-### Example contents of the `matrix` context
+### Exemplo de conteúdo do contexto `matriz`
 
-The following example contents of the `matrix` context is from a job in a build matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
+O exemplo a seguir do contexto `matriz` é de um trabalho em uma matriz de construção que tem as propriedades de matriz `os` e `nó` definidas no fluxo de trabalho. O trabalho está executando a combinação matriz de um `ubuntu-latest` OS e do Node.js versão `16`.
 
 ```yaml
 {
@@ -713,14 +713,14 @@ Não há propriedades padrão no contexto `entradas`, apenas aquelas definidas n
 
 Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 
-| Nome da propriedade   | Tipo                               | Descrição                                                                                                                                                                                                                                                     |
-| --------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inputs`              | `objeto`                           | This context is only available in a [reusable workflow](/actions/learn-github-actions/reusing-workflows). Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
-| `inputs.<name>` | `string` ou `número` ou `booleano` | Cada valor de entrada é passado de um fluxo de trabalho externo.                                                                                                                                                                                              |
+| Nome da propriedade   | Tipo                               | Descrição                                                                                                                                                                                                                                                                     |
+| --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inputs`              | `objeto`                           | Este contexto só está disponível em um [fluxo de trabalho reutilizável](/actions/learn-github-actions/reusing-workflows). Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
+| `inputs.<name>` | `string` ou `número` ou `booleano` | Cada valor de entrada é passado de um fluxo de trabalho externo.                                                                                                                                                                                                              |
 
-### Example contents of the `inputs` context
+### Exemplo de conteúdo do contexto `entradas`
 
-The following example contents of the `inputs` context is from a job in a reusable workflow that has defined the `build_id` and `deploy_target` inputs.
+O conteúdo de exemplo das `entradas` contexto é de um trabalho em um fluxo de trabalho reutilizável que definiu as entradas de entrada do arquivo `build_id` e `deploy_target`.
 
 ```yaml
 {
@@ -729,7 +729,7 @@ The following example contents of the `inputs` context is from a job in a reusab
 }
 ```
 
-### Example usage of the `inputs` context
+### Exemplo de uso do contexto `entradas`
 
 This example reusable workflow uses the `inputs` context to get the values of the `build_id` and `deploy_target` inputs that were passed to the reusable workflow from the caller workflow.
 

@@ -9,7 +9,7 @@ export function ProductReleases() {
   const { t } = useTranslation('product_landing')
   const router = useRouter()
   const { enterpriseServerReleases, allVersions } = useMainContext()
-  const { releases } = useProductLandingContext()
+  const { releases, shortTitle } = useProductLandingContext()
   const currentPath = router.asPath.split('?')[0]
   return (
     <div>
@@ -30,6 +30,7 @@ export function ProductReleases() {
                 <p className="mt-2 mb-4 color-fg-muted">
                   <ListUnorderedIcon />{' '}
                   <Link
+                    className="text-bold"
                     href={`/${router.locale}/${releaseVersion}/admin/release-notes#${latestPatch.version}`}
                   >
                     {t('release_notes_for')} {latestPatch.version}
@@ -39,12 +40,14 @@ export function ProductReleases() {
                 <p className="mt-2 mb-4 color-fg-muted">
                   <ArrowUpIcon /> {t('upgrade_from')}{' '}
                   <Link
+                    className="text-bold"
                     href={`/${router.locale}/${firstPreviousVersion}/admin/enterprise-management/upgrading-github-enterprise-server`}
                   >
                     {release.firstPreviousRelease}
                   </Link>{' '}
                   or{' '}
                   <Link
+                    className="text-bold"
                     href={`/${router.locale}/${secondPreviousVersion}/admin/enterprise-management/upgrading-github-enterprise-server`}
                   >
                     {release.secondPreviousRelease}
@@ -52,7 +55,17 @@ export function ProductReleases() {
                 </p>
                 <p className="mt-2 mb-4 color-fg-muted">
                   <FileIcon />{' '}
-                  <Link href={`/${router.locale}/${releaseVersion}`}>{t('browse_all_docs')}</Link>
+                  <Link
+                    className="text-bold"
+                    {...{
+                      'aria-label': `${shortTitle} - ${t('browse_all')} ${releaseNumber} ${t(
+                        'docs'
+                      )}`,
+                    }}
+                    href={`/${router.locale}/${releaseVersion}`}
+                  >
+                    {t('browse_all_docs')}
+                  </Link>
                 </p>
               </div>
             </div>

@@ -66,7 +66,7 @@ Há um risco significativo em fornecer de ações de repositórios de terceiros 
 
 ## Innersourcing
 
-Think about how your enterprise can use features of {% data variables.product.prodname_actions %} to innersource automation. Innersourcing é uma maneira de incorporar os benefícios das metodologias de código aberto no seu ciclo de desenvolvimento de software interno. Para obter mais informações, consulte [Uma introdução ao innersource ](https://resources.github.com/whitepapers/introduction-to-innersource/) nos recursos de{% data variables.product.company_short %}.
+Pense em como sua empresa pode usar funcionalidades de {% data variables.product.prodname_actions %} para gerar automação de recursos internos. Innersourcing é uma maneira de incorporar os benefícios das metodologias de código aberto no seu ciclo de desenvolvimento de software interno. Para obter mais informações, consulte [Uma introdução ao innersource ](https://resources.github.com/whitepapers/introduction-to-innersource/) nos recursos de{% data variables.product.company_short %}.
 
 {% data reusables.actions.internal-actions-summary %}
 
