@@ -25,6 +25,9 @@ jobs:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    environment:
+      name: production-azure
+      url: 'https://docs.github.com'
     env:
       DOCKER_IMAGE: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:${{ github.sha }}
 

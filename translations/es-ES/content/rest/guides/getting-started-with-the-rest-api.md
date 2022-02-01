@@ -390,7 +390,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 
 El estado `304` indica que el recurso no ha cambiado desde la última vez que lo solicitamos y que la respuesta no contendrá ningún cuerpo. As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
 
-¡Qué! ¡Ahora conoces lo básico de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}!
+¡Ahora conoces lo básico de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}!
 
 * Autenticación básica & de OAuth
 * Obtener y crear repositorios e informes de problemas

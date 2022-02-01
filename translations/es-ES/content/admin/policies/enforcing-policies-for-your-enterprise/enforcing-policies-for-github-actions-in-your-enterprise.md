@@ -100,6 +100,10 @@ Puedes requerir políticas para controlar la forma en la que se comportan las {%
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+If a policy is enabled for an enterprise, the policy can be selectively disabled in individual organizations or repositories. If a policy is disabled for an enterprise, individual organizations or repositories cannot enable it.
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
