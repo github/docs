@@ -10,7 +10,5 @@ versions:
 children:
   - /exploring-integrations
   - /purchasing-and-installing-apps-in-github-marketplace
-  - /about-webhooks
 shortTitle: Customize your workflow
 ---
-
