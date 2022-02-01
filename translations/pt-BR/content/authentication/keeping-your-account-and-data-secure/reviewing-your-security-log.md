@@ -22,12 +22,10 @@ shortTitle: Log de segurança
 O log de segurança lista todas as ações realizadas nos últimos 90 dias.
 
 {% data reusables.user_settings.access_settings %}
-{% ifversion fpt or ghae or ghes or ghec %}
-2. Na barra lateral de configurações do usuário, clique em **log de segurança**. ![Aba do log de segurança](/assets/images/help/settings/audit-log-tab.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-label="The log icon" %} Security log**.
 {% else %}
-{% data reusables.user_settings.security %}
-3. O log é exibido em "Security history" (Histórico de segurança). ![Log de segurança](/assets/images/help/settings/user_security_log.png)
-4. Clique em uma entrada para ver mais informações sobre o evento. ![Log de segurança](/assets/images/help/settings/user_security_history_action.png)
+1. Na barra lateral de configurações do usuário, clique em **log de segurança**. ![Aba do log de segurança](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
 {% ifversion fpt or ghae or ghes or ghec %}

@@ -12,7 +12,7 @@ shortTitle: Registro de imagem privada
 
 ## Sobre registros de imagens privadas e {% data variables.product.prodname_codespaces %}
 
-Um registro é um espaço seguro para armazenar, gerenciar e buscar imagens privadas de contêineres. Você pode usar um para armazenar um ou mais devcontainers. Existem muitos exemplos de registros, como {% data variables.product.prodname_dotcom %} registro do contêiner, registro de contêiner do Azure ou DockerHub.
+Um registro é um espaço seguro para armazenar, gerenciar e buscar imagens privadas de contêineres. You may use one to store one or more images. Existem muitos exemplos de registros, como {% data variables.product.prodname_dotcom %} registro do contêiner, registro de contêiner do Azure ou DockerHub.
 
 O registro do contêiner de {% data variables.product.prodname_dotcom %} pode ser configurado para puxar imagens container sem precisar fornecer qualquer credencial para {% data variables.product.prodname_codespaces %}. Para outros registros de imagem, você deve criar segredos em {% data variables.product.prodname_dotcom %} para armazenar os detalhes de acesso, o que permitirá que {% data variables.product.prodname_codespaces %} acesse imagens armazenadas nesse registro.
 
@@ -87,7 +87,7 @@ Para acessar o AWS Elastic Container Registry (ECR), você pode fornecer o ID de
 ```
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
 *_CONTAINER_REGISTRY_USER = <AWS_ACCESS_KEY_ID>
-*_container_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
+*_CONTAINER_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
 ```
 
 Você deve também garantir que terá as permissões do AWS IAM apropriadas para executar o swap de credenciais (por exemplo, `sts:GetServiceBearerToken`) bem como a operação de leitura do ECR ( `AmazonEC2ContainerRegistryFullAccess` ou `ReadOnlyAccess`).
@@ -97,7 +97,7 @@ Como alternativa, se você não quiser que o GitHub execute a troca de credencia
 ```
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
 *_CONTAINER_REGISTRY_USER = AWS
-*_container_REGISTRY_PASSWORD = <TOKEN>
+*_CONTAINER_REGISTRY_PASSWORD = <TOKEN>
 ```
 
 Como esses tokens são curtos e precisam ser atualizados periodicamente, recomendamos fornecer um ID de chave de acesso e um segredo.

@@ -47,34 +47,30 @@ Se você adicionar uma política para toda a organização, você deverá config
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Em "Codedespaces", clique em **Política**.
-
-   ![Aba "Política" na barra lateral esquerda](/assets/images/help/organizations/codespaces-policy-sidebar.png)
-
-1. Na página "Políticas do codespace", clique em **Criar política**.
-1. Insira um nome para sua nova política.
-1. Clique **Adicionar restrição** e escolha **Tipos de máquina**.
+1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policy**.
+2. Na página "Políticas do codespace", clique em **Criar política**.
+3. Insira um nome para sua nova política.
+4. Clique **Adicionar restrição** e escolha **Tipos de máquina**.
 
    ![Adicionar uma restrição para os tipos de máquina](/assets/images/help/codespaces/add-constraint-dropdown.png)
 
-1. Clique em {% octicon "pencil" aria-label="The edit icon" %} para editar a restrição e, em seguida, limpe a seleção de todos os tipos de máquina que você não deseja que estejam disponíveis.
+5. Clique em {% octicon "pencil" aria-label="The edit icon" %} para editar a restrição e, em seguida, limpe a seleção de todos os tipos de máquina que você não deseja que estejam disponíveis.
 
    ![Editar a restrição de tipo de máquina](/assets/images/help/codespaces/edit-machine-constraint.png)
 
-1. Na área "Alterar destino da política", clique no botão suspenso.
-1. Selecione **Todos os repositórios** ou **Repositórios selecionados** para determinar em quais repositórios esta política será aplicada.
-1. Se você escolheu **repositórios selecionados**:
+6. Na área "Alterar destino da política", clique no botão suspenso.
+7. Selecione **Todos os repositórios** ou **Repositórios selecionados** para determinar em quais repositórios esta política será aplicada.
+8. Se você escolheu **repositórios selecionados**:
    1. Clique em {% octicon "gear" aria-label="The settings icon" %}.
 
       ![Editar as configurações da política](/assets/images/help/codespaces/policy-edit.png)
 
-   1. Selecione os repositórios aos quais você quer que esta política seja aplicada.
-   1. Na parte inferior da lista de repositórios, clique em **Selecionar repositórios**.
+   2. Selecione os repositórios aos quais você quer que esta política seja aplicada.
+   3. Na parte inferior da lista de repositórios, clique em **Selecionar repositórios**.
 
       ![Selecionar repositórios para esta política](/assets/images/help/codespaces/policy-select-repos.png)
 
-1. Clique em **Salvar**.
+9. Clique em **Salvar**.
 
 ## Editando uma política
 
