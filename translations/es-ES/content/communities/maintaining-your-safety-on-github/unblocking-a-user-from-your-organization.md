@@ -33,7 +33,7 @@ Si seleccionaste una cantidad de tiempo específica para bloquear al usuario, se
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}
+{% data reusables.organizations.moderation-settings %}, then click **Blocked users**.
 5. En "Blocked users" (Usuarios bloqueados), al lado del usuario que quieres desbloquear, haz clic en **Unblock** (Desbloquear). ![Botón Unblock user (Desbloquear usuario)](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## Leer más
