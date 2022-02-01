@@ -1,48 +1,48 @@
 ---
-title: Git automation with OAuth tokens
+title: Automatización Git con tokens de OAuth
 redirect_from:
   - /articles/git-over-https-using-oauth-token
   - /articles/git-over-http-using-oauth-token
   - /articles/git-automation-with-oauth-tokens
-intro: 'You can use OAuth tokens to interact with {% data variables.product.product_name %} via automated scripts.'
+intro: 'Puedes utilizar tokens de OAuth para interactuar con {% data variables.product.product_name %} a través de scripts automatizados.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Automate with OAuth tokens
+shortTitle: Automatizar con tokens de OAuth
 ---
 
-## Step 1: Get an OAuth token
+## Paso 1: Obtener un token de OAuth
 
-Create a personal access token on your application settings page. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+Crea un token de acceso personal en tu página de configuración de la aplicación. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
 {% tip %}
 
 {% ifversion fpt or ghec %}
 **Tips:**
-- You must verify your email address before you can create a personal access token. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+- Debes verificar tu dirección de correo electrónico antes de que puedas crer un token de acceso personal. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% else %}
-**Tip:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**Sugerencia:** {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% endif %}
 
 {% endtip %}
 
 {% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
-## Step 2: Clone a repository
+## Paso 2: Clonar un repositorio
 
 {% data reusables.command_line.providing-token-as-password %}
 
-To avoid these prompts, you can use Git password caching. For information, see "[Caching your GitHub credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
+Para evadir estos mensajes, puedes utilizar el almacenamiento de contraseñas en caché de Git. Para obtener más información, consulta la sección "[Almacenar tus credenciales de GitHub en caché dentro de Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)".
 
 {% warning %}
 
-**Warning**: Tokens have read/write access and should be treated like passwords. If you enter your token into the clone URL when cloning or adding a remote, Git writes it to your _.git/config_ file in plain text, which is a security risk.
+**Advertencia**: Los tokens tienen acceso de escritura/lectura y deben tratarse como contraseñas. Si ingresas tu token en la URL del clon cuando clonas o agregas un remoto, Git la escribe en tu archivo _.git/config_ como texto plano, lo que representa un riesgo de seguridad.
 
 {% endwarning %}
 
-## Further reading
+## Leer más
 
-- "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"
+- "[Autorizar las Apps de OAuth](/developers/apps/authorizing-oauth-apps)"

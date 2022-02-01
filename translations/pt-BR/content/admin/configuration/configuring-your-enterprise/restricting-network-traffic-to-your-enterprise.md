@@ -1,7 +1,7 @@
 ---
-title: Restricting network traffic to your enterprise
-shortTitle: Restricting network traffic
-intro: You can use an IP allow list to restrict access to your enterprise to connections from specified IP addresses.
+title: Restringir o tráfego de rede para a sua empresa
+shortTitle: Restringir tráfego de rede
+intro: Você pode usar um IP permitir que a lista restrinja o acesso ao seu negócio a conexões a partir de endereços IP especificados.
 versions:
   ghae: '*'
 type: how_to
@@ -14,21 +14,22 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
 ---
-## About IP allow lists
 
-By default, authorized users can access your enterprise from any IP address. Enterprise owners can restrict access to assets owned by organizations in an enterprise account by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+## Sobre listas de permissões de IP
+
+Por padrão, os usuários autorizados podem acessar sua empresa a partir de qualquer endereço IP. Os proprietários de empresas podem restringir o acesso a ativos pertencentes a organizações na conta corporativa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
-You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
+Você também pode configurar endereços IP permitidos para uma organização individual. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
-By default, Azure network security group (NSG) rules leave all inbound traffic open on ports 22, 80, 443, and 25. Enterprise owners can contact {% data variables.contact.github_support %} to configure access restrictions for your instance.
+Por padrão, as regras do grupo de segurança de rede do Azure (NSG) deixam todo o tráfego de entrada aberto nas portas 22, 80, 443 e 25. Proprietários de empresa podem entrar em contato com {% data variables.contact.github_support %} para configurar as restrições de acesso para sua instância.
 
-For instance-level restrictions using Azure NSGs, contact {% data variables.contact.github_support %} with the IP addresses that should be allowed to access your enterprise instance. Specify address ranges using the standard CIDR (Classless Inter-Domain Routing) format. {% data variables.contact.github_support %} will configure the appropriate firewall rules for your enterprise to restrict network access over HTTP, SSH, HTTPS, and SMTP. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+Para restrições no nível da instância que usam o Azure NSGs, entre em contato com {% data variables.contact.github_support %} com os endereços IP que devem ter permissão para acessar a sua instância corporativa. Especifica os intervalos de endereços usando o formato CIDR padrão (Encaminhamento sem Classe entre Domínios). {% data variables.contact.github_support %} irá configurar as regras de firewall apropriadas para sua empresa para restringir o acesso à rede por meio de HTTP, SSH, HTTPS e SMTP. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 
-## Adding an allowed IP address
+## Adicionar endereços IP permitidos
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -37,20 +38,19 @@ For instance-level restrictions using Azure NSGs, contact {% data variables.cont
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
 
-## Allowing access by {% data variables.product.prodname_github_apps %}
+## Permitindo acesso de {% data variables.product.prodname_github_apps %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-## Enabling allowed IP addresses
+## Habilitar endereços IP permitidos
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Under "IP allow list", select **Enable IP allow list**.
-  ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-4. Click **Save**.
+1. Em "IP allow list" (Lista de permissões IP), selecione **Enable IP allow list** (Habilitar lista de permissões IP). ![Caixa de seleção para permitir endereços IP](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+4. Clique em **Salvar**.
 
-## Editing an allowed IP address
+## Editar endereços IP permitidos
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -58,9 +58,9 @@ For instance-level restrictions using Azure NSGs, contact {% data variables.cont
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+8. Clique em **Atualizar**.
 
-## Deleting an allowed IP address
+## Excluir endereços IP permitidos
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -68,6 +68,6 @@ For instance-level restrictions using Azure NSGs, contact {% data variables.cont
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-## Using {% data variables.product.prodname_actions %} with an IP allow list
+## Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}

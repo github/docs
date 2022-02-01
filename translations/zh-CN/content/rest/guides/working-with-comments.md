@@ -1,6 +1,6 @@
 ---
-title: Working with comments
-intro: 'Using the REST API, you can access and manage comments in your pull requests, issues, or commits.'
+title: 处理注释
+intro: 使用 REST API，您可以访问和管理拉取请求、议题或提交中的注释。
 redirect_from:
   - /guides/working-with-comments
   - /v3/guides/working-with-comments
@@ -15,27 +15,17 @@ topics:
 
 
 
-For any Pull Request, {% data variables.product.product_name %} provides three kinds of comment views:
-[comments on the Pull Request][PR comment] as a whole, [comments on a specific line][PR line comment] within the Pull Request,
-and [comments on a specific commit][commit comment] within the Pull Request. 
+对于任何拉取请求，{% data variables.product.product_name %} 都提供三种注释视图：作为整体的[拉取请求注释][PR comment]、拉取请求中的[特定行注释][PR line comment] 和拉取请求中的[特定提交注释][commit comment]。
 
-Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.
-In this guide, we'll explore how you can access and manipulate each one. For every
-example, we'll be using [this sample Pull Request made][sample PR] on the "octocat"
-repository. As always, samples can be found in [our platform-samples repository][platform-samples].
+每种类型的评论都会经过 API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} 的不同部分。 在本指南中，我们将探讨如何访问和处理每种注释。 对于每个示例，我们将使用在 "octocat" 仓库中[创建的样本拉取请求][sample PR]。 同样，您可以在[我们的平台样本仓库][platform-samples]中找到样本。
 
-## Pull Request Comments
+## 拉取请求注释
 
-To access comments on a Pull Request, you'll go through [the Issues API][issues].
-This may seem counterintuitive at first. But once you understand that a Pull
-Request is just an Issue with code, it makes sense to use the Issues API to
-create comments on a Pull Request.
+要访问拉取请求的注释，需要通过[议题 API][issues]。 乍一看这似乎不符合直觉。 但是，一旦您理解了拉取请求只是一个带有代码的议题，使用议题 API 来创建拉取请求注释就合情合理了。
 
-We'll demonstrate fetching Pull Request comments by creating a Ruby script using
-[Octokit.rb][octokit.rb]. You'll also want to create a [personal access token][personal token].
+我们将通过使用 [Octokit.rb][octokit.rb] 创建一个 Ruby 脚本来演示如何获取拉取请求注释 您还需要创建[个人访问令牌][personal token]。
 
-The following code should help you get started accessing comments from a Pull Request
-using Octokit.rb:
+以下代码应该可以帮助您开始使用 Octokit.rb 访问拉取请求中的注释：
 
 ``` ruby
 require 'octokit'
@@ -53,18 +43,13 @@ client.issue_comments("octocat/Spoon-Knife", 1176).each do |comment|
 end
 ```
 
-Here, we're specifically calling out to the Issues API to get the comments (`issue_comments`),
-providing both the repository's name (`octocat/Spoon-Knife`), and the Pull Request ID
-we're interested in (`1176`). After that, it's simply a matter of iterating through
-the comments to fetch information about each one.
+在这里，我们专门调用议题 API 来获取注释 (`issue_comments`)，同时提供仓库名称 (`octocat/Spoon-Knife`) 和我们感兴趣的拉取请求 ID (`1176`)。 之后，只需遍历注释以获取有关每个注释的信息即可。
 
-## Pull Request Comments on a Line
+## 拉取请求行注释
 
-Within the diff view, you can start a discussion on a particular aspect of a singular
-change made within the Pull Request. These comments occur on the individual lines
-within a changed file. The endpoint URL for this discussion comes from [the Pull Request Review API][PR Review API].
+在差异视图中，您可以开始讨论在拉取请求中进行的某个更改的特定方面。 这些注释出现在已更改文件中的各个行上。 此讨论的端点 URL 来自[拉取请求审查 API][PR Review API]。
 
-The following code fetches all the Pull Request comments made on files, given a single Pull Request number:
+以下代码将获取文件中所做的所有拉取请求注释（给定一个拉取请求编号）：
 
 ``` ruby
 require 'octokit'
@@ -84,19 +69,13 @@ client.pull_request_comments("octocat/Spoon-Knife", 1176).each do |comment|
 end
 ```
 
-You'll notice that it's incredibly similar to the example above. The difference
-between this view and the Pull Request comment is the focus of the conversation.
-A comment made on a Pull Request should be reserved for discussion or ideas on
-the overall direction of the code. A comment made as part of a Pull Request review should
-deal specifically with the way a particular change was implemented within a file.
+您会注意到，它与上面的示例非常相似。 此视图与拉取请求注释之间的不同之处在于对话的焦点。 对拉取请求的注释应予以保留，以供讨论或就代码的总体方向提出意见。 在拉取请求审查中所做的注释应该以在文件中实施特定更改的方式进行专门处理。
 
-## Commit Comments
+## 提交注释
 
-The last type of comments occur specifically on individual commits. For this reason,
-they make use of [the commit comment API][commit comment API].
+最后一类注释专门针对单个提交。 For this reason, they make use of [the commit comment API][commit comment API].
 
-To retrieve the comments on a commit, you'll want to use the SHA1 of the commit.
-In other words, you won't use any identifier related to the Pull Request. Here's an example:
+要检索对提交的注释，您需要使用该提交的 SHA1。 换句话说，您不能使用与拉取请求相关的任何标识符。 例如：
 
 ``` ruby
 require 'octokit'
@@ -114,8 +93,7 @@ client.commit_comments("octocat/Spoon-Knife", "cbc28e7c8caee26febc8c013b0adfb97a
 end
 ```
 
-Note that this API call will retrieve single line comments, as well as comments made
-on the entire commit.
+请注意，此 API 调用将检索单行注释以对整个提交所做的注释。
 
 [PR comment]: https://github.com/octocat/Spoon-Knife/pull/1176#issuecomment-24114792
 [PR line comment]: https://github.com/octocat/Spoon-Knife/pull/1176#discussion_r6252889

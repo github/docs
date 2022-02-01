@@ -83,3 +83,30 @@
 .min-h-screen {
   min-height: 100vh;
 }
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+}
+
+/* Screen Reader Only
+------------------------------------------------------------------------------*/
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.keyboard-focus:hover,
+.keyboard-focus:focus {
+  outline: 1px auto -webkit-focus-ring-color;
+}

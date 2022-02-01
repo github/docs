@@ -1,51 +1,51 @@
 ---
-title: Disaster recovery for Codespaces
-intro: 'This article describes guidance for a disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption.'
+title: Recuperación de desastres para los codespaces
+intro: 'Este artículo describe la guía para una situación de recuperación de desastres, cuando toda una región experimenta una interrupción debido a un desastre natural mayor o una interrupción de servicios extendida.'
 versions:
   fpt: '*'
   ghec: '*'
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
-shortTitle: Disaster recovery
+shortTitle: Recuperación de desastres
 ---
 
-We work hard to make sure that {% data variables.product.prodname_codespaces %} is always available to you. However, forces beyond our control sometimes impact the service in ways that can cause unplanned service disruptions.
+Nos esforzamos para asegurarnos de que {% data variables.product.prodname_codespaces %} siempre esté disponible. Sin embargo, por causas de fuerza mayor que salen de nuestro control, algunas veces se impacta el servicio en formas qeu pueden causar interrupciones de servicio no planeadas.
 
-Although disaster recovery scenarios are rare occurrences, we recommend that you prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would be temporarily unavailable.
+Aunque los casos de recuperación de desastres son ocurrencias extraordinarias, te recomendamos que te prepares para la posibilidad de que exista una interrupción en una región entera. Si una región completa experimenta una interrupción de servicio, las copias locales redundantes de tus datos se encontrarán temporalmente no disponibles.
 
-The following guidance provides options on how to handle service disruption to the entire region where your codespace is deployed.
+La siguiente orientación proporciona opciones sobre cómo manejar la interrupción del servicio para toda la región en donde se desplegó tu codespace.
 
 {% note %}
 
-**Note:** You can reduce the potential impact of service-wide outages by pushing to remote repositories frequently.
+**Nota:** Puedes reducir el impacto potencial de las interrupciones a lo largo del servicio si haces subidas frecuentes a los repositorios remotos.
 
 {% endnote %}
 
-## Option 1: Create a new codespace in another region
+## Opción 1: Crea un codespace nuevo en otra región
 
-In the case of a regional outage, we suggest you recreate your codespace in an unaffected region to continue working. This new codespace will have all of the changes as of your last push to {% data variables.product.prodname_dotcom %}. For information on manually setting another region, see "[Setting your default region for Codespaces](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)."
+En caso de que haya una interrupción regional, te sugerimos volver a crear tu codespace en una región no afectada para seguir trabajando. Este codespace nuevo tendrá todos los cambios desde tu última subida en {% data variables.product.prodname_dotcom %}. Para obtener más información sobre cómo configurar otra región manualmente, consulta la sección "[Configurar tu región predeterminada para los Codespaces](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)".
 
-You can optimize recovery time by configuring a `devcontainer.json` in the project's repository, which allows you to define the tools, runtimes, frameworks, editor settings, extensions, and other configuration necessary to restore the development environment automatically. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
+Puedes optimizar el tiempo de recuperación si configuras un `devcontainer.json` en el repositorio de un proyecto, el cual te permita definir las herramientas, tiempos de ejecución, configuración del editor, extensiones y otros tipos de configuración necesarios para restablecer el ambiente de desarrollo automáticamente. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
-## Option 2: Wait for recovery
+## Opción 2: esperar para la recuperación
 
-In this case, no action on your part is required. Know that we are working diligently to restore service availability. 
+En este caso, no se requiere que tomes acción alguna. Debes saber que estamos trabajando diligentemente para restaurar la disponibilidad del servicio.
 
-You can check the current service status on the [Status Dashboard](https://www.githubstatus.com/).
+Puedes verificar el estado de servicio actual en el [Tablero de estado](https://www.githubstatus.com/).
 
-## Option 3: Clone the repository locally or edit in the browser
+## Opción 3: Clona el repositorio localmente o edítalo en el buscador
 
-While {% data variables.product.prodname_codespaces %} provides the benefit of a pre-configured developer environmnent, your source code should always be accessible through the repository hosted on {% data variables.product.prodname_dotcom_the_website %}. In the event of a {% data variables.product.prodname_codespaces %} outage, you can still clone the repository locally or edit files in the {% data variables.product.company_short %} browser editor. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+Mientras que los {% data variables.product.prodname_codespaces %} proporcinan el beneficio de un ambiente de desarrollador pre-configurado, siempre debe poderse acceder a tu código mediante el repositorio que se hospeda en {% data variables.product.prodname_dotcom_the_website %}. En caso de que haya una interrupción de un {% data variables.product.prodname_codespaces %}, aún podrás clonar el repositorio localmente o los archivos de edición en el editor del buscador de {% data variables.product.company_short %}. Para obtener más información, consulta la sección "[Editar archivos](/repositories/working-with-files/managing-files/editing-files)".
 
-While this option does not configure a development environment for you, it will allow you to make changes to your source code as needed while you wait for the service disruption to resolve.
+Si bien esta opción no te configura un ambiente de desarrollo, te permitirá hacer cambios a tu código fuente conforme los necesites mientras esperas a que se resuelva la interrupción del servicio.
 
-## Option 4: Use Remote-Containers and Docker for a local containerized environment
+## Opción 4: Utiliza los contenedores remotos y Docker para crear un ambiente contenido local
 
-If your repository has a `devcontainer.json`, consider using the [Remote-Containers extension](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) in Visual Studio Code to build and attach to a local development container for your repository. The setup time for this option will vary depending on your local specifications and the complexity of your dev container setup.
+Si tu repositorio tiene un `devcontainer.json`, considera utilizar la [extensión de contenedores remotos](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) en Visual Studio Code para crear y adjuntarlo a un contenedor de desarrollo logal para tu repositorio. El tiempo de configuración para esta opción variará dependiendo de tus especificaciones locales y de la complejidad de tu configuración de contenedor dev.
 
 {% note %}
 
-**Note:** Be sure your local setup meets the [minimum requirements](https://code.visualstudio.com/docs/remote/containers#_system-requirements) before attempting this option.
+**Nota:** Asegúrate de que tu configuración local cumple con los [requisitos mínimos](https://code.visualstudio.com/docs/remote/containers#_system-requirements) antes de intentar utilizar esta opción.
 
 {% endnote %}

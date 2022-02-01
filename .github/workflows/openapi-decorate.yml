@@ -32,9 +32,14 @@ jobs:
 
       - name: Checkout repository code
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        with:
+          # actions/checkout by default will leave you in a detached head state
+          # so we need to specify the PR head ref explicitly since we're making
+          # changes that we want to commit to the branch.
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -46,7 +51,7 @@ jobs:
         run: script/rest/update-files.js --decorate-only
 
       - name: Check in the decorated files
-        uses: EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87
+        uses: EndBug/add-and-commit@756d9ea820f11931e591eaf57f25e0f5b903d5b2
         with:
           # The arguments for the `git add` command
           add: 'lib/rest/static/decorated'

@@ -87,6 +87,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 | Keyboard shortcut | Description
 |-----------|------------
+| Keyboard shortcut | Description
+|-----------|------------
 |<kbd>Command</kbd>+<kbd>B</kbd> or <kbd>Ctrl</kbd>+<kbd>B</kbd> | Inserts Markdown formatting for bolding text
 |<kbd>Command</kbd>+<kbd>I</kbd> or <kbd>Ctrl</kbd>+<kbd>I</kbd> | Inserts Markdown formatting for italicizing text{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 |<kbd>Command</kbd>+<kbd>E</kbd> or <kbd>Ctrl</kbd>+<kbd>E</kbd> | Inserts Markdown formatting for code or a command within a line{% endif %}
@@ -94,7 +96,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> | Inserts Markdown formatting for an ordered list
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> | Inserts Markdown formatting for an unordered list{% endif %}
-|<kbd>Ctrl</kbd>+<kbd>Enter</kbd> | Submits a comment
+|<kbd>Command</kbd>+<kbd>Enter</kbd> or <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | Submits a comment
 |<kbd>Ctrl</kbd>+<kbd>.</kbd> and then <kbd>Ctrl</kbd>+<kbd>[saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
 |<kbd>Command</kbd>+<kbd>G</kbd> or <kbd>Ctrl</kbd>+<kbd>G</kbd> | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}

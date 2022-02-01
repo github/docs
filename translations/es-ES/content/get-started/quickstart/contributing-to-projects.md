@@ -22,7 +22,7 @@ Creating a "fork" is producing a personal copy of someone else's project. Forks 
 
 ## Bifurcar un repositorio
 
-This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
+Este tutorial utiliza [el proyecto Spoon-Knife](https://github.com/octocat/Spoon-Knife), un repositorio de prueba que se hospeda en {% data variables.product.prodname_dotcom_the_website %} y te permite probar el flujo de trabajo de la bifurcación y solicitud de cambios.
 
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
 2. Click **Fork**. ![Botón Bifurcar](/assets/images/help/repository/fork_button.jpg)
@@ -34,7 +34,6 @@ You've successfully forked the Spoon-Knife repository, but so far, it only exist
 
 You can clone your fork with the command line, {% data variables.product.prodname_cli %}, or {% data variables.product.prodname_desktop %}.
 
-{% include tool-switcher %}
 {% webui %}
 
 1. En {% data variables.product.product_name %}, dirígete a **tu bifurcación** del repositorio Spoon-Knife.
@@ -86,7 +85,6 @@ Go ahead and make a few changes to the project using your favorite text editor, 
 
 When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
 
-{% include tool-switcher %}
 {% webui %}
 
 ```shell
@@ -100,14 +98,14 @@ git commit -m "a short description of the change"
 
 ```shell
 git add .
-git commit -m "a short description of the change"
+git commit -m "una descripción corta del cambio"
 ```
 
 {% endcli %}
 
 {% desktop %}
 
-For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[Committing and reviewing changes to your project](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
+Para obtener más información sobre cómo probar y confirmar los cambios en {% data variables.product.prodname_desktop %}, consulta la sección "[Confirmar y revisar los cambios a tu proyecto](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)".
 
 {% enddesktop %}
 
@@ -115,7 +113,6 @@ When you stage and commit files, you essentially tell Git, "Okay, take a snapsho
 
 Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.product_name %}, push your changes to the remote.
 
-{% include tool-switcher %}
 {% webui %}
 
 ```shell
@@ -134,7 +131,7 @@ git push
 
 {% desktop %}
 
-For more information about how to push changes in {% data variables.product.prodname_desktop %}, see "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
+Para obtener más información sobre cómo subir cambios a {% data variables.product.prodname_desktop %}, consulta la sección "[Subir cambios a GtiHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)".
 
 {% enddesktop %}
 
@@ -154,4 +151,4 @@ Pull Requests are an area for discussion. In this case, the Octocat is very busy
 
 ## Finding projects
 
-You've successfully forked and contributed back to a repository. Go forth, and contribute some more!{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+You've successfully forked and contributed back to a repository. ¡Ve y contribuye más!{% ifversion fpt %} Para obtener más información, consulta la sección "[Encontrar formas de contribuir con el código abierto en GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}

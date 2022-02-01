@@ -1,5 +1,5 @@
 ---
-title: GitHub Privacy Statement
+title: Declaración de Privacidad de GitHub
 redirect_from:
   - /privacy
   - /privacy-policy
@@ -14,329 +14,329 @@ topics:
   - Legal
 ---
 
-Effective date: December 19, 2020
+Fecha de entrada en vigor: 19 de diciembre de 2020
 
-Thanks for entrusting GitHub Inc. (“GitHub”, “we”) with your source code, your projects, and your personal information. Holding on to your private information is a serious responsibility, and we want you to know how we're handling it.
+Gracias por confiar a GitHub Inc. (“GitHub”, “nosotros”) tu código fuente, tus proyectos y tu información personal. Mantener tu información privada es una responsabilidad importante, y queremos que sepas cómo lo hacemos.
 
-All capitalized terms have their definition in [GitHub’s Terms of Service](/github/site-policy/github-terms-of-service), unless otherwise noted here.
+Todos los términos en mayúsculas tienen su definición en las [Condiciones de Servicio de GitHub](/github/site-policy/github-terms-of-service) a menos de que se indique lo contrario.
 
 
-## The short version
+## La versión corta
 
-We use your personal information as this Privacy Statement describes. No matter where you are, where you live, or what your citizenship is, we provide the same high standard of privacy protection to all our users around the world, regardless of their country of origin or location.
+Utilizamos tu información personal como lo describe la presente Declaración de Privacidad. Sin importar quién seas, dónde vives, o cuál sea tu nacionalidad, proporcionames el mismo estándar alto de protección de la privacidad a todos nuestros usuarios en el mundo, sin importar su país de orígen o su ubicación.
 
-Of course, the short version and the Summary below don't tell you everything, so please read on for more details.
+Por supuesto, la versión corta y el Resumen que aparecen a continuación no informan todos los detalles, por lo tanto, sigue leyendo para acceder a ellos.
 
-## Summary
+## Resumen
 
-| Section | What can you find there? |
-|---|---|
-| [What information GitHub collects](#what-information-github-collects) | GitHub collects information directly from you for your registration, payment, transactions, and user profile. We also automatically collect from you your usage information, cookies, and device information, subject, where necessary, to your consent. GitHub may also collect User Personal Information from third parties. We only collect the minimum amount of personal information necessary from you, unless you choose to provide more. |
-| [What information GitHub does _not_ collect](#what-information-github-does-not-collect) | We don’t knowingly collect information from children under 13, and we don’t collect [Sensitive Personal Information](https://gdpr-info.eu/art-9-gdpr/). |
-| [How GitHub uses your information](#how-github-uses-your-information) | In this section, we describe the ways in which we use your information, including to provide you the Service, to communicate with you, for security and compliance purposes, and to improve our Service. We also describe the legal basis upon which we process your information, where legally required. |
-| [How we share the information we collect](#how-we-share-the-information-we-collect) | We may share your information with third parties under one of the following circumstances: with your consent, with our service providers, for security purposes, to comply with our legal obligations, or when there is a change of control or sale of corporate entities or business units. We do not sell your personal information and we do not host advertising on GitHub. You can see a list of the service providers that access your information. |
-| [Other important information](#other-important-information) | We provide additional information specific to repository contents, public information, and Organizations on GitHub. |
-| [Additional services](#additional-services) | We provide information about additional service offerings, including third-party applications, GitHub Pages, and GitHub applications. |
-| [How you can access and control the information we collect](#how-you-can-access-and-control-the-information-we-collect) | We provide ways for you to access, alter, or delete your personal information. |
-| [Our use of cookies and tracking](#our-use-of-cookies-and-tracking) | We only use strictly necessary cookies to provide, secure and improve our service. We offer a page that makes this very transparent. Please see this section for more information. |
-| [How GitHub secures your information](#how-github-secures-your-information) | We take all measures reasonably necessary to protect the confidentiality, integrity, and availability of your personal information on GitHub and to protect the resilience of our servers. |
-| [GitHub's global privacy practices](#githubs-global-privacy-practices) | We provide the same high standard of privacy protection to all our users around the world. |
-| [How we communicate with you](#how-we-communicate-with-you) | We communicate with you by email. You can control the way we contact you in your account settings, or by contacting us. |
-| [Resolving complaints](#resolving-complaints) | In the unlikely event that we are unable to resolve a privacy concern quickly and thoroughly, we provide a path of dispute resolution. |
-| [Changes to our Privacy Statement](#changes-to-our-privacy-statement) | We notify you of material changes to this Privacy Statement 30 days before any such changes become effective. You may also track changes in our Site Policy repository. |
-| [License](#license) | This Privacy Statement is licensed under the [Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/). |
-| [Contacting GitHub](#contacting-github) | Please feel free to contact us if you have questions about our Privacy Statement. |
-| [Translations](#translations) | We provide links to some translations of the Privacy Statement. |
+| Sección                                                                                                                      | ¿Qué puedes encontrar allí?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Qué información recopila GitHub](#what-information-github-collects)                                                         | GitHub recopila información directamente a partir de tu registro, tus pagos, tus transacciones y del perfil del usuario. También, cuando es necesario, recopilamos automáticamente información de tu uso, cookies e información de dispositivo sujetos, cuando sea necesario, a tu consentimiento. Puede que GitHub también recopile Información personal del usuario a partir de terceros. Solo recopilamos la mínima cantidad de información personal necesaria a través de ti, a menos que decidas proporcionar más. |
+| [Qué información GitHub _no_ recopila](#what-information-github-does-not-collect)                                            | No recopilamos intencionalmente información de niños menores de 13 años y no recopilamos [Información personal sensible](https://gdpr-info.eu/art-9-gdpr/).                                                                                                                                                                                                                                                                                                                                                             |
+| [Cómo utiliza GitHub tu información](#how-github-uses-your-information)                                                      | En esta sección, describimos las formas en las que utilizamos tu información, incluyendo el proporcionarte el Servicio, comunicarnos contigo, para propósitos de seguridad y cumplimiento, y para mejorar nuestro Servicio. También describimos la base legal sobre la cual procesamos tu información personal, cuando se exige legalmente.                                                                                                                                                                             |
+| [Cómo compartimos la información que recopilamos](#how-we-share-the-information-we-collect)                                  | Puede que compartamos tu información con terceros en una de las siguientes circunstancias: con tu consentimiento, con nuestros proveedores de servicio, por motivos de seguridad, para cumplir con nuestras obligaciones legales o cuando exista un cambio de control o venta de las entidades corporativas o unidades de negocios. En GitHub, no vendemos tu información personal y no alojamos publicidad. Puedes consultar una lista de los proveedores de servicio que acceden a tu información.                    |
+| [Otra información importante](#other-important-information)                                                                  | Proporcionamos más información específica sobre los contenidos del repositorio, la información pública y las Organizaciones de GitHub.                                                                                                                                                                                                                                                                                                                                                                                  |
+| [Servicios adicionales](#additional-services)                                                                                | Proporcionamos información sobre las ofertas de servicio adicionales, incluso aplicaciones de terceros, Páginas de GitHub y aplicaciones de GitHub.                                                                                                                                                                                                                                                                                                                                                                     |
+| [Cómo puedes acceder y controlar la información que recopilamos](#how-you-can-access-and-control-the-information-we-collect) | Proporcionamos formas para que accedas, modifiques o elimines tu información personal.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| [Uso de cookies y seguimiento](#our-use-of-cookies-and-tracking)                                                             | Solo utilizamos las cookies estrictamente necesarias para proporcionar, asegurar y mejorar nuestro servicio. Ofrecemos una página que hace que esto sea muy transparente. Consulta esta sección para obtener más información.                                                                                                                                                                                                                                                                                           |
+| [Cómo asegura GitHub tu información](#how-github-secures-your-information)                                                   | Tomamos todas las medidas razonablemente necesarias para proteger la confidencialidad, integridad y disponibilidad de tu información personal en GitHub y para proteger la resistencia de nuestros servidores.                                                                                                                                                                                                                                                                                                          |
+| [Prácticas de privacidad mundiales de GitHub](#githubs-global-privacy-practices)                                             | Proporcionamos el mismo estándar alto de protección de la privacidad a todos nuestros usuarios en el mundo entero.                                                                                                                                                                                                                                                                                                                                                                                                      |
+| [Cómo nos comunicamos contigo](#how-we-communicate-with-you)                                                                 | Nos comunicamos contigo por correo electrónico. Puedes controlar la manera en que te contactamos en las configuraciones de la cuenta o poniéndote en contacto con nosotros.                                                                                                                                                                                                                                                                                                                                             |
+| [Resolver reclamos](#resolving-complaints)                                                                                   | En el caso improbable de que no podamos resolver una inquietud sobre la privacidad de forma rápida y exhaustiva, proporcionaremos un medio de resolución por medio de una disputa.                                                                                                                                                                                                                                                                                                                                      |
+| [Cambios en tu Declaración de privacidad](#changes-to-our-privacy-statement)                                                 | Te notificamos los cambios importantes en esta Declaración de privacidad 30 días antes de que cualquier cambio entre en vigencia. Puedes rastrear los cambios en nuestro repositorio de Políticas del sitio.                                                                                                                                                                                                                                                                                                            |
+| [Licencia](#license)                                                                                                         | La presente Declaración de privacidad está autorizada por la [licencia Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/).                                                                                                                                                                                                                                                                                                                                                                      |
+| [Contactarse con GitHub](#contacting-github)                                                                                 | Siéntete libre de contactarnos si tienes preguntas acerca de nuestra Declaración de privacidad.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| [Traducciones](#translations)                                                                                                | Proporcionamos enlaces a algunas traducciones de la Declaración de privacidad.                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-## GitHub Privacy Statement
+## Declaración de Privacidad de GitHub
 
-## What information GitHub collects
+## Qué información recopila GitHub
 
-"**User Personal Information**" is any information about one of our Users which could, alone or together with other information, personally identify them or otherwise be reasonably linked or connected with them. Information such as a username and password, an email address, a real name, an Internet protocol (IP) address, and a photograph are examples of “User Personal Information.”
+La "**Información personal del usuario**" es cualquier información acerca de alguno de nuestros Usuarios que podría, de manera independiente o junto con otra información, identificarlo individualmente, o que está vinculada o conectada de cualquier otra forma con él. Información como un nombre de usuario y contraseña, una dirección de correo electrónico, un nombre real, una dirección de Protocolo de Internet (IP) y una fotografía son ejemplos de "Información personal del usuario".
 
-User Personal Information does not include aggregated, non-personally identifying information that does not identify a User or cannot otherwise be reasonably linked or connected with them. We may use such aggregated, non-personally identifying information for research purposes and to operate, analyze, improve, and optimize our Website and Service.
+La Información personal del usuario no incluye información agregada, información de carácter no personal que no identifica a un Usuario o que no se puede vincular o conectar de manera razonable con él. Podemos utilizar dicha información agregada que no identifica de manera personal a un usuario con motivos de investigación y para operar, analizar y optimizar nuestro Sitio web y el Servicio.
 
-### Information users provide directly to GitHub
+### Información que los usuarios proporcionan directamente a GitHub
 
-#### Registration information
-We require some basic information at the time of account creation. When you create your own username and password, we ask you for a valid email address.
+#### Información de registro
+Necesitamos cierta información básica al momento de creación de la cuenta. Cuando creas tu propio nombre de usuario y contraseña, te solicitamos una dirección de correo electrónico válida.
 
-#### Payment information
-If you sign on to a paid Account with us, send funds through the GitHub Sponsors Program, or buy an application on GitHub Marketplace, we collect your full name, address, and credit card information or PayPal information. Please note, GitHub does not process or store your credit card information or PayPal information, but our third-party payment processor does.
+#### Información de Pago
+Si te registras para una Cuenta paga, envías fondos a través del Programa de patrocinadores de GitHub o compras una aplicación en el Mercado GitHub, recopilamos tu nombre completo y la información de la tarjeta de crédito o la información de PayPal. Ten en cuenta que GitHub no procesa ni almacena tu información de tarjeta de crédito o información de PayPal, pero sí lo hace nuestro procesador de pago subcontratado.
 
-If you list and sell an application on [GitHub Marketplace](https://github.com/marketplace), we require your banking information. If you raise funds through the [GitHub Sponsors Program](https://github.com/sponsors), we require some [additional information](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information) through the registration process for you to participate in and receive funds through those services and for compliance purposes.
+Si detallas y vendes una aplicación en el [Mercado GitHub](https://github.com/marketplace), te solicitamos la información de tu banco. Si recabas fondos a través del [Programa de Patrocinadores de GitHub](https://github.com/sponsors), necesitamos algo de [información adicional](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information) mediante el proceso de registro para que participes y recibas los fondos a través de estos servicios y para propósitos de cumplimiento.
 
-#### Profile information
-You may choose to give us more information for your Account profile, such as your full name, an avatar which may include a photograph, your biography, your location, your company, and a URL to a third-party website. This information may include User Personal Information. Please note that your profile information may be visible to other Users of our Service.
+#### Información de perfil
+Puedes decidir proporcionarnos más información para tu Perfil de cuenta, como tu nombre completo, un avatar que puede incluir una fotografía, tu biografía, tu ubicación, tu empresa y una URL a un sitio web de terceros. Esta información puede incluir Información personal del usuario. Ten en cuenta que tu información de perfil puede ser visible para otros Usuarios de nuestro Servicio.
 
-### Information GitHub automatically collects from your use of the Service
+### Información que GitHub recopila automáticamente a partir del uso del Servicio
 
-#### Transactional information
-If you have a paid Account with us, sell an application listed on [GitHub Marketplace](https://github.com/marketplace), or raise funds through the [GitHub Sponsors Program](https://github.com/sponsors), we automatically collect certain information about your transactions on the Service, such as the date, time, and amount charged.
+#### Información transaccional
+Si tienes una Cuenta paga con nosotros, vendes una aplicación detallada en el [Mercado GitHub](https://github.com/marketplace) o recaudas fondos a través del [Programa de patrocinadores de GitHub](https://github.com/sponsors), automáticamente recopilamos determinada información acerca de tus transacciones en el Servicio, como la fecha, la hora y el monto cobrado.
 
-#### Usage information
-If you're accessing our Service or Website, we automatically collect the same basic information that most services collect, subject, where necessary, to your consent. This includes information about how you use the Service, such as the pages you view, the referring site, your IP address and session information, and the date and time of each request. This is information we collect from every visitor to the Website, whether they have an Account or not. This information may include User Personal information.
+#### Información de uso
+Si accedes a nuestro Servicio o Sitio web, automáticamente recopilamos la misma información básica que recopila la mayoría de los servicios, sujeto a tu consentimiento cuando resulte necesario. Esto incluye información acerca de cómo utilizas el Servicio, por ejemplo, las páginas que miras, el sitio referido, tu dirección IP e información de sesión, y la fecha y hora de cada solicitud. Recopilamos esta información de todos los visitantes del Sitio web, tengan o no una Cuenta. Esta información puede incluir Información personal del usuario.
 
 #### Cookies
-As further described below, we automatically collect information from cookies (such as cookie ID and settings) to keep you logged in, to remember your preferences, to identify you and your device and to analyze your use of our service.
+De acuerdo a como se describe a continuación, recolectamos automáticamente la información de las cookies (tales como la ID y configuración de éstas) para mantenerte con una sesión iniciada, para recordar tus preferencias, para identificarte tanto a ti como a tu dispositivo y para analizar tu uso de nuestro servicio.
 
-#### Device information
-We may collect certain information about your device, such as its IP address, browser or client application information, language preference, operating system and application version, device type and ID, and device model and manufacturer. This information may include User Personal information.
+#### Información de dispositivo
+Puede que recopilemos determinada información acerca de tu dispositivo, como la dirección IP, el navegador o información de la aplicación del cliente, preferencias de idioma, sistema operativo y versión de la aplicación, tipo e ID del dispositivo y modelo y fabricante del dispositivo. Esta información puede incluir Información personal del usuario.
 
-### Information we collect from third parties
+### Información que recopilamos de terceros
 
-GitHub may collect User Personal Information from third parties. For example, this may happen if you sign up for training or to receive information about GitHub from one of our vendors, partners, or affiliates. GitHub does not purchase User Personal Information from third-party data brokers.
+GitHub puede recopilar Información personal del usuario a partir de terceros. Por ejemplo, esto puede ocurrir si inicias sesión para capacitarte o recibir información acerca de GitHub de parte de alguno de nuestros proveedores, socios o subsidiarias. GitHub no compra Información personal del usuario a agentes de datos de terceros.
 
-## What information GitHub does not collect
+## Qué información no recopila GitHub
 
-We do not intentionally collect “**[Sensitive Personal Information](https://gdpr-info.eu/art-9-gdpr/)**”, such as personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person’s sex life or sexual orientation. If you choose to store any Sensitive Personal Information on our servers, you are responsible for complying with any regulatory controls regarding that data.
+No recopilamos de manera intencional “**[Información personal sensible](https://gdpr-info.eu/art-9-gdpr/)**”, como datos personales que revelan origen racial o étnico, opiniones políticas, creencias religiosas o filosóficas o afiliación sindical, y tampoco procesamos datos genéticos ni datos biométricos con el único fin de identificar a una persona física, datos del estado de salud o datos sobre la vida sexual o la orientación sexual de una persona física. Si decides almacenar alguna Información personal en tus servidores, eres responsable de cumplir con cualquier control regulatorio al respecto de esos datos.
 
-If you are a child under the age of 13, you may not have an Account on GitHub. GitHub does not knowingly collect information from or direct any of our content specifically to children under 13. If we learn or have reason to suspect that you are a User who is under the age of 13, we will have to close your Account. We don't want to discourage you from learning to code, but those are the rules. Please see our [Terms of Service](/github/site-policy/github-terms-of-service) for information about Account termination. Different countries may have different minimum age limits, and if you are below the minimum age for providing consent for data collection in your country, you may not have an Account on GitHub.
+Si eres un niño menor de 13 años, no puedes tener una Cuenta en GitHub. GitHub no recopila intencionalmente información de niños menores de 13 años ni dirige ninguno de nuestros contenidos de manera específica a ellos. Si sabemos o tenemos motivos para sospechar que eres un Usuario menor de 13 años, tendremos que cerrar tu Cuenta. No queremos desalentarte de que aprendas nuestro código, pero esas son las reglas. Por favor, consulta nuestras [Condiciones de Servicio](/github/site-policy/github-terms-of-service) para la información acerca de la cancelación de la cuenta. Puede que los diferentes países tengan diferentes límites de edad mínimos. Si estás por debajo de la edad mínima para brindar consentimiento para la recopilación de datos en tu país, no puedes tener una Cuenta en GitHub.
 
-We do not intentionally collect User Personal Information that is **stored in your repositories** or other free-form content inputs. Any personal information within a user's repository is the responsibility of the repository owner.
+No recopilamos de manera intencional la Información personal del usuario que está **almacenada en tus repositorios** u otros ingresos de contenido de forma libre. Toda información personal dentro del repositorio de un usuario es responsabilidad del propietario del repositorio.
 
-## How GitHub uses your information
+## Cómo utiliza GitHub tu información
 
-We may use your information for the following purposes:
-- We use your [Registration Information](#registration-information) to create your account, and to provide you the Service.
-- We use your [Payment Information](#payment-information) to provide you with the Paid Account service, the Marketplace service, the Sponsors Program, or any other GitHub paid service you request.
-- We use your User Personal Information, specifically your username, to identify you on GitHub.
-- We use your [Profile Information](#profile-information) to fill out your Account profile and to share that profile with other users if you ask us to.
-- We use your email address to communicate with you, if you've said that's okay, **and only for the reasons you’ve said that’s okay**. Please see our section on [email communication](#how-we-communicate-with-you) for more information.
-- We use User Personal Information to respond to support requests.
-- We use User Personal Information and other data to make recommendations for you, such as to suggest projects you may want to follow or contribute to. We learn from your public behavior on GitHub—such as the projects you star—to determine your coding interests, and we recommend similar projects. These recommendations are automated decisions, but they have no legal impact on your rights.
-- We may use User Personal Information to invite you to take part in surveys, beta programs, or other research projects, subject, where necessary, to your consent .
-- We use [Usage Information](#usage-information) and [Device Information](#device-information) to better understand how our Users use GitHub and to improve our Website and Service.
-- We may use your User Personal Information if it is necessary for security purposes or to investigate possible fraud or attempts to harm GitHub or our Users.
-- We may use your User Personal Information to comply with our legal obligations, protect our intellectual property, and enforce our [Terms of Service](/github/site-policy/github-terms-of-service).
-- We limit our use of your User Personal Information to the purposes listed in this Privacy Statement. If we need to use your User Personal Information for other purposes, we will ask your permission first. You can always see what information we have, how we're using it, and what permissions you have given us in your [user profile](https://github.com/settings/admin).
+Podemos utilizar tu información con los siguientes fines:
+- Utilizamos tu [Información de registro](#registration-information) para crear tu cuenta y para proporcionarte el Servicio.
+- Utilizamos tu [Información de pago](#payment-information) para proporcionarte el servicio de Cuenta paga, el servicio de Mercado, el Programa de patrocinadores o cualquier otro servicio pago de GitHub que solicites.
+- Utilizamos tu Información personal del usuario, específicamente tu nombre de usuario, para identificarte en GitHub.
+- Utilizamos tu [Información del perfil](#profile-information) para completar tu perfil de Cuenta y para compartir ese perfil con otros usuarios, si nos pides que lo hagamos.
+- Utilizamos tu dirección de correo electrónico para comunicarnos contigo, si estuviste de acuerdo con ello, **y solo por las razones con las que estuviste de acuerdo**. Consulta nuestra sección en [comunicación por correo electrónico](#how-we-communicate-with-you) para obtener más información.
+- Utilizamos Información personal del usuario para responder a las solicitudes de soporte técnico.
+- Utilizamos Información personal del usuario y otros datos para hacerte recomendaciones, por ejemplo, sugerir proyectos que puedes querer seguir o con los que puedes querer contribuir. Aprendemos de tu comportamiento público en GitHub, por ejemplo, los proyectos a los que les pones estrellas, para determinar tus intereses de codificación y recomendamos proyectos similares. Estas recomendaciones son decisiones automáticas, pero no tienen un impacto legal en tus derechos.
+- Podemos utilizar Información personal del usuario para invitarte a formar parte de las encuestas, los programas beta u otros proyectos de investigación, sujeto a tu consentimiento cuando resulte necesario.
+- Utilizamos [Información de uso](#usage-information) e [Información del dispositivo](#device-information) para comprender mejor cómo utilizan GitHub nuestros Usuarios y para mejorar nuestro Sitio web y el Servicio.
+- Si es necesario, podemos utilizar tu Información personal del usuario por motivos de seguridad o para investigar posibles fraudes o intentos de dañar a GitHub o a nuestros Usuarios.
+- Podríamos utilizar tu Información personal de usuario para cumplir con nuestras obligaciones legales, proteger nuestra propiedad intelectual y hacer cumplir nuestras [Condiciones de Servicio](/github/site-policy/github-terms-of-service).
+- Restringimos nuestro uso de tu Información personal del Usuario para los fines detallados en esta Declaración de privacidad. Si necesitamos utilizar tu Información personal del usuario para otros fines, te pediremos permiso primero. Siempre puedes ver qué información tenemos, cómo la estamos utilizando y qué permisos nos has dado en tu [perfil de usuario](https://github.com/settings/admin).
 
-### Our legal bases for processing information
+### Nuestras bases legales para el procesamiento de información
 
-To the extent that our processing of your User Personal Information is subject to certain international laws (including, but not limited to, the European Union's General Data Protection Regulation (GDPR)), GitHub is required to notify you about the legal basis on which we process User Personal Information. GitHub processes User Personal Information on the following legal bases:
+En la medida que el procesamiento de tu Información personal del usuario esté sujeto a determinadas normas internacionales (incluido, entre otros, el Reglamento General de Protección de Datos [RGPD]) de la Unión Europea, se le exige a GitHub que te notifique acerca de la base legal sobre la cual procesamos la Información personal del usuario. GitHub procesa la Información personal del usuario sobre las siguientes bases legales:
 
-- Contract Performance:
-  * When you create a GitHub Account, you provide your [Registration Information](#registration-information). We require this information for you to enter into the Terms of Service agreement with us, and we process that information on the basis of performing that contract. We also process your username and email address on other legal bases, as described below.
-  * If you have a paid Account with us, we collect and process additional [Payment Information](#payment-information) on the basis of performing that contract.
-  * When you buy or sell an application listed on our Marketplace or, when you send or receive funds through the GitHub Sponsors Program, we process [Payment Information](#payment-information) and additional elements in order to perform the contract that applies to those services.
-- Consent:
-  * We rely on your consent to use your User Personal Information under the following circumstances: when you fill out the information in your [user profile](https://github.com/settings/admin); when you decide to participate in a GitHub training, research project, beta program, or survey; and for marketing purposes, where applicable. All of this User Personal Information is entirely optional, and you have the ability to access, modify, and delete it at any time. While you are not able to delete your email address entirely, you can make it private. You may withdraw your consent at any time.
-- Legitimate Interests:
-  * Generally, the remainder of the processing of User Personal Information we perform is necessary for the purposes of our legitimate interest, for example, for legal compliance purposes, security purposes, or to maintain ongoing confidentiality, integrity, availability, and resilience of GitHub’s systems, Website, and Service.
-- If you would like to request deletion of data we process on the basis of consent or if you object to our processing of personal information, please use our [Privacy contact form](https://support.github.com/contact/privacy).
+- Ejecución del contrato:
+  * Cuando creas una Cuenta de GitHub, proporcionas tu [Información de registro](#registration-information). Solicitamos esta información para que celebres el acuerdo de Términos del Servicio con nosotros y procesamos esa información sobre la base de la ejecución de ese contrato. También procesamos tu nombre de usuario y dirección de correo electrónico sobre otras bases legales, como se describe a continuación.
+  * Si tienes una Cuenta paga con nosotros, recopilamos y procesamos más [Información de pago](#payment-information) sobre la base de la ejecución de ese contrato.
+  * Cuando compras o vendes una aplicación listada en nuestro Marketplace o, cuando envías o recibes fondos a través del Programa GitHub Sponsors, procesamos la [Información de pago](#payment-information) y elementos adicionales para realizar el contrato que se aplica a esos servicios.
+- Consentimiento:
+  * Dependemos de tu consentimiento para utilizar tu Información personal del usuario en las siguientes circunstancias: cuando completas la información en tu [perfil de usuario](https://github.com/settings/admin); cuando decides participar en una capacitación de GitHub, proyecto de investigación, programa beta o encuesta; y con fines de marketing cuando corresponda. Toda esta Información personal del Usuario es completamente opcional, y tienes la capacidad de acceder a ella, modificarla y eliminarla en cualquier momento. Aunque no puedes eliminar tu dirección de correo electrónico por completo, puedes volverlo privado. Puedes retirar tu consentimiento en cualquier momento.
+- Intereses legítimos:
+  * En general, el recordatorio del procesamiento de Información personal del usuario que hacemos es necesario con fines de nuestro legítimo interés, por ejemplo, con fines de cumplimiento legal, fines de seguridad o para mantener la permanente confidencialidad, integridad, disponibilidad y resistencia de los sistemas, el sitio web y el Servicio de GitHub.
+- Si quieres solicitar la eliminación de datos que procesamos sobre la base del consentimiento u objetar el procesamiento de la información personal que hacemos, utiliza nuestro [Formulario de contacto sobre Privacidad](https://support.github.com/contact/privacy).
 
-## How we share the information we collect
+## Cómo compartimos la información que recopilamos
 
-We may share your User Personal Information with third parties under one of the following circumstances:
+Podemos compartir tu Información personal del usuario con terceros en alguna de las siguientes circunstancias:
 
-### With your consent
-We share your User Personal Information, if you consent, after letting you know what information will be shared, with whom, and why. For example, if you purchase an application listed on our Marketplace, we share your username to allow the application Developer to provide you with services. Additionally, you may direct us through your actions on GitHub to share your User Personal Information. For example, if you join an Organization, you indicate your willingness to provide the owner of the Organization with the ability to view your activity in the Organization’s access log.
+### Con tu consentimiento
+Compartimos tu Información Personal del Usuario, si lo consientes, después de dejarte saber qué información será compartida, con quién y por qué. Por ejemplo, si compras una aplicación detallada en nuestro Mercado, compartimos tu nombre de usuario para permitirle al Programador de la aplicación que te proporcione los servicios. Asimismo, te puedes dirigir a nosotros a través de tus acciones en GitHub para compartir tu Información personal del usuario. Por ejemplo, si te unes a una Organización, indicas tu intención de proporcionarle al usuario de la Organización la capacidad de ver tu actividad en el registro de acceso de la Organización.
 
-### With service providers
-We share User Personal Information with a limited number of service providers who process it on our behalf to provide or improve our Service, and who have agreed to privacy restrictions similar to the ones in our Privacy Statement by signing data protection agreements or making similar commitments. Our service providers perform payment processing, customer support ticketing, network data transmission, security, and other similar services. While GitHub processes all User Personal Information in the United States, our service providers may process data outside of the United States or the European Union. If you would like to know who our service providers are, please see our page on [Subprocessors](/github/site-policy/github-subprocessors-and-cookies).
+### Con proveedores de servicios
+Compartimos información personal del usuario con un número limitado de proveedores de servicios que la procesan en nuestro nombre para proporcionar o mejorar nuestro servicio, y quienes han aceptado restricciones de privacidad similares a las de nuestra Declaración de Privacidad firmando acuerdos de protección de datos o haciendo compromisos similares. Nuestros proveedores de servicio realizan el procesamiento de pagos, la emisión de tickets de soporte técnico del cliente, la transmisión de datos de red, la seguridad y otros servicios similares. Mientras GitHub procesa toda la Información Personal del Usuario en los Estados Unidos, nuestros proveedores de servicios pueden procesar datos fuera de los Estados Unidos o de la Unión Europea. Si te gustaría saber quiénes son nuestros proveedores de servicios, por favor consulta nuestra página sobre nuestros [Subprocesadores](/github/site-policy/github-subprocessors-and-cookies).
 
-### For security purposes
-If you are a member of an Organization, GitHub may share your username, [Usage Information](#usage-information), and [Device Information](#device-information) associated with that Organization with an owner and/or administrator of the Organization, to the extent that such information is provided only to investigate or respond to a security incident that affects or compromises the security of that particular Organization.
+### Con fines de seguridad
+Si eres un miembro de una organización, GitHub puede compartir tu nombre de usuario, [Información de Uso](#usage-information), e [Información de Dispositivo](#device-information) asociadas con dicha organización con un propietario y/o administrador de la misma al punto en que tal información se proporcione únicamente para investigar o responder a un incidente de seguridad que afecte o ponga en riesgo la seguridad de esta organización en particular.
 
-### For legal disclosure
-GitHub strives for transparency in complying with legal process and legal obligations. Unless prevented from doing so by law or court order, or in rare, exigent circumstances, we make a reasonable effort to notify users of any legally compelled or required disclosure of their information. GitHub may disclose User Personal Information or other information we collect about you to law enforcement if required in response to a valid subpoena, court order, search warrant, a similar government order, or when we believe in good faith that disclosure is necessary to comply with our legal obligations, to protect our property or rights, or those of third parties or the public at large.
+### Para divulgación legal
+GitHub se esfuerza por conseguir transparencia en el cumplimiento de los procesos legales y las obligaciones legales. A menos que no lo permita la ley o una orden judicial, o en circunstancias únicas y apremiantes, hacemos un esfuerzo razonable para notificarles a los usuarios cualquier divulgación obligatoria o exigida de su información personal. Si así se requiere, GitHub puede divulgar Información personal del usuario u otra información que recopilamos acerca de ti para cumplir con la ley y responder una citación válida, orden judicial, orden de allanamiento u orden gubernamental similar, o cuando consideremos de buena fe que la divulgación es necesaria para cumplir con nuestras obligaciones legales, para proteger nuestra propiedad o nuestros derechos, los de terceros o los del público en general.
 
-For more information about our disclosure in response to legal requests, see our [Guidelines for Legal Requests of User Data](/github/site-policy/guidelines-for-legal-requests-of-user-data).
+Para obtener más información acerca de la divulgación en respuesta a solicitudes legales, consulta nuestros [Lineamientos para las Solicitudes Legales de Datos de Usuario](/github/site-policy/guidelines-for-legal-requests-of-user-data).
 
-### Change in control or sale
-We may share User Personal Information if we are involved in a merger, sale, or acquisition of corporate entities or business units. If any such change of ownership happens, we will ensure that it is under terms that preserve the confidentiality of User Personal Information, and we will notify you on our Website or by email before any transfer of your User Personal Information. The organization receiving any User Personal Information will have to honor any promises we made in our Privacy Statement or Terms of Service.
+### Cambios por control o venta
+Podemos compartir Información Personal del Usuario si estamos involucrados en una fusión, venta o adquisición de entidades corporativas o unidades de negocio. Si ocurre cualquier cambio de propiedad, nos aseguraremos de que sea conforme a los términos que preservan la confidencialidad de la Información personal del usuario y, antes de hacer cualquier transferencia de tu Información personal del usuario, lo notificaremos en nuestro Sitio web o por correo electrónico. La organización que reciba alguna Información personal del usuario tendrá que respetar cualquier compromiso que hayamos asumido en nuestra Declaración de privacidad o Términos del Servicio.
 
-### Aggregate, non-personally identifying information
-We share certain aggregated, non-personally identifying information with others about how our users, collectively, use GitHub, or how our users respond to our other offerings, such as our conferences or events.
+### Información agregada y sin indentificación personal
+Compartimos cierta información agregada y no identificativa personal con otros acerca de cómo nuestros usuarios, de forma colectiva, utilice GitHub, o cómo nuestros usuarios responden a nuestras otras ofertas, tales como nuestras conferencias o eventos.
 
-We **do not** sell your User Personal Information for monetary or other consideration.
+**No** vendemos tu Información personal del usuario con fines monetarios o en función de consideraciones de otro tipo.
 
-Please note: The California Consumer Privacy Act of 2018 (“CCPA”) requires businesses to state in their privacy policy whether or not they disclose personal information in exchange for monetary or other valuable consideration. While CCPA only covers California residents, we voluntarily extend its core rights for people to control their data to _all_ of our users, not just those who live in California. You can learn more about the CCPA and how we comply with it [here](/github/site-policy/githubs-notice-about-the-california-consumer-privacy-act).
+Tenga en cuenta: La Ley de Privacidad del Consumidor de California de 2018 (“CCPA”) les exige a las empresas que expliciten en su política de seguridad si divulgan o no información personal a cambio de retribuciones monetarias u otras consideraciones de valor. Si bien la CCPA solo cubre a los residentes de California, extenderemos voluntariamente a _todos_ nuestros usuarios los derechos nucleares de ésta para que las personas controlen sus datos, y no solamente a los residentes de California. Puedes conocer más acerca de la CCPA y de cómo cumplimos con sus disposiciones [aquí](/github/site-policy/githubs-notice-about-the-california-consumer-privacy-act).
 
-## Repository contents
+## Contenidos del repositorio
 
-### Access to private repositories
+### Acceso a repositorios privados
 
-If your repository is private, you control the access to your Content. If you include User Personal Information or Sensitive Personal Information, that information may only be accessible to GitHub in accordance with this Privacy Statement. GitHub personnel [do not access private repository content](/github/site-policy/github-terms-of-service#e-private-repositories) except for
-- security purposes
-- to assist the repository owner with a support matter
-- to maintain the integrity of the Service
-- to comply with our legal obligations
-- if we have reason to believe the contents are in violation of the law, or
-- with your consent.
+Si tu repositorio es privado, tú controlas el acceso a tu Contenido. Si incluyes información personal del usuario o información personal confidencial, dicha información solo GitHub puede ingresar a ella de acuerdo con la presente declaración de privacidad. El personal de GitHub [no ingresa al contenido del repositorio privado](/github/site-policy/github-terms-of-service#e-private-repositories) excepto
+- con fines de seguridad
+- para ayudar al propietario del repositorio con un asunto de soporte
+- para mantener la integridad del Servicio
+- para cumplir con nuestras obligaciones legales
+- si tenemos motivos para creer que los contenidos están en violación de la ley, o
+- con tu consentimiento.
 
-However, while we do not generally search for content in your repositories, we may scan our servers and content to detect certain tokens or security signatures, known active malware, known vulnerabilities in dependencies, or other content known to violate our Terms of Service, such as violent extremist or terrorist content or child exploitation imagery, based on algorithmic fingerprinting techniques (collectively, "automated scanning"). Our Terms of Service provides more details on [private repositories](/github/site-policy/github-terms-of-service#e-private-repositories).
+Sin embargo, si bien generalmente no buscamos contenido en tus repositorios, es posible que exploremos nuestros servidores y contenido para detectar determinados tokens o firmas de seguridad, malware activo conocido, vulnerabilidades conocidas en las dependencias u otro contenido que se sabe que viola nuestros términos de servicio, como contenido violento extremista o terrorista o imágenes de explotación infantil, basada en técnicas de huellas dactilares algorítmicas (colectivamente, "escaneo automatizado"). Nuestros términos de servicio ofrecen más detalles sobre [repositorios privados](/github/site-policy/github-terms-of-service#e-private-repositories).
 
-Please note, you may choose to disable certain access to your private repositories that is enabled by default as part of providing you with the Service (for example, automated scanning needed to enable Dependency Graph and Dependabot alerts).
+Ten en cuenta que puedes optar por inhabilitar cierto acceso a tus repositorios privados que están habilitados por defecto como parte de la prestación del servicio (por ejemplo, un escaneo automatizado necesario para habilitar las alertas del gráfico de dependencias y del Dependabot).
 
-GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
+GitHub proporcionará un aviso con respecto a nuestro acceso al contenido del repositorio privado, a excepción de [ divulgación legal](/github/site-policy/github-privacy-statement#for-legal-disclosure), para cumplir con nuestras obligaciones legales o cuando se limite a los requisitos de la ley, para el escaneo automatizado o en respuesta a una amenaza de seguridad u otro riesgo para la seguridad.
 
-### Public repositories
+### Repositorios públicos
 
-If your repository is public, anyone may view its contents. If you include User Personal Information, [Sensitive Personal Information](https://gdpr-info.eu/art-9-gdpr/), or confidential information, such as email addresses or passwords, in your public repository, that information may be indexed by search engines or used by third parties.
+Si tu repositorio es público, cualquier persona puede ver los contenidos. Si incluyes información personal del usuario, [información personal confidencial](https://gdpr-info.eu/art-9-gdpr/)o información confidencial, como direcciones de correo electrónico o contraseñas, en tu repositorio público, esa información puede ser indexada por los motores de búsqueda o utilizada por terceros.
 
-Please see more about [User Personal Information in public repositories](/github/site-policy/github-privacy-statement#public-information-on-github).
+Por favor, consulta más sobre la [Información Personal del Usuario en los repositorios públicos](/github/site-policy/github-privacy-statement#public-information-on-github).
 
-## Other important information
+## Otra información importante
 
-### Public information on GitHub
+### Información pública en GitHub
 
-Many of GitHub services and features are public-facing. If your content is public-facing, third parties may access and use it in compliance with our Terms of Service, such as by viewing your profile or repositories or pulling data via our API. We do not sell that content; it is yours. However, we do allow third parties, such as research organizations or archives, to compile public-facing GitHub information. Other third parties, such as data brokers, have been known to scrape GitHub and compile data as well.
+Muchos de los servicios y características de GitHub están orientados al público. Si tu contenido es público, los terceros pueden acceder y utilizarlo de acuerdo con nuestros Términos de servicio, como ver tu perfil o los repositorios o extraer datos por medio de nuestra API. Nosotros no vendemos ese contenido; es tuyo. Sin embargo, permitimos que terceros, como organizaciones de investigación o archivos, compilen información de GitHub orientada al público. Se ha sabido que otros terceros, como corredores de datos, también han extraído y compilado información de GitHub.
 
-Your User Personal Information associated with your content could be gathered by third parties in these compilations of GitHub data. If you do not want your User Personal Information to appear in third parties’ compilations of GitHub data, please do not make your User Personal Information publicly available and be sure to [configure your email address to be private in your user profile](https://github.com/settings/emails) and in your [git commit settings](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address). We currently set Users' email address to private by default, but legacy GitHub Users may need to update their settings.
+Tu Información personal del usuario, asociada con tu contenido, puede ser recopilada por terceros en estas compilaciones de datos de GitHub. Si no quieres que tu información personal de usuario aparezca en las compilaciones de los datos de GitHub de terceros, por favor no hagas tu Información Personal de Usuario disponible públicamente y asegúrate de [configurar tu dirección de correo electrónico en tu perfil de usuario para que sea privada](https://github.com/settings/emails), así como en tu [configuración de confirmaciones de git](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address). Actualmente configuramos la dirección de correo electrónico de los usuarios como privada por defecto, pero es posible que los usuarios de GitHub heredados necesiten actualizar sus configuraciones.
 
-If you would like to compile GitHub data, you must comply with our Terms of Service regarding [information usage](/github/site-policy/github-acceptable-use-policies#6-information-usage-restrictions) and [privacy](/github/site-policy/github-acceptable-use-policies#7-privacy), and you may only use any public-facing User Personal Information you gather for the purpose for which our user authorized it. For example, where a GitHub user has made an email address public-facing for the purpose of identification and attribution, do not use that email address for the purposes of sending unsolicited emails to users or selling User Personal Information, such as to recruiters, headhunters, and job boards, or for commercial advertising. We expect you to reasonably secure any User Personal Information you have gathered from GitHub, and to respond promptly to complaints, removal requests, and "do not contact" requests from GitHub or GitHub users.
+Si quisieras compilar datos de GitHub, debes cumplir con nuestras condiciones de servicio con respecto al [uso de la información](/github/site-policy/github-acceptable-use-policies#6-information-usage-restrictions) y la [privacidad](/github/site-policy/github-acceptable-use-policies#7-privacy) y solo podrás utilizar la información personal de usuarios de cara al público que obtengas para el propósito para el que nuestro usuario la autorizó. Por ejemplo, cuando un usuario de GitHub ha hecho que una dirección de correo electrónico esté orientada al público con el fin de identificación y atribución, no uses esa dirección de correo electrónico con el fin de enviar correos electrónicos no solicitados a los usuarios o vender información personal del usuario, por ejemplo, reclutadores, cazatalentos y bolsas de trabajo o para publicidad comercial. Esperamos que protejas de manera razonable cualquier Información Personal de Usuario que hayas reunido de GitHub y respondas de inmediato a las quejas, las solicitudes de eliminación y las solicitudes de "no contactar" que haga GitHub u otros usuarios de GitHub.
 
-Similarly, projects on GitHub may include publicly available User Personal Information collected as part of the collaborative process. If you have a complaint about any User Personal Information on GitHub, please see our section on [resolving complaints](/github/site-policy/github-privacy-statement#resolving-complaints).
+Del mismo modo, los proyectos en GitHub pueden incluir Información Personal de Usuario disponible públicamente como parte del proceso de colaboración. Si tienes alguna queja sobre cualquier tipo de Información Personal de Usuario en GitHub, por favor, consulta nuestra sección de [resolución de quejas](/github/site-policy/github-privacy-statement#resolving-complaints).
 
 
-### Organizations
+### Organizaciones
 
-You may indicate, through your actions on GitHub, that you are willing to share your User Personal Information. If you collaborate on or become a member of an Organization, then its Account owners may receive your User Personal Information. When you accept an invitation to an Organization, you will be notified of the types of information owners may be able to see (for more information, see [About Organization Membership](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). If you accept an invitation to an Organization with a [verified domain](/organizations/managing-organization-settings/verifying-your-organizations-domain), then the owners of that Organization will be able to see your full email address(es) within that Organization's verified domain(s).
+Puedes indicar, a través de tus acciones en GitHub, que estás dispuesto a compartir tu Información Personal de Usuario. Si colaboras o te conviertes en miembro de una Organización, los propietarios de su cuenta podrán recibir tu Información personal del usuario. Cuando aceptas una invitación a una Organización, se te notificará de los tipos de información que los propietarios pueden ver (para obtener más información, consulta la sección [Acerca de la Membrecía de Organización](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). Si aceptas una invitación a una organización con un [dominio verificado](/organizations/managing-organization-settings/verifying-your-organizations-domain), entonces los propietarios de dicha organización podrán ver tu(s) dirección(es) de correo electrónico completa(s) dentro de l(los) dominio(s) verificado(s) de la organización.
 
-Please note, GitHub may share your username, [Usage Information](#usage-information), and [Device Information](#device-information) with the owner(s) of the Organization you are a member of, to the extent that your User Personal Information is provided only to investigate or respond to a security incident that affects or compromises the security of that particular Organization.
+Por favor, nota que GitHub podría compartir tu nombre de usuario, [información de uso](#usage-information). e [Información de Dispositivo](#device-information) con el(los) propietario(s) de la organización a la cual perteneces, en medida en que tu Información Personal de Usuario se proporcione únicamente para investigar o responder a incidentes de seguridad que afecten o pongan en riesgo la seguridad de esta organización en particular.
 
-If you collaborate on or become a member of an Account that has agreed to the [Corporate Terms of Service](/github/site-policy/github-corporate-terms-of-service) and a Data Protection Addendum (DPA) to this Privacy Statement, then that DPA governs in the event of any conflicts between this Privacy Statement and the DPA with respect to your activity in the Account.
+Si colaboras con, o te conviertes en miembro de una cuenta que ha aceptado las [Condiciones de Servicio Corporativas](/github/site-policy/github-corporate-terms-of-service) y con una Adenda de Protección de Datos (DPA) para esta Declaración de Privacidad, entonces, dicha DPA regirá sobre los otros instrumentos en caso de que haya un conflicto con esta Declaración de Privacidad y con la DPA con respecto a tu actividad en la cuenta.
 
-Please contact the Account owners for more information about how they might process your User Personal Information in their Organization and the ways for you to access, update, alter, or delete the User Personal Information stored in the Account.
+Contacta a los propietarios de la cuenta para obtener más información sobre la manera en que procesan tu Información personal del usuario y los modos de acceder, actualizar, modificar o borrar la Información personal del usuario almacenada en esa cuenta.
 
-## Additional services
+## Servicios adicionales
 
-### Third party applications
+### Aplicaciones de terceros
 
-You have the option of enabling or adding third-party applications, known as "Developer Products," to your Account. These Developer Products are not necessary for your use of GitHub. We will share your User Personal Information with third parties when you ask us to, such as by purchasing a Developer Product from the Marketplace; however, you are responsible for your use of the third-party Developer Product and for the amount of User Personal Information you choose to share with it. You can check our [API documentation](/rest/reference/users) to see what information is provided when you authenticate into a Developer Product using your GitHub profile.
+Tienes la opción de habilitar o agregar aplicaciones de terceros, conocidas como "Productos de programador", a tu cuenta. Estos Productos de Desarrollador no son necesarios para usar GitHub. Compartirás tu Información personal del usuario a terceros cuando nos lo solicites, como al comprar un Producto de programador de Marketplace; sin embargo, eres responsable del uso del Producto de programador de un tercero y por la cantidad de Información personal del usuario que eliges compartir con este. Puede revisar nuestra [documentación de API](/rest/reference/users) para ver qué información se proporciona cuando te autenticas en un Producto de Desarrollador usando tu perfil de GitHub.
 
-### GitHub Pages
+### Páginas de GitHub
 
-If you create a GitHub Pages website, it is your responsibility to post a privacy statement that accurately describes how you collect, use, and share personal information and other visitor information, and how you comply with applicable data privacy laws, rules, and regulations. Please note that GitHub may collect User Personal Information from visitors to your GitHub Pages website, including logs of visitor IP addresses, to comply with legal obligations, and to maintain the security and integrity of the Website and the Service.
+Si creas un sitio web de Páginas de GitHub, es tu responsabilidad publicar una declaración de privacidad que describa con precisión cómo recolectar, usar y compartir información personal y otra información de visitantes, y cómo cumples con las leyes, normas y reglamentos de privacidad de datos vigentes. Ten en cuenta que GitHub puede recopilar Información personal del usuario de los visitantes a tu sitio web de Páginas de GitHub incluyendo registros de las direcciones IP del visitante, para mantener la seguridad e integridad del sitio web y del servicio.
 
-### GitHub applications
+### Aplicaciones de GitHub
 
-You can also add applications from GitHub, such as our Desktop app, our Atom application, or other application and account features, to your Account. These applications each have their own terms and may collect different kinds of User Personal Information; however, all GitHub applications are subject to this Privacy Statement, and we collect the amount of User Personal Information necessary, and use it only for the purpose for which you have given it to us.
+También puedes agregar aplicaciones desde GitHub, tales como nuestra aplicación de Escritorio, nuestra aplicación de Atom, u otras aplicaciones y características de las cuentas, a tu propia cuenta. Estas aplicaciones tienen sus propios términos y pueden recopilar diferentes tipos de Información personal del usuario; sin embargo, todas las aplicaciones de GitHub están sujetas a esta Declaración de Privacidad, y siempre recogeremos la cantidad mínima de Información personal del usuario necesaria y la usaremos únicamente para el propósito por el que nos la diste.
 
-## How you can access and control the information we collect
+## Cómo puedes acceder y controlar la información que recopilamos
 
-If you're already a GitHub user, you may access, update, alter, or delete your basic user profile information by [editing your user profile](https://github.com/settings/profile) or contacting [GitHub Support](https://support.github.com/contact?tags=docs-policy). You can control the information we collect about you by limiting what information is in your profile, by keeping your information current, or by contacting [GitHub Support](https://support.github.com/contact?tags=docs-policy).
+Si ya eres un Usuario de GitHub, puedes acceder, actualizar, alterar o borrar tu información de perfil de usuario básico si [editas tu perfil de usuario](https://github.com/settings/profile) o contactas al [Soporte de GitHub](https://support.github.com/contact?tags=docs-policy). Puedes controlar la información que recopilamos sobre ti si limitas la información de tu perfil, manteniendo tu información actualizada o contactando al [Soporte de GitHub](https://support.github.com/contact?tags=docs-policy).
 
-If GitHub processes information about you, such as information [GitHub receives from third parties](#information-we-collect-from-third-parties), and you do not have an account, then you may, subject to applicable law, access, update, alter, delete, or object to the processing of your personal information by contacting [GitHub Support](https://support.github.com/contact?tags=docs-policy).
+So GitHub procesa información sobre ti, tal como la información que [GitHub recibe de terceros](#information-we-collect-from-third-parties) y no tienes una cuenta, entonces puedes, de acuerdo con la ley aplicable, acceder, actualizar, alterar, borrar u objetar el procesamiento de tu información personal si contactas al [Soporte de GitHub](https://support.github.com/contact?tags=docs-policy).
 
-### Data portability
+### Portabilidad de datos
 
-As a GitHub User, you can always take your data with you. You can [clone your repositories to your desktop](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop), for example, or you can use our [Data Portability tools](https://developer.github.com/changes/2018-05-24-user-migration-api/) to download information we have about you.
+Como usuario de GitHub, siempre puedes llevar tus datos contigo. Puedes [clonar tus repositorios en tu escritorio](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop), por ejemplo, o puedes utilizar nuestras [herramientas de portabilidad de datos](https://developer.github.com/changes/2018-05-24-user-migration-api/) para descargar la información que tenemos sobre ti.
 
-### Data retention and deletion of data
+### Retención de datos y eliminación de datos
 
-Generally, GitHub retains User Personal Information for as long as your account is active or as needed to provide you services.
+Generalmente, GitHub conserva la Información personal del usuario mientras tu cuenta esté activa o cuando sea necesaria para brindarte servicios.
 
-If you would like to cancel your account or delete your User Personal Information, you may do so in your [user profile](https://github.com/settings/admin). We retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements, but barring legal requirements, we will delete your full profile (within reason) within 90 days of your request. You may contact [GitHub Support](https://support.github.com/contact?tags=docs-policy) to request the erasure of the data we process on the basis of consent within 30 days.
+Si deseas cancelar tu cuenta o eliminar tu Información personal del usuario, puedes hacerlo en tu perfil de usuario [](https://github.com/settings/admin). Conservamos y utilizamos tu información según se necesita para cumplir con nuestras obligaciones legales, resolver disputas y hacer cumplir nuestros acuerdos, pero salvo requisitos legales, eliminaremos tu perfil completo (dentro de lo razonable) dentro de los 90 días siguientes a tu solicitud. Puedes contactar al [Soporte de GitHub](https://support.github.com/contact?tags=docs-policy) para solicitar que se borren los datos que procesamos dentro de los siguientes 30 días con base en el consentimiento.
 
-After an account has been deleted, certain data, such as contributions to other Users' repositories and comments in others' issues, will remain. However, we will delete or de-identify your User Personal Information, including your username and email address, from the author field of issues, pull requests, and comments by associating them with a [ghost user](https://github.com/ghost).
+Después de que una cuenta se ha eliminado, ciertos datos, tales como contribuciones a los repositorios de otros usuarios y comentarios en asuntos ajenos, permanecerán. Sin embargo, eliminaremos o desidentificaremos tu Información personal del usuario, incluyendo tu nombre de usuario y dirección de correo electrónico del campo de autor de propuestas, solicitudes de extracción y comentarios al asociarlos con un [usuario fantasma](https://github.com/ghost).
 
-That said, the email address you have supplied [via your Git commit settings](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address) will always be associated with your commits in the Git system. If you choose to make your email address private, you should also update your Git commit settings. We are unable to change or delete data in the Git commit history — the Git software is designed to maintain a record — but we do enable you to control what information you put in that record.
+Una vez dicho esto, la dirección de correo electrónico que suministraste [a través de tu configuración de confirmaciones de Git](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address) siembre se asociará con tus confirmaciones en el sistema de Git. Si eliges hacer tu dirección de correo electrónico privada, también deberías actualizar la configuración de tu confirmación de cambios de Git. No podemos cambiar o eliminar datos en el historial de confirmación de Git (el software de Git está diseñado para mantener un registro) pero te permitimos controlar qué información pones en ese registro.
 
-## Our use of cookies and tracking
+## Uso de cookies y seguimiento
 
 ### Cookies
 
-GitHub only uses strictly necessary cookies. Cookies are small text files that websites often store on computer hard drives or mobile devices of visitors.
+GitHub solo utiliza las cookies estrictamente necesarias. Las cookies son pequeños archivos de texto que los sitios web almacenan a menudo en discos duros o dispositivos móviles de los visitantes.
 
-We use cookies solely to provide, secure, and improve our service. For example, we use them to keep you logged in, remember your preferences, identify your device for security purposes, analyze your use of our service, compile statistical reports, and provide information for future development of GitHub. We use our own cookies for analytics purposes, but do not use any third-party analytics service providers.
+Utilizamos cookies únicamente para proporcionar, asegurar y mejorar nuestro servicio. Por ejemplo, las utilizamos para mantenerte firmado, recordar tus preferencias, identificar tu dispositivo para propósitos de seguridad, analizar tu uso de nuestro servicio, compilar reportes estadísticos y proporcionar información para el desarrollo futuro de GitHub. Utilizamos nuestras propias cookies para propósitos de analítica, pero no utilizamos ningún proveedor de servicios de analítica tercero.
 
-By using our service, you agree that we can place these types of cookies on your computer or device. If you disable your browser or device’s ability to accept these cookies, you will not be able to log in or use our service.
+Al usar nuestro servicio, aceptas que podamos colocar este tipo de cookies en tu computadora o dispositivo. Si desactivas la capacidad de tu navegador o dispositivo para aceptar estas cookies, no podrás ingresar o utilizar nuestro servicio.
 
-We provide more information about [cookies on GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) on our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page that describes the cookies we set, the needs we have for those cookies, and the expiration of such cookies.
+Proporcionamos más información acerca de las [cookies en GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) en nuestra página de [Subprocesadores y cookies de GitHub](/github/site-policy/github-subprocessors-and-cookies), en la cual se describen las cookies que configuramos, las necesidades que tenemos para utilizarlas, y la vigencia de las mismas.
 
 ### DNT
 
-"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. GitHub responds to browser DNT signals and follows the [W3C standard for responding to DNT signals](https://www.w3.org/TR/tracking-dnt/). If you would like to set your browser to signal that you would not like to be tracked, please check your browser's documentation for how to enable that signal. There are also good applications that block online tracking, such as [Privacy Badger](https://privacybadger.org/).
+"[No Rastrear](https://www.eff.org/issues/do-not-track)" (DNT, por sus siglas en inglés) es una preferencia de privacidad que puedes configurar en tu buscador si no quieres que los servicios en línea recolecten y compartan ciertos tipos de información acerca de tu actividad en línea desde los servicios de rastreo de terceros. GitHub responde a las señales DNT del navegador y sigue el estándar [W3C para responder a las señales DNT](https://www.w3.org/TR/tracking-dnt/). Si deseas configurar tu navegador para que indique que no deseas que se rastree, revisa la documentación de tu navegador acerca de cómo habilitar esa señal. También hay buenas aplicaciones que bloquean el seguimiento en línea, como [Privacy Badger](https://privacybadger.org/).
 
-## How GitHub secures your information
+## Cómo asegura GitHub tu información
 
-GitHub takes all measures reasonably necessary to protect User Personal Information from unauthorized access, alteration, or destruction; maintain data accuracy; and help ensure the appropriate use of User Personal Information.
+GitHub toma todas las medidas razonablemente necesarias para proteger la Información personal del usuario contra accesos no autorizados, modificación o destrucción; mantener la exactitud de los datos y ayudar a asegurar el uso adecuado de la Información personal del usuario.
 
-GitHub enforces a written security information program. Our program:
-- aligns with industry recognized frameworks;
-- includes security safeguards reasonably designed to protect the confidentiality, integrity, availability, and resilience of our Users' data;
-- is appropriate to the nature, size, and complexity of GitHub’s business operations;
-- includes incident response and data breach notification processes; and
-- complies with applicable information security-related laws and regulations in the geographic regions where GitHub does business.
+GitHub aplica un programa escrito de información de seguridad. Nuestro programa:
+- se alinea con los marcos reconocidos de la industria;
+- incluye protecciones de seguridad diseñadas de manera razonable para proteger la confidencialidad, la integridad, la disponibilidad y la flexibilidad de los datos de usuarios;
+- es adecuado para la naturaleza, el tamaño y la complejidad de las operaciones comerciales de GitHub;
+- incluye procesos de respuesta frente a un incidente y notificación de filtración de datos; y
+- cumple con las leyes y regulaciones vigentes relacionadas a la seguridad de la información en las regiones geográficas donde GitHub realiza operaciones.
 
-In the event of a data breach that affects your User Personal Information, we will act promptly to mitigate the impact of a breach and notify any affected Users without undue delay.
+En caso de una filtración de datos que afecte tu Información personal del usuario, actuaremos rápidamente para mitigar el impacto de una infracción y notificar a los usuarios afectados sin demoras indebidas.
 
-Transmission of data on GitHub is encrypted using SSH, HTTPS (TLS), and git repository content is encrypted at rest. We manage our own cages and racks at top-tier data centers with high level of physical and network security, and when data is stored with a third-party storage provider, it is encrypted.
+La transmisión de datos en GitHub es cifrada usando SSH, HTTPS (TLS) y el contenido del repositorio de git es cifrado en reposo. Administramos nuestras propias jaulas y racks en centros de datos de alto nivel con un alto nivel de seguridad física y de red, y cuando los datos se almacenan con un proveedor de almacenamiento de terceros se cifran.
 
-No method of transmission, or method of electronic storage, is 100% secure. Therefore, we cannot guarantee its absolute security. For more information, see our [security disclosures](https://github.com/security).
+Ningún método de transmisión, o método de almacenamiento electrónico, es 100 % seguro. Por lo tanto, no podemos garantizar su seguridad absoluta. Para obtener más información, consulta nuestras [divulgaciones de seguridad](https://github.com/security).
 
-## GitHub's global privacy practices
+## Prácticas de privacidad mundiales de GitHub
 
-GitHub, Inc. and, for those in the European Economic Area, the United Kingdom, and Switzerland, GitHub B.V. are the controllers responsible for the processing of your personal information in connection with the Service, except (a) with respect to personal information that was added to a repository by its contributors, in which case the owner of that repository is the controller and GitHub is the processor (or, if the owner acts as a processor, GitHub will be the subprocessor); or (b) when you and GitHub have entered into a separate agreement that covers data privacy (such as a Data Processing Agreement).
+GitHub, Inc. and, for those in the European Economic Area, the United Kingdom, and Switzerland, GitHub B. V. are the controllers responsible for the processing of your personal information in connection with the Service, except (a) with respect to personal information that was added to a repository by its contributors, in which case the owner of that repository is the controller and GitHub is the processor (or, if the owner acts as a processor, GitHub will be the subprocessor); or (b) when you and GitHub have entered into a separate agreement that covers data privacy (such as a Data Processing Agreement).
 
-Our addresses are:
+Nuestras direcciones físicas son:
 
 - GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107.
 - GitHub B.V., Vijzelstraat 68-72, 1017 HL Amsterdam, The Netherlands.
 
-We store and process the information that we collect in the United States in accordance with this Privacy Statement, though our service providers may store and process data outside the United States. However, we understand that we have Users from different countries and regions with different privacy expectations, and we try to meet those needs even when the United States does not have the same privacy framework as other countries.
+Almacenamos y procesamos la información que recolectamos en los Estados Unidos de acuerdo con esta Declaración de Privacidad, aunque nuestros proveedores de servicios podrían almacenar y procesar los datos fuera de los Estados Unidos. Sin embargo, entendemos que tenemos usuarios de diferentes países y regiones con diferentes expectativas de privacidad e intentamos satisfacer esas necesidades incluso cuando los Estados Unidos no tienen el mismo marco de privacidad que otros países.
 
-We provide the same high standard of privacy protection—as described in this Privacy Statement—to all our users around the world, regardless of their country of origin or location, and we are proud of the levels of notice, choice, accountability, security, data integrity, access, and recourse we provide. We work hard to comply with the applicable data privacy laws wherever we do business, working with our Data Protection Officer as part of a cross-functional team that oversees our privacy compliance efforts. Additionally, if our vendors or affiliates have access to User Personal Information, they must sign agreements that require them to comply with our privacy policies and with applicable data privacy laws.
+Proporcionamos el mismo estándar alto de protección de privacidad—como se describe en la presente Declaración de Privacidad—a todos nuestros usuarios en todo el mundo, sin importar su país de origen o ubicación, y estamos orgullosos de los niveles de notificaciones, elección, responsabilidad, seguridad, integridad de datos, acceso y recursos que proporcionamos. Trabajamos duro para cumplir con las leyes vigentes sobre privacidad de datos dondequiera que hagamos negocios, al trabajar con nuestro Oficial de Protección de Datos como parte de un equipo multifuncional que supervisa nuestros esfuerzos de cumplimiento de la privacidad. Además, si nuestros proveedores o afiliados tienen acceso a la Información personal del usuario, deben firmar acuerdos que los obliguen a cumplir con nuestras políticas de privacidad y con las leyes vigentes sobre privacidad de datos.
 
-In particular:
+En particular:
 
- - GitHub provides clear methods of unambiguous, informed, specific, and freely given consent at the time of data collection, when we collect your User Personal Information using consent as a basis.
- - We collect only the minimum amount of User Personal Information necessary for our purposes, unless you choose to provide more. We encourage you to only give us the amount of data you are comfortable sharing.
- - We offer you simple methods of accessing, altering, or deleting the User Personal Information we have collected, where legally permitted.
- - We provide our Users notice, choice, accountability, security, and access regarding their User Personal Information, and we limit the purpose for processing it. We also provide our Users a method of recourse and enforcement.
+ - GitHub proporciona métodos claros de consentimiento sin ambigüedad, informado, específico y libremente dado en el momento de la recopilación de datos, cuando recopilamos tu Información personal del usuario utilizando el consentimiento como base.
+ - Solo recopilamos la cantidad mínima de Información personal del usuario necesaria para nuestros propósitos, a menos que decidas proporcionar más. Te animamos a que sólo nos proporciones la cantidad de datos que consideres oportuno compartir.
+ - Te ofrecemos métodos sencillos de acceso, modificación o eliminación de la Información personal del usuario que hemos recopilado, en los casos legalmente permitidos.
+ - Proporcionamos a nuestros usuarios aviso, elección, responsabilidad, seguridad y acceso con respecto a su Información personal del usuario y limitamos el propósito por el cual procesarla. También proporcionamos a nuestros usuarios un método de recurso y cumplimiento.
 
 ### Cross-border data transfers
 
-GitHub processes personal information both inside and outside of the United States and relies on Standard Contractual Clauses as the legally provided mechanism to lawfully transfer data from the European Economic Area, the United Kingdom, and Switzerland to the United States. In addition, GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks. To learn more about our cross-border data transfers, see our [Global Privacy Practices](/github/site-policy/global-privacy-practices).
+GitHub procesa información personal tanto dentro como fuera de los Estados Unidos y se basa en las Cláusulas Contractuales Estándar como un mecanismo legal para transferir datos legalmente desde el Área Económica Europea, el Reino Unido y Suiza hacia los Estados Unidos. Adicionalmente, GitHub está certificado en los Marcos de Trabajo de Escudo de Privacidad de UE-U. S. A. y Suiza-U. S. A. Para conocer más sobre las transferencias de datos interfronterizas, consulta nuestras [Prácticas de Privacidad Globales](/github/site-policy/global-privacy-practices).
 
-## How we communicate with you
+## Cómo nos comunicamos contigo
 
-We use your email address to communicate with you, if you've said that's okay, **and only for the reasons you’ve said that’s okay**. For example, if you contact our Support team with a request, we respond to you via email. You have a lot of control over how your email address is used and shared on and through GitHub. You may manage your communication preferences in your [user profile](https://github.com/settings/emails).
+Utilizamos tu dirección de correo electrónico para comunicarnos contigo, si estuviste de acuerdo con ello, **y solo por las razones con las que estuviste de acuerdo**. Por ejemplo, si contactas a nuestro equipo de Soporte con una solicitud, te responderemos por correo electrónico. Tienes mucho control sobre cómo se utiliza y comparte tu dirección de correo electrónico en y a través de GitHub. Puedes administrar tus preferencias de comunicación en tu perfil de usuario [](https://github.com/settings/emails).
 
-By design, the Git version control system associates many actions with a User's email address, such as commit messages. We are not able to change many aspects of the Git system. If you would like your email address to remain private, even when you’re commenting on public repositories, [you can create a private email address in your user profile](https://github.com/settings/emails). You should also [update your local Git configuration to use your private email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address). This will not change how we contact you, but it will affect how others see you. We set current Users' email address private by default, but legacy GitHub Users may need to update their settings. Please see more about email addresses in commit messages [here](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address).
+Por diseño, el sistema de control de versiones de Git asocia muchas acciones con la dirección de correo electrónico de un usuario, como mensajes de confirmación. No podemos cambiar muchos aspectos del sistema Git. Si deseas que tu dirección de correo electrónico siga siendo privada, incluso cuando estés comentando en los repositorios públicos, [puedes crear una dirección de correo electrónico privada en tu perfil de usuario](https://github.com/settings/emails). También deberías [actualizar tu configuración local de Git para utilizar tu dirección de correo electrónico privada](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address). Esto no cambiará la forma en que nos pondremos en contacto contigo, pero afectará la manera en que otros te vean. Actualmente configuramos la dirección de correo electrónico de los usuarios de forma privada por defecto, pero es posible que los usuarios de GitHub heredados necesiten actualizar sus configuraciones. Por favor, consulta la información adicional sobre las direcciones de correo electrónico en los mensajes de confirmación [aquí](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address).
 
-Depending on your [email settings](https://github.com/settings/emails), GitHub may occasionally send notification emails about changes in a repository you’re watching, new features, requests for feedback, important policy changes, or to offer customer support. We also send marketing emails, based on your choices and in accordance with applicable laws and regulations. There's an “unsubscribe” link located at the bottom of each of the marketing emails we send you. Please note that you cannot opt out of receiving important communications from us, such as emails from our Support team or system emails, but you can configure your notifications settings in your profile to opt out of other communications.
+Dependiendo de tu [configuración de correo electrónico](https://github.com/settings/emails), GitHub puede enviar ocasionalmente correos electrónicos de notificación sobre los cambios en un repositorio que estás viendo, nuevas características, solicitudes de comentarios, cambios importantes en la política o para ofrecer asistencia al cliente. También enviamos correos electrónicos de marketing, basados en tus opciones y de acuerdo con las leyes y regulaciones vigentes. Hay un enlace "darse de baja" ubicado en la parte inferior de cada uno de los correos electrónicos de marketing que te enviamos. Ten en cuenta que no puedes optar por no recibir comunicaciones importantes de nosotros, como correos electrónicos de nuestro equipo de soporte o correos electrónicos del sistema, pero puedes configurar la configuración de las notificaciones en tu perfil para optar por no recibir otras comunicaciones.
 
-Our emails may contain a pixel tag, which is a small, clear image that can tell us whether or not you have opened an email and what your IP address is. We use this pixel tag to make our email more effective for you and to make sure we’re not sending you unwanted email.
+Nuestros correos electrónicos pueden contener una etiqueta de píxeles, que es una pequeña imagen clara que puede decirnos si has abierto o no un correo electrónico y cuál es tu dirección IP. Utilizamos esta etiqueta de píxeles para que nuestro correo electrónico sea más efectivo para ti y para asegurarnos de que no te estamos enviando correo electrónico no deseado.
 
-## Resolving complaints
+## Resolver reclamos
 
-If you have concerns about the way GitHub is handling your User Personal Information, please let us know immediately. We want to help. You may contact us by filling out the [Privacy contact form](https://support.github.com/contact/privacy). You may also email us directly at privacy@github.com with the subject line "Privacy Concerns." We will respond promptly — within 45 days at the latest.
+Si tienes inquietudes acerca de la forma en que GitHub está manejando tu Información personal del usuario, por favor haznos un comentario inmediatamente. Queremos ayudar. Puedes ponerte en contacto con nosotros completando el [Formulario de contacto de privacidad](https://support.github.com/contact/privacy). También puedes enviarnos un correo electrónico directamente a privacy@github.com con el asunto "Confirmaciones de privacidad". Responderemos rápidamente, dentro de los 45 días a más tardar.
 
-You may also contact our Data Protection Officer directly.
+También puedes ponerte en contacto directamente con nuestro Responsable de Protección de Datos.
 
-| Our United States HQ | Our EU Office |
-|---|---|
-| GitHub Data Protection Officer | GitHub BV |
-| 88 Colin P. Kelly Jr. St. | Vijzelstraat 68-72 |
-| San Francisco, CA 94107 | 1017 HL Amsterdam |
-| United States | The Netherlands |
-| privacy@github.com | privacy@github.com |
+| Nuestra casa central de los Estados Unidos | Nuestra oficina de la UE |
+| ------------------------------------------ | ------------------------ |
+| Oficial de Protección de Datos de GitHub   | GitHub BV                |
+| 88 Colin P. Kelly Jr. St.                  | Vijzelstraat 68-72       |
+| San Francisco, CA 94107                    | 1017 HL Amsterdam        |
+| Estados Unidos                             | Países Bajos             |
+| privacy@github.com                         | privacy@github.com       |
 
-### Dispute resolution process
+### Proceso de resolución de disputas
 
-In the unlikely event that a dispute arises between you and GitHub regarding our handling of your User Personal Information, we will do our best to resolve it. Additionally, if you are a resident of an EU member state, you have the right to file a complaint with your local supervisory authority, and you might have more [options](/github/site-policy/global-privacy-practices#dispute-resolution-process).
+En el improbable caso de que surja una disputa entre tú y GitHub con respecto al manejo de tu Información personal del usuario, haremos todo lo posible por resolverla. Adicionalmente, si eres un residente de un estado miembro de la UE, tienes el derecho de emitir una queja con tu autoridad supervisora local, y podrías tener más [opciones](/github/site-policy/global-privacy-practices#dispute-resolution-process).
 
-## Changes to our Privacy Statement
+## Cambios en tu Declaración de privacidad
 
-Although most changes are likely to be minor, GitHub may change our Privacy Statement from time to time. We will provide notification to Users of material changes to this Privacy Statement through our Website at least 30 days prior to the change taking effect by posting a notice on our home page or sending email to the primary email address specified in your GitHub account. We will also update our [Site Policy repository](https://github.com/github/site-policy/), which tracks all changes to this policy. For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
+Aunque es probable que la mayoría de los cambios sean mínimos, GitHub puede cambiar nuestra Declaración de privacidad de manera ocasional. Les notificaremos a los Usuarios acerca de los cambios materiales a esta Declaración de privacidad por medio de nuestro Sitio web, al menos, 30 días antes de que el cambio entre en vigencia a través de la publicación de un aviso en nuestra página de inicio o enviando un correo electrónico a la dirección principal de correo electrónico que se especifica en tu cuenta de GitHub. También actualizaremos nuestro [Repositorio de políticas del sitio](https://github.com/github/site-policy/), que realiza un seguimiento de todos los cambios de esta política. Para otros cambios en esta declaración de privacidad, invitamos a los usuarios a [consultar](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) o a revisar el repositorio de nuestra política del sitio con frecuencia.
 
-## License
+## Licencia
 
-This Privacy Statement is licensed under this [Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/). For details, see our [site-policy repository](https://github.com/github/site-policy#license).
+La presente Declaración de privacidad está autorizada conforme a esta [licencia de Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/). Para obtener más detalles, consulta nuestro [repositorio de políticas del sitio](https://github.com/github/site-policy#license).
 
-## Contacting GitHub
-Questions regarding GitHub's Privacy Statement or information practices should be directed to our [Privacy contact form](https://support.github.com/contact/privacy).
+## Contactarse con GitHub
+Las preguntas al respecto de la Declaración de privacidad de GitHub o de las prácticas de manejo de la información se deben realizar por medio de nuestro [Formulario de contacto de privacidad](https://support.github.com/contact/privacy).
 
-## Translations
+## Traducciones
 
-Below are translations of this document into other languages. In the event of any conflict, uncertainty, or apparent inconsistency between any of those versions and the English version, this English version is the controlling version.
+A continuación, aparecen traducciones de este documento a otros idiomas. En caso de cualquier conflicto, incertidumbre o aparente inconsistencia entre cualquiera de esas versiones y la versión en inglés, la versión en inglés es la versión que prima.
 
-### French
-Cliquez ici pour obtenir la version française: [Déclaration de confidentialité de GitHub](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(FR).pdf)
+### Francés
+Cliquez ici pour obtenir la version française: [Déclaration de confidentialité de GitHub](/assets/images/help/site-policy/github-privacy-statement(12.20.19)(FR).pdf)
 
-### Other translations
+### Otras traducciones
 
-For translations of this statement into other languages, please visit [https://docs.github.com/](/) and select a language from the drop-down menu under “English.”
+Para las traducciones de esta declaración hacia otros idiomas, por favor visita [https://docs.github.com/](/) y selecciona el idioma desde el menú desplegable debajo de "Inglés".

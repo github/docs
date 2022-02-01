@@ -1,7 +1,6 @@
 ---
 title: Viewing the audit logs for organizations in your enterprise
-intro: Enterprise owners can view aggregated actions from all of the organizations owned by an enterprise account in its audit log.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
+intro: Enterprise オーナーは、Enterprise アカウントが所有するすべての Organization からのアクションが集約された Audit log を表示できます。
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
   - /articles/viewing-the-audit-logs-for-organizations-in-your-business-account
@@ -18,16 +17,17 @@ topics:
   - Organizations
 shortTitle: View organization audit logs
 ---
-Each audit log entry shows applicable information about an event, such as:
 
-- The organization an action was performed in
-- The user who performed the action
-- Which repository an action was performed in
-- The action that was performed
-- Which country the action took place in
-- The date and time the action occurred
+各 Audit log エントリには、次のようなイベントに関する適切な情報が表示されます:
 
-You can search the audit log for specific events and export audit log data. For more information on searching the audit log and on specific organization events, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
+- アクションが実行された Organization
+- アクションを実行したユーザ
+- アクションの対象となったリポジトリ
+- 実行されたアクション
+- アクションが実行された国
+- アクションが発生した日時
+
+Audit log で特定のイベントを検索したり、Audit log データをエクスポートしたりできます。 Audit log の検索と特定の Organization イベントの詳細については、「[Organization の Audit log をレビューする](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)」を参照してください。
 
 You can also stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit logs for organizations in your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)."
 

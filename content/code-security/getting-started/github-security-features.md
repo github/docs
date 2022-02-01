@@ -16,7 +16,7 @@ topics:
 
 ## About {% data variables.product.prodname_dotcom %}'s security features
 
-{% data variables.product.prodname_dotcom %} has security features that help keep code and secrets secure in repositories and across organizations. Some features are available for all repositories and others are only available {% ifversion fpt or ghec %}for public repositories and for repositories {% endif %}with a {% data variables.product.prodname_GH_advanced_security %} license.
+{% data variables.product.prodname_dotcom %} has security features that help keep code and secrets secure in repositories and across organizations. {% data reusables.advanced-security.security-feature-availability %}
 
 The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that you can view, search, and filter. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
@@ -64,19 +64,19 @@ The dependency graph allows you to explore the ecosystems and packages that your
 You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 {% endif %}
 
-## Available {% ifversion fpt or ghec %}for public repositories and for repositories {% endif %}with {% data variables.product.prodname_advanced_security %}
+## Available with {% data variables.product.prodname_GH_advanced_security %}
 
-{% ifversion fpt or ghes or ghec %}
-These features are available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
-{% endif %}
+{% data reusables.advanced-security.ghas-availability %}
 
-### {% data variables.product.prodname_code_scanning_capc %} alerts
+### {% data variables.product.prodname_code_scanning_capc %}
 
 Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
 
-### {% data variables.product.prodname_secret_scanning_caps %} alerts
+### {% data variables.product.prodname_secret_scanning_caps %}
 
-{% ifversion fpt or ghec %}For private repositories, view {% else %}View {% endif %}any secrets that {% data variables.product.prodname_dotcom %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+Automatically detect tokens or credentials that have been checked into a repository. {% ifversion fpt or ghec %}For secrets identified in public repositories, the service is informed that the secret may be compromised.{% endif %} 
+{%- ifversion ghec or ghes or ghae %}
+{% ifversion ghec %}For private repositories, you can view {% elsif ghes or ghae %}View {% endif %}any secrets that {% data variables.product.company_short %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised.{% endif %} For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### Dependency review

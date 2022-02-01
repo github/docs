@@ -2,7 +2,7 @@
 title: Eliminar de un equipo a miembros de la organización
 intro: 'Las personas con permisos de *propietario* o *mantenedor del equipo* pueden eliminar de un equipo a miembros del equipo. Puede que se deba hacer esto si una persona no necesita más el acceso a un repositorio que otorga el equipo, o si una persona no se dedica más a los proyectos de un equipo.'
 redirect_from:
-  - /articles/removing-organization-members-from-a-team-early-access-program/
+  - /articles/removing-organization-members-from-a-team-early-access-program
   - /articles/removing-organization-members-from-a-team
   - /github/setting-up-and-managing-organizations-and-teams/removing-organization-members-from-a-team
 versions:

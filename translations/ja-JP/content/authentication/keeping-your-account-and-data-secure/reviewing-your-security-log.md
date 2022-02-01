@@ -1,6 +1,6 @@
 ---
-title: Reviewing your security log
-intro: You can review the security log for your user account to better understand actions you've performed and actions others have performed that involve you.
+title: セキュリティログをレビューする
+intro: ユーザアカウントのセキュリティログをレビューして、自分が実行したアクションと、他のユーザが実行したアクションについて詳しく知ることができます。
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-your-security-log
@@ -14,254 +14,248 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Security log
+shortTitle: セキュリティ ログ
 ---
-## Accessing your security log
+
+## セキュリティログにアクセスする
 
 The security log lists all actions performed within the last 90 days.
 
 {% data reusables.user_settings.access_settings %}
 {% ifversion fpt or ghae or ghes or ghec %}
-2. In the user settings sidebar, click **Security log**.
-  ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
+2. ユーザ設定サイドバーで [**Security log**] をクリックします。 ![セキュリティログのタブ](/assets/images/help/settings/audit-log-tab.png)
 {% else %}
 {% data reusables.user_settings.security %}
-3. Under "Security history," your log is displayed.
-  ![Security log](/assets/images/help/settings/user_security_log.png)
-4. Click on an entry to see more information about the event.
-  ![Security log](/assets/images/help/settings/user_security_history_action.png)
+3. [Security history] の下に、自分のログが表示されます。 ![セキュリティ ログ](/assets/images/help/settings/user_security_log.png)
+4. エントリをクリックして、イベントに関する詳細情報を表示します。 ![セキュリティ ログ](/assets/images/help/settings/user_security_history_action.png)
 {% endif %}
 
 {% ifversion fpt or ghae or ghes or ghec %}
-## Searching your security log
+## セキュリティログを検索する
 
 {% data reusables.audit_log.audit-log-search %}
 
-### Search based on the action performed
+### 実行されたアクションに基づく検索
 {% else %}
-## Understanding events in your security log
+## セキュリティログでのイベントを理解する
 {% endif %}
 
-The events listed in your security log are triggered by your actions. Actions are grouped into the following categories:
+セキュリティログにリストされているイベントは、アクションによってトリガーされます。 アクションは次のカテゴリに分類されます。
 
-| Category name | Description
-|------------------|-------------------{% ifversion fpt or ghec %}
-| [`billing`](#billing-category-actions) | Contains all activities related to your billing information.
-| [`codespaces`](#codespaces-category-actions) | Contains all activities related to {% data variables.product.prodname_codespaces %}. For more information, see "[About {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-codespaces)."
-| [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
-| [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}
-| [`oauth_access`](#oauth_access-category-actions) | Contains all activities related to [{% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps) you've connected with.{% ifversion fpt or ghec %}
-| [`payment_method`](#payment_method-category-actions) | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.{% endif %}
-| [`profile_picture`](#profile_picture-category-actions) | Contains all activities related to your profile picture.
-| [`project`](#project-category-actions) | Contains all activities related to project boards.
-| [`public_key`](#public_key-category-actions) | Contains all activities related to [your public SSH keys](/articles/adding-a-new-ssh-key-to-your-github-account).
-| [`repo`](#repo-category-actions) | Contains all activities related to the repositories you own.{% ifversion fpt or ghec %}
-| [`sponsors`](#sponsors-category-actions) | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% ifversion ghes or ghae %}
-| [`team`](#team-category-actions) | Contains all activities related to teams you are a part of.{% endif %}{% ifversion not ghae %}
-| [`two_factor_authentication`](#two_factor_authentication-category-actions) | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
-| [`user`](#user-category-actions) | Contains all activities related to your account.
+| カテゴリ名                                                                                  | 説明                                                                                                                                                                                                                                                                                                                                       |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
+| [`支払い`](#billing-category-actions)                                                     | 自分の支払い情報に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                |
+| [`codespaces`](#codespaces-category-actions)                                           | {% data variables.product.prodname_codespaces %} に関連するすべての活動が対象です。 詳しい情報については、「[{% data variables.product.prodname_codespaces %} について](/github/developing-online-with-codespaces/about-codespaces)」を参照してください。                                                                                                                            |
+| [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | {% data variables.product.prodname_marketplace %} Developer Agreement の署名に関連するすべての活動が対象です。                                                                                                                                                                                                                                               |
+| [`marketplace_listing`](#marketplace_listing-category-actions)                         | {% data variables.product.prodname_marketplace %} に一覧表示しているアプリに関連するすべての活動が対象です。{% endif %}
+| [`oauth_access`](#oauth_access-category-actions)                                       | Contains all activities related to [{% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps) you've connected with.{% ifversion fpt or ghec %}
+| [`payment_method`](#payment_method-category-actions)                                   | {% data variables.product.prodname_dotcom %} プランに対する支払いに関連するすべての活動が対象です。{% endif %}
+| [`profile_picture`](#profile_picture-category-actions)                                 | 自分のプロファイル写真に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                             |
+| [`project`](#project-category-actions)                                                 | プロジェクト ボードに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                              |
+| [`public_key`](#public_key-category-actions)                                           | [公開 SSH キー](/articles/adding-a-new-ssh-key-to-your-github-account)に関連するすべての活動が対象です。                                                                                                                                                                                                                                                      |
+| [`repo`](#repo-category-actions)                                                       | Contains all activities related to the repositories you own.{% ifversion fpt or ghec %}
+| [`sponsors`](#sponsors-category-actions)                                               | {% data variables.product.prodname_sponsors %} およびスポンサーボタンに関連するすべてのイベントが対象です (「[{% data variables.product.prodname_sponsors %} について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)」と「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照){% endif %}{% ifversion ghes or ghae %}
+| [`Team`](#team-category-actions)                                                       | 所属する Team に関連するすべてのアクティビティが対象です。{% endif %}{% ifversion not ghae %}
+| [`two_factor_authentication`](#two_factor_authentication-category-actions)             | [2 要素認証](/articles/securing-your-account-with-two-factor-authentication-2fa)に関連するすべてのアクティビティが対象です。{% endif %}
+| [`ユーザ`](#user-category-actions)                                                        | アカウントに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                   |
 
 {% ifversion fpt or ghec %}
 
-## Exporting your security log
+## セキュリティログをエクスポートする
 
 {% data reusables.audit_log.export-log %}
 {% data reusables.audit_log.exported-log-keys-and-values %}
 
 {% endif %}
 
-## Security log actions
+## セキュリティログのアクション
 
-An overview of some of the most common actions that are recorded as events in the security log.
+セキュリティログにイベントとして記録される最も一般的なアクションの概要です。
 
 {% ifversion fpt or ghec %}
 
-### `billing` category actions
+### `billing` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `change_billing_type` | Triggered when you [change how you pay](/articles/adding-or-editing-a-payment-method) for {% data variables.product.prodname_dotcom %}.
-| `change_email` | Triggered when you [change your email address](/articles/changing-your-primary-email-address).
+| アクション                 | 説明                                                                                                                   |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `change_billing_type` | {% data variables.product.prodname_dotcom %} の[支払い方法を変更する](/articles/adding-or-editing-a-payment-method)ときにトリガーされます。 |
+| `change_email`        | [自分のメール アドレスを変更する](/articles/changing-your-primary-email-address)ときにトリガーされます。                                        |
 
-### `codespaces` category actions
+### `codespaces` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `create` | Triggered when you [create a codespace](/github/developing-online-with-codespaces/creating-a-codespace).
-| `resume` | Triggered when you resume a suspended codespace.
-| `delete` | Triggered when you [delete a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).
-| `manage_access_and_security` | Triggered when you update [the repositories a codespace has access to](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
-| `trusted_repositories_access_update` | Triggered when you change your user account's [access and security setting for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
+| アクション                                | 説明                                                                                                                                                                                   |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `create`                             | [コードスペースを作成](/github/developing-online-with-codespaces/creating-a-codespace)するとトリガーされます。                                                                                             |
+| `resume`                             | 中断されたコードスペースを再開するとトリガーされます。                                                                                                                                                          |
+| `delete`                             | [コードスペースを削除](/github/developing-online-with-codespaces/deleting-a-codespace)するとトリガーされます。                                                                                             |
+| `manage_access_and_security`         | [コードスペースがアクセスできるリポジトリ](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)を更新するとトリガーされます。                                                         |
+| `trusted_repositories_access_update` | ユーザーアカウントの [ アクセスと、{% data variables.product.prodname_codespaces %} のセキュリティ設定](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)を変更するとトリガーされます。 |
 
-### `marketplace_agreement_signature` category actions
+### `marketplace_agreement_signature` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `create` | Triggered when you sign the {% data variables.product.prodname_marketplace %} Developer Agreement.
+| アクション    | 説明                                                                                      |
+| -------- | --------------------------------------------------------------------------------------- |
+| `create` | {% data variables.product.prodname_marketplace %} Developer Agreement に署名するときにトリガーされます。 |
 
-### `marketplace_listing` category actions
+### `marketplace_listing` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `approve` | Triggered when your listing is approved for inclusion in {% data variables.product.prodname_marketplace %}.
-| `create` | Triggered when you create a listing for your app in {% data variables.product.prodname_marketplace %}.
-| `delist` | Triggered when your listing is removed from {% data variables.product.prodname_marketplace %}.
-| `redraft` | Triggered when your listing is sent back to draft state.
-| `reject` | Triggered when your listing is not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
+| アクション     | 説明                                                                                  |
+| --------- | ----------------------------------------------------------------------------------- |
+| `承認`      | 一覧表を {% data variables.product.prodname_marketplace %}に掲載することが承認されるときにトリガーされます。     |
+| `create`  | {% data variables.product.prodname_marketplace %} で自分のアプリケーションの一覧表を作成するときにトリガーされます。 |
+| `delist`  | 一覧表が {% data variables.product.prodname_marketplace %} から削除されるときにトリガーされます。          |
+| `redraft` | 一覧表がドラフト状態に戻されるときにトリガーされます。                                                         |
+| `reject`  | 一覧表が {% data variables.product.prodname_marketplace %} に掲載することを認められないときにトリガーされます。   |
 
 {% endif %}
 
 ### `oauth_authorization` category actions
 
-| Action | Description
-|------------------|-------------------
-| `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).
+| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create`  | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                              |
 | `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} and when [authorizations are revoked or expire](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
 
 {% ifversion fpt or ghec %}
 
-### `payment_method` category actions
+### `payment_method` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `clear` | Triggered when [a payment method](/articles/removing-a-payment-method) on file is removed.
-| `create` | Triggered when a new payment method is added, such as a new credit card or PayPal account.
-| `update` | Triggered when an existing payment method is updated.
+| アクション    | 説明                                                      |
+| -------- | ------------------------------------------------------- |
+| `create` | 新しいクレジット カードや PayPal アカウントなど、新たな支払い方法が追加されるときにトリガーされます。 |
+| `update` | 既存の支払い方法が更新されるときにトリガーされます。                              |
 
 {% endif %}
 
-### `profile_picture` category actions
+### `profile_picture` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `update` | Triggered when you [set or update your profile picture](/articles/setting-your-profile-picture/).
+| アクション    | 説明                                                                           |
+| -------- | ---------------------------------------------------------------------------- |
+| `update` | [自分のプロフィール写真を設定または更新する](/articles/setting-your-profile-picture/)ときにトリガーされます。 |
 
-### `project` category actions
+### `project` カテゴリアクション
 
-| Action | Description
-|--------------------|---------------------
-| `access` | Triggered when a project board's visibility is changed.
-| `create` | Triggered when a project board is created.
-| `rename` | Triggered when a project board is renamed.
-| `update` | Triggered when a project board is updated.
-| `delete` | Triggered when a project board is deleted.
-| `link`   | Triggered when a repository is linked to a project board.
-| `unlink` | Triggered when a repository is unlinked from a project board.
-| `update_user_permission` | Triggered when an outside collaborator is added to or removed from a project board or has their permission level changed.
+| アクション                    | 説明                                                                      |
+| ------------------------ | ----------------------------------------------------------------------- |
+| `access`                 | プロジェクト ボードの可視性が変更されるときにトリガーされます。                                        |
+| `create`                 | プロジェクト ボードが作成されるときにトリガーされます。                                            |
+| `rename`                 | プロジェクトボードの名前が変更されるときにトリガーされます。                                          |
+| `update`                 | プロジェクト ボードが更新されるときにトリガーされます。                                            |
+| `delete`                 | プロジェクトボードが削除されるときにトリガーされます。                                             |
+| `link`                   | リポジトリがプロジェクト ボードにリンクされるときにトリガーされます。                                     |
+| `unlink`                 | リポジトリがプロジェクトボードからリンク解除されるときにトリガーされます。                                   |
+| `update_user_permission` | 外部のコラボレータがプロジェクトボードに追加またはプロジェクトボードから削除されたとき、あるいは許可レベルが変更されたときにトリガーされます。 |
 
-### `public_key` category actions
+### `public_key` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `create` | Triggered when you [add a new public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/adding-a-new-ssh-key-to-your-github-account).
-| `delete` | Triggered when you [remove a public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/reviewing-your-ssh-keys).
+| アクション    | 説明                                                                                                                                                                                                                                                         |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create` | Triggered when you [add a new public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/adding-a-new-ssh-key-to-your-github-account). |
+| `delete` | Triggered when you [remove a public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/reviewing-your-ssh-keys).                      |
 
-### `repo` category actions
+### `repo` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `access` | Triggered when you a repository you own is [switched from "private" to "public"](/articles/making-a-private-repository-public) (or vice versa).
-| `add_member` | Triggered when a {% data variables.product.product_name %} user is {% ifversion fpt or ghec %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository.
-| `add_topic` | Triggered when a repository owner [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.
-| `archived` | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% ifversion ghes %}
-| `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
-| `config.enable_anonymous_git_access` | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
-| `config.lock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is locked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).
-| `config.unlock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is unlocked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
-| `create` | Triggered when [a new repository is created](/articles/creating-a-new-repository).
-| `destroy` |  Triggered when [a repository is deleted](/articles/deleting-a-repository).{% ifversion fpt or ghec %}
-| `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
-| `enable` | Triggered when a repository is re-enabled.{% endif %}
-| `remove_member` | Triggered when a {% data variables.product.product_name %} user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).
-| `remove_topic` | Triggered when a repository owner removes a topic from a repository.
-| `rename` | Triggered when [a repository is renamed](/articles/renaming-a-repository).
-| `transfer` | Triggered when [a repository is transferred](/articles/how-to-transfer-a-repository).
-| `transfer_start` | Triggered when a repository transfer is about to occur.
-| `unarchived` | Triggered when a repository owner unarchives a repository.
+| アクション                                 | 説明                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `access`                              | 自分が所有するリポジトリが["プライベート" から "パブリック" に切り替えられる](/articles/making-a-private-repository-public) (またはその逆) ときにトリガーされます。                                                                                                                                                                                                              |
+| `add_member`                          | Triggered when a {% data variables.product.product_name %} user is {% ifversion fpt or ghec %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository. |
+| `add_topic`                           | リポジトリのオーナーがリポジトリに[トピックを追加する](/articles/classifying-your-repository-with-topics)ときにトリガーされます。                                                                                                                                                                                                                                  |
+| `archived`                            | リポジトリのオーナーが[リポジトリをアーカイブする](/articles/about-archiving-repositories)ときにトリガーされます。{% ifversion ghes %}
+| `config.disable_anonymous_git_access` | 公開リポジトリで[匿名の Git 読み取りアクセスが無効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                                                                             |
+| `config.enable_anonymous_git_access`  | 公開リポジトリで[匿名の Git 読み取りアクセスが有効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                                                                             |
+| `config.lock_anonymous_git_access`    | リポジトリの[匿名の Git 読み取りアクセス設定がロックされる](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。                                                                                                                                                        |
+| `config.unlock_anonymous_git_access`  | リポジトリの[匿名の Git 読み取りアクセス設定がロック解除される](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。{% endif %}
+| `create`                              | [新たなリポジトリが作成される](/articles/creating-a-new-repository)ときにトリガーされます。                                                                                                                                                                                                                                                            |
+| `destroy`                             | [リポジトリが削除される](/articles/deleting-a-repository)ときにトリガーされます。{% ifversion fpt or ghec %}
+| `disable`                             | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
+| `enable`                              | リポジトリが再び有効になるときにトリガーされます。{% endif %}
+| `remove_member`                       | {% data variables.product.product_name %}ユーザが[リポジトリのコラボレーターではなくなる](/articles/removing-a-collaborator-from-a-personal-repository)ときにトリガーされます。                                                                                                                                                                                 |
+| `remove_topic`                        | リポジトリのオーナーがリポジトリからトピックを削除するときにトリガーされます。                                                                                                                                                                                                                                                                                      |
+| `rename`                              | [リポジトリの名前が変更される](/articles/renaming-a-repository)ときにトリガーされます。                                                                                                                                                                                                                                                                |
+| `移譲`                                  | [リポジトリが移譲される](/articles/how-to-transfer-a-repository)ときにトリガーされます。                                                                                                                                                                                                                                                            |
+| `transfer_start`                      | リポジトリの移譲が行われようとしているときにトリガーされます。                                                                                                                                                                                                                                                                                              |
+| `unarchived`                          | リポジトリのオーナーがリポジトリをアーカイブ解除するときにトリガーされます。                                                                                                                                                                                                                                                                                       |
 
 {% ifversion fpt or ghec %}
-### `sponsors` category actions
+### `sponsors` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `custom_amount_settings_change` | Triggered when you enable or disable custom amounts, or when you change the suggested custom amount (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")
-| `repo_funding_links_file_action` | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
-| `sponsor_sponsorship_cancel` | Triggered when you cancel a sponsorship (see "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
-| `sponsor_sponsorship_create` | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")
-| `sponsor_sponsorship_payment_complete` | Triggered after you sponsor an account and your payment has been processed (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")
-| `sponsor_sponsorship_preference_change` | Triggered when you change whether you receive email updates from a sponsored developer (see "[Managing your sponsorship](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)")
-| `sponsor_sponsorship_tier_change` | Triggered when you upgrade or downgrade your sponsorship (see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
-| `sponsored_developer_approve` | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| `sponsored_developer_create` | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| `sponsored_developer_disable` | Triggered when your {% data variables.product.prodname_sponsors %} account is disabled
-| `sponsored_developer_redraft` | Triggered when your {% data variables.product.prodname_sponsors %} account is returned to draft state from approved state
-| `sponsored_developer_profile_update` | Triggered when you edit your sponsored developer profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)")
-| `sponsored_developer_request_approval` | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)")
-| `sponsored_developer_update_newsletter_send` | Triggered when you send an email update to your sponsors (see "[Contacting your sponsors](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)")
-| `waitlist_invite_sponsored_developer` | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| `waitlist_join` | Triggered when you join the waitlist to become a sponsored developer (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
+| アクション                                         | 説明                                                                                                                                                                                                                                                                  |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `custom_amount_settings_change`               | カスタム金額を有効または無効にするとき、または提案されたカスタム金額を変更するときにトリガーされます (「[スポンサーシップ層を管理する](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)」を参照)。                                                                                      |
+| `repo_funding_links_file_action`              | リポジトリで FUNDING ファイルを変更したときにトリガーされます (「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照)                                                                                                                                          |
+| `sponsor_sponsorship_cancel`                  | スポンサーシップをキャンセルしたときにトリガーされます (「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照)                                                                                                                                                                        |
+| `sponsor_sponsorship_create`                  | アカウントをスポンサーするとトリガーされます (「[オープンソースコントリビューターに対するスポンサー](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)」を参照)                                                                                                                      |
+| `sponsor_sponsorship_payment_complete`        | アカウントをスポンサーし、支払が処理されるとトリガーされます (「[オープンソースコントリビューターに対するスポンサー](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)」を参照)                                                                                                              |
+| `sponsor_sponsorship_preference_change`       | スポンサード開発者からメールで最新情報を受け取るかどうかを変更するとトリガーされます (「[スポンサーシップを管理する](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)」を参照)                                                                                                                          |
+| `sponsor_sponsorship_tier_change`             | スポンサーシップをアップグレードまたはダウングレードしたときにトリガーされます (「[スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)」および「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照)                                                                                                |
+| `sponsored_developer_approve`                 | {% data variables.product.prodname_sponsors %} アカウントが承認されるとトリガーされます (「[ユーザアカウントに{% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照)               |
+| `sponsored_developer_create`                  | {% data variables.product.prodname_sponsors %} アカウントが作成されるとトリガーされます (「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照)              |
+| `sponsored_developer_disable`                 | {% data variables.product.prodname_sponsors %} アカウントが無効になるとトリガーされます                                                                                                                                                                                                 |
+| `sponsored_developer_redraft`                 | {% data variables.product.prodname_sponsors %} アカウントが承認済みの状態からドラフト状態に戻るとトリガーされます                                                                                                                                                                                    |
+| `sponsored_developer_profile_update`          | スポンサード開発者のプロフィールを編集するとトリガーされます (「[{% data variables.product.prodname_sponsors %} のプロフィール詳細を編集する](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)」を参照)                                                    |
+| `sponsored_developer_request_approval`        | 承認のために {% data variables.product.prodname_sponsors %} のアプリケーションをサブミットするとトリガーされます (「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照) |
+| `sponsored_developer_tier_description_update` | スポンサーシップ層の説明を変更したときにトリガーされます (「[スポンサーシップ層を管理する](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)」を参照)                                                                                                                      |
+| `sponsored_developer_update_newsletter_send`  | スポンサーにメールで最新情報を送信するとトリガーされます (「[スポンサーに連絡する](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)」を参照)                                                                                                                                 |
+| `waitlist_invite_sponsored_developer`         | 待ちリストから {% data variables.product.prodname_sponsors %} に参加するよう招待されたときにトリガーされます (「[ユーザアカウントに{% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照)    |
+| `waitlist_join`                               | スポンサード開発者になるために待ちリストに参加するとトリガーされます (「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照)                                               |
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### `successor_invitation` category actions
+### `successor_invitation` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `accept` | Triggered when you accept a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| `cancel` | Triggered when you cancel a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| `create` | Triggered when you create a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| `decline` | Triggered when you decline a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| `revoke` | Triggered when you revoke a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
+| アクション     | 説明                                                                                                                                                                                       |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accept`  | 継承の招待を承諾するとトリガーされます（「[ユーザアカウントのリポジトリの所有権の継続性を管理する](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)」を参照）    |
+| `cancel`  | 継承の招待をキャンセルするとトリガーされます（「[ユーザアカウントのリポジトリの所有権の継続性を管理する](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)」を参照） |
+| `create`  | 継承の招待を作成するとトリガーされます（「[ユーザアカウントのリポジトリの所有権の継続性を管理する](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)」を参照）    |
+| `decline` | 継承の招待を拒否するとトリガーされます（「[ユーザアカウントのリポジトリの所有権の継続性を管理する](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)」を参照）    |
+| `revoke`  | 継承の招待を取り消すとトリガーされます（「[ユーザアカウントのリポジトリの所有権の継続性を管理する](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)」を参照）    |
 {% endif %}
 
 {% ifversion ghes or ghae %}
 
-### `team` category actions
+### `team` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `add_member` | Triggered when a member of an organization you belong to [adds you to a team](/articles/adding-organization-members-to-a-team).
-| `add_repository` | Triggered when a team you are a member of is given control of a repository.
-| `create` | Triggered when a new team in an organization you belong to is created.
-| `destroy` | Triggered when a team you are a member of is deleted from the organization.
-| `remove_member` | Triggered when a member of an organization is [removed from a team](/articles/removing-organization-members-from-a-team) you are a member of.
-| `remove_repository` | Triggered when a repository is no longer under a team's control.
+| アクション               | 説明                                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `add_member`        | 自分が所属している Organization のメンバーが[自分を Team に追加する](/articles/adding-organization-members-to-a-team)ときにトリガーされます。    |
+| `add_repository`    | 自分がメンバーである Team にリポジトリの管理が任せられるときにトリガーされます。                                                                   |
+| `create`            | 自分が所属している Organization で新たな Team が作成されるときにトリガーされます。                                                           |
+| `destroy`           | 自分がメンバーである Team が Organization から削除されるときにトリガーされます。                                                            |
+| `remove_member`     | Organization のメンバーが自分がメンバーである [Team から削除される](/articles/removing-organization-members-from-a-team)ときにトリガーされます。 |
+| `remove_repository` | リポジトリが Team の管理下でなくなるときにトリガーされます。                                                                             |
 
 {% endif %}
 
 {% ifversion not ghae %}
-### `two_factor_authentication` category actions
+### `two_factor_authentication` カテゴリアクション
 
-| Action | Description
-|------------------|-------------------
-| `enabled` | Triggered when [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) is enabled.
-| `disabled` | Triggered when two-factor authentication is disabled.
+| アクション      | 説明                                                                                             |
+| ---------- | ---------------------------------------------------------------------------------------------- |
+| `enabled`  | [2 要素認証](/articles/securing-your-account-with-two-factor-authentication-2fa)が有効になるときにトリガーされます。 |
+| `disabled` | 2 要素認証が無効になるときにトリガーされます。                                                                       |
 {% endif %}
 
-### `user` category actions
+### `user` カテゴリアクション
 
-| Action | Description
-|--------------------|---------------------
-| `add_email` | Triggered when you {% ifversion not ghae %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.{% ifversion fpt or ghec %}
-| `codespaces_trusted_repo_access_granted` | Triggered when you [allow the codespaces you create for a repository to access other repositories owned by your user account](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces.
-| `codespaces_trusted_repo_access_revoked` | Triggered when you [disallow the codespaces you create for a repository to access other repositories owned by your user account](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. {% endif %}
-| `create` | Triggered when you create a new user account.{% ifversion not ghae %}
-| `change_password` | Triggered when you change your password.
-| `forgot_password` | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).{% endif %}
-| `hide_private_contributions_count` | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).
-| `login` | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes or ghae %}
-`mandatory_message_viewed`   | Triggered when you view a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
-| `failed_login` | Triggered when you failed to log in successfully.
-| `remove_email` | Triggered when you remove an email address.
-| `rename` | Triggered when you rename your account.{% ifversion fpt or ghec %}
-| `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %}
-| `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% ifversion not ghae %}
-| `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+| アクション                                                                                                                                                                    | 説明                                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add_email`                                                                                                                                                              | トリガーされる条件                                                                                                                                                        |
+| {% ifversion not ghae %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.{% ifversion fpt or ghec %} |                                                                                                                                                                  |
+| `codespaces_trusted_repo_access_granted`                                                                                                                                 | リポジトリに作成する Codespaces で、自分のユーザーアカウントが所有している他のリポジトリにアクセスするのを許可するとトリガーされます (/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. |
+| `codespaces_trusted_repo_access_revoked`                                                                                                                                 | リポジトリに作成する Codespaces で、自分のユーザーアカウントが所有している他のリポジトリにアクセスするのを禁止するとトリガーされます (/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces. |{% endif %}
+| `create`                                                                                                                                                                 | 新しいユーザアカウントを作成するとトリガーされます。{% ifversion not ghae %}
+| `change_password`                                                                                                                                                        | 自分のパスワードを変更するときにトリガーされます。                                                                                                                                        |
+| `forgot_password`                                                                                                                                                        | [パスワード のリセット](/articles/how-can-i-reset-my-password)を要求したときにトリガーされます。{% endif %}
+| `hide_private_contributions_count`                                                                                                                                       | [自分のプロファイルでプライベート コントリビューションを非表示にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)ときにトリガーされます。                                     |
+| `login`                                                                                                                                                                  | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes or ghae %}
 
-### `user_status` category actions
 
-| Action | Description
-|--------------------|---------------------
-| `update` | Triggered when you set or change the status on your profile. For more information, see "[Setting a status](/articles/personalizing-your-profile/#setting-a-status)."
-| `destroy` | Triggered when you clear the status on your profile.
+`mandatory_message_viewed`   | 必須メッセージを表示するとトリガーされます (詳細は「[ユーザーメッセージのカスタマイズ](/admin/user-management/customizing-user-messages-for-your-enterprise)」を参照してください) | |{% endif %}| | `failed_login` | 正常にログインできなかったときにトリガーされます。 | `remove_email` | メール アドレスを削除するとトリガーされます。 | `rename` | Triggered when you rename your account.{% ifversion fpt or ghec %} | `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% ifversion not ghae %} | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+
+### `user_status` カテゴリアクション
+
+| アクション     | 説明                                                                                                                        |
+| --------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `update`  | 自分のプロファイルでステータスを設定または変更するときにトリガーされます。 詳細は「[ステータスを設定する](/articles/personalizing-your-profile/#setting-a-status)」を参照してください。 |
+| `destroy` | 自分のプロファイルでステータスを消去するときにトリガーされます。                                                                                          |

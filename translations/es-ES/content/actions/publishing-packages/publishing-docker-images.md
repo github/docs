@@ -1,6 +1,6 @@
 ---
-title: Publishing Docker images
-intro: 'You can publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.'
+title: Publicar imágenes de Docker
+intro: 'Puedes publicar imágenes de Docker en un registro, tale como Docker Hub o {% data variables.product.prodname_registry %}, como parte de tu flujo de trabajo de integración continua (IC).'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
   - /actions/guides/publishing-docker-images
@@ -19,52 +19,52 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## Introducción
 
-This guide shows you how to create a workflow that performs a Docker build, and then publishes Docker images to Docker Hub or {% data variables.product.prodname_registry %}. With a single workflow, you can publish images to a single registry or to multiple registries.
+Esta guía te muestra cómo crear un flujo de trabajo que realiza una compilación de Docker y posteriormente publica las imágenes de Docker en Docker Hub o {% data variables.product.prodname_registry %}. Con un solo flujo de trabajo, puedes publicar imágenes a un solo registro o a varios de ellos.
 
 {% note %}
 
-**Note:** If you want to push to another third-party Docker registry, the example in the "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)" section can serve as a good template.
+**Nota:** Si quieres subir otro registro de terceros de Docker, el ejemplo en la sección "[Publicar imágenes en {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)" puede servir como plantilla.
 
 {% endnote %}
 
-## Prerequisites
+## Prerrequisitos
 
-We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+Te recomendamos que tengas una comprensión básica de las opciones de configuración de flujo de trabajo y cómo crear un archivo de flujo de trabajo. Para obtener más información, consulta la sección "[Aprende sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-You might also find it helpful to have a basic understanding of the following:
+También puede que encuentres útil el tener un entendimiento básico de lo siguiente:
 
-- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
-- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"{% ifversion fpt or ghec %}
-- "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
-- "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"{% endif %}
+- "[Secretos cifrados](/actions/reference/encrypted-secrets)"
+- "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow)"{% ifversion fpt or ghec %}
+- "[Trabajar con el {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
+- "[Trabajar con el registro de Docker](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"{% endif %}
 
-## About image configuration
+## Acerca de la configuración de imágenes
 
-This guide assumes that you have a complete definition for a Docker image stored in a {% data variables.product.prodname_dotcom %} repository. For example, your repository must contain a _Dockerfile_, and any other files needed to perform a Docker build to create an image.
+Esta guía asume que tienes una definición completa de una imagen de Docker almacenada en un repositorio de {% data variables.product.prodname_dotcom %}. Por ejemplo, tu repositorio debe contener un _Dockerfile_, y cualquier otro archivo que se necesite para realizar una compilación de Docker para crear una imagen.
 
-In this guide, we will use the Docker `build-push-action` action to build the Docker image and push it to one or more Docker registries. For more information, see [`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images).
+En esta guía, utilizaremos la acción `build-push-action` de Docker para compilar la imagen de Docker y cargarla a uno o más registros de Docker. Para obtener más información, consulta la sección [`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images).
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-## Publishing images to Docker Hub
+## Publicar imágenes en Docker Hub
 
 {% data reusables.github-actions.release-trigger-workflow %}
 
-In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
+En el flujo de trabajo de ejemplo a continuación, utilizamos las acciones `login-action` y `build-push-action` para crear la imagen de Docker y, si la compilación es exitosa, subimos la imagen compilada a Docker Hub.
 
-To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
+Para hacer una carga en Docker hub, necesitarás tener una cuenta de Docker Hub y haber creado un repositorio ahí mismo. Para obtener más información, consulta la sección "[Publicar una imagen de contenedor de Docker en Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" en la documentación de Docker.
 
-The `login-action` options required for Docker Hub are:
-* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+Las opciones de `login-action` que se requieren para Docker hub son:
+* `username` y `password`: Este es tu nombre de usuario y contraseña de Docker Hub. Te recomendamos almacenar tu nombre de usuario y contraseña de Docker Hub como un secreto para que no se expongan en tu archivo de flujo de trabajo. Para más información, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-The `metadata-action` option required for Docker Hub is:
-* `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
+La opción `metadata-action` que se requiere para Docker hub es:
+* `images`: El designador de nombre para la imagen de Docker que estás compilando/subiendo a Docker Hub.
 
-The `build-push-action` options required for Docker Hub are:
-* `tags`: The tag of your new image in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. You can set a single tag as shown below, or specify multiple tags in a list.
-* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
+Las opciones de `build-push-action` que se requieren para Docker Hub son:
+* `tags`: La etiqueta de tu nueva imagen en el formato `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. Puedes configurar una etiqueta sencilla como se muestra a continuación o especificar etiquetas múltiples en una lista.
+* `push`: Si se configura como `true`, se subirá la imagen al registro si se compila con éxito.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -82,19 +82,19 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      
+
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
-      
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: my-docker-hub-namespace/my-docker-hub-repository
-      
+
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
@@ -104,34 +104,34 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
+El flujo de trabajo anterior verifica el repositorio de {% data variables.product.prodname_dotcom %}, utiliza la `login-action` para iniciar sesión en el registro y luego utiliza la acción `build-push-action` para: crear una imagen de Docker con base en el `Dockerfile` de tu repositorio; subir la imagen a Docker Hub y aplicar una etiqueta a la imagen.
 
-## Publishing images to {% data variables.product.prodname_registry %}
+## Publicar imágenes en {% data variables.product.prodname_registry %}
 
 {% data reusables.github-actions.release-trigger-workflow %}
 
-In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
+En el siguiente ejemplo de flujo de trabajo, utilizamos las acciones `login-action` {% ifversion fpt or ghec %}, `metadata-action`,{% endif %} y `build-push-action` de Docker para crear la imagen de Docker y, si la compilación tiene éxito, sube la imagen cargada al {% data variables.product.prodname_registry %}.
 
-The `login-action` options required for {% data variables.product.prodname_registry %} are:
-* `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% else %}`docker.pkg.github.com`{% endif %}.
-* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
-* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+Las opciones de `login-action` que se requieren para el {% data variables.product.prodname_registry %} son:
+* `registry`: Debe configurarse en {% ifversion fpt or ghec %}`ghcr.io`{% else %}`docker.pkg.github.com`{% endif %}.
+* `username`: Puedes utilizar el contexto {% raw %}`${{ github.actor }}`{% endraw %} para utilizar automáticamente el nombre de usuario del usuario que desencadenó la ejecución del flujo de trabajo. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts#github-context)".
+* `password`: Puedes utilizar el secreto generado automáticamente `GITHUB_TOKEN` para la contraseña. Para más información, consulta "[Autenticando con el GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
 {% ifversion fpt or ghec %}
-The `metadata-action` option required for {% data variables.product.prodname_registry %} is:
-* `images`: The namespace and name for the Docker image you are building.
+La opción de `metadata-action` que se requiere para el {% data variables.product.prodname_registry %} es:
+* `images`: El designador de nombre de la imagen de Docker que estás compilando.
 {% endif %}
 
-The `build-push-action` options required for {% data variables.product.prodname_registry %} are:{% ifversion fpt or ghec %}
-* `context`: Defines the build's context as the set of files located in the specified path.{% endif %}
-* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.{% ifversion fpt or ghec %}
-* `tags` and `labels`: These are populated by output from `metadata-action`.{% else %}
-* `tags`: Must be set in the format `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`. You can set a single tag as shown below, or specify multiple tags in a list.{% endif %}
+Las opciones de `build-push-action` que se requieren para {% data variables.product.prodname_registry %} son:{% ifversion fpt or ghec %}
+* `context`: Define el contexto de la compilación como el conjunto de archivos que se ubican en la ruta especificada.{% endif %}
+* `push`: Si se configura en `true`, la imagen se cargará al registro si se compila con éxito.{% ifversion fpt or ghec %}
+* `tags` y `labels`: Estos se llenan con la salida de la `metadata-action`.{% else %}
+* `tags`: Debe configurarse en el formato `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. Por ejemplo, para una imagen que se llame `octo-image` y esté almacenada en {% data variables.product.prodname_dotcom %} en la ruta `http://github.com/octo-org/octo-repo`, la opción `tags` debe configurarse como `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`. Puedes configurar una tarjeta sencilla como se muestra a continuación o especificar etiquetas múltiples en una lista.{% endif %}
 
 {% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
-The above workflow if triggered by a push to the "release" branch. It checks out the GitHub repository, and uses the `login-action` to log in to the {% data variables.product.prodname_container_registry %}. It then extracts labels and tags for the Docker image. Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
+El flujo de trabajo anterior se activa mediante una subida a la rama de "lanzamiento". Verifica el repositorio de GitHub y utiliza la `login-action` para ingresar en el {% data variables.product.prodname_container_registry %}. Luego extrae las etiquetas y marcas de la imagen de Docker. Finalmente, utiliza la acción `build-push-action` para crear la imagen y publicarla en el {% data variables.product.prodname_container_registry %}.
 
 {% else %}
 ```yaml{:copy}
@@ -152,14 +152,14 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      
+
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-      
+
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
@@ -170,14 +170,14 @@ jobs:
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
+El flujo de trabajo anterior verifica el repositorio {% data variables.product.prodname_dotcom %}, utiliza la `login-action` para ingresar en el registro y luego utiliza la acción `build-push-action` para: crear una imagen de Docker con base en el `Dockerfile` de tu repositorio; subir la imagen al registro de Docker y aplicar el SHA de confirmación y versión de lanzamiento como etiquetas de la imagen.
 {% endif %}
 
-## Publishing images to Docker Hub and {% data variables.product.prodname_registry %}
+## Publicar imágenes en Docker Hub y en {% data variables.product.prodname_registry %}
 
-In a single workflow, you can publish your Docker image to multiple registries by using the `login-action` and `build-push-action` actions for each registry.
+En un flujo de trabajo sencillo, puedes publicar tu imagen de Docker en registros múltiples si utilizas las acciones `login-action` y `build-push-action` para cada registro.
 
-The following example workflow uses the steps from the previous sections ("[Publishing images to Docker Hub](#publishing-images-to-docker-hub)" and "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") to create a single workflow that pushes to both registries.
+El siguiente flujo de trabajo de ejemplo utiliza los pasos de las secciones anteriores ("[Publicar imágenes en Docker Hub](#publishing-images-to-docker-hub)" y "[Publicar imágenes en el {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") para crear un solo flujo de trabajo que cargue ambos registros.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -198,20 +198,20 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      
+
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
-      
+
       - name: Log in to the {% ifversion fpt or ghec %}Container{% else %}Docker{% endif %} registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: {% ifversion fpt or ghec %}ghcr.io{% elsif ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-      
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
@@ -219,7 +219,7 @@ jobs:
           images: |
             my-docker-hub-namespace/my-docker-hub-repository
             {% ifversion fpt or ghec %}ghcr.io/{% raw %}${{ github.repository }}{% endraw %}{% elsif ghae %}{% raw %}docker.YOUR-HOSTNAME.com/${{ github.repository }}/my-image{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
-      
+
       - name: Build and push Docker images
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
@@ -229,5 +229,4 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
-Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt or ghec %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.
+El flujo de trabajo anterior verifica el repositorio {% data variables.product.prodname_dotcom %}, utiliza `login-action` dos veces para iniciar sesión en ambos registros y genera etiquetas y marcadores con la acción `metadata-action`. Entonces, la acción `build-push-action` crea y sube la imagen de Docker a Docker Hub y al {% ifversion fpt or ghec %}{% data variables.product.prodname_container_registry %}{% else %}registro de Docker{% endif %}.

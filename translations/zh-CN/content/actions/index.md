@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions Documentation
+title: GitHub Actions文档
 shortTitle: GitHub Actions
-intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
+intro: '在 {% data variables.product.prodname_actions %} 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包括 CI/CD），并将操作合并到完全自定义的工作流程中。'
 introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
@@ -13,7 +13,7 @@ featuredLinks:
     - /actions/guides/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
-    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/learn-github-actions/using-starter-workflows
     - /actions/guides/publishing-nodejs-packages
     - /actions/guides/building-and-testing-powershell
   popular:
@@ -24,9 +24,14 @@ featuredLinks:
     - /actions/learn-github-actions/expressions
     - /actions/learn-github-actions/environment-variables
     - /actions/security-guides/encrypted-secrets
-changelog:
-  label: actions
-  prefix: 'GitHub Actions: '
+  videos:
+    - title: 'Inside GitHub: How we use GitHub Actions – Brian Douglas'
+      href: 'https://www.youtube-nocookie.com/embed/MW0V5Q9WJu4'
+    - title: Advanced GitHub Actions – Jennifer Schelkopf
+      href: 'https://www.youtube-nocookie.com/embed/wWOH44Lscoc'
+    - title: GitHub Actions in action – Karan MV
+      href: 'https://www.youtube-nocookie.com/embed/4SWO0Pc76CU'
+  videosHeading: GitHub Universe 2021 videos
 examples_source: data/product-examples/actions/code-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
@@ -46,6 +51,8 @@ versions:
 children:
   - /quickstart
   - /learn-github-actions
+  - /using-workflows
+  - /using-jobs
   - /managing-workflow-runs
   - /automating-builds-and-tests
   - /deployment

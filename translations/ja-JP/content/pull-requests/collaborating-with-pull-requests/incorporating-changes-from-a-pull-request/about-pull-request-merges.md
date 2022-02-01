@@ -1,5 +1,5 @@
 ---
-title: About pull request merges
+title: プルリクエストのマージについて
 intro: 'You can [merge pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) by retaining all the commits in a feature branch, squashing all commits into a single commit, or by rebasing individual commits from the `head` branch onto the `base` branch.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
@@ -15,46 +15,47 @@ versions:
 topics:
   - Pull requests
 ---
+
 {% data reusables.pull_requests.default_merge_option %}
 
-## Squash and merge your pull request commits
+## プルリクエストのコミットのsquashとマージ
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
-### Merge message for a squash merge
+### squash マージのマージメッセージ
 
-When you squash and merge, {% data variables.product.prodname_dotcom %} generates a commit message which you can change if you want to. The message default depends on whether the pull request contains multiple commits or just one. We do not include merge commits when we count the total number of commits.
+squash してマージすると、{% data variables.product.prodname_dotcom %} はコミットメッセージを生成します。メッセージは必要に応じて変更できます。 メッセージのデフォルトは、プルリクエストに複数のコミットが含まれているか、1 つだけ含まれているかによって異なります。 We do not include merge commits when we count the total number of commits.
 
-Number of commits | Summary | Description |
------------------ | ------- | ----------- |
-One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
-More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
+| コミット数   | 概要                                      | 説明                                   |
+| ------- | --------------------------------------- | ------------------------------------ |
+| 単一のコミット | 単一のコミットのコミットメッセージのタイトルと、その後に続くプルリクエスト番号 | 単一のコミットのコミットメッセージの本文テキスト             |
+| 複数のコミット | プルリクエストのタイトルと、その後に続くプルリクエスト番号           | squash されたすべてのコミットのコミットメッセージの日付順のリスト |
 
-### Squashing and merging a long-running branch
+### 長時間にわたるブランチを squash してマージする
 
-If you plan to continue work on the [head branch](/github/getting-started-with-github/github-glossary#head-branch) of a pull request after the pull request is merged, we recommend you don't squash and merge the pull request.
+プルリクエストがマージされた後、プルリクエストの [head ブランチ](/github/getting-started-with-github/github-glossary#head-branch)で作業を継続する場合は、プルリクエストを squash してマージしないことをお勧めします。
 
-When you create a pull request, {% data variables.product.prodname_dotcom %} identifies the most recent commit that is on both the head branch and the [base branch](/github/getting-started-with-github/github-glossary#base-branch): the common ancestor commit. When you squash and merge the pull request, {% data variables.product.prodname_dotcom %} creates a commit on the base branch that contains all of the changes you made on the head branch since the common ancestor commit.
+プルリクエストを作成すると、{% data variables.product.prodname_dotcom %} は、head ブランチと[ベースブランチ](/github/getting-started-with-github/github-glossary#base-branch)の両方にある最新のコミット、つまり共通の先祖のコミットを識別します。 プルリクエストを squash してマージすると、{% data variables.product.prodname_dotcom %} は、共通の先祖のコミット以降に head ブランチで行ったすべての変更を含むコミットをベースブランチに作成します。
 
-Because this commit is only on the base branch and not the head branch, the common ancestor of the two branches remains unchanged. If you continue to work on the head branch, then create a new pull request between the two branches, the pull request will include all of the commits since the common ancestor, including commits that you squashed and merged in the previous pull request. If there are no conflicts, you can safely merge these commits. However, this workflow makes merge conflicts more likely. If you continue to squash and merge pull requests for a long-running head branch, you will have to resolve the same conflicts repeatedly.
+このコミットはベースブランチのみで行われ、head ブランチでは行われないため、2 つのブランチの共通の先祖は変更されません。 head ブランチでの作業を続行し、2 つのブランチ間に新しいプルリクエストを作成すると、プルリクエストには、共通の先祖以降のすべてのコミットが含まれます。これには、前のプルリクエストで squash してマージしたコミットも含まれます。 コンフリクトがない場合は、これらのコミットを安全にマージできます。 ただし、このワークフローでは高確率でマージコンフリクトが発生します。 長時間にわたる head ブランチのプルリクエストを squash してマージし続ける場合は、同じコンフリクトを繰り返し解決する必要があります。
 
-## Rebase and merge your pull request commits
+## プルリクエストコミットのリベースとマージ
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
-You aren't able to automatically rebase and merge on {% data variables.product.product_location %} when:
-- The pull request has merge conflicts.
-- Rebasing the commits from the base branch into the head branch runs into conflicts.
-- Rebasing the commits is considered "unsafe," such as when a rebase is possible without merge conflicts but would produce a different result than a merge would.
+以下の場合、{% data variables.product.product_location %}上で自動的にリベースおよびマージすることはできません:
+- プルリクエストにマージコンフリクトがある。
+- ベースブランチからヘッドブランチへのコミットのリベースでコンフリクトが生じる。
+- たとえば、マージコンフリクトなしにリベースできるものの、マージとは異なる結果が生成されるような場合、コミットのリベースは「安全ではない」と考えられます。
 
-If you still want to rebase the commits but can't rebase and merge automatically on {% data variables.product.product_location %} you must:
-- Rebase the topic branch (or head branch) onto the base branch locally on the command line
-- [Resolve any merge conflicts on the command line](/articles/resolving-a-merge-conflict-using-the-command-line/).
-- Force-push the rebased commits to the pull request's topic branch (or remote head branch).
+それでもコミットをリベースしたいにもかかわらず、{% data variables.product.product_location %} 上で自動的にリベースとマージが行えない場合、以下のようにしなければなりません:
+- トピックブランチ (あるいは head ブランチ) をベースブランチにローカルでコマンドラインからリベースする
+- [コマンドライン上でマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line/)
+- リベースされたコミットをプルリクエストのトピックブランチ (あるいはリモートの head ブランチ) にフォースプッシュする。
 
-Anyone with write permissions in the repository, can then [merge the changes](/articles/merging-a-pull-request/) using the rebase and merge button on {% data variables.product.product_location %}.
+リポジトリに書き込み権限を持つ人は、続いて{% data variables.product.product_location %}上のリベース及びマージボタンを使って[変更をマージ](/articles/merging-a-pull-request/)できます。
 
-## Further reading
+## 参考リンク
 
-- "[About pull requests](/articles/about-pull-requests/)"
-- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)"
+- [プルリクエストについて](/articles/about-pull-requests/)
+- [マージコンフリクトへの対処](/github/collaborating-with-pull-requests/addressing-merge-conflicts)

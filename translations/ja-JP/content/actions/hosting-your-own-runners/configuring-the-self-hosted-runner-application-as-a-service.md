@@ -1,6 +1,6 @@
 ---
-title: Configuring the self-hosted runner application as a service
-intro: You can configure the self-hosted runner application as a service to automatically start the runner application when the machine starts.
+title: セルフホストランナーアプリケーションをサービスとして設定する
+intro: セルフホストランナーアプリケーションをサービスとして設定し、マシンの起動時に自動的にランナーアプリケーションが開始されるようにできます。
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
@@ -17,9 +17,9 @@ shortTitle: Run runner app on startup
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% capture service_first_step %}1. Stop the self-hosted runner application if it is currently running.{% endcapture %}
-{% capture service_non_windows_intro_shell %}On the runner machine, open a shell in the directory where you installed the self-hosted runner application. Use the commands below to install and manage the self-hosted runner service.{% endcapture %}
-{% capture service_nonwindows_intro %}You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service. For more information, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
+{% capture service_first_step %}1. セルフホストランナー アプリケーションが現在実行中の場合は、そのアプリケーションを停止します。{% endcapture %}
+{% capture service_non_windows_intro_shell %}ランナー マシンで、セルフホストランナー アプリケーションをインストールしたディレクトリでシェルを開きます。 以下のコマンドを使って、セルフホストランナーサービスをインストール及び管理します。{% endcapture %}
+{% capture service_nonwindows_intro %}セルフホストランナーアプリケーションをサービスとして設定する前に、ランナーを{% data variables.product.product_name %}に追加しなければなりません。 詳しい情報については「[セルフホストランナーの追加](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)」を参照してください。{% endcapture %}
 {% capture service_win_name %}actions.runner.*{% endcapture %}
 
 
@@ -27,7 +27,7 @@ shortTitle: Run runner app on startup
 
 {{ service_nonwindows_intro }}
 
-For Linux systems that use `systemd`, you can use the `svc.sh` script distributed with the self-hosted runner application to install and manage using the application as a service.
+`systemd`を利用するLinuxのシステムでは、セルフホストランナーアプリケーションと共に配布されている`svc.sh`スクリプトを使い、セルフホストランナーアプリケーションをサービスとしてインストール及び管理できます。
 
 {{ service_non_windows_intro_shell }}
 
@@ -37,13 +37,13 @@ For Linux systems that use `systemd`, you can use the `svc.sh` script distribute
 
 {% note %}
 
-**Note:** Configuring the self-hosted runner application as a service on Windows is part of the application configuration process. If you have already configured the self-hosted runner application but did not choose to configure it as a service, you must remove the runner from {% data variables.product.prodname_dotcom %} and re-configure the application. When you re-configure the application, choose the option to configure the application as a service.
+**ノート:** Windows上でサービスとしてセルフホストランナーアプリケーションを設定するのは、アプリケーションの設定プロセスの一部です。 セルフホストランナーアプリケーションをすでに設定していて、サービスとして設定していない場合には、そのランナーを{% data variables.product.prodname_dotcom %}から削除して、アプリケーションを設定しなおさなければなりません。 アプリケーションを再設定する場合には、アプリケーションをサービスとして設定するオプションを選択してください。
 
-For more information, see "[Removing self-hosted runners](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)" and "[Adding self-hosted runners](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."
+詳しい情報については「[セルフホストランナーの削除](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)」及び「[セルフホストランナーの追加](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)」を参照してください。
 
 {% endnote %}
 
-You can manage the runner service in the Windows **Services** application, or you can use PowerShell to run the commands below.
+Windowsでは、ランナーサービスは**サービス**アプリケーションで管理できます。あるいは、以下のコマンドをPowerShellを使って実行することもできます。
 
 {% endwindows %}
 
@@ -57,10 +57,10 @@ You can manage the runner service in the Windows **Services** application, or yo
 
 {% linux %}
 
-## Installing the service
+## サービスのインストール
 
 {{ service_first_step }}
-1. Install the service with the following command:
+1. 以下のコマンドでサービスをインストールしてください。
 
    ```shell
    sudo ./svc.sh install
@@ -69,19 +69,19 @@ You can manage the runner service in the Windows **Services** application, or yo
 {% endlinux %}
 {% mac %}
 
-## Installing the service
+## サービスのインストール
 
 {{ service_first_step }}
-1. Install the service with the following command:
+1. 以下のコマンドでサービスをインストールしてください。
 
    ```shell
    ./svc.sh install
    ```
 {% endmac %}
 
-## Starting the service
+## サービスの起動
 
-Start the service with the following command:
+以下のコマンドでサービスを起動してください。
 
 {% linux %}
 ```shell
@@ -99,9 +99,9 @@ Start-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-## Checking the status of the service
+## サービスのステータスチェック
 
-Check the status of the service with the following command:
+以下のコマンドでサービスのステータスをチェックしてください。
 
 {% linux %}
 ```shell
@@ -119,11 +119,11 @@ Get-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
- For more information on viewing the status of your self-hosted runner, see  "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+ セルフホストランナーの状態の表示に関する詳しい情報については、「[セルフホストランナーのモニタリングとトラブルシューティング](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)」を参照してください。
 
-## Stopping the service
+## サービスの停止
 
-Stop the service with the following command:
+以下のコマンドでサービスを停止してください。
 
 {% linux %}
 ```shell
@@ -141,10 +141,10 @@ Stop-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-## Uninstalling the service
+## サービスのアンインストール
 
-1. Stop the service if it is currently running.
-1. Uninstall the service with the following command:
+1. もし実行中であれば、サービスを停止してください。
+1. 以下のコマンドでサービスをアンインストールしてください。
 
     {% linux %}
     ```shell
@@ -165,16 +165,16 @@ Stop-Service "{{ service_win_name }}"
 
 {% linux %}
 
-## Customizing the self-hosted runner service
+## セルフホストランナーサービスのカスタマイズ
 
-If you don't want to use the above default `systemd` service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `serviced` template at `actions-runner/bin/actions.runner.service.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
+上記のデフォルトの`systemd`サービス設定を使いたくないなら、カスタマイズされたサービスを作成するか、好みのサービスの仕組みを使うことができます。 リファレンスとして`actions-runner/bin/actions.runner.service.template`にある`serviced`テンプレートの利用を検討してください。 カスタマイズされたサービスを使う場合、セルフホストランナーサービスは常に`runsvc.sh`エントリポイントを使って起動しなければなりません。
 
 {% endlinux %}
 
 {% mac %}
 
-## Customizing the self-hosted runner service
+## セルフホストランナーサービスのカスタマイズ
 
-If you don't want to use the above default launchd service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `plist` template at `actions-runner/bin/actions.runner.plist.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
+上記のデフォルトのlaunchdサービス設定を使いたくないなら、カスタマイズされたサービスを作成するか、好みのサービスの仕組みを使うことができます。 リファレンスとして`actions-runner/bin/actions.runner.plist.template`にある`plist`テンプレートの利用を検討してください。 カスタマイズされたサービスを使う場合、セルフホストランナーサービスは常に`runsvc.sh`エントリポイントを使って起動しなければなりません。
 
 {% endmac %}

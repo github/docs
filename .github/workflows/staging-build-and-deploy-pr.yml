@@ -6,16 +6,16 @@ name: Staging - Build and Deploy PR (fast and private-only)
 
 # This whole workflow is only guaranteed to be secure in the *private
 # repo* and because we repo-sync these files over the to the public one,
-# IT'S CRUCIALLY IMPORTANT THAT THIS WORKFLOW IS ONLY ENABLED IN docs-internal!
+# IT'S IMPORTANT THAT THIS WORKFLOW IS ONLY ENABLED IN docs-internal!
 
 on:
-  # Ideally, we'd like to use 'pull_request' because we can more easily
-  # test changes to this workflow without relying on merges to 'main'.
-  # But this is guaranteed to be safer and won't have the problem of
-  # necessary secrets not being available.
-  # Perhaps some day when we're confident this workflow will always
-  # work in a regular PR, we can switch to that.
-  pull_request_target:
+  # The advantage of 'pull_request' over 'pull_request_target' is that we
+  # can make changes to this file and test them in a pull request, instead
+  # of relying on landing it in 'main' first.
+  # From a security point of view, its arguably safer this way because
+  # unlike 'pull_request_target', these only have secrets if the pull
+  # request creator has permission to access secrets.
+  pull_request:
 
 permissions:
   actions: read
@@ -25,9 +25,6 @@ permissions:
   statuses: write
 
 # This allows a subsequently queued workflow run to interrupt previous runs
-# These are different from the concurrency in that here it checks if the
-# whole workflow runs again. The "inner concurrency" is used for
-# undeployments to cleaning up resources.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
@@ -44,16 +41,11 @@ jobs:
     runs-on: self-hosted
 
     timeout-minutes: 5
-    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
-    # progress for this PR branch.
-    concurrency:
-      group: 'PR Staging @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
-      cancel-in-progress: true
+
     steps:
       - name: Check out repo
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
           lfs: 'true'
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
@@ -62,7 +54,7 @@ jobs:
         run: git lfs checkout
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -71,7 +63,7 @@ jobs:
         run: npm ci
 
       - name: Cache nextjs build
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -83,16 +75,7 @@ jobs:
         run: node script/early-access/clone-for-build.js
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: ${{ github.event.pull_request.head.sha }}
-
-      - name: Check that the PR isn't blocking deploys
-        # We can't use ${{...}} on this if statement because of this bug
-        # https://github.com/cschleiden/actions-linter/issues/114
-        if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'automated-block-deploy')
-        run: |
-          echo "The PR appears to have the label 'automated-block-deploy'"
-          echo "Will not proceed to deploy the PR."
-          exit 2
+          GIT_BRANCH: ${{ github.head_ref || github.ref }}
 
       - name: Create a Heroku build source
         id: build-source
@@ -149,7 +132,7 @@ jobs:
 
           # Delete all the big search indexes that are NOT English (`*-en-*`)
           pushd lib/search/indexes
-          ls | grep -v '\-en\-' | xargs rm
+          ls | grep -ve '\-en\b' | xargs rm
           popd
 
           # Note! Some day it would be nice to be able to delete

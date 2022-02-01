@@ -1,6 +1,6 @@
 ---
-title: Increasing storage capacity
-intro: 'You can increase or change the amount of storage available for Git repositories, databases, search indexes, and other persistent application data.'
+title: Aumentar la capacidad de almacenamiento
+intro: 'Puedes aumentar o cambiar la cantidad de almacenamiento disponible para los repositorios de Git, las bases de datos, los índices de búsqueda y otros datos de aplicaciones persistentes.'
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
@@ -13,80 +13,81 @@ topics:
   - Infrastructure
   - Performance
   - Storage
-shortTitle: Increase storage capacity
+shortTitle: Incrementar la capacidad de almacenamiento
 ---
+
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-As more users join {% data variables.product.product_location %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
+A medida que se suman usuarios {% data variables.product.product_location %}, es posible que necesites ajustar el tamaño de tu volumen de almacenamiento. Consulta la documentación de tu plataforma de virtualización para obtener más información sobre ajuste de tamaño de almacenamiento.
 
-## Requirements and recommendations
+## Requisitos y recomendaciones
 
 {% note %}
 
-**Note:** Before resizing any storage volume, put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Nota:** Antes de ajustar el tamaño de cualquier volumen de almacenamiento, pon tu instancia en modo de mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
 {% endnote %}
 
-### Minimum requirements
+### Requisitos mínimos
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
-## Increasing the data partition size
+## Aumentar el tamaño de partición de datos
 
-1. Resize the existing user volume disk using your virtualization platform's tools.
+1. Ajusta el disco de volumen existente del usuario utilizando las herramientas de tu plataforma de virtualización.
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. Put the appliance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
-4. Reboot the appliance to detect the new storage allocation:
+3. Pon el aparato en modo mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+4. Reinicia el aparato para detectar la nueva asignación de almacenamiento:
   ```shell
   $ sudo reboot
   ```
-5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
+5. Ejecuta el comando `ghe-storage-extend` para expandir el sistema de archivos `/data/user`:
   ```shell
   $ ghe-storage-extend
   ```
 
-## Increasing the root partition size using a new appliance
+## Aumentar el tamaño de partición raíz utilizando un nuevo aparato
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
-2. Shut down the current appliance:
+1. Configura una nueva instancia {% data variables.product.prodname_ghe_server %} con un disco raíz más grande utilizando la misma versión que tu aparato actual. Para obtener más información, consulta "[Configurar una instancia {% data variables.product.prodname_ghe_server %} ](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+2. Cierra el aparato actual:
   ```shell
   $ sudo poweroff
   ```
-3. Detach the data disk from the current appliance using your virtualization platform's tools.
-4. Attach the data disk to the new appliance with the larger root disk.
+3. Desconecta el disco de datos de tu aparato actual utilizando las herramientas de tu plataforma de virtualización.
+4. Conecta el disco de datos al nuevo aparato con un disco raíz más grande.
 
-## Increasing the root partition size using an existing appliance
+## Aumentar el tamaño de partición raíz utilizando un aparato existente
 
 {% warning %}
 
-**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Advertencia:** Antes de incrementar el tamaño de la partición raíz, debes poner tu instancia en modo de mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
 {% endwarning %}
 
-1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
-1. Run the `parted` command to format the disk:
+1. Conecta un nuevo disco a tu aparato {% data variables.product.prodname_ghe_server %}.
+1. Ejecuta el comando `parted` para formatear el disco:
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-1. To stop replication, run the `ghe-repl-stop` command.
+1. Para detener la replicación, ejecuta el comando `ghe-repl-stop`.
 
    ```shell
    $ ghe-repl-stop
    ```
-   
-1. Run the `ghe-upgrade` command to install a full, platform specific package to the newly partitioned disk. A universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`, will not work as expected. After the `ghe-upgrade` command completes, application services will automatically terminate.
+
+1. Ejecuta el comando `ghe-upgrade` para instalar un paquete específico de plataforma completo al disco recientemente particionado. Un paquete de actualización de hotpatch universal, como `github-enterprise-2.11.9.hpkg` no funcionará como se espera. Después de que se complete el comando `ghe-upgrade`, los servicios de aplicación se terminarán automáticamente.
 
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-1. Shut down the appliance:
+1. Cierra el aparato:
   ```shell
   $ sudo poweroff
   ```
-1. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
-1. Start the appliance.
-1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+1. En el hipervisor, quita el disco raíz anterior y agrega el nuevo disco raíz en la misma ubicación del disco raíz anterior.
+1. Inicia el aparato.
+1. Asegúrate de que los servicios de sistema estén funcionando correctamente y luego sal del modo de mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
-If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
+Si tu aplicativo se configura para la disponibilidad alta o geo-replicación, recuerda iniciar la replicación en cada nodo de réplica utilizando `ghe-repl-start` después de que se haya mejorado el almacenamiento en todos los nodos.

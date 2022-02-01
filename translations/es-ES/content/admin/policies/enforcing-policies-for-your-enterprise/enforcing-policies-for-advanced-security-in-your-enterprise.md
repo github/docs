@@ -1,6 +1,6 @@
 ---
-title: Enforcing policies for Advanced Security in your enterprise
-intro: 'You can enforce policies to manage {% data variables.product.prodname_GH_advanced_security %} features within your enterprise''s organizations, or allow policies to be set in each organization.'
+title: Requerir políticas para la seguridad avanzada en tu empresa
+intro: 'Puedes requerir políticas para administrar las características de {% data variables.product.prodname_GH_advanced_security %} dentro de las organizaciones de tu empresa o permitir que se configuren las políticas en cada organización.'
 permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_GH_advanced_security %} in an enterprise.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
@@ -19,16 +19,16 @@ redirect_from:
   - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-policies-for-advanced-security-in-your-enterprise-account
-shortTitle: Advanced Security policies
+shortTitle: Políticas de seguridad avanzada
 ---
 
-## About policies for {% data variables.product.prodname_GH_advanced_security %} in your enterprise
+## Acerca de las políticas para la {% data variables.product.prodname_GH_advanced_security %} en tu empresa
 
-{% data reusables.advanced-security.ghas-helps-developers %} For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
+{% data reusables.advanced-security.ghas-helps-developers %} Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)".
 
-{% ifversion ghes or ghec %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization on {% data variables.product.product_location %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
+{% ifversion ghes or ghec %}Si compras una licencia para la {% data variables.product.prodname_GH_advanced_security %}, cualquier{% else %}Cualquier{% endif %} organización en {% data variables.product.product_location %} podrá utilizar las características de la {% data variables.product.prodname_advanced_security %}. Puedes requerir políticas que controlen cómo los miembros de tu empresa de {% data variables.product.product_name %} utilizan la {% data variables.product.prodname_advanced_security %}.
 
-## Enforcing a policy for the use of {% data variables.product.prodname_GH_advanced_security %} in your enterprise
+## Requerir una política para utilizar la {% data variables.product.prodname_GH_advanced_security %} en tu empresa
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 
