@@ -21,10 +21,9 @@ WORKDIR $APP_HOME
 # ---------------
 FROM base as all_deps
 
-COPY --chown=node:node .npmrc ./
-COPY --chown=node:node package*.json ./
+COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm ci
+RUN npm ci --no-optional
 
 # For Next.js v12+
 # This the appropriate necessary extra for node:16-alpine
