@@ -37,7 +37,8 @@ jobs:
           fi
 
           echo "Make a new branch"
-          git checkout -b "optimize-images-$(date +'%Y%m%d%H%M%S')"
+          BRANCH="optimize-images-$(date +'%Y%m%d%H%M%S')"
+          git checkout -b $BRANCH
 
           echo "Make a commit"
           git config user.name github-actions
@@ -46,7 +47,7 @@ jobs:
           git commit --message="Optimize images"
 
           echo "Push up changes"
-          git push
+          git push --set-upstream origin $BRANCH
 
           echo "Open a pull request"
           gh pr create --title "Optimize images" --body "Optimize images"
