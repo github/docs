@@ -1,12 +1,13 @@
 ---
-title: Tracking changes in a file
-intro: You can trace changes to lines in a file and discover how parts of the file evolved over time.
+title: Viewing a file
+intro: You can view raw file content or trace changes to lines in a file and discover how parts of the file evolved over time.
 redirect_from:
   - /articles/using-git-blame-to-trace-changes-in-a-file
   - /articles/tracing-changes-in-a-file
   - /articles/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/managing-files-on-github/tracking-changes-in-a-file
+  - /repositories/working-with-files/using-files/tracking-changes-in-a-file
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,8 +15,20 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Track file changes
+shortTitle: View files and track file changes
 ---
+## Viewing or copying the raw file content
+
+With the raw view, you can view or copy the raw content of a file without any styling.
+
+{% data reusables.repositories.navigate-to-repo %}
+1. Click the file that you want to view.
+2. In the upper-right corner of the file view, click **Raw**.
+![Screenshot of the Raw button in the file header](/assets/images/help/repository/raw-file-button.png)
+3. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="The copy icon" %}**.
+
+## Viewing the line-by-line revision history for a file
+
 With the blame view, you can view the line-by-line revision history for an entire file, or view the revision history of a single line within a file by clicking {% octicon "versions" aria-label="The prior blame icon" %}. Each time you click {% octicon "versions" aria-label="The prior blame icon" %}, you'll see the previous revision information for that line, including who committed the change and when.
 
 ![Git blame view](/assets/images/help/repository/git_blame.png)
