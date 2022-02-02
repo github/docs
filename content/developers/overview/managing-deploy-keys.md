@@ -34,12 +34,12 @@ In many cases, especially in the beginning of a project, SSH agent forwarding is
 #### Setup
 
 1. Turn on agent forwarding locally. See [our guide on SSH agent forwarding][ssh-agent-forwarding] for more information.
-2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this: 
+2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this:
 `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## HTTPS cloning with OAuth tokens
 
-If you don't want to use SSH keys, you can use [HTTPS with OAuth tokens][git-automation].
+If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
 #### Pros
 
@@ -58,7 +58,7 @@ If you don't want to use SSH keys, you can use [HTTPS with OAuth tokens][git-aut
 
 #### Setup
 
-See [our guide on Git automation with tokens][git-automation].
+See [our guide on creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## Deploy keys
 
@@ -116,7 +116,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 ## Server-to-server tokens
 
-If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, _server-to-server_ tokens from that GitHub App. The server-to-server tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents. 
+If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, _server-to-server_ tokens from that GitHub App. The server-to-server tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
 
 Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for Github Apps](/developers/apps/rate-limits-for-github-apps).
 
@@ -188,4 +188,3 @@ This means that you cannot automate the creation of accounts. But if you want to
 
 ## Further reading
 - [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
-

@@ -5,6 +5,7 @@ redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
+  - /github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations
 versions:
   fpt: '*'
   ghec: '*'
