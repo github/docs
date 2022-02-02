@@ -86,7 +86,7 @@
                       },
                       {
                           "name": "ENABLED_LANGUAGES",
-                          "value": "en,ja"
+                          "value": "en"
                       }
                   ],
                   "linuxFxVersion": "[parameters('linuxFxVersion')]",
