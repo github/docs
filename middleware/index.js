@@ -29,7 +29,6 @@ import detectLanguage from './detect-language.js'
 import context from './context.js'
 import shortVersions from './contextualizers/short-versions.js'
 import redirectsExternal from './redirects/external.js'
-import helpToDocs from './redirects/help-to-docs.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
 import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
@@ -177,7 +176,6 @@ export default function (app) {
   // I ordered these by use frequency
   app.use(connectSlashes(false))
   app.use(instrument(redirectsExternal, './redirects/external'))
-  app.use(instrument(helpToDocs, './redirects/help-to-docs'))
   app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
 

@@ -28,9 +28,13 @@ Cuando eliminas a un colaborador de un repositorio en tu organización, el colab
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% data reusables.repositories.click-collaborators-teams %}
+{% elsif ghes < 3.4 or ghae %}
 {% data reusables.repositories.navigate-to-manage-access %}
+{% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
-5. En el campo de búsqueda, comienza a teclear el nombre de la persona que desees invitar y luego haz clic en un nombre de la lista de coincidencias. ![Campo de búsqueda para teclear el nombre del equipo o persona que deseas invitar al repositorio](/assets/images/help/repository/manage-access-invite-search-field.png)
+1. En el campo de búsqueda, comienza a teclear el nombre de la persona que desees invitar y luego haz clic en un nombre de la lista de coincidencias. ![Campo de búsqueda para teclear el nombre del equipo o persona que deseas invitar al repositorio](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Debajo de "Elige un rol", selecciona el rol de repositorio que quieres asignar a la persona y luego haz clic en **Agregar NOMBRE a REPOSITORIO**. ![Seleccionar los permisos para el equipo o persona](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
 ## Administrar el acceso de una persona a un repositorio de una organización

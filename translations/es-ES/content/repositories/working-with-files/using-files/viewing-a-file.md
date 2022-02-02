@@ -1,12 +1,13 @@
 ---
-title: Rastrear cambios en un archivo
-intro: Puedes rastrear cambios de líneas en un archivo y descubrir la manera en que las partes del archivo fueron evolucionando.
+title: Viewing a file
+intro: You can view raw file content or trace changes to lines in a file and discover how parts of the file evolved over time.
 redirect_from:
   - /articles/using-git-blame-to-trace-changes-in-a-file
   - /articles/tracing-changes-in-a-file
   - /articles/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/managing-files-on-github/tracking-changes-in-a-file
+  - /repositories/working-with-files/using-files/tracking-changes-in-a-file
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,8 +15,19 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Rastrar cambios en los archivos
+shortTitle: View files and track file changes
 ---
+
+## Viewing or copying the raw file content
+
+With the raw view, you can view or copy the raw content of a file without any styling.
+
+{% data reusables.repositories.navigate-to-repo %}
+1. Click the file that you want to view.
+2. In the upper-right corner of the file view, click **Raw**. ![Screenshot of the Raw button in the file header](/assets/images/help/repository/raw-file-button.png)
+3. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="The copy icon" %}**.
+
+## Viewing the line-by-line revision history for a file
 
 Con la vista de último responsable, puedes ver el historial de revisión línea por línea para todo un archivo o ver el historial de revisión de una única línea dentro de un archivo haciendo clic en {% octicon "versions" aria-label="The prior blame icon" %}. Cada vez que hagas clic en {% octicon "versions" aria-label="The prior blame icon" %}, verás la información de revisión anterior para esa línea, incluido quién y cuándo confirmó el cambio.
 
