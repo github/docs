@@ -4,6 +4,7 @@ intro: 'You can install apps from {% data variables.product.prodname_marketplace
 redirect_from:
   - /articles/installing-an-app-in-your-personal-account
   - /github/customizing-your-github-workflow/installing-an-app-in-your-personal-account
+  - /github/customizing-your-github-workflow/purchasing-and-installing-apps-in-github-marketplace/installing-an-app-in-your-personal-account
 versions:
   fpt: '*'
   ghec: '*'
