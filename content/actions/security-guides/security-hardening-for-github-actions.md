@@ -202,6 +202,10 @@ The same principles described above for using third-party actions also apply to 
 {% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
 {% endif %}
 
+## Using OpenSSF Scorecards to secure workflows
+
+Scorecards is an automated security tool that flags risky supply chain practices. You can use the Scorecards [GitHub Action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards Action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project makes a number of checks, including script injection attacks, token permissions, and pinned Actions.
+
 ## Potential impact of a compromised runner
 
 These sections consider some of the steps an attacker can take if they're able to run malicious commands on a {% data variables.product.prodname_actions %} runner. 
