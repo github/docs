@@ -1,5 +1,13 @@
 # GitHub Docs <!-- omit in toc --> 
 
+### OWNER Zachry Tyler Wood
+### 5323 BRADFORD DRIVE
+### DALLAS TX 75235-8313
+### Bitcoin[BTC-USD] BTCUSD CCC
+### o'Auth: **approves**
+### LICENSE.md
+### All RIGHTS RESERVED 09-17-2091-17:00:00:099CMST
+BY ZACHRY TYLER WOOD BITCOIN BTC-USD BTCUSD CCC BTC BTCS BCHS MORGAN STANLEY SMITH BARNEY INVESTMENTS HOLDINGS MANAGEMENT AGENCIES NA LLC NA GOOG META FB SNAP YOUTUBE ARE ALPHABETINC & BULLION IS BERKSHIRE WYNN
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
