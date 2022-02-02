@@ -48,6 +48,7 @@ toc:
   guides: Guides
   whats_new: What's new
   videos: Videos
+  all_changelogs: All changelog posts
 pages:
   article_version: 'Article version'
   miniToc: In this article
@@ -170,7 +171,10 @@ product_landing:
   release_notes_for: Release notes for
   upgrade_from: Upgrade from
   browse_all_docs: Browse all docs
+  browse_all: Browse all
+  docs: docs
   explore_release_notes: Explore release notes
+  view: View all
 product_guides:
   start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'

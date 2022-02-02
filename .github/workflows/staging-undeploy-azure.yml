@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 5
     env:
       GITHUB_EVENT_NUMBER: ${{ github.event.number }}
-      RESOURCE_GROUP: docs-nonprod
+      STAGING_RESOURCE_GROUPS: 4
       NONPROD_REGISTRY_NAME: ghdocs
       IMAGE_REPO: ${{ github.repository }}/pr-${{ github.event.number }}
 
@@ -26,6 +26,7 @@ jobs:
         id: vars
         run: |
           REPO_NAME=${GITHUB_REPOSITORY#*\/}
+          echo "RESOURCE_GROUP=preview-env-${REPO_NAME}-$((${GITHUB_EVENT_NUMBER} % ${STAGING_RESOURCE_GROUPS}))" >> $GITHUB_ENV
           echo "DEPLOYMENT_NAME=${REPO_NAME}-pr-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
           echo "APP_NAME=gh${REPO_NAME}-staging-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
 

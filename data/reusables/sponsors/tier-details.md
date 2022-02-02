@@ -3,9 +3,10 @@ You can create up to 10 one-time sponsorship tiers and 10 monthly tiers for spon
 You can customize the rewards for each tier. For example, rewards for a tier could include:
 - Early access to new versions 
 - Logo or name in README
-- Access to a private repository
 - Weekly newsletter updates
 - Other rewards your sponsors would enjoy ✨ 
+
+{% data reusables.sponsors.sponsors-only-repos %} For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)."
 
 You can include a welcome message with information about accessing or receiving rewards, which will be visible after payment and in the welcome email.
 

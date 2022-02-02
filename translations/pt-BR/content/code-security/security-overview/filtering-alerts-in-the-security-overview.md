@@ -5,6 +5,7 @@ permissions: Organization owners and security managers can access the security o
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
+  ghae: issue-4554
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -99,7 +100,7 @@ Disponível na visão geral no nível da organização.
 | ------------------------- | ------------------------------------------------------------ |
 | <code>topic:<em>TOPIC-NAME</em></code> | Exibe repositórios que são classificados com o *TOPIC-NAME*. |
 
-{% ifversion ghec or ghes > 3.4 %}
+{% if security-overview-views %}
 
 ## Filtrar por gravidade
 
