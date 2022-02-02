@@ -4,6 +4,7 @@ intro: 'You can see which organization owners, members, and outside collaborator
 redirect_from:
   - /articles/viewing-whether-users-in-your-organization-have-2fa-enabled
   - /github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled
+  - /organizations/keeping-your-organization-secure/viewing-whether-users-in-your-organization-have-2fa-enabled
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Usage of 2FA in organization
+shortTitle: View 2FA usage
 ---
 
 {% note %}

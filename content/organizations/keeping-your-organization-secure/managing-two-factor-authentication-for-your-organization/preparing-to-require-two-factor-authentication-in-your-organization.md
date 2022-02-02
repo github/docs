@@ -4,6 +4,7 @@ intro: 'Before requiring two-factor authentication (2FA), you can notify users a
 redirect_from:
   - /articles/preparing-to-require-two-factor-authentication-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/preparing-to-require-two-factor-authentication-in-your-organization
+  - /organizations/keeping-your-organization-secure/preparing-to-require-two-factor-authentication-in-your-organization
 versions:
   fpt: '*'
   ghes: '*'

@@ -4,6 +4,7 @@ intro: You can restrict access to your organization's assets by configuring a li
 product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
+  - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 versions:
   fpt: '*'
   ghae: '*'
