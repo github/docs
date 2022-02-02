@@ -14,7 +14,7 @@ topics:
 
 ## Sobre {% data variables.product.prodname_actions %} para empresas
 
-{% data reusables.actions.about-actions %} com {% data variables.product.prodname_actions %}, sua empresa pode automatizar, personalizar e executar seus fluxos de trabalho de desenvolvimento de software como testes e implantações. Para obter mais informações sobre os princípios básicos de {% data variables.product.prodname_actions %}, consulte "[Compreendendo {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)".
+{% data reusables.actions.about-actions %} com {% data variables.product.prodname_actions %}, sua empresa pode automatizar, personalizar e executar seus fluxos de trabalho de desenvolvimento de software como testes e implantações. For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
 ![Diagrama de trabalhos em execução em executores auto-hospedados](/assets/images/help/images/actions-enterprise-overview.png)
 

@@ -27,12 +27,12 @@ Os repositórios a seguir possuem instruções detalhadas para configurar esses 
 
 Cada solução tem certas especificações que podem ser importantes para considerar:
 
-| **Funcionalidades**                                          | **actions-runner-controller**                                                                 | **terraform-aws-github-runner**                                                      |
-|:------------------------------------------------------------ |:--------------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------ |
-| Tempo de execução                                            | Kubernetes                                                                                    | VMs do Linux e do Windows                                                            |
-| Nuvens compatíveis                                           | Azure, Amazon Web Services, Google Cloud Platform, nos locais                                 | Amazon Web Services                                                                  |
-| Onde os executores podem ser dimensionados                   | Níveis de empresa, organização e repositório. Por etiqueta do executor e grupo de executores. | Níveis de organização e repositório. Por etiqueta do executor e grupo de executores. |
-| Suporte a dimensionamento automático baseado baseado no pull | Sim                                                                                           | Não                                                                                  |
+| **Funcionalidades**                        | **actions-runner-controller**                                                                 | **terraform-aws-github-runner**                                                      |
+|:------------------------------------------ |:--------------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------ |
+| Tempo de execução                          | Kubernetes                                                                                    | VMs do Linux e do Windows                                                            |
+| Nuvens compatíveis                         | Azure, Amazon Web Services, Google Cloud Platform, nos locais                                 | Amazon Web Services                                                                  |
+| Onde os executores podem ser dimensionados | Níveis de empresa, organização e repositório. Por etiqueta do executor e grupo de executores. | Níveis de organização e repositório. Por etiqueta do executor e grupo de executores. |
+| How runners can be scaled                  | Webhook events, Scheduled, Pull-based                                                         | Webhook events, Scheduled (org-level runners only)                                   |
 
 ## Usaar executores efêmeros para dimensionamento automático
 
@@ -42,8 +42,8 @@ Esta abordagem permite que você gerencie os seus executores como sistemas efêm
 
 Para adicionar um executor efêmero ao seu ambiente, inclua o parâmetro `--ephemeral` ao registrar seu executor usando `config.sh`. Por exemplo:
 
-```
-$ ./config.sh --url https://github.com/octo-org --token example-token --ephemeral
+```shell
+./config.sh --url https://github.com/octo-org --token example-token --ephemeral
 ```
 
 O serviço {% data variables.product.prodname_actions %} irá cancelar o resgistro do runner automaticamente depois de ter processado um trabalho. Em seguida, você poderá criar a sua própria automação que limpa o runner depois que ele tiver seu registro cancelado.
@@ -51,6 +51,28 @@ O serviço {% data variables.product.prodname_actions %} irá cancelar o resgist
 {% note %}
 
 **Observação:** Se um trabalho estiver etiquetado para um certo tipo de executor, mas nenhuma correspondência desse tipo estiver disponível, o trabalho não irá falhar imediatamente no momento da entrada na fila. Em vez disso, o trabalho permanecerá na fila até que o período de tempo limite de 24 horas expire.
+
+{% endnote %}
+
+## Controlling runner software updates on self-hosted runners
+
+By default, self-hosted runners will automatically perform a software update whenever a new version of the runner software is available.  If you use ephemeral runners in containers then this can lead to repeated software updates when a new runner version is released.  Turning off automatic updates allows you to update the runner version on the container image directly on your own schedule.
+
+If you want to turn off automatic software updates and install software updates yourself, you can specify the `--disableupdate` parameter when starting the runner.  Por exemplo:
+
+```shell
+./run.sh --disableupdate
+```
+
+If you disable automatic updates, you must still update your runner version regularly.  New functionality in {% data variables.product.prodname_actions %} requires changes in both the {% data variables.product.prodname_actions %} service _and_ the runner software.  The runner may not be able to correctly process jobs that take advantage of new features in {% data variables.product.prodname_actions %} without a software update.
+
+If you disable automatic updates, you will be required to update your runner version within 30 days of a new version being made available.  You may want to subscribe to notifications for releases in the [`actions/runner` repository](https://github.com/actions/runner/releases). Para obter mais informações, consulte “[Configurando notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#about-custom-notifications)".
+
+For instructions on how to install the latest runner version, see the installation instructions for [the latest release](https://github.com/actions/runner/releases).
+
+{% note %}
+
+**Note:** If you do not perform a software update within 30 days, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner.  In addition, if a critical security update is required, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner until it has been updated.
 
 {% endnote %}
 

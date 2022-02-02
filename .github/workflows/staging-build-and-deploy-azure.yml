@@ -38,7 +38,7 @@ jobs:
       url: ${{ steps.deploy.outputs.defaultHostName }}
     env:
       GITHUB_EVENT_NUMBER: ${{ github.event.number }}
-      RESOURCE_GROUP: docs-nonprod
+      STAGING_RESOURCE_GROUPS: 4
       NONPROD_REGISTRY_USERNAME: ghdocs
       # Image tag is unique to each workflow run so that it always triggers a new deployment
       DOCKER_IMAGE: ${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}/pr-${{ github.event.number }}:${{ github.event.pull_request.head.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -50,6 +50,7 @@ jobs:
           REPO_NAME=${GITHUB_REPOSITORY#*\/}
           echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
           echo "DEPLOYMENT_NAME=${REPO_NAME}-pr-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
+          echo "RESOURCE_GROUP=preview-env-${REPO_NAME}-$((${GITHUB_EVENT_NUMBER} % ${STAGING_RESOURCE_GROUPS}))" >> $GITHUB_ENV
           echo "APP_NAME=gh${REPO_NAME}-staging-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
 
       - name: 'Az CLI login'

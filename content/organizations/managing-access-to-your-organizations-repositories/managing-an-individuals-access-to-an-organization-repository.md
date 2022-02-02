@@ -28,9 +28,13 @@ When you remove a collaborator from a repository in your organization, the colla
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% data reusables.repositories.click-collaborators-teams %}
+{% elsif ghes < 3.4 or ghae %}
 {% data reusables.repositories.navigate-to-manage-access %}
+{% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
-5. In the search field, start typing the name of the person to invite, then click a name in the list of matches.
+1. In the search field, start typing the name of the person to invite, then click a name in the list of matches.
   ![Search field for typing the name of a team or person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Under "Choose a role", select the repository role to assign the person, then click **Add NAME to REPOSITORY**.
   ![Selecting permissions for the team or person](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
