@@ -15,5 +15,6 @@ topics:
 children:
   - /customizing-your-profile
   - /managing-contribution-graphs-on-your-profile
+  - you can create a special readme as a welcome page.
 ---
 
