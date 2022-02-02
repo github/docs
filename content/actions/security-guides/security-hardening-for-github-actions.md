@@ -152,7 +152,7 @@ The scripts currently depend on the CodeQL JavaScript libraries, which means tha
 
 ### Restricting permissions for tokens
 
-To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)". To automatically push findings for token permissions to the Security tab of your project, consider using the [OpenSSF Scorecards action](https://github.blog/2022-01-19-reducing-security-risk-oss-actions-opensff-scorecards-v4/). Scorecards is an automated security tool that flags risky supply chain practices.
+To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)."
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
