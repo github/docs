@@ -40,6 +40,7 @@ jobs:
       GITHUB_EVENT_NUMBER: ${{ github.event.number }}
       STAGING_RESOURCE_GROUPS: 4
       NONPROD_REGISTRY_USERNAME: ghdocs
+      ENABLE_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
       # Image tag is unique to each workflow run so that it always triggers a new deployment
       DOCKER_IMAGE: ${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}/pr-${{ github.event.number }}:${{ github.event.pull_request.head.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
 
@@ -87,24 +88,64 @@ jobs:
       - name: Check out LFS objects
         run: git lfs checkout
 
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Clone early access
+      - if: ${{ env.ENABLE_EARLY_ACCESS }}
+        name: Determine which docs-early-access branch to clone
+        id: 'check-early-access'
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
-          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: ${{ github.event.pull_request.head.sha }}
-        run: npm install dotenv && node script/early-access/clone-for-build.js
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        with:
+          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          result-encoding: string
+          script: |
+            const { BRANCH_NAME } = process.env
+
+            try {
+              const { status } = await github.request('GET /repos/{owner}/{repo}/branches/{branch}', {
+                owner: 'github',
+                repo: 'docs-early-access',
+                branch: BRANCH_NAME,
+              })
+
+              if (status !== 200) {
+                throw new Error('Received non-200 response from branch GET request')
+              }
+
+              console.log(`Using docs-early-access branch '${BRANCH_NAME}'`)
+              return BRANCH_NAME
+            } catch (e) {
+              console.log(`Failed to get docs-early-access branch '${BRANCH_NAME}', 'main' will be used instead.`)
+              return 'main'
+            }
+
+      - if: ${{ env.ENABLE_EARLY_ACCESS }}
+        name: Clone docs-early-access
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: ${{ steps.check-early-access.outputs.result }}
+
+      - if: ${{ env.ENABLE_EARLY_ACCESS }}
+        name: Merge docs-early-access repo's folders
+        run: .github/actions-scripts/merge-early-access.sh
+
+      # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
+      - name: 'Prune for preview env'
+        run: .github/actions-scripts/prune-for-preview-env.sh
 
       - name: 'Build and push image'
         uses: docker/build-push-action@1814d3dfb36d6f84174e61f4a4b05bd84089a4b9
         with:
           context: .
           push: true
-          target: ${{ fromJSON('["production", "production_early_access"]')[github.repository == 'github/docs-internal'] }}
+          target: preview
           tags: ${{ env.DOCKER_IMAGE }}
           # we only pull the `main` cache image
           cache-from: |
             type=local,src=/tmp/.buildx-cache
-            type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main
+            type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
           # `main-docker-cache.yml` handles updating the remote cache so we don't pollute it with PR specific code
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
