@@ -29,7 +29,7 @@ Ao atualizar seus fluxos de trabalho para usar tokens do OIDC, você pode adotar
 
 - **Sem segredos na nuvem**: Você não vai precisar duplicar suas credenciais da nuvem como segredos de {% data variables.product.prodname_dotcom %} de longa duração. Em vez disso, você pode configurar a confiança do OIDC no seu provedor de nuvem, e, em seguida, atualizar seus fluxos de trabalho para solicitar um token de acesso curto do provedor de nuvem por meio do OIDC.
 - **Autenticação e gestão de autorização**: Você tem mais controle granular sobre como fluxos de trabalho podem usar credenciais, usando a autenticação de seu provedor de nuvem (authN) e ferramentas de autorização (authZ) para controlar o acesso a recursos na nuvem.
-- **Girando credenciais**: Com o OIDC, seu provedor de nuvem emite um token de acesso de curta duração que só é válido para uma única execução de fluxo de trabalho, e, posteriormente, expira automaticamente.
+- **Rotating credentials**: With OIDC, your cloud provider issues a short-lived access token that is only valid for a single job, and then automatically expires.
 
 ### Introdução ao OIDC
 
@@ -38,7 +38,7 @@ O diagrama a seguir fornece uma visão geral de como o provedor OIDC de {% data 
 ![Diagrama do OIDC](/assets/images/help/images/oidc-architecture.png)
 
 1. No seu provedor de nuvem, crie uma confiança do OIDC entre a sua função na nuvem e o(s) seu(s) fluxo(s) de trabalho {% data variables.product.prodname_dotcom %} que precisam acessar a nuvem.
-2. Toda vez que o trabalho do seu fluxo de trabalho de {% data variables.product.prodname_actions %} for executada, o provedor do OIDC de {% data variables.product.prodname_dotcom %} irá gerar automaticamente um token do OIDC. Esse token contém várias reivindicações para estabelecer uma identidade de segurança reforçada e verificável sobre o fluxo de trabalho específico que está tentando autenticar.
+2. Every time your job runs, {% data variables.product.prodname_dotcom %}'s OIDC Provider auto-generates an OIDC token. Esse token contém várias reivindicações para estabelecer uma identidade de segurança reforçada e verificável sobre o fluxo de trabalho específico que está tentando autenticar.
 3. Você pode incluir um passo ou ação no seu trabalho para solicitar este token do provedor do OIDC de {% data variables.product.prodname_dotcom %}, e apresentá-lo ao provedor da nuvem.
 4. Uma vez que o provedor de nuvem valida as reivindicações apresentadas no token, ele irá fornecer, posteriormente, um token de acesso à nuvem de curta duração que está disponível apenas para a duração do trabalho.
 
@@ -51,7 +51,7 @@ Ao configurar sua nuvem para confiar no provedor do OIDC de {% data variables.pr
 
 ### Entendendo o token do OIDC
 
-Cada execução do fluxo de trabalho solicita um token do OIDC de {% data variables.product.prodname_dotcom %}, que responde com um token web do JSON gerado automaticamente (JWT) que é único para cada trabalho de fluxo de trabalho, em que é gerado. Durante a execução de um fluxo de trabalho, o token OIDC é apresentado ao provedor de nuvem. Para validar o token, o provedor de nuvem verifica se o assunto do token do OIDC e outras reivindicações correspondem às condições que foram pré-configuradas na definição de confiança do OIDC da função da nuvem.
+Each job requests an OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider, which responds with an automatically generated JSON web token (JWT) that is unique for each workflow job where it is generated. When the job runs, the OIDC token is presented to the cloud provider. Para validar o token, o provedor de nuvem verifica se o assunto do token do OIDC e outras reivindicações correspondem às condições que foram pré-configuradas na definição de confiança do OIDC da função da nuvem.
 
 O exemplo a seguir do token do OIDC usa um assunto (`sub`) que faz referência a um ambiente de trabalho chamado `prod` no repositório `octo-org/octo-repo`.
 
@@ -126,7 +126,7 @@ O token também inclui reivindicações personalizadas fornecidas por {% data va
 | `repository_owner`  | O nome da organização em que o `repositório` é armazenado.                                                                                                                                                                                                                                         |
 | `run_id`            | O ID da execução do fluxo de trabalho que acionou o fluxo de trabalho.                                                                                                                                                                                                                             |
 | `run_number`        | O número de vezes que este fluxo de trabalho foi executado.                                                                                                                                                                                                                                        |
-| `run_attempt`       | O número de vezes que este fluxo de trabalho foi desativado.                                                                                                                                                                                                                                       |
+| `run_attempt`       | O número de vezes que este fluxo de trabalho foi executado.                                                                                                                                                                                                                                        |
 | `fluxo de trabalho` | Nome do fluxo de trabalho.                                                                                                                                                                                                                                                                         |
 
 ### Definir condições de confiança em funções de nuvem usando as reivindicações do OIDC
@@ -147,7 +147,7 @@ Além disso, seu provedor de nuvem poderia permitir que você atribuísse uma fu
 
 ### Exemplos
 
-Os exemplos a seguir demonstram como usar "Assunto" como uma condição. O [assunto](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) usa informações do [`contexto de ` trabalho da execução do fluxo de trabalho](/actions/learn-github-actions/contexts#job-context) e orienta o seu provedor na nuvem que as solicitações do token de acesso só podem ser concedidas para solicitações de fluxos de trabalho em execução em branches e ambientes específicos. As seguintes secções descrevem alguns assuntos comuns que você pode usar.
+Os exemplos a seguir demonstram como usar "Assunto" como uma condição. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the [`job` context](/actions/learn-github-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. As seguintes secções descrevem alguns assuntos comuns que você pode usar.
 
 #### Filtragem para um ambiente específico
 
@@ -160,7 +160,7 @@ Você pode configurar um assunto que filtra um nome de [ambiente](/actions/deplo
 
 #### Filtrando eventos `pull_request`
 
-Você pode configurar um assunto que filtra o evento [`pull_request`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags). Neste exemplo, a execução do fluxo de trabalho deve ter sido acionada por um evento `pull_request` em um repositório denominado `octo-repo` que pertence à organização `octo-org`:
+Você pode configurar um assunto que filtra o evento [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request). Neste exemplo, a execução do fluxo de trabalho deve ter sido acionada por um evento `pull_request` em um repositório denominado `octo-repo` que pertence à organização `octo-org`:
 
 
 |          |                                        |

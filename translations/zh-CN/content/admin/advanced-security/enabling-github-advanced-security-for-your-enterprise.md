@@ -28,17 +28,6 @@ topics:
 有关分阶段部署 GitHub Advanced Security 的指导，请参阅“[在企业中部署 GitHub Advanced Security](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)”。
 {% endif %}
 
-## 启用 {% data variables.product.prodname_GH_advanced_security %} 的前提条件
-
-1. 升级 {% data variables.product.product_name %} 许可以包括 {% data variables.product.prodname_GH_advanced_security %}。{% ifversion ghes > 3.0 %}有关许可的更多信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)”。{% endif %}
-2. 下载新的许可文件。 更多信息请参阅“[下载 {% data variables.product.prodname_enterprise %} 的许可](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)”。
-3. 将新许可文件上传到 {% data variables.product.product_location %}。 更多信息请参阅“[上传新许可到 {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)”。{% ifversion ghes %}
-4. 审查您计划启用的功能的先决条件。
-
-    - {% data variables.product.prodname_code_scanning_capc %}，请参阅“[为设备配置 {% data variables.product.prodname_code_scanning %}](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)”。
-    - {% data variables.product.prodname_secret_scanning_caps %}，请参阅“[为设备配置 {% data variables.product.prodname_secret_scanning %}](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)”。{% endif %}
-    - {% data variables.product.prodname_dependabot %}，请参阅“[在企业帐户上启用依赖关系图和 {% data variables.product.prodname_dependabot_alerts %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)”。
-
 ## 检查您的许可是否包含 {% data variables.product.prodname_GH_advanced_security %}
 
 {% ifversion ghes > 3.0 %}
@@ -55,6 +44,17 @@ topics:
 
 {% data reusables.enterprise_management_console.advanced-security-license %}
 {% endif %}
+
+## 启用 {% data variables.product.prodname_GH_advanced_security %} 的前提条件
+
+1. 升级 {% data variables.product.product_name %} 许可以包括 {% data variables.product.prodname_GH_advanced_security %}。{% ifversion ghes > 3.0 %}有关许可的更多信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)”。{% endif %}
+2. 下载新的许可文件。 更多信息请参阅“[下载 {% data variables.product.prodname_enterprise %} 的许可](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)”。
+3. 将新许可文件上传到 {% data variables.product.product_location %}。 更多信息请参阅“[上传新许可到 {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)”。{% ifversion ghes %}
+4. 审查您计划启用的功能的先决条件。
+
+    - {% data variables.product.prodname_code_scanning_capc %}，请参阅“[为设备配置 {% data variables.product.prodname_code_scanning %}](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)”。
+    - {% data variables.product.prodname_secret_scanning_caps %}，请参阅“[为设备配置 {% data variables.product.prodname_secret_scanning %}](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)”。{% endif %}
+    - {% data variables.product.prodname_dependabot %}, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
 
 ## 启用和禁用 {% data variables.product.prodname_GH_advanced_security %} 功能
 

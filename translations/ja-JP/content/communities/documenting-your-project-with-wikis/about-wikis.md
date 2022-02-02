@@ -2,7 +2,7 @@
 title: ウィキについて
 intro: リポジトリのドキュメンテーションをウィキでホストして、他者が利用してプロジェクトにコントリビュートすることを可能にできます。
 redirect_from:
-  - /articles/about-github-wikis/
+  - /articles/about-github-wikis
   - /articles/about-wikis
   - /github/building-a-strong-community/about-wikis
 product: '{% data reusables.gated-features.wikis %}'
@@ -19,7 +19,7 @@ Every repository on {% ifversion ghae %}{% data variables.product.product_name %
 
 ウィキでは、{% data variables.product.product_name %} のあらゆる他の場所と同じようにコンテンツを書くことができます。 詳細は「[{% data variables.product.prodname_dotcom %} で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)」を参照してください。 私たちは、さまざまなフォーマットを HTML に変更するのに[私たちのオープンソースマークアップライブラリ](https://github.com/github/markup)を使っているので、Markdown あるいはその他任意のサポートされているフォーマットで書くことができます。
 
-{% ifversion fpt or ghes or ghec %}パブリックリポジトリに Wiki を作成すると、{% ifversion ghes %}{% data variables.product.product_location %}{% else %}パブリック{% endif %}にアクセスできるすべてのユーザがその Wiki を利用できます。 {% endif %}If you create a wiki in an internal or private repository, only {% ifversion fpt or ghes or ghec %}people{% elsif ghae %}enterprise members{% endif %} with access to the repository can access the wiki. 詳細は「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。
+{% ifversion fpt or ghes or ghec %}パブリックリポジトリに Wiki を作成すると、{% ifversion ghes %}{% data variables.product.product_location %}{% else %}パブリック{% endif %}にアクセスできるすべてのユーザがその Wiki を利用できます。 {% endif %}If you create a wiki in a private{% ifversion ghec or ghes %} or internal{% endif %} repository, only {% ifversion fpt or ghes or ghec %}people{% elsif ghae %}enterprise members{% endif %} with access to the repository can access the wiki. 詳細は「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。
 
 ウィキは、{% data variables.product.product_name %} 上で直接編集することも、ウィキのファイルをローカルで編集することもできます。 デフォルトでは、リポジトリへの書き込みアクセス権を持つユーザのみが Wiki に変更を加えることができますが、{% data variables.product.product_location %} のすべてのユーザが{% ifversion ghae %}内部{% else %}パブリック{% endif %}リポジトリの Wiki に貢献できるようにすることも可能ですす。 詳細は「[ウィキへのアクセス権限を変更する](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)」を参照してください。
 

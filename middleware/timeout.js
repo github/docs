@@ -16,13 +16,11 @@ export default timeout.handler({
   disable: [],
 
   onTimeout: function (req, res, next) {
-    const incrementTags = []
-    // Be careful with depending on attributes set on the `req` because
-    // under certain conditions the contextualizers might not yet have
-    // had a chance to run.
-    if (req.pagePath) {
-      incrementTags.push(`path:${req.pagePath}`)
-    }
+    // The `req.pagePath` can come later so it's not guaranteed to always
+    // be present. It's added by the `handle-next-data-path.js` middleware
+    // we translates those "cryptic" `/_next/data/...` URLs from
+    // client-side routing.
+    const incrementTags = [`path:${req.pagePath || req.path}`]
     if (req.context?.currentCategory) {
       incrementTags.push(`product:${req.context.currentCategory}`)
     }

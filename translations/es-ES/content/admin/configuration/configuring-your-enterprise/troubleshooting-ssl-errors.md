@@ -2,8 +2,8 @@
 title: Errores de solución de problemas de SSL
 intro: 'Si te encuentras con problemas de SSL en tu aparato, puedes tomar medidas para resolverlos.'
 redirect_from:
-  - /enterprise/admin/articles/troubleshooting-ssl-errors/
-  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
+  - /enterprise/admin/articles/troubleshooting-ssl-errors
+  - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors

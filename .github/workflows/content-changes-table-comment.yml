@@ -7,10 +7,19 @@ name: Content Changes Table Comment
 on:
   workflow_dispatch:
   pull_request_target:
-    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   PR-Preview-Links:
+    if: github.event.pull_request.user.login != 'Octomerger'
     name: Add staging/live links to PR
     runs-on: ubuntu-latest
     outputs:
@@ -38,10 +47,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check out repo content
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Setup Node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm

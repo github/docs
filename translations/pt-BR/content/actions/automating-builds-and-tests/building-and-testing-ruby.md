@@ -17,7 +17,6 @@ shortTitle: Criar & testar Ruby
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -30,11 +29,11 @@ Recomendamos que você tenha um entendimento básico do Ruby, YAML, das opções
 - [Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
 - [Ruby em 20 minutos](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Primeiros passos com o modelo de fluxo de trabalho do Ruby
+## Usando o fluxo de trabalho inicial do Ruby
 
-{% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho do Ruby que funcionará para a maioria dos projetos do Ruby. Para obter mais informações, consulte o [modelo do workflow do Ruby](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
+{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial do Ruby que irá funcionar na maioria dos projetos do Ruby. Para obter mais informações, consulte o [fluxo de trabalho inicial do Ruby](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do repositório. O fluxo de trabalho mostrado abaixo pressupõe que o branch padrão para o seu repositório é `principal`.
+Para iniciar rapidamente, adicione o fluxo de trabalho inicial para o diretório `.github/workflows` do seu repositório. O fluxo de trabalho mostrado abaixo pressupõe que o branch padrão para o seu repositório é `principal`.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -239,7 +238,7 @@ jobs:
 
 ## Fazer linting do seu código
 
-O exemplo a seguir instala `rubocop` e o utiliza para fazer lint de todos os arquivos. Para obter mais informações, consulte [Rubocop](https://github.com/rubocop-hq/rubocop). Pode [configurar o Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir as regras específicas de linting.
+O exemplo a seguir instala `rubocop` e o utiliza para fazer lint de todos os arquivos. Para obter mais informações, consulte [RuboCop](https://github.com/rubocop-hq/rubocop). Pode [configurar o Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir as regras específicas de linting.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -284,7 +283,7 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

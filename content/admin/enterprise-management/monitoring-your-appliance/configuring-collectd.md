@@ -3,7 +3,7 @@ title: Configuring collectd
 intro: '{% data variables.product.prodname_enterprise %} can gather data with `collectd` and send it to an external `collectd` server. Among other metrics, we gather a standard set of data such as CPU utilization, memory and disk consumption, network interface traffic and errors, and the VM''s overall load.'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
-  - /enterprise/admin/articles/configuring-collectd/
+  - /enterprise/admin/articles/configuring-collectd
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:
@@ -46,7 +46,7 @@ By default, `collectd` forwarding is disabled on {% data variables.product.prodn
 
 ## Exporting collectd data with `ghe-export-graphs`
 
-The command-line tool `ghe-export-graphs` will export the data that `collectd` stores in RRD databases. This command turns the data into XML and exports it into a single tarball (.tgz).
+The command-line tool `ghe-export-graphs` will export the data that `collectd` stores in RRD databases. This command turns the data into XML and exports it into a single tarball (`.tgz`).
 
 Its primary use is to provide the {% data variables.contact.contact_ent_support %} team with data about a VM's performance, without the need for downloading a full Support Bundle. It shouldn't be included in your regular backup exports and there is no import counterpart. If you contact {% data variables.contact.contact_ent_support %}, we may ask for this data to assist with troubleshooting.
 

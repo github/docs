@@ -3,7 +3,7 @@ title: Filtrar arquivos em uma pull request
 intro: 'Para facilitar a rápida revisão de alterações em uma pull request extensa, você pode filtrar arquivos alterados.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
-  - /articles/filtering-files-in-a-pull-request-by-file-type/
+  - /articles/filtering-files-in-a-pull-request-by-file-type
   - /articles/filtering-files-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/filtering-files-in-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request

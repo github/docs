@@ -3,7 +3,7 @@ title: Sobre modelos de desenvolvimento colaborativo
 intro: O modo como você usa pull requests depende do tipo de modelo de desenvolvimento usado no projeto. Você pode usar a bifurcação e o modelo de pull ou o modelo de repositório compartilhado.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/about-collaborative-development-models
-  - /articles/types-of-collaborative-development-models/
+  - /articles/types-of-collaborative-development-models
   - /articles/about-collaborative-development-models
   - /github/collaborating-with-issues-and-pull-requests/about-collaborative-development-models
   - /github/collaborating-with-pull-requests/getting-started/about-collaborative-development-models

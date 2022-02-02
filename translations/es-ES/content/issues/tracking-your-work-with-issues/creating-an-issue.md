@@ -91,7 +91,7 @@ You can open a new issue from a specific line or lines of code in a file or pull
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you want to reference in an issue:
     - To open an issue about code in a file, navigate to the file.
-    - To open an issue about code in a pull request, navigate to the pull request and click {% octicon "diff" aria-label="The file diff icon" %} **Files changed**. Then, browse to the file that contains the code you want include in your comment, and click **View**.
+    - To open an issue about code in a pull request, navigate to the pull request and click {% octicon "diff" aria-label="The file diff icon" %} **Files changed**. Then, browse to the file that contains the code you want included in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
 4. To the left of the code range, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. In the drop-down menu, click **Reference in new issue**.
   ![Kebab menu with option to open a new issue from a selected line](/assets/images/help/repository/open-new-issue-specific-line.png)

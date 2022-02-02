@@ -2,7 +2,7 @@
 title: Colaborar com grupos e organizações
 intro: Os grupos de pessoas podem colaborar em muitos projetos ao mesmo tempo nas contas da organização.
 redirect_from:
-  - /articles/creating-a-new-organization-account/
+  - /articles/creating-a-new-organization-account
   - /articles/collaborating-with-groups-in-organizations
   - /github/setting-up-and-managing-organizations-and-teams/collaborating-with-groups-in-organizations
 versions:

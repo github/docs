@@ -2,9 +2,8 @@
 title: Aplicando políticas para insights de dependência na sua empresa
 intro: Você pode aplicar políticas de ingiths de dependência nas organizações da sua empresa ou permitir que as políticas sejam definidas em cada organização.
 permissions: Enterprise owners can enforce policies for dependency insights in an enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
-  - /articles/enforcing-a-policy-on-dependency-insights/
+  - /articles/enforcing-a-policy-on-dependency-insights
   - /articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account

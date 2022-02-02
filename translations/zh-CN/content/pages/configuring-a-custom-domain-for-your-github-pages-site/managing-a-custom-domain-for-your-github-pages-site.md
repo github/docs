@@ -2,13 +2,13 @@
 title: 管理 GitHub Pages 站点的自定义域
 intro: '您可以设置或更新某些 DNS 记录和仓库设置，以将 {% data variables.product.prodname_pages %} 站点的默认域指向自定义域。'
 redirect_from:
-  - /articles/quick-start-setting-up-a-custom-domain/
-  - /articles/setting-up-an-apex-domain/
-  - /articles/setting-up-a-www-subdomain/
-  - /articles/setting-up-a-custom-domain/
-  - /articles/setting-up-an-apex-domain-and-www-subdomain/
-  - /articles/adding-a-cname-file-to-your-repository/
-  - /articles/setting-up-your-pages-site-repository/
+  - /articles/quick-start-setting-up-a-custom-domain
+  - /articles/setting-up-an-apex-domain
+  - /articles/setting-up-a-www-subdomain
+  - /articles/setting-up-a-custom-domain
+  - /articles/setting-up-an-apex-domain-and-www-subdomain
+  - /articles/adding-a-cname-file-to-your-repository
+  - /articles/setting-up-your-pages-site-repository
   - /articles/managing-a-custom-domain-for-your-github-pages-site
   - /github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'

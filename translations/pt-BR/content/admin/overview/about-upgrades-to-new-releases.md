@@ -11,6 +11,8 @@ topics:
   - Upgrades
 ---
 
+{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
+
 {% data variables.product.product_name %} está constantemente melhorando, com novas funcionalidades e correções de erros introduzidas por meio de de recursos e versões de patch. {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} é um serviço totalmente gerenciado. Portanto, {% data variables.product.company_short %} conclui o processo de atualização da sua empresa.{% endif %}
 
 As versões do recurso incluem novas funcionalidades e atualizações de recursos e, normalmente, ocorrem a cada trimestre. {% ifversion ghae %}{% data variables.product.company_short %} irá atualizar sua empresa para a versão mais recente do recurso. Você será avisado antecipadamente de qualquer período de inatividade planejado para sua empresa.{% endif %}
@@ -37,7 +39,7 @@ Usaremos seus comentários para aplicar correções de erros e quaisquer outras 
 
 Versões de Patch, que consistem apenas de patches e correções de erros acontecem com mais frequência. De modo geral, as versões de patch ficam disponíveis quando são lançadas pela primeira vez, sem candidatos de versões. Atualizar para uma versão de patch normalmente requer menos de cinco minutos de tempo de inatividade.
 
-Para atualizar a sua empresa para uma nova versão, consulte "[Liberar notas](/enterprise-server/admin/release-notes)" e "[Atualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server).
+Para atualizar a sua empresa para uma nova versão, consulte "[Liberar notas](/enterprise-server/admin/release-notes)" e "[Atualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server). Porque você só pode atualizar a partir de uma versão do recurso no máximo 2 versões antes ou usar [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) para encontrar o caminho de atualização da sua versão atual.
 
 {% endif %}
 

@@ -26,7 +26,6 @@ shortTitle: GitHub Actions policies
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.ae-beta %}
 
 ## About policies for {% data variables.product.prodname_actions %} in your enterprise
 
@@ -101,6 +100,10 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+If a policy is enabled for an enterprise, the policy can be selectively disabled in individual organizations or repositories. If a policy is disabled for an enterprise, individual organizations or repositories cannot enable it.
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
@@ -108,7 +111,7 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 or ghae-next %}
+{% ifversion ghec or ghes > 3.1 or ghae %}
 
 ## Enforcing a policy for workflow permissions in your enterprise
 

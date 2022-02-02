@@ -1,12 +1,10 @@
 ---
 title: 2 要素認証と SAML シングルサインオンについて
 intro: Organization の管理者は、SAML シングルサインオンと 2 要素認証を共に有効化し、Organization のメンバーの認証方法を追加できます。
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

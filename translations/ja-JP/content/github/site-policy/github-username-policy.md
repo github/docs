@@ -1,7 +1,7 @@
 ---
 title: GitHub ユーザ名ポリシー
 redirect_from:
-  - /articles/name-squatting-policy/
+  - /articles/name-squatting-policy
   - /articles/github-username-policy
 versions:
   fpt: '*'

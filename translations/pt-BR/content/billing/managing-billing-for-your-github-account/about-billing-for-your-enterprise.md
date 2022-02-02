@@ -1,7 +1,6 @@
 ---
 title: Sobre a cobrança para a sua empresa
 intro: Você pode visualizar as informações de cobrança para a sua empresa.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /admin/overview/managing-billing-for-your-enterprise
   - /enterprise/admin/installation/managing-billing-for-github-enterprise

@@ -1,13 +1,13 @@
 ---
 title: GitHub 上的访问权限
 redirect_from:
-  - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
-  - /articles/what-are-the-different-types-of-team-permissions/
-  - /articles/what-are-the-different-access-permissions/
+  - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
+  - /articles/what-are-the-different-types-of-team-permissions
+  - /articles/what-are-the-different-access-permissions
   - /articles/access-permissions-on-github
   - /github/getting-started-with-github/access-permissions-on-github
   - /github/getting-started-with-github/learning-about-github/access-permissions-on-github
-intro: 您可以授权协作者对个人仓库的读取/写入权限，但组织成员对组织的仓库可有更细致的访问权限。
+intro: 'With roles, you can control who has access to your accounts and resources on {% data variables.product.product_name %} and the level of access each person has.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,6 +18,12 @@ topics:
   - Accounts
 shortTitle: 访问权限
 ---
+
+## About access permissions on {% data variables.product.prodname_dotcom %}
+
+{% data reusables.organizations.about-roles %}
+
+Roles work differently for different types of accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
 ## 个人用户帐户
 
@@ -31,16 +37,18 @@ shortTitle: 访问权限
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - "[关于团队](/articles/about-teams)"
 
-{% ifversion fpt or ghec %}
-
 ## 企业帐户
 
-*企业所有者*对企业帐户拥有最终权力，可在企业帐户中执行任何操作。 *帐单管理员*可以管理企业帐户的帐单设置。 企业帐户拥有的组织的成员和外部协作者自动成为企业帐户的成员，但他们对企业帐户本身或其设置没有访问权限。 更多信息请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)”。
-
-If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and are fully managed by the identity provider. The {% data variables.product.prodname_managed_users %} have read-only access to repositories that are not a part of their enterprise and cannot interact with users that are not also members of the enterprise. Within the organizations owned by the enterprise, the {% data variables.product.prodname_managed_users %} can be granted the same granular access levels available for regular organizations. For more information, see "[About {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}."{% endif %}
-
+{% ifversion fpt %}
 {% data reusables.gated-features.enterprise-accounts %}
 
+For more information about permissions for enterprise accounts, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/access-permissions-on-github).
+{% else %}
+*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account.{% ifversion ghec or ghes %} *Billing managers* can manage your enterprise account's billing settings.{% endif %} Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. 更多信息请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)”。
+
+{% ifversion ghec %}
+If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and are fully managed by the identity provider. The {% data variables.product.prodname_managed_users %} have read-only access to repositories that are not a part of their enterprise and cannot interact with users that are not also members of the enterprise. Within the organizations owned by the enterprise, the {% data variables.product.prodname_managed_users %} can be granted the same granular access levels available for regular organizations. 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
+{% endif %}
 {% endif %}
 
 ## 延伸阅读

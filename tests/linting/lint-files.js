@@ -23,6 +23,10 @@ import { supported, next, nextNext, deprecated } from '../../lib/enterprise-serv
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 import semver from 'semver'
+import { jest } from '@jest/globals'
+import { getDiffFiles } from '../helpers/diff-files.js'
+
+jest.useFakeTimers('legacy')
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
@@ -357,20 +361,10 @@ function getContent(content) {
   return null
 }
 
-// Filter out entries from an array like this:
-//
-//    [
-//      [relativePath, absolutePath],
-//      ...
-// so it's only the files mentioned in the DIFF_FILES environment
-// variable, but only if it's set and present.
+const diffFiles = getDiffFiles()
 
-// Setting an environment varible called `DIFF_FILES` is optional.
-// But if and only if it's set, we will respect it.
-// And if it set, turn it into a cleaned up Set so it's made available
-// every time we use it.
-if (process.env.DIFF_FILES) {
-  // Parse and turn that environment variable string into a set.
+// If present, and not empty, leverage it because in most cases it's empty.
+if (diffFiles.length > 0) {
   // It's faster to do this once and then re-use over and over in the
   // .filter() later on.
   const only = new Set(
@@ -378,7 +372,7 @@ if (process.env.DIFF_FILES) {
     // with quotation marks, strip them.
     // E.g. Turn `"foo" "bar"` into ['foo', 'bar']
     // Note, this assumes no possible file contains a space.
-    process.env.DIFF_FILES.split(/\s+/g).map((name) => {
+    diffFiles.map((name) => {
       if (/^['"]/.test(name) && /['"]$/.test(name)) {
         return name.slice(1, -1)
       }

@@ -2,8 +2,8 @@
 title: Lembrar o nome de usuário ou e-mail do GitHub
 intro: 'Faz tempo que você não faz login no {% data variables.product.product_location %}? Se sim, bem-vindo de volta! Se não lembrar o nome da conta de usuário do {% data variables.product.product_name %}, siga estas etapas para recuperá-lo.'
 redirect_from:
-  - /articles/oh-noes-i-ve-forgotten-my-username-email/
-  - /articles/oh-noes-i-ve-forgotten-my-username-or-email/
+  - /articles/oh-noes-i-ve-forgotten-my-username-email
+  - /articles/oh-noes-i-ve-forgotten-my-username-or-email
   - /articles/remembering-your-github-username-or-email
   - /github/setting-up-and-managing-your-github-user-account/remembering-your-github-username-or-email
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/remembering-your-github-username-or-email

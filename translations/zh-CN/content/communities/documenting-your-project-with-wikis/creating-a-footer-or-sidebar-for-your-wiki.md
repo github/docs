@@ -2,8 +2,8 @@
 title: 为 wiki 创建页脚或边栏
 intro: 您可以为 wiki 添加自定义边栏或页脚，以便为读者提供更多上下文信息。
 redirect_from:
-  - /articles/creating-a-footer/
-  - /articles/creating-a-sidebar/
+  - /articles/creating-a-footer
+  - /articles/creating-a-sidebar
   - /articles/creating-a-footer-or-sidebar-for-your-wiki
   - /github/building-a-strong-community/creating-a-footer-or-sidebar-for-your-wiki
 product: '{% data reusables.gated-features.wikis %}'

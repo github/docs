@@ -2,15 +2,15 @@
 title: 使用 SSH 连接到 GitHub
 intro: '您可以使用 Secure Shell Protocol (SSH) 连接到 {% data variables.product.product_name %} ，该协议通过不安全的网络提供安全通道。'
 redirect_from:
-  - /key-setup-redirect/
-  - /linux-key-setup/
-  - /mac-key-setup/
-  - /msysgit-key-setup/
-  - /articles/ssh-key-setup/
-  - /articles/generating-ssh-keys/
-  - /articles/generating-an-ssh-key/
+  - /key-setup-redirect
+  - /linux-key-setup
+  - /mac-key-setup
+  - /msysgit-key-setup
+  - /articles/ssh-key-setup
+  - /articles/generating-ssh-keys
+  - /articles/generating-an-ssh-key
   - /articles/connecting-to-github-with-ssh
-  - /github/authenticating-to-github/connecting-to-github-with-ssh/
+  - /github/authenticating-to-github/connecting-to-github-with-ssh
 versions:
   fpt: '*'
   ghes: '*'

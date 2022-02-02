@@ -8,7 +8,7 @@ redirect_from:
   - /admin/github-actions/about-using-actions-in-your-enterprise
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
 type: overview
 topics:
   - Actions
@@ -18,7 +18,6 @@ shortTitle: Add actions in your enterprise
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_actions %} workflows can use _actions_, which are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.
 

@@ -87,9 +87,11 @@ You can only choose an additional permission if it's not already included in the
 
 ### Security
 
-- **Read {% data variables.product.prodname_code_scanning %} results**: Provide users with read permissions for {% data variables.product.prodname_code_scanning %} alerts.
-- **Write {% data variables.product.prodname_code_scanning %} results**: Provide users with write permissions for {% data variables.product.prodname_code_scanning %} alerts.
-- **Delete {% data variables.product.prodname_code_scanning %} results**: Provide users with delete permissions for {% data variables.product.prodname_code_scanning %} alerts.
+- **View {% data variables.product.prodname_code_scanning %} results**: Ability to view {% data variables.product.prodname_code_scanning %} alerts.
+- **Dismiss or reopen {% data variables.product.prodname_code_scanning %} results**: Ability to dismiss or reopen {% data variables.product.prodname_code_scanning %} alerts.
+- **Delete {% data variables.product.prodname_code_scanning %} results**: Ability to delete {% data variables.product.prodname_code_scanning %} alerts.
+- **View {% data variables.product.prodname_secret_scanning %} results**: Ability to view {% data variables.product.prodname_secret_scanning %} alerts.
+- **Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results**: Ability to dismiss or reopen {% data variables.product.prodname_secret_scanning %} alerts.
 
 ## Precedence for different levels of access
 

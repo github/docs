@@ -2,8 +2,8 @@
 title: メールアドレスを検証する
 intro: 'プライマリメールアドレスを検証することでセキュリティが強化され、パスワードを忘れた場合、{% data variables.product.prodname_dotcom %} スタッフによる支援がさらに充実し、{% data variables.product.prodname_dotcom %} のその他の機能にアクセスできるようになります。'
 redirect_from:
-  - /articles/troubleshooting-email-verification/
-  - /articles/setting-up-email-verification/
+  - /articles/troubleshooting-email-verification
+  - /articles/setting-up-email-verification
   - /articles/verifying-your-email-address
   - /github/getting-started-with-github/verifying-your-email-address
   - /github/getting-started-with-github/signing-up-for-github/verifying-your-email-address

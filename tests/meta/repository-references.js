@@ -53,6 +53,8 @@ const PUBLIC_REPOS = new Set([
   'hello-world.git',
   'insights-releases',
   'help-docs-archived-enterprise-versions',
+  'stack-graphs',
+  'codespaces-precache',
 ])
 
 const ALLOW_DOCS_PATHS = [

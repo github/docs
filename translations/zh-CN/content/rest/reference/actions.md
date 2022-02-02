@@ -13,7 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_actions %} API 允许您使用 REST API 来管理 {% data variables.product.prodname_actions %}。 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 需要在每个端点中提及的权限。 更多信息请参阅“[{% data variables.product.prodname_actions %} 文档](/actions)”。
 
@@ -34,7 +33,7 @@ miniTocMaxHeadingLevel: 3
 {% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## 权限
 
-权限 API 允许您设置允许哪些组织和仓库运行 {% data variables.product.prodname_actions %}，以及允许运行哪些操作。 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)”。
+The Permissions API allows you to set permissions for what organizations and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions are allowed to run.{% ifversion fpt or ghec or ghes %} For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)."{% endif %}
 
 您还可以为企业设置权限。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)”REST API。
 

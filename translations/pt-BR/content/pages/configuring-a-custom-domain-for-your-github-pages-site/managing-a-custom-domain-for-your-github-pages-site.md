@@ -2,13 +2,13 @@
 title: Gerenciar um domínio personalizado do seu site do GitHub Pages
 intro: 'É possível definir ou atualizar determinados registros DNS e as configurações de repositório para apontar o domínio padrão do seu site do {% data variables.product.prodname_pages %} para um domínio personalizado.'
 redirect_from:
-  - /articles/quick-start-setting-up-a-custom-domain/
-  - /articles/setting-up-an-apex-domain/
-  - /articles/setting-up-a-www-subdomain/
-  - /articles/setting-up-a-custom-domain/
-  - /articles/setting-up-an-apex-domain-and-www-subdomain/
-  - /articles/adding-a-cname-file-to-your-repository/
-  - /articles/setting-up-your-pages-site-repository/
+  - /articles/quick-start-setting-up-a-custom-domain
+  - /articles/setting-up-an-apex-domain
+  - /articles/setting-up-a-www-subdomain
+  - /articles/setting-up-a-custom-domain
+  - /articles/setting-up-an-apex-domain-and-www-subdomain
+  - /articles/adding-a-cname-file-to-your-repository
+  - /articles/setting-up-your-pages-site-repository
   - /articles/managing-a-custom-domain-for-your-github-pages-site
   - /github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -133,9 +133,9 @@ Depois de configurar o domínio apex, você deverá configurar um registro CNAME
 {% data reusables.pages.sidebar-pages %}
 4. Em "Domínio personalizado, clique em **Remover**. ![Botão Salvar domínio personalizado](/assets/images/help/pages/remove-custom-domain.png)
 
-## Securing your custom domain
+## Protegendo seu domínio personalizado
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
+{% data reusables.pages.secure-your-domain %} Para obter mais informações, consulte "[Verificando seu domínio personalizado para {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)".
 
 ## Leia mais
 

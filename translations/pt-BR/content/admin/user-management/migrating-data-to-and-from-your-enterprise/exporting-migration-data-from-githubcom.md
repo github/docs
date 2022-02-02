@@ -34,8 +34,7 @@ shortTitle: Exportar dados do GitHub.com
 
 Para exportar os dados do repositório do {% data variables.product.prodname_dotcom_the_website %}, use a <a href="/rest/reference/migrations" class="dotcom-only"> API de Migrações</a>.
 
-No momento, a API de Migrações está em período de exibição. Ou seja, os pontos de extremidade e os parâmetros podem mudar no futuro. Para acessar a API de Migrações, você deve informar um [tipo de mídia](/rest/overview/media-types) personalizado no cabeçalho `Accept`: `application/vnd.github.wyandotte-preview+json`. Os exemplos abaixo incluem o tipo de mídia personalizado.
-
+No momento, a API de Migrações está em período de exibição. Ou seja, os pontos de extremidade e os parâmetros podem mudar no futuro.
 ## Gerar arquivos de migração
 
 {% data reusables.enterprise_migrations.locking-repositories %}
@@ -46,8 +45,9 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
     * Token de acesso para autenticação;
     * Uma [lista de repositórios](/rest/reference/repos#list-organization-repositories) que você pretende migrar:
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X POST \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      -X POST \
+      -H "Accept: application/vnd.github.v3+json" \
       -d'{"lock_repositories":true,"repositories":["<em>orgname</em>/<em>reponame</em>", "<em>orgname</em>/<em>reponame</em>"]}' \
       https://api.github.com/orgs/<em>orgname</em>/migrations
       ```
@@ -61,7 +61,7 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
     * `id` exclusivo da migração.
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      -H "Accept: application/vnd.github.v3+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>
       ```
 
@@ -76,7 +76,7 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
     * `id` exclusivo da migração.
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      -H "Accept: application/vnd.github.v3+json" \
       -L -o migration_archive.tar.gz \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
@@ -85,8 +85,9 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
     * Token de acesso para autenticação;
     * `id` exclusivo da migração.
       ```shell
-      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
-      -H "Accept: application/vnd.github.wyandotte-preview+json" \
+      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      -X DELETE \
+      -H "Accept: application/vnd.github.v3+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
 {% data reusables.enterprise_migrations.ready-to-import-migrations %}

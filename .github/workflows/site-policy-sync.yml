@@ -16,20 +16,20 @@ on:
       - 'content/github/site-policy/**'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   sync:
     name: Get the latest docs
     if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && github.repository == 'github/docs-internal')
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
       - name: checkout docs-internal
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: checkout public site-policy
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           repository: github/site-policy
           token: ${{ secrets.API_TOKEN_SITEPOLICY }}
@@ -37,6 +37,8 @@ jobs:
           path: public-repo
 
       - name: Commits internal policies to copy of public repo with descriptive message from triggering PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           cd public-repo
           git config --local user.name 'site-policy-bot'
@@ -46,7 +48,6 @@ jobs:
           git status
           git checkout -b automated-sync-$GITHUB_RUN_ID
           git add .
-          PR_TITLE=${{ github.event.pull_request.title }}
           echo PR_TITLE: $PR_TITLE
           [[ ! -z $PR_TITLE ]] && DESCRIPTION="${PR_TITLE}" || DESCRIPTION="Update manually triggered by workflow"
           echo "DESCRIPTION=$DESCRIPTION" >> $GITHUB_ENV

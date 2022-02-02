@@ -1,7 +1,7 @@
 ---
 title: Guidelines for Legal Requests of User Data
 redirect_from:
-  - /law-enforcement-guidelines/
+  - /law-enforcement-guidelines
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
   fpt: '*'

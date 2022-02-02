@@ -70,6 +70,7 @@ Este exemplo tem um trabalho denominado `Get_OIDC_ID_token` que usa ações para
 
 Esta ação troca um token do OIDC do {% data variables.product.prodname_dotcom %} por um token de acesso do Google Cloud, usando [a Federação de Identidade de Carga](https://cloud.google.com/iam/docs/workload-identity-federation).
 
+{% raw %}
 ```yaml{:copy}
 name: List services in GCP
 on:
@@ -95,5 +96,6 @@ jobs:
       name: 'gcloud'
       run: |-
         gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
-        gcloud config list
+        gcloud services list
 ```
+{% endraw %}

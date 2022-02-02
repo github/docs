@@ -2,8 +2,8 @@
 title: Identificar y autorizar usuarios para las GitHub Apps
 intro: '{% data reusables.shortdesc.identifying_and_authorizing_github_apps %}'
 redirect_from:
-  - /early-access/integrations/user-identification-authorization/
-  - /apps/building-integrations/setting-up-and-registering-github-apps/identifying-users-for-github-apps/
+  - /early-access/integrations/user-identification-authorization
+  - /apps/building-integrations/setting-up-and-registering-github-apps/identifying-users-for-github-apps
   - /apps/building-github-apps/identifying-and-authorizing-users-for-github-apps
   - /developers/apps/identifying-and-authorizing-users-for-github-apps
 versions:
@@ -51,7 +51,7 @@ Cuando tu GitHub App especifica un parámetro de `login`, solicita a los usuario
 
 #### Parámetros
 
-| Nombre         | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Nombre         | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `client_id`    | `secuencia` | **Requerido.** La ID de cliente para tu GitHub App. Puedes encontrarla en los [Ajustes de tu GitHub App](https://github.com/settings/apps) cuando selecciones tu app. **Nota:** La ID de app y de cliente no son las mismas y no son intercambiables.                                                                                                                                                                        |
 | `redirect_uri` | `secuencia` | La URL en tu aplicación a donde se enviará a los usuarios después de la autorización. Esta debe ser una copia exacta de {% ifversion fpt or ghes > 3.0 or ghec %} una de las URL que proporcionaste como **URL de rellamado** {% else %} la URL que proporcionaste en el campo **URL de rellamado de autorización de usuario** {% endif %} cuando configuraste tu GitHub App y no puede contener ningún parámetro adicional. |
@@ -85,7 +85,7 @@ Haz una solicitud a la siguiente terminal para recibir un token de acceso:
 
 #### Parámetros
 
-| Nombre          | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Nombre          | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `client_id`     | `secuencia` | **Requerido.** La ID de cliente para tu GitHub App.                                                                                                                                                                                                                                                                                                                                                                          |
 | `client_secret` | `secuencia` | **Requerido.** El secreto de cliente para tu GitHub App.                                                                                                                                                                                                                                                                                                                                                                     |
@@ -99,9 +99,9 @@ Predeterminadamente, la respuesta toma la siguiente forma. Los parámetros de re
 
 ```json
 {
-  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "expires_in": 28800,
-  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
+  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
   "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
@@ -168,7 +168,7 @@ Ya que los permisos a nivel de usuario se otorgan individualmente, puedes agrega
 
 ## Solicitudes de usuario a servidor
 
-Mientras que la mayoría de tu interacción con la API deberá darse utilizando tus tokens de acceso a la instalación de servidor a servidor, ciertas terminales te permiten llevar a cabo acciones a través de la API utilizando un token de acceso. Your app can make the following requests using [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST v3](/rest) endpoints.
+Mientras que la mayoría de tu interacción con la API deberá darse utilizando tus tokens de acceso a la instalación de servidor a servidor, ciertas terminales te permiten llevar a cabo acciones a través de la API utilizando un token de acceso. Tu app puede hacer las siguientes solicitudes utilizando las terminales de [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) o de [REST v3](/rest).
 
 ### Terminales compatibles
 
@@ -240,16 +240,16 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Estados de Despliegue
 
-* [Listar los estados de despliegue](/rest/reference/repos#list-deployment-statuses)
-* [Crear los estados de despliegue](/rest/reference/repos#create-a-deployment-status)
-* [Obtener un estado de despliegue](/rest/reference/repos#get-a-deployment-status)
+* [Listar los estados de despliegue](/rest/reference/deployments#list-deployment-statuses)
+* [Crear los estados de despliegue](/rest/reference/deployments#create-a-deployment-status)
+* [Obtener un estado de despliegue](/rest/reference/deployments#get-a-deployment-status)
 
 #### Implementaciones
 
-* [Listar los despliegues](/rest/reference/repos#list-deployments)
-* [Crear un despliegue](/rest/reference/repos#create-a-deployment)
-* [Get a deployment](/rest/reference/repos#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [Borrar un despliegue](/rest/reference/repos#delete-a-deployment){% endif %}
+* [Listar los despliegues](/rest/reference/deployments#list-deployments)
+* [Crear un despliegue](/rest/reference/deployments#create-a-deployment)
+* [Obtener un despliegue](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
+* [Borrar un despliegue](/rest/reference/deployments#delete-a-deployment){% endif %}
 
 #### Eventos
 
@@ -449,8 +449,8 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 {% ifversion fpt or ghec %}
 #### Sincronización de Equipos de la Organización
 
-* [Listar los grupos de IdP de un equipo](/rest/reference/teams#list-idp-groups-for-a-team)
-* [Crear o actualizar las conexiones de un grupo de IdP](/rest/reference/teams#create-or-update-idp-group-connections)
+* [List IdP groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
+* [Create or update IdP group connections](/rest/reference/teams#create-or-update-idp-group-connections)
 * [Listar grupos de IdP para una organización](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 
@@ -583,7 +583,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Reacciones
 
-{% ifversion fpt or ghes or ghae or ghec %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction){% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}*[Borrar una reacción](/rest/reference/reactions#delete-a-reaction-legacy){% else %}*[Borrar una reacción](/rest/reference/reactions#delete-a-reaction){% endif %}
 * [Listar las reacciones a un comentario de una confirmación](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Crear una reacción para el comentario de una confirmación](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Listar las reacciones de un informe de problemas](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -595,7 +595,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Listar las reacciones para un comentario de debate de equipo](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Crear una reacción para un comentario de debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Listar las reaciones a un debate de equipo](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
+* [Crear una reacción para un debate de equipo](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
 * [Borrar la reacción a un comentario de una confirmación](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Borrar la reacción a un comentario](/rest/reference/reactions#delete-an-issue-reaction)
 * [Borrar la reacción a un comentario de una confirmación](/rest/reference/reactions#delete-an-issue-comment-reaction)
@@ -610,7 +610,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Obtener un repositorio](/rest/reference/repos#get-a-repository)
 * [Actualizar un repositorio](/rest/reference/repos#update-a-repository)
 * [Borrar un repositorio](/rest/reference/repos#delete-a-repository)
-* [Comparar dos confirmaciones](/rest/reference/repos#compare-two-commits)
+* [Comparar dos confirmaciones](/rest/reference/commits#compare-two-commits)
 * [Listar los colaboradores del repositorio](/rest/reference/repos#list-repository-contributors)
 * [Listar las bifurcaciones](/rest/reference/repos#list-forks)
 * [Crear una bifuración](/rest/reference/repos#create-a-fork)
@@ -642,68 +642,68 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Ramas de los Repositorios
 
-* [Listar ramas](/rest/reference/repos#list-branches)
-* [Obtener una rama](/rest/reference/repos#get-a-branch)
-* [Obtener la protección de una rama](/rest/reference/repos#get-branch-protection)
-* [Actualizar la protección de una rama](/rest/reference/repos#update-branch-protection)
-* [Borrar la protección de una rama](/rest/reference/repos#delete-branch-protection)
-* [Obtener la protección administrativa de una rama](/rest/reference/repos#get-admin-branch-protection)
-* [Configurar la protección administrativa de una rama](/rest/reference/repos#set-admin-branch-protection)
-* [Borrar la protección administrativa de una rama](/rest/reference/repos#delete-admin-branch-protection)
-* [Obtener la protección de la revisión de una solicitud de extracción](/rest/reference/repos#get-pull-request-review-protection)
-* [Actualizar la protección de la revisión de una solicitud de extracción](/rest/reference/repos#update-pull-request-review-protection)
-* [Borrar la protección de la revisión de una solicitud de extracción](/rest/reference/repos#delete-pull-request-review-protection)
-* [Obtener la protección de firma de una confirmación](/rest/reference/repos#get-commit-signature-protection)
-* [Crear la protección de firma de una confirmación](/rest/reference/repos#create-commit-signature-protection)
-* [Borrar la protección de firma de una confirmación](/rest/reference/repos#delete-commit-signature-protection)
-* [Obtener la protección de las verificaciones de estado](/rest/reference/repos#get-status-checks-protection)
-* [Actualizar la protección para la verificación de estados](/rest/reference/repos#update-status-check-protection)
-* [Eliminar la protección de las verificaciones de estado](/rest/reference/repos#remove-status-check-protection)
-* [Obtener todos los contextos de verificaciones de estado](/rest/reference/repos#get-all-status-check-contexts)
-* [Agregar un contexto de verificación de estado](/rest/reference/repos#add-status-check-contexts)
-* [Obtener un contexto de verificación de estado](/rest/reference/repos#set-status-check-contexts)
-* [Eliminar los contextos de verificación de estado](/rest/reference/repos#remove-status-check-contexts)
-* [Obtener restricciones de acceso](/rest/reference/repos#get-access-restrictions)
-* [Borrar restricciones de acceso](/rest/reference/repos#delete-access-restrictions)
+* [Listar ramas](/rest/reference/branches#list-branches)
+* [Obtener una rama](/rest/reference/branches#get-a-branch)
+* [Obtener la protección de una rama](/rest/reference/branches#get-branch-protection)
+* [Actualizar la protección de una rama](/rest/reference/branches#update-branch-protection)
+* [Borrar la protección de una rama](/rest/reference/branches#delete-branch-protection)
+* [Obtener la protección administrativa de una rama](/rest/reference/branches#get-admin-branch-protection)
+* [Configurar la protección administrativa de una rama](/rest/reference/branches#set-admin-branch-protection)
+* [Borrar la protección administrativa de una rama](/rest/reference/branches#delete-admin-branch-protection)
+* [Obtener la protección de la revisión de una solicitud de extracción](/rest/reference/branches#get-pull-request-review-protection)
+* [Actualizar la protección de la revisión de una solicitud de extracción](/rest/reference/branches#update-pull-request-review-protection)
+* [Borrar la protección de la revisión de una solicitud de extracción](/rest/reference/branches#delete-pull-request-review-protection)
+* [Obtener la protección de firma de una confirmación](/rest/reference/branches#get-commit-signature-protection)
+* [Crear la protección de firma de una confirmación](/rest/reference/branches#create-commit-signature-protection)
+* [Borrar la protección de firma de una confirmación](/rest/reference/branches#delete-commit-signature-protection)
+* [Obtener la protección de las verificaciones de estado](/rest/reference/branches#get-status-checks-protection)
+* [Actualizar la protección para la verificación de estados](/rest/reference/branches#update-status-check-protection)
+* [Eliminar la protección de las verificaciones de estado](/rest/reference/branches#remove-status-check-protection)
+* [Obtener todos los contextos de verificaciones de estado](/rest/reference/branches#get-all-status-check-contexts)
+* [Agregar un contexto de verificación de estado](/rest/reference/branches#add-status-check-contexts)
+* [Obtener un contexto de verificación de estado](/rest/reference/branches#set-status-check-contexts)
+* [Eliminar los contextos de verificación de estado](/rest/reference/branches#remove-status-check-contexts)
+* [Obtener restricciones de acceso](/rest/reference/branches#get-access-restrictions)
+* [Borrar restricciones de acceso](/rest/reference/branches#delete-access-restrictions)
 * [Listar a los equipos con acceso a la rama protegida](/rest/reference/repos#list-teams-with-access-to-the-protected-branch)
-* [Agregar restricciones de acceso a equipos](/rest/reference/repos#add-team-access-restrictions)
-* [Obtener restricciones de acceso a equipos](/rest/reference/repos#set-team-access-restrictions)
-* [Eliminar restricciones de acceso a equipos](/rest/reference/repos#remove-team-access-restrictions)
+* [Agregar restricciones de acceso a equipos](/rest/reference/branches#add-team-access-restrictions)
+* [Obtener restricciones de acceso a equipos](/rest/reference/branches#set-team-access-restrictions)
+* [Eliminar restricciones de acceso a equipos](/rest/reference/branches#remove-team-access-restrictions)
 * [Listar las restricciones de usuario para la rama protegida](/rest/reference/repos#list-users-with-access-to-the-protected-branch)
-* [Agregar las restricciones de acceso para los usuarios](/rest/reference/repos#add-user-access-restrictions)
-* [Configurar las restricciones de acceso para los usuarios](/rest/reference/repos#set-user-access-restrictions)
-* [Eliminar las restricciones de acceso para los usuarios](/rest/reference/repos#remove-user-access-restrictions)
-* [Fusionar una rama](/rest/reference/repos#merge-a-branch)
+* [Agregar las restricciones de acceso para los usuarios](/rest/reference/branches#add-user-access-restrictions)
+* [Configurar las restricciones de acceso para los usuarios](/rest/reference/branches#set-user-access-restrictions)
+* [Eliminar las restricciones de acceso para los usuarios](/rest/reference/branches#remove-user-access-restrictions)
+* [Fusionar una rama](/rest/reference/branches#merge-a-branch)
 
 #### Colaboradores del Repositorio
 
-* [Listar los colaboradores del repositorio](/rest/reference/repos#list-repository-collaborators)
-* [Verificar si un usuario es colaborador de un repositorio](/rest/reference/repos#check-if-a-user-is-a-repository-collaborator)
-* [Agregar un colaborador de repositorio](/rest/reference/repos#add-a-repository-collaborator)
-* [Eliminar a un colaborador del repositorio](/rest/reference/repos#remove-a-repository-collaborator)
-* [Obtener permisos del repositorio para un usuario](/rest/reference/repos#get-repository-permissions-for-a-user)
+* [Listar los colaboradores del repositorio](/rest/reference/collaborators#list-repository-collaborators)
+* [Verificar si un usuario es colaborador de un repositorio](/rest/reference/collaborators#check-if-a-user-is-a-repository-collaborator)
+* [Agregar un colaborador de repositorio](/rest/reference/collaborators#add-a-repository-collaborator)
+* [Eliminar a un colaborador del repositorio](/rest/reference/collaborators#remove-a-repository-collaborator)
+* [Obtener permisos del repositorio para un usuario](/rest/reference/collaborators#get-repository-permissions-for-a-user)
 
 #### Comentarios de Confirmaciones de un Repositorio
 
-* [Listar los comentarios de confirmaciones en un repositorio](/rest/reference/repos#list-commit-comments-for-a-repository)
-* [Obtener un comentario de una confirmación](/rest/reference/repos#get-a-commit-comment)
-* [Actualizar un comentario de una confirmación](/rest/reference/repos#update-a-commit-comment)
-* [Borrar un comentario de una confirmación](/rest/reference/repos#delete-a-commit-comment)
-* [Listar los comentarios de una confirmación](/rest/reference/repos#list-commit-comments)
-* [Crear un comentario de una confirmación](/rest/reference/repos#create-a-commit-comment)
+* [Listar los comentarios de confirmaciones en un repositorio](/rest/reference/commits#list-commit-comments-for-a-repository)
+* [Obtener un comentario de una confirmación](/rest/reference/commits#get-a-commit-comment)
+* [Actualizar un comentario de una confirmación](/rest/reference/commits#update-a-commit-comment)
+* [Borrar un comentario de una confirmación](/rest/reference/commits#delete-a-commit-comment)
+* [Listar los comentarios de una confirmación](/rest/reference/commits#list-commit-comments)
+* [Crear un comentario de una confirmación](/rest/reference/commits#create-a-commit-comment)
 
 #### Confirmaciones de Repositorio
 
-* [Listar confirmaciones](/rest/reference/repos#list-commits)
-* [Obtener una confirmación](/rest/reference/repos#get-a-commit)
-* [Listar ramas para la confirmación principal](/rest/reference/repos#list-branches-for-head-commit)
+* [Listar confirmaciones](/rest/reference/commits#list-commits)
+* [Obtener una confirmación](/rest/reference/commits#get-a-commit)
+* [Listar ramas para la confirmación principal](/rest/reference/commits#list-branches-for-head-commit)
 * [Listar solicitudes de extracción asociadas con una confirmación](/rest/reference/repos#list-pull-requests-associated-with-commit)
 
 #### Comunidad del Repositorio
 
 * [Obtener el código de conducta de un repositorio](/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
 {% ifversion fpt or ghec %}
-* [Obtener las métricas de perfil de la comunidad](/rest/reference/repos#get-community-profile-metrics)
+* [Obtener las métricas de perfil de la comunidad](/rest/reference/repository-metrics#get-community-profile-metrics)
 {% endif %}
 
 #### Contenido de los Repositorios
@@ -723,40 +723,40 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Ganchos de Repositorio
 
-* [Listar los webhooks de un repositorio](/rest/reference/repos#list-repository-webhooks)
-* [Crear un webhook para un repositorio](/rest/reference/repos#create-a-repository-webhook)
-* [Obtener un webhook para un repositorio](/rest/reference/repos#get-a-repository-webhook)
-* [Actualizar el webhook de un repositorio](/rest/reference/repos#update-a-repository-webhook)
-* [Borrar el webhook de un repositorio](/rest/reference/repos#delete-a-repository-webhook)
-* [Hacer ping al webhook de un repositorio](/rest/reference/repos#ping-a-repository-webhook)
+* [Listar los webhooks de un repositorio](/rest/reference/webhooks#list-repository-webhooks)
+* [Crear un webhook para un repositorio](/rest/reference/webhooks#create-a-repository-webhook)
+* [Obtener un webhook para un repositorio](/rest/reference/webhooks#get-a-repository-webhook)
+* [Actualizar el webhook de un repositorio](/rest/reference/webhooks#update-a-repository-webhook)
+* [Borrar el webhook de un repositorio](/rest/reference/webhooks#delete-a-repository-webhook)
+* [Hacer ping al webhook de un repositorio](/rest/reference/webhooks#ping-a-repository-webhook)
 * [Probar el webhook de carga a un repositorio](/rest/reference/repos#test-the-push-repository-webhook)
 
 #### Invitaciones a un repositorio
 
-* [Listar las invitaciones a un repositorio](/rest/reference/repos#list-repository-invitations)
-* [Actualizar la invitación a un repositorio](/rest/reference/repos#update-a-repository-invitation)
-* [Borrar la invitación a un repositorio](/rest/reference/repos#delete-a-repository-invitation)
-* [Listar las invitaciones a un repositorio para el usuario autenticado](/rest/reference/repos#list-repository-invitations-for-the-authenticated-user)
-* [Aceptar la invitación a un repositorio](/rest/reference/repos#accept-a-repository-invitation)
-* [Rechazar la invitación a un repositorio](/rest/reference/repos#decline-a-repository-invitation)
+* [Listar las invitaciones a un repositorio](/rest/reference/collaborators#list-repository-invitations)
+* [Actualizar la invitación a un repositorio](/rest/reference/collaborators#update-a-repository-invitation)
+* [Borrar la invitación a un repositorio](/rest/reference/collaborators#delete-a-repository-invitation)
+* [Listar las invitaciones a un repositorio para el usuario autenticado](/rest/reference/collaborators#list-repository-invitations-for-the-authenticated-user)
+* [Aceptar la invitación a un repositorio](/rest/reference/collaborators#accept-a-repository-invitation)
+* [Rechazar la invitación a un repositorio](/rest/reference/collaborators#decline-a-repository-invitation)
 
 #### Claves de Repositorio
 
-* [Listar claves de despliegue](/rest/reference/repos#list-deploy-keys)
-* [Crear una clave de despliegue](/rest/reference/repos#create-a-deploy-key)
-* [Obtener una clave de despliegue](/rest/reference/repos#get-a-deploy-key)
-* [Borrar una clave de despiegue](/rest/reference/repos#delete-a-deploy-key)
+* [Listar claves de despliegue](/rest/reference/deployments#list-deploy-keys)
+* [Crear una clave de despliegue](/rest/reference/deployments#create-a-deploy-key)
+* [Obtener una clave de despliegue](/rest/reference/deployments#get-a-deploy-key)
+* [Borrar una clave de despiegue](/rest/reference/deployments#delete-a-deploy-key)
 
 #### Páginas de Repositorio
 
-* [Obtener un sitio de GitHub Pages](/rest/reference/repos#get-a-github-pages-site)
-* [Crear un sitio de GitHub Pages](/rest/reference/repos#create-a-github-pages-site)
-* [Actualizar la información acerca de un sitio de GitHub Pages](/rest/reference/repos#update-information-about-a-github-pages-site)
-* [Borrar un sitio de GitHub Pages](/rest/reference/repos#delete-a-github-pages-site)
-* [Listar las compilaciones de GitHub Pages](/rest/reference/repos#list-github-pages-builds)
-* [Solicitar una compilación de GitHub Pages](/rest/reference/repos#request-a-github-pages-build)
-* [Obtener una compilación de GitHub Pages](/rest/reference/repos#get-github-pages-build)
-* [Obtener la última compilación de pages](/rest/reference/repos#get-latest-pages-build)
+* [Obtener un sitio de GitHub Pages](/rest/reference/pages#get-a-github-pages-site)
+* [Crear un sitio de GitHub Pages](/rest/reference/pages#create-a-github-pages-site)
+* [Actualizar la información acerca de un sitio de GitHub Pages](/rest/reference/pages#update-information-about-a-github-pages-site)
+* [Borrar un sitio de GitHub Pages](/rest/reference/pages#delete-a-github-pages-site)
+* [Listar las compilaciones de GitHub Pages](/rest/reference/pages#list-github-pages-builds)
+* [Solicitar una compilación de GitHub Pages](/rest/reference/pages#request-a-github-pages-build)
+* [Obtener una compilación de GitHub Pages](/rest/reference/pages#get-github-pages-build)
+* [Obtener la última compilación de pages](/rest/reference/pages#get-latest-pages-build)
 
 {% ifversion ghes %}
 #### Ganchos de Pre-recepción de un Repositorio
@@ -783,11 +783,11 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Estadísticas de Repositorio
 
-* [Obtener la actividad de confirmaciones semanal](/rest/reference/repos#get-the-weekly-commit-activity)
-* [Obtener la actividad de confirmaciones del año pasado](/rest/reference/repos#get-the-last-year-of-commit-activity)
-* [Obtener la actividad de confirmaciones de todos los colaboradores](/rest/reference/repos#get-all-contributor-commit-activity)
-* [Obtener la cuenta semanal de confirmaciones](/rest/reference/repos#get-the-weekly-commit-count)
-* [Obtener la cuenta de confirmaciones por hora para cada día](/rest/reference/repos#get-the-hourly-commit-count-for-each-day)
+* [Obtener la actividad de confirmaciones semanal](/rest/reference/repository-metrics#get-the-weekly-commit-activity)
+* [Obtener la actividad de confirmaciones del año pasado](/rest/reference/repository-metrics#get-the-last-year-of-commit-activity)
+* [Obtener la actividad de confirmaciones de todos los colaboradores](/rest/reference/repository-metrics#get-all-contributor-commit-activity)
+* [Obtener la cuenta semanal de confirmaciones](/rest/reference/repository-metrics#get-the-weekly-commit-count)
+* [Obtener la cuenta de confirmaciones por hora para cada día](/rest/reference/repository-metrics#get-the-hourly-commit-count-for-each-day)
 
 {% ifversion fpt or ghec %}
 #### Alertas de Vulnerabilidad en Repositorios
@@ -813,9 +813,9 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Estados
 
-* [Obtener el estado combinado para una referencia específica](/rest/reference/repos#get-the-combined-status-for-a-specific-reference)
-* [Listar los estados de confirmación para una referencia](/rest/reference/repos#list-commit-statuses-for-a-reference)
-* [Crear un estado de confirmación](/rest/reference/repos#create-a-commit-status)
+* [Obtener el estado combinado para una referencia específica](/rest/reference/commits#get-the-combined-status-for-a-specific-reference)
+* [Listar los estados de confirmación para una referencia](/rest/reference/commits#list-commit-statuses-for-a-reference)
+* [Crear un estado de confirmación](/rest/reference/commits#create-a-commit-status)
 
 #### Debates de Equipo
 
@@ -838,10 +838,10 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 {% ifversion fpt or ghec %}
 #### Tráfico
 
-* [Obtener los clones de un repositorio](/rest/reference/repos#get-repository-clones)
-* [Obtener las rutas de referencia superior](/rest/reference/repos#get-top-referral-paths)
-* [Obtener las fuentes de referencia superior](/rest/reference/repos#get-top-referral-sources)
-* [Obtener las visualizaciones de página](/rest/reference/repos#get-page-views)
+* [Obtener los clones de un repositorio](/rest/reference/repository-metrics#get-repository-clones)
+* [Obtener las rutas de referencia superior](/rest/reference/repository-metrics#get-top-referral-paths)
+* [Obtener las fuentes de referencia superior](/rest/reference/repository-metrics#get-top-referral-sources)
+* [Obtener las visualizaciones de página](/rest/reference/repository-metrics#get-page-views)
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -925,7 +925,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Obtener el uso de un flujo de trabajo](/rest/reference/actions#get-workflow-usage)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## Leer más
 

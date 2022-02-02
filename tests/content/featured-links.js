@@ -1,11 +1,31 @@
+import fs from 'fs/promises'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+import { beforeAll, jest } from '@jest/globals'
+import nock from 'nock'
+import japaneseCharacters from 'japanese-characters'
+
 import '../../lib/feature-flags.js'
-import { jest } from '@jest/globals'
 import { getDOM, getJSON } from '../helpers/supertest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import japaneseCharacters from 'japanese-characters'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('featuredLinks', () => {
   jest.setTimeout(3 * 60 * 1000)
+
+  beforeAll(async () => {
+    const packagesFeedFixturePayload = await fs.readFile(
+      path.join(__dirname, '../fixtures/github-blog-feed-packages-2021.xml'),
+      'utf-8'
+    )
+    nock('https://github.blog')
+      .get('/changelog/label/packages/feed')
+      .reply(200, packagesFeedFixturePayload)
+  })
+
+  afterAll(() => nock.cleanAll())
 
   describe('rendering', () => {
     test('non-TOC pages do not have intro links', async () => {
@@ -18,37 +38,43 @@ describe('featuredLinks', () => {
       const $featuredLinks = $('[data-testid=article-list] a')
       expect($featuredLinks).toHaveLength(9)
       expect($featuredLinks.eq(0).attr('href')).toBe('/en/get-started/quickstart/set-up-git')
-      expect($featuredLinks.eq(0).children('h4').text().startsWith('Set up Git')).toBe(true)
+      expect($featuredLinks.eq(0).children('h3').text().startsWith('Set up Git')).toBe(true)
       expect($featuredLinks.eq(0).children('p').text().startsWith('At the heart of GitHub')).toBe(
         true
       )
 
       expect($featuredLinks.eq(8).attr('href')).toBe('/en/pages')
-      expect($featuredLinks.eq(8).children('h4').text().startsWith('GitHub Pages')).toBe(true)
+      expect($featuredLinks.eq(8).children('h3').text().startsWith('GitHub Pages')).toBe(true)
       expect($featuredLinks.eq(8).children('p').text().startsWith('You can create a website')).toBe(
         true
       )
     })
 
-    // Skipped. Docs Engineering issue: 923
-    test.skip('localized intro links link to localized pages', async () => {
-      const $ = await getDOM('/ja')
-      const $featuredLinks = $('[data-testid=article-list] a')
-      expect($featuredLinks).toHaveLength(9)
-      expect($featuredLinks.eq(0).attr('href').startsWith('/ja')).toBe(true)
-      expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('h4').text())).toBe(true)
-      // skip for now
-      // expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('p').text())).toBe(true)
+    test('localized intro links link to localized pages', async () => {
+      const $jaPages = await getDOM('/ja')
+      const $enPages = await getDOM('/en')
+      const $jaFeaturedLinks = $jaPages('[data-testid=article-list] a')
+      const $enFeaturedLinks = $enPages('[data-testid=article-list] a')
+      expect($jaFeaturedLinks.length).toBe($enFeaturedLinks.length)
+      expect($jaFeaturedLinks.eq(0).attr('href').startsWith('/ja')).toBe(true)
+
+      // Footer translations change very rarely if ever, so we can more
+      // reliably test those text values for the language
+      const footerText = []
+      $jaPages('footer a').each((index, element) => {
+        footerText.push($jaPages(element).text())
+      })
+      expect(footerText.some((elem) => japaneseCharacters.presentIn(elem)))
     })
 
     test('Enterprise user intro links have expected values', async () => {
       const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/get-started`)
       const $featuredLinks = $('[data-testid=article-list] a')
-      expect($featuredLinks).toHaveLength(10)
+      expect($featuredLinks).toHaveLength(11)
       expect($featuredLinks.eq(0).attr('href')).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
       )
-      expect($featuredLinks.eq(0).children('h4').text().startsWith("GitHub's products")).toBe(true)
+      expect($featuredLinks.eq(0).children('h3').text().startsWith("GitHub's products")).toBe(true)
       expect(
         $featuredLinks
           .eq(0)

@@ -1,9 +1,9 @@
 ---
-title: Issues guides
+title: Guias de problemas
 shortTitle: Guias
 intro: 'Saiba como usar {% data variables.product.prodname_github_issues %} para planejar e acompanhar seu trabalho.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'

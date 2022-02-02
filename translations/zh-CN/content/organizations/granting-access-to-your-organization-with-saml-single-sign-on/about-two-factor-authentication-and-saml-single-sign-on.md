@@ -1,12 +1,10 @@
 ---
 title: 关于双重身份验证和 SAML 单点登录
 intro: 组织管理员可启用 SAML 单点登录及双重身份验证，为其组织成员增加额外的身份验证措施。
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

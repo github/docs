@@ -2,8 +2,8 @@
 title: 验证电子邮件地址
 intro: '验证主电子邮件地址可确保增强的安全性，以便 {% data variables.product.prodname_dotcom %} 员工在您忘记密码时更好地协助您，并为您提供 {% data variables.product.prodname_dotcom %} 上更多功能的访问权限。'
 redirect_from:
-  - /articles/troubleshooting-email-verification/
-  - /articles/setting-up-email-verification/
+  - /articles/troubleshooting-email-verification
+  - /articles/setting-up-email-verification
   - /articles/verifying-your-email-address
   - /github/getting-started-with-github/verifying-your-email-address
   - /github/getting-started-with-github/signing-up-for-github/verifying-your-email-address

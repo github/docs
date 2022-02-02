@@ -22,12 +22,10 @@ shortTitle: Registro de seguridad
 La bitácora de seguridad lista todas las acciones que se llevaron a cabo en los últimos 90 días.
 
 {% data reusables.user_settings.access_settings %}
-{% ifversion fpt or ghae or ghes or ghec %}
-2. En la barra lateral de la configuración de usuario, da clic en **Registro de Seguridad**. ![Pestaña de registro de seguridad](/assets/images/help/settings/audit-log-tab.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-label="The log icon" %} Security log**.
 {% else %}
-{% data reusables.user_settings.security %}
-3. En "Security history" (Historial de seguridad) se muestra tu registro. ![Registro de seguridad](/assets/images/help/settings/user_security_log.png)
-4. Haz clic en la entrada para ver más información acerca del evento. ![Registro de seguridad](/assets/images/help/settings/user_security_history_action.png)
+1. En la barra lateral de la configuración de usuario, da clic en **Registro de Seguridad**. ![Pestaña de registro de seguridad](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
 {% ifversion fpt or ghae or ghes or ghec %}
@@ -44,7 +42,6 @@ Tus acciones activan los eventos que se listan en tu bitácora de seguridad. Las
 
 | Nombre de la categoría                                                                 | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |{% ifversion fpt or ghec %}
-| [`account_recovery_token`](#account_recovery_token-category-actions)                   | Contiene todas las actividades relacionadas con [agregar un token de recuperación](/articles/configuring-two-factor-authentication-recovery-methods).                                                                                                                                                                                                                                                                                      |
 | [`facturación`](#billing-category-actions)                                             | Contiene todas las actividades relacionadas con tu información de facturación.                                                                                                                                                                                                                                                                                                                                                             |
 | [`codespaces`](#codespaces-category-actions)                                           | Contiene todas las actividades relacionadas con los {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-codespaces)".                                                                                                                                                        |
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contiene todas las actividades relacionadas con la firma del Acuerdo del programador de {% data variables.product.prodname_marketplace %}.                                                                                                                                                                                                                                                                                                 |
@@ -74,14 +71,6 @@ Tus acciones activan los eventos que se listan en tu bitácora de seguridad. Las
 Un resumen de algunas de las acciones más frecuentes que se registran como eventos en la bitácora de seguridad.
 
 {% ifversion fpt or ghec %}
-
-### acciones de la categoría `account_recovery_token`
-
-| Acción                                  | Descripción                                                                                                                                               |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `confirm (confirmar)`                   | Se activa cuando almacenas [con éxito un nuevo token con un proveedor de recuperación](/articles/configuring-two-factor-authentication-recovery-methods). |
-| `recover (recuperar)`                   | Se activa cuando canjeas [con éxito un token de recuperación de cuenta](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).              |
-| `recover_error (error de recuperación)` | Se activa cuando se utiliza un token, pero {% data variables.product.prodname_dotcom %} no está disponible para validarlo.                                |
 
 ### acciones de la categoría `billing`
 
@@ -123,17 +112,16 @@ Un resumen de algunas de las acciones más frecuentes que se registran como even
 | Acción               | Descripción                                                                                                                                                                                                                                                                                                                                                                                            |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `create (crear)`     | Se activa cuando [obtienes acceso a una {% data variables.product.prodname_oauth_app %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps).                                                                                                                                                                                                              |
-| `destroy (destruir)` | Se activa cuando [retiras el acceso de una {% data variables.product.prodname_oauth_app %} a tu cuenta](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} y cuando[las autorizaciones se retiran o vencen](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
+| `destroy (destruir)` | Se activa cuando [revocas el acceso de una {% data variables.product.prodname_oauth_app %} a tu cuenta](/articles/reviewing-your-authorized-integrations){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %} y cuando[las autorizaciones se revocan o vencen](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).{% else %}.{% endif %}
 
 {% ifversion fpt or ghec %}
 
 ### acciones de la categoría `payment_method`
 
-| Acción             | Descripción                                                                                                   |
-| ------------------ | ------------------------------------------------------------------------------------------------------------- |
-| `clear (eliminar)` | Se activa cuando se elimina [un método de pago](/articles/removing-a-payment-method) archivado.               |
-| `create (crear)`   | Se activa cuando se agrega un método de pago nuevo, como una tarjeta de crédito nueva o una cuenta de PayPal. |
-| `actualización`    | Se activa cuando se actualiza un método de pago existente.                                                    |
+| Acción           | Descripción                                                                                                   |
+| ---------------- | ------------------------------------------------------------------------------------------------------------- |
+| `create (crear)` | Se activa cuando se agrega un método de pago nuevo, como una tarjeta de crédito nueva o una cuenta de PayPal. |
+| `actualización`  | Se activa cuando se actualiza un método de pago existente.                                                    |
 
 {% endif %}
 
@@ -158,10 +146,10 @@ Un resumen de algunas de las acciones más frecuentes que se registran como even
 
 ### acciones de la categoría `public_key`
 
-| Acción           | Descripción                                                                                                                                                                                                                                                |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create (crear)` | Triggered when you [add a new public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/adding-a-new-ssh-key-to-your-github-account). |
-| `delete`         | Triggered when you [remove a public SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/reviewing-your-ssh-keys).                      |
+| Acción           | Descripción                                                                                                                                                                                                                                               |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create (crear)` | Se activa cuando [agregas una llave SSH pública a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/adding-a-new-ssh-key-to-your-github-account). |
+| `delete`         | Se activa cuando [eliminas una llave SSH pública a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}](/articles/reviewing-your-ssh-keys).                    |
 
 ### acciones de la categoría `repo`
 
@@ -177,7 +165,7 @@ Un resumen de algunas de las acciones más frecuentes que se registran como even
 | `config.unlock_anonymous_git_access (configurar desbloquear acceso de git anónimo)`     | Se activa cuando se desbloquea el parámetro de acceso de lectura de Git anónimo [de un repositorio](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
 | `create (crear)`                                                                        | Se activa cuando [se crea un repositorio nuevo](/articles/creating-a-new-repository).                                                                                                                                                                                                                                                          |
 | `destroy (destruir)`                                                                    | Se activa cuando [se elimina un repositorio](/articles/deleting-a-repository).{% ifversion fpt or ghec %}
-| `inhabilitar`                                                                           | Se activa cuando se inhabilita un repositorio (p. ej., por [fondos insuficientes](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
+| `inhabilitar`                                                                           | Se activa cuando un repositorio se inhabilita (por ejemplo, por [fondos insuficientes](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
 | `habilitar`                                                                             | Se activa cuando se vuelve a habilitar un repositorio.{% endif %}
 | `remove_member (eliminar miembro)`                                                      | Se activa cuando se elimina {% data variables.product.product_name %} un usuario [de un repositorio como colaborador](/articles/removing-a-collaborator-from-a-personal-repository).                                                                                                                                                           |
 | `remove_topic (eliminar tema)`                                                          | Se activa cuando un propietario del repositorio elimina un tema de un repositorio.                                                                                                                                                                                                                                                             |
@@ -258,10 +246,10 @@ Un resumen de algunas de las acciones más frecuentes que se registran como even
 | `change_password (cambiar contraseña)`                                                                                                                                                                                       | Se activa cuando cambias tu contraseña.                                                                                                                                                                                                            |
 | `forgot_password (olvidé la contraseña)`                                                                                                                                                                                     | Se activa cuando pides [un restablecimiento de contraseña](/articles/how-can-i-reset-my-password).{% endif %}
 | `hide_private_contributions_count (ocultar conteo de contribuciones privadas)`                                                                                                                                               | Se activa cuando [ocultas contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).                                                                                                       |
-| `login`                                                                                                                                                                                                                      | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes or ghae %}
+| `login`                                                                                                                                                                                                                      | Se activa cuando inicias sesión en {% data variables.product.product_location %}.{% ifversion ghes or ghae %}
 
 
-`mandatory_message_viewed`   | Se activa cuando ves un mensaje obligatorio (consulta la sección "[Personalizar los mensajes de usuario](/admin/user-management/customizing-user-messages-for-your-enterprise)" para obtener más detalles) | |{% endif %}| | `failed_login` | Se activa cuando fallas en ingresar con éxito. | `remove_email` | Se activa cuando eliminas una dirección de correo electrónico. | `rename` | Triggered when you rename your account.{% ifversion fpt or ghec %} | `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% ifversion not ghae %} | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+`mandatory_message_viewed`   | Se activa cuando ves un mensaje obligatorio (consulta la sección "[Personalizar los mensajes de usuario](/admin/user-management/customizing-user-messages-for-your-enterprise)" para obtener más detalles) | |{% endif %}| | `failed_login` | Se activa cuando fallas en ingresar con éxito. | `remove_email` | Se activa cuando eliminas una dirección de correo electrónico. | `rename` | Se activa cuando vuelves a nombrar tu cuenta.{% ifversion fpt or ghec %} | `report_content` | Se activa cuando [reportas una propuesta o solicitud de cambios o un comentario en una propuesta, solicitud de cambios o confirmación](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Se activa cuando [publicitas contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% ifversion not ghae %} | `two_factor_requested` | Se activa cuando {% data variables.product.product_name %} te pide tu [código de autenticación bifactorial](/articles/accessing-github-using-two-factor-authentication).{% endif %}
 
 ### acciones de la categoría `user_status`
 

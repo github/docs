@@ -3,7 +3,7 @@ title: SSH のトラブルシューティング
 intro: '{% data variables.product.product_name %} に接続して認証するために SSH を使っている場合、予期しない問題が起きてトラブルシューティングしなければならないことがあります。'
 redirect_from:
   - /articles/troubleshooting-ssh
-  - /github/authenticating-to-github/troubleshooting-ssh/
+  - /github/authenticating-to-github/troubleshooting-ssh
 versions:
   fpt: '*'
   ghes: '*'

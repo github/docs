@@ -2,13 +2,11 @@
 title: Visualizar y administrar el acceso de SAML de un miembro a tu organización
 intro: 'Puedes ver y revocar la identidad vinculada de un miembro de la organización, sesiones activas y credenciales autorizadas.'
 permissions: Organization owners can view and manage a member's SAML access to an organization.
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/viewing-and-revoking-organization-members-authorized-access-tokens
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -18,7 +16,7 @@ shortTitle: Administrar el acceso de SAML
 
 ## Acerca del acceso de SAML a tu organización
 
-When you enable SAML single sign-on for your organization, each organization member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.product.product_location %}. Para acceder a los recursos de tu organización en {% data variables.product.product_name %}, el miembro debe tener una sesión activa de SAML en su buscador. Para acceder a los recursos de tu organización utilizando Git o la API, el miembro debe utilizar un token de acceso personal o llave SSH que se le haya autorizado para su uso con tu organización.
+Cuando habilitas el inicio de sesión único de SAML en tu organización, cada miembro de esta puede enlazar su identidad externa con tu proveedor de identidad (IdP) con su cuenta existente en {% data variables.product.product_location %}. Para acceder a los recursos de tu organización en {% data variables.product.product_name %}, el miembro debe tener una sesión activa de SAML en su buscador. Para acceder a los recursos de tu organización utilizando Git o la API, el miembro debe utilizar un token de acceso personal o llave SSH que se le haya autorizado para su uso con tu organización.
 
 Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y credenciales auotrizadas en la misma página.
 
@@ -74,5 +72,5 @@ Cuando esté disponible, la entrada incluirá datos de SCIM. Para obtener más i
 
 ## Leer más
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"{% ifversion ghec %}
-- "[Viewing and managing a user's SAML access to your enterprise account](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)"{% endif %}
+- "[Acerca de la administración de acceso e identidad con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"{% ifversion ghec %}
+- "[Visualizar y administrar el acceso de SAML de un usuario en tu cuenta empresarial](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)"{% endif %}

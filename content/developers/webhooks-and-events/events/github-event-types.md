@@ -1,7 +1,6 @@
 ---
 title: GitHub event types
 intro: 'For the {% data variables.product.prodname_dotcom %} Events API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types

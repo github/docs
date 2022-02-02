@@ -2,7 +2,7 @@
 title: 审核整个企业的用户
 intro: The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the current month and previous six months. 审核日志包含操作执行人、操作内容和执行时间等详细信息。
 redirect_from:
-  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
+  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise

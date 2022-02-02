@@ -2,7 +2,7 @@
 title: 添加组织成员到团队
 intro: '拥有所有者或团队维护员权限的人员可以添加成员到团队。 具有所有者权限的人员也可{% ifversion fpt or ghec %}邀请非成员加入{% else %}添加非成员到{% endif %}团队和组织。'
 redirect_from:
-  - /articles/adding-organization-members-to-a-team-early-access-program/
+  - /articles/adding-organization-members-to-a-team-early-access-program
   - /articles/adding-organization-members-to-a-team
   - /github/setting-up-and-managing-organizations-and-teams/adding-organization-members-to-a-team
 versions:

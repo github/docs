@@ -2,7 +2,7 @@
 title: 将数据渲染为图形
 intro: 了解如何使用 D3.js 库和 Ruby Octokit 可视化仓库中的编程语言。
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
   fpt: '*'

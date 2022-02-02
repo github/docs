@@ -2,8 +2,8 @@
 title: Recuperar sua conta ao perder as credenciais 2FA
 intro: 'Se você perder acesso às suas credenciais de autenticação de dois fatores, você poderá usar seus códigos de recuperação ou outra opção de recuperação, para recuperar o acesso à sua conta.'
 redirect_from:
-  - /articles/recovering-your-account-if-you-lost-your-2fa-credentials/
-  - /articles/authenticating-with-an-account-recovery-token/
+  - /articles/recovering-your-account-if-you-lost-your-2fa-credentials
+  - /articles/authenticating-with-an-account-recovery-token
   - /articles/recovering-your-account-if-you-lose-your-2fa-credentials
   - /github/authenticating-to-github/recovering-your-account-if-you-lose-your-2fa-credentials
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials
@@ -70,31 +70,6 @@ Você pode usar as suas credenciais de autenticação de dois fatores ou os cód
     - Se você já configurou um token de acesso pessoal anteriormente e gostaria de usar o token de acesso pessoal para verificação, clique em **Token de acesso pessoal**. ![Botões de verificação alternativa](/assets/images/help/2fa/alt-verifications.png)
 8. Um integrante do {% data variables.contact.github_support %} irá rever a sua solicitação e o seu endereço de e-mail de 3 a 5 dias úteis. Se a sua solicitação for aprovada, você receberá um link para concluir o processo de recuperação de conta. Se sua solicitação for negada, o e-mail incluirá uma forma de entrar em contato com o suporte para esclarecer outras dúvidas.
 
-## Autenticar com um token de recuperação de conta
-
-{% warning %}
-
-**Aviso:** Os tokens de recuperação de conta estão obsoletos e serão desabilitados em **de 1 de dezembro de 2021 de**. Certifique-se de ter configurado outros métodos de recuperação de dois fatores. Para obter mais informações, consulte "[Configurando métodos de recuperação de autenticação de dois fatores](/articles/configuring-two-factor-authentication-recovery-methods)".
-
-{% endwarning %}
-
-Se você perder o acesso aos métodos de autenticação de dois fatores para sua conta em {% data variables.product.product_location %}, você poderá recuperar seu token de recuperação de conta de um provedor de recuperação de parceiro e pedir para o suporte de {% data variables.product.prodname_dotcom %} revisá-lo.
-
-Se você não tiver acesso aos seus métodos de autenticação de dois fatores ou códigos de recuperação e tiver armazenado um token de recuperação de conta no Facebook usando a recuperação de contas em outro lugar, pode ser que você consiga usar seu token para recuperar o acesso à sua conta.
-
-Se você não conseguir recuperar o acesso à sua conta, gere uma de uso único para recuperar o acesso. Para obter mais informações, consulte "[Efetuar a autenticação com um dispositivo verificado, token SSH ou token de acesso pessoal](#authenticating-with-a-verified-device-ssh-token-or-personal-access-token)".
-
-{% warning %}
-
-**Avisos:**
-- Antes de acessar um token de recuperação de conta, tente usar seus [códigos de autenticação de dois fatores](/articles/accessing-github-using-two-factor-authentication) ou seus códigos de recuperação da autenticação de dois fatores para reaver o acesso à sua conta. Para obter mais informações, consulte "[Recuperar sua conta se você perder as credenciais da 2FA](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)".
-
-{% endwarning %}
-
-1. No Facebook, acesse [Security Settings](https://www.facebook.com/settings?tab=security) (Configurações de segurança) e clique em **Recover Accounts Elsewhere** (Recuperação de contas em outro lugar). ![Página de configurações de segurança do Facebook com link Recuperação de contas em outro lugar](/assets/images/help/settings/security-facebook-security-settings-page.png)
-2. Clique no token de recuperação associado à sua conta em {% data variables.product.product_location %}. ![Lista de tokens de recuperação armazenados no Facebook](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
-3. Para acessar seu token de recuperação de conta, clique em **Recover This Account** (Recuperar esta conta). Uma nova janela abrirá, retornando ao {% data variables.product.product_name %}. ![Caixa modal com informações sobre seu token de recuperação e botão Recover This Account (Recuperar esta conta)](/assets/images/help/settings/security-recover-account-facebook.png)
-4. Entre em contato com o {% data variables.contact.contact_support %} para informá-los que seu token de recuperação de conta está pronto para ser verificado.
 {% endif %}
 
 ## Leia mais

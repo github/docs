@@ -14,13 +14,10 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Reexecutar todos os trabalhos em um fluxo de trabalho
 
 A reexecução de um fluxo de trabalho usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. Você pode executar novamente um fluxo de trabalho por até 30 dias após a execução inicial.
-
-{% include tool-switcher %}
 
 {% webui %}
 

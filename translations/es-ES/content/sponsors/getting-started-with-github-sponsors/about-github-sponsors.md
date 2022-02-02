@@ -23,7 +23,7 @@ topics:
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %}Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)".
 
-Cuando te conviertes en un desarrollador patrocinado u organización patrocinada, aplicarán las condiciones adicionales de {% data variables.product.prodname_sponsors %}. For more information, see "[GitHub Sponsors Additional Terms](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)."
+Cuando te conviertes en un desarrollador patrocinado u organización patrocinada, aplicarán las condiciones adicionales de {% data variables.product.prodname_sponsors %}. Para obtener más información, consulta la sección "[Condiciones Adicionales de GitHub Sponsors](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)".
 
 ## Acerca de {% data variables.product.prodname_matching_fund %}
 
@@ -33,7 +33,7 @@ Cuando te conviertes en un desarrollador patrocinado u organización patrocinada
 
 {% endnote %}
 
-The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). Los pagos desde las organizaciones y hacia las organizaciones patrocinadas no son elegibles para {% data variables.product.prodname_matching_fund %}.
+El {% data variables.product.prodname_matching_fund %} pretende beneficiar a los miembros de la comunidad de {% data variables.product.prodname_dotcom %} quienes desarrollan software de código abierto que promueve los [Lineamientos de la Comunidad de {% data variables.product.prodname_dotcom %}](/free-pro-team@latest/github/site-policy/github-community-guidelines). Los pagos desde las organizaciones y hacia las organizaciones patrocinadas no son elegibles para {% data variables.product.prodname_matching_fund %}.
 
 Para ser elegible para el {% data variables.product.prodname_matching_fund %}, debes crear un perfil que atraiga a la comunidad que te mantendrá a largo plazo. Para obtener más información acerca de crear un perfil llamativo, consulta la sección "[Editar tus detalles de perfil para {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)".
 

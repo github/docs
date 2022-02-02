@@ -1,12 +1,10 @@
 ---
 title: About two-factor authentication and SAML single sign-on
 intro: Organizations administrators can enable both SAML single sign-on and two-factor authentication to add additional authentication measures for their organization members.
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

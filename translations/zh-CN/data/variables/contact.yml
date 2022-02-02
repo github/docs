@@ -10,8 +10,8 @@ contact_dmca: >-
   {% ifversion fpt or ghec %}[版权声明表](https://github.com/contact/dmca){% endif %}
 contact_privacy: >-
   {% ifversion fpt or ghec %}[隐私联系表](https://github.com/contact/privacy){% endif %}
-contact_enterprise_sales: "[GitHub' 销售团队](https://enterprise.github.com/contact)"
-contact_feedback_actions: '[GitHub 操作的反馈表](https://support.github.com/contact/feedback?contact[category]=actions)'
+contact_enterprise_sales: "[GitHub' 销售团队](https://github.com/enterprise/contact)"
+contact_feedback_actions: '[Feedback discussion for GitHub Actions](https://github.com/github/feedback/discussions/categories/actions-and-packages-feedback)'
 #The team that provides Standard Support
 enterprise_support: 'GitHub Enterprise 支持'
 #The larger team that includes Enterprise Support and Premium Support
@@ -33,4 +33,4 @@ contact_landing_page_portal: '[GitHub 支持门户](https://support.github.com/)
 #The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)
 community_support: 'GitHub Community Support'
 #The GitHub Community forum
-community_support_forum: '[GitHub 社区论坛](https://github.community/)'
+community_support_forum: '[GitHub Support Community](https://github.community/)'

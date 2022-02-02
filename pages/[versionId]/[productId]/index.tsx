@@ -15,10 +15,10 @@ import {
   ProductLandingContext,
 } from 'components/context/ProductLandingContext'
 import {
-  getProductSubLandingContextFromRequest,
-  ProductSubLandingContextT,
-  ProductSubLandingContext,
-} from 'components/context/ProductSubLandingContext'
+  getProductGuidesContextFromRequest,
+  ProductGuidesContextT,
+  ProductGuidesContext,
+} from 'components/context/ProductGuidesContext'
 
 import {
   getArticleContextFromRequest,
@@ -28,7 +28,7 @@ import {
 import { ArticlePage } from 'components/article/ArticlePage'
 
 import { ProductLanding } from 'components/landing/ProductLanding'
-import { ProductSubLanding } from 'components/sublanding/ProductSubLanding'
+import { ProductGuides } from 'components/guides/ProductGuides'
 import { TocLanding } from 'components/landing/TocLanding'
 import {
   getTocLandingContextFromRequest,
@@ -46,14 +46,14 @@ function initiateArticleScripts() {
 type Props = {
   mainContext: MainContextT
   productLandingContext: ProductLandingContextT
-  productSubLandingContext: ProductSubLandingContextT
+  productGuidesContext: ProductGuidesContextT
   tocLandingContext: TocLandingContextT
   articleContext: ArticleContextT
 }
 const GlobalPage = ({
   mainContext,
   productLandingContext,
-  productSubLandingContext,
+  productGuidesContext,
   tocLandingContext,
   articleContext,
 }: Props) => {
@@ -76,11 +76,11 @@ const GlobalPage = ({
         <ProductLanding />
       </ProductLandingContext.Provider>
     )
-  } else if (currentLayoutName === 'product-sublanding') {
+  } else if (currentLayoutName === 'product-guides') {
     content = (
-      <ProductSubLandingContext.Provider value={productSubLandingContext}>
-        <ProductSubLanding />
-      </ProductSubLandingContext.Provider>
+      <ProductGuidesContext.Provider value={productGuidesContext}>
+        <ProductGuides />
+      </ProductGuidesContext.Provider>
     )
   } else if (relativePath?.endsWith('index.md')) {
     content = (
@@ -109,7 +109,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     props: {
       mainContext: getMainContext(req, res),
       productLandingContext: getProductLandingContextFromRequest(req),
-      productSubLandingContext: getProductSubLandingContextFromRequest(req),
+      productGuidesContext: getProductGuidesContextFromRequest(req),
       tocLandingContext: getTocLandingContextFromRequest(req),
       articleContext: getArticleContextFromRequest(req),
     },

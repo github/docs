@@ -22,3 +22,6 @@ shortTitle: Llaves de implementación
 4. En la página de Llaves de implementación, anota las llaves de implementación asociadas a tu cuenta. Para las que no reconozcas o que estén desactualizadas, haz clic en **Delete** (Eliminar). Si hay llaves de implementación válidas que quieres conservar, haz clic en **Approve** (Aprobar). ![Lista de llaves de implementación](/assets/images/help/settings/settings-deploy-key-review.png)
 
 Para obtener más información, consulta la sección "[Administrar las llaves de despliegue](/guides/managing-deploy-keys)".
+
+## Leer más
+- [Configurar notificaciones](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

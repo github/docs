@@ -1,1 +1,1 @@
-1. In your user settings sidebar, click **Blocked users** under **Moderation settings**. ![Pestaña de usuarios bloqueados](/assets/images/help/settings/settings-sidebar-blocked-users.png)
+1. En tu barra lateral de ajustes de usuario, haz clic en **Usuarios bloqueados** debajo de **Ajustes de moderación**. ![Pestaña de usuarios bloqueados](/assets/images/help/settings/settings-sidebar-blocked-users.png)

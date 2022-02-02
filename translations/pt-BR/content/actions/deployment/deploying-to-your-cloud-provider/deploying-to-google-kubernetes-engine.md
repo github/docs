@@ -19,7 +19,6 @@ shortTitle: Implantar no Google Kubernetes Engine
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -115,7 +114,7 @@ Este procedimento demonstra como criar a conta de serviço para sua integração
 Armazene o nome do seu projeto como um segredo denominado `GKE_PROJECT`. Para obter mais informações sobre como armazenar um segredo, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
 ### (Opcional) Configurar kustomize
-Kustomize é uma ferramenta opcional usada para gerenciar especificações do YAML. Depois de criar um arquivo do _kustomization_, o fluxo de trabalho abaixo pode ser usado para definir dinamicamente os campos da imagem e adicionar o resultado ao `kubectl`. Para obter mais informações, consulte [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
+Kustomize é uma ferramenta opcional usada para gerenciar especificações do YAML. Depois de criar um arquivo do `kustomization`, o fluxo de trabalho abaixo pode ser usado para definir dinamicamente os campos da imagem e adicionar o resultado ao `kubectl`. Para obter mais informações, consulte [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Opcional) Configure um ambiente de implantação

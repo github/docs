@@ -2,7 +2,7 @@
 title: Negar acesso a um aplicativo OAuth previamente aprovado para a organização
 intro: 'Se uma organização não requer mais um {% data variables.product.prodname_oauth_app %} previamente autorizado, os proprietários podem remover o acesso do aplicativo aos recursos da organização.'
 redirect_from:
-  - /articles/denying-access-to-a-previously-approved-application-for-your-organization/
+  - /articles/denying-access-to-a-previously-approved-application-for-your-organization
   - /articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/denying-access-to-a-previously-approved-oauth-app-for-your-organization
 versions:

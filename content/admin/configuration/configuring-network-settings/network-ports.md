@@ -1,10 +1,10 @@
 ---
 title: Network ports
 redirect_from:
-  - /enterprise/admin/articles/configuring-firewalls/
-  - /enterprise/admin/articles/firewall/
-  - /enterprise/admin/guides/installation/network-configuration/
-  - /enterprise/admin/guides/installation/network-ports-to-open/
+  - /enterprise/admin/articles/configuring-firewalls
+  - /enterprise/admin/articles/firewall
+  - /enterprise/admin/guides/installation/network-configuration
+  - /enterprise/admin/guides/installation/network-ports-to-open
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports

@@ -2,7 +2,7 @@
 title: Configurar el almacenamiento de archivos Git de gran tamaño
 intro: 'Una vez que {[{% data variables.large_files.product_name_short %} está instalado], (/articles/installing-git-large-file-storage/), deberás asociarlo con un archivo de gran tamaño en tu repositorio.'
 redirect_from:
-  - /articles/configuring-large-file-storage/
+  - /articles/configuring-large-file-storage
   - /articles/configuring-git-large-file-storage
   - /github/managing-large-files/configuring-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/configuring-git-large-file-storage

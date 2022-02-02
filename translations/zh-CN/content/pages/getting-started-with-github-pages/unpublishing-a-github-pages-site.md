@@ -2,10 +2,10 @@
 title: 取消发布 GitHub Pages 站点
 intro: '您可以取消发布 {% data variables.product.prodname_pages %} 站点，使该站点不再可用。'
 redirect_from:
-  - /articles/how-do-i-unpublish-a-project-page/
-  - /articles/unpublishing-a-project-page/
-  - /articles/unpublishing-a-project-pages-site/
-  - /articles/unpublishing-a-user-pages-site/
+  - /articles/how-do-i-unpublish-a-project-page
+  - /articles/unpublishing-a-project-page
+  - /articles/unpublishing-a-project-pages-site
+  - /articles/unpublishing-a-user-pages-site
   - /articles/unpublishing-a-github-pages-site
   - /github/working-with-github-pages/unpublishing-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'

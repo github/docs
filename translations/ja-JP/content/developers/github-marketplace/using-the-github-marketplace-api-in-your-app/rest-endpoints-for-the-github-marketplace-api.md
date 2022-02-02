@@ -2,8 +2,8 @@
 title: GItHub Marketplace API用のRESTエンドポイント
 intro: '{% data variables.product.prodname_marketplace %}上でのアプリケーションの管理を支援するために、以下の{% data variables.product.prodname_marketplace %} APIエンドポイントを使ってください。'
 redirect_from:
-  - /apps/marketplace/github-marketplace-api-endpoints/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints/
+  - /apps/marketplace/github-marketplace-api-endpoints
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
   - /developers/github-marketplace/rest-endpoints-for-the-github-marketplace-api
 versions:
@@ -28,6 +28,6 @@ shortTitle: REST API
 
 {% note %}
 
-**ノート:** [REST APIのためのレート制限](/rest#rate-limiting)は、{% data variables.product.prodname_marketplace %} APIのすべてのエンドポイントに適用されます。
+**ノート:** [REST APIのためのレート制限](/rest/overview/resources-in-the-rest-api#rate-limiting)は、{% data variables.product.prodname_marketplace %} APIのすべてのエンドポイントに適用されます。
 
 {% endnote %}

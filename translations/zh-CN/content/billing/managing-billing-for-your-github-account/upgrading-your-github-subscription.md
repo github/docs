@@ -1,22 +1,23 @@
 ---
 title: 升级 GitHub 订阅
 intro: 'You can upgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
-  - /articles/upgrading-your-personal-account-s-billing-plan/
-  - /articles/upgrading-your-personal-account/
-  - /articles/upgrading-your-personal-account-from-free-to-a-paid-account/
-  - /articles/upgrading-your-personal-account-from-free-to-paid-with-a-credit-card/
-  - /articles/upgrading-your-personal-account-from-free-to-paid-with-paypal/
-  - /articles/500-error-while-upgrading/
-  - /articles/upgrading-your-organization-s-billing-plan/
-  - /articles/changing-your-organization-billing-plan/
-  - /articles/upgrading-your-organization-account-from-free-to-paid-with-a-credit-card/
-  - /articles/upgrading-your-organization-account-from-free-to-paid-with-paypal/
-  - /articles/upgrading-your-organization-account/
-  - /articles/switching-from-per-repository-to-per-user-pricing/
-  - /articles/adding-seats-to-your-organization/
-  - /articles/upgrading-your-github-billing-plan/
+  - /articles/upgrading-your-personal-account-s-billing-plan
+  - /articles/upgrading-your-personal-account
+  - /articles/upgrading-your-personal-account-from-free-to-a-paid-account
+  - /articles/upgrading-your-personal-account-from-free-to-paid-with-a-credit-card
+  - /articles/upgrading-your-personal-account-from-free-to-paid-with-paypal
+  - /articles/500-error-while-upgrading
+  - /articles/upgrading-your-organization-s-billing-plan
+  - /articles/changing-your-organization-billing-plan
+  - /articles/upgrading-your-organization-account-from-free-to-paid-with-a-credit-card
+  - /articles/upgrading-your-organization-account-from-free-to-paid-with-paypal
+  - /articles/upgrading-your-organization-account
+  - /articles/switching-from-per-repository-to-per-user-pricing
+  - /articles/adding-seats-to-your-organization
+  - /articles/upgrading-your-github-billing-plan
   - /articles/upgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
@@ -31,9 +32,15 @@ topics:
 shortTitle: 升级订阅
 ---
 
+## About subscription upgrades
+
+{% data reusables.accounts.accounts-billed-separately %}
+
+When you upgrade the subscription for an account, the upgrade changes the paid features available for that account only, and not any other accounts you use.
+
 ## 升级个人帐户的订阅
 
-您可以将个人帐户从 {% data variables.product.prodname_free_user %} 升级到 {% data variables.product.prodname_pro %}，以获得私有仓库中的高级代码审查工具。 {% data reusables.gated-features.more-info %}
+You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories owned by your user account. Upgrading your personal account does not affect any organizations you may manage or repositories owned by those organizations. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -45,9 +52,13 @@ shortTitle: 升级订阅
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-## 升级组织的订阅
+## Managing your organization's subscription
 
-您可以将组织从 {% data variables.product.prodname_free_team %} 升级到 {% data variables.product.prodname_team %}，以访问团队的高级协作和管理工具，也可以将组织升级到 {% data variables.product.prodname_ghe_cloud %} 以使用更多的安全性、合规性和部署控件。 {% data reusables.gated-features.more-info-org-products %}
+You can upgrade your organization's subscription to a different product, add seats to your existing product, or switch from per-repository to per-user pricing.
+
+### 升级组织的订阅
+
+您可以将组织从 {% data variables.product.prodname_free_team %} 升级到 {% data variables.product.prodname_team %}，以访问团队的高级协作和管理工具，也可以将组织升级到 {% data variables.product.prodname_ghe_cloud %} 以使用更多的安全性、合规性和部署控件。 Upgrading an organization does not affect your personal account or repositories owned by your personal account. {% data reusables.gated-features.more-info-org-products %}
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -62,11 +73,11 @@ shortTitle: 升级订阅
 
 ### 使用 {% data variables.product.prodname_ghe_cloud %} 的组织的后续步骤
 
-如果您已将组织升级到 {% data variables.product.prodname_ghe_cloud %}，便可设置组织的身份和访问管理。 更多信息请参阅“[管理组织的 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization)”。
+如果您已将组织升级到 {% data variables.product.prodname_ghe_cloud %}，便可设置组织的身份和访问管理。 For more information, see "[Managing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 如果想要将企业帐户与 {% data variables.product.prodname_ghe_cloud %} 一起使用，请联系 {% data variables.contact.contact_enterprise_sales %}。 For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-## 将席位添加到您的组织
+### 将席位添加到您的组织
 
 如果希望其他用户能够访问您 {% data variables.product.prodname_team %} 组织的私有仓库，您可以随时购买更多席位。
 
@@ -75,7 +86,7 @@ shortTitle: 升级订阅
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-## 将组织从按仓库定价切换为按用户定价
+### 将组织从按仓库定价切换为按用户定价
 
 {% data reusables.dotcom_billing.switch-legacy-billing %} 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。
 

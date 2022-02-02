@@ -2,7 +2,7 @@
 title: Restringir interações no repositório
 intro: É possível aplicar temporariamente um período de atividades limitadas para certos usuários em um repositório público.
 redirect_from:
-  - /articles/limiting-interactions-with-your-repository/
+  - /articles/limiting-interactions-with-your-repository
   - /articles/limiting-interactions-in-your-repository
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
@@ -28,8 +28,7 @@ Você também pode habilitar limitações de atividade em todos os repositórios
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Na barra lateral esquerda, clique em **Configurações de moderação**. !["Configurações de moderação" na barra lateral de configurações do repositório](/assets/images/help/repository/repo-settings-moderation-settings.png)
-1. Em "Configurações de moderação", clique em **Limites de interação**. ![Interaction limits (Restrições de interação) em Settings (Configurações) do repositório ](/assets/images/help/repository/repo-settings-interaction-limits.png)
+1. In the "Access" section of the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![Opções Temporary interaction limit (Restrições de interação temporárias)](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
@@ -37,4 +36,4 @@ Você também pode habilitar limitações de atividade em todos os repositórios
 - "[Denunciar abuso ou spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Gerenciar o acesso de um indivíduo a um repositório da organização](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Níveis de permissão do repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository)"
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

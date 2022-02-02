@@ -2,7 +2,7 @@
 title: Acerca de los gráficos del repositorio
 intro: Los gráficos del repositorio te ayudan a ver y analizar datos para tu repositorio.
 redirect_from:
-  - /articles/using-graphs/
+  - /articles/using-graphs
   - /articles/about-repository-graphs
   - /github/visualizing-repository-data-with-graphs/about-repository-graphs
   - /github/visualizing-repository-data-with-graphs/accessing-basic-repository-data/about-repository-graphs

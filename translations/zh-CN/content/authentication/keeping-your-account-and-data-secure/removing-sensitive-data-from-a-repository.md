@@ -1,10 +1,10 @@
 ---
-title: 从仓库中删除敏感数据
-intro: 如果将敏感数据（例如密码或 SSH 密钥）提交到 Git 仓库，您可以将其从历史记录中删除。 要从仓库的历史记录中彻底删除不需要的文件，您可以使用 `git filter-repo` 工具或 BFG Repo-Cleaner 开源工具。
+title: Removing sensitive data from a repository
+intro: 'If you commit sensitive data, such as a password or SSH key into a Git repository, you can remove it from the history. To entirely remove unwanted files from a repository''s history you can use either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.'
 redirect_from:
-  - /remove-sensitive-data/
-  - /removing-sensitive-data/
-  - /articles/remove-sensitive-data/
+  - /remove-sensitive-data
+  - /removing-sensitive-data
+  - /articles/remove-sensitive-data
   - /articles/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
@@ -16,66 +16,65 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: 删除敏感数据
+shortTitle: Remove sensitive data
 ---
+The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
 
-`git filter-repo` 工具和 BFG Repo-Cleaner 可重写仓库的历史记录，从而更改您所更改的现有提交以及任何依赖提交的 SHA。 更改的提交 SHA 可能会影响仓库中的打开拉取请求。 我们建议在从仓库中删除文件之前合并或关闭所有打开的拉取请求。
-
-您可以使用 `git rm` 从最新提交中删除该文件。 有关删除使用最新提交添加的文件的信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的大文件](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)”。
+You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[About large files on {% data variables.product.prodname_dotcom %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)."
 
 {% warning %}
 
-This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. 但需要注意的是，这些提交在您仓库的任何克隆或复刻中、直接通过 {% data variables.product.product_name %} 上缓存视图中其 SHA-1 哈希以及通过引用它们的任何拉取请求可能仍然可访问。 您无法从仓库的其他用户的克隆或复刻删除敏感数据，但您可以通过联系 {% data variables.contact.contact_support %}，永久删除 {% data variables.product.product_name %} 上拉取请求中敏感数据的缓存视图和引用。
+This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. However, it's important to note that those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You cannot remove sensitive data from other users' clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
 
-**警告：将提交推送到 {% data variables.product.product_name %} 后，应考虑提交中受到影响的任何敏感。**如果您提交了密码，请更改密码！ 如果您提交了密钥，请生成新密钥。 删除泄露的数据并不能解决其初始暴露问题，尤其是在仓库的现有克隆或复刻中。 在重写仓库历史记录的决定中考虑这些限制。
+**Warning: Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised.** If you committed a password, change it! If you committed a key, generate a new one. Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository. Consider these limitations in your decision to rewrite your repository's history.
 
 {% endwarning %}
 
-## 从仓库的历史记录中清除文件
+## Purging a file from your repository's history
 
-您可以使用 `git filter-repo` 工具或 BFG Repo-Cleaner 开源工具从仓库历史记录中清除文件。
+You can purge a file from your repository's history using either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
 
-### 使用 BFG
+### Using the BFG
 
-[BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) 是一种由开源社区构建和维护的工具。 它提供一种更快、更简单的 `git filter-branch` 替代方法，用于删除不需要的数据。
+The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-branch` for removing unwanted data. 
 
-例如，要删除包含敏感数据的文件并保持最新提交不变，请运行：
+For example, to remove your file with sensitive data and leave your latest commit untouched, run:
 
 ```shell
 $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
 ```
 
-要替换在仓库历史记录中找到的、`passwords.txt` 中列出的所有文本，请运行：
+To replace all text listed in `passwords.txt` wherever it can be found in your repository's history, run:
 
 ```shell
 $ bfg --replace-text passwords.txt
 ```
 
-删除敏感数据后，必须强制将更改推送到 {% data variables.product.product_name %}。
+After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}. Force pushing rewrites the repository history, which removes sensitive data from the commit history. If you force push, it may overwrite commits that other people have based their work on.
 
 ```shell
 $ git push --force
 ```
 
-有关完整的使用和下载说明，请参阅 [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) 的文档。
+See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
 
-### 使用 git filter-repo
+### Using git filter-repo
 
 {% warning %}
 
-**警告：**如果您在储藏更改后运行 `git filter-repo`，则无法使用其他 stash 命令检索您的更改。 运行 `git filter-repo` 之前，我们建议取消储藏您进行的任何更改。 要取消储藏您已储藏的上一组更改，请运行 `git stash show -p | git apply -R`。 更多信息请参阅 [Git 工具 - 隐藏和清理](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning)。
+**Warning:** If you run `git filter-repo` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-repo`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
 
 {% endwarning %}
 
-为说明 `git filter-repo` 的工作方式，我们将向您展示如何从仓库的历史记录中删除含有敏感数据的文件，然后将其添加到 `.gitignore` 以确保不会意外重新提交。
+To illustrate how `git filter-repo` works, we'll show you how to remove your file with sensitive data from the history of your repository and add it to `.gitignore` to ensure that it is not accidentally re-committed.
 
-1. 安装最新版本的 [git filter-repo](https://github.com/newren/git-filter-repo) 工具。 您可以手动或使用软件包管理器安装 `git-filter-repo`。 例如，要使用 HomeBrew 安装工具，请使用 `brew install` 命令。
+1. Install the latest release of the [git filter-repo](https://github.com/newren/git-filter-repo) tool. You can install `git-filter-repo` manually or by using a package manager. For example, to install the tool with HomeBrew, use the `brew install` command.
   ```
   brew install git-filter-repo
   ```
-  更多信息请参阅 `newren/git-filter-repo` 仓库中的 [*INSTALL.md*](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md)。
+  For more information, see [*INSTALL.md*](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) in the `newren/git-filter-repo` repository.
 
-2. 如果其历史记录中没有包含敏感数据仓库的本地副本，则[克隆仓库](/articles/cloning-a-repository/)到本地计算机。
+2. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/articles/cloning-a-repository/) to your local computer.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
   > Initialized empty Git repository in /Users/<em>YOUR-FILE-PATH</em>/<em>YOUR-REPOSITORY</em>/.git/
@@ -85,15 +84,15 @@ $ git push --force
   > Receiving objects: 100% (1301/1301), 164.39 KiB, done.
   > Resolving deltas: 100% (724/724), done.
   ```
-3. 导航到仓库的工作目录。
+3. Navigate into the repository's working directory.
   ```shell
   $ cd <em>YOUR-REPOSITORY</em>
   ```
-4. 运行以下命令，将 `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` 替换为**您要删除的文件的路径，而不仅仅是其文件名**。 这些参数将：
-    - 强制 Git 处理但不检出每个分支和标记的完整历史记录
-    - 删除指定的文件，以及因此生成的任何空提交
-    - 删除一些配置，例如存储在 *.git/config* 文件中的远程 URL。 您可能需要提前备份此文件以供以后恢复。
-    - **覆盖现有的标记**
+4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
+    - Force Git to process, but not check out, the entire history of every branch and tag
+    - Remove the specified file, as well as any empty commits generated as a result
+    - Remove some configurations, such as the remote URL, stored in the *.git/config* file. You may want to back up this file in advance for restoration later.
+    - **Overwrite your existing tags**
         ```shell
         $ git filter-repo --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
         Parsed 197 commits
@@ -111,11 +110,11 @@ $ git push --force
 
   {% note %}
 
-  **注：**如果含有敏感数据的文件曾经存在于任何其他路径中（因为它已被移动或重命名），则也必须在这些路径上运行此命令。
+  **Note:** If the file with sensitive data used to exist at any other paths (because it was moved or renamed), you must run this command on those paths, as well.
 
   {% endnote %}
 
-5. 将含有敏感数据的文件添加到 `.gitignore` 以确保不会再次意外提交它。
+5. Add your file with sensitive data to `.gitignore` to ensure that you don't accidentally commit it again.
 
   ```shell
   $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
@@ -124,8 +123,8 @@ $ git push --force
   > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
-6. 仔细检查您是否已从仓库历史记录中删除所需的所有内容，并且所有分支均已检出。
-7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, as well as all the branches you've pushed up:
+6. Double-check that you've removed everything you wanted to from your repository's history, and that all of your branches are checked out.
+7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, as well as all the branches you've pushed up. A force push is required to remove sensitive data from your commit history.
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.
@@ -136,7 +135,7 @@ $ git push --force
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
-8. 要从[标记的发行版](/articles/about-releases)删除敏感文件，您还需要强制推送 Git 标记：
+8. In order to remove the sensitive file from [your tagged releases](/articles/about-releases), you'll also need to force-push against your Git tags:
   ```shell
   $ git push origin --force --tags
   > Counting objects: 321, done.
@@ -148,15 +147,15 @@ $ git push --force
   >  + 48dc599...051452f main -> main (forced update)
   ```
 
-## 完全从 {% data variables.product.prodname_dotcom %} 中删除数据
+## Fully removing the data from {% data variables.product.prodname_dotcom %}
 
-在使用 BFG 工具或 `git filter-repo` 删除敏感数据并将更改推至 {% data variables.product.product_name %} 后，您必须再采取一些步骤，以完全从 {% data variables.product.product_name %} 中删除数据。
+After using either the BFG tool or `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.product_name %}, you must take a few more steps to fully remove the data from {% data variables.product.product_name %}.
 
-1. 联系 {% data variables.contact.contact_support %}，请求他们删除 {% data variables.product.product_name %} 上拉取请求中敏感数据的缓存视图和引用。 请提供仓库名称和/或您需要删除的提交链接。
+1. Contact {% data variables.contact.contact_support %}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.
 
-2. 告知协作者[变基](https://git-scm.com/book/en/Git-Branching-Rebasing)而*不是*合并他们从旧的（污染的） 仓库历史记录创建的任何分支。 一次合并提交可能会重新引入您刚刚遇到清除问题的部分或全部污染的历史记录。
+2. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *not* merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
-3. 经过一段时间并且您确信 BFG 工具 / `git filter-repo` 没有任何意外的副作用后，您可以通过以下命令（使用 Git 1.8.5 或更新版本）强制取消引用本地仓库中的所有对象并进行垃圾回收：
+3. After some time has passed and you're confident that the BFG tool / `git filter-repo` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
   ```shell
   $ git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
   $ git reflog expire --expire=now --all
@@ -169,21 +168,21 @@ $ git push --force
   ```
   {% note %}
 
-   **注：**您也可以通过以下方法实现此目的：将过滤的历史记录推送到新的或空的仓库，然后从 {% data variables.product.product_name %} 进行全新克隆。
+   **Note:** You can also achieve this by pushing your filtered history to a new or empty repository and then making a fresh clone from {% data variables.product.product_name %}.
 
   {% endnote %}
 
-## 避免将来的意外提交
+## Avoiding accidental commits in the future
 
-有一些简单的技巧可避免提交您不想要提交的内容：
+There are a few simple tricks to avoid committing things you don't want committed:
 
-- 使用如 [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) 或 [gitk](https://git-scm.com/docs/gitk) 之类的可视程序提交更改。 可视程序通常可以更容易地查看每次提交时将添加、删除和修改具体哪些文件。
-- 避免在命令行中使用全部捕获命令 `git add .` 和 `git commit -a` — 使用 `git add filename` 和 `git rm filename` 逐个暂存文件。
-- 使用 `git add --interactive` 逐个查看和暂存每个文件中的更改。
-- 使用 `git diff --cached` 查看您为提交暂存的更改。 只要不使用 `-a` 标志，这就是 `git commit` 将产生的确切差异。
+- Use a visual program like [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) or [gitk](https://git-scm.com/docs/gitk) to commit changes. Visual programs generally make it easier to see exactly which files will be added, deleted, and modified with each commit.
+- Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
+- Use `git add --interactive` to individually review and stage changes within each file.
+- Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
 
-## 延伸阅读
+## Further reading
 
-- [`git filter-repo` 手册页](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
-- [Pro Git：Git 工具 - 重写历史记录](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
+- [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
+- [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
 - "[About Secret scanning](/code-security/secret-security/about-secret-scanning)"

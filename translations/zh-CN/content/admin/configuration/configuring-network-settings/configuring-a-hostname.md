@@ -2,7 +2,7 @@
 title: 配置主机名
 intro: 我们建议为您的设备设置主机名，不建议使用硬编码 IP 地址。
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-hostnames/
+  - /enterprise/admin/guides/installation/configuring-hostnames
   - /enterprise/admin/installation/configuring-a-hostname
   - /enterprise/admin/configuration/configuring-a-hostname
   - /admin/configuration/configuring-a-hostname

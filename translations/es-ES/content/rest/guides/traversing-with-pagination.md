@@ -2,7 +2,7 @@
 title: Desplazarse con la paginación
 intro: Explora las formas para utilizar la paginación en la administración de tus respuestas con algunos ejemplos de cómo utilizar la API de Búsqueda.
 redirect_from:
-  - /guides/traversing-with-pagination/
+  - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
 versions:
   fpt: '*'
@@ -14,7 +14,7 @@ topics:
 shortTitle: Desplazarse con la paginación
 ---
 
-The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume. La mayoría de las veces incluso podrías encontrar que estás pidiendo _demasiada_ información y, para mantener felices a nuestros servidores, la API [paginará los elementos solicitados][pagination] automáticamente.
+La API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} proporciona una riqueza informativa vasta para el consumo de los desarrolladores. La mayoría de las veces incluso podrías encontrar que estás pidiendo _demasiada_ información y, para mantener felices a nuestros servidores, la API [paginará los elementos solicitados](/rest/overview/resources-in-the-rest-api#pagination) automáticamente.
 
 En esta guía haremos algunos llamados a la API de Búsqueda de e iteraremos sobre los resultados utilizando la paginación. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
 
@@ -205,7 +205,6 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use

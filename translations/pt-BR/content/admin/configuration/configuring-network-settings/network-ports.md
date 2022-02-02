@@ -1,10 +1,10 @@
 ---
 title: Portas de rede
 redirect_from:
-  - /enterprise/admin/articles/configuring-firewalls/
-  - /enterprise/admin/articles/firewall/
-  - /enterprise/admin/guides/installation/network-configuration/
-  - /enterprise/admin/guides/installation/network-ports-to-open/
+  - /enterprise/admin/articles/configuring-firewalls
+  - /enterprise/admin/articles/firewall
+  - /enterprise/admin/guides/installation/network-configuration
+  - /enterprise/admin/guides/installation/network-ports-to-open
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
@@ -23,14 +23,14 @@ topics:
 
 Certas portas administrativas são obrigatórias para configurar a {% data variables.product.product_location %} e executar determinados recursos. Não é preciso haver portas administrativas para os usuários finais aproveitarem os recursos básicos do aplicativo.
 
-| Porta    | Serviço | Descrição                                                                                                                                                                                                                                                             |
-| -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 8443     | HTTPS   | {% data variables.enterprise.management_console %} seguro na web. Obrigatória para instalação e configuração básicas.                                                                                                                                                 |
-| 8080     | HTTP    | {% data variables.enterprise.management_console %} de texto simples na web. Não é obrigatória, a menos que o SSL seja desativado manualmente.                                                                                                                         |
-| 122      | SSH     | Acesso de shell à {% data variables.product.product_location %}. É obrigatório ficar aberta para conexões de entrada de todos os outros nós em configurações de Alta Disponibilidade. A porta SSH padrão (22) é dedicada ao tráfego de rede de aplicativos Git e SSH. |
-| 1194/UDP | VPN     | Túnel de rede de replicação segura em configurações de Alta Disponibilidade. É obrigatório ficar aberta para todos os outros nós na configuração.                                                                                                                     |
-| 123/UDP  | NTP     | Obrigatória para operações de protocolo de tempo.                                                                                                                                                                                                                     |
-| 161/UDP  | SNMP    | Obrigatória para operações de protocolo de monitoramento de rede.                                                                                                                                                                                                     |
+| Porta    | Serviço | Descrição                                                                                                                                                                                                                                                            |
+| -------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 8443     | HTTPS   | {% data variables.enterprise.management_console %} seguro na web. Obrigatória para instalação e configuração básicas.                                                                                                                                                |
+| 8080     | HTTP    | {% data variables.enterprise.management_console %} de texto simples na web. Não é obrigatória, a menos que o SSL seja desativado manualmente.                                                                                                                        |
+| 122      | SSH     | Acesso de shell à {% data variables.product.product_location %}. Obrigatório para estar aberto a conexões de entrada entre todos os nós em uma configuração de alta disponibilidade. A porta SSH padrão (22) é dedicada ao tráfego de rede de aplicativos Git e SSH. |
+| 1194/UDP | VPN     | Túnel de rede de réplica segura na configuração de alta disponibilidade. Obrigatório estar aberto para a comunicação entre todos os nós da configuração.                                                                                                             |
+| 123/UDP  | NTP     | Obrigatória para operações de protocolo de tempo.                                                                                                                                                                                                                    |
+| 161/UDP  | SNMP    | Obrigatória para operações de protocolo de monitoramento de rede.                                                                                                                                                                                                    |
 
 ## Portas de aplicativo para usuários finais
 

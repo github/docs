@@ -1,7 +1,7 @@
 ---
-title: Understanding GitHub Actions
-shortTitle: Understanding GitHub Actions
-intro: 'Learn the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.'
+title: Entendendo o GitHub Actions
+shortTitle: Entendendo o GitHub Actions
+intro: 'Aprenda o básico de {% data variables.product.prodname_actions %}, incluindo conceitos fundamentais e terminologia essencial.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -19,57 +19,67 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## Overview
+## Visão Geral
 
-{% data reusables.actions.about-actions %} {% data variables.product.prodname_actions %} are event-driven, meaning that you can run a series of commands after a specified event has occurred. For example, every time someone creates a pull request for a repository, you can automatically run a command that executes a software testing script.
+{% data reusables.actions.about-actions %}  É possível criar fluxos de trabalho que criam e testam cada pull request no seu repositório, ou implantar pull requests mesclados em produção.
 
-This diagram demonstrates how you can use {% data variables.product.prodname_actions %} to automatically run your software testing scripts. An event automatically triggers the _workflow_, which contains a _job_. The job then uses _steps_ to control the order in which _actions_ are run. These actions are the commands that automate your software testing.
+{% data variables.product.prodname_actions %} vai além de apenas DevOps e permite que você execute fluxos de trabalho quando outros eventos ocorrerem no seu repositório. Por exemplo, você pode executar um fluxo de trabalho para adicionar automaticamente as etiquetas apropriadas sempre que alguém cria um novo problema no repositório.
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+{% data variables.product.prodname_dotcom %} fornece máquinas virtuais do Linux, Windows e macOS para executar seus fluxos de trabalho, ou você pode hospedar seus próprios executores auto-hospedados na sua própria infraestrutura de dados ou na nuvem.
 
-## The components of {% data variables.product.prodname_actions %}
+## Componentes de {% data variables.product.prodname_actions %}
 
-Below is a list of the multiple {% data variables.product.prodname_actions %} components that work together to run jobs. You can see how these components interact with each other.
+É possível configurar um {% data variables.product.prodname_actions %} _fluxo de trabalho_ para ser acionado quando um _evento_ ocorre no repositório como, por exemplo, um pull request sendo aberto ou um problema sendo criado.  O seu fluxo de trabalho contém um ou mais _trabalhos_ que podem ser executados em ordem sequencial ou em paralelo.  Cada trabalho será executado dentro do _executor_ da sua própria máquina virtual ou dentro de um contêiner, e conta com uma mais _etapas_ que executa um script que você define ou executa uma ação __, que é uma extensão reutilizável que pode simplificar o seu fluxo de trabalho.
 
-![Component and service overview](/assets/images/help/images/overview-actions-design.png)
+![Visão geral do fluxo de trabalho](/assets/images/help/images/overview-actions-simple.png)
 
-### Workflows
+### Fluxos de trabalho
 
-The workflow is an automated procedure that you add to your repository. Workflows are made up of one or more jobs and can be scheduled or triggered by an event. The workflow can be used to build, test, package, release, or deploy a project on {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+Um fluxo de trabalho é um processo automatizado configurável que executa um ou mais trabalhos.  Os fluxos de trabalho são definidos por um arquivo YAML verificado no seu repositório e será executado quando acionado por um evento no repositório, ou eles podem ser acionados manualmente ou de acordo com um cronograma definido.
 
-### Events
+O seu repositório pode ter vários fluxos de trabalho em um repositório, cada um dos quais pode executar um conjunto diferente de etapas.  Por exemplo, você pode ter um fluxo de trabalho para criar e testar pull requests, outro fluxo de trabalho para implantar seu aplicativo toda vez que uma versão for criada, e outro fluxo de trabalho que adiciona uma etiqueta toda vez que alguém abre um novo problema.
 
-An event is a specific activity that triggers a workflow. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone pushes a commit to a repository or when an issue or pull request is created. You can also use the [repository dispatch webhook](/rest/reference/repos#create-a-repository-dispatch-event) to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Você pode consultar um fluxo de trabalho dentro de outro fluxo de trabalho. Consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)"{% endif %}
 
-### Jobs
+Para obter mais informações sobre fluxos de trabalho, consulte "[Usando fluxos de trabalho](/actions/using-workflows)".
 
-A job is a set of steps that execute on the same runner. By default, a workflow with multiple jobs will run those jobs in parallel. You can also configure a workflow to run jobs sequentially. For example, a workflow can have two sequential jobs that build and test code, where the test job is dependent on the status of the build job. If the build job fails, the test job will not run.
+### Eventos
 
-### Steps
+Um evento é uma atividade específica em um repositório que aciona a execução de um fluxo de trabalho. Por exemplo, a atividade pode originar-se de {% data variables.product.prodname_dotcom %} quando alguém cria uma solicitação de pull request, abre um problema ou faz envio por push de um commit para um repositório.  Você também pode acionar a execução de um fluxo de trabalho em um cronograma, em [postando em uma API REST](/rest/reference/repos#create-a-repository-dispatch-event), ou manualmente.
 
-A step is an individual task that can run commands in a job. A step can be either an _action_ or a shell command. Each step in a job executes on the same runner, allowing the actions in that job to share data with each other.
+Para obter uma lista completa de eventos que podem ser usados para acionar fluxos de trabalho, consulte [Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows).
 
-### Actions
+### Trabalhos
 
-_Actions_ are standalone commands that are combined into _steps_ to create a _job_. Actions are the smallest portable building block of a workflow. You can create your own actions, or use actions created by the {% data variables.product.prodname_dotcom %} community. To use an action in a workflow, you must include it as a step.
+Um trabalho é um conjunto de _etapas_ em um fluxo de trabalho que é executado no mesmo executor.  Cada etapa é um script do shell que será executado, ou uma _ação_ que será executada.  As etapas são executadas em ordem e dependem uma da outra.  Uma vez que cada etapa é executada no mesmo executor, você pode compartilhar dados de um passo para outro.  Por exemplo, você pode ter uma etapa que compila a sua aplicação seguida de uma etapa que testa ao aplicativo criado.
 
-### Runners
+Você pode configurar as dependências de um trabalho com outros trabalhos; por padrão, os trabalhos não têm dependências e são executados em paralelo um com o outro.  Quando um trabalho leva uma dependência de outro trabalho, ele irá aguardar que o trabalho depeendente seja concluído antes que possa executar.  Por exemplo, você pode ter vários trabalhos de criação para diferentes arquiteturas que não têm dependências, e um trabalho de pacotes que depende desses trabalhos.  Os trabalhos de criação serão executados em paralelo e, quando todos forem concluídos com sucesso, o trabalho de empacotamento será executado.
 
-{% ifversion ghae %}A runner is a server that has the [{% data variables.product.prodname_actions %} runner application](https://github.com/actions/runner) installed. For {% data variables.product.prodname_ghe_managed %}, you can use the security hardened {% data variables.actions.hosted_runner %}s which are bundled with your instance in the cloud. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. {% data variables.actions.hosted_runner %}s run each workflow job in a fresh virtual environment. For more information, see "[About {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)."
-{% else %}
-{% data reusables.actions.about-runners %} A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_dotcom %}-hosted runners are based on Ubuntu Linux, Microsoft Windows, and macOS, and each job in a workflow runs in a fresh virtual environment.  For information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For information on self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
-{% endif %}
+Para obter mais informações sobre trabalhos, consulte "[Usando trabalhos](/actions/using-jobs)".
 
-## Create an example workflow
+### Ações
 
-{% data variables.product.prodname_actions %} uses YAML syntax to define the events, jobs, and steps. These YAML files are stored in your code repository, in a directory called `.github/workflows`.
+Uma _ação_ é uma aplicativo personalizado para a plataforma de {% data variables.product.prodname_actions %} que executa uma tarefa complexa, mas frequentemente repetida.  Use uma ação para ajudar a reduzir a quantidade de código repetitivo que você grava nos seus arquivos de fluxo de trabalho.  Uma ação pode extrair o seu repositório git de {% data variables.product.prodname_dotcom %}, configurar a cadeia de ferramentas correta para seu ambiente de criação ou configurar a autenticação para seu provedor de nuvem.
 
-You can create an example workflow in your repository that automatically triggers a series of commands whenever code is pushed. In this workflow, {% data variables.product.prodname_actions %} checks out the pushed code, installs the software dependencies, and runs `bats -v`.
+Você pode gravar suas próprias ações, ou você pode encontrar ações para usar nos seus fluxos de trabalho em {% data variables.product.prodname_marketplace %}.
 
-1. In your repository, create the `.github/workflows/` directory to store your workflow files.
-1. In the `.github/workflows/` directory, create a new file called `learn-github-actions.yml` and add the following code.
+{% data reusables.actions.internal-actions-summary %}
+
+Para obter mais informações, consulte "[Criar ações](/actions/creating-actions)".
+
+### Executores
+
+{% data reusables.actions.about-runners %} Cada executor pode executar uma tarefa por vez. {% ifversion ghes or ghae %} Você deve hospedar seus próprios executores para {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} fornece executores para Ubuntu Linux, Microsoft Windows e macOS para executar seus fluxos de trabalho. Cada fluxo de trabalho é executado em uma nova máquina virtual provisionada. Se você precisar de um sistema operacional diferente ou precisar de uma configuração de hardware específica, você poderá hospedar seus próprios executores.{% endif %} Para mais informações{% ifversion fpt or ghec %} sobre executores auto-hospedados{% endif %}, consulte "[Hospedando os seus próprios executores](/actions/hosting-your-own-runners)"
+
+## Criar um exemplo de fluxo de trabalho
+
+{% data variables.product.prodname_actions %} usa a sintaxe do YAML para definir o fluxo de trabalho.  Cada fluxo de trabalho é armazenado como um arquivo YAML separado no seu repositório de código, em um diretório denominado `.github/workflows`.
+
+Você pode criar um exemplo de fluxo de trabalho no repositório que aciona automaticamente uma série de comandos sempre que o código for carregado. Neste fluxo de trabalho, {% data variables.product.prodname_actions %} verifica o código enviado, instala as dependências do software e executa `bats -v`.
+
+1. No seu repositório, crie o diretório `.github/workflows/` para armazenar seus arquivos do fluxo de trabalho.
+1. No diretório `.github/workflows/`, crie um novo arquivo denominado `learn-github-actions.yml` e adicione o código a seguir.
     ```yaml
     name: learn-github-actions
     on: [push]
@@ -84,13 +94,13 @@ You can create an example workflow in your repository that automatically trigger
           - run: npm install -g bats
           - run: bats -v
     ```
-1. Commit these changes and push them to your {% data variables.product.prodname_dotcom %} repository.
+1. Faça commit dessas alterações e faça push para o seu repositório do {% data variables.product.prodname_dotcom %}.
 
-Your new {% data variables.product.prodname_actions %} workflow file is now installed in your repository and will run automatically each time someone pushes a change to the repository. For details about a job's execution history, see "[Viewing the workflow's activity](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)."
+Seu novo arquivo de fluxo de trabalho de {% data variables.product.prodname_actions %} agora está instalado no seu repositório e será executado automaticamente toda vez que alguém fizer push de uma alteração no repositório. Para obter detalhes sobre o histórico de execução de um trabalho, consulte "[Visualizar a atividade do fluxo de trabalho](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)".
 
-## Understanding the workflow file
+## Entender o arquivo de fluxo de trabalho
 
-To help you understand how YAML syntax is used to create a workflow file, this section explains each line of the introduction's example:
+Para ajudar você a entender como a sintaxe de YAML é usada para criar um arquivo de fluxo de trabalho, esta seção explica cada linha do exemplo Introdução:
 
 <table>
 <tr>
@@ -101,7 +111,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  <em>Optional</em> - The name of the workflow as it will appear in the Actions tab of the {% data variables.product.prodname_dotcom %} repository.
+  <em>Opcional</em> - Como o nome do fluxo de trabalho irá aparecer na aba Ações do repositório de {% data variables.product.prodname_dotcom %}.
 </td>
 </tr>
 <tr>
@@ -112,7 +122,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  Specify the event that automatically triggers the workflow file. This example uses the <code>push</code> event, so that the jobs run every time someone pushes a change to the repository. You can set up the workflow to only run on certain branches, paths, or tags. For syntax examples including or excluding branches, paths, or tags, see <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">"Workflow syntax for {% data variables.product.prodname_actions %}."</a>
+Especifica o gatilho para este fluxo de trabalho. Este exemplo usa o evento <code>push</code> para que a execução de um fluxo de trabalho seja acionada toda vez que alguém fizer push de uma alteração no repositório ou merge de um pull request.  Isso é acionado por um push para cada branch. Para obter exemplos de sintaxe executados apenas em pushes para branches, caminhos ou tags específicos, consulte <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">"Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}.</a>
 </td>
 </tr>
 <tr>
@@ -123,7 +133,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
- Groups together all the jobs that run in the <code>learn-github-actions</code> workflow file.
+ Agrupa todos os trabalhos executados no fluxo de trabalho <code>learn-github-actions</code>.
 </td>
 </tr>
 <tr>
@@ -134,7 +144,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  Defines the name of the <code>check-bats-version</code> job stored within the <code>jobs</code> section.
+Define uma tarefa chamada <code>check-bats-version</code>. As chaves secundaárias definirão as propriedades do trabalho.
 </td>
 </tr>
 <tr>
@@ -145,7 +155,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  Configures the job to run on an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">"Workflow syntax for {% data variables.product.prodname_actions %}."</a>
+  Configura o trabalho a ser executado na versão mais recente de um executor do Linux do Ubuntu. Isto significa que o trabalho será executado em uma nova máquina virtual hospedada pelo GitHub. Para obter exemplos de sintaxe usando outros executores, consulte <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">"Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}."</a>
 </td>
 </tr>
 <tr>
@@ -156,7 +166,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  Groups together all the steps that run in the <code>check-bats-version</code> job. Each item nested under this section is a separate action or shell command.
+  Agrupa todos os passos são executados no trabalho <code>check-bats-version</code>. Cada item aninhado nesta seção é uma ação separada ou script do shell.
 </td>
 </tr>
 <tr>
@@ -167,7 +177,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  The <code>uses</code> keyword tells the job to retrieve <code>v2</code> of the community action named <code>actions/checkout@v2</code>. This is an action that checks out your repository and downloads it to the runner, allowing you to run actions against your code (such as testing tools). You must use the checkout action any time your workflow will run against the repository's code or you are using an action defined in the repository.
+A palavra-chave <code>usa</code> especifica que esta etapa irá executar <code>v2</code> da ação <code>actions/checkout</code>.  Esta é uma ação que faz o check-out do seu repositório para o executor, permitindo que você execute scripts ou outras ações com base no seu código (como ferramentas de compilação e teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório.
 </td>
 </tr>
 <tr>
@@ -180,7 +190,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  This step uses the <code>actions/setup-node@v2</code> action to install the specified version of the <code>node</code> software package on the runner, which gives you access to the <code>npm</code> command.
+  Essa etapa usa a ação <code>actions/setup-node@v2</code> para instalar a versão especificada do Node.js (esse exemplo usa a v14). Isso coloca os dois comandos <code>nó</code> e <code>npm</code> no seu <code>PATH</code>.
 </td>
 </tr>
 <tr>
@@ -191,7 +201,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package.
+  A palavra-chave <code>executar</code> diz ao trabalho para executar um comando no executor. Neste caso, você está usando o <code>npm</code> para instalar o pacote de teste do software <code>bats</code>.
 </td>
 </tr>
 <tr>
@@ -202,49 +212,51 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  Finally, you'll run the <code>bats</code> command with a parameter that outputs the software version.
+  Por fim, você executará o comando <code>bats</code> com um parâmetro que produz a versão do software.
 </td>
 </tr>
 </table>
 
-### Visualizing the workflow file
+### Visualizar o arquivo de fluxo de trabalho
 
-In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell command. Steps 1 and 2 use prebuilt community actions. Steps 3 and 4 run shell commands directly on the runner. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+Neste diagrama, você pode ver o arquivo de fluxo de trabalho que acabou de criar e como os componentes de {% data variables.product.prodname_actions %} estão organizados em uma hierarquia. Cada etapa executa uma única ação ou script do shell. As etapas 1 e 2 executam ações, enquanto as etapas 3 e 4 executam scripts de shell. Para encontrar mais ações pré-criadas para seus fluxos de trabalho, consulte "[Encontrar e personalizar ações](/actions/learn-github-actions/finding-and-customizing-actions)".
 
-![Workflow overview](/assets/images/help/images/overview-actions-event.png)
+![Visão geral do fluxo de trabalho](/assets/images/help/images/overview-actions-event.png)
 
-## Viewing the job's activity
+## Visualizando a atividade do fluxo de trabalho
 
-Once your job has started running, you can {% ifversion fpt or ghes > 3.0 or ghae or ghec %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
+Assim que o seu fluxo de trabalhocomeçar a ser executado, você poderá {% ifversion fpt or ghes > 3.0 or ghae or ghec %}visualizar um gráfico de visualização do progresso da execução e {% endif %}visualizar a atividade de cada etapa em {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **Actions**.
-    ![Navigate to repository](/assets/images/help/images/learn-github-actions-repository.png)
-1. In the left sidebar, click the workflow you want to see.
-    ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
-1. Under "Workflow runs", click the name of the run you want to see.
-    ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
+1. No nome do seu repositório, clique em **Ações**. ![Acesse o repositório](/assets/images/help/images/learn-github-actions-repository.png)
+1. Na barra lateral esquerda, clique no fluxo de trabalho que deseja ver. ![Captura de tela dos resultados do fluxo de trabalho](/assets/images/help/images/learn-github-actions-workflow.png)
+1. Em "Execuções do fluxo de trabalho", clique no nome da execução que você deseja ver. ![Captura de tela das execuções do fluxo de trabalho](/assets/images/help/images/learn-github-actions-run.png)
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-1. Under **Jobs** or in the visualization graph, click the job you want to see.
-   ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
+1. Em **Trabalhos** ou no gráfico de visualização, clique no trabalho que você deseja ver. ![Selecionar trabalho](/assets/images/help/images/overview-actions-result-navigate.png)
 {% endif %}
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-1. View the results of each step.
-    ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
+1. Visualizar os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result-updated-2.png)
 {% elsif ghes %}
-1. Click on the job name to see the results of each step.
-    ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated.png)
+1. Clique no nome do trabalho para ver os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
-1. Click on the job name to see the results of each step.
-    ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result.png)
+1. Clique no nome do trabalho para ver os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result.png)
 {% endif %}
 
-## Next steps
+## Próximas etapas
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Encontrar e personalizar ações](/actions/learn-github-actions/finding-and-customizing-actions)".
 
-To understand how billing works for {% data variables.product.prodname_actions %}, see "[About billing for {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
+{% ifversion fpt or ghec or ghes %}
 
-## Contacting support
+Para entender como a cobrança funciona para {% data variables.product.prodname_actions %}, consulte "[Sobre cobrança para {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
+
+{% endif %}
+
+## Entrar em contato com o suporte
 
 {% data reusables.github-actions.contacting-support %}
+
+## Leia mais
+
+{% ifversion ghec or ghes or ghae %}
+- "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}

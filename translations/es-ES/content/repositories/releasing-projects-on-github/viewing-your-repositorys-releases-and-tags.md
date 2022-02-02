@@ -2,7 +2,7 @@
 title: Visualizar los lanzamientos y etiquetas de tu repositorio
 intro: 'Puedes ver el historial cronológico de tu repositorio por lanzamiento, nombre o número de versión de la etiqueta.'
 redirect_from:
-  - /articles/working-with-tags/
+  - /articles/working-with-tags
   - /articles/viewing-your-repositorys-tags
   - /github/administering-a-repository/viewing-your-repositorys-tags
   - /github/administering-a-repository/viewing-your-repositorys-releases-and-tags

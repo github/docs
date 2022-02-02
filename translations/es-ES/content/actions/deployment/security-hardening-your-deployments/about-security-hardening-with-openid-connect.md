@@ -29,7 +29,7 @@ By updating your workflows to use OIDC tokens, you can adopt the following good 
 
 - **No cloud secrets**: You won't need to duplicate your cloud credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. Instead, you can configure the OIDC trust on your cloud provider, and then update your workflows to request a short-lived access token from the cloud provider through OIDC. 
 - **Authentication and authorization management**: You have more granular control over how workflows can use credentials, using your cloud provider's authentication (authN) and authorization (authZ) tools to control access to cloud resources.
-- **Rotating credentials**: With OIDC, your cloud provider issues a short-lived access token that is only valid for a single workflow run, and then automatically expires.
+- **Rotating credentials**: With OIDC, your cloud provider issues a short-lived access token that is only valid for a single job, and then automatically expires.
 
 ### Getting started with OIDC
 
@@ -38,7 +38,7 @@ The following diagram gives an overview of how {% data variables.product.prodnam
 ![OIDC diagram](/assets/images/help/images/oidc-architecture.png)
 
 1. In your cloud provider, create an OIDC trust between your cloud role and your {% data variables.product.prodname_dotcom %} workflow(s) that need access to the cloud.
-2. Every time your {% data variables.product.prodname_actions %} workflow job runs, {% data variables.product.prodname_dotcom %}'s OIDC Provider auto-generates an OIDC token. This token contains multiple claims to establish a security-hardened and verifiable identity about the specific workflow that is trying to authenticate.
+2. Every time your job runs, {% data variables.product.prodname_dotcom %}'s OIDC Provider auto-generates an OIDC token. This token contains multiple claims to establish a security-hardened and verifiable identity about the specific workflow that is trying to authenticate.
 3. You could include a step or action in your job to request this token from {% data variables.product.prodname_dotcom %}'s OIDC provider, and present it to the cloud provider.
 4. Once the cloud provider successfully validates the claims presented in the token, it then provides a short-lived cloud access token that is available only for the duration of the job.
 
@@ -51,7 +51,7 @@ When you configure your cloud to trust {% data variables.product.prodname_dotcom
  
 ### Understanding the OIDC token
 
-Each workflow run requests an OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider, which responds with an automatically generated JSON web token (JWT) that is unique for each workflow job where it is generated. During a workflow run, the OIDC token is presented to the cloud provider. To validate the token, the cloud provider checks if the OIDC token's subject and other claims are a match for the conditions that were preconfigured on the cloud role's OIDC trust definition.
+Each job requests an OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider, which responds with an automatically generated JSON web token (JWT) that is unique for each workflow job where it is generated. When the job runs, the OIDC token is presented to the cloud provider. To validate the token, the cloud provider checks if the OIDC token's subject and other claims are a match for the conditions that were preconfigured on the cloud role's OIDC trust definition.
 
 The following example OIDC token uses a subject (`sub`) that references a job environment named `prod` in the `octo-org/octo-repo` repository.
 
@@ -126,7 +126,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `repository_owner`| The name of the organization in which the `repository` is stored.                   | 
 | `run_id`| The ID of the workflow run that triggered the workflow.                   | 
 | `run_number`| The number of times this workflow has been run.                   | 
-| `run_attempt`| The number of time this workflow run was been retried.                    | 
+| `run_attempt`| The number of times this workflow run has been retried.                    | 
 | `workflow`| The name of the workflow.                   | 
 
 ### Defining trust conditions on cloud roles using OIDC claims
@@ -148,7 +148,7 @@ In addition, your cloud provider could allow you to assign a role to the access 
 
 ### Examples
 
-The following examples demonstrate how to use "Subject" as a condition. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the workflow run's [`job` context](/actions/learn-github-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. The following sections describe some common subjects you can use.
+The following examples demonstrate how to use "Subject" as a condition. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the [`job` context](/actions/learn-github-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. The following sections describe some common subjects you can use.
 
 #### Filtering for a specific environment
 
@@ -161,7 +161,7 @@ You can configure a subject that filters for a specific [environment](/actions/d
 
 #### Filtering for `pull_request` events
 
-You can configure a subject that filters for the [`pull_request`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
+You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 
 |        |             |

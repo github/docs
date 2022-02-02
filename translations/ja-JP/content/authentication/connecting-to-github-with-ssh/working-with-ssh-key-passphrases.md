@@ -2,8 +2,8 @@
 title: SSH キーのパスフレーズを使う
 intro: SSH キーを使用するたびにパスフレーズを再入力する必要がないように、SSH キーを保護し、認証エージェントを設定できます。
 redirect_from:
-  - /ssh-key-passphrases/
-  - /working-with-key-passphrases/
+  - /ssh-key-passphrases
+  - /working-with-key-passphrases
   - /articles/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/connecting-to-github-with-ssh/working-with-ssh-key-passphrases

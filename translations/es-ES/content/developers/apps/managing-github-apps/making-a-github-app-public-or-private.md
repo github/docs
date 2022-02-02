@@ -2,10 +2,10 @@
 title: Hacer pública o privada a una GitHub App
 intro: '{% data reusables.shortdesc.making-a-github-app-public-or-private %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-github-apps/about-installation-options-for-github-apps/
-  - /apps/building-github-apps/installation-options-for-github-apps/
-  - /apps/building-integrations/managing-github-apps/changing-a-github-app-s-installation-option/
-  - /apps/managing-github-apps/changing-a-github-app-s-installation-option/
+  - /apps/building-integrations/setting-up-and-registering-github-apps/about-installation-options-for-github-apps
+  - /apps/building-github-apps/installation-options-for-github-apps
+  - /apps/building-integrations/managing-github-apps/changing-a-github-app-s-installation-option
+  - /apps/managing-github-apps/changing-a-github-app-s-installation-option
   - /apps/managing-github-apps/making-a-github-app-public-or-private
   - /developers/apps/making-a-github-app-public-or-private
 versions:
@@ -26,7 +26,7 @@ Los flujos de las instalaciones públicas tienen una página de llegada para hab
 
 ## Flujo de instalación privada
 
-Los flujos de instalación privada permiten que solo el propietario de la GitHub App pueda instalarla. Aún así, existirá información limitada sobre la GitHub App en una página pública, pero el botón de **Instalar** solo estará disponible para los administradores de la organización o para la cuenta de usuario si dicha GitHub App le pertenece a una cuenta individual. Las GitHub Apps {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}privadas {% else %}privadas (también conocidas como internas){% endif %} solo pueden instalarse en la cuenta de usuario u organización del propietario.
+Los flujos de instalación privada permiten que solo el propietario de la GitHub App pueda instalarla. Aún así, existirá información limitada sobre la GitHub App en una página pública, pero el botón de **Instalar** solo estará disponible para los administradores de la organización o para la cuenta de usuario si dicha GitHub App le pertenece a una cuenta individual. Las GitHub Apps {% ifversion fpt or ghes > 3.1 or ghae or ghec %}privadas {% else %}privadas (también conocidas como internas){% endif %} solo pueden instalarse en la cuenta de usuario u organización del propietario.
 
 ## Cambiar el quién puede instalar tu GitHub App
 
@@ -37,5 +37,5 @@ Para cambiar quién puede instalar una GitHub App:
 {% data reusables.user-settings.github_apps %}
 3. Selecciona la GitHub App cuya opción de instalación quieras cambiar. ![Seleccion de apps](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
-5. Dependiendo de la opción de instalación de tu GitHub App, haz clic ya sea en **Hacer pública** o **Hacer{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}privada{% else %}interna{% endif %}**. ![Botón para cambiar la opción de instalación para tu GitHub App](/assets/images/github-apps/github_apps_make_public.png)
+5. Dependiendo de la opción de instalación de tu GitHub App, haz clic ya sea en **Hacer pública** o **Hacer{% ifversion fpt or ghes > 3.1 or ghae or ghec %}privada{% else %}interna{% endif %}**. ![Botón para cambiar la opción de instalación para tu GitHub App](/assets/images/github-apps/github_apps_make_public.png)
 6. Dependiendo de la opción de instalación de tu GitHub App, haz clic ya sea en **Sí, hacer esta GitHub App pública** o **Sí, hacer esta GitHub App {% ifversion fpt or ghes < 3.2 or ghec %}interna{% else %}privada{% endif %}**. ![Botón para confirmar el cambio de tu opción de instalación](/assets/images/github-apps/github_apps_confirm_installation_option.png)

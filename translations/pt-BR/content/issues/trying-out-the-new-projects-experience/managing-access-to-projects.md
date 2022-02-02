@@ -1,6 +1,6 @@
 ---
-title: Managing access to projects (beta)
-intro: 'You can control who can view, edit, or manage your projects.'
+title: Gerenciando acesso a projetos (beta)
+intro: 'Você pode controlar quem pode visualizar, editar ou gerenciar seus projetos.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:
@@ -13,78 +13,78 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## About project access
+## Sobre o acesso ao projeto
 
-Admins of organization-level projects can manage access for the entire organization, for teams, and for individual organization members.
+Os administradores de projetos no nível da organização podem gerenciar acesso para toda a organização, para equipes e para integrantes da organização individual.
 
-Admins of user-level projects can invite individual collaborators and manage their access.
+Os administradores de projetos de nível de usuário podem convidar colaboradores individuais e gerenciar seu acesso.
 
-Project admins can also control the visibility of their project for everyone on the internet. For more information, see "[Managing the visibility of your projects](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)."
+Administradores do projeto também podem controlar a visibilidade do seu projeto para todos na internet. Para obter mais informações, consulte "[Gerenciando a visibilidade de seus projetos](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)".
 
-## Managing access for organization-level projects
+## Gerenciar acesso para projetos no nível da organização
 
-### Managing access for everyone in your organization
+### Gerenciando o acesso para todos na sua organização
 
-The default base role is `write`, meaning that everyone in the organization can see and edit your project. To change project access for everyone in the organization, you can change the base role. Changes to the base role only affect organization members who are not organization owners and who are not granted individual access.
-
-{% data reusables.projects.project-settings %}
-1. Click **Manage access**.
-2. Under **Base role**, select the default role.
-   - **No access**: Only organization owners and users granted individual access can see the project. Organization owners are also admins for the project.
-   - **Read**: Everyone in the organization can see the project. Organization owners are also admins for the project.
-   - **Write**: Everyone in the organization can see and edit the project. Organization owners are also admins for the project.
-   - **Admin**: Everyone in the organization is an admin for the project.
-
-### Managing access for teams and individual members of your organization
-
-You can also add teams, and individual organization members, as collaborators. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
-
-You can only invite an individual user to collaborate on your organization-level project if they are a member of the organization.
+A função base padrão é `gravar`, o que significa que todos na organização podem ver e editar o seu projeto. Para alterar o acesso ao projeto para todos da organização, você pode alterar a função-base. As alterações na função-base afetam apenas os integrantes da organização que não são proprietários da organização e a quem não é concedido acesso individual.
 
 {% data reusables.projects.project-settings %}
-1. Click **Manage access**.
-1. Under **Invite collaborators**, search for the team or organization member that you want to invite.
-1. Select the role for the collaborator.
-   - **Read**: The team or individual can view the project.
-   - **Write**: The team or individual can view and edit the project.
-   - **Admin**: The team or individual can view, edit, and add new collaborators to the project.
-1. Click **Invite**.
+1. Clique em **Gerenciar acesso**.
+2. Em **Função-base**, selecione a função-padrão.
+   - **Sem acesso**: Somente os proprietários e usuários da organização com acesso individual pode ver o projeto. Os proprietários da organização também são administradores do projeto.
+   - **Leitura**: Todos na organização podem ver o projeto. Os proprietários da organização também são administradores do projeto.
+   - **Gravação**: Todos os integrantes da organização podem ver e editar o projeto. Os proprietários da organização também são administradores do projeto.
+   - **Administrador**: Todos os integrantes da organização são administradores do projeto.
 
-### Managing access of an existing collaborator on your project
+### Gerenciando o acesso de equipes e integrantes individuais da sua organização
+
+Você também pode adicionar equipes e integrantes das organizações individuais, como colaboradores. Para obter mais informações, consulte "[Sobre equipes](/organizations/organizing-members-into-teams/about-teams)".
+
+Você só pode convidar um usuário individual para colaborar no seu projeto no nível da organização se ele for integrante da organização.
 
 {% data reusables.projects.project-settings %}
-1. Click **Manage access**.
-1. Under **Manage access**, find the collaborator(s) whose permissions you want to modify.
+1. Clique em **Gerenciar acesso**.
+1. Em **Convidar colaboradores**, pesquise o integrante da equipe ou organização que você deseja convidar.
+1. Selecione a função para o colaborador.
+   - **Leitura**: A equipe ou indivíduo pode visualizar o projeto.
+   - **Gravação**: A equipe ou indivíduo pode visualizar e editar o projeto.
+   - **Administrador**: A equipe ou indivíduo pode visualizar, editar e adicionar novos colaboradores ao projeto.
+1. Clique em **Convidar**.
 
-   You can use the **Type** and **Role** drop-down menus to filter the access list.
+### Gerenciando o acesso de um colaborador existente no seu projeto
 
-1. Edit the role for the collaborator(s) or click {% octicon "trash" aria-label="the trash icon" %} to remove the collaborator(s).
+{% data reusables.projects.project-settings %}
+1. Clique em **Gerenciar acesso**.
+1. Em **Gerenciar acesso**, encontre o(s) colaborador(es) cujas permissões você deseja modificar.
 
-## Managing access for user-level projects
+   Você pode usar o menu suspenso **Tipo** e **Função** para filtrar a lista de acesso.
 
-### Granting a collaborator access to your project
+1. Editar a função para o(s) colaborador(es) ou clique em {% octicon "trash" aria-label="the trash icon" %} para remover o colaborador.
+
+## Gerenciando acesso para projetos no nível do usuário
+
+### Concedendo acesso de colaborador ao seu projeto
 
 {% note %}
 
-This only affects collaborators for your project, not for repositories in your project. To view an item on the project, someone must have the required permissions for the repository that the item belongs to. If your project includes items from a private repository, people who are not collaborators in the repository will not be able to view items from that repository. For more information, see "[Setting repository visibility](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)" and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+Isto afeta apenas os colaboradores do projeto, não os repositórios do projeto. Para visualizar um item no projeto, alguém deverá ter as permissões necessárias para o repositório ao qual o item pertence. Se o seu projeto incluir itens de um repositório privado, pessoas que não forem colaboradores no repositório não poderão visualizar os itens desse repositório. Para obter mais informações, consulte "[Configurando a visibilidade do repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)" e "[Gerenciando equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)".
 
 {% endnote %}
 
 {% data reusables.projects.project-settings %}
-1. Click **Manage access**.
-2. Under **Invite collaborators**, search for the user that you want to invite.
-3. Select the role for the collaborator.
-   - **Read**: The individual can view the project.
-   - **Write**: The individual can view and edit the project.
-   - **Admin**: The individual can view, edit, and add new collaborators to the project.
-4. Click **Invite**.
+1. Clique em **Gerenciar acesso**.
+2. Em **Convidar colaboradores**, pesquise o usuário que você deseja convidar.
+3. Selecione a função para o colaborador.
+   - **Leitura**: O indivíduo pode visualizar o projeto.
+   - **Gravação**: O indivíduo pode visualizar e editar o projeto.
+   - **Administrador**: O indivíduo pode visualizar, editar e adicionar novos colaboradores ao projeto.
+4. Clique em **Convidar**.
 
-### Managing access of an existing collaborator on your project
+### Gerenciando o acesso de um colaborador existente no seu projeto
 
 {% data reusables.projects.project-settings %}
-1. Click **Manage access**.
-1. Under **Manage access**, find the collaborator(s) whose permissions you want to modify.
+1. Clique em **Gerenciar acesso**.
+1. Em **Gerenciar acesso**, encontre o(s) colaborador(es) cujas permissões você deseja modificar.
 
-   You can use the **Role** drop-down menu to filter the access list.
+   Você pode usar o menu suspenso **Função** para filtrar a lista de acesso.
 
-1. Edit the role for the collaborator(s) or click {% octicon "trash" aria-label="the trash icon" %} to remove the collaborator(s).
+1. Editar a função para o(s) colaborador(es) ou clique em {% octicon "trash" aria-label="the trash icon" %} para remover o colaborador.

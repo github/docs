@@ -2,10 +2,10 @@
 title: GitHubのIPアドレスについて
 intro: '{% data variables.product.product_name %}は複数のIPアドレスの範囲からアプリケーションを提供します。この範囲は、APIを通じて取得できます。'
 redirect_from:
-  - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist/
-  - /categories/73/articles/
-  - /categories/administration/
-  - /articles/github-s-ip-addresses/
+  - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist
+  - /categories/73/articles
+  - /categories/administration
+  - /articles/github-s-ip-addresses
   - /articles/about-github-s-ip-addresses
   - /articles/about-githubs-ip-addresses
   - /github/authenticating-to-github/about-githubs-ip-addresses

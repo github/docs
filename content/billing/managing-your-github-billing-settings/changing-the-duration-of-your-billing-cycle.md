@@ -3,9 +3,9 @@ title: Changing the duration of your billing cycle
 intro: You can pay for your account's subscription and other paid features and products on a monthly or yearly billing cycle.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/changing-the-duration-of-your-billing-cycle
-  - /articles/monthly-and-yearly-billing/
-  - /articles/switching-between-monthly-and-yearly-billing-for-your-personal-account/
-  - /articles/switching-between-monthly-and-yearly-billing-for-your-organization/
+  - /articles/monthly-and-yearly-billing
+  - /articles/switching-between-monthly-and-yearly-billing-for-your-personal-account
+  - /articles/switching-between-monthly-and-yearly-billing-for-your-organization
   - /articles/changing-the-duration-of-your-billing-cycle
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle
 versions:

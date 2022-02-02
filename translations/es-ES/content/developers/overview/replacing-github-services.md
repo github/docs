@@ -2,8 +2,8 @@
 title: Reemplazar los GitHub Services
 intro: 'Si aún estás dependiendo de los {% data variables.product.prodname_dotcom %} Services obsoletizados, aprende cómomigrar los ganchos de tu servicio a webhooks.'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
   fpt: '*'
@@ -32,7 +32,7 @@ Como una alternativa al servicio de correo electrónico, ahora puedes comenzar a
 
 GitHub Services (a veces conocido como Ganchos de Servicio) es el método tradicional de integración en donde GitHub hospedó una porción de los servicios de nuestros integradores a través [del repositorio`github-services`](https://github.com/github/github-services). Las acciones que se realizan en GitHub activan estos servicios, y puedes utilizarlos a su vez para activar acciones fuera de GitHub.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 ## Encontrar los repositorios que utilizan GitHub Services
 Proporcionamos un script de línea de comandos que te ayuda a identificar los repositorios de tu aplicativo que utilizan GitHub Services. Para obtener más información, consulta [ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report).{% endif %}
 

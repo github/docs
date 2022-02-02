@@ -7,10 +7,6 @@
   description: >-
     Git 操作を HTTPS 経由で実行する際、Git がコマンドラインと API のいずれでも、パスワードの代わりに使用されるトークン。個人アクセストークンともいいます。
 - 
-  term: アカウントリカバリトークン
-  description: >-
-    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
-- 
   term: APIプレビュー
   description: >-
     新規の API や既存の API メソッドへの変更が公式 GitHub API の一部になる前に試すための方法。
@@ -177,7 +173,7 @@
 - 
   term: ダッシュボード
   description: >-
-    パーソナルダッシュボードは、GitHub上のアクティビティのメインハブです。パーソナルダッシュボードから、フォローまたは作業をしているIssueやプルリクエストを追跡したり、トップリポジトリやTeamページにアクセスしたり、Watchまたは参加しているリポジトリ内の最近のアクティビティについて学ぶことができます。また、フォローしているユーザーやStarしたリポジトリに基づいて推薦された、新しいリポジトリを発見することもできます。特定のOrganizationのアクティビティだけを見るには、Organizationのダッシュボードにアクセスしてください。詳しい情報については「[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)」もしくは「[Organizationダッシュボードについて](/articles/about-your-organization-dashboard)」を参照してください。
+    パーソナルダッシュボードは、GitHub上のアクティビティのメインハブです。パーソナルダッシュボードから、フォローまたは作業をしているIssueやプルリクエストを追跡したり、トップリポジトリやTeamページにアクセスしたり、Watchまたは参加しているリポジトリ内の最近のアクティビティについて学ぶことができます。また、フォローしているユーザーやStarしたリポジトリに基づいて推薦された、新しいリポジトリを発見することもできます。特定のOrganizationのアクティビティだけを見るには、Organizationのダッシュボードにアクセスしてください。詳しい情報については「[パーソナルダッシュボードについて(/articles/about-your-personal-dashboard)」もしくは「Organizationダッシュボードについて(/articles/about-your-organization-dashboard)」を参照してください。
 - 
   term: デフォルトブランチ
   description: >-
@@ -214,7 +210,7 @@
   description: ユーザのメールアドレスに送信される通知。
 - 
   term: Enterpriseアカウント
-  description: Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。 {% data reusables.gated-features.enterprise-accounts %}
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -263,7 +259,7 @@
     GitHub App は、Organization 全体に対してサービスを提供し、その機能を実行する際は独自の ID を使用します。Organization や ユーザアカウントに直接インストールでき、特定のリポジトリへのアクセス権を付与できます。精細なアクセス権限が付いており、webhook が組み込まれています。
 - 
   term: GitHub Flavored Markdown
-  description: GitHub 特有の Markdown であり、GitHub 全体で文章やコードをフォーマットするのに使用されます。[GitHub Flavored Markdown の仕様](https://github.github.com/gfm/)または [GitHub で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)を参照。
+  description: GitHub 特有の Markdown であり、GitHub 全体で文章やコードをフォーマットするのに使用されます。[GitHub Flavored Markdown の仕様]（https://github.github.com/gfm/）または [GitHub で書き、フォーマットしてみる]（/articles/getting-started-with-writing-and-formatting-on-github）を参照。
 - 
   term: GitHub Importer
   description: >-
@@ -571,10 +567,6 @@
   term: リベース
   description: >-
     ブランチからの一連の変更を異なるベースに再適用し、そのブランチのHEADをその結果にリセットすること。
-- 
-  term: Recovery Accounts Elsewhere
-  description: >-
-    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
 - 
   term: リカバリコード
   description: GitHub アカウントへのアクセスを再取得できるようにするコード。

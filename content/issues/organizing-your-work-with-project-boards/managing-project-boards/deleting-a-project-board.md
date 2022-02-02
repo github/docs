@@ -3,7 +3,7 @@ title: Deleting a project board
 intro: You can delete an existing project board if you no longer need access to its contents.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
-  - /articles/deleting-a-project/
+  - /articles/deleting-a-project
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:

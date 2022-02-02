@@ -4,7 +4,7 @@ intro: 'Você pode discutir projetos e alterações específicas, bem como ideia
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/quickstart-for-communicating-on-github
-  - /articles/about-discussions-in-issues-and-pull-requests/
+  - /articles/about-discussions-in-issues-and-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-conversations-on-github
   - /github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github
   - /github/getting-started-with-github/quickstart/communicating-on-github

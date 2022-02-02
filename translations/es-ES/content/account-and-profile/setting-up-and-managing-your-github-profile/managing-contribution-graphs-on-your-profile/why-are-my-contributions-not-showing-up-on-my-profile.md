@@ -17,7 +17,7 @@ shortTitle: Contribuciones faltantes
 
 ## Acerca de tu gráfica de contribuciones
 
-Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.product.product_location %}. Las contribuciones son registros horarios de acuerdo a la zona horaria universal coordinada (UTC) en lugar de tu zona horaria local. Las contribuciones solo se cuentan si cumplen con determinados criterios. En algunos casos, necesitamos reconstruir tu gráfico para que aparezcan las contribuciones.
+La gráfica de contribuciones en tu perfil es un registro de las contribuciones que has hecho en los repositorios {% ifversion ghae %}que le pertenecen{% else %}de{% endif %} {% data variables.product.product_location %}. Las contribuciones son registros horarios de acuerdo a la zona horaria universal coordinada (UTC) en lugar de tu zona horaria local. Las contribuciones solo se cuentan si cumplen con determinados criterios. En algunos casos, necesitamos reconstruir tu gráfico para que aparezcan las contribuciones.
 
 ## Contribuciones que se cuentan
 
@@ -27,7 +27,7 @@ Las propuestas, solicitudes de cambios y debates aparecerán en tu gráfica de c
 
 ### Confirmaciones
 Las confirmaciones aparecerán en tu gráfico de contribución si cumplen **todas** las condiciones a continuación:
-- The email address used for the commits is associated with your account on {% data variables.product.product_location %}.
+- La dirección de correo electrónico que se utiliza para las confirmaciones se asocia con tu cuenta de {% data variables.product.product_location %}.
 - Las confirmaciones se hicieron en un repositorio independiente, no en una bifurcación.
 - Las confirmaciones se hicieron:
   - En la rama predeterminada del repositorio
@@ -51,7 +51,7 @@ Después de hacer una confirmación que cumpla con los requisitos para contar co
 
 ### Tu correo electrónico de confirmaciones de Git no está conectado a tu cuenta
 
-Commits must be made with an email address that is connected to your account on {% data variables.product.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+Las confirmaciones deben realizase con una dirección de correo electrónico que se encuentre conectada a tu cuenta de {% data variables.product.product_location %}{% ifversion fpt or ghec %} o con la dirección de tipo `noreply` que te proporcionó {% data variables.product.prodname_dotcom %} en tus ajustes de correo electrónico{% endif %} para que pueda aparecer en tu gráfica de contribuciones.{% ifversion fpt or ghec %} Para obtener más información sobre las direcciones de correo electrónico de tipo `noreply`, consulta la sección "[Configurar tu dirección de correo electrónico para confirmaciones](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)".{% endif %}
 
 Puedes verificar la dirección de correo electrónico para una confirmación si agregas `.patch` al final de la URL de la confirmación, por ejemplo <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
@@ -64,11 +64,11 @@ Subject: [PATCH] índice actualizado para un mejor mensaje de bienvenida
 
 La dirección de correo electrónico en el campo `From: (Desde:)` es la dirección que se estableció en los [parámetros de configuración de Git local](/articles/set-up-git). En este ejemplo, la dirección de correo electrónico que se usó para la confirmación es `octocat@nowhere.com`.
 
-If the email address used for the commit is not connected to your account on {% data variables.product.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your account on {% data variables.product.product_location %}. Tu gráfica de contribuciones se reconstruirá automáticamente cuando agregues la nueva dirección.{% endif %}
+Si la dirección de correo electrónico que se utiliza para la confirmación no está conectada a tu cuenta en {% data variables.product.product_location %}, {% ifversion ghae %}cambia aquella que se utiliza para crear confirmaciones en Git. Para obtener más información, consulta la sección "[Configurar tu dirección de correo electrónico para confirmaciones](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)".{% else %}debes [agregar la dirección de correo electrónico](/articles/adding-an-email-address-to-your-github-account) a tu cuenta en {% data variables.product.product_location %}. Tu gráfica de contribuciones se reconstruirá automáticamente cuando agregues la nueva dirección.{% endif %}
 
 {% warning %}
 
-**Warning**: Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts. If you use such an email for your commits, the commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
+**Advertencia**: Las direcciones de correo electrónico genéricas, tales como `jane@computer.local`, no pueden agregarse a las cuentas de {% data variables.product.prodname_dotcom %}. Si usas un correo electrónico de ese estilo para tus confirmaciones, las confirmaciones no se vincularán a tu perfil {% data variables.product.prodname_dotcom %} y no aparecerán en tu gráfico de contribución.
 
 {% endwarning %}
 
@@ -82,7 +82,7 @@ Si tus confirmaciones están en una rama que no es una rama predeterminada ni es
 
 {% warning %}
 
-**Warning**: Changing the default branch of the repository will change it for all repository collaborators. Realiza esta acción solamente si quieres que la nueva rama se convierta en la base respecto de todas las confirmaciones y las solicitudes de extracción que se harán en el futuro.
+**Advertencia**: El cambiar la rama predeterminada del repositorio la cambiará para todos los colaboradores de este. Realiza esta acción solamente si quieres que la nueva rama se convierta en la base respecto de todas las confirmaciones y las solicitudes de extracción que se harán en el futuro.
 
 {% endwarning %}
 
@@ -90,7 +90,7 @@ Si tus confirmaciones están en una rama que no es una rama predeterminada ni es
 
 Las confirmaciones que se hicieron en una bifurcación no contarán para tus contribuciones. Para hacer que cuenten, debes realizar una de las siguientes acciones:
 - [Abre una solicitud de extracción](/articles/creating-a-pull-request) para que se fusionen tus cambios en el repositorio padre.
-- To detach the fork and turn it into a standalone repository on {% data variables.product.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. Para obtener más información, consulta "[Acerca de las bifurcaciones](/articles/about-forks/)."
+- Para desconectar la bifurcación y convertirla en un repositorio independiente en {% data variables.product.product_location %}, contacta a {% data variables.contact.contact_support %}. Si la bifurcación tiene a su vez más bifurcaciones, indícale al {% data variables.contact.contact_support %} si éstas deberán moverse junto con tu repositorio a una nueva red o permanecer en la actual. Para obtener más información, consulta "[Acerca de las bifurcaciones](/articles/about-forks/)."
 
 ## Leer más
 

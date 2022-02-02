@@ -2,7 +2,7 @@
 title: 安装 Git Large File Storage
 intro: '为使用 {% data variables.large_files.product_name_short %}，您需要下载并安装不同于 Git 的新程序。'
 redirect_from:
-  - /articles/installing-large-file-storage/
+  - /articles/installing-large-file-storage
   - /articles/installing-git-large-file-storage
   - /github/managing-large-files/installing-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/installing-git-large-file-storage

@@ -52,21 +52,23 @@ Esta API solo está disponible para los miembros autenticados de la organization
   {% if operation.subcategory == 'members' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion ghec %}
-## External groups
+{% ifversion ghec or ghae %}
+## Grupos externos
 
-The external groups API allows you to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.
+La API de grupos externos te permite ver los grupos de proveedor de identidad externos que están disponibles para tu organización, así como administrar la conexión entre los grupos externos y los equipos de tu organziación.
 
 Para utilizar esta API, el usuario autenticado debe ser un mantenedor del equipo o un propietario de la organización asociada con éste.
 
+{% ifversion ghec %}
 {% note %}
 
 **Notas:**
 
-- The external groups API is only available for organizations that are part of a enterprise using {% data variables.product.prodname_emus %}. For more information, see "[About Enterprise Managed Users](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
-- If your organization uses team synchronization, you can use the Team Synchronization API. For more information, see "[Team synchronization API](#team-synchronization)."
+- La API de grupos externos solo se encuentra disponible para aquellas organizaciones que sean parte de una empresa que utilice {% data variables.product.prodname_emus %}. Para obtener más información, consulta la sección "[Acerca de los Usuarios Empresariales Administrados](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+- Si tu organización utiliza la sincronización de equipos, puedes usar la API de Sincronización de Equipos. Para obtener más información, consulta la "[API de sincronización de equipos](#team-synchronization)".
 
 {% endnote %}
+{% endif %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'external-groups' %}{% include rest_operation %}{% endif %}
@@ -83,7 +85,7 @@ Puedes administrar a los miembros del equipo de GitHub a través de tu IdP con l
 
 {% note %}
 
-**Nota:** La API de sincronización de equipos no puede utilizarse con {% data variables.product.prodname_emus %}. To learn more about managing an {% data variables.product.prodname_emu_org %}, see "[External groups API](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
+**Nota:** La API de sincronización de equipos no puede utilizarse con {% data variables.product.prodname_emus %}. Para aprender más sobre cómo administrar una {% data variables.product.prodname_emu_org %}, consulta la sección "[API de grupos externos](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
 
 {% endnote %}
 

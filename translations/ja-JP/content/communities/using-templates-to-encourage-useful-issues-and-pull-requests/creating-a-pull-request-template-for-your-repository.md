@@ -14,7 +14,7 @@ topics:
 shortTitle: PR テンプレートの作成
 ---
 
-詳しい情報については[Issue およびプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
+詳しい情報については[Issue およびPull Requestのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
 
 サポートしているどのフォルダにでも *PULL_REQUEST_TEMPLATE/* サブディレクトリを作成し、プルリクエストテンプレートを複数含めることができます。また、`template` クエリパラメータでプルリクエストの本文に使用するテンプレートを指定できます。 詳細は「[クエリパラメータによる Issue およびプルリクエストの自動化について](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)」を参照してください。
 

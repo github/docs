@@ -23,13 +23,13 @@ Unless another sort option is provided as a query parameter, results are sorted 
 
 ### Rate limit
 
+{% data reusables.enterprise.rate_limit %}
+
 The Search API has a custom rate limit. For requests using [Basic
 Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client
 ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to
 30 requests per minute. For unauthenticated requests, the rate limit allows you
 to make up to 10 requests per minute.
-
-{% data reusables.enterprise.rate_limit %}
 
 See the [rate limit documentation](/rest/reference/rate-limit) for details on
 determining your current rate limit status.
@@ -58,7 +58,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-See "[Searching on GitHub](/articles/searching-on-github/)"
+See "[Searching on GitHub](/search-github/searching-on-github)"
 for a complete list of available qualifiers, their format, and an example of
 how to use them. For information about how to use operators to match specific
 quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."

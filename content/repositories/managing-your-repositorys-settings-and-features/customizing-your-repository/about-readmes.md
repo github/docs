@@ -2,8 +2,8 @@
 title: About READMEs
 intro: 'You can add a README file to your repository to tell other people why your project is useful, what they can do with your project, and how they can use it.'
 redirect_from:
-  - /articles/section-links-on-readmes-and-blob-pages/
-  - /articles/relative-links-in-readmes/
+  - /articles/section-links-on-readmes-and-blob-pages
+  - /articles/relative-links-in-readmes
   - /articles/about-readmes
   - /github/creating-cloning-and-archiving-repositories/about-readmes
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes
@@ -40,7 +40,7 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
 ## Auto-generated table of contents for README files
 

@@ -126,7 +126,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `repository_owner` | The name of the organization in which the `repository` is stored.                                                                                                                                                                                   |
 | `run_id`           | The ID of the workflow run that triggered the workflow.                                                                                                                                                                                             |
 | `run_number`       | The number of times this workflow has been run.                                                                                                                                                                                                     |
-| `run_attempt`      | The number of time this workflow run was been retried.                                                                                                                                                                                              |
+| `run_attempt`      | The number of times this workflow run has been retried.                                                                                                                                                                                             |
 | `工作流程`             | 工作流程的名称。                                                                                                                                                                                                                                            |
 
 ### Defining trust conditions on cloud roles using OIDC claims
@@ -160,7 +160,7 @@ You can configure a subject that filters for a specific [environment](/actions/d
 
 #### Filtering for `pull_request` events
 
-You can configure a subject that filters for the [`pull_request`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
+You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 
 |     |                                        |

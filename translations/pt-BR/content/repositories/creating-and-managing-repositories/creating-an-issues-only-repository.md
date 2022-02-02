@@ -2,8 +2,8 @@
 title: Criar um repositório somente com problemas
 intro: 'O {% data variables.product.product_name %} não fornece permissões de acesso somente a problemas, mas você pode fazer isso usando um segundo repositório que contenha apenas os problemas.'
 redirect_from:
-  - /articles/issues-only-access-permissions/
-  - /articles/is-there-issues-only-access-to-organization-repositories/
+  - /articles/issues-only-access-permissions
+  - /articles/is-there-issues-only-access-to-organization-repositories
   - /articles/creating-an-issues-only-repository
   - /github/creating-cloning-and-archiving-repositories/creating-an-issues-only-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-an-issues-only-repository

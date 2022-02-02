@@ -72,7 +72,7 @@ Only the user who created the pull request can give you permission to push commi
 
  {% tip %}
 
- **Tip:** For more information about pull request branches, including examples, see "[Creating a Pull Request](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)."
+ **Tip:** For more information about pull request branches, including examples, see "[Creating a Pull Request](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
 
  {% endtip %}
 8. At this point, you can do anything you want with this branch. You can push new commits to it, run some local tests, or merge other branches into the branch. Make modifications as you like.

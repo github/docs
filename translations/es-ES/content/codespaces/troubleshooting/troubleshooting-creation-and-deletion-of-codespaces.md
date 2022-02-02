@@ -14,7 +14,7 @@ shortTitle: Creación y borrado
 ## Crear codespaces
 
 ### Sin acceso para crear un codespace
-Los {% data variables.product.prodname_codespaces %} no están disponibles para todos los repositorios. If the "Open with Codespaces" button is missing, {% data variables.product.prodname_codespaces %} may not be available for that repository. Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)".
+Los {% data variables.product.prodname_codespaces %} no están disponibles para todos los repositorios. Si no se muestra el botón de "Abrir con Codespaces", {% data variables.product.prodname_codespaces %} podría no estar disponible para dicho repositorio. Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)".
 
 Si crees que tu organización sí [habilitó los {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization), asegúrate de que un propietario de la organización o gerente de facturación haya configurado el límite de gastos para los {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Administrar tu límite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
 
@@ -54,4 +54,4 @@ Algunas opciones más destructivas:
 Este codespace se ejecuta acutalmente en modo de recuperación debido a un error del contenedor.
 ```
 
-Review the creation logs, update the configuration as needed, and run **Codespaces: Rebuild Container** in the {% data variables.product.prodname_vscode_command_palette %} to retry. Para obtener más información, consulta las secciones "[Bitácoras de codespaces](/codespaces/troubleshooting/codespaces-logs)" y "[Configurar {% data variables.product.prodname_codespaces %} en tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
+Revisa las bitácoras de creación, actualiza la configuración como lo requieras y ejecuta **Codespaces: Reconstruir Contenedor** en la {% data variables.product.prodname_vscode_command_palette %} para volver a intentarlo. Para obtener más información, consulta las secciones "[Bitácoras de codespaces](/codespaces/troubleshooting/codespaces-logs)" y "[Configurar {% data variables.product.prodname_codespaces %} en tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".

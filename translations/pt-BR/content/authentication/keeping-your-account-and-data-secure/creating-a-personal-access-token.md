@@ -2,8 +2,8 @@
 title: Criar um token de acesso pessoal
 intro: Você deve criar um token de acesso pessoal para usar no lugar de uma senha com a linha de comando ou com a API.
 redirect_from:
-  - /articles/creating-an-oauth-token-for-command-line-use/
-  - /articles/creating-an-access-token-for-command-line-use/
+  - /articles/creating-an-oauth-token-for-command-line-use
+  - /articles/creating-an-access-token-for-command-line-use
   - /articles/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token
@@ -27,7 +27,7 @@ shortTitle: Criar um PAT
 
 Os tokens de acesso pessoal (PATs) são uma alternativa para o uso de senhas para autenticação no {% data variables.product.product_name %} ao usar a [API do GitHub](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) ou a [linha de comando](#using-a-token-on-the-command-line).
 
-{% ifversion fpt or ghec %}Se você deseja usar um PAT para acessar recursos que pertencem a uma organização que usa o SAML SSO, você deverá autorizar o PAT. Para mais informações consulte "[Sobre autenticação com logon único SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" e "[Autorizando um token de acesso pessoal para uso com logon único SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
+{% ifversion fpt or ghec %}Se você deseja usar um PAT para acessar recursos que pertencem a uma organização que usa o SAML SSO, você deverá autorizar o PAT. Para obter mais informações, consulte "[Sobre a autenticação com o logon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" e "[Autorizando um token de acesso pessoal para uso com logon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 
 {% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
@@ -51,7 +51,7 @@ Um token com nenhum escopo atribuído só pode acessar informações públicas. 
 8. Clique em **Generate token** (Gerar token). ![Botão Generate token (Gerar token)](/assets/images/help/settings/generate_token.png)
    {% ifversion fpt or ghec %}
    ![Token recém-criado](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes > 3.1 or ghae-next %}
+   {% elsif ghes > 3.1 or ghae %}
    ![Token recém-criado](/assets/images/help/settings/personal_access_tokens_ghe.png)
    {% else %}
    ![Token recém-criado](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
@@ -62,7 +62,7 @@ Um token com nenhum escopo atribuído só pode acessar informações públicas. 
 
    {% endwarning %}
 
-{% ifversion fpt or ghec %}9. Para usar seu token a fim de se autenticar em uma organização que usa SAML SSO, [autorize o token para uso com uma organização de logon único SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
+{% ifversion fpt or ghec %}9. Para usar seu token para efetuar a autenticação em uma organização que usa o logon único SAML, autorize o token. Para mais informações consulte "[Autorizando um token de acesso pessoal para usar com lgon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %} .{% else %}."{% endif %}{% endif %}
 
 ## Usar um token na linha de comando
 

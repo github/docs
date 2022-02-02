@@ -3,7 +3,7 @@ title: 共同開発モデルについて
 intro: プルリクエストの使い方は、プロジェクトで使う開発モデルのタイプによります。 You can use the fork and pull model or the shared repository model.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/about-collaborative-development-models
-  - /articles/types-of-collaborative-development-models/
+  - /articles/types-of-collaborative-development-models
   - /articles/about-collaborative-development-models
   - /github/collaborating-with-issues-and-pull-requests/about-collaborative-development-models
   - /github/collaborating-with-pull-requests/getting-started/about-collaborative-development-models

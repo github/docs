@@ -104,7 +104,7 @@ Você pode filtrar uma lista de pull requests do repositório para encontrar:
 - Pull requests que [necessitam de revisão](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) antes de serem mescladas
 - Pull requests que um revisor aprovou
 - Pull requests nas quais um revisor solicitou alterações
-- Os pull requests que você revisou{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+- Os pull requests que você revisou{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 - Pull requests que alguém pediu para você para revisar diretamente{% endif %}
 - Pull requests que [alguém solicitou revisão a você ou a uma equipe a que você pertence](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)
 
@@ -118,8 +118,6 @@ Você pode filtrar uma lista de pull requests do repositório para encontrar:
 Você pode usar filtros avançados para pesquisar problemas e pull requests que atendam a critérios específicos.
 
 ### Pesquisando problemas e pull requests
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -165,7 +163,7 @@ Com os termos da pesquisa de problemas e pull requests, é possível:
 - Filtrar problemas e pull requests por etiqueta: `state:open type:issue label:"bug"`
 - Filtrar termos da pesquisa usando `-` antes do termo: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 {% tip %}
 
 **Dica:** Você pode filtrar problemas e pull requests por etiqueta, usando a lógica OU ou E.
@@ -188,7 +186,7 @@ Para pull requests, você também pode usar a pesquisa para:
 - Filtrar pull requests que tenham sido aprovadas por um revisor: `state:open type:pr review:approved`
 - Filtrar pull requests nas quais um revisor tenha solicitado alterações: `state:open type:pr review:changes_requested`
 - Filtrar pull requests por [revisor](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
-- Filtrar pull requests por usuário específico [solicitado para revisão](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+- Filtrar pull requests por usuário específico [solicitado para revisão](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 - Filtrar pull requests que alguém pediu para você revisar diretamente: `state:open type:pr user-review-requested:@me`{% endif %}
 - Filtrar pull requests pela equipe solicitada para revisão: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
 - Filtro por pull requests que estão vinculadas a um problema que a pull request pode concluir: `linked:issue`{% endif %}
@@ -228,4 +226,4 @@ Por exemplo, se você filtrar por problemas atribuídos a Hubot e ordenar pelos 
 
 ## Leia mais
 
-- "[Pesquisando problemas e pull requests](/articles/searching-issues)""
+- "[Pesquisando problemas e pull requests](/articles/searching-issues)"

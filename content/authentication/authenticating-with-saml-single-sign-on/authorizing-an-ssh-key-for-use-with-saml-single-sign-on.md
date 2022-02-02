@@ -2,12 +2,11 @@
 title: Authorizing an SSH key for use with SAML single sign-on
 intro: 'To use an SSH key with an organization that uses SAML single sign-on (SSO), you must first authorize the key.'
 redirect_from:
-  - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization/
+  - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - SSO

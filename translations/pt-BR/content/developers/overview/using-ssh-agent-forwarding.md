@@ -2,7 +2,7 @@
 title: Usar o encaminhamento de agente SSH
 intro: 'Para simplificar a implantação em um servidor, você pode configurar o encaminhamento do agente para usar as chaves SSH locais de forma segura.'
 redirect_from:
-  - /guides/using-ssh-agent-forwarding/
+  - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
 versions:
   fpt: '*'
@@ -79,7 +79,7 @@ Aqui estão algumas coisas a serem analisadas quando o agente SSH for encaminhad
 
 ### Você deve estar usando uma URL com SSH para fazer check-out do código
 
-O encaminhamento de SSH só funciona com URLs com SSH, e não com URLs com HTTP(s). Verifique o arquivo *.git/config* no seu servidor e certifique-se de que a URL está na forma SSH, conforme abaixo:
+O encaminhamento de SSH só funciona com URLs com SSH, e não com URLs com HTTP(s). Verifique o arquivo `.git/config` no seu servidor e certifique-se de que a URL está na forma SSH, conforme abaixo:
 
 ```shell
 [remote "origin"]
@@ -107,7 +107,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-No exemplo acima, o arquivo *~/.ssh/config* é carregado primeiro e */etc/ssh_config* é lido em seguida.  Podemos inspecionar esse arquivo para ver se está sobrescrevendo nossas opções, ao executar os seguintes comandos:
+No exemplo acima, o arquivo `~/.ssh/config` é carregado primeiro e `/etc/ssh_config` é lido em seguida.  Podemos inspecionar esse arquivo para ver se está sobrescrevendo nossas opções, ao executar os seguintes comandos:
 
 ```shell
 $ cat /etc/ssh_config
@@ -117,7 +117,7 @@ $ cat /etc/ssh_config
 >   ForwardAgent no
 ```
 
-Neste exemplo, nosso arquivo */etc/ssh_config* diz especificamente `ForwardAgent no`, que é uma maneira de bloquear o encaminhamento de agentes. A exclusão desta linha do arquivo deverá fazer com que o encaminhamento de agentes funcionando mais uma vez.
+Neste exemplo, nosso arquivo `/etc/ssh_config` diz especificamente `ForwardAgent no`, que é uma maneira de bloquear o encaminhamento de agentes. A exclusão desta linha do arquivo deverá fazer com que o encaminhamento de agentes funcionando mais uma vez.
 
 ### Seu servidor deve permitir o encaminhamento do agente SSH em conexões de entrada
 

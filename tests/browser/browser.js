@@ -398,6 +398,7 @@ describe('code examples', () => {
     await page.goto('http://localhost:4001/en/actions')
     await page.click('[data-testid=code-examples-input]')
     await page.type('[data-testid=code-examples-input]', 'this should not work')
+    await page.click('[data-testid=code-examples-search-btn]')
     const shownCards = await page.$$('[data-testid=code-example-card]')
     expect(shownCards.length).toBe(0)
     const noResultsMessage = await page.$('[data-testid=code-examples-no-results]')
@@ -408,7 +409,9 @@ describe('code examples', () => {
 describe('filter cards', () => {
   it('works with select input', async () => {
     await page.goto('http://localhost:4001/en/code-security/guides')
-    await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
+    // 2nd element is 'Overview'
+    await page.click('[data-testid=card-filter-types] button')
+    await page.click('[data-testid=types-dropdown] > div > div:nth-child(2)')
     const shownCards = await page.$$('[data-testid=article-card]')
     const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
       cardTypes.map((cardType) => cardType.textContent)
@@ -419,7 +422,9 @@ describe('filter cards', () => {
 
   it('works with select input on an Enterprise version', async () => {
     await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/code-security/guides`)
-    await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
+    // 2nd element is 'Overview'
+    await page.click('[data-testid=card-filter-types] button')
+    await page.click('[data-testid=types-dropdown] > div > div:nth-child(2)')
     const shownCards = await page.$$('[data-testid=article-card]')
     const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
       cardTypes.map((cardType) => cardType.textContent)
@@ -467,5 +472,36 @@ describe.skip('next/link client-side navigation', () => {
 
     expect(response.status()).toBe(200)
     await page.setViewport(initialViewport)
+  })
+})
+
+describe('iframe pages', () => {
+  it('can open YouTube embed iframes', async () => {
+    // Going to create a fresh page instance, so we can intercept the requests.
+    const newPage = await browser.newPage()
+
+    await newPage.setRequestInterception(true)
+    const interceptedURLs = []
+    newPage.on('request', (request) => {
+      interceptedURLs.push(request.url())
+      request.continue()
+    })
+    const failedURLs = []
+    newPage.on('requestfailed', (request) => {
+      failedURLs.push(request.url())
+      request.continue()
+    })
+
+    // Hardcoded path to a page where we know we have a YouTube embed
+    const res = await newPage.goto('http://localhost:4001/en/codespaces')
+
+    expect(res.ok()).toBeTruthy()
+    expect(failedURLs.length, `Following URLs ${failedURLs.join(', ')} failed`).toBeFalsy()
+
+    const iframeSrc = await newPage.$eval('iframe', (el) => el.src)
+    expect(iframeSrc.startsWith('https://www.youtube-nocookie.com/embed')).toBeTruthy()
+    expect(
+      interceptedURLs.filter((url) => url.startsWith('https://www.youtube-nocookie.com/')).length
+    ).toBeTruthy()
   })
 })

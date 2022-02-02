@@ -2,8 +2,8 @@
 title: Adding a theme to your GitHub Pages site with the theme chooser
 intro: 'You can add a theme to your {% data variables.product.prodname_pages %} site to customize your site’s look and feel.'
 redirect_from:
-  - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser/
+  - /articles/creating-a-github-pages-site-with-the-jekyll-theme-chooser
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser
   - /articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
 product: '{% data reusables.gated-features.pages %}'

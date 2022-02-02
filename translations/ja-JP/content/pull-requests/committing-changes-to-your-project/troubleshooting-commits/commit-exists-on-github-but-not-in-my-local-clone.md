@@ -74,7 +74,7 @@ $ git fetch upstream recover-B
 
 ## フォースプッシュは避けましょう
 
-絶対に必要でない限り、フォースプッシュは避けましょう。 特に、リポジトリにプッシュできる人が 2 人以上いる場合は避けるべきです。
+絶対に必要でない限り、フォースプッシュは避けましょう。 特に、リポジトリにプッシュできる人が 2 人以上いる場合は避けるべきです。 If someone force pushes to a repository, the force push may overwrite commits that other people based their work on. Force pushing changes the repository history and can corrupt pull requests.
 
 ## 参考リンク
 

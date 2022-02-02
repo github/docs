@@ -15,10 +15,11 @@ topics:
 shortTitle: Sobre a configuração HA
 ---
 
-Quando você configura alta disponibilidade, há uma configuração automatizada de replicação assíncrona e unidirecional de todos os armazenamentos de dados (repositórios do Git, MySQL, Redis e Elasticsearch) do appliance primário para o appliance réplica.
+Quando você configura alta disponibilidade, há uma configuração automatizada de replicação assíncrona e unidirecional de todos os armazenamentos de dados (repositórios do Git, MySQL, Redis e Elasticsearch) do appliance primário para o appliance réplica. A maioria das configurações de {% data variables.product.prodname_ghe_server %} também são replicadas, incluindo a senha de {% data variables.enterprise.management_console %}. Para obter mais informações, consulte "[Acessando o console de gerenciamento](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
 
 O {% data variables.product.prodname_ghe_server %} dá suporte a uma configuração ativa/passiva, em que o appliance réplica é executado em espera com os serviços de banco de dados em execução no modo de replicação, mas os serviços de aplicativos são interrompidos.
 
+Após a replicação ser estabelecida, o {% data variables.enterprise.management_console %} se torna inacessível nos dispositivos da réplica. Se você acessar o endereço IP da réplica ou nome do host na porta 8443, verá uma mensagem "Servidor no modo de replicação", o que indica que o dispositivo está atualmente configurado como uma réplica.
 {% data reusables.enterprise_installation.replica-limit %}
 
 ## Cenários de falha
@@ -187,3 +188,4 @@ O comando `ghe-repl-teardown` desativa por completo o modo de replicação, remo
 ## Leia mais
 
 - [Criar réplica de alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)
+- "[Portas de rede](/admin/configuration/configuring-network-settings/network-ports)"

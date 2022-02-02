@@ -93,7 +93,7 @@ Checks API は、新しいコードがリポジトリにプッシュされるた
 
 アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
+1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択し、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. [Permissions] セクションで [Checks] を見つけて、隣にある [Access] ドロップダウンで [**Read & write**] を選択します。
 1. [Subscribe to events] セクションで [**Check suite**] と [**Check run**] を選択してこれらのイベントをサブスクライブします。
 {% data reusables.apps.accept_new_permissions_steps %}
@@ -317,7 +317,7 @@ require 'git'
 
 リポジトリをクローンするには、アプリケーションに「リポジトリコンテンツ」の読み取り権限が必要です。 このクイックスタートでは、後ほどコンテンツを GitHub にプッシュする必要がありますが、そのためには書き込み権限が必要です。 先に進んでアプリケーションの [Repository contents] の権限を [**Read & write**] に今すぐ変更してください。そうすれば、後で再び変更する必要がなくなります。 アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
+1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択し、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. [Permissions] セクションで [Repository contents] を見つけて、隣にある [Access] ドロップダウンで [**Read & write**] を選択します。
 {% data reusables.apps.accept_new_permissions_steps %}
 

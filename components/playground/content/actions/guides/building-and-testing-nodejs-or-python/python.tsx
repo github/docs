@@ -28,11 +28,11 @@ const article: PlaygroundArticleT = {
       codeBlock: {
         id: '0',
       },
-      title: 'Starting with the Python workflow template',
+      title: 'Using the Python starter workflow',
       content: dedent`
-        GitHub provides a Python workflow template that should work for most Python projects. This guide includes examples that you can use to customize the template. For more information, see the [Python workflow template](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
+        GitHub provides a Python starter workflow that should work for most Python projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Python starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
-        To get started quickly, add the template to the \`.github/workflows\` directory of your repository.
+        To get started quickly, add the starter workflow to the \`.github/workflows\` directory of your repository.
       `,
     },
     {
@@ -206,7 +206,7 @@ const article: PlaygroundArticleT = {
 
         For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
-        For more information about the template workflow, see [\`python-publish\`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
+        For more information about the starter workflow, see [\`python-publish\`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
       `,
     },
   ],

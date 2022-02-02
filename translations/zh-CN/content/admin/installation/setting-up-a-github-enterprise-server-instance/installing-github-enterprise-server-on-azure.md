@@ -2,7 +2,7 @@
 title: 在 Azure 上安装 GitHub Enterprise Server
 intro: '要在 Azure 上安装 {% data variables.product.prodname_ghe_server %}，您必须部署到 DS 系列实例上并使用 Premium-LRS 存储。'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
@@ -34,11 +34,7 @@ shortTitle: 在 Azure 上安装
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-{% data variables.product.prodname_ghe_server %} 设备需要高级存储数据磁盘，可以在支持高级存储的任何 Azure VM 上使用。 带有 `` 后缀的 Azure VM 类型支持高级存储。 更多信息请参阅 Azure 文档中的“[Azure 中有哪些磁盘类型？](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)”和“[Azure 高级存储：高性能设计](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)”。
-
-{% data variables.product.company_short %} 建议对 {% data variables.product.prodname_ghe_server %} 使用内存优化的虚拟机。 更多信息请参阅 Azure 文档中的“[内存优化的虚拟机大小](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)”。
-
-{% data variables.product.prodname_ghe_server %} 可以在支持您的 VM 类型的任何地区使用。 有关各个 VM 的支持地区的更多信息，请参阅 Azure 的“[可用产品（按地区）](https://azure.microsoft.com/regions/services/)”。
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
 
 ## 创建 {% data variables.product.prodname_ghe_server %} 虚拟机
 
@@ -67,7 +63,7 @@ shortTitle: 在 Azure 上安装
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. 创建新的未加密数据磁盘并将其附加至 VM，然后根据用户许可数配置大小。 更多信息请参阅 Microsoft 文档中的“[az vm 磁盘附加](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)”。
+4. Create and attach a new managed data disk to the VM, and configure the size based on your license count. All Azure managed disks created since June 10, 2017 are encrypted at rest by default with Storage Service Encryption (SSE). For more information about the `az vm disk attach` command, see "[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
 
   传入以下选项：VM 名称（例如 `ghe-acme-corp`）、资源组、高级存储 SKU、磁盘大小（例如 `100`）以及生成的 VHD 的名称。
 

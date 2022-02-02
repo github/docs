@@ -2,7 +2,7 @@
 title: Searching issues and pull requests
 intro: 'You can search for issues and pull requests on {% data variables.product.product_name %} and narrow the results using these search qualifiers in any combination.'
 redirect_from:
-  - /articles/searching-issues/
+  - /articles/searching-issues
   - /articles/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests
@@ -80,7 +80,7 @@ You can filter by the visibility of the repository containing the issues and pul
 
 | Qualifier  | Example
 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %}
-| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% ifversion fpt or ghes or ghae or ghec %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% ifversion ghes or ghec or ghae %}
 | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %}
 | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
@@ -108,7 +108,7 @@ The `mentions` qualifier finds issues that mention a certain user. For more info
 
 | Qualifier     | Example
 | ------------- | -------------
-| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt.
+| <code>mentions:<em>USERNAME</em></code> | [**`resque mentions:defunkt`**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt.
 
 ## Search by team mention
 
@@ -116,7 +116,7 @@ For organizations and teams you belong to, you can use the `team` qualifier to f
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** matches issues where the `@jekyll/owners` team is mentioned.
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **`team:jekyll/owners`** matches issues where the `@jekyll/owners` team is mentioned.
 | | **team:myorg/ops is:open is:pr** matches open pull requests where the `@myorg/ops` team is mentioned.
 
 ## Search by commenter
@@ -155,7 +155,7 @@ You can narrow your results by labels, using the `label` qualifier. Since issues
 | ------------- | -------------
 | <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) matches issues with the label "help wanted" that are in Ruby repositories.
 |  | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) matches issues with the word "broken" in the body, that lack the label "bug", but *do* have the label "priority."
-| | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+| | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 | | [**label:bug,resolved**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) matches issues with the label "bug" or the label "resolved."{% endif %}
 
 ## Search by milestone
@@ -178,7 +178,7 @@ You can use the `project` qualifier to find issues that are associated with a sp
 
 ## Search by commit status
 
-You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/repos#statuses) or a CI service.
+You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -259,7 +259,7 @@ You can filter pull requests based on their [review status](/pull-requests/colla
 | `review:approved` | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) matches pull requests that a reviewer has approved.
 | `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) matches pull requests in which a reviewer has asked for changes.
 | <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) matches pull requests reviewed by a particular person.
-| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) matches pull requests where a specific person is requested for review. Requested reviewers are no longer listed in the search results after they review a pull request. If the requested person is on a team that is requested for review, then review requests for that team will also appear in the search results.{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) matches pull requests where a specific person is requested for review. Requested reviewers are no longer listed in the search results after they review a pull request. If the requested person is on a team that is requested for review, then review requests for that team will also appear in the search results.{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 | <code>user-review-requested:@me</code> | [**type:pr user-review-requested:@me**](https://github.com/search?q=is%3Apr+user-review-requested%3A%40me+) matches pull requests that you have directly been asked to review.{% endif %}
 | <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) matches pull requests that have review requests from the team `atom/design`. Requested reviewers are no longer listed in the search results after they review a pull request.
 
@@ -299,7 +299,7 @@ This qualifier takes a date as its parameter. {% data reusables.time_date.date_f
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>merged:<em>YYYY-MM-DD</em></code> | [**language:javascript merged:<2011-01-01**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.
+| <code>merged:<em>YYYY-MM-DD</em></code> | [**`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.
 | | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) matches pull requests in Ruby with the word "fast" in the title that were merged after May 2014.
 
 ## Search based on whether a pull request is merged or unmerged
@@ -308,7 +308,7 @@ You can filter pull requests based on whether they're merged or unmerged using t
 
 | Qualifier        | Example
 | ------------- | -------------
-| `is:merged` | [**bugfix is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) matches merged pull requests with the word "bugfix."
+| `is:merged` | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) matches merged pull requests with the word "bug."
 | `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) matches closed issues and pull requests with the word "error."
 
 ## Search based on whether a repository is archived

@@ -16,4 +16,3 @@ children:
   - /deploying-xcode-applications
 ---
 
-{% data reusables.actions.ae-beta %}

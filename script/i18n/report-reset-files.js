@@ -66,9 +66,10 @@ function pullRequestBodyReport() {
     .forEach((reason) => {
       const files = filesByReason[reason]
       body.push(`\n### ${reason}`)
-      body.push(`\n${files.length} files:\n`)
+      body.push(`\n<details><summary>${files.length} files:</summary>\n`)
       const checkBoxes = files.map((file) => `- [ ] ${file}`)
       body.push(checkBoxes)
+      body.push('\n</details>')
     })
 
   return body.flat().join('\n')

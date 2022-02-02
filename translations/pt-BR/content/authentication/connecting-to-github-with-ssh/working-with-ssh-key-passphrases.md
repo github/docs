@@ -2,8 +2,8 @@
 title: Trabalhar com frase secreta da chave SSH
 intro: Você pode proteger suas chaves SSH e configurar um agente de autenticação para que não precise redigitar a senha toda vez que usar as chaves SSH.
 redirect_from:
-  - /ssh-key-passphrases/
-  - /working-with-key-passphrases/
+  - /ssh-key-passphrases
+  - /working-with-key-passphrases
   - /articles/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/connecting-to-github-with-ssh/working-with-ssh-key-passphrases

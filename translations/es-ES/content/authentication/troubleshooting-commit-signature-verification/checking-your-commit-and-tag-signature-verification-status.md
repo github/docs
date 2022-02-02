@@ -2,7 +2,7 @@
 title: Comprobar el estado de verificación de firma de la confirmación y de la etiqueta
 intro: 'Puedes comprobar el estado de verificación de las firmas de tu confirmación y de la etiqueta en {% data variables.product.product_name %}.'
 redirect_from:
-  - /articles/checking-your-gpg-commit-and-tag-signature-verification-status/
+  - /articles/checking-your-gpg-commit-and-tag-signature-verification-status
   - /articles/checking-your-commit-and-tag-signature-verification-status
   - /github/authenticating-to-github/checking-your-commit-and-tag-signature-verification-status
   - /github/authenticating-to-github/troubleshooting-commit-signature-verification/checking-your-commit-and-tag-signature-verification-status

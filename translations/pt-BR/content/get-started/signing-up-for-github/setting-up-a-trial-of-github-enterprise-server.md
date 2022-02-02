@@ -2,7 +2,7 @@
 title: Configurar uma versão de avaliação do GitHub Enterprise Server
 intro: 'Você pode avaliar o {% data variables.product.prodname_ghe_server %} gratuitamente.'
 redirect_from:
-  - /articles/requesting-a-trial-of-github-enterprise/
+  - /articles/requesting-a-trial-of-github-enterprise
   - /articles/setting-up-a-trial-of-github-enterprise-server
   - /github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-server
   - /github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server
@@ -42,6 +42,7 @@ Siga estas etapas para aproveitar ao máximo a versão de avaliação:
    - Webcast [Guia de início rápido do {% data variables.product.prodname_dotcom %}](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/)
    - [Entender o fluxo do {% data variables.product.prodname_dotcom %}](https://guides.github.com/introduction/flow/) nos guias do {% data variables.product.prodname_dotcom %}
    - [Hello World](https://guides.github.com/activities/hello-world/) nos guias do {% data variables.product.prodname_dotcom %}
+   - "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
 3. Para configurar a sua instância para atender as necessidades da sua organização, consulte "[Configurar sua empresa](/enterprise-server@latest/admin/configuration/configuring-your-enterprise)".
 4. Para integrar o {% data variables.product.prodname_ghe_server %} ao seu provedor de identidade, consulte "[Usar SAML](/enterprise-server@latest/admin/user-management/using-saml)" e "[Usar LDAP](/enterprise-server@latest/admin/authentication/using-ldap)".
 5. Convite o número desejado de pessoas (sem limite) para fazer parte da versão de avaliação.

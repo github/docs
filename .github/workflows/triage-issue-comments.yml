@@ -11,6 +11,7 @@ on:
 
 permissions:
   issues: write
+  repository-projects: write
 
 jobs:
   triage-issue-comments:
@@ -22,7 +23,6 @@ jobs:
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         id: is-internal-contributor
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           result-encoding: string
           script: |
             const repo = context.payload.repository.name

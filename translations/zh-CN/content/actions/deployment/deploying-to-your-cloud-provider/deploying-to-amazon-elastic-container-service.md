@@ -19,7 +19,6 @@ shortTitle: 部署到 Amazon ECS
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 

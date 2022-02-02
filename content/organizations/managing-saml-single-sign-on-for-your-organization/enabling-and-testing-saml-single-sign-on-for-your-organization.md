@@ -1,12 +1,10 @@
 ---
 title: Enabling and testing SAML single sign-on for your organization
 intro: Organization owners and admins can enable SAML single sign-on to add an extra layer of security to their organization.
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -23,8 +21,6 @@ If you enable but don't enforce SAML SSO, organization members who choose not to
 {% data reusables.saml.outside-collaborators-exemption %}
 
 ## Enabling and testing SAML single sign-on for your organization
-
-{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
 Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
 

@@ -2,14 +2,14 @@
 title: 将数据迁移到企业
 intro: '生成迁移存档后，您可以将数据导入目标 {% data variables.product.prodname_ghe_server %} 实例。 在将变更永久应用到目标实例之前，您需要检查变更，查看有无潜在的冲突。'
 redirect_from:
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
   - /enterprise/admin/migrations/reviewing-migration-data
   - /enterprise/admin/migrations/completing-the-import-on-github-enterprise-server
-  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/reviewing-the-imported-data/
-  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise/
-  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server/
+  - /enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise
+  - /enterprise/admin/guides/migrations/reviewing-the-imported-data
+  - /enterprise/admin/guides/migrations/completing-the-import-on-github-enterprise
+  - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
 versions:

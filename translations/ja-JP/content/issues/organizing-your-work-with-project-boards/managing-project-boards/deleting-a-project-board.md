@@ -3,7 +3,7 @@ title: プロジェクトボードの削除
 intro: 既存のプロジェクトボードのコンテンツにアクセスする必要がない場合、削除することができます。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
-  - /articles/deleting-a-project/
+  - /articles/deleting-a-project
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:

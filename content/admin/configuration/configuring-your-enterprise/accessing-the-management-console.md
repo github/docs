@@ -2,12 +2,12 @@
 title: Accessing the management console
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
-  - /enterprise/admin/articles/about-the-management-console/
-  - /enterprise/admin/articles/management-console-for-emergency-recovery/
-  - /enterprise/admin/articles/web-based-management-console/
-  - /enterprise/admin/categories/management-console/
-  - /enterprise/admin/articles/accessing-the-management-console/
-  - /enterprise/admin/guides/installation/web-based-management-console/
+  - /enterprise/admin/articles/about-the-management-console
+  - /enterprise/admin/articles/management-console-for-emergency-recovery
+  - /enterprise/admin/articles/web-based-management-console
+  - /enterprise/admin/categories/management-console
+  - /enterprise/admin/articles/accessing-the-management-console
+  - /enterprise/admin/guides/installation/web-based-management-console
   - /enterprise/admin/installation/accessing-the-management-console
   - /enterprise/admin/configuration/accessing-the-management-console
   - /admin/configuration/accessing-the-management-console
@@ -31,6 +31,8 @@ Use the {% data variables.enterprise.management_console %} for basic administrat
 You can always reach the {% data variables.enterprise.management_console %} using {% data variables.product.product_location %}'s IP address, even when the instance is in maintenance mode, or there is a critical application failure or hostname or SSL misconfiguration.
 
 To access the {% data variables.enterprise.management_console %}, you must use the administrator password established during initial setup of {% data variables.product.product_location %}. You must also be able to connect to the virtual machine host on port 8443. If you're having trouble reaching the {% data variables.enterprise.management_console %}, please check intermediate firewall and security group configurations.
+
+The {% data variables.enterprise.management_console %} password hash is stored in `/data/user/common/secrets.conf`, and that file is automatically synced from the primary appliance to any high-availability replicas. Any change to the primary's password will automatically be replicated to high-availability replicas. For more information about high availability, see "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
 
 ## Accessing the {% data variables.enterprise.management_console %} as a site administrator
 

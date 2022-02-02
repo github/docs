@@ -2,7 +2,7 @@
 title: 在 Hyper-V 上安装 GitHub Enterprise Server
 intro: '要在 Hyper-V 上安装 {% data variables.product.prodname_ghe_server %}，您必须部署到运行 Windows Server 2008 至 Windows Server 2019 的机器上。'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
   - /admin/installation/installing-github-enterprise-server-on-hyper-v
 versions:

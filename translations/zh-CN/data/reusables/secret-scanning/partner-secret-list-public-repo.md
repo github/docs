@@ -75,6 +75,8 @@
 | Samsara                   | Samsara API 令牌                      |
 | Samsara                   | Samsara OAuth 访问令牌                  |
 | SendGrid                  | SendGrid API Key                    |
+| Sendinblue                | Sendinblue API Key                  |
+| Sendinblue                | Sendinblue SMTP Key                 |
 | Shopify                   | Shopify App 共享密钥                    |
 | Shopify                   | Shopify 访问令牌                        |
 | Shopify                   | Shopify 自定义应用访问令牌                   |
@@ -91,4 +93,5 @@
 | Tencent Cloud             | 腾讯云密钥 ID                            |
 | Twilio                    | Twilio 帐户字符串标识符                     |
 | Twilio                    | Twilio API 密钥                       |
+| Typeform                  | Typeform Personal Access Token      |
 | Valour                    | Valour 访问令牌                         |

@@ -30,7 +30,7 @@ O {% data variables.product.prodname_archive %} habilita que parceiros terceiros
 
 O uso responsável de arquivamentos inclui respeitar a privacidade dos usuários. Para obter mais informações, consulte "[Informações públicas no GitHub](/free-pro-team@latest/github/site-policy/github-privacy-statement#public-information-on-github)".
 
-Você pode optar por não participar do {% data variables.product.prodname_archive %} no seu repositório. Para obter mais informações, consulte "[Optar por participar ou não participar do {% data variables.product.prodname_archive %} para seu repositório público](/github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)".
+Você pode optar por não participar do {% data variables.product.prodname_archive %} no seu repositório. Para obter mais informações, consulte "[Optar por participar ou não participar do {% data variables.product.prodname_archive %} para seu repositório público](/get-started/privacy-on-github/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)".
 
 ## Adicionar uma licença de código aberto para aumentar a capacidade de arquivamento
 

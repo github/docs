@@ -3,7 +3,7 @@ title: リポジトリのリリースを管理する
 intro: リリースを作成し、プロジェクトのイテレーションをバンドルしてユーザに配信できます。
 redirect_from:
   - /articles/creating-releases
-  - /articles/listing-and-editing-releases/
+  - /articles/listing-and-editing-releases
   - /articles/editing-and-deleting-releases
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
@@ -35,8 +35,6 @@ You can create new releases with release notes, @mentions of contributors, and l
 {% endif %}
 
 ## リリースの作成
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -107,8 +105,6 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 
 ## リリースの編集
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -129,8 +125,6 @@ Releases cannot currently be edited with {% data variables.product.prodname_cli 
 {% endcli %}
 
 ## リリースの削除
-
-{% include tool-switcher %}
 
 {% webui %}
 

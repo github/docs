@@ -20,7 +20,11 @@ topics:
 ---
 ## About {% data variables.product.prodname_dotcom %}'s products
 
-{% data variables.product.prodname_dotcom %} offers free and paid products. You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
+{% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to user accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+
+You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
+
+When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your product. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ## {% data variables.product.prodname_free_user %} for user accounts
 
@@ -42,11 +46,11 @@ In addition to the features available with {% data variables.product.prodname_fr
 - Advanced tools and insights in private repositories:
   - Required pull request reviewers
   - Multiple pull request reviewers
+  - Protected branches
+  - Code owners
   - Auto-linked references
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - Protected branches
-  - Code owners
   - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
 
 ## {% data variables.product.prodname_free_team %} for organizations
@@ -69,14 +73,14 @@ In addition to the features available with {% data variables.product.prodname_fr
 - Advanced tools and insights in private repositories:
   - Required pull request reviewers
   - Multiple pull request reviewers
-  - {% data variables.product.prodname_pages %}
-  - Wikis
-  - Protected branches
-  - Code owners
-  - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
   - Draft pull requests
   - Team pull request reviewers
+  - Protected branches
+  - Code owners
   - Scheduled reminders
+  - {% data variables.product.prodname_pages %}
+  - Wikis
+  - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
 {% ifversion fpt or ghec %}
 - The option to enable {% data variables.product.prodname_github_codespaces %}
   - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."

@@ -15,4 +15,3 @@ children:
   - /using-github-cli-in-workflows
 ---
 
-{% data reusables.actions.ae-beta %}

@@ -3,8 +3,8 @@ title: Bajar de categoría Large File Storage de Git
 intro: 'Puedes bajar de categoría y modificar el ancho de banda para {% data variables.large_files.product_name_short %} aplicando incrementos de 50 GB por mes.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-git-large-file-storage
-  - /articles/downgrading-storage-and-bandwidth-for-a-personal-account/
-  - /articles/downgrading-storage-and-bandwidth-for-an-organization/
+  - /articles/downgrading-storage-and-bandwidth-for-a-personal-account
+  - /articles/downgrading-storage-and-bandwidth-for-an-organization
   - /articles/downgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/downgrading-git-large-file-storage
 versions:

@@ -18,7 +18,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -146,7 +145,7 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}
@@ -192,7 +191,7 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

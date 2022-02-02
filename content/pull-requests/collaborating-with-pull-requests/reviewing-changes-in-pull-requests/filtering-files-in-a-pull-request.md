@@ -3,7 +3,7 @@ title: Filtering files in a pull request
 intro: 'To help you quickly review changes in a large pull request, you can filter changed files.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
-  - /articles/filtering-files-in-a-pull-request-by-file-type/
+  - /articles/filtering-files-in-a-pull-request-by-file-type
   - /articles/filtering-files-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/filtering-files-in-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request

@@ -14,7 +14,6 @@ topics:
 shortTitle: Actions for project management
 ---
 
-{% data reusables.actions.ae-beta %}
 
 You can use {% data variables.product.prodname_actions %} to automate your project management tasks by creating workflows. Each workflow contains a series of tasks that are performed automatically every time the workflow runs. For example, you can create a workflow that runs every time an issue is created to add a label, leave a comment, and move the issue onto a project board.
 

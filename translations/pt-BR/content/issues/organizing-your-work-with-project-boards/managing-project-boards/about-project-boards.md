@@ -3,7 +3,7 @@ title: Sobre quadros de projeto
 intro: 'Os quadros de projeto no {% data variables.product.product_name %} ajudam você a organizar e priorizar seu trabalho. É possível criar quadros de projeto para trabalho de recurso específico, roteiros abrangentes ou, até mesmo, checklists de versão. Com os quadros de projeto, você tem a flexibilidade de criar fluxos de trabalho personalizados adequados às suas necessidades.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
-  - /articles/about-projects/
+  - /articles/about-projects
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:

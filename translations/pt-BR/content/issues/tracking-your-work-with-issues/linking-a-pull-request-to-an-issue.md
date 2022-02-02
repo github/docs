@@ -3,8 +3,8 @@ title: Vinculando uma pull request a um problema
 intro: Você pode vincular um pull request a um problema para mostrar que uma correção está em andamento e para fechar automaticamente o problema quando o pull request for mesclado.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
-  - /articles/closing-issues-via-commit-message/
-  - /articles/closing-issues-via-commit-messages/
+  - /articles/closing-issues-via-commit-message
+  - /articles/closing-issues-via-commit-messages
   - /articles/closing-issues-using-keywords
   - /github/managing-your-work-on-github/closing-issues-using-keywords
   - /github/managing-your-work-on-github/linking-a-pull-request-to-an-issue
@@ -47,7 +47,7 @@ Você pode vincular uma solicitação de pull a um problema usando uma palavra-c
 * resolve
 * resolved
 
-If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request will also close the referenced pull request.
+Se você usar uma palavra-chave para fazer referência a um comentário de um pull request em outr pull request, os pull requests serão vinculados. O merge do pull request de referência também fechará o pull request de referência.
 
 A sintaxe para fechar palavras-chave depende se o problema está no mesmo repositório que a pull request.
 

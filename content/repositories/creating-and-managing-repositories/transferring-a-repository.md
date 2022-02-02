@@ -2,15 +2,15 @@
 title: Transferring a repository
 intro: You can transfer repositories to other users or organization accounts.
 redirect_from:
-  - /articles/about-repository-transfers/
-  - /move-a-repo/
-  - /moving-a-repo/
-  - /articles/what-is-transferred-with-a-repository/
-  - /articles/what-is-transferred-with-a-repo/
-  - /articles/how-to-transfer-a-repo/
-  - /articles/how-to-transfer-a-repository/
-  - /articles/transferring-a-repository-owned-by-your-personal-account/
-  - /articles/transferring-a-repository-owned-by-your-organization/
+  - /articles/about-repository-transfers
+  - /move-a-repo
+  - /moving-a-repo
+  - /articles/what-is-transferred-with-a-repository
+  - /articles/what-is-transferred-with-a-repo
+  - /articles/how-to-transfer-a-repo
+  - /articles/how-to-transfer-a-repository
+  - /articles/transferring-a-repository-owned-by-your-personal-account
+  - /articles/transferring-a-repository-owned-by-your-organization
   - /articles/transferring-a-repository
   - /github/administering-a-repository/transferring-a-repository
   - /github/administering-a-repository/managing-repository-settings/transferring-a-repository
@@ -51,7 +51,8 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
   $ git remote set-url origin <em>new_url</em>
   ```
 
-- When you transfer a repository from an organization to a user account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a user account. For more information about repository permission levels, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+- When you transfer a repository from an organization to a user account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a user account. For more information about repository permission levels, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}
+- Sponsors who have access to the repository through a sponsorship tier may be affected. For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)".{% endif %}
 
 For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 

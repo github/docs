@@ -2,7 +2,7 @@
 title: モバイルデバイスに対する 2 要素認証配信方法の変更
 intro: 認証コードの受信方法を、テキストメッセージとモバイルアプリケーションとの間で切り替えることができます。
 redirect_from:
-  - /articles/changing-two-factor-authentication-delivery-methods/
+  - /articles/changing-two-factor-authentication-delivery-methods
   - /articles/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /github/authenticating-to-github/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
@@ -16,7 +16,7 @@ shortTitle: Change 2FA delivery method
 
 {% note %}
 
-**メモ:** 2 要素認証の方法を変更すると、それまでの 2 要素認証の設定が無効になります。 ただし、これはリカバリコードやフォールバック SMS 設定には影響しません。 必要な場合、個人アカウントのセキュリティ設定ページで、リカバリコードやフォールバック SMS 設定を更新できます。
+**Note:** Changing your primary method for two-factor authentication invalidates your current two-factor authentication setup, including your recovery codes. Keep your new set of recovery codes safe. Changing your primary method for two-factor authentication does not affect your fallback SMS configuration, if configured. For more information, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)."
 
 {% endnote %}
 

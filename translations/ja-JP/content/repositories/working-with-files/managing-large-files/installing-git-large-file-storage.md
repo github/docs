@@ -2,7 +2,7 @@
 title: Git Large File Storage をインストールする
 intro: '{% data variables.large_files.product_name_short %} を使用するには、Git とは別の新しいプログラムをダウンロードしてインストールする必要があります。'
 redirect_from:
-  - /articles/installing-large-file-storage/
+  - /articles/installing-large-file-storage
   - /articles/installing-git-large-file-storage
   - /github/managing-large-files/installing-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/installing-git-large-file-storage

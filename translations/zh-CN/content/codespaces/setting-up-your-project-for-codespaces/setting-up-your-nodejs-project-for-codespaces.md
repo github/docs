@@ -14,6 +14,8 @@ topics:
   - Developer
   - Node
   - JavaScript
+hasExperimentalAlternative: true
+hidden: true
 ---
 
 
@@ -40,13 +42,13 @@ topics:
 
 您可以通过调整 vCPU 和 RAM 的数量、[添加 dotfiles 以个性化环境](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)或者修改安装的工具和脚本来自定义代码空间。
 
-{% data variables.product.prodname_codespaces %} 使用名为 `devcontainer.json` 的文件来存储配置。 在启动时， {% data variables.product.prodname_codespaces %} 使用文件安装项目可能需要的任何工具、依赖项或其他设置。 更多信息请参阅“[为项目配置代码空间](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
+{% data variables.product.prodname_codespaces %} 使用名为 `devcontainer.json` 的文件来存储配置。 在启动时， {% data variables.product.prodname_codespaces %} 使用文件安装项目可能需要的任何工具、依赖项或其他设置。 For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
 ## 步骤 2：从模板将开发容器添加到您的代码空间
 
 默认代码空间容器将支持运行 Node.js 项目，如开箱即用 [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node)。 通过设置自定义容器，您可以自定义在代码空间创建过程中运行的工具和脚本，并确保为仓库中的所有 {% data variables.product.prodname_codespaces %} 用户提供完全可复制的环境。
 
-要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 有关开发容器的更多信息，请参阅“[为项目配置代码空间](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
+要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
 {% data reusables.codespaces.command-palette-container %}
 3. 对于此示例，单击 **Node.js**。  如果需要其他功能，您可以选择任何特定于节点或工具（如节点和 MongoDB）组合的容器。 ![从列表中选择节点选项](/assets/images/help/codespaces/add-node-prebuilt-container.png)

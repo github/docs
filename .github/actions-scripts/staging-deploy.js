@@ -21,7 +21,7 @@ if (!HEROKU_API_TOKEN) {
 // instance to avoid versioning discrepancies.
 const octokit = getOctokit()
 
-const { RUN_ID, PR_URL, SOURCE_BLOB_URL, CONTEXT_NAME, ACTIONS_RUN_LOG, HEAD_SHA } = process.env
+const { RUN_ID, PR_URL, SOURCE_BLOB_URL } = process.env
 if (!RUN_ID) {
   throw new Error('$RUN_ID not set')
 }
@@ -30,15 +30,6 @@ if (!PR_URL) {
 }
 if (!SOURCE_BLOB_URL) {
   throw new Error('$SOURCE_BLOB_URL not set')
-}
-if (!CONTEXT_NAME) {
-  throw new Error('$CONTEXT_NAME not set')
-}
-if (!ACTIONS_RUN_LOG) {
-  throw new Error('$ACTIONS_RUN_LOG not set')
-}
-if (!HEAD_SHA) {
-  throw new Error('$HEAD_SHA not set')
 }
 
 const { owner, repo, pullNumber } = parsePrUrl(PR_URL)
@@ -61,14 +52,4 @@ await deployToStaging({
   // These parameters will ONLY be set by Actions
   sourceBlobUrl: SOURCE_BLOB_URL,
   runId: RUN_ID,
-})
-
-await octokit.repos.createCommitStatus({
-  owner,
-  repo,
-  sha: HEAD_SHA,
-  context: CONTEXT_NAME,
-  state: 'success',
-  description: 'Successfully deployed! See logs.',
-  target_url: ACTIONS_RUN_LOG,
 })

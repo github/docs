@@ -2,7 +2,7 @@
 title: Guides
 intro: 'Learn about getting started with the REST API, authentication, and how to use the REST API for a variety of tasks.'
 redirect_from:
-  - /guides/
+  - /guides
   - /v3/guides
 versions:
   fpt: '*'
@@ -30,4 +30,4 @@ authentication, to manipulating results, to combining results with other apps.
 Every tutorial here will have a project, and every project will be
 stored and documented in our public
 [platform-samples](https://github.com/github/platform-samples) repository.
-![The Electrocat](/assets/images/electrocat.png)
+![The Octocat](/assets/images/electrocat.png)

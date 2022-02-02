@@ -3,7 +3,7 @@ title: Issues guides
 shortTitle: ガイド
 intro: '作業を計画し、追跡するために{% data variables.product.prodname_github_issues %}を使う方法を学んでください。'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'

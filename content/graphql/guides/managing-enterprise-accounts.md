@@ -97,7 +97,7 @@ Now you are ready to start making queries.
 
 ## An example query using the Enterprise Accounts API
 
-This GraphQL query requests the total number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the slug of your Enterprise's instance slug.
+This GraphQL query requests the total number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the handle for your enterprise account. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `<enterprise-account-name>` with `octo-enterprise`.
 
 {% ifversion not ghae %}
 

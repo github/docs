@@ -4,13 +4,13 @@ name: Copy to REST API issue to docs-content
 # **Why we have it**: REST API updates cannot be made in the open source repo. Instead, we copy the issue to an internal issue (we do not transfer so that the issue does not disappear for the contributor) and close the original issue.
 # **Who does it impact**: Open source and docs-content maintainers
 
-permissions:
-  contents: write
-
 on:
   issues:
     types:
       - labeled
+
+permissions:
+  contents: none
 
 jobs:
   transfer-issue:

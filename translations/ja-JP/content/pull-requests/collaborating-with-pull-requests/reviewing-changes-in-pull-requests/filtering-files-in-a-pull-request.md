@@ -3,7 +3,7 @@ title: プルリクエスト内のファイルをフィルタリングする
 intro: 巨大なプルリクエスト内の変更を素早く確認できるように、変更されたファイルをフィルタリングできます。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
-  - /articles/filtering-files-in-a-pull-request-by-file-type/
+  - /articles/filtering-files-in-a-pull-request-by-file-type
   - /articles/filtering-files-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/filtering-files-in-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request

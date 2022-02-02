@@ -1,5 +1,5 @@
 {% ifversion ghae %}
-To allow your {% data variables.actions.hosted_runner %}s to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your {% data variables.actions.hosted_runner %}s to the IP allow list. For more information, see "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
+To allow your self-hosted runners to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your self-hosted runners to the IP allow list. For more information, see "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
 {% else %}
 {% warning %}
 

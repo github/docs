@@ -59,7 +59,7 @@ Por ejemplo, la siguente definición de formato incluye cuatro elementos de form
 
 Para cada elemento de formato, puedes configurar las siguientes claves.
 
-| Clave         | Descripción                                                                                                                                                                                                                                                            | Requerido | Type      | Predeterminado                                  | Valores válidos                                 |
+| Clave         | Descripción                                                                                                                                                                                                                                                            | Requerido | Tipo      | Predeterminado                                  | Valores válidos                                 |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ----------------------------------------------- |
 | `type`        | El tipo de elemento que quieres definir.                                                                                                                                                                                                                               | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul>                       |
 | `id`          | El identificador del elemento, excepto cuando el `type` se configura como `markdown`. {% data reusables.form-schema.id-must-be-unique %} Si se proporcionó, la `id` es el identificador canónico para el campo en los pre-llenados de parámetro de la consulta de URL. | Opcional  | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
@@ -68,7 +68,7 @@ Para cada elemento de formato, puedes configurar las siguientes claves.
 
 Puedes elegir desde los siguientes tipos de elementos de formato. Cada tipo tiene atributos y validaciones únicos.
 
-| Type                        | Descripción                                                                                                                          |
+| Tipo                        | Descripción                                                                                                                          |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | [`markdown`](#markdown)     | El texto de lenguaje de marcado se muestra en el formato para proporcionar contexto adicional al usuario, pero **no se ha enviado**. |
 | [`textarea`](#textarea)     | Un campo de texto de línea múltiple.                                                                                                 |
@@ -84,7 +84,7 @@ Puedes utilizar un elemento de `markdown` para mostrar el lenguaje de marcado en
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Clave   | Descripción                                                               | Requerido | Type      | Predeterminado                                  | Valores válidos                                 |
+| Clave   | Descripción                                                               | Requerido | Tipo      | Predeterminado                                  | Valores válidos                                 |
 | ------- | ------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ----------------------------------------------- |
 | `value` | El texto se interpreta. El formateo en lenguaje de marcado es compatible. | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 
@@ -116,7 +116,7 @@ Puedes utilizar un elemento de `textarea` para agregar un texto de línea múlti
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Clave         | Descripción                                                                                                                                                                                                           | Requerido | Type      | Predeterminado                                  | Valores válidos                                                                                                                                                                                                          |
+| Clave         | Descripción                                                                                                                                                                                                           | Requerido | Tipo      | Predeterminado                                  | Valores válidos                                                                                                                                                                                                          |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `etiqueta`    | Una descripción breve de la entrada que se espera del usuario, lo cual también se muestra en el formato.                                                                                                              | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 | `descripción` | Una descripción del área de texto para proporcionar contexto u orientación, la cual se muestra en el formato.                                                                                                         | Opcional  | Secuencia | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
@@ -128,7 +128,7 @@ Puedes utilizar un elemento de `textarea` para agregar un texto de línea múlti
 
 {% data reusables.form-schema.validations-intro %}
 
-| Clave | Descripción | Requerido | Type | Predeterminado | Valores válidos |
+| Clave | Descripción | Requerido | Tipo | Predeterminado | Valores válidos |
 | ----- | ----------- | --------- | ---- | -------------- | --------------- |
 |       |             |           |      |                |                 |
 {% data reusables.form-schema.required-key %}
@@ -160,7 +160,7 @@ Puedes utilizar un elemento de `input` para agregar un campo de texto de línea 
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Clave         | Descripción                                                                                              | Requerido | Type      | Predeterminado                                  | Valores válidos                                 |
+| Clave         | Descripción                                                                                              | Requerido | Tipo      | Predeterminado                                  | Valores válidos                                 |
 | ------------- | -------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ----------------------------------------------- |
 | `etiqueta`    | Una descripción breve de la entrada que se espera del usuario, lo cual también se muestra en el formato. | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 | `descripción` | Una descripción del campo para proporcionar contexto u orientación, la cual se muestra en el formato.    | Opcional  | Secuencia | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
@@ -171,7 +171,7 @@ Puedes utilizar un elemento de `input` para agregar un campo de texto de línea 
 
 {% data reusables.form-schema.validations-intro %}
 
-| Clave | Descripción | Requerido | Type | Predeterminado | Valores válidos |
+| Clave | Descripción | Requerido | Tipo | Predeterminado | Valores válidos |
 | ----- | ----------- | --------- | ---- | -------------- | --------------- |
 |       |             |           |      |                |                 |
 {% data reusables.form-schema.required-key %}
@@ -198,7 +198,7 @@ Puedes utilizar un elemento de `dropdown` para agregar un menú desplegable en t
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Clave         | Descripción                                                                                                                | Requerido | Type                  | Predeterminado                                  | Valores válidos                                 |
+| Clave         | Descripción                                                                                                                | Requerido | Tipo                  | Predeterminado                                  | Valores válidos                                 |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------- | --------- | --------------------- | ----------------------------------------------- | ----------------------------------------------- |
 | `etiqueta`    | Una descripción de la entrada que se espera del usuario, lo cual también se muestra en el formato.                         | Requerido | Secuencia             | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 | `descripción` | Una descripción del menú desplegable para proporcionar contexto adicional u orientación, la cual se muestra en el formato. | Opcional  | Secuencia             | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
@@ -209,7 +209,7 @@ Puedes utilizar un elemento de `dropdown` para agregar un menú desplegable en t
 
 {% data reusables.form-schema.validations-intro %}
 
-| Clave | Descripción | Requerido | Type | Predeterminado | Valores válidos |
+| Clave | Descripción | Requerido | Tipo | Predeterminado | Valores válidos |
 | ----- | ----------- | --------- | ---- | -------------- | --------------- |
 |       |             |           |      |                |                 |
 {% data reusables.form-schema.required-key %}
@@ -239,9 +239,9 @@ Puedes utilizar el elemento de `checkboxes` para agregar un conjunto de casillas
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Clave         | Descripción                                                                                                                                       | Requerido | Type      | Predeterminado                                  | Valores válidos                                 |
+| Clave         | Descripción                                                                                                                                       | Requerido | Tipo      | Predeterminado                                  | Valores válidos                                 |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ----------------------------------------------- |
-| `etiqueta`    | Una descripción de la entrada que se espera del usuario, lo cual también se muestra en el formato.                                                | Opcional  | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| `etiqueta`    | Una descripción de la entrada que se espera del usuario, lo cual también se muestra en el formato.                                                | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 | `descripción` | Una descripción del conjunto de casillas de verificación, la cual se muestra en el formato. Es compatible con el formateo de lenguaje de marcado. | Opcional  | Secuencia | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
 | `options`     | Un arreglo de casillas de verificación que puede seleccionar el usuario. Para conocer la sintaxis, consulta a continuación.                       | Requerido | Arreglo   | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 

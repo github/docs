@@ -7,7 +7,7 @@ redirect_from:
   - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
 type: how_to
 topics:
   - Actions

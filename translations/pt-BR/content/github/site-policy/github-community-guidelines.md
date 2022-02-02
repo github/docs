@@ -1,7 +1,7 @@
 ---
 title: Diretrizes da comunidade do GitHub
 redirect_from:
-  - /community-guidelines/
+  - /community-guidelines
   - /articles/github-community-guidelines
 versions:
   fpt: '*'

@@ -23,7 +23,7 @@ shortTitle: Personalize seus codespaces
 Ao usar qualquer ambiente de desenvolvimento, a personalização das configurações e ferramentas para suas preferências e fluxos de trabalho é uma etapa importante. {% data variables.product.prodname_codespaces %} permite duas formas principais de personalizar seus codespaces.
 
 - [Configurações de sincronização](#settings-sync) - Você pode usar e compartilhar as configurações {% data variables.product.prodname_vscode %} entre {% data variables.product.prodname_codespaces %} e outras instâncias de {% data variables.product.prodname_vscode %}.
-- [Dotfiles](#dotfiles) - Você pode usar um repositório `dotfiles` público para especificar scripts, preferências do shell e outras configurações.
+- [Dotfiles](#dotfiles) - Você pode usar um repositório `dotfiles` para especificar scripts, preferências do shell e outras configurações.
 
 A personalização de {% data variables.product.prodname_codespaces %} aplica-se a qualquer codespace que você criar.
 
@@ -33,7 +33,7 @@ Os mantenedores do projeto também podem definir uma configuração-padrão que 
 
 A sincronização de configurações permite que você compartilhe configurações como configurações, atalhos de teclado, snippets, extensões e estado da interface de usuário entre as máquinas e instâncias de {% data variables.product.prodname_vscode %}.
 
-Para habilitar a sincronização de configurações, no canto inferior esquerdo da barra de atividades, selecione {% octicon "gear" aria-label="The gear icon" %} e clique **Habilitar as configurações de sincronização…**. Na caixa de diálogo, selecione quais configurações você gostaria de sincronizar.
+Para habilitar a sincronização de configurações, no canto inferior esquerdo da barra de atividades, selecione {% octicon "gear" aria-label="The gear icon" %} e clique **Habilitar as configurações de sincronização…**. Na caixa de diálogo, selecione as configurações que você deseja sincronizar.
 
 ![Opção de configuração de sincronização no menu de gerenciamento](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
 
@@ -41,13 +41,13 @@ Para obter mais informações, consulte o [Guia de sincronização de configura�
 
 ## Dotfiles
 
-Os Dotfiles são arquivos e pastas de sistemas de tipo Unix, que começam com `.` e controlam a configuração de aplicativos e shells no seu sistema. Você pode armazenar e gerenciar seus dotfiles em um repositório no {% data variables.product.prodname_dotcom %}. Para obter aconselhamento e tutoriais sobre o que incluir no repositório `dotfiles`, consulte [GitHub gerencia dotfiles](https://dotfiles.github.io/).
+Os Dotfiles são arquivos e pastas de sistemas de tipo Unix, que começam com `.` e controlam a configuração de aplicativos e shells no seu sistema. Você pode armazenar e gerenciar seus dotfiles em um repositório no {% data variables.product.prodname_dotcom %}. Para orientação e tutoriais sobre o que incluir no repositório dotfile, consulte o [GitHub faz dotfiles](https://dotfiles.github.io/).
 
-Se sua conta de usuário em {% data variables.product.prodname_dotcom %} possui um repositório público denominado `dotfiles`, {% data variables.product.prodname_dotcom %} poderá usar este repositório automaticamente para personalizar o ambiente do seu codespace, uma vez habilitado nas suas [configurações de codespaces pessoais](https://github.com/settings/codespaces). Atualmente, não são compatíveis os repositórios privados `dotfiles`.
+O seu repositório dotfiles pode incluir os alias e preferências do seu shell, quaisquer ferramentas que você deseja instalar ou qualquer outra personalização de codespace que desejar fazer.
 
-O seu repositório `dotfiles` pode incluir os alias e preferências do seu shell, quaisquer ferramentas que você deseja instalar ou qualquer outra personalização de codespace que desejar fazer.
+Você pode configurar {% data variables.product.prodname_codespaces %} para usar Dotfiles de qualquer repositório que você tiver, selecionando esse repositório nas suas [Configurações pessoais de {% data variables.product.prodname_codespaces %}](https://github.com/settings/codespaces).
 
-Ao criar um novo codespace, o {% data variables.product.prodname_dotcom %} clona seus repositórios de `dotfiles` para o ambiente do codespace e procura por um dos seguintes arquivos para configurar o ambiente.
+Ao criar um novo codespace, o {% data variables.product.prodname_dotcom %} clona seu repositórios selecionado para o ambiente do codespace e procura um dos seguintes arquivos para configurar o ambiente.
 
 * _install.sh_
 * _install_
@@ -58,9 +58,9 @@ Ao criar um novo codespace, o {% data variables.product.prodname_dotcom %} clona
 * _setup_
 * _script/setup_
 
-Se nenhum desses arquivos for encontrado, quaisquer arquivos ou pastas nos `dotfiles` que comecem com `.` será vinculado simbolicamente ao diretório `~` ou `$HOME` do codespace.
+Se nenhum desses arquivos for encontrado, todos os arquivos ou pastas no repositório de dotfiles selecionados que começam com `.` têm um link simbólico para o `~` do codespace ou `$HOME`.
 
-Quaisquer alterações no repositório de `dotfiles` serão aplicadas apenas a cada novo codespace e não afetarão nenhum codespace existente.
+Quaisquer alterações nos seus dotfiles selecionados serão aplicadas apenas a cada novo codespace e não afetarão nenhum codespace existente.
 
 {% note %}
 
@@ -70,17 +70,18 @@ Quaisquer alterações no repositório de `dotfiles` serão aplicadas apenas a c
 
 ### Habilitando o repositório de dotfiles para {% data variables.product.prodname_codespaces %}
 
-Você pode usar o seu repositório `dotfiles` público para personalizar o seu ambiente de {% data variables.product.prodname_codespaces %}. Depois de configurar esse repositório, é possível adicionar seus scripts, preferências e configurações a ele. Em seguida, você deverá habilitar os seus dotfiles na sua página pessoal de configurações de {% data variables.product.prodname_codespaces %}.
+Você pode usar o repositório de Dotfiles selecionado para personalizar seu ambiente de {% data variables.product.prodname_codespaces %}. Depois de escolher o seu repositório de dotfiles, você poderá adicionar seus scripts, preferências e configurações. Em seguida, você deverá habilitar os seus dotfiles na sua página pessoal de configurações de {% data variables.product.prodname_codespaces %}.
+
+{% warning %}
+
+**Aviso:** Dotfiles têm a capacidade de executar scripts arbitrários, que podem conter codespace inesperado ou malicioso. Antes de instalar o repositório de um dotfiles, recomendamos verificar os scripts para garantir que eles não executam nenhuma ação inesperada.
+
+{% endwarning %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
-1. Em "Dotfiles", selecione "Instalar dotfiles automaticamente" para que {% data variables.product.prodname_codespaces %} instale automaticamente seus dotfiles em cada novo codespace que você criar. ![Instalando dotfiles](/assets/images/help/codespaces/install-dotfiles.png)
-
-   {% note %}
-
-   **Observação:** Esta opção só está disponível se você criou um repositório público de `dotfiles` para a sua conta de usuário.
-
-   {% endnote %}
+1. Em "Dotfiles", selecione **Instalar dotfiles automaticamente** para que {% data variables.product.prodname_codespaces %} instale automaticamente seus dotfiles em cada novo codespace que você criar. ![Instalando dotfiles](/assets/images/help/codespaces/install-custom-dotfiles.png)
+2. Escolha o repositório no qual você deseja instalar dotfiles. ![Selecionando um repositório de dotfiles](/assets/images/help/codespaces/select-dotfiles-repo.png)
 
 Você pode adicionar mais script, preferências e arquivos de configuração ao repositório de dotfiles ou editar arquivos existentes sempre que quiser. As alterações nas configurações só serão selecionadas por novos codespaces.
 

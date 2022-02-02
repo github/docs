@@ -2,8 +2,8 @@
 title: Fluxo do GitHub
 intro: 'Siga o fluxo de {% data variables.product.prodname_dotcom %} para colaborar em projetos.'
 redirect_from:
-  - /articles/creating-and-editing-files-in-your-repository/
-  - /articles/github-flow-in-the-browser/
+  - /articles/creating-and-editing-files-in-your-repository
+  - /articles/github-flow-in-the-browser
   - /articles/github-flow
   - /github/collaborating-with-issues-and-pull-requests/github-flow
   - /github/getting-started-with-github/github-flow
@@ -25,7 +25,7 @@ O fluxo de {% data variables.product.prodname_dotcom %} é um fluxo de trabalho 
 
 ## Pré-requisitos
 
-Para seguir o fluxo de {% data variables.product.prodname_dotcom %}, você precisa da conta de {% data variables.product.prodname_dotcom %} e um repositório. Para obter informações sobre como criar uma conta, consulte "[Inscrevendo-se em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)". Para obter informações sobre como criar um repositório, consulte "[Crie um repositório](/github/getting-started-with-github/create-a-repo). {% ifversion fpt or ghec %} Para mais informações sobre como encontrar um repositório existente para contribuir, consulte "[Encontrar formas de contribuir para código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
+Para seguir o fluxo de {% data variables.product.prodname_dotcom %}, você precisa de uma conta de {% data variables.product.prodname_dotcom %} e um repositório. Para obter informações sobre como criar uma conta, consulte "[Inscrevendo-se em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)". Para obter informações sobre como criar um repositório, consulte "[Crie um repositório](/github/getting-started-with-github/create-a-repo). {% ifversion fpt or ghec %} Para mais informações sobre como encontrar um repositório existente para contribuir, consulte "[Encontrar formas de contribuir para código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
 
 ## Seguindo o fluxo de {% data variables.product.prodname_dotcom %}
 

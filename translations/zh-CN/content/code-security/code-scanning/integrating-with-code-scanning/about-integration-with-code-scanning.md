@@ -1,7 +1,7 @@
 ---
-title: 关于与代码扫描的集成
-shortTitle: 关于集成
-intro: '您可以在外部执行 {% data variables.product.prodname_code_scanning %}，然后在 {% data variables.product.prodname_dotcom %} 中显示结果，或者设置侦听仓库中 {% data variables.product.prodname_code_scanning %} 活动的 web 挂钩。'
+title: About integration with code scanning
+shortTitle: About integration
+intro: 'You can perform {% data variables.product.prodname_code_scanning %} externally and then display the results in {% data variables.product.prodname_dotcom %}, or set up webhooks that listen to {% data variables.product.prodname_code_scanning %} activity in your repository.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-integration-with-code-scanning
@@ -19,22 +19,21 @@ topics:
   - Webhooks
   - Integration
 ---
-
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-作为在 {% data variables.product.prodname_dotcom %} 中运行 {% data variables.product.prodname_code_scanning %} 的替代方法，您可以在其他地方执行分析，然后上传结果。 在外部运行的 {% data variables.product.prodname_code_scanning %} 的警报显示方式与在 {% data variables.product.prodname_dotcom %} 内运行的 {% data variables.product.prodname_code_scanning %} 的警报显示方式相同。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”。
+As an alternative to running {% data variables.product.prodname_code_scanning %} within {% data variables.product.prodname_dotcom %}, you can perform analysis elsewhere and then upload the results. Alerts for {% data variables.product.prodname_code_scanning %} that you run externally are displayed in the same way as those for  {% data variables.product.prodname_code_scanning %} that you run within {% data variables.product.prodname_dotcom %}. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
 
-如果使用可生成结果为静态分析结果交换格式 (SARIF) 2.1.0 数据的第三方静态分析工具，您可以将其上传到 {% data variables.product.prodname_dotcom %}。 更多信息请参阅“[将 SARIF 文件上传到 GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)”。
+If you use a third-party static analysis tool that can produce results as Static Analysis Results Interchange Format (SARIF) 2.1.0 data, you can upload this to {% data variables.product.prodname_dotcom %}. For more information, see "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
 
-## 与 web 挂钩集成
+## Integrations with webhooks
 
-You can use {% data variables.product.prodname_code_scanning %} webhooks to build or set up integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) or [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), that subscribe to {% data variables.product.prodname_code_scanning %} events in your repository. 例如，您可以构建在 {% data variables.product.product_name %} 上创建议题，或者在仓库中新增 {% data variables.product.prodname_code_scanning %} 警报时向您发送 Slack 通知的集成。 更多信息请参阅“[创建 web 挂钩](/developers/webhooks-and-events/creating-webhooks)”和“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)”。
+You can use {% data variables.product.prodname_code_scanning %} webhooks to build or set up integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) or [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), that subscribe to {% data variables.product.prodname_code_scanning %} events in your repository. For example, you could build an integration that creates an issue on {% data variables.product.product_name %} or sends you a Slack notification when a new {% data variables.product.prodname_code_scanning %} alert is added in your repository. For more information, see "[Creating webhooks](/developers/webhooks-and-events/creating-webhooks)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)."
 
-## 延伸阅读
+## Further reading
 
-* "[关于 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)"
-* "[将 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 与现有的 CI 系统一起使用](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system)"
-* "[{% data variables.product.prodname_code_scanning %} 的 SARIF 支持](/code-security/secure-coding/sarif-support-for-code-scanning)"
+* "[About {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)"
+* "[Using {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} with your existing CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system)"
+* "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)"

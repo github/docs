@@ -25,8 +25,6 @@ Puedes clonar tu repositorio existente o clonar el repositorio existente de algu
 
 ## Clonar un repositorio
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}

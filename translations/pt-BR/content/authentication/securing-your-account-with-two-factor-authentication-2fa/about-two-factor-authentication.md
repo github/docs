@@ -18,6 +18,10 @@ No {% data variables.product.product_name %}, a segunda forma de autenticação 
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
+{% ifversion fpt or ghec %}
+Além das chaves de segurança, você também pode usar {% data variables.product.prodname_mobile %} para 2FA após configurar um aplicativo TOTP para dispositivo móvel ou mensagens de texto. {% data variables.product.prodname_mobile %} usa criptografia de chave pública para proteger sua conta, permitindo que você use qualquer dispositivo móvel que usou para entrar no {% data variables.product.prodname_mobile %} como segundo fator.
+{% endif %}
+
 Você também pode configurar métodos de recuperação adicionais, caso você o acesso às suas credenciais de autenticação de dois fatores. Para obter mais informações sobre como configurar a 2FA, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)" e "[Configurar métodos de recuperação de autenticação de dois fatores](/articles/configuring-two-factor-authentication-recovery-methods)".
 
 É **altamente** recomendável que você habilite a 2FA para a segurança de sua conta, não apenas em {% data variables.product.product_name %}, mas em outros sites e aplicativos compatíveis com a 2FA. Você pode habilitar o 2FA para acessar {% data variables.product.product_name %} e {% data variables.product.prodname_desktop %}.

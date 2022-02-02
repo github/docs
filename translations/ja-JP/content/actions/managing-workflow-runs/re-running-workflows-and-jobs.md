@@ -14,13 +14,10 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Re-running all the jobs in a workflow
 
 Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. You can re-run a workflow for up to 30 days after the initial run.
-
-{% include tool-switcher %}
 
 {% webui %}
 

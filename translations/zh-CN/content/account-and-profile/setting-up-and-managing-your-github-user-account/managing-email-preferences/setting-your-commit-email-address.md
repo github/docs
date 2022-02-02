@@ -2,13 +2,13 @@
 title: 设置提交电子邮件地址
 intro: '您可以设置用于在 {% data variables.product.product_location %} 和计算机上创作提交的电子邮件地址。'
 redirect_from:
-  - /articles/keeping-your-email-address-private/
-  - /articles/setting-your-commit-email-address-on-github/
-  - /articles/about-commit-email-addresses/
-  - /articles/git-email-settings/
-  - /articles/setting-your-email-in-git/
-  - /articles/set-your-user-name-email-and-github-token/
-  - /articles/setting-your-commit-email-address-in-git/
+  - /articles/keeping-your-email-address-private
+  - /articles/setting-your-commit-email-address-on-github
+  - /articles/about-commit-email-addresses
+  - /articles/git-email-settings
+  - /articles/setting-your-email-in-git
+  - /articles/set-your-user-name-email-and-github-token
+  - /articles/setting-your-commit-email-address-in-git
   - /articles/setting-your-commit-email-address
   - /github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
@@ -89,7 +89,7 @@ If you use your `noreply` email address for {% data variables.product.product_na
 
 {% data variables.product.product_name %} uses the email address set in your local Git configuration to associate commits pushed from the command line with your account on {% data variables.product.product_location %}.
 
-您可以更改与您在一个仓库中所进行的提交关联的电子邮件地址。 此操作将覆盖这一个仓库中的全局 Git 配置设置，但不会影响任何其他仓库。
+您可以更改与您在一个仓库中所进行的提交关联的电子邮件地址。 This will override your global Git configuration settings in this one repository, but will not affect any other repositories.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 将当前工作目录更改为您想要在其中配置与 Git 提交关联的电子邮件地址的本地仓库。

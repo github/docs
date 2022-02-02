@@ -6,7 +6,6 @@ redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
   - /code-security/secret-security/managing-alerts-from-secret-scanning
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -25,14 +24,14 @@ shortTitle: Administrar las alertas de los secretos
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. En la barra lateral izquierda, haz clic en **Alertas del escaneo de secretos**.
+1. En la barra lateral izquierda, haz clic en **Alertas del escaneo de secretos**.
    {% ifversion fpt or ghes or ghec %}
    ![Pestaña de "Alertas del escaneo de secretos"](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
    ![Pestaña de "Alertas del escaneo de secretos"](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
-4. Debajo de "Escaneo de secretos" da clic en la alerta que quieras ver.
+1. Debajo de "Escaneo de secretos" da clic en la alerta que quieras ver.
    {% ifversion fpt or ghec %}
    ![Lista de alertas del escaneo de secretos](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
@@ -42,7 +41,7 @@ shortTitle: Administrar las alertas de los secretos
    {% ifversion ghae %}
    ![Lista de alertas del escaneo de secretos](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
-5. Opcionalmente, utiliza el menú desplegable de "Marcar como" y da clic en la razón para resolver una alerta.
+1. Opcionalmente, selecciona el menú desplegable de {% ifversion fpt or ghec %}"Cerrar como"{% elsif ghes or ghae %}"Marcar como"{% endif %} y haz clic en la razón para resolver una alerta.
    {% ifversion fpt or ghec %}
    ![Menú desplegable para resolver una alerta del escaneo de secretos](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}

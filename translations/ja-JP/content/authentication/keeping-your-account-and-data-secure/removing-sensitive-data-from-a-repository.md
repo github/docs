@@ -2,9 +2,9 @@
 title: 機密データをリポジトリから削除する
 intro: Git リポジトリへのパスワードや SSH キーといった機密データをコミットする場合、そのデータを履歴から削除することができます。 To entirely remove unwanted files from a repository's history you can use either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
 redirect_from:
-  - /remove-sensitive-data/
-  - /removing-sensitive-data/
-  - /articles/remove-sensitive-data/
+  - /remove-sensitive-data
+  - /removing-sensitive-data
+  - /articles/remove-sensitive-data
   - /articles/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/removing-sensitive-data-from-a-repository
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
@@ -51,7 +51,7 @@ $ bfg --delete-files <em>機密データを含むファイル</em>
 $ bfg --replace-text passwords.txt
 ```
 
-機密データが削除されたら、変更を {% data variables.product.product_name %} に強制的にプッシュする必要があります。
+機密データが削除されたら、変更を {% data variables.product.product_name %} に強制的にプッシュする必要があります。 Force pushing rewrites the repository history, which removes sensitive data from the commit history. If you force push, it may overwrite commits that other people have based their work on.
 
 ```shell
 $ git push --force
@@ -125,7 +125,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 6. リポジトリの履歴から削除対象をすべて削除したこと、すべてのブランチがチェックアウトされたことをダブルチェックします。
-7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, as well as all the branches you've pushed up:
+7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, as well as all the branches you've pushed up. A force push is required to remove sensitive data from your commit history.
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.

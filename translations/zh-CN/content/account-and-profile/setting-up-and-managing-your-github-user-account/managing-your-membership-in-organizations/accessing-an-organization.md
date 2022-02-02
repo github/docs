@@ -2,9 +2,9 @@
 title: 访问组织
 intro: 要访问您是其成员的组织，必须登录您的个人用户帐户。
 redirect_from:
-  - /articles/error-cannot-log-in-that-account-is-an-organization/
-  - /articles/cannot-log-in-that-account-is-an-organization/
-  - /articles/how-do-i-access-my-organization-account/
+  - /articles/error-cannot-log-in-that-account-is-an-organization
+  - /articles/cannot-log-in-that-account-is-an-organization
+  - /articles/how-do-i-access-my-organization-account
   - /articles/accessing-an-organization
   - /github/setting-up-and-managing-your-github-user-account/accessing-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/accessing-an-organization

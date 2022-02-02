@@ -2,7 +2,6 @@
 title: Aplicar as políticas de gerenciamento do repositório na sua empresa
 intro: É possível aplicar políticas de gerenciamento de repositórios nas organizações de sua empresa ou permitir que as políticas sejam definidas em cada organização.
 permissions: Enterprise owners can enforce policies for repository management in an enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
   - /enterprise/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility
@@ -10,26 +9,26 @@ redirect_from:
   - /enterprise/admin/user-management/restricting-repository-creation-in-your-instance
   - /enterprise/admin/user-management/preventing-users-from-deleting-organization-repositories
   - /enterprise/admin/installation/setting-git-push-limits
-  - /enterprise/admin/guides/installation/git-server-settings/
-  - /enterprise/admin/articles/setting-git-push-limits/
+  - /enterprise/admin/guides/installation/git-server-settings
+  - /enterprise/admin/articles/setting-git-push-limits
   - /enterprise/admin/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories
   - /enterprise/admin/installation/disabling-the-merge-conflict-editor-for-pull-requests-between-repositories
   - /enterprise/admin/developer-workflow/blocking-force-pushes-on-your-appliance
   - /enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization
   - /enterprise/admin/developer-workflow/blocking-force-pushes-to-a-repository
-  - /enterprise/admin/articles/blocking-force-pushes-on-your-appliance/
-  - /enterprise/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access-to-a-repository/
+  - /enterprise/admin/articles/blocking-force-pushes-on-your-appliance
+  - /enterprise/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access-to-a-repository
   - /enterprise/admin/user-management/preventing-users-from-changing-anonymous-git-read-access
-  - /enterprise/admin/articles/blocking-force-pushes-to-a-repository/
-  - /enterprise/admin/articles/block-force-pushes/
-  - /enterprise/admin/articles/blocking-force-pushes-for-a-user-account/
-  - /enterprise/admin/articles/blocking-force-pushes-for-an-organization/
-  - /enterprise/admin/articles/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization/
+  - /enterprise/admin/articles/blocking-force-pushes-to-a-repository
+  - /enterprise/admin/articles/block-force-pushes
+  - /enterprise/admin/articles/blocking-force-pushes-for-a-user-account
+  - /enterprise/admin/articles/blocking-force-pushes-for-an-organization
+  - /enterprise/admin/articles/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization
   - /enterprise/admin/developer-workflow/blocking-force-pushes
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-repository-management-policies-in-your-enterprise
-  - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
-  - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account
   - /articles/enforcing-repository-management-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account
@@ -72,16 +71,16 @@ Se um proprietário corporativo impedir que os integrantes criem certos tipos de
 
 {% endif %}
 
-## Aplicar uma política de {% ifversion ghec or ghes > 3.1 or ghae-next %}base{% else %}permissões padrão{% endif %} do repositório
+## Aplicar uma política de {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}permissões padrão{% endif %} do repositório
 
-Em todas as organizações pertencentes à sua empresa, você pode definir um {% ifversion ghec or ghes > 3.1 or ghae-next %}base{% else %}padrão{% endif %} nível de permissão de repositório (nenhum leitura, gravação ou administrador) para integrantes da organização, ou permitir que os proprietários administrem a configuração no nível da organização.
+Em todas as organizações pertencentes à sua empresa, você pode definir um {% ifversion ghec or ghes > 3.1 or ghae %}base{% else %}padrão{% endif %} nível de permissão de repositório (nenhum leitura, gravação ou administrador) para integrantes da organização, ou permitir que os proprietários administrem a configuração no nível da organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-4. Em "{% ifversion ghec or ghes > 3.1 or ghae-next %}Base{% else %}Default{% endif %} permissões", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Em "{% ifversion ghec or ghes > 3.1 or ghae-next %}Base{% else %}Padrão{% endif %} permissões", use o menu suspenso e escolha uma política.
-  {% ifversion ghec or ghes > 3.1 or ghae-next %}
+4. Em "{% ifversion ghec or ghes > 3.1 or ghae %}Base{% else %}Default{% endif %} permissões", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Em "{% ifversion ghec or ghes > 3.1 or ghae %}Base{% else %}Padrão{% endif %} permissões", use o menu suspenso e escolha uma política.
+  {% ifversion ghec or ghes > 3.1 or ghae %}
   ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
   {% else %}
   ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)

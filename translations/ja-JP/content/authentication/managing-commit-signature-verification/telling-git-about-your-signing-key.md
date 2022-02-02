@@ -2,7 +2,7 @@
 title: Git へ署名キーを伝える
 intro: ローカルでコミットに署名するには、使用する GPG または X.509 キーがあることを Git に知らせる必要があります。
 redirect_from:
-  - /articles/telling-git-about-your-gpg-key/
+  - /articles/telling-git-about-your-gpg-key
   - /articles/telling-git-about-your-signing-key
   - /github/authenticating-to-github/telling-git-about-your-signing-key
   - /github/authenticating-to-github/managing-commit-signature-verification/telling-git-about-your-signing-key

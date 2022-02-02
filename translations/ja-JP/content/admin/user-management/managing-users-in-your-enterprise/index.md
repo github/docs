@@ -3,7 +3,7 @@ title: Enterprise のユーザを管理する
 intro: ユーザアクティビティを監査し、ユーザ設定を管理できます。
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise
-  - /enterprise/admin/guides/user-management/enabling-avatars-and-identicons/
+  - /enterprise/admin/guides/user-management/enabling-avatars-and-identicons
   - /enterprise/admin/user-management/basic-account-settings
   - /enterprise/admin/user-management/user-security
   - /enterprise/admin/user-management/managing-users-in-your-enterprise

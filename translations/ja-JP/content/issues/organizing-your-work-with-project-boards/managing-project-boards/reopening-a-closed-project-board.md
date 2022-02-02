@@ -1,6 +1,6 @@
 ---
 title: クローズされたプロジェクトボードを再びオープンする
-intro: クローズされたプロジェクトボードを再びオープンして、プロジェクトボードに設定されているワークフロー自動化を再開することができます。
+intro: You can reopen a closed project board and restart any workflow automation that was configured for the project board.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
   - /articles/reopening-a-closed-project-board

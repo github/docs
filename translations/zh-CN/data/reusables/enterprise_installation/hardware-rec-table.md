@@ -22,7 +22,27 @@
 
 {% ifversion ghes %}
 
-如果您计划为实例用户启用 {% data variables.product.prodname_actions %}，请在“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)”中查阅硬件、外部存储和运行器的要求。
+If you plan to enable {% data variables.product.prodname_actions %} for the users of your instance, more resources are required.
+
+{%- ifversion ghes < 3.2 %}
+
+{% data reusables.actions.hardware-requirements-before %}
+
+{%- endif %}
+
+{%- ifversion ghes = 3.2 %}
+
+{% data reusables.actions.hardware-requirements-3.2 %}
+
+{%- endif %}
+
+{%- ifversion ghes > 3.2 %}
+
+{% data reusables.actions.hardware-requirements-after %}
+
+{%- endif %}
+
+For more information about these requirements, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
 
 {% endif %}
 

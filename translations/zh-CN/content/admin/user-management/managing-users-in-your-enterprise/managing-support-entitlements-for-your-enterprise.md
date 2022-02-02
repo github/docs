@@ -1,7 +1,6 @@
 ---
 title: 管理企业的支持权限
 intro: 您可以授予企业会员管理企业账户支持事件单的能力。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 versions:

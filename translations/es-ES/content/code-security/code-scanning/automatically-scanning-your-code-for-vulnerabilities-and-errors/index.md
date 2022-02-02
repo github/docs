@@ -22,6 +22,7 @@ children:
   - /tracking-code-scanning-alerts-in-issues-using-task-lists
   - /configuring-code-scanning
   - /about-code-scanning-with-codeql
+  - /recommended-hardware-resources-for-running-codeql
   - /configuring-the-codeql-workflow-for-compiled-languages
   - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container

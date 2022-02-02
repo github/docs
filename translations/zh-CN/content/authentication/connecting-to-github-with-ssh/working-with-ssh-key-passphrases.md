@@ -2,8 +2,8 @@
 title: 使用 SSH 密钥密码
 intro: 您可以保护 SSH 密钥并配置身份验证代理，这样您就不必在每次使用 SSH 密钥时重新输入密码。
 redirect_from:
-  - /ssh-key-passphrases/
-  - /working-with-key-passphrases/
+  - /ssh-key-passphrases
+  - /working-with-key-passphrases
   - /articles/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/connecting-to-github-with-ssh/working-with-ssh-key-passphrases

@@ -21,12 +21,12 @@ export default async function findPage(req, res, next) {
     // If the requested translated page has a 1-1 mapping in English,
     // redirect to that English page
     if (page) {
-      return res.redirect(301, englishPath)
+      return res.redirect(302, englishPath)
     }
     // If the English file was renamed and has a redirect that matches the
     // requested page's href, redirect to the new English href
     if (redirectToPath) {
-      return res.redirect(301, redirectToPath)
+      return res.redirect(302, redirectToPath)
     }
   }
 

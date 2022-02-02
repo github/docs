@@ -17,7 +17,7 @@ shortTitle: Permitir exclusão de problema
 
 Por padrão, os problemas não podem ser excluídos dos repositórios de uma organização. Um proprietário da organização deve habilitar esse recurso primeiro para todos os repositórios da organização.
 
-Once enabled, organization owners and people with admin access in an organization-owned repository can delete issues. People with admin access in a repository include organization members and outside collaborators who were given admin access. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" and "[Deleting an issue](/articles/deleting-an-issue)."
+Uma vez habilitado, os proprietários da organização e as pessoas com acesso de administrador em um repositório pertencente à organização podem excluir os problemas. As pessoas com acesso de administrador em um repositório incluem integrantes da organização e colaboradores externos aos quais foi dado acesso de administrador. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" e "[Excluindo um problema](/articles/deleting-an-issue)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

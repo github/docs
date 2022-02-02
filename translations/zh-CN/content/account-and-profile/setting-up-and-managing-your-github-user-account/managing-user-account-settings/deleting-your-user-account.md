@@ -2,7 +2,7 @@
 title: 删除用户帐户
 intro: '可随时删除 {% data variables.product.product_name %} 用户帐户。'
 redirect_from:
-  - /articles/deleting-a-user-account/
+  - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account

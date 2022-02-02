@@ -20,14 +20,13 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acercad e las acciones personalizadas
 
 Puedes crear acciones por medio de a escritura de un código personalizado que interactúe con tu repositorio de la manera que desees, incluida la integración con las API de {% data variables.product.prodname_dotcom %} y cualquier API de terceros disponible públicamente. Por ejemplo, una acción puede publicar módulos npm, enviar alertas por SMS cuando se crean propuestas urgentes o implementar un código listo para producción.
 
 {% ifversion fpt or ghec %}
-Puedes escribir tus propias acciones para usar en tu flujo de trabajo o compartir las acciones que crees con la comunidad {% data variables.product.prodname_dotcom %}. Para compartir las acciones que creaste, tu repositorio debe ser público.
+Puedes escribir tus propias acciones para usar en tu flujo de trabajo o compartir las acciones que crees con la comunidad {% data variables.product.prodname_dotcom %}. Para compartir las acciones que creaste con todos, tu repositorio debe ser público. {% if internal-actions %}Para compartir las acciones únicamente con tu empresa, tu repositorio debe ser interno.{% endif %}
 {% endif %}
 
 Las acciones pueden ejecutarse directamente en una máquina o en un contenedor Docker. Puedes definir las entradas, salidas y variables de entorno de una acción.
@@ -36,7 +35,7 @@ Las acciones pueden ejecutarse directamente en una máquina o en un contenedor D
 
 Puedes crear acciones de contenedor Docker y JavaScript. Las acciones requieren un archivo de metadatos para definir las entradas, salidas y puntos de entrada para tu acción. El nombre del archivo de metadatos debe ser `action.yml` o `action.yaml`. Para obtener más información, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)"
 
-| Type                | Sistema operativo     |
+| Tipo                | Sistema operativo     |
 | ------------------- | --------------------- |
 | Contenedor Docker   | Linux                 |
 | JavaScript          | Linux, macOS, Windows |
@@ -70,11 +69,14 @@ Si estás desarrollando una acción para que otras personas la utilicen, te reco
 Con el almacenamiento de una acción en su propio repositorio es más fácil para la comunidad {% data variables.product.prodname_dotcom %} descubrir la acción, reduce el alcance de la base de código para que los desarrolladores solucionen problemas y extiendan la acción, y desacopla el control de versiones de otro código de aplicación.
 {% endif %}
 
-{% ifversion fpt or ghec %}Si estás creando una acción que no piensas poner disponible públicamente, puedes {% else %} puedes {% endif %} almacenar los archivos de dicha acción en cualquier ubicación de tu repositorio. Si tienes la intención de combinar la acción, el flujo de trabajo y el código de aplicación en un único repositorio, es recomendable que almacenes las acciones en el directorio `.github`. Por ejemplo, `.github/actions/action-a` y `.github/actions/action-b`.
+{% data reusables.actions.internal-actions-summary %}
+
+{% ifversion fpt or ghec %}Si estás creando una acción que no piensas poner disponible para otros, puedes {% else %} Puedes {% endif %} almacenar los archivos de dicha acción en cualquier ubicación de tu repositorio. Si tienes la intención de combinar la acción, el flujo de trabajo y el código de aplicación en un único repositorio, es recomendable que almacenes las acciones en el directorio `.github`. Por ejemplo, `.github/actions/action-a` y `.github/actions/action-b`.
+
 
 ## Compatibilidad con {% data variables.product.prodname_ghe_server %}
 
-To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
+Para garantizar de que tu acción es compatible con {% data variables.product.prodname_ghe_server %}, debes asegurarte de que no utilices ninguna referencia escrita a mano para las URL de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. En vez de esto, deberías utilizar variables de ambiente para referirte a la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}:
 
 - Crear y validar un lanzamiento en una rama de lanzamiento (tal como `release/v1`) antes de crear la etiqueta de lanzamiento (por ejemplo, `v1.0.2`).
 - Para el caso de GraphQL, utiliza la variable de ambiente `GITHUB_GRAPHQL_URL`.

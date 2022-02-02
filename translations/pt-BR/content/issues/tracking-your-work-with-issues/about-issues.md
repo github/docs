@@ -3,8 +3,8 @@ title: Sobre problemas
 intro: 'Use {% data variables.product.prodname_github_issues %} para rastrear ideias, comentários, tarefas ou erros para trabalho em {% data variables.product.company_short %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-issues
-  - /articles/creating-issues/
-  - /articles/about-issues/
+  - /articles/creating-issues
+  - /articles/about-issues
   - /github/managing-your-work-on-github/about-issues
   - /issues/tracking-your-work-with-issues/creating-issues/about-issues
 versions:
@@ -45,7 +45,7 @@ Para ajudar os colaboradores a abrir problemas significativos que fornecem as in
 ## Comunicação eficiente
 
 Você pode @mencionar colaboradores com acesso ao seu repositório em um problema para chamar a atenção para um comentário. Para vincular problemas relacionados no mesmo repositório, você pode digitar `#` seguido de parte do título do problema e, em seguida, clicar no problema que você deseja vincular. Para comunicar responsabilidade, você pode atribuir problemas. Se você se encontrar, frequentemente, digitando o mesmo comentário, você poderá usar as respostas salvas.
-{% ifversion fpt or ghec %} Para mais informações, consulte "[Sintaxe básica de escrita e formatação](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" e "[Atribuindo problemas e pull requests a outros usuários do GitHub](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)"
+{% ifversion fpt or ghec %} Para mais informações, consulte "[Sintaxe básica de escrita e formatação](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" e "[Atribuindo problemas e pull requests a outros usuários do GitHub](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)"
 
 ## Comparando problemas e discussões
 

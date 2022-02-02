@@ -80,16 +80,16 @@ Puedes implementar las verificaciones de estado requeridas y confirmar las verif
 {% endif %}
 
 {% ifversion ghes %}
-### 4. Enabling {% data variables.product.prodname_GH_advanced_security %} features
+### 4. Habilitar las características de la {% data variables.product.prodname_GH_advanced_security %}
 Puedes mejorar tu licencia de {% data variables.product.product_name %} para que incluya la {% data variables.product.prodname_GH_advanced_security %}. Esto proporciona características adicionales que ayudan a los usuarios a encontrar y arreglar problemas de seguridad en su código, tales como el escaneo de secretos y de código. Para obtener más información, consulta la sección "[{% data variables.product.prodname_GH_advanced_security %} para tu empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)".
 {% endif %}
 
 ## Parte 4: Personalizar y automatizar el trabajo de tu empresa en {% data variables.product.prodname_dotcom %}
-You can customize and automate work in organizations in your enterprise with {% data variables.product.prodname_dotcom %} and {% data variables.product.prodname_oauth_apps %}, {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} , and {% data variables.product.prodname_pages %}.
+Puedes personalizar y automatizar el trabajo en las organizaciones de tu empresa con {% data variables.product.prodname_dotcom %} y con la API de {% data variables.product.prodname_oauth_apps %}, {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} y {% data variables.product.prodname_pages %}.
 
 ### 1. Crear {% data variables.product.prodname_github_apps %} y {% data variables.product.prodname_oauth_apps %}
-You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, such as {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, for use in organizations in your enterprise to complement and extend your workflows. Para obtener más información, consulta "[Acerca de las apps](/developers/apps/getting-started-with-apps/about-apps)."
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+Puedes compilar integraciones con la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, tales como {% data variables.product.prodname_github_apps %} o {% data variables.product.prodname_oauth_apps %}, para utilizarlas en las organizaciones de tu empresa para complementar y extender tus flujos de trabajo. Para obtener más información, consulta "[Acerca de las apps](/developers/apps/getting-started-with-apps/about-apps)."
+### 2. Utilizar la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
 
 {% ifversion ghes %}
@@ -114,7 +114,13 @@ Si eres el propietario tanto de una instancia de {% data variables.product.produ
 
 ## Parte 6: Utilizar los recursos de apoyo y aprendizaje de {% data variables.product.prodname_dotcom %}
 Los miembros de tu empresa pueden aprender más sobre Git y sobre {% data variables.product.prodname_dotcom %} con nuestros recursos para aprender y puedes obtener el apoyo que necesitas cuando configures y administres {% data variables.product.product_location %} con {% data variables.product.prodname_dotcom %} Enterprise Support.
-### 1. Aprender con {% data variables.product.prodname_learning %}
+
+### 1. Leer sobre {% data variables.product.product_name %} en {% data variables.product.prodname_docs %}
+
+Puedes leer la documentación que refleje las características disponibles en {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta la sección "[Acerca de las versiones de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
+
+### 2. Aprender con {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab-enterprise %}
-### 2. Trabajar con {% data variables.product.prodname_dotcom %} Enterprise Support
+
+### 3. Trabajar con {% data variables.product.prodname_dotcom %} Enterprise Support
 {% data reusables.getting-started.contact-support-enterprise %}

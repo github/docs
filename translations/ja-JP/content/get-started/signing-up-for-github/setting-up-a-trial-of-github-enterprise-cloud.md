@@ -19,17 +19,23 @@ shortTitle: Enterprise Cloud trial
 
 ## {% data variables.product.prodname_ghe_cloud %}について
 
-{% data reusables.organizations.about-organizations %}
+{% data variables.product.prodname_ghe_cloud %} is a plan for large businesses or teams who collaborate on {% data variables.product.prodname_dotcom_the_website %}.
+
+{% data reusables.organizations.about-organizations %} For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
 You can use organizations for free with {% data variables.product.prodname_free_team %}, which includes limited features. For additional features, such as SAML single sign-on (SSO), access control for {% data variables.product.prodname_pages %}, and included {% data variables.product.prodname_actions %} minutes, you can upgrade to {% data variables.product.prodname_ghe_cloud %}. For a detailed list of the features available with {% data variables.product.prodname_ghe_cloud %}, see our [Pricing](https://github.com/pricing) page.
 
-{% data reusables.saml.saml-accounts %} 詳細は「<a href="/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on" class="dotcom-only">SAML シングルサインオンを使うアイデンティティおよびアクセス管理について</a>」を参照してください。
+{% data reusables.saml.saml-accounts %} For more information, see "[About identity and access management with SAML single sign-on](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+
+{% data reusables.enterprise-accounts.emu-short-summary %}
+
+{% data variables.product.prodname_emus %} is not part of the free trial of {% data variables.product.prodname_ghe_cloud %}. If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
 {% data reusables.products.which-product-to-use %}
 
 ## {% data variables.product.prodname_ghe_cloud %} のトライアルについて
 
-You can set up a 14-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. 支払方法が必要な {% data variables.product.prodname_marketplace %} アプリを Organization に追加しない限り、トライアル期間中に支払方法を指定する必要はありません。 詳しい情報については、「<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">{% data variables.product.prodname_marketplace %}の支払いについて</a>」を参照してください。
+You can set up a 30-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. 支払方法が必要な {% data variables.product.prodname_marketplace %} アプリを Organization に追加しない限り、トライアル期間中に支払方法を指定する必要はありません。 詳しい情報については、「<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">{% data variables.product.prodname_marketplace %}の支払いについて</a>」を参照してください。
 
 トライアルには50シートが含まれています。 {% data variables.product.prodname_ghe_cloud %} を評価するためにより多くのシートが必要な場合は、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。 トライアルの終了時に、別のシート数を選択できます。
 
@@ -47,6 +53,8 @@ Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be 
 ## {% data variables.product.prodname_ghe_cloud %} に触れる
 
 トライアルを設定したら、[エンタープライズオンボーディングガイド](https://resources.github.com/enterprise-onboarding/)に従って {% data variables.product.prodname_ghe_cloud %} を試してみることができます。
+
+{% data reusables.docs.you-can-read-docs-for-your-product %}
 
 {% data reusables.products.product-roadmap %}
 

@@ -3,7 +3,7 @@ title: 对拒绝的信用卡收费进行故障排除
 intro: '如果用于为 {% data variables.product.product_name %} 付款的信用卡被拒绝，您可以采取几个步骤来确保您的付款通过，并且您不会被锁定在帐户之外。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/troubleshooting-a-declined-credit-card-charge
-  - /articles/what-do-i-do-if-my-card-is-declined/
+  - /articles/what-do-i-do-if-my-card-is-declined
   - /articles/troubleshooting-a-declined-credit-card-charge
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/troubleshooting-a-declined-credit-card-charge
 versions:

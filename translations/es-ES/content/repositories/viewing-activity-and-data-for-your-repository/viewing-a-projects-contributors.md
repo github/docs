@@ -2,8 +2,8 @@
 title: Viewing a project's contributors
 intro: 'You can see who contributed commits to a repository{% ifversion fpt or ghec %} and its dependencies{% endif %}.'
 redirect_from:
-  - /articles/i-don-t-see-myself-in-the-contributions-graph/
-  - /articles/viewing-contribution-activity-in-a-repository/
+  - /articles/i-don-t-see-myself-in-the-contributions-graph
+  - /articles/viewing-contribution-activity-in-a-repository
   - /articles/viewing-a-projects-contributors
   - /github/visualizing-repository-data-with-graphs/viewing-a-projects-contributors
   - /github/visualizing-repository-data-with-graphs/accessing-basic-repository-data/viewing-a-projects-contributors

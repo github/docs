@@ -2,7 +2,7 @@
 title: Recriar dados de contribuições
 intro: Talvez você precise recriar os dados das contribuições para vincular os commits existentes a uma conta de usuário.
 redirect_from:
-  - /enterprise/admin/articles/rebuilding-contributions-data/
+  - /enterprise/admin/articles/rebuilding-contributions-data
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:

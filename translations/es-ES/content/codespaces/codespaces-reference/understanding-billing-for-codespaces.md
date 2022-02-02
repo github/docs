@@ -54,3 +54,7 @@ Tu codespace se borrará automáticamente cuando lo elimines de un repositorio u
 ## Borrar tus codespaces sin utilizar
 
 Puedes borrar tus codespaces manualmente en https://github.com/codespaces y desde dentro de {% data variables.product.prodname_vscode %}. Para reducir el tamaño de un codespace, puedes borrar los archivos manualmente utilizando la terminal o desde dentro de {% data variables.product.prodname_vscode %}.
+
+## Leer más
+
+- "[Administrar la facturación para los codespaces en tu organización](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

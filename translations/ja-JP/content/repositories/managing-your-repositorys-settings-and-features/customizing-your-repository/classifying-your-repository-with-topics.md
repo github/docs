@@ -2,7 +2,7 @@
 title: トピックでリポジトリを分類する
 intro: あなたのプロジェクトを他の人が見つけて貢献しやすくするために、プロジェクトの目的、分野、主催グループなどの、リポジトリに関するトピックを追加できます。
 redirect_from:
-  - /articles/about-topics/
+  - /articles/about-topics
   - /articles/classifying-your-repository-with-topics
   - /github/administering-a-repository/classifying-your-repository-with-topics
   - /github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics
@@ -28,7 +28,7 @@ Topics を利用すれば、特定の領域に関するリポジトリを調べ�
 
 リポジトリの管理者は、リポジトリに好きなトピックを追加できます。 リポジトリを分類するのに役立つトピックには、そのリポジトリの意図する目的、主題の領域、コミュニティ、言語などがあります。{% ifversion fpt or ghec %}加えて、{% data variables.product.product_name %}はパブリックなリポジトリの内容を分析し、推奨されるトピックを生成します。リポジトリの管理者は、これを受諾することも拒否することもできます。 プライベートリポジトリの内容は分析されず、Topics が推奨されることはありません。{% endif %}
 
-{% ifversion ghae %}内部{% else %}パブリック、内部、{% endif %}およびプライベートリポジトリも Topics を持つことができますが、Topics の検索結果で見えるプライベートリポジトリはアクセス権を持っているものだけです。
+{% ifversion fpt %}Public and private{% elsif ghec or ghes %}Public, private, and internal{% elsif ghae %}Private and internal{% endif %} repositories can have topics, although you will only see private repositories that you have access to in topic search results.
 
 特定のトピックに関連付けられているリポジトリを検索できます。 詳しい情報については[リポジトリの検索](/search-github/searching-on-github/searching-for-repositories#search-by-topic)を参照してください。 また、{% data variables.product.product_name %} 上でトピックのリストを検索することもできます。 詳細は「[トピックを検索する](/search-github/searching-on-github/searching-topics)」を参照してください。
 

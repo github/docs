@@ -2,7 +2,7 @@
 title: Renomear uma organização
 intro: 'Se seu projeto ou sua empresa mudarem de nome, atualize o nome da organização.'
 redirect_from:
-  - /articles/what-happens-when-i-change-my-organization-s-name/
+  - /articles/what-happens-when-i-change-my-organization-s-name
   - /articles/renaming-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/renaming-an-organization
 versions:
@@ -36,7 +36,7 @@ Depois que você altera o nome da organização, o nome antigo da organização 
 Depois de alterar o nome da organização:
 - Os links para a página de perfil da organização anterior, como `https://{% data variables.command_line.backticks %}/previousorgname`, retornarão um erro 404. Recomendamos que você atualize os links para a organização de outros sites{% ifversion fpt or ghec %}, como os perfis do LinkedIn ou do Twitter{% endif %}.
 - As solicitações de API que usam o nome antigo da organização retornarão um erro 404. Recomendamos que você atualize o nome da organização nas solicitações de API.
-- Não há redirecionamentos de [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) automática para equipes que usam o nome da organização antiga.{% ifversion fpt or ghec %}
+- Não há redirecionamentos de [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) automática para equipes que usam o nome da organização antiga.{% ifversion ghec %}
 - Se o SAML logon único (SSO) estiver habilitado para a organização, você deverá atualizar o nome da organização no aplicativo para {% data variables.product.prodname_ghe_cloud %} no seu provedor de identidade (IdP). Se você não atualizar o nome da organização no seu IdP, os integrantes da organização não poderão mais efetuar a autenticação com seu IdP para acessar os recursos da organização. Para obter mais informações, consulte "[Conectando o seu provedor de identidade à sua organização](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)."{% endif %}
 
 ## Alterar o nome da organização

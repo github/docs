@@ -1,8 +1,8 @@
 ---
 title: リポジトリをフォークする
 redirect_from:
-  - /fork-a-repo/
-  - /forking/
+  - /fork-a-repo
+  - /forking
   - /articles/fork-a-repo
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
@@ -52,7 +52,6 @@ topics:
 
 ## リポジトリをフォークする
 
-{% include tool-switcher %}
 {% webui %}
 
 上流または元のリポジトリへの変更を提案するために、プロジェクトをフォークする場合があります。 この場合、自分のフォークを上流のリポジトリと定期的に同期させるとよいでしょう。 これには、コマンドラインで Git を使用する必要があります。 先程フォークした同じ [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリを使用して、上流リポジトリの設定を練習できます。
@@ -87,7 +86,6 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally on your computer.
 
-{% include tool-switcher %}
 {% webui %}
 
 1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
@@ -135,9 +133,8 @@ gh repo fork <em>repository</em> --clone=true
 
 ## Configuring Git to sync your fork with the original repository
 
-オリジナルのリポジトリへの変更を提案するためにプロジェクトをフォークする場合は、オリジナルまたは上流のリポジトリから、フォークのローカルのクローンへと、変更をプルするように Git を構成できます。
+When you fork a project in order to propose changes to the original repository, you can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
 
-{% include tool-switcher %}
 {% webui %}
 
 1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
@@ -169,7 +166,7 @@ gh repo fork <em>repository</em> --clone=true
   > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
-これで、いくつかの Git コマンドでフォークと上流リポジトリの同期を維持できます。 詳細は「[フォークを同期する](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)」を参照してください。
+これで、いくつかの Git コマンドでフォークと上流リポジトリの同期を維持できます。 For more information, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."
 
 {% endwebui %}
 
@@ -201,7 +198,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 ## フォークする他のリポジトリを見つける
 リポジトリをフォークしてプロジェクトへのコントリビューションを開始しましょう。 {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt or ghec %}[Explore](https://github.com/explore) を閲覧して、プロジェクトを探してオープンソースのリポジトリへのコントリビューションを開始できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
+{% ifversion fpt or ghec %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
 
 {% endif %}
 

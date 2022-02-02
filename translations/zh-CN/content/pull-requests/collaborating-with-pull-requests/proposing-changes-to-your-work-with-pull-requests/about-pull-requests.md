@@ -3,7 +3,7 @@ title: 关于拉取请求
 intro: '拉取请求可让您在 {% data variables.product.product_name %} 上向他人告知您已经推送到仓库中分支的更改。 在拉取请求打开后，您可以与协作者讨论并审查潜在更改，在更改合并到基本分支之前添加跟进提交。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-  - /articles/using-pull-requests/
+  - /articles/using-pull-requests
   - /articles/about-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
@@ -22,7 +22,7 @@ topics:
 
 **注：**在处理拉取请求时，请记住：
 * 如果操作的是[共享仓库型号](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)，建议对拉取请求使用主题分支。 从任何分支或提交都可发送拉取请求，但如果需要更新提议的更改，则可使用主题分支推送跟进提交。
-* 在推送提交到拉取请求时，请勿强制推送。 强制推送可能损坏拉取请求。
+* 在推送提交到拉取请求时，请勿强制推送。 Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ You can create pull requests on {% data variables.product.prodname_dotcom_the_we
 {% tip %}
 
 **提示：**
-- 要切换折叠或展开拉取请求中所有过时的审查评论，请按住<span class="platform-mac"><kbd>选项</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> 并单击 **Show outdated（显示已过时）**或 **Hide outdated（隐藏已过时）**。 有关更多快捷方式，请参阅“[键盘快捷键](/articles/keyboard-shortcuts)”。
+- To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>Option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. 有关更多快捷方式，请参阅“[键盘快捷键](/articles/keyboard-shortcuts)”。
 - 在合并拉取请求时可以压缩提交，以获取更简化的更改视图。 更多信息请参阅“[关于拉取请求合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)”。
 
 {% endtip %}

@@ -2,8 +2,8 @@
 title: GitHub App のユーザの特定と認可
 intro: '{% data reusables.shortdesc.identifying_and_authorizing_github_apps %}'
 redirect_from:
-  - /early-access/integrations/user-identification-authorization/
-  - /apps/building-integrations/setting-up-and-registering-github-apps/identifying-users-for-github-apps/
+  - /early-access/integrations/user-identification-authorization
+  - /apps/building-integrations/setting-up-and-registering-github-apps/identifying-users-for-github-apps
   - /apps/building-github-apps/identifying-and-authorizing-users-for-github-apps
   - /developers/apps/identifying-and-authorizing-users-for-github-apps
 versions:
@@ -99,9 +99,9 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 ```json
 {
-  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "expires_in": 28800,
-  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
+  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
   "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
@@ -240,16 +240,16 @@ While most of your API インタラクションのほとんどは、サーバー
 
 #### デプロイメントステータス
 
-* [デプロイメントステータスの一覧表示](/rest/reference/repos#list-deployment-statuses)
-* [デプロイメントステータスの作成](/rest/reference/repos#create-a-deployment-status)
-* [デプロイメントステータスの取得](/rest/reference/repos#get-a-deployment-status)
+* [デプロイメントステータスの一覧表示](/rest/reference/deployments#list-deployment-statuses)
+* [デプロイメントステータスの作成](/rest/reference/deployments#create-a-deployment-status)
+* [デプロイメントステータスの取得](/rest/reference/deployments#get-a-deployment-status)
 
 #### デプロイメント
 
-* [デプロイメントの一覧表示](/rest/reference/repos#list-deployments)
-* [デプロイメントの作成](/rest/reference/repos#create-a-deployment)
-* [デプロイメントの取得](/rest/reference/repos#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
-* [デプロイメントの削除](/rest/reference/repos#delete-a-deployment){% endif %}
+* [デプロイメントの一覧表示](/rest/reference/deployments#list-deployments)
+* [デプロイメントの作成](/rest/reference/deployments#create-a-deployment)
+* [Get a deployment](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
+* [デプロイメントの削除](/rest/reference/deployments#delete-a-deployment){% endif %}
 
 #### イベント
 
@@ -329,7 +329,7 @@ While most of your API インタラクションのほとんどは、サーバー
 
 * [Issueのタイムラインイベントの一覧表示](/rest/reference/issues#list-timeline-events-for-an-issue)
 
-#### 問題
+#### Issue
 
 * [認証されたユーザにアサインされたIssueの一覧表示](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)
 * [アサインされた人の一覧表示](/rest/reference/issues#list-assignees)
@@ -570,7 +570,7 @@ While most of your API インタラクションのほとんどは、サーバー
 * [Pull Requestのレビューの更新](/rest/reference/pulls#update-a-review-for-a-pull-request)
 * [Pull Requestレビューのコメントの一覧表示](/rest/reference/pulls#list-comments-for-a-pull-request-review)
 
-#### Pull Request
+#### Pulls
 
 * [Pull Requestの一覧表示](/rest/reference/pulls#list-pull-requests)
 * [Pull Requestの作成](/rest/reference/pulls#create-a-pull-request)
@@ -610,7 +610,7 @@ While most of your API インタラクションのほとんどは、サーバー
 * [リポジトリの取得](/rest/reference/repos#get-a-repository)
 * [リポジトリの更新](/rest/reference/repos#update-a-repository)
 * [リポジトリの削除](/rest/reference/repos#delete-a-repository)
-* [2つのコミットの比較](/rest/reference/repos#compare-two-commits)
+* [2つのコミットの比較](/rest/reference/commits#compare-two-commits)
 * [リポジトリのコントリビューターの一覧表示](/rest/reference/repos#list-repository-contributors)
 * [フォークの一覧表示](/rest/reference/repos#list-forks)
 * [フォークの作成](/rest/reference/repos#create-a-fork)
@@ -642,68 +642,68 @@ While most of your API インタラクションのほとんどは、サーバー
 
 #### リポジトリのブランチ
 
-* [ブランチの一覧表示](/rest/reference/repos#list-branches)
-* [ブランチの取得](/rest/reference/repos#get-a-branch)
-* [ブランチの保護の取得](/rest/reference/repos#get-branch-protection)
-* [ブランチの保護の更新](/rest/reference/repos#update-branch-protection)
-* [ブランチの保護の削除](/rest/reference/repos#delete-branch-protection)
-* [管理ブランチの保護の取得](/rest/reference/repos#get-admin-branch-protection)
-* [管理ブランチの保護の設定](/rest/reference/repos#set-admin-branch-protection)
-* [管理ブランチの保護の削除](/rest/reference/repos#delete-admin-branch-protection)
-* [Pull Requestのレビュー保護の取得](/rest/reference/repos#get-pull-request-review-protection)
-* [Pull Requestのレビュー保護の更新](/rest/reference/repos#update-pull-request-review-protection)
-* [Pull Requestのレビュー保護の削除](/rest/reference/repos#delete-pull-request-review-protection)
-* [コミット署名の保護の取得](/rest/reference/repos#get-commit-signature-protection)
-* [コミット署名の保護の作成](/rest/reference/repos#create-commit-signature-protection)
-* [コミット署名の保護の削除](/rest/reference/repos#delete-commit-signature-protection)
-* [ステータスチェックの保護の取得](/rest/reference/repos#get-status-checks-protection)
-* [ステータスチェックの保護の更新](/rest/reference/repos#update-status-check-protection)
-* [ステータスチェックの保護の削除](/rest/reference/repos#remove-status-check-protection)
-* [すべてのステータスチェックのコンテキストの取得](/rest/reference/repos#get-all-status-check-contexts)
-* [ステータスチェックのコンテキストの追加](/rest/reference/repos#add-status-check-contexts)
-* [ステータスチェックのコンテキストの設定](/rest/reference/repos#set-status-check-contexts)
-* [ステータスチェックのコンテキストの削除](/rest/reference/repos#remove-status-check-contexts)
-* [アクセス制限の取得](/rest/reference/repos#get-access-restrictions)
-* [アクセス制限の削除](/rest/reference/repos#delete-access-restrictions)
+* [ブランチの一覧表示](/rest/reference/branches#list-branches)
+* [ブランチの取得](/rest/reference/branches#get-a-branch)
+* [ブランチの保護の取得](/rest/reference/branches#get-branch-protection)
+* [ブランチの保護の更新](/rest/reference/branches#update-branch-protection)
+* [ブランチの保護の削除](/rest/reference/branches#delete-branch-protection)
+* [管理ブランチの保護の取得](/rest/reference/branches#get-admin-branch-protection)
+* [管理ブランチの保護の設定](/rest/reference/branches#set-admin-branch-protection)
+* [管理ブランチの保護の削除](/rest/reference/branches#delete-admin-branch-protection)
+* [Pull Requestのレビュー保護の取得](/rest/reference/branches#get-pull-request-review-protection)
+* [Pull Requestのレビュー保護の更新](/rest/reference/branches#update-pull-request-review-protection)
+* [Pull Requestのレビュー保護の削除](/rest/reference/branches#delete-pull-request-review-protection)
+* [コミット署名の保護の取得](/rest/reference/branches#get-commit-signature-protection)
+* [コミット署名の保護の作成](/rest/reference/branches#create-commit-signature-protection)
+* [コミット署名の保護の削除](/rest/reference/branches#delete-commit-signature-protection)
+* [ステータスチェックの保護の取得](/rest/reference/branches#get-status-checks-protection)
+* [ステータスチェックの保護の更新](/rest/reference/branches#update-status-check-protection)
+* [ステータスチェックの保護の削除](/rest/reference/branches#remove-status-check-protection)
+* [すべてのステータスチェックのコンテキストの取得](/rest/reference/branches#get-all-status-check-contexts)
+* [ステータスチェックのコンテキストの追加](/rest/reference/branches#add-status-check-contexts)
+* [ステータスチェックのコンテキストの設定](/rest/reference/branches#set-status-check-contexts)
+* [ステータスチェックのコンテキストの削除](/rest/reference/branches#remove-status-check-contexts)
+* [アクセス制限の取得](/rest/reference/branches#get-access-restrictions)
+* [アクセス制限の削除](/rest/reference/branches#delete-access-restrictions)
 * [保護されたブランチへのアクセスを持つTeamの一覧表示](/rest/reference/repos#list-teams-with-access-to-the-protected-branch)
-* [Teamのアクセス制限の追加](/rest/reference/repos#add-team-access-restrictions)
-* [Teamのアクセス制限の設定](/rest/reference/repos#set-team-access-restrictions)
-* [Teamのアクセス制限の削除](/rest/reference/repos#remove-team-access-restrictions)
+* [Teamのアクセス制限の追加](/rest/reference/branches#add-team-access-restrictions)
+* [Teamのアクセス制限の設定](/rest/reference/branches#set-team-access-restrictions)
+* [Teamのアクセス制限の削除](/rest/reference/branches#remove-team-access-restrictions)
 * [保護されたブランチのユーザ制限の一覧表示](/rest/reference/repos#list-users-with-access-to-the-protected-branch)
-* [ユーザアクセス制限の追加](/rest/reference/repos#add-user-access-restrictions)
-* [ユーザアクセス制限の設定](/rest/reference/repos#set-user-access-restrictions)
-* [ユーザアクセス制限の削除](/rest/reference/repos#remove-user-access-restrictions)
-* [ブランチのマージ](/rest/reference/repos#merge-a-branch)
+* [ユーザアクセス制限の追加](/rest/reference/branches#add-user-access-restrictions)
+* [ユーザアクセス制限の設定](/rest/reference/branches#set-user-access-restrictions)
+* [ユーザアクセス制限の削除](/rest/reference/branches#remove-user-access-restrictions)
+* [ブランチのマージ](/rest/reference/branches#merge-a-branch)
 
 #### リポジトリのコラボレータ
 
-* [リポジトリのコラボレータの一覧表示](/rest/reference/repos#list-repository-collaborators)
-* [ユーザがリポジトリのコラボレータかをチェック](/rest/reference/repos#check-if-a-user-is-a-repository-collaborator)
-* [リポジトリのコラボレータを追加](/rest/reference/repos#add-a-repository-collaborator)
-* [リポジトリのコラボレータを削除](/rest/reference/repos#remove-a-repository-collaborator)
-* [ユーザのリポジトリの権限を取得](/rest/reference/repos#get-repository-permissions-for-a-user)
+* [リポジトリのコラボレータの一覧表示](/rest/reference/collaborators#list-repository-collaborators)
+* [ユーザがリポジトリのコラボレータかをチェック](/rest/reference/collaborators#check-if-a-user-is-a-repository-collaborator)
+* [リポジトリのコラボレータを追加](/rest/reference/collaborators#add-a-repository-collaborator)
+* [リポジトリのコラボレータを削除](/rest/reference/collaborators#remove-a-repository-collaborator)
+* [ユーザのリポジトリの権限を取得](/rest/reference/collaborators#get-repository-permissions-for-a-user)
 
 #### リポジトリのコミットコメント
 
-* [リポジトリのコミットコメントの一覧表示](/rest/reference/repos#list-commit-comments-for-a-repository)
-* [コミットコメントの取得](/rest/reference/repos#get-a-commit-comment)
-* [コミットコメントの更新](/rest/reference/repos#update-a-commit-comment)
-* [コミットコメントの削除](/rest/reference/repos#delete-a-commit-comment)
-* [コミットコメントの一覧表示](/rest/reference/repos#list-commit-comments)
-* [コミットコメントの作成](/rest/reference/repos#create-a-commit-comment)
+* [リポジトリのコミットコメントの一覧表示](/rest/reference/commits#list-commit-comments-for-a-repository)
+* [コミットコメントの取得](/rest/reference/commits#get-a-commit-comment)
+* [コミットコメントの更新](/rest/reference/commits#update-a-commit-comment)
+* [コミットコメントの削除](/rest/reference/commits#delete-a-commit-comment)
+* [コミットコメントの一覧表示](/rest/reference/commits#list-commit-comments)
+* [コミットコメントの作成](/rest/reference/commits#create-a-commit-comment)
 
 #### リポジトリのコミット
 
-* [コミットの一覧表示](/rest/reference/repos#list-commits)
-* [コミットの取得](/rest/reference/repos#get-a-commit)
-* [headコミットのブランチの一覧表示](/rest/reference/repos#list-branches-for-head-commit)
+* [コミットの一覧表示](/rest/reference/commits#list-commits)
+* [コミットの取得](/rest/reference/commits#get-a-commit)
+* [headコミットのブランチの一覧表示](/rest/reference/commits#list-branches-for-head-commit)
 * [コミットの関連づけられたPull Requestの一覧表示](/rest/reference/repos#list-pull-requests-associated-with-commit)
 
 #### リポジトリのコミュニティ
 
 * [リポジトリの行動規範の取得](/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
 {% ifversion fpt or ghec %}
-* [コミュニティプロフィールのメトリクスの取得](/rest/reference/repos#get-community-profile-metrics)
+* [コミュニティプロフィールのメトリクスの取得](/rest/reference/repository-metrics#get-community-profile-metrics)
 {% endif %}
 
 #### リポジトリのコンテンツ
@@ -723,40 +723,40 @@ While most of your API インタラクションのほとんどは、サーバー
 
 #### リポジトリのフック
 
-* [リポジトリのwebhookの一覧表示](/rest/reference/repos#list-repository-webhooks)
-* [リポジトリのwebhookの作成](/rest/reference/repos#create-a-repository-webhook)
-* [リポジトリのwebhookの取得](/rest/reference/repos#get-a-repository-webhook)
-* [リポジトリのwebhookの更新](/rest/reference/repos#update-a-repository-webhook)
-* [リポジトリのwebhookの削除](/rest/reference/repos#delete-a-repository-webhook)
-* [リポジトリのwebhookのping](/rest/reference/repos#ping-a-repository-webhook)
+* [リポジトリのwebhookの一覧表示](/rest/reference/webhooks#list-repository-webhooks)
+* [リポジトリのwebhookの作成](/rest/reference/webhooks#create-a-repository-webhook)
+* [リポジトリのwebhookの取得](/rest/reference/webhooks#get-a-repository-webhook)
+* [リポジトリのwebhookの更新](/rest/reference/webhooks#update-a-repository-webhook)
+* [リポジトリのwebhookの削除](/rest/reference/webhooks#delete-a-repository-webhook)
+* [リポジトリのwebhookのping](/rest/reference/webhooks#ping-a-repository-webhook)
 * [プッシュリポジトリのwebhookのテスト](/rest/reference/repos#test-the-push-repository-webhook)
 
 #### リポジトリの招待
 
-* [リポジトリの招待の一覧表示](/rest/reference/repos#list-repository-invitations)
-* [リポジトリの招待の更新](/rest/reference/repos#update-a-repository-invitation)
-* [リポジトリの招待の削除](/rest/reference/repos#delete-a-repository-invitation)
-* [認証を受けたユーザのリポジトリの招待の一覧表示](/rest/reference/repos#list-repository-invitations-for-the-authenticated-user)
-* [リポジトリの招待の受諾](/rest/reference/repos#accept-a-repository-invitation)
-* [リポジトリの招待の拒否](/rest/reference/repos#decline-a-repository-invitation)
+* [リポジトリの招待の一覧表示](/rest/reference/collaborators#list-repository-invitations)
+* [リポジトリの招待の更新](/rest/reference/collaborators#update-a-repository-invitation)
+* [リポジトリの招待の削除](/rest/reference/collaborators#delete-a-repository-invitation)
+* [認証を受けたユーザのリポジトリの招待の一覧表示](/rest/reference/collaborators#list-repository-invitations-for-the-authenticated-user)
+* [リポジトリの招待の受諾](/rest/reference/collaborators#accept-a-repository-invitation)
+* [リポジトリの招待の拒否](/rest/reference/collaborators#decline-a-repository-invitation)
 
 #### リポジトリのキー
 
-* [デプロイキーの一覧表示](/rest/reference/repos#list-deploy-keys)
-* [デプロイキーの作成](/rest/reference/repos#create-a-deploy-key)
-* [デプロイキーの取得](/rest/reference/repos#get-a-deploy-key)
-* [デプロイキーの削除](/rest/reference/repos#delete-a-deploy-key)
+* [デプロイキーの一覧表示](/rest/reference/deployments#list-deploy-keys)
+* [デプロイキーの作成](/rest/reference/deployments#create-a-deploy-key)
+* [デプロイキーの取得](/rest/reference/deployments#get-a-deploy-key)
+* [デプロイキーの削除](/rest/reference/deployments#delete-a-deploy-key)
 
 #### リポジトリのPages
 
-* [GitHub Pagesのサイトの取得](/rest/reference/repos#get-a-github-pages-site)
-* [GitHub Pagesのサイトの作成](/rest/reference/repos#create-a-github-pages-site)
-* [GitHub Pagesのサイトに関する情報の更新](/rest/reference/repos#update-information-about-a-github-pages-site)
-* [GitHub Pagesのサイトの削除](/rest/reference/repos#delete-a-github-pages-site)
-* [GitHub Pagesのビルドの一覧表示](/rest/reference/repos#list-github-pages-builds)
-* [GitHub Pagesのビルドのリクエスト](/rest/reference/repos#request-a-github-pages-build)
-* [GitHub Pagesのビルドの取得](/rest/reference/repos#get-github-pages-build)
-* [最新のPagesのビルドの取得](/rest/reference/repos#get-latest-pages-build)
+* [GitHub Pagesのサイトの取得](/rest/reference/pages#get-a-github-pages-site)
+* [GitHub Pagesのサイトの作成](/rest/reference/pages#create-a-github-pages-site)
+* [GitHub Pagesのサイトに関する情報の更新](/rest/reference/pages#update-information-about-a-github-pages-site)
+* [GitHub Pagesのサイトの削除](/rest/reference/pages#delete-a-github-pages-site)
+* [GitHub Pagesのビルドの一覧表示](/rest/reference/pages#list-github-pages-builds)
+* [GitHub Pagesのビルドのリクエスト](/rest/reference/pages#request-a-github-pages-build)
+* [GitHub Pagesのビルドの取得](/rest/reference/pages#get-github-pages-build)
+* [最新のPagesのビルドの取得](/rest/reference/pages#get-latest-pages-build)
 
 {% ifversion ghes %}
 #### リポジトリ pre-receive フック
@@ -783,11 +783,11 @@ While most of your API インタラクションのほとんどは、サーバー
 
 #### リポジトリ統計
 
-* [週間のコミットアクティビティの取得](/rest/reference/repos#get-the-weekly-commit-activity)
-* [昨年のコミットアクティビティの取得](/rest/reference/repos#get-the-last-year-of-commit-activity)
-* [すべてのコントリビューターのコミットアクティビティの取得](/rest/reference/repos#get-all-contributor-commit-activity)
-* [週間のコミットカウントの取得](/rest/reference/repos#get-the-weekly-commit-count)
-* [各日の毎時のコミットカウントの取得](/rest/reference/repos#get-the-hourly-commit-count-for-each-day)
+* [週間のコミットアクティビティの取得](/rest/reference/repository-metrics#get-the-weekly-commit-activity)
+* [昨年のコミットアクティビティの取得](/rest/reference/repository-metrics#get-the-last-year-of-commit-activity)
+* [すべてのコントリビューターのコミットアクティビティの取得](/rest/reference/repository-metrics#get-all-contributor-commit-activity)
+* [週間のコミットカウントの取得](/rest/reference/repository-metrics#get-the-weekly-commit-count)
+* [各日の毎時のコミットカウントの取得](/rest/reference/repository-metrics#get-the-hourly-commit-count-for-each-day)
 
 {% ifversion fpt or ghec %}
 #### リポジトリ脆弱性アラート
@@ -813,9 +813,9 @@ While most of your API インタラクションのほとんどは、サーバー
 
 #### ステータス
 
-* [特定のリファレンスの結合ステータスの取得](/rest/reference/repos#get-the-combined-status-for-a-specific-reference)
-* [リファレンスのコミットステータスの一覧表示](/rest/reference/repos#list-commit-statuses-for-a-reference)
-* [コミットステータスの作成](/rest/reference/repos#create-a-commit-status)
+* [特定のリファレンスの結合ステータスの取得](/rest/reference/commits#get-the-combined-status-for-a-specific-reference)
+* [リファレンスのコミットステータスの一覧表示](/rest/reference/commits#list-commit-statuses-for-a-reference)
+* [コミットステータスの作成](/rest/reference/commits#create-a-commit-status)
 
 #### Teamディスカッション
 
@@ -838,10 +838,10 @@ While most of your API インタラクションのほとんどは、サーバー
 {% ifversion fpt or ghec %}
 #### トラフィック
 
-* [リポジトリのクローンの取得](/rest/reference/repos#get-repository-clones)
-* [上位の参照パスの取得](/rest/reference/repos#get-top-referral-paths)
-* [上位の参照ソースの取得](/rest/reference/repos#get-top-referral-sources)
-* [ページビューの取得](/rest/reference/repos#get-page-views)
+* [リポジトリのクローンの取得](/rest/reference/repository-metrics#get-repository-clones)
+* [上位の参照パスの取得](/rest/reference/repository-metrics#get-top-referral-paths)
+* [上位の参照ソースの取得](/rest/reference/repository-metrics#get-top-referral-sources)
+* [ページビューの取得](/rest/reference/repository-metrics#get-page-views)
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -925,7 +925,7 @@ While most of your API インタラクションのほとんどは、サーバー
 * [ワークフロー利用状況の取得](/rest/reference/actions#get-workflow-usage)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## 参考リンク
 

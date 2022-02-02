@@ -1,12 +1,10 @@
 ---
 title: Habilitar e testar logon único de SAML para sua organização
 intro: 'Os administradores e proprietários da organização podem habilitar o logon único (SSO, Single Sign-On) de SAML para adicionar uma camada extra de segurança à organização.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -23,8 +21,6 @@ Se você habilitar em vez de aplicar o SAML SSO, os integrantes da organização
 {% data reusables.saml.outside-collaborators-exemption %}
 
 ## Habilitar e testar logon único de SAML para sua organização
-
-{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
 Antes de aplicar o SAML SSO na sua organização, certifique-se de preparar a organização. Para obter mais informações, consulte "[Preparar para aplicar logon único de SAML na organização](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
 

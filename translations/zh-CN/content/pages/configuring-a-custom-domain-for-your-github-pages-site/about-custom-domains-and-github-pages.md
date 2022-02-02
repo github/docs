@@ -2,9 +2,9 @@
 title: 关于自定义域名和 GitHub 页面
 intro: '{% data variables.product.prodname_pages %} 支持使用自定义域名，或者将网站的 URL 根目录从默认值（如 `octocat.github.io`）更改为您拥有的任何域名。'
 redirect_from:
-  - /articles/about-custom-domains-for-github-pages-sites/
-  - /articles/about-supported-custom-domains/
-  - /articles/custom-domain-redirects-for-your-github-pages-site/
+  - /articles/about-custom-domains-for-github-pages-sites
+  - /articles/about-supported-custom-domains
+  - /articles/custom-domain-redirects-for-your-github-pages-site
   - /articles/about-custom-domains-and-github-pages
   - /github/working-with-github-pages/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'

@@ -2,12 +2,12 @@
 title: メンテナンスモードの有効化とスケジューリング
 intro: '標準的なメンテナンス手順のうち、{% data variables.product.product_location %} のアップグレードやバックアップの復元などは、通常の使用のためにインスタンスをオフラインにしなければならないものがあります。'
 redirect_from:
-  - /enterprise/admin/maintenance-mode/
-  - /enterprise/admin/categories/maintenance-mode/
-  - /enterprise/admin/articles/maintenance-mode/
-  - /enterprise/admin/articles/enabling-maintenance-mode/
-  - /enterprise/admin/articles/disabling-maintenance-mode/
-  - /enterprise/admin/guides/installation/maintenance-mode/
+  - /enterprise/admin/maintenance-mode
+  - /enterprise/admin/categories/maintenance-mode
+  - /enterprise/admin/articles/maintenance-mode
+  - /enterprise/admin/articles/enabling-maintenance-mode
+  - /enterprise/admin/articles/disabling-maintenance-mode
+  - /enterprise/admin/guides/installation/maintenance-mode
   - /enterprise/admin/installation/enabling-and-scheduling-maintenance-mode
   - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/enabling-and-scheduling-maintenance-mode

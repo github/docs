@@ -1,5 +1,5 @@
 ---
-title: リポジトリのデフォルトブランチ名を管理する
+title: Managing the default branch name for your repositories
 intro: 'You can set the default branch name for new repositories that you create on {% data variables.product.product_location %}.'
 versions:
   fpt: '*'
@@ -11,23 +11,25 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories
-shortTitle: デフォルトブランチ名の管理
+shortTitle: Manage default branch name
 ---
+## About management of the default branch name
 
-## デフォルトブランチ名について
+When you create a new repository on {% data variables.product.product_location %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories you create. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
-{% data variables.product.product_location %} に新しいリポジトリを作成すると、リポジトリにはデフォルトブランチである 1 つのブランチが含まれます。 作成する新しいリポジトリのデフォルトブランチに {% data variables.product.product_name %} が使用する名前を変更できます。 デフォルトブランチの詳細については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
+{% data reusables.branches.change-default-branch %}
 
-{% data reusables.branches.set-default-branch %}
-
-## デフォルトブランチ 名を設定する
+## Setting the default branch name
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.repo-tab %}
-3. [Repository default branch] で、[**Change default branch name now**] をクリックします。 ![[Override] ボタン](/assets/images/help/settings/repo-default-name-button.png)
-4. 新しいブランチに使用したいデフォルト名を入力します。 ![デフォルト名を入力するテキストフィールド](/assets/images/help/settings/repo-default-name-text.png)
-5. [**Update**] をクリックします。 ![[Update] ボタン](/assets/images/help/settings/repo-default-name-update.png)
+3. Under "Repository default branch", click **Change default branch name now**.
+    ![Override button](/assets/images/help/settings/repo-default-name-button.png)
+4. Type the default name that you would like to use for new branches.
+    ![Text box for entering default name](/assets/images/help/settings/repo-default-name-text.png)
+5. Click **Update**.
+    ![Update button](/assets/images/help/settings/repo-default-name-update.png)
 
-## 参考リンク
+## Further reading
 
-- 「[Organization のリポジトリのデフォルブランチ名を管理する](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)」
+- "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"

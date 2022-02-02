@@ -3,8 +3,8 @@ title: Gerenciando as configurações de segurança e análise do seu repositór
 intro: 'Você pode controlar recursos que protegem e analisam o código em seu projeto no {% data variables.product.prodname_dotcom %}.'
 permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
-  - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories/
-  - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organizations-repositories/
+  - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories
+  - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organizations-repositories
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization
   - /github/managing-security-vulnerabilities/managing-alerts-for-vulnerable-dependencies-in-your-organization
   - /github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository
@@ -33,12 +33,15 @@ shortTitle: Segurança & análise
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**. ![Botão "Habilitar" ou "Desabilitar" para "Configurar recursos de segurança e análise" em um repositório público](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-public.png)
+4. Em "Configurar as funcionalidades de segurança e análise", à direita do recurso, clique em **Habilitar** ou **Desabilitar**.{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-public.png){% elsif ghec %}
+!["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-public.png){% endif %}
 {% endif %}
 
 ## Habilitar ou desabilitar os recursos de segurança e análise{% ifversion fpt or ghec %} para repositórios privados{% endif %}
 
-´Você pode administrar as funcionalidades de segurança e análise para o seu repositório{% ifversion fpt or ghec %}privado ou interno {% endif %}.{% ifversion fpt or ghes or ghec %} Se a sua organização pertencer a uma empresa que tem uma licença para {% data variables.product.prodname_GH_advanced_security %}, haverá opções adicionais disponíveis. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
+Você pode administrar as funcionalidades de segurança e análise para o seu repositório{% ifversion fpt or ghec %}privado ou interno {% endif %}.{% ifversion ghes or ghec %} Se a sua organização pertencer a uma empresa que tem uma licença para {% data variables.product.prodname_GH_advanced_security %}, haverá opções adicionais disponíveis. {% data reusables.advanced-security.more-info-ghas %}
+{% elsif fpt %} As organizações que usam {% data variables.product.prodname_ghe_cloud %} com {% data variables.product.prodname_advanced_security %} têm opções adicionais disponíveis. Para obter mais informações, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories).
+{% endif %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
@@ -46,14 +49,19 @@ shortTitle: Segurança & análise
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 {% ifversion fpt or ghes > 3.0 or ghec %}
-4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**. The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion fpt or ghec %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% elsif ghes > 3.2 %}
+4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**. {% ifversion not fpt %}O controle para "{% data variables.product.prodname_GH_advanced_security %}" está desabilitado se a sua empresa não tiver licenças disponíveis para {% data variables.product.prodname_advanced_security %}.{% endif %}{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
+!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.2 %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% else %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
+
+  {% ifversion not fpt %}
   {% note %}
 
-  **Observação:** Se você desabilitar {% data variables.product.prodname_GH_advanced_security %}, {% ifversion fpt or ghec %}revisão de dependência, {% endif %}{% data variables.product.prodname_secret_scanning %} e {% data variables.product.prodname_code_scanning %} ficarão desabilitados. Todos os fluxos de trabalho, uploads de SARIF, ou chamadas de API para {% data variables.product.prodname_code_scanning %} falharão.
-  {% endnote %}
+  **Observação:** Se você desabilitar {% data variables.product.prodname_GH_advanced_security %}, {% ifversion ghec %}revisão de dependência, {% endif %}{% data variables.product.prodname_secret_scanning %} e {% data variables.product.prodname_code_scanning %} ficarão desabilitados. Todos os fluxos de trabalho, uploads de SARIF, ou chamadas de API para {% data variables.product.prodname_code_scanning %} falharão.
+  {% endnote %}{% endif %}
+
   {% endif %}
+
   {% ifversion ghes = 3.0 %}
 4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**. ![Botão "Habilitar" ou "Desabilitar" para "Configurar recursos de segurança e análise" ](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
@@ -63,7 +71,7 @@ shortTitle: Segurança & análise
 
 ## Conceder acesso aos alertas de segurança
 
-Depois de habilitar alertas de {% ifversion not ghae %}{% data variables.product.prodname_dependabot %} ou {% endif %}{% data variables.product.prodname_secret_scanning %} de um repositório na organização, os proprietários da organização e administradores de repositórios poderão visualizar os alertas por padrão. Você pode dar acesso a outras equipes e pessoas aos alertas de um repositório.
+Os alertas de segurança de um repositório são visíveis para pessoas com acesso de administrador ao repositório e quando o repositório pertencer a uma organização ou aos proprietários da organização. Você pode dar acesso aos alertas a outras equipes e pessoas.
 
 {% note %}
 

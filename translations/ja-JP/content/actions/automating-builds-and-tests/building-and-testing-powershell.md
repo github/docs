@@ -19,7 +19,6 @@ shortTitle: Build & test PowerShell
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -27,7 +26,8 @@ shortTitle: Build & test PowerShell
 
 {% data variables.product.prodname_dotcom %}ホストランナーは、PowerShell及びPesterを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。
 
-{% ifversion ghae %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}最新のソフトウェアと、PowerShell および Pester のプレインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 {% endif %}
 

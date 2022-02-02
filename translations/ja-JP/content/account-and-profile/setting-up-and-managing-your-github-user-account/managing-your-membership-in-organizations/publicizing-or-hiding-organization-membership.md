@@ -2,7 +2,7 @@
 title: Organization のメンバーシップを公開または非公開にする
 intro: 自分がどの Organization に属しているかを知らせたい場合は、Organization のアバターをプロフィールに表示することができます。
 redirect_from:
-  - /articles/publicizing-or-concealing-organization-membership/
+  - /articles/publicizing-or-concealing-organization-membership
   - /articles/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/publicizing-or-hiding-organization-membership

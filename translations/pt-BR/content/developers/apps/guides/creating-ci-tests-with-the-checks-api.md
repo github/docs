@@ -157,7 +157,7 @@ end
 
 Este código chama o ponto de extremidade "[Crie uma verificação de execução](/rest/reference/checks#create-a-check-run)" usando o [create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run).
 
-Para criar uma execução de verificação, são necessários apenas dois parâmetros de entrada: `nome` e `head_sha`. Vamos usar o [Rubocop](https://rubocop.readthedocs.io/en/latest/) para implementar o teste CI mais adiante início rápido. Por esse motivo, o nome "Octo Rubocop" é usado aqui, mas você pode escolher qualquer nome que desejar para a execução da verificação.
+Para criar uma execução de verificação, são necessários apenas dois parâmetros de entrada: `nome` e `head_sha`. We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
 
 Você só está fornecendo os parâmetros necessários agora para que a funcionalidade básica funcione, mas você irá atualizar a verificação de execução posteriormente enquanto coleta mais informações sobre a verificação de execução. Por padrão, o GitHub define o `status` como `enfileirado`.
 

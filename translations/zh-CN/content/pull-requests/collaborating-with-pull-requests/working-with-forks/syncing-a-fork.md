@@ -15,7 +15,7 @@ topics:
   - Pull requests
 ---
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## 从 web UI 同步复刻
 

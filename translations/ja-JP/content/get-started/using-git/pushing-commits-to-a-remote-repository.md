@@ -2,7 +2,7 @@
 title: コミットをリモートリポジトリにプッシュする
 intro: ローカルブランチで実行されたコミットをリモートリポジトリにプッシュするには、`git push` を使用します。
 redirect_from:
-  - /articles/pushing-to-a-remote/
+  - /articles/pushing-to-a-remote
   - /articles/pushing-commits-to-a-remote-repository
   - /github/using-git/pushing-commits-to-a-remote-repository
   - /github/getting-started-with-github/pushing-commits-to-a-remote-repository

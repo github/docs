@@ -13,7 +13,6 @@ shortTitle: Adicionar um selo de status
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
@@ -40,8 +39,8 @@ Este exemplo de Markdown adiciona um crachá de status para uma filial com o nom
 
 ## Usar o parâmetro `evento`
 
-Este exemplo de Markdown adiciona um crachá que exibe o status das corridas de fluxo de trabalho desencadeadas pelo `pull_request` evento.
+Esse exemplo de Markdown adiciona um selo que exibe o status das execuções do fluxo de trabalho acionadas pelo evento `push`, que mostrará o status da criação para o estado atual desse branch.
 
 ```markdown
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
 ```

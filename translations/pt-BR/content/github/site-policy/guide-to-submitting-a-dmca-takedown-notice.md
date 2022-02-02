@@ -1,8 +1,8 @@
 ---
 title: Guia de envio do aviso de retirada DMCA
 redirect_from:
-  - /dmca-notice-how-to/
-  - /articles/dmca-notice-how-to/
+  - /dmca-notice-how-to
+  - /articles/dmca-notice-how-to
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
   fpt: '*'

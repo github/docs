@@ -2,10 +2,10 @@
 title: Criar um site do GitHub Pages
 intro: 'É possível criar um site do {% data variables.product.prodname_pages %} em um repositório novo ou existente.'
 redirect_from:
-  - /articles/creating-pages-manually/
-  - /articles/creating-project-pages-manually/
-  - /articles/creating-project-pages-from-the-command-line/
-  - /articles/creating-project-pages-using-the-command-line/
+  - /articles/creating-pages-manually
+  - /articles/creating-project-pages-manually
+  - /articles/creating-project-pages-from-the-command-line
+  - /articles/creating-project-pages-using-the-command-line
   - /articles/creating-a-github-pages-site
   - /github/working-with-github-pages/creating-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -45,7 +45,7 @@ shortTitle: Criar um site do GitHub Pages
 
   {% tip %}
 
-  **Tip:** If `index.html` is present, this will be used instead of `index.md`. If neither `index.html` nor `index.md` are present, `README.md` will be used.
+  **Dica:** se `index.html` estiver presente, ele será usado ao invés de `index.md`. Se nem `index.html` nem `index.md` estiverem presentes, será usado `README.md`.
 
   {% endtip %}
 {% data reusables.pages.configure-publishing-source %}
@@ -53,6 +53,7 @@ shortTitle: Criar um site do GitHub Pages
 {% data reusables.pages.sidebar-pages %}{% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 

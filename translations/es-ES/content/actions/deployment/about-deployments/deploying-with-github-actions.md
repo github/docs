@@ -16,7 +16,6 @@ shortTitle: Desplegar con GitHub Actions
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -146,7 +145,7 @@ También puedes ver las bitácoras de cada ejecución de flujo de trabajo y el h
 ## Rastrear los despliegues a través de las apps
 
 {% ifversion fpt or ghec %}
-If your personal account or organization on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} is integrated with Microsoft Teams or Slack, you can track deployments that use environments through Microsoft Teams or Slack. Por ejemplo, puedes recibir notificaciones a través de la app cuando la aprobación de un despliegue está pendiente, cuando está aprobado o cuando cambia su estado. Para obtener más información sobre cómo integrar Microsoft Teams o Slack, consulta la sección "[Extensiones e integraciones de GitHub](/github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations#team-communication-tools)".
+Si tu cuenta personal u organización de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} está integrada con Microsoft Teams o Slack, puedes rastrear los despliegues que utilizan ambientes a través de estos programas. Por ejemplo, puedes recibir notificaciones a través de la app cuando la aprobación de un despliegue está pendiente, cuando está aprobado o cuando cambia su estado. Para obtener más información sobre cómo integrar Microsoft Teams o Slack, consulta la sección "[Extensiones e integraciones de GitHub](/github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations#team-communication-tools)".
 {% endif %}
 
 También puedes crear una app que utilice despliegues y webhooks de estados de despliegues para rastrearlos. {% data reusables.actions.environment-deployment-event %} Para obtener más información, consulta las secciones "[Apps](/developers/apps)" y "[Eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)".

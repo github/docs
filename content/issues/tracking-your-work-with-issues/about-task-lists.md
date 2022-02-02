@@ -51,6 +51,12 @@ If you add a task list to the body of an issue, the list has added functionality
 
 {% data reusables.repositories.task-list-markdown %}
 
+{% tip %}
+
+**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+
+{% endtip %}
+
 ## Reordering tasks
 
 You can reorder the items in a task list by clicking to the left of a task's checkbox, dragging the task to a new location, and dropping the task. You can reorder tasks across different lists in the same comment, but you can not reorder tasks across different comments.

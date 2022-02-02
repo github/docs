@@ -14,9 +14,11 @@ permissions:
   contents: read
   deployments: write
 
+# This allows a subsequently queued workflow run to take priority over
+# previously queued runs but NOT interrupt currently executing runs
 concurrency:
   group: '${{ github.workflow }}'
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
@@ -25,7 +27,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Check out repo
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           persist-credentials: 'false'
           lfs: 'true'
@@ -34,7 +36,7 @@ jobs:
         run: git lfs checkout
 
       - name: Setup node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -51,6 +53,12 @@ jobs:
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: main
+
+      - name: Cache nextjs build
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
       - name: Build
         run: npm run build
@@ -174,12 +182,12 @@ jobs:
             })
             console.log('⏲️ Deployment status: error - The deployment timed out...')
 
-      - name: Purge Fastly edge cache
-        env:
-          FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
-          FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
-          FASTLY_SURROGATE_KEY: 'all-the-things'
-        run: .github/actions-scripts/purge-fastly-edge-cache.js
+      # - name: Purge Fastly edge cache
+      #   env:
+      #     FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
+      #     FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
+      #     FASTLY_SURROGATE_KEY: 'every-deployment'
+      #   run: .github/actions-scripts/purge-fastly-edge-cache.js
 
       - name: Send Slack notification if workflow failed
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340

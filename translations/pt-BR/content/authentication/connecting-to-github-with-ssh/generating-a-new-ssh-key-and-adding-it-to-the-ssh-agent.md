@@ -2,8 +2,8 @@
 title: Gerar uma nova chave SSH e adicioná-la ao ssh-agent
 intro: 'Depois de verificar a existência de chaves SSH, é possível gerar uma nova chave SSH para autenticação e adicioná-la ao ssh-agent.'
 redirect_from:
-  - /articles/adding-a-new-ssh-key-to-the-ssh-agent/
-  - /articles/generating-a-new-ssh-key/
+  - /articles/adding-a-new-ssh-key-to-the-ssh-agent
+  - /articles/generating-a-new-ssh-key
   - /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
@@ -21,7 +21,7 @@ shortTitle: Gerar nova chave SSH
 
 Se você ainda não tem uma chave SSH, você deve gerar uma nova chave SSH para usar para a autenticação. Se você não tem certeza se já tem uma chave SSH, você pode verificar se há chaves existentes. Para obter mais informações, consulte "[Verificar as chaves SSH existentes](/github/authenticating-to-github/checking-for-existing-ssh-keys)".
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
 Se você deseja usar uma chave de segurança de hardware para efetuar a autenticação em {% data variables.product.product_name %}, você deverá gerar uma nova chave SSH para a sua chave de segurança de hardware. Você deve conectar a sua chave de segurança de hardware ao seu computador ao efetuar a a sua autenticação com o par de chaves. Para obter mais informações, consulte as [notas de versão do OpenSSH 8.2](https://www.openssh.com/txt/release-8.2).
 
@@ -191,7 +191,7 @@ Antes de adicionar uma nova chave SSH ao agente para gerenciar suas chaves, voc�
 
 {% endlinux %}
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## Gerar uma nova chave SSH para uma chave de segurança de hardware
 
 Se você estiver usando macOS ou Linux, Talvez você precise atualizar seu cliente SSH ou instalar um novo cliente SSH antes de gerar uma nova chave SSH. Para obter mais informações, consulte "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)."
@@ -253,6 +253,6 @@ Se você estiver usando macOS ou Linux, Talvez você precise atualizar seu clien
 
 - "[Sobre SSH](/articles/about-ssh)"
 - "[Trabalhar com frases secretas da chave SSH](/articles/working-with-ssh-key-passphrases)"
-{%- ifversion fpt %}
-- "[Autorizar uma chave SSH para uso com logon único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
+{%- ifversion fpt or ghec %}
+- "[Autorizando uma chave SSH para uso com o logon único SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"{% ifversion fpt %} na documentação de {% data variables.product.prodname_ghe_cloud %}{% endif %}
 {%- endif %}

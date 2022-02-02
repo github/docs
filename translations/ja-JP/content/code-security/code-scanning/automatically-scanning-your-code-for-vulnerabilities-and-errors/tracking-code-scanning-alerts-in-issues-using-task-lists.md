@@ -62,7 +62,7 @@ The status of the tracked alert won't change if you change the checkbox state of
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% ifversion fpt or ghes or ghae-next %}
+{% ifversion fpt or ghes or ghae %}
 {% data reusables.code-scanning.explore-alert %}
 1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. 詳しい情報については、「[リポジトリの Code scanningアラートを管理する](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)」を参照してください。
 {% endif %}

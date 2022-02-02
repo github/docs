@@ -8,6 +8,19 @@
 //    cacheControlYear(res)
 //    res.send(body)
 //
+// Or, if you want to make it definitely not cache:
+//
+//    const noCacheControl = getCacheControl(0) // you can use `false` too
+//    ...
+//    noControlYear(res)
+//    res.send(body)
+//
 export function cacheControlFactory(maxAge = 60 * 60, public_ = true) {
-  return (res) => res.set('cache-control', `${public_ ? 'public, ' : ''}max-age=${maxAge}`)
+  return (res) => {
+    if (maxAge) {
+      res.set('cache-control', `${public_ ? 'public, ' : ''}max-age=${maxAge}`)
+    } else {
+      res.set('cache-control', 'private, no-store')
+    }
+  }
 }

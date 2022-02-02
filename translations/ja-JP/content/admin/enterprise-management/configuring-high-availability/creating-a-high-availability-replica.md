@@ -20,15 +20,16 @@ shortTitle: Create HA replica
 ## High Availabilityレプリカの作成
 
 1. 新しい {% data variables.product.prodname_ghe_server %} アプライアンスを希望するプラットフォームにセットアップします。 レプリカアプライアンスのCPU、RAM、ストレージ設定は、プライマリアプライアンスと同じにするべきです。 レプリカアプライアンスは、独立した環境にインストールすることをお勧めします。 下位層のハードウェア、ソフトウェア、ネットワークコンポーネントは、プライマリアプライアンスのそれらとは分離されているべきです。 クラウドプロバイダを利用している場合には、別個のリージョンもしくはゾーンを使ってください。 詳細は「["{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
-2. ブラウザで新しいレプリカアプライアンスのIPアドレスにアクセスして、所有する{% data variables.product.prodname_enterprise %}のライセンスをアップロードしてください。
+1. Ensure that both the primary appliance and the new replica appliance can communicate with each other over ports 122/TCP and 1194/UDP. 詳しい情報については"[ネットワークポート](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)"を参照してください。
+1. ブラウザで新しいレプリカアプライアンスのIPアドレスにアクセスして、所有する{% data variables.product.prodname_enterprise %}のライセンスをアップロードしてください。
 {% data reusables.enterprise_installation.replica-steps %}
-6. SSHを使ってレプリカアプライアンスのIPアドレスに接続してください。
+1. SSHを使ってレプリカアプライアンスのIPアドレスに接続してください。
   ```shell
   $ ssh -p 122 admin@<em>REPLICA IP</em>
   ```
 {% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
-9. プライマリへの接続を確認し、新しいレプリカのレプリカモードを有効にするには、`ghe-repl-setup` をもう一度実行します。
+1. プライマリへの接続を確認し、新しいレプリカのレプリカモードを有効にするには、`ghe-repl-setup` をもう一度実行します。
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```

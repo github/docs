@@ -4,11 +4,18 @@ import walk from 'walk-sync'
 import { get, isPlainObject } from 'lodash-es'
 import { allVersions } from '../../lib/all-versions.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-import { operations } from '../../lib/rest/index.js'
+import getRest from '../../lib/rest/index.js'
 import dedent from 'dedent'
+import { beforeAll } from '@jest/globals'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const schemasPath = path.join(__dirname, '../../lib/rest/static/decorated')
-const nonEnterpriseDefaultVersionSchema = operations[nonEnterpriseDefaultVersion]
+
+let operations = null
+let nonEnterpriseDefaultVersionSchema = null
+beforeAll(async () => {
+  operations = (await getRest()).operations
+  nonEnterpriseDefaultVersionSchema = operations[nonEnterpriseDefaultVersion]
+})
 
 describe('OpenAPI schema validation', () => {
   test('makes an object', () => {

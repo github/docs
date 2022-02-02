@@ -1,8 +1,8 @@
 ---
 title: Configurar una fuente de publicación para tu sitio de Páginas de GitHub
-intro: 'Si usas la fuente de publicación predeterminada para tu sitio de {% data variables.product.prodname_pages %}, tu sitio se publicará automáticamente. You can also choose to publish your site from a different branch or folder.'
+intro: 'Si usas la fuente de publicación predeterminada para tu sitio de {% data variables.product.prodname_pages %}, tu sitio se publicará automáticamente. También puedes elegir publicar tu sitio desde una rama o carpeta diferente.'
 redirect_from:
-  - /articles/configuring-a-publishing-source-for-github-pages/
+  - /articles/configuring-a-publishing-source-for-github-pages
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
   - /github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -21,7 +21,7 @@ Para obtener más información acerca de las fuentes de publicación, consulta "
 
 ## Elegir una fuente de publicación
 
-Before you configure a publishing source, make sure the branch you want to use as your publishing source already exists in your repository.
+Antes de configurar una fuente de publicación, asegúrate de que la rama que quieres utilizar como fuente de publicación ya exista en tu repositorio.
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -34,4 +34,18 @@ Before you configure a publishing source, make sure the branch you want to use a
 
 {% data reusables.pages.admin-must-push %}
 
-If you choose the `docs` folder on any branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. Para obtener más información, consulta "[Solución de problemas de errores de compilación de Jekyll para los sitios de {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)".
+Si eliges la carpeta de `docs` en cualquier rama como tu fuente de publicación y luego eliminas la carpeta de `/docs` de esta rama en tu repositorio posteriormente, tu sitio no se creará y obtendrás un mensaje de error de creación de página debido a una carpeta `/docs` faltante. Para obtener más información, consulta "[Solución de problemas de errores de compilación de Jekyll para los sitios de {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)".
+
+{% ifversion fpt %}
+
+Tu sitio de {% data variables.product.prodname_pages %} siempre se desplegará con una ejecución de flujo de trabajo de {% data variables.product.prodname_actions %}, incluso si configuraste tu sitio de {% data variables.product.prodname_pages %} para que compilara utilizando una herramienta de IC distinta. La mayoría de los flujos de trabajo de IC externos se "despliegan" en las GitHub Pages cuando confirmas la salida de compilación en la rama de `gh-pages` del repositorio y, habitualmente, incluyen un archivo de `.nojekyll`. Cuando esto sucede, el flujo de trabajo de las {% data variables.product.prodname_actions %} detectará el estado en el que la rama no necesita un paso de compilación y ejecutará solo los pasos necesarios para desplegar el sitio hacia los servidores de {% data variables.product.prodname_pages %}.
+
+Para encontrar errores potenciales en ya sea la compilación o el despliegue, puedes verificar la ejecución de flujo de trabajo para tu sitio de {% data variables.product.prodname_pages %} si revisas las ejecuciones de flujo de trabajo del repositorio. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".  Para obtener más información sobre cómo volver a ejecutar el flujo de trabajo en caso de encontrar une error, consulta la sección "[Volver a ejecutar flujos de trabajo y jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)".
+
+{% note %}
+
+{% data reusables.pages.pages-builds-with-github-actions-public-beta %}
+
+{% endnote %}
+
+{% endif %}
