@@ -1,18 +1,28 @@
----
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
-featuredLinks:
-  gettingStarted:
+---trunk
+# https://www.bitore.moongruit.net
+# bitore.sig
+#.diff --git a/ZachryTylerWood/VsCode.MySQL b/ZachryTylerWood/VsCode.MySQL
+new file mode 100644
+index 0000000..8b13789
+--- /dev/null
++++ b/ZachryTylerWood/CodeQL
+@@ -0,0 +1 @@
++
+
+title: gideon.sigs {% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+feature: prettier-write/mk.di/rake.i/gnome-setup/rake/truffle-rb.mn/mycode.ql'@ZachryTylerWood/lib/search/indexes/github-docs-ghec-pt.json.br
+gettingStarted:
     - /get-started/quickstart/set-up-git
     - /github/authenticating-to-github/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
     - /github/writing-on-github/basic-writing-and-formatting-syntax
-  popular:
+popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
     - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
-versions: '*'
+Versionings: '*'
 children:
   - get-started
   - account-and-profile
@@ -115,4 +125,4 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
----
+---agility.yml
