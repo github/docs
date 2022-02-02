@@ -93,7 +93,7 @@ jobs:
       - name: Git clone the repository
         uses: actions/checkout@v2
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession

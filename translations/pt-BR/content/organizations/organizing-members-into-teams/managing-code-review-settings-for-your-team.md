@@ -57,7 +57,11 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" não ser�
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
 1. Na barra lateral esquerda, clique em **Revisão de Código** ![Botão revisar código](/assets/images/help/teams/review-button.png)
+{% endif %}
 1. Selecione **Somente notificar os integrantes da equipe solicitados.** ![Notificações da equipe de revisão código](/assets/images/help/teams/review-assignment-notifications.png)
 1. Clique em **Save changes** (Salvar alterações).
 {% endif %}
@@ -67,7 +71,11 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" não ser�
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
 1. Na barra lateral esquerda, clique em **Revisão de Código** ![Botão revisar código](/assets/images/help/teams/review-button.png)
+{% endif %}
 1. Selecione **Habilitar atribuição automática**. ![Botão de atribuição automática](/assets/images/help/teams/review-assignment-enable.png)
 1. Em "Quantos membros da equipe devem ser atribuídos para a revisão?, use o menu suspenso e escolha um número de revisores a serem atribuídos a cada pull request. ![Menu suspenso do número de revisores](/assets/images/help/teams/review-assignment-number.png)
 1. Em "Algoritmo de encaminhamento", use o menu suspenso e escolha qual algoritmo você gostaria de usar. Para obter mais informações, consulte "[Algoritmos de encaminhamento](#routing-algorithms)". ![Menu suspenso do algoritmo de encaminhamento](/assets/images/help/teams/review-assignment-algorithm.png)
