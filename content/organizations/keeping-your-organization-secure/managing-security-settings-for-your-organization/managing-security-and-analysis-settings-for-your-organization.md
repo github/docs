@@ -5,6 +5,7 @@ permissions: Organization owners can manage security and analysis settings for r
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-secret-scanning-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization
+  - /organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization
 versions:
   fpt: '*'
   ghes: '*'

@@ -30,9 +30,9 @@ jobs:
       - name: Make a branch, commit, push, and pull request
         run: |
           echo "If there's no changes, exit"
-          if [[ `git status --porcelain` ]]
+          if [[ !  `git status --porcelain` ]]
           then
-          else
+            echo "No changes found"
             exit 0
           fi
 

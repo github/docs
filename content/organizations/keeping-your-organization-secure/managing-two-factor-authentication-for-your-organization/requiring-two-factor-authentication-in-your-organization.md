@@ -4,6 +4,7 @@ intro: 'Organization owners can require {% ifversion fpt or ghec %}organization 
 redirect_from:
   - /articles/requiring-two-factor-authentication-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization
+  - /organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Require 2FA in organization
+shortTitle: Require 2FA
 ---
 
 ## About two-factor authentication for organizations

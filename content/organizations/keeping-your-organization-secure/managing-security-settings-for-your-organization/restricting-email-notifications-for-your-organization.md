@@ -8,6 +8,7 @@ redirect_from:
   - /articles/restricting-email-notifications-to-an-approved-domain
   - /github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
+  - /organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization
 versions:
   fpt: '*'
   ghes: '>=3.2'
