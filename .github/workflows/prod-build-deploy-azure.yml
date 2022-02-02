@@ -30,6 +30,7 @@ jobs:
       url: 'https://docs.github.com'
     env:
       DOCKER_IMAGE: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:${{ github.sha }}
+      DOCKER_IMAGE_CACHE_REF: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:main-production
 
     steps:
       - name: 'Az CLI login'
@@ -64,21 +65,26 @@ jobs:
           node-version: 16.13.x
           cache: npm
 
-      - name: Clone early access
-        run: npm install dotenv && node script/early-access/clone-for-build.js
-        env:
-          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: main
+      - name: Clone docs-early-access
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: main
+
+      - name: Merge docs-early-access repo's folders
+        run: .github/actions-scripts/merge-early-access.sh
 
       - name: 'Build and push image'
         uses: docker/build-push-action@1814d3dfb36d6f84174e61f4a4b05bd84089a4b9
         with:
           context: .
           push: true
-          target: 'production_early_access'
-          tags: ${{ env.DOCKER_IMAGE }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          target: production
+          tags: ${{ env.DOCKER_IMAGE }}, ${{ env.DOCKER_IMAGE_CACHE_REF }}
+          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
+          cache-to: type=registry,mode=max,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
 
       - name: 'Update docker-compose.prod.yaml template file'
         run: |

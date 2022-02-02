@@ -29,12 +29,12 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
           <div
             key={key}
             className={cx(
-              'py-6 d-block d-xl-flex flex-justify-center',
+              'py-6 d-block d-xl-flex',
               !withReleaseNoteLabel && 'mx-6',
               !isLast && 'border-bottom'
             )}
           >
-            <ul className={cx(withReleaseNoteLabel && 'col-xl-9', 'col-12')}>
+            <ul className={cx(withReleaseNoteLabel)}>
               <h3>{SectionToLabelMap[key] || 'INVALID SECTION'}</h3>
               {sectionItems.map((item) => {
                 if (typeof item === 'string') {
