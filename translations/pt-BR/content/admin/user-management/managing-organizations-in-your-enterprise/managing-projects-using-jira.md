@@ -1,6 +1,6 @@
 ---
 title: Gerenciar projetos usando o Jira
-intro: 'Você pode integrar o Jira com {% data variables.product.prodname_enterprise %} para o gerenciamento de projeto.'
+intro: 'Você pode integrar o Jira com {% data variables.product.product_name %} para o gerenciamento de projeto.'
 redirect_from:
   - /enterprise/admin/guides/installation/project-management-using-jira
   - /enterprise/admin/articles/project-management-using-jira
@@ -10,6 +10,7 @@ redirect_from:
   - /admin/user-management/managing-projects-using-jira
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
