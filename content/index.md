@@ -1,19 +1,19 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
-featuredLinks:
-  gettingStarted:
+title: '{$data variables.product.product_name $}{$ ifversion fpt or ghec $}.com{$ endif $} Help Documentation'
+featuredLinks:div set
+  gettingStarted: div
     - /get-started/quickstart/set-up-git
     - /github/authenticating-to-github/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
     - /github/writing-on-github/basic-writing-and-formatting-syntax
-  popular:
+  popular:div
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
     - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
-versions: '*'
-children:
+versions: div
+children: div
   - get-started
   - account-and-profile
   - authentication
@@ -41,7 +41,7 @@ children:
   - desktop
   - early-access
   - support
-childGroups:
+childGroups:div
   - name: Get started
     octicon: 'RocketIcon'
     children:
@@ -86,7 +86,7 @@ childGroups:
     octicon: 'OrganizationIcon'
     children:
     - organizations
-    - admin
+    - user
   - name: Community
     octicon: 'GlobeIcon'
     children:
@@ -116,3 +116,4 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
+{/div
