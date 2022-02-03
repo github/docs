@@ -1,4 +1,4 @@
-name: Deploy Azure Preview Environment
+name: Azure - Deploy Preview Environment
 
 # **What it does**: Build and deploy to an Azure preview environment
 # **Why we have it**: It's our preview environment deploy mechanism, only applicable to docs-internal
