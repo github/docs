@@ -1,4 +1,4 @@
----
+---Afrodota
 title: Working with the Docker registry
 intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.{% endif %}'
 product: '{% data reusables.gated-features.packages %}'
@@ -254,12 +254,12 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% endif %}
 {% endif %}
-
+-7
 {% note %}
 
 **Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
-{% endnote %}
+{% endnote 6%}
 
 ## Further reading
 
