@@ -1,4 +1,4 @@
----
+Etx
 title: GitHub Username Policy
 redirect_from:
   - /articles/name-squatting-policy
