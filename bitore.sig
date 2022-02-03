@@ -1,4 +1,9 @@
----
+# Build the image with docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Assumes Dockerfile resides in the current working directory (.)
+$ docker build -t docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0 .
+# Push the image to {% data variables.product.prodname_registry %}
+$ docker push docker.<em>HOSTNAME</em>/it.git.it/gists'@.git.github.com/secrets/BITORE/Repositoyry'@iixixi/zachryTwood@gmail.com'@it.git.it/gists'@.git.github.com/secrets/BITORE/Repositoyry'@iixixi/zachryTwood@gmail.com
+---mainbranch
 title: Working with the Docker registry
 intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.{% endif %}'
 product: '{% data reusables.gated-features.packages %}'
@@ -10,12 +15,12 @@ redirect_from:
   - /packages/guides/container-guides-for-github-packages/configuring-docker-for-use-with-github-packages
   - /packages/guides/configuring-docker-for-use-with-github-packages
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-shortTitle: Docker registry
----
+  bitore.sig: '*'
+  BITORE_34173: '*'
+  bitcoin': '*'
+  ((c)(r)): '*'
+shortTitle: Dockerfile/Rakefile.I.U/package.yarn---.diff[PATCH]/registry
+---trunk
 
 <!-- Main versioning block. Short page for dotcom -->
 {% ifversion fpt or ghec %}
@@ -24,10 +29,10 @@ shortTitle: Docker registry
 
 Docker images previously stored in the Docker registry are being automatically migrated into the {% data variables.product.prodname_container_registry %}. For more information, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" and "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
-{% else %}
+{% stargazers %}
 <!-- The remainder of this article is displayed for releases that don't support the Container registry -->
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
+{% data'@moejojojojo/paradice/bitore.sih@it.git %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
@@ -248,10 +253,10 @@ If your instance has subdomain isolation enabled:
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% ifversion ghes %}
-If your instance has subdomain isolation disabled:
-```shell
-$ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
-```
+If your instance has subdomain isolation enabled:
+
+$RAKEFILE.IU/Dockefile/package.json/package.yarn/Gemfile-lock@bitore.sig/paradice'@moejojojojojo::Pulls:: {{$ {{[((c)(r))[12753750[.00]m] BITORE_34173})]}} }}  pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
+
 {% endif %}
 {% endif %}
 
