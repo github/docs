@@ -30,7 +30,7 @@ concurrency:
 jobs:
   build-and-deploy-azure-preview:
     if: ${{ github.repository == 'github/docs-internal' }}
-    name: Build and deploy image to Azure
+    name: Build and deploy Azure preview environment
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment:
