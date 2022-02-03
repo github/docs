@@ -1,7 +1,7 @@
-name: Staging - Azure Deploy App Service
+name: Deploy Azure Preview Environment
 
-# **What it does**: Build and deploy staging PRs to Azure
-# **Why we have it**: It's our new staging deployment mechanism, only applicable to docs-internal
+# **What it does**: Build and deploy to an Azure preview environment
+# **Why we have it**: It's our preview environment deploy mechanism, only applicable to docs-internal
 # **Who does it impact**: All contributors.
 
 # This whole workflow is only guaranteed to be secure in the *private
@@ -28,18 +28,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy-staging-azure:
+  build-and-deploy-azure-preview:
     if: ${{ github.repository == 'github/docs-internal' }}
-    name: Build and deploy image to staging App Service
+    name: Build and deploy image to Azure
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment:
-      name: staging-pr-${{ github.event.number }}
+      name: preview-env-${{ github.event.number }}
       url: ${{ steps.deploy.outputs.defaultHostName }}
     env:
       GITHUB_EVENT_NUMBER: ${{ github.event.number }}
-      STAGING_RESOURCE_GROUPS: 4
+      PREVIEW_ENV_RESOURCE_GROUPS: 4
       NONPROD_REGISTRY_USERNAME: ghdocs
+      APP_LOCATION: eastus
       ENABLE_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
       # Image tag is unique to each workflow run so that it always triggers a new deployment
       DOCKER_IMAGE: ${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}/pr-${{ github.event.number }}:${{ github.event.pull_request.head.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -51,8 +52,8 @@ jobs:
           REPO_NAME=${GITHUB_REPOSITORY#*\/}
           echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
           echo "DEPLOYMENT_NAME=${REPO_NAME}-pr-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
-          echo "RESOURCE_GROUP=preview-env-${REPO_NAME}-$((${GITHUB_EVENT_NUMBER} % ${STAGING_RESOURCE_GROUPS}))" >> $GITHUB_ENV
-          echo "APP_NAME=gh${REPO_NAME}-staging-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
+          echo "RESOURCE_GROUP=preview-env-${REPO_NAME}-$((${GITHUB_EVENT_NUMBER} % ${PREVIEW_ENV_RESOURCE_GROUPS}))" >> $GITHUB_ENV
+          echo "APP_NAME=${REPO_NAME}-preview-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
 
       - name: 'Az CLI login'
         uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
@@ -68,14 +69,6 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
-
-      - name: Cache Docker layers
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
 
       - name: Check out repo
         uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
@@ -143,11 +136,9 @@ jobs:
           target: preview
           tags: ${{ env.DOCKER_IMAGE }}
           # we only pull the `main` cache image
-          cache-from: |
-            type=local,src=/tmp/.buildx-cache
-            type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
+          cache-from: type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
           # `main-docker-cache.yml` handles updating the remote cache so we don't pollute it with PR specific code
-          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+          cache-to: ''
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any existing deployments for this PR'
@@ -162,21 +153,13 @@ jobs:
         with:
           resourceGroupName: ${{ env.RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
-          template: ./staging-azure-deploy-template.json
+          template: ./azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
           parameters: appName="${{ env.APP_NAME }}"
-            location="East US"
+            location="${{ env.APP_LOCATION }}"
             linuxFxVersion="DOCKER|${{ env.DOCKER_IMAGE }}"
             dockerRegistryUrl="https://${{ secrets.NONPROD_REGISTRY_SERVER }}"
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
 
       - run: echo ${{ steps.deploy.outputs.defaultHostName }}
-
-      - # Fixes cache growth problem
-        # https://github.com/docker/build-push-action/issues/252
-        # https://github.com/moby/buildkit/issues/1896
-        name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
