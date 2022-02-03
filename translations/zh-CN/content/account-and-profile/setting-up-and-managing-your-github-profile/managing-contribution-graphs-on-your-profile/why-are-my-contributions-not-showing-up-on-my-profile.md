@@ -1,6 +1,6 @@
 ---
 title: 为什么我的贡献没有在我的个人资料中显示？
-intro: Learn common reasons that contributions may be missing from your contributions graph.
+intro: 了解贡献可能从你的贡献图中丢失的常见原因。
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
   - /github/setting-up-and-managing-your-github-profile/why-are-my-contributions-not-showing-up-on-my-profile
@@ -12,12 +12,11 @@ versions:
   ghec: '*'
 topics:
   - Profiles
-shortTitle: Missing contributions
+shortTitle: 缺失的贡献
 ---
 
-## About your contribution graph
-
-Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.product.product_location %}. 贡献按照协调世界时 (UTC) 而不是您当地的时区加时间戳。 只有在满足特定标准时才会计算贡献。 在某些情况下，我们可能需要重建您的图表才能显示贡献。
+## 关于你的贡献图
+你的个人资料贡献图是在 {% data variables.product.product_location %} 上的仓库所做贡献的记录。贡献按照协调世界时 (UTC) 而不是您当地的时区加时间戳。 只有在满足特定标准时才会计算贡献。 在某些情况下，我们可能需要重建您的图表才能显示贡献。
 
 ## 计算的贡献
 
@@ -27,7 +26,7 @@ Your profile contributions graph is a record of contributions you've made to rep
 
 ### 提交
 如果提交符合以下**所有**条件，则会在您的贡献图中显示：
-- The email address used for the commits is associated with your account on {% data variables.product.product_location %}.
+- 提交的邮箱地址与你在 {% data variables.product.product_location %} 上的账户关联。
 - 提交在独立的仓库而不是复刻中进行。
 - 提交在以下位置进行：
   - 在仓库的默认分支中
@@ -51,7 +50,7 @@ Your profile contributions graph is a record of contributions you've made to rep
 
 ### 您的本地 Git 提交电子邮件地址未连接到您的帐户
 
-Commits must be made with an email address that is connected to your account on {% data variables.product.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.product.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, 请参阅 "[设置提交电子邮件地址](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
 
 您可以通过将 `.patch` 添加到提交 URL 结尾来检查用于提交的电子邮件地址，例如 <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>：
 
