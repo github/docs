@@ -88,15 +88,10 @@ describe('server', () => {
       const productTitles = productItems.map((el) => $(el).text().trim())
       const productHrefs = productItems.map((el) => $(el).attr('href'))
 
-      const firstSidebarTitle = sidebarTitles.shift()
-      const firstSidebarHref = sidebarHrefs.shift()
-
       const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
 
       const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
 
-      expect(firstSidebarTitle).toBe('All products')
-      expect(firstSidebarHref).toBe('/en')
       expect(
         titlesInProductsButNotSidebar.length,
         `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`
