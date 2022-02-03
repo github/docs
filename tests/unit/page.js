@@ -134,6 +134,10 @@ describe('Page class', () => {
           '/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
         currentLanguage: 'en',
       }
+      // This is needed because unit tests are weird. The page.render()
+      // method is dependent on module global cache.
+      // We need to fudge the `currentPath` so it appears to be different.
+      context.currentPath += Math.random()
       await page.render(context)
       const $ = cheerio.load(page.intro)
       expect(
@@ -208,6 +212,7 @@ describe('Page class', () => {
         currentLanguage: 'en',
         enterpriseServerVersions,
       }
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       let rendered = await page.render(context)
       let $ = cheerio.load(rendered)
       expect($.text()).toBe(
@@ -218,6 +223,7 @@ describe('Page class', () => {
       // change version to the oldest enterprise version, re-render, and test again;
       // the results should be the same
       context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).toBe(
@@ -228,6 +234,7 @@ describe('Page class', () => {
       // change version to non-enterprise, re-render, and test again;
       // the results should be the opposite
       context.currentVersion = nonEnterpriseDefaultVersion
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).not.toBe(
@@ -265,6 +272,7 @@ describe('Page class', () => {
         currentVersion: 'github-ae@latest',
         currentLanguage: 'en',
       }
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}`
       await expect(() => {
         return page.render(context)
       }).not.toThrow()
