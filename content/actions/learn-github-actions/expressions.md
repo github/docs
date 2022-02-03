@@ -55,7 +55,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `boolean` | `true` or `false` |
 | `null`    | `null` |
 | `number`  | Any number format supported by JSON. |
-| `string`  | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). |
+| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
 #### Example
 
