@@ -2,8 +2,8 @@
 title: Managing disruptive comments
 intro: 'You can {% ifversion fpt or ghec %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
 redirect_from:
-  - /articles/editing-a-comment/
-  - /articles/deleting-a-comment/
+  - /articles/editing-a-comment
+  - /articles/deleting-a-comment
   - /articles/managing-disruptive-comments
   - /github/building-a-strong-community/managing-disruptive-comments
 versions:
@@ -18,7 +18,7 @@ shortTitle: Manage comments
 
 ## Hiding a comment
 
-Anyone with write access to a repository can hide comments on issues, pull requests, and commits. 
+Anyone with write access to a repository can hide comments on issues, pull requests, and commits.
 
 If a comment is off-topic, outdated, or resolved, you may want to hide a comment to keep a discussion focused or make a pull request easier to navigate and review. Hidden comments are minimized but people with read access to the repository can expand them.
 

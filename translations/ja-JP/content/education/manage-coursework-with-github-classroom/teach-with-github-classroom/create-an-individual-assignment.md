@@ -3,6 +3,7 @@ title: 個人課題の作成
 intro: コースにおいて、個人で修了するための課題を学生のために作成できます。
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can create and manage individual assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
@@ -100,11 +101,20 @@ shortTitle: 個人課題
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-課題の [**All students**] タブで、学生がクラスルームに参加して課題を受け入れたかや、サブミットしたかを表示できます。 {% data reusables.classroom.assignments-to-prevent-submission %}
+You can see whether a student has joined the classroom and accepted or submitted an assignment in the **Classroom roster** tab for the assignment. You can also link students' {% data variables.product.prodname_dotcom %} aliases to their associated roster identifier and vice versa in this tab. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="個人課題" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
+
+## Monitoring students' progress
+The assignment overview page provides an overview of your assignment acceptances and student progress. You may have different summary information based on the configurations of your assignments.
+
+- **Rostered students**: The number of students on the Classroom's roster.
+- **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
+-  **Accepted students**: The number of accounts have accepted this assignment.
+-  **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
+-  **Passing students**: The number of students currently passing the autograding tests for this assignment.
 
 ## 次のステップ
 

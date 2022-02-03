@@ -20,14 +20,13 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About custom actions
 
 您可以编写自定义代码来创建操作，以您喜欢的方式与仓库交互，包括使用 {% data variables.product.prodname_dotcom %} 的 API 以及任何公开的第三方 API 进行交互。 例如，操作可以发布 npm 模块、在创建紧急议题时发送短信提醒，或者部署可用于生产的代码。
 
 {% ifversion fpt or ghec %}
-您可以编写自己的操作以用于工作流程，或者与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。 要共享您创建的操作，您的仓库必须是公共的。
+您可以编写自己的操作以用于工作流程，或者与 {% data variables.product.prodname_dotcom %} 社区共享您创建的操作。 To share actions you've built with everyone, your repository must be public. {% if internal-actions %}To share actions only within your enterprise, your repository must be internal.{% endif %}
 {% endif %}
 
 操作可以直接在计算机或 Docker 容器中运行。 您可以定义操作的输入、输出和环境变量。
@@ -70,7 +69,10 @@ _复合_操作允许您在一个操作中组合多个工作流程步骤。 例�
 将操作存储在其自己的仓库中更便于 {% data variables.product.prodname_dotcom %} 社区发现操作，缩小代码库范围以便开发者修复问题和扩展操作，以及从其他应用程序代码的版本解耦操作的版本。
 {% endif %}
 
-{% ifversion fpt or ghec %}如果创建不打算公开的操作，您{% else %}您{% endif %}可以将操作的文件存储在您的仓库中的任何位置。 如果计划将操作、工作流程和应用程序代码合并到一个仓库中，建议将操作存储在 `.github` 目录中。 例如，`.github/actions/action-a` 和 `.github/actions/action-b`。
+{% data reusables.actions.internal-actions-summary %}
+
+{% ifversion fpt or ghec %}If you're building an action that you don't plan to make available to others, you {% else %} You{% endif %} can store the action's files in any location in your repository. 如果计划将操作、工作流程和应用程序代码合并到一个仓库中，建议将操作存储在 `.github` 目录中。 例如，`.github/actions/action-a` 和 `.github/actions/action-b`。
+
 
 ## 与 {% data variables.product.prodname_ghe_server %} 的兼容性
 

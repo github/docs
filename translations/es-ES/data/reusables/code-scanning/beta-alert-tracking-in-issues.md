@@ -4,7 +4,7 @@
 
 **Note:** The tracking of {% data variables.product.prodname_code_scanning %} alerts in issues is in beta and subject to change.
 
-This feature supports running analysis natively using {% data variables.product.prodname_actions %} or externally using existing CI/CD infrastructure, as well as third-party {% data variables.product.prodname_code_scanning %} tools, but _not_ third-party tracking tools.
+Esta característica es compatible con la ejecución nativa de análisis utilizando {% data variables.product.prodname_actions %} o externamente utilizando infraestructura de IC/DC, así como herramientas del {% data variables.product.prodname_code_scanning %} de terceros, pero _no_ de herramientas de rastreo de terceros.
 
 {% endnote %}
 {% endif %}

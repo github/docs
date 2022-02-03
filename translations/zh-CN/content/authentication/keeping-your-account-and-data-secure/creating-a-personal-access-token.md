@@ -2,8 +2,8 @@
 title: 创建个人访问令牌
 intro: 您应该通过命令行或 API 创建个人访问令牌来代替密码。
 redirect_from:
-  - /articles/creating-an-oauth-token-for-command-line-use/
-  - /articles/creating-an-access-token-for-command-line-use/
+  - /articles/creating-an-oauth-token-for-command-line-use
+  - /articles/creating-an-access-token-for-command-line-use
   - /articles/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token
@@ -27,7 +27,7 @@ shortTitle: 创建 PAT
 
 在使用[GitHub API 或](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)命令[行](#using-a-token-on-the-command-line)时，可使用个人访问令牌 (PAT) 代替密码向 {% data variables.product.product_name %} 进行身份验证。
 
-{% ifversion fpt or ghec %}如果要使用 PAT 访问使用 SAML SSO 的组织所拥有的资源，则必须授权 PAT。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”和“[授权个人访问令牌用于 SAML 单点登录](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”。{% endif %}
+{% ifversion fpt or ghec %}如果要使用 PAT 访问使用 SAML SSO 的组织所拥有的资源，则必须授权 PAT。 For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" and "[Authorizing a personal access token for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 {% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
@@ -51,7 +51,7 @@ shortTitle: 创建 PAT
 8. 单击 **Generate token（生成令牌）**。 ![生成令牌按钮](/assets/images/help/settings/generate_token.png)
    {% ifversion fpt or ghec %}
    ![新建的令牌](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes > 3.1 or ghae-next %}
+   {% elsif ghes > 3.1 or ghae %}
    ![新建的令牌](/assets/images/help/settings/personal_access_tokens_ghe.png)
    {% else %}
    ![新建的令牌](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
@@ -62,7 +62,7 @@ shortTitle: 创建 PAT
 
    {% endwarning %}
 
-{% ifversion fpt or ghec %}9. 要使用令牌向实施 SAML SSO 的组织验证，[请授权该令牌用于 SAML 单点登录组织](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)。{% endif %}
+{% ifversion fpt or ghec %}9. To use your token to authenticate to an organization that uses SAML single sign-on, authorize the token. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 ## 在命令行上使用令牌
 
@@ -76,5 +76,5 @@ shortTitle: 创建 PAT
 
 ## 延伸阅读
 
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+- “[关于向 GitHub 验证身份](/github/authenticating-to-github/about-authentication-to-github){% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}”
 - "[令牌到期和撤销](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}

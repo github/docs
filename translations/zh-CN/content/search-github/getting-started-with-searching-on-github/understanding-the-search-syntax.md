@@ -2,7 +2,7 @@
 title: 了解搜索语法
 intro: '搜索 {% data variables.product.product_name %} 时，您可以构建匹配特定数字和单词的查询。'
 redirect_from:
-  - /articles/search-syntax/
+  - /articles/search-syntax
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/understanding-the-search-syntax

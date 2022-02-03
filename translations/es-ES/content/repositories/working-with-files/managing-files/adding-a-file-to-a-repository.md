@@ -40,7 +40,7 @@ Los archivos que agregues a un repositorio mediante un navegador están limitado
 
 ## Agregar un archivo a un repositorio utilizando la línea de comando
 
-You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} using the command line.
+Puedes cargar un archivo existente a un repositorio en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} utilizando la línea de comandos.
 
 {% tip %}
 

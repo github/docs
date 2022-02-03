@@ -36,28 +36,28 @@ Use o {% data variables.product.prodname_vs %} Marketplace para instalar a exten
 {% mac %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Clique em **Iniciar sessão para visualizar {% data variables.product.prodname_dotcom %}...**.
+1. Clique em **Iniciar sessão para visualizar {% data variables.product.prodname_dotcom %}...**.
 
    ![Registrar-se para visualizar {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode-mac.png)
 
-3. Para autorizar o {% data variables.product.prodname_vscode %} a acessar sua conta no {% data variables.product.product_name %}, clique em **Permitir**.
-4. Registre-se e, {% data variables.product.product_name %} para aprovar a extensão.
+1. Para autorizar o {% data variables.product.prodname_vscode %} a acessar sua conta no {% data variables.product.product_name %}, clique em **Permitir**.
+1. Registre-se e, {% data variables.product.product_name %} para aprovar a extensão.
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Utilize o menu suspenso "EXPLORADOR REMOTO" e clique em **{% data variables.product.prodname_github_codespaces %}**.
+1. Utilize o menu suspenso "EXPLORADOR REMOTO" e clique em **{% data variables.product.prodname_github_codespaces %}**.
 
    ![Cabeçalho do {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/codespaces-header-vscode.png)
 
-3. Clique em **Iniciar sessão para visualizar {% data variables.product.prodname_codespaces %}...**.
+1. Clique em **Iniciar sessão para visualizar {% data variables.product.prodname_codespaces %}...**.
 
    ![Registrar-se para visualizar {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode.png)
 
-4. Para autorizar o {% data variables.product.prodname_vscode %} a acessar sua conta no {% data variables.product.product_name %}, clique em **Permitir**.
-5. Registre-se e, {% data variables.product.product_name %} para aprovar a extensão.
+1. Para autorizar o {% data variables.product.prodname_vscode %} a acessar sua conta no {% data variables.product.product_name %}, clique em **Permitir**.
+1. Registre-se e, {% data variables.product.product_name %} para aprovar a extensão.
 
 {% endwindows %}
 
@@ -68,8 +68,8 @@ Use o {% data variables.product.prodname_vs %} Marketplace para instalar a exten
 ## Abrir um codespace em {% data variables.product.prodname_vscode %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Em "Codedespaces", clique no código que você deseja desenvolver.
-3. Clique no ícone Conectar-se ao Codespace.
+1. Em "Codedespaces", clique no código que você deseja desenvolver.
+1. Clique no ícone Conectar-se ao Codespace.
 
    ![Ícone de conectar-se a um Codespace em {% data variables.product.prodname_vscode %}](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
 
@@ -80,28 +80,35 @@ Use o {% data variables.product.prodname_vs %} Marketplace para instalar a exten
 Você pode alterar o tipo de máquina do seu codespace a qualquer momento.
 
 1. Em {% data variables.product.prodname_vscode %}, abra a Paleta de Comando (`shift comando P` / `shift control P`).
-2. Pesquise e selecione "Codespaces: Alterar tipo de máquina."
+1. Pesquise e selecione "Codespaces: Alterar tipo de máquina."
 
    ![Pesquisar um branch para criar um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/vscode-change-machine-type-option.png)
 
-3. Clique no codespace que você deseja alterar.
+1. Clique no codespace que você deseja alterar.
 
    ![Pesquisar um branch para criar um novo {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/vscode-change-machine-choose-repo.png)
 
-4. Escolha o tipo de máquina que você quer usar.
+1. Escolha o tipo de máquina que você quer usar.
 
-Se o codespace estiver sendo executado, será exibida uma mensagem perguntando se você deseja reiniciar e reconectar-se ao seu codespace agora. Clique em **Sim** se desejar mudar o tipo de máquina utilizado para este codespace imediatamente. Se você clicar em **Não**, ou se o código não estiver em execução, a alteração entrará em vigor na próxima vez que o codespace for reiniciado.
+   {% data reusables.codespaces.codespaces-machine-type-availability %}
+
+1. Se o codespace estiver sendo executado, será exibida uma mensagem perguntando se você deseja reiniciar e reconectar-se ao seu codespace agora.
+
+   Clique em **Sim** se desejar mudar o tipo de máquina utilizado para este codespace imediatamente.
+
+   Se você clicar em **Não**, ou se o código não estiver em execução, a alteração entrará em vigor na próxima vez que o codespace for reiniciado.
 
 ## Excluir um codespace em {% data variables.product.prodname_vscode %}
 
+{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
 
-## Switching to the Insiders build of {% data variables.product.prodname_vscode %}
+## Alternando para a compilação de Insiders de {% data variables.product.prodname_vscode %}
 
-You can use the [Insiders Build of Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) within {% data variables.product.prodname_codespaces %}.
+Você pode usar o [Insiders Build do Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) em {% data variables.product.prodname_codespaces %}.
 
 1. Na parte inferior esquerda da sua janela {% data variables.product.prodname_codespaces %}, selecione **Configurações de {% octicon "gear" aria-label="The settings icon" %}**.
 2. Na lista, selecione "Alternar para Versão de Insiders".
 
-   ![Clicking on "Insiders Build" in {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
-3. Once selected, {% data variables.product.prodname_codespaces %} will continue to open in Insiders Version.
+   ![Clicando em "Insiders Build" em {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
+3. Uma vez selecionado, {% data variables.product.prodname_codespaces %} continuará a abrir na Versão do Insiders.

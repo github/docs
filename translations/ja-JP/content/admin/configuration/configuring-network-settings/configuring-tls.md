@@ -2,8 +2,8 @@
 title: TLSの設定
 intro: '信頼できる認証機関によって署名された証明書を使用できるように、{% data variables.product.product_location %} で Transport Layer Security (TLS) を設定できます。'
 redirect_from:
-  - /enterprise/admin/articles/ssl-configuration/
-  - /enterprise/admin/guides/installation/about-tls/
+  - /enterprise/admin/articles/ssl-configuration
+  - /enterprise/admin/guides/installation/about-tls
   - /enterprise/admin/installation/configuring-tls
   - /enterprise/admin/configuration/configuring-tls
   - /admin/configuration/configuring-tls

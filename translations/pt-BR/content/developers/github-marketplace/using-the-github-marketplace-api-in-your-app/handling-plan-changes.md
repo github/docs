@@ -2,8 +2,8 @@
 title: Gerenciar mudanças de plano
 intro: 'Atualizar ou fazer downgrade de um aplicativo do {% data variables.product.prodname_marketplace %} aciona o webook do [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) com a ação `alterado`, que dá início ao fluxo de atualização ou downgrade.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /developers/github-marketplace/handling-plan-changes
 versions:
@@ -50,7 +50,7 @@ Para incentivar as pessoas a fazer a atualização, você pode exibir uma URL de
 
 Você pode redirecionar os usuários da interface de usuário do seu aplicativo no GitHub, usando uma URL de atualização:
 
-```
+```text
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 

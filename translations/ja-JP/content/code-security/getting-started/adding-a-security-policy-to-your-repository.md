@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -39,7 +39,7 @@ shortTitle: セキュリティポリシーの追加
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% ifversion ghes > 3.0 or ghae-next %}
+{% ifversion ghes > 3.0 or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 セキュリティの報告の指示を明確に利用できる要することで、ユーザがあなたの好むコミュニケーションチャンネルを使ってリポジトリで見つけたセキュリティ脆弱性を報告することを容易にできます。
 {% endif %}

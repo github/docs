@@ -1,7 +1,7 @@
 .sidebarArticle::before {
   content: "";
   position: absolute;
-  left: 26px;
+  left: calc(1.5rem + 2px);
   height: 100%;
   border-left: 1px solid var(--color-fg-default);
   width: 1px;

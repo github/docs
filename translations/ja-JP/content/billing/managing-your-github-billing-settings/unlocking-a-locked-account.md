@@ -3,12 +3,12 @@ title: ロックされたアカウントのロックを解除する
 intro: 支払いの問題が原因で支払い期限が過ぎた場合、Organization の有料機能はロックされます。
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/unlocking-a-locked-account
-  - /articles/what-happens-if-my-account-is-locked/
-  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-owe-anything-for-previous-time/
-  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-pay-backcharges/
-  - /articles/what-happens-if-my-repository-is-locked/
-  - /articles/unlocking-a-locked-personal-account/
-  - /articles/unlocking-a-locked-organization-account/
+  - /articles/what-happens-if-my-account-is-locked
+  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-owe-anything-for-previous-time
+  - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-pay-backcharges
+  - /articles/what-happens-if-my-repository-is-locked
+  - /articles/unlocking-a-locked-personal-account
+  - /articles/unlocking-a-locked-organization-account
   - /articles/unlocking-a-locked-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/unlocking-a-locked-account
 versions:

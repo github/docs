@@ -1,11 +1,11 @@
 ---
-title: Sobre notificações de e-mail para pushes no seu repositório
-intro: Você pode optar por enviar notificações por email automaticamente para um endereço de email específico quando alguém fizer push para o repositório.
+title: About email notifications for pushes to your repository
+intro: You can choose to automatically send email notifications to a specific email address when anyone pushes to the repository.
 permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
-  - /articles/managing-notifications-for-pushes-to-a-repository/
-  - /articles/receiving-email-notifications-for-pushes-to-a-repository/
-  - /articles/about-email-notifications-for-pushes-to-your-repository/
+  - /articles/managing-notifications-for-pushes-to-a-repository
+  - /articles/receiving-email-notifications-for-pushes-to-a-repository
+  - /articles/about-email-notifications-for-pushes-to-your-repository
   - /github/receiving-notifications-about-activity-on-github/about-email-notifications-for-pushes-to-your-repository
   - /github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository
   - /github/administering-a-repository/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository
@@ -16,56 +16,39 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Notificações de e-mail para pushes
+shortTitle: Email notifications for pushes
 ---
-
 {% data reusables.notifications.outbound_email_tip %}
 
-Cada notificação de e-mail para um push no repositório lista os novos commits e os vincula a um diff contendo apenas esses commits. Na notificação de e-mail, você verá:
+Each email notification for a push to a repository lists the new commits and links to a diff containing just those commits. In the email notification you'll see:
 
-- O nome do repositório onde o commit foi feito
-- O branch em que um commit foi feito
-- O SHA1 do commit, incluindo um link para o diff no {% data variables.product.product_name %}
-- O autor do commit
-- A data em que o commit foi feito
-- Os arquivos que foram alterados como parte do commit
-- A mensagem do commit;
+- The name of the repository where the commit was made
+- The branch a commit was made in
+- The SHA1 of the commit, including a link to the diff in {% data variables.product.product_name %}
+- The author of the commit
+- The date when the commit was made
+- The files that were changed as part of the commit
+- The commit message
 
-É possível filtrar notificações de e-mail que você recebe para pushes em um repositório. Para obter mais informações, consulte {% ifversion fpt or ghae or ghes or ghec %}"[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[Sobre e-mails de notificação](/github/receiving-notifications-about-activity-on-github/about-email-notifications)"." Você também pode desativar notificações por email para pushes. Para obter mais informações, consulte "
-[Escolher o método de entrega das suas notificações](/enterprise/{{ page.version }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}".</p> 
+You can filter email notifications you receive for pushes to a repository. For more information, see {% ifversion fpt or ghae or ghes or ghec %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." You can also turn off email notifications for pushes. For more information, see "[Choosing the delivery method for your notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}."
 
-
-
-## Habilitando notificações de e-mail para pushes no seu repositório
+## Enabling email notifications for pushes to your repository
 
 {% data reusables.repositories.navigate-to-repo %}
-
-
-
 {% data reusables.repositories.sidebar-settings %}
-
-
-
 {% data reusables.repositories.sidebar-notifications %}
+5. Type up to two email addresses, separated by whitespace, where you'd like notifications to be sent. If you'd like to send emails to more than two accounts, set one of the email addresses to a group email address.
+![Email address textbox](/assets/images/help/settings/email_services_addresses.png)
+1. If you operate your own server, you can verify the integrity of emails via the **Approved header**. The **Approved header** is a token or secret that you type in this field, and that is sent with the email. If the `Approved` header of an email matches the token, you can trust that the email is from {% data variables.product.product_name %}.
+![Email approved header textbox](/assets/images/help/settings/email_services_approved_header.png)
+7. Click **Setup notifications**.
+![Setup notifications button](/assets/images/help/settings/setup_notifications_settings.png)
 
-5. Digite até dois endereços de e-mail, separados por um espaço, para os quais deseja enviar as notificações. Se desejar enviar e-mails a mais de duas contas, defina um dos endereços para um endereço de e-mail de grupo. ![Caixa de texto de endereço de e-mail](/assets/images/help/settings/email_services_addresses.png)
-
-1. Se você operar o seu próprio servidor, você poderá verificar a integridade dos e-mails através do **Cabeçalho aprovado**. O **Cabeçalho aprovado** é um token ou segredo que você digita nesse campo e enviado com o e-mail. Se o cabeçalho `Aprovado` de um e-mail corresponder ao token, você poderá confiar que o e-mail é de {% data variables.product.product_name %}. ![Caixa de texto do cabeçalho do e-mail aprovado](/assets/images/help/settings/email_services_approved_header.png)
-
-7. Clique em **Configurar notificações**. ![Botão para configurar notificações](/assets/images/help/settings/setup_notifications_settings.png)
-
-
-
-## Leia mais
-
+## Further reading
 {% ifversion fpt or ghae or ghes or ghec %}
-
-- "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" 
-  
-  {% else %}
-
-- "[Sobre notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
-
-- "[Escolhendo o método de entrega de suas notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)"
-- "[Sobre notificações por e-mail](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)"
-- "[Sobre notificações web](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)"{% endif %}
+- "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
+{% else %}
+- "[About notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
+- "[Choosing the delivery method for your notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)"
+- "[About email notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)"
+- "[About web notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)"{% endif %}

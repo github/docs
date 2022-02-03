@@ -1,13 +1,13 @@
 ---
 title: Almacenar tus credenciales de GitHub en el caché dentro de Git
 redirect_from:
-  - /firewalls-and-proxies/
+  - /firewalls-and-proxies
   - /articles/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/getting-started-with-git/caching-your-github-credentials-in-git
-intro: 'Si estás [clonando repositorios de {% data variables.product.product_name %} utilizando HTTPS](/github/getting-started-with-github/about-remote-repositories), te recomendamos utilizar el {% data variables.product.prodname_cli %} o el Core de Administración de Credenciales de Git (GCM Core) para recordar tus credenciales.'
+intro: 'Si estás [clonando repositorios de {% data variables.product.product_name %} utilizando HTTPS](/github/getting-started-with-github/about-remote-repositories), te recomendamos utilizar el {% data variables.product.prodname_cli %} o el Administrador de Credenciales de Git (GCM) para recordar tus credenciales.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -33,9 +33,9 @@ El {% data variables.product.prodname_cli %} almacenará tus credenciales de Git
 
 Para obtener más información sobre cómo autenticarte con el {% data variables.product.prodname_cli %}, consulta la sección [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
-## Core de Administración de Credenciales de Git
+## Administrador de credenciales de Git
 
-El [Core de Administración de Credenciales de Git](https://github.com/microsoft/Git-Credential-Manager-Core) (GCM Core) es otra forma de almacenar tus credenciales de forma segura y conectarte a GitHub por HTTPS. Con el GCM Core, no necesitas [crear y almacenar un PAT](/github/authenticating-to-github/creating-a-personal-access-token) manualmente, ya que el GCM Core administra la autenticación en tu nombre, incluyendo la 2FA (autenticación bifactorial).
+El [Administrador de Credenciales de Git](https://github.com/GitCredentialManager/git-credential-manager) (GCM) es otra forma de almacenar tus credenciales de forma segura y conectarlas a GitHub a través de HTTPS. Con el GCM, no necesitas [crear y almacenar un PAT](/github/authenticating-to-github/creating-a-personal-access-token) manualmente, ya que este administra la autenticación en tu nombre, incluyendo la 2FA (autenticación bifactorial).
 
 {% mac %}
 
@@ -44,12 +44,12 @@ El [Core de Administración de Credenciales de Git](https://github.com/microsoft
   $ brew install git
   ```
 
-2. Instalar el GCM Core utilizando Homebrew:
+2. Instala el GCM utilizando Homebrew:
   ```shell
   $ brew tap microsoft/git
   $ brew install --cask git-credential-manager-core
   ```
-  Para MacOS, no necesitas ejecutar `git config`, ya que el GCM Core configura Git automáticamente para ti.
+  Para MacOS, no necesitas ejecutar `git config`, ya que el GCM configura Git automáticamente para ti.
 
 {% data reusables.gcm-core.next-time-you-clone %}
 
@@ -59,7 +59,7 @@ Ya que te hayas autenticado exitosamente, tus credenciales se almacenarán en el
 
 {% windows %}
 
-1. Instala Git para Windows, el cual incluye a GCM Core. Para obtener más información, consulta la sección "[Git para lanzamientos de Windows](https://github.com/git-for-windows/git/releases/latest)" desde su [página de lanzamientos](https://github.com/git-for-windows/git/releases/latest).
+1. Instala Git para Windows, el cual incluye el GCM. Para obtener más información, consulta la sección "[Git para lanzamientos de Windows](https://github.com/git-for-windows/git/releases/latest)" desde su [página de lanzamientos](https://github.com/git-for-windows/git/releases/latest).
 
 Te recomendamos instalar siempre la versión más reciente. Por lo mínimo, instala la versión 2.29 o superior, la cual es la primera versión que ofrece compatibilidad con OAuth para GitHub.
 
@@ -85,13 +85,13 @@ Una vez que te hayas autenticado con éxito, tus credenciales se almacenarán en
 
 {% linux %}
 
-Para Linux, instala Git y GCM Core y luego configura Git para utilizar GCM Core.
+Para Linux, instala Git y GCM y luego configura Git para utilizar el GCM.
 
 1. Instala Git desde el sistema de empaquetado de tu distribución. Las instrucciones variarán dependiendo del tipo de Linux que tengas.
 
-2. Instala GCM Core. Consulta las [instrucciones en el repositorio de GCM Core](https://github.com/microsoft/Git-Credential-Manager-Core#linux-install-instructions), ya que estas variarán dependiendo del tipo de Linux que ejecutas.
+2. Instala el GCM. Consulta las [instrucciones en el repositorio del GCM](https://github.com/GitCredentialManager/git-credential-manager#linux-install-instructions), ya que estas variarán dependiendo del tipo de Linux que ejecutas.
 
-3. Configura Git para utilizar GCM Core. Hay varias tiendas de respaldo de entre las que puedes elegir, así que revisa los documentos de GCM Core para completar tu configuración. Para obtener más información, consulta la sección "[GCM Core para Linux](https://aka.ms/gcmcore-linuxcredstores)".
+3. Configura Git para utilizar el GCM. Hay varias tiendas de respaldo de entre las que puedes elegir, así que revisa los documentos del GCM para completar tu configuración. Para obtener más información, consulta la sección "[GCM para Linux](https://aka.ms/gcmcore-linuxcredstores)".
 
 {% data reusables.gcm-core.next-time-you-clone %}
 
@@ -103,4 +103,4 @@ Para obtener más opciones para almacenar tus credenciales en Linux, consulta la
 
 <br>
 
-Para obtener más información o para reportar propuestas con GCM Core, consulta los documentos oficiales de GCM Core en "[Core de Administración de Credenciales de Git](https://github.com/microsoft/Git-Credential-Manager-Core)".
+Para obtener más información o para reportar propuestas con el GCM, consulta los documentos oficiales del GCM en el "[Administración de Credenciales de Git](https://github.com/GitCredentialManager/git-credential-manager)".

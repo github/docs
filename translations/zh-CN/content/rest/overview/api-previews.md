@@ -151,7 +151,7 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 
 ## 部署状态
 
-现在，您可以更新[部署状态](/rest/reference/repos#create-a-deployment-status)的 `environment` 并使用 `in_progress` 和 `queued` 状态。 创建部署状态时，现在可以使用 `auto_inactive` 参数将旧的 `production` 部署标记为 `inactive`。
+现在，您可以更新[部署状态](/rest/reference/deployments#create-a-deployment-status)的 `environment` 并使用 `in_progress` 和 `queued` 状态。 创建部署状态时，现在可以使用 `auto_inactive` 参数将旧的 `production` 部署标记为 `inactive`。
 
 **自定义媒体类型：** `flash-preview` **公布日期：** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
 
@@ -167,13 +167,15 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 
 {% endif %}
 
+{% ifversion ghes < 3.4 %}
 ## 内容附件
 
 现在，您可以在 GitHub 中使用 {% data variables.product.prodname_unfurls %} API 提供有关链接到注册域的 URL 的更多信息。 更多信息请参阅“[使用内容附件](/apps/using-content-attachments/)”。
 
 **自定义媒体类型：** `corsair-preview` **公布日期：** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-{% ifversion ghes < 3.3 %}
+{% endif %}
+{% ifversion ghae or ghes < 3.3 %}
 
 ## 启用和禁用页面
 

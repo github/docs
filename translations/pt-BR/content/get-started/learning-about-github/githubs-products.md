@@ -21,7 +21,11 @@ topics:
 
 ## Sobre os produtos de {% data variables.product.prodname_dotcom %}
 
-O {% data variables.product.prodname_dotcom %} oferece produtos grátis e pagos. Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
+{% data variables.product.prodname_dotcom %} oferece produtos gratuitos e pagos para armazenar e colaborar no código. Alguns produtos aplicam-se apenas a contas de usuários, enquanto outros planos aplicam-se apenas às contas da organização e corporativas. Para obter mais informações sobre as contas, consulte "[Tipos de contas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
+
+Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
+
+Ao ler {% data variables.product.prodname_docs %}, certifique-se de selecionar a versão que reflete seu produto. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ## {% data variables.product.prodname_free_user %} para contas de usuário
 
@@ -43,11 +47,11 @@ Além dos recursos disponíveis no {% data variables.product.prodname_free_user 
 - Ferramentas avançadas e insights em repositórios privados:
   - Revisores de pull request necessários
   - Múltiplos revisores de pull request
+  - Branches protegidos
+  - Proprietários de código
   - Referências autovinculadas
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - Branches protegidos
-  - Proprietários de código
   - Gráficos de informações de repositório: Pulse, contribuidores, tráfego, commits, frequência de códigos, rede e bifurcações
 
 ## {% data variables.product.prodname_free_team %} para organizações
@@ -70,14 +74,14 @@ Além dos recursos disponíveis no {% data variables.product.prodname_free_team 
 - Ferramentas avançadas e insights em repositórios privados:
   - Revisores de pull request necessários
   - Múltiplos revisores de pull request
-  - {% data variables.product.prodname_pages %}
-  - Wikis
-  - Branches protegidos
-  - Proprietários de código
-  - Gráficos de informações de repositório: Pulse, contribuidores, tráfego, commits, frequência de códigos, rede e bifurcações
   - Pull requests de rascunho
   - Equipe de revisores de pull request
+  - Branches protegidos
+  - Proprietários de código
   - Lembretes agendados
+  - {% data variables.product.prodname_pages %}
+  - Wikis
+  - Gráficos de informações de repositório: Pulse, contribuidores, tráfego, commits, frequência de códigos, rede e bifurcações
 {% ifversion fpt or ghec %}
 - A opção para habilitar {% data variables.product.prodname_github_codespaces %}
   - Os proprietários da organização podem habilitar {% data variables.product.prodname_github_codespaces %} para a organização definindo um limite de gastos e concedendo permissões de usuário aos integrantes da sua organização. Para obter mais informações, consulte "[Habilitando codespaces para a sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)".

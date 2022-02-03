@@ -50,7 +50,10 @@ async function main() {
   // This is done sequentially to ensure only one Git operation is running at any given time.
   brokenFilesArray.forEach((file) => {
     console.log(`Resetting ${file}`)
-    execSync(`node script/i18n/reset-translated-file.js ${file}`)
+    execSync(
+      `script/i18n/reset-translated-file.js ${file} --reason="Listed in localization-support#489"`,
+      { stdio: 'inherit' }
+    )
   })
 
   // Print a message with next steps.

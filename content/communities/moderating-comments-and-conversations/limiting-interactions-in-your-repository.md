@@ -2,7 +2,7 @@
 title: Limiting interactions in your repository
 intro: You can temporarily enforce a period of limited activity for certain users on a public repository.
 redirect_from:
-  - /articles/limiting-interactions-with-your-repository/
+  - /articles/limiting-interactions-with-your-repository
   - /articles/limiting-interactions-in-your-repository
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
@@ -28,10 +28,7 @@ You can also enable activity limitations on all repositories owned by your user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the left sidebar, click **Moderation settings**.
-  !["Moderation settings" in repository settings sidebar](/assets/images/help/repository/repo-settings-moderation-settings.png)
-1. Under "Moderation settings", click **Interaction limits**.
-  ![Interaction limits in repository settings ](/assets/images/help/repository/repo-settings-interaction-limits.png)
+1. In the "Access" section of the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![Temporary interaction limit options](/assets/images/help/repository/temporary-interaction-limits-options.png)
 

@@ -15,7 +15,7 @@ topics:
   - Pull requests
 ---
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## Sincronizando uma bifurcação a partir da interface de usuário da web
 

@@ -1,7 +1,7 @@
 ---
 title: Crear un repositorio
 redirect_from:
-  - /create-a-repo/
+  - /create-a-repo
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
@@ -40,8 +40,6 @@ Puedes almacenar varios proyectos en los repositorios de {% data variables.produ
 
 {% endif %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.create_new %}
@@ -60,19 +58,13 @@ Puedes almacenar varios proyectos en los repositorios de {% data variables.produ
 {% data reusables.cli.cli-learn-more %}
 
 1. En la línea de comandos, navega al directorio en donde te gustaría crear un clon local de tu proyecto nuevo.
-2. Para crear un repositorio de tu proyecto, utiliza el subcomando `gh repo create`. Reemplaza a `project-name` con el nombre que deseas dar a tu repositorio. Si quieres que tu proyecto pertenezca a una organización en vez de a tu cuenta de usuario, especifica el nombre de la organización y del proyecto con `organization-name/project-name`.
-
-   ```shell
-   gh repo create <em>project-name</em>
-   ```
-
-3. Sigue los mensajes interactivos. Para clonar el repositorio localmente, confirma que sí cuando se te pregunte si quisieras clonar el directorio remoto del proyecto. Como alternativa, puedes especificar los argumentos para omitir estos mensajes. Para obtener más información sobre los argumentos posibles, consulta [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_repo_create).
+2. Para crear un repositorio de tu proyecto, utiliza el subcomando `gh repo create`. Cuando se te indique, selecciona **Crear un repositorio nuevo en GitHub desde cero** e ingresa el nombre de tu nuevo proyecto. Si quieres que tu proyecto pertenezca a una organización en vez de a tu cuenta de usuario, especifica el nombre de la organización y del proyecto con `organization-name/project-name`.
+3. Sigue los mensajes interactivos. Para clonar el repositorio localmente, confirma que sí cuando se te pregunte si quisieras clonar el directorio remoto del proyecto.
+4. Como alternativa, para saltar las indicaciones, proporciona el nombre del repositorio y un marcador de visibilidad (`--public`, `--private` o `--internal`). Por ejemplo, `gh repo create project-name --public`. Para clonar el repositorio localmente, pasa el marcador `--clone`.  Para obtener más información sobre los argumentos posibles, consulta el [manual del CLI de GitHub](https://cli.github.com/manual/gh_repo_create).
 
 {% endcli %}
 
 ## Confirma tu primer cambio
-
-{% include tool-switcher %}
 
 {% webui %}
 

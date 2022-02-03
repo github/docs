@@ -2,7 +2,7 @@
 title: 組み込みファイアウォールのルール設定
 intro: '{% data variables.product.product_location %}のデフォルトのファイアウォールのルールとカスタマイズされたルールを見ることができます。'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-firewall-settings/
+  - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-built-in-firewall-rules

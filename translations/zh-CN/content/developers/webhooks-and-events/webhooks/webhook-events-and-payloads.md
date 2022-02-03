@@ -3,8 +3,8 @@ title: Web 挂钩事件和有效负载
 intro: 对于每个 web 挂钩事件，您可以查看事件发生的时间、示例有效负载以及有关有效负载对象参数的说明。
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
-  - /early-access/integrations/webhooks/
-  - /v3/activity/events/types/
+  - /early-access/integrations/webhooks
+  - /v3/activity/events/types
   - /webhooks/event-payloads
   - /developers/webhooks-and-events/webhook-events-and-payloads
 versions:
@@ -101,7 +101,7 @@ Web 挂钩事件的独特属性与您使用[事件 API](/rest/reference/activity
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 ## branch_protection_rule
 
 与分支保护规则相关的活动。 更多信息请参阅“[关于分支保护规则](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)”。
@@ -127,6 +127,34 @@ Web 挂钩事件的独特属性与您使用[事件 API](/rest/reference/activity
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+A Git ref has been successfully synced to a cache replica. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+
+### 可用性
+
+- 仓库 web 挂钩
+- 组织 web 挂钩
+
+### Web 挂钩有效负载对象
+
+| 键                | 类型    | 描述                                                             |
+| ---------------- | ----- | -------------------------------------------------------------- |
+| `cache_location` | `字符串` | The location of the cache server that has been updated.        |
+| `ref`            | `字符串` | The ref that has been updated.                                 |
+| `before`         | `字符串` | The OID of the ref on the cache replica before it was updated. |
+| `after`          | `字符串` | The OID of the ref on the cache replica after the update.      |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Web 挂钩有效负载示例
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -191,7 +219,7 @@ Web 挂钩事件的独特属性与您使用[事件 API](/rest/reference/activity
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | 如果 `action` 是 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 `sender` 对象对所有其他操作是 {% ifversion fpt or ghec %}`github` {% elsif ghes > 3.0 or ghae-next %}`github-enterprise` {% else %}空 {% endif %}。
+`sender` | `object` | 如果 `action` 是 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
 
 ### Web 挂钩有效负载示例
 
@@ -219,6 +247,7 @@ Web 挂钩事件的独特属性与您使用[事件 API](/rest/reference/activity
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
 
+{% ifversion ghes < 3.4 %}
 ## content_reference
 
 {% data reusables.webhooks.content_reference_short_desc %}
@@ -233,13 +262,14 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {{ webhookPayloadsForCurrentVersion.content_reference.created }}
 
+{% endif %}
 ## create
 
 {% data reusables.webhooks.create_short_desc %}
 
 {% note %}
 
-**注：**同时推送三个以上的标记时不会收到此事件的 web 挂钩。
+**Note:** You will not receive a webhook for this event when you create more than three tags at once.
 
 {% endnote %}
 
@@ -323,10 +353,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### Web 挂钩有效负载对象
 
-| 键            | 类型                                          | 描述                                            |
-| ------------ | ------------------------------------------- | --------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| 键            | 类型                                          | 描述                                                              |
+| ------------ | ------------------------------------------- | --------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `action`     | `字符串`                                       | 执行的操作。 可以是 `created`。{% endif %}
-| `deployment` | `对象`                                        | [部署](/rest/reference/repos#list-deployments)。 |
+| `deployment` | `对象`                                        | The [deployment](/rest/reference/deployments#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -348,14 +378,14 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### Web 挂钩有效负载对象
 
-| 键                                  | 类型                                          | 描述                                                      |
-| ---------------------------------- | ------------------------------------------- | ------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| 键                                  | 类型                                          | 描述                                                                                                  |
+| ---------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `action`                           | `字符串`                                       | 执行的操作。 可以是 `created`。{% endif %}
-| `deployment_status`                | `对象`                                        | [部署状态](/rest/reference/repos#list-deployment-statuses)。 |
-| `deployment_status["state"]`       | `字符串`                                       | 新状态。 可以是 `pending`、`success`、`failure` 或 `error`。       |
-| `deployment_status["target_url"]`  | `字符串`                                       | 添加到状态的可选链接。                                             |
-| `deployment_status["description"]` | `字符串`                                       | 添加到状态的可选人类可读说明。                                         |
-| `deployment`                       | `对象`                                        | 此状态关联的[部署](/rest/reference/repos#list-deployments)。     |
+| `deployment_status`                | `对象`                                        | The [deployment status](/rest/reference/deployments#list-deployment-statuses).                      |
+| `deployment_status["state"]`       | `字符串`                                       | 新状态。 可以是 `pending`、`success`、`failure` 或 `error`。                                                   |
+| `deployment_status["target_url"]`  | `字符串`                                       | 添加到状态的可选链接。                                                                                         |
+| `deployment_status["description"]` | `字符串`                                       | 添加到状态的可选人类可读说明。                                                                                     |
+| `deployment`                       | `对象`                                        | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -379,9 +409,9 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### Web 挂钩有效负载对象
 
-| 键        | 类型    | 描述                                                                                                                                          |
-| -------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action` | `字符串` | 执行的操作。 可以是 `created`、`edited`、`deleted`、`pinned`、`unpinned`、`locked`、`unlocked`、`transferred`、`category_changed`、`answered` 或 `unanswered`。 |
+| 键        | 类型    | 描述                                                                                                                                                                                |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action` | `字符串` | 执行的操作。 Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled`, or `unlabeled`. |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -427,7 +457,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 可用性
 
-- GitHub Enterprise web 挂钩。 更多信息请参阅“[全局 web 挂钩](/rest/reference/enterprise-admin#global-webhooks/)”。
+- GitHub Enterprise web 挂钩。 For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
 
 ### Web 挂钩有效负载对象
 
@@ -819,7 +849,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | 键    | 类型   | 描述                                                                      |
 | ---- | ---- | ----------------------------------------------------------------------- |
 | `id` | `整数` | 页面构建的唯一标识符。                                                             |
-| `构建` | `对象` | [列表 GitHub Pages 构建](/rest/reference/repos#list-github-pages-builds)本身。 |
+| `构建` | `对象` | [列表 GitHub Pages 构建](/rest/reference/pages#list-github-pages-builds)本身。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -845,7 +875,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | -------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `zen`          | `字符串` | GitHub zen 的随机字符串。                                                                                                                                                                                                                                                                          |
 | `hook_id`      | `整数`  | 触发 ping 的 web 挂钩的 ID。                                                                                                                                                                                                                                                                       |
-| `挂钩`           | `对象`  | [web 挂钩配置](/rest/reference/repos#get-a-repository-webhook)。                                                                                                                                                                                                                                 |
+| `挂钩`           | `对象`  | [web 挂钩配置](/rest/reference/webhooks#get-a-repository-webhook)。                                                                                                                                                                                                                              |
 | `hook[app_id]` | `整数`  | 注册新的 {% data variables.product.prodname_github_app %} 时，{% data variables.product.product_name %} 将 ping 事件发送到您在注册过程中指定的 **web 挂钩 URL**。 该事件包含 `app_id`，这是[验证](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/)应用程序的必需项。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -854,6 +884,38 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 ### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.ping }}
+
+## project
+
+{% data reusables.webhooks.project_short_desc %}
+
+### 可用性
+
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `repository_projects` 或 `organization_projects` 权限的 {% data variables.product.prodname_github_apps %}
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
+
+### Web 挂钩有效负载对象
+
+{% data reusables.webhooks.project_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Web 挂钩有效负载示例
+
+{{ webhookPayloadsForCurrentVersion.project.created }}
+
+{% ifversion fpt or ghes or ghec %}
 
 ## project_card
 
@@ -864,6 +926,14 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 - 仓库 web 挂钩
 - 组织 web 挂钩
 - 具有 `repository_projects` 或 `organization_projects` 权限的 {% data variables.product.prodname_github_apps %}
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
 
 ### Web 挂钩有效负载对象
 
@@ -899,29 +969,6 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-## project
-
-{% data reusables.webhooks.project_short_desc %}
-
-### 可用性
-
-- 仓库 web 挂钩
-- 组织 web 挂钩
-- 具有 `repository_projects` 或 `organization_projects` 权限的 {% data variables.product.prodname_github_apps %}
-
-### Web 挂钩有效负载对象
-
-{% data reusables.webhooks.project_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
-
-### Web 挂钩有效负载示例
-
-{{ webhookPayloadsForCurrentVersion.project.created }}
-
-{% ifversion fpt or ghes or ghec %}
 ## public
 
 {% data reusables.webhooks.public_short_desc %}
@@ -1033,29 +1080,29 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### Web 挂钩有效负载对象
 
-| 键                          | 类型    | 描述                                                                                                                                                                           |
-| -------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ref`                      | `字符串` | 被推送的完整 [`git ref`](/rest/reference/git#refs)。 例如： `refs/heads/main` 或 `refs/tags/v3.14.1`。                                                                                   |
-| `before`                   | `字符串` | 推送之前在 `ref` 上最近提交的 SHA。                                                                                                                                                      |
-| `after`                    | `字符串` | 推送之后在 `ref` 上最近提交的 SHA。                                                                                                                                                      |
-| `created`                  | `布尔值` | 此推送是否创建 `ref`。                                                                                                                                                               |
-| `deleted`                  | `布尔值` | 此推送是否删除 `ref`。                                                                                                                                                               |
-| `forced`                   | `布尔值` | 此推送是否为 `ref` 的强制推送。                                                                                                                                                          |
-| `head_commit`              | `对象`  | 对于 `after` 是提交对象或指向提交对象的推送，为该提交的扩展表示。 对于 `after` 指示注释标记对象的推送，注释标记指向的提交的扩展表示。                                                                                                 |
-| `compare`                  | `字符串` | 显示此 `ref` 更新中更改的 URL，从 `before` 提交到 `after` 提交。 对于新创建的直接基于默认分支的 `ref`，这是默认分支的头部与 `after` 提交之间的比较。 否则，这将显示 `after` 提交之前的所有提交。                                                 |
-| `commits`                  | `数组`  | 描述所推送提交的提交对象数组。 （推送的提交是指包含在 `compare` 中 `before` 提交与 `after` 提交之间的所有提交） 该数组最多包含 20 个提交。 如有必要，可使用[提交 API](/rest/reference/repos#commits) 获取更多提交。 此限制仅适用于时间表事件，而不适用于 web 挂钩递送。 |
-| `commits[][id]`            | `字符串` | 提交的 SHA。                                                                                                                                                                     |
-| `commits[][timestamp]`     | `字符串` | 提交的 ISO 8601 时间戳。                                                                                                                                                            |
-| `commits[][message]`       | `字符串` | 提交消息.                                                                                                                                                                        |
-| `commits[][author]`        | `对象`  | 提交的 Git 作者。                                                                                                                                                                  |
-| `commits[][author][name]`  | `字符串` | Git 作者的名称。                                                                                                                                                                   |
-| `commits[][author][email]` | `字符串` | Git 作者的电子邮件地址。                                                                                                                                                               |
-| `commits[][url]`           | `url` | 指向提交 API 资源的 URL。                                                                                                                                                            |
-| `commits[][distinct]`      | `布尔值` | 此提交是否与之前推送的任何提交不同。                                                                                                                                                           |
-| `commits[][added]`         | `数组`  | 在提交中添加的文件数组。                                                                                                                                                                 |
-| `commits[][modified]`      | `数组`  | 由提交修改的文件数组。                                                                                                                                                                  |
-| `commits[][removed]`       | `数组`  | 在提交中删除的文件数组。                                                                                                                                                                 |
-| `pusher`                   | `对象`  | 推送提交的用户。                                                                                                                                                                     |
+| 键                          | 类型    | 描述                                                                                                                           |
+| -------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `ref`                      | `字符串` | 被推送的完整 [`git ref`](/rest/reference/git#refs)。 例如： `refs/heads/main` 或 `refs/tags/v3.14.1`。                                   |
+| `before`                   | `字符串` | 推送之前在 `ref` 上最近提交的 SHA。                                                                                                      |
+| `after`                    | `字符串` | 推送之后在 `ref` 上最近提交的 SHA。                                                                                                      |
+| `created`                  | `布尔值` | 此推送是否创建 `ref`。                                                                                                               |
+| `deleted`                  | `布尔值` | 此推送是否删除 `ref`。                                                                                                               |
+| `forced`                   | `布尔值` | 此推送是否为 `ref` 的强制推送。                                                                                                          |
+| `head_commit`              | `对象`  | 对于 `after` 是提交对象或指向提交对象的推送，为该提交的扩展表示。 对于 `after` 指示注释标记对象的推送，注释标记指向的提交的扩展表示。                                                 |
+| `compare`                  | `字符串` | 显示此 `ref` 更新中更改的 URL，从 `before` 提交到 `after` 提交。 对于新创建的直接基于默认分支的 `ref`，这是默认分支的头部与 `after` 提交之间的比较。 否则，这将显示 `after` 提交之前的所有提交。 |
+| `commits`                  | `数组`  | 描述所推送提交的提交对象数组。 （推送的提交是指包含在 `compare` 中 `before` 提交与 `after` 提交之间的所有提交）                                                      |
+| `commits[][id]`            | `字符串` | 提交的 SHA。                                                                                                                     |
+| `commits[][timestamp]`     | `字符串` | 提交的 ISO 8601 时间戳。                                                                                                            |
+| `commits[][message]`       | `字符串` | 提交消息.                                                                                                                        |
+| `commits[][author]`        | `对象`  | 提交的 Git 作者。                                                                                                                  |
+| `commits[][author][name]`  | `字符串` | Git 作者的名称。                                                                                                                   |
+| `commits[][author][email]` | `字符串` | Git 作者的电子邮件地址。                                                                                                               |
+| `commits[][url]`           | `url` | 指向提交 API 资源的 URL。                                                                                                            |
+| `commits[][distinct]`      | `布尔值` | 此提交是否与之前推送的任何提交不同。                                                                                                           |
+| `commits[][added]`         | `数组`  | 在提交中添加的文件数组。                                                                                                                 |
+| `commits[][modified]`      | `数组`  | 由提交修改的文件数组。                                                                                                                  |
+| `commits[][removed]`       | `数组`  | 在提交中删除的文件数组。                                                                                                                 |
+| `pusher`                   | `对象`  | 推送提交的用户。                                                                                                                     |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1197,8 +1244,9 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
-与安全通告相关的活动。 安全通告提供有关 GitHub 软件中安全漏洞的信息。 安全通告数据集还支持 GitHub 安全警报，请参阅“[关于漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。
-{% endif %}
+Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
+
+The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。
 
 ### 可用性
 
@@ -1214,6 +1262,8 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 ### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ## sponsorship
@@ -1352,7 +1402,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 当用户被 `created` 或 `deleted` 时。
 
 ### 可用性
-- GitHub Enterprise web 挂钩。 更多信息请参阅“[全局 web 挂钩](/rest/reference/enterprise-admin#global-webhooks/)”。
+- GitHub Enterprise web 挂钩。 For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
 
 ### Web 挂钩有效负载示例
 

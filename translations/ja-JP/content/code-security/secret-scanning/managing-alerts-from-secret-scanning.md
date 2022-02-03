@@ -6,7 +6,6 @@ redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
   - /code-security/secret-security/managing-alerts-from-secret-scanning
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -25,14 +24,14 @@ shortTitle: シークレットのアラートの管理
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. 左サイトバーで、[**Secret scanning alerts**] をクリックします。
+1. 左サイトバーで、[**Secret scanning alerts**] をクリックします。
    {% ifversion fpt or ghes or ghec %}
    ![[Secret scanning alert] タブ](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
    ![[Secret scanning alert] タブ](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
-4. [Secret scanning] の下で、表示するアラートをクリックします。
+1. [Secret scanning] の下で、表示するアラートをクリックします。
    {% ifversion fpt or ghec %}
    ![シークレットスキャンからのアラートのリスト](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
@@ -42,7 +41,7 @@ shortTitle: シークレットのアラートの管理
    {% ifversion ghae %}
    ![シークレットスキャンからのアラートのリスト](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
-5. 必要に応じて、[Mark as] ドロップダウンメニューを使用して、アラートを解決する理由をクリックします。
+1. Optionally, select the {% ifversion fpt or ghec %}"Close as"{% elsif ghes or ghae %}"Mark as"{% endif %} drop-down menu and click a reason for resolving an alert.
    {% ifversion fpt or ghec %}
    ![シークレットスキャンからのアラートを解決するためのドロップダウンメニュー](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}

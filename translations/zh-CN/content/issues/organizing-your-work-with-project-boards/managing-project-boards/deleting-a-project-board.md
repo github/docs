@@ -3,7 +3,7 @@ title: 删除项目板
 intro: 如果您不再需要访问现有项目板的内容，可将其删除。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
-  - /articles/deleting-a-project/
+  - /articles/deleting-a-project
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:

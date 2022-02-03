@@ -2,10 +2,10 @@
 title: Sobre os endereços IP do GitHub
 intro: 'O {% data variables.product.product_name %} atende a aplicativos de vários intervalos de endereços IP, que são disponibilizados usando a API.'
 redirect_from:
-  - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist/
-  - /categories/73/articles/
-  - /categories/administration/
-  - /articles/github-s-ip-addresses/
+  - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist
+  - /categories/73/articles
+  - /categories/administration
+  - /articles/github-s-ip-addresses
   - /articles/about-github-s-ip-addresses
   - /articles/about-githubs-ip-addresses
   - /github/authenticating-to-github/about-githubs-ip-addresses

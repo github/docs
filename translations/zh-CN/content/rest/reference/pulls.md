@@ -61,7 +61,7 @@ miniTocMaxHeadingLevel: 3
 
 ## 审查评论
 
-拉取请求审查评论是在拉取请求审查期间对统一差异的一部分所发表的评论。 提交评论和议题评论不同于拉取请求审查评论。 将提交评论直接应用于提交，然后应用议题评论而不引用统一差异的一部分。 更多信息请参阅“[创建提交评论](/rest/reference/repos#create-a-commit-comment)”和“[创建议题评论](/rest/reference/issues#create-an-issue-comment)”。
+拉取请求审查评论是在拉取请求审查期间对统一差异的一部分所发表的评论。 提交评论和议题评论不同于拉取请求审查评论。 将提交评论直接应用于提交，然后应用议题评论而不引用统一差异的一部分。 更多信息请参阅“[创建提交评论](/rest/reference/commits#create-a-commit-comment)”和“[创建议题评论](/rest/reference/issues#create-an-issue-comment)”。
 
 ### 拉取请求审查评论的自定义媒体类型
 

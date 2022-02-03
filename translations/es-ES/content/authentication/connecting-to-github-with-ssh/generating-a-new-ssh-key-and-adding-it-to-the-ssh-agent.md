@@ -1,9 +1,9 @@
 ---
-title: Generar una nueva clave SSH y agregarla al ssh-agent
-intro: 'Una vez que has comprobado las claves SSH existentes, puedes generar una nueva clave SSH para usarla para la autenticación y luego agregarla al ssh-agent.'
+title: Generating a new SSH key and adding it to the ssh-agent
+intro: 'After you''ve checked for existing SSH keys, you can generate a new SSH key to use for authentication, then add it to the ssh-agent.'
 redirect_from:
-  - /articles/adding-a-new-ssh-key-to-the-ssh-agent/
-  - /articles/generating-a-new-ssh-key/
+  - /articles/adding-a-new-ssh-key-to-the-ssh-agent
+  - /articles/generating-a-new-ssh-key
   - /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
@@ -14,24 +14,23 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Generar una llave SSH nueva
+shortTitle: Generate new SSH key
 ---
+## About SSH key generation
 
-## Acerca de la generación de llaves SSH
+If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/github/authenticating-to-github/checking-for-existing-ssh-keys)."
 
-Si todavía no tienes una llave SSH, debes generar una nueva para utilizarla para autenticación. Si no estás seguro si ya tienes una llave SSH, puedes verificar si hay llaves existentes. Para obtener más información, consulta la sección "[Verificar si hay llaves SSH existentes](/github/authenticating-to-github/checking-for-existing-ssh-keys)".
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
-
-Si quieres utilizar una llave de seguridad de hardware para autenticarte en {% data variables.product.product_name %}, debes generar una llave SSH nueva para esta. Debes conectar tu llave de seguridad de hardware a tu computadora cuando te autentiques con el par de llaves. Para obtener más información, consulta las[notas de lanzamiento de OpenSSH 8.2](https://www.openssh.com/txt/release-8.2).
+If you want to use a hardware security key to authenticate to {% data variables.product.product_name %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
 
 {% endif %}
-Si no deseas volver a ingresar tu contraseña cada vez que usas tu clave SSH, puedes agregar tu clave al agente SSH, el cual administrará tus claves SSH y recordará tu contraseña.
+If you don't want to reenter your passphrase every time you use your SSH key, you can add your key to the SSH agent, which manages your SSH keys and remembers your passphrase.
 
-## Generar una nueva clave SSH
+## Generating a new SSH key
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Pega el siguiente texto, que sustituye tu dirección de correo electrónico en {% data variables.product.product_name %}.
+2. Paste the text below, substituting in your {% data variables.product.product_name %} email address.
     {% ifversion ghae %}
     <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
   ```shell
@@ -43,7 +42,7 @@ Si no deseas volver a ingresar tu contraseña cada vez que usas tu clave SSH, pu
   ```
   {% note %}
 
-  **Nota:** Si estás utilizando un sistema tradicional que no es compatible con el algoritmo Ed25519, utiliza:
+  **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
   ```shell
    $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
   ```
@@ -51,11 +50,11 @@ Si no deseas volver a ingresar tu contraseña cada vez que usas tu clave SSH, pu
   {% endnote %}
   {% endif %}
 
-  Esto crea una llave SSH utilizando el correo electrónico proporcionado como etiqueta.
+  This creates a new SSH key, using the provided email as a label.
   ```shell
   > Generating public/private <em>algorithm</em> key pair.
   ```
-3. Cuando se te indique "Ingresar un archivo donde guardar la clave", presiona Intro. Al hacerlo aceptas la ubicación predeterminada del archivo.
+3. When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
 
   {% mac %}
 
@@ -81,36 +80,36 @@ Si no deseas volver a ingresar tu contraseña cada vez que usas tu clave SSH, pu
 
   {% endlinux %}
 
-4. Donde se indica, escribe una contraseña segura. Para obtener más información, consulta la sección ["Trabajar con contraseñas de llaves SSH](/articles/working-with-ssh-key-passphrases)".
+4. At the prompt, type a secure passphrase. For more information, see ["Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)."
   ```shell
   > Enter passphrase (empty for no passphrase): <em>[Type a passphrase]</em>
   > Enter same passphrase again: <em>[Type passphrase again]</em>
   ```
 
-## Agregar tu clave SSH al ssh-agent
+## Adding your SSH key to the ssh-agent
 
-Antes de agregar una llave SSH nueva al ssh-agent para que administre tus llaves, debes haber verificado si habían llaves SSH existentes y haber generado una llave SSH nueva. <span class="platform-mac">Cuando agregues tu clave SSH al agente, usa el comando macOS `ssh-add` y no una aplicación instalada por [macports](https://www.macports.org/), [homebrew](http://brew.sh/) o alguna otra fuente externa.</span>
+Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">When adding your SSH key to the agent, use the default macOS `ssh-add` command, and not an application installed by [macports](https://www.macports.org/), [homebrew](http://brew.sh/), or some other external source.</span>
 
 {% mac %}
 
 {% data reusables.command_line.start_ssh_agent %}
 
-2. Si estás usando macOS Sierra 10.12.2 o una versión posterior, deberás modificar tu archivo `~/.ssh/config` para cargar las claves automáticamente en el ssh-agent y almacenar las contraseñas en tu keychain.
+2. If you're using macOS Sierra 10.12.2 or later, you will need to modify your `~/.ssh/config` file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 
-    * Primero, revisa si tu archivo `~/.ssh/config` existe en la ubicación predeterminada.
+    * First, check to see if your `~/.ssh/config` file exists in the default location.
 
       ```shell
       $ open ~/.ssh/config
       > The file /Users/<em>you</em>/.ssh/config does not exist.
       ```
 
-    * Si el archivo no existe, créalo.
+    * If the file doesn't exist, create the file.
 
       ```shell
       $ touch ~/.ssh/config
       ```
 
-    * Abre tu archivo `~/.ssh/config` y luego modifícalo para que contenga las siguientes líneas. Si tu llave SSH tiene un nombre o ruta diferentes que el código de ejemplo, modifica el nombre de archivo o ruta para que coincida con tu configuración actual.
+    * Open your `~/.ssh/config` file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup. 
 
       ```
       Host *
@@ -121,20 +120,20 @@ Antes de agregar una llave SSH nueva al ssh-agent para que administre tus llaves
 
      {% note %}
 
-     **Nota:** Si eliges no agregar una frase de acceso a tu llave, deberás omitir la línea `UseKeychain`.
-
+     **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+  
      {% endnote %}
-
+     
       {% mac %}
       {% note %}
 
-      **Nota:** Si ves un error como este
+      **Note:** If you see an error like this
 
       ```
       /Users/USER/.ssh/config: line 16: Bad configuration option: usekeychain
       ```
 
-      y una línea de configuración adicional en tu sección `Host *`:
+      add an additional config line to your `Host *` section:
 
       ```
       Host *
@@ -143,20 +142,22 @@ Antes de agregar una llave SSH nueva al ssh-agent para que administre tus llaves
 
       {% endnote %}
       {% endmac %}
-
-3. Agrega tu llave privada SSH al ssh-agent y almacena tu contraseña en tu keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+  
+3. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
   ```
   {% note %}
 
-  **Nota:** La opción `-K` es una versión estándar de Apple de `ssh-add`, que almacena la contraseña en tu keychain cuando agregas una llave SSH al ssh-agent. Si eliges no agregar una frase de acceso a tu llave, ejecuta el comando sin la opción `-K`.
+  **Note:** The `-K` option is Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the `-K` option. 
 
-  Si no tienes instalada la versión estándar de Apple, puedes recibir un mensaje de error. Para obtener más información sobre cómo resolver este error, consulta "[Error: ssh-add: opción ilegal -- K](/articles/error-ssh-add-illegal-option-k)".
+  If you don't have Apple's standard version installed, you may receive an error. For more information on resolving this error, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
+  
+  In MacOS Monterey (12.0), the `-K` and `-A` flags are deprecated and have been replaced by the `--apple-use-keychain` and `--apple-load-keychain` flags, respectively. 
 
   {% endnote %}
 
-4. Agrega la llave SSH a tu cuenta en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Agregar una llave SSH nueva a tu cuenta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
+4. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endmac %}
 
@@ -164,17 +165,17 @@ Antes de agregar una llave SSH nueva al ssh-agent para que administre tus llaves
 
 {% data reusables.desktop.windows_git_bash %}
 
-1. Verifica que el ssh-agent se esté ejecutando. Puedes utilizar las instrucciones de "Autolanzamiento del ssh-agent" que se encuentran en [Trabajar con frases de acceso de las llaves SSH](/articles/working-with-ssh-key-passphrases)" o iniciarlo manualmente:
+1. Ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
 
-2. Agrega tu llave privada SSH al ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
-3. Agrega la llave SSH a tu cuenta en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Agregar una llave SSH nueva a tu cuenta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
+3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endwindows %}
 
@@ -182,37 +183,37 @@ Antes de agregar una llave SSH nueva al ssh-agent para que administre tus llaves
 
 {% data reusables.command_line.start_ssh_agent %}
 
-2. Agrega tu llave privada SSH al ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
-3. Agrega la llave SSH a tu cuenta en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Agregar una llave SSH nueva a tu cuenta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
+3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endlinux %}
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
-## Generar una llave SSH nueva para una llave de seguridad de hardware
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
+## Generating a new SSH key for a hardware security key
 
-Si estás utilizando macOS o Linux, puede que necesites actualizar tu cliente SSH o instalar un cliente SSH nuevo antes de generar una llave SSH nueva. Para obtener más información, consulta el "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)"
+If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)."
 
-1. Insterta tu clave de seguridad de hardware en tu computadora.
+1. Insert your hardware security key into your computer.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Pega el siguiente texto, sustitutyendo la dirección de correo electrónico por tu cuenta de {% data variables.product.product_name %}.
+3. Paste the text below, substituting in the email address for your account on {% data variables.product.product_name %}.
   ```shell
   $ ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "<em>your_email@example.com</em>"
   ```
-
+  
   {% ifversion not ghae %}
   {% note %}
 
-  **Nota:** Si el comando falla y recibes el error `invalid format` o `feature not supported,` puede que estés utilizando una llave de seguridad de hardware que no sea compatible con el algoritmo Ed25519. En vez de esto, ingresa el siguiente comando.
+  **Note:** If the command fails and you receive the error `invalid format` or `feature not supported,` you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
   ```shell
    $ ssh-keygen -t ecdsa-sk -C "your_email@example.com"
   ```
 
   {% endnote %}
   {% endif %}
-4. Cuando se te solicite, pulsa el botón en tu llave de seguridad de hardware.
-5. Cuando se te pida "Ingresar un archivo en donde se pueda guardar la llave", teclea Enter para aceptar la ubicación predeterminada.
+4. When you are prompted, touch the button on your hardware security key.
+5. When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.
 
   {% mac %}
 
@@ -238,19 +239,19 @@ Si estás utilizando macOS o Linux, puede que necesites actualizar tu cliente SS
 
   {% endlinux %}
 
-6. Cuando se te solicite teclear una contraseña, teclea **Enter**.
+6. When you are prompted to type a passphrase, press **Enter**.
   ```shell
   > Enter passphrase (empty for no passphrase): <em>[Type a passphrase]</em>
   > Enter same passphrase again: <em>[Type passphrase again]</em>
   ```
-7. Agrega la llave SSH a tu cuenta en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Agregar una llave SSH nueva a tu cuenta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
+7. Add the SSH key to your account on {% data variables.product.prodname_dotcom %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endif %}
 
-## Leer más
+## Further reading
 
-- "[Acerca de SSH](/articles/about-ssh)"
-- Para obtener más información, consulta "[Trabajar con frases de contraseña de la clave SSH](/articles/working-with-ssh-key-passphrases)"
-{%- ifversion fpt %}
-- "[Autorizar una clave SSH para usar con el inicio de sesión único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
+- "[About SSH](/articles/about-ssh)"
+- "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)"
+{%- ifversion fpt or ghec %}
+- "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
 {%- endif %}

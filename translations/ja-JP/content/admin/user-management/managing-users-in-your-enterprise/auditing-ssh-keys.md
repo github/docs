@@ -2,7 +2,7 @@
 title: SSHキーの監査
 intro: サイト管理者は SSH キーのインスタンス全体に対する監査を始めることができます。
 redirect_from:
-  - /enterprise/admin/articles/auditing-ssh-keys/
+  - /enterprise/admin/articles/auditing-ssh-keys
   - /enterprise/admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-ssh-keys
 versions:

@@ -1,7 +1,7 @@
 ---
 title: 关于 Git 变基
 redirect_from:
-  - /rebase/
+  - /rebase
   - articles/interactive-rebase/
   - /articles/about-git-rebase
   - /github/using-git/about-git-rebase

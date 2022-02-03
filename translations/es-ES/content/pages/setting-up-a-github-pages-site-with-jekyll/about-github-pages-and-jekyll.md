@@ -7,15 +7,15 @@ redirect_from:
   - /articles/configuring-jekyll-plugins
   - /articles/using-syntax-highlighting-on-github-pages
   - /articles/files-that-start-with-an-underscore-are-missing
-  - /articles/sitemaps-for-github-pages/
-  - /articles/search-engine-optimization-for-github-pages/
-  - /articles/repository-metadata-on-github-pages/
-  - /articles/atom-rss-feeds-for-github-pages/
-  - /articles/redirects-on-github-pages/
-  - /articles/emoji-on-github-pages/
-  - /articles/mentions-on-github-pages/
-  - /articles/using-jekyll-plugins-with-github-pages/
-  - /articles/adding-jekyll-plugins-to-a-github-pages-site/
+  - /articles/sitemaps-for-github-pages
+  - /articles/search-engine-optimization-for-github-pages
+  - /articles/repository-metadata-on-github-pages
+  - /articles/atom-rss-feeds-for-github-pages
+  - /articles/redirects-on-github-pages
+  - /articles/emoji-on-github-pages
+  - /articles/mentions-on-github-pages
+  - /articles/using-jekyll-plugins-with-github-pages
+  - /articles/adding-jekyll-plugins-to-a-github-pages-site
   - /articles/about-github-pages-and-jekyll
   - /github/working-with-github-pages/about-github-pages-and-jekyll
 product: '{% data reusables.gated-features.pages %}'
@@ -77,7 +77,7 @@ Puedes añadir `site.github` a una publicación o página para añadir cualquier
 {% ifversion fpt or ghec %}
 Puedes agregar un tema soportado a tu sitio en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Temas soportados](https://pages.github.com/themes/)" en el sitio {% data variables.product.prodname_pages %} y "[Agregar un tema a tu sitio de {% data variables.product.prodname_pages %} con el selector de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)."
 
-To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt or ghec %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+Para utilizar cualquier otro tema de código abierto de Jekyll en {% data variables.product.prodname_dotcom %}, puedes agregarlo manualmente.{% else %} Puedes agregar un tema a tu sitio manualmente.{% endif %} Para obtener más información, consulta los {% ifversion fpt or ghec %} [temas hospedados en {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) y los{% else %} "[temas compatibles](https://pages.github.com/themes/)" en el sitio de {% data variables.product.prodname_pages %} y la sección {% endif %} "[Agregar un tema a tu sitio de {% data variables.product.prodname_pages %} utilizando Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
 
 Puedes sobrescribir cualquiera de los valores por defecto de tu tema editando los archivos del tema. Para obtener más información, consulta la documentación de tu tema y "[Sobrescribir los valores predeterminados del tema](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" en la documentación de Jekyll.
 
@@ -112,7 +112,7 @@ Para conocer la lista de los plugins soportados, consulta "[Versiones de depende
 
 Para facilitar la lectura de tu sitio, los fragmentos de código se resaltan en los sitios de {% data variables.product.prodname_pages %} de la misma manera que se resaltan en {% data variables.product.product_name %}. Para más información sobre como enfatizar sintaxis en {% data variables.product.product_name %}, vea "[Creando y resaltando bloques de código](/articles/creating-and-highlighting-code-blocks)."
 
-Por defecto, los bloques de código en su sitio serán resaltados por Jekyll. Jekyll utiliza el resaltador de [Rouge](https://github.com/jneen/rouge), compatible con [Pygments](http://pygments.org/). Si especificas Pygments en tu archivo *_config.yml*, el Rouge se utilizará en su lugar. Jekyll no puede usar ningún otro resaltador de sintaxis, y obtendrás una advertencia de compilación de página si especificas otro en tu archivo *_config.yml*. Para más información, vea "[Acerca de los errores de construcción de sitios Jekyll {% data variables.product.prodname_pages %} ](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+Por defecto, los bloques de código en su sitio serán resaltados por Jekyll. Jekyll utiliza el resaltador de [Rouge](https://github.com/jneen/rouge), compatible con [Pygments](http://pygments.org/). Pygments se obsoletizó y no es compatible con Jekyll 4. Si especificas a Pygments en tu archivo *_config.yml*, se utilizará a Rouge como sustitución. Jekyll no puede usar ningún otro resaltador de sintaxis, y obtendrás una advertencia de compilación de página si especificas otro en tu archivo *_config.yml*. Para más información, vea "[Acerca de los errores de construcción de sitios Jekyll {% data variables.product.prodname_pages %} ](/articles/about-jekyll-build-errors-for-github-pages-sites)."
 
 Si quieres usar otro resaltador, como `highlight.js`, debes desactivar el resaltador de sintaxis de Jekyll actualizando el archivo de tu proyecto *_config.yml*.
 

@@ -4,14 +4,13 @@ intro: Você pode ignorar as execuções de fluxo de trabalho acionadas pelos ev
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: ghae-next
+  ghae: '*'
   ghec: '*'
 shortTitle: Ignorar execução de fluxo de trabalho
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Os fluxos de trabalho que seriam acionados usando `on: push` ou `on: pull_request` não serão acionado se você adicionar qualquer uma das strings a seguir para a mensagem de commit em um push ou o commit HEAD de um pull request:
 

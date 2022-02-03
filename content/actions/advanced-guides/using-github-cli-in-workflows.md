@@ -15,7 +15,6 @@ topics:
 type: how_to
 ---
 
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.cli.cli-learn-more %}
 

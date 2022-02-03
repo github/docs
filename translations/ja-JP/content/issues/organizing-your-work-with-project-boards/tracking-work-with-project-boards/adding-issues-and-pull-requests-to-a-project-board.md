@@ -3,7 +3,7 @@ title: プロジェクトボードへの Issue およびプルリクエストの
 intro: Issue やプルリクエストはカードの形でプロジェクトボードに追加し、列にトリアージしていくことができます。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
-  - /articles/adding-issues-and-pull-requests-to-a-project/
+  - /articles/adding-issues-and-pull-requests-to-a-project
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:

@@ -107,6 +107,44 @@ Titles are challenging! Use these general guidelines to help create clear, helpf
   - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
   - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
 
+### Topics
+
+Topics are used to filter articles and are searchable across the docs site. For some layouts, such as landing pages or guides, people can select which articles are displayed by filtering topics. Use these guidelines to help choose which topics to add to an article's frontmatter. For more information on adding topics to an article see, "[Topics](https://github.com/github/docs/tree/main/content#topics)" and for a list of all allowed topics, see [`allowed-topics`](https://github.com/github/docs/blob/main/data/allowed-topics.js).
+
+#### Topics for all content types
+- All articles should have at least one topic
+- Use nouns as topics
+- Topics help customers meaningfully group content
+  - When possible, use more specific topics that are relevant and not just broad topics. For example, `REST` or `GraphQL` rather than just `API`
+  - Ensure that topics on similar articles are consistent so that people who filter by a topic get all of the relevant articles. For example, all articles about CI should have the `CI` topic plus more specific topics
+  - Avoid ambiguous topics. For example, `Actions` may not be a useful topic within the Actions product since it could refer to the product GitHub Actions or the product element called an action
+- Topics add value beyond and do not replicate the article’s title, type, or category
+  - For example, within the Actions product, `Actions` does not add value since a customer already knows they are looking at Actions docs
+- Use `Fundamentals` for articles related to the core concepts of a product area.
+  - Use: `Fundamentals` in an article like “Introduction to GitHub Actions”
+  - Avoid: `Actions` in an article like "Introduction to GitHub Actions"
+- Commonly-recognized abbreviations can be used, but obscure or ambiguous abbreviations should be avoided
+  - Use: `CI` instead of `Continuous integration`
+  - Avoid: `AS` instead of `Advanced Security`
+- Use the short forms of GitHub product names
+  - Use: `Actions` instead of `GitHub Actions`
+
+#### Checklist for choosing topics
+Consider these questions to help choose topics for an article. Not every article will have a topic for each item in the checklist.
+
+- [ ] What is the feature or product area?
+  - Example: `Enterprise`
+- [ ] Is the article about a sub-feature (unless the product name matches the feature name)?
+  - Example: `Dependabot`
+- [ ] Is the feature part of a restricted program?
+  - Example: `Advanced Security`
+- [ ] What element of the feature or product is the article?
+  - Example: `Organizations`
+- [ ] What is the broad purpose of the article?
+  - Example: `Permissions`
+- [ ] What programming languages, package managers, or ecosystems does the article explicitly address? (Note: only include these topics if it adds value to someone filtering the docs, not just if an article lists supported languages, package managers, or ecosystems.)
+  - Example: `Ruby`
+
 ### Reusing content
 
 We use reusable and variable strings to use the same chunk of content, such as a procedural step or a conceptual paragraph, in multiple places. We generally don't reuse large sections of articles without a specific reason. When an entire section of an article might be relevant in more than one article, take a look at the purpose of both. Is there an opportunity to create a single, long-form article? Refer to the content models to clarify the best permanent home for the information, and link to it from the other article.
@@ -181,7 +219,7 @@ Use the [referential content template](https://github.com/github/docs/blob/main/
   - [Billing](https://docs.github.com/en/rest/reference/billing) in the REST API documentation
   - [Mutations](https://docs.github.com/en/graphql/reference/mutations) in the GraphQL API documentation
 - Referential sections within other articles
-  - Supported languages in [GitHub for mobile](https://docs.github.com/en/github/getting-started-with-github/github-for-mobile#supported-languages-for-github-for-mobile)
+  - Supported languages in [GitHub Mobile](https://docs.github.com/en/get-started/using-github/github-mobile#supported-languages-for-github-mobile)
   - Hardware considerations in [Installing GitHub Enterprise Server on AWS](https://docs.github.com/en/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws)
 
 ### Procedural

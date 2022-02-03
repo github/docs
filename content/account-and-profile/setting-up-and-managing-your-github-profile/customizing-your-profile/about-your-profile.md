@@ -2,8 +2,8 @@
 title: About your profile
 intro: 'Your profile page tells people the story of your work through the repositories you''re interested in, the contributions you''ve made, and the conversations you''ve had.'
 redirect_from:
-  - /articles/viewing-your-feeds/
-  - /articles/profile-pages/
+  - /articles/viewing-your-feeds
+  - /articles/profile-pages
   - /articles/about-your-profile
   - /github/setting-up-and-managing-your-github-profile/about-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile
@@ -30,7 +30,7 @@ People who visit your profile see a timeline of your contribution activity, like
 People who visit your profile can also see the following information.
 
 - Repositories and gists you own or contribute to. {% ifversion fpt or ghes or ghec %}You can showcase your best work by pinning repositories and gists to your profile. For more information, see "[Pinning items to your profile](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)."{% endif %}
-- Repositories you've starred. For more information, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)."
+- Repositories you've starred{% ifversion fpt or ghec %} and organized into lists.{% endif %} For more information, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)."
 - An overview of your activity in organizations, repositories, and teams you're most active in. For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."{% ifversion fpt or ghec %}
 - Badges that show if you use {% data variables.product.prodname_pro %} or participate in programs like the {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %}, or the {% data variables.product.company_short %} Developer Program. For more information, see "[Personalizing your profile](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)."{% endif %}
 

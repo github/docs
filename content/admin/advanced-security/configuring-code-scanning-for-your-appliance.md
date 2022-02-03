@@ -27,6 +27,10 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 {% data reusables.code-scanning.enabling-options %}
 
+## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+
+{% data reusables.advanced-security.check-for-ghas-license %}
+
 ## Prerequisites for {% data variables.product.prodname_code_scanning %}
 
 - A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes > 3.0 %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}

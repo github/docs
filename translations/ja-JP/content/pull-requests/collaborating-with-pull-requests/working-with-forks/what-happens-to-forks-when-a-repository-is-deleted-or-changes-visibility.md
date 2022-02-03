@@ -3,7 +3,7 @@ title: リポジトリが削除されたり可視性が変更されたりする�
 intro: リポジトリを削除したり、その可視性を変更したりすると、そのリポジトリのフォークに影響します。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
-  - /articles/changing-the-visibility-of-a-network/
+  - /articles/changing-the-visibility-of-a-network
   - /articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /github/collaborating-with-issues-and-pull-requests/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /github/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
@@ -61,15 +61,11 @@ shortTitle: Deleted or changes visibility
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
+{% ifversion ghes or ghec or ghae %}
 
 ## 内部リポジトリの表示を変更する
 
-{% note %}
 
-**注釈:** {% data reusables.gated-features.internal-repos %}
-
-{% endnote %}
 
 Enterprise のポリシーでフォークが許可されている場合、内部リポジトリのフォークはすべてプライベートになります。 内部リポジトリの表示を変更した場合、Organization またはユーザアカウントが所有するフォークはすべてプライベートのままになります。
 

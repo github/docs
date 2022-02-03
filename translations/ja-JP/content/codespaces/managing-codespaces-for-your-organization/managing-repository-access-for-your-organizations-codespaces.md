@@ -18,7 +18,7 @@ redirect_from:
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
 ---
 
-デフォルト設定では、Codespace は作成されたリポジトリにのみアクセスできます。 Organization が所有するリポジトリのアクセスとセキュリティを有効にすると、そのリポジトリ用に作成された Codespaces には、Organization が所有する他のすべてのリポジトリへの読み取りおよび書き込みアクセスがあり、codespace の作者にはアクセス権があります。 If you want to restrict the repositories a codespace can access, you can limit it to either the repository where the codespace was created, or to specific repositories. 信頼するリポジトリに対してのみ、アクセスとセキュリティを有効にしてください。
+デフォルト設定では、Codespace は作成されたリポジトリにのみアクセスできます。 When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will also have read permissions to all other repositories the organization owns and the codespace creator has permissions to access. If you want to restrict the repositories a codespace can access, you can limit it to either the repository where the codespace was created, or to specific repositories. 信頼するリポジトリに対してのみ、アクセスとセキュリティを有効にしてください。
 
 Organization 内のどのユーザが {% data variables.product.prodname_codespaces %} を使用できるかを管理するには、「[Organization のユーザ権限を管理する](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)」を参照してください。
 

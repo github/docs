@@ -1,6 +1,6 @@
 ---
-title: 查看仓库的部署活动
-intro: 您可以查看整个仓库或特定拉取请求的部署相关信息。
+title: Viewing deployment activity for your repository
+intro: You can view information about deployments for your entire repository or a specific pull request.
 redirect_from:
   - /articles/viewing-deployment-activity-for-your-repository
   - /github/administering-a-repository/viewing-deployment-activity-for-your-repository
@@ -12,23 +12,23 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: 查看部署活动
+shortTitle: View deployment activity
 ---
-
 {% note %}
 
-**注：**部署仪表板目前处于测试阶段，可能会发生变化。
+**Note:** The deployments dashboard is currently in beta and subject to change.
 
 {% endnote %}
 
-如果仓库的部署工作流程通过 Deployments API 或来自 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment) 的应用程序与 {% data variables.product.product_name %} 集成，则具有读取权限的人员可以查看所有当前部署的概览以及过去部署活动的日志。 更多信息请参阅“[部署](/rest/reference/repos#deployments)”。
+People with read access to a repository can see an overview of all current deployments and a log of past deployment activity, if the repository's deployment workflow is integrated with {% data variables.product.product_name %} through the Deployments API or an app from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment). For more information, see "[Deployments](/rest/reference/repos#deployments)."
 
-您还可以在拉取请求的“Conversation（对话）”选项卡中查看部署信息。
+You can also see deployment information on the "Conversation" tab of a pull request.
 
-## 查看部署仪表板
+## Viewing the deployments dashboard
 
 {% data reusables.repositories.navigate-to-repo %}
-2. To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png)
+2. To the right of the list of files, click **Environments**.
+![Environments on the right of the repository page](/assets/images/help/repository/environments.png)
 
-## 延伸阅读
- - "[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+## Further reading
+ - "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"

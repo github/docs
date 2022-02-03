@@ -151,6 +151,12 @@ The following example timeline demonstrates how active committer count for {% da
   </tr>
 </table>
 
+{% note %}
+
+**Note:** A user will be flagged as active when their commits are pushed to any branch of a repository, even if the commits were authored more than 90 days ago.
+
+{% endnote %}
+
 ## Getting the most out of {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.getting-the-most-from-your-license %}

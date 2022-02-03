@@ -1,5 +1,5 @@
 ---
-title: Trabajar con el registro de Docker
+title: Working with the Docker registry
 intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.{% endif %}'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -14,15 +14,15 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Registro de Docker
+shortTitle: Docker registry
 ---
 
 <!-- Main versioning block. Short page for dotcom -->
 {% ifversion fpt or ghec %}
 
-El registro de Docker de {% data variables.product.prodname_dotcom %} (el cual utilizó el designador de nombre `docker.pkg.github.com`) se reemplazó con el {% data variables.product.prodname_container_registry %} (el cual utiliza el designador de nombre `https://ghcr.io`). El {% data variables.product.prodname_container_registry %} ofrece beneficios tales como permisos granulares y optimización de almacenamiento para las imágenes de Docker.
+{% data variables.product.prodname_dotcom %}'s Docker registry (which used the namespace `docker.pkg.github.com`) has been replaced by the {% data variables.product.prodname_container_registry %} (which uses the namespace `https://ghcr.io`). The {% data variables.product.prodname_container_registry %} offers benefits such as granular permissions and storage optimization for Docker images.
 
-Las imágenes de Docker que se almacenaron previamente en el registro de Docker se están migrando automáticamente al {% data variables.product.prodname_container_registry %}. Para obtener más información, consulta la sección "[Migrarse al {% data variables.product.prodname_container_registry %} desde el registro de Docker](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" y [Trabajar con el {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
+Docker images previously stored in the Docker registry are being automatically migrated into the {% data variables.product.prodname_container_registry %}. For more information, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" and "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
 {% else %}
 <!-- The remainder of this article is displayed for releases that don't support the Container registry -->
@@ -30,25 +30,25 @@ Las imágenes de Docker que se almacenaron previamente en el registro de Docker 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-**Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-## Acerca de la compatibilidad de Docker
+## About Docker support
 
-Cuando instalas o publicas una imagen de Docker, el registro de Docker no es compatible actualmente con capas ajenas, tales como imágenes de Windows.
+When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
 
-## Autenticarte en {% data variables.product.prodname_registry %}
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Autenticarte con un token de acceso personal
+### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
-Puedes autenticar a {% data variables.product.prodname_registry %} con Docker usando el comando de inicio de sesión `Docker`.
+You can authenticate to {% data variables.product.prodname_registry %} with Docker using the `docker` login command.
 
-Para mantener tus credenciales seguras, te recomendamos que guardes tu token de acceso personal en un archivo local de tu computadora y utilices el marcador `--password-stdin` de Docker, el cual lee tu token desde un archivo local.
+To keep your credentials secure, we recommend you save your personal access token in a local file on your computer and use Docker's `--password-stdin` flag, which reads your token from a local file.
 
 {% ifversion fpt or ghec %}
 {% raw %}
@@ -60,24 +60,15 @@ Para mantener tus credenciales seguras, te recomendamos que guardes tu token de 
 
 {% ifversion ghes or ghae %}
 {% ifversion ghes %}
-Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+If your instance has subdomain isolation enabled:
 {% endif %}
 {% raw %}
  ```shell
- $ docker images
-
-> REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
-> monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
-
-# Etiqueta la imagen con <em>OWNER/REPO/IMAGE_NAME</em>
-$ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
-
-# Sube la imagen a {% data variables.product.prodname_registry %}
-$ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
+ $ cat <em>~/TOKEN.txt</em> | docker login docker.HOSTNAME -u <em>USERNAME</em> --password-stdin
 ```
 {% endraw %}
 {% ifversion ghes %}
-Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
+If your instance has subdomain isolation disabled:
 
 {% raw %}
  ```shell
@@ -90,83 +81,81 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
 
 To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
-Para obtener más información, consulta la sección "[Inicio de sesión de Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
+For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
-## Publicar una imagen
+## Publishing an image
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% note %}
 
-**Nota:** Los nombres de imagen deben utilizar letras en minúscula únicamente.
+**Note:** Image names must only use lowercase letters.
 
 {% endnote %}
 
-{% data variables.product.prodname_registry %} admite varias imágenes Docker de primer nivel por repositorio. Un repositorio puede tener cualquier cantidad de etiquetas de imagen. Puedes experimentar un servicio de menor calidad al publicar o instalar imágenes de Docker de más de 10 GB, las capas tienen un límite de 5 GB cada una. Para obtener más información, consulta "[Etiqueta Docker](https://docs.docker.com/engine/reference/commandline/tag/)" en la documentación de Docker.
+{% data variables.product.prodname_registry %} supports multiple top-level Docker images per repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
 
 {% data reusables.package_registry.viewing-packages %}
 
-1. Determina el nombre y la ID de la imagen Docker utilizando `imágenes docker`.
+1. Determine the image name and ID for your docker image using `docker images`.
   ```shell
   $ docker images
   > <&nbsp>
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
-2. Utilizando la ID de la imagen de Docker, etiqueta a la imagen de docker, reemplazando *OWNER* con el nombre de la cuenta de usuario u organización a la que pertenece el repositorio, *REPOSITORY* con el nombre del repositorio que contiene tu proyecto, *IMAGE_NAME* con el nombre del paquete o imagen, {% ifversion ghes or ghae %} *HOSTNAME* con el nombre de host de {% data variables.product.product_location %}{% endif %} y *VERSION* con la versión del paquete y hora de compilción.
+2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
   {% ifversion fpt or ghec %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
   {% ifversion ghes %}
-  Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+  If your instance has subdomain isolation enabled:
   {% endif %}
   ```shell
-  Puedes publicar una nueva imagen de Docker por primera vez y nombrarla <code>monalisa</code>.
+  $ docker tag <em>IMAGE_ID</em> docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
-.
-</code>
   {% ifversion ghes %}
-  Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
+  If your instance has subdomain isolation disabled:
   ```shell
   $ docker tag <em>IMAGE_ID</em> <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% endif %}
   {% endif %}
-3. Si aún no creas una imagen de docker para el paquete, crea la imagen, reemplazando *OWNER* con el nombre de la cuenta de organización o usuario a la que pertenece el repositorio, *REPOSITORY* con el nombre del repositorio que contiene tu proyecto, *IMAGE_NAME* con el nombre del paquete o imagen, *VERSION* con la versión de paquete al momento de la compilación,{% ifversion ghes or ghae %}*HOSTNAME* con el nombre de host de {% data variables.product.product_location %},{% endif %} y *PATH* a la imagen en caso de que no esté en el directorio de trabajo actual.
+3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
   {% ifversion fpt or ghec %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% else %}
   {% ifversion ghes %}
-  Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+  If your instance has subdomain isolation enabled:
   {% endif %}
   ```shell
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% ifversion ghes %}
-  Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
+  If your instance has subdomain isolation disabled:
   ```shell
   $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% endif %}
   {% endif %}
-4. Publicar la imagen para {% data variables.product.prodname_registry %}.
+4. Publish the image to {% data variables.product.prodname_registry %}.
   {% ifversion fpt or ghec %}
   ```shell
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
   {% ifversion ghes %}
-  Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+  If your instance has subdomain isolation enabled:
   {% endif %}
   ```shell
   $ docker push docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% ifversion ghes %}
-  Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
+  If your instance has subdomain isolation disabled:
   ```shell
   $ docker push <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
@@ -174,17 +163,17 @@ Para obtener más información, consulta la sección "[Inicio de sesión de Dock
   {% endif %}
   {% note %}
 
-  **Nota:** Debes subir tu imagen usando `IMAGE_NAME: VERSION` y no utilizar `IMAGE_NAME: SHA`.
+  **Note:** You must push your image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
   {% endnote %}
 
-### Ejemplo de publicación de una imagen Docker
+### Example publishing a Docker image
 
 {% ifversion ghes %}
-Estos ejemplos asumen que tu instancia tiene habilitado el aislamiento de subdominios.
+These examples assume your instance has subdomain isolation enabled.
 {% endif %}
 
-Puedes publicar la versión 1.0 de la imagen `monalisa` en el repositorio `octocat/octo-app` usando una ID de imagen.
+You can publish version 1.0 of the `monalisa` image to the `octocat/octo-app` repository using an image ID.
 
 {% ifversion fpt or ghec %}
 ```shell
@@ -193,10 +182,10 @@ $ docker images
 > REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
-# Etiqueta la imagen con <em>OWNER/REPO/IMAGE_NAME</em>
+# Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
 $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 
-# Sube la imagen a {% data variables.product.prodname_registry %}
+# Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 
@@ -217,16 +206,15 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 {% endif %}
 
-Puedes publicar una nueva imagen de Docker por primera vez y nombrarla `monalisa`.
+You can publish a new Docker image for the first time and name it `monalisa`.
 
 {% ifversion fpt or ghec %}
 ```shell
-# Construye la imagen con docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
-# Asume que Dockerfile reside en el directorio de trabajo actual (.)
-$ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
+# Build the image with docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
 
-# Sube la imagen a {% data variables.product.prodname_registry %}
+# Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 
@@ -241,11 +229,11 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 {% endif %}
 
-## Descargar una imagen
+## Downloading an image
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-Puedes utilizar el comando `docker pull` para instalar una imagen de docker desde el {% data variables.product.prodname_registry %}, reemplazando *OWNER* con el nombre de la cuenta de usuario u organización a la que pertenece el repositorio, *REPOSITORY* con el nombre de repositorio que contiene tu proyecto, *IMAGE_NAME* con el nombre del paquete o imagen,{% ifversion ghes or ghae %} *HOSTNAME* con el nombre del host de {% data variables.product.product_location %}, {% endif %} y *TAG_NAME* con la etiqueta de la imagen que quieres instalar.
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %} and *TAG_NAME* with tag for the image you want to install.
 
 {% ifversion fpt or ghec %}
 ```shell
@@ -254,13 +242,13 @@ $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em
 {% else %}
 <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
 {% ifversion ghes %}
-Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+If your instance has subdomain isolation enabled:
 {% endif %}
 ```shell
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% ifversion ghes %}
-Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
+If your instance has subdomain isolation disabled:
 ```shell
 $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
@@ -269,12 +257,12 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 {% note %}
 
-**Nota:** Debes extraer la imagen utilizando `IMAGE_NAME:VERSION` y no así, utilizando `IMAGE_NAME:SHA`.
+**Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
 {% endnote %}
 
-## Leer más
+## Further reading
 
-- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
 
 {% endif %}  <!-- End of main versioning block -->

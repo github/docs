@@ -3,7 +3,7 @@ title: 删除仓库或更改其可见性时，复刻会发生什么变化？
 intro: 删除仓库或更改其可见性会影响仓库的复刻。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
-  - /articles/changing-the-visibility-of-a-network/
+  - /articles/changing-the-visibility-of-a-network
   - /articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /github/collaborating-with-issues-and-pull-requests/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /github/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
@@ -61,15 +61,11 @@ shortTitle: 删除或更改可见性
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
+{% ifversion ghes or ghec or ghae %}
 
 ## 更改内部仓库的可见性
 
-{% note %}
 
-**注：**{% data reusables.gated-features.internal-repos %}
-
-{% endnote %}
 
 如果企业策略允许复刻，则内部仓库的任何复刻都将是私有的。 如果您更改内部仓库的可见性，组织或用户帐户拥有的任何复刻都将保持私有。
 

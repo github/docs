@@ -14,10 +14,15 @@ children:
   - /activity
   - /apps
   - /billing
+  - /branches
   - /checks
   - /codes-of-conduct
   - /code-scanning
   - /codespaces
+  - /collaborators
+  - /commits
+  - /dependabot
+  - /deployments
   - /emojis
   - /enterprise-admin
   - /gists
@@ -28,20 +33,24 @@ children:
   - /licenses
   - /markdown
   - /meta
+  - /metrics
   - /migrations
   - /oauth-authorizations
   - /orgs
   - /packages
+  - /pages
   - /projects
   - /pulls
   - /rate-limit
   - /reactions
+  - /releases
   - /repos
   - /scim
   - /search
   - /secret-scanning
   - /teams
   - /users
+  - /webhooks
   - /permissions-required-for-github-apps
 ---
 

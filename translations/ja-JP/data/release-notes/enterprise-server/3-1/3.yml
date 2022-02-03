@@ -1,28 +1,27 @@
----
 date: '2021-07-14'
 sections:
   security_fixes:
-    - '**高:** GitHubPagesのサイトをビルドする際に利用される可能性があるパストラバーサルの脆弱性が、GitHub Enterprise Serverで特定されました。GitHub Pagesが使用するユーザが制御する設定オプションが十分に厳密ではなく、GitHub Enterprise Serverインスタンス上のファイルを読めてしまいます。この脆弱性を利用するには、攻撃者はGitHub Enterprise Serverインスタンス上でGitHub Pagesのサイトを作成してビルドする権限を持っていなければなりません。この脆弱性は3.1.3以前のすべてのバージョンのGitHub Enterprise Serverに影響し、CVE-2021-22867が割り当てられました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告されました。'
-    - パッケージは最新のセキュリティバージョンにアップデートされました。
+    - '**HIGH:** A path traversal vulnerability was identified in GitHub Enterprise Server that could be exploited when building a GitHub Pages site. User-controlled configuration options used by GitHub Pages were not sufficiently restricted and made it possible to read files on the GitHub Enterprise Server instance. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the GitHub Enterprise Server instance. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.1.3 and has been assigned CVE-2021-22867. This vulnerability was reported via the GitHub Bug Bounty program.'
+    - Packages have been updated to the latest security versions.
   bugs:
-    - SAMLの期限切れの日付変数は設定できませんでした。
-    - アプリケーションサービスは、設定の適用の間に健全な状態に入る前、ヘルスチェックに失敗します。
-    - '`ghe-cluster-config-node-init`は、HTTPプロキシが有効化されているとクラスタのセットアップの間に失敗します。'
-    - pre-receive フックで、`/proc`がコンテナにマウントされていないために`Failed to resolve full path of the current executable`という失敗が生じることがあります。
-    - collectdは、初期のセットアップ後にフォワード先のホスト名を解決しません。
-    - 古い柵得除されたリポジトリをパージするジョブは、それらのリポジトリの中に訴訟ホールドによって削除から保護されているものがある場合、処理を進められないことがあります。
-    - バックグラウンドジョブが、処理されていない`spam`キューにキューイングされました。
-    - 失敗したPRマージ後にリトライする際に、優先されるマージ方法がリセットされます。
-    - LDAP認証モードを使うインスタンスにおいて、Git pushがユーザ照合プロセス中に500 Internal Server Errorになることがあります。
-    - '3.0.xから3.1.xへのアップグレード後に、GitHub Actionsが`An unexpected error occurred when executing this workflow.`というエラーで失敗することがあります。'
+    - SAML expiration date variable was not configurable.
+    - Application services would fail their health checks during config apply before they could enter a healthy state.
+    - '`ghe-cluster-config-node-init` would fail during cluster setup if HTTP proxy is enabled.'
+    - Pre-receive hooks could encounter an error `Failed to resolve full path of the current executable` due to `/proc` not being mounted on the container.
+    - Collectd would not resolve the forwarding destination hostname after the initial startup.
+    - The job that purged stale deleted repositories could fail to make progress if some of those repositories were protected from deletion by legal holds.
+    - Background jobs were being queued to the `spam` queue which were not being processed.
+    - The preferred merge method would be reset when retrying after a failed PR merge.
+    - Git pushes could result in a 500 Internal Server Error during the user reconciliation process on instances using LDAP authentication mode.
+    - 'After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions would fail with an error: `An unexpected error occurred when executing this workflow.`'
   changes:
-    - 変更されなかったIP許可ファイアウォールルールをスキップすることによって、設定適用の効率性が改善されました。これは大規模なクラスタでは大きな時間の節約になります。
+    - Improved the efficiency of config apply by skipping IP allow firewall rules that had not changed, which saved significant time on large clusters.
   known_issues:
-    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
-    - '{% data variables.product.prodname_ghe_server %}で{% data variables.product.prodname_actions %}が有効化されていると、`ghe-repl-teardown`でのレプリカノードの解体は成功しますが、`ERROR:Running migrations`が返されることがあります。'
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

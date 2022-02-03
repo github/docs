@@ -2,9 +2,9 @@
 title: Configurar a autenticação de dois fatores
 intro: Você pode escolher entre várias opções de adicionar uma segunda fonte de autenticação à sua conta.
 redirect_from:
-  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app/
-  - /articles/configuring-two-factor-authentication-via-text-message/
-  - /articles/configuring-two-factor-authentication-via-fido-u2f/
+  - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app
+  - /articles/configuring-two-factor-authentication-via-text-message
+  - /articles/configuring-two-factor-authentication-via-fido-u2f
   - /articles/configuring-two-factor-authentication
   - /github/authenticating-to-github/configuring-two-factor-authentication
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
@@ -122,6 +122,20 @@ A autenticação com uma chave de segurança é *uma alternativa* à autenticaç
 8. Ative a chave de segurança seguindo as orientações na documentação da sua chave de segurança. ![Solicitação de chave de segurança](/assets/images/help/2fa/security-key-prompt.png)
 9.  Verifique se você baixou e pode acessar os códigos de recuperação. Se ainda não os baixou ou se deseja gerar outro conjunto de códigos, baixe seus códigos e salve-os em um local seguro. Caso perca o acesso à sua conta, é possível usar os códigos de recuperação para voltar a ela. Para obter mais informações, consulte "[Recuperar sua conta se você perder as credenciais da 2FA](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)". ![Botão para download de códigos de recuperação](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
+
+{% ifversion fpt or ghec %}
+## Configurando a autenticação de dois fatores usando {% data variables.product.prodname_mobile %}
+
+Você pode usar {% data variables.product.prodname_mobile %} para 2FA ao efetuar o login na sua conta {% data variables.product.prodname_dotcom %} em um navegador web. A 2FA com o {% data variables.product.prodname_mobile %} não depende do TOTP e usa criptografia de chave pública para proteger sua conta.
+
+Depois que você tiver configurado um aplicativo TOTP ou SMS, você também poderá usar {% data variables.product.prodname_mobile %} para efetuar a autenticação. Se, posteriormente, você não tiver mais acesso a {% data variables.product.prodname_mobile %}, você ainda poderá usar as chaves de segurança ou aplicativos TOTP para efetuar o login.
+
+1. Você deve ter configurado a 2FA por meio de um aplicativo móvel TOTP ou via SMS.
+2. Instale [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+3. Efetue o login na sua conta de {% data variables.product.product_name %} em {% data variables.product.prodname_mobile %}.
+
+Após o login, você poderá usar o seu dispositivo para 2FA.
+{% endif %}
 
 ## Leia mais
 

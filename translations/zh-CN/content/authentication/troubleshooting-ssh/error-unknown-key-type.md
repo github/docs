@@ -4,7 +4,7 @@ intro: 此错误表示您使用的 SSH 密钥类型无法识别或不受 SSH 客
 versions:
   fpt: '*'
   ghes: '>=3.2'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 topics:
   - SSH

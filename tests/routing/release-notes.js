@@ -1,7 +1,9 @@
-import { get, getDOM } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+import nock from 'nock'
 
-jest.useFakeTimers()
+import { get, getDOM } from '../helpers/supertest.js'
+
+jest.useFakeTimers('legacy')
 
 describe('release notes', () => {
   jest.setTimeout(60 * 1000)
@@ -11,7 +13,20 @@ describe('release notes', () => {
     // advance to call out that problem specifically rather than misleadingly
     // attributing it to the first test
     await get('/')
+
+    nock('https://github.github.com')
+      .get(
+        '/help-docs-archived-enterprise-versions/2.19/en/enterprise-server@2.19/admin/release-notes'
+      )
+      .reply(404)
+    nock('https://github.github.com')
+      .get('/help-docs-archived-enterprise-versions/2.19/redirects.json')
+      .reply(200, {
+        emp: 'ty',
+      })
   })
+
+  afterAll(() => nock.cleanAll())
 
   it('redirects to the release notes on enterprise.github.com if none are present for this version here', async () => {
     const res = await get('/en/enterprise-server@2.19/admin/release-notes')
@@ -32,7 +47,27 @@ describe('release notes', () => {
     expect(res.statusCode).toBe(200)
     const $ = await getDOM('/en/github-ae@latest/admin/release-notes')
     expect($('h1').text()).toBe('GitHub AE release notes')
-    expect($('h2').first().text().trim().startsWith('Week of')).toBe(true)
+
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ]
+    const releaseNotesH2 = $('h2').first().text().trim()
+    const monthMatch = monthNames.some((month) => {
+      return releaseNotesH2.startsWith(month)
+    })
+
+    expect(monthMatch).toBe(true)
   })
 
   it('sends a 404 if a bogus version is requested', async () => {

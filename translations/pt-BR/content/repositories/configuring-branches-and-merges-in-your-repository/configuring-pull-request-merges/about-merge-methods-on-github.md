@@ -20,7 +20,7 @@ shortTitle: Sobre métodos de merge
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+**Observação:** Ao usar a fila de merge, você não poderá mais escolher o método de merge, uma vez que isso é controlado pela fila. {% data reusables.pull_requests.merge-queue-references %}
 
 {% endnote %}
 {% endif %}

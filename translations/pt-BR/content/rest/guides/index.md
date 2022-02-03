@@ -2,7 +2,7 @@
 title: Guias
 intro: 'Saiba mais sobre como começar com a API REST, sobre a autenticação e como usar a API REST para várias tarefas.'
 redirect_from:
-  - /guides/
+  - /guides
   - /v3/guides
 versions:
   fpt: '*'
@@ -25,4 +25,4 @@ children:
   - /getting-started-with-the-checks-api
 ---
 
-This section of the documentation is intended to get you up-and-running with real-world {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API applications. Vamos cobrir tudo o que você precisa saber, desde a autenticação, passando pela a manipulação de resultados, até a combinação de resultados com outros aplicativos. Todos os tutoriais aqui terão um projeto, e cada projeto será armazenado e documentado no nosso repositório público de [platform-samples](https://github.com/github/platform-samples). ![O Electrocat](/assets/images/electrocat.png)
+Esta seção da documentação tem o objetivo de ajudar você a executar os aplicativos reais {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} da API. Vamos cobrir tudo o que você precisa saber, desde a autenticação, passando pela a manipulação de resultados, até a combinação de resultados com outros aplicativos. Todos os tutoriais aqui terão um projeto, e cada projeto será armazenado e documentado no nosso repositório público de [platform-samples](https://github.com/github/platform-samples). ![The Octocat](/assets/images/electrocat.png)

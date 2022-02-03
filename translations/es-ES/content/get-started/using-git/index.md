@@ -5,11 +5,11 @@ redirect_from:
   - /articles/using-common-git-commands
   - /github/using-git/using-common-git-commands
   - /github/using-git/using-advanced-git-commands
-  - /categories/52/articles/
-  - /categories/advanced-git/
+  - /categories/52/articles
+  - /categories/advanced-git
   - /articles/using-advanced-git-commands
   - /github/using-git/changing-author-info
-  - /github/getting-started-with-github/using-git/
+  - /github/getting-started-with-github/using-git
 versions:
   fpt: '*'
   ghes: '*'

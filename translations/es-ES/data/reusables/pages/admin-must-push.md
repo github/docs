@@ -1,5 +1,5 @@
 {% tip %}
 
-**Note**: If your site has not published automatically, make sure someone with admin permissions and a verified email address has pushed to the publishing source.
+**Nota**: Si tu sitio no se publicó automáticamente, asegúrate de que alguien con permisos administrativos y una dirección de correo electrónico verificada haya subido a la fuente de publicación.
 
 {% endtip %}

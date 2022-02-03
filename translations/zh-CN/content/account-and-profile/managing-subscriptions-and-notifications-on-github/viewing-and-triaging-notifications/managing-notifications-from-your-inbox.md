@@ -109,7 +109,7 @@ shortTitle: 从收件箱管理
 
 ### 支持的 `is:` 查询
 
-要在 {% data variables.product.product_location %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot %} alerts, use `is:repository-vulnerability-alert`{% endif %}.
+要在 {% data variables.product.product_location %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
 
 - `is:check-suite`
 - `is:commit`

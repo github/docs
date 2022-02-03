@@ -2,7 +2,6 @@
 title: 从 Travis CI 迁移到 GitHub Actions
 intro: '{% data variables.product.prodname_actions %} 和 Travis CI 有多个相似之处，这有助于很简便地迁移到 {% data variables.product.prodname_actions %}。'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
@@ -20,7 +19,6 @@ shortTitle: 从 Travis CI 迁移
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -103,7 +101,7 @@ jobs:
 
 ### 定向特定分支
 
-Travis CI 和 {% data variables.product.prodname_actions %} 允许您将 CI 定向到特定分支。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)”。
+Travis CI 和 {% data variables.product.prodname_actions %} 允许您将 CI 定向到特定分支。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)”。
 
 下面是每个系统的语法示例：
 
@@ -199,9 +197,13 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 
 如果您的作业需要特定的硬件或软件，{% data variables.product.prodname_actions %} 允许您托管自己的运行器，并将其作业发送给它们进行处理。 {% data variables.product.prodname_actions %} 还允许您使用策略来控制访问这些运行器的方式，在组织或仓库级别授予访问权限。 更多信息请参阅“[托管您自己的运行器](/actions/hosting-your-own-runners)”。
 
+{% ifversion fpt or ghec %}
+
 ### 并行作业和执行时间
 
 {% data variables.product.prodname_actions %} 中的并行作业和工作流程执行时间因 {% data variables.product.company_short %} 计划而异。 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration)”。
+
+{% endif %}
 
 ### 在 {% data variables.product.prodname_actions %} 中使用不同的语言
 

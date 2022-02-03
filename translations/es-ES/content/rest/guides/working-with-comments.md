@@ -2,7 +2,7 @@
 title: Trabajar con los comentarios
 intro: 'Puedes acceder y administrar los comentarios en tus solicitudes de extracción, informes de problemas o confirmaciones si utilizas la API de REST.'
 redirect_from:
-  - /guides/working-with-comments/
+  - /guides/working-with-comments
   - /v3/guides/working-with-comments
 versions:
   fpt: '*'
@@ -17,7 +17,7 @@ topics:
 
 Para cualquier solicitud de extracción, {% data variables.product.product_name %} proporciona tres tipos de visualizaciones de comentario: [comentarios en la solicitud de extracción][PR comment] integrales, [comentarios en una línea específica][PR line comment] dentro de la solicitud de extracción, y [comentarios sobre una confirmación específica][commit comment] dentro de la solicitud de extracción.
 
-Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. En esta guía exploraremos cómo puedes acceder y manipular cada uno de ellos. En cada ejemplo utilizaremos [esta muestra de Solicitud de Extracción que se hizo][sample PR] en el repositorio de "octocat". Como siempre, puedes encontrar las muestras en [nuestro repositorio de platform-samples][platform-samples].
+Cada uno de estos tipos de comentarios pasan por una porción diferente de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. En esta guía exploraremos cómo puedes acceder y manipular cada uno de ellos. En cada ejemplo utilizaremos [esta muestra de Solicitud de Extracción que se hizo][sample PR] en el repositorio de "octocat". Como siempre, puedes encontrar las muestras en [nuestro repositorio de platform-samples][platform-samples].
 
 ## Comentarios de las Solicitudes de Extracción
 
@@ -73,7 +73,7 @@ Te darás cuenta de que es increíblemente similar al ejemplo anterior. La difer
 
 ## Comentarios de las confirmaciones
 
-El último tipo de comentarios suceden específicamente en confirmaciones individuales. Es por esto que utilizan [la API de comentarios de las confirmaciones][commit comment API].
+El último tipo de comentarios suceden específicamente en confirmaciones individuales. Es por esto que utilizan [la API de comentarios de confirmaciones][commit comment API].
 
 Para recuperar los comentarios en una confirmación, necesitarás utilizar el SHA1 de ésta. Es decir, no utilizarás ningún identificador relacionado con la Solicitud de Extracción. Aquí hay un ejemplo:
 
@@ -104,4 +104,4 @@ Ten en cuenta que esta llamada a la API recuperará comentarios de una sola lín
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [PR Review API]: /rest/reference/pulls#comments
-[commit comment API]: /rest/reference/repos#get-a-commit-comment
+[commit comment API]: /rest/reference/commits#get-a-commit-comment

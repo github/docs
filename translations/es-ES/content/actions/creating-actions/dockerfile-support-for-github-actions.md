@@ -14,11 +14,10 @@ type: reference
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de las instrucciones de Dockerfile
 
-Un `Dockerfile` contiene instrucciones y argumentos que definen el contenido y comportamiento inicial de un contenedor de Docker. Para obtener más información acerca de las instrucciones compatibles con Docker, consulta la sección "[Referencia de Dockerfile](https://docs.docker.com/engine/reference/builder/)" en la documentación de Docker.
+Un `Dockerfile` contiene instrucciones y argumentos que definen el contenido y comportamiento inicial de un contenedor de Docker. Para obtener más información acerca de las instrucciones compatibles con Docker, consulta la sección "[Dockerfile reference](https://docs.docker.com/engine/reference/builder/)" en la documentación de Docker.
 
 ## Instrucciones e invalidaciones de Dockerfile
 
@@ -26,7 +25,7 @@ Algunas instrucciones de Docker interactúan con GitHub Actions, y un archivo de
 
 ### USER
 
-Las acciones de Docker deben ejecutarse mediante el usuario predeterminado de Docker (root). No utilices la instrucción `USER` en tu `Dockerfile`, ya que no podrás acceder a `GITHUB_WORKSPACE`. Para obtener más información, consulta la sección "[Utilizar variables del ambiente](/actions/configuring-and-managing-workflows/using-environment-variables)" y [Referencia de USER](https://docs.docker.com/engine/reference/builder/#user) en la documentación de Docker.
+Las acciones de Docker deben ejecutarse mediante el usuario predeterminado de Docker (root). No utilices la instrucción `USER` en tu `Dockerfile`, ya que no podrás acceder a `GITHUB_WORKSPACE`. Para obtener más información, consulta la sección "[Utilizar variables del ambiente](/actions/configuring-and-managing-workflows/using-environment-variables)" y [USER reference](https://docs.docker.com/engine/reference/builder/#user) en la documentación de Docker.
 
 ### FROM
 
@@ -46,7 +45,9 @@ Estas son algunas de las mejores prácticas para configurar el argumento `FROM`:
 
 Si defines el `entrypoint` en un archivo de metadatos de una acción, este invalidará el `ENTRYPOINT` definido en el `Dockerfile`. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)".
 
-La instrucción `ENTRYPOINT` de Docker tiene una forma de _shell_ y una de _exec_. La documentación de `ENTRYPOINT` de Docker recomienda utilizar la forma de _exec_ de la instrucción `ENTRYPOINT`. Para obtener más información acerca de las formas _exec_ y _shell_, consulta la sección [Referencia de ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) en la documentación de Docker.
+La instrucción `ENTRYPOINT` de Docker tiene una forma de _shell_ y una de _exec_. La documentación de `ENTRYPOINT` de Docker recomienda utilizar la forma de _exec_ de la instrucción `ENTRYPOINT`. Para obtener más información acerca de las formas _exec_ y _shell_, consulta la sección [ENTRYPOINT reference](https://docs.docker.com/engine/reference/builder/#entrypoint) en la documentación de Docker.
+
+You should not use `WORKDIR` to specify your entrypoint in your Dockerfile. Instead, you should use an absolute path. For more information, see [WORKDIR](#workdir).
 
 Si configuras tu contenedor para que utilice la forma _exec_ de la instrucción `ENTRYPOINT`, entonces el `args` configurado en el archivo de metadatos de la acción no se ejecutará en un shell de comandos. Si el `args` de la accion contiene una variable de ambiente, ésta no se sustituirá. Por ejemplo, utilizar el siguiente formato _exec_ no imprimirá los valores almacenados en `$GITHUB_SHA`, si no que imprimirá `"$GITHUB_SHA"`.
 
@@ -100,7 +101,7 @@ Error response from daemon: OCI runtime create failed: container_linux.go:348: s
 
 ### CMD
 
-Si defines el `args` en el archivo de metadatos de la acción, `args` invalidará la instrucción `CMD` especificada en el `Dockerfile`. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)".
+If you define `args` in the action's metadata file, `args` will override the `CMD` instruction specified in the `Dockerfile`. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)".
 
 Si utilizas `CMD` en tu `Dockerfile`, sigue estos lineamientos:
 
@@ -108,4 +109,4 @@ Si utilizas `CMD` en tu `Dockerfile`, sigue estos lineamientos:
 
 ## Capacidades de Linux compatibles
 
-{% data variables.product.prodname_actions %} es compatible con las capacidades predeterminadas de Linux que acepta Docker. Estas capacidades no se pueden añadir ni eliminar. Para obtener más información acerca de las capacidades predeterminadas de Linux con las cuales es compatible Docker, consulta "[Capacidades de Linux y privilegio de tiempo de ejecución](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)" en la documentación de Docker. Para conocer más acerca de las capacidades de Linux, consulta "[Overview of Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html) en las páginas man de Linux.
+{% data variables.product.prodname_actions %} es compatible con las capacidades predeterminadas de Linux que acepta Docker. Estas capacidades no se pueden añadir ni eliminar. Para obtener más información acerca de las capacidades predeterminadas de Linux con las cuales es compatible Docker, consulta "[Runtime priovilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)" en la documentación de Docker. Para conocer más acerca de las capacidades de Linux, consulta "[Overview of Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html) en las páginas man de Linux.

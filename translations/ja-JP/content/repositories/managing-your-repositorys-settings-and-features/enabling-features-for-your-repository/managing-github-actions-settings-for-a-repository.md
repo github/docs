@@ -45,7 +45,10 @@ shortTitle: Manage GitHub Actions settings
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. [**Actions permissions**] で、オプションを選択します。 ![この Organization に対するアクションポリシーを設定する](/assets/images/help/repository/actions-policy.png)
+1. [**Actions permissions**] で、オプションを選択します。
+
+  ![この Organization に対するアクションポリシーを設定する](/assets/images/help/repository/actions-policy.png)
+
 1. [**Save**] をクリックします。
 
 ## 特定のアクションの実行を許可する
@@ -56,12 +59,14 @@ shortTitle: Manage GitHub Actions settings
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 1. [**Actions permissions**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
-   {%- ifversion ghes %}
+
+   {%- ifversion ghes > 3.0 %}
    ![許可リストにアクションを追加する](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
    ![許可リストにアクションを追加する](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
-2. [**Save**] をクリックします。
+
+1. [**Save**] をクリックします。
 
 {% ifversion fpt or ghec %}
 ## パブリックフォークからのワークフローに対する必須の承認の設定
@@ -89,7 +94,7 @@ You can configure this behavior for a repository using the procedure below. Modi
 {% data reusables.repositories.settings-sidebar-actions %}
 {% data reusables.github-actions.private-repository-forks-configure %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Setting the permissions of the `GITHUB_TOKEN` for your repository
 
 {% data reusables.github-actions.workflow-permissions-intro %}
@@ -103,30 +108,30 @@ The default permissions can also be configured in the organization settings. If 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. [**Workflow permissions**]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。 ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+1. [**Workflow permissions**]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。
+
+  ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+
 1. **Save（保存）**をクリックして、設定を適用してください。
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Allowing access to components in an internal repository
-
-{% note %}
-
-**注釈:** {% data reusables.gated-features.internal-repos %}
-
-{% endnote %}
 
 Members of your enterprise can use internal repositories to work on projects without sharing information publicly. For information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
 
-To configure whether workflows in an internal repository can be accessed from outside the repository:
+You can configure whether {% if internal-actions%}actions and {% endif %}workflows in an internal repository can be accessed from outside the repository.{% if internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% endif %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
 1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Access**, choose one of the access settings: ![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png)
-   * **Not accessible** - Workflows in other repositories can't use workflows in this repository.
-   * **Accessible by any repository in the organization** - Workflows in other repositories can use workflows in this repository as long as they are part of the same organization.
-   * **Accessible by any repository in the enterprise** - Workflows in other repositories can use workflows in this repository as long as they are part of the same enterprise.
+1. Under **Access**, choose one of the access settings:
+
+   {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png){% else %}![Set the access to Actions components](/assets/images/enterprise/3.4/actions-access-settings.png){% endif %}
+
+   * **Not accessible** - Workflows in other repositories cannot access this repository.
+   * **Accessible from repositories in the 'ORGANIZATION NAME' organization** - {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.{% endif %}
+   * **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.{% endif %}
 1. **Save（保存）**をクリックして、設定を適用してください。
 {% endif %}
 

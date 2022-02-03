@@ -49,6 +49,14 @@ First, create an organization project or a user project.
 
 プロジェクトにIssueを追加する他の方法、あるいはプロジェクトに追加できる他のアイテムに関する情報については、「[プロジェクトの作成](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)」を参照してください。
 
+## Adding draft issues to your project
+
+Next, add a draft issue to your project.
+
+1. カーソルをプロジェクトの最下行、{% octicon "plus" aria-label="plus icon" %}の隣に持ってきてください。
+1. アイデアを入力し、**Enter**を押してください。
+1. Click on the title of the draft issue. In the markdown input box that appears, enter the some more information about your idea, then click **Save**.
+
 ## 優先度を追跡するためのフィールドの作成
 
 次に、`High`、`Medium`、`Low`のいずれかの値を含む`Priority`というカスタムフィールドを作成してください。

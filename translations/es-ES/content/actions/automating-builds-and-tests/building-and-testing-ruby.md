@@ -17,7 +17,6 @@ shortTitle: Crear & probar a Ruby
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -30,11 +29,11 @@ Te recomendamos que tengas una comprensión básica de Ruby, YAML, las opciones 
 - [Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
 - [Ruby en 20 minutos](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Comenzar con la plantilla de flujo de trabajo de Ruby
+## Utilizar el flujo de trabajo inicial de Ruby
 
-{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Ruby que funcionará con la mayoría de los proyectos de Ruby. Para obtener más información, consulta la sección [Plantilla de flujo de trabajo de Ruby](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
+{% data variables.product.prodname_dotcom %} Proporciona un flujo de trabajo inicial de Ruby que funcionará para la mayoría de los proyectos de Ruby. Para obtener más información, consulta el [Flujo de trabajo inicial de Ruby](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-Para comenzar rápidamente, agrega la plantilla al directorio `.github/workflows` de tu repositorio. El flujo de trabajo que se muestra a continuación asume que la rama predeterminada de tu repositorio es `main`.
+Para comenzar rápidamente, agrega el flujo de trabajo inicial al directorio de `.github/workflows` de tu repositorio. El flujo de trabajo que se muestra a continuación asume que la rama predeterminada de tu repositorio es `main`.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -239,7 +238,7 @@ jobs:
 
 ## Limpiar tu código
 
-El siguiente ejemplo instala `rubocop` y lo utiliza para limpiar todos los archivos. Para obtener más información, consulta la sección [Rubocop](https://github.com/rubocop-hq/rubocop). Puedes [configurar Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir cuáles serán las reglas de limpieza específicas.
+El siguiente ejemplo instala `rubocop` y lo utiliza para limpiar todos los archivos. For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). Puedes [configurar Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir cuáles serán las reglas de limpieza específicas.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -284,7 +283,7 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

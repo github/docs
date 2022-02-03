@@ -25,8 +25,6 @@ topics:
 
 ## 克隆仓库
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}

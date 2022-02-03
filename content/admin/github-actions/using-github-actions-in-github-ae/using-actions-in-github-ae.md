@@ -12,7 +12,6 @@ redirect_from:
 shortTitle: Use actions
 ---
 
-{% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_actions %} workflows can use _actions_, which are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.
 

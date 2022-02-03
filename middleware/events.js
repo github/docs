@@ -22,7 +22,11 @@ router.post('/', async function postEvents(req, res, next) {
   res.json({})
 
   if (req.hydro.maySend()) {
-    await req.hydro.publish(hydroNames[fields.type], omit(fields, OMIT_FIELDS))
+    try {
+      await req.hydro.publish(hydroNames[fields.type], omit(fields, OMIT_FIELDS))
+    } catch (err) {
+      console.error('Failed to submit event to Hydro', err)
+    }
   }
 })
 

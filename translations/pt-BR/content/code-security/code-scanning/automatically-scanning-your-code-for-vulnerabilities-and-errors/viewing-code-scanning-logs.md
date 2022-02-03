@@ -23,7 +23,7 @@ shortTitle: Visualizar os registros de digitalização de código
 
 Você pode usar uma série de ferramentas para configurar {% data variables.product.prodname_code_scanning %} no seu repositório. Para obter mais informações, consulte "[Configuração do {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 A informação de registro e diagnóstico disponível para você depende do método que você usa para {% data variables.product.prodname_code_scanning %} no repositório. Você pode verificar o tipo de {% data variables.product.prodname_code_scanning %} que você está usando na aba **Segurança** do seu repositório, usando o menu suspenso **Ferramenta** na lista de alerta. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
 
 ## Sobre análise e informações de diagnóstico

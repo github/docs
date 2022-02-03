@@ -2,7 +2,7 @@
 title: 设置 GitHub Enterprise Server 试用版
 intro: '您可以免费试用 {% data variables.product.prodname_ghe_server %}。'
 redirect_from:
-  - /articles/requesting-a-trial-of-github-enterprise/
+  - /articles/requesting-a-trial-of-github-enterprise
   - /articles/setting-up-a-trial-of-github-enterprise-server
   - /github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-server
   - /github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server
@@ -29,7 +29,7 @@ shortTitle: Enterprise Server 试用版
 
 {% data variables.product.prodname_ghe_server %} 作为虚拟设备安装。 确定组织中设置虚拟机的最佳人选，并要求该人员提交[试用申请](https://enterprise.github.com/trial)。 您可以在提交申请后立即开始试用。
 
-要为 {% data variables.product.prodname_enterprise %} Web 门户设置帐户，请单击提交试用申请后您收到的电子邮件中的链接，然后按照提示操作。 然后下载您的许可文件。 For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise)."
+要为 {% data variables.product.prodname_enterprise %} Web 门户设置帐户，请单击提交试用申请后您收到的电子邮件中的链接，然后按照提示操作。 然后下载您的许可文件。 更多信息请参阅“[管理 {% data variables.product.prodname_enterprise %} 的许可](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise)”。
 
 要安装 {% data variables.product.prodname_ghe_server %}，请下载必要的组件并上传您的许可证文件。 有关更多信息，请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise-server@latest/admin/installation/setting-up-a-github-enterprise-server-instance)”中所选可视化平台的说明。
 
@@ -42,6 +42,7 @@ shortTitle: Enterprise Server 试用版
    - [{% data variables.product.prodname_dotcom %} 快速入门指南](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/)网络直播
    - {% data variables.product.prodname_dotcom %} 指南中的[了解 {% data variables.product.prodname_dotcom %} 流程](https://guides.github.com/introduction/flow/)
    - {% data variables.product.prodname_dotcom %} 指南中的 [Hello World](https://guides.github.com/activities/hello-world/)
+   - "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
 3. 要配置实例以满足组织的需求，请参阅“[配置企业](/enterprise-server@latest/admin/configuration/configuring-your-enterprise)”。
 4. 要将 {% data variables.product.prodname_ghe_server %} 与您的身份提供程序集成，请参阅“[使用 SAML](/enterprise-server@latest/admin/user-management/using-saml)”和“[使用 LDAP](/enterprise-server@latest/admin/authentication/using-ldap)”。
 5. 邀请不限数量的人员加入您的试用版。

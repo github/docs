@@ -17,6 +17,7 @@ prodname_ghe_server: 'GitHub Enterprise Server'
 prodname_ghe_cloud: 'GitHub Enterprise Cloud'
 prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
+prodname_docs: 'GitHub Docs'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
   {% ifversion ghes %}your GitHub Enterprise Server instance{% elsif ghae %}your enterprise{% else %}GitHub.com{% endif %}
@@ -46,8 +47,8 @@ prodname_cli: 'GitHub CLI'
 #GitHub Desktop
 prodname_desktop: 'GitHub Desktop'
 desktop_link: 'https://desktop.github.com/'
-#GitHub for Mobile
-prodname_mobile: 'GitHub para dispositivos móveis'
+#GitHub Mobile
+prodname_mobile: 'GitHub Mobile'
 prodname_ios: 'GitHub para iOS'
 prodname_android: 'GitHub para Android'
 #GitHub Pages
@@ -96,8 +97,6 @@ prodname_matching_fund: 'Fundo Correspondentes para Patrocinadores do GitHub'
 #GitHub Advanced Security
 prodname_GH_advanced_security: 'Segurança Avançada GitHub'
 prodname_advanced_security: 'Segurança Avançada'
-#Security Center
-prodname_security_center: 'Security Center'
 #Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
@@ -151,7 +150,7 @@ prodname_arctic_vault: 'Cofre de Código do Ártico'
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
 #Command Palette
-prodname_command_palette: 'GitHub Command Palette'
+prodname_command_palette: 'Paleta de comando do GitHub'
 #Links
 product_url: >-
   {% ifversion fpt or ghec %}github.com{% else %}[hostname]{% endif %}
@@ -182,7 +181,7 @@ api_url_code: >-
   {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://[hostname]/api/v3{% elsif ghae %}https://[hostname]/api/v3{% endif %}
 #Use this inside command-line code blocks
 graphql_url_pre: >-
-  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://<em>[hostname]</em>/api/graphql{% elsif ghae %}https://api.<em>[hostname]</em>/graphql{% endif %}
+  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://<em>[hostname]</em>/api/graphql{% elsif ghae %}https://<em>[hostname]</em>/api/graphql{% endif %}
 #Use this all other code blocks
 graphql_url_code: >-
-  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://[hostname]/api/graphql{% elsif ghae %}https://api.[hostname]/graphql{% endif %}
+  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://[hostname]/api/graphql{% elsif ghae %}https://[hostname]/api/graphql{% endif %}

@@ -37,7 +37,7 @@ If you're an organization or enterprise owner, you can switch between settings f
 ![Context switcher button](/assets/images/help/settings/context-switcher-button.png)
 1. Start typing the name of the account you want to switch to, then click the name of the account.
 ![Context switcher menu](/assets/images/help/settings/context-switcher-menu.png)
-1. In the left sidebar, click **Billing & plans**. ![Billing & plans in the settings sidebar](/assets/images/help/organizations/billing-settings.png)
+1. In the left sidebar, click **{% octicon "credit-card" aria-label="The credit card icon" %} Billing and plans**.
 
 ## Further reading
 

@@ -2,7 +2,7 @@
 title: 通知について
 intro: '通知では、サブスクライブしている {% data variables.product.product_location %} のアクティビティに関する最新情報をお知らせします。 通知インボックスを使用して、更新をカスタマイズ、トリアージ、および管理できます。'
 redirect_from:
-  - /articles/notifications/
+  - /articles/notifications
   - /articles/about-notifications
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications-beta
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications
@@ -29,7 +29,7 @@ topics:
 サブスクライブできる通知は次のとおりです。
 - 特定の Issue、プルリクエスト、または Gist の会話。
 - リポジトリまたは Team ディスカッション内のすべてのアクティビティ。
-- {% data variables.product.prodname_actions %} で設定されたリポジトリ内のワークフローのステータスなどの CI アクティビティ。 {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+- {% data variables.product.prodname_actions %} で設定されたリポジトリ内のワークフローのステータスなどの CI アクティビティ。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
 - Releases in a repository.{% endif %}
 
@@ -64,7 +64,7 @@ topics:
 特定のプルリクエストやプルリクエストの更新の受信方法をカスタマイズするには、Issue またはプルリクエスト内で設定できます。 詳しい情報については、「[単一の通知をトリアージする](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)」を参照してください。
 
 {% ifversion fpt or ghes or ghec %}
-You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)」を参照してください。
+You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)」を参照してください。
 {% endif %}
 
 ## 通知の受信理由
@@ -101,4 +101,4 @@ You can customize and schedule push notifications in the {% data variables.produ
 
 ## フィードバックとサポート
 
-通知に関するフィードバックまたは機能のリクエストがある場合は、[通知のフィードバックフォーム](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback)を使用してください。
+If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).

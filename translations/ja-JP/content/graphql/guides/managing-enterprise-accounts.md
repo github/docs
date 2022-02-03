@@ -95,7 +95,7 @@ GraphiQLもしくはベースURLの設定ができる他のスタンドアロー
 
 ## Enterprise Accounts APIを使ったクエリの例
 
-このGraphQLクエリは、Enterprise Accounts APIを使い、アプライアンス中の各Organization内の{% ifversion not ghae %}`パブリック`{% else %}`プライベート`{% endif %}なリポジトリの総数を要求しています。 このクエリをカスタマイズするには、`<enterprise-account-name>`をお使いのEnterpriseインスタンスのスラッグで置き換えてください。
+このGraphQLクエリは、Enterprise Accounts APIを使い、アプライアンス中の各Organization内の{% ifversion not ghae %}`パブリック`{% else %}`プライベート`{% endif %}なリポジトリの総数を要求しています。 To customize this query, replace `<enterprise-account-name>` with the handle for your enterprise account. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `<enterprise-account-name>` with `octo-enterprise`.
 
 {% ifversion not ghae %}
 

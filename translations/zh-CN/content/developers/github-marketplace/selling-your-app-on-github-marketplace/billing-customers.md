@@ -2,8 +2,8 @@
 title: 向客户计费
 intro: '{% data variables.product.prodname_marketplace %} 上的应用程序应遵守 GitHub 的计费指南并支持推荐的服务。 遵循我们的指南可帮助客户顺利完成帐单流程。'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace/
-  - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace
+  - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace
   - /marketplace/selling-your-app/billing-customers-in-github-marketplace
   - /developers/github-marketplace/billing-customers
 versions:

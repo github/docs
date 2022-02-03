@@ -26,8 +26,6 @@ Issue でメンションされた人や Team は、Issue が新しいリポジ�
 
 ## 他のリポジトリへオープン Issue を移譲する
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}

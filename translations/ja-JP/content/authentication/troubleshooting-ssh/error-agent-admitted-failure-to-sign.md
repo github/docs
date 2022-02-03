@@ -2,7 +2,7 @@
 title: 'Error: Agent admitted failure to sign'
 intro: 'ごくまれに、Linux で SSH 経由で {% data variables.product.product_name %} に接続すると、「Agent admitted failure to sign using the key」というエラーが発生する場合があります。 この問題を解決するには以下の手順に従ってください。'
 redirect_from:
-  - /articles/error-agent-admitted-failure-to-sign-using-the-key/
+  - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign
   - /github/authenticating-to-github/error-agent-admitted-failure-to-sign
   - /github/authenticating-to-github/troubleshooting-ssh/error-agent-admitted-failure-to-sign

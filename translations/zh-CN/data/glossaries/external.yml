@@ -7,10 +7,6 @@
   description: >-
     在命令行或 API 上执行 HTTPS 上的 Git 操作时，用来代替密码的令牌，也称为个人访问令牌。
 - 
-  term: 帐户恢复令牌
-  description: >-
-    **已废弃，将在 2021 年 12 月 1 日禁用。** 作为帐户恢复设置一部分存储的身份验证凭据称为“异地恢复帐户”，用于存储此备份凭据。
-- 
   term: API 预览
   description: >-
     一种尝试新 API 以及在现有 API 方法成为正式 GitHub API 之前对其进行更改的方式。
@@ -158,7 +154,7 @@
   description: >-
     GitHub 上的特定活动，将会：- 添加方块到用户的贡献图："[计为贡献的活动](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - 添加活动到用户个人资料上的时间表："[贡献活动](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
-  term: 贡献者
+  term: 贡献者，参与者
   description: >-
     贡献者是指对仓库没有协作者权限但参与过项目，并且他们打开的拉取请求已合并到仓库的人员。
 - 
@@ -214,7 +210,7 @@
   description: 发送到用户电子邮件地址的通知。
 - 
   term: 企业帐户
-  description: 企业帐户允许您集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单。{% data reusables.gated-features.enterprise-accounts %}
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -570,11 +566,7 @@
 - 
   term: 变基
   description: >-
-    要将一系列变更从一个分支重新应用到不同的基分支，并将分支的 HEAD 重置为结果。
-- 
-  term: 异地恢复帐户
-  description: >-
-    **已废弃，将在 2021 年 12 月 1 日禁用。**允许用户在无法使用双重身份验证方法或恢复代码时向其 GitHub 帐户添加额外一重安全保护。用户可以通过 Facebook 以帐户恢复令牌的形式存储其 GitHub 帐户的身份验证凭据，将其 GitHub 帐户与其 Facebook 帐户相关联。
+    要将一系列变更从一个分支重新应用到不同的基础分支，并将分支的 HEAD 重置为结果。
 - 
   term: 恢复代码
   description: 帮助您重新获取对 GitHub 帐户的访问权限的代码。

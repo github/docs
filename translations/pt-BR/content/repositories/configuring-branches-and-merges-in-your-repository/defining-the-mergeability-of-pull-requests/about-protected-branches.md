@@ -43,12 +43,12 @@ Por padrão, as restrições de uma regra de proteção de branch não se aplica
 Para cada regra de proteção do branch, você pode escolher habilitar ou desabilitar as seguintes configurações.
 - [Exigir revisões de pull request antes do merge](#require-pull-request-reviews-before-merging)
 - [Exigir verificações de status antes do merge](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 - [Exigir resolução de conversas antes do merge](#require-conversation-resolution-before-merging){% endif %}
 - [Exigir commits assinados](#require-signed-commits)
 - [Exigir histórico linear](#require-linear-history)
 {% ifversion fpt or ghec %}
-- [Require merge queue](#require-merge-queue)
+- [Exigir uma fila de fusão](#require-merge-queue)
 {% endif %}
 - [Incluir administradores](#include-administrators)
 - [Restringir quem pode fazer push para branches correspondentes](#restrict-who-can-push-to-matching-branches)
@@ -84,15 +84,11 @@ Opcionalmente, você pode optar por exigir análises dos proprietários do códi
 
 As verificações de status obrigatórias garantem que todos os testes de CI sejam aprovados antes que os colaboradores possam fazer alterações em um branch protegido. Para obter mais informações, consulte "[Configurar branches protegidos](/articles/configuring-protected-branches/)" e "[Habilitar verificações de status obrigatórias](/articles/enabling-required-status-checks)". Para obter mais informações, consulte "[Sobre verificações de status](/github/collaborating-with-issues-and-pull-requests/about-status-checks)".
 
-Antes de habilitar as verificações de status necessárias, é necessário configurar o repositório para usar a API de status. Para obter mais informações, consulte "[Repositórios](/rest/reference/repos#statuses)" na documentação do REST.
+Antes de habilitar as verificações de status necessárias, é necessário configurar o repositório para usar a API de status. Para obter mais informações, consulte "[Repositórios](/rest/reference/commits#commit-statuses)" na documentação do REST.
 
 Depois de habilitar a verificação de status obrigatória, todas as verificações de status necessárias deverão passar para que os colaboradores possam fazer merge das alterações no branch protegido. Depois que todas as verificações de status necessárias passarem, quaisquer commits devem ser enviados por push para outro branch e, em seguida, mesclados ou enviados por push diretamente para o branch protegido.
 
-{% note %}
-
-**Observação:** Qualquer pessoa ou integração com permissões de gravação em um repositório pode configurar o estado de qualquer verificação de status no repositório. O {% data variables.product.company_short %} não analisa se o autor de uma verificação está autorizado a criar uma verificação com um determinado nome ou modificar um status existente. Antes de realizar o merge de uma pull request, você deve verificar se o autor de cada status, listado na caixa de merge, é esperado.
-
-{% endnote %}
+Qualquer pessoa ou integração com permissões de gravação em um repositório pode definir o estado de qualquer verificação de status no repositório{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}, mas em alguns casos você só pode aceitar uma verificação de status de um {% data variables.product.prodname_github_app %} específico. Ao adicionar a verificação de status necessária, você pode selecionar um aplicativo que definiu essa verificação recentemente como a fonte esperada de atualizações de status.{% endif %} Se o status for definido por qualquer outra pessoa ou integração, o merge não será permitido. Se você selecionar "qualquer fonte", você ainda pode verificar manualmente o autor de cada status, listado na caixa de merge.
 
 Você pode configurar as verificações de status obrigatórias como "flexível" ou "rígida". O tipo de verificação de status obrigatória que você escolher determinará se o branch precisará ser atualizado com o branch base antes do merge.
 
@@ -104,7 +100,7 @@ Você pode configurar as verificações de status obrigatórias como "flexível"
 
 Para obter informações sobre a solução de problemas, consulte "[Solucionar problemas para as verificações de status obrigatórias](/github/administering-a-repository/troubleshooting-required-status-checks)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Exigir resolução de conversa antes de merge
 
 Exige que todos os comentários no pull request sejam resolvidos antes de poder fazer merge em um branch protegido. Isso garante que todos os comentários sejam resolvidos ou reconhecidos antes do merge.
@@ -139,10 +135,12 @@ Aplicar o histórico linear de commit impede que os colaboradores façam push de
 Antes de exigir um histórico de commit linear, seu repositório deve permitir merge squash ou merge rebase. Para obter mais informações, consulte "[Configurando merges da pull request](/github/administering-a-repository/configuring-pull-request-merges)".
 
 {% ifversion fpt or ghec %}
-### Require merge queue
+### Exigir uma fila de fusão
 
 {% data reusables.pull_requests.merge-queue-beta %}
 {% data reusables.pull_requests.merge-queue-overview %}
+
+{% data reusables.pull_requests.merge-queue-merging-method %}
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
@@ -156,13 +154,23 @@ Por padrão, as regras de branch protegidos não se aplicam a pessoas com permis
 Você pode habilitar as restrições do branch se seu repositório for propriedade de uma organização que usa {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
-Ao habilitar as restrições de branches, apenas usuários, equipes ou aplicativos com permissão podem fazer push para o branch protegido. Você pode visualizar e editar usuários, equipes ou aplicativos com acesso de push a um branch protegido nas configurações do branch protegido.
+Ao habilitar as restrições de branches, apenas usuários, equipes ou aplicativos com permissão podem fazer push para o branch protegido. Você pode visualizar e editar usuários, equipes ou aplicativos com acesso de push a um branch protegido nas configurações do branch protegido. Quando as verificações de status são necessárias, as pessoas, equipes, e aplicativos que têm permissão para fazer push em um branch protegido ainda serão impedidos de realizar o merge se a verificação necessária falhar. As pessoas, equipes, e aplicativos que têm permissão para fazer push em um branch protegido ainda precisarão criar um pull request quando forem necessários pull requests.
 
 Você só pode dar acesso de push a um branch protegido a usuários, equipes ou {% data variables.product.prodname_github_apps %} instalados com acesso de gravação a um repositório. As pessoas e os aplicativos com permissões de administrador em um repositório sempre conseguem fazer push em um branch protegido.
 
 ### Permitir push forçado
 
-Por padrão, os blocks do {% data variables.product.product_name %} fazem push forçado em todos os branches protegidos. Quando você habilitar push forçado em um branch protegido, qualquer pessoa com, pelo menos, permissões de gravação no repositório pode forçar o push ao branch, incluindo aqueles com permissões de administrador.
+{% ifversion fpt or ghec %}
+Por padrão, os blocks do {% data variables.product.product_name %} fazem push forçado em todos os branches protegidos. Ao habilitar push forçado em um branch protegido, você pode escolher um dos dois grupos que podem fazer push forçado:
+
+1. Permitir que todos com, no mínimo, permissões de gravação para que o repositório faça push forçado no branch, incluindo aqueles com permissões de administrador.
+1. Permitir apenas pessoas ou equipes específicas façam push forçado no branch.
+
+Se alguém fizer um push forçado em um branch, ele poderá substituir commits em que outros colaboradores colaboradores basearam seu trabalho. As pessoas podem ter conflitos de merge ou pull requests corrompidos.
+
+{% else %}
+Por padrão, os blocks do {% data variables.product.product_name %} fazem push forçado em todos os branches protegidos. Quando você habilitar push forçado em um branch protegido, qualquer pessoa com, pelo menos, permissões de gravação no repositório pode forçar o push ao branch, incluindo aqueles com permissões de administrador. Se alguém fizer um push forçado em um branch, ele poderá substituir commits em que outros colaboradores colaboradores basearam seu trabalho. As pessoas podem ter conflitos de merge ou pull requests corrompidos.
+{% endif %}
 
 Habilitar push forçado não irá substituir quaisquer outras regras de proteção de branch. Por exemplo, se um branch exigir um histórico de commit linear, você não poderá forçar commits a mesclar commits para esse branch.
 

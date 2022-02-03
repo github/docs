@@ -1,7 +1,7 @@
 ---
-title: Documentación sobre los debates de GitHub
+title: GitHub Discussions Documentation
 shortTitle: GitHub Discussions
-intro: '{% data variables.product.prodname_discussions %} es un foro de comunicación colaborativa para la comunidad que circunda un proyecto de código abierto. Los miembros de la comunidad pueden hacer preguntas y proporcionar respuestas, compartir actualizaciones, tener conversaciones abiertas y dar seguimiento a las decisiones que afectan la forma de trabajar de la misma.'
+intro: '{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Community members can ask and answer questions, share updates, have open-ended conversations, and follow along on decisions affecting the community''s way of working.'
 introLinks:
   quickstart: /discussions/quickstart
 featuredLinks:

@@ -15,7 +15,7 @@ topics:
   - Access management
 ---
 
-When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
+Cuando una {% data variables.product.prodname_oauth_app %} quiere identificarte mediante tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, verás una página con la información de contacto del desarrollador de la app y una lista de los datos específicos que se están solicitando.
 
 {% ifversion fpt or ghec %}
 

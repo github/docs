@@ -102,19 +102,6 @@
       "href": "/graphql/overview/schema-previews#project-event-details-preview"
     },
     {
-      "title": "Create content attachments preview",
-      "description": "This preview adds support for creating content attachments.",
-      "toggled_by": "corsair-preview",
-      "toggled_on": [
-        "Mutation.createContentAttachment"
-      ],
-      "owning_teams": [
-        "@github/feature-lifecycle"
-      ],
-      "accept_header": "application/vnd.github.corsair-preview+json",
-      "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
-    },
-    {
       "title": "Labels preview",
       "description": "This preview adds support for adding, updating, creating and deleting labels.",
       "toggled_by": "bane-preview",
@@ -262,19 +249,6 @@
       ],
       "accept_header": "application/vnd.github.starfox-preview+json",
       "href": "/graphql/overview/schema-previews#project-event-details-preview"
-    },
-    {
-      "title": "Create content attachments preview",
-      "description": "This preview adds support for creating content attachments.",
-      "toggled_by": "corsair-preview",
-      "toggled_on": [
-        "Mutation.createContentAttachment"
-      ],
-      "owning_teams": [
-        "@github/feature-lifecycle"
-      ],
-      "accept_header": "application/vnd.github.corsair-preview+json",
-      "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
     },
     {
       "title": "Labels preview",
@@ -990,19 +964,6 @@
       ],
       "accept_header": "application/vnd.github.starfox-preview+json",
       "href": "/graphql/overview/schema-previews#project-event-details-preview"
-    },
-    {
-      "title": "Create content attachments preview",
-      "description": "This preview adds support for creating content attachments.",
-      "toggled_by": "corsair-preview",
-      "toggled_on": [
-        "Mutation.createContentAttachment"
-      ],
-      "owning_teams": [
-        "@github/feature-lifecycle"
-      ],
-      "accept_header": "application/vnd.github.corsair-preview+json",
-      "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
     },
     {
       "title": "Labels preview",

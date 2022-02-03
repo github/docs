@@ -2,8 +2,8 @@
 title: Convidar colaboradores para um repositório pessoal
 intro: 'Você pode {% ifversion fpt or ghec %}convidar usuários para se tornarem{% else %}adicionar usuários como{% endif %} colaboradores em seu repositório pessoal.'
 redirect_from:
-  - /articles/how-do-i-add-a-collaborator/
-  - /articles/adding-collaborators-to-a-personal-repository/
+  - /articles/how-do-i-add-a-collaborator
+  - /articles/adding-collaborators-to-a-personal-repository
   - /articles/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
@@ -38,8 +38,8 @@ Se você for integrante de um {% data variables.product.prodname_emu_enterprise 
 1. Pergunte o nome do usuário da pessoa que você está convidando a colaborar.{% ifversion fpt or ghec %} Caso a pessoa não tenha um nome de usuário ainda, deve se inscrever em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Inscrever-se em uma nova conta {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658%}
+{% data reusables.repositories.click-collaborators-teams %}
 1. Clique em **Convidar um colaborador**. ![Botão "Convidar um colaborador"](/assets/images/help/repository/invite-a-collaborator-button.png)
 2. No campo de pesquisa, comece a digitar o nome da pessoa que deseja convidar e, em seguida, clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma pessoa para convidar para o repositório](/assets/images/help/repository/manage-access-invite-search-field-user.png)
 3. Clique em **Adicionar NOME ao REPOSITÓRIO**. ![Botão para adicionar um colaborador](/assets/images/help/repository/add-collaborator-user-repo.png)

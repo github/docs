@@ -6,7 +6,7 @@ Os trilhos de aprendizado são uma coleção de artigos que ajudam você a domin
 
 Os dados do caminho de aprendizagem para um produto são definidos em dois lugares:
 
-1. Uma simples matriz de nomes de faixas de aprendizagem é definida na página inicial do produto na primeira página.
+1. A simple array of learning track names is defined in the product guides index page frontmatter.
 
     Por exemplo, em `content/actions/guides/index.md`:
     ```
@@ -23,17 +23,20 @@ Os dados do caminho de aprendizagem para um produto são definidos em dois lugar
 
 <p spaces-before="4">Por exemplo, em <code>data/learning-tracks/actions.yml`, cada um dos itens da matriz do arquivo de conteúdo `learningTracks` é representado com dados adicionais como `título`, `descrição`e uma matriz de links `guias`.</p>
 
-    Uma faixa de aprendizagem neste YAML **por versão** deve ser designada como uma faixa de aprendizagem "destacada" via `featured_track: true`, que será configurada para aparecer na parte superior da página subinicial do produto. Um teste falhará se esta propriedade estiver ausente.
+    One learning track in this YAML **per version** must be designated as a "featured" learning track via `featured_track: true`, which will set it to appear at the top of the product guides page. Um teste falhará se esta propriedade estiver ausente.
 
     A propriedade `featured_track` pode ser um booleano simples (ou seja, `featured_track: true`) ou pode ser uma string que inclua declarações (p. ex., `featured_track: '{% ifversion fpt %}true{% else %}falso{% endif %}'`). Se você usar o versionamento, terá múltiplos `featured_track`s por arquivo YML, mas certifique-se de que apenas uma versão será interpretada em cada versão atualmente suportada. Um teste irá falhar se houver mais ou menos do que um link em destaque para cada versão.</li> </ol>
 
 ## Controle de Versão
 
-O versionamento para faixas de aprendizagem é processado na página tempo de interpretação. O código encontra-se em [`lib/learning-tracks.js`](lib/learning-tracks.js), que é chamado por `page.render()`. As faixas de aprendizagem processadas são então interpretadas por `components/sublanding`.
+O versionamento para faixas de aprendizagem é processado na página tempo de interpretação. O código encontra-se em [`lib/learning-tracks.js`](lib/learning-tracks.js), que é chamado por `page.render()`. The processed learning tracks are then rendered by `components/guides`.
 
 Condicionais líquidas **não** tem que ser usadas para versionamento no arquivo YAML para guias. Apenas os guias do caminho de aprendizagem que se aplicam à versão atual serão processados automaticamente. Se não houver nenhuma faixa com guias que pertençam à versão atual, a seção de faixas de aprendizado não será interpretada.
 
-versionamento explícito dentro das faixas de aprendizado de um produto YML também é compatível. Por exemplo:
+versionamento explícito dentro das faixas de aprendizado de um produto YML também é compatível. O formato e os valores permitidos são os mesmos que [frontmatter versions property](/content#versions).
+
+Por exemplo:
+
 ```
 learning_track_name:
   title: 'Learning track title'
@@ -45,6 +48,7 @@ learning_track_name:
    - /path/to/guide1
    - /path/to/guide2
 ```
+
 Se a propriedade de `versões` não estiver incluída, deduz-se que a faixa está disponível em todas as versões.
 
 ## Aplicação de esquema

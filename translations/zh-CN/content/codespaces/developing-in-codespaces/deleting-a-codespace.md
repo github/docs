@@ -13,9 +13,10 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Delete a codespace
 ---
 
- 
+
 
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
@@ -25,7 +26,6 @@ topics:
 
 {% endnote %}
 
-{% include tool-switcher %}
 
 {% webui %}
 

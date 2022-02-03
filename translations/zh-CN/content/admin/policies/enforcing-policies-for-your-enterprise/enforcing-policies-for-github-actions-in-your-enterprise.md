@@ -26,7 +26,6 @@ shortTitle: GitHub Actions policies
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.ae-beta %}
 
 ## 关于企业中 {% data variables.product.prodname_actions %} 的策略
 
@@ -54,7 +53,7 @@ shortTitle: GitHub Actions policies
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. 在 **Policies（策略）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。
-   {%- ifversion ghes or ghae-issue-5094 %}
+   {%- ifversion ghes > 3.0 or ghae-issue-5094 %}
    ![添加操作到允许列表](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
    ![添加操作到允许列表](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
@@ -69,8 +68,7 @@ shortTitle: GitHub Actions policies
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
@@ -109,7 +107,7 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 or ghae-next %}
+{% ifversion ghec or ghes > 3.1 or ghae %}
 
 ## Enforcing a policy for workflow permissions in your enterprise
 

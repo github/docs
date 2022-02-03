@@ -3,8 +3,8 @@ title: Fazer downgrade do plano de cobrança de um app do GitHub Marketplace
 intro: 'Se você quiser usar um plano de cobrança diferente, faça downgrade do seu app do {% data variables.product.prodname_marketplace %} a qualquer momento.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-the-billing-plan-for-a-github-marketplace-app
-  - /articles/downgrading-an-app-for-your-personal-account/
-  - /articles/downgrading-an-app-for-your-organization/
+  - /articles/downgrading-an-app-for-your-personal-account
+  - /articles/downgrading-an-app-for-your-organization
   - /articles/downgrading-the-billing-plan-for-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/downgrading-the-billing-plan-for-a-github-marketplace-app
 versions:

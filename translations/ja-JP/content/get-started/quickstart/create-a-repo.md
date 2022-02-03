@@ -1,7 +1,7 @@
 ---
 title: リポジトリを作成する
 redirect_from:
-  - /create-a-repo/
+  - /create-a-repo
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
@@ -40,8 +40,6 @@ topics:
 
 {% endif %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.create_new %}
@@ -60,19 +58,13 @@ topics:
 {% data reusables.cli.cli-learn-more %}
 
 1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
-2. To create a repository for your project, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
-
-   ```shell
-   gh repo create <em>project-name</em>
-   ```
-
-3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
+2. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.
+4. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag.  For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
 
 {% endcli %}
 
 ## 最初の変更をコミットする
-
-{% include tool-switcher %}
 
 {% webui %}
 

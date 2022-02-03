@@ -12,7 +12,7 @@ shortTitle: Administrar las direcciones IP permitidas
 
 ## Acerca de las listas de direcciones IP permitidas para las {% data variables.product.prodname_github_apps %}
 
-Los propietarios de organizaciones y empresas pueden restringir el acceso a los activos si configuran una lista de direcciones IP permitidas. Esta lista especifica las direcciones IP a las que se les permite conectarse. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
+Los propietarios de organizaciones y empresas pueden restringir el acceso a los activos si configuran una lista de direcciones IP permitidas. Esta lista especifica las direcciones IP a las que se les permite conectarse. Para obtener más información, consulta la sección "[Requerir políticas para la configuración de seguridad en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
 
 Cuando una organización tiene una lista de direcciones permitidas, se negará el acceso a las aplicaciones de terceros que se conecten a través de una {% data variables.product.prodname_github_app %}, a menos de que ambas condiciones siguientes sean verdaderas:
 

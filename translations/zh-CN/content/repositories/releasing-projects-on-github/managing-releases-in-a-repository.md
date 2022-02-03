@@ -3,7 +3,7 @@ title: 管理仓库中的发行版
 intro: 您可以创建要捆绑的发行版，并将项目的迭代交付给用户。
 redirect_from:
   - /articles/creating-releases
-  - /articles/listing-and-editing-releases/
+  - /articles/listing-and-editing-releases
   - /articles/editing-and-deleting-releases
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
@@ -35,8 +35,6 @@ You can create new releases with release notes, @mentions of contributors, and l
 {% endif %}
 
 ## 创建发行版
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -107,8 +105,6 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 
 ## 编辑发行版
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -129,8 +125,6 @@ Releases cannot currently be edited with {% data variables.product.prodname_cli 
 {% endcli %}
 
 ## 删除发行版
-
-{% include tool-switcher %}
 
 {% webui %}
 

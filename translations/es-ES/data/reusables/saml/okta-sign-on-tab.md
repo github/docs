@@ -1,1 +1,1 @@
-1. Debajo del nombre de la aplicación, da clic en **Iniciar sesión**. ![Pestaña "Registrarse" para la aplicación de Okta](/assets/images/help/saml/okta-sign-on-tab.png)
+1. Debajo del nombre de la aplicación, da clic en **Iniciar sesión**. ![Screenshot of "Sign on" tab for Okta application](/assets/images/help/saml/okta-sign-on-tab.png)

@@ -53,9 +53,9 @@ sections:
       heading: 'Git Credential Manager (GCM) secure credential storage and multi-factor authentication support'
       notes:
         - |
-          Git Credential Manager (GCM) Core versions 2.0.452 and later now provide security-hardened credential storage and multi-factor authentication support for {% data variables.product.product_name %}.
+          Git Credential Manager (GCM) versions 2.0.452 and later now provide security-hardened credential storage and multi-factor authentication support for {% data variables.product.product_name %}.
 
-          GCM Core with support for {% data variables.product.product_name %} is included with [Git for Windows](https://gitforwindows.org) versions 2.32 and later. GCM Core is not included with Git for macOS or Linux, but can be installed separately. For more information, see the [latest release](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) and [installation instructions](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) in the `microsoft/Git-Credential-Manager-Core` repository.
+          GCM with support for {% data variables.product.product_name %} is included with [Git for Windows](https://gitforwindows.org) versions 2.32 and later. GCM is not included with Git for macOS or Linux, but can be installed separately. For more information, see the [latest release](https://github.com/GitCredentialManager/git-credential-manager/releases/) and [installation instructions](https://github.com/GitCredentialManager/git-credential-manager/releases/) in the `GitCredentialManager/git-credential-manager` repository.
   changes:
     - 
       heading: 管理更改
@@ -165,8 +165,8 @@ sections:
     - 
       heading: API 更改
       notes:
-        - 'Pagination support has been added to the Repositories REST API''s "compare two commits" endpoint, which returns a list of commits reachable from one commit or branch, but unreachable from another. The API can also now return the results for comparisons over 250 commits. For more information, see the "[Repositories](/rest/reference/repos#compare-two-commits)" REST API documentation and "[Traversing with pagination](/rest/guides/traversing-with-pagination)."'
-        - 'The REST API can now be used to programmatically resend or check the status of webhooks. For more information, see "[Repositories](/rest/reference/repos#webhooks)," "[Organizations](/rest/reference/orgs#webhooks)," and "[Apps](/rest/reference/apps#webhooks)" in the REST API documentation.'
+        - 'Pagination support has been added to the Repositories REST API''s "compare two commits" endpoint, which returns a list of commits reachable from one commit or branch, but unreachable from another. The API can also now return the results for comparisons over 250 commits. For more information, see the "[Commits](/rest/reference/commits#compare-two-commits)" REST API documentation and "[Traversing with pagination](/rest/guides/traversing-with-pagination)."'
+        - 'The REST API can now be used to programmatically resend or check the status of webhooks. For more information, see "[Webhooks](/rest/reference/webhooks)," "[Organizations](/rest/reference/orgs#webhooks)," and "[Apps](/rest/reference/apps#webhooks)" in the REST API documentation.'
         - |
           Improvements have been made to the code scanning and {% data variables.product.prodname_GH_advanced_security %} APIs:
 

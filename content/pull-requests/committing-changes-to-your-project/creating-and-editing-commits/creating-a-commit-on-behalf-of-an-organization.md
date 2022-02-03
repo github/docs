@@ -25,7 +25,7 @@ To create commits on behalf of an organization:
   - `org` is the organization's login
   - `name@organization.com` is in the organization's domain
 
-Organization's can use the `name@organization.com` email as a public point of contact for open source efforts.
+Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
 
 ## Creating commits with an `on-behalf-of` badge on the command line
 

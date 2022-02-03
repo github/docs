@@ -3,10 +3,8 @@ title: Synchronizing a team with an identity provider group
 intro: 'You can synchronize a {% data variables.product.product_name %} team with an identity provider (IdP) group to automatically add and remove team members.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
-product: '{% data reusables.gated-features.team-synchronization %} '
 permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
 versions:
-  fpt: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -15,23 +13,21 @@ topics:
 shortTitle: Synchronize with an IdP
 ---
 
-{% data reusables.gated-features.okta-team-sync %}
-
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
 ## About team synchronization
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
-{% ifversion fpt or ghec %}You can connect up to five IdP groups to a {% data variables.product.product_name %} team.{% elsif ghae %}You can connect a team on {% data variables.product.product_name %} to one IdP group. All users in the group are automatically added to the team and also added to the parent organization as members. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization.{% endif %} You can assign an IdP group to multiple {% data variables.product.product_name %} teams.
+{% ifversion ghec %}You can connect up to five IdP groups to a {% data variables.product.product_name %} team.{% elsif ghae %}You can connect a team on {% data variables.product.product_name %} to one IdP group. All users in the group are automatically added to the team and also added to the parent organization as members. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization.{% endif %} You can assign an IdP group to multiple {% data variables.product.product_name %} teams.
 
-{% ifversion fpt or ghec %}Team synchronization does not support IdP groups with more than 5000 members.{% endif %}
+{% ifversion ghec %}Team synchronization does not support IdP groups with more than 5000 members.{% endif %}
 
-Once a {% data variables.product.prodname_dotcom %} team is connected to an IdP group, your IdP administrator must make team membership changes through the identity provider. You cannot manage team membership on {% data variables.product.product_name %}{% ifversion fpt or ghec %} or using the API{% endif %}.
+Once a {% data variables.product.prodname_dotcom %} team is connected to an IdP group, your IdP administrator must make team membership changes through the identity provider. You cannot manage team membership on {% data variables.product.product_name %}{% ifversion ghec %} or using the API{% endif %}.
 
-{% ifversion fpt or ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
+{% ifversion ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 All team membership changes made through your IdP will appear in the audit log on {% data variables.product.product_name %} as changes made by the team synchronization bot. Your IdP will send team membership data to {% data variables.product.prodname_dotcom %} once every hour.
 Connecting a team to an IdP group may remove some team members. For more information, see "[Requirements for members of synchronized teams](#requirements-for-members-of-synchronized-teams)."
 {% endif %}
@@ -44,9 +40,9 @@ Parent teams cannot synchronize with IdP groups. If the team you want to connect
 
 To manage repository access for any {% data variables.product.prodname_dotcom %} team, including teams connected to an IdP group, you must make changes with {% data variables.product.product_name %}. For more information, see "[About teams](/articles/about-teams)" and "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)." 
 
-{% ifversion fpt or ghec %}You can also manage team synchronization with the API. For more information, see "[Team synchronization](/rest/reference/teams#team-sync)."{% endif %}
+{% ifversion ghec %}You can also manage team synchronization with the API. For more information, see "[Team synchronization](/rest/reference/teams#team-sync)."{% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 ## Requirements for members of synchronized teams
 
 After you connect a team to an IdP group, team synchronization will add each member of the IdP group to the corresponding team on {% data variables.product.product_name %} only if:
@@ -64,7 +60,7 @@ To avoid unintentionally removing team members, we recommend enforcing SAML SSO 
 
 ## Prerequisites
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 Before you can connect a {% data variables.product.product_name %} team with an identity provider group, an organization or enterprise owner must enable team synchronization for your organization or enterprise account. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise account](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 To avoid unintentionally removing team members, visit the administrative portal for your IdP and confirm that each current team member is also in the IdP groups that you want to connect to this team. If you don't have this access to your identity provider, you can reach out to your IdP administrator.
@@ -85,7 +81,7 @@ When you connect an IdP group to a {% data variables.product.product_name %} tea
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 6. Under "Identity Provider Groups", use the drop-down menu, and select up to 5 identity provider groups.
     ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png){% elsif ghae %}
 6. Under "Identity Provider Group", use the drop-down menu, and select an identity provider group from the list.
@@ -100,7 +96,7 @@ If you disconnect an IdP group from a {% data variables.product.prodname_dotcom 
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 6. Under "Identity Provider Groups", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}. 
     ![Unselect a connected IdP group from the GitHub team](/assets/images/help/teams/unselect-idp-group.png){% elsif ghae %}
 6. Under "Identity Provider Group", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}. 

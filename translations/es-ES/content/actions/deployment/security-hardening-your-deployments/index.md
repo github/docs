@@ -13,5 +13,5 @@ children:
   - /configuring-openid-connect-in-google-cloud-platform
   - /configuring-openid-connect-in-hashicorp-vault
   - /configuring-openid-connect-in-cloud-providers
+  - /using-openid-connect-with-reusable-workflows
 ---
-

@@ -2,8 +2,8 @@
 title: 测试应用程序
 intro: 'GitHub 建议在将上架信息提交到 {% data variables.product.prodname_marketplace %} 之前，先使用 API 和 web 挂钩测试您的应用，以便为客户提供理想的体验。 在上架专家批准您的应用程序之前，它必须能够完全处理帐单流程。'
 redirect_from:
-  - /apps/marketplace/testing-apps-apis-and-webhooks/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
+  - /apps/marketplace/testing-apps-apis-and-webhooks
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
   - /marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
   - /developers/github-marketplace/testing-your-app
 versions:

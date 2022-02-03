@@ -2,7 +2,7 @@
 title: 关于 OAuth App 访问限制
 intro: '组织可通过启用 {% data variables.product.prodname_oauth_apps %} 访问限制，选择哪些 {% data variables.product.prodname_oauth_app %} 可以访问其仓库及其他资源。'
 redirect_from:
-  - /articles/about-third-party-application-restrictions/
+  - /articles/about-third-party-application-restrictions
   - /articles/about-oauth-app-access-restrictions
   - /github/setting-up-and-managing-organizations-and-teams/about-oauth-app-access-restrictions
 versions:

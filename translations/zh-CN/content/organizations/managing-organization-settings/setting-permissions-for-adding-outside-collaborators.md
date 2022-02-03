@@ -3,7 +3,7 @@ title: 设置添加外部协作者的权限
 intro: 为了保护组织的数据和组织中使用的付费许可数，您可以只允许所有者邀请外部协作者加入组织仓库。
 product: '{% data reusables.gated-features.restrict-add-collaborator %}'
 redirect_from:
-  - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories/
+  - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
   - /articles/setting-permissions-for-adding-outside-collaborators
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-adding-outside-collaborators
 versions:

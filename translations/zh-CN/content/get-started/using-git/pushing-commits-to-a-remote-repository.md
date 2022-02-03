@@ -2,7 +2,7 @@
 title: 推送提交到远程仓库
 intro: 使用 `git push` 将本地分支上的提交推送到远程仓库。
 redirect_from:
-  - /articles/pushing-to-a-remote/
+  - /articles/pushing-to-a-remote
   - /articles/pushing-commits-to-a-remote-repository
   - /github/using-git/pushing-commits-to-a-remote-repository
   - /github/getting-started-with-github/pushing-commits-to-a-remote-repository

@@ -2,7 +2,7 @@
 title: Encaminhamento de logs
 intro: '{% data variables.product.product_name %} usa `syslog-ng` para encaminhar {% ifversion ghes %}sistema{% elsif ghae %}Git{% endif %} e logs de aplicativo para o servidor que você especificou.'
 redirect_from:
-  - /enterprise/admin/articles/log-forwarding/
+  - /enterprise/admin/articles/log-forwarding
   - /enterprise/admin/installation/log-forwarding
   - /enterprise/admin/enterprise-management/log-forwarding
   - /admin/enterprise-management/log-forwarding
@@ -18,11 +18,11 @@ topics:
   - Security
 ---
 
-## About log forwarding
+## Sobre o encaminhamento de registro
 
 Qualquer sistema de coleta de logs com suporte a fluxos de logs do estilo syslog é compatível (por exemplo, [Logstash](http://logstash.net/) e [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
 
-When you enable log forwarding, you must upload a CA certificate to encrypt communications between syslog endpoints. Your appliance and the remote syslog server will perform two-way SSL, each providing a certificate to the other and validating the certificate which is received.
+Ao habilitar o encaminhamento de registro, você deverá faer o upload de um certificado CA para criptografar as comunicações entre os pontos de extremidade do syslog. O seu dispositivo e o servidor syslog remoto irão executar SSL bidirecional, e cada um fornecerá um certificado para o outro e validando o certificado que será recebido.
 
 ## Habilitar o encaminhamento de logs
 
@@ -31,8 +31,8 @@ When you enable log forwarding, you must upload a CA certificate to encrypt comm
 1. Selecione **Enable log forwarding** (Habilitar encaminhamento de logs).
 1. No campo **Server address** (Endereço do servidor), digite o endereço do servidor para o qual você pretende encaminhar os logs. É possível especificar vários endereços em uma lista separada por vírgulas.
 1. No menu suspenso Protocol (Protocolo), selecione o protocolo a ser usado para comunicação com o servidor de logs. O protocolo será aplicado a todos os destinos de log especificados.
-1. Optionally, select **Enable TLS**. We recommend enabling TLS according to your local security policies, especially if there are untrusted networks between the appliance and any remote log servers.
-1. To encrypt communication between syslog endpoints, click **Choose File** and choose a CA certificate for the remote syslog server. You should upload a CA bundle containing a concatenation of the certificates of the CAs involved in signing the certificate of the remote log server. Toda a cadeia de certificados será validada e deverá terminar em um certificado raiz. Para obter mais informações, consulte [as opções de TLS na documentação syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599).
+1. Opcionalmente, selecione **Habilitar TLS**. Recomendamos habilitar o TLS de acordo com suas políticas de segurança locais, especialmente se houver redes não confiáveis entre o dispositivo e quaisquer servidores de registro remotos.
+1. Para criptografar a comunicação entre pontos de extremidade dos syslog, clique em **Escolher arquivo** e escolha um certificado CA para o servidor do syslog remoto. Você deverá fazer o upload de um pacote CA que contém uma concatenação dos certificados das CAs envolvidos na assinatura do certificado do servidor de registro remoto. Toda a cadeia de certificados será validada e deverá terminar em um certificado raiz. Para obter mais informações, consulte [as opções de TLS na documentação syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599).
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

@@ -17,7 +17,6 @@ shortTitle: 快速入门
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -75,7 +74,7 @@ shortTitle: 快速入门
 
    例如，您可以在仓库中看到文件列表： ![示例操作详细信息](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-## 更多工作流程模板
+## 更多入门工作流程
 
 {% data reusables.actions.workflow-template-overview %}
 

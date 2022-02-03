@@ -2,7 +2,7 @@
 title: 处理注释
 intro: 使用 REST API，您可以访问和管理拉取请求、议题或提交中的注释。
 redirect_from:
-  - /guides/working-with-comments/
+  - /guides/working-with-comments
   - /v3/guides/working-with-comments
 versions:
   fpt: '*'
@@ -73,7 +73,7 @@ end
 
 ## 提交注释
 
-最后一类注释专门针对单个提交。 因此，它们使用 [提交注释 API][commit comment API]。
+最后一类注释专门针对单个提交。 For this reason, they make use of [the commit comment API][commit comment API].
 
 要检索对提交的注释，您需要使用该提交的 SHA1。 换句话说，您不能使用与拉取请求相关的任何标识符。 例如：
 
@@ -104,4 +104,4 @@ end
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [PR Review API]: /rest/reference/pulls#comments
-[commit comment API]: /rest/reference/repos#get-a-commit-comment
+[commit comment API]: /rest/reference/commits#get-a-commit-comment

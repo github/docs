@@ -3,7 +3,7 @@ title: Sobre verificações de status
 intro: As verificações de status permitem que você saiba se seus commits atendem às condições definidas para o repositório com o qual está contribuindo.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
-  - /articles/about-statuses/
+  - /articles/about-statuses
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
   - /github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks
@@ -35,7 +35,7 @@ Há dois tipos de verificação de status no {% data variables.product.product_n
 
 As _Verificações_ são diferentes dos _status_ na medida que fornecem anotações de linha, mensagens mais detalhadas e só estão disponíveis para uso com {% data variables.product.prodname_github_apps %}.
 
-Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)" e "[Status](/rest/reference/repos#statuses)".
+Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)" e "[Status](/rest/reference/commits#commit-statuses)".
 
 ## Verificações
 

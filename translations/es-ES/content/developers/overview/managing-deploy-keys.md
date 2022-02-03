@@ -2,7 +2,7 @@
 title: Administrar las llaves de despliegue
 intro: Aprende las diversas formas de administrar llaves SSH en tus servidores cuando automatizas los scripts de desplegue y averigua qué es lo mejor para ti.
 redirect_from:
-  - /guides/managing-deploy-keys/
+  - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
 versions:
   fpt: '*'
@@ -78,7 +78,7 @@ Consulta [nuestra guía sobre la automatización de tokens en Git][git-automatio
 
 #### Configuración
 
-1. [Ejecuta el procedimiento de `ssh-keygen`][generating-ssh-keys] en tu servidor, y recuerda en donde guardaste el par de llaves pública/privada de rsa.
+1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair key pair.
 2. En la esquina superior derecha de cualquier página de {% data variables.product.product_name %}, da clic en tu foto de perfil y luego da clic en **Tu perfil**. ![Navegación al perfil](/assets/images/profile-page.png)
 3. En tu página de perfil, da clic en **Repositorios** y luego en el nombre de tu repositorio. ![Enlace de los repositorios](/assets/images/repos.png)
 4. Desde tu repositorio, da clic en **Configuración**. ![Configuración del repositorio](/assets/images/repo-settings.png)
@@ -103,8 +103,8 @@ Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif 
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
-* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - El alias del repositorio.
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configura el nombre de host a utilizar con el alias.
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Asigna una llave privada al alias.
 
 Entonces podrás utilizar el alias del nombre de host para que interactúe con el repositorio utilizando SSH, lo cual utilizará la llave de despliegue única que se asignó a dicho alias. Por ejemplo:
@@ -145,13 +145,13 @@ Ya que las GitHub Apps son un actor de primera clase en {% data variables.produc
 
 ## Usuarios máquina
 
-If your server needs to access multiple repositories, you can create a new account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and attach an SSH key that will be used exclusively for automation. Since this account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} won't be used by a human, it's called a _machine user_. Puedes agregar el usuario máquina como [colaborador][collaborator] en un repositorio personal (otorgándole acceso de lectura y escritura), como un [colaborador externo][outside-collaborator] en el repositorio de una organización (otorgándole acceso de lectura, escritura y administrador), o a un [equipo][team] con acceso a los repositorios que necesite para la automatización (otorgándole los permisos del equipo).
+Si tu servidor necesita acceso a varios repositorios, puedes crear una cuenta nueva en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} y adjuntar la llave SSH que se utilizará exclusivamente para la automatización. Ya que ningún humano utilizará esta cuenta cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, se le llama un _usuario máquina_. Puedes agregar el usuario máquina como [colaborador][collaborator] en un repositorio personal (otorgándole acceso de lectura y escritura), como un [colaborador externo][outside-collaborator] en el repositorio de una organización (otorgándole acceso de lectura, escritura y administrador), o a un [equipo][team] con acceso a los repositorios que necesite para la automatización (otorgándole los permisos del equipo).
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** Our [terms of service][tos] state:
+**Tip:** En nuestras [condiciones de servicio][tos] se declara que:
 
 > *No se permiten las cuentas que registren ni los "bots", ni otros métodos automatizados.*
 
@@ -177,7 +177,11 @@ Esto significa que no puedes automatizar la creación de las cuentas. Pero si qu
 1. [Ejecuta el procedimiento de `ssh-keygen`][generating-ssh-keys] en tu servidor y adjunta la llave pública a la cuenta del usuario máquina.
 2. Otorga a la cuenta del usuario máquina el acceso a los repositorios que quieras automatizar. Puedes hacer esto si agregas la cuenta como un [colaborador][collaborator], como un [colaborador externo][outside-collaborator], o a un [equipo][team] en una organización.
 
+## Leer más
+- [Configurar notificaciones](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
+[generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
 [git-automation]: /articles/git-automation-with-oauth-tokens
@@ -185,3 +189,4 @@ Esto significa que no puedes automatizar la creación de las cuentas. Pero si qu
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
+

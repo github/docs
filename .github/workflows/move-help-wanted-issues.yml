@@ -10,7 +10,7 @@ on:
       - labeled
 
 permissions:
-  issues: none
+  contents: none
 
 jobs:
   move_issues:

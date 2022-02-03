@@ -2,9 +2,9 @@
 title: 键盘快捷键
 intro: '几乎 {% data variables.product.prodname_dotcom %} 上的每一页都有键盘快捷键，可以更快地执行操作。'
 redirect_from:
-  - /articles/using-keyboard-shortcuts/
-  - /categories/75/articles/
-  - /categories/keyboard-shortcuts/
+  - /articles/using-keyboard-shortcuts
+  - /categories/75/articles
+  - /categories/keyboard-shortcuts
   - /articles/keyboard-shortcuts
   - /github/getting-started-with-github/keyboard-shortcuts
   - /github/getting-started-with-github/using-github/keyboard-shortcuts
@@ -18,6 +18,9 @@ versions:
 ## 关于键盘快捷键
 
 Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. 您可以使用这些键盘快捷键对站点执行操作，而无需使用鼠标导航。
+
+{% if keyboard-shortcut-accessibility-setting %}
+You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see "[Managing accessibility settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings)."{% endif %}
 
 下面是一些可用键盘快捷键的列表。
 {% if command-palette %}
@@ -54,7 +57,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | <kbd>.</kbd>                                                    | Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
 | <kbd>control b</kbd> 或 <kbd>command b</kbd>                     | 插入 Markdown 格式用于粗体文本                                                                                                                                                          |
 | <kbd>control i</kbd> 或 <kbd>command i</kbd>                     | 插入 Markdown 格式用于斜体文本                                                                                                                                                          |
-| <kbd>control k</kbd> 或 <kbd>command k</kbd>                     | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae-next or ghes > 3.3 %}
+| <kbd>control k</kbd> 或 <kbd>command k</kbd>                     | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
 | <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd>        | Inserts Markdown formatting for an ordered list                                                                                                                               |
 | <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd>        | Inserts Markdown formatting for an unordered list                                                                                                                             |
 | <kbd>control shift .</kbd> or <kbd>command shift.</kbd>         | Inserts Markdown formatting for a quote{% endif %}
@@ -89,14 +92,14 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 | 键盘快捷键                                                    | 描述                                                                                                                                                                           |
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>control b</kbd> 或 <kbd>command b</kbd>              | 插入 Markdown 格式用于粗体文本                                                                                                                                                         |
-| <kbd>control i</kbd> 或 <kbd>command i</kbd>              | 插入斜体文本的 Markdown 格式{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+| <kbd>control i</kbd> 或 <kbd>command i</kbd>              | 插入斜体文本的 Markdown 格式{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 | <kbd>control e</kbd> 或 <kbd>command e</kbd>              | 在行内插入代码或命令的 Markdown 格式{% endif %}
 | <kbd>control k</kbd> 或 <kbd>command k</kbd>              | 插入 Markdown 格式用于创建链接                                                                                                                                                         |
-| <kbd>control shift p</kbd> 或 <kbd>command shift p</kbd>  | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
+| <kbd>control shift p</kbd> 或 <kbd>command shift p</kbd>  | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd> | Inserts Markdown formatting for an ordered list                                                                                                                              |
 | <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd> | Inserts Markdown formatting for an unordered list{% endif %}
-| <kbd>control enter</kbd>                                 | 提交评论                                                                                                                                                                         |
-| <kbd>control .</kbd>，然后 <kbd>control [已保存回复编号]</kbd>     | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 更多信息请参阅“[关于已保存回复](/articles/about-saved-replies)”。{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
+| <kbd>control enter</kbd> or <kbd>command enter</kbd>     | 提交评论                                                                                                                                                                         |
+| <kbd>control .</kbd>，然后 <kbd>control [已保存回复编号]</kbd>     | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 更多信息请参阅“[关于已保存回复](/articles/about-saved-replies)”。{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 | <kbd>control shift .</kbd> or <kbd>command shift.</kbd>  | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
 | <kbd>control g</kbd> 或 <kbd>command g</kbd>              | 插入建议。 更多信息请参阅“[审查拉取请求中提议的更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。 
 {% endif %}

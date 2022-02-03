@@ -19,13 +19,13 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
 本指南介绍如何使用 Maven 软件项目管理工具为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以缓存文件并且从工作流程运行上传构件。
 
-{% ifversion ghae %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 Java Development Kits (JDKs) 和 Maven。 有关软件以及 JDK 和 Maven 预安装版本的列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
 {% endif %}
@@ -40,11 +40,11 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## 从 Maven 工作流程模板开始
+## Using the Maven starter workflow
 
-{% data variables.product.prodname_dotcom %} 提供有 Maven 工作流程模板，应该适用于大多数基于 Maven 的 Java 项目。 更多信息请参阅 [Maven 工作流程模板](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml)。
+{% data variables.product.prodname_dotcom %} provides a Maven starter workflow that will work for most Maven-based Java projects. For more information, see the [Maven starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
-要快速开始，您可以在创建新工作流程时选择预配置的 Maven 模板。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
+To get started quickly, you can choose the preconfigured Maven starter workflow when you create a new workflow. 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
@@ -76,7 +76,7 @@ jobs:
 2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “使用 Maven 构建”步骤以非交互模式运行 Maven `package` 目标，以确保创建代码版本、测试通行证和软件包。
 
-在创建构建和测试工作流程时，默认工作流模板是很好的起点，然后您可以自定义模板以满足项目的需求。
+The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
 {% data reusables.github-actions.example-github-runner %}
 

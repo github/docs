@@ -2,8 +2,8 @@
 title: 邀请协作者参加个人仓库
 intro: '您可以{% ifversion fpt or ghec %}邀请用户成为{% else %}添加用户成为{% endif %}个人仓库的协作者。'
 redirect_from:
-  - /articles/how-do-i-add-a-collaborator/
-  - /articles/adding-collaborators-to-a-personal-repository/
+  - /articles/how-do-i-add-a-collaborator
+  - /articles/adding-collaborators-to-a-personal-repository
   - /articles/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository

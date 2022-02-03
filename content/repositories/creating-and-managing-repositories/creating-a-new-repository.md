@@ -2,9 +2,9 @@
 title: Creating a new repository
 intro: You can create a new repository on your personal account or any organization where you have sufficient permissions.
 redirect_from:
-  - /creating-a-repo/
-  - /articles/creating-a-repository-in-an-organization/
-  - /articles/creating-a-new-organization-repository/
+  - /creating-a-repo
+  - /articles/creating-a-repository-in-an-organization
+  - /articles/creating-a-new-organization-repository
   - /articles/creating-a-new-repository
   - /articles/creating-an-internal-repository
   - /github/setting-up-and-managing-your-enterprise-account/creating-an-internal-repository

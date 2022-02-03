@@ -2,7 +2,7 @@
 title: 管理对用户帐户项目板的访问
 intro: 作为项目板所有者，您可以添加或删除协作者，以及自定义他们对项目板的权限。
 redirect_from:
-  - /articles/managing-project-boards-in-your-repository-or-organization/
+  - /articles/managing-project-boards-in-your-repository-or-organization
   - /articles/managing-access-to-your-user-account-s-project-boards
   - /articles/managing-access-to-your-user-accounts-project-boards
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-user-accounts-project-boards

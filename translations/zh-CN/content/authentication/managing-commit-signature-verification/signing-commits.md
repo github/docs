@@ -2,8 +2,8 @@
 title: 对提交签名
 intro: 您可以使用 GPG 或 S/MIME 在本地对提交进行签名。
 redirect_from:
-  - /articles/signing-commits-and-tags-using-gpg/
-  - /articles/signing-commits-using-gpg/
+  - /articles/signing-commits-and-tags-using-gpg
+  - /articles/signing-commits-using-gpg
   - /articles/signing-commits
   - /github/authenticating-to-github/signing-commits
   - /github/authenticating-to-github/managing-commit-signature-verification/signing-commits
@@ -37,7 +37,7 @@ topics:
 
 1. 当本地分支中的提交更改时，请将 S 标志添加到 git commit 命令：
   ```shell
-  $ git commit -S -m <em>your commit message</em>
+  $ git commit -S -m <em>"your commit message"</em>
   # Creates a signed commit
   ```
 2. 如果您使用 GPG，则创建提交后，提供您[生成 GPG 密钥](/articles/generating-a-new-gpg-key)时设置的密码。

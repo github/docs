@@ -1,10 +1,11 @@
 import createApp from '../../lib/app.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { get, getDOM } from '../helpers/supertest.js'
+import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 import supertest from 'supertest'
 import { jest } from '@jest/globals'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 const app = createApp()
 
@@ -25,7 +26,7 @@ describe('enterprise deprecation', () => {
 
   test('redirects non-language-prefixed requests for deprecated enterprise content >=2.13', async () => {
     const res = await get('/enterprise/2.13')
-    expect(res.statusCode).toBe(301)
+    expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/en/enterprise/2.13')
   })
 
@@ -41,7 +42,7 @@ describe('enterprise deprecation', () => {
 
   test('can access redirects from redirects.json in deprecated enterprise content >2.17', async () => {
     const res = await get('/enterprise/2.19/admin/categories/time')
-    expect(res.statusCode).toBe(301)
+    expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(
       '/en/enterprise-server@2.19/admin/configuration/configuring-time-synchronization'
     )
@@ -54,10 +55,12 @@ describe('enterprise deprecation', () => {
     expect($('h1').text()).toBe('About branches')
   })
 
-  test('sets the expected x-robots-tag header for deprecated Enterprise pages', async () => {
+  test('sets the expected headers for deprecated Enterprise pages', async () => {
     const res = await get('/en/enterprise/2.13/user/articles/about-branches')
     expect(res.statusCode).toBe(200)
     expect(res.get('x-robots-tag')).toBe('noindex')
+    expect(res.get('surrogate-key')).toBe(SURROGATE_ENUMS.MANUAL)
+    expect(res.get('set-cookie')).toBeUndefined()
   })
 
   test('handles requests for deprecated Enterprise pages ( <2.13 )', async () => {

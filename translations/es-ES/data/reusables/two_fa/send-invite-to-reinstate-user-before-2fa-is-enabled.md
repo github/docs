@@ -1,3 +1,3 @@
 {% ifversion fpt or ghec %}
-Puedes enviar una invitación para reinstalar los privilegios del usuario y el acceso a la organización antes de que hayan habilitado la autenticación bifactorial. Los usuarios deben habilitar dicha autenticación antes de aceptar tu invitación de unirse nuevamente a la organización.
+If a user was removed from your organization because you required members and outside collaborators to enable 2FA, you can send an invitation to reinstate a user's privileges and access to the organization before they have enabled two-factor authentication, but they must enable 2FA before they can accept your invitation to rejoin the organization.
 {% endif %}

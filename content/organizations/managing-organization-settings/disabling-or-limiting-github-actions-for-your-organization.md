@@ -52,7 +52,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
-   {%- ifversion ghes %}
+   {%- ifversion ghes > 3.0 %}
    ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
    ![Add actions to allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
@@ -79,6 +79,10 @@ You can configure this behavior for an organization using the procedure below. M
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+{% ifversion ghec or ghae or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 ### Configuring the private fork policy for an organization
 
 {% data reusables.profile.access_org %}
@@ -87,7 +91,7 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Setting the permissions of the `GITHUB_TOKEN` for your organization
 
 {% data reusables.github-actions.workflow-permissions-intro %}

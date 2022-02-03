@@ -38,12 +38,11 @@ Para adicionar o provedor OIDC de {% data variables.product.prodname_dotcom %} a
 
 Para configurar a função e confiar no IAM, consulte a documentação do AWS para ["Assumindo uma função"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) e ["Criando uma função para a identidade web ou federação de conexão do OpenID"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html).
 
-Por padrão, a validação inclui apenas a condição de público (`aud`). Portanto, você deve adicionar manualmente a condição de assunto (`sub`). Edite o relacionamento de confiança para adicionar o campo `sub` às condições de validação. Por exemplo:
+Edite o relacionamento de confiança para adicionar o campo `sub` às condições de validação. Por exemplo:
 
 ```json{:copy}
 "Condition": {
   "StringEquals": {
-    "token.actions.githubusercontent.com:aud": "https://github.com/octo-org",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
@@ -72,7 +71,7 @@ A ação `aws-actions/configure-aws-credentials` recebe um JWT do provedor do OI
 
 - `<example-bucket-name>`: Adicione o nome do seu bucket S3 aqui.
 - `<role-to-assume>`: Substitua o exemplo pela sua função do AWS.
-- `<example-aws-region>`: Add the name of your AWS region here.
+- `<example-aws-region>`: Adicione o nome do seu AWS aqui.
 
 ```yaml{:copy}
 # Sample workflow to access AWS resources when workflow is tied to branch
@@ -86,15 +85,15 @@ env:
 # permission can be added at job level or workflow level    
 permissions:
       id-token: write
-      contents: write    # This is required for actions/checkout@v1
+      contents: read    # This is required for actions/checkout@v2
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession

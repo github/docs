@@ -1,12 +1,12 @@
 ---
-title: パーソナルダッシュボードについて
+title: About your personal dashboard
 redirect_from:
-  - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github/
-  - /articles/opting-into-the-public-beta-for-a-new-dashboard/
+  - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github
+  - /articles/opting-into-the-public-beta-for-a-new-dashboard
   - /articles/about-your-personal-dashboard
   - /github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard
-intro: パーソナルダッシュボードにアクセスして、作業したりフォローしたりしている Issue やプルリクエストを追跡したり、トップリポジトリや Team のページにアクセスしたり、Organization やサブスクライブしているリポジトリの最近のアクティビティを知ったり、推奨されたリポジトリを調べたりできます。
+intro: 'You can visit your personal dashboard to keep track of issues and pull requests you''re working on or following, navigate to your top repositories and team pages, stay updated on recent activities in organizations and repositories you''re subscribed to, and explore recommended repositories.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,48 +16,47 @@ topics:
   - Accounts
 shortTitle: Your personal dashboard
 ---
+## Accessing your personal dashboard
 
-## パーソナルダッシュボードにアクセスする
+Your personal dashboard is the first page you'll see when you sign in on {% data variables.product.product_name %}.
 
-パーソナルダッシュボードは、{% data variables.product.product_name %}にサインインしたときに最初に表示されるページです。
+To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_name %}.
 
-サインインした後にパーソナルダッシュボードにアクセスするには、{% data variables.product.product_name %} の任意のページの左上の隅にある {% octicon "mark-github" aria-label="The github octocat logo" %} をクリックします。
+## Finding your recent activity
 
-## 最近のアクティビティを見つける
-
-ニュースフィードの [Recent activity] セクションでは、あなたが作業している最近更新された Issue やプルリクエストを素早く見つけてフォローアップできます。 [Recent activity] の下では、過去 2 週間に行われた更新のプレビューを最大 12 件見ることができます。
+In the "Recent activity" section of your news feed, you can quickly find and follow up with recently updated issues and pull requests you're working on. Under "Recent activity", you can preview up to 12 recent updates made in the last two weeks.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
-## トップリポジトリと Team を見つける
+## Finding your top repositories and teams
 
-ダッシュボードの左サイドバーから、使っている上位のリポジトリおよび Team にアクセスできます。
+In the left sidebar of your dashboard, you can access the top repositories and teams you use.
 
-![さまざまな Organization のリポジトリや Team のリスト](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
+![list of repositories and teams from different organizations](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
-上位のリポジトリのリストは自動的に生成され、アカウントが直接所有しているかどうかに関係なく、操作したリポジトリを含めることができます。 インタラクションには、コミットの作成、Issue およびプルリクエストのオープンまたはコメントが含まれます。 上位のリポジトリのリストは編集できませんが、リポジトリを最後に操作してから 4 か月後にリポジトリはリストから削除されます。
+The list of top repositories is automatically generated, and can include any repository you have interacted with, whether it's owned directly by your account or not. Interactions include making commits and opening or commenting on issues and pull requests. The list of top repositories cannot be edited, but repositories will drop off the list 4 months after you last interacted with them.
 
-{% data variables.product.product_name %} 上の任意のページの上部にある検索バーをクリックすれば、最近アクセスしたリポジトリ、Team、プロジェクトボードのリストを見つけることもできます。
+You can also find a list of your recently visited repositories, teams, and project boards when you click into the search bar at the top of any page on {% data variables.product.product_name %}.
 
-## コミュニティからのアクティビティの更新を受ける
+## Staying updated with activity from the community
 
-ニュースフィードの [All activity] セクションでは、サブスクライブしているリポジトリやフォローしている人からの更新情報を見ることができます。 [All activity] セクションは、あなたが Watch したり Star を付けたりしたリポジトリや、あなたがフォローしているユーザからの更新情報が示されます。
+In the "All activity" section of your news feed, you can view updates from repositories you're subscribed to and people you follow. The "All activity" section shows updates from repositories you watch or have starred, and from users you follow.
 
-ニュースフィードでは、あなたがフォローしているユーザが以下のことをした場合に更新情報が示されます:
-- リポジトリに Star を付ける。
-- 別のユーザをフォローする。{% ifversion fpt or ghes or ghec %}
-- パブリックリポジトリを作成する{% endif %}
-- あなたが Watch しているリポジトリ上で "help wanted" あるいは "good first issue" のラベルを付けた Issue あるいはプルリクエストをオープンする。
+You'll see updates in your news feed when a user you follow:
+- Stars a repository.
+- Follows another user.{% ifversion fpt or ghes or ghec %}
+- Creates a public repository.{% endif %}
+- Opens an issue or pull request with "help wanted" or "good first issue" label on a repository you're watching.
 - Pushes commits to a repository you watch.{% ifversion fpt or ghes or ghec %}
-- パブリックリポジトリをフォークする。{% endif %}
+- Forks a public repository.{% endif %}
 - Publishes a new release.
 
-リポジトリへの Star 付けや人のフォローに関する詳細は「[Star を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)」および「[人をフォローする](/articles/following-people)」を参照してください。
+For more information about starring repositories and following people, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)" and "[Following people](/articles/following-people)."
 
-## 推奨されているリポジトリを調べる
+## Exploring recommended repositories
 
-ダッシュボードの右側にある [Explore repositories] セクションでは、コミュニティで推奨されているリポジトリを調べることができます。 推奨は、Star を付けたりアクセスしたりしたリポジトリ、フォローしているユーザ、アクセスしたリポジトリ内のアクティビティに基づいています。{% ifversion fpt or ghec %}詳細は、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。{% endif %}
+In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% ifversion fpt or ghec %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
-## 参考リンク
+## Further reading
 
-- 「[Organization ダッシュボードについて](/articles/about-your-organization-dashboard)」
+- "[About your organization dashboard](/articles/about-your-organization-dashboard)"

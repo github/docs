@@ -52,13 +52,14 @@ Team ディスカッションコメント API を使用すると、[Team ディ�
   {% if operation.subcategory == 'members' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion ghec %}
+{% ifversion ghec or ghae %}
 ## External groups
 
 The external groups API allows you to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.
 
 この API を使用するには、認証されたユーザーがチームメンテナまたは Team に関連づけられた Organization のコードオーナーである必要があります。
 
+{% ifversion ghec %}
 {% note %}
 
 **ノート:**
@@ -67,6 +68,7 @@ The external groups API allows you to view the external identity provider groups
 - If your organization uses team synchronization, you can use the Team Synchronization API. For more information, see "[Team synchronization API](#team-synchronization)."
 
 {% endnote %}
+{% endif %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'external-groups' %}{% include rest_operation %}{% endif %}

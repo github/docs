@@ -2,7 +2,7 @@
 title: コントリビューションデータの再構築
 intro: 既存のコミットをユーザアカウントにリンクするために、コントリビューションデータの再構築が必要になることがあります。
 redirect_from:
-  - /enterprise/admin/articles/rebuilding-contributions-data/
+  - /enterprise/admin/articles/rebuilding-contributions-data
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:

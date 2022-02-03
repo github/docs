@@ -1,7 +1,7 @@
 ---
 title: 管理教室
 intro: '您可以为您使用 {% data variables.product.prodname_classroom %} 教授的每个课程创建和管理一个教室。'
-permissions: Organization owners can manage a classroom for an organization.
+permissions: 'Organization owners who are admins for a classroom can manage the classroom for an organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
   fpt: '*'
 redirect_from:

@@ -2,7 +2,7 @@
 title: Clasificar tu repositorio con temas
 intro: 'Para ayudar a otras personas a buscar y contribuir en tu proyecto, puedes agregar temas a tu repositorio relacionados con el fin previsto de tu proyecto, área temática, grupos de afinidad u otras cualidades importantes.'
 redirect_from:
-  - /articles/about-topics/
+  - /articles/about-topics
   - /articles/classifying-your-repository-with-topics
   - /github/administering-a-repository/classifying-your-repository-with-topics
   - /github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics
@@ -28,7 +28,7 @@ Para explorar los temas más usados, visita https://github.com/topics/.
 
 Los administradores del repositorio pueden agregar los temas que deseen a un repositorio. Entre los temas útiles para clasificar un repositorio se incluyen fines previstos, áreas temáticas, comunidad o idioma.{% ifversion fpt or ghec %}Además, {% data variables.product.product_name %} analiza el contenido de repositorios públicos y genera temas sugeridos que los administradores de los repositorios pueden aceptar o rechazar. El contenido del repositorio privado no se analiza y no recibe sugerencias de tema.{% endif %}
 
-{% ifversion ghae %}Los repositorios internos {% else %}Públicos, internos, {% endif %}y privados pueden tener temas, aunque solo verás los repositorios privados a los cuales tengas acceso en los resultados de búsqueda por tema.
+{% ifversion fpt %}Los repositorios públicos y privados{% elsif ghec or ghes %}Los repositorios públicos, privados e internos{% elsif ghae %}Los repositorios públicos e internos{% endif %} pueden tener temas, aunque solo verás los repositorios privados a los que puedes acceder en los resultados de búsqueda de temas.
 
 Puedes buscar los repositorios que están asociados con un tema en particular. Para obtener más información, consulta "[Buscar repositorios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)." También puedes buscar un listado de temas en {% data variables.product.product_name %}. Para obtener más información, consulta "[Buscar temas](/search-github/searching-on-github/searching-topics)".
 

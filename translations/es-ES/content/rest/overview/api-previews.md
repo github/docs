@@ -151,7 +151,7 @@ Los Manifiestos de las GitHub Apps permiten a las personas crear GitHub Apps pre
 
 ## Estados de despliegue
 
-Ahora puedes actualizar el `environment` de un [estado de despliegue](/rest/reference/repos#create-a-deployment-status) y utilizar los estados de `in_progress` y `queued`. Cuando creas estados de despliegue, ahora puedes utilizar el parámetro `auto_inactive` para marcar los despliegues de `production` antiguos como `inactive`.
+Ahora puedes actualizar el `environment` de un [estado de despliegue](/rest/reference/deployments#create-a-deployment-status) y utilizar los estados de `in_progress` y `queued`. Cuando creas estados de despliegue, ahora puedes utilizar el parámetro `auto_inactive` para marcar los despliegues de `production` antiguos como `inactive`.
 
 **Tipo de medios personalizados:** `flash-preview` **Anunciado en:**[2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
 
@@ -167,13 +167,15 @@ Ahora puedes configurar si los miembros de la organización pueden crear reposit
 
 {% endif %}
 
+{% ifversion ghes < 3.4 %}
 ## Adjuntos de contenido
 
 Ahora puedes proporcionar más información en GitHub para las URL que enlazan a los dominios registrados si utilizas la API {% data variables.product.prodname_unfurls %}. Consulta la sección "[Utilizar adjuntos de contenido](/apps/using-content-attachments/)" para obtener más detalles.
 
 **Tipo de medios personalizados:** `corsair-preview` **Anunciado en:**[2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-{% ifversion ghes < 3.3 %}
+{% endif %}
+{% ifversion ghae or ghes < 3.3 %}
 
 ## Habilitar e inhabilitar las páginas
 

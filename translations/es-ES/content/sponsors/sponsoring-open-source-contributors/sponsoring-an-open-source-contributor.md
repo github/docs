@@ -37,6 +37,8 @@ Cuando patrocinas una cuenta utilizando una tarjeta de crédito, el cargo tomar�
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
+Puedes elegir si quieres mostrar tu patrocinio públicamente. Los patrocinios de una sola vez permanecen visibles durante un mes.
+
 Si la cuenta patrocinada retira tu nivel, éste permanecerá configurado hasta que elijas uno diferente o hasta que canceles tu suscripción. Para obtener más información, consulta "[Actualizar un patrocinio](/articles/upgrading-a-sponsorship)" y "[Bajar de categoría un patrocinio](/articles/downgrading-a-sponsorship)."
 
 Si la cuenta que quieres patrocinar no tiene un perfil en {% data variables.product.prodname_sponsors %}, puedes alentarla a que se una. Para obtener más información, consulta las secciónes "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta de usuario](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)" y "[Configurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)".
@@ -45,7 +47,7 @@ Si la cuenta que quieres patrocinar no tiene un perfil en {% data variables.prod
 
 {% note %}
 
-**Nota:**{% data variables.product.prodname_dotcom %} no se responzabiliza por cómo se auto-representan los desarrolladores ni tampoco respalda ninguno de los proyectos de código abierto patrocinados. Las alegaciones son responsabilidad total del desarrollador que recibe los fondos. Asegúrate de que confías en una persona antes de ofrecerle un patrocinio. Para obtener más información, consulta la sección de [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
+**Nota:** {% data variables.product.prodname_dotcom %} no se hace responsable de la forma en la que los desarrolladores se representan a sí mismos y {% data variables.product.prodname_dotcom %} tampoco respalda ningún proyecto de código abierto patrocinado. Las alegaciones son responsabilidad total del desarrollador que recibe los fondos. Asegúrate de que confías en una persona antes de ofrecerle un patrocinio. Para obtener más información, consulta la sección de [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
 
 {% endnote %}
 

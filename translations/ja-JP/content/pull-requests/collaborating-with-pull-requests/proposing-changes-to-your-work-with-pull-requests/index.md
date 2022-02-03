@@ -2,7 +2,7 @@
 title: プルリクエストで、作業に対する変更を提案する
 intro: トピックブランチまたはフォークに変更を加えた後で、それらをプロジェクトにマージする前に、プルリクエストをオープンしてコラボレーターまたはリポジトリ管理者に変更のレビューを依頼することができます。
 redirect_from:
-  - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/
+  - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests
   - /articles/proposing-changes-to-your-work-with-pull-requests
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests
 versions:

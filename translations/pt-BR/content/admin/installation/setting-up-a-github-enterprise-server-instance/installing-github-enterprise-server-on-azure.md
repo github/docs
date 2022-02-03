@@ -2,7 +2,7 @@
 title: Instalar o GitHub Enterprise Server no Azure
 intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no Azure, você deve fazer a implantação em uma instância da série DS e usar o armazenamento Premium-LRS.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
@@ -34,22 +34,18 @@ Antes de lançar {% data variables.product.product_location %} no Azure, você d
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-O appliance do {% data variables.product.prodname_ghe_server %} requer um disco de dados de armazenamento premium e é compatível com qualquer VM do Azure que tenha suporte ao armazenamento premium. Tipos de Azure VM com `s` sufixo são compatíveis com o armazenamento premium. Para obter mais informações, consulte "[Quais tipos de disco estão disponíveis no Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" e "[Armazenamento premium do Azure: design para alto desempenho](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" na documentação do Azure.
-
-{% data variables.product.company_short %} recomenda uma VM com memória otimizada para {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Tamanhos de máquinas virtuais com memória otimizada ](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" na documentação do Azure.
-
-O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer região compatível com o seu tipo de VM. Para obter mais informações sobre as regiões compatíveis com cada VM, consulte "[Produtos disponíveis por região](https://azure.microsoft.com/regions/services/)".
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
 
 ## Criar a instância da máquina virtual do {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. Localize a imagem mais recente do appliance do {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre o comando `vm image list`, consulte "[Lista de imagens de vm no az](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" na documentação da Microsoft.
+1. Localize a imagem mais recente do appliance do {% data variables.product.prodname_ghe_server %}. Para mais informações sobre o comando `vm image list`, cnsulte "[`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" na documentação da Microsoft.
   ```shell
   $ az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
   ```
 
-2. Crie uma VM usando a imagem do appliance. Para obter mais informações, consulte "[criar vm no az](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)" na documentação da Microsoft.
+2. Crie uma VM usando a imagem do appliance. Para obter mais informações, consulte "[`az vm create`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)" na documentação da Microsoft.
 
   Veja as opções de nome da VM, grupo de recursos, tamanho da VM, nome da região preferida do Azure, nome da da imagem de VM do appliance que você listou na etapa anterior e o SKU de armazenamento para Premium. Para obter mais informações sobre grupos de recursos, consulte "[Grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)" na documentação da Microsoft.
 
@@ -57,7 +53,7 @@ O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer regiã
   $ az vm create -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --size <em>VM_SIZE</em> -l <em>REGION</em> --image <em>APPLIANCE_IMAGE_NAME</em> --storage-sku Premium_LRS
   ```
 
-3. Defina as configurações de segurança na VM para abrir as portas necessárias. Para obter mais informações, consulte "[abrir portas para a vm no az](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)" na documentação da Microsoft. A tabela abaixo descreve cada porta para determinar quais portas você precisa abrir.
+3. Defina as configurações de segurança na VM para abrir as portas necessárias. Para obter mais informações, consulte "[`az vm open-port`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)" na documentação da Microsoft. A tabela abaixo descreve cada porta para determinar quais portas você precisa abrir.
 
   ```shell
   $ az vm open-port -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --port <em>PORT_NUMBER</em>
@@ -67,7 +63,7 @@ O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer regiã
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. Crie e anexe um novo disco de dados não criptografado à VM e configure o tamanho com base na sua contagem de licenças do usuário. Para obter mais informações, consulte "[anexar disco a uma vm no az](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" na documentação da Microsoft.
+4. Crie e anexe um novo disco de dados não criptografado à VM e configure o tamanho com base na sua contagem de licenças do usuário. Para obter mais informações, consulte "[`az vm disk attach`](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" na documentação da Microsoft.
 
   Veja as opções de nome da VM (por exemplo, `ghe-acme-corp`), o grupo de recursos, o SKU de armazenamento Premium, o tamanho do disco (por exemplo, `100`) e um nome para o VHD resultante.
 
@@ -83,7 +79,7 @@ O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer regiã
 
 ## Configurar a máquina virtual do {% data variables.product.prodname_ghe_server %}
 
-1. Antes de configurar a VM, você deve aguardar a entrada no status ReadyRole. Verifique o status da VM com o comando `vm list`. Para obter mais informações, consulte "[listar vms no az](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" na documentação da Microsoft.
+1. Antes de configurar a VM, você deve aguardar a entrada no status ReadyRole. Verifique o status da VM com o comando `vm list`. Para obter mais informações, consulte "[`az vm list`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" na documentação da Microsoft.
   ```shell
   $ az vm list -d -g <em>RESOURCE_GROUP</em> -o table
   > Name    ResourceGroup    PowerState    PublicIps     Fqdns    Location    Zones

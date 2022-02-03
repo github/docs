@@ -49,7 +49,7 @@ Para usar a conta de uma organização com {% data variables.product.prodname_gh
 Como alternativa, se você tiver a conta de uma organização existente que você gostaria de atualizar, siga as etapas em "[atualizando a sua assinatura de {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)".
 #### 3. Configuração e gerenciamento de cobrança
 
-Ao optar por usar uma conta de organização com {% data variables.product.prodname_ghe_cloud %}, primeiro você terá acesso a um [](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)de teste de 14 dias. Se você não comprar {% data variables.product.prodname_enterprise %} ou {% data variables.product.prodname_team %} antes do seu período de teste terminar, a sua organização será rebaixada para {% data variables.product.prodname_free_user %} e você perderá acesso a quaisquer ferramentas avançadas e recursos que sejam incluídos apenas com produtos pagos. Para obter mais informações, consulte "[Concluindo o seu teste](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)".
+Ao optar por usar uma conta de organização com {% data variables.product.prodname_ghe_cloud %}, primeiro você terá acesso a um [](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)de teste de 30 dias. Se você não comprar {% data variables.product.prodname_enterprise %} ou {% data variables.product.prodname_team %} antes do seu período de teste terminar, a sua organização será rebaixada para {% data variables.product.prodname_free_user %} e você perderá acesso a quaisquer ferramentas avançadas e recursos que sejam incluídos apenas com produtos pagos. Para obter mais informações, consulte "[Concluindo o seu teste](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)".
 
 A página de configurações de cobrança da sua organização permite que você gerencie configurações como seu método de pagamento e ciclo de cobrança, exiba informações sobre sua assinatura e faça a atualização do seu armazenamento e minutos de {% data variables.product.prodname_actions %}. Para obter mais informações sobre como gerenciar suas configurações de cobrança, consulte "[Gerenciando suas configurações de cobrança de {% data variables.product.prodname_dotcom %}](/billing/managing-your-github-billing-settings)".
 
@@ -71,7 +71,7 @@ Uma conta corporativa permite que você gerencie centralmente as políticas e co
 
 Entre em contato com o seu representante da conta de vendas de {% data variables.product.prodname_dotcom %} se você quiser transferir uma organização existente para a sua conta corporativa.
 #### 3. Exibir assinatura e uso da conta corporativa
-Você pode visualizar a sua assinatura atual, uso da licença, faturas, histórico de pagamentos e outras informações de cobrança para sua conta corporativa a qualquer momento. Os proprietários da empresa e os gerentes de cobrança podem acessar e gerenciar as configurações de cobrança para contas corporativas. For more information, see  "[Viewing the subscription and usage for your enterprise account](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+Você pode visualizar a sua assinatura atual, uso da licença, faturas, histórico de pagamentos e outras informações de cobrança para sua conta corporativa a qualquer momento. Os proprietários da empresa e os gerentes de cobrança podem acessar e gerenciar as configurações de cobrança para contas corporativas. Para obter mais informações, consulte "[Exibir a assinatura e o uso de sua conta corporativa](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)".
 
 ## Parte 3: Gerenciando seus integrantes e equipes da empresa com {% data variables.product.prodname_ghe_cloud %}
 
@@ -141,7 +141,7 @@ Você pode conectar as equipes das suas organizações a grupos de segurança do
 
 #### 3. Gerenciar endereços IP permitidos para organizações no seu {% data variables.product.prodname_emu_enterprise %}
 
-Você pode configurar uma lista de permissões para endereços IP específicos para restringir o acesso a ativos pertencentes a organizações no seu {% data variables.product.prodname_emu_enterprise %}. For more information, see "[Enforcing policies for security settings in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
+Você pode configurar uma lista de permissões para endereços IP específicos para restringir o acesso a ativos pertencentes a organizações no seu {% data variables.product.prodname_emu_enterprise %}. Para obter mais informações, consulte "[Aplicando políticas de segurança na sua empresa](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
 
 #### 4. Aplicando políticas de segurança avançada no seu {% data variables.product.prodname_emu_enterprise %}
 {% data reusables.getting-started.enterprise-advanced-security %}
@@ -152,12 +152,12 @@ Para gerenciar a segurança da sua empresa, você pode exigir autenticação de 
 #### 1. Exigir autenticação de dois fatores e gerenciar endereços IP permitidos para organizações na conta corporativa
 Os proprietários corporativos podem exigir que integrantes da organização, gerentes de cobrança e colaboradores externos em todas as organizações pertencentes a uma conta corporativa usem autenticação de dois fatores para proteger suas contas pessoais. Antes de fazer isso, recomendamos que você notifique todas as pessoas que têm acesso a organizações da sua empresa. Você também pode configurar uma lista de permissões para endereços IP específicos para restringir o acesso a ativos pertencentes a organizações na sua conta corporativa.
 
-For more information on enforcing two-factor authentication and allowed IP address lists, see "[Enforcing policies for security settings in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
+Para obter mais informações sobre a aplicação da autenticação de dois fatores e listas de endereços IP permitidas, consulte "[Aplicando políticas para as configurações de segurança na sua conta empresa](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
 #### 2. Habilitar e aplicar o login único SAML para organizações na sua conta corporativa
 Você pode gerenciar centralmente o acesso aos recursos da sua empresa, a associação à organização e a associação à equipe usando seu IdP e o logon único SAML (SSO). Os proprietários corporativos podem habilitar o SAML SSO em todas as organizações pertencentes a uma conta corporativa. Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso para sua empresa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)".
 
 #### 3. Gerenciando a sincronização de equipe
-You can enable and manage team synchronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. Para obter mais informações, consulte "[Gerenciar a sincronização de equipes para organizações na sua conta corporativa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)".
+Você pode habilitar e gerenciar a simulação de equipes entre um provedor de identidade (IdP) e {% data variables.product.prodname_dotcom %} para permitir que as organizações pertencentes à sua conta corporativa gerenciem a associação de equipes com grupos IdP. Para obter mais informações, consulte "[Gerenciar a sincronização de equipes para organizações na sua conta corporativa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)".
 
 #### 4. Aplicando políticas de segurança avançada na sua conta corporativa
 {% data reusables.getting-started.enterprise-advanced-security %}
@@ -179,16 +179,16 @@ Para gerenciar e moderar sua empresa, você pode definir políticas para organiz
 
 Você pode optar por aplicar várias políticas para todas as organizações pertencentes à sua empresa, ou escolher permitir que essas políticas sejam definidas em cada organização. Os tipos de políticas que você pode aplicar incluem gerenciamento de repositórios, quadro de projetos e políticas de equipe. Para obter mais informações, consulte "[Definindo políticas para a sua empresa](/enterprise-cloud@latest/admin/policies)".
 #### 2. Visualizando logs de auditoria, configurando webhooks, e restringindo notificações de e-mail para a sua empresa
-Você pode visualizar as ações de todas as organizações pertencentes à sua conta corporativa no log de auditoria da empresa. Você também pode configurar webhooks para receber eventos de organizações pertencentes à sua conta corporativa. For more information, see "[Viewing the audit logs for organizations in your enterprise](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise)" and "[Managing global webhooks](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-global-webhooks)."
+Você pode visualizar as ações de todas as organizações pertencentes à sua conta corporativa no log de auditoria da empresa. Você também pode configurar webhooks para receber eventos de organizações pertencentes à sua conta corporativa. Para obter mais informações, consulte "[Visualizando os logs de auditoria para organizações na sua empresa](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise)" e "[Gerenciando webhooks globais](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-global-webhooks)".
 
 Você também pode restringir as notificações de e-mail da conta corporativa para que os integrantes da empresa só possam usar um endereço de e-mail em um domínio verificado ou aprovado para receber notificações. Para obter mais informações, consulte "[Restringindo notificações de e-mail para a sua empresa](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)".
 
 ## Parte 6: Personalizar e automatizar o trabalho da sua organização ou empresa em {% data variables.product.prodname_dotcom %}
-Members of your organization or enterprise can use tools from the {% data variables.product.prodname_marketplace %}, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and existing {% data variables.product.product_name %} features to customize and automate your work.
+Os integrantes da sua organização ou empresa podem usar ferramentas a partir da API de {% data variables.product.prodname_marketplace %}, a {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} e das funcionalidades de {% data variables.product.product_name %} existentes para personalizar e automatizar seu trabalho.
 
 ### 1. Usar {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. Usando a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
 ### 3. Criando {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
@@ -199,14 +199,18 @@ Members of your organization or enterprise can use tools from the {% data variab
 ## Parte 7: Participando da comunidade de {% data variables.product.prodname_dotcom %}
 
 Os integrantes da sua organização ou empresa podem usar os recursos de aprendizado e suporte do GitHub para obter a ajuda de que precisam. Você também pode apoiar a comunidade de código aberto.
-### 1. Aprendendo com {% data variables.product.prodname_learning %}
+
+### 1. Lendo sobre {% data variables.product.prodname_ghe_cloud %} em {% data variables.product.prodname_docs %}
+Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
+### 2. Aprendendo com {% data variables.product.prodname_learning %}
 Os integrantes da sua organização ou empresa podem aprender novas habilidades realizando projetos divertidos e realistas no seu repositório do GitHub com [{% data variables.product.prodname_learning %}](https://lab.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by the friendly Learning Lab bot.
 
 Para obter mais informações, consulte "[Git e recursos de aprendizado de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/quickstart/git-and-github-learning-resources). "
-### 2. Apoiar a comunidade de código aberto
+### 3. Apoiar a comunidade de código aberto
 {% data reusables.getting-started.sponsors %}
 
-### 3. Entrar em contato com o {% data variables.contact.github_support %}
+### 4. Entrar em contato com o {% data variables.contact.github_support %}
 {% data reusables.getting-started.contact-support %}
 
 {% data variables.product.prodname_ghe_cloud %} permite que você envie solicitações de suporte prioritárias com um tempo de resposta de oito horas. Para obter mais informações, consulte "[suporte do {% data variables.product.prodname_ghe_cloud %}](/github/working-with-github-support/github-enterprise-cloud-support)".

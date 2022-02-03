@@ -2,7 +2,7 @@
 title: 对组织启用 OAuth App 访问限制
 intro: '组织所有者可启用 {% data variables.product.prodname_oauth_app %} 访问限制，以便在组织成员在其个人账户上使用允许 {% data variables.product.prodname_oauth_apps %} 的同时，防止不受信任的应用程序访问组织的资源。'
 redirect_from:
-  - /articles/enabling-third-party-application-restrictions-for-your-organization/
+  - /articles/enabling-third-party-application-restrictions-for-your-organization
   - /articles/enabling-oauth-app-access-restrictions-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/enabling-oauth-app-access-restrictions-for-your-organization
 versions:

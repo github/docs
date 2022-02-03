@@ -1,0 +1,55 @@
+name: Optimize images
+
+# **What it does**: Optimize images.
+# **Why we have it**: Reduce bandwidth needs.
+# **Who does it impact**: Docs engineering.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '45 17 * * 2' # Run Tuesdays at 17:45 UTC / 9:45 PST
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  optimize-images:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+
+      - name: Install the Optipng package
+        run: sudo apt-get update && sudo apt-get -y install optipng
+
+      - name: Run the Optipng package
+        run: find . -name '*.png' -print0 | xargs -0 optipng -nx
+
+      - name: Make a branch, commit, push, and pull request
+        run: |
+          echo "If there's no changes, exit"
+          if [[ !  `git status --porcelain` ]]
+          then
+            echo "No changes found"
+            exit 0
+          fi
+
+          echo "Make a new branch"
+          BRANCH="optimize-images-$(date +'%Y%m%d%H%M%S')"
+          git checkout -b $BRANCH
+
+          echo "Make a commit"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add "*.png"
+          git commit --message="Optimize images"
+
+          echo "Push up changes"
+          git push --set-upstream origin $BRANCH
+
+          echo "Open a pull request"
+          gh pr create --title "Optimize images" --body "Optimize images"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

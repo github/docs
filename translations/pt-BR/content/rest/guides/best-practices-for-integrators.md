@@ -1,8 +1,8 @@
 ---
 title: Práticas recomendadas para integradores
-intro: 'Build an app that reliably interacts with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API and provides the best experience for your users.'
+intro: 'Crie um aplicativo que interaja de forma confiável com a API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} e forneça a melhor experiência para os seus usuários.'
 redirect_from:
-  - /guides/best-practices-for-integrators/
+  - /guides/best-practices-for-integrators
   - /v3/guides/best-practices-for-integrators
 versions:
   fpt: '*'
@@ -131,7 +131,7 @@ end
 
 Neste exemplo, a ação `fechada` é verificada antes de chamar o método `process_closed`. Quaisquer ações não identificadas são registradas para referência futura.
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghae %}
 
 ## Lidar com limites de taxa
 

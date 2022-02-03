@@ -2,12 +2,12 @@
 title: Acessar o console de gerenciamento
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
-  - /enterprise/admin/articles/about-the-management-console/
-  - /enterprise/admin/articles/management-console-for-emergency-recovery/
-  - /enterprise/admin/articles/web-based-management-console/
-  - /enterprise/admin/categories/management-console/
-  - /enterprise/admin/articles/accessing-the-management-console/
-  - /enterprise/admin/guides/installation/web-based-management-console/
+  - /enterprise/admin/articles/about-the-management-console
+  - /enterprise/admin/articles/management-console-for-emergency-recovery
+  - /enterprise/admin/articles/web-based-management-console
+  - /enterprise/admin/categories/management-console
+  - /enterprise/admin/articles/accessing-the-management-console
+  - /enterprise/admin/guides/installation/web-based-management-console
   - /enterprise/admin/installation/accessing-the-management-console
   - /enterprise/admin/configuration/accessing-the-management-console
   - /admin/configuration/accessing-the-management-console
@@ -32,6 +32,8 @@ Use o {% data variables.enterprise.management_console %} para atividades adminis
 É possível chegar ao {% data variables.enterprise.management_console %} usando o endereço IP da {% data variables.product.product_location %}, mesmo quando a instância estiver em modo de manutenção, ou quando houver uma falha grave de aplicativo ou problema de configuração de SSL.
 
 Para acessar o {% data variables.enterprise.management_console %}, você deve usar a senha de administrador definida na configuração inicial da {% data variables.product.product_location %}. Você também deve poder se conectar ao host da máquina virtual na porta 8443. Se tiver problemas para chegar ao {% data variables.enterprise.management_console %}, verifique as configurações intermediárias de firewall e grupo de segurança.
+
+O hash da senha de {% data variables.enterprise.management_console %} é armazenado em `/data/user/common/secrets.conf` e esse arquivo é automaticamente sincronizado no dispositivo principal para qualquer réplica de alta disponibilidade. Qualquer alteração na senha principal será automaticamente replicada em réplicas de alta disponibilidade. Para obter mais informações sobre alta disponibilidade, consulte "[Sobre configuração de alta disponibilidade](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)".
 
 ## Acessar o {% data variables.enterprise.management_console %} como administrador do site
 

@@ -2,7 +2,7 @@
 title: Colaboração com o Git Large File Storage
 intro: 'Com o {% data variables.large_files.product_name_short %} habilitado, você poderá fazer fetch, modificar e fazer push de arquivos grandes, assim como em qualquer arquivo gerenciado pelo Git. No entanto, um usuário que não tem o {% data variables.large_files.product_name_short %} verá um fluxo de trabalho diferente.'
 redirect_from:
-  - /articles/collaboration-with-large-file-storage/
+  - /articles/collaboration-with-large-file-storage
   - /articles/collaboration-with-git-large-file-storage
   - /github/managing-large-files/collaboration-with-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/collaboration-with-git-large-file-storage

@@ -1,7 +1,7 @@
 ---
 title: Política do site
 redirect_from:
-  - /categories/61/articles/
+  - /categories/61/articles
   - /categories/site-policy
 versions:
   fpt: '*'

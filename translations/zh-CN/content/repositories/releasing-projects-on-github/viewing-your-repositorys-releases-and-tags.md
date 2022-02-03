@@ -2,7 +2,7 @@
 title: 查看仓库的发行版和标记
 intro: 您可以按发行版名称或标记版本号查看仓库的时间记录。
 redirect_from:
-  - /articles/working-with-tags/
+  - /articles/working-with-tags
   - /articles/viewing-your-repositorys-tags
   - /github/administering-a-repository/viewing-your-repositorys-tags
   - /github/administering-a-repository/viewing-your-repositorys-releases-and-tags

@@ -6,7 +6,7 @@ redirect_from:
   - /admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
 type: tutorial
 topics:
   - Actions
@@ -18,7 +18,6 @@ shortTitle: Cache de ferramentas para executores off-line
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre as ações de configuração incluídas e o cache da ferramenta do executor
 

@@ -2,9 +2,9 @@
 title: Associar editores de texto ao Git
 intro: Use um editor de texto para abrir e editar seus arquivos com o Git.
 redirect_from:
-  - /textmate/
-  - /articles/using-textmate-as-your-default-editor/
-  - /articles/using-sublime-text-2-as-your-default-editor/
+  - /textmate
+  - /articles/using-textmate-as-your-default-editor
+  - /articles/using-sublime-text-2-as-your-default-editor
   - /articles/associating-text-editors-with-git
   - /github/using-git/associating-text-editors-with-git
   - /github/getting-started-with-github/associating-text-editors-with-git
@@ -49,7 +49,7 @@ shortTitle: Editores de texto associados
 ## Usar o TextMate como seu editor
 
 1. Instale o [TextMate](https://macromates.com/).
-2. Instale o utilitário do shell `mate`. Para obter mais informações, consulte "[mate e rmate](https://macromates.com/blog/2011/mate-and-rmate/)" na documentação do TextMate.
+2. Instale o utilitário do shell `mate`. For more information, see "[`mate` and `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)" in the TextMate documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Digite este comando:
   ```shell

@@ -2,12 +2,11 @@
 title: 授权用于 SAML 单点登录的 SSH 密钥
 intro: 要将 SSH 密钥用于使用 SAML 单点登录 (SSO) 的组织，必须先授权该密钥。
 redirect_from:
-  - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization/
+  - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - SSO

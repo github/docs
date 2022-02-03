@@ -57,9 +57,9 @@ sections:
       notes:
         # https://github.com/github/releases/issues/1406
         - |
-          Git Credential Manager (GCM) Core versions 2.0.452 and later now provide security-hardened credential storage and multi-factor authentication support for {% data variables.product.product_name %}.
+          Git Credential Manager (GCM) versions 2.0.452 and later now provide security-hardened credential storage and multi-factor authentication support for {% data variables.product.product_name %}.
 
-          GCM Core with support for {% data variables.product.product_name %} is included with [Git for Windows](https://gitforwindows.org) versions 2.32 and later. GCM Core is not included with Git for macOS or Linux, but can be installed separately. For more information, see the [latest release](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) and [installation instructions](https://github.com/microsoft/Git-Credential-Manager-Core/releases/) in the `microsoft/Git-Credential-Manager-Core` repository.
+          GCM with support for {% data variables.product.product_name %} is included with [Git for Windows](https://gitforwindows.org) versions 2.32 and later. GCM is not included with Git for macOS or Linux, but can be installed separately. For more information, see the [latest release](https://github.com/GitCredentialManager/git-credential-manager/releases/) and [installation instructions](https://github.com/GitCredentialManager/git-credential-manager/releases/) in the `GitCredentialManager/git-credential-manager` repository.
 
   changes:
     - heading: Administration Changes
@@ -173,7 +173,9 @@ sections:
         - The audit log now includes events associated with {% data variables.product.prodname_actions %} workflow runs. This data provides administrators with a greatly expanded data set for security and compliance audits. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#workflows-category-actions)."
 
         # https://github.com/github/releases/issues/1587
-        - '{% data variables.product.prodname_ghe_server %} 3.2 contains performance improvements for job concurrency with {% data variables.product.prodname_actions %}. For more information on the new performance targets on a range of CPU and memory configurations, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."'
+        - |
+          {% data variables.product.prodname_ghe_server %} 3.2 contains performance improvements for job concurrency with {% data variables.product.prodname_actions %}. For more information about the new performance targets for a range of CPU and memory configurations, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
+          * The "Maximum Concurrency" values were modified to reflect our most up to date performance testing. [Updated: 2021-12-07]
 
         - The [{% data variables.product.prodname_actions %} Runner](https://github.com/actions/runner) application in {% data variables.product.prodname_ghe_server %} 3.2 has been updated to [v2.279.0](https://github.com/actions/runner/releases/tag/v2.279.0).
 
@@ -244,7 +246,7 @@ sections:
     - heading: API Changes
       notes:
         # https://github.com/github/releases/issues/1253
-        - Pagination support has been added to the Repositories REST API's "compare two commits" endpoint, which returns a list of commits reachable from one commit or branch, but unreachable from another. The API can also now return the results for comparisons over 250 commits. For more information, see the "[Repositories](/rest/reference/repos#compare-two-commits)" REST API documentation and "[Traversing with pagination](/rest/guides/traversing-with-pagination)."
+        - Pagination support has been added to the Repositories REST API's "compare two commits" endpoint, which returns a list of commits reachable from one commit or branch, but unreachable from another. The API can also now return the results for comparisons over 250 commits. For more information, see the "[Commits](/rest/reference/commits#compare-two-commits)" REST API documentation and "[Traversing with pagination](/rest/guides/traversing-with-pagination)."
 
         # https://github.com/github/releases/issues/969
         - The REST API can now be used to programmatically resend or check the status of webhooks. For more information, see "[Repositories](/rest/reference/repos#webhooks)," "[Organizations](/rest/reference/orgs#webhooks)," and "[Apps](/rest/reference/apps#webhooks)" in the REST API documentation.

@@ -1,5 +1,5 @@
 ---
-title: Codespaces lifecycle
+title: Ciclo de vida dos codespaces
 intro: 'Você pode desenvolver em um ambiente {% data variables.product.prodname_codespaces %} e manter seus dados ao longo de todo o ciclo de vida do codespace.'
 versions:
   fpt: '*'
@@ -33,7 +33,7 @@ Se você tiver alterações não salvas, seu editor solicitará que você as sal
 
 ## Tempo limite de codespaces
 
-Se você não interagir com o seu codespace em execução ou se vocÊ sair do seu codespace sem pará-lo explicitamente, ele irá expirar após 30 minutos de inatividade e irá parar de executar. Para obter mais informações, consulte "[Parando um codespace](#stopping-a-codespace)".
+Se você não interagir com o seu codespace em execução ou se você sair do seu codespace sem pará-lo explicitamente, ele irá expirar após um determinado tempo de inatividade e irá parar de executar. Por padrão, um código irá expirar após 30 minutos de inatividade. No entanto, você pode personalizar a duração do período de tempo limite para novos codespaces que você criar. Para obter mais informações sobre a definição do período de tempo limite padrão para seus códigos, consulte "[Definindo seu período de tempo limite para os codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)". Para obter mais informações sobre como interromper um codespace, consulte "[Interrompendo um codespace](#stopping-a-codespace)".
 
 Quando o tempo de um codespace chega ao limite, os seus dados são preservados da última vez que suas alterações foram salvas. Para obter mais informações, consulte "[Salvando alterações em um codespace](#saving-changes-in-a-codespace)".
 
@@ -79,4 +79,4 @@ Para obter mais informações sobre exclusão de um codespace, consulte "[Exclui
 
 O {% data variables.product.prodname_codespaces %} é um ambiente de desenvolvimento baseado na nuvem e requer uma conexão à internet. Se você perder a conexão à internet enquanto trabalha em um codespace, você não poderá acessar seu codespace. No entanto, todas as alterações não comprometidas serão salvas. Quando você tiver acesso a uma conexão à internet novamente, você poderá conectar-se ao seu codespace no mesmo estado em que ele foi deixado. Se você tiver uma conexão instável, você deverá se fazer envio por commit e push das suas alterações com frequência.
 
-If you know that you will often be working offline, you can use your `devcontainer.json` file with the ["{% data variables.product.prodname_vscode %} Remote - Containers" extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) to build and attach to a local development container for your repository. For more information, see [Developing inside a container](https://code.visualstudio.com/docs/remote/containers) in the {% data variables.product.prodname_vscode %} documentation.
+Se você sabe que muitas vezes você irá trabalhar off-line, você pode usar o seu arquivo `devcontainer.json` com a extensão ["{% data variables.product.prodname_vscode %} Remote - Containers" extensão](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) para criar e anexar a um contêiner de desenvolvimento local para o seu repositório. Para obter mais informações, consulte [Desenvolvendo dentro de um contêiner](https://code.visualstudio.com/docs/remote/containers) na documentação de {% data variables.product.prodname_vscode %}.

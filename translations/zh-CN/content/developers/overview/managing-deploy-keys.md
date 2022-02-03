@@ -2,7 +2,7 @@
 title: 管理部署密钥
 intro: 了解在自动化部署脚本时管理服务器上的 SSH 密钥的不同方法，以及哪种方法最适合您。
 redirect_from:
-  - /guides/managing-deploy-keys/
+  - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
 versions:
   fpt: '*'
@@ -177,6 +177,9 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 1. 在服务器上[运行 `ssh-keygen` 进程][generating-ssh-keys]，并将公钥附加到机器用户帐户。
 2. 授予机器用户帐户访问要自动化的仓库的权限。 为此，您可以将帐户添加为[协作者][collaborator]、添加为[外部协作者][outside-collaborator]或添加到组织中的[团队][team]。
 
+## 延伸阅读
+- [配置通知](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
@@ -185,3 +188,4 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
+

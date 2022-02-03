@@ -1,5 +1,5 @@
 ---
-title: Deploying GitHub Advanced Security in your enterprise
+title: Implantando o GitHub Advanced Security na sua empresa
 intro: 'Aprenda a planejar, preparar e implementar uma abordagem em fases para implantar {% data variables.product.prodname_GH_advanced_security %} (GHAS) na sua empresa.'
 product: '{% data reusables.gated-features.advanced-security %}'
 miniTocMaxHeadingLevel: 3
@@ -221,7 +221,7 @@ Se você estiver usando uma abordagem faseada para implementar o GHAS, recomenda
 
 Se você não estiver planejando uma abordagem de implementação faseada e quiser habilitar a verificação de código para muitos repositórios, você pode fazer o script do processo.
 
-For an example of a script that opens pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using PowerShell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have PowerShell and instead would like to use NodeJS.
+Para obter um exemplo de um script que abre pull requests para adicionar um fluxo de trabalho de {% data variables.product.prodname_actions %} em vários repositórios, consulte o repositório [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) para ver um exemplo que usa o PowerShell ou [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) para equipes que não possuem PowerShell e que, em vez disso, prefeririam usar o NodeJS.
 
 ### Etapa 4: Execute digitalizações de código e revise seus resultados
 

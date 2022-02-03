@@ -93,13 +93,13 @@ Abaixo está um exemplo de uma etiqueta `front-end` que criamos e adicionamos ao
 ## Adicionando problemas a um quadro de projeto
 {% ifversion fpt or ghec %}Você pode usar projetos em {% data variables.product.prodname_dotcom %}, atualmente em beta público limitado, para planejar e acompanhar o trabalho da sua equipe. Um projeto é uma planilha personalizável integradas aos seus problemas e pull requests em {% data variables.product.prodname_dotcom %}, mantendo-se atualizada automaticamente com as informações em {% data variables.product.prodname_dotcom %}. Você pode personalizar o layout filtrando, organizando e agrupando seus problemas e PRs. Para começar com projetos, consulte "[Inicialização rápida para projetos (beta)](/issues/trying-out-the-new-projects-experience/quickstart). ".
 ### Exemplo de projeto (beta)
-Here is the table layout of an example project, populated with the Project Octocat issues we have created.
+Aqui está o layout da tabela de um projeto de exemplo, preenchido com os problemas do projeto Octocat que criamos.
 
-![Projects (beta) table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Exemplo do layout da tabela de projetos (beta)](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 Podemos também visualizar o mesmo projeto como um quadro.
 
-![Projects (beta) board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Exemplo do quadro do layout de projetos (beta)](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 

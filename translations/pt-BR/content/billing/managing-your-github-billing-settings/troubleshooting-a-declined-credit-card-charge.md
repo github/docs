@@ -3,7 +3,7 @@ title: Solucionar problemas de cobrança no cartão de crédito recusada
 intro: 'Se o cartão de crédito que você usa para pagar o {% data variables.product.product_name %} for recusado, você poderá tomar várias medidas para garantir que os pagamentos sejam efetuados e que sua conta não seja bloqueada.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/troubleshooting-a-declined-credit-card-charge
-  - /articles/what-do-i-do-if-my-card-is-declined/
+  - /articles/what-do-i-do-if-my-card-is-declined
   - /articles/troubleshooting-a-declined-credit-card-charge
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/troubleshooting-a-declined-credit-card-charge
 versions:

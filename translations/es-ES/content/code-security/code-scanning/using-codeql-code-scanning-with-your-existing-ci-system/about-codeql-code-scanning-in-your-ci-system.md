@@ -1,7 +1,7 @@
 ---
-title: Acerca del escaneo de código de CodeQL en tu sistema de IC
-shortTitle: Escaneo de código en tu IC
-intro: 'Puedes analizar tu código con {% data variables.product.prodname_codeql %} en un sistema de integración contínua de terceros y cargar los resultados a {% data variables.product.product_location %}. Las alertas del {% data variables.product.prodname_code_scanning %} resultantes se muestran junto con cualquier alerta que se genere dentro de {% data variables.product.product_name %}.'
+title: About CodeQL code scanning in your CI system
+shortTitle: Code scanning in your CI
+intro: 'You can analyze your code with {% data variables.product.prodname_codeql %} in a third-party continuous integration system and upload the results to {% data variables.product.product_location %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -21,36 +21,35 @@ redirect_from:
   - /code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system
 ---
-
 <!--UI-LINK: When GitHub Enterprise Server 3.1+ doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-## Acerca del {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} en tu sistema de IC
+## About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
 
-{% data reusables.code-scanning.about-code-scanning %} Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %} con {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)".
+{% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
 
 {% data reusables.code-scanning.codeql-context-for-actions-and-third-party-tools %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 <!--Content for GitHub.com, GHAE next, and GHES 3.2 and onward. CodeQL CLI is the preferred method, and CodeQL runner is deprecated. -->
 
 {% data reusables.code-scanning.codeql-cli-context-for-third-party-tools %}
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
-## Acerca de {% data variables.product.prodname_codeql_cli %}
+## About the {% data variables.product.prodname_codeql_cli %}
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 
-Utiliza el {% data variables.product.prodname_codeql_cli %} para analizar:
+Use the {% data variables.product.prodname_codeql_cli %} to analyze:
 
-- Lenguajes dinámicos, por eje mplo, JavaScript y Python.
-- Lenguajes compilados, por ejemplo, C/C++, C# y Java.
-- Bases de código escritas en varios lenguajes.
+- Dynamic languages, for example, JavaScript and Python.
+- Compiled languages, for example, C/C++, C# and Java.
+- Codebases written in a mixture of languages.
 
-Para obtener más información, consulta la sección "[Instalar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)".
+For more information, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
 {% data reusables.code-scanning.licensing-note %}
 
@@ -67,28 +66,28 @@ Para obtener más información, consulta la sección "[Instalar el {% data varia
 
 <!--Content for GHES 3.1 only. Both CodeQL CLI and CodeQL runner are available -->
 {% ifversion ghes = 3.1 %}
-Agrega el {% data variables.product.prodname_codeql_cli %} o el {% data variables.product.prodname_codeql_runner %} a tu sistema de terceros y luego llama a la herramienta para analizar código y cargar los resultados de SARIF a {% data variables.product.product_name %}. Las alertas del {% data variables.product.prodname_code_scanning %} resultantes se muestran junto con cualquier alerta que se genere dentro de {% data variables.product.product_name %}.
+You add the {% data variables.product.prodname_codeql_cli %} or the {% data variables.product.prodname_codeql_runner %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
-## Comparar el {% data variables.product.prodname_codeql_cli %} y el {% data variables.product.prodname_codeql_runner %}
+## Comparing {% data variables.product.prodname_codeql_cli %} and {% data variables.product.prodname_codeql_runner %}
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 
-El {% data variables.product.prodname_codeql_runner %} es una herramienta de línea de comandos que utiliza el {% data variables.product.prodname_codeql_cli %} para analizar el código y para cargar los resultados a {% data variables.product.product_name %}. La herramienta simula la ejecución del análisis nativamente dentro de {% data variables.product.product_name %} utilizando acciones. El ejecutor puede integrarse con ambientes de compilación más complejos que el CLI, pero esta capacidad lo hace más difícil de configurar y más propenso a errores. También es más difícil depurar cualquier problemas. Generalmente, es mejor utilizar directamente el {% data variables.product.prodname_codeql_cli %} a menos de que no sea compatible con tu caso de uso.
+The {% data variables.product.prodname_codeql_runner %} is a command-line tool that uses the {% data variables.product.prodname_codeql_cli %} to analyze code and upload the results to {% data variables.product.product_name %}. The tool mimics the analysis run natively within {% data variables.product.product_name %} using actions. The runner is able to integrate with more complex build environments than the CLI, but this ability makes it more difficult and error-prone to set up. It is also more difficult to debug any problems. Generally, it is better to use the {% data variables.product.prodname_codeql_cli %} directly unless it doesn't support your use case.
 
-Utiliza el {% data variables.product.prodname_codeql_cli %} para analizar:
+Use the {% data variables.product.prodname_codeql_cli %} to analyze:
 
-- Lenguajes dinámicos, por eje mplo, JavaScript y Python.
-- Las bases de código con un lenguaje compilado que pueden crearse con un solo comando o ejecutando un solo script.
+- Dynamic languages, for example, JavaScript and Python.
+- Codebases with a compiled language that can be built with a single command or by running a single script.
 
-Para obtener más información, consulta la sección "[Instalar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)".
+For more information, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
 {% data reusables.code-scanning.use-codeql-runner-not-cli %}
 
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 
-Para obtener más información, consulta la sección "[Ejecutar el {% data variables.product.prodname_codeql_runner %} en tu sistema de IC](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)".
+For more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 
 {% endif %}
 
@@ -96,9 +95,9 @@ Para obtener más información, consulta la sección "[Ejecutar el {% data varia
 {% ifversion ghes = 3.0 %}
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
-Puedes agregar el {% data variables.product.prodname_codeql_runner %} a tu sistema de terceros y luego llamar a la herramienta para analizar código y cargar los resultados de SARIF a {% data variables.product.product_name %}. Las alertas del {% data variables.product.prodname_code_scanning %} resultantes se muestran junto con cualquier alerta que se genere dentro de {% data variables.product.product_name %}.
+You add the {% data variables.product.prodname_codeql_runner %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.
 
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 
-Para configurar el escaneo de código en tu sistema de IC, consulta la sección "[Ejecutar el {% data variables.product.prodname_codeql_runner %} en tu sistema de IC](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)".
+To set up code scanning in your CI system, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 {% endif %}

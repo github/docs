@@ -20,7 +20,6 @@ shortTitle: Ação do JavaScript
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -38,9 +37,9 @@ Ao terminar esse projeto, você entenderá como criar sua própria ação JavaSc
 
 Antes de começar, você deverá fazer o download do Node.js e criar um repositório público em {% data variables.product.prodname_dotcom %}.
 
-1. Baixe e instale o Node.js, que inclui npm.
+1. Faça o download e instale o Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, o que inclui npm.
 
-  https://nodejs.org/en/download/current/
+  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
 1. Crie um novo repositório público em {% data variables.product.product_location %} e chame-o de "hello-world-javascript-action". Para obter mais informações, consulte "[Criar um repositório novo](/articles/creating-a-new-repository)".
 
@@ -48,13 +47,13 @@ Antes de começar, você deverá fazer o download do Node.js e criar um reposit�
 
 1. No seu terminal, mude os diretórios para seu novo repositório.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-javascript-action
   ```
 
 1. No terminal, inicialize o diretório com npm para gerar um arquivo `package.json`.
 
-  ```shell
+  ```shell{:copy}
   npm init -y
   ```
 
@@ -62,19 +61,19 @@ Antes de começar, você deverá fazer o download do Node.js e criar um reposit�
 
 Crie um novo arquivo denominado `action.yml` no diretório `hello-world-javascript-action` com o código de exemplo a seguir. Para obter mais informações, consulte "[Sintaxe dos metadados para {% data variables.product.prodname_actions %}}](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
-```yaml
+```yaml{:copy}
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id da entrada
+  who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
     default: 'World'
 outputs:
-  time: # id da saída
+  time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
@@ -92,7 +91,7 @@ O conjunto de ferramentas oferece mais do que pacotes `core` and `github`. Para 
 
 No seu terminal, instale os pacotes de conjunto de ferramentas de ações `core` e `github`.
 
-```shell
+```shell{:copy}
 npm install @actions/core
 npm install @actions/github
 ```
@@ -108,7 +107,7 @@ O GitHub Actions fornece informações de contexto sobre o evento webhook, Git r
 Adicione um arquivo novo denominado `index.js`, com o seguinte código:
 
 {% raw %}
-```javascript
+```javascript{:copy}
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -174,7 +173,7 @@ No seu terminal, faça commit dos arquivos `action.yml`, `index.js`, `node_modul
 
 Adicionar uma tag da versão para versões da sua ação é considerada uma prática recomendada. Para obter mais informações sobre versões da sua ação, consulte "[Sobre ações](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)".
 
-```shell
+```shell{:copy}
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1.1
@@ -214,7 +213,7 @@ Este exemplo demonstra como sua nova ação pública pode ser executada dentro d
 Copie o seguinte YAML em um novo arquivo em `.github/workflows/main.yml` e atualize a linha `uses: octocat/hello-world-javascript-action@v1.1` com seu nome de usuário e o nome do repositório público que você criou acima. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -241,7 +240,7 @@ Copie o código do fluxo de trabalho em um arquivo `.github/workflows/main.yml` 
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 em: [push]
 
 trabalhos:

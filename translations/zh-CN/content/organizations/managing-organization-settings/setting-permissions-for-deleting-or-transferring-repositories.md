@@ -2,7 +2,7 @@
 title: 设置删除或转让仓库的权限
 intro: 您可以允许具有仓库管理员权限的组织成员删除或转让仓库，或者将删除或转让仓库的功能限制为仅组织所有者。
 redirect_from:
-  - /articles/setting-permissions-for-deleting-or-transferring-repositories-in-your-organization/
+  - /articles/setting-permissions-for-deleting-or-transferring-repositories-in-your-organization
   - /articles/setting-permissions-for-deleting-or-transferring-repositories
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-deleting-or-transferring-repositories
 versions:

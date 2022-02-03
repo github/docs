@@ -3,6 +3,7 @@ import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { useTheme, ThemeProvider } from '@primer/components'
+import { SSRProvider } from '@react-aria/ssr'
 import { defaultComponentThemeProps, getThemeProps } from 'components/lib/getThemeProps'
 
 import '../stylesheets/index.scss'
@@ -43,12 +44,14 @@ const MyApp = ({ Component, pageProps, csrfToken, themeProps, languagesContext }
 
         <meta name="csrf-token" content={csrfToken} />
       </Head>
-      <ThemeProvider dayScheme={themeProps.dayTheme} nightScheme={themeProps.nightTheme}>
-        <LanguagesContext.Provider value={languagesContext}>
-          <SetTheme themeProps={themeProps} />
-          <Component {...pageProps} />
-        </LanguagesContext.Provider>
-      </ThemeProvider>
+      <SSRProvider>
+        <ThemeProvider dayScheme={themeProps.dayTheme} nightScheme={themeProps.nightTheme}>
+          <LanguagesContext.Provider value={languagesContext}>
+            <SetTheme themeProps={themeProps} />
+            <Component {...pageProps} />
+          </LanguagesContext.Provider>
+        </ThemeProvider>
+      </SSRProvider>
     </>
   )
 }

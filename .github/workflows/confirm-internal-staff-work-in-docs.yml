@@ -13,6 +13,9 @@ on:
     types:
       - opened
 
+permissions:
+  contents: none
+
 jobs:
   check-team-membership:
     runs-on: ubuntu-latest

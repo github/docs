@@ -95,7 +95,7 @@ Ahora estás listo para comenzar a hacer consultas.
 
 ## Un ejemplo de consulta utilizando la API de Cuentas Empresariales
 
-Esta consulta de GraphQL solicita la cantidad total de {% ifversion not ghae %} repositorios `public`{% else %} repositorios`private`{% endif %} en cada una de las organizaciones de tu aplicativo que utilizan la API de cuentas empresariales. Para personalizar esta consulta, reemplaza `<enterprise-account-name>` con el slug de tu instancia empresarial.
+Esta consulta de GraphQL solicita la cantidad total de {% ifversion not ghae %} repositorios `public`{% else %} repositorios`private`{% endif %} en cada una de las organizaciones de tu aplicativo que utilizan la API de cuentas empresariales. Para personalizar esta consulta, reemplaza a `<enterprise-account-name>` con el manejo de tu cuenta empresarial. Por ejempñlo, si tu cuenta empresarial se ubica en `https://github.com/enterprises/octo-enterprise`, reemplaza a `<enterprise-account-name>` con `octo-enterprise`.
 
 {% ifversion not ghae %}
 

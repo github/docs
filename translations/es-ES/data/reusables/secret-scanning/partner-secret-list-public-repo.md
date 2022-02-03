@@ -75,6 +75,8 @@
 | Samsara                   | Token de API de Samsara                                     |
 | Samsara                   | Token de Acceso de OAuth de Samsara                         |
 | SendGrid                  | Clave de la API de SendGrid                                 |
+| Sendinblue                | Llave de la API de Sendinblue                               |
+| Sendinblue                | Llave SMTP de Sendinblue                                    |
 | Shopify                   | Secreto Compartid de la App de Shopify                      |
 | Shopify                   | Token de Acceso de Shopify                                  |
 | Shopify                   | Token de Acceso de la App Personalizada de Shopify          |
@@ -91,4 +93,5 @@
 | Tencent Cloud             | ID de Secreto de Tencent Cloud                              |
 | Twilio                    | Identificador de Secuencia de Cuenta de Twilio              |
 | Twilio                    | Clave de API de Twilio                                      |
+| Typeform                  | Token de acceso personal a Typeform                         |
 | Valour                    | Token de acceso a Valour                                    |

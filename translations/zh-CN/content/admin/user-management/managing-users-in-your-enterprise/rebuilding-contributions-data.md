@@ -2,7 +2,7 @@
 title: 重构贡献数据
 intro: 您可以重构贡献数据，将现有提交链接到用户帐户。
 redirect_from:
-  - /enterprise/admin/articles/rebuilding-contributions-data/
+  - /enterprise/admin/articles/rebuilding-contributions-data
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:

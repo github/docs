@@ -1,6 +1,6 @@
 ---
 title: Configuring OpenID Connect in cloud providers
-shortTitle: Configuring OpenID Connect in cloud providers
+shortTitle: Configurar OpenID Connect en los proveedores de servicios en la nube
 intro: Use OpenID Connect within your workflows to authenticate with cloud providers.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -17,7 +17,7 @@ topics:
 
 ## Resumen
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in your cloud provider, without having to store any credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
+OpenID Connect (OIDC) permite que tus flujos de trabajo de {% data variables.product.prodname_actions %} accedan a los recursos de tu proveedor de servicios en la nube sin tener que almacenar credenciales como secretos de {% data variables.product.prodname_dotcom %} de larga duración.
 
 To use OIDC, you will first need to configure your cloud provider to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and must then update your workflows to authenticate using tokens.
 
@@ -37,14 +37,14 @@ If your cloud provider doesn't yet offer an official action, you can update your
 
 ### Adding permissions settings
 
-The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por ejemplo:
+El flujo de trabajo requerirá una configuración de `permissions` con un valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. Si solo necesitas recuperar un token de OIDC para un solo job, entonces este permiso puede configurarse dentro de dicho job. Por ejemplo:
 
 ```yaml{:copy}
 permissions:
   id-token: write
 ```
 
-You may need to specify additional permissions here, depending on your workflow's requirements.
+Puede que necesites especificar permisos adicionales aquí, dependiendo de los requisitos de tu flujo de trabajo.
 
 ### Using official actions
 
@@ -58,7 +58,7 @@ If you're not using an official action, then {% data variables.product.prodname_
 
 To update your workflows using this approach, you will need to make three changes to your YAML:
 
-1. Add permissions settings for the token.
+1. Agregar ajustes de permisos para el token.
 2. Add code that requests the OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider.
 3. Add code that exchanges the OIDC token with your cloud provider for an access token.
 
@@ -88,7 +88,7 @@ jobs:
 
 The following example demonstrates how to use enviroment variables to request a JSON Web Token.
 
-For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see "[Adding actions toolkit packages](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
+For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. Para obtener más información, consulta la sección "[Agregar paquetes de kit de herramientas de acciones](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)".
 
 Por ejemplo:
 

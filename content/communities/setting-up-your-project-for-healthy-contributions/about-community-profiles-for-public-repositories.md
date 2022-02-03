@@ -2,7 +2,7 @@
 title: About community profiles for public repositories
 intro: Repository maintainers can review their public repository's community profile to learn how they can help grow their community and support contributors. Contributors can view a public repository's community profile to see if they want to contribute to the project.
 redirect_from:
-  - /articles/viewing-your-community-profile/
+  - /articles/viewing-your-community-profile
   - /articles/about-community-profiles-for-public-repositories
   - /github/building-a-strong-community/about-community-profiles-for-public-repositories
 versions:

@@ -2,11 +2,11 @@
 title: GitHub での検索について
 intro: 'GitHub の統合検索機能は、{% data variables.product.product_name %}上の多くのリポジトリ、ユーザ、コードの行が対象です。'
 redirect_from:
-  - /articles/using-the-command-bar/
-  - /articles/github-search-basics/
-  - /articles/search-basics/
-  - /articles/searching-github/
-  - /articles/advanced-search/
+  - /articles/using-the-command-bar
+  - /articles/github-search-basics
+  - /articles/search-basics
+  - /articles/searching-github
+  - /articles/advanced-search
   - /articles/about-searching-on-github
   - /github/searching-for-information-on-github/about-searching-on-github
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github
@@ -51,7 +51,7 @@ topics:
 - [コード](/search-github/searching-on-github/searching-code)
 - [コミット](/search-github/searching-on-github/searching-commits)
 - [ユーザ](/search-github/searching-on-github/searching-users)
-- [パッケージ](/search-github/searching-on-github/searching-for-packages)
+- [Packages](/search-github/searching-on-github/searching-for-packages)
 - [Wiki](/search-github/searching-on-github/searching-wikis)
 
 ## ビジュアルインターフェースを使った検索
@@ -62,18 +62,18 @@ You can search {% data variables.product.product_name %} using the {% data varia
 
 ![高度な検索](/assets/images/help/search/advanced_search_demo.gif)
 
-{% ifversion fpt or ghes or ghae-next or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 
 ## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag --> or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, an enterprise owner for your {% data variables.product.prodname_enterprise %} environment can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time{% ifversion ghes or ghae %} from {% data variables.product.product_name %}{% endif %}. For more information, see the following.
+If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.product_name %}{% endif %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, an enterprise owner for your {% data variables.product.prodname_enterprise %} environment can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time{% ifversion ghes or ghae %} from {% data variables.product.product_name %}{% endif %}. For more information, see the following.
 
 {% ifversion fpt or ghes or ghec %}
-- "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/{% ifversion ghes %}{{ currentVersion }}{% else %}enterprise-server@latest{% endif %}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag -->
-- "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/github-ae@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_managed %} documentation
-{% endif %}
 
-{% ifversion ghes or ghae-next %}
+- "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}
+- "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/github-ae@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_managed %} documentation
+
+{% ifversion ghes or ghae %}
 
 検索の範囲を環境で狭めるには、{% data variables.search.advanced_url %} 上のフィルタオプションを使うか、検索プレフィックス `environment:` を利用できます。 {% data variables.product.product_name %} 上のコンテンツだけを検索するには、`environment:local` という検索構文を使います。 {% data variables.product.prodname_dotcom_the_website %} 上のコンテンツだけを検索するには`environment:github` を使います。
 

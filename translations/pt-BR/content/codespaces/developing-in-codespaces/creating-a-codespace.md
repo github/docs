@@ -14,6 +14,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Criar um codespace
 ---
 
 ## Sobre a criação do codespace
@@ -66,8 +67,6 @@ Se você deseja criar um codespace para um repositório pertencente à sua conta
 
 ## Criar um codespace
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -79,7 +78,11 @@ Se você deseja criar um codespace para um repositório pertencente à sua conta
 
    ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
 
-   Se você é integrante de uma organização e está criando um codespace em um repositório pertencente a essa organização, você poderá selecionar a opção de um tipo de máquina diferente. Na caixa de diálogo, escolha um tipo de máquina e clique em **Criar codespace**. ![Escolha do tipo da máquina](/assets/images/help/codespaces/choose-custom-machine-type.png)
+   Se você é integrante de uma organização e está criando um codespace em um repositório pertencente a essa organização, você poderá selecionar a opção de um tipo de máquina diferente. Na caixa de diálogo, escolha um tipo de máquina e, em seguida, clique em **Criar codespace**.
+
+   ![Escolha do tipo da máquina](/assets/images/help/codespaces/choose-custom-machine-type.png)
+
+   {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% endwebui %}
 

@@ -5,7 +5,7 @@
 - en la interface de usuario, se muestra una advertencia en tu archivo de repositorio y vistas de código si hay dependencias vulnerables (opción de **Alertas de la IU**).
 - en la línea de comandos, las advertencias se muestran como rellamados cuando subes información a los repositorios con dependencias vulnerables (opción de **Línea de comandos**).
 - en tu bandeja de entrada, como notificaciones web. Se enviará una notificación web cuando se habilite el {% data variables.product.prodname_dependabot %} en un repositorio cada que se confirme un archivo de manifiesto nuevo en dicho repositorio y cuando se encuentre una vulnerabilidad nueva con severidad crítica o alta (opción **Web**).{% ifversion not ghae %}
-- en {% data variables.product.prodname_mobile %}, como notificaciones web. Para obtener más información, consulta la sección [Habilitar las notificaciones de subida con GitHub para dispositivos móviles](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)".{% endif %}
+- en {% data variables.product.prodname_mobile %}, como notificaciones web. Para obtener más información, consulta la sección [Habilitar las notificaciones de subida con GitHub Móvil](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)".{% endif %}
 
 {% note %}
 

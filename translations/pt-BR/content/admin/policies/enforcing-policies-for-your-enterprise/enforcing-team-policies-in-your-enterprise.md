@@ -2,10 +2,9 @@
 title: Aplicando políticas de equipe na sua empresa
 intro: É possível aplicar políticas para equipes nas organizações da sua empresa ou permitir que as políticas sejam definidas em cada organização.
 permissions: Enterprise owners can enforce policies for teams in an enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
-  - /articles/enforcing-team-settings-for-organizations-in-your-business-account/
-  - /articles/enforcing-team-policies-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-team-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-team-policies-for-organizations-in-your-enterprise-account
   - /articles/enforcing-team-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account

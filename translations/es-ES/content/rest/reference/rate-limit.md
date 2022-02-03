@@ -30,6 +30,6 @@ Es por esto que la respuesta de la API de Límites de Tasa categoriza tu límite
 
 * El objeto `integration_manifest` proporciona el estado de tu límite de tasa para la terminal [Conversión de código para el Manifiesto de GitHub App](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
 
-Para obtener más información sobre los valores y encabezados en la respuesta de límite de tasa, consulta la sección "[Limitar las tasas](/rest#rate-limiting)".
+For more information on the headers and values in the rate limit response, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
 
 {% include rest_operations_at_current_path %}

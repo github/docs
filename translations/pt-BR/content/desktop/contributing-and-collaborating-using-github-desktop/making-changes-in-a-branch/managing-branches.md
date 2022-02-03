@@ -17,7 +17,7 @@ Você sempre cria um branch a partir de um branch existente. Normalmente, você 
 
 Você também pode criar um branch a partir de um commit anterior no histórico de um branch. Isso pode ser útil se você precisar retornar a uma visão anterior do repositório para investigar um erro ou para criar uma correção em cima de sua versão mais recente.
 
-Quando estiver satisfeito com seu trabalho, você poderá criar um pull request para fazer merge nas suas alterações no branch atual em outro branch. For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" and "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+Quando estiver satisfeito com seu trabalho, você poderá criar um pull request para fazer merge nas suas alterações no branch atual em outro branch. Para obter mais informações, consulte "[Criar um problema ou pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" e "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)".
 
 É sempre possível criar um branch no {% data variables.product.prodname_desktop %}, se tiver acesso de leitura a um repositório, mas você só pode fazer push do branch para o {% data variables.product.prodname_dotcom %} se você tiver acesso de gravação no repositório.
 
@@ -115,6 +115,6 @@ Não é possível excluir um branch se ele estiver atualmente associado a uma pu
 
 - "[Clonar um repositório no {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
 - "[Branch](/articles/github-glossary/#branch)" no glossário do {% data variables.product.prodname_dotcom %}
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[Sobre branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - "[Branches em um Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" na documentação do Git
 - "[Ocultar as alterações](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)

@@ -2,7 +2,7 @@
 title: Crear un servidor de IC
 intro: Crea tu propio sistema de IC utilizando la API de Estados.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'
@@ -84,7 +84,7 @@ Para probar esta prueba de concepto, haz algunos cambios en una rama de tu repos
 
 Ya que configuramos el servidor, estamos listos para comenzar con nuestro primer requisito, que es configurar (y actualizar) los estados de IC. Nota que en cualquier momento que actualices tu servidor, puedes dar clic en **Volver a entregar** para enviar la misma carga útil. ¡No necesitas hacer una solicitud de extracción cada que haces un cambio!
 
-Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb] to manage our interactions. Configuraremos a ese cliente con
+Ya que estamos interactuando con la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, utilizaremos [Octokit.rb][octokit.rb] para administrar nuestras interacciones. Configuraremos a ese cliente con
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -132,7 +132,7 @@ En GitHub, utilizamos una versión de [Janky][janky] durante años para administ
 
 Todas estas comunicaciones se canalizan de vuelta a nuestras salas de chat. No necesitas crear tu propia configuración de IC para utilizar este ejemplo. Siempre puedes confiar en las [Integraciones de GitHub][integrations].
 
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/reference/commits#commit-statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

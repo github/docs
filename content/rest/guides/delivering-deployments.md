@@ -2,8 +2,8 @@
 title: Delivering deployments
 intro: 'Using the Deployments REST API, you can build custom tooling that interacts with your server and a third-party app.'
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
   fpt: '*'

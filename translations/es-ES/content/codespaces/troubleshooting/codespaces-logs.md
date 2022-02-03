@@ -23,12 +23,10 @@ La información de {% data variables.product.prodname_codespaces %} se emite en 
 
 Estas bitácoras contienen información detallada sobre los codespaces, el contenedor, la sesión y el ambiente de {% data variables.product.prodname_vscode %}. Son útiles para diagnosticar los problemas de conexión y otros comportamientos inesperados. Por ejemplo, el codespace se congela pero la opción de "Recargar Windows" lo descongela por algunos minutos, o se te desconecta aleatoriamente del codespace, pero te puedes volver a conectar de inmediato.
 
-{% include tool-switcher %}
-
 {% webui %}
 
 1. Si estás utilizando {% data variables.product.prodname_codespaces %} en el buscador, asegúrate de que estés conectado al codespace que quieres depurar.
-1. Open the {% data variables.product.prodname_vscode %} Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Selecciona **Codespaces: Exportar Bitácoras** de la lista para descargar las bitácoras.
+1. Abre la paleta de comandos de {% data variables.product.prodname_vscode %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Exportar bitácoras**. Selecciona **Codespaces: Exportar Bitácoras** de la lista para descargar las bitácoras.
 1. Define dónde guardar el archivo zip de las bitácoras y luego haz clic en **Guardar** (escritorio) o en **OK** (web).
 1. Si estás utilizando {% data variables.product.prodname_codespaces %} en el buscador, haz clic derecho en el archivo zip de las bitácoras desde la vista de explorador y selecciona **Download…** para descargarlas en tu máquina local.
 
@@ -36,14 +34,14 @@ Estas bitácoras contienen información detallada sobre los codespaces, el conte
 
 {% vscode %}
 
-1. Open the {% data variables.product.prodname_vscode %} Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Selecciona **Codespaces: Exportar Bitácoras** de la lista para descargar las bitácoras.
+1. Abre la paleta de comandos de {% data variables.product.prodname_vscode %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Exportar bitácoras**. Selecciona **Codespaces: Exportar Bitácoras** de la lista para descargar las bitácoras.
 1. Define dónde guardar el archivo zip de las bitácoras y luego haz clic en **Guardar** (escritorio) o en **OK** (web).
 
 {% endvscode %}
 
 {% cli %}
 
-Currently you can't use {% data variables.product.prodname_cli %} to access these logs. To access them, open your codespace in {% data variables.product.prodname_vscode %} or in a browser.
+Actualmente, no puedes utilizar el {% data variables.product.prodname_cli %} para acceder a estas bitácoras. Para acceder a ellas, abre tu codespace en {% data variables.product.prodname_vscode %} o en un buscador.
 
 {% endcli %}
 
@@ -51,12 +49,11 @@ Currently you can't use {% data variables.product.prodname_cli %} to access thes
 
 Estas bitácoras contienen información sobre el contenedor, el contenedor dev y sus configuraciones. Son útiles para depurar la configuración y solucionar problemas.
 
-{% include tool-switcher %}
 
 {% webui %}
 
 1. Conéctate al codespace que quieras depurar.
-2. Open the {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Creation logs**. Selecciona **Codespaces: View Creation Log** de la lista para abrir el archivo `creation.log`.
+2. Abre la {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) y teclea **Creation logs**. Selecciona **Codespaces: View Creation Log** de la lista para abrir el archivo `creation.log`.
 
 Si quieres compartir la bitácora con soporte, puedes copiar el texto de la bitácora de creación en un editor de texto y guardar el archivo localmente.
 
@@ -74,15 +71,15 @@ Si quieres compartir la bitácora con soporte, puedes copiar el texto de la bit�
 
 {% data reusables.cli.cli-learn-more %}
 
-To see the creation log use the `gh codespace logs` subcommand. After entering the command choose from the list of codespaces that's displayed.
+Para ver la bitácora de creación, utiliza el subcomando `gh codespace logs`. Después de ingresar el comando, elige de la lista de codespaces que se muestra.
 
 ```shell
-gh codespace logs 
+gh codespace logs
 ```
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_logs).
+Para obtener más información sobre este comando, consulta [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_logs).
 
-If you want to share the log with support, you can save the output to a file:
+Si quieres compartir la bitácora con el personal de soporte, puedes guardar el resultado en un archivo:
 
 ```shell
 gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt

@@ -2,8 +2,8 @@
 title: ウィキにフッタやサイドバーを作成する
 intro: カスタムのサイドバーやフッタをウィキに追加して、さらに多くのコンテキスト情報を読者に提供できます。
 redirect_from:
-  - /articles/creating-a-footer/
-  - /articles/creating-a-sidebar/
+  - /articles/creating-a-footer
+  - /articles/creating-a-sidebar
   - /articles/creating-a-footer-or-sidebar-for-your-wiki
   - /github/building-a-strong-community/creating-a-footer-or-sidebar-for-your-wiki
 product: '{% data reusables.gated-features.wikis %}'

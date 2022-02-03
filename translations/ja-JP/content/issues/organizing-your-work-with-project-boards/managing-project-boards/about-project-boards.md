@@ -3,7 +3,7 @@ title: プロジェクトボードについて
 intro: '{% data variables.product.product_name %}のプロジェクトボードは、作業を整理して優先順位付けするための役に立ちます。 プロジェクトボードは、特定の機能の作業、包括的なロードマップ、さらにはリリースのチェックリストのためにも作成できます。 プロジェクトボードを使うと、要求に適したカスタマイズされたワークフローを作成する柔軟性が得られます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
-  - /articles/about-projects/
+  - /articles/about-projects
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:

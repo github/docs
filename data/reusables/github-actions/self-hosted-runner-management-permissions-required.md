@@ -2,7 +2,7 @@ A self-hosted runner can be located in either your repository, organization, or 
 - **User repository**: You must be the repository owner.
 - **Organization**: You must be an organization owner. 
 - **Organization repository**: You must be an organization owner, or have admin access to the repository.
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 - **Enterprise account**: You must be an enterprise owner.
 {% elsif ghes or ghae %}
 - **Enterprise**: You must be a {% data variables.product.prodname_enterprise %} site administrator.

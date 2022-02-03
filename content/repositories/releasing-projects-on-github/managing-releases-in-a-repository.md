@@ -3,7 +3,7 @@ title: Managing releases in a repository
 intro: You can create releases to bundle and deliver iterations of a project to users.
 redirect_from:
   - /articles/creating-releases
-  - /articles/listing-and-editing-releases/
+  - /articles/listing-and-editing-releases
   - /articles/editing-and-deleting-releases
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
@@ -34,8 +34,6 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {% endif %}
 
 ## Creating a release
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -80,7 +78,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
    ![Published release with @mentioned contributors](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-   {% else %} 
+   {% else %}
    ![Published release with @mentioned contributors](/assets/images/help/releases/releases-overview-with-contributors.png)
    {% endif %}
    {%- endif %}
@@ -110,8 +108,6 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 
 ## Editing a release
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -135,8 +131,6 @@ Releases cannot currently be edited with {% data variables.product.prodname_cli 
 {% endcli %}
 
 ## Deleting a release
-
-{% include tool-switcher %}
 
 {% webui %}
 

@@ -63,7 +63,7 @@ const SidebarContent = styled(Box)`
     position: sticky;
     padding-top: ${themeGet('space.4')};
     top: 4em;
-    max-height: calc(100vh - ${themeGet('space.4')});
+    max-height: 75vh;
     overflow-y: auto;
     padding-bottom: ${themeGet('space.4')};
   }

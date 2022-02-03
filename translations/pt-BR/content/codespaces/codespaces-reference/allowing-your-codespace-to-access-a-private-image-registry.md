@@ -12,7 +12,7 @@ shortTitle: Registro de imagem privada
 
 ## Sobre registros de imagens privadas e {% data variables.product.prodname_codespaces %}
 
-Um registro é um espaço seguro para armazenar, gerenciar e buscar imagens privadas de contêineres. Você pode usar um para armazenar um ou mais devcontainers. Existem muitos exemplos de registros, como {% data variables.product.prodname_dotcom %} registro do contêiner, registro de contêiner do Azure ou DockerHub.
+Um registro é um espaço seguro para armazenar, gerenciar e buscar imagens privadas de contêineres. You may use one to store one or more images. Existem muitos exemplos de registros, como {% data variables.product.prodname_dotcom %} registro do contêiner, registro de contêiner do Azure ou DockerHub.
 
 O registro do contêiner de {% data variables.product.prodname_dotcom %} pode ser configurado para puxar imagens container sem precisar fornecer qualquer credencial para {% data variables.product.prodname_codespaces %}. Para outros registros de imagem, você deve criar segredos em {% data variables.product.prodname_dotcom %} para armazenar os detalhes de acesso, o que permitirá que {% data variables.product.prodname_codespaces %} acesse imagens armazenadas nesse registro.
 
@@ -74,11 +74,37 @@ ACR_CONTAINER_REGISTRY_USER = acr-user-here
 ACR_CONTAINER_REGISTRY_PASSWORD = <PAT>
 ```
 
-Para obter informações sobre registros de imagens comuns, consulte "[Servidores de registro de imagens comuns](#common-image-registry-servers)".
+Para obter informações sobre registros de imagens comuns, consulte "[Servidores de registro de imagens comuns](#common-image-registry-servers)". Observe que acessar o AWS Elastic Container Registry (ECR) é diferente.
 
 ![Exemplo de segredo do registro de imagem](/assets/images/help/settings/codespaces-image-registry-secret-example.png)
 
 Após adicionar os segredos, pode ser que você precise parar e, em seguida, iniciar o processo de codespace para que as novas variáveis de ambiente sejam passadas para o contêiner. Para obter mais informações, consulte "[Suspender ou interromper um codespace](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace)".
+
+#### Acessando o AWS Elastic Container Registry
+
+Para acessar o AWS Elastic Container Registry (ECR), você pode fornecer o ID de uma chave de acesso do AWS e a chave do segredo e {% data variables.product.prodname_dotcom %} poderá obter um token de acesso para você e egetuar o login em seu nome.
+
+```
+*_CONTAINER_REGISTRY_SERVER = <ECR_URL>
+*_CONTAINER_REGISTRY_USER = <AWS_ACCESS_KEY_ID>
+*_CONTAINER_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
+```
+
+Você deve também garantir que terá as permissões do AWS IAM apropriadas para executar o swap de credenciais (por exemplo, `sts:GetServiceBearerToken`) bem como a operação de leitura do ECR ( `AmazonEC2ContainerRegistryFullAccess` ou `ReadOnlyAccess`).
+
+Como alternativa, se você não quiser que o GitHub execute a troca de credenciais em seu nome, você poderá fornecer um token de autorização obtido por meio das APIs ou da CLI do AWS.
+
+```
+*_CONTAINER_REGISTRY_SERVER = <ECR_URL>
+*_CONTAINER_REGISTRY_USER = AWS
+*_CONTAINER_REGISTRY_PASSWORD = <TOKEN>
+```
+
+Como esses tokens são curtos e precisam ser atualizados periodicamente, recomendamos fornecer um ID de chave de acesso e um segredo.
+
+Embora esses segredos possam ter qualquer nome, contanto que o `*_CONTAINER_REGISTRY_SERVER` seja uma URL de ECR, recomendamos usar `ECR_CONTAINER_REGISTRY_*` a menos que você esteja lidando com vários registros de ECR.
+
+Para obter mais informações, consulte a"[documentação de autenticação de registro privado](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html) do ECR do AWS".
 
 ### Servidores de registro de imagens comuns
 
@@ -90,6 +116,6 @@ Alguns dos servidores comuns de registro de imagens estão listados abaixo:
 - [Registry Container Elastic do AWS](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html) - `<aws_account_id>.dkr.ecr.<region>.amazonaws.com`
 - [Registro de Contêiner do Google Cloud](https://cloud.google.com/container-registry/docs/overview#registries) - `gcr.io` (US), `eu.gcr.io` (EU), `asia.gcr.io` (Asia)
 
-#### Acessando o AWS Elastic Container Registry
+## Depurando o acesso ao registro de imagens privadas
 
-Se você deseja acessar AWS Elastic Container Registry (ECR), você deverá fornecer um token de autorização AWS no `ECR_CONTAINER_REGISTRY_PASSWORD`. Este token de autorização não é o mesmo que a chave do seu segredo. Você pode obter um token de autorização do AWS usando as APIs ou CLI do AWS. Estes tokens têm uma vida útil curta e devem ser atualizados periodicamente. Para obter mais informações, consulte a"[documentação de autenticação de registro privado](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html) do ECR do AWS".
+Se você estiver tendo problemas para extrair uma imagem de um registro de imagens privada, certifique-se de estar apto a executar `docker login -u <user> -p <password> <server>`, usando os valores dos segredos definidos acima. Se o login falhar, certifique-se de que as credenciais de login sejam válidas e que você tenha as permissões de prioridade no servidor para obter uma imagem do contêiner. Se o login for bem-sucedido, certifique-se de que esses valores são copiados adequadamente para os segredos de {% data variables.product.prodname_codespaces %} corretos, seja no nível de usuário, repositório ou organização e tente novamente.

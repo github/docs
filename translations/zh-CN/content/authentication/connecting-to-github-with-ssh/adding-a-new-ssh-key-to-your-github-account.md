@@ -25,7 +25,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% mac %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. 将 SSH 公钥复制到剪贴板。
@@ -56,8 +55,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 {% endmac %}
 
 {% windows %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -90,7 +87,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% linux %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. 将 SSH 公钥复制到剪贴板。

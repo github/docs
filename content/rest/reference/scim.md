@@ -29,7 +29,7 @@ You must authenticate as an owner of a {% data variables.product.product_name %}
 
 ### Mapping of SAML and SCIM data
 
-The SAML IdP and the SCIM client must use matching `NameID` and `userName` values for each user. This allows a user authenticating through SAML to be linked to their provisioned SCIM identity.
+{% data reusables.scim.nameid-and-username-must-match %}
 
 ### Supported SCIM User attributes
 

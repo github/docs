@@ -38,9 +38,9 @@ Ao criar um codespace, cria-se [clone superficial](https://github.blog/2020-12-2
 
 {% note %}
 
-**Note:** If you want to use Git hooks in your codespace and apply anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) to your codespace, then you must set up hooks during step 4 after the container is created.
+**Observação:** Se você quiser usar hooks do Git no seu codespace e aplicar qualquer coisa no do [diretório do modelo do git](https://git-scm.com/docs/git-init#_template_directory) no seu codespace, você deverá configurar os hooks na etapa 4 depois que o contêiner for criado.
 
-Since your repository is cloned onto the host VM before the container is created, anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) will not apply in your codespace unless you set up hooks in your `devcontainer.json` configuration file using the `postCreateCommand` in step 4. For more information, see "[Step 4: Post-creation setup](#step-4-post-creation-setup)."
+Uma vez que seu repositório é clonado na VM de host antes da criação do contêiner nada no [diretório do template do git](https://git-scm.com/docs/git-init#_template_directory) não será aplicado no seu codespace a menos que você configure hooksno seu arquivo de configuração `devcontainer.json` usando o `postCreateCommand` na etapa 4. Para obter mais informações, consulte "[Etapa 4: configuração de pós-criação](#step-4-post-creation-setup)".
 
 {% endnote %}
 
@@ -50,11 +50,11 @@ Quando seu contêiner for criado e qualquer outra inicialização for executada,
 
 ### Passo 4: Configuração de pós-criação
 
-Once you are connected to your codespace, your automated setup may continue to build based on the configuration you specified in your `devcontainer.json` file. You may see `postCreateCommand` and `postAttachCommand` run.
+Uma vez que você estiver conectado ao seu codespace, a sua configuração automatizada poderá continuar compilando com base na configuração que você especificou no seu arquivo `devcontainer.json`. Você pode ver `postCreateCommand` e `postAttachCommand` serem executados.
 
-If you want to use Git hooks in your codespace,  set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`. For more information, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the Visual Studio Code documentation.
+Se vocÊ quiser usar os hooks do Git no seu codespace, configure os hooks usando os scripts do ciclo de vida do [`devcontainer.json` ](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts) como, por exemplo, `postCreateCommand`. Para obter mais informações, consulte o [`devcontainer.json` referência](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) na documentação do Visual Studio Code.
 
-If you have a public dotfiles repository for {% data variables.product.prodname_codespaces %}, you can enable it for use with new codespaces. When enabled, your dotfiles will be cloned to the container and the install script will be invoked. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account#dotfiles)".
+Se você tiver um repositório de dotfiles público para {% data variables.product.prodname_codespaces %}, você poderá habilitá-lo para uso com novos codespaces. Quando habilitado, seus dotfiles serão clonados para o contêiner e o script de instalação será invocado. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account#dotfiles)".
 
 Por fim, toda a história do repositório é copiada com um clone completo.
 
@@ -72,7 +72,7 @@ Durante a configuração de pós-criação, você ainda poderá usar o terminal 
 
 ### Fechando ou interrompendo seu codespace
 
-To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). Se você sair do seu codespace sem executar o comando de interrupção (por exemplo, fechando a aba do navegador), ou se você sair do codespace em execução sem interação, o codespace e os seus processos em execução continuarão até que ocorra uma janela de inatividade, após a qual o código será interrompido.  Por padrão, a janela de inatividade é de 30 minutos.
+Para interromper o seu codespace, você pode [usar o {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). Se você sair do seu codespace sem executar o comando de interrupção (por exemplo, fechando a aba do navegador), ou se você sair do codespace em execução sem interação, o codespace e os seus processos em execução continuarão até que ocorra uma janela de inatividade, após a qual o código será interrompido.  Por padrão, a janela de inatividade é de 30 minutos.
 
 Ao fechar ou interromper o seu codespace, todas as alterações não autorizadas são preservadas até você conectar-se ao codespace novamente.
 
@@ -85,9 +85,9 @@ O encaminhamento de portas determina quais portas podem ser acessadas por você 
 
 ![Diagrama que mostra como funciona o encaminhamento de porta em um codespace](/assets/images/help/codespaces/port-forwarding.png)
 
-Quando um aplicativo em execução dentro de {% data variables.product.prodname_codespaces %} produz uma porta para o console, {% data variables.product.prodname_codespaces %} detecta o padrão da URL do host local e encaminha a porta automaticamente. Você pode clicar na URL no terminal ou na mensagem de alerta para abrir a porta em um navegador. By default, {% data variables.product.prodname_codespaces %} forwards the port using HTTP. Para obter mais informações sobre o encaminhamento de portas, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
+Quando um aplicativo em execução dentro de {% data variables.product.prodname_codespaces %} produz uma porta para o console, {% data variables.product.prodname_codespaces %} detecta o padrão da URL do host local e encaminha a porta automaticamente. Você pode clicar na URL no terminal ou na mensagem de alerta para abrir a porta em um navegador. Por padrão, {% data variables.product.prodname_codespaces %} encaminha as portas que usam HTTP. Para obter mais informações sobre o encaminhamento de portas, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 
-Embora as portas possam ser encaminhadas automaticamente, elas não podem ser acessadas pelo público na internet. By default, all ports are private, but you can manually make a port available to your organization or public, and then share access through a URL. For more information, see "[Sharing a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port)."
+Embora as portas possam ser encaminhadas automaticamente, elas não podem ser acessadas pelo público na internet. Por padrão, todas as portas são privadas, mas você pode disponibilizar manualmente uma porta para sua organização ou público, e, em seguida, compartilhar o acesso por meio de uma URL. Para obter mais informações, consulte "[Compartilhando uma porta](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port). "
 
 A execução do seu aplicativo ao chegar pela primeira vez no seu codespace pode fazer um loop de desenvolvimento rápido interno. À medida que você edita, as alterações são salvas automaticamente e ficam disponíveis na sua porta encaminhada. Para visualizar as alterações, volte para a aba do aplicativo em execução no seu navegador e atualize-as.
 
@@ -116,4 +116,4 @@ Se você já usa o {% data variables.product.prodname_vscode %}, você pode usar
 - [Habilitando {% data variables.product.prodname_codespaces %} para a sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
 - [Gerenciando a cobrança para {% data variables.product.prodname_codespaces %} na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
 - [Configurando seu projeto para os codespaces](/codespaces/setting-up-your-project-for-codespaces)
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- [Ciclo de vida dos codespaces](/codespaces/developing-in-codespaces/codespaces-lifecycle)

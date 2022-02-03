@@ -23,11 +23,34 @@ Os trabalhos nos executores hospedados em {% data variables.product.prodname_dot
 
 Para memorizar as dependências para um trabalho, você precisará usar a ação `cache` do {% data variables.product.prodname_dotcom %}. A ação recupera uma cache identificada por uma chave única. Para obter mais informações, consulte [`ações/cache`](https://github.com/actions/cache).
 
-Se você estiver armazenando gems do Ruby, disso considere usar a ação mantida pelo Ruby, que pode armazenar em cache as instalações do pacote na iniciação. Para obter mais informações, consulte [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
+Se você estiver armazenando em cache os gerentes de pacotes listados abaixo, considere usar as respectivas ações de setup-*, que exigem praticamente nenhuma configuração e são fáceis de usar.
 
-Para armazenar em cache e restaurar as dependências do npm, Yarn ou pnpm, você pode usar a ação [`actions/setup-node`](https://github.com/actions/setup-node).
-
-O cache do Gradle e Maven está disponível com a ação [`actions/setup-java`](https://github.com/actions/setup-java).
+<table>
+<thead>
+  <tr>
+    <th>Gerentes de pacotes</th>
+    <th>ação setup-* para cache</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>npm, yarn, pnpm</td>
+    <td><a href="https://github.com/actions/setup-node">setup-node</a></td>
+  </tr>
+  <tr>
+    <td>pip, pipenv</td>
+    <td><a href="https://github.com/actions/setup-python">setup-python</a></td>
+  </tr>
+  <tr>
+    <td>gradle, maven</td>
+    <td><a href="https://github.com/actions/setup-java">setup-java</a></td>
+  </tr>
+  <tr>
+    <td>ruby gems</td>
+    <td><a href="https://github.com/ruby/setup-ruby">setup-ruby</a></td>
+  </tr>
+</tbody>
+</table>
 
 {% warning %}
 
@@ -209,4 +232,4 @@ Por exemplo, se um pull request contiver um branch de`recurso` (escopo atual) e 
 
 ## Limites de uso e política de eliminação
 
-{% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. Não há limite para o número de caches que você pode armazenar, mas o limite do tamanho total de todas as caches em um repositório é 5 GB. Se você exceder este limite, {% data variables.product.prodname_dotcom %} salvará a sua cache, mas começará a eliminar as caches até que o tamanho total seja inferior a 5 GB.
+{% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. Não há limite para o número de caches que você pode armazenar, mas o limite do tamanho total de todas as caches em um repositório é 10 GB. Se você exceder este limite, {% data variables.product.prodname_dotcom %} salvará a sua cache, mas começará a eliminar as caches até que o tamanho total seja inferior a 10 GB.

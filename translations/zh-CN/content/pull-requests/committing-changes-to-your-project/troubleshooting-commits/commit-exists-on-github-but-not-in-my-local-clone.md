@@ -74,7 +74,7 @@ $ git fetch upstream recover-B
 
 ## 避免强制推送
 
-除非万不得已，否则应避免向仓库强制推送。 如果可以向仓库推送的人不止一个，这个原则尤为重要。
+除非万不得已，否则应避免向仓库强制推送。 如果可以向仓库推送的人不止一个，这个原则尤为重要。 If someone force pushes to a repository, the force push may overwrite commits that other people based their work on. Force pushing changes the repository history and can corrupt pull requests.
 
 ## 延伸阅读
 

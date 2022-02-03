@@ -2,7 +2,7 @@
 title: 日志转发
 intro: '{% data variables.product.product_name %} 使用 `syslog-ng` 将 {% ifversion ghes %}系统{% elsif ghae %}Git{% endif %} 和应用程序日志转发到您指定的服务器。'
 redirect_from:
-  - /enterprise/admin/articles/log-forwarding/
+  - /enterprise/admin/articles/log-forwarding
   - /enterprise/admin/installation/log-forwarding
   - /enterprise/admin/enterprise-management/log-forwarding
   - /admin/enterprise-management/log-forwarding

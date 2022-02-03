@@ -3,10 +3,8 @@ title: 将团队与身份提供程序组同步
 intro: '您可以将 {% data variables.product.product_name %} 团队与身份提供程序 (IdP) 组同步，以自动添加和删除团队成员。'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
-product: '{% data reusables.gated-features.team-synchronization %}'
 permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
 versions:
-  fpt: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -15,23 +13,21 @@ topics:
 shortTitle: 与 IdP 同步
 ---
 
-{% data reusables.gated-features.okta-team-sync %}
-
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
 ## 关于团队同步
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
-{% ifversion fpt or ghec %}您可以将最多 5 个 IdP 组连接到 {% data variables.product.product_name %} 团队。{% elsif ghae %}您可以将 {% data variables.product.product_name %} 上的团队连接到一个 IdP 组。 组中的所有用户将自动添加到团队中，并作为成员添加到父组织。 当您断开组与团队的连接时，通过团队成员资格成为组织成员的用户将从组织中删除。{% endif %} 您可以将 IdP 组分配给多个 {% data variables.product.product_name %} 团队。
+{% ifversion ghec %}You can connect up to five IdP groups to a {% data variables.product.product_name %} team.{% elsif ghae %}You can connect a team on {% data variables.product.product_name %} to one IdP group. 组中的所有用户将自动添加到团队中，并作为成员添加到父组织。 当您断开组与团队的连接时，通过团队成员资格成为组织成员的用户将从组织中删除。{% endif %} 您可以将 IdP 组分配给多个 {% data variables.product.product_name %} 团队。
 
-{% ifversion fpt or ghec %}团队同步不支持超过 5000 个成员的 IdP 组。{% endif %}
+{% ifversion ghec %}Team synchronization does not support IdP groups with more than 5000 members.{% endif %}
 
-{% data variables.product.prodname_dotcom %} 团队连接到 IdP 组后，您的 IdP 管理员必须通过身份提供程序进行团队成员资格更改。 您不能在 {% data variables.product.product_name %} 上{% ifversion fpt or ghec %}或使用 API{% endif %} 管理团队成员资格。
+{% data variables.product.prodname_dotcom %} 团队连接到 IdP 组后，您的 IdP 管理员必须通过身份提供程序进行团队成员资格更改。 You cannot manage team membership on {% data variables.product.product_name %}{% ifversion ghec %} or using the API{% endif %}.
 
-{% ifversion fpt or ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
+{% ifversion ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 通过 IdP 进行的所有团队成员资格更改都将在 {% data variables.product.product_name %} 审核日志中显示为团队同步自动程序所进行的更改。 您的 IdP 会将团队成员数据发送至 {% data variables.product.prodname_dotcom %}，每小时一次。 将团队连接到 IdP 组可能会删除一些团队成员。 更多信息请参阅“[已同步团队成员的要求](#requirements-for-members-of-synchronized-teams)”。
 {% endif %}
 
@@ -43,9 +39,9 @@ shortTitle: 与 IdP 同步
 
 要管理 {% data variables.product.prodname_dotcom %} 团队（包括连接到 IdP 组的团队）的仓库访问权限，您必须使用 {% data variables.product.product_name %} 进行更改。 更多信息请参阅“[关于团队](/articles/about-teams)”和“[管理团队对组织仓库的访问](/articles/managing-team-access-to-an-organization-repository)”。
 
-{% ifversion fpt or ghec %}您还可以使用 API 管理团队同步。 更多信息请参阅“[团队同步](/rest/reference/teams#team-sync)”。{% endif %}
+{% ifversion ghec %}You can also manage team synchronization with the API. 更多信息请参阅“[团队同步](/rest/reference/teams#team-sync)”。{% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 ## 已同步团队成员的要求
 
 将团队连接到 IdP 组后，团队同步将 IdP 组的每个成员添加到 {% data variables.product.product_name %} 上的相应团队，但需满足以下条件：
@@ -63,7 +59,7 @@ shortTitle: 与 IdP 同步
 
 ## 基本要求
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 在连接 {% data variables.product.product_name %} 团队与身份提供程序组之前，组织或企业所有者必须为组织或企业帐户启用团队同步。 更多信息请参阅“[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)”和“[管理企业帐户中组织的团队同步](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
 
 为避免无意中删除团队成员，请访问 IdP 的管理门户，并确认每个当前团队成员也位于要连接到此团队的 IdP 组中。 如果您没有身份提供程序的这一访问权限，在可以联系 IdP 管理员。
@@ -84,7 +80,7 @@ shortTitle: 与 IdP 同步
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 6. 在“Identity Provider Groups（身份提供程序组）”下，使用下拉菜单，选择最多 5 个身份提供程序组。 ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png){% elsif ghae %}
 6. 在“Identity Provider Groups（身份提供程序组）”下，使用下拉菜单从列表中选择身份提供程序组。 ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png){% endif %}
 7. 单击 **Save changes（保存更改）**。
@@ -97,7 +93,7 @@ shortTitle: 与 IdP 同步
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 6. 在“Identity Provider Groups（身份提供程序组）”下，单击要断开连接的 IdP 组右侧的 {% octicon "x" aria-label="X symbol" %}。 ![Unselect a connected IdP group from the GitHub team](/assets/images/help/teams/unselect-idp-group.png){% elsif ghae %}
 6. 在“Identity Provider Group（身份提供程序组）”下，单击要断开连接的 IdP 组右侧的 {% octicon "x" aria-label="X symbol" %}。 ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png){% endif %}
 7. 单击 **Save changes（保存更改）**。

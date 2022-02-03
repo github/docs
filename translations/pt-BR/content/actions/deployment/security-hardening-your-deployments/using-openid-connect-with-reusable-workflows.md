@@ -18,12 +18,6 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% note %}
-
-**Observação:** Os fluxos de trabalho reutilizáveis estão atualmente na versão beta e sujeitos a alterações.
-
-{% endnote %}
-
 ## Sobre fluxos de trabalho reutilizáveis
 
 Em vez de copiar e colar trabalhos de implantação de um fluxo de trabalho para outro, é possível criar um fluxo de trabalho reutilizável que executa as etapas de implantação. Um fluxo de trabalho reutilizável pode ser usado por outro fluxo de trabalho se ele cumprir um dos requisitos de acesso descritos em "[Reutilizando os fluxos de trabalho](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)".

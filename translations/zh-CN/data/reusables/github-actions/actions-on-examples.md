@@ -1,33 +1,75 @@
-## 示例：使用单一事件
+### Using a single event
+
+For example, a workflow with the following `on` value will run when a push is made to any branch in the workflow's repository:
 
 ```yaml
-# Triggered when code is pushed to any branch in a repository
 on: push
 ```
 
-## 示例：使用事件列表
+### Using multiple events
+
+You can specify a single event or multiple events. For example, a workflow with the following `on` value will run when a push is made to any branch in the repository or when someone forks the repository:
 
 ```yaml
-# Triggers the workflow on push or pull request events
-on: [push, pull_request]
+on: [push, fork]
 ```
 
-## 示例：使用具有活动类型或配置的多个事件
+If you specify multiple events, only one of those events needs to occur to trigger your workflow. If multiple triggering events for your workflow occur at the same time, multiple workflow runs will be triggered.
 
-如果您需要为一个事件指定活动类型或配置，必须分别配置每个事件。 您必须为所有事件附加冒号 (`:</0)，包括没有配置的事件。</p>
+### Using activity types
 
-<pre><code class="yaml">on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
+Some events have activity types that give you more control over when your workflow should run.
+
+For example, the `issue_comment` event has the `created`, `edited`, and `deleted` activity types. If your workflow triggers on the `label` event, it will run whenever a label is created, edited, or deleted. If you specify the `created` activity type for the `label` event, your workflow will run when a label is created but not when a label is edited or deleted.
+
+```yaml
+on:
+  label:
+    types:
+      - created
+```
+
+If you specify multiple activity types, only one of those event activity types needs to occur to trigger your workflow. If multiple triggering event activity types for your workflow occur at the same time, multiple workflow runs will be triggered. For example, the following workflow triggers when an issue is opened or labeled. If an issue with two labels is opened, three workflow runs will start: one for the issue opened event and two for the two issue labeled events.
+
+```yaml
+on:
+  issue:
+    types:
+      - opened
+      - labeled
+```
+
+### Using filters
+
+Some events have filters that give you more control over when your workflow should run.
+
+For example, the `push` event has a `branches` filter that causes your workflow to run only when a push to a branch that matches the `branches` filter occurs, instead of when any push occurs.
+
+```yaml
+on:
   push:
     branches:
       - main
-  pull_request:
+      - 'releases/**'
+```
+
+### Using activity types and filters with multiple events
+
+If you specify activity types or filters for an event and your workflow triggers on multiple events, you must configure each event separately. You must append a colon (`:`) to all events, including events without configuration.
+
+For example, a workflow with the following `on` value will run when:
+
+- A label is created
+- A push is made to the `main` branch in the repository
+- A push is made to a {% data variables.product.prodname_pages %}-enabled branch
+
+```yaml
+on:
+  label:
+    types:
+      - created
+  push:
     branches:
       - main
-  # Also trigger on page_build, as well as release created events
   page_build:
-  release:
-    types: # This configuration does not affect the page_build event above
-      - created
-`</pre>
+```
