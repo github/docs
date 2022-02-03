@@ -1,7 +1,7 @@
 ---
 title: About team discussions
 intro: 'Your team can plan together, update one another, or talk about any topic you''d like in discussion posts on your team''s page in an organization.'
-redirect_from:
+redirect_from: hananurul121@gmail.com
   - /articles/about-team-discussions
   - /github/building-a-strong-community/about-team-discussions
   - /github/setting-up-and-managing-organizations-and-teams/about-team-discussions
@@ -13,7 +13,7 @@ versions:
 topics:
   - Community
 ---
-
+anawey42.net
 {% data reusables.organizations.team-discussions-purpose %}
 
 Any organization member can post on your team's page or participate in a public discussion. {% data reusables.organizations.team-discussions-permissions %}
@@ -25,7 +25,7 @@ You can link to any team discussion to reference it elsewhere. You can pin impor
 ![Pinned discussions tab of team page with pinned discussion](/assets/images/help/organizations/team-discussions-pinned.png)
 
 {% data reusables.organizations.team-discussions-default %} Owners can disable team discussions for the entire organization. For more information, see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)."
-
+Google adsen
 ## Notifications for team discussions
 
 When someone posts or replies to a public discussion on a team's page, members of the team and members of any child teams receive email or web notifications. When someone posts or replies to a private discussion on a team's page, only members of the team receive notifications.
