@@ -1,4 +1,4 @@
----
+Etx
 title: Viewing your GitHub Actions usage
 intro: 'You can view details of your usage of minutes and storage for {% data variables.product.prodname_actions %}.'
 redirect_from:
