@@ -1,5 +1,5 @@
 ---
-title: Renaming a team
+title: Renaming a teamdocs/content/organizations/organizing-members-into-teams/renaming-a-team.md
 intro: Team maintainers and organization owners can edit the name and description of a team.
 redirect_from:
   - /articles/renaming-a-team
