@@ -1,4 +1,4 @@
-name: Destroy Azure Preview Env
+name: Azure - Destroy Preview Env
 
 # **What it does**: Destroys resources associated with a PRs Azure preview environment
 # **Why we have it**: Closed PRs don't need apps
@@ -13,6 +13,7 @@ on:
 jobs:
   destory-azure-preview-env:
     name: Destroy
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
@@ -44,7 +45,7 @@ jobs:
       - name: 'Get full app name'
         id: full-app-name
         run: |
-          FULL_APP_NAME=$(az webapp list -g ${{ env.RESOURCE_GROUP }} --query "[?tags.DocsAppName == '${{ env.APP_NAME }}'})].name | [0]")
+          FULL_APP_NAME=$(az webapp list -g ${{ env.RESOURCE_GROUP }} --query "[?tags.DocsAppName == '${{ env.APP_NAME }}'].name | [0]")
           echo "::set-output name=result::${FULL_APP_NAME}"
 
       # Delete web app (which will also delete the App Service plan)
