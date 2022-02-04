@@ -1,7 +1,7 @@
-name: Staging - Azure Deploy App Service
+name: Azure - Deploy Preview Environment
 
-# **What it does**: Build and deploy staging PRs to Azure
-# **Why we have it**: It's our new staging deployment mechanism, only applicable to docs-internal
+# **What it does**: Build and deploy to an Azure preview environment
+# **Why we have it**: It's our preview environment deploy mechanism, only applicable to docs-internal
 # **Who does it impact**: All contributors.
 
 # This whole workflow is only guaranteed to be secure in the *private
@@ -28,18 +28,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy-staging-azure:
+  build-and-deploy-azure-preview:
     if: ${{ github.repository == 'github/docs-internal' }}
-    name: Build and deploy image to staging App Service
+    name: Build and deploy Azure preview environment
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment:
-      name: staging-pr-${{ github.event.number }}
+      name: preview-env-${{ github.event.number }}
       url: ${{ steps.deploy.outputs.defaultHostName }}
     env:
       GITHUB_EVENT_NUMBER: ${{ github.event.number }}
-      STAGING_RESOURCE_GROUPS: 4
+      PREVIEW_ENV_RESOURCE_GROUPS: 4
       NONPROD_REGISTRY_USERNAME: ghdocs
+      APP_LOCATION: eastus
       ENABLE_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
       # Image tag is unique to each workflow run so that it always triggers a new deployment
       DOCKER_IMAGE: ${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}/pr-${{ github.event.number }}:${{ github.event.pull_request.head.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -51,8 +52,8 @@ jobs:
           REPO_NAME=${GITHUB_REPOSITORY#*\/}
           echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
           echo "DEPLOYMENT_NAME=${REPO_NAME}-pr-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
-          echo "RESOURCE_GROUP=preview-env-${REPO_NAME}-$((${GITHUB_EVENT_NUMBER} % ${STAGING_RESOURCE_GROUPS}))" >> $GITHUB_ENV
-          echo "APP_NAME=gh${REPO_NAME}-staging-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
+          echo "RESOURCE_GROUP=preview-env-${REPO_NAME}-$((${GITHUB_EVENT_NUMBER} % ${PREVIEW_ENV_RESOURCE_GROUPS}))" >> $GITHUB_ENV
+          echo "APP_NAME=${REPO_NAME}-preview-${GITHUB_EVENT_NUMBER}" >> $GITHUB_ENV
 
       - name: 'Az CLI login'
         uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
@@ -152,10 +153,10 @@ jobs:
         with:
           resourceGroupName: ${{ env.RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
-          template: ./staging-azure-deploy-template.json
+          template: ./azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
           parameters: appName="${{ env.APP_NAME }}"
-            location="East US"
+            location="${{ env.APP_LOCATION }}"
             linuxFxVersion="DOCKER|${{ env.DOCKER_IMAGE }}"
             dockerRegistryUrl="https://${{ secrets.NONPROD_REGISTRY_SERVER }}"
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"

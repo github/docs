@@ -34,11 +34,11 @@ Em muitos casos, especialmente no início de um projeto, o encaminhamento de age
 #### Configuração
 
 1. Ativar o encaminhamento do agente localmente. Consulte o [nosso guia sobre o encaminhamento de agentes SSH][ssh-agent-forwarding] para obter mais informações.
-2. Defina seus scripts de implantação para usar o encaminhamento de agentes. Por exemplo, em um script bash, permitir o encaminhamento de agentes seria algo como isto: `ssh -A serverA 'bash -s' < deploy.sh`
+2. Defina seus scripts de implantação para usar o encaminhamento de agentes. For example, on a bash script, enabling agent forwarding would look something like this: `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## Clonagem de HTTPS com tokens do OAuth
 
-Se você não quiser usar chaves SSH, você poderá usar [HTTPS com tokens do OAuth][git-automation].
+If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
 #### Prós
 
@@ -57,7 +57,7 @@ Se você não quiser usar chaves SSH, você poderá usar [HTTPS com tokens do OA
 
 #### Configuração
 
-Consulte o [nosso guia sobre automação Git com tokens][git-automation].
+See [our guide on creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## Chaves de implantação
 
@@ -184,9 +184,6 @@ Isto significa que você não pode automatizar a criação de contas. Mas se voc
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
-[git-automation]: /articles/git-automation-with-oauth-tokens
-[git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
-
