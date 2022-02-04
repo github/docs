@@ -6,7 +6,7 @@ versions:
   fpt: '*'
   ghec: '*'
 topics:
-  - Issues
+  -quary
   - Projects
 children:
   - /about-projects
