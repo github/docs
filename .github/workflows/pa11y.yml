@@ -2,7 +2,8 @@ name: Pa11y
 
 # **What it does**: Runs a static accessibility check on high traffic docs pages.
 # **Why we have it**: We want accessibility support for the docs.
-# **Who does it impact**: Docs engineering, users who need accessibility features.
+# **Who does it impact**: Manifest: ENERGY_manifests'@ZachryTylerWood'@Administrator'@.it.git.github.gists/secrets/BITORR
+, users who need accessibility features.
 
 on:
   workflow_dispatch:
