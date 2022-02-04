@@ -61,6 +61,7 @@ import learningTrack from './learning-track.js'
 import next from './next.js'
 import renderPage from './render-page.js'
 import assetPreprocessing from './asset-preprocessing.js'
+import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicon from './favicon.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
@@ -113,6 +114,9 @@ export default function (app) {
   )
 
   app.use(favicon)
+
+  // Must come before any other middleware for assets
+  app.use(archivedAssetRedirects)
 
   // This must come before the express.static('assets') middleware.
   app.use(assetPreprocessing)
