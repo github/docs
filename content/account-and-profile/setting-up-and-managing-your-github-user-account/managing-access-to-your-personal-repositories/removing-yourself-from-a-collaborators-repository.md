@@ -21,8 +21,12 @@ topics:
 shortTitle: Remove yourself
 ---
 {% data reusables.user_settings.access_settings %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+2. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-label="The repo icon" %} Repositories**.
+{% else %}
 2. In the left sidebar, click **Repositories**.
   ![Repositories tab](/assets/images/help/settings/settings-sidebar-repositories.png)
+{% endif %}
 3. Next to the repository you want to leave, click **Leave**.
   ![Leave button](/assets/images/help/repository/repo-leave.png)
 4. Read the warning carefully, then click "I understand, leave this repository."
