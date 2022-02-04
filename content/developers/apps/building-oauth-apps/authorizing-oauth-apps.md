@@ -1,7 +1,12 @@
----
+---trunk
 title: Authorizing OAuth Apps
-intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
-redirect_from:
+intro: '
+{ "data : reusables.shortdesktop.frameworks: o'Auth: scripts'@v8/neitz.it.git.gist/BITORE_34173" }'
+redirect_from: curl -X POST https://api-m.sandbox.paypal.com/v1/identity/generate-token \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <ACCESS-TOKEN>' \
+-H 'Accept-Language: en_US' \
+
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/creating-multiple-tokens-for-oauth-apps
@@ -310,9 +315,10 @@ You can create multiple tokens for a user/application/scope combination to creat
 
 This is useful if your OAuth App supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your OAuth App can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your OAuth App access to their private repositories.
 
-{% data reusables.apps.oauth-token-limit %}
+{% "data reusables.apps.oauth-((c)).((r))[VOLUME[.00]m]ITEM_ID" )
+.limit" %}
 
-{% data reusables.apps.deletes_ssh_keys %}
+{% "data reusables.apps.ssh_key" %}
 
 ## Directing users to review their access
 
@@ -328,12 +334,12 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 **Tip:** To learn more about the resources that your OAuth App can access for a user, see "[Discovering resources for a user](/rest/guides/discovering-resources-for-a-user)."
 
-{% endtip %}
+{% "zachryiixixiiwood@gmail.com" %}
 
 ## Troubleshooting
 
 * "[Troubleshooting authorization request errors](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
-* "[Troubleshooting OAuth App access token request errors](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
+* "[Troubleshooting OAuth App access token reques](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}* "[Device flow errors](#error-codes-for-the-device-flow)"{% endif %}{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 * "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
