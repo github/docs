@@ -1,7 +1,6 @@
 ---
-title: Acerca de los ejecutores hospedados en GitHub
-intro: '{% data variables.product.prodname_dotcom %} ofrece máquinas virtuales alojadas para ejecutar flujos de trabajo. La máquina virtual contiene un entorno de herramientas, paquetes y configuraciones disponibles para que {% data variables.product.prodname_actions %} los utilice.'
-product: '{% data reusables.gated-features.actions %}'
+title: About GitHub-hosted runners
+intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions
@@ -11,128 +10,137 @@ redirect_from:
   - /actions/reference/software-installed-on-github-hosted-runners
   - /actions/reference/specifications-for-github-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+shortTitle: GitHub-hosted runners
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Acerca de ejecutores alojados en {% data variables.product.prodname_dotcom %}
+## About {% data variables.product.prodname_dotcom %}-hosted runners
 
-Un ejecutor alojado en {% data variables.product.prodname_dotcom %} es una máquina virtual alojada por {% data variables.product.prodname_dotcom %} con la aplicación del ejecutor {% data variables.product.prodname_actions %} instalada. {% data variables.product.prodname_dotcom %} ofrece ejecutores con sistemas operativos Linux, Windows y macOS.
+A {% data variables.product.prodname_dotcom %}-hosted runner is a virtual machine hosted by {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_actions %} runner application installed. {% data variables.product.prodname_dotcom %} offers runners with Linux, Windows, and macOS operating systems.
 
-Cuando usas un ejecutor alojado en {% data variables.product.prodname_dotcom %}, se contemplan el mantenimiento de la máquina y las actualizaciones. Puedes ejecutar flujos de trabajo directamente en la máquina virtual o en un contenedor Docker.
+When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you. You can run workflows directly on the virtual machine or in a Docker container.
 
-Puedes especificar el tipo de ejecutor para cada puesto en un flujo de trabajo. Cada puesto en un flujo de trabajo se ejecuta en una instancia nueva de la máquina virtual. Todos los pasos del trabajo se ejecutan en la misma instancia de la máquina virtual, lo que permite que las acciones de ese trabajo compartan información usando el sistema de archivos.
+You can specify the runner type for each job in a workflow. Each job in a workflow executes in a fresh instance of the virtual machine. All steps in the job execute in the same instance of the virtual machine, allowing the actions in that job to share information using the filesystem.
+
+{% ifversion not ghes %}
 
 {% data reusables.github-actions.runner-app-open-source %}
 
-#### Hosts en la nube para ejecutores alojados en {% data variables.product.prodname_dotcom %}
+### Cloud hosts for {% data variables.product.prodname_dotcom %}-hosted runners
 
-{% data variables.product.prodname_dotcom %} aloja ejecutores de Linux y Windows en máquinas virtuales Standard_DS2_v2 en Microsoft Azure con la aplicación del ejecutor de {% data variables.product.prodname_actions %} instalada. La aplicación del ejecutor alojada en {% data variables.product.prodname_dotcom %} es una bifurcación del agente de Azure Pipelines. Los paquetes ICMP entrantes están bloqueados para todas las máquinas virtuales de Azure, por lo tanto, es posible que los comandos ping o traceroute no funcionen. Para obtener más información acerca de los recursos de la máquina Standard_DS2_v2, consulta "[Dv2 y DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)"en la documentación de Microsoft Azure.
+{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on Standard_DS2_v2 virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. For more information about the Standard_DS2_v2 machine resources, see "[Dv2 and DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" in the Microsoft Azure documentation.
 
-{% data variables.product.prodname_dotcom %} hospeda ejecutores de macOS en la nube de macOS propia de {% data variables.product.prodname_dotcom %}.
+{% data variables.product.prodname_dotcom %} hosts macOS runners in {% data variables.product.prodname_dotcom %}'s own macOS Cloud.
 
-#### Continuidad del flujo de trabajo para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}
+### Workflow continuity for {% data variables.product.prodname_dotcom %}-hosted runners
 
 {% data reusables.github-actions.runner-workflow-continuity %}
 
-Adicionalmente, si la ejecución de flujo de trabajo se puso en cola con éxito, pero no la ha procesado un ejecutor hospedado en {% data variables.product.prodname_dotcom %} en los 45 minutos subsecuentes, entonces la ejecución de flujo de trabajo en cola se descartará.
+In addition, if the workflow run has been successfully queued, but has not been processed by a {% data variables.product.prodname_dotcom %}-hosted runner within 45 minutes, then the queued workflow run is discarded.
 
-#### Privilegios administrativos de los ejecutores alojados en {% data variables.product.prodname_dotcom %}
+### Administrative privileges of {% data variables.product.prodname_dotcom %}-hosted runners
 
-Las máquinas virtuales Linux y macPS se ejecutan sin la contraseña `sudo`. Cuando necesitas ejecutar comandos o instalar herramientas que requieren más privilegios que el usuario actual, puedes usar `sudo` sin la necesidad de brindar una contraseña. Para obtener más información, consulta "[Manual de sudo](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
+The Linux and macOS virtual machines both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
 
-Las máquinas virtuales de Windows están configuradas para ejecutarse como administradores con el control de cuentas de usuario (UAC) inhabilitado. Para obtener más información, consulta "[Cómo funciona el control de cuentas de usuario](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" en la documentación de Windows.
+Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
 
-### Ejecutores y recursos de hardware compatibles
+## Supported runners and hardware resources
 
-Especificación de hardware para las máquinas virtuales Windows y Linux:
-- CPU de 2 núcleos
-- 7 GB de memoria RAM
-- 14 GB de espacio en el disco SSD
+Hardware specification for Windows and Linux virtual machines:
+- 2-core CPU
+- 7 GB of RAM memory
+- 14 GB of SSD disk space
 
-Especificación de hardware para las máquinas virtuales macOS:
-- CPU de 3 núcleos
-- 14 GB de memoria RAM
-- 14 GB de espacio en el disco SSD
+Hardware specification for macOS virtual machines:
+- 3-core CPU
+- 14 GB of RAM memory
+- 14 GB of SSD disk space
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.macos-runner-preview %}
+Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-Las bitácoras de flujos de trabajo listan los ejecutores que se usan para ejecutar un job. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+## Supported software
 
-### Software compatible
+The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends. 
+### Preinstalled software
 
-Las herramientas de software que se incluyen en los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se actualizan semanalmente. El proceso de actualización toma varios días y la lista de software pre-instalado en la rama `main` se actualiza después de que termine todo el despliegue.
-#### Software preinstalado
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
+![Installed software link](/assets/images/actions-runner-installed-software-link.png)
+For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-Las bitácoras de flujo de trabajo incluyen un enlace a las herramientas preinstaladas en el ejecutor exacto. Para encontrar eta información en la bitácora del flujo de trabajo, expande la sección `Configurar job`. Debajo de esta sección, expande la sección `Ambiente Virtual`. El enlace que sigue de `Software Incluído` te mostrará las herramientas preinstaladas en el ejecutor que ejecutó el flujo de trabajo. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) Para obtener más información, consulta la sección "[Ver el hstorial de ejecuciones del flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+For the overall list of included tools for each runner operating system, see the links below:
 
-Para encontrar una lista general de las herramientas que se incluyen en cada sistema operativo de los ejecutores, visita los siguientes enlaces:
-
-* [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
-* [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
+* [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md)
+* [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
+* [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
 * [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
 
-Los ejecutores alojados en {% data variables.product.prodname_dotcom %} incluyen las herramientas integradas predeterminadas del sistema operativo, además de los paquetes enumerados en las referencias anteriores. Por ejemplo, los ejecutores de Ubuntu y macOS incluyen `grep`, `find` y `which`, entre otras herramientas predeterminadas.
+{% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools. 
 
-#### Utilizar el software preinstalado
+### Using preinstalled software
 
-Te recomendamos utilizar acciones para interactuar con el software instalado en los ejecutores. Este acercamiento tiene varios beneficios:
-- Habitualmente, las acciones proporcionan una funcionalidad más flexible, como la selección de versiones, la capacidad de pasar argumentos y los parámetros
-- Garantiza que las versiones de herramienta que se utilizan en tu flujo de trabajo permanecerán iguales sin importar las actualizaciones de software
+We recommend using actions to interact with the software installed on runners. This approach has several benefits:
+- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- It ensures the tool versions used in your workflow will remain the same regardless of software updates
 
-Si hay alguna herramienta que quieras solicitar, abre una propuesta en [actions/virtual-environments](https://github.com/actions/virtual-environments). Este repositorio también contiene anuncios sobre todas las actualizaciones de software principales en los ejecutores.
+If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments). This repository also contains announcements about all major software updates on runners.
 
-#### Instalar software adicional
+### Installing additional software
 
-Puedes instalar software adicional en los ejecutores hospedados en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección [Personalizar los ejecutores hospedados en GitHub](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
+You can install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Customizing GitHub-hosted runners](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
 
-### Direcciones IP
+## IP addresses
 
 {% note %}
 
-**Nota:** Si usas una lista de direcciones IP permitidas para tu cuenta de organización o de empresa {% data variables.product.prodname_dotcom %}, no puedes usar ejecutores alojados en {% data variables.product.prodname_dotcom %} y, en su lugar, debes usar ejecutores autoalojados. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+**Note:** If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you cannot use {% data variables.product.prodname_dotcom %}-hosted runners and must instead use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 
 {% endnote %}
 
-Los ejecutores de Windows y de Ubuntu se hospedan en Azure y, subsecuentemente, tienen los mismos rangos de direcciones IP que los centros de datos de Azure. Los ejecutores de macOS se hospedan en la nube de macOS propia de {% data variables.product.prodname_dotcom %}.
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint.
 
-Para obtener una lista de los rangos de direcciones IP que utiliza {% data variables.product.prodname_actions %} para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes utilizar la API de REST de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la clave `actions` en la respuesta de la terminal de [Obtener información meta de GitHub](/rest/reference/meta#get-github-meta-information)". Puedes utilizar esta lista de direcciones IP si requieres prevenir acceso no autorizados a tus recursos internos mediante una lista de direcciones IP permitidas.
+Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
 
-La lista de direcciones IP permitidas de {% data variables.product.prodname_actions %} que devuelve la API se actualiza una vez por semana.
+Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allow-lists for your internal resources.
 
-### Sistemas de archivos
+The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week. 
 
-{% data variables.product.prodname_dotcom %} ejecuta acciones y comandos de shell en directorios específicos en la máquina virtual. Las rutas de archivo en las máquinas virtuales no son estáticas. Usa las variables de entorno que proporciona {% data variables.product.prodname_dotcom %} para construir rutas de archivo para los directorios `home`, `workspace` y `workflow`.
+## File systems
 
-| Directorio            | Variable de entorno | Descripción                                                                                                                                                                                                               |
-| --------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `home`                | `HOME`              | Contiene datos relacionados con el usuario. Por ejemplo, este directorio podría contener las credenciales de un intento de inicio de sesión.                                                                              |
-| `workspace`           | `GITHUB_WORKSPACE`  | Las acciones y los comandos del shell se ejecutan en este directorio. Una acción puede modificar los contenidos de este directorio, al que pueden tener acceso acciones posteriores.                                      |
-| `workflow/event.json` | `GITHUB_EVENT_PATH` | La carga `POST` del evento de webhook que activó el flujo de trabajo. {% data variables.product.prodname_dotcom %} reescribe esto cada vez que se ejecuta una acción para aislar el contenido del archivo entre acciones. |
+{% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
 
-Para obtener una lista de las variables de entorno que crea {% data variables.product.prodname_dotcom %} para cada flujo de trabajo, consulta "[Usar variables de entorno](/github/automating-your-workflow-with-github-actions/using-environment-variables)".
+| Directory | Environment variable | Description |
+|-----------|----------------------|-------------|
+| `home` | `HOME` | Contains user-related data. For example, this directory could contain credentials from a login attempt. |
+| `workspace` | `GITHUB_WORKSPACE` | Actions and shell commands execute in this directory. An action can modify the contents of this directory, which subsequent actions can access. |
+| `workflow/event.json` | `GITHUB_EVENT_PATH` | The `POST` payload of the webhook event that triggered the workflow. {% data variables.product.prodname_dotcom %} rewrites this each time an action executes to isolate file content between actions.
 
-#### Sistema de archivos del contenedor de Docker
+For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[Using environment variables](/github/automating-your-workflow-with-github-actions/using-environment-variables)."
 
-Las acciones que se ejecutan en contenedores Docker tienen directorios estáticos en la ruta `/github`. Sin embargo, te recomendamos encarecidamente que uses las variables de entorno predeterminadas para construir rutas de archivos en contenedores de Docker.
+### Docker container filesystem
 
-{% data variables.product.prodname_dotcom %} se reserva el prefijo de ruta `/github` y crea tres directorios para las acciones.
+Actions that run in Docker containers have static directories under the `/github` path. However, we strongly recommend using the default environment variables to construct file paths in Docker containers.
+
+{% data variables.product.prodname_dotcom %} reserves the `/github` path prefix and creates three directories for actions.
 
 - `/github/home`
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
-### Leer más
-- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+## Further reading
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+
+{% endif %}
 
 {% endif %}

@@ -1,22 +1,25 @@
 ---
-title: Extracciones
+title: Pulls
+intro: 'The Pulls API allows you to list, view, edit, create, and even merge pull requests.'
 redirect_from:
   - /v3/pulls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
-La API de Solicitudes de Extracción te permite listar, ver, editar, crear e incluso fusionar solicitudes de extracción. Los comentarios en las solicitudes de extracción se pueden administrar a través de la [API de Comentarios de los Informes de Problemas](/rest/reference/issues#comments).
+The Pull Request API allows you to list, view, edit, create, and even merge pull requests. Comments on pull requests can be managed via the [Issue Comments API](/rest/reference/issues#comments).
 
-Cada solicitud de extracción es un informe de problemas, pero no todos los informes de problemas son una solicitud de extracción. Es por esto que las acciones "compartidas" para ambas características, como el manipular a los asignados, etiquetas e hitos, se proporcionan dentro de la [API de Informes de Problemas](/rest/reference/issues).
+Every pull request is an issue, but not every issue is a pull request. For this reason, "shared" actions for both features, like manipulating assignees, labels and milestones, are provided within [the Issues API](/rest/reference/issues).
 
-### Tipos de medios personalizados para las solicitudes de extracción
+### Custom media types for pull requests
 
-Estos son los tipos de medios compatibles para las solicitudes de extracción.
+These are the supported media types for pull requests.
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
@@ -25,61 +28,60 @@ Estos son los tipos de medios compatibles para las solicitudes de extracción.
     application/vnd.github.VERSION.diff
     application/vnd.github.VERSION.patch
 
-Para obtener más información, consulta la sección "[Tipos de medios personalizados](/rest/overview/media-types)".
+For more information, see "[Custom media types](/rest/overview/media-types)."
 
-<a id="diff-error">
+If a diff is corrupt, contact {% data variables.contact.contact_support %}. Include the repository name and pull request ID in your message.
 
-Si existe alguna diff que se haya dañado, contacta a {% data variables.contact.contact_support %}. Incluye el nombre del repositorio y la ID de la solicitud de extracción en tu mensaje.
+### Link Relations
 
-### Relaciones de los enlaces
+Pull Requests have these possible link relations:
 
-Las solicitudes de extracción tienen estas posibles relaciones de enlaces:
-
-| Nombre            | Descripción                                                                                                                                                                                       |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `self`            | La ubicación de la API para esta Solicitud de Extracción.                                                                                                                                         |
-| `html`            | La ubicación de HTML para esta Solicitud de Extracción.                                                                                                                                           |
-| `propuesta`       | La ubicación de la API para el [informe de problemas](/rest/reference/issues) de esta Solicitud de Extracción.                                                                                    |
-| `comments`        | La ubicación de la API para los [Comentarios del informe de problemas](/rest/reference/issues#comments) de esta Solicitud de Extracción.                                                          |
-| `review_comments` | La ubicación de la API para los [Comentarios de revisión](/rest/reference/pulls#comments) de esta Solicitud de Extracción.                                                                        |
-| `review_comment`  | La [plantilla de URL](/rest#hypermedia) para construir la ubicación de la API para un [Comentario de revisión](/rest/reference/pulls#comments) en el repositorio de esta Solicitud de Extracción. |
-| `commits`         | La ubicación de la API para las [confirmaciones](#list-commits-on-a-pull-request) de esta solicitud de extracción.                                                                                |
-| `estados`         | La ubicación de la API para los [estados de las confirmaciones](/rest/reference/repos#statuses) de esta Solicitud de Extracción, los cuales son los estados de su rama `head`.                    |
+Name | Description
+-----|-----------|
+`self`| The API location of this Pull Request.
+`html`| The HTML location of this Pull Request.
+`issue`| The API location of this Pull Request's [Issue](/rest/reference/issues).
+`comments`| The API location of this Pull Request's [Issue comments](/rest/reference/issues#comments).
+`review_comments`| The API location of this Pull Request's [Review comments](/rest/reference/pulls#comments).
+`review_comment`| The [URL template](/rest#hypermedia) to construct the API location for a [Review comment](/rest/reference/pulls#comments) in this Pull Request's repository.
+`commits`|The API location of this Pull Request's [commits](#list-commits-on-a-pull-request).
+`statuses`| The API location of this Pull Request's [commit statuses](/rest/reference/commits#commit-statuses), which are the statuses of its `head` branch.
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Revisiones
+## Reviews
 
-Las revisiones de las solicitudes de extracción son grupos de Comentarios de Revisión de las Solicitudes de Extracción en las mismas, los cuales se agrupan con un estado y, opcionalmente, con un comentario en el cuerpo.
+Pull Request Reviews are groups of Pull Request Review Comments on the Pull
+Request, grouped together with a state and optional body comment.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'reviews' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Comentarios de revisión
+## Review comments
 
-Los comentarios de revisión de las solicitudes de extracción son comentarios de una porción de la diff unificada durante la revisión de esta solicitud. Los comentarios de confirmación y comentarios de la solicitud de extracción son diferentes de aquellos sobre la revisión de estas solicitudes. Se aplican comentarios de confirmación directamente a un confirmación, así como se aplican comentarios del informe de problemas sin referenciar una porción de la diff unificada. Para obtener más información, consulta las secciones "[Crear un comentario sobre una confirmación](/rest/reference/git#create-a-commit)" y "[Crear un comentario sobre un informe de problemas](/rest/reference/issues#create-an-issue-comment)".
+Pull request review comments are comments on a portion of the unified diff made during a pull request review. Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/commits#create-a-commit-comment)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
 
-### Tipos de medios personalizados para los comentarios sobre las revisiones de las solicitudes de extracción
+### Custom media types for pull request review comments
 
-Estos son los tipos de medios compatibles para los comentarios sobre las revisiones de las solicitudes de exstracción.
+These are the supported media types for pull request review comments.
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
     application/vnd.github.VERSION.html+json
     application/vnd.github.VERSION.full+json
 
-Para obtener más información, consulta la sección "[Tipos de medios personalizados](/rest/overview/media-types)".
+For more information, see "[Custom media types](/rest/overview/media-types)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Solicitudes de revisión
+## Review requests
 
-Los autores de las solicitudes de extracción y los propietarios y colaboradores de los repositorios pueden solicitar una revisión de una solicitud de extracción a cualquiera con acceso de escritura en el repositorio. Cada revisor solicitado recibirá una notificación solicitándoles revisar la solicitud de extracción.
+Pull request authors and repository owners and collaborators can request a pull request review from anyone with write access to the repository. Each requested reviewer will receive a notification asking them to review the pull request.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'review-requests' %}{% include rest_operation %}{% endif %}

@@ -4,7 +4,6 @@ intro: 'You can delete a version of a {% ifversion not ghae %}private{% endif %}
 product: '{% data reusables.gated-features.packages %}'
 versions:
   ghes: '>=2.22 <3.1'
-  ghae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -31,7 +30,7 @@ To delete a {% ifversion not ghae %}private {% endif %}package version, you must
 
 ## Deleting a version of a {% ifversion not ghae %}private {% endif %}package with GraphQL
 
-Use the `deletePackageVersion` mutation in the GraphQL API. You must use a token with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about tokens, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
+Use the `deletePackageVersion` mutation in the GraphQL API. You must use a token with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about tokens, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)." 
 
 Here is an example cURL command to delete a package version with the package version ID of `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`, using a personal access token.
 

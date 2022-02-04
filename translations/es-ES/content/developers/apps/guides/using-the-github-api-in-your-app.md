@@ -2,18 +2,20 @@
 title: Utilizar la API de GitHub en tu app
 intro: Aprende cómo configurar tu app para que escuche los eventos y utilice la biblioteca de Octokit para hacer operaciones de la API de REST.
 redirect_from:
-  - /apps/building-your-first-github-app/
+  - /apps/building-your-first-github-app
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: Crear una app con la API de REST
 ---
 
-### Introducción
+## Introducción
 
 Esta guía te ayudará a crear una GitHub App y a ejecutarla en un servidor. La app que crees agregará una etiqueta a todos los informes de problemas nuevos que estén abiertos en el repositorio en donde ésta se instale.
 
@@ -24,9 +26,9 @@ Este proyecto te mostrará cómo hacer lo siguiente:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Una vez que hayas seguido estos pasos, estarás listo para desarrollar otros tipos de integraciones utilizando la suite completa de las API de GItHub. {% if currentVersion == "free-pro-team@latest" %}Puedes revisar los ejemplos exitosos de las apps en [GitHub Marketplace](https://github.com/marketplace) y en [Funciona con GitHub](https://github.com/works-with).{% endif %}
+Una vez que hayas seguido estos pasos, estarás listo para desarrollar otros tipos de integraciones utilizando la suite completa de las API de GItHub. {% ifversion fpt or ghec %}Puedes revisar los ejemplos exitosos de estas aplicaciones en [GitHub Marketplace](https://github.com/marketplace) y en [Compatible con GitHub](https://github.com/works-with).{% endif %}
 
-### Prerrequisitos
+## Prerrequisitos
 
 Puede que te sea útil tener un entendimiento básico de lo siguiente:
 
@@ -53,7 +55,7 @@ Antes de que comiences, necesitas hacer lo siguiente:
 
   Consulta la sección [Solución de problemas](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) si te encuentras con algún problema al configurar tu GitHub App de plantilla.
 
-### Crear la app
+## Crear la app
 
 Ahora que estás familiarizado con el código de `template_server.rb`, vas a crear el código que agregará la etiqueta `needs-response` automáticamente a todos los informes de problemas que estén abiertos en el repositorio en donde se instale la app.
 
@@ -74,7 +76,7 @@ Estos son los pasos que tendrás que completar para crear tu primer GitHub App:
 3. [Crear una etiqueta nueva](#step-3-create-a-new-label)
 4. [Agregar la gestión de etiquetas](#step-4-add-label-handling)
 
-### Paso 1. Actualizar los permisos de la app
+## Paso 1. Actualizar los permisos de la app
 
 Cuando [registraste tu app por primera vez](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app), aceptaste los permisos predeterminados, lo que significa que tu app no tiene acceso a la mayoría de los recursos. Para este ejemplo, tu app necesitará el permiso para leer los informes de problemas y escribir etiquetas.
 
@@ -87,7 +89,7 @@ Para actualizar los permisos de tu app:
 
 ¡Genial! Tu app tiene permiso para realizar las tareas que quieres que haga. Ahora puedes agregar el código para que funcione.
 
-### Paso 2. Agregar la gestión de eventos
+## Paso 2. Agregar la gestión de eventos
 
 Lo primero que tiene que hacer tu app es escuchar si se han abierto informes de problemas nuevos. Ahora que te has suscrito alevento de **Informes de problemas**, comenzarás a recibir el webhook [`issues`](/webhooks/event-payloads/#issues), el cual se activa cuando ocurren algunas acciones relacionadas con los informes de problemas. Puedes filtrar este tipo de evento para la acción específica que quieres en tu código.
 
@@ -137,7 +139,7 @@ En tu buscador, visita el repositorio en donde instalaste tu app. Abre un inform
 
 Cuando regreses a ver tu terminal, deberás ver un mensaje en la salida, el cual diga, `An issue was opened!` ¡Felicidades! Acabas de agregar un gestor de eventos a tu app. 💪
 
-### Paso 3. Crear una etiqueta nueva
+## Paso 3. Crear una etiqueta nueva
 
 Bien, tu app puede decirte qué informes de problemas están abiertos. Ahora querrás que agregue la etiqueta `needs-response` a cualquier informe de problemas nuevo que esté abierto en el repositorio en donde se instale.
 
@@ -151,7 +153,7 @@ Antes de que puedas _agregar_ la etiqueta a alguna parte, necesitarás _crear_ l
 
 Ahora que existe la etiqueta, puedes programar tu app para que utilice la API de REST para [agregar la etiqueta a cualquier informe de problemas recién abierto](/rest/reference/issues#add-labels-to-an-issue).
 
-### Paso 4. Agregar la gestión de etiquetas
+## Paso 4. Agregar la gestión de etiquetas
 
 Felicidades—llegste al último paso: agregar la gestión de etiquetas a tu app. Para esta tarea, querrás utilizar la [Biblioteca Ocktokit.rb de Ruby](http://octokit.github.io/octokit.rb/).
 
@@ -198,7 +200,7 @@ Puedes ver el código final en el `server.rb` dentro del [repositorio de plantil
 
 Consulta la sección "[Pasos siguientes](#next-steps)" para obtener ideas de qué puedes hacer después.
 
-### Solución de problemas
+## Solución de problemas
 
 Aquí te presentamos algunos problemas comunes y sus soluciones sugeridas. Si te encuentras con cualquier otro problema, puedes pedir ayuda o consejos en el {% data variables.product.prodname_support_forum_with_url %}.
 
@@ -216,14 +218,14 @@ Aquí te presentamos algunos problemas comunes y sus soluciones sugeridas. Si te
     * Tu app tiene permisos de [lectura & escritura en los informes de problemas y está suscrita a los eventos de los mismos](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel).
     * [Revisaste tu cuenta de correo electrónico](#step-1-update-app-permissions) después de actualizar los permisos y aceptaste los permisos nuevos.
 
-### Conclusión
+## Conclusión
 
 Después de seguir esta guía, ¡habrás aprendido los fundamentos básicos para desarrollar GitHub Apps! Para revisar todo, debes:
 
 * Programaste tu app para escuchar eventos
 * Utilizaste la biblioteca de Octokit para hacer operaciones de la API de REST
 
-### Pasos siguientes
+## Pasos siguientes
 
 Aquí tienes algunas ideas para lo que puedes hacer después:
 
@@ -233,5 +235,5 @@ Aquí tienes algunas ideas para lo que puedes hacer después:
 * Cuando el bot agregue la etiqueta exitosamente, muestra un mensaje en la terminal. (Pista: compara la ID de la etiqueta `needs-response` con la ID de la etiqueta en la carga útil como una condición para tu mensaje, para que así, el mensaje solo muestre cuando la etiqueta relevante se agregue y no lo haga con otra etiqueta).
 * Agrega una página de llegada para tu app y conéctale una [Ruta de Sinatra](https://github.com/sinatra/sinatra#routes).
 * Migra tu código a un servidor hospedado (como Heroku). No olvides actualizar la configuración de tu app con el dominio nuevo.
-* Comparte tu proyecto u obtén consejos en el {% data variables.product.prodname_support_forum_with_url %}{% if currentVersion == "free-pro-team@latest" %}
+* Comparte tu proyecto u obtén consejos en el {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
 * ¿Has creado una nueva y reluciente app que crees que pueda ser útil para otros? ¡[Agrégala a GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

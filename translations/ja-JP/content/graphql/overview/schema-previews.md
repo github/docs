@@ -4,14 +4,15 @@ intro: '{% data variables.product.prodname_dotcom %}のGraphQLスキーマの今
 redirect_from:
   - /v4/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### スキーマプレビューについて
+## スキーマプレビューについて
 
 プレビュー期間中は、開発者からのフィードバックに基づいて機能を変更することがあります。 変更をする際には、事前の通知なく[開発者blog](https://developer.github.com/changes/)でアナウンスします。
 
@@ -24,7 +25,7 @@ topics:
 {% endnote %}
 
 {% for preview in graphql.previewsForCurrentVersion %}
-### {{ preview.title }}
+## {{ preview.title }}
 
 {{ preview.description }}
 

@@ -25,7 +25,7 @@ sections:
         - 'El sistema de entrega de eventos de webhook se ha renovado en su arquitectura para tener un rendimiento mayor y menos retraso en los mensajes. También utiliza menos memoria y CPU en {% data variables.product.prodname_ghe_server %} 3.0+.'
         - 'Los propietarios de empresas y organizaciones ahora pueden ver a qué miembros del equipo se ha promovido o degradado hacia o desde su puesto como mantenedor de equipo en la bitácora de auditoría a través de los nuevos eventos de bitácora de auditoría `team.promote_maintainer` y `team.demote_maintainer`. Para obtener más información, consulta la sección "[Acciones auditadas](/enterprise-server@3.0/admin/user-management/audited-actions)".'
         - 'Los mantenedores de repositorio con sitios de {% data variables.product.prodname_pages %} existentes pueden [actualizar fácilmente el nombre de rama predeterminado anterior](/enterprise-server@3.0/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).'
-        - 'Se requiere de recursos adicionales de hardware para ejecutar {% data variables.product.prodname_ghe_server %} que tenga habilitadas acciones, paquetes o seguridad avanzada. Para obtener más información sobre los recursos mínimos requeridos para cada plataforma de soporte, consulta la sección "[Configurar una instancia de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)".'
+        - 'Se requieren recursos adicionales de hardware para ejecutar {% data variables.product.prodname_ghe_server %} que cuente con cualquier tipo de Acción, Paquete o Seguridad Avanzada habilitados. Para obtener más información sobre los recursos mínimos requeridos para cada plataforma compatible, consulta la sección "[Configurar una instancia de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)".'
         - 'Los administradores ahora pueden [publicar un mensaje](/enterprise-server@3.0/admin/user-management/customizing-user-messages-for-your-enterprise), que todos los usuarios deben aceptar. Esto te puede ayudar a incorporar usuarios nuevos y hacer notar otras políticas e información específica de la organización.'
     - heading: 'Cambios de seguridad'
       notes:
@@ -79,6 +79,8 @@ sections:
     - 'Las instancias con la zona horaria personalizada que se mejoraron desde un lanzamiento anterior de GitHub Enterprise Server podrían tener marcas de tiempo incorrectas en la IU web.'
     - 'Las compilaciones antiguas de las páginas no se limpiaron, lo cual pudo haber llenado el disco del usuario (`/data/user/`).'
     - 'Cuando borras una rama después de fusionar una solicitud de cambios, se mostrará un mensaje de error aunque el borrado de la rama sea exitoso.'
+    - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'
   deprecations:
     - heading: 'Obsoletización de GitHub Enterprise Server 2.19'
       notes:

@@ -2,12 +2,12 @@
 title: Configurar un nombre del host
 intro: Recomendamos establecer un nombre del host para tu aparato en lugar de utilizar una dirección IP codificada de forma rígida.
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-hostnames/
+  - /enterprise/admin/guides/installation/configuring-hostnames
   - /enterprise/admin/installation/configuring-a-hostname
   - /enterprise/admin/configuration/configuring-a-hostname
   - /admin/configuration/configuring-a-hostname
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

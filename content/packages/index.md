@@ -28,8 +28,9 @@ redirect_from:
 layout: product-landing
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /quickstart
   - /learn-github-packages

@@ -1,54 +1,46 @@
 ---
-title: 企业 GitHub Packages 使用入门
-shortTitle: GitHub Packages 使用入门
-intro: '您可以通过启用功能、配置第三方存储、配置您想要支持的生态系统以及更新您的 TLS 证书，开始在 {% data variables.product.product_location %} 上使用 {% data variables.product.prodname_registry %}。'
+title: Getting started with GitHub Packages for your enterprise
+shortTitle: Getting started with GitHub Packages
+intro: 'You can start using {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} by enabling the feature, configuring third-party storage, configuring the ecosystems you want to support, and updating your TLS certificate.'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/enabling-github-packages-for-your-enterprise
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Packages
 ---
 
-{% if currentVersion == "enterprise-server@2.22" %}
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-
-{% note %}
-
-**注意：**在您被邀请加入测试版后，按照客户代表的说明为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_registry %}。
-
-{% endnote %}
-
-{% endif %}
 
 {% data reusables.package_registry.packages-cluster-support %}
 
-### 第 1 步：启用 {% data variables.product.prodname_registry %} 并配置外部存储
+## Step 1: Check whether {% data variables.product.prodname_registry %} is available for your enterprise
 
-{% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_registry %} 使用外部 Blob 存储来存储您的软件包。
+{% data variables.product.prodname_registry %} is available in {% data variables.product.prodname_ghe_server %} 3.0 or higher. If you're using an earlier version of {% data variables.product.prodname_ghe_server %}, you'll have to upgrade to use {% data variables.product.prodname_registry %}. For more information about upgrading your {% data variables.product.prodname_ghe_server %} instance, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+## Step 2: Enable {% data variables.product.prodname_registry %} and configure external storage
 
-在为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_registry %} 后，需要准备您的第三方存储桶。 所需的存储量取决于您对 {% data variables.product.prodname_registry %} 的使用，且设置指南可能因存储提供商而异。
+{% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %} uses external blob storage to store your packages.
 
-支持的外部存储提供商
-- Amazon Web Services (AWS) S3 {% if currentVersion ver_gt "enterprise-server@2.22" %}
+After enabling {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}, you'll need to prepare your third-party storage bucket. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}, and the setup guidelines can vary by storage provider.
+
+Supported external storage providers
+- Amazon Web Services (AWS) S3 {% ifversion ghes %}
 - Azure Blob Storage {% endif %}
 - MinIO
 
-要启用 {% data variables.product.prodname_registry %} 并配置第三方存储，请参阅：
-  - “[对 AWS 启用 GitHub Packages](/admin/packages/enabling-github-packages-with-aws)”{% if currentVersion ver_gt "enterprise-server@2.22" %}
-  - “[对 Azure Blob Storage 启用 GitHub Packages](/admin/packages/enabling-github-packages-with-azure-blob-storage)”{% endif %}
-  - “[对 MinIO 启用 GitHub Packages](/admin/packages/enabling-github-packages-with-minio)”
+To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
+  - "[Enabling GitHub Packages with AWS](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
+  - "[Enabling GitHub Packages with Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
+  - "[Enabling GitHub Packages with MinIO](/admin/packages/enabling-github-packages-with-minio)"
 
-### 第 2 步：指定包生态系统以支持您的实例
+## Step 3: Specify the package ecosystems to support on your instance
 
-选择您要在 {% data variables.product.product_location %} 上启用、禁用或设置为只读的包生态系统。 可用的选项包括 Docker、RubyGems、npm、Apache Maven、Gradle 或 Nuget。  更多信息请参阅“[为企业配置包生态系统支持](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)”。
+Choose which package ecosystems you'd like to enable, disable, or set to read-only on {% data variables.product.product_location %}. Available options are Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet.  For more information, see "[Configuring package ecosystem support for your enterprise](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)."
 
-### 第 3 步：如果需要，请确保您有包主机 URL 的 TLS 证书
+## Step 4: Ensure you have a TLS certificate for your package host URL, if needed
 
-如果为 {% data variables.product.product_location %}{% if currentVersion == "enterprise-server@2.22" %} 启用了子域隔离，这需要 {% data variables.product.prodname_registry %} 与 Docker 一起使用{% endif %}，您需要创建并上传 TLS 证书以允许您想要使用的每个生态系统的包主机 URL，例如 `npm.HOSTNAME`。 确保每个软件包主机 URL 包含 `https:///`。
+If subdomain isolation is enabled for {% data variables.product.product_location %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `npm.HOSTNAME`. Make sure each package host URL includes `https://`.
 
-  您可以手动创建证书，也可以使用_让我们加密_。 如果您已经使用 _Let's Encrypt（让我们加密）_，您必须在启用 {% data variables.product.prodname_registry %} 后申请新的 TLS 证书。 有关包主机 URL 的更多信息，请参阅“[启用子域隔离](/enterprise/admin/configuration/enabling-subdomain-isolation)”。 有关将 TLS 证书上载到 {% data variables.product.product_name %} 的更多信息，请参阅“[配置 TLS](/enterprise/admin/configuration/configuring-tls)”。
+  You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. For more information about package host URLs, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)." For more information about uploading TLS certificates to {% data variables.product.product_name %}, see "[Configuring TLS](/enterprise/admin/configuration/configuring-tls)."

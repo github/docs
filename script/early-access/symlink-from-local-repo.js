@@ -1,8 +1,4 @@
 #!/usr/bin/env node
-import xRimraf from 'rimraf'
-import fs from 'fs'
-import path from 'path'
-import program from 'commander'
 
 // [start-readme]
 //
@@ -12,7 +8,10 @@ import program from 'commander'
 //
 // [end-readme]
 
-const rimraf = xRimraf.sync
+import rimraf from 'rimraf'
+import fs from 'fs'
+import path from 'path'
+import program from 'commander'
 
 // Early Access details
 const earlyAccessRepo = 'docs-early-access'
@@ -70,7 +69,7 @@ const destinationDirsMap = destinationDirNames.reduce((map, dirName) => {
 // Remove all existing early access directories from this repo
 destinationDirNames.forEach((dirName) => {
   const destDir = destinationDirsMap[dirName]
-  rimraf(destDir)
+  rimraf.sync(destDir)
   console.log(`- Removed symlink for early access directory '${dirName}' from this repo`)
 })
 

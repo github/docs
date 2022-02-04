@@ -1,25 +1,4 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs'
-import { execSync } from 'child_process'
-import createApp from '../../lib/app.js'
-import scrape from 'website-scraper'
-import program from 'commander'
-import xRimraf from 'rimraf'
-import xEnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import loadRedirects from '../../lib/redirects/precompile.js'
-import { loadPageMap } from '../../lib/page-data.js'
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const port = '4001'
-const host = `http://localhost:${port}`
-const rimraf = xRimraf.sync
-const version = xEnterpriseServerReleases.oldestSupported
-const archivalRepoName = 'help-docs-archived-enterprise-versions'
-const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
-const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
 
 // [start-readme]
 //
@@ -27,7 +6,37 @@ const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
 // static copies of all pages for the oldest supported Enterprise version.
 // See the Enterprise deprecation issue template for instructions.
 //
+// NOTE: If you get this error:
+//
+//    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'website-scraper' ...
+//
+// it's because you haven't installed all the *optional* dependencies.
+// To do that, run:
+//
+//    npm install --include=optional
+//
 // [end-readme]
+
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import { execSync } from 'child_process'
+import createApp from '../../lib/app.js'
+import scrape from 'website-scraper'
+import program from 'commander'
+import rimraf from 'rimraf'
+import EnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import loadRedirects from '../../lib/redirects/precompile.js'
+import { loadPageMap } from '../../lib/page-data.js'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const port = '4001'
+const host = `http://localhost:${port}`
+const version = EnterpriseServerReleases.oldestSupported
+const archivalRepoName = 'help-docs-archived-enterprise-versions'
+const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
+const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
 
 program
   .description(
@@ -65,7 +74,7 @@ class RewriteAssetPathsPlugin {
       // https://githubdocs.azureedge.net/github-images/enterprise/2.17/assets/images/foo/bar.png
       if (resource.isHtml()) {
         newBody = text.replace(
-          /(?<attribute>src|href)="(?:\.\.\/)*(?<basepath>dist|javascripts|stylesheets|assets\/fonts|assets\/images|node_modules)/g,
+          /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/images|node_modules)/g,
           (match, attribute, basepath) => {
             let replaced = path.join('/enterprise', this.version, basepath)
             if (basepath === 'assets/images') {
@@ -148,10 +157,10 @@ async function main() {
   const tempDirectory = path.join(__dirname, '../website-scraper-temp')
 
   // remove temp directory
-  rimraf(tempDirectory)
+  rimraf.sync(tempDirectory)
 
   // remove and recreate empty target directory
-  rimraf(finalDirectory)
+  rimraf.sync(finalDirectory)
   fs.mkdirSync(finalDirectory, { recursive: true })
 
   const scraperOptions = {
@@ -176,7 +185,7 @@ async function main() {
     })
 
     fs.renameSync(path.join(tempDirectory, `/localhost_${port}`), path.join(finalDirectory))
-    rimraf(tempDirectory)
+    rimraf.sync(tempDirectory)
 
     console.log(
       `\n\ndone scraping! added files to ${path.relative(process.cwd(), finalDirectory)}\n`

@@ -1,1 +1,1 @@
-Para ver todas as assinaturas da sua conta do {% data variables.product.product_name %}, consulte "[Exibir assinaturas e data de cobrança](/articles/viewing-your-subscriptions-and-billing-date)".
+To view all the subscriptions for your account on {% data variables.product.product_location %}, see "[Viewing your subscriptions and billing date](/articles/viewing-your-subscriptions-and-billing-date)."

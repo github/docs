@@ -18,7 +18,7 @@ sections:
     - Backup-utils can trigger unnecessary emails to administrators
     - Incorrect Packages settings are being displayed in the Organization member view page
     - After removing oneself as an Enterprise Owner, you are redirected to a 404 page. The operation is successful.
-    - '`ghe-config-apply` occassionally fails with `ERROR: Failure waiting for nomad jobs to apply` until the Nomad job queue is cleared. This currently requires as admin to delete `/etc/nomad-jobs/queue`.'
+    - '`ghe-config-apply` occasionally fails with `ERROR: Failure waiting for nomad jobs to apply` until the Nomad job queue is cleared. This currently requires as admin to delete `/etc/nomad-jobs/queue`.'
     - When configuring a multiple replica node, the status of the replica can be incorrectly synchronized.
     - Customers attempting to restore a 3.0 backup to a new instance should not pre-configure the instance, as it may lead to a bad state for user logins. We recommend restoring to a fresh, unconfigured instance.
     - GitHub Enterprise Server 3.0 release candidates are not yet available in the Azure marketplace. To test release candidates in staging environments, start a 2.21 or 2.22 instance, and then upgrade it with the Azure upgrade package on the download page.

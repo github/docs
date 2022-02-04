@@ -1,9 +1,19 @@
 #!/usr/bin/env node
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
-import readFrontmatter from '../../lib/read-frontmatter.js'
-import csv from 'csv-parse'
 import { exit } from 'process'
+
+import csv from 'csv-parse'
+// NOTE: If you get this error:
+//
+//    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'csv-parse' ...
+//
+// it's because you haven't installed all the *optional* dependencies.
+// To do that, run:
+//
+//    npm install --include=optional
+//
+import readFrontmatter from '../../lib/read-frontmatter.js'
 
 main()
 
@@ -36,11 +46,11 @@ async function main() {
 
 async function updateFrontmatter(csvData) {
   const filePath = path.join(process.cwd(), csvData[4])
-  const fileContent = fs.readFileSync(filePath, 'utf8')
+  const fileContent = await fs.readFile(filePath, 'utf8')
   const { content, data } = readFrontmatter(fileContent)
   data.shortTitle = csvData[3]
   const newContents = readFrontmatter.stringify(content, data, { lineWidth: 10000 })
-  fs.writeFileSync(filePath, newContents)
+  await fs.writeFile(filePath, newContents)
 }
 
 // Ensure the columns being read out are in the location expected

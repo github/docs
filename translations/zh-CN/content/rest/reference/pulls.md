@@ -1,13 +1,16 @@
 ---
 title: 拉取
+intro: 拉取 API 允许您列出、查看、编辑、创建甚至合并拉取请求。
 redirect_from:
   - /v3/pulls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 拉取请求 API 允许您列出、查看、编辑、创建甚至合并拉取请求。 可以通过[议题评论 API](/rest/reference/issues#comments) 管理对拉取请求的评论。
@@ -26,8 +29,6 @@ topics:
     application/vnd.github.VERSION.patch
 
 更多信息请参阅“[自定义媒体类型](/rest/overview/media-types)”。
-
-<a id="diff-error">
 
 如果 diff 损坏，请联系 {% data variables.contact.contact_support %}。 在您的消息中包括仓库名称和拉取请求 ID。
 
@@ -60,7 +61,7 @@ topics:
 
 ## 审查评论
 
-拉取请求审查评论是在拉取请求审查期间对统一差异的一部分所发表的评论。 提交评论和议题评论不同于拉取请求审查评论。 将提交评论直接应用于提交，然后应用议题评论而不引用统一差异的一部分。 更多信息请参阅“[创建提交评论](/rest/reference/git#create-a-commit)”和“[创建议题评论](/rest/reference/issues#create-an-issue-comment)”。
+拉取请求审查评论是在拉取请求审查期间对统一差异的一部分所发表的评论。 提交评论和议题评论不同于拉取请求审查评论。 将提交评论直接应用于提交，然后应用议题评论而不引用统一差异的一部分。 更多信息请参阅“[创建提交评论](/rest/reference/commits#create-a-commit-comment)”和“[创建议题评论](/rest/reference/issues#create-an-issue-comment)”。
 
 ### 拉取请求审查评论的自定义媒体类型
 

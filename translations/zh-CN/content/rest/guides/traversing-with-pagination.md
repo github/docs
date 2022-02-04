@@ -2,23 +2,25 @@
 title: 使用分页遍历
 intro: 通过一些使用搜索 API 的示例，探讨如何使用分页来管理响应。
 redirect_from:
-  - /guides/traversing-with-pagination/
+  - /guides/traversing-with-pagination
   - /v3/guides/traversing-with-pagination
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: 使用分页遍历
 ---
 
- 
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 为开发人员提供了丰富的信息供他们使用。 在很多时候，您甚至会发现自己请求的信息_太多_，为了满足我们的服务器，API 会自动[对请求的项目进行分页](/rest/overview/resources-in-the-rest-api#pagination)。
 
-{% data variables.product.product_name %} API 为开发人员提供大量的可用信息。 在很多时候，您甚至会发现自己请求的信息_太多_，为了满足我们的服务器，API 会自动[对请求的项目进行分页][pagination]。
+在本指南中，我们将对 搜索 API 进行一些调用，并使用分页遍历结果。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
 
-在本指南中，我们将对 {% data variables.product.product_name %} 搜索 API 进行一些调用，并使用分页遍历结果。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
+{% data reusables.rest-api.dotcom-only-guide-note %}
 
-### 分页基础知识
+## 分页基础知识
 
 首先需要了解有关接收分页条目的一些事实：
 
@@ -26,10 +28,10 @@ topics:
 2. 您可以指定要接收的条目数（最多 100 个）；但是，
 3. 出于技术原因，并非每个端点的行为都相同。 例如，[事件](/rest/reference/activity#events)不允许设置要接收的最大条目数量。 请务必阅读关于如何处理特定端点分页结果的文档。
 
-有关分页的信息包含在 API 调用的 [Link 标头](http://tools.ietf.org/html/rfc5988)中。 例如，我们向搜索 API 发出一个 curl 请求，以查明 Mozilla 项目使用短语 `addClass` 的次数：
+有关分页的信息包含在 API 调用的 [Link 标头](https://datatracker.ietf.org/doc/html/rfc5988)中。 例如，我们向搜索 API 发出一个 curl 请求，以查明 Mozilla 项目使用短语 `addClass` 的次数：
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla"
 ```
 
 `-I` 参数表示我们只关注标头，而不关注实际内容。 在检查结果时，您会注意到 Link 标头中的一些信息，如下所示：
@@ -41,12 +43,12 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 **始终**信赖提供给您的这些链接关系。 不要试图猜测或构建自己的 URL。
 
-#### 浏览页面
+### 浏览页面
 
 现在您知道要接收多少页面，可以开始浏览页面以使用结果。 您可以通过传递 `page` 参数进行浏览。 默认情况下，`page` 总是从 `1` 开始。 让我们跳到第 14 页，看看会发生什么：
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&page=14"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&page=14"
 ```
 
 以下是再次出现的 Link 标头：
@@ -58,12 +60,12 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 果然，`rel="next"` 是 15，而 `rel="last"` 仍是 34。 但是现在我们得到了更多信息：`rel="first"` 表示_第一_页的 URL，更重要的是，`rel="prev"` 让您知道了上一页的页码。 根据这些信息，您可以构造一些 UI，使用户可以在 API 调用结果列表的第一页、上一页、下一页或最后一页之间跳转。
 
-#### 更改接收的条目数量
+### 更改接收的条目数量
 
 通过传递 `per_page` 参数，您可以指定希望每页返回多少个条目，最多 100 个。 我们来尝试请求 50 个关于 `addClass` 的条目：
 
 ```shell
-$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&per_page=50"
+$ curl -I "https://api.github.com/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
 请注意它对标头响应的影响：
@@ -73,7 +75,7 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 您可能已经猜到了，`rel="last"` 信息表明最后一页现在是第 20 页。 这是因为我们要求每页提供更多的结果相关信息。
 
-### 使用信息
+## 使用信息
 
 您不希望仅仅为了能够处理分页而进行低级的 curl 调用，所以我们来编写一个 Ruby 小脚本来完成上述所有任务。
 
@@ -142,7 +144,7 @@ until last_response.rels[:next].nil?
 end
 ```
 
-### 构造分页链接
+## 构造分页链接
 
 一般来说，使用分页时，您的目标不是要抓住所有可能的结果，而是要产生一组导航，如下所示：
 
@@ -203,7 +205,6 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use

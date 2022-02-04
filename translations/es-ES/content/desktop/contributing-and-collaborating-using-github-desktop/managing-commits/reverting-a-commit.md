@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/contributing-to-projects/reverting-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 Cuando reviertes la confirmación anterior, la reversión también es una confirmación. La confirmación original también permanece en el historial del repositorio.

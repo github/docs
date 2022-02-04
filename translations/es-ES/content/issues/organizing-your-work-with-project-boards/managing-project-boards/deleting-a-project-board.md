@@ -3,16 +3,19 @@ title: Eliminar un tablero de proyecto
 intro: Puedes eliminar un tablero de proyecto existente si ya no necesitas acceder a su contenido.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
-  - /articles/deleting-a-project/
+  - /articles/deleting-a-project
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -26,7 +29,7 @@ topics:
 4. Haz clic en **Eliminar proyecto**. ![Botón Eliminar proyecto](/assets/images/help/projects/delete-project-button.png)
 5. Para confirmar que deseas eliminar el tablero de proyecto, haz clic en **Aceptar**.
 
-### Leer más
+## Leer más
 
 - "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)"
 - "[Inhabilitar tableros de proyectos en un repositorio](/articles/disabling-project-boards-in-a-repository)"

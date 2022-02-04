@@ -6,12 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Iniciar la recuperación de fallos para el aplicativo
 ---
 
 El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para impulsar la réplica y redireccionar el tráfico de forma manual. El tiempo promedio varía entre 2 y 10 minutos.
@@ -24,7 +25,14 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
       ```shell
       $ ghe-maintenance -s
       ```
-2. Cuando el número de operaciones Git activas llega a cero, espera 30 segundos.
+2.  Cuando la cantidad de operaciones activas de Git, consultas de MySQL y jobs de Resque lleguen a cero, espera 30 segundos.
+
+    {% note %}
+
+    **Nota:** Nomad siempre tendrá jobs en ejecución, incluso si está en modo de mantenimiento, así que puedes ignorar estos jobs de forma segura.
+
+    {% endnote %}
+
 3. Para verificar que todos los canales de replicación informan `OK`, utiliza el comando `ghe-repl-status -vv`.
   ```shell
   $ ghe-repl-status -vv
@@ -46,6 +54,6 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-### Leer más
+## Leer más
 
 - "[Utilidades para la gestión de replicaciones](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

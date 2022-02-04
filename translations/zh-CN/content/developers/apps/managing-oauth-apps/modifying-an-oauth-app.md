@@ -2,13 +2,14 @@
 title: 修改 OAuth 应用程序
 intro: '{% data reusables.shortdesc.modifying_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/modifying-an-oauth-app/
+  - /apps/building-integrations/managing-oauth-apps/modifying-an-oauth-app
   - /apps/managing-oauth-apps/modifying-an-oauth-app
   - /developers/apps/modifying-an-oauth-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 ---

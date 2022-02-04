@@ -3,7 +3,7 @@ title: コンテンツ削除リクエストのサブミット
 redirect_from:
   - /articles/submitting-content-removal-requests
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -15,11 +15,11 @@ GitHub にコンテンツの削除をリクエストしたい場合は、報告�
 
 なお、当社は、特定の状況に対してどのポリシーが該当するかをあなたが判断するためのサポートはできませんのでご注意ください。 以下のポリシーを確認しても、コンテンツを著作権、商標、または個人情報として報告すべきかどうかについて疑問が残る場合は、独立した法律顧問に相談することをお勧めします。
 
-### [DMCAテイクダウンポリシー](/articles/dmca-takedown-policy)
+## [DMCAテイクダウンポリシー](/articles/dmca-takedown-policy)
 DMCA テイクダウンポリシーは、あなたまたはあなたの組織が所有する著作権を侵害していると思われるコンテンツの報告に使用できます。 このポリシーを確認したら、報告を送信する前に [DMCA テイクダウン通知提出ガイド](/articles/guide-to-submitting-a-dmca-takedown-notice/)もご確認ください。
 
-### [GitHubトレードマークポリシー](/articles/github-trademark-policy)
+## [GitHubトレードマークポリシー](/articles/github-trademark-policy)
 GitHub トレードマークポリシーは、ブランドまたはビジネスの所属について他者を誤解させたり混乱させたりする可能性のある方法で、あなたの会社名、商号、ロゴ、またはその他の商標で保護された素材を使用していると思われるコンテンツの報告に使用できます。
 
-### [GitHub個人情報削除ポリシー](/github/site-policy/github-private-information-removal-policy)
+## [GitHub個人情報削除ポリシー](/github/site-policy/github-private-information-removal-policy)
 GitHub個人情報削除ポリシーは、個人的 (機密性が高く、セキュリティリスクをもたらす) で、著作権または商標によって保護されていないデータの報告に使用できます。

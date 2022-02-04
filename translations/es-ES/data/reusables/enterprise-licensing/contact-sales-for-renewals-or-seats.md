@@ -1,0 +1,1 @@
+Si quisieras renovar o agregar licencias de usuario a {% data variables.product.prodname_enterprise %} o si tienes preguntas sobre tu licencia, contacta a {% data variables.contact.contact_enterprise_sales %}. El archivo de tu licencia nueva estará disponible para la descarga de forma inmediata después de que hayas completado tu orden.

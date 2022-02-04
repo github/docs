@@ -1,74 +1,105 @@
 ---
-title: 增加 CPU 或内存资源
-intro: '如果 {% data variables.product.product_location_enterprise %} 上的操作速度较慢，您可能需要增加 CPU 或内存资源。'
+title: Increasing CPU or memory resources
+intro: 'You can increase the CPU or memory resources for a {% data variables.product.prodname_ghe_server %} instance.'
 redirect_from:
   - /enterprise/admin/installation/increasing-cpu-or-memory-resources
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
   - /admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
+shortTitle: Increase CPU or memory
 ---
-
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-### 为 AWS 增加 CPU 或内存资源
+## Adding CPU or memory resources for AWS
 
 {% note %}
 
-**注**：要为 AWS 增加 CPU 或内存资源，您必须能够熟练使用 AWS 管理控制台或 `aws ec2` 命令行接口管理 EC2 实例。 有关使用您所选 AWS 工具执行调整的背景和详细信息，请参阅关于[调整 Amazon EBS 支持的实例](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html)的 AWS 文档。
+**Note:** To add CPU or memory resources for AWS, you must be familiar with using either the AWS management console or the `aws ec2` command line interface to manage EC2 instances. For background and details on using the AWS tools of your choice to perform the resize, see the AWS documentation on [resizing an Amazon EBS-backed instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html).
 
 {% endnote %}
 
-#### 调整的考量因素
+### Resizing considerations
 
-在为 {% data variables.product.product_location %} 增加 CPU 或内存资源之前：
+Before increasing CPU or memory resources for {% data variables.product.product_location %}, review the following recommendations.
 
-- **使用 CPU 扩展内存**。 {% data reusables.enterprise_installation.increasing-cpus-req %}
-- **将 Elastic IP 地址分配给实例**。 如果未分配弹性 IP，则在重启后您必须调整 {% data variables.product.prodname_ghe_server %} 主机的 DNS A 记录，以反映公共 IP 地址的变更。 在实例重新启动后，如果它启动到 VPC 中，会自动保留弹性 IP (EIP)。 如果实例启动到 EC2-Classic 中，则必须手动重新关联弹性 IP。
+- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
+- **Assign an Elastic IP address to the instance**. If you haven't assigned an Elastic IP to your instance, you'll have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in public IP address. Once your instance restarts, the instance keeps the Elastic IP if you launched the instance in a virtual private cloud (VPC). If you create the instance in an EC2-Classic network, you must manually reassign the Elastic IP to the instance.
 
-#### 支持的 AWS 实例类型
+### Supported AWS instance types
 
-您需要根据 CPU/内存规范确定升级的目标实例类型。
+You need to determine the instance type you would like to upgrade to based on CPU/memory specifications.
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-#### 针对 AWS 进行调整
+### Resizing for AWS
 
 {% note %}
 
-**注**：对于启动到 EC2-Classic 中的实例，请记下与实例关联的弹性 IP 地址以及实例的 ID。 重启实例后，请重新关联弹性 IP 地址。
+**Note:** For instances launched in EC2-Classic, write down both the Elastic IP address associated with the instance and the instance's ID. Once you restart the instance, re-associate the Elastic IP address.
 
 {% endnote %}
 
-无法将 CPU 或内存资源添加到现有的 AWS/EC2 实例。 相反，您必须执行以下操作：
+It's not possible to add CPU or memory resources to an existing AWS/EC2 instance. Instead, you must:
 
-1. 停止实例。
-2. 更改实例类型。
-3. 启动实例。
+1. Stop the instance.
+2. Change the instance type.
+3. Start the instance.
 {% data reusables.enterprise_installation.configuration-recognized %}
 
-### 为 OpenStack KVM 增加 CPU 或内存资源
+## Adding CPU or memory resources on Microsoft Azure
 
-无法将 CPU 或内存资源添加到现有的 OpenStack KVM 实例。 相反，您必须执行以下操作：
+{% note %}
 
-1. 生成当前实例的快照。
-2. 停止实例。
-3. 选择包含所需 CPU 和/或内存资源的新实例。
+**Note:** To add CPU or memory resources in Microsoft Azure, you must be familiar with using either the Azure Portal, Azure CLI or Azure PowerShell to manage VM instances. For background and details on using the Azure tools of your choice to perform the resize, please refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm).
 
-### 为 VMWare 增加 CPU 或内存资源
+{% endnote %}
+
+### Resizing considerations
+
+Before increasing CPU or memory resources for {% data variables.product.product_location %}, review the following recommendations.
+
+- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
+- **Assign a static IP address to the instance**. If you haven't assigned a static IP to your instance, you might have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in IP address.
+
+### Supported Microsoft Azure instance sizes
+
+You need to determine the instance size you would like to upgrade to based on CPU/memory specifications.
+
+{% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.azure-instance-recommendation %}
+
+### Resizing for Microsoft Azure
+
+You can scale the VM up by changing the VM size. Changing its size will cause it to be restarted. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM. 
+
+1. Refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm) for the required steps.
+{% data reusables.enterprise_installation.configuration-recognized %}
+
+## Adding CPU or memory resources for OpenStack KVM
+
+It's not possible to add CPU or memory resources to an existing OpenStack KVM instance. Instead, you must:
+
+1. Take a snapshot of the current instance.
+2. Stop the instance.
+3. Select a new instance flavor that has the desired CPU and/or memory resources.
+
+## Adding CPU or memory resources for VMware
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
-1. 使用 vSphere Client 连接到 VMware ESXi 主机。
-2. 关闭 {% data variables.product.product_location %}。
-3. 选择虚拟机，然后单击 **Edit Settings**。
-4. 在“Hardware”下，根据需要调整分配给虚拟机的 CPU 和/或内存资源。 ![VMware 设置资源](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
-5. 要启动虚拟机，请单击 **OK**。
+1. Use the vSphere Client to connect to the VMware ESXi host.
+2. Shut down {% data variables.product.product_location %}.
+3. Select the virtual machine and click **Edit Settings**.
+4. Under "Hardware", adjust the CPU and/or memory resources allocated to the virtual machine as needed:
+![VMware setup resources](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
+5. To start the virtual machine, click **OK**.
 {% data reusables.enterprise_installation.configuration-recognized %}

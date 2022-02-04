@@ -6,12 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Initiate failover to appliance
 ---
 
 フェイルオーバーに必要な時間は、レプリカを手動で昇格させてトラフィックをリダイレクトするのにかかる時間によって異なります。 平均的な時間は 2 分から 10 分です。
@@ -24,7 +25,14 @@ topics:
       ```shell
       $ ghe-maintenance -s
       ```
-2. アクティブな Git 操作の数がゼロになったら、30 秒間待ちます。
+2.  When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
+
+    {% note %}
+
+    **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
+
+    {% endnote %}
+
 3. すべてのレプリケーションチャネルが `OK` を報告することを確認するには、`ghe-repl-status -vv` コマンドを使用します。
   ```shell
   $ ghe-repl-status -vv
@@ -46,6 +54,6 @@ topics:
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-### 参考リンク
+## 参考リンク
 
 - "[レプリケーション管理のユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

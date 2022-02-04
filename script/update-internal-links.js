@@ -1,9 +1,24 @@
 #!/usr/bin/env node
+
+// [start-readme]
+//
+// Run this script to find internal links in all content and data Markdown files, check if either the title or link
+// (or both) are outdated, and automatically update them if so.
+//
+// Exceptions:
+// * Links with fragments (e.g., [Bar](/foo#bar)) will get their root links updated if necessary, but the fragment
+// and title will be unchanged (e.g., [Bar](/noo#bar)).
+// * Links with hardcoded versions (e.g., [Foo](/enterprise-server/baz)) will get their root links updated if
+// necessary, but the hardcoded versions will be preserved (e.g., [Foo](/enterprise-server/qux)).
+// * Links with Liquid in the titles will have their root links updated if necessary, but the titles will be preserved.
+//
+// [end-readme]
+
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
 import walk from 'walk-sync'
-import astFromMarkdown from 'mdast-util-from-markdown'
+import { fromMarkdown } from 'mdast-util-from-markdown'
 import visit from 'unist-util-visit'
 import { loadPages, loadPageMap } from '../lib/page-data.js'
 import loadSiteData from '../lib/site-data.js'
@@ -36,20 +51,6 @@ const linkInlineMarkup = {
 const currentVersionWithSpacesRegex = /\/enterprise\/{{ currentVersion }}/g
 const currentVersionWithoutSpaces = '/enterprise/{{currentVersion}}'
 
-// [start-readme]
-//
-// Run this script to find internal links in all content and data Markdown files, check if either the title or link
-// (or both) are outdated, and automatically update them if so.
-//
-// Exceptions:
-// * Links with fragments (e.g., [Bar](/foo#bar)) will get their root links updated if necessary, but the fragment
-// and title will be unchanged (e.g., [Bar](/noo#bar)).
-// * Links with hardcoded versions (e.g., [Foo](/enterprise-server/baz)) will get their root links updated if
-// necessary, but the hardcoded versions will be preserved (e.g., [Foo](/enterprise-server/qux)).
-// * Links with Liquid in the titles will have their root links updated if necessary, but the titles will be preserved.
-//
-// [end-readme]
-
 main()
 
 async function main() {
@@ -74,7 +75,7 @@ async function main() {
     // so that the AST parser recognizes the link as a link node. The spaces prevent it from doing so.
     newContent = newContent.replace(currentVersionWithSpacesRegex, currentVersionWithoutSpaces)
 
-    const ast = astFromMarkdown(newContent)
+    const ast = fromMarkdown(newContent)
 
     // We can't do async functions within visit, so gather the nodes upfront
     const nodesPerFile = []

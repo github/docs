@@ -2,12 +2,15 @@
 title: Referencia
 intro: 'Esta sección contiene referencias que te permitirán tener éxito con {% data variables.product.prodname_codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+product: '{% data reusables.gated-features.codespaces %}'
 children:
-  - /about-billing-for-codespaces
-  - /troubleshooting-your-codespace
+  - /understanding-billing-for-codespaces
   - /allowing-your-codespace-to-access-a-private-image-registry
-  - /using-the-command-palette-in-codespaces
+  - /using-github-copilot-in-codespaces
+  - /using-the-vs-code-command-palette-in-codespaces
+  - /security-in-codespaces
+  - /disaster-recovery-for-codespaces
 ---
 
-{% data reusables.codespaces.release-stage %}

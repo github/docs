@@ -1,3 +1,3 @@
-import xCookieParser from 'cookie-parser'
-import xCookieSettings from '../lib/cookie-settings.js'
-export default xCookieParser(process.env.COOKIE_SECRET, xCookieSettings)
+import cookieParser from 'cookie-parser'
+import cookieSettings from '../lib/cookie-settings.js'
+export default cookieParser(process.env.COOKIE_SECRET, cookieSettings)

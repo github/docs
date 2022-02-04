@@ -1,1 +1,1 @@
-For more information on commit email addresses,{% ifversion fpt %} including your {% data variables.product.product_name %}-provided `noreply` email address,{% endif %} see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
+For more information on commit email addresses,{% ifversion fpt or ghec %} including your `noreply` email address for {% data variables.product.product_name %},{% endif %} see "[Setting your commit email address](/articles/setting-your-commit-email-address)."

@@ -1,14 +1,14 @@
 ---
 title: 审核整个企业的用户
-intro: 审核日志仪表板向站点管理员显示过去 90 天内企业中所有用户和组织执行的操作，包括操作执行者、操作内容以及操作执行时间等详细信息。
+intro: The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the current month and previous six months. 审核日志包含操作执行人、操作内容和执行时间等详细信息。
 redirect_from:
-  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
+  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,9 +16,10 @@ topics:
   - Organizations
   - Security
   - User account
+shortTitle: 审计用户
 ---
 
-### 访问审核日志
+## 访问审核日志
 
 审核日志仪表板让您能够直观地看到企业中的审计数据。
 
@@ -30,7 +31,7 @@ topics:
 
 在地图中，您可以平移和缩放来查看世界范围内的事件。 将鼠标悬停在国家/地区上，可以看到该国家/地区内事件的快速盘点。
 
-### 在企业中搜索事件
+## 在企业中搜索事件
 
 审核日志列出了有关企业内所执行操作的以下信息：
 
@@ -46,11 +47,11 @@ topics:
 **注意：**
 
 - 您无法使用文本搜索审核条目，但您可以使用多个筛选器构建搜索查询。 {% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 中使用多种运算符进行搜索。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/github/searching-for-information-on-github/about-searching-on-github)”。
-- 要搜索 90 天之前的事件，请使用 `created` 限定符。
+- Audit records are available for the current month and every day of the previous six months.
 
 {% endwarning %}
 
-#### 基于仓库搜索
+### 基于仓库搜索
 
 `repo` 限定符可将操作限定为您的组织拥有的特定仓库。 例如：
 
@@ -60,7 +61,7 @@ topics:
 
 您必须在 `repo` 限定符中包含组织的名称，仅搜索 `repo:our-repo` 将不起作用。
 
-#### 基于用户搜索
+### 基于用户搜索
 
 `actor` 限定符会将事件限定为执行操作的组织成员。 例如：
 
@@ -70,7 +71,7 @@ topics:
 
 您可以仅使用 {% data variables.product.product_name %} 用户名，而不是个人的真实姓名。
 
-#### 基于组织搜索
+### 基于组织搜索
 
 `org` 限定符可将操作限定为特定组织。 例如：
 
@@ -78,7 +79,7 @@ topics:
 * `org:my-org action:team` 会找到在 `my-org` 组织中执行的所有团队事件。
 * `-org:my-org` 会排除 `my-org` 组织发生的所有事件。
 
-#### 基于执行的操作搜索
+### 基于执行的操作搜索
 
 `action` 限定符可搜索特定事件（按类别组织）。 有关与这些类别相关的事件的信息，请参阅“[审核的操作](/admin/user-management/audited-actions)”。
 
@@ -99,7 +100,7 @@ topics:
 * `action:team.create` 会找到团队创建处的所有事件。
 * `-action:billing.change_email` 会排除帐单邮箱更改处的所有事件。
 
-#### 基于位置搜索
+### 基于位置搜索
 
 `country` 限定符可根据来源国家/地区筛选操作。
 - 您可以使用国家/地区的两字母短代码或完整名称。
@@ -108,7 +109,7 @@ topics:
   * `country:Mexico` 会找到在墨西哥发生的所有事件。
   * `country:"United States"` 会找到在美国发生的所有事件。
 
-#### 基于操作时间搜索
+### 基于操作时间搜索
 
 `created` 限定符可根据事件发生的时间筛选操作。
 - 使用 `YYYY-MM-DD` 格式定义日期，即年后面是月份，之后是具体日期。

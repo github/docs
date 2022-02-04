@@ -2,21 +2,22 @@
 title: Administrar proyectos utilizando Jira
 intro: 'Puedes integrar Jura con {% data variables.product.prodname_enterprise %} para la administración de proyectos.'
 redirect_from:
-  - /enterprise/admin/guides/installation/project-management-using-jira/
-  - /enterprise/admin/articles/project-management-using-jira/
+  - /enterprise/admin/guides/installation/project-management-using-jira
+  - /enterprise/admin/articles/project-management-using-jira
   - /enterprise/admin/developer-workflow/managing-projects-using-jira
   - /enterprise/admin/developer-workflow/customizing-your-instance-with-integrations
   - /enterprise/admin/user-management/managing-projects-using-jira
   - /admin/user-management/managing-projects-using-jira
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Project management
+shortTitle: Administración de proyectos con Jira
 ---
 
-### Conectar a Jira a una organización de {% data variables.product.prodname_enterprise %}
+## Conectar a Jira a una organización de {% data variables.product.prodname_enterprise %}
 
 1. Inicia sesión en tu cuenta de {% data variables.product.prodname_enterprise %} en http[s]://[hostname]/login. Si ya iniciaste sesión, haz clic en el logo de {% data variables.product.prodname_dotcom %} en la esquina superior izquierda.
 2. Haz clic en tu icono de perfil debajo del logo de {% data variables.product.prodname_dotcom %} y selecciona la organización con la que te gustaría conectar a Jira.
@@ -42,7 +43,7 @@ topics:
 7. Haz clic en **Register application** (Registrar aplicación).
 8. En la parte inferior de la página, observa el **Client ID** (ID de cliente) y **Client Secret** (Secreto de cliente). Necesitarás estos para configurar tu instancia de Jira.
 
-### Configuración de la instancia de Jira
+## Configuración de la instancia de Jira
 
 1. En tu instancia de Jira, inicia sesión en una cuenta con acceso administrativo.
 2. En la parte superior de la página, haz clic en el icono de configuración (engrane) y elige **Aplicaciones**.

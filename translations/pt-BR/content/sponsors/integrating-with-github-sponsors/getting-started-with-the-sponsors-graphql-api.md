@@ -1,14 +1,16 @@
 ---
-title: Getting started with the Sponsors GraphQL API
-intro: 'Using the GraphQL API, you can build custom integrations to manage or review your sponsorships.'
+title: Primeiros passos com a API dos do GraphQL Sponsors
+intro: 'Ao usar a API do GraphQL, você pode criar integrações personalizadas para gerenciar ou revisar seus patrocinadores.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - GraphQL
   - API
+shortTitle: API para GraphQL Sponsors
 ---
 
-To get started with the GraphQL API, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
+Para começar com a API do GraphQL, consulte "[Introdução ao GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/introduction-to-graphql)".
 
-You can find the details about the Sponsors GraphQL API in the reference docs. For more information, see "[GraphQL reference](/graphql/reference)." We recommend using the GraphQL explorer to build your GraphQL calls. Para obter mais informações, consulte "[Usando o explorador](/graphql/guides/using-the-explorer).
+Você pode encontrar os detalhes sobre a API do GraphQL Sponsors na documentação de referência. Para obter mais informações, consulte " "[referência do GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference)". Recomendamos usar o explorador GraphQL para criar suas chamadas do GraphQL. Para obter mais informações, consulte "[Usando o explorador]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-explorer).

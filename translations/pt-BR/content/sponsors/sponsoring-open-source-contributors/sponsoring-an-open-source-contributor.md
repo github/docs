@@ -7,17 +7,19 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Patrocinar um contribuidor
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### Sobre patrocínios
+## Sobre patrocínios
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -27,13 +29,15 @@ Você pode patrocinar uma conta em nome de sua conta de usuário para investir e
 - Desenvolver a conscientização da marca como uma organização que valoriza o código aberto
 - Agradecer aos desenvolvedores de código aberto para a criação de bibliotecas que complementam os produtos que a sua organização oferece
 
-Você pode usar um cartão de crédito para patrocinar uma conta em {% data variables.product.product_name %}. Se sua organização desejar pagar por fatura, [entre em contato conosco](https://support.github.com/contact/org-sponsors-waitlist).
+Você pode usar um cartão de crédito para patrocinar uma conta em {% data variables.product.product_name %}. Se sua organização quiser pagar por fatura, você poderá ler mais em [Pagando por {% data variables.product.prodname_sponsors %} com fatura](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
 
 {% data reusables.sponsors.no-fees %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)".
 
 Ao patrocinar uma conta usando um cartão de crédito, a alteração entrará em vigor imediatamente. {% data reusables.sponsors.prorated-sponsorship %}
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
+
+You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
 
 Se a conta patrocinada for retirada, a sua camada permanecerá em vigor para você até que você escolha uma camada diferente ou cancele a sua assinatura. Para obter mais informações, consulte "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)" e "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)".
 
@@ -43,11 +47,11 @@ Se a conta que você deseja patrocinar não tiver um perfil em {% data variables
 
 {% note %}
 
-**Nota:** O {% data variables.product.prodname_dotcom %} não é responsável por como os desenvolvedores representam a si mesmos nem {% data variables.product.prodname_dotcom %} endossa quaisquer projetos de código aberto patrocinados. As reivindicações são de responsabilidade exclusiva do desenvolvedor que recebe os fundos. Certifique-se de confiar em uma pessoa antes de oferecer um patrocínio. Para obter mais informações, consulte "[{% data variables.product.prodname_sponsors %} Termos Adicionais ](/github/site-policy/github-sponsors-additional-terms).
+**Nota:** O {% data variables.product.prodname_dotcom %} não é responsável por como os desenvolvedores representam a si mesmos nem {% data variables.product.prodname_dotcom %} endossa quaisquer projetos de código aberto patrocinados. As reivindicações são de responsabilidade exclusiva do desenvolvedor que recebe os fundos. Certifique-se de confiar em uma pessoa antes de oferecer um patrocínio. Para obter mais informações, consulte "[{% data variables.product.prodname_sponsors %} Termos Adicionais ](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
 
 {% endnote %}
 
-### Patrocinar uma conta
+## Patrocinar uma conta
 
 Antes de poder patrocinar uma conta, você deve ter um endereço de e-mail verificado. Para obter mais informações, consulte "[Verificar o endereço de e-mail](/github/getting-started-with-github/verifying-your-email-address)".
 

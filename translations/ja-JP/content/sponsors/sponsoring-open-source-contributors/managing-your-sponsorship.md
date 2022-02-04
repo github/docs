@@ -5,7 +5,8 @@ redirect_from:
   - /articles/managing-your-sponsorship
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Contacting sponsors
@@ -15,7 +16,7 @@ topics:
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### スポンサーシップのプライバシー設定を管理する
+## スポンサーシップのプライバシー設定を管理する
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
@@ -23,7 +24,7 @@ topics:
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### スポンサーシップのメールアップデートを管理する
+## スポンサーシップのメールアップデートを管理する
 
 スポンサーしているアカウントがその作業に関するメールアップデートを送信できるかどうかを選択できます。 スポンサードアカウントは、あなたのメールアドレスにアクセスできません。
 
@@ -35,7 +36,7 @@ topics:
 {% data reusables.sponsors.choose-updates %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### 参考リンク
+## 参考リンク
 
 - [スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)
 - [スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)

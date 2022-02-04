@@ -1,1 +1,0 @@
-1. Debajo de tu nombre de repositorio, da clic en {% octicon "graph" aria-label="The bar graph icon" %}**Perspectivas**. ![Pestaña de perspectivas en la barra de navegación del repositorio principal](/assets/images/help/repository/repo-nav-insights-tab.png)

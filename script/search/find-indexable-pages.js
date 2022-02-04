@@ -8,8 +8,8 @@ export default async function findIndexablePages() {
     .filter((page) => !page.hidden)
     // exclude pages that are part of WIP or hidden products
     .filter((page) => !page.parentProduct || !page.parentProduct.wip || page.parentProduct.hidden)
-    // exclude index homepages
-    .filter((page) => !page.relativePath.endsWith('index.md'))
+    // exclude absolute home page (e.g. /en or /ja)
+    .filter((page) => page.relativePath !== 'index.md')
 
   console.log('total pages', allPages.length)
   console.log('indexable pages', indexablePages.length)

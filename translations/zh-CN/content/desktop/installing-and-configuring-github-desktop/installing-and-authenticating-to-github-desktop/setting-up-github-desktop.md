@@ -1,44 +1,43 @@
 ---
-title: 设置 GitHub Desktop
-shortTitle: 设置
-intro: '您可以设置 {% data variables.product.prodname_desktop %} 以适应您的需求并参与项目。'
+title: Setting up GitHub Desktop
+shortTitle: Setup
+intro: 'You can set up {% data variables.product.prodname_desktop %} to suit your needs and contribute to projects.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/setting-up-github-desktop
   - /desktop/installing-and-configuring-github-desktop/setting-up-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+## Part 1: Installing {% data variables.product.prodname_desktop %}
 
-### 第 1 部分：安装 {% data variables.product.prodname_desktop %}
+You can install {% data variables.product.prodname_desktop %} on any supported operating system. For more information, see "[Supported Operating Systems](/desktop/getting-started-with-github-desktop/supported-operating-systems)."
 
-您可以在任何支持的操作系统上安装 {% data variables.product.prodname_desktop %}。 更多信息请参阅“[支持的操作系统](/desktop/getting-started-with-github-desktop/supported-operating-systems)”。
+To install {% data variables.product.prodname_desktop %}, navigate to [https://desktop.github.com/](https://desktop.github.com/) and download the appropriate version of {% data variables.product.prodname_desktop %} for your operating system. Follow the prompts to complete the installation. For more information, see "[Installing {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/installing-github-desktop)."
 
-要安装 {% data variables.product.prodname_desktop %}，请导航到 [https://desktop.github.com/](https://desktop.github.com/) 并为操作系统下载适当的 {% data variables.product.prodname_desktop %} 版本。 按照提示完成安装。 更多信息请参阅“[安装 {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/installing-github-desktop)。”
+## Part 2: Configuring your account
 
-### 第 2 部分：配置您的帐户
+If you have an account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you can use {% data variables.product.prodname_desktop %} to exchange data between your local and remote repositories.
 
-如果您在 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 上有帐户，可以使用 {% data variables.product.prodname_desktop %} 在本地与远程仓库之间交换数据。
+### Creating an account
+If you do not already have an account on {% data variables.product.prodname_dotcom %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account/)."
 
-#### 创建帐户
-如果您在 {% data variables.product.prodname_dotcom %} 上还没有帐户，请参阅“[Signing up for a new {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account/)”。
+If you are part of an organization that uses {% data variables.product.prodname_enterprise %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.
 
-如果您属于使用 {% data variables.product.prodname_enterprise %} 的组织但没有帐户，请联系您的 {% data variables.product.prodname_enterprise %} 网站管理员。
+### Authenticating to {% data variables.product.prodname_dotcom %}
+To connect to {% data variables.product.prodname_desktop %} with {% data variables.product.prodname_dotcom %}, you'll need to authenticate your account. For more information, see "[Authenticating to {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
 
-#### 向 {% data variables.product.prodname_dotcom %} 验证
-要使用 {% data variables.product.prodname_dotcom %} 连接到 {% data variables.product.prodname_desktop %}，您必须验证您的帐户。 更多信息请参阅“[向 {% data variables.product.prodname_desktop %} 验证](/desktop/getting-started-with-github-desktop/authenticating-to-github)”。
+After authenticating your account, you are ready to manage and contribute to projects with {% data variables.product.prodname_desktop %}.
 
-验证您的帐户后，您就可以使用 {% data variables.product.prodname_desktop %} 管理和参与项目。
+## Part 3: Configuring Git
+You must have Git installed before using {% data variables.product.prodname_desktop %}. If you do not already have Git installed, you can download and install the latest version of Git from [https://git-scm.com/downloads](https://git-scm.com/downloads).
 
-### 第 3 部分：配置 Git
-必须先安装 Git 后才能使用 {% data variables.product.prodname_desktop %}。 如果尚未安装 Git，可以从 [https://git-scm.com/downloads](https://git-scm.com/downloads)下载和安装最新版本的 Git。
+After you have Git installed, you'll need to configure Git for {% data variables.product.prodname_desktop %}. For more information, see "[Configuring Git for {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)."
 
-安装 Git 后，需要为 {% data variables.product.prodname_desktop %} 配置 Git。 更多信息请参阅“[为 {% data variables.product.prodname_desktop %} 配置 Git](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)”。
+## Part 4: Customizing {% data variables.product.prodname_desktop %}
+You can adjust defaults and settings to tailor {% data variables.product.prodname_desktop %} to your needs.
 
-### 第 4 部分：自定义 {% data variables.product.prodname_desktop %}
-您可以调整默认值和设置，使 {% data variables.product.prodname_desktop %} 适合您的需求。
+### Choosing a default text editor
+You can open a text editor from {% data variables.product.prodname_desktop %} to manipulate files and repositories. {% data variables.product.prodname_desktop %} supports a variety of text editors and integrated development environments (IDEs) for Windows and macOS. You can choose a default editor in the {% data variables.product.prodname_desktop %} settings. For more information, see "[Configuring a default editor](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)."
 
-#### 选择默认文本编辑器
-您可以从 {% data variables.product.prodname_desktop %} 打开文本编辑器来操作文件和仓库。 {% data variables.product.prodname_desktop %} 支持用于 Windows 和 macOS 的各种文本编辑器和集成开发环境 (IDE)。 您可以在 {% data variables.product.prodname_desktop %} 设置中选择默认编辑器。 更多信息请参阅“[配置默认编辑器](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)。
-
-#### 选择主题
-{% data variables.product.prodname_desktop %} 有多个主题可用于自定义应用程序的外观。 您可以在 {% data variables.product.prodname_desktop %} 设置中选择主题。 更多信息请参阅“[设置 {% data variables.product.prodname_desktop %} 的主题](/desktop/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)”。
+### Choosing a theme
+{% data variables.product.prodname_desktop %} has multiple themes available to customize the look and feel of the app. You can choose a theme in the {% data variables.product.prodname_desktop %} settings. For more information, see "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)."

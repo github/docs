@@ -4,14 +4,15 @@ redirect_from:
   - /v4/object
   - /v4/reference/object
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### Sobre objetos
+## Sobre objetos
 
 Os [Objetos](https://graphql.github.io/graphql-spec/June2018/#sec-Objects) no GraphQL representam os recursos que você pode acessar. Um objeto pode conter uma lista de campos, que são digitados especificamente.
 

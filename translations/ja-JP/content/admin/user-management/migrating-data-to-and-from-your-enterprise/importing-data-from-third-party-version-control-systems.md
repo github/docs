@@ -6,14 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
   - /admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Import from another VCS
 ---
 
-### Mercurialからのプロジェクトのインポート
+## Mercurialからのプロジェクトのインポート
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. ソースプロジェクトのURLと一時リポジトリへのパスを指定して、以下のコマンドを使ってプロジェクトの生のクローンを作成してください。
@@ -33,7 +34,7 @@ topics:
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Subversionからのプロジェクトのインポート
+## Subversionからのプロジェクトのインポート
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. ソースプロジェクトのURLと一時リポジトリへのパスを指定して、以下のコマンドを使ってプロジェクトの生のクローンを作成してください。
@@ -53,7 +54,7 @@ topics:
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Team Foundation Version Controlからのプロジェクトのインポート
+## Team Foundation Version Controlからのプロジェクトのインポート
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. ソースプロジェクトのURLと一時リポジトリへのパスを指定して、以下のコマンドを使ってプロジェクトの生のクローンを作成してください。
@@ -73,6 +74,6 @@ topics:
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### 参考リンク
+## 参考リンク
 
 - "[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"

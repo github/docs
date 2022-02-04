@@ -13,10 +13,9 @@ module.exports = {
     babelOptions: { configFile: './.babelrc' },
     sourceType: 'module',
   },
+  ignorePatterns: ['tmp/*', '!/.*', '/.next/'],
   rules: {
     'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
-    'node/global-require': ['error'],
-    'import/no-dynamic-require': ['error'],
   },
   overrides: [
     {

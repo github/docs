@@ -2,40 +2,42 @@
 title: 编写应用程序的上架说明
 intro: '要在 {% data variables.product.prodname_marketplace %} 中[上架应用程序](/marketplace/listing-on-github-marketplace/)，您需要根据 GitHub 的指南编写应用程序的说明并提供图像。'
 redirect_from:
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images/
-  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/listing-apps-on-github/guidelines-for-creating-a-github-marketplace-listing
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-creating-github-marketplace-listing-images
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/creating-github-marketplace-listing-images
+  - /apps/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: 写入列表说明
 ---
 
 以下是有关您在上架信息草稿的 **Listing description（上架说明）**部分中需要填写字段的指南。
 
-### 命名和链接
+## 命名和链接
 
-#### 上架产品名称
+### 上架产品名称
 
-列表的名称将显示在 [{% data variables.product.prodname_marketplace %} 主页](https://github.com/marketplace)上。 名称仅限于 255 个字符，可能与应用名称不同。 您的列表不能与现有 {% data variables.product.product_name %} 帐户同名，除非该名称是您自己的用户或组织名称。
+列表的名称将显示在 [{% data variables.product.prodname_marketplace %} 主页](https://github.com/marketplace)上。 名称仅限于 255 个字符，可能与应用名称不同。 您的列表不能与 {% data variables.product.product_location %} 上现有的帐户同名，除非该名称是您自己的用户或组织名称。
 
-#### 简短说明
+### 简短说明
 
 在 [{% data variables.product.prodname_marketplace %} 主页](https://github.com/marketplace)上，社区将会看到应用程序名称下面“非常简短”的说明。
 
 ![{% data variables.product.prodname_marketplace %} 应用程序简短说明](/assets/images/marketplace/marketplace_short_description.png)
 
-##### 长度
+#### 长度
 
 我们建议将简短说明控制在 40-80 个字符。 尽管可以使用更多字符，但简洁的描述使客户更容易快速阅读和理解。
 
-##### 内容
+#### 内容
 
 - 介绍应用程序的功能。 不要在此空间使用呼吁用语。 例如：
 
@@ -51,7 +53,7 @@ topics:
 
   **不宜：**Skycap 是一个容器原生持续集成工具
 
-##### 格式
+#### 格式
 
 - 始终使用句子大小写规则。 只大写第一个字母和专有名词。
 
@@ -77,15 +79,15 @@ topics:
 
   **不宜：** Agile task boards, estimates, and reports without leaving GitHub’s UI
 
-#### 分类
+### 分类
 
 {% data variables.product.prodname_marketplace %} 中的应用程序可以按类别显示。 在 **Primary category（主要类别）**下拉列表中选择最适合描述应用程序主要功能的类别，（可选）然后选择适合应用程序的 **Secondary category（次要类别）**。
 
-#### 支持的语言
+### 支持的语言
 
 如果您的应用程序仅适用于特定语言，请选择它支持的最多 10 种编程语言。 这些语言显示在应用程序的 {% data variables.product.prodname_marketplace %} 上架信息页面上。 此字段是可选的。
 
-#### 上架信息中的 URL
+### 上架信息中的 URL
 
 **必需的 URL**
 * **Customer support URL（客户支持 URL）：**客户寻求技术支持、产品或帐户查询时前往的网页 URL。
@@ -97,7 +99,7 @@ topics:
 * **Status URL（状态 URL）：**显示应用程序状态的网页链接。 状态页面可以包括当前和历史事件报告、Web 应用程序正常运行时间状态以及预定维护。
 * **Documentation URL（文档 URL）：**指导客户如何使用应用程序的文档链接。
 
-### 徽标和特征卡
+## 徽标和特征卡
 
 {% data variables.product.prodname_marketplace %} 使用圆形徽章内的方形徽标图像显示所有上架产品，以便从视觉上区分应用程序。
 
@@ -109,7 +111,7 @@ topics:
 
 当您上传图像和选择颜色时，{% data variables.product.prodname_marketplace %} 上架草稿将显示徽标和特征卡的预览。
 
-##### 徽标指南
+#### 徽标指南
 
 您必须上传徽标的自定义图像。 对于徽章，请选择背景颜色。
 
@@ -119,7 +121,7 @@ topics:
 - 要显示无缝徽章的外观，请选择与徽标图像的背景颜色（或透明度）匹配的徽章背景颜色。
 - 避免使用带有文字的徽标图像。 带有文字的徽标在小屏幕上缩放效果不佳。
 
-##### 特征卡指南
+#### 特征卡指南
 
 您必须上传特征卡的自定义背景图像。 对于应用程序的名称，请选择文本颜色。
 
@@ -127,7 +129,7 @@ topics:
 - 背景图像尺寸为 965 像素 x 482 像素（宽 x 高）。
 - 为应用程序的名称选择文本颜色，使其清晰地显示在背景图像上。
 
-### 上架详细信息
+## 上架详细信息
 
 要获取应用程序的登录页面，请在 {% data variables.product.prodname_marketplace %} 主页或类别页面上单击应用程序的名称。 登录页面显示应用程序的较长说明，包括两个部分：“Introductory description（简介）”和“Detailed description（详细说明）”。
 
@@ -141,19 +143,19 @@ topics:
 
 请遵循以下指南编写这些说明。
 
-#### 长度
+### 长度
 
 我们建议您[上架应用程序](/marketplace/listing-on-github-marketplace/)时，在必填字段“Introductory description（简介）”中写 1-2 句高度概述的说明，长度控制在 150-250 个字符。 尽管可以使用更多字符，但简洁的概述使客户更容易快速阅读和理解。
 
 您可以在可选的“Detailed description（详细说明）”字段中添加更多信息。 在应用程序登录页面中“Introductory description（简介）”的下方单击 **Read more（阅读更多）...** 将会看到此说明。 详细说明包括 3-5 个[价值主张](https://en.wikipedia.org/wiki/Value_proposition)，每个价值主张用 1-2 个句子阐明。 此说明最多可以使用 1,000 个字符。
 
-#### 内容
+### 内容
 
 - 始终用应用程序的名称开始简介。
 
 - 始终用主动语态编写说明和价值主张。
 
-#### 格式
+### 格式
 
 - 始终在价值主张标题中使用句子大小写规则。 只大写第一个字母和专有名词。
 
@@ -180,11 +182,11 @@ topics:
 
 - 避免使用首字母缩写词，除非是约定俗成的缩写（如 API）。
 
-### 产品屏幕截图
+## 产品屏幕截图
 
 您可以上传应用程序的最多五张屏幕截图，以显示在应用程序的登录页面上。 向每个屏幕截图添加可选标题以提供上下文。 上传屏幕截图后，您将其拖动到希望它们在登录页面上显示的位置。
 
-#### 屏幕截图指南
+### 屏幕截图指南
 
 - 图像必须具有高分辨率(至少 1200 像素宽)。
 - 所有图像必须具有相同的高度和宽度（宽高比），以避免用户切换图像时出现页面跳跃。

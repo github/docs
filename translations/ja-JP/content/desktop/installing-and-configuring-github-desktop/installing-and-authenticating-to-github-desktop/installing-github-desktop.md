@@ -6,10 +6,10 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/installing-github-desktop
   - /desktop/installing-and-configuring-github-desktop/installing-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### {% data variables.product.prodname_desktop %} のインストールについて
+## {% data variables.product.prodname_desktop %} のインストールについて
 
 You can install {% data variables.product.prodname_desktop %} on supported operating systems, which currently include {% data variables.desktop.mac-osx-versions %} and {% data variables.desktop.windows-versions %}. {% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} にアカウントをお持ちの場合は、アカウントを {% data variables.product.prodname_desktop %} に接続できます。 アカウントの作成の詳細については、「[新しい {% data variables.product.prodname_dotcom %} アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account/)」を参照するか、{% data variables.product.prodname_enterprise %} のサイト管理者にお問い合わせください。
 
@@ -23,7 +23,7 @@ Windows インストーラーパッケージは、単独のインストーラー
 
 {% endwindows %}
 
-### {% data variables.product.prodname_desktop %}のダウンロード、およびインストール方法
+## {% data variables.product.prodname_desktop %}のダウンロード、およびインストール方法
 
 {% mac %}
 

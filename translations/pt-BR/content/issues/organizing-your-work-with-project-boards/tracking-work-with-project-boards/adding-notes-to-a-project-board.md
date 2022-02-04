@@ -3,16 +3,20 @@ title: Adicionar observações a um quadro de projeto
 intro: Você pode adicionar observações a um quadro de projeto para que sirvam como lembretes de tarefas ou para adicionar informações relacionadas ao quadro de projeto.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
-  - /articles/adding-notes-to-a-project/
+  - /articles/adding-notes-to-a-project
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Adicionar notas ao quadro
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -27,7 +31,7 @@ Ao adicionar a uma observação uma URL para um problema, uma pull request ou ou
 
 ![Cartões de quadro de projeto mostrando a visualização de um problema e outro quadro de projeto](/assets/images/help/projects/note-with-summary-card.png)
 
-### Adicionar observações a um quadro de projeto
+## Adicionar observações a um quadro de projeto
 
 1. Navegue até o quadro de projeto onde deseja adicionar observações.
 2. Na coluna que deseja adicionar uma observação, clique em {% octicon "plus" aria-label="The plus icon" %}. ![Ícone de mais no header da coluna](/assets/images/help/projects/add-note-button.png)
@@ -39,7 +43,7 @@ Ao adicionar a uma observação uma URL para um problema, uma pull request ou ou
 
   {% endtip %}
 
-### Converter uma observação em um problema
+## Converter uma observação em um problema
 
 Se você criou uma observação e achou que ela não é suficiente para as suas necessidades, é possível convertê-la em um problema.
 
@@ -59,14 +63,14 @@ Quando você converte uma observação em um problema, o problema é criado auto
 6. Clique em **Convert to issue** (Converter em problema).
 7. A observação é convertida automaticamente em um problema. No quadro de projeto, o novo cartão de problema estará no mesmo local que a observação anterior.
 
-### Editar e remover uma observação
+## Editar e remover uma observação
 
 1. Navegue para a observação que deseja editar ou remover.
 {% data reusables.project-management.project-note-more-options %}
 3. Para editar o conteúdo da observação, clique em **Edit note** (Editar observação). ![Botão Edit note (Editar observação)](/assets/images/help/projects/edit-note.png)
 4. Para excluir o conteúdo das observações, clique em **Delete note** (Excluir observação). ![Botão Delete note (Excluir observação)](/assets/images/help/projects/delete-note.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sobre quadros de projetos](/articles/about-project-boards)"
 - "[Criar um quadro de projeto](/articles/creating-a-project-board)"

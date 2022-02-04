@@ -1,110 +1,123 @@
 ---
-title: Administrar ramas
-intro: Puedes crear una rama nueva desde la rama predeterminada de un repositorio para que puedas experimentar con los cambios de forma segura.
+title: Managing branches
+intro: You can create a branch off of a repository's default branch so you can safely experiment with changes.
 redirect_from:
   - /desktop/contributing-to-projects/creating-a-branch-for-your-work
   - /desktop/contributing-to-projects/switching-between-branches
   - /desktop/contributing-to-projects/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+## About managing branches
+You can use branches to safely experiment with changes to your project. Branches isolate your development work from other branches in the repository. For example, you could use a branch to develop a new feature or fix a bug.
 
-### Acerca de administrar ramas
-Puedes utilizar las ramas para experimentar de forma segura con los cambios de tu proyecto. Las ramas aislan tu trabajo de desarrollo de otras ramas en el repositorio. Por ejemplo, puedes utilizar una rama para desarrollar una nueva característica o para corregir un error.
+You always create a branch from an existing branch. Typically, you might create a branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository.
 
-Siempre puedes crear una rama a partir de otra rama existente. Habitualmente, puedes crear una rama desde la rama predeterminada de tu repositorio. Podrás entonces trabajar en esta rama nueva aislado de los cambios que otras personas hacen al repositorio.
+You can also create a branch starting from a previous commit in a branch's history. This can be helpful if you need to return to an earlier view of the repository to investigate a bug, or to create a hot fix on top of your latest release.
 
-Una vez que estás satisfecho con to trabajo puedes crear una solicitud de extracción para fusionar tus cambios en la rama actual en alguna otra rama. Para obtener más información, consulta la sección "[Crear un informe de problemas o solicitud de extracción](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" y "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)".
+Once you're satisfied with your work, you can create a pull request to merge your changes in the current branch into another branch. For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" and "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
-Siempre podrás crear una rama en {% data variables.product.prodname_desktop %} si tienes acceso de lectura en un repositorio, pero solo podrás cargar la rama a {% data variables.product.prodname_dotcom %} si tienes acceso de escritura en el repositorio en cuestión.
+You can always create a branch in {% data variables.product.prodname_desktop %} if you have read access to a repository, but you can only push the branch to {% data variables.product.prodname_dotcom %} if you have write access to the repository.
 
 {% data reusables.desktop.protected-branches %}
 
-### Cómo crear una rama
+## Creating a branch
 
 {% tip %}
 
-**Tip:** La primera rama nueva que creas se basará en la rama predeterminada. Si tienes más de una rama, puedes elegir basar la nueva rama en aquella que has revisado actualmente o en la rama predeterminada.
+**Tip:** The first new branch you create will be based on the default branch. If you have more than one branch, you can choose to base the new branch on the currently checked out branch or the default branch.
 
 {% endtip %}
 
 {% mac %}
 
 {% data reusables.desktop.click-base-branch-in-drop-down %}
-  ![Menú desplegable para cambiar tu rama actual](/assets/images/help/desktop/select-branch-from-dropdown.png)
+  ![Drop-down menu to switch your current branch](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.create-new-branch %}
-  ![Opción New Branch (Rama nueva) en el menú Branch (Rama)](/assets/images/help/desktop/new-branch-button-mac.png)
+  ![New Branch option in the Branch menu](/assets/images/help/desktop/new-branch-button-mac.png)
 {% data reusables.desktop.name-branch %}
-  ![Campo para crear un nombre para la rama nueva](/assets/images/help/desktop/create-branch-name-mac.png)
+  ![Field for creating a name for the new branch](/assets/images/help/desktop/create-branch-name-mac.png)
 {% data reusables.desktop.select-base-branch %}
-  ![Opciones de rama base](/assets/images/help/desktop/create-branch-choose-branch-mac.png)
+  ![Base branch options](/assets/images/help/desktop/create-branch-choose-branch-mac.png)
 {% data reusables.desktop.confirm-new-branch-button %}
-  ![Botón Create Branch (Crear rama)](/assets/images/help/desktop/create-branch-button-mac.png)
+  ![Create Branch button](/assets/images/help/desktop/create-branch-button-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.click-base-branch-in-drop-down %}
-  ![Menú desplegable para cambiar tu rama actual](/assets/images/help/desktop/click-branch-in-drop-down-win.png)
+  ![Drop-down menu to switch your current branch](/assets/images/help/desktop/click-branch-in-drop-down-win.png)
 {% data reusables.desktop.create-new-branch %}
-  ![Opción New Branch (Rama nueva) en el menú Branch (Rama)](/assets/images/help/desktop/new-branch-button-win.png)
+  ![New Branch option in the Branch menu](/assets/images/help/desktop/new-branch-button-win.png)
 {% data reusables.desktop.name-branch %}
-  ![Campo para crear un nombre para la rama nueva](/assets/images/help/desktop/create-branch-name-win.png)
+  ![Field for creating a name for the new branch](/assets/images/help/desktop/create-branch-name-win.png)
 {% data reusables.desktop.select-base-branch %}
-  ![Opciones de rama base](/assets/images/help/desktop/create-branch-choose-branch-win.png)
+  ![Base branch options](/assets/images/help/desktop/create-branch-choose-branch-win.png)
 {% data reusables.desktop.confirm-new-branch-button %}
-  ![Botón Create Branch (Crear rama)](/assets/images/help/desktop/create-branch-button-win.png)
+  ![Create branch button](/assets/images/help/desktop/create-branch-button-win.png)
 
 {% endwindows %}
 
-### Publicar una rama
+## Creating a branch from a previous commit
 
-Si creas una rama en {% data variables.product.product_name %}, necesitarás publicarla para que se muestre disponible para colaboración en {% data variables.product.prodname_dotcom %}.
+{% data reusables.desktop.history-tab %}
+2. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**.
+  ![Create branch from commit context menu](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
+{% data reusables.desktop.name-branch %}
+{% data reusables.desktop.confirm-new-branch-button %}
+  ![Create branch from commit](/assets/images/help/desktop/create-branch-from-commit-overview.png)
 
-1. En la parte superior de la app, da clic en {% octicon "git-branch" aria-label="The branch icon" %} **Rama Actual** y luego en la rama que quieres publicar. ![Menú desplegable para seleccionar qué rama publicar](/assets/images/help/desktop/select-branch-from-dropdown.png)
-2. Da clic en **Publicar rama**. ![El botón de publicar rama](/assets/images/help/desktop/publish-branch-button.png)
+## Publishing a branch
 
-### Alternar entre ramas
-Puedes ver y realizar confirmaciones en cualquiera de las ramas de tu repositorio. Si tienes cambios guardados, no confirmados, deberás decidir qué hacer con tus cambios antes de alternar las ramas. Puedes confirmar tus cambios en la rama actual, acumular tus cambios para guardarlos temporalmente en la rama actual, o llevar los cambios a tu rama nueva. Si quieres confirmar tus cambios antes de cambiar de rama, consulta la sección "[Confirmar y revisar los cambios a tu proyecto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)".
+If you create a branch on {% data variables.product.product_name %}, you'll need to publish the branch to make it available for collaboration on {% data variables.product.prodname_dotcom %}.
+
+1. At the top of the app, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch**, then click the branch that you want to publish.
+  ![Drop-down menu to select which branch to publish](/assets/images/help/desktop/select-branch-from-dropdown.png)
+2. Click **Publish branch**.
+  ![The Publish branch button](/assets/images/help/desktop/publish-branch-button.png)
+
+## Switching between branches
+You can view and make commits to any of your repository's branches. If you have uncommitted, saved changes, you'll need to decide what to do with your changes before you can switch branches. You can commit your changes on the current branch, stash your changes to temporarily save them on the current branch, or bring the changes to your new branch. If you want to commit your changes before switching branches, see "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."
 {% tip %}
 
-**Consejo**: Puedes configurar un comportamiento predeterminado para alternar entre ramas en la configuración **Avanzada**. Para obtener más información, consulta la sección "[Configurar los ajustes básicos](/desktop/getting-started-with-github-desktop/configuring-basic-settings)".
+**Tip**: You can set a default behavior for switching branches in the **Advanced** settings. For more information, see "[Configuring basic settings](/desktop/getting-started-with-github-desktop/configuring-basic-settings)."
 
 {% endtip %}
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.switching-between-branches %}
-  ![Lista de ramas en el repositorio](/assets/images/help/desktop/select-branch-from-dropdown.png)
-3. Si tienes cambios guardados, sin confirmar, elige **Leave my changes** (Dejar mis cambios) o **Bring my changes** (Traer mis cambios) y luego haz clic en **Switch Branch** (Cambiar rama). ![Alternar ramas con opciones de cambios](/assets/images/help/desktop/stash-changes-options.png)
+  ![List of branches in the repository](/assets/images/help/desktop/select-branch-from-dropdown.png)
+3. If you have saved, uncommitted changes, choose **Leave my changes** or **Bring my changes**, then click **Switch Branch**.
+  ![Switch branch with changes options](/assets/images/help/desktop/stash-changes-options.png)
 
-### Cómo eliminar una rama
+## Deleting a branch
 
-No puedes borrar una rama que esté actualmente asociada con una solicitud de extracción abierta. No puedes revertir el haber borrado una rama.
+You can't delete a branch if it's currently associated with an open pull request. You cannot undo deleting a branch.
 
 {% mac %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![Menú desplegable para seleccionar qué rama borrar](/assets/images/help/desktop/select-branch-from-dropdown.png)
+  ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-mac %}
-  ![Opción de "borrar..." en el menú de la rama](/assets/images/help/desktop/delete-branch-mac.png)
+  ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![Menú desplegable para seleccionar qué rama borrar](/assets/images/help/desktop/select-branch-from-dropdown.png)
+  ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-win %}
-  ![Opción de "borrar..." en el menú de la rama](/assets/images/help/desktop/delete-branch-win.png)
+  ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-win.png)
 
 {% endwindows %}
 
-### Leer más
+## Further reading
 
-- [Clonar un repositorio de {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)
-- "[Rama](/articles/github-glossary/#branch)" en el glosario {% data variables.product.prodname_dotcom %}
-- "[Acerca de las ramas](/articles/about-branches)"
-- "[Ramas en resumen](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" en la documentación de Git
-- "[Acumular cambios](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)"
+- "[Cloning a repository from {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
+- "[Branch](/articles/github-glossary/#branch)" in the {% data variables.product.prodname_dotcom %} glossary
+- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation
+- "[Stashing changes](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)"

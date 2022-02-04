@@ -3,16 +3,20 @@ title: 添加注释到项目板
 intro: 您可以添加注释到项目板以用作任务提醒，或者添加与项目板相关的信息。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
-  - /articles/adding-notes-to-a-project/
+  - /articles/adding-notes-to-a-project
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: 添加备注到板
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -27,7 +31,7 @@ topics:
 
 ![显示议题和另一个项目板预览的项目板卡](/assets/images/help/projects/note-with-summary-card.png)
 
-### 添加注释到项目板
+## 添加注释到项目板
 
 1. 导航到您要在其中添加注释的项目板。
 2. 在要添加注释的列中，单击 {% octicon "plus" aria-label="The plus icon" %}。 ![列标题中的加号](/assets/images/help/projects/add-note-button.png)
@@ -39,7 +43,7 @@ topics:
 
   {% endtip %}
 
-### 将注释转换为议题
+## 将注释转换为议题
 
 如果您创建了注释但发现它不足以表达您的需求，可以将其转换为议题。
 
@@ -59,14 +63,14 @@ topics:
 6. 单击 **Convert to issue（转换为议题）**。
 7. 该注释会自动转换为议题。 在项目板中，新议题卡与之前注释的位置一样。
 
-### 编辑和删除注释
+## 编辑和删除注释
 
 1. 导航到您要编辑或删除的注释。
 {% data reusables.project-management.project-note-more-options %}
 3. 要编辑注释的内容，请单击 **Edit note（编辑注释）**。 ![编辑注释按钮](/assets/images/help/projects/edit-note.png)
 4. 要删除注释的内容，请单击 **Delete note（删除注释）**。 ![删除注释按钮](/assets/images/help/projects/delete-note.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于项目板](/articles/about-project-boards)"
 - "[创建项目板](/articles/creating-a-project-board)"

@@ -1,15 +1,17 @@
 ---
-title: Secret scanning partner program
+title: Programa asociado del escaneo de secretos
 intro: 'Como proveedor de servicios, puedes asociarte con {% data variables.product.prodname_dotcom %} para que se aseguren nuestros formatos de token secretos a través de un escaneo de secretos, el cual busca las confirmaciones accidentales de tus formatos secretos y puede enviarse a la terminal de verificación de un proveedor de servicios.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /partnerships/token-scanning/
+  - /partnerships/token-scanning
   - /partnerships/secret-scanning
   - /developers/overview/secret-scanning
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Escaneo de secretos
 ---
 
 {% data variables.product.prodname_dotcom %} escanea los repositorios en busca de formatos secretos para prevenir el uso fraudulento de las credenciales que se confirmaron por accidente. El {% data variables.product.prodname_secret_scanning_caps %} ocurre predeterminadamente en los repositorios públicos y los administradores de repositorio o propietarios de la organización pueden habilitarlo en los repositorios privados. Como proveedor de servicios, puedes asociarte con {% data variables.product.prodname_dotcom %} para que tus formatos de secreto se incluyan en nuestro {% data variables.product.prodname_secret_scanning %}.
@@ -20,15 +22,15 @@ Cuando se encuentra una coincidencia de tu formato de secreto en un repositorio 
 
 Este artículo describe la forma en la que puedes asociarte con {% data variables.product.prodname_dotcom %} como proveedor de servicios y unirte al programa asociado del {% data variables.product.prodname_secret_scanning %}.
 
-### El proceso del {% data variables.product.prodname_secret_scanning %}
+## El proceso del {% data variables.product.prodname_secret_scanning %}
 
-##### Cómo funciona el {% data variables.product.prodname_secret_scanning %} en un repositorio público
+#### Cómo funciona el {% data variables.product.prodname_secret_scanning %} en un repositorio público
 
 El siguiente diagrama resume el proceso del {% data variables.product.prodname_secret_scanning %} para los repositorios públicos y muestra como cualquier coincidencia se envía a la terminal de verificación de un proveedor de servicios.
 
 ![Diagrama de flujo que muestra el proceso de escaneo para un secreto y el envío de coincidencias a una terminal de verificación del proveedor de servicios](/assets/images/secret-scanning-flow.png "Flujo del {% data variables.product.prodname_secret_scanning_caps %}")
 
-### Unirse al programa del {% data variables.product.prodname_secret_scanning %} en {% data variables.product.prodname_dotcom %}
+## Unirse al programa del {% data variables.product.prodname_secret_scanning %} en {% data variables.product.prodname_dotcom %}
 
 1. Contacta a {% data variables.product.prodname_dotcom %} para iniciar el proceso.
 1. Identifica los secretos relevantes que quieres escanear y crea expresiones regulares para capturarlos.
@@ -37,13 +39,13 @@ El siguiente diagrama resume el proceso del {% data variables.product.prodname_s
 1. Implementa la revocación de secretos y las notificaciones al usuario en tu servicio de alerta de secretos.
 1. Proporciona retroalimentación para los falsos positivos (opcional).
 
-#### Contacta a {% data variables.product.prodname_dotcom %} para iniciar el proceso
+### Contacta a {% data variables.product.prodname_dotcom %} para iniciar el proceso
 
 Para iniciar con el proceso de inscripción, manda un correo electrónico a <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 Recibirás los detalles del programa del {% data variables.product.prodname_secret_scanning %} y necesitarás aceptar las condiciones de participación de {% data variables.product.prodname_dotcom %} antes de proceder.
 
-#### Identifica tus secretos y crea expresiones regulares
+### Identifica tus secretos y crea expresiones regulares
 
 Para escanear tus secretos, {% data variables.product.prodname_dotcom %} necesita la siguiente información de cada secreto que quieras incluir en el programa del {% data variables.product.prodname_secret_scanning %}:
 
@@ -53,11 +55,11 @@ Para escanear tus secretos, {% data variables.product.prodname_dotcom %} necesit
 
 Envía esta información a <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-#### Crea un servicio de alerta de secretos
+### Crea un servicio de alerta de secretos
 
 Crea una terminal HTTP pública y accesible desde la internet en la URL que nos proporcionaste. Cuando se encuentre una coincidencia de tu expresión regular en un repositorio público, {% data variables.product.prodname_dotcom %} enviará un mensaje HTTP de tipo `POST` a tu terminal.
 
-##### Ejemplo del POST que se envía a tu terminal
+#### Ejemplo del POST que se envía a tu terminal
 
 ```http
 POST / HTTP/2
@@ -68,7 +70,7 @@ GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681
 GITHUB-PUBLIC-KEY-SIGNATURE: MEQCIA6C6L8ZYvZnqgV0zwrrmRab10QmIFV396gsba/WYm9oAiAI6Q+/jNaWqkgG5YhaWshTXbRwIgqIK6Ru7LxVYDbV5Q==
 Content-Length: 0123
 
-[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/commit/123456718ee16e59dabbacb1b4049abc11abc123"}]
+[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt"}]
 ```
 
 El cuerpo del mensaje es una matriz de JSON que contiene uno o más objetos con el siguiente contenido. Cuando se encuentran coincidencias múltiples, {% data variables.product.prodname_dotcom %} podría enviar un solo mensaje con más de una coincidencia del secreto. Tu terminal deberá poder gestionar las solicitudes con una gran cantidad de coincidencias sin exceder el tiempo.
@@ -77,7 +79,7 @@ El cuerpo del mensaje es una matriz de JSON que contiene uno o más objetos con 
 * **Tipo**: El nombre único que proporcionaste para identificar tu expresión regular.
 * **URL**: La URL de la confirmación pública en donde se encontró la coincidencia.
 
-#### Implementa la verificación de firmas en tu servicio de alerta de secretos
+### Implementa la verificación de firmas en tu servicio de alerta de secretos
 
 Te recomendamos que implementes la validación de firmas en tu servicio de alerta de secretos para garantizar que los mensajes que recibes son auténticamente de {% data variables.product.prodname_dotcom %} y no son malintencionados.
 
@@ -321,11 +323,11 @@ const verify_signature = async (payload, signature, keyID) => {
 };
 ```
 
-#### Implementa la revocación de secretos y la notificación a usuarios en tu servicio de alerta de secretos
+### Implementa la revocación de secretos y la notificación a usuarios en tu servicio de alerta de secretos
 
 Para el {% data variables.product.prodname_secret_scanning %} en repositorios públicos, puedes ampliar tu servicio de alerta de secretos para que revoque los secretos expuestos y notifique a los usuarios afectados. Depende de ti el cómo implementas esto en tu servicio de alerta de secretos, pero te recomendamos considerar cualquier secreto del cual {% data variables.product.prodname_dotcom %} te envíe mensajes de que es público y está puesto en riesgo.
 
-#### Proporciona retroalimentación sobre los falsos positivos
+### Proporciona retroalimentación sobre los falsos positivos
 
 Recolectamos la retroalimentación sobre la validez de los secretos individuales que se detectan en las respuestas de los socios. Si quieres formar parte, mándanos un correo electrónico a <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 

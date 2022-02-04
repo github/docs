@@ -1,9 +1,4 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs'
-import yaml from 'js-yaml'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // [start-readme]
 //
@@ -11,9 +6,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 //
 // [end-readme]
 
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs/promises'
+import yaml from 'js-yaml'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
 const inputFile = path.join(__dirname, '../data/glossary.yml')
 
-const glossary = yaml.load(fs.readFileSync(inputFile, 'utf8'))
+const glossary = yaml.load(await fs.readFile(inputFile, 'utf8'))
 
 console.log(glossary)
 const external = []
@@ -27,6 +29,6 @@ glossary.forEach((term) => {
   }
 })
 
-fs.writeFileSync(path.join(__dirname, '../data/glossaries/internal.yml'), yaml.dump(internal))
+await fs.writeFile(path.join(__dirname, '../data/glossaries/internal.yml'), yaml.dump(internal))
 
-fs.writeFileSync(path.join(__dirname, '../data/glossaries/external.yml'), yaml.dump(external))
+await fs.writeFile(path.join(__dirname, '../data/glossaries/external.yml'), yaml.dump(external))

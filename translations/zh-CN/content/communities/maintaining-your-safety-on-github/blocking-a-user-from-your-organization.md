@@ -5,9 +5,11 @@ redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: 阻止您的组织
 ---
 
 您可以从组织的设置中或从用户发表的特定评论中阻止用户。 在评论中阻止用户时，您可以选择向该用户发送通知，以告知他们已被阻止并说明原因。 否则，用户不会直接收到您已阻止他们的通知。 被阻止的用户仍然可以删除其现有内容。
@@ -38,7 +40,7 @@ topics:
 - 对议题、拉取请求或提交发表评论
 - 添加或编辑 wiki 页面
 
-### 在评论中阻止用户
+## 在评论中阻止用户
 
 1. 导航到您要阻止其作者的评论。
 2. 在评论的右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Block user（阻止用户）**。 ![显示阻止用户选项的水平烤肉串图标和评论审核菜单](/assets/images/help/repository/comment-menu-block-user.png)
@@ -47,7 +49,7 @@ topics:
 5. 如果要将阻止的原因告知用户，请选择 **Send a notification to this user（向此用户发送通知）**。 ![在阻止用户下拉菜单中发送通知](/assets/images/help/organizations/org-block-options-menu-send-notification.png)
 6. 要阻止用户，请单击 **Block user from organization（阻止用户访问组织）**或 **Block user from organization and send message（阻止用户访问组织并发送消息）**。 ![阻止用户按钮](/assets/images/help/organizations/org-block-user-button-in-comment.png)
 
-### 在组织设置中阻止用户
+## 在组织设置中阻止用户
 
 1. 要阻止组织成员，请先从组织中[删除用户](/articles/removing-a-member-from-your-organization) 。
 
@@ -58,7 +60,7 @@ topics:
 7. 如果要设置阻止的时限，请使用 Block options（阻止选项）下拉菜单，选择要阻止该用户的时间段。 ![阻止选项下拉菜单](/assets/images/help/organizations/org-block-options-menu.png)
 8. 单击 **Block user（阻止用户）**。 ![阻止按钮](/assets/images/help/organizations/org-block-user-button.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - “[查看被阻止访问组织的用户](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)”
 - “[解除阻止用户访问组织](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”

@@ -5,6 +5,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
@@ -37,7 +38,7 @@ If you believe you should be credited for a security advisory, please contact th
 11. Optionally, edit the "Credits" for the security advisory.
   ![Credits for a security advisory](/assets/images/help/security/security-advisory-credits.png)
 12. Click **Update security advisory**.
-  ![Add button](/assets/images/help/security/update-advisory-button.png)
+  !["Update security advisory" button](/assets/images/help/security/update-advisory-button.png)
 13. The people listed in the "Credits" section will receive an email or web notification inviting them to accept credit. If a person accepts, their username will be publicly visible once the security advisory is published.
 
 ## Further reading

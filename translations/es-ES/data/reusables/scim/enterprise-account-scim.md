@@ -1,1 +1,1 @@
-Si estás participando en el beta privado para el aprovisionamiento de usuario para cuentas empresariales, cuando habilites SAML para tu cuenta empresarial, se habilitará predeterminadamente el aprovisionamiento y desaprovisionamiento de SCIM en {% data variables.product.product_name %}. Puedes utilizar el aprovisionamiento para administrar la membrecía de la organización si configuras SCIM en tu IdP.
+El aprovisionamiento y desaprovisionamiento del acceso de los usuarios con SCIM no se encuentra disponible para las cuentas empresariales.

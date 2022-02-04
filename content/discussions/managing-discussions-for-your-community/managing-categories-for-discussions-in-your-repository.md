@@ -4,10 +4,10 @@ intro: 'You can categorize the discussions in your repository to organize conver
 permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Manage categories
 ---
 
-{% data reusables.discussions.beta %}
 
 ## About categories for discussions
 

@@ -1,4 +1,4 @@
-1. From the list of GPG keys, copy the long form of the GPG key ID you'd like to use. En este ejemplo, el ID de la llave GPG es `3AA5C34371567BD2`:
+1. Desde la lista de llaves GPG, compia la forma larga de la ID de la llave GPG que quieres utilizar. En este ejemplo, el ID de la llave GPG es `3AA5C34371567BD2`:
   ```shell
   $ gpg --list-secret-keys --keyid-format=long
   /Users/hubot/.gnupg/secring.gpg

@@ -1,57 +1,66 @@
 ---
-title: Administración de GitHub Enterprise
+title: GitHub Enterprise administration
+intro: You can use these endpoints to administer your enterprise. Among the tasks you can perform with this API are many relating to GitHub Actions.
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
   - /v3/enterprise
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
+shortTitle: Enterprise administration
 ---
 
-You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
-
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
-**Nota:** Este artículo aplica a {% data variables.product.prodname_ghe_cloud %}. Para ver la versión de {% data variables.product.prodname_ghe_managed %} o de {% data variables.product.prodname_ghe_server %}, utiliza el menú desplegable de **{% data ui.pages.article_version %}**.
+**Note:** This article applies to {% data variables.product.prodname_ghe_cloud %}. To see the {% data variables.product.prodname_ghe_managed %} or {% data variables.product.prodname_ghe_server %} version, use the **{% data ui.pages.article_version %}** drop-down menu.
 
 {% endnote %}
 
 {% endif %}
 
-### URL de las Terminales
+### Endpoint URLs
 
-Las terminales de la API de REST{% if enterpriseServerVersions contains currentVersion %}—excepto las terminales de la API de [Consola de Administración](#management-console)—{% endif %} se prefijan con la siguiente URL:
+REST API endpoints{% ifversion ghes %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:
 
 ```shell
 {% data variables.product.api_url_pre %}
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
-Las terminales de la API de [Consola de Administración](#management-console) solo llevan un prefijo con un nombre de host:
+{% ifversion fpt or ghec %}
+When endpoints include `{enterprise}`, replace `{enterprise}` with the handle for your enterprise account, which is included in the URL for your enterprise settings. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `{enterprise}` with `octo-enterprise`.
+{% endif %}
+
+{% ifversion ghes %}
+[Management Console](#management-console) API endpoints are only prefixed with a hostname:
 
 ```shell
 http(s)://<em>hostname</em>/
 ```
 {% endif %}
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-### Autenticación
+{% ifversion ghae or ghes %}
+### Authentication
 
-Las terminales de la API para tu instalación de {% data variables.product.product_name %} acceptan [los mismos métodos de autenticación](/rest/overview/resources-in-the-rest-api#authentication) que los de la API de GitHub.com. Puedes autenticarte con **[Tokens de OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** {% if enterpriseServerVersions contains currentVersion %}(los cuales se pueden crear utilizando la [API de autorizciones](/rest/reference/oauth-authorizations#create-a-new-authorization)) {% endif %}o la **[autenticación básica](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if enterpriseServerVersions contains currentVersion %} Los tokens de OAuth deben tener el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps#available-scopes) de `site_admin` cuando se utilicen con las terminales específicas de la empresa. {% endif %}
+Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the GitHub.com API. You can authenticate yourself with **[OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** {% ifversion ghes %}(which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) {% endif %}or **[basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% ifversion ghes %}
+OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
 
-Solo los administradores de sitio autenticados en {% data variables.product.product_name %} pueden acceder a las terminales de la API de administración empresarial{% if enterpriseServerVersions contains currentVersion %}, con exepción de la API de [Consola de Administración](#management-console), la cual requiere la [contraseña de la Consola de Administración](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
+Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% ifversion ghes %}, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-### Información de la versión
+{% ifversion ghae or ghes %}
+### Version information
 
-La versión actual de tu empresa se devuelve en el encabezado de respuesta de cada API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` También puedes leer la versión actual si llamas a la [terminal de meta](/rest/reference/meta/).
+The current version of your enterprise is returned in the response header of every API:
+`X-GitHub-Enterprise-Version: {{currentVersion}}.0`
+You can also read the current version by calling the [meta endpoint](/rest/reference/meta/).
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -59,9 +68,9 @@ La versión actual de tu empresa se devuelve en el encabezado de respuesta de ca
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 
-## Registro de auditoría
+## Audit log
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'audit-log' %}{% include rest_operation %}{% endif %}
@@ -69,8 +78,8 @@ La versión actual de tu empresa se devuelve en el encabezado de respuesta de ca
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-## Facturación
+{% ifversion fpt or ghec %}
+## Billing
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'billing' %}{% include rest_operation %}{% endif %}
@@ -78,83 +87,18 @@ La versión actual de tu empresa se devuelve en el encabezado de respuesta de ca
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ## GitHub Actions
 
-{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-## SCIM
+{% ifversion ghae or ghes %}
+## Admin stats
 
-### Aprovisionamiento de SCIM para Empresas
-
-Los Proveedores de Identidad (IdPs) con SCIM habilitado pueden utilizar la API de SCIM para automatizar el aprovisionamiento de la membresía empresarial. La API de {% data variables.product.product_name %} se basa en la versión 2.0 del [estándar de SCIM](http://www.simplecloud.info/).
-
-El IdP debe utilizar `{% data variables.product.api_url_code %}/scim/v2/enterprises/{enterprise}/` como la terminal de SCIM.
-
-{% note %}
-
-**Nota:** La API empresarial de SCIM solo se encuentra disponible para las empresas en [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) que cuenten con el [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
-
-{% endnote %}
-
-### Autenticar las llamadas a la API de SCIM
-
-Debes autenticarte como un propietario de una empresa de {% data variables.product.product_name %} para utilizar su API de SCIM. La API espera que se incluya un token [Portador de OAuth 2.0](/developers/apps/authenticating-with-github-apps) en el encabezado `Authorization`. También podrías utilizar un token de acceso personal, pero primero debes [autorizarlo para su uso con tu SSO empresarial de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
-
-### Mapeo de los datos de SAML y de SCIM
-
-El IdP de SAML y el cliente de SCIM deben utilizar valores coincidentes de `NameID` y `userName` para cada usuario. Esto le permite al usuario que se autentica mediante SAML el poder enlazarse con su identidad aprovisionada de SCIM.
-
-Los grupos de SCIM se empatan con las organizaciones de {% data variables.product.product_name %} que tienen exactamente el mismo nombre, y que son propiedad de la cuenta empresarial.
-
-El IdP de SAML y el cliente de SCIM deben configurarse para empatar exactamente el `displayName` del grupo de SCIM con el nombre correspondiente de la organización de {% data variables.product.product_name %}. Esto le permite a {% data variables.product.product_name %} enlazar el grupo de SCIM con la membrecía organizacional de {% data variables.product.product_name %}.
-
-### Atributos de Usuario de SCIM compatibles
-
-| Nombre           | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `userName`       | `secuencia` | El nombre de usuario para el usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `name.givenName` | `secuencia` | El primer nombre del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `name.lastName`  | `secuencia` | El apellido del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `emails`         | `arreglo`   | Lista de correos electrónicos del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `externalId`     | `secuencia` | El proveedor de SAML genera este identificador, el cual utiliza como una ID única para empatarla contra un usuario de GitHub. Puedes encontrar la `externalID` para un usuario ya sea con el proveedor de SAML, o utilizar la terminal de [Listar las identidades aprovisionadas de SCIM para una empresa](#list-scim-provisioned-identities-for-an-enterprise) y filtrar otros atributos conocidos, tales como el nombre de usuario o la dirección de correo electrónico de un usuario de GitHub. |
-| `id`             | `secuencia` | Identificador que genera la terminal de SCIM de GitHub.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `active`         | `boolean`   | Se utiliza para indicar si la identidad está activa (true) o si debe desaprovisionarse (false).                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `groups`         | `arreglo`   | Lista opcional de las ID del grupo de SCIM del cual el usuario es miembro.                                                                                                                                                                                                                                                                                                                                                                                                                         |
-
-{% note %}
-
-**Nota:** Las URL de terminal para la API de SCIM distinguen entre mayúsculas y minúsculas. Por ejemplo, la primera letra en la terminal `Users` debe ponerse en mayúscula:
-
-```shell
-GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
-```
-
-{% endnote %}
-
-### Atributos del Grupo de SCIM compatibles
-
-| Nombre        | Type        | Descripción                                                                                                                                                                                                                                                                       |
-| ------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `displayName` | `secuencia` | El nombre del grupo de SCIM, el cual debe empatar exactamente con el nombre de la organización de {% data variables.product.product_name %} correspondiente. Por ejemplo, si la URL de la organización es `https://github.com/octo-org`, el nombre del grupo debe ser `octo-org`. |
-| `members`     | `arreglo`   | Lista de IDs de usuario de SCIM que son miembros del grupo.                                                                                                                                                                                                                       |
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'scim' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-## Estadísticas de los Administradores
-
-La API de estadísticas de los administradores proporciona diversas métricas sobre tu instalación. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
+The Admin Stats API provides a variety of metrics about your installation. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'admin-stats' %}{% include rest_operation %}{% endif %}
@@ -162,11 +106,11 @@ La API de estadísticas de los administradores proporciona diversas métricas so
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghae or ghes > 2.22 %}
 
-## Anuncios
+## Announcements
 
-La API de anuncios te permite administrar el letrero de anuncios globales en tu empresa. Para obtener más información, consulta la sección "[Personalizar los mensajes de usuario para tu empresa](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)".
+The Announcements API allows you to manage the global announcement banner in your enterprise. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'announcement' %}{% include rest_operation %}{% endif %}
@@ -174,13 +118,13 @@ La API de anuncios te permite administrar el letrero de anuncios globales en tu 
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 
-## Webhooks globales
+## Global webhooks
 
-Los webhooks globales se instalan en tu empresa. Puedes utilizar los webhooks globales para monitorear, responder a, o requerir las reglas para los usuarios, organizaciones, equipos y repositorios en tu empresa. Los webhooks globales se pueden suscribir a los tipos de evento para [organizaciones](/developers/webhooks-and-events/webhook-events-and-payloads#organization), [usuarios](/developers/webhooks-and-events/webhook-events-and-payloads#user), [repositorios](/developers/webhooks-and-events/webhook-events-and-payloads#repository), [equipos](/developers/webhooks-and-events/webhook-events-and-payloads#team), [miembros](/developers/webhooks-and-events/webhook-events-and-payloads#member), [membrecías](/developers/webhooks-and-events/webhook-events-and-payloads#membership), [bifuraciones](/developers/webhooks-and-events/webhook-events-and-payloads#fork), y [pings](/developers/webhooks-and-events/about-webhooks#ping-event).
+Global webhooks are installed on your enterprise. You can use global webhooks to automatically monitor, respond to, or enforce rules for users, organizations, teams, and repositories on your enterprise. Global webhooks can subscribe to the [organization](/developers/webhooks-and-events/webhook-events-and-payloads#organization), [user](/developers/webhooks-and-events/webhook-events-and-payloads#user), [repository](/developers/webhooks-and-events/webhook-events-and-payloads#repository), [team](/developers/webhooks-and-events/webhook-events-and-payloads#team), [member](/developers/webhooks-and-events/webhook-events-and-payloads#member), [membership](/developers/webhooks-and-events/webhook-events-and-payloads#membership), [fork](/developers/webhooks-and-events/webhook-events-and-payloads#fork), and [ping](/developers/webhooks-and-events/about-webhooks#ping-event) event types.
 
-*Esta API solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella. Para aprender cómo configurar los webhooks globales, consulta la sección [Acerca de los webhooks globales](/enterprise/admin/user-management/about-global-webhooks).
+*This API is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it. To learn how to configure global webhooks, see [About global webhooks](/enterprise/admin/user-management/about-global-webhooks).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'global-webhooks' %}{% include rest_operation %}{% endif %}
@@ -188,13 +132,13 @@ Los webhooks globales se instalan en tu empresa. Puedes utilizar los webhooks gl
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## LDAP
 
-Puedes utilizar la API de LDAP para actualizar las relaciones de cuenta entre un usuario de {% data variables.product.product_name %} o un equipo y su entrada enlazada de LDAP o poner en cola una sincronización nueva.
+You can use the LDAP API to update account relationships between a {% data variables.product.product_name %} user or team and its linked LDAP entry or queue a new synchronization.
 
-Con las terminales de mapeo de LDAP, puedes actualizar el Nombre Distintivo (DN, por sus siglas en inglés) al cual mapea un usuario o equipo. Toma en cuenta que las terminales de LDAP generalmente solo son efectivas si tu aplicativo de {% data variables.product.product_name %} [habilitó la sincronización con LDAP](/enterprise/admin/authentication/using-ldap). La terminal de [mapeo de LDAP para actualización para un usuario](#update-ldap-mapping-for-a-user) puede utilizarse cuando se habilita LDAP, aún si la sincronización con LDAP está inhabilitada.
+With the LDAP mapping endpoints, you're able to update the Distinguished Name (DN) that a user or team maps to. Note that the LDAP endpoints are generally only effective if your {% data variables.product.product_name %} appliance has [LDAP Sync enabled](/enterprise/admin/authentication/using-ldap). The [Update LDAP mapping for a user](#update-ldap-mapping-for-a-user) endpoint can be used when LDAP is enabled, even if LDAP Sync is disabled.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'ldap' %}{% include rest_operation %}{% endif %}
@@ -202,11 +146,10 @@ Con las terminales de mapeo de LDAP, puedes actualizar el Nombre Distintivo (DN,
 
 {% endif %}
 
+{% ifversion ghae or ghes %}
+## License
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-## Licencia
-
-La API de licencias proporciona información sobre tu licencia empresarial. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
+The License API provides information on your Enterprise license. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'license' %}{% include rest_operation %}{% endif %}
@@ -214,36 +157,36 @@ La API de licencias proporciona información sobre tu licencia empresarial. *Sol
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-## Consola de administración
+## Management console
 
-La API de la Consola de Administración te ayuda a administrar tu instalación de {% data variables.product.product_name %}.
+The Management Console API helps you manage your {% data variables.product.product_name %} installation.
 
 {% tip %}
 
-Debes configurar el número de puerto explícitamente cuando haces llamadas de la API hacia la Consola de Administración. Si habilitaste TLS en tu empresa, el número de puerto es `8443`; de lo contrario, el número de puerto es `8080`.
+You must explicitly set the port number when making API calls to the Management Console. If TLS is enabled on your enterprise, the port number is `8443`; otherwise, the port number is `8080`.
 
-Si no quieres proporcionar un número de puerto, necesitarás configurar tu herramienta para seguir automáticamente las redirecciones.
+If you don't want to provide a port number, you'll need to configure your tool to automatically follow redirects.
 
-Podría que también necesites agregar el [marcador `-k`](http://curl.haxx.se/docs/manpage.html#-k) cuando utilices `curl`, ya que {% data variables.product.product_name %} utiliza un certificado auto-firmado antes de que [agregues tu propio certificado TLS](/enterprise/admin/guides/installation/configuring-tls/).
+You may also need to add the [`-k` flag](http://curl.haxx.se/docs/manpage.html#-k) when using `curl`, since {% data variables.product.product_name %} uses a self-signed certificate before you [add your own TLS certificate](/enterprise/admin/guides/installation/configuring-tls/).
 
 {% endtip %}
 
-### Autenticación
+### Authentication
 
-Necesitas pasar tu [Contraseña de la Consola de Administración](/enterprise/admin/articles/accessing-the-management-console/) como un token de autenticación para cada terminal de la API de ésta, con excepción de [`/setup/api/start`](#create-a-github-enterprise-server-license).
+You need to pass your [Management Console password](/enterprise/admin/articles/accessing-the-management-console/) as an authentication token to every Management Console API endpoint except [`/setup/api/start`](#create-a-github-enterprise-server-license).
 
-Utiliza el parámetro de `api_key` para enviar este token con cada solicitud. Por ejemplo:
+Use the `api_key` parameter to send this token with each request. For example:
 
 ```shell
 $ curl -L 'https://<em>hostname</em>:<em>admin_port</em>/setup/api?api_key=<em>your-amazing-password</em>'
 ```
 
-También puedes utilizar la autenticación HTTP estándar para enviar este token. Por ejemplo:
+You can also use standard HTTP authentication to send this token. For example:
 
 ```shell
-$ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>admin_port</em>/setup/api'
+$ curl -L -u "api_key:<em>your-amazing-password</em>" 'https://<em>hostname</em>:<em>admin_port</em>/setup/api'
 ```
 
 {% for operation in currentRestOperations %}
@@ -252,10 +195,10 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-## Organizaciones
+{% ifversion ghae or ghes %}
+## Organizations
 
-La API de Administración Organizacional te permite crear organizaciones en tu empresa. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
+The Organization Administration API allows you to create organizations on your enterprise. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
@@ -263,24 +206,26 @@ La API de Administración Organizacional te permite crear organizaciones en tu e
 
 {% endif %}
 
+{% ifversion ghes %}
+## Organization pre-receive hooks
 
-{% if enterpriseServerVersions contains currentVersion %}
-## Ganchos de Pre-recepción de la Organización
+The Organization Pre-receive Hooks API allows you to view and modify
+enforcement of the pre-receive hooks that are available to an organization.
 
-La API de Ganchos de Pre-recepción de la Organización te permite ver y modificar la aplicación de dichos ganchos que están disponibles para una organización.
+### Object attributes
 
-### Atributos de objeto
+| Name                             | Type      | Description                                               |
+|----------------------------------|-----------|-----------------------------------------------------------|
+| `name`                           | `string`  | The name of the hook.                                     |
+| `enforcement`                    | `string`  | The state of enforcement for the hook on this repository. |
+| `allow_downstream_configuration` | `boolean` | Whether repositories can override enforcement.            |
+| `configuration_url`              | `string`  | URL for the endpoint where enforcement is set.            |
 
-| Nombre                           | Type        | Descripción                                               |
-| -------------------------------- | ----------- | --------------------------------------------------------- |
-| `name (nombre)`                  | `secuencia` | El nombre del gancho.                                     |
-| `enforcement`                    | `secuencia` | El estado de imposición del gancho en este repositorio.   |
-| `allow_downstream_configuration` | `boolean`   | Si los repositorios pueden ignorar la imposición o no.    |
-| `configuration_url`              | `secuencia` | URL para la terminal en donde se configuró la imposición. |
+Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject
+any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
 
-Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. El valor `disabled` indica que el gancho de pre-recepción no se ejecutará. El valor `enabled` indica que se ejecutará y rechazará cualquier carga que resulte en un estado diferente a zero. El valor `testing` indica que el script va a ejecutarse pero no va a causar que se rechace ninguna carga.
-
-`configuration_url` podría ser un enlace a esta terminal o ser la configuración global de este gancho. Solo los administradores de sistema pueden acceder a la configuración global.
+`configuration_url` may be a link to this endpoint or this hook's global
+configuration. Only site admins are able to access the global configuration.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'org-pre-receive-hooks' %}{% include rest_operation %}{% endif %}
@@ -288,33 +233,33 @@ Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. E
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-## Ambientes de pre-recepción
+## Pre-receive environments
 
-La API de Ambientes de Pre-recepción te permite crear, listar, actualizar y borrar ambientes para los ganchos de pre-recepción. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
+The Pre-receive Environments API allows you to create, list, update and delete environments for pre-receive hooks. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
 
-### Atributos de objeto
+### Object attributes
 
-#### Ambiente de pre-recepción
+#### Pre-receive Environment
 
-| Nombre                | Type        | Descripción                                                                                         |
-| --------------------- | ----------- | --------------------------------------------------------------------------------------------------- |
-| `name (nombre)`       | `secuencia` | El nombre del ambiente como se muestra en la IU.                                                    |
-| `image_url`           | `secuencia` | La URL del tarball que se descargará y extraerá.                                                    |
-| `default_environment` | `boolean`   | Si este es el ambiente predeterminado que viene con {% data variables.product.product_name %} o no. |
-| `download`            | `objeto`    | El estado de descarga de este ambiente.                                                             |
-| `hooks_count`         | `número`    | La cantidad de ganchos de pre-recepción que utilizan este ambiente.                                 |
+| Name                  | Type      | Description                                                                |
+|-----------------------|-----------|----------------------------------------------------------------------------|
+| `name`                | `string`  | The name of the environment as displayed in the UI.                        |
+| `image_url`           | `string`  | URL to the tarball that will be downloaded and extracted.                  |
+| `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.product_name %}. |
+| `download`            | `object`  | This environment's download status.                                        |
+| `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                 |
 
-#### Descarga del Ambiente de Pre-recepción
+#### Pre-receive Environment Download
 
-| Nombre          | Type        | Descripción                                                                      |
-| --------------- | ----------- | -------------------------------------------------------------------------------- |
-| `state`         | `secuencia` | El estado de la mayoría de las descargas recientes.                              |
-| `downloaded_at` | `secuencia` | La hora en la cual iniciaron la mayoría de las descrgas recientes.               |
-| `message`       | `secuencia` | Cuando algo falla, este tendrá cualquier mensaje de error que se haya producido. |
+| Name            | Type     | Description                                             |
+|-----------------|----------|---------------------------------------------------------|
+| `state`         | `string` | The state of the most recent download.                  |
+| `downloaded_at` | `string` | The time when the most recent download started.         |
+| `message`       | `string` | On failure, this will have any error messages produced. |
 
-Los valores posibles para `state` son `not_started`, `in_progress`, `success`, `failed`.
+Possible values for `state` are `not_started`, `in_progress`, `success`, `failed`.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'pre-receive-environments' %}{% include rest_operation %}{% endif %}
@@ -322,25 +267,27 @@ Los valores posibles para `state` son `not_started`, `in_progress`, `success`, `
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-## Ganchos de pre-recepción
+{% ifversion ghes %}
+## Pre-receive hooks
 
-La API de Ganchos Pre-recepción te permite crear, listar, actualizar y borrar los ganchos de pre-recepción. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
+The Pre-receive Hooks API allows you to create, list, update and delete pre-receive hooks. *It is only available to
+[authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
 
-### Atributos de objeto
+### Object attributes
 
-#### Ganchos de pre-recepción
+#### Pre-receive Hook
 
-| Nombre                           | Type        | Descripción                                                                         |
-| -------------------------------- | ----------- | ----------------------------------------------------------------------------------- |
-| `name (nombre)`                  | `secuencia` | El nombre del gancho.                                                               |
-| `script`                         | `secuencia` | El script que ejecuta el gancho.                                                    |
-| `script_repository`              | `objeto`    | El repositorio de GitHub en donde se mantiene el script.                            |
-| `environment`                    | `objeto`    | El ambiente de pre-recepción en donde se ejecuta el script.                         |
-| `enforcement`                    | `secuencia` | El estado de las imposiciones para este gancho.                                     |
-| `allow_downstream_configuration` | `boolean`   | Si las imposiciones pueden o no ignorarse a nivel de organización o de repositorio. |
+| Name                             | Type      | Description                                                     |
+|----------------------------------|-----------|-----------------------------------------------------------------|
+| `name`                           | `string`  | The name of the hook.                                           |
+| `script`                         | `string`  | The script that the hook runs.                                  |
+| `script_repository`              | `object`  | The GitHub repository where the script is kept.                 |
+| `environment`                    | `object`  | The pre-receive environment where the script is executed.       |
+| `enforcement`                    | `string`  | The state of enforcement for this hook.                         |
+| `allow_downstream_configuration` | `boolean` | Whether enforcement can be overridden at the org or repo level. |
 
-Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. El valor `disabled` indica que el gancho de pre-recepción no se ejecutará. El valor `enabled` indica que se ejecutará y rechazará cualquier carga que resulte en un estado diferente a zero. El valor `testing` indica que el script va a ejecutarse pero no va a causar que se rechace ninguna carga.
+Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject
+any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'pre-receive-hooks' %}{% include rest_operation %}{% endif %}
@@ -348,23 +295,24 @@ Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. E
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-## Ganchos de pre-recepción del repositorio
+## Repository pre-receive hooks
 
-La API de Ganchos de Pre-recepción para Repositorios te permite ver y modificar la imposición de los ganchos de pre-recepción que están disponibles para un repositorio.
+The Repository Pre-receive Hooks API allows you to view and modify
+enforcement of the pre-receive hooks that are available to a repository.
 
-### Atributos de objeto
+### Object attributes
 
-| Nombre              | Type        | Descripción                                               |
-| ------------------- | ----------- | --------------------------------------------------------- |
-| `name (nombre)`     | `secuencia` | El nombre del gancho.                                     |
-| `enforcement`       | `secuencia` | El estado de imposición del gancho en este repositorio.   |
-| `configuration_url` | `secuencia` | URL para la terminal en donde se configuró la imposición. |
+| Name                | Type     | Description                                               |
+|---------------------|----------|-----------------------------------------------------------|
+| `name`              | `string` | The name of the hook.                                     |
+| `enforcement`       | `string` | The state of enforcement for the hook on this repository. |
+| `configuration_url` | `string` | URL for the endpoint where enforcement is set.            |
 
-Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. El valor `disabled` indica que el gancho de pre-recepción no se ejecutará. El valor `enabled` indica que se ejecutará y rechazará cualquier carga que resulte en un estado diferente a zero. El valor `testing` indica que el script va a ejecutarse pero no va a causar que se rechace ninguna carga.
+Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
 
-`configuration_url` podría ser un enlace a este repositorio, al propietario de su organización o a su configuración global. La autorización para acceder a esta terminal en `configuration_url` se determina a nivel de administrador de sitio o de propietario.
+`configuration_url` may be a link to this repository, it's organization owner or global configuration. Authorization to access the endpoint at `configuration_url` is determined at the owner or site admin level.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'repo-pre-receive-hooks' %}{% include rest_operation %}{% endif %}
@@ -372,10 +320,10 @@ Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. E
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-## Usuarios
+{% ifversion ghae or ghes %}
+## Users
 
-La API de Administración de Usuarios te permite suspender{% if enterpriseServerVersions contains currentVersion %}, dejar de suspender, promover, y degradar{% endif %}{% if currentVersion == "github-ae@latest" %} y dejar de suspender{% endif %} a los usuarios en tu empresa. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `403` si intentan acceder a ella.
+The User Administration API allows you to suspend{% ifversion ghes %}, unsuspend, promote, and demote{% endif %}{% ifversion ghae %} and unsuspend{% endif %} users on your enterprise. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `403` response if they try to access it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

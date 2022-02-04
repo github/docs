@@ -6,12 +6,16 @@ redirect_from:
   - /articles/filtering-cards-on-a-project-board
   - /github/managing-your-work-on-github/filtering-cards-on-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: 在板上筛选卡
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 在卡上，您可以单击任意受理人、里程碑或标签，以便按该限定符过滤项目板。 要清除搜索，您可以再次单击相同的受理人、里程碑或标签。
 
@@ -26,7 +30,7 @@ topics:
 - 使用 `status:pending`、`status:success` 或 `status:failure` 按检查状态过滤
 - 使用 `type:issue`、`type:pr` 或 `type:note` 按类型过滤卡
 - 使用 `is:open`、`is:closed` 或 `is:merged` 和 `is:issue`、`is:pr` 或 `is:note` 按状态和类型过滤卡
-- 使用 `linked:pr`，按通过结束引用链接到拉取请求的议题过滤卡。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+- 使用 `linked:pr` 关闭引用，按链接到拉取请求的议题过滤卡{% ifversion fpt or ghes or ghae or ghec %}
 - 使用 `repo:ORGANIZATION/REPOSITORY` 在组织范围的项目板中按仓库过滤卡{% endif %}
 
 1. 导航到包含要过滤的卡的项目板。
@@ -38,7 +42,7 @@ topics:
 
 {% endtip %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于项目板](/articles/about-project-boards)"
 - "[添加议题和拉取请求到项目板](/articles/adding-issues-and-pull-requests-to-a-project-board)"

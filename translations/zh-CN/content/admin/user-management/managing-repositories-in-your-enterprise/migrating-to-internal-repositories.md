@@ -7,18 +7,19 @@ redirect_from:
   - /admin/user-management/migrating-to-internal-repositories
 permissions: Site administrators can migrate to internal repositories.
 versions:
-  enterprise-server: '>=2.20'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Privacy
   - Repositories
   - Security
+shortTitle: 内部仓库迁移
 ---
 
-### 关于内部仓库
+## 关于内部仓库
 
-内部仓库适用于 {% data variables.product.prodname_ghe_server %} 2.20+。 {% data reusables.repositories.about-internal-repos %} 更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)。”
+内部仓库适用于 {% data variables.product.prodname_ghe_server %} 2.20+。 {% data reusables.repositories.about-internal-repos %} 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)。”
 
 在未来版本的 {% data variables.product.prodname_ghe_server %} 中，我们将调整仓库可见性的工作方式，以便公共、内部和私有术语对 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 上的开发者具有统一的含义。
 
@@ -36,14 +37,16 @@ topics:
 
 如果您未启用私有模式，迁移脚本将无效。
 
-### 运行迁移
+## 运行迁移
 
 1. 连接到管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)。”
-{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 2. 运行迁移命令。
+
    ```shell
    github-env bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w |  tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
+
 {% else %}
 2. 导航至 `/data/github/current` 目录。
    ```shell
@@ -57,6 +60,6 @@ topics:
 
 日志输出将显示在终端和 `/tmp/convert_public_ghes_repos_to_internal.log` 中。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[启用私人模式](/enterprise/admin/installation/enabling-private-mode)"

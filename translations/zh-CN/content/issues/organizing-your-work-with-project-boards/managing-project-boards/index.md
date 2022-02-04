@@ -3,9 +3,10 @@ title: 管理项目板
 shortTitle: 管理项目板
 intro: 了解如何创建和管理项目板
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Projects
@@ -25,3 +26,4 @@ redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
 ---
 
+{% data reusables.projects.project_boards_old %}

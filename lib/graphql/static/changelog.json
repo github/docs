@@ -4,6 +4,573 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `AbortQueuedMigrationsInput` was added",
+          "Type `AbortQueuedMigrationsPayload` was added",
+          "Type `ActorType` was added",
+          "Type `CreateMigrationSourceInput` was added",
+          "Type `CreateMigrationSourcePayload` was added",
+          "Type `GrantEnterpriseOrganizationsMigratorRoleInput` was added",
+          "Type `GrantEnterpriseOrganizationsMigratorRolePayload` was added",
+          "Type `GrantMigratorRoleInput` was added",
+          "Type `GrantMigratorRolePayload` was added",
+          "Type `Import` was added",
+          "Type `Migration` was added",
+          "Type `MigrationSource` was added",
+          "Type `MigrationSourceType` was added",
+          "Type `MigrationState` was added",
+          "Type `RepositoryMigration` was added",
+          "Type `RepositoryMigrationConnection` was added",
+          "Type `RepositoryMigrationEdge` was added",
+          "Type `RepositoryMigrationOrder` was added",
+          "Type `RepositoryMigrationOrderDirection` was added",
+          "Type `RepositoryMigrationOrderField` was added",
+          "Type `RevokeEnterpriseOrganizationsMigratorRoleInput` was added",
+          "Type `RevokeEnterpriseOrganizationsMigratorRolePayload` was added",
+          "Type `RevokeMigratorRoleInput` was added",
+          "Type `RevokeMigratorRolePayload` was added",
+          "Type `StartRepositoryMigrationInput` was added",
+          "Type `StartRepositoryMigrationPayload` was added",
+          "Type `UpdateEnterpriseOwnerOrganizationRoleInput` was added",
+          "Type `UpdateEnterpriseOwnerOrganizationRolePayload` was added",
+          "Argument `login: String` added to field `EnterpriseIdentityProvider.externalIdentities`",
+          "Argument `userName: String` added to field `EnterpriseIdentityProvider.externalIdentities`",
+          "Field `projectNextItems` was added to object type `Issue`",
+          "Field `abortQueuedMigrations` was added to object type `Mutation`",
+          "Field `createMigrationSource` was added to object type `Mutation`",
+          "Field `grantEnterpriseOrganizationsMigratorRole` was added to object type `Mutation`",
+          "Field `grantMigratorRole` was added to object type `Mutation`",
+          "Field `revokeEnterpriseOrganizationsMigratorRole` was added to object type `Mutation`",
+          "Field `revokeMigratorRole` was added to object type `Mutation`",
+          "Field `startRepositoryMigration` was added to object type `Mutation`",
+          "Field `updateEnterpriseOwnerOrganizationRole` was added to object type `Mutation`",
+          "Argument `login: String` added to field `OIDCProvider.externalIdentities`",
+          "Argument `userName: String` added to field `OIDCProvider.externalIdentities`",
+          "Field `repositoryMigrations` was added to object type `Organization`",
+          "Argument `login: String` added to field `OrganizationIdentityProvider.externalIdentities`",
+          "Argument `userName: String` added to field `OrganizationIdentityProvider.externalIdentities`",
+          "Field `public` was added to object type `ProjectNext`",
+          "Field `shortDescription` was added to object type `ProjectNext`",
+          "Field `isArchived` was added to object type `ProjectNextItem`",
+          "Field `projectNextItems` was added to object type `PullRequest`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-02-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `OrgEnterpriseOwnerOrder` was added",
+          "Type `OrgEnterpriseOwnerOrderField` was added",
+          "Type `OrganizationEnterpriseOwnerConnection` was added",
+          "Type `OrganizationEnterpriseOwnerEdge` was added",
+          "Enum value 'LFX_CROWDFUNDING` was added to enum `FundingPlatform'",
+          "Field `enterpriseOwners` was added to object type `Organization`",
+          "Enum value 'ADDED_TO_MERGE_QUEUE_EVENT` was added to enum `PullRequestTimelineItemsItemType'",
+          "Enum value 'REMOVED_FROM_MERGE_QUEUE_EVENT` was added to enum `PullRequestTimelineItemsItemType'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-01-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `BypassForcePushAllowance` was added",
+          "Type `BypassForcePushAllowanceConnection` was added",
+          "Type `BypassForcePushAllowanceEdge` was added",
+          "Field `bypassForcePushAllowances` was added to object type `BranchProtectionRule`",
+          "Input field `bypassForcePushActorIds` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `Push.pusher` changed type from `User!` to `Actor!`",
+          "Input field `bypassForcePushActorIds` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-01-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ProjectNextOrderField` was added",
+          "Type `RoleInOrganization` was added",
+          "Type `UpdateOrganizationAllowPrivateRepositoryForkingSettingInput` was added",
+          "Type `UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload` was added",
+          "Argument `viewerOrganizationRole: RoleInOrganization` added to field `Enterprise.organizations`",
+          "`Issue` object implements `ProjectNextOwner` interface",
+          "Field `projectNext` was added to object type `Issue`",
+          "Field `projectsNext` was added to object type `Issue`",
+          "Field `updateOrganizationAllowPrivateRepositoryForkingSetting` was added to object type `Mutation`",
+          "Field `membersCanForkPrivateRepositories` was added to object type `Organization`",
+          "Argument `query: String` added to field `Organization.projectsNext`",
+          "Argument `sortBy: ProjectNextOrderField` added to field `Organization.projectsNext`",
+          "Argument `query: String` added to field `ProjectNextOwner.projectsNext`",
+          "Argument `sortBy: ProjectNextOrderField` added to field `ProjectNextOwner.projectsNext`",
+          "`PullRequest` object implements `ProjectNextOwner` interface",
+          "Field `projectNext` was added to object type `PullRequest`",
+          "Field `projectsNext` was added to object type `PullRequest`",
+          "Argument `query: String` added to field `User.projectsNext`",
+          "Argument `sortBy: ProjectNextOrderField` added to field `User.projectsNext`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ConvertedToDiscussionEvent` was added",
+          "Member `ConvertedToDiscussionEvent` was added to Union type `IssueTimelineItems`",
+          "Enum value 'CONVERTED_TO_DISCUSSION_EVENT` was added to enum `IssueTimelineItemsItemType'",
+          "Member `ConvertedToDiscussionEvent` was added to Union type `PullRequestTimelineItems`",
+          "Enum value 'CONVERTED_TO_DISCUSSION_EVENT` was added to enum `PullRequestTimelineItemsItemType'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Argument `filterByAssignable: Boolean` added to field `Repository.discussionCategories`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `BranchActorAllowanceActor` was added",
+          "Type `BypassPullRequestAllowance` was added",
+          "Type `BypassPullRequestAllowanceConnection` was added",
+          "Type `BypassPullRequestAllowanceEdge` was added",
+          "Type `ContentAttachment` was removed",
+          "Type `ContentReference` was removed",
+          "Type `CreateContentAttachmentInput` was removed",
+          "Type `CreateContentAttachmentPayload` was removed",
+          "Field `bypassPullRequestAllowances` was added to object type `BranchProtectionRule`",
+          "Input field `bypassPullRequestActorIds` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `createContentAttachment` was removed from object type `Mutation`",
+          "Input field `bypassPullRequestActorIds` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-12-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `RequiredStatusCheckDescription` was added",
+          "Type `RequiredStatusCheckInput` was added",
+          "Field `requiredStatusChecks` was added to object type `BranchProtectionRule`",
+          "Input field `requiredStatusChecks` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Input field `requiredStatusChecks` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-11-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Argument `followRenames: Boolean` added to field `Organization.repository`",
+          "Argument `followRenames: Boolean` added to field `Query.repository`",
+          "Argument `followRenames: Boolean` added to field `RepositoryOwner.repository`",
+          "Argument `followRenames: Boolean` added to field `User.repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-11-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `UpdatePullRequestBranchInput` was added",
+          "Type `UpdatePullRequestBranchPayload` was added",
+          "Field `updatePullRequestBranch` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-11-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `DismissReason` was added",
+          "Type `DismissRepositoryVulnerabilityAlertInput` was added",
+          "Type `DismissRepositoryVulnerabilityAlertPayload` was added",
+          "Field `dismissRepositoryVulnerabilityAlert` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-10-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `AddProjectNextItemInput` was added",
+          "Type `AddProjectNextItemPayload` was added",
+          "Type `DeleteProjectNextItemInput` was added",
+          "Type `DeleteProjectNextItemPayload` was added",
+          "Type `OIDCProvider` was added",
+          "Type `OIDCProviderType` was added",
+          "Type `ProjectNext` was added",
+          "Type `ProjectNextConnection` was added",
+          "Type `ProjectNextEdge` was added",
+          "Type `ProjectNextField` was added",
+          "Type `ProjectNextFieldConnection` was added",
+          "Type `ProjectNextFieldEdge` was added",
+          "Type `ProjectNextItem` was added",
+          "Type `ProjectNextItemConnection` was added",
+          "Type `ProjectNextItemContent` was added",
+          "Type `ProjectNextItemEdge` was added",
+          "Type `ProjectNextItemFieldValue` was added",
+          "Type `ProjectNextItemFieldValueConnection` was added",
+          "Type `ProjectNextItemFieldValueEdge` was added",
+          "Type `ProjectNextOwner` was added",
+          "Type `UpdateProjectNextItemFieldInput` was added",
+          "Type `UpdateProjectNextItemFieldPayload` was added",
+          "Field `oidcProvider` was added to object type `EnterpriseOwnerInfo`",
+          "Field `addProjectNextItem` was added to object type `Mutation`",
+          "Field `deleteProjectNextItem` was added to object type `Mutation`",
+          "Field `updateProjectNextItemField` was added to object type `Mutation`",
+          "`Organization` object implements `ProjectNextOwner` interface",
+          "Field `projectNext` was added to object type `Organization`",
+          "Field `projectsNext` was added to object type `Organization`",
+          "`User` object implements `ProjectNextOwner` interface",
+          "Field `projectNext` was added to object type `User`",
+          "Field `projectsNext` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-10-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `repositories` was added to object type `Topic`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-10-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Enum value `RUST` was added to enum `SecurityAdvisoryEcosystem`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-09-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `UpdateSponsorshipPreferencesInput` was added",
+          "Type `UpdateSponsorshipPreferencesPayload` was added",
+          "Field `updateSponsorshipPreferences` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-09-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `forkingAllowed` was added to object type `Repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-09-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type 'Base64String' was added",
+          "Type `CancelSponsorshipInput` was added",
+          "Type `CancelSponsorshipPayload` was added",
+          "Type `CommitMessage` was added",
+          "Type `CommittableBranch` was added",
+          "Type `CreateCommitOnBranchInput` was added",
+          "Type `CreateCommitOnBranchPayload` was added",
+          "Type `FileAddition` was added",
+          "Type `FileChanges` was added",
+          "Type `FileDeletion` was added",
+          "Field `cancelSponsorship` was added to object type `Mutation`",
+          "Field `createCommitOnBranch` was added to object type `Mutation`",
+          "Field `sponsorsListing` (deprecated) was removed from object type `Query`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-09-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `sponsorshipForViewerAsSponsorable` was added to object type `Organization`",
+          "Field `sponsorshipForViewerAsSponsorable` was added to interface `Sponsorable`",
+          "Field `isSponsorOptedIntoEmail` was added to object type `Sponsorship`",
+          "Field `sponsorshipForViewerAsSponsorable` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-09-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "`DeploymentProtectionRule` object type no longer implements `Node` interface",
+          "Field `id` was removed from object type `DeploymentProtectionRule`",
+          "Field `isFollowingViewer` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `visibility` was added to object type `Repository`",
+          "Field `visibility` was added to interface `RepositoryInfo`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Input field `amount` was added to input object type `CreateSponsorshipInput`",
+          "Input field `isRecurring` was added to input object type `CreateSponsorshipInput`",
+          "Input field `sponsorLogin` was added to input object type `CreateSponsorshipInput`",
+          "Input field `sponsorableLogin` was added to input object type `CreateSponsorshipInput`",
+          "Input field `CreateSponsorshipInput.sponsorId` changed type from `ID!` to `ID`",
+          "Input field `CreateSponsorshipInput.sponsorableId` changed type from `ID!` to `ID`",
+          "Input field `CreateSponsorshipInput.tierId` changed type from `ID!` to `ID`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `CreateSponsorshipInput` was added",
+          "Type `CreateSponsorshipPayload` was added",
+          "Field `createSponsorship` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `estimatedNextSponsorsPayoutInCents` was added to object type `Organization`",
+          "Field `monthlyEstimatedSponsorsIncomeInCents` was added to object type `Organization`",
+          "Enum value `INTERNAL` was added to enum `OrganizationMembersCanCreateRepositoriesSettingValue`",
+          "Field `estimatedNextSponsorsPayoutInCents` was added to interface `Sponsorable`",
+          "Field `monthlyEstimatedSponsorsIncomeInCents` was added to interface `Sponsorable`",
+          "Field `estimatedNextSponsorsPayoutInCents` was added to object type `User`",
+          "Field `monthlyEstimatedSponsorsIncomeInCents` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Enum value `OTHER` was removed from enum `SecurityAdvisoryEcosystem`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `SponsorshipNewsletter` was added",
+          "Type `SponsorshipNewsletterConnection` was added",
+          "Type `SponsorshipNewsletterEdge` was added",
+          "Type `SponsorshipNewsletterOrder` was added",
+          "Type `SponsorshipNewsletterOrderField` was added",
+          "Field `sponsorshipNewsletters` was added to object type `Organization`",
+          "Field `sponsorshipNewsletters` was added to interface `Sponsorable`",
+          "Field `sponsorshipNewsletters` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `sponsoring` was added to object type `Organization`",
+          "Field `sponsoring` was added to interface `Sponsorable`",
+          "Field `sponsoring` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `autoMergeAllowed` was added to object type `Repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `SponsorConnection` was added",
+          "Type `SponsorEdge` was added",
+          "Type `SponsorOrder` was added",
+          "Type `SponsorOrderField` was added",
+          "Field `sponsors` was added to object type `Organization`",
+          "Field `sponsors` was added to interface `Sponsorable`",
+          "Field `sponsors` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-08-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Argument `membersOnly: Boolean` added to field `EnterpriseIdentityProvider.externalIdentities`",
+          "Argument `membersOnly: Boolean` added to field `OrganizationIdentityProvider.externalIdentities`",
+          "Field `mentions` was added to object type `Release`",
+          "Field `isPublic` was added to object type `SponsorsListing`",
+          "Field `nextPayoutDate` was added to object type `SponsorsListing`",
+          "Field `sponsorable` was added to object type `SponsorsListing`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-07-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `SponsorsActivity` was added",
           "Type `SponsorsActivityAction` was added",
           "Type `SponsorsActivityConnection` was added",

@@ -6,24 +6,26 @@ redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
   - /packages/guides/connecting-a-repository-to-a-container-image
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Conectar un repositorio
 ---
 
 Si conectas un repositorio a un paquete, la página de llegada de dicho paquete mostrará información y enlaces del repositorio, tales como el README.
 
-### Conectar un repositorio a un paquete qu pertenezca a un usuario en {% data variables.product.prodname_dotcom %}
+## Conectar un repositorio a un paquete qu pertenezca a un usuario en {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Conectar un repositorio a un paquete que pertenezca a una organización en {% data variables.product.prodname_dotcom %}
+## Conectar un repositorio a un paquete que pertenezca a una organización en {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Conectar un repositorio a una imagen de contenedor que utilice la línea de comandos
+## Conectar un repositorio a una imagen de contenedor que utilice la línea de comandos
 
 1. En tu Dockerfile, agrega esta línea, reemplazando a `OWNER` y `REPO` con tu información:
 

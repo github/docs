@@ -2,21 +2,22 @@
 title: 組み込みファイアウォールのルール設定
 intro: '{% data variables.product.product_location %}のデフォルトのファイアウォールのルールとカスタマイズされたルールを見ることができます。'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-firewall-settings/
+  - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-built-in-firewall-rules
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure firewall rules
 ---
 
-### {% data variables.product.product_location %}のファイアウォールについて
+## {% data variables.product.product_location %}のファイアウォールについて
 
 {% data variables.product.prodname_ghe_server %} は、仮想アプライアンスで Ubuntu の Uncomplicated Firewall (UFW) を使用します。 詳しい情報についてはUbuntuのドキュメンテーションの"[UFW](https://help.ubuntu.com/community/UFW)"を参照してください。 {% data variables.product.prodname_ghe_server %} は、許可されたサービスのファイアウォールのホワイトリストをリリースごとに自動的に更新します。
 
@@ -24,7 +25,7 @@ topics:
 
 UFW ファイアウォールは、{% data variables.product.prodname_ghe_server %} が正しく動作するのに必要となる他のいくつかのポートも開きます。 UFW のルールセットに関する詳しい情報については、[the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213) を参照してください。
 
-### デフォルトのファイアウォールルールの表示
+## デフォルトのファイアウォールルールの表示
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. デフォルトのファイアウォールルールを表示するには、`sudo ufw status` コマンドを使用します。 以下と同じような出力が表示されるでしょう:
@@ -55,7 +56,7 @@ UFW ファイアウォールは、{% data variables.product.prodname_ghe_server 
   > ghe-9418 (v6)              ALLOW       Anywhere (v6)
   ```
 
-### カスタムのファイアウォールルールの追加
+## カスタムのファイアウォールルールの追加
 
 {% warning %}
 
@@ -70,12 +71,12 @@ UFW ファイアウォールは、{% data variables.product.prodname_ghe_server 
   ```
 3. カスタムのファイアウォールルールをバックアップするには、`cp` コマンドを使用してルールを新しいファイルに移動します。
   ```shell
-  $ sudo cp -r /lib/ufw ~/ufw.backup
+  $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
 {% data variables.product.product_location %}をアップグレードした後は、カスタムのファイアウォールルールを再適用しなければなりません。 ファイアウォールのカスタムルールを再適用するためのスクリプトを作成することをお勧めします。
 
-### デフォルトのファイアウォールルールのリストア
+## デフォルトのファイアウォールルールのリストア
 
 ファイアウォールルールの変更後に何か問題が生じたなら、オリジナルのバックアップからルールをリセットできます。
 
@@ -88,7 +89,7 @@ UFW ファイアウォールは、{% data variables.product.prodname_ghe_server 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. 以前のバックアップルールを復元するには、`cp` コマンドでそれらをファイアウォールにコピーして戻します。
   ```shell
-  $ sudo cp -f ~/ufw.backup/*rules /lib/ufw
+  $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
 3. `systemctl` コマンドでファイアウォールを再起動します。
   ```shell

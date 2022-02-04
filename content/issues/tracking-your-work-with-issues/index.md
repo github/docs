@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Issues
 children:
@@ -16,6 +17,7 @@ children:
   - /linking-a-pull-request-to-an-issue
   - /assigning-issues-and-pull-requests-to-other-github-users
   - /viewing-all-of-your-issues-and-pull-requests
+  - /filtering-and-searching-issues-and-pull-requests
   - /marking-issues-or-pull-requests-as-a-duplicate
   - /pinning-an-issue-to-your-repository
   - /transferring-an-issue-to-another-repository

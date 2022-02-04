@@ -5,12 +5,14 @@ redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Adicionar uma equipe secundária
 ---
 
 Quando você solicita a adição de uma equipe como uma equipe secundária, uma solicitação é enviada aos mantenedores da equipe secundária. Quando um mantenedor da equipe secundária aprova a solicitação, a equipe secundária é aninhada abaixo da equipe principal na hierarquia da organização.
@@ -29,7 +31,7 @@ Se você for proprietário da organização ou tiver permissões de mantenedor d
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. Clique em **Confirm changes** (Confirmar alterações) para enviar uma solicitação de adição da equipe secundária. ![Caixa de diálogo modal com informações sobre as alterações nas permissões de acesso ao repositório](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sobre equipes](/articles/about-teams)"
 - "[Mover uma equipe na hierarquia da sua organização](/articles/moving-a-team-in-your-organization-s-hierarchy)"

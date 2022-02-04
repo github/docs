@@ -6,12 +6,16 @@ redirect_from:
   - /articles/tracking-progress-on-your-project-board
   - /github/managing-your-work-on-github/tracking-progress-on-your-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: ボードでの進捗の追跡
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.project-progress-locations %}
 

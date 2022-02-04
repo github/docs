@@ -1,26 +1,29 @@
 ---
-title: Actividad
+title: Activity
+intro: 'The Activity API allows you to list events and feeds and manage notifications, starring, and watching for the authenticated user.'
 redirect_from:
   - /v3/activity
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Eventos
+## Events
 
-La API de eventos es una API de solo lectura para los eventos de {% data variables.product.prodname_dotcom %}. Estos eventos alimentan a los diversos flujos de actividad en el sitio.
+The Events API is a read-only API to the {% data variables.product.prodname_dotcom %} events. These events power the various activity streams on the site.
 
-La API de eventos puede devolver tipos diferentes de eventos que se activan por actividad en {% data variables.product.product_name %}. La API de eventos puede devolver tipos diferentes de eventos que se activan por actividad en {% data variables.product.product_name %}. Para obtener más información acerca de los eventos específicos que puedes recibir de la API de Eventos, consulta la sección "[Tipos de evento en {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)". Para obtener más información, consulta la "[API de Eventos de Informes de Problemas](/rest/reference/issues#events)".
+The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive from the Events API, see "[{% data variables.product.prodname_dotcom %} Event types](/developers/webhooks-and-events/github-event-types)." An events API for repository issues is also available. For more information, see the "[Issue Events API](/rest/reference/issues#events)."
 
-Los eventos se optimizan para el sondeo con el encabezado "ETag". Si no se han desencadenado eventos nuevos, verás la respuesta "304 Sin Modificar", y tu límite de tasa actual permanecerá intacto. También hay un encabezado de "X-Poll-Interval" que especifica la frecuencia (en segundos) en la que se te permite hacer sondeos. Este tiempo podría incrementarse durante los periodos de carga fuerte en el servidor. Por favor obedece al encabezado.
+Events are optimized for polling with the "ETag" header. If no new events have been triggered, you will see a "304 Not Modified" response, and your current rate limit will be untouched. There is also an "X-Poll-Interval" header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
@@ -35,25 +38,25 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > X-Poll-Interval: 60
 ```
 
-Solo los eventos creados en los últimos 90 días se incluirán en las líneas de tiempo. Los eventos de más de 90 días de antigüedad no se incluirán (aún si la cantidad total de eventos en la línea de tiempo es de 300).
+Only events created within the past 90 days will be included in timelines. Events older than 90 days will not be included (even if the total number of events in the timeline is less than 300).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'events' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Fuentes
+## Feeds
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'feeds' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-### Ejemplo de obtención de un canal de Atom
+### Example of getting an Atom feed
 
-Para obtener un canal en formato de Atom, debes especificar el tipo `application/atom+xml` en el encabezado `Accept`. Por ejemplo, para obtener un canal de Atom para las asesorías de seguridad de GitHub:
+To get a feed in Atom format, you must specify the `application/atom+xml` type in the `Accept` header. For example, to get the Atom feed for GitHub security advisories:
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 
-#### Respuesta
+#### Response
 
 ```shell
 HTTP/2 200
@@ -98,26 +101,26 @@ HTTP/2 200
 </feed>
 ```
 
-## Notificaciones
+## Notifications
 
-Los usuarios reciben notificaciones para las conversaciones en los repositorios que observan, incluyendo:
+Users receive notifications for conversations in repositories they watch including:
 
-* Las de los informes de problemas y sus comentarios
-* Las de las solicitudes de extracción en sus comentarios
-* Las de los comentarios en cualquier confirmación
+* Issues and their comments
+* Pull Requests and their comments
+* Comments on any commits
 
-También se envían notificaciones para las conversaciones en los repositorios sin observar cuando el usuario está involucrado, incluyendo:
+Notifications are also sent for conversations in unwatched repositories when the user is involved including:
 
-* **@menciones**
-* Asignaciones de informes de problemas
-* Confirmaciones que confirme o cree el usuario
-* Cualquier debate en el que el usuario participe activamente
+* **@mentions**
+* Issue assignments
+* Commits the user authors or commits
+* Any discussion in which the user actively participates
 
-Todas las llamadas de la API para notificaciones necesitan los alcances de la API para `notifications` o `repo`.  El hacerlo te dará acceso de solo lectura a algunos contenidos de informes de problemas y de confirmaciones. Aún necesitarás el alcance de `repo` para acceder a los informes de problemas y a las confirmaciones desde sus respectivas terminales.
+All Notification API calls require the `notifications` or `repo` API scopes.  Doing this will give read-only access to some issue and commit content. You will still need the `repo` scope to access issues and commits from their respective endpoints.
 
-Las notificaciones se devuelven como "hilos".  Un hilo contiene información acerca del debate actual sobre un informe de problemas, solicitud de extracción o confirmación.
+Notifications come back as "threads".  A thread contains information about the current discussion of an issue, pull request, or commit.
 
-Las notificaciones se optimizan para el sondeo con el encabezado `Last-Modified`.  Si no hay notificaciones nuevas, verás una respuesta `304 Not Modified`, la cual dejará tu límite de tasa intacto.  Hay un encabezado de `X-Poll-Interval` que especifica la frecuencia (en segundos) en la que se te permite hacer sondeos.  Este tiempo podría incrementarse durante los periodos de carga fuerte en el servidor.  Por favor obedece al encabezado.
+Notifications are optimized for polling with the `Last-Modified` header.  If there are no new notifications, you will see a `304 Not Modified` response, leaving your current rate limit untouched.  There is an `X-Poll-Interval` header that specifies how often (in seconds) you are allowed to poll.  In times of high server load, the time may increase.  Please obey the header.
 
 ``` shell
 # Add authentication to your requests
@@ -133,57 +136,62 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### Razones para obtener las notificaciones
+### Notification reasons
 
-Cuando recuperas respuestas de la API de Notificaciones, cada carga útil tiene una clave que se titula `reason`. Estas corresponden a los eventos que activan una notificación.
+When retrieving responses from the Notifications API, each payload has a key titled `reason`. These correspond to events that trigger a notification.
 
-Hay una lista potencial de `reason` para recibir una notificación:
+Here's a list of potential `reason`s for receiving a notification:
 
-| Nombre de la razón | Descripción                                                                                                                                                                                                |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `assign`           | Se te asignó al informe de problemas.                                                                                                                                                                      |
-| `autor`            | Creaste el hilo.                                                                                                                                                                                           |
-| `comentario`       | Comentaste en el hilo.                                                                                                                                                                                     |
-| `invitación`       | Aceptaste una invitación para colaborar en el repositorio.                                                                                                                                                 |
-| `manual`           | Te suscribiste al hilo (a través de un informe de problemas o solicitud de extracción).                                                                                                                    |
-| `mención`          | Se te **@mencionó** específicamente en el contenido.                                                                                                                                                       |
-| `review_requested` | Se te solicitó, o se solicitó a un equipo del cual eres miembro, revisar una solicitud de extracción.{% if currentVersion == "free-pro-team@latest" %}
-| `security_alert`   | {% data variables.product.prodname_dotcom %} descubrió una [vulnerabilidad de seguridad](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) en tu repositorio.{% endif %}
-| `state_change`     | Cambiaste el estado del hilo (por ejemplo, cerraste un informe de problemas o fusionaste una solicitud de extracción).                                                                                     |
-| `subscribed`       | Estás observando el repositorio.                                                                                                                                                                           |
-| `team_mention`     | Estuviste en un equipo al que se mencionó.                                                                                                                                                                 |
+Reason Name | Description
+------------|------------
+`assign` | You were assigned to the issue.
+`author` | You created the thread.
+`comment` | You commented on the thread.
+`ci_activity` | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.
+`invitation` | You accepted an invitation to contribute to the repository.
+`manual` | You subscribed to the thread (via an issue or pull request).
+`mention` | You were specifically **@mentioned** in the content.
+`review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
+`security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
+`state_change` | You changed the thread state (for example, closing an issue or merging a pull request).
+`subscribed` | You're watching the repository.
+`team_mention` | You were on a team that was mentioned.
 
-Toma en cuenta que la `reason` se modificará conforme al hilo, y puede cambiar si esta `reason` es diferente en una notificación posterior.
+Note that the `reason` is modified on a per-thread basis, and can change, if the `reason` on a later notification is different.
 
-Por ejemplo, si eres el autor de un informe de problemas, las notificaciones subsecuentes de dicho informe tendrán una `reason` o un `author`. Si entonces se te **@menciona** en el mismo informe de problemas, las notificaciones que obtengas de ahí en adelante tendrán una `reason` o una `mention`. La `reason` se queda como una `mention`, sin importar si nunca se te menciona.
+For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then  **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'notifications' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Marcar con una estrella
+## Starring
 
-El marcar a los repositorios con una estrella es una característica que permite a los usuarios marcar a los repositorios como favoritos. Las estrellas se muestran junto a los repositorios para denotar un nivel aproximado de interés. Las estrellas no tienen efecto alguno en las notificaciones o en los canales de actividad.
+Repository starring is a feature that lets users bookmark repositories. Stars are shown next to repositories to show an approximate level of interest. Stars have no effect on notifications or the activity feed.
 
-### Marcar con estrella vs. Observar
+### Starring vs. Watching
 
-En agosto de 2012, [cambiamos la forma en la que funciona el observar repositorios](https://github.com/blog/1204-notifications-stars) en {% data variables.product.prodname_dotcom %}. Muchas aplicaciones de cliente de la API podrían estar utilizando las terminales de "observación" originales para acceder a estos datos. Ahora puedes comenzar a utilizar las terminales de "estrella" como sustitución (como se describe más adelante). Para obtener más información, consulta la [publicación de Cambio de la API de observaciones](https://developer.github.com/changes/2012-09-05-watcher-api/) y la "[API para Observar Repositorios](/rest/reference/activity#watching)".
+In August 2012, we [changed the way watching
+works](https://github.com/blog/1204-notifications-stars) on {% data variables.product.prodname_dotcom %}. Many API
+client applications may be using the original "watcher" endpoints for accessing
+this data. You can now start using the "star" endpoints instead (described
+below). For more information, see the [Watcher API Change post](https://developer.github.com/changes/2012-09-05-watcher-api/) and the "[Repository Watching API](/rest/reference/activity#watching)."
 
-### Tipos de medio personalizados para marcar con estrella
+### Custom media types for starring
 
-Hay un tipo de medios personalizado compatible para la API de REST para Marcar con estrella. Cuando utilizas este tipo de medios personalizado, recibirás una respuesta con la marca de tiempo `starred_at` que indica la hora en el que se creó la estrella. La respuesta también tiene una segunda propiedad que incluye el recurso que se devuelve cuando no se incluye el tipo de medios personalizado. La propiedad que contiene el recurso puede ser `user` o `repo`.
+There is one supported custom media type for the Starring REST API. When you use this custom media type, you will receive a response with the `starred_at` timestamp property that indicates the time the star was created. The response also has a second property that includes the resource that is returned when the custom media type is not included. The property that contains the resource will be either `user` or `repo`.
 
     application/vnd.github.v3.star+json
 
-Para obtener más información acerca de los tipos de medios, consulta la sección "[Tipos de medios personalizados](/rest/overview/media-types)".
+For more information about media types, see "[Custom media types](/rest/overview/media-types)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'starring' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Observar
+## Watching
 
-Observar un repositorio registra al usuario para recibir notificaciones en debates nuevos, así como en los eventos de los canales de actividad del mismo. Para marcar a un repositorio como favorito de forma sencilla, consulta la sección "[Marcar repositorios con una estrella](/rest/reference/activity#starring)".
+Watching a repository registers the user to receive notifications on new discussions, as well as events in the user's activity feed. For simple repository bookmarks, see "[Repository starring](/rest/reference/activity#starring)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'watching' %}{% include rest_operation %}{% endif %}

@@ -6,7 +6,9 @@ redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -16,9 +18,13 @@ topics:
   - Dependencies
   - Pull requests
   - Vulnerabilities
+shortTitle: 更新のカスタマイズ
 ---
 
-### 依存関係の更新のカスタマイズについて
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
+## 依存関係の更新のカスタマイズについて
 
 バージョン更新を有効にしてから、*dependabot.yml* ファイルにさらにオプションを追加することで、{% data variables.product.prodname_dependabot %} が依存関係を維持する方法をカスタマイズできます。 たとえば、次のような方法を使用します。
 
@@ -28,17 +34,17 @@ topics:
 - `open-pull-requests-limit`: バージョン更新のオープンプルリクエストの最大数をデフォルトの 5 件から変更する
 - `target-branch`: デフォルトブランチではなく、特定のブランチを対象とするバージョン更新のプルリクエストを開く
 
-設定オプションの詳細については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates) 」を参照してください。
+設定オプションの詳細については、「[依存関係の更新の設定オプション](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates) 」を参照してください。
 
-リポジトリ内の *dependabot.yml* ファイルを更新すると、{% data variables.product.prodname_dependabot %} は新しい設定で即座にチェックを実行します。 数分以内に、[**{% data variables.product.prodname_dependabot %}**] タブに更新された依存関係のリストが表示されます。リポジトリに多くの依存関係がある場合、表示までにさらに時間がかかることがあります。 バージョン更新に関する新しいプルリクエストが表示されることもあります。 詳しい情報については、「[バージョン更新用に設定された依存関係を一覧表示する](/github/administering-a-repository/listing-dependencies-configured-for-version-updates) 」を参照してください。
+リポジトリ内の *dependabot.yml* ファイルを更新すると、{% data variables.product.prodname_dependabot %} は新しい設定で即座にチェックを実行します。 数分以内に、[**{% data variables.product.prodname_dependabot %}**] タブに更新された依存関係のリストが表示されます。リポジトリに多くの依存関係がある場合、表示までにさらに時間がかかることがあります。 バージョン更新に関する新しいプルリクエストが表示されることもあります。 詳しい情報については、「[バージョン更新用に設定された依存関係を一覧表示する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates) 」を参照してください。
 
-### 設定変更によるセキュリティアップデートへの影響
+## 設定変更によるセキュリティアップデートへの影響
 
 *dependabot.yml* ファイルをカスタマイズすると、セキュリティアップデートのために発行されたプルリクエストにいくつかの変更が見られる場合があります。 これらのプルリクエストは、{% data variables.product.prodname_dependabot %} スケジュールではなく、常に依存関係のセキュリティアドバイザリによってトリガーされます。 ただし、バージョンの更新に別のターゲットブランチを指定しない限り、これらは *dependabot.yml* ファイルから関連する設定を継承します。
 
 例については、後述の「[カスタムラベルを設定する](#setting-custom-labels)」を参照してください。
 
-### スケジュールを変更する
+## スケジュールを変更する
 
 更新スケジュールを `daily` で設定すると、デフォルトで {% data variables.product.prodname_dependabot %} は 5:00 (UTC) に新しいバージョンをチェックします。 `schedule.time` を使用して、更新をチェックする別の時刻を指定します（形式: `hh:mm`）。
 
@@ -59,7 +65,7 @@ updates:
       time: "02:00"
 ```
 
-### レビュー担当者とアサインされた人を設定する
+## レビュー担当者とアサインされた人を設定する
 
 デフォルトでは、{% data variables.product.prodname_dependabot %} は、レビュー担当者やアサインされた人なしでプルリクエストを発行します。
 
@@ -87,7 +93,7 @@ updates:
       - "user-name"
 ```
 
-### カスタムラベルを設定する
+## カスタムラベルを設定する
 
 {% data reusables.dependabot.default-labels %}
 
@@ -131,6 +137,6 @@ updates:
       - "triage-board"
 ```
 
-### その他の例
+## その他の例
 
-その他の例ついては、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates) 」を参照してください。
+その他の例ついては、「[依存関係の更新の設定オプション](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates) 」を参照してください。

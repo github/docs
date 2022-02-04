@@ -3,13 +3,14 @@ title: Viewing your payment history and receipts
 intro: You can view your account's payment history and download past receipts at any time.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-payment-history-and-receipts
-  - /articles/downloading-receipts/
-  - /articles/downloading-receipts-for-personal-accounts/
-  - /articles/downloading-receipts-for-organizations/
+  - /articles/downloading-receipts
+  - /articles/downloading-receipts-for-personal-accounts
+  - /articles/downloading-receipts-for-organizations
   - /articles/viewing-your-payment-history-and-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts

@@ -6,7 +6,9 @@ redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -16,9 +18,13 @@ topics:
   - Dependencies
   - Pull requests
   - Vulnerabilities
+shortTitle: Personalizar atualizações
 ---
 
-### Sobre a personalização de atualizações de dependências
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
+## Sobre a personalização de atualizações de dependências
 
 Depois que você habilitou as atualizações de versão, você pode personalizar a forma como o {% data variables.product.prodname_dependabot %} mantém suas dependências adicionando mais opções ao arquivo *dependabot.yml*. Por exemplo, você pode:
 
@@ -28,17 +34,17 @@ Depois que você habilitou as atualizações de versão, você pode personalizar
 - Alterar o número máximo de pull requests abertos para atualizações de versão a partir do padrão de 5: `open-pull-requests-limit`
 - Abrir pull requests para atualizações de versão para atingir um branch específico, em vez do branch padrão: `target-branch`
 
-Para obter mais informações sobre as opções de configuração, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates)".
+Para obter mais informações sobre as opções de configuração, consulte "[Opções de configuração para atualizações de dependências](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".
 
-Ao atualizar o arquivo *dependabot.yml* no seu repositório, o {% data variables.product.prodname_dependabot %} executa uma verificação imediata com a nova configuração. Dentro de minutos você verá uma lista atualizada de dependências na aba **{% data variables.product.prodname_dependabot %}**. Isso pode demorar mais se o repositório tiver muitas dependências. Você também pode ver novas pull requests para atualizações de versão. Para obter mais informações, consulte "[Listando dependências configuradas para atualizações da versão](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)".
+Ao atualizar o arquivo *dependabot.yml* no seu repositório, o {% data variables.product.prodname_dependabot %} executa uma verificação imediata com a nova configuração. Dentro de minutos você verá uma lista atualizada de dependências na aba **{% data variables.product.prodname_dependabot %}**. Isso pode demorar mais se o repositório tiver muitas dependências. Você também pode ver novas pull requests para atualizações de versão. Para obter mais informações, consulte "[Listando dependências configuradas para atualizações da versão](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)".
 
-### Impacto das alterações de configuração nas atualizações de segurança
+## Impacto das alterações de configuração nas atualizações de segurança
 
 Se você personalizar o arquivo *dependabot.yml*, você poderá notar algumas alterações nas pull requests criadas por atualizações de segurança. Essas pull requests são sempre acionadas por uma consultoria de segurança para uma dependência, ao invés da agenda {% data variables.product.prodname_dependabot %}. No entanto, eles herdam configurações relevantes do arquivo *dependabot.yml* a menos que você especifique um branch de destino diferente para atualizações de versão.
 
 Por exemplo, consulte "[Definindo etiquetas personalizadas](#setting-custom-labels)" abaixo.
 
-### Modificando o agendamento
+## Modificando o agendamento
 
 Ao definir um agendamento de atualização `diário`, por padrão, {% data variables.product.prodname_dependabot %} verifica novas versões às 05:00 UTC. Você pode usar `schedule.time` para especificar um horário alternativo do dia para verificar atualizações (formato: `hh:mm`).
 
@@ -59,7 +65,7 @@ updates:
       time: "02:00"
 ```
 
-### Configurando revisores e responsáveis
+## Configurando revisores e responsáveis
 
 Por padrão, {% data variables.product.prodname_dependabot %} levanta todas as pull requests sem revisores ou responsáveis.
 
@@ -87,7 +93,7 @@ updates:
       - "user-name"
 ```
 
-### Definindo etiquetas personalizadas
+## Definindo etiquetas personalizadas
 
 {% data reusables.dependabot.default-labels %}
 
@@ -132,6 +138,6 @@ updates:
       - "triage-board"
 ```
 
-### Mais exemplos
+## Mais exemplos
 
-Para obter mais exemplos, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates)".
+Para obter mais exemplos, consulte "[Opções de configuração para atualizações de dependências](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".

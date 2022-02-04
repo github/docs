@@ -5,11 +5,13 @@ redirect_from:
   - /webhooks/configuring
   - /developers/webhooks-and-events/configuring-your-server-to-receive-payloads
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
+shortTitle: 配置 web 挂钩服务器
 ---
 
 现在，我们的 web 挂钩已准备好传递消息，我们将设置一个基本的 Sinatra 服务器 来处理传入的有效负载。
@@ -20,7 +22,7 @@ topics:
 
 {% endnote %}
 
-### 编写服务器
+## 编写服务器
 
 我们希望服务器在 `/payload` 处侦听 `POST` 请求，因为这是我们告诉 GitHub 我们的 web 挂钩 URL 所在位置。 由于我们使用 ngrok 暴露我们的本地环境，因此我们无需在线上某个位置设置真正的服务器，就可以在本地愉快地测试我们的代码。
 

@@ -1,26 +1,4 @@
 #!/usr/bin/env node
-import { fileURLToPath } from 'url'
-import path from 'path'
-import fs from 'fs'
-import linkinator from 'linkinator'
-import program from 'commander'
-import { pull, uniq } from 'lodash-es'
-import xRimraf from 'rimraf'
-import xMkdirp from 'mkdirp'
-import { deprecated } from '../lib/enterprise-server-releases.js'
-import got from 'got'
-import excludedLinks from '../lib/excluded-links.js'
-import xLanguages from '../lib/languages.js'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const checker = new linkinator.LinkChecker()
-const rimraf = xRimraf.sync
-const mkdirp = xMkdirp.sync
-const root = 'https://docs.github.com'
-const englishRoot = `${root}/en`
-
-// Links with these codes may or may not really be broken.
-const retryStatusCodes = [429, 503, 'Invalid']
 
 // [start-readme]
 //
@@ -31,6 +9,27 @@ const retryStatusCodes = [429, 503, 'Invalid']
 // broken, so this script double-checks those using `got`.
 //
 // [end-readme]
+
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import { LinkChecker } from 'linkinator'
+import program from 'commander'
+import { pull, uniq } from 'lodash-es'
+import rimraf from 'rimraf'
+import mkdirp from 'mkdirp'
+import { deprecated } from '../lib/enterprise-server-releases.js'
+import got from 'got'
+import excludedLinks from '../lib/excluded-links.js'
+import libLanguages from '../lib/languages.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const checker = new LinkChecker()
+const root = 'https://docs.github.com'
+const englishRoot = `${root}/en`
+
+// Links with these codes may or may not really be broken.
+const retryStatusCodes = [429, 503, 'Invalid']
 
 program
   .description('Check all links in the English docs.')
@@ -51,9 +50,9 @@ program
 // Skip excluded links defined in separate file.
 
 // Skip non-English content.
-const languagesToSkip = Object.keys(xLanguages)
+const languagesToSkip = Object.keys(libLanguages)
   .filter((code) => code !== 'en')
-  .map((code) => `${root}/${code}`)
+  .map((code) => new RegExp(`${root}/${code}`))
 
 // Skip deprecated Enterprise content.
 // Capture the old format https://docs.github.com/enterprise/2.1/
@@ -67,7 +66,19 @@ const config = {
   recurse: !program.opts().dryRun,
   silent: true,
   // The values in this array are treated as regexes.
-  linksToSkip: [enterpriseReleasesToSkip, ...languagesToSkip, ...excludedLinks],
+  linksToSkip: linksToSkipFactory([enterpriseReleasesToSkip, ...languagesToSkip, ...excludedLinks]),
+}
+
+// Return a function that can as quickly as possible check if a certain
+// href input should be skipped.
+// Do this so we can use a `Set` and a `iterable.some()` for a speedier
+// check. The default implementation in Linkinator, if you set
+// the `linksToSkip` config to be an array, it will, for every URL it
+// checks turn that into a new regex every single time.
+function linksToSkipFactory(regexAndURLs) {
+  const set = new Set(regexAndURLs.filter((regexOrURL) => typeof regexOrURL === 'string'))
+  const regexes = regexAndURLs.filter((regexOrURL) => regexOrURL instanceof RegExp)
+  return (href) => set.has(href) || regexes.some((regex) => regex.test(href))
 }
 
 main()
@@ -75,8 +86,8 @@ main()
 async function main() {
   // Clear and recreate a directory for logs.
   const logFile = path.join(__dirname, '../.linkinator/full.log')
-  rimraf(path.dirname(logFile))
-  mkdirp(path.dirname(logFile))
+  rimraf.sync(path.dirname(logFile))
+  await mkdirp(path.dirname(logFile))
 
   // Update CLI output and append to logfile after each checked link.
   checker.on('link', (result) => {
@@ -127,6 +138,9 @@ async function main() {
   // Format and display the results.
   console.log(`${brokenLinks.length} broken links found on docs.github.com\n`)
   displayBrokenLinks(brokenLinks)
+  console.log(
+    '\nIf links are "false positives" (e.g. can only be opened by a browser) consider making a pull request that edits `lib/excluded-links.js`.'
+  )
 
   // Exit unsuccessfully if broken links are found.
   process.exit(1)

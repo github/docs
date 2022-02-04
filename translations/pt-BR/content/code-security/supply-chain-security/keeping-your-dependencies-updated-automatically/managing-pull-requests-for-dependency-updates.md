@@ -5,7 +5,9 @@ redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.2'
 type: how_to
 topics:
   - Repositories
@@ -14,45 +16,50 @@ topics:
   - Pull requests
   - Dependencies
   - Vulnerabilities
+shortTitle: Gerenciar PRs do Dependabot
 ---
 
-### Sobre pull requests {% data variables.product.prodname_dependabot %}
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
+## Sobre pull requests {% data variables.product.prodname_dependabot %}
 
 {% data reusables.dependabot.pull-request-introduction %}
 
-Quando o {% data variables.product.prodname_dependabot %} cria uma pull request, você é notificado pelo método escolhido para o repositório. Cada pull request contém informações detalhadas sobre a mudança proposta, retirada do gerenciador de pacotes. Essas pull requests seguem as verificações e testes normais definidas no seu repositório. Além disso, onde informações suficientes estão disponíveis, você verá uma pontuação de compatibilidade. Isso também pode ajudá-lo a decidir se deve ou não mesclar a alteração. Para obter informações sobre essa pontuação, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+Quando o {% data variables.product.prodname_dependabot %} cria uma pull request, você é notificado pelo método escolhido para o repositório. Cada pull request contém informações detalhadas sobre a mudança proposta, retirada do gerenciador de pacotes. Essas pull requests seguem as verificações e testes normais definidas no seu repositório.
+{% ifversion fpt or ghec %}Além disso, quando informações suficientes estiverem disponíveis, você verá uma pontuação de compatibilidade. Isso também pode ajudá-lo a decidir se deve ou não mesclar a alteração. Para obter informações sobre essa pontuação, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."{% endif %}
 
 Se você tem muitas dependências para gerenciar, você pode querer personalizar a configuração para cada gerenciador de pacotes para que as pull requests tenham revisores, responsáveis e etiquetas específicos. Para obter mais informações, consulte "[Personalizar atualizações de dependência](/github/administering-a-repository/customizing-dependency-updates)".
 
-### Visualizando pull requests {% data variables.product.prodname_dependabot %}
+## Visualizando pull requests {% data variables.product.prodname_dependabot %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-1. Quaisquer pull requests de atualização de segurança e versão são fáceis de identificar.
-    - O autor é [dependabot](https://github.com/dependabot), a conta de bot usada por {% data variables.product.prodname_dependabot %}.
+1. Todos os pull requests de atualização de segurança ou versão são fáceis de identificar.
+    - O autor é {% ifversion fpt or ghec %}[dependabot](https://github.com/dependabot){% else %}dependabot{% endif %}, e a conta do bot é usada por {% data variables.product.prodname_dependabot %}.
     - Por padrão, eles têm as etiquetas das `dependências`.
 
-### Alterando a estratégia de rebase para pull requests {% data variables.product.prodname_dependabot %}
+## Alterando a estratégia de rebase para pull requests {% data variables.product.prodname_dependabot %}
 
 Por padrão, o {% data variables.product.prodname_dependabot %} faz o rebasamento automaticamente das pull requests para resolver quaisquer conflitos. Se você preferir lidar com conflitos de merge manualmente, pode desativar isso usando a opção `rebase-strategy`. Para obter detalhes, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)".
 
-### Gerenciando pull requests {% data variables.product.prodname_dependabot %} com comandos de comentário
+## Gerenciando pull requests {% data variables.product.prodname_dependabot %} com comandos de comentário
 
-O {% data variables.product.prodname_dependabot %} responde a comandos simples nos comentários. Each pull request contains details of the commands you can use to process the pull request (for example: to merge, squash, reopen, close, or rebase the pull request) under the "{% data variables.product.prodname_dependabot %} commands and options" section. O objetivo é facilitar ao máximo a triagem dessas pull requests geradas automaticamente.
+O {% data variables.product.prodname_dependabot %} responde a comandos simples nos comentários. Cada pull request contém detalhes dos comandos que você pode usar para processar o pull request (por exemplo: fazer merge, combinação por squash, abrir, fechar ou rebasear o pull request) na seção "comandos e opções de {% data variables.product.prodname_dependabot %}". O objetivo é facilitar ao máximo a triagem dessas pull requests geradas automaticamente.
 
-You can use any of the following commands on a {% data variables.product.prodname_dependabot %} pull request.
+Você pode usar qualquer um dos seguintes comandos em um pull request de {% data variables.product.prodname_dependabot %}.
 
-- `@dependabot cancel merge` cancels a previously requested merge.
-- `@dependabot close` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from recreating that pull request. You can achieve the same result by closing the pull request manually.
-- `@dependabot ignore this dependency` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this dependency (unless you reopen the pull request or upgrade to the suggested version of the dependency yourself).
-- `@dependabot ignore this major version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this major version (unless you reopen the pull request or upgrade to this major version yourself).
-- `@dependabot ignore this minor version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this minor version (unless you reopen the pull request or upgrade to this minor version yourself).
-- `@dependabot merge` merges the pull request once your CI tests have passed.
-- `@dependabot rebase` rebases the pull request.
-- `@dependabot recreate` recreates the pull request, overwriting any edits that have been made to the pull request.
-- `@dependabot reopen` reopens the pull request if the pull request is closed.
-- `@dependabot squash and merge` squashes and merges the pull request once your CI tests have passed.
+- `@dependabot cancel merge` cancela um merge solicitado anteriormente.
+- `@dependabot close` fecha o pull request e impede que {% data variables.product.prodname_dependabot %} recrie esse pull request. Você pode obter o mesmo resultado fechando o pull request manualmente.
+- `@dependabot ignore this dependency` fecha o pull request e impede {% data variables.product.prodname_dependabot %} de criar outros pull requests para essa dependência (a menos que você reabra o pull request ou atualize para a versão sugerida da própria dependência).
+- `@dependabot ignore this major version` fecha o pull request e impede {% data variables.product.prodname_dependabot %} de criar mais pull requests para esta versão principal (a menos que você mesmo reabra o pull request ou atualize para esta versão principal).
+- `@dependabot ignore this minor version` fecha o pull request e impede {% data variables.product.prodname_dependabot %} de criar mais pull requests para esta versão menor (a menos que você mesmo reabra o pull request ou atualize para esta versão menor).
+- `@dependabot merge` faz merge do pull request quando seus testes de CI passarem.
+- `@dependabot rebase` faz rebase do pull request.
+- `@dependabot recria` recria o pull request, substituindo todas as edições feitas no pull request.
+- `@dependabot reopen` reabre o pull request se o este estiver fechado.
+- `@dependabot squash and merge` faz combinação por squash e merge do pull request quando seus testes de CI passarem.
 
-{% data variables.product.prodname_dependabot %} will react with a "thumbs up" emoji to acknowledge the command, and may respond with a comment on the pull request. While {% data variables.product.prodname_dependabot %} usually responds quickly, some commands may take several minutes to complete if {% data variables.product.prodname_dependabot %} is busy processing other updates or commands.
+{% data variables.product.prodname_dependabot %} reagirá com um emoji "positivo" para reconhecer o comando e pode responder com um comentário no pull request. Embora {% data variables.product.prodname_dependabot %} normalmente responda rapidamente, alguns comandos podem levar vários minutos para serem concluídos se {% data variables.product.prodname_dependabot %} estiver ocupado processando outras atualizações ou comandos.
 
 Se você executar algum comando para ignorar dependências ou versões, o {% data variables.product.prodname_dependabot %} armazena centralmente as preferências para o repositório. Embora esta seja uma solução rápida, para repositórios com mais de um colaborador é melhor definir explicitamente as dependências e versões para ignorar no arquivo de configuração. Isso facilita que todos os colaboradores vejam por que uma determinada dependência não está sendo atualizada automaticamente. Para obter mais informações, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)".

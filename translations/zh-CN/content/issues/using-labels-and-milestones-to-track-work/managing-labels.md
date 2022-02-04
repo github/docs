@@ -1,6 +1,7 @@
 ---
-title: 管理标签
-intro: '您可以通过创建、编辑、应用和删除标签，对 {% if currentVersion == "free-pro-team@latest" %} 议题、拉取请求和讨论{% else %}议题和拉取请求{% endif %}进行分类。'
+title: Managing labels
+intro: 'You can classify {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %} by creating, editing, applying, and deleting labels.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
   - /articles/managing-Labels
@@ -11,7 +12,7 @@ redirect_from:
   - /articles/creating-and-editing-labels-for-issues-and-pull-requests
   - /articles/creating-a-label
   - /github/managing-your-work-on-github/creating-a-label
-  - /articles/customizing-issue-labels/
+  - /articles/customizing-issue-labels
   - /articles/applying-labels-to-issues-and-pull-requests
   - /github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests
   - /articles/editing-a-label
@@ -20,59 +21,68 @@ redirect_from:
   - /github/managing-your-work-on-github/deleting-a-label
   - /github/managing-your-work-on-github/managing-labels
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Project management
+type: how_to
 ---
-  ### 关于标签
+## About labels
 
-您可以通过创建标签来分类{% if currentVersion == "free-pro-team@latest" %}议题、拉取请求和讨论{% else %}议题和拉取请求{% endif %}，管理您在 {% data variables.product.product_name %} 上的工作。 您可以在创建标签的仓库中应用标签。 有了标签后，您可以在该仓库内的任何{% if currentVersion == "free-pro-team@latest" %}议题、拉取请求或讨论{% else %}议题或拉取请求{% endif %}上使用标签、
+You can manage your work on {% data variables.product.product_name %} by creating labels to categorize {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
 
-对仓库具有读取权限的任何人都能查看和搜索仓库的标签。 对仓库具有鉴定权限的任何人都可以应用/忽略现有标签。 要创建、编辑、应用或删除标签，必须对仓库具有写入权限。
+## About default labels
 
-### 关于默认标签
+{% data variables.product.product_name %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
 
-{% data variables.product.product_name %} 在每个新仓库中提供默认标签。 您可以使用这些默认标签帮助在仓库中创建标准工作流程。
+Label | Description
+---  | ---
+`bug` | Indicates an unexpected problem or unintended behavior{% ifversion fpt or ghes or ghec %}
+`documentation` | Indicates a need for improvements or additions to documentation{% endif %}
+`duplicate` | Indicates similar {% ifversion fpt or ghec %}issues, pull requests, or discussions{% else %}issues or pull requests{% endif %}
+`enhancement` | Indicates new feature requests
+`good first issue` | Indicates a good issue for first-time contributors
+`help wanted` | Indicates that a maintainer wants help on an issue or pull request
+`invalid` | Indicates that an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} is no longer relevant
+`question` | Indicates that an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} needs more information
+`wontfix` | Indicates that work won't continue on an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}
 
-| 标签                 | 描述                                                                                                             |
-| ------------------ | -------------------------------------------------------------------------------------------------------------- |
-| `bug`              | 表示意外问题或意外行为{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-| `文档`               | 表示文档需要改进或补充{% endif %}
-| `duplicate`        | 表示类似的{% if currentVersion == "free-pro-team@latest" %}议题、拉取请求或讨论{% else %}议题或拉取请求{% endif %}
-| `enhancement`      | 表示新功能申请                                                                                                        |
-| `good first issue` | 表示适用首次贡献者的议题                                                                                                   |
-| `help wanted`      | 表示维护员需要议题或拉取请求方面的帮助                                                                                            |
-| `invalid`          | 表示{% if currentVersion == "free-pro-team@latest" %}议题、拉取请求或讨论{% else %}议题或拉取请求{% endif %}不再相关                  |
-| `question`         | 表示{% if currentVersion == "free-pro-team@latest" %}议题、拉取请求或讨论{% else %}议题或拉取请求{% endif %}需要更多信息                |
-| `wontfix`          | 表示不会继续处理{% if currentVersion == "free-pro-team@latest" %}议题、拉取请求或讨论{% else %}议题或拉取请求{% endif %}
+Default labels are included in every new repository when the repository is created, but you can edit or delete the labels later.
 
-创建仓库时，每个新仓库中均包含默认标签，但您稍后可以编辑或删除标签。
+Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute). 
 
-带有 `good first issue` 标签的议题用于填充仓库的 `contribute` 页面。 有关`贡献`页面的示例，请参阅 [github/docs/contribute](https://github.com/github/docs/contribute)。
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-组织所有者可以自定义其组织中仓库的默认标签。 更多信息请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”。
+{% ifversion fpt or ghes or ghec %}
+Organization owners can customize the default labels for repositories in their organization. For more information, see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)."
 {% endif %}
 
-### 创建标签
+## Creating a label
+
+Anyone with write access to a repository can create a label.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
-4. 在搜索字段的右侧，单击 **New label（新建标签）**。
+4. To the right of the search field, click **New label**.
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.create-label %}
 
-### 应用标记
+## Applying a label
 
-1. 导航到{% if currentVersion == "free-pro-team@latest" %}议题、拉取请求或讨论{% else %}议题或拉取请求{% endif %}。
-1. 在右侧边栏中“Labels（标签）”的右侧，单击 {% octicon "gear" aria-label="The gear icon" %}，然后单击标签。 !["标签"下拉菜单](/assets/images/help/issues/labels-drop-down.png)
+Anyone with triage access to a repository can apply and dismiss labels.
 
-### 编辑标签
+1. Navigate to the {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}.
+1. In the right sidebar, to the right of "Labels", click {% octicon "gear" aria-label="The gear icon" %}, then click a label.
+  !["Labels" drop-down menu](/assets/images/help/issues/labels-drop-down.png)
+
+## Editing a label
+
+Anyone with write access to a repository can edit existing labels.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -83,16 +93,18 @@ topics:
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.save-label %}
 
-### 删除标签
+## Deleting a label
 
-删除标签将从议题和拉取请求中删除标签。
+Anyone with write access to a repository can delete existing labels.
+
+Deleting a label will remove the label from issues and pull requests.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
 {% data reusables.project-management.delete-label %}
 
-### 延伸阅读
-- "[按标签过滤议题和拉取请求](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-- "[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- "[通过标签鼓励对项目做出有益的贡献](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+## Further reading
+- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
+- "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
+- "[Encouraging helpful contributions to your project with labels](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

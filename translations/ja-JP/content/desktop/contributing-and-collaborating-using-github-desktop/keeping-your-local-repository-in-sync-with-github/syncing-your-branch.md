@@ -5,10 +5,10 @@ redirect_from:
   - /desktop/contributing-to-projects/syncing-your-branch
   - /desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### ブランチの同期について
+## ブランチの同期について
 
 最後に同期してから {% data variables.product.product_name %} のブランチに追加されたコミットをプルすることにより、ローカルブランチをリモートリポジトリと同期できます。 別のデバイスからコミットする場合、または複数のユーザがプロジェクトに貢献する場合は、ローカルブランチを同期してブランチを更新し続ける必要があります。
 
@@ -18,14 +18,14 @@ versions:
 
 一部のワークフローでは、マージではなくリベースが必要または役立つ場合があります。 リベースすることで、コミットの順序を変更したり、編集したり、まとめて squash したりできます。 詳しい情報については、「[Git リベースについて](/github/getting-started-with-github/about-git-rebase)」および「[プロジェクトブランチを別のブランチにリベースする](#rebasing-your-project-branch-onto-another-branch) 」を参照してください。
 
-### リモートからローカルブランチにプルする
+## リモートからローカルブランチにプルする
 
 1. {% data variables.product.prodname_desktop %} で、{% octicon "git-branch" aria-label="The branch icon" %} [**Current Branch**] ドロップダウンを使用して、更新するローカルブランチを選択します。
 2.  リモートブランチのコミットを確認するには、[**Fetch origin**] をクリックします。 ![Fetch originボタン](/assets/images/help/desktop/fetch-button.png)
 3. リモートブランチからコミットをプルするには、[**Pull origin**] または [**Pull origin with rebase**] をクリックします。 ![[Pull origin] ボタン](/assets/images/help/desktop/pull-button.png)
 {% data reusables.desktop.resolve-merge-conflicts %}
 
-### プロジェクトブランチに他のブランチをマージする
+## プロジェクトブランチに他のブランチをマージする
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.choose-a-branch-to-merge %}
@@ -40,7 +40,7 @@ versions:
    ![Mergeボタン](/assets/images/help/desktop/merge-branch-button.png)
 {% data reusables.desktop.push-origin %}
 
-### プロジェクトブランチを他のブランチにリベースする
+## プロジェクトブランチを他のブランチにリベースする
 
 {% mac %}
 
@@ -62,7 +62,18 @@ versions:
 
 {% endwindows %}
 
-### 参考リンク
+## Squashing and merging another branch into your project branch
+
+1. Use the **Branch** drop-down and click **Squash and Merge into Current Branch**. ![Squash and merge in branch dropdown](/assets/images/help/desktop/squash-and-merge-menu.png)
+2. Click the branch you want to merge into the current branch, then click **Squash and merge**. ![Squash and merge  button](/assets/images/help/desktop/squash-and-merge-selection.png)
+   {% note %}
+
+   **Note:** If there are merge conflicts, {% data variables.product.prodname_desktop %} will warn you above the **Squash and merge** button. You will not be able to squash and merge the branch until you have resolved all conflicts.
+
+   {% endnote %}
+{% data reusables.desktop.push-origin %}
+
+## 参考リンク
 - {% data variables.product.prodname_dotcom %} 用語集の「[プル](/github/getting-started-with-github/github-glossary#pull)」
 - {% data variables.product.prodname_dotcom %} 用語集の「[マージ](/github/getting-started-with-github/github-glossary#merge)」
 - {% data variables.product.prodname_dotcom %} 用語集の「[リベース](/github/getting-started-with-github/github-glossary#rebase)」

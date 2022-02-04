@@ -6,16 +6,18 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-packages-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/viewing-your-github-packages-usage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Enterprise
   - Packages
   - Organizations
   - User account
+shortTitle: Visualizar o seu uso
 ---
 
-### Visualizando o uso de {% data variables.product.prodname_registry %} para sua conta de usuário
+## Visualizando o uso de {% data variables.product.prodname_registry %} para sua conta de usuário
 
 Qualquer pessoa pode visualizar o uso de {% data variables.product.prodname_registry %} para sua própria conta de usuário.
 
@@ -25,7 +27,7 @@ Qualquer pessoa pode visualizar o uso de {% data variables.product.prodname_regi
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### Visualizando o uso de {% data variables.product.prodname_registry %} para a sua organização
+## Visualizando o uso de {% data variables.product.prodname_registry %} para a sua organização
 
 Os proprietários da organização e gerentes de cobrança podem ver o uso do {% data variables.product.prodname_registry %} para uma organização. Para organizações gerenciadas por uma conta corporativa, somente os proprietários da organização podem visualizar o uso do {% data variables.product.prodname_registry %} na página de cobrança da organização.
 
@@ -34,7 +36,7 @@ Os proprietários da organização e gerentes de cobrança podem ver o uso do {%
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### Visualizando o uso de {% data variables.product.prodname_registry %} para sua conta corporativa
+## Visualizando o uso de {% data variables.product.prodname_registry %} para sua conta corporativa
 
 Proprietários de organizações e gestores de faturamento podem visualizar o uso de {% data variables.product.prodname_registry %} para uma conta corporativa.
 

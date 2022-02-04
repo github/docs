@@ -6,13 +6,13 @@ redirect_from:
 permissions: Organization owners can manage discussion creation for repositories owned by the organization.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Manage discussion creation
 ---
 
-{% data reusables.discussions.beta %}
 
 ## Allowing or disallowing users with read access to create discussions
 

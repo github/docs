@@ -1,9 +1,9 @@
 ---
 title: Syntax for issue forms
 intro: 'You can define different input types, validations, default assignees, and default labels for your issue forms.'
-product: 'Issue forms are available in beta for public repositories on {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -15,6 +15,8 @@ topics:
 You can create custom issue forms by adding a YAML form definition file to the `/.github/ISSUE_TEMPLATE` folder in your repository. {% data reusables.actions.learn-more-about-yaml %} You can define different input types, validations, default assignees, and default labels for your issue forms.
 
 When a contributor fills out an issue form, their responses for each input are converted to markdown and added to the body of an issue. Contributors can edit their issues that were created with issue forms and other people can interact with the issues like an issue created through other methods.
+
+Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. For more information, see "[Creating a pull request template for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)."
 
 This example YAML configuration file defines an issue form using several inputs to report a bug.
 
@@ -38,7 +40,7 @@ You can set the following top-level keys for each issue form.
 | `description` | A description for the issue form template, which appears in the template chooser interface. | Required | String |
 | `body` | Definition of the input types in the form. | Required | Array |
 | `assignees` | People who will be automatically assigned to issues created with this template. | Optional | Array or comma-delimited string |
-| `labels` | Labels that will automatically be added to issues created with this template. | Optional | String |
+| `labels` | Labels that will automatically be added to issues created with this template. | Optional | Array or comma-delimited string |
 | `title` | A default title that will be pre-populated in the issue submission form. | Optional | String |
 
 For the available `body` input types and their syntaxes, see "[Syntax for {% data variables.product.prodname_dotcom %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
@@ -143,9 +145,9 @@ body:
         - **Node**: 13.14.0
         - **npm**: 7.6.3
     value: |
-        - OS: 
-        - Node: 
-        - npm: 
+        - OS:
+        - Node:
+        - npm:
     render: markdown
   validations:
     required: false
@@ -154,7 +156,7 @@ body:
     label: Anything else?
     description: |
       Links? References? Anything that will give us more context about the issue you are encountering!
-      
+
       Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
   validations:
     required: false
@@ -163,3 +165,4 @@ body:
 ## Further reading
 
 - [YAML](https://yaml.org/)
+- [Common validation errors when creating issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)

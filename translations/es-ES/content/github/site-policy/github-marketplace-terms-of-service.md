@@ -3,7 +3,7 @@ title: Términos de servicio de Mercado GitHub
 redirect_from:
   - /articles/github-marketplace-terms-of-service
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -15,33 +15,33 @@ Al usar el Mercado, aceptas estar obligado por estas Condiciones de Mercado.
 
 Fecha de entrada en vigencia: 20 de noviembre de 2020
 
-### A. Términos de servicio de GitHub.com
+## A. Términos de servicio de GitHub.com
 
 GitHub proporciona el mercado y se rige por los [Términos de servicio](/articles/github-terms-of-service/) o el [Términos de servicio corporativos](/articles/github-corporate-terms-of-service/) ("Términos de GitHub"), dependiendo de tu tipo de cuenta, así como de los presentes términos del mercado. Si configuras los Productos de Programador para que trabajen con una o más cuentas en el sitio web GitHub.com, tu uso de los Productos de Programador también se regirá por sus Términos de GitHub aplicables. Cualquier término en mayúsculas no definido en este documento se definirá en los términos aplicables de GitHub.
 
 No puedes utilizar un Producto de Programador para violar tus Términos de GitHub aplicables. Muchos de estos Productos de Programadro se utilizan exclusivamente para realizar tareas automatizadas. Además, varios usuarios pueden dirigir las acciones de un Producto de Programador. Sin embargo, si compras y/o configuras un Producto de Programador en tu cuenta o eres propietario de una cuenta con un Producto de Programador integrado, entonces serás responsable de las acciones del Producto del Programador que se llevan a cabo en o a través de tu cuenta.
 
-### B. Requisitos de uso
+## B. Requisitos de uso
 
 A fin de poder usar el Mercado, debes tener 13 años o más (si vives en los Estados Unidos; si vives en otro país, debes cumplir con las leyes de edad mínima de tu país), tener una cuenta de GitHub válida y haber aceptado tus términos de GitHub y estos términos de mercado aplicables.
 
 Si estás de acuerdo con estos Términos de Mercado en nombre de una empresa, organización u otra entidad legal, significa que tienes la autoridad para vincular a esa entidad, a sus afiliados y a todos los usuarios que ingresen al mercado en su nombre a estos Términos del Mercado. Si no tienes autoridad, no debe aceptar estos Términos del Mercado y no puedes utilizar los servicios del mismo.
 
-### C. Productos de Programador y Proveedores de Productos
+## C. Productos de Programador y Proveedores de Productos
 
 Si instalas y/o compras un Producto de Programador, entonces estás comprando los Productos de Programador de GitHub y tienes que hacer los pagos relacionados directamente a GitHub. Sin embargo, estás recibiendo acceso y los derechos de usar ese Producto de Programador de un proveedor de productos, no de GitHub (a menos que sea un producto de programador propiedad de GitHub). El Proveedor del Producto es el único responsable del Producto de Programador que proporciona, el contenido del mismo y cualquier reclamación que tú o cualquier otra parte pueda tener relacionada con ese Producto de Programador o el uso de ese Producto de Programador.
 
 No somos parte del acuerdo entre tú y el Proveedor de Productos con respecto a dicho Producto de Programador. No somos responsables de dicho Producto de Programador, el contenido en él, o cualquier reclamación que tú o cualquier otra parte pueda tener relacionada con ese Producto de Programador o el uso de dicho Producto de Programador. Sin embargo, somos un tercero beneficiario del acuerdo entre tú y el proveedor de productos para cada producto de programador y tendremos el derecho (y se considerará que has aceptado el derecho) de hacer cumplir ese acuerdo en tu contra como un tercero beneficiario.
 
-### D. Pago, calendario de facturación y cancelación
+## D. Pago, calendario de facturación y cancelación
 
 GitHub tramitará todos los pagos por Productos de Programador. Las condiciones de tu pago y las comisiones se regirán por [Sección K. Pago](/articles/github-terms-of-service/#k-payment) o la sección análoga de tus Condiciones de GitHub aplicables. Al usar el Mercado aceptas pagar a GitHub cualquier cargo incurrido en relación con tu compra del Producto de Programador. Cada compra es un contrato electrónico entre tú y GitHub y tú y el Proveedor de Productos. Eres responsable de proporcionarnos un medio de pago válido para las compras de Productos de Programador. Si sólo estás comprando productos de programador gratuitos, no estás obligado a proporcionar información de pago.
 
 **Calendario de facturación; Sin reembolsos.** Tu calendario de pago se determina por el calendario de pago que elegiste cuando creaste tu cuenta de GitHub (por ejemplo, gratis, mensual, anual). Para planes de pago mensuales o anuales, las compras en el mercado se facturan por adelantado de forma mensual o anual respectivamente y no son reembolsables. No habrá reembolsos o créditos por meses parciales de servicio, reembolsos por descenso de categoría o reembolsos por meses sin uso; sin embargo, el servicio permanecerá activo durante el período de facturación pagado. Si deseas cancelar los servicios del Producto de Programador, puedes hacerlo entrando en sus Ajustes en la barra de navegación global en la parte superior de la pantalla.
 
-Si tienes una pregunta, inquietud o disputa con respecto a tu facturación, ponte en contacto con [el soporte de GitHub](https://support.github.com/contact).
+Si tienes preguntas, inquietudes o disputas con respecto a tu facturación, por favor, contacta al [Soporte de GitHub](https://support.github.com/contact?tags=docs-policy).
 
-### E. Tus datos y la política de privacidad de GitHub
+## E. Tus datos y la política de privacidad de GitHub
 
 **Privacidad.** Cuando seleccionas o utilizas un Producto de Desarrollador, GitHub puede compartir cierta Información Personal (como se define en la[Declaración de Privacidad de GitHub](/articles/github-privacy-statement/)) con el Proveedor de Producto (si se recibe dicha Información Personal de tu parte) para proporcionarte el Producto de Desarrollador, independientemente de su configuración de privacidad. Dependiendo de los requisitos del producto para programador que elijas, GitHub puede compartir solamente el nombre de tu cuenta de usuario, ID y la dirección de correo electrónico principal o el acceso al contenido de tus repositorios, incluyendo la capacidad de leer y modificar tus datos privados. Podrás ver el alcance de los permisos que el Producto del Programador está solicitando y aceptarlos o rechazarlos cuando le concedes la autorización a través de OAuth.
 
@@ -49,19 +49,19 @@ Si ya no usas el producto de programador y revocas el acceso a través de los pa
 
 **Aviso de seguridad de datos y privacidad.** Cuando seleccionas o usas un producto de programador, la seguridad del producto del programador y la custodia de tus datos, incluyendo tu información personal (si la hay), es responsabilidad del proveedor del producto. Eres responsable de comprender las consideraciones de seguridad y privacidad de la selección o el uso del producto de programador por tus propios riesgos de seguridad y privacidad y consideraciones de cumplimiento.
 
-### F. Derechos a Productos de Programador
+## F. Derechos a Productos de Programador
 
 Los derechos que se te otorgan para usar cualquier Producto de Programador son personales y no son transferibles a terceros, como tus usuarios finales. Cualquier derecho de proporcionar o revender los Productos de Programador a terceros debe otorgarse directamente por el Proveedor del Producto.
 
-### G. Actualizaciones a Productos de Programador
+## G. Actualizaciones a Productos de Programador
 
 De vez en cuando, GitHub.com puede comprobar con servidores remotos (alojados por GitHub o por terceros) si existen actualizaciones disponibles para los Productos de Programador, incluyendo pero sin limitación a correcciones de errores o funcionalidad mejorada. Aceptas que dichas actualizaciones se solicitarán, descargarán e instalarán automáticamente, sin previo aviso.
 
-### H. Bloqueo de Productos de Programador
+## H. Bloqueo de Productos de Programador
 
 GitHub puede bloquear un Producto de Programador de nuestros servidores, o desactivar su funcionalidad, por razones legales o de política. En el caso que debamos bloquear o desactivar un Producto de Programador, trabajaremos con el Proveedor del Producto para notificar a los usuarios afectados.
 
-### I. Descargo de responsabilidad; Limitación de responsabilidad; Liberación e indemnización
+## I. Descargo de responsabilidad; Limitación de responsabilidad; Liberación e indemnización
 
 **Descargo de responsabilidad.** El uso que hagas del Mercado y de los Productos de Programador obtenidos a través del mercado es bajo tu propio riesgo. Además de lo indicado expresamente, GitHub proporciona el mercado y los Productos de Programador “TAL CUAL” y “SEGÚN ESTÉN DISPONIBLES”. GitHub no hace o implica ninguna garantía o compromiso sobre el mercado y los Productos de Programador, incluyendo, sin limitación a la funcionalidad específica disponible a través del mercado y los Productos de Programador, su fiabilidad, disponibilidad o capacidad para satisfacer tus necesidades.
 
@@ -73,7 +73,7 @@ Nos reservamos el derecho en cualquier momento y de vez en cuando de modificar o
 
 Aceptas indemnizarnos, defendernos y eximirnos de toda responsabilidad contra cualquiera y toda reclamación, responsabilidad y gastos, incluyendo los honorarios de los abogados, que surgen de tu uso del mercado, incluyendo, sin limitación a la violación de estos Términos del Mercado, considerando que GitHub (1) le dé un aviso por escrito de la reclamación, demanda, juicio o procedimiento; (2) te da control exclusivo de la defensa y liquidación del reclamo, demanda, traje o procedimiento (siempre y cuando no pueda liquidar ninguna reclamación, demanda, juicio o procedimiento a menos que la liquidación libere incondicionalmente a GitHub de toda responsabilidad); y (3) te proporciona toda la asistencia razonable, a tu cargo.
 
-### J. Varios
+## J. Varios
 
 1. **Ley aplicable** Aceptas que estos Términos del Mercado y tu uso de los Productos de Programador se rigen por la ley de California y cualquier disputa relacionada con los Productos de Programador debe llevarse ante un tribunal de jurisdicción competente ubicado en o cerca de San Francisco, California.
 
@@ -87,4 +87,4 @@ Aceptas indemnizarnos, defendernos y eximirnos de toda responsabilidad contra cu
 
 6. **Licencia para las Políticas de GitHub.** Estos Términos del Mercado están licenciados bajo esta [licencia de Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/). Para obtener más detalles, consulta nuestro [repositorio de políticas del sitio](https://github.com/github/site-policy#license).
 
-7. **Póngase en contacto con nosotros.** ¿Preguntas sobre las condiciones del mercado? [Contáctanos](https://support.github.com/contact).
+7. **Póngase en contacto con nosotros.** ¿Preguntas sobre las condiciones del mercado? [Contáctanos](https://support.github.com/contact?tags=docs-policy).

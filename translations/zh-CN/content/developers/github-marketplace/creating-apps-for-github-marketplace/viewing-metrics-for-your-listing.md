@@ -2,15 +2,17 @@
 title: 查看上架产品的指标
 intro: '{% data variables.product.prodname_marketplace %} Insights 页面显示 {% data variables.product.prodname_github_app %} 的指标。 您可以使用这些指标来跟踪 {% data variables.product.prodname_github_app %} 的表现，并就价格、计划、免费试用以及如何看待营销活动的效果做出更明智的决定。'
 redirect_from:
-  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/github-marketplace-insights/
+  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/github-marketplace-insights
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: 查看列表指标
 ---
 
 您可以查看 {% data variables.product.prodname_github_app %} 在过去一天（24 小时）、一周、一月或整个上架期间的指标。
@@ -21,7 +23,7 @@ topics:
 
 {% endnote %}
 
-### 性能指标
+## 性能指标
 
 Insights 页面显示选定时段的以下性能指标：
 
@@ -35,7 +37,7 @@ Insights 页面显示选定时段的以下性能指标：
 
 {% endnote %}
 
-#### 转化性能
+### 转化性能
 
 * **Unique visitors to landing page（登录页面的绝对访客数）：**查看过 GitHub 应用程序登录页面的人数。
 * **Unique visitors to checkout page（结账页面的绝对访客数）：**查看过 GitHub 应用程序结账页面的人数。

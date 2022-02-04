@@ -1,12 +1,13 @@
 ---
 title: 支払い
+intro: 'With the Billing API, you can monitor the charges and usage {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} for a user or organization.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
-
-Billing API を使用して、ユーザおよび Organization の {% data variables.product.prodname_actions %} および {% data variables.product.prodname_registry %} の料金と使用状況を監視できます。
 
 Enterprise の支払情報を取得できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#billing)」REST API を参照してください。
 

@@ -3,14 +3,14 @@ title: '安装 {% data variables.product.prodname_enterprise %}'
 shortTitle: 安装
 intro: '系统管理员以及操作和安全专业人员可以安装 {% data variables.product.prodname_ghe_server %}。'
 redirect_from:
-  - /enterprise/admin-guide/
-  - /enterprise/admin/guides/installation/
-  - /enterprise/admin/categories/customization/
-  - /enterprise/admin/categories/general/
-  - /enterprise/admin/categories/logging-and-monitoring/
+  - /enterprise/admin-guide
+  - /enterprise/admin/guides/installation
+  - /enterprise/admin/categories/customization
+  - /enterprise/admin/categories/general
+  - /enterprise/admin/categories/logging-and-monitoring
   - /enterprise/admin/installation
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

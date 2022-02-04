@@ -19,7 +19,7 @@ shortTitle: Configure a cluster network
 
 The simplest network design for clustering is to place the nodes on a single LAN. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
 
-{% ifversion ghes > 2.21 %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
+{% ifversion ghes %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
 
 ### Application ports for end users
 
@@ -98,6 +98,8 @@ Because client connections to the cluster come from the load balancer, the clien
 ### Enabling PROXY support on {% data variables.product.prodname_ghe_server %}
 
 We strongly recommend enabling PROXY support for both your instance and the load balancer.
+
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
  - For your instance, use this command:
   ```shell

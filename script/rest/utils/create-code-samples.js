@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import urlTemplate from 'url-template'
+import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 import { get, mapValues, snakeCase } from 'lodash-es'
 export default createCodeSamples
@@ -20,6 +20,15 @@ function createCodeSamples(operation) {
   const serverUrl = operation.serverUrl
 
   const codeSampleParams = { route, serverUrl }
+
+  if (
+    operation.operationId === 'repos/upload-release-asset' &&
+    Object.prototype.hasOwnProperty.call(operation, 'servers') &&
+    serverUrl === 'https://api.github.com'
+  ) {
+    codeSampleParams.serverUrl = operation.servers[0].variables.origin.default
+  }
+
   return [
     { lang: 'Shell', source: toShellExample(codeSampleParams) },
     { lang: 'JavaScript', source: toJsExample(codeSampleParams) },
@@ -30,7 +39,7 @@ function toShellExample({ route, serverUrl }) {
   const pathParams = mapValues(getExamplePathParams(route), (value, paramName) =>
     PARAMETER_EXAMPLES[paramName] ? value : snakeCase(value).toUpperCase()
   )
-  const path = urlTemplate.parse(route.path.replace(/:(\w+)/g, '{$1}')).expand(pathParams)
+  const path = parseTemplate(route.path.replace(/:(\w+)/g, '{$1}')).expand(pathParams)
   const params = getExampleBodyParams(route)
   const { method } = route
 
@@ -158,6 +167,7 @@ function getExampleParamValue(name, schema) {
   // TODO: figure out the right behavior here
   if (schema.oneOf && schema.oneOf[0].type) return getExampleParamValue(name, schema.oneOf[0])
   if (schema.anyOf && schema.anyOf[0].type) return getExampleParamValue(name, schema.anyOf[0])
+  if (!schema.type) return 'any'
 
   switch (schema.type) {
     case 'string':
@@ -173,5 +183,6 @@ function getExampleParamValue(name, schema) {
     case 'array':
       return [getExampleParamValue(name, schema.items)]
   }
+
   throw new Error(`Unknown data type in schema:, ${JSON.stringify(schema, null, 2)}`)
 }

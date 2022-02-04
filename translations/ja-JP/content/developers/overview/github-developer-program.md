@@ -4,7 +4,8 @@ intro: '{% data variables.product.prodname_dotcom %}と統合されるツール�
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -21,7 +22,7 @@ GitHubと統合されるアプリケーションを構築しますか？ 弊社�
 
 ## エンタープライズへの挑戦
 
-[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %}.
+Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
 
 ## GitHubと連携するインテグレーションがありますか？

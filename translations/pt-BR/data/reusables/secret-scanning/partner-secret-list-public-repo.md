@@ -9,13 +9,17 @@
 | Amazon Web Services (AWS) | Par do ID de segredo da chave de acesso ao AWS da Amazon  |
 | Atlassian                 | Token da API de Atlassian                                 |
 | Atlassian                 | Token web de JSON de Atlassian                            |
+| Azure                     | Azure Active Directory Application Secret                 |
 | Azure                     | Token de acesso pessoal do Azure DevOps                   |
 | Azure                     | Token do Azure SAS                                        |
 | Azure                     | Certificado de Gerenciamento de Serviços do Azure         |
 | Azure                     | String de conexão do Azure SQL                            |
 | Azure                     | Chave da conta de armazenamento do Azure                  |
+| Checkout.com              | Checkout.com Production Secret Key                        |
+| Checkout.com              | Checkout.com Test Secret Key                              |
 | Clojars                   | Token de implantação de Clojars                           |
 | CloudBees CodeShip        | Credencial de Coadship de CloudBees                       |
+| Contributed Systems       | Contributed Systems Credentials                           |
 | Databricks                | Token de acesso de Databricks                             |
 | Datadog                   | Chave de API de Datadog                                   |
 | Discord                   | Token de Bot de Discord                                   |
@@ -23,6 +27,7 @@
 | Doppler                   | Token de serviço de Doppler                               |
 | Doppler                   | Token de CLI de Doppler                                   |
 | Doppler                   | Token de SCIM de Doppler                                  |
+| Doppler                   | Doppler Audit Token                                       |
 | Dropbox                   | Token de Acesso de Dropbox                                |
 | Dropbox                   | Token de acesso à vida curta do Dropbox                   |
 | Dynatrace                 | Token de acesso de Dynatrace                              |
@@ -30,6 +35,7 @@
 | Finicity                  | Chave do aplicativo de Finicity                           |
 | Frame.io                  | Token web do JSON de Frame.io                             |
 | Frame.io                  | Token do desenvolvedor de Frame.io                        |
+| FullStory                 | FullStory API Key                                         |
 | GitHub                    | Token de acesso pessoal do GitHub                         |
 | GitHub                    | GitHub OAuth Access Token                                 |
 | GitHub                    | GitHub Refresh Token                                      |
@@ -41,15 +47,23 @@
 | Google Cloud              | ID da chave privada do Google Cloud                       |
 | Hashicorp Terraform       | Token da API de Terraform Cloud / Enterprise              |
 | Hubspot                   | Chave da API de Hubspot                                   |
+| Ionic                     | Ionic Personal Access Token                               |
+| Ionic                     | Ionic Refresh Token                                       |
+| Linear                    | Linear API Key                                            |
+| Linear                    | Linear OAuth Access Token                                 |
 | Mailchimp                 | Chave da API de Mailchimp                                 |
 | Mailchimp                 | Chave da API de Mandrill                                  |
 | Mailgun                   | Chave da API de Mailgun                                   |
 | MessageBird               | Chave da API de MessageBird                               |
+| Meta                      | Facebook Access Token                                     |
 | npm                       | Token de acesso de npm                                    |
 | NuGet                     | Chave de API de NuGet                                     |
 | OpenAI                    | OpenAI API Key                                            |
 | Palantir                  | Token web de JSON de Palantir                             |
-| Plivo                     | Token de Plivo Auth                                       |
+| PlanetScale               | PlanetScale Database Password                             |
+| PlanetScale               | PlanetScale OAuth Token                                   |
+| PlanetScale               | PlanetScale Service Token                                 |
+| Plivo                     | Plivo Auth ID and Token                                   |
 | Postman                   | Chave da API de Postman                                   |
 | Proctorio                 | Chave de Consumidor de Proctorio                          |
 | Proctorio                 | Chave de vínculo de Proctorio                             |
@@ -61,6 +75,8 @@
 | Samsara                   | Token de API de Samsara                                   |
 | Samsara                   | Token de acesso de OAuth de Samsara                       |
 | SendGrid                  | SendGrid API Key                                          |
+| Sendinblue                | Sendinblue API Key                                        |
+| Sendinblue                | Sendinblue SMTP Key                                       |
 | Shopify                   | Segredo compartilhado do aplicativo Shopify               |
 | Shopify                   | Token de acesso de Shopify                                |
 | Shopify                   | Token de acesso do aplicativo personalizado Shopify       |
@@ -77,4 +93,5 @@
 | Tencent Cloud             | ID de segredot de Tencent Cloud                           |
 | Twilio                    | Identificador de string de conta de Twilio                |
 | Twilio                    | Chave da API de Twilio                                    |
+| Typeform                  | Typeform Personal Access Token                            |
 | Valour                    | Valour Access Token                                       |

@@ -2,29 +2,30 @@
 title: Migrar desde GitHub Enterprise 11.10.x a 2.1.23
 redirect_from:
   - /enterprise/admin/installation/migrating-from-github-enterprise-1110x-to-2123
-  - /enterprise/admin-guide/migrating/
-  - /enterprise/admin/articles/migrating-github-enterprise/
-  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x/
-  - /enterprise/admin/articles/upgrading-to-a-newer-release/
-  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
+  - /enterprise/admin-guide/migrating
+  - /enterprise/admin/articles/migrating-github-enterprise
+  - /enterprise/admin/guides/installation/migrating-from-github-enterprise-v11-10-34x
+  - /enterprise/admin/articles/upgrading-to-a-newer-release
+  - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
 intro: 'Para migrar desde {% data variables.product.prodname_enterprise %} 11.10.x a 2.1.23, deberás configurar una nueva instancia de aparato y migrar los datos de la instancia anterior.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
   - Upgrades
+shortTitle: Migrarse de 11.10.x a 2.1.23
 ---
 
 Se admiten migraciones desde {% data variables.product.prodname_enterprise %} 11.10.348 y superior. No se admiten migraciones desde {% data variables.product.prodname_enterprise %} 11.10.348 o inferior. Primero debes actualizar a 11.10.348 en varias actualizaciones. Para obtener más información, consulta el procedimiento de actualización 11.10.348, "[Actualizar al lanzamiento más reciente](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."
 
 Para actualizar a la versión más reciente {% data variables.product.prodname_enterprise %}, primero debes migrar a {% data variables.product.prodname_ghe_server %} 2.1, entonces puedes aplicar el proceso normal de actualización. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".
 
-### Prepárate para la migración
+## Prepárate para la migración
 
 1. Revisa la guía de Abastecimiento e instalación y controla que se cumplan todos los requisitos previos necesarios para abastecer y configurar {% data variables.product.prodname_enterprise %} 2.1.23 en tu entorno. Para obtener más información, consulta "[Abastecimiento e instalación](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)."
 2. Verifica que la instancia actual esté ejecutando una versión actualizada compatible.
@@ -44,7 +45,7 @@ Para actualizar a la versión más reciente {% data variables.product.prodname_e
     - **Asignación de dirección IP** - Este método está únicamente disponible en VMware para la migración VMware y no se recomienda excepto que el método DNS no esté disponible. Antes de comenzar la migración, deberás cerrar la instancia anterior y asignar tu dirección IP a la nueva instancia.
 6. Programa una ventana de mantenimiento. La ventana de mantenimiento debe incluir tiempo suficiente para transferir datos desde el servidor de seguridad a la nueva instancia y variará en base al tamaño de la instantánea de respaldo y el ancho de banda de la red disponible. Durante este tiempo tu instancia actual no estará disponible y estará en modo mantenimiento mientras migras a la nueva instancia.
 
-### Realiza la migración
+## Realiza la migración
 
 1. Aprovisiona una nueva instancia {% data variables.product.prodname_enterprise %} 2.1. Para obtener más información, consulta la "[Guía de aprovisionamiento e instalación](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)" para tu plataforma destino.
 2. Desde un navegador, dirígete a la nueva dirección IP del aparato réplica y carga tu licencia de {% data variables.product.prodname_enterprise %}.

@@ -11,7 +11,7 @@ topics:
 
 **THESE TERMS AND CONDITIONS (THE "AGREEMENT") GOVERN YOUR PARTICIPATION IN GITHUB’S MARKETPLACE PROGRAM. BY ENROLLING TO PARTICIPATE IN THE MARKETPLACE PROGRAM OR BY CLICKING “I ACCEPT” BELOW, YOU ARE CONFIRMING THAT YOU UNDERSTAND THIS AGREEMENT, AND THAT YOU ACCEPT ALL OF ITS TERMS AND CONDITIONS.  IF YOU ARE ENTERING INTO THIS AGREEMENT ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE LEGAL AUTHORITY TO BIND THE ENTITY TO THIS AGREEMENT, IN WHICH CASE “YOU” WILL MEAN THE ENTITY YOU REPRESENT.**
 
-Effective Date: January 1, 2021
+Effective Date: August 24, 2021
 
 ## 1.	DEFINITIONS
 
@@ -239,7 +239,7 @@ GitHub maintains personal information from individuals all over the world, some 
    - ii. Developer must process and communicate the Protected Data to third parties only for the limited and specific purposes of providing its services to the End User as described in its agreement with the End User, unless the End User agrees to allow different uses.
 - c. Data Quality and Proportionality. Developer must keep the Protected Data accurate and up to date.
 - d. Security. Developer must take all reasonable security measures appropriate to the risks, such as against accidental or unlawful destruction, or accidental loss, alteration, unauthorized disclosure or access, presented by processing the Protected Data.
-- e. Data Retention and Deletion. Upon GitHub’s reasonable request, unless prohibited by law, Developer must return or destroy all Personal Information and related data at all locations where it is stored after it is no longer needed for the limited and specified purposes for which it was collected. Developer must have in place or develop information destruction processes that meet GitHub’s security requirements in Section 3.8 of the Agreement.
+- e. Data Retention and Deletion. Upon GitHub’s reasonable request, unless prohibited by law, Developer must return or destroy all Personal Information and related data at all locations where it is stored after it is no longer needed for the limited and specified purposes for which it was collected. 
 - f. Subprocessing and Onward Transfer. Developer is liable for onward transfers of Protected Data to its subprocessors. In the event that Developer must transfer the Protected Data to a third party, or Developer installs, uses, or enables third party services to process the Protected Data on Developer’s behalf, Developer must ensure that the third party will provide at least the same level of privacy protection as is required herein.
 
 **A1-5. Use of Protected Data**
@@ -250,9 +250,7 @@ GitHub maintains personal information from individuals all over the world, some 
 
 **A1-6. Compliance**
 
-- a. Developer must comply with reasonable requests for information on its privacy and data use practices in the following manner:
-   - i. On request, Developer will make its Privacy Statement, Privacy Policy, Privacy Notice, or any similar documentation available. Developer will also provide notice of any relevant compliance reports, including Privacy Shield compliance.
-   - ii. Developer will comply with the Information Security and Audit obligations in Section 3.7 of the GitHub Marketplace Developer Agreement.
+On request, Developer will make its Privacy Statement, Privacy Policy, Privacy Notice, or any similar documentation available. Developer will also provide notice of any relevant compliance reports, including Privacy Shield compliance.
 
 **A1-7. Termination**
 

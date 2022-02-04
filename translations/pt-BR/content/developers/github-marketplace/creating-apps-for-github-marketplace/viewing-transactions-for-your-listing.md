@@ -5,9 +5,11 @@ redirect_from:
   - /marketplace/github-marketplace-transactions
   - /developers/github-marketplace/viewing-transactions-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Ver transações de anúncio
 ---
 
 {% note %}
@@ -19,7 +21,7 @@ topics:
 
 Você pode visualizar ou fazer o download dos dados de transação para acompanhar suas atividades de assinatura. Clique no botão **Exportar CSV** para fazer o download de um arquivo `.csv`. Você também pode selecionar um período de tempo para visualizar e pesquisar na página de transação.
 
-### Campos de dados transação
+## Campos de dados transação
 
 * **Data:** A data da transação no formato `aaaa-mm-dd.`.
 * **app_name:** O nome do aplicativo.
@@ -30,10 +32,12 @@ Você pode visualizar ou fazer o download dos dados de transação para acompanh
 * **amount_in_centes:** O valor da transação em centavos. Quando um valor for inferior ao montante do plano, o usuário fez a atualização e o novo plano será rateado. Um valor zero indica que o usuário cancelou seu plano.
 * **renewal_frequency:** A frequência de renovação da assinatura, seja `Mensal` ou `Anual`.
 * **The following place_listing_plan_id:** O `id` do plano de assinatura.
+* **region:** O nome da região presente no endereço de cobrança.
+* **postal_code:** O código postal presente no endereço de cobrança.
 
 ![Perspectivas do Marketplace](/assets/images/marketplace/marketplace_transactions.png)
 
-### Acessar as transações do {% data variables.product.prodname_marketplace %}
+## Acessar as transações do {% data variables.product.prodname_marketplace %}
 
 Para acessar as transações do {% data variables.product.prodname_marketplace %}:
 

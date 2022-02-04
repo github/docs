@@ -6,9 +6,10 @@ redirect_from:
   - /articles/disabling-wikis
   - /github/building-a-strong-community/disabling-wikis
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -19,6 +20,6 @@ topics:
 {% data reusables.repositories.sidebar-settings %}
 3. [Features] の下で [**Wiki**] の選択を解除します。 ![ウィキの無効化チェックボックス](/assets/images/help/wiki/wiki_enable_disable.png)
 
-### 参考リンク
+## 参考リンク
 
 - 「[ウィキのアクセス権限を変更する](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)」

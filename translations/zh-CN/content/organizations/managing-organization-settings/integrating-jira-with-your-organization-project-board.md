@@ -5,8 +5,9 @@ redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/integrating-jira-with-your-organization-project-board
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: 集成 Jira
 ---
 
 {% data reusables.user_settings.access_settings %}
@@ -20,7 +21,7 @@ versions:
 9. 在 **Organization owned applications（组织拥有的应用程序）**下，记下 "Client ID"（客户 ID）和 "Client Secret"（客户端密钥）值。 ![客户端 ID 和客户端密码](/assets/images/help/oauth/client-id-and-secret.png)
 {% data reusables.user_settings.jira_help_docs %}
 
-### 延伸阅读
+## 延伸阅读
 
 - ["将 Jira 与个人项目集成"](/articles/integrating-jira-with-your-personal-projects)
 - <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>将 Jira Cloud 连接到 GitHub</a>（Atlassian 文档）

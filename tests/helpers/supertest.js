@@ -34,8 +34,11 @@ export const head = (helpers.head = async function (route, opts = { followRedire
 
 export const post = (helpers.post = (route) => request('post', route))
 
-export const getDOM = (helpers.getDOM = async function (route, headers) {
+export const getDOM = (helpers.getDOM = async function (route, headers, allow500s = false) {
   const res = await helpers.get(route, { followRedirects: true, headers })
+  if (!allow500s && res.status >= 500) {
+    throw new Error(`Server error (${res.status}) on ${route}`)
+  }
   const $ = cheerio.load(res.text || '', { xmlMode: true })
   $.res = Object.assign({}, res)
   return $
@@ -45,5 +48,8 @@ export const getDOM = (helpers.getDOM = async function (route, headers) {
 // e.g. await getJSON('/en?json=breadcrumbs')
 export const getJSON = (helpers.getJSON = async function (route) {
   const res = await helpers.get(route, { followRedirects: true })
+  if (res.status >= 500) {
+    throw new Error(`Server error (${res.status}) on ${route}`)
+  }
   return JSON.parse(res.text)
 })

@@ -1,6 +1,7 @@
 ---
 title: Pinning an issue to your repository
 intro: You can pin up to three important issues above the issues list in your repository.
+permissions: 'People with write access to a repository can pin issue in the repository. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/pinning-an-issue-to-your-repository
   - /articles/pinning-an-issue-to-your-repository
@@ -10,13 +11,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Pin an issue
 ---
 ![Pinned issues](/assets/images/help/issues/pinned-issues.png)
-
-To pin an issue, you must have write permissions for the repository the issue is in.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}

@@ -1,29 +1,64 @@
 ---
 title: codespace を削除する
 intro: 不要になった codespace を削除することができます。
-permissions: Anyone can delete a codespace owned by their user account.
+product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
   - /github/developing-online-with-codespaces/deleting-a-codespace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Delete a codespace
 ---
 
-{% data reusables.codespaces.release-stage %}
+
 
 {% data reusables.codespaces.concurrent-codespace-limit %}
 
-1. Navigate to the repository where you created the codespace. Select **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces** and then click {% octicon "gear" aria-label="The Settings gear" %}. This will display all {% data variables.product.prodname_codespaces %} that you have created in the repository. ![Codespaces tab](/assets/images/help/codespaces/codespaces-manage.png)
+{% note %}
 
-  Alternatively, you can see every codespace owned by your user account at [github.com/codespaces](https://github.com/codespaces).
+**注釈:** codespace を作成したユーザだけが削除できます。 現在、Organization のオーナーが Organization 内で作成された Codespaces を削除する方法はありません。
 
-2. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete** ![削除ボタン](/assets/images/help/codespaces/delete-codespace.png)
+{% endnote %}
 
-### {% data variables.product.prodname_vscode %} で Codespaces を削除する
 
-For information on deleting a codespace in {% data variables.product.prodname_vscode %}, see "[Using Codespaces in Visual Studio Code](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#deleting-a-codespace-in-visual-studio-code)."
+{% webui %}
+
+1. Navigate to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces).
+
+2. 削除する codespace の右側で {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、**{% octicon "trash" aria-label="The trash icon" %} [Delete]** をクリックします。
+
+   ![削除ボタン](/assets/images/help/codespaces/delete-codespace.png)
+
+{% endwebui %}
+
+{% vscode %}
+
+{% data reusables.codespaces.deleting-a-codespace-in-vscode %}
+
+{% endvscode %}
+
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To delete a codespace use the `gh codespace delete` subcommand and then choose a codespace from the list that's displayed.
+
+```shell
+gh codespace delete
+```
+
+If you have unsaved changes, you'll be prompted to confirm deletion. You can use the `-f` flag to force deletion, avoiding this prompt.
+
+For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_delete).
+
+{% endcli %}
+
+## 参考リンク
+- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)

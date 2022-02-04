@@ -1,1 +1,0 @@
-Para obtener información acerca de los mensajes de confirmación predeterminados para las fusiones de combinación, consulta "[Acerca de las fusiones de solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#merge-message-for-a-squash-merge)."

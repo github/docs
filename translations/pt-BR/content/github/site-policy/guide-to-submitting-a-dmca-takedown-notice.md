@@ -1,11 +1,11 @@
 ---
 title: Guia de envio do aviso de retirada DMCA
 redirect_from:
-  - /dmca-notice-how-to/
-  - /articles/dmca-notice-how-to/
+  - /dmca-notice-how-to
+  - /articles/dmca-notice-how-to
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -17,7 +17,7 @@ Devido ao tipo de conteúdo que o GitHub hospeda (principalmente código de soft
 
 Como em todas as questões jurídicas, é sempre melhor consultar um profissional sobre suas dúvidas ou situação específica. Incentivamos a fazê-lo antes de tomar quaisquer medidas que possam impactar seus direitos. Este guia não é um aconselhamento jurídico e não deve ser tomado como tal.
 
-### Antes de começar
+## Antes de começar
 
 ***Diga a verdade.*** A DMCA requer que você jure pelos fatos relatados na reclamação dos direitos autorais, *sob pena de perjúrio*. Nos Estados Unidos, é crime federal mentir intencionalmente numa declaração juramentada. (*Veja* [Código dos EUA, Título 18, Seção 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm). Código, Título 18, Seção 1621</a>.) O envio de informações falsas também poderia resultar em responsabilidade civil — ou seja, você poderia ser processado por danos financeiros. A própria DMCA [prevê danos](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations) contra qualquer pessoa que, intencionalmente, deturpe materialmente o material ou a atividade que está sendo alvo de denúncia de violação de direitos autorais.
 
@@ -49,7 +49,7 @@ Esta lista não é exaustiva, e é por isso que falar com um advogado sobre a qu
 
 ***O GitHub não é juiz.*** O GitHub se envolve pouco no processo, limitando-se a determinar se os avisos atendem aos requisitos mínimos da DMCA. Cabe às partes (e aos seus advogados) avaliar o mérito das suas reivindicações, tendo em conta que os avisos devem ser feitos corretamente sob pena de perjúrio.
 
-### Sua reclamação deve...
+## Sua reclamação deve...
 
 1. **Incluir a seguinte declaração: "Eu li e compreendi o Guia do GitHub para o Preenchimento de um Aviso DMCA".** Não nos recusaremos a processar um aviso, caso você não inclua essa declaração. Mas saberemos que você não leu essas diretrizes e poderemos pedir para que o faça.
 
@@ -70,14 +70,14 @@ Esta lista não é exaustiva, e é por isso que falar com um advogado sobre a qu
 
 9. **Incluir sua assinatura física ou eletrônica.**
 
-### Queixas sobre Tecnologia Anticircunvenção
+## Queixas sobre Tecnologia Anticircunvenção
 
-A Lei de Direitos Autorais proíbe, igualmente, que se burle medidas tecnológicas que controlem efetivamente o acesso às obras protegidas pelos direitos de autor. Se você acredita que o conteúdo hospedado no GitHub viola esta proibição, envie-nos um relatório por meio de nossa {% data variables.contact.contact_dmca %}. A circumvention claim must include the following details about the technical measures in place and the manner in which the accused project circumvents them. Specifically, the notice to GitHub must include detailed statements that describe:
-1. What the technical measures are;
-2. How they effectively control access to the copyrighted material; and
-3. How the accused project is designed to circumvent their previously described technological protection measures.
+A Lei de Direitos Autorais proíbe, igualmente, que se burle medidas tecnológicas que controlem efetivamente o acesso às obras protegidas pelos direitos de autor. Se você acredita que o conteúdo hospedado no GitHub viola esta proibição, envie-nos um relatório por meio de nossa {% data variables.contact.contact_dmca %}. Uma alegação de circunvenção deve incluir os pormenores a seguir sobre as medidas técnicas em vigor e a forma como o projeto acusado as contorna. Principalmente, o aviso ao GitHub deve incluir declarações detalhadas que descrevem:
+1. Quais são as medidas técnicas;
+2. Como controlam, de forma eficaz, o acesso ao material protegido por direitos autorais; e
+3. O modo como o projecto acusado foi concebido para contornar as medidas de proteção tecnológica anteriormente descritas.
 
-### Como enviar sua reclamação
+## Como enviar sua reclamação
 
 A maneira mais rápida de obter uma resposta é inserir suas informações e responder todas as perguntas em nosso {% data variables.contact.contact_dmca %}.
 

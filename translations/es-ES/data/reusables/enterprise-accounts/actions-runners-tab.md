@@ -1,1 +1,1 @@
-1. Haz clic en la pestaña de {% if currentVersion == "free-pro-team@latest" %}**Ejecutores**{% else %}**Ejecutores auto-hospedados**{% endif %}.
+1. Haz clic en la pestaña de {% ifversion fpt or ghes > 3.1 or ghae or ghec %}**Ejecutores**{% else %}**Ejecutores auto-hospedados**{% endif %}.

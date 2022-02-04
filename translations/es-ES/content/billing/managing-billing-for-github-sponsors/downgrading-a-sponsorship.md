@@ -4,10 +4,10 @@ intro: 'Puedes bajar de categoría un patrocinio y llevarlo a un nivel inferior,
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-a-sponsorship
   - /articles/downgrading-a-sponsorship
-  - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-a-sponsorship
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/downgrading-a-sponsorship
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Cancellation
@@ -17,11 +17,11 @@ topics:
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### Acerca de las degradaciones de patrocinios
+## Acerca de las degradaciones de patrocinios
 
 Cuando bajas de categoría o cancelas un patrocinio, el cambio entra en vigencia en tu próxima fecha de facturación. {% data reusables.sponsors.no-refunds %}
 
-### Bajar de categoría un patrocinio
+## Bajar de categoría un patrocinio
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
@@ -29,7 +29,7 @@ Cuando bajas de categoría o cancelas un patrocinio, el cambio entra en vigencia
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Cancelar un patrocinio
+## Cancelar un patrocinio
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}

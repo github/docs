@@ -1,0 +1,11 @@
+@import "@primer/css/layout/index.scss";
+
+.sectionHeading {
+  scroll-margin-top: 70px !important;
+}
+
+.aside {
+  width: 260px;
+  height: calc(100vh - 70px);
+  top: 70px;
+}

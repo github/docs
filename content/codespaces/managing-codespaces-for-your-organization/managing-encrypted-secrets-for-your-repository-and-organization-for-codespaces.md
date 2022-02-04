@@ -1,15 +1,19 @@
 ---
 title: Managing encrypted secrets for your repository and organization for Codespaces
-shortTitle: Managing secrets for your repository and organization
+shortTitle: Encrypted secrets
 intro: 'Encrypted secrets allow you to store sensitive information in your organization, repository, or {% data variables.product.prodname_codespaces %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage secrets for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
+  - Secret store
+  - Security
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 ## About secrets
 
@@ -37,13 +41,11 @@ To create secrets for an organization repository, you must have administrator ac
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
-1. Scroll down the page and under **Secrets**, select **Codespaces**.
-    ![Codespaces option in side bar](/assets/images/help/codespaces/codespaces-option-secrets.png)
-1. At the top of the page, click **New repository secret**.
-1. Type a name for your secret in the **Name** input box.
-1. Enter the value for your secret.
-1. Click **Add secret**.
+1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
+2. At the top of the page, click **New repository secret**.
+3. Type a name for your secret in the **Name** input box.
+4. Enter the value for your secret.
+5. Click **Add secret**.
 
 ## Adding secrets for an organization
 
@@ -53,15 +55,13 @@ When creating a secret in an organization, you can use a policy to limit which r
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
-1. Scroll down the page and under **Secrets**, select **Codespaces**.
-    ![Codespaces option in side bar](/assets/images/help/codespaces/codespaces-option-secrets-org.png)
-1. At the top of the page, click **New organization secret**.
-1. Type a name for your secret in the **Name** input box.
-1. Enter the **Value** for your secret.
-1. From the **Repository access** dropdown list, choose an access policy.
+1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
+2. At the top of the page, click **New organization secret**.
+3. Type a name for your secret in the **Name** input box.
+4. Enter the **Value** for your secret.
+5. From the **Repository access** dropdown list, choose an access policy.
     ![Repository Access list with private repositories selected](/assets/images/help/codespaces/secret-repository-access.png)
-1. Click **Add secret**.
+6. Click **Add secret**.
 
 ## Reviewing access to organization-level secrets
 
@@ -73,3 +73,7 @@ You can check which access policies are applied to a secret in your organization
 1. The list of secrets includes any configured permissions and policies. For example:
 ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
 1. For more details on the configured permissions for each secret, click **Update**.
+
+## Further reading
+
+- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"

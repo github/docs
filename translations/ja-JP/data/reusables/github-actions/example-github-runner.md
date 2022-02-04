@@ -1,6 +1,6 @@
 ### 様々なオペレーティングシステム上での実行
 
-スターターワークフローテンプレートは、{% data variables.product.prodname_dotcom %}ホスト`ubuntu-latest`ランナーを使ってLinux上で実行されるようにジョブを設定します。 `runs-on`キーを変更し、異なるペレーティングシステムでジョブを実行するようにすることができます。 たとえば、{% data variables.product.prodname_dotcom %}ホストのWindowsランナーを使うことができます。
+The starter workflow configures jobs to run on Linux, using the {% data variables.product.prodname_dotcom %}-hosted `ubuntu-latest` runners. `runs-on`キーを変更し、異なるオペレーティングシステムでジョブを実行するようにすることができます。 たとえば、{% data variables.product.prodname_dotcom %}ホストのWindowsランナーを使うことができます。
 
 {% raw %}
 ```yaml

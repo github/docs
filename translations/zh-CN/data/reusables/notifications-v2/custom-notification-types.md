@@ -1,2 +1,3 @@
-{%- if currentVersion == "free-pro-team@latest" %}议题、拉取请求、发行版、安全警报或讨论{% endif %}
-{%- if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}议题、拉取请求、发行版或讨论{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}issues, pull requests, releases, security alerts, or discussions
+{%- else %}issues, pull requests, releases, or discussions<!-- `else` statement probably not picked up by GHES 3.1 deprecation script. Will need to review here -->
+{% endif %}

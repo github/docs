@@ -5,9 +5,11 @@ redirect_from:
   - /marketplace/github-marketplace-transactions
   - /developers/github-marketplace/viewing-transactions-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Visualizar las transacciones del listado
 ---
 
 {% note %}
@@ -19,7 +21,7 @@ topics:
 
 Puedes visualizar o descargar los datos de las transacciones para dar seguimiento a la actividad de tus suscripciones. Da clic en el botón de **Exportar CSV** para descargar un archivo de tipo `.csv`. También puedes seleccionar un periodo de tiempo que quieras ver en la página de transacciones para hacer búsquedas dentro de éste.
 
-### Campos de datos de las transacciones
+## Campos de datos de las transacciones
 
 * **date:** La fecha de la transacción en formato `aaa-mm-dd`.
 * **app_name:** El nombre de la app.
@@ -30,10 +32,12 @@ Puedes visualizar o descargar los datos de las transacciones para dar seguimient
 * **amount_in_cents:** La cantidad de la transacción en centavos. Cuando un valor es menor a la cantidad del plan, el usuario que hizo la mejora y el plan nuevo se prorratean. Un valor de cero indica que el usuario canceló el plan.
 * **renewal_frequency:** La frecuencia de renovación de la suscripción, ya sea `Monthly` o `Yearly`.
 * **marketplace_listing_plan_id:** La `id` del plan de suscripción.
+* **region:** El nombre de la región presente en la dirección de facturación.
+* **postal_code:** El valor de código postal presente en la dirección de facturación.
 
 ![Perspectivas de Marketplace](/assets/images/marketplace/marketplace_transactions.png)
 
-### Acceder a las transacciones de {% data variables.product.prodname_marketplace %}
+## Acceder a las transacciones de {% data variables.product.prodname_marketplace %}
 
 Para acceder a las transacciones de {% data variables.product.prodname_marketplace %}:
 

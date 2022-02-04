@@ -2,7 +2,7 @@
 title: 关于数据保存
 intro: '您可以选择 {% data variables.product.product_name %} 为您的企业存储所有客户数据的地理位置。'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise

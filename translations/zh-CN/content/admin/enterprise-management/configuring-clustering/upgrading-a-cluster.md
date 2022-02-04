@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
   - /admin/enterprise-management/upgrading-a-cluster
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -14,7 +14,7 @@ topics:
   - Upgrades
 ---
 
-### 使用热补丁升级
+## 使用热补丁升级
 {% data reusables.enterprise_installation.hotpatching-explanation %} 热补丁安装脚本可在集群中的每个节点上安装热补丁，并按正确顺序重新启动服务以避免停机。
 
 1. 使用 [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme) 备份数据。
@@ -23,10 +23,10 @@ topics:
   $ ghe-cluster-hotpatch https://<em>HOTPATCH-URL/FILENAME</em>.hpkg
   ```
 
-### 使用升级包升级
+## 使用升级包升级
 使用升级包将 {% data variables.product.prodname_ghe_server %} 集群升级到最新功能版本。 例如，您可以从 `2.11` 升级到 `2.13`。
 
-#### 准备升级
+### 准备升级
 
 1. 查看要升级到的版本的[集群网络配置](/enterprise/admin/guides/clustering/cluster-network-configuration)，并根据需要更新配置。
 2. 使用 [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme) 备份数据。
@@ -53,7 +53,7 @@ topics:
   ```
 6. 确定主 MySQL 节点，此节点在 `cluster.conf` 中定义为 `mysql-master = <hostname>`。 此节点将最后升级。
 
-#### 升级集群节点
+### 升级集群节点
 
 1. 通过连接到任何集群节点的管理 shell 并运行 `ghe-cluster-maintenance -s`，根据排定的窗口启用维护模式。
 2. **除了主 MySQL 节点之外**，连接到每个 {% data variables.product.prodname_ghe_server %} 节点的管理 shell。 运行 `ghe-upgrade` 命令，提供在[准备升级](#preparing-to-upgrade)的步骤 4 中下载的包文件名：
@@ -79,5 +79,7 @@ topics:
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-5. 升级过程将在完成后重启主 MySQL 节点。 验证您可以在其重启后 `ping` 每个节点。
-6. 通过运行 `ghe-cluster-maintenance -u`，从任何节点的管理 shell 退出维护模式。
+5. 升级过程将在完成后重启主 MySQL 节点。 验证在每个节点重启后您是否可以 `ping` 通它们。{% ifversion ghes %}
+6. 连接到主MySQL节点的管理 shell 并运行 `ghe-cluster-config-apply` 命令。
+7. 当 `ghe-cluster-config-application` 完成时，通过运行 `ghe-cluster-status` 检查服务是否处于健康状态。{% endif %}
+8. 通过运行 `ghe-cluster-maintenance -u`，从任何节点的管理 shell 退出维护模式。
