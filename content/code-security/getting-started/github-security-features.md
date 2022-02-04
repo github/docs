@@ -25,7 +25,7 @@ The {% data variables.product.prodname_advisory_database %} contains a curated l
 {% endif %}
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### Security policy
-  
+
 Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 {% endif %}
 
@@ -74,7 +74,7 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 
 ### {% data variables.product.prodname_secret_scanning_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. {% ifversion fpt or ghec %}For secrets identified in public repositories, the service is informed that the secret may be compromised.{% endif %} 
+Automatically detect tokens or credentials that have been checked into a repository. {% ifversion fpt or ghec %}For secrets identified in public repositories, the service is informed that the secret may be compromised.{% endif %}
 {%- ifversion ghec or ghes or ghae %}
 {% ifversion ghec %}For private repositories, you can view {% elsif ghes or ghae %}View {% endif %}any secrets that {% data variables.product.company_short %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised.{% endif %} For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 
@@ -82,6 +82,12 @@ Automatically detect tokens or credentials that have been checked into a reposit
 ### Dependency review
 
 Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+{% endif %}
+
+{% ifversion ghec or ghes > 3.1 %}
+### Security overview
+
+Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 
 ## Further reading
