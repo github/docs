@@ -1,2 +1,1 @@
-1. In the left sidebar, click **Codespaces**.
-![Codespaces tab in the user settings sidebar](/assets/images/help/settings/codespaces-tab.png)
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces**.
