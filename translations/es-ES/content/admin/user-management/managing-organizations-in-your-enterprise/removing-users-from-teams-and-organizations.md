@@ -6,6 +6,7 @@ redirect_from:
   - /admin/user-management/removing-users-from-teams-and-organizations
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -25,6 +26,8 @@ Solo los propietarios o los administradores del equipo pueden eliminar miembros 
 
 ## Eliminar un miembro del equipo
 
+{% ifversion ghes %}
+
 {% warning %}
 
 **Nota:** {% data reusables.enterprise_management_console.badge_indicator %}
@@ -32,6 +35,8 @@ Solo los propietarios o los administradores del equipo pueden eliminar miembros 
 Para eliminar un miembro existente de un equipo sincronizado a un grupo LDAP, comunícate con tu administrador LDAP.
 
 {% endwarning %}
+
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
