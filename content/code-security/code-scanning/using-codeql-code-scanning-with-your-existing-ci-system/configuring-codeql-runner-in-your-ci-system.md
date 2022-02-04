@@ -28,7 +28,7 @@ topics:
   - C#
   - Java
 ---
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+
 
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
@@ -83,7 +83,7 @@ $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 
 {% data reusables.code-scanning.run-additional-queries %}
 
-{% data reusables.code-scanning.codeql-query-suites %}
+{% data reusables.code-scanning.codeql-query-suites-explanation %}
 
 To add one or more queries, pass a comma-separated list of paths to the `--queries` flag of the `init` command. You can also specify additional queries in a configuration file.
 
