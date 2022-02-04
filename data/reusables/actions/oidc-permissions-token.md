@@ -1,4 +1,5 @@
 The job or workflow run requires a `permissions` setting with [`id-token: write`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token). This allows the JWT to be requested from GitHub's OIDC provider using one of these approaches:
+
 - Using environment variables on the runner (`ACTIONS_ID_TOKEN_REQUEST_URL` and `ACTIONS_ID_TOKEN_REQUEST_TOKEN`).
 - Using `getIDToken()` from the Actions toolkit.
 
