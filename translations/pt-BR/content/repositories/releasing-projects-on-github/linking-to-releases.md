@@ -9,13 +9,23 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. Encontre a versão com a qual você deseja se vincular e clique no número da versão. ![Tag de informação de versões](/assets/images/help/releases/release_tag_name.png)
-3. Como alternativa, clique com o botão direito em **Última versão** e copie a URL para compartilhá-la. O sufixo dessa URL será sempre `/releases/latest`. ![Tag última versão](/assets/images/help/releases/release_latest_release_tag.png)
-
-To link directly to a download of your latest release asset that was manually uploaded, link to `/owner/name/releases/latest/download/asset-name.zip`.
+3. Para copiar uma URL única para a área de transferência, encontre a versão à qual você deseja vincular, clique com o botão direito no título e copie a URL.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
+  ![Título da versão](/assets/images/help/releases/release-title.png)
+{% else %}
+  ![Título da versão](/assets/images/help/releases/release-title-old.png)
+{% endif %}
+1. Como alternativa, clique com o botão direito em **Última versão** e copie a URL para compartilhá-la. O sufixo dessa URL será sempre `/releases/latest`.
+   {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
+   ![Comparar menu de tags de versões](/assets/images/help/releases/refreshed-release-latest.png)
+   {% else %}
+   ![Tag última versão](/assets/images/help/releases/release_latest_release_tag.png)
+   {% endif %}
+Para vincular diretamente a um download do seu arquivo da versão mais recente que foi carregado manualmente, vincule a `/owner/name/releases/latest/download/asset-name.zip`.

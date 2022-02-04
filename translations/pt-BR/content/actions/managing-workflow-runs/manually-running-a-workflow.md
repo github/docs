@@ -1,11 +1,11 @@
 ---
 title: Executando manualmente um fluxo de trabalho
 intro: 'Quando um fluxo de trabalho é configurado para ser executado no evento `workflow_dispatch`, você pode executar o fluxo de trabalho usando a aba de Ações em {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_cli %} ou a API REST.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Executar um fluxo de trabalho manualmente
 ---
 
@@ -19,8 +19,6 @@ Para executar um fluxo de trabalho manualmente, o fluxo de trabalho deve ser con
 {% data reusables.repositories.permissions-statement-write %}
 
 ## Executando um fluxo de trabalho
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -70,6 +68,6 @@ gh run watch
 
 ## Executar um fluxo de trabalho usando a API REST
 
-Ao usar a API REST, você configura as entradas de `` e `ref` como parâmetros do corpo de solicitação. Se as entradas forem omitidas, os valores padrão definidos no arquivo de fluxo de trabalho ão usados.
+Ao usar a API REST, você configura as `entradas` e `ref` como parâmetros do texto da solicitação. Se as entradas forem omitidas, serão usados os valores-padrão definidos no arquivo de fluxo de trabalho.
 
-Para obter mais informações sobre como usar a API REST, consulte o "[Criar um evento de expedição de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)."
+Para obter mais informações sobre o uso da API REST, consulte o "[Criar um evento de envio de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)".

@@ -1,13 +1,13 @@
 ---
 title: Utilizar la gráfica de visualización
 intro: Cada ejecución de flujo de trabajo genera una gráfica en tiempo real que ilustra el progreso de la misma. Puedes utilizar esta gráfica para monitorear y depurar los flujos de trabajo.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/using-the-visualization-graph
 versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: '*'
+  ghec: '*'
 shortTitle: Utiliza la gráfica de visualización
 ---
 

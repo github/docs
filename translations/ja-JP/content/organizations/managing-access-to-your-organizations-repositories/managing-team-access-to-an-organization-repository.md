@@ -2,13 +2,14 @@
 title: Organization リポジトリへの Team のアクセスを管理する
 intro: リポジトリへのチームアクセスを付与、リポジトリへのチームアクセスを削除、またはリポジトリへのチームの権限レベルを変更することができます。
 redirect_from:
-  - /articles/managing-team-access-to-an-organization-repository-early-access-program/
+  - /articles/managing-team-access-to-an-organization-repository-early-access-program
   - /articles/managing-team-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-repository
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -51,4 +52,4 @@ shortTitle: Teamのアクセスの管理
 
 ## 参考リンク
 
-- [Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

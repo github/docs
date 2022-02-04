@@ -1,7 +1,7 @@
 ---
 title: Gitリベースについて
 redirect_from:
-  - /rebase/
+  - /rebase
   - articles/interactive-rebase/
   - /articles/about-git-rebase
   - /github/using-git/about-git-rebase
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 通常、`git rebase`は以下の目的で使われます。
@@ -22,7 +23,7 @@ versions:
 
 {% warning %}
 
-**警告**：コミット履歴を変更すると、リポジトリを使う他の人々にとっては難しいことになり得るので、リポジトリにプッシュ済みのコミットをリベースするのは悪いプラクティスと考えられています。 {% data variables.product.product_location %}で安全にリベースする方法を学ぶには[プルリクエストのマージについて](/articles/about-pull-request-merges)を参照してください。
+**警告**：コミット履歴を変更すると、リポジトリを使う他の人々にとっては難しいことになり得るので、リポジトリにプッシュ済みのコミットをリベースするのは悪いプラクティスと考えられています。 {% data variables.product.product_location %}で安全にリベースする方法を学ぶには[プルリクエストのマージについて](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)を参照してください。
 
 {% endwarning %}
 

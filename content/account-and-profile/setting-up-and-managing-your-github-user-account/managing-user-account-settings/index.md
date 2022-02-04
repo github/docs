@@ -2,14 +2,15 @@
 title: Managing user account settings
 intro: 'You can change several settings for your personal account, including changing your username and deleting your account.'
 redirect_from:
-  - /categories/29/articles/
-  - /categories/user-accounts/
+  - /categories/29/articles
+  - /categories/user-accounts
   - /articles/managing-user-account-settings
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 children:
@@ -22,6 +23,7 @@ children:
   - /deleting-your-user-account
   - /permission-levels-for-a-user-account-repository
   - /permission-levels-for-user-owned-project-boards
+  - /managing-accessibility-settings
   - /managing-the-default-branch-name-for-your-repositories
   - /managing-security-and-analysis-settings-for-your-user-account
   - /managing-access-to-your-user-accounts-project-boards

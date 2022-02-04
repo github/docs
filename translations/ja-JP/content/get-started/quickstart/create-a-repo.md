@@ -1,15 +1,16 @@
 ---
 title: リポジトリを作成する
 redirect_from:
-  - /create-a-repo/
+  - /create-a-repo
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
-intro: 'プロジェクトを {% data variables.product.product_location %} に保存するには、それを保存するためのリポジトリを作成する必要があります。'
+intro: 'プロジェクトを {% data variables.product.prodname_dotcom %} に保存するには、それを保存するためのリポジトリを作成する必要があります。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -19,9 +20,9 @@ topics:
 
 ## リポジトリの作成
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.product_name %} リポジトリに保存できます。 [オープンソースプロジェクト](http://opensource.org/about)では、より優れた信頼性のあるソフトウェアを作成するためにコードを共有できます。 You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)."
+オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.prodname_dotcom %} リポジトリに保存できます。 [オープンソースプロジェクト](http://opensource.org/about)では、より優れた信頼性のあるソフトウェアを作成するためにコードを共有できます。 You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)."
 
 {% elsif ghes or ghae %}
 
@@ -29,7 +30,7 @@ topics:
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -38,8 +39,6 @@ topics:
 {% endnote %}
 
 {% endif %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -59,19 +58,13 @@ topics:
 {% data reusables.cli.cli-learn-more %}
 
 1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
-2. To create a repository for your project, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
-
-   ```shell
-   gh repo create <em>project-name</em>
-   ```
-
-3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
+2. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.
+4. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag.  For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
 
 {% endcli %}
 
 ## 最初の変更をコミットする
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -137,12 +130,12 @@ Now that you have created a project, you can start committing changes.
 
 {% webui %}
 
-You can now clone a {% data variables.product.product_name %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[Cloning a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)" and "[Set up Git](/articles/set-up-git)."
+You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[Cloning a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)" and "[Set up Git](/articles/set-up-git)."
 
 {% endwebui %}
 
-You can find interesting projects and repositories on {% data variables.product.product_name %} and make changes to them by creating a fork of the repository. For more information see, "[Fork a repository](/articles/fork-a-repo)."
+You can find interesting projects and repositories on {% data variables.product.prodname_dotcom %} and make changes to them by creating a fork of the repository. For more information see, "[Fork a repository](/articles/fork-a-repo)."
 
-Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
+Each repository in {% data variables.product.prodname_dotcom %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.prodname_dotcom %}. For more information see "[Be social](/articles/be-social)."
 
 {% data reusables.support.connect-in-the-forum-bootcamp %}

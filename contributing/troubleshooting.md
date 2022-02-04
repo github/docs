@@ -115,3 +115,19 @@ During development, you can visit any page on `http://localhost:4000` and add `?
 | `redirect_from` | Shows the hardcoded redirects in the [`redirect_from` frontmatter](content#redirect_from).
 | `redirects` | Shows all redirects that the site is generating for the page.
 | `includesPlatformSpecificContent` | Shows whether the site detects any [platform-specific content](#operating-system-tags) on the page.
+
+## Liquid processing
+
+If your text or code example includes `{` or `}` that should render, you need to wrap it in `{% raw %}` `{% endraw %}` to disable Liquid processing for that section. For example:
+
+- **Use**:
+
+  ```
+  GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+  ```
+
+- **Avoid**:
+
+  ```
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ```

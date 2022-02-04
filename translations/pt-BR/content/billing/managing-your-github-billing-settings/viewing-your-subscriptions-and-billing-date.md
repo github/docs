@@ -4,13 +4,14 @@ intro: 'Nas configurações de cobrança da sua conta, você pode exibir a assin
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/viewing-your-subscriptions-and-billing-date
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-subscriptions-and-billing-date
-  - /articles/finding-your-next-billing-date/
-  - /articles/finding-your-personal-account-s-next-billing-date/
-  - /articles/finding-your-organization-s-next-billing-date/
-  - /articles/viewing-your-plans-and-billing-date/
+  - /articles/finding-your-next-billing-date
+  - /articles/finding-your-personal-account-s-next-billing-date
+  - /articles/finding-your-organization-s-next-billing-date
+  - /articles/viewing-your-plans-and-billing-date
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts
@@ -34,4 +35,4 @@ shortTitle: Assinaturas & data de cobrança
 
 ## Leia mais
 
-- "[Sobre a cobrança das contas do {% data variables.product.product_name %}](/articles/about-billing-for-github-accounts)"
+- "[Sobre a cobrança das contas do {% data variables.product.prodname_dotcom %}](/articles/about-billing-for-github-accounts)"

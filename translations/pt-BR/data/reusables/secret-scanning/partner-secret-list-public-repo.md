@@ -35,6 +35,7 @@
 | Finicity                  | Chave do aplicativo de Finicity                           |
 | Frame.io                  | Token web do JSON de Frame.io                             |
 | Frame.io                  | Token do desenvolvedor de Frame.io                        |
+| FullStory                 | FullStory API Key                                         |
 | GitHub                    | Token de acesso pessoal do GitHub                         |
 | GitHub                    | GitHub OAuth Access Token                                 |
 | GitHub                    | GitHub Refresh Token                                      |
@@ -54,6 +55,7 @@
 | Mailchimp                 | Chave da API de Mandrill                                  |
 | Mailgun                   | Chave da API de Mailgun                                   |
 | MessageBird               | Chave da API de MessageBird                               |
+| Meta                      | Facebook Access Token                                     |
 | npm                       | Token de acesso de npm                                    |
 | NuGet                     | Chave de API de NuGet                                     |
 | OpenAI                    | OpenAI API Key                                            |
@@ -73,6 +75,8 @@
 | Samsara                   | Token de API de Samsara                                   |
 | Samsara                   | Token de acesso de OAuth de Samsara                       |
 | SendGrid                  | SendGrid API Key                                          |
+| Sendinblue                | Sendinblue API Key                                        |
+| Sendinblue                | Sendinblue SMTP Key                                       |
 | Shopify                   | Segredo compartilhado do aplicativo Shopify               |
 | Shopify                   | Token de acesso de Shopify                                |
 | Shopify                   | Token de acesso do aplicativo personalizado Shopify       |
@@ -89,4 +93,5 @@
 | Tencent Cloud             | ID de segredot de Tencent Cloud                           |
 | Twilio                    | Identificador de string de conta de Twilio                |
 | Twilio                    | Chave da API de Twilio                                    |
+| Typeform                  | Typeform Personal Access Token                            |
 | Valour                    | Valour Access Token                                       |

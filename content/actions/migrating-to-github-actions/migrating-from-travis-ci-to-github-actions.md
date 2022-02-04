@@ -2,12 +2,12 @@
 title: Migrating from Travis CI to GitHub Actions
 intro: '{% data variables.product.prodname_actions %} and Travis CI share multiple similarities, which helps make it relatively straightforward to migrate to {% data variables.product.prodname_actions %}.'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Travis CI
@@ -120,7 +120,7 @@ jobs:
 
 ### Targeting specific branches
 
-Travis CI and {% data variables.product.prodname_actions %} both allow you to target your CI to a specific branch. For more information, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)."
+Travis CI and {% data variables.product.prodname_actions %} both allow you to target your CI to a specific branch. For more information, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
 
 Below is an example of the syntax for each system:
 
@@ -206,7 +206,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 ### Storing secrets
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. {% ifversion fpt or ghes > 3.0 or ghae %}Environment protection rules can require manual approval for a workflow to access environment secrets. {% endif %}For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Environment protection rules can require manual approval for a workflow to access environment secrets. {% endif %}For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
 ### Sharing files between jobs and workflows
 
@@ -216,9 +216,13 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)."
 
+{% ifversion fpt or ghec %}
+
 ### Concurrent jobs and execution time
 
 The concurrent jobs and workflow execution times in {% data variables.product.prodname_actions %} can vary depending on your {% data variables.product.company_short %} plan. For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration)."
+
+{% endif %}
 
 ### Using different languages in {% data variables.product.prodname_actions %}
 

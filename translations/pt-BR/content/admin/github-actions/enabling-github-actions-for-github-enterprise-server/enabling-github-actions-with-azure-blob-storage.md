@@ -3,9 +3,13 @@ title: Habilitar o o GitHub Actions com armazenamento do Azure Blob
 intro: 'Você pode habilitar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} e usar o Azure Blob Storage para armazenar artefatos gerados por execuções do fluxo de trabalho.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - Infrastructure
+  - Storage
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
 shortTitle: Armazenamento do Azure Blob
@@ -30,6 +34,8 @@ Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se 
 
 ## Habilitar {% data variables.product.prodname_actions %} com o armazenamento do Azure Blob
 
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.actions.perform-blob-storage-precheck %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Fundamentals
@@ -23,15 +24,16 @@ topics:
 
 As ações que você usa no seu fluxo de trabalho podem ser definidas em:
 
-- Um repositório público
-- O mesmo repositório onde o arquivo do fluxo de trabalho faz referência à ação
-- Uma imagem publicada do contêiner Docker no Docker Hub
+- O mesmo repositório do seu arquivo do fluxo de trabalho{% if internal-actions %}
+- Um repositório interno na mesma conta corporativa que está configurado para permitir acesso aos fluxos de trabalho{% endif %}
+- Qualquer repositório público
+- Em uma imagem de contêiner Docker publicada no Docker Hub.
 
-{% data variables.product.prodname_marketplace %} é um local central para você encontrar ações criadas pela comunidade de {% data variables.product.prodname_dotcom %}. {% ifversion fpt %}[a página de {% data variables.product.prodname_marketplace %} ](https://github.com/marketplace/actions/) permite filtrar ações por categoria. {% endif %}
+{% data variables.product.prodname_marketplace %} é um local central para você encontrar ações criadas pela comunidade de {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghec %}[a página de {% data variables.product.prodname_marketplace %} ](https://github.com/marketplace/actions/) permite filtrar ações por categoria. {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Navegação nas ações do Marketplace no editor de fluxo de trabalho
 
@@ -43,6 +45,12 @@ Você pode pesquisar ações diretamente no seu editor do seu fluxo de trabalho 
 
 ## Adicionar uma ação ao seu fluxo de trabalho
 
+Você pode adicionar uma ação ao seu fluxo de trabalho fazendo referência à ação no arquivo do seu fluxo de trabalho.
+
+You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+
+### Adicionando uma ação de {% data variables.product.prodname_marketplace %}
+
 Uma página de lista de ações incluem a versão da ação e a sintaxe do fluxo de trabalho necessárias para usar a ação. Para manter seu fluxo de trabalho estável mesmo quando atualizações são feitas em uma ação, você pode fazer referência à versão da ação a ser usada especificando o Git ou da tag do Docker no arquivo de fluxo de trabalho.
 
 1. Navegue para a ação que você deseja usar no seu fluxo de trabalho.
@@ -53,6 +61,66 @@ Uma página de lista de ações incluem a versão da ação e a sintaxe do fluxo
 {% data reusables.dependabot.version-updates-for-actions %}
 
 {% endif %}
+
+### Adicionando uma ação do mesmo repositório
+
+Se uma ação for definida no mesmo repositório em que seu arquivo de fluxo de trabalho usa a ação, será possível fazer referência a ela com as sintaxes `{owner}/{repo}@{ref}` ou `./path/to/dir` no arquivo de fluxo de trabalho.
+
+Exemplo de estrutura de arquivo de repositório:
+
+```
+|-- hello-world (repository)
+|   |__ .github
+|       └── workflows
+|           └── my-first-workflow.yml
+|       └── actions
+|           |__ hello-world-action
+|               └── action.yml
+```
+
+Exemplo de arquivo de fluxo de trabalho:
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Esta etapa faz checkout de uma cópia do seu repositório.
+      - uses: actions/checkout@v2
+      # This step references the directory that contains the action.
+      - uses: ./.github/actions/hello-world-action
+```
+
+O arquivo `action.yml` é usado para fornecer metadados para a ação. Saiba mais sobre o conteúdo deste arquivo em "[Sintaxe de metadados para o GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)."
+
+### Adicionando uma ação de um repositório diferente
+
+Se uma ação for definida em um repositório diferente do arquivo de fluxo de trabalho, você pode fazer referência à ação com a sintaxe `{owner}/{repo}@{ref}` no seu arquivo de fluxo de trabalho.
+
+A ação deve ser armazenada em um repositório público{% if internal-actions %} ou um repositório interno que esteja configurado para permitir acesso a fluxos de trabalho. Para obter mais informações, consulte "[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".{% else %}.{% endif %}
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: actions/setup-node@v1.1.0
+```
+
+### Fazer referência a um contêiner no Docker Hub
+
+Se uma ação for definida em uma imagem de contêiner Docker publicada no Docker Hub, você deve fazer referência à ação com a sintaxe `docker://{image}:{tag}` no arquivo de fluxo de trabalho. Para proteger seu código e os dados, é altamente recomendável verificar a integridade da imagem do contêiner Docker no Docker Hub antes de usá-la no fluxo de trabalho.
+
+```yaml
+empregos:
+  my_first_job:
+    passos:
+      - nome: Meu primeiro passo
+        usa: docker://alpine:3.8
+```
+
+Para ver alguns exemplos de ações do Docker, consulte o [Fluxo de trabalho Docker-image.yml](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) e "[Criar uma ação de contêiner do Docker](/articles/creating-a-docker-container-action)."
+
 
 ## Usar o gerenciamento de versões para suas ações personalizadas
 
@@ -77,7 +145,7 @@ steps:
 
 ### Usar SHAs
 
-Se você precisar de uma versão mais confiável, você deverá usar o valor de SHA associado à versão da ação. Os SHAs são imutáveis e, portanto, mais confiáveis que tags ou branches. No entanto, esta abordagem significa que você não receberá automaticamente atualizações de uma ação, incluindo correções de erros importantes e atualizações de segurança. {% ifversion fpt or ghes > 3.0 or ghae %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado. {% endif %}Este exemplo aponta para o SHA de uma ação:
+Se você precisar de uma versão mais confiável, você deverá usar o valor de SHA associado à versão da ação. Os SHAs são imutáveis e, portanto, mais confiáveis que tags ou branches. No entanto, esta abordagem significa que você não receberá automaticamente atualizações de uma ação, incluindo correções de erros importantes e atualizações de segurança. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado. {% endif %}Este exemplo aponta para o SHA de uma ação:
 
 ```yaml
 steps:
@@ -123,51 +191,6 @@ Por padrão, você pode usar a maior parte das
 
 ações criadas por {% data variables.product.prodname_dotcom %} em {% data variables.product.prodname_ghe_managed %}. Para obter mais informações, consulte "[Usar as ações em {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)".
 {% endif %}
-
-## Referenciando uma ação no mesmo repositório onde um arquivo de fluxo de trabalho usa a ação
-
-Se uma ação for definida no mesmo repositório onde seu arquivo de fluxo de trabalho usa a ação, você pode referenciar a ação com o`{owner}/{repo}@{ref}` ou `./path/to/dir` sintaxe no seu arquivo de fluxo de trabalho.
-
-Estrutura de arquivos do repositório de exemplo:
-
-```
-|-- Hello-world (repositório)
-|   |__ .github
-|       fluxos de trabalho └sadessa
-|           └➤➤ my-first-workflow.yml
-|       ações └➤➤
-|           |__ Hello-world-action
-|               └➤➤ ação.yml
-```
-
-Arquivo de fluxo de trabalho de exemplo:
-
-```yaml
-empregos:
-  construir:
-    runs-on: ubuntu-latest
-    passos:
-      # Esta etapa confere uma cópia do seu repositório.
-      - usa: ações/checkout@v2
-      # Esta etapa faz referência ao diretório que contém a ação.
-      - usa: ./.github/actions/hello-world-action
-```
-
-O arquivo `action.yml` é usado para fornecer metadados para a ação. Saiba mais sobre o conteúdo deste arquivo em "[Sintaxe de metadados para o GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)"
-
-## Referenciando um contêiner no Docker Hub
-
-Se uma ação for definida em uma imagem de contêiner Docker publicada no Docker Hub, você deve fazer referência à ação com o `docker://{image}:{tag}` sintaxe em seu arquivo de fluxo de trabalho. Para proteger seu código e dados, recomendamos fortemente que verifique a integridade da imagem do contêiner Docker do Docker Hub antes de usá-la em seu fluxo de trabalho.
-
-```yaml
-empregos:
-  my_first_job:
-    passos:
-      - nome: Meu primeiro passo
-        usa: docker://alpine:3.8
-```
-
-Para ver alguns exemplos de ações do Docker, consulte o [Fluxo de trabalho Docker-image.yml](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) e "[Criar uma ação de contêiner do Docker](/articles/creating-a-docker-container-action)."
 
 ## Próximas etapas
 

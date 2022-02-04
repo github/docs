@@ -6,6 +6,7 @@ redirect_from:
   - /graphql/guides/forming-calls
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -19,7 +20,7 @@ Para comunicar-se com o servidor GraphQL, você precisará de um token do OAuth 
 
 Siga as etapas em "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)" para criar um token. Os escopos de que você precisa dependem do tipo de dados que você está tentando solicitar. Por exemplo, selecione os escopos **Usuário** para solicitar os dados do usuário. Se você precisar de acesso às informações do repositório, selecione os escopos apropriados do **repositório**.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Para corresponder ao comportamento do [Explorador do GraphQL](/graphql/guides/using-the-explorer), solicite escopos a seguir:
 

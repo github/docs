@@ -1,6 +1,6 @@
 ---
 title: Renomear um arquivo
-intro: 'You can rename any file in your repository directly in {% data variables.product.product_name %} or by using the command line.'
+intro: 'Você pode renomear qualquer arquivo no repositório diretamente em {% data variables.product.product_name %} ou usando a linha de comando.'
 redirect_from:
   - /articles/renaming-a-file
   - /github/managing-files-in-a-repository/renaming-a-file
@@ -12,19 +12,20 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-## Renaming a file on {% data variables.product.product_name %}
+## Renomeando um arquivo em {% data variables.product.product_name %}
 
-Renaming a file also gives you the opportunity to [move the file to a new location](/articles/moving-a-file-to-a-new-location)
+Renomear um arquivo também dá a oportunidade de [transferir o arquivo para um novo local](/articles/moving-a-file-to-a-new-location)
 
 {% tip %}
 
 **Dicas**:
 
-- Se você tentar renomear um arquivo em um repositório ao qual não tem acesso, bifurcaremos o projeto para sua conta de usuário e ajudaremos você a enviar [uma pull request](/articles/about-pull-requests) para o repositório original depois que fizer o commit da alteração.
+- Se você tentar renomear um arquivo em um repositório ao qual não tem acesso, bifurcaremos o projeto para sua conta de usuário e ajudaremos você a enviar [uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) para o repositório original depois que fizer o commit da alteração.
 - Os nomes de arquivos criados por meio da interface da web podem conter apenas caracteres alfanuméricos e hífens (`-`). Para usar outros caracteres, crie e faça commit dos arquivos localmente, depois faça push deles para o repositório.
 - Alguns arquivos, como imagens, exigem que a renomeação seja feita usando a linha de comando. Para obter mais informações, consulte "[Renomear um arquivo usando a linha de comando](/articles/renaming-a-file-using-the-command-line)".
 

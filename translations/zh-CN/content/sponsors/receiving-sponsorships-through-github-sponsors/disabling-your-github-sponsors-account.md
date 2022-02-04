@@ -3,6 +3,7 @@ title: 禁用 GitHub Sponsors 帐户
 intro: '如果您不再愿意参与 {% data variables.product.prodname_sponsors %}，您可以禁用 {% data variables.product.prodname_sponsors %} 帐户。'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source

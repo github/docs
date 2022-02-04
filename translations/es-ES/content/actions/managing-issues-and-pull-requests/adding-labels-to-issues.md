@@ -1,13 +1,13 @@
 ---
 title: Agregar etiquetas a las propuestas
 intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para etiquetar las propuestas automáticamente.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/adding-labels-to-issues
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -40,12 +40,12 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
           - opened
     jobs:
       label_issues:
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
         permissions:
           issues: write{% endif %}
         steps:
           - name: Label issues
-            uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414
+            uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
             with:
               add-labels: "triage"
               repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}

@@ -1,15 +1,20 @@
 ---
-title: Administrar tu preferencia de representación de tamaño de pestaña
-intro: Puedes administrar la cantidad de espacios que representa una pestaña en tu cuenta de usuario.
+title: Managing your tab size rendering preference
+intro: You can manage the number of spaces a tab is equal to for your user account.
 versions:
   fpt: '*'
+  ghae: issue-5083
+  ghes: '>=3.4'
+  ghec: '*'
 topics:
   - Accounts
-shortTitle: Administrar el tamaño de tu pestaña
+shortTitle: Managing your tab size
 ---
 
-Si crees que la sangría del código que se interpreta en {% data variables.product.product_name %} es demasiado grande o pequeña, puedes cambiar esto en tus ajustes.
+If you feel that tabbed indentation in code rendered on {% data variables.product.product_name %} takes up too much, or too little space, you can change this in your settings.
 
 {% data reusables.user_settings.access_settings %}
-1. En la barra lateral de configuración de usuario, da clic en **Apariencia**. ![Pestaña de "Apariencia" en la barra lateral de configuración de usuario](/assets/images/help/settings/appearance-tab.png)
-2. Debajo de "Preferencia de tamaño de pestaña"; selecciona el menú desplegable y elige tu preferencia. ![Botón de preferencia de tamaño de pestaña](/assets/images/help/settings/tab-size-preference.png)
+1. In the user settings sidebar, click **Appearance**.
+   !["Appearance" tab in user settings sidebar](/assets/images/help/settings/appearance-tab.png)
+2. Under "Tab size preference", select the drop-down menu and choose your preference.
+   ![Tab size preference button](/assets/images/help/settings/tab-size-preference.png )

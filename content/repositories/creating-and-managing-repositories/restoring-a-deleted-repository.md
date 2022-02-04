@@ -7,15 +7,19 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/restoring-a-deleted-repository
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 shortTitle: Restore deleted repository
 ---
+{% ifversion fpt or ghec %}
 Anyone can restore deleted repositories that were owned by their own user account. Organization owners can restore deleted repositories that were owned by the organization.
 
 ## About repository restoration
 
-A deleted repository can be restored within 90 days, unless the repository was part of a fork network that is not currently empty. A fork network consists of a parent repository, the repository's forks, and forks of the repository's forks. If your repository was part of a fork network, it cannot be restored unless every other repository in the network is deleted or has been detached from the network. For more information about forks, see "[About forks](/articles/about-forks)."
+A deleted repository can be restored within 90 days, unless the repository was part of a fork network that is not currently empty. A fork network consists of a parent repository, the repository's forks, and forks of the repository's forks. If your repository was part of a fork network, it cannot be restored unless every other repository in the network is deleted or has been detached from the network. For more information about forks, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
 If you want to restore a repository that was part of a fork network that is not currently empty, you can contact {% data variables.contact.contact_support %}.
 
@@ -43,3 +47,7 @@ Restoring a repository will not restore release attachments or team permissions.
 ## Further reading
 
 - "[Deleting a repository](/articles/deleting-a-repository)"
+
+{% else %}
+Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." 
+{% endif %}

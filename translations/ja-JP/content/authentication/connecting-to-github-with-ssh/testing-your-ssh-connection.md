@@ -1,6 +1,6 @@
 ---
 title: SSH 接続をテストする
-intro: 'SSH キーをセットアップして {% data variables.product.product_name %} のアカウントに追加した後、接続をテストします。'
+intro: 'After you''ve set up your SSH key and added it to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can test your connection.'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Test your SSH connection
@@ -36,7 +37,7 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. 表示されるメッセージのフィンガープリントが {% ifversion fpt %}[{% data variables.product.prodname_dotcom %} の RSA パブリックキーのフィンガープリント](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} Enterprise のパブリックキーのフィンガープリント{% endif %} に一致するかどうかを確認します。 一致する場合は、`yes` と入力します。
+3. 表示されるメッセージのフィンガープリントが {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} の RSA パブリックキーのフィンガープリント](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} Enterprise のパブリックキーのフィンガープリント{% endif %} に一致するかどうかを確認します。 一致する場合は、`yes` と入力します。
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

@@ -12,8 +12,9 @@ redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -27,7 +28,7 @@ topics:
   - C#
   - Java
 ---
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+
 
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
@@ -82,7 +83,7 @@ $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 
 {% data reusables.code-scanning.run-additional-queries %}
 
-{% data reusables.code-scanning.codeql-query-suites %}
+{% data reusables.code-scanning.codeql-query-suites-explanation %}
 
 To add one or more queries, pass a comma-separated list of paths to the `--queries` flag of the `init` command. You can also specify additional queries in a configuration file.
 
@@ -190,7 +191,7 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 | `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_name %}. |
 | `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
 | `--ram` | | Amount of memory to use when running queries. The default is to use all available memory. |
-| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |{% ifversion fpt or ghes > 3.1 or ghae %}
+| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 | <nobr>`--category`<nobr> | | Category to include in the SARIF results file for this analysis. A category can be used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. This value will appear in the `<run>.automationDetails.id` property in SARIF v2.1.0. |{% endif %}
 | `--threads` | | Number of threads to use when running queries. The default is to use all available cores. |
 | `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |

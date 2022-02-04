@@ -1,6 +1,7 @@
 ---
 title: 了解仓库之间的连接
 intro: You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository.
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
@@ -17,6 +18,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Connections between repositories
@@ -24,7 +26,7 @@ shortTitle: Connections between repositories
 
 ## 查看仓库的网络
 
-'The network graph displays the branch history of the entire repository network, including branches of the root repository and branches of forks that contain commits unique to the network.' product: '{% data reusables.gated-features.repository-insights %}'
+网络图显示整个仓库网络的分支历史记录，包括根仓库的分支和包含网络独有提交的复刻的分支。
 
 ![仓库网络图](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -46,7 +48,7 @@ shortTitle: Connections between repositories
 
 复刻按仓库复刻者用户名的字母顺序列出。 您可以单击要重定向到用户 {% data variables.product.product_name %} 个人资料页面的用户名，或者单击要重定向到仓库特定复刻的复刻名称。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![仓库成员图](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
@@ -62,7 +64,7 @@ shortTitle: Connections between repositories
 {% data reusables.repositories.accessing-repository-graphs %}
 3. 在左侧边栏中，单击 **Forks（复刻）**。 ![复刻选项卡](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## 查看仓库的依赖项
 
 您可以使用依赖关系图来浏览仓库所依赖的代码。

@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/adding-a-billing-manager-to-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -49,14 +50,20 @@ Los gerentes de facturación**no** pueden:
 
 ## Invitar a un gerente de facturación
 
+{% ifversion ghec %}
 {% note %}
 
-**Nota:** Si tu organización se administra utilizando [Cuentas empresariales](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) no podrás invitar a los gerentes de facturación a nivel organizacional.
+**Nota:** Si tu organización le pertenece a una cuenta empresarial, no podrás invitar a los gerentes de facturación a nivel de esta. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)".
 
 {% endnote %}
+{% endif %}
 
 La persona invitada recibirá una invitación por correo electrónico solicitándole que se convierta en gerente de facturación para tu organización. Una vez que la persona invitada hace clic en el enlace de aceptación en el correo electrónico de la invitación, se agregarán automáticamente a la organización como gerentes de facturación. Si todavía no tienen una cuenta GitHub, deberán iniciar sesión para una cuenta, y se agregarán automáticamente a la organización como gerentes de facturación luego de crear una cuenta.
 
 {% data reusables.organizations.billing-settings %}
 1. Debajo de "Administración de la facturación", junto a "Gerentes de facturación", haz clic en **Agregar**. ![Invitar gerente de facturación](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Escribe el nombre de usuario o la dirección de correo electrónico de la persona a la que deseas agregar y haz clic en **Send invitation** (Enviar invitación). ![Página Invitar gerente de facturación](/assets/images/help/billing/billing_manager_invite.png)
+
+## Leer más
+
+- "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

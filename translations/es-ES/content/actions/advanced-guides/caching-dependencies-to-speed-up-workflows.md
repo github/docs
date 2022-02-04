@@ -2,7 +2,6 @@
 title: Almacenar en caché las dependencias para agilizar los flujos de trabajo
 shortTitle: Almacenar dependencias en caché
 intro: 'Para hacer que tus flujos de trabajo sean más rápidos y eficientes, puedes crear y usar cachés para las dependencias y otros archivos comúnmente reutilizados.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -10,6 +9,7 @@ redirect_from:
   - /actions/guides/caching-dependencies-to-speed-up-workflows
 versions:
   fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -23,11 +23,34 @@ Los trabajos en los ejecutores alojados {% data variables.product.prodname_dotco
 
 Para almacenar en caché las dependencias de un trabajo, deberás usar la acción de `caché` de {% data variables.product.prodname_dotcom %}. La acción recupera una caché identificada por una clave única. Para más información, consulta [`actions/cache`](https://github.com/actions/cache).
 
-Si estás guardando gemas de Ruby en caché, mejor consider utilizar la acción mantenida de Ruby, la cual puede guardar paquetes de instalación en caché en el inicio. Para obtener más información, consulta la sección [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
+Si estás almacenando en caché los administradores de paquetes que se listan a continuación, considera utilizar las acciones de setup-* respectivas, las cuales casi no requieren de configuración y son fáciles de utilizar.
 
-Para guardar las dependencias en caché y restablecerlas para npm, Yarn o pnpm, puedes utilizar la [acción de `actions/setup-node`](https://github.com/actions/setup-node).
-
-El guardado en caché para Gradle y Maven está disponible con [la acción `actions/setup-java`](https://github.com/actions/setup-java).
+<table>
+<thead>
+  <tr>
+    <th>Administradores de paquetes</th>
+    <th>acción de setup-* para almacenar en caché</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>npm, yarn, pnpm</td>
+    <td><a href="https://github.com/actions/setup-node">setup-node</a></td>
+  </tr>
+  <tr>
+    <td>pip, pipenv</td>
+    <td><a href="https://github.com/actions/setup-python">setup-python</a></td>
+  </tr>
+  <tr>
+    <td>gradle, maven</td>
+    <td><a href="https://github.com/actions/setup-java">setup-java</a></td>
+  </tr>
+  <tr>
+    <td>ruby gems</td>
+    <td><a href="https://github.com/ruby/setup-ruby">setup-ruby</a></td>
+  </tr>
+</tbody>
+</table>
 
 {% warning %}
 
@@ -65,7 +88,7 @@ Para más información, consulta [`actions/cache`](https://github.com/actions/ca
 ### Parámetros de entrada para la acción `chache`
 
 - `key`: **Obligatorio** La clave que se crea cuando se guarda una memoria caché y la clave utilizada para buscar una caché. Puede ser cualquier combinación de variables, valores de contexto, cadenas estáticas y funciones. Las claves tienen una longitud máxima de 512 caracteres y las claves más largas que la longitud máxima provocarán un error en la acción.
-- `path`: **Obligatorio** La ruta del archivo en el ejecutor para almacenar en caché o restaurar. La ruta debe ser absoluta o relativa al directorio de trabajo.
+- `path`: **Obligatorio** La ruta del archivo en el ejecutor para almacenar en caché o restaurar. The path can be an absolute path or relative to the workspace directory.
   - Las rutas pueden ser tanto directorios o solo archivos, y los patrones estilo glob son compatibles.
   - Con la `v2` de la acción `cache`, puedes especificar una ruta sencilla o puedes agregar rutas múltiples en líneas separadas. Por ejemplo:
     ```
@@ -209,4 +232,4 @@ Por ejemplo, si una solicitud de cambios contiene una rama `feature` (el alcance
 
 ## Límites de uso y política de desalojo
 
-{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todas las cachés en un repositorio está limitado a 5 GB. Si excedes este límite, {% data variables.product.prodname_dotcom %} guardará tu caché, pero comenzará a desalojar las cachés hasta que el tamaño total sea inferior a 5 GB.
+{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todas las cachés en un repositorio está limitado a 10 GB. Si excedes este límite, {% data variables.product.prodname_dotcom %} guardará tu caché, pero comenzará a desalojar las cachés hasta que el tamaño total sea inferior a 10 GB.

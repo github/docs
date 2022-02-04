@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/upgrading-to-the-corporate-terms-of-service
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -23,4 +24,4 @@ Los Términos de servicio estándar son un acuerdo entre {% data variables.produ
 5. Para aceptar los Términos de servicio corporativos en nombre de tu entidad, haz clic en **Accept terms** (Aceptar términos). ![Botón Accept terms (Aceptar términos)](/assets/images/help/organizations/accept-terms-button.png)
 
 ## Leer más
-- "[Términos de servicio corporativos de GitHub](/articles/github-corporate-terms-of-service/)"
+- "[Términos de servicio corporativos de GitHub](/free-pro-team@latest/github/site-policy/github-corporate-terms-of-service)"

@@ -1,7 +1,6 @@
 ---
 title: Construir y probar Java con Ant
 intro: Puedes crear un flujo de trabajo de integración continua (CI) en Acciones de GitHub para construir y probar tu proyecto Java con Ant.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-ant
   - /actions/guides/building-and-testing-java-with-ant
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -24,7 +24,8 @@ shortTitle: Crear & probar con Java & Ant
 
 Esta guía te muestra cómo crear un flujo de trabajo que realiza integración continua (CI) para tu proyecto de Java por medio del sistema de construcción Ant. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. Puedes ampliar tu flujo de trabajo de CI para cargar artefactos desde una ejecución de flujo de trabajo.
 
-{% ifversion ghae %}Para obtener instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 Los ejecutores alojados en {% data variables.product.prodname_dotcom %} tienen un caché de herramientas con software preinstalado, que incluye Java Development Kits (JDK) y Ant. Para encontrar una lista de software y de las versiones pre-instaladas de JDK y de Ant, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
@@ -39,11 +40,11 @@ Recomendamos que tengas un conocimiento básico de Java y de la estructura de An
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Comenzar con una plantilla de flujo de trabajo de Ant
+## Utilizar el flujo de trabajo inicial de Ant
 
-{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Ant que funcionará para la mayoría de los proyectos de Java basados en Ant. Para obtener más información, consulta la [Plantilla de flujo de trabajo de Ant](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
+{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de Ant que funcionará para la mayoría de los proyectos de Java basados en Ant. Para obtener más información, consulta el [Flujo de trabajo inicial de Ant](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
 
-Para comenzar rápidamente, puedes elegir la plantilla de Ant preconfigurada cuando crees un nuevo flujo de trabajo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
+Para comenzar rápidamente, puedes elegir el flujo de trabajo inicial de Ant preconfigurado cuando crees un nuevo flujo de trabajo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
 También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
@@ -75,7 +76,7 @@ Este flujo de trabajo realiza los siguientes pasos:
 2. El paso `setup-java` configura el JDK de Java 11 por Adoptium.
 3. El paso "Build with Ant" (Construir con Ant) ejecuta el objetivo predeterminado en tu `build.xml` en el modo no interactivo.
 
-Las plantillas de flujo de trabajo predeterminadas son excelentes puntos de inicio cuando creas tu flujo de trabajo de construcción y prueba, y puedes personalizar la plantilla para adaptarla a las necesidades de tu proyecto.
+Los flujos de trabajo iniciales predeterminados son un punto de partida excelente para crear tu flujo de trabajo de prueba y de compilación y puedes personalizarlos de acuerdo con las necesidades de tu proyecto.
 
 {% data reusables.github-actions.example-github-runner %}
 
@@ -87,7 +88,7 @@ Puedes usar los mismos comandos que usas de forma local para construir y probar 
 
 El flujo de trabajo de inicio ejecutará el destino predeterminado especificado en tu archivo _build.xml_.  Normalmente, tu objetivo predeterminado se configurará para crear clases, ejecutar pruebas y empaquetar clases en su formato distribuible, por ejemplo, un archivo JAR.
 
-Si usas diferentes comandos para construir tu proyecto, o si deseas ejecutar un objetivo diferente, puedes especificarlos. Por ejemplo, es posible que desees ejecutar el destino `jar` que está configurado en tu archivo _build-ci.xml_.
+Si usas diferentes comandos para construir tu proyecto, o si deseas ejecutar un objetivo diferente, puedes especificarlos. For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
 
 {% raw %}
 ```yaml{:copy}

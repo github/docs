@@ -3,6 +3,8 @@ title: Managing security and analysis settings for your user account
 intro: 'You can control features that secure and analyze the code in your projects on {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 topics:
   - Accounts
 redirect_from:
@@ -16,6 +18,8 @@ shortTitle: Manage security & analysis
 
 You can still manage the security and analysis features for individual repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
 
+You can also review the security log for all activity on your user account. For more information, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
@@ -27,11 +31,11 @@ For an overview of repository-level security, see "[Securing your repository](/c
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security-analysis %}
 3. Under "Configure security and analysis features", to the right of the feature, click **Disable all** or **Enable all**.
-  !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png)
-6. Optionally, enable the feature by default for new repositories in your organization.
-  !["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png)
+  {% ifversion ghes > 3.2 %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
+6. Optionally, enable the feature by default for new repositories that you own.
+  {% ifversion ghes > 3.2 %}!["Enable by default" option for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}!["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
 7. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
-  ![Button to disable or enable feature](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png)
+  {% ifversion ghes > 3.2 %}![Button to disable or enable feature](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![Button to disable or enable feature](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png){% endif %}
 
 {% data reusables.security.displayed-information %}
 
@@ -39,11 +43,11 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security-analysis %}
-3. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories in your organization.
-  ![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png)
+3. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories that you own.
+  {% ifversion ghes > 3.2 %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
 
 ## Further reading
 
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Managing vulnerabilities in your project's dependencies](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"
-{% ifversion fpt %}- "[Keeping your dependencies updated automatically](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
+- "[Keeping your dependencies updated automatically](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"

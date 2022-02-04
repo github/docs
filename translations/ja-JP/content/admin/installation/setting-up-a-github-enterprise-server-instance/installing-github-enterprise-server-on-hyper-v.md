@@ -2,13 +2,17 @@
 title: Hyper-V で GitHub Enterprise Server をインストールする
 intro: '{% data variables.product.prodname_ghe_server %} を Hyper-V にインストールするには、Windows Server 2008 から Windows Server 2019 までを実行しているマシンに配備する必要があります。'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
   - /admin/installation/installing-github-enterprise-server-on-hyper-v
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Install on Hyper-V
 ---
 
@@ -66,5 +70,5 @@ shortTitle: Install on Hyper-V
 
 ## 参考リンク
 
-- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes > 2.22 %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes %}
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

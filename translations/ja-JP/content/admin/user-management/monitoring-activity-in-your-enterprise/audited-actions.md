@@ -3,7 +3,7 @@ title: 監査されたアクション
 intro: 監査ログでいろんなアクションを検索することができます。
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /enterprise/admin/articles/audited-actions/
+  - /enterprise/admin/articles/audited-actions
   - /enterprise/admin/installation/audited-actions
   - /enterprise/admin/user-management/audited-actions
   - /admin/user-management/audited-actions
@@ -51,7 +51,7 @@ topics:
 ## Enterprise 設定
 
 | アクション                                                   | 説明                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes > 3.0 or ghae-next %}
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes > 3.0 or ghae %}
 | `business.advanced_security_policy_update`              | A site admin creates, updates, or removes a policy for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."{% endif %}
 | `business.clear_members_can_create_repos`               | サイトアドミンは、Enterprise 内の Organization でのリポジトリ作成の制限を解除します。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)」を参照してください。{% ifversion ghes > 3.1 %}
 | `business.referrer_override_enable`                     | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."                                                                                                     |
@@ -76,14 +76,13 @@ topics:
 
 {% endif %}
 
-## 問題
+## Issue
 
 | アクション                  | 説明                                                                                                                   |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | `issue.update`         | Issue のテキスト本体（最初のコメント）が変更されました。                                                                                      |
 | `issue_comment.update` | Issue （最初以外）のコメントが変更されました。                                                                                           |
 | `issue.destroy`        | Issue がリポジトリから削除されました。 詳しい情報については、「[>Issue を削除する](/github/managing-your-work-on-github/deleting-an-issue)」を参照してください。 |
-
 
 ## Organization
 
@@ -95,22 +94,22 @@ topics:
 
 ## プルリクエスト
 
-| Action | Description | | :- | :- |{% ifversion ghes > 3.1 or ghae-next %} | `pull_request.create` | A pull request was created. 詳しい情報については[プルリクエストの作成](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)を参照してください。 | | `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." | | `pull_request.reopen` | A pull request was reopened after previously being closed. | | `pull_request.merge` | A pull request was merged. 詳しい情報については[プルリクエストのマージ](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)を参照してください。 | | `pull_request.indirect_merge` | A pull request was considered merged because the pull request's commits were merged into the target branch. | | `pull_request.ready_for_review` | A pull request was marked as ready for review. 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)」を参照してください。 | | `pull_request.converted_to_draft` | A pull request was converted to a draft. 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)」を参照してください。 | | `pull_request.create_review_request` | A review was requested on a pull request. 詳しい情報については、「[プルリクエストレビューについて](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request.remove_review_request` | A review request was removed from a pull request. 詳しい情報については、「[プルリクエストレビューについて](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request_review.submit` | A review was submitted for a pull request. 詳しい情報については、「[プルリクエストレビューについて](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request_review.dismiss` | A review on a pull request was dismissed. 詳しい情報については[プルリクエストレビューの却下](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。 | | `pull_request_review.delete` | A review on a pull request was deleted. | | `pull_request_review_comment.create` | A review comment was added to a pull request. 詳しい情報については、「[プルリクエストレビューについて](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request_review_comment.update` | A review comment on a pull request was changed. |{% endif %} | `pull_request_review_comment.delete` | A review comment on a pull request was deleted. |
+| Action | Description | | :- | :- |{% ifversion ghes > 3.1 or ghae %} | `pull_request.create` | A pull request was created. 詳しい情報については[プルリクエストの作成](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)を参照してください。 | | `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." | | `pull_request.reopen` | A pull request was reopened after previously being closed. | | `pull_request.merge` | A pull request was merged. 詳しい情報については[プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)を参照してください。 | | `pull_request.indirect_merge` | A pull request was considered merged because the pull request's commits were merged into the target branch. | | `pull_request.ready_for_review` | A pull request was marked as ready for review. 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)」を参照してください。 | | `pull_request.converted_to_draft` | A pull request was converted to a draft. 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)」を参照してください。 | | `pull_request.create_review_request` | A review was requested on a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request.remove_review_request` | A review request was removed from a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request_review.submit` | A review was submitted for a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request_review.dismiss` | A review on a pull request was dismissed. 詳しい情報については[プルリクエストレビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。 | | `pull_request_review.delete` | A review on a pull request was deleted. | | `pull_request_review_comment.create` | A review comment was added to a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 | | `pull_request_review_comment.update` | A review comment on a pull request was changed. |{% endif %} | `pull_request_review_comment.delete` | A review comment on a pull request was deleted. |
 
 ## 保護されたブランチ
 
-| アクション                                                              | 説明                                 |
-| ------------------------------------------------------------------ | ---------------------------------- |
-| `protected_branch.create`                                          | ブランチ保護がブランチで有効になっています。             |
-| `protected_branch.destroy`                                         | ブランチ保護がブランチで無効になっています。             |
-| `protected_branch.update_admin_enforced`                           | ブランチ保護がリポジトリ管理者に対して強制されます。         |
-| `protected_branch.update_require_code_owner_review`                | 必要なコードオーナーレビューの強制がブランチで更新されます。     |
-| `protected_branch.dismiss_stale_reviews`                           | 却下している古いプルリクエストの強制がブランチで更新されます。    |
-| `protected_branch.update_signature_requirement_enforcement_level`  | 必要なコミット署名の強制がブランチで更新されます。          |
-| `protected_branch.update_pull_request_reviews_enforcement_level`   | 必要なプルリクエストレビューの強制がブランチで更新されます。     |
-| `protected_branch.update_required_status_checks_enforcement_level` | 必要なステータスチェックの強制がブランチで更新されます。       |
-| `protected_branch.rejected_ref_update`                             | ブランチ更新の試行が拒否されます。                  |
-| `protected_branch.policy_override`                                 | ブランチ保護の要件がリポジトリ管理者によってオーバーライドされます。 |
+| アクション                                                              | 説明                                                                                             |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| `protected_branch.create`                                          | ブランチ保護がブランチで有効になっています。                                                                         |
+| `protected_branch.destroy`                                         | ブランチ保護がブランチで無効になっています。                                                                         |
+| `protected_branch.update_admin_enforced`                           | ブランチ保護がリポジトリ管理者に対して強制されます。                                                                     |
+| `protected_branch.update_require_code_owner_review`                | 必要なコードオーナーレビューの強制がブランチで更新されます。                                                                 |
+| `protected_branch.dismiss_stale_reviews`                           | 却下している古いプルリクエストの強制がブランチで更新されます。                                                                |
+| `protected_branch.update_signature_requirement_enforcement_level`  | 必要なコミット署名の強制がブランチで更新されます。                                                                      |
+| `protected_branch.update_pull_request_reviews_enforcement_level`   | 必要なプルリクエストレビューの強制がブランチで更新されます。 Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone). |
+| `protected_branch.update_required_status_checks_enforcement_level` | 必要なステータスチェックの強制がブランチで更新されます。                                                                   |
+| `protected_branch.rejected_ref_update`                             | ブランチ更新の試行が拒否されます。                                                                              |
+| `protected_branch.policy_override`                                 | ブランチ保護の要件がリポジトリ管理者によってオーバーライドされます。                                                             |
 
 ## リポジトリ
 
@@ -134,22 +133,23 @@ topics:
 
 ## サイトアドミンのツール
 
-| アクション                | 説明                                                                    |
-| -------------------- | --------------------------------------------------------------------- |
-| `staff.disable_repo` | サイトアドミンがリポジトリとその全てのフォークへのアクセスを無効にしました。                                |
-| `staff.enable_repo`  | サイトアドミンがリポジトリとその全てのフォークへのアクセスを再度有効化しました。                              |
-| `staff.fake_login`   | サイトアドミンが {% data variables.product.product_name %}に別のユーザとしてサインインしました。 |
-| `staff.repo_unlock`  | サイトアドミンがユーザのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                        |
-| `staff.unlock`       | サイトアドミンがユーザの全てのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                     |
+| アクション                   | 説明                                                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------------------------------ |
+| `staff.disable_repo`    | サイトアドミンがリポジトリとその全てのフォークへのアクセスを無効にしました。                                                                 |
+| `staff.enable_repo`     | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghae or ghes > 3.2 %}
+| `staff.exit_fake_login` | A site admin ended an impersonation session on {% data variables.product.product_name %}.              |
+| `staff.fake_login`      | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
+| `staff.repo_unlock`     | サイトアドミンがユーザのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                                                         |
+| `staff.unlock`          | サイトアドミンがユーザの全てのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                                                      |
 
 ## Team
 
-| アクション                     | 説明                                                                   |
-| ------------------------- | -------------------------------------------------------------------- |
-| `team.create`             | ユーザアカウントまたはリポジトリが Team に追加されました。                                     |
-| `team.delete`             | ユーザアカウントまたはリポジトリが Team から削除されました。{% ifversion ghes > 2.22 or ghae %}
+| アクション                     | 説明                                                                                |
+| ------------------------- | --------------------------------------------------------------------------------- |
+| `team.create`             | ユーザアカウントまたはリポジトリが Team に追加されました。                                                  |
+| `team.delete`             | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
 | `team.demote_maintainer`  | ユーザがチームメンテナからチームメンバーに降格されました。{% endif %}
-| `team.destroy`            | Team が削除されました。{% ifversion ghes > 2.22 or ghae %}
+| `team.destroy`            | Team が削除されました。{% ifversion ghes or ghae %}
 | `team.promote_maintainer` | ユーザーがチームメンバーからチームメンテナに昇格しました。{% endif %}
 
 ## ユーザ
@@ -165,7 +165,7 @@ topics:
 | `user.destroy`                  | ユーザが自分のアカウントを削除し、`user.async_delete` をトリガーしました。{% ifversion ghes %}
 | `user.failed_login`             | ユーザが間違ったユーザネームやパスワード、または二段階認証コードでサインインしようとしました。                                                                                               |
 | `user.forgot_password`          | ユーザがサインインページでパスワードリセットを申請しました。{% endif %}
-| `user.login`                    | ユーザがサインインしました。{% ifversion ghes > 2.22 or ghae %}
+| `user.login`                    | ユーザがサインインしました。{% ifversion ghes or ghae %}
 | `user.mandatory_message_viewed` | ユーザが必須メッセージを表示します（詳細については、「[ユーザメッセージをカスタマイズする](/admin/user-management/customizing-user-messages-for-your-enterprise)」を参照してください） | {% endif %}
 | `user.promote`                  | 一般ユーザアカウントがサイトアドミンへと変更されました。                                                                                                                  |
 | `user.remove_email`             | ユーザアカウントからメールアドレスが削除されました。                                                                                                                    |
@@ -174,7 +174,7 @@ topics:
 | `user.two_factor_requested`     | ユーザが 2 要素認証コードを求められました。{% endif %}
 | `user.unsuspend`                | サイトアドミンがユーザアカウント停止を解除しました。                                                                                                                    |
 
-{% ifversion ghes > 3.1 or ghae-issue-1157 %}
+{% ifversion ghes > 3.1 or ghae %}
 ## ワークフロー
 
 {% data reusables.actions.actions-audit-events-workflow %}

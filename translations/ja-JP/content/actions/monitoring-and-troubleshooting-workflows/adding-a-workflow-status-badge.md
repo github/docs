@@ -1,13 +1,13 @@
 ---
 title: ワークフローステータスバッジを追加する
 intro: リポジトリにステータスバッジを表示して、ワークフローのステータスを示すことができます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Add a status badge
 ---
 
@@ -19,7 +19,7 @@ shortTitle: Add a status badge
 ワークフローファイルの名前でワークフローを参照します。
 
 ```markdown
-![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
+![example workflow]({% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 ```
 ## ワークフローファイル名を使用する
 
@@ -39,8 +39,8 @@ shortTitle: Add a status badge
 
 ## `event` パラメータを使用する
 
-この Markdown の例では、 `pull_request` イベントによってトリガーされたワークフロー実行のステータスを示すバッジを追加します。
+This Markdown example adds a badge that displays the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
 
 ```markdown
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
 ```

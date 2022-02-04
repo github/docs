@@ -6,6 +6,7 @@ redirect_from:
   - /graphql/guides/forming-calls
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -19,7 +20,7 @@ shortTitle: 使用 GraphQL 建立调用
 
 按照“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”中的步骤创建令牌。 您需要的作用域取决于您尝试请求的数据类型。 例如，选择 **User（用户）**作用域以请求用户数据。 如需访问仓库信息，请选择适当的 **Repository（仓库）**作用域。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 要匹配 [GraphQL Explorer](/graphql/guides/using-the-explorer) 的行为，需请求以下作用域：
 

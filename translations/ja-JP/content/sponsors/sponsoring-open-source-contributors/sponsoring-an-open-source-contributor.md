@@ -8,6 +8,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
@@ -36,6 +37,8 @@ shortTitle: Sponsor a contributor
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
+You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
+
 スポンサードアカウントがあなたのスポンサー層を廃止した場合、あなたが別の層を選択するか、プランをキャンセルするまで、あなたはその層にそのままとどまります。 詳細は「[スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)」および「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照してください。
 
 スポンサーしたいアカウントが {% data variables.product.prodname_sponsors %} にプロフィールを持っていない場合は、アカウント参加を推奨できます。 詳細については、「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」と「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照してください。
@@ -44,7 +47,7 @@ shortTitle: Sponsor a contributor
 
 {% note %}
 
-**注釈:** {% data variables.product.prodname_dotcom %} は、開発者の発言について責任を負いません。また、{% data variables.product.prodname_dotcom %} はスポンサードオープンソースプロジェクトについて何の保証もしません。 請求の責任は、資金を受ける開発者のみにあります。 スポンサーシップを提供する前に、信頼できる人かどうか確認してください。 詳細は、「[{% data variables.product.prodname_sponsors %} に関する追加条項](/github/site-policy/github-sponsors-additional-terms)」を参照してください。
+**注釈:** {% data variables.product.prodname_dotcom %} は、開発者の発言について責任を負いません。また、{% data variables.product.prodname_dotcom %} はスポンサードオープンソースプロジェクトについて何の保証もしません。 請求の責任は、資金を受ける開発者のみにあります。 スポンサーシップを提供する前に、信頼できる人かどうか確認してください。 詳細は、「[{% data variables.product.prodname_sponsors %} に関する追加条項](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)」を参照してください。
 
 {% endnote %}
 

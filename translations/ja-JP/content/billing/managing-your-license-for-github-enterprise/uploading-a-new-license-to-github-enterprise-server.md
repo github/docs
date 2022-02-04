@@ -18,6 +18,12 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 
 ## Uploading your license to {% data variables.product.product_location_enterprise %}
 
+{% warning %}
+
+**Warning:** Updating your license causes a small amount of downtime for {% data variables.product.product_location %}.
+
+{% endwarning %}
+
 1. サイト管理者として {% data variables.product.product_location_enterprise %} にサインインします。
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -26,24 +32,3 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 1. ライセンスを選択するには、[**License file**] をクリックするか、ライセンスファイルを [**License file**] にドラッグします。 ![ライセンスファイルのアップロード](/assets/images/enterprise/management-console/upload-license.png)
 1. [**Upload**] をクリックします。 ![アップロード開始](/assets/images/enterprise/management-console/begin-upload.png)
 
-{% ifversion ghes < 3.0 %}
-
-If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."
-
-## トラブルシューティング
-
-一部のシナリオでは、{% data variables.product.prodname_ghe_server %} の Web UI が新しいライセンスをすぐに反映しない場合があります。 2 つのシステムサービスを再起動することにより、システムにライセンスを強制的に検出させることができます。
-
-{% data reusables.enterprise_installation.ssh-into-instance %}
-1. Git 認証と HTTP サーバーのサービスを再起動します。
-
-    {% warning %}
-
-    **Warning**: 次のコマンドを実行すると、{% data variables.product.prodname_ghe_server %} のダウンタイムが数分発生します。 注意してコマンドを実行してください。
-
-    {% endwarning %}
-   
-        sudo systemctl restart github-gitauth github-unicorn
-1. {% data variables.product.prodname_ghe_server %} がプロンプトに戻ったら、コマンドラインまたは Web UI を介して {% data variables.product.prodname_ghe_server %} に再度アクセスしてみてください。
-
-{% endif %}

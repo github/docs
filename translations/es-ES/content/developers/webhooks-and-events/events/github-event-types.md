@@ -1,7 +1,6 @@
 ---
 title: Tipos de evento de GitHub
 intro: 'Para la API de Eventos de {% data variables.product.prodname_dotcom %}, aprende acerca de cada tipo de evento, la acción que los desencadena en {% data variables.product.prodname_dotcom %}, y las propiedades exclusivas de cada evento.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types
@@ -9,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
 
 La API de eventos puede devolver diferentes tipos de ventos que se activan de acuerdo a la actividad en GitHub. Cada respuesta de evento contiene propiedades compartidas, pero tiene un objeto único de `payload` que se determina por su tipo de evento. Las [propiedades comunes del objeto de los eventos](#event-object-common-properties) describen aquellas propiedades que comparten todos los eventos, y cada tipo de evento describe las propiedades de la `payload` que son exclusivas para éste.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% endif %}
 
@@ -164,7 +164,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
@@ -191,7 +191,7 @@ Este evento devuelve un objeto de `payload` vacío.
 
 ### Objeto de `payload` del evento
 
-| Clave                  | Type        | Descripción                                              |
+| Clave                  | Tipo        | Descripción                                              |
 | ---------------------- | ----------- | -------------------------------------------------------- |
 | `Acción`               | `secuencia` | La acción que se realizó. Puede ser `created`.           |
 | `solicitud_extracción` | `objeto`    | La solicitud de cambios a la cual pertenece la revisión. |
@@ -216,7 +216,7 @@ Este evento devuelve un objeto de `payload` vacío.
 
 ### Objeto de `payload` del evento
 
-| Clave                      | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                          |
+| Clave                      | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `push_id`                  | `número`    | Identificador único para la carga.                                                                                                                                                                                                                                                                                                                                                   |
 | `tamaño`                   | `número`    | La cantidad de confirmaciones de la carga.                                                                                                                                                                                                                                                                                                                                           |
@@ -244,7 +244,7 @@ Este evento devuelve un objeto de `payload` vacío.
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## SponsorshipEvent
 
 {% data reusables.webhooks.sponsorship_short_desc %}

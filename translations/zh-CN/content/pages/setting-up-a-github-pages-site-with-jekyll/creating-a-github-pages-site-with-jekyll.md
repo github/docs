@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: 使用 Jekyll 创建站点
@@ -67,7 +68,9 @@ shortTitle: 使用 Jekyll 创建站点
  如果选择从 `gh-pages` 分支发布站点，则创建并检出 `gh-pages` 分支。
  ```shell
  $ git checkout --orphan gh-pages
- # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
+ # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
+ $ git rm -rf 
+ # Removes the contents from your default branch from the working directory
  ```
 1. 要创建新 Jekyll 站点，请使用 `jekyll new` 命令：
    ```shell
@@ -86,7 +89,7 @@ shortTitle: 使用 Jekyll 创建站点
 
    正确版本 Jekyll 将安装为 `github-pages` gem 的依赖项。
 1. 保存并关闭 Gemfile。
-1. From the command line, run `bundle install`.
+1. 从命令行运行 `bundle install`。
 1. （可选）对 `_config.yml` 文件进行任何必要的编辑。 当仓库托管在子目录时相对路径需要此设置。  更多信息请参阅“[将子文件夹拆分到新仓库](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)”。
    ```yml
    domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
@@ -99,9 +102,9 @@ shortTitle: 使用 Jekyll 创建站点
 git add .
 git commit -m 'Initial GitHub pages site with Jekyll'
 ```
-1. 将您的 {% data variables.product.product_name %} 仓库添加为远程仓库，将 {% ifversion ghes or ghae %}_HOSTNAME_ 替换为您企业的主机名，将 {% endif %} _USER_ 替换为拥有该仓库的帐户{% ifversion ghes or ghae %}，{% endif %}并将 _REPOSITORY_ 替换为仓库名称。
+1. 将您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的仓库添加为远程，使用企业的主机名替换 {% ifversion ghes or ghae %}_HOSTNAME_，{% endif %} _USER_ 替换为拥有该仓库的帐户{% ifversion ghes or ghae %}，{% endif %}并且 _REPOSITORY_ 替换为仓库名称。
 ```shell
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
 {% else %}
 $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</em>.git
@@ -115,9 +118,10 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 

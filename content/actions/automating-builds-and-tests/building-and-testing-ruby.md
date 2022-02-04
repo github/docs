@@ -1,13 +1,13 @@
 ---
 title: Building and testing Ruby
 intro: You can create a continuous integration (CI) workflow to build and test your Ruby project.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-ruby
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -29,11 +29,11 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
 - [Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
 - [Ruby in 20 minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Starting with the Ruby workflow template
+## Using the Ruby starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Ruby workflow template that will work for most Ruby projects. For more information, see the [Ruby workflow template](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
+{% data variables.product.prodname_dotcom %} provides a Ruby starter workflow that will work for most Ruby projects. For more information, see the [Ruby starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-To get started quickly, add the template to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -238,7 +238,7 @@ jobs:
 
 ## Linting your code
 
-The following example installs `rubocop` and uses it to lint all files. For more information, see [Rubocop](https://github.com/rubocop-hq/rubocop). You can [configure Rubocop](https://docs.rubocop.org/rubocop/configuration.html) to decide on the specific linting rules.
+The following example installs `rubocop` and uses it to lint all files. For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). You can [configure Rubocop](https://docs.rubocop.org/rubocop/configuration.html) to decide on the specific linting rules.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -283,7 +283,7 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

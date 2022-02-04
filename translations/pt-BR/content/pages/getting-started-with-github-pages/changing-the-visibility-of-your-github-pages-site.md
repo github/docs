@@ -4,6 +4,7 @@ intro: Você pode gerenciar o controle de acesso no seu site de projeto publican
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
@@ -12,11 +13,11 @@ shortTitle: Alterar a visibilidade do site
 
 ## Sobre controle de acesso para sites de {% data variables.product.prodname_pages %}
 
-With access control for {% data variables.product.prodname_pages %}, you can restrict access to your {% data variables.product.prodname_pages %} site by publishing the site privately. A privately published site can only be accessed by people with read access to the repository the site is published from. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise.
+Com controle de acesso para {% data variables.product.prodname_pages %}, você pode restringir o acesso ao seu site {% data variables.product.prodname_pages %} publicando o site de forma privada. Um site publicado de forma privada só pode ser acessado por pessoas com acesso de leitura ao repositório a partir do qual o site é publicado. Você pode usar sites publicados de forma privada para compartilhar sua documentação interna ou base de conhecimento com integrantes da sua empresa.
 
-If your enterprise uses {% data variables.product.prodname_emus %}, all {% data variables.product.prodname_pages %} sites are privately published. For more information about {% data variables.product.prodname_emus %}, see "[About  {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+Se sua empresa usar {% data variables.product.prodname_emus %}, todos os sites de {% data variables.product.prodname_pages %} serão publicados privadamente. Para obter mais informações sobre {% data variables.product.prodname_emus %}, consulte "[Sobre {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
 
-If your organization uses {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, you can choose to publish your sites privately or publicly to anyone on the internet. Access control is available for project sites that are published from a private or internal repository that are owned by the organization. Você não pode gerenciar o controle de acesso para um site da organização. Para obter mais informações sobre os tipos de sites do {% data variables.product.prodname_pages %}, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
+Se a sua organização usar {% data variables.product.prodname_ghe_cloud %} sem {% data variables.product.prodname_emus %}, você poderá optar por publicar seus sites em particular ou publicamente para qualquer pessoa na internet. O controle de acesso está disponível para os sites de projeto publicados a partir de um repositório privado ou interno que pertencem à organização. Você não pode gerenciar o controle de acesso para um site da organização. Para obter mais informações sobre os tipos de sites do {% data variables.product.prodname_pages %}, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
 
 Os sites publicados em particular estão disponíveis em um subdomínio diferente dos sites publicados em modo público. Isso garante que seu site do {% data variables.product.prodname_pages %} esteja seguro a partir do momento em que for publicado:
 

@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Projects
@@ -28,6 +29,7 @@ topics:
 - 跟踪任务复杂性的数字字段
 - 跟踪任务是低、中还是高优先级的单个选择字段
 - 添加快速说明的文本字段
+- an iteration field to plan work week-by-week
 
 ### 从不同的角度查看您的项目
 
@@ -45,17 +47,17 @@ topics:
 
 更多信息请参阅“[自定义项目视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”。
 
-### 使用命令面板
+### Working with the project command palette
 
-您可以使用命令板快速更改视图或添加字段。 命令板会引导您，这样您便无需记住自定义键盘快捷键。 更多信息请参阅“[自定义项目视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”。
+You can use the project command palette to quickly change views or add fields. 命令板会引导您，这样您便无需记住自定义键盘快捷键。 更多信息请参阅“[自定义项目视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”。
 
 ### 自动化项目管理任务
 
-您可以使用 GraphQL API 和 {% data variables.product.prodname_actions %} 自动化常规项目管理任务。 更多信息请参阅“[使用 API 管理项目](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)”和“[自动化项目](/issues/trying-out-the-new-projects-experience/automating-projects)”。
+Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done." You can also use the GraphQL API and {% data variables.product.prodname_actions %} to automate routine project management tasks. For more information, see "[Automating projects](/issues/trying-out-the-new-projects-experience/automating-projects)" and "[Using the API to manage projects](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)."
 
 ## 比较项目（测试版）与非测试版项目
 
-项目（测试版）是一个新的可自定义项目版本。 项目（测试版）目前仅提供给数量有限的测试版用户。 项目非测试版可供所有用户使用。 有关测试版的更多信息，请参阅 [{% data variables.product.prodname_github_issues %}](https://github.com/features/issues)。 有关非测试版项目的更多信息，请参阅“[使用项目板组织工作](/issues/organizing-your-work-with-project-boards)”。
+项目（测试版）是一个新的可自定义项目版本。 有关非测试版项目的更多信息，请参阅“[使用项目板组织工作](/issues/organizing-your-work-with-project-boards)”。
 
 ## 分享反馈
 

@@ -79,7 +79,7 @@ topics:
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-5. 升级过程将在完成后重启主 MySQL 节点。 Verify that you can `ping` each node after it reboots.{% ifversion ghes > 2.22 %}
-6. Connect to the administrative shell of the primary MySQL node and run the `ghe-cluster-config-apply` command.
-7. When `ghe-cluster-config-apply` is complete, check that the services are in a healthy state by running `ghe-cluster-status`.{% endif %}
+5. 升级过程将在完成后重启主 MySQL 节点。 验证在每个节点重启后您是否可以 `ping` 通它们。{% ifversion ghes %}
+6. 连接到主MySQL节点的管理 shell 并运行 `ghe-cluster-config-apply` 命令。
+7. 当 `ghe-cluster-config-application` 完成时，通过运行 `ghe-cluster-status` 检查服务是否处于健康状态。{% endif %}
 8. 通过运行 `ghe-cluster-maintenance -u`，从任何节点的管理 shell 退出维护模式。

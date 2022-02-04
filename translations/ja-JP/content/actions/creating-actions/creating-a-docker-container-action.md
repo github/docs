@@ -1,7 +1,6 @@
 ---
 title: Docker コンテナのアクションを作成する
 intro: このガイドでは、Docker コンテナのアクションを作成するために最低限必要なステップを案内します。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -56,7 +56,7 @@ shortTitle: Docker container action
 
 ## Dockerfileの作成
 
-新しい`hello-world-docker-action`ディレクトリ内に、新たに`Dockerfile`というファイルを作成してください。 詳しい情報については、「[{% data variables.product.prodname_actions %} のための Dockerfile サポート](/actions/creating-actions/dockerfile-support-for-github-actions)」を参照してください。
+新しい`hello-world-docker-action`ディレクトリ内に、新たに`Dockerfile`というファイルを作成してください。 Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. 詳しい情報については、「[{% data variables.product.prodname_actions %} のための Dockerfile サポート](/actions/creating-actions/dockerfile-support-for-github-actions)」を参照してください。
 
 **Dockerfile**
 ```Dockerfile{:copy}
@@ -185,7 +185,7 @@ git push --follow-tags
 
 ### パブリックアクションを使用する例
 
-以下のワークフローのコードは、パブリックの[`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action)リポジトリ内の完成した_hello world_アクションを使います。 次のワークフローサンプルコードを `.github/workflows/main.yml` にコピーし、`actions/hello-world-docker-action` をあなたのリポジトリとアクション名に置き換えてください。 `who-to-greet`の入力を自分の名前に置き換えることもできます。 {% ifversion fpt %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. 詳しい情報については「[アクションの公開](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)」を参照してください。 {% endif %}
+以下のワークフローのコードは、パブリックの[`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action)リポジトリ内の完成した_hello world_アクションを使います。 次のワークフローサンプルコードを `.github/workflows/main.yml` にコピーし、`actions/hello-world-docker-action` をあなたのリポジトリとアクション名に置き換えてください。 `who-to-greet`の入力を自分の名前に置き換えることもできます。 {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. 詳しい情報については「[アクションの公開](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)」を参照してください。 {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -210,7 +210,7 @@ jobs:
 
 ### プライベートアクションを使用する例
 
-次のワークフローコードサンプルを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet`の入力を自分の名前に置き換えることもできます。 {% ifversion fpt %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
+次のワークフローコードサンプルを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet`の入力を自分の名前に置き換えることもできます。 {% ifversion fpt or ghec %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -237,9 +237,9 @@ jobs:
 ```
 {% endraw %}
 
-リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% ifversion fpt or ghes > 3.0 or ghae %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
+リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/docker-action-workflow-run-updated.png)
 {% else %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/docker-action-workflow-run.png)

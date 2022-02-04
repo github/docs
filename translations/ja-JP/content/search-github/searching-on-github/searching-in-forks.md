@@ -1,6 +1,6 @@
 ---
 title: フォーク内を検索する
-intro: 'デフォルトでは[フォーク](/articles/about-forks)は検索結果に表示されません。 リポジトリの検索にフォークを含めることができます。一定の要件を満たす場合は、コードの検索でもできます。'
+intro: 'By default, [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) are not shown in search results. リポジトリの検索にフォークを含めることができます。一定の要件を満たす場合は、コードの検索でもできます。'
 redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -28,5 +29,5 @@ topics:
 
 ## 参考リンク
 
-- [フォークについて](/articles/about-forks)
+- 「[フォークについて](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)」
 - "[GitHub での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

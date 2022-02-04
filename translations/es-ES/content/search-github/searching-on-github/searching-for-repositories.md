@@ -2,7 +2,7 @@
 title: Buscar repositorios
 intro: 'Puedes buscar repositorios en {% data variables.product.product_name %} y acotar los resultados utilizando estos calificadores de búsqueda de repositorio en cualquier combinación.'
 redirect_from:
-  - /articles/searching-repositories/
+  - /articles/searching-repositories
   - /articles/searching-for-repositories
   - /github/searching-for-information-on-github/searching-for-repositories
   - /github/searching-for-information-on-github/searching-on-github/searching-for-repositories
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 shortTitle: Buscar repositorios
@@ -110,17 +111,17 @@ Ambos toman una fecha como su parámetro. {% data reusables.time_date.date_forma
 
 Puedes buscar repositorios con base en el lenguaje de programación del código que contienen.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                    |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>language:<em>LANGUAGE</em></code> | [**rails language:javascript**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) encuentra repositorios con la palabra "rails" que están escritos en JavaScript. |
+| Qualifier                 | Ejemplo                                                                                                                                                                                 |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>language:<em>LANGUAGE</em></code> | [**`rails language:javascript`**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) matches repositories with the word "rails" that are written in JavaScript. |
 
 ## Buscar por tema
 
 Puedes encontrar todos los repositorios que se clasifiquen con un tema particular. Para obtener más información, consulta "[Clasificar tu repositorio con temas](/github/administering-a-repository/classifying-your-repository-with-topics)".
 
-| Qualifier                 | Ejemplo                                                                                                                                                                               |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>topic:<em>TOPIC</em></code> | [**topic:jekyll**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults) encuentra repositorios que se han clasificado con el tema "jekyll." |
+| Qualifier                 | Ejemplo                                                                                                                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>topic:<em>TOPIC</em></code> | [**`topic:jekyll`**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults) matches repositories that have been classified with the topic "Jekyll." |
 
 ## Buscar por cantidad de temas
 
@@ -131,7 +132,7 @@ Puedes buscar repositorios por la cantidad de temas que se les hayan aplicado ut
 | <code>topics:<em>n</em></code> | [**topics:5**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A5&type=Repositories&ref=searchresults) encuentra repositorios que tienen cinco temas.                |
 |                            | [**topics:>3**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A%3E3&type=Repositories&ref=searchresults) coincidirá con repositorios que tengan más de tres temas. |
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Buscar por licencia
 
@@ -147,9 +148,9 @@ Puedes buscar repositorios con por su tipo de licencia. Debes utilizar una palab
 
 Puedes filtrar tu búsqueda con base en la visibilidad de los repositorios. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-| Calificador | Ejemplo | ------------- | ------------- |{% ifversion fpt or ghes %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) empata con los repositorios públicos que pertenezcan a {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) empata con los repositorios internos a los que puedes acceder y que contengan la palabra "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) coincide con los repositorios privados a los cuales puedes acceder y que contengan la palabra "pages".
+| Calificador | Ejemplo | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) coincide con los repositorios públicos que pertenecen a {% data variables.product.company_short %}.{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) coincide con los repositorios internos a los cuales puedas acceder, los cuales contengan la palabra "test".{% endif %} | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) coincide con los repositorios privados a los cuales puedas acceder, los cuales contengan la palabra "pages."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Buscar en base a si un repositorio es un espejo
 
@@ -171,16 +172,16 @@ Puedes buscar los repositorios con base en si se archivaron o no. Para obtener m
 | `archived:true`  | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) coincide con los repositorios que se archivan y que contienen la palabra "GNOME".           |
 | `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) coincide con los repositorios que no están archivados y que contienen la palabra "GNOME". |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Buscar en base a la cantidad de propuestas con las etiquetas `good first issue` o `help wanted`
 
 Puedes buscar repositorios que tienen una cantidad mínima de propuestas etiquetadas como `help-wanted` (se necesita ayuda) o `good-first-issue` (buena propuesta inicial) con los calificadores `help-wanted-issues:>n` y `good-first-issues:>n`. Para encontrar más información, consulta "[Fomentar las contribuciones útiles a tu proyecto con etiquetas](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)."
 
-| Qualifier                  | Ejemplo                                                                                                                                                                                                                                                            |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `good-first-issues:>n`  | [**good-first-issues:&gt;2 javascript**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) encuentra repositorios con más de dos propuestas etiquetadas como `good-first-issue` y que contienen la palabra "javascript." |
-| `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) encuentra repositorios con más de cuatro propuestas etiquetadas como `help-wanted` y que contienen la palabra "React."                |
+| Qualifier                  | Ejemplo                                                                                                                                                                                                                                                |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `good-first-issues:>n`  | [**`good-first-issues:&gt;2 javascript`**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) matches repositories with more than two issues labeled `good-first-issue` and that contain the word "javascript." |
+| `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) encuentra repositorios con más de cuatro propuestas etiquetadas como `help-wanted` y que contienen la palabra "React."    |
 
 ## Búsqueda basada en la capacidad de patrocinar
 

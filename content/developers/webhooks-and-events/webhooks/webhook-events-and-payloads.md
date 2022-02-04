@@ -3,19 +3,20 @@ title: Webhook events and payloads
 intro: 'For each webhook event, you can review when the event occurs, an example payload, and descriptions about the payload object parameters.'
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
-  - /early-access/integrations/webhooks/
-  - /v3/activity/events/types/
+  - /early-access/integrations/webhooks
+  - /v3/activity/events/types
   - /webhooks/event-payloads
   - /developers/webhooks-and-events/webhook-events-and-payloads
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 shortTitle: Webhook events & payloads
 ---
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% endif %}
 
@@ -53,8 +54,8 @@ Header | Description
 `X-GitHub-Delivery`| A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% ifversion ghes or ghae %}
 `X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
 `X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% ifversion not ghae %}
-`X-Hub-Signature`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% ifversion fpt or ghes > 2.22 %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %}
-`X-Hub-Signature-256`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.{% endif %}
+`X-Hub-Signature`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}
+`X-Hub-Signature-256`| This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.
 
 Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
@@ -67,8 +68,8 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% ifversion ghes or ghae %}
 > X-GitHub-Enterprise-Version: 2.15.0
 > X-GitHub-Enterprise-Host: example.com{% endif %}{% ifversion not ghae %}
-> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %}
-> X-Hub-Signature-256: sha256=d57c68ca6f92289e6987922ff26938930f6e66a2d161ef06abdf1859230aa23c{% endif %}
+> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}
+> X-Hub-Signature-256: sha256=d57c68ca6f92289e6987922ff26938930f6e66a2d161ef06abdf1859230aa23c
 > User-Agent: GitHub-Hookshot/044aadd
 > Content-Type: application/json
 > Content-Length: 6615
@@ -99,7 +100,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 ## branch_protection_rule
 
 Activity related to a branch protection rule. For more information, see "[About branch protection rules](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)."
@@ -125,6 +126,34 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+A Git ref has been successfully synced to a cache replica. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+
+### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`cache_location` |`string` | The location of the cache server that has been updated.
+`ref` | `string` | The ref that has been updated.
+`before` | `string` | The OID of the ref on the cache replica before it was updated.
+`after` | `string` | The OID of the ref on the cache replica after the update.
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -189,7 +218,7 @@ Key | Type | Description
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% ifversion fpt %}`github`{% elsif ghes > 3.0 or ghae-next %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
+`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
 
 ### Webhook payload example
 
@@ -217,6 +246,7 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
 
+{% ifversion ghes < 3.4 %}
 ## content_reference
 
 {% data reusables.webhooks.content_reference_short_desc %}
@@ -231,13 +261,14 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {{ webhookPayloadsForCurrentVersion.content_reference.created }}
 
+{% endif %}
 ## create
 
 {% data reusables.webhooks.create_short_desc %}
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you push more than three tags at once.
+**Note:** You will not receive a webhook for this event when you create more than three tags at once.
 
 {% endnote %}
 
@@ -322,9 +353,9 @@ Webhook events are triggered based on the specificity of the domain you register
 ### Webhook payload object
 
 Key | Type | Description
-----|------|-------------{% ifversion fpt or ghes or ghae %}
+----|------|-------------{% ifversion fpt or ghes or ghae or ghec %}
 `action` |`string` | The action performed. Can be `created`.{% endif %}
-`deployment` |`object` | The [deployment](/rest/reference/repos#list-deployments).
+`deployment` |`object` | The [deployment](/rest/reference/deployments#list-deployments).
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -347,13 +378,13 @@ Key | Type | Description
 ### Webhook payload object
 
 Key | Type | Description
-----|------|-------------{% ifversion fpt or ghes or ghae %}
+----|------|-------------{% ifversion fpt or ghes or ghae or ghec %}
 `action` |`string` | The action performed. Can be `created`.{% endif %}
-`deployment_status` |`object` | The [deployment status](/rest/reference/repos#list-deployment-statuses).
+`deployment_status` |`object` | The [deployment status](/rest/reference/deployments#list-deployment-statuses).
 `deployment_status["state"]` |`string` | The new state. Can be `pending`, `success`, `failure`, or `error`.
 `deployment_status["target_url"]` |`string` | The optional link added to the status.
 `deployment_status["description"]`|`string` | The optional human-readable description added to the status.
-`deployment` |`object` | The [deployment](/rest/reference/repos#list-deployments) that this status is associated with.
+`deployment` |`object` | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -363,12 +394,12 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## discussion
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)."
 ### Availability
 
 - Repository webhooks
@@ -379,7 +410,7 @@ Activity related to a discussion. For more information, see the "[Using the Grap
 
 Key | Type | Description
 ----|------|-------------
-`action` |`string` | The action performed. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, or `unanswered`.
+`action` |`string` | The action performed. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled`, or `unlabeled`.
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -393,7 +424,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)."
 
 ### Availability
 
@@ -406,7 +437,7 @@ Activity related to a comment in a discussion. For more information, see "[Using
 Key | Type | Description
 ----|------|-------------
 `action` |`string` | The action performed. Can be `created`, `edited`, or `deleted`.
-`comment` | `object` | The [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) resource.
+`comment` | `object` | The [`discussion comment`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) resource.
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -614,7 +645,7 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.label.deleted }}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## marketplace_purchase
 
 Activity related to a GitHub Marketplace purchase. {% data reusables.webhooks.action_type_desc %} For more information, see the "[GitHub Marketplace](/marketplace/)."
@@ -752,7 +783,7 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.organization.member_added }}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## org_block
 
@@ -779,7 +810,7 @@ Key | Type | Description
 
 {% endif %}
 
-{% ifversion fpt or ghae %}
+{% ifversion fpt or ghae or ghec %}
 
 ## package
 
@@ -817,7 +848,7 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 Key | Type | Description
 ----|------|------------
 `id` | `integer` | The unique identifier of the page build.
-`build` | `object` | The [List GitHub Pages builds](/rest/reference/repos#list-github-pages-builds) itself.
+`build` | `object` | The [List GitHub Pages builds](/rest/reference/pages#list-github-pages-builds) itself.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -843,7 +874,7 @@ Key | Type | Description
 ----|------|------------
 `zen` | `string` | Random string of GitHub zen.
 `hook_id` | `integer` | The ID of the webhook that triggered the ping.
-`hook` | `object` | The [webhook configuration](/rest/reference/repos#get-a-repository-webhook).
+`hook` | `object` | The [webhook configuration](/rest/reference/webhooks#get-a-repository-webhook).
 `hook[app_id]` | `integer` | When you register a new {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) an app.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -852,6 +883,38 @@ Key | Type | Description
 ### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.ping }}
+
+## project
+
+{% data reusables.webhooks.project_short_desc %}
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
+
+### Webhook payload object
+
+{% data reusables.webhooks.project_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.project.created }}
+
+{% ifversion fpt or ghes or ghec %}
 
 ## project_card
 
@@ -862,6 +925,14 @@ Key | Type | Description
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
 
 ### Webhook payload object
 
@@ -897,29 +968,6 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-## project
-
-{% data reusables.webhooks.project_short_desc %}
-
-### Availability
-
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
-
-### Webhook payload object
-
-{% data reusables.webhooks.project_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
-
-### Webhook payload example
-
-{{ webhookPayloadsForCurrentVersion.project.created }}
-
-{% ifversion fpt or ghes %}
 ## public
 
 {% data reusables.webhooks.public_short_desc %}
@@ -1040,7 +1088,7 @@ Key | Type | Description
 `forced`|`boolean` | Whether this push was a force push of the `ref`.
 `head_commit`|`object` | For pushes where `after` is or points to a commit object, an expanded representation of that commit. For pushes where `after` refers to an annotated tag object,  an expanded representation of the commit pointed to by the annotated tag.
 `compare`|`string` | URL that shows the changes in this `ref` update, from the `before` commit to the `after` commit. For a newly created `ref` that is directly based on the default branch, this is the comparison between the head of the default branch and the `after` commit. Otherwise, this shows all commits until the `after` commit.
-`commits`|`array` | An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.) The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.
+`commits`|`array` | An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.)
 `commits[][id]`|`string` | The SHA of the commit.
 `commits[][timestamp]`|`string` | The ISO 8601 timestamp of the commit.
 `commits[][message]`|`string` | The commit message.
@@ -1085,7 +1133,7 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## repository_dispatch
 
 This event occurs when a {% data variables.product.prodname_github_app %} sends a `POST` request to the "[Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)" endpoint.
@@ -1123,7 +1171,7 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.repository.publicized }}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## repository_import
 
 {% data reusables.webhooks.repository_import_short_desc %} To receive this event for a personal repository, you must create an empty repository prior to the import. This event can be triggered using either the [GitHub Importer](/articles/importing-a-repository-with-github-importer/) or the [Source imports API](/rest/reference/migrations#source-imports).
@@ -1166,7 +1214,7 @@ Key | Type | Description
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 
 ## secret_scanning_alert
 
@@ -1191,11 +1239,12 @@ Key | Type | Description
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
-Activity related to a security advisory. A security advisory provides information about security-related vulnerabilities in software on GitHub. The security advisory dataset also powers the GitHub security alerts, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
-{% endif %}
+Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}. 
+
+The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
 
 ### Availability
 
@@ -1212,7 +1261,9 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
 
-{% ifversion fpt %}
+{% endif %}
+
+{% ifversion fpt or ghec %}
 ## sponsorship
 
 {% data reusables.webhooks.sponsorship_short_desc %}
@@ -1381,7 +1432,7 @@ The event’s actor is the [user](/rest/reference/users) who starred a repositor
 
 {{ webhookPayloadsForCurrentVersion.watch.started }}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## workflow_dispatch
 
 This event occurs when someone triggers a workflow run on GitHub or sends a `POST` request to the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" endpoint. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)."
@@ -1395,7 +1446,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
 
 ## workflow_job
 
@@ -1419,7 +1470,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {{ webhookPayloadsForCurrentVersion.workflow_job }}
 
 {% endif %}
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 ## workflow_run
 
 When a {% data variables.product.prodname_actions %} workflow run is requested or completed. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_run)."

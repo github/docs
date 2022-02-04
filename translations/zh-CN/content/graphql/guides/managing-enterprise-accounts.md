@@ -4,7 +4,7 @@ intro: 您可以使用 GraphQL API 管理企业帐户及其拥有的组织。
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
-  fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -58,12 +58,12 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
     - `admin:enterprise`
 
   企业帐户特定作用域包括：
-    - `admin:enterprise`: Gives full control of enterprises (includes {% ifversion ghes > 3.2 or fpt or ghae %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` and `read:enterprise`)
-    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes > 3.2 or fpt or ghae  %}
-    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
+    - `admin:enterprise`：全面控制企业（包括 {% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`、{% endif %}`manage_billing:enterprise` 和 `read:enterprise`）
+    - `manag_billing:enterprise`：读写企业帐单数据。{% ifversion ghes > 3.2 or ghae  %}
+    - `manage_runners:enterprise`：获得管理 GitHub Actions 企业运行器和运行器组的权限。{% endif %}
     - `read:enterprise`：读取企业简介数据。
 
-4. 复制个人访问令牌并保存在安全的位置，直到将其添加至您的 GraphQL 客户端。
+3. 复制个人访问令牌并保存在安全的位置，直到将其添加至您的 GraphQL 客户端。
 
 ### 2. 选择 GraphQL 客户端
 
@@ -95,7 +95,7 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
 
 ## 使用企业账户 API 的查询示例
 
-此 GraphQL 查询使用 Enterprise Accounts API 请求每个设备的组织中 {% ifversion not ghae %}`公共`{% else %}`私有`{% endif %} 仓库的总数。 要自定义此查询，请用企业实例 slug 的 slug 替换 `<enterprise-account-name>`。
+此 GraphQL 查询使用 Enterprise Accounts API 请求每个设备的组织中 {% ifversion not ghae %}`公共`{% else %}`私有`{% endif %} 仓库的总数。 To customize this query, replace `<enterprise-account-name>` with the handle for your enterprise account. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `<enterprise-account-name>` with `octo-enterprise`.
 
 {% ifversion not ghae %}
 

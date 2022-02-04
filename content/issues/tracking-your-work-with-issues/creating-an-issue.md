@@ -1,7 +1,7 @@
 ---
 title: Creating an issue
 intro: 'Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow.'
-permissions: People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}
+permissions: 'People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-an-issue
   - /articles/creating-an-issue
@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: Create an issue
+type: how_to
 ---
 
 Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."
@@ -89,7 +91,7 @@ You can open a new issue from a specific line or lines of code in a file or pull
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you want to reference in an issue:
     - To open an issue about code in a file, navigate to the file.
-    - To open an issue about code in a pull request, navigate to the pull request and click {% octicon "diff" aria-label="The file diff icon" %} **Files changed**. Then, browse to the file that contains the code you want include in your comment, and click **View**.
+    - To open an issue about code in a pull request, navigate to the pull request and click {% octicon "diff" aria-label="The file diff icon" %} **Files changed**. Then, browse to the file that contains the code you want included in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
 4. To the left of the code range, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. In the drop-down menu, click **Reference in new issue**.
   ![Kebab menu with option to open a new issue from a selected line](/assets/images/help/repository/open-new-issue-specific-line.png)
@@ -97,7 +99,7 @@ You can open a new issue from a specific line or lines of code in a file or pull
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating an issue from discussion
 
@@ -119,7 +121,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 If you're using a project board to track and prioritize your work, you can convert project board notes to issues. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)" and "[Adding notes to a project board](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating an issue from a task list item
 
@@ -137,7 +139,7 @@ You can use query parameters to open issues. Query parameters are optional parts
 
 {% endtip %}
 
-You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)."
+You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
@@ -150,6 +152,15 @@ Query parameter | Example
 `assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` creates an issue and assigns it to @octocat.
 `projects` | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` creates an issue with the title "Bug fix" and adds it to the organization's project board 1.
 `template` | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` creates an issue with a template in the issue body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository. For more information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
+
+{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
+If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
+{% data reusables.code-scanning.alert-tracking-link %}
+
+{% endif %}
 
 ## Further reading
 

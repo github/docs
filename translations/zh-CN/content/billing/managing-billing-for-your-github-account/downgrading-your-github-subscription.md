@@ -1,24 +1,25 @@
 ---
 title: 降级 GitHub 订阅
-intro: '您可以随时降级任何类型 {% data variables.product.product_name %} 帐户的订阅。'
+intro: '您可以随时降级 {% data variables.product.product_location %} 上任何类型的帐户的订阅。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
-  - /articles/downgrading-your-personal-account-s-billing-plan/
-  - /articles/how-do-i-cancel-my-account/
-  - /articles/downgrading-a-user-account-to-free/
-  - /articles/removing-paid-seats-from-your-organization/
-  - /articles/downgrading-your-organization-s-paid-seats/
-  - /articles/downgrading-your-organization-s-billing-plan/
-  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free/
-  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free/
-  - /articles/downgrading-your-organization-to-free/
-  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan/
-  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan/
-  - /articles/downgrading-your-github-billing-plan/
+  - /articles/downgrading-your-personal-account-s-billing-plan
+  - /articles/how-do-i-cancel-my-account
+  - /articles/downgrading-a-user-account-to-free
+  - /articles/removing-paid-seats-from-your-organization
+  - /articles/downgrading-your-organization-s-paid-seats
+  - /articles/downgrading-your-organization-s-billing-plan
+  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free
+  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free
+  - /articles/downgrading-your-organization-to-free
+  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan
+  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan
+  - /articles/downgrading-your-github-billing-plan
   - /articles/downgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Downgrades
@@ -83,5 +84,4 @@ shortTitle: 降级订阅
 - “[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”
 - "[升级或降级对结算过程有何影响？](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
 - “[关于 {% data variables.product.prodname_dotcom %} 的计费](/articles/about-billing-on-github)”
-- “[删除付款方式](/articles/removing-a-payment-method)”
 - “[关于每用户定价](/articles/about-per-user-pricing)”

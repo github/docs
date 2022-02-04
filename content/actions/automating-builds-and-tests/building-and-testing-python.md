@@ -1,7 +1,6 @@
 ---
 title: Building and testing Python
 intro: You can create a continuous integration (CI) workflow to build and test your Python project.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
@@ -10,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 hidden: true
 topics:
@@ -26,7 +26,8 @@ hasExperimentalAlternative: true
 
 This guide shows you how to build, test, and publish a Python package.
 
-{% ifversion ghae %} For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
@@ -41,11 +42,11 @@ We recommend that you have a basic understanding of Python, PyPy, and pip. For m
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Starting with the Python workflow template
+## Using the Python starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Python workflow template that should work for most Python projects. This guide includes examples that you can use to customize the template. For more information, see the [Python workflow template](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
+{% data variables.product.prodname_dotcom %} provides a Python starter workflow that should work for most Python projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Python starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
-To get started quickly, add the template to the `.github/workflows` directory of your repository.
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml{:copy}
@@ -59,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -118,7 +119,7 @@ jobs:
       # You can use PyPy versions in python-version.
       # For example, pypy2 and pypy3
       matrix:
-        python-version: [2.7, 3.6, 3.7, 3.8, 3.9]
+        python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -181,12 +182,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9, pypy2, pypy3]
+        python-version: ["3.6", "3.7", "3.8", "3.9", pypy2, pypy3]
         exclude:
           - os: macos-latest
-            python-version: 3.6
+            python-version: "3.6"
           - os: windows-latest
-            python-version: 3.6
+            python-version: "3.6"
 ```
 {% endraw %}
 
@@ -240,38 +241,24 @@ steps:
 
 ### Caching Dependencies
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-python` action](https://github.com/actions/setup-python).
 
-Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example below depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip).
+The following example caches dependencies for pip.
 
-{% raw %}
 ```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
-- name: Setup Python
-  uses: actions/setup-python@v2
+- uses: actions/setup-python@v2
   with:
-    python-version: '3.x'
-- name: Cache pip
-  uses: actions/cache@v2
-  with:
-    # This path is specific to Ubuntu
-    path: ~/.cache/pip
-    # Look to see if there is a cache hit for the corresponding requirements file
-    key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-    restore-keys: |
-      ${{ runner.os }}-pip-
-      ${{ runner.os }}-
-- name: Install dependencies
-  run: pip install -r requirements.txt
+    python-version: '3.9'
+    cache: 'pip'
+- run: pip install -r requirements.txt
+- run: pip test
 ```
-{% endraw %}
 
-{% note %}
+By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip or `Pipfile.lock` for pipenv) in the whole repository. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching packages dependencies</a>" in the `setup-python` actions README. 
 
-**Note:** Depending on the number of dependencies, it may be faster to use the dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how pip installs cached dependencies. The performance varies from project to project.
-
-{% endnote %}
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example above, depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip) in the `cache` action repository.
 
 ## Testing your code
 
@@ -343,7 +330,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [3.7, 3.8, 3.9]
+        python: ["3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -377,7 +364,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -439,4 +426,4 @@ jobs:
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
 
-For more information about the template workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
+For more information about the starter workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

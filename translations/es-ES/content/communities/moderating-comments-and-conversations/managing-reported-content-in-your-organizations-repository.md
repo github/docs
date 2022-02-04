@@ -3,6 +3,7 @@ title: Administrar el contenido reportado en el repositorio de tu organización
 intro: 'Una vez que un colaborador reporta contenido ofensivo en un repositorio, los mantenedores del mismo pueden ver y administrar esta información.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:

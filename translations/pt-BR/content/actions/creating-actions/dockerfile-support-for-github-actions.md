@@ -2,13 +2,13 @@
 title: Suporte do arquivo Docker para GitHub Actions
 shortTitle: Suporte ao Dockerfile
 intro: 'Ao criar um "arquivo Docker" para uma ação do contêiner Docker, você deverá ter em mente como algumas instruções do Docker interagem com o GitHub Actions e com um arquivo de metadados da ação.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
@@ -46,6 +46,8 @@ Essas são algumas práticas recomendadas ao definir o argumento `DE`:
 Se você definir o `entrypoint` em um arquivo de metadados de uma ação, ele irá substituir o `ENTRYPOINT` definido no `arquivo Docker`. Para obter mais informações, consulte "[sintaxe dos metadados para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)."
 
 A instrução do `ENTRYPOINT` do Docker tem forma de _shell_ e forma de _exec_. A documentação do `ENTRYPOINT` do docker recomenda o uso da forma _exec_ da instrução do `ENTRYPOINT`. Para obter mais informações sobre as formas _exec_ e _shell_, consulte a referência ENTRYPOINT [](https://docs.docker.com/engine/reference/builder/#entrypoint) na documentação do Docker.
+
+You should not use `WORKDIR` to specify your entrypoint in your Dockerfile. Instead, you should use an absolute path. For more information, see [WORKDIR](#workdir).
 
 Se você configurar o seu contêiner para usar a forma _exec_ da instrução `ENTRYPOINT`, os `args` configurados no arquivo de metadados da ação não serão executados em um shell do comando. Se os `args` da ação contiverem uma variável do ambiente, esta não será substituída. Por exemplo, usar o formato _exec_ a seguir não imprimirá o valor armazenado em `$GITHUB_SHA`. Em vez disso, imprimirá `$GITHUB_SHA`.
 

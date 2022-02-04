@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/unblocking-a-user-from-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Desbloquear a partir do seu org
@@ -32,7 +33,7 @@ Se você tiver selecionado uma duração para o bloqueio do usuário, ele será 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.block_users %}
+{% data reusables.organizations.moderation-settings %}, then click **Blocked users**.
 5. Em "Blocked users" (Usuários bloqueados), clique em **Unblock** (Desbloquear) próximo ao usuário que deseja desbloquear. ![Botão Unblock user (Desbloquear usuário)](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## Leia mais

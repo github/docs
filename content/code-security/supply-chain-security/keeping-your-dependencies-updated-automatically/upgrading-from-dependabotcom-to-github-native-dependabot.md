@@ -3,6 +3,7 @@ title: Upgrading from Dependabot.com to GitHub-native Dependabot
 intro: You can upgrade to GitHub-native Dependabot by merging a pull request that will allow your dependencies to continue being updated.
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Repositories
@@ -50,4 +51,4 @@ If you are using private repositories, you will have to grant Dependabot access 
 
 If you are using private registries, you will have to add your existing Dependabot Preview secrets to your repository's or organization's "Dependabot secrets". For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot)".
 
-If you have any questions or need help migrating, you can view or open issues in the [dependabot/dependabot-core](https://github.com/dependabot/dependabot-core/issues/new?assignees=%40dependabot%2Fpreview-migration-reviewers&labels=E%3A+preview-migration&template=migration-issue.md&title=) repository.
+If you have any questions or need help migrating, you can view or open issues in the [`dependabot/dependabot-core`](https://github.com/dependabot/dependabot-core/issues/new?assignees=%40dependabot%2Fpreview-migration-reviewers&labels=E%3A+preview-migration&template=migration-issue.md&title=) repository.

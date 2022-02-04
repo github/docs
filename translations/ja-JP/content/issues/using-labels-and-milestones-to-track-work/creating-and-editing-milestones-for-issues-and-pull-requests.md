@@ -3,16 +3,20 @@ title: Issue とPull Requestのマイルストーンの作成と削除
 intro: リポジトリ内にある Issue やPull Requestのグループに関する進行状況を追跡するためのマイルストーンを作成できます。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones/creating-and-editing-milestones-for-issues-and-pull-requests
-  - /articles/creating-milestones-for-issues-and-pull-requests/
+  - /articles/creating-milestones-for-issues-and-pull-requests
   - /articles/creating-and-editing-milestones-for-issues-and-pull-requests
   - /github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Project management
 shortTitle: マイルストーンの作成と編集
+type: how_to
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -1,11 +1,12 @@
 ---
 title: Renaming a branch
 intro: You can change the name of a branch in a repository.
-permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
+permissions: 'People with write permissions to a repository can rename a branch in the repository unless it is the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch){% ifversion fpt or ghec or ghes > 3.3 %} or a [protected branch](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% endif %}. People with admin permissions can rename the default branch{% ifversion fpt or ghec or ghes > 3.3 %} and protected branches{% endif %}.'
 versions:
   fpt: '*'
   ghes: '>=3.1'
-  ghae: 'next'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 redirect_from:
@@ -14,7 +15,7 @@ redirect_from:
 ---
 ## About renaming branches
 
-You can rename a branch in a repository on {% data variables.product.product_location %}. For more information about branches, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)."
+You can rename a branch in a repository on {% data variables.product.product_location %}. For more information about branches, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches))."
 
 When you rename a branch on {% data variables.product.product_location %}, any URLs that contain the old branch name are automatically redirected to the equivalent URL for the renamed branch. Branch protection policies are also updated, as well as the base branch for open pull requests (including those for forks) and draft releases. After the rename is complete, {% data variables.product.prodname_dotcom %} provides instructions on the repository's home page directing contributors to update their local Git environments.
 

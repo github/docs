@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: プロジェクトボードの自動化
@@ -43,6 +44,6 @@ shortTitle: プロジェクトボードの自動化
 詳細については「[プロジェクトボードで進捗を追跡する](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)」を参照してください。
 
 ## 参考リンク
-- 「[プロジェクトボードの自動化を設定する](/articles/configuring-automation-for-project-boards)」{% ifversion fpt %}
+- 「[プロジェクトボードの自動化を設定する](/articles/configuring-automation-for-project-boards)」{% ifversion fpt or ghec %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}

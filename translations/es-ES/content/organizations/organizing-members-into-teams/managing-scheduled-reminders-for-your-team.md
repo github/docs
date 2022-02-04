@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -26,7 +27,6 @@ Los mantenedores de equipo y propietarios de organización pueden configurar rec
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Botón de recordatorios programados](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.add-reminder %}
 {% data reusables.reminders.authorize-slack %}
 {% data reusables.reminders.slack-channel %}
@@ -50,7 +50,6 @@ Los mantenedores de equipo y propietarios de organización pueden configurar rec
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Botón de recordatorios programados](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.edit-existing %}
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
@@ -61,7 +60,6 @@ Los mantenedores de equipo y propietarios de organización pueden configurar rec
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Botón de recordatorios programados](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.delete %}
 
 ## Leer más

@@ -1,11 +1,11 @@
 ---
 title: Manually running a workflow
 intro: 'When a workflow is configured to run on the `workflow_dispatch` event, you can run the workflow using the Actions tab on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_cli %}, or the REST API.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Manually run a workflow
 ---
 
@@ -19,8 +19,6 @@ To run a workflow manually, the workflow must be configured to run on the `workf
 {% data reusables.repositories.permissions-statement-write %}
 
 ## Running a workflow
-
-{% include tool-switcher %}
 
 {% webui %}
 

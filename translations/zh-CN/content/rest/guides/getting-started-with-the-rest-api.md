@@ -2,12 +2,13 @@
 title: REST API 入门指南
 intro: 从身份验证和一些端点示例开始，了解使用 REST API 的基础。
 redirect_from:
-  - /guides/getting-started/
+  - /guides/getting-started
   - /v3/guides/getting-started
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: 开始 - REST API
@@ -22,7 +23,7 @@ shortTitle: 开始 - REST API
 
 大多数应用程序将使用您选择的语言 中现有的 [wrapper 库][wrappers]，但您必须先熟悉基础 API HTTP 方法。
 
-没有比使用 [cURL][curl] 更容易的入手方式了。{% ifversion fpt %} 如果您使用其他客户的，请注意，您需要在请求中发送有效的 [用户代理标头](/rest/overview/resources-in-the-rest-api#user-agent-required)。{% endif %}
+没有比使用 [cURL][curl] 更容易的入手方式了。{% ifversion fpt or ghec %} 如果您使用其他客户的，请注意，您需要在请求中发送有效的 [用户代理标头](/rest/overview/resources-in-the-rest-api#user-agent-required)。{% endif %}
 
 ### Hello World
 
@@ -59,7 +60,7 @@ $ curl https://api.github.com/users/defunkt
 ```shell
 $ curl -i https://api.github.com/users/defunkt
 
-> HTTP/2 200 
+> HTTP/2 200
 > server: GitHub.com
 > date: Thu, 08 Jul 2021 07:04:08 GMT
 > content-type: application/json; charset=utf-8
@@ -103,15 +104,15 @@ $ curl -i https://api.github.com/users/defunkt
 任何以 `X-` 开头的标头都是自定义标头，不包含在 HTTP 规范中。 例如：
 
 * `X-GitHub-Media-Type` 的值为 `github.v3`。 这让我们知道响应的[媒体类型][media types]。 媒体类型帮助我们在 API v3 中对输出进行版本控制。 我们稍后再详细讨论。
-* 请注意 `X-RateLimit-Limit` 和 `X-RateLimit-Remaining` 标头。 这对标头指示在滚动时间段（通常为一小时）内[一个客户端可以发出多少个请求][rate-limiting]，以及该客户端已使用多少个此类请求。
+* 请注意 `X-RateLimit-Limit` 和 `X-RateLimit-Remaining` 标头。 This pair of headers indicate [how many requests a client can make][rate-limiting] in a rolling time period (typically an hour) and how many of those requests the client has already spent.
 
 ## 身份验证
 
-未经身份验证的客户端每小时可以发出 60 个请求。 要每小时发出更多请求，我们需要进行_身份验证_。 事实上，使用 {% data variables.product.product_name %} API 做任何有意义的事情需要[身份验证][authentication]。
+未经身份验证的客户端每小时可以发出 60 个请求。 要每小时发出更多请求，我们需要进行_身份验证_。 事实上，使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行任何交互都需要[身份验证][authentication]。
 
 ### 使用个人访问令牌
 
-使用 {% data variables.product.product_name %} API 进行身份验证的最简单和最佳的方式是[通过 OAuth 令牌](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)使用基本身份验证。 OAuth 令牌包括[个人访问令牌][personal token]。
+使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行身份验证的最简单和最佳的方式是[通过 OAuth 令牌](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)使用基本身份验证。 OAuth 令牌包括[个人访问令牌][personal token]。
 
 使用 `-u` 标志设置您的用户名：
 
@@ -122,7 +123,7 @@ $ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/use
 
 出现提示时，您可以输入 OAuth 令牌，但我们建议您为它设置一个变量：
 
-You can use `-u "your_username:$token"` and set up a variable for `token` to avoid leaving your token in shell history, which should be avoided.
+您可以使用 `-u "your_username:$token"` 并为 `token` 设置一个变量，以避免您的令牌留在 shell 历史记录中，这种情况应尽量避免。
 
 ```shell
 $ curl -i -u <em>your_username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
@@ -133,15 +134,15 @@ $ curl -i -u <em>your_username:$token</em> {% data variables.product.api_url_pre
 
 您可以使用[个人访问令牌设置页面][tokens settings]轻松[创建**个人访问令牌**][personal token]。
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
 {% warning %}
 
-To help keep your information secure, we highly recommend setting an expiration for your personal access tokens.
+为了帮助保护您的信息安全，我们强烈建议为您的个人访问令牌设置一个到期日。
 
 {% endwarning %}
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ![个人令牌选择](/assets/images/personal_token.png)
 {% endif %}
 
@@ -149,13 +150,13 @@ To help keep your information secure, we highly recommend setting an expiration 
 ![个人令牌选择](/assets/images/help/personal_token_ghae.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 %}
-API requests using an expiring personal access token will return that token's expiration date via the `GitHub-Authentication-Token-Expiration` header. You can use the header in your scripts to provide a warning message when the token is close to its expiration date.
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 or ghec %}
+使用到期的个人访问令牌的 API 请求将通过 `GitHub-Authentication-Token-Expiration` 标头返回该令牌的到期日期。 当令牌接近其过期日期时，您可以使用脚本中的标头来提供警告信息。
 {% endif %}
 
 ### 获取自己的用户个人资料
 
-经过正确的身份验证后，您可以利用与您的 {% data variables.product.product_name %} 帐户相关联的权限。 例如，尝试获取
+在正确验证身份后，您可以利用与 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户相关的权限。 。 例如，尝试获取
 
 ```shell
 $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
@@ -193,7 +194,7 @@ OAuth 使用_令牌_。 令牌具有两大特点：
 
 ## 仓库
 
-几乎任何有意义的使用 {% data variables.product.product_name %} 都会涉及到某种程度的仓库信息。 我们可以像之前获取用户详细信息一样 [`GET` 仓库详细信息][get repo]：
+几乎任何有意义的 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 使用都会涉及某种级别的仓库信息。 信息。 我们可以像之前获取用户详细信息一样 [`GET` 仓库详细信息][get repo]：
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
@@ -202,7 +203,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 同样，我们可以查看[经身份验证用户的仓库][user repos api]：
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -220,9 +221,10 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 从这些调用返回的信息将取决于我们进行身份验证时令牌所具有的作用域：
 
-{% ifversion not ghae %}
-* 具有 `public_repo` [作用域][scopes]的令牌返回的响应包含我们在 github.com 上有权查看的所有公共仓库。{% endif %}
-* 具有 `repo` [作用域][scopes]的令牌返回的响应包含我们在{% data variables.product.product_location %} 上有权查看的所有{% ifversion not ghae %}公共{% else %}内部{% endif %}和私有仓库。
+{%- ifversion fpt or ghec or ghes %}
+* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on {% data variables.product.product_location %}.
+{%- endif %}
+* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories we have access to see on {% data variables.product.product_location %}.
 
 如[文档][repos-api]所示，这些方法采用 `type` 参数，可根据用户对仓库的访问权限类型来过滤返回的仓库。 这样，我们可以只获取直接拥有的仓库、组织仓库或用户通过团队进行协作的仓库。
 
@@ -235,11 +237,11 @@ $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=own
 ### 创建仓库
 
 获取现有仓库的信息是一种常见的用例，但
-{% data variables.product.product_name %} API 也支持创建新仓库。 要[创建仓库][create repo]，
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 也支持创建新的仓库。 要[创建仓库][create repo]，
 我们需要 `POST` 一些包含详细信息和配置选项的JSON。
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     -d '{ \
         "name": "blog", \
         "auto_init": true, \
@@ -265,7 +267,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 > }
 ```
 
-哦，不！ 它去哪儿了？ 因为我们创建仓库为 _私有_，所以需要经过身份验证才能看到它。 如果您是一位资深的 HTTP 用户，您可能会预期返回 `403`。 但由于我们不想泄露有关私有仓库的信息，因此在本例中，{% data variables.product.product_name %} API 返回 `404`，就好像说“我们既不能确认也不能否认这个仓库的存在”。
+哦，不！ 它去哪儿了？ 因为我们创建仓库为 _私有_，所以需要经过身份验证才能看到它。 如果您是一位资深的 HTTP 用户，您可能会预期返回 `403`。 由于我们不想泄露有关私有仓库的信息，因此在本例中，{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 返回 `404`，就好像说“我们既不能确认也不能否认这个仓库的存在”。
 
 ## 议题
 
@@ -274,7 +276,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 与 github.com 一样，API 为经过身份验证的用户提供了一些查看议题的方法。 要 [查看您的所有议题][get issues api]，请调用 `GET /issues`：
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -282,7 +284,7 @@ $ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %
 /orgs/<org>/issues`：
 
 ```shell
-$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
+$ curl -i -H "Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -315,7 +317,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 要创建议题，我们需要进行身份验证，因此我们将在标头中传递 OAuth 令牌。 此外，我们还将 JSON 正文中的标题、正文和标签传递到要在其中创建议题的仓库下的 `/issues` 路径：
 
 ```shell
-$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae-next %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
+$ curl -i -H 'Authorization: token {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \
@@ -386,9 +388,9 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 > HTTP/2 304
 ```
 
-`304` 状态表示该资源自上次请求以来没有发生改变，该响应将不包含任何正文。 另外，`304` 响应不计入您的[速率限制][rate-limiting]。
+`304` 状态表示该资源自上次请求以来没有发生改变，该响应将不包含任何正文。 As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
 
-耶！ 选择您已经了解 {% data variables.product.product_name %} API 的基础知识！
+耶！ 现在您了解 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 的基础知识了！
 
 * 基本 & OAuth 身份验证
 * 获取和创建仓库及议题
@@ -410,8 +412,8 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 [issues-api]: /rest/reference/issues
 [link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
-[rate-limiting]: /rest#rate-limiting
-[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
 [users api]: /rest/reference/users#get-a-user
 [defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt

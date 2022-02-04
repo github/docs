@@ -1,13 +1,13 @@
 ---
 title: Agregar una insignia de estado de flujo de trabajo
 intro: Puedes mostrar una insignia de estado en tu repositorio para indicar el estado de tus flujos de trabajo.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Agregar una insignia de estado
 ---
 
@@ -19,7 +19,7 @@ shortTitle: Agregar una insignia de estado
 Referencias el flujo de trabajo por el nombre de tu archivo de flujo de trabajo.
 
 ```markdown
-![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
+![flujo de trabajo de ejemplo]({% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 ```
 ## Usar el nombre de archivo del flujo de trabajo
 
@@ -39,8 +39,8 @@ Este ejemplo de Markdown añade un distintivo de estado para una rama con el nom
 
 ## Utilizar el parámetro `event`
 
-Este ejemplo de Markdown agrega un distintivo que muestra el estado de las ejecuciones de flujo de trabajo activadas por el evento `pull_request`.
+Este ejemplo de lenguaje de marcado agrega una insignia que muestra el estado de las ejecuciones de flujo de trabajo que se activan con el evento `push`, lo cual mostrará el estado de la compilación del estado actual de dicha rama.
 
 ```markdown
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
 ```

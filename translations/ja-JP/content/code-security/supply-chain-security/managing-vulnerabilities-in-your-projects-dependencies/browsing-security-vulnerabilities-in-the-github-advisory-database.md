@@ -2,11 +2,13 @@
 title: GitHub Advisory Database のセキュリティ脆弱性を参照する
 intro: '{% data variables.product.prodname_advisory_database %} を使用すると、{% data variables.product.company_short %} のオープンソースプロジェクトに影響を与える脆弱性を参照または検索できます。'
 shortTitle: Advisory Databaseの参照
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
@@ -22,13 +24,29 @@ topics:
 
 {% data reusables.repositories.a-vulnerability-is %}
 
-{% data variables.product.prodname_advisory_database %} の脆弱性のいずれかがリポジトリが依存するパッケージに影響することが検出された場合、{% data variables.product.product_name %} は {% data variables.product.prodname_dependabot_alerts %} を送信します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
-
 ## {% data variables.product.prodname_advisory_database %} について
 
-{% data variables.product.prodname_advisory_database %} には、{% data variables.product.company_short %} の依存関係グラフによって追跡されるパッケージにマップされたセキュリティの脆弱性のキュレーションされたリストが含まれています。 {% data reusables.repositories.tracks-vulnerabilities %}
+The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities, grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.
 
-各セキュリティアドバイザリには、説明、重要度、影響するパッケージ、パッケージエコシステム、影響するバージョンとパッチを適用したバージョン、影響、およびリファレンス、回避策、クレジットなどのオプション情報を含む、脆弱性に関する情報が含まれています。 さらに、National Vulnerability Database リストのアドバイザリには、CVE レコードへのリンクが含まれており、脆弱性、その CVSS スコア、その定性的な重要度レベルの詳細を確認できます。 詳しい情報については、アメリカ国立標準技術研究所の「[National Vulnerability Database](https://nvd.nist.gov/)"」を参照してください。
+{% data reusables.repositories.tracks-vulnerabilities %}
+
+### About {% data variables.product.company_short %}-reviewed advisories
+
+{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities that have been mapped to packages tracked by the {% data variables.product.company_short %} dependency graph.
+
+We carefully review each advisory for validity. Each {% data variables.product.company_short %}-reviewed advisory has a full description, and contains both ecosystem and package information.
+
+If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory affects packages you depend on. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
+
+### About unreviewed advisories
+
+Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed.
+
+{% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
+
+## About security advisories
+
+Each security advisory contains information about the vulnerability, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. さらに、National Vulnerability Database リストのアドバイザリには、CVE レコードへのリンクが含まれており、脆弱性、その CVSS スコア、その定性的な重要度レベルの詳細を確認できます。 詳しい情報については、アメリカ国立標準技術研究所の「[National Vulnerability Database](https://nvd.nist.gov/)"」を参照してください。
 
 重大度レベルは「[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)」で定義されている 4 つのレベルのいずれかです。
 - Low
@@ -44,6 +62,11 @@ topics:
 
 1. Https://github.com/advisories にアクセスします。
 2. 必要に応じて、リストをフィルタするには、ドロップダウンメニューを使用します。 ![ドロップダウンフィルタ](/assets/images/help/security/advisory-database-dropdown-filters.png)
+   {% tip %}
+
+   **Tip:** You can use the sidebar on the left to explore  {% data variables.product.company_short %}-reviewed and unreviewed advisories separately.
+
+   {% endtip %}
 3. アドバイザリをクリックして詳細を表示します。
 
 {% note %}
@@ -62,6 +85,8 @@ topics:
 
 | 修飾子                   | サンプル                                                                                                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type:reviewed`       | [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories.                  |
+| `type:unreviewed`     | [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) will show unreviewed advisories.                                                       |
 | `GHSA-ID`             | [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) は、この {% data variables.product.prodname_advisory_database %} ID でアドバイザリを表示します。 |
 | `CVE-ID`              | [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) は、この CVEID 番号でアドバイザリを表示します。                                                                |
 | `ecosystem:ECOSYSTEM` | [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) は、NPM パッケージに影響するアドバイザリのみを表示します。                                             |
@@ -79,7 +104,7 @@ topics:
 
 ## 脆弱性のあるリポジトリを表示する
 
-{% data variables.product.prodname_advisory_database %} の脆弱性については、どのリポジトリにその脆弱性に対する {% data variables.product.prodname_dependabot %} アラートがあるかを確認できます。 脆弱性のあるリポジトリを確認するには、そのリポジトリの {% data variables.product.prodname_dependabot_alerts %} にアクセスできる必要があります。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)」を参照してください。
+For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability. 脆弱性のあるリポジトリを確認するには、そのリポジトリの {% data variables.product.prodname_dependabot_alerts %} にアクセスできる必要があります。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)」を参照してください。
 
 1. Https://github.com/advisories にアクセスします。
 2. アドバイザリをクリックします。

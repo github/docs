@@ -2,13 +2,13 @@
 title: Soporte de Dockerfile para GitHub Actions
 shortTitle: Soporte para Dockerfile
 intro: 'Cuando creas un "Dockerfile" para una acción de un contenedor de Docker, debes estar consciente de cómo interactúan algunas instrucciones de Docker con GitHub Actions y con el archivo de metadatos de la acción.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
@@ -46,6 +46,8 @@ Estas son algunas de las mejores prácticas para configurar el argumento `FROM`:
 Si defines el `entrypoint` en un archivo de metadatos de una acción, este invalidará el `ENTRYPOINT` definido en el `Dockerfile`. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)".
 
 La instrucción `ENTRYPOINT` de Docker tiene una forma de _shell_ y una de _exec_. La documentación de `ENTRYPOINT` de Docker recomienda utilizar la forma de _exec_ de la instrucción `ENTRYPOINT`. Para obtener más información acerca de las formas _exec_ y _shell_, consulta la sección [ENTRYPOINT reference](https://docs.docker.com/engine/reference/builder/#entrypoint) en la documentación de Docker.
+
+You should not use `WORKDIR` to specify your entrypoint in your Dockerfile. Instead, you should use an absolute path. For more information, see [WORKDIR](#workdir).
 
 Si configuras tu contenedor para que utilice la forma _exec_ de la instrucción `ENTRYPOINT`, entonces el `args` configurado en el archivo de metadatos de la acción no se ejecutará en un shell de comandos. Si el `args` de la accion contiene una variable de ambiente, ésta no se sustituirá. Por ejemplo, utilizar el siguiente formato _exec_ no imprimirá los valores almacenados en `$GITHUB_SHA`, si no que imprimirá `"$GITHUB_SHA"`.
 
@@ -99,7 +101,7 @@ Error response from daemon: OCI runtime create failed: container_linux.go:348: s
 
 ### CMD
 
-Si defines el `args` en el archivo de metadatos de la acción, `args` invalidará la instrucción `CMD` especificada en el `Dockerfile`. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)".
+If you define `args` in the action's metadata file, `args` will override the `CMD` instruction specified in the `Dockerfile`. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)".
 
 Si utilizas `CMD` en tu `Dockerfile`, sigue estos lineamientos:
 

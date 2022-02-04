@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -21,3 +22,6 @@ shortTitle: Chaves de implantação
 4. Na página das chaves de implantação, anote as chaves de implantação associadas à sua conta. Para as chaves não reconhecidas ou desatualizadas, clique em **Delete** (Excluir). Se houver chaves de implantação válidas que deseja manter, clique em **Approve** (Aprovar). ![Lista de chaves de implantação](/assets/images/help/settings/settings-deploy-key-review.png)
 
 Para obter mais informações, consulte "[Gerenciar chaves de implantação](/guides/managing-deploy-keys)".
+
+## Leia mais
+- [Configurar notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

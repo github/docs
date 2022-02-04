@@ -49,8 +49,8 @@
 
 /* Hover utilities
 ------------------------------------------------------------------------------*/
-.hover\:color-bg-info:hover {
-  background: var(--color-bg-info);
+.hover\:color-bg-accent:hover {
+  background: var(--color-accent-subtle);
 }
 
 /* Z-Index utilities
@@ -68,20 +68,6 @@
   z-index: 3;
 }
 
-/* Blue primary button
-------------------------------------------------------------------------------*/
-.btn-primary-matte {
-  color: var(--color-text-inverse);
-  background-color: var(--color-auto-blue-5);
-  border-color: var(--color-btn-primary-border);
-  box-shadow: var(--color-btn-primary-shadow),
-    var(--color-btn-primary-inset-shadow);
-}
-
-.btn-primary-matte:hover {
-  background-color: var(--color-auto-blue-6);
-}
-
 /* Border colors
 ------------------------------------------------------------------------------*/
 .color-border-transparent {
@@ -96,4 +82,31 @@
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+}
+
+/* Screen Reader Only
+------------------------------------------------------------------------------*/
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.keyboard-focus:hover,
+.keyboard-focus:focus {
+  outline: 1px auto -webkit-focus-ring-color;
 }

@@ -1,12 +1,13 @@
 ---
 title: アクション
-product: '{% data reusables.gated-features.actions %}'
+intro: 'With the Actions API, you can manage and control {% data variables.product.prodname_actions %} for an organization or repository.'
 redirect_from:
   - /v3/actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -29,10 +30,10 @@ miniTocMaxHeadingLevel: 3
   {% if operation.subcategory == 'artifacts' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## 権限
 
-権限 API では、どの組織とリポジトリが {% data variables.product.prodname_actions %} を実行できるか、どのアクションを実行できるかについて権限を設定できます。 詳しい情報については、「[使用制限、支払い、および管理](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)」を参照してください。
+The Permissions API allows you to set permissions for what organizations and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions are allowed to run.{% ifversion fpt or ghec or ghes %} For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)."{% endif %}
 
 Enterprise の権限を設定することもできます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)」REST API を参照してください。
 

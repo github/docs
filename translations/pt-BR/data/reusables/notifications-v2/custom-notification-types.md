@@ -1,2 +1,3 @@
-{%- ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}problemas, pull requests, versões, alertas de segurança ou discussões{% endif %}
-{%- ifversion ghes = 3.1 %}problemas, pull requests, versões ou discussões{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}issues, pull requests, releases, security alerts, or discussions
+{%- else %}issues, pull requests, releases, or discussions<!-- `else` statement probably not picked up by GHES 3.1 deprecation script. Will need to review here -->
+{% endif %}

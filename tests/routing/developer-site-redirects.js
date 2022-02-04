@@ -10,7 +10,7 @@ const developerRedirectFixtures = readJsonFile('./tests/fixtures/developer-redir
 
 const MAX_CONCURRENT_REQUESTS = 50
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('developer redirects', () => {
   jest.setTimeout(4 * 60 * 1000)
@@ -25,7 +25,7 @@ describe('developer redirects', () => {
   describe('redirects /v4 requests to /graphql', () => {
     test('graphql homepage', async () => {
       const res = await get('/v4')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       const expectedFinalPath = '/en/graphql'
       expect(res.headers.location).toBe(expectedFinalPath)
     })
@@ -42,7 +42,7 @@ describe('developer redirects', () => {
       const oldPath = '/v4/breaking_changes'
       const newPath = '/graphql/overview/breaking-changes'
       const res = await get(oldPath)
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(`/en${newPath}`)
 
       const enterpriseRes = await get(`/enterprise${oldPath}`, { followAllRedirects: true })
@@ -72,7 +72,7 @@ describe('developer redirects', () => {
   test('redirects /v3 requests to /rest', async () => {
     let expectedFinalPath
     let res = await get('/v3')
-    expect(res.statusCode).toBe(301)
+    expect(res.statusCode).toBe(302)
     expectedFinalPath = '/en/rest'
     expect(res.headers.location).toBe(expectedFinalPath)
 
@@ -111,7 +111,10 @@ describe('developer redirects', () => {
         MAX_CONCURRENT_REQUESTS,
         async (newPath, oldPath) => {
           const res = await get(oldPath)
-          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
+          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
+            sameFirstPrefix ? 301 : 302
+          )
           expect(res.headers.location).toBe(newPath)
         }
       )
@@ -127,7 +130,11 @@ describe('developer redirects', () => {
           `/enterprise-server@${enterpriseServerReleases.latest}/`
         )
         const res = await get(oldPath)
-        expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+
+        const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
+        expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
+          sameFirstPrefix ? 301 : 302
+        )
         expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
       })
     })
@@ -145,7 +152,10 @@ describe('developer redirects', () => {
             `/enterprise-server@${enterpriseServerReleases.latest}/`
           )
           const res = await get(oldPath)
-          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
+          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
+            sameFirstPrefix ? 301 : 302
+          )
           expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
         }
       )

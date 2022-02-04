@@ -1,6 +1,6 @@
 ---
-title: Managing your repository’s settings and features
-intro: 'You can customize your repository, enable or disable optional features for your repository, and manage your repository’s settings.'
+title: Gerenciando as configurações e funcionalidades do seu repositório
+intro: 'É possível personalizar seu repositório, habilitar ou desabilitar as funcionalidades opcionais para seu repositório e gerenciar as configurações do seu repositório.'
 redirect_from:
   - /categories/administering-a-repository
   - /articles/managing-repository-settings
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 children:

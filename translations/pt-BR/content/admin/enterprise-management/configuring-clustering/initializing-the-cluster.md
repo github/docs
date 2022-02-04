@@ -30,7 +30,7 @@ topics:
 
 ## Inicializar o cluster
 
-Para inicializar o cluster, você precisa de um arquivo de configuração de cluster (`cluster.conf`). Para obter mais informações, consulte “[Sobre o arquivo de configuração do cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+Para inicializar o cluster, você precisa de um arquivo de configuração de cluster (`cluster.conf`). Para obter mais informações, consulte[Sobre o arquivo de configuração de cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
 1. Desde o primeiro nó configurado, execute `ghe-cluster-config-init`.  Essa ação inicializará o cluster caso haja nós no arquivo de configuração que não estão configurados.
 2. Execute `ghe-cluster-config-apply`. Fazer isso vai validar o arquivo `cluster.conf`, aplicar a configuração a cada arquivo de nó e ativar os serviços configurados em cada nó.

@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - CLI
@@ -20,7 +21,11 @@ topics:
 
 ## Acerca de los productos de {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.prodname_dotcom %} ofrece productos gratuitos y pagos. Puedes ver los precios y una lista completa de las funciones de cada producto en <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
+{% data variables.product.prodname_dotcom %} ofrece productos gratuitos y de pago para clasificar y colaborar con código. Algunos productos aplican solo para cuentas de usuario, mientras que otros planes aplican solo a cuentas empresariales u organizacionales. Para obtener más información sobre las cuentas, consulta la sección "[Tipos de cuenta de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
+
+Puedes ver los precios y una lista completa de las funciones de cada producto en <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
+
+Cuando leas los {% data variables.product.prodname_docs %}, asegúrate de seleccionar la versión que refleja tu producto. Para obtener más información, consulta la sección "[Acerca de las versiones de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
 
 ## {% data variables.product.prodname_free_user %} for user accounts
 
@@ -42,11 +47,11 @@ Adicionalmente a las características disponibles con {% data variables.product.
 - Herramientas y perspectivas avanzadas en repositorios privados:
   - Revisores requeridos para solicitudes de extracción
   - Revisores múltiples para solicitudes de extracción
-  - Referencias auto-vinculadas
-  - {% data variables.product.prodname_pages %}
-  - Wikis
   - Ramas protegidas
   - Propietarios del código
+  - Referencias auto-enlazadas
+  - {% data variables.product.prodname_pages %}
+  - Wikis
   - Gráficos de información del repositorio: pulso, contribuyentes, tráfico, confirmaciones, frecuencia de código, red y bifurcaciones
 
 ## {% data variables.product.prodname_free_team %} para organizaciones
@@ -69,15 +74,15 @@ Adicionalmente a las características disponibles con {% data variables.product.
 - Herramientas y perspectivas avanzadas en repositorios privados:
   - Revisores requeridos para solicitudes de extracción
   - Revisores múltiples para solicitudes de extracción
-  - {% data variables.product.prodname_pages %}
-  - Wikis
-  - Ramas protegidas
-  - Propietarios del código
-  - Gráficos de información del repositorio: pulso, contribuyentes, tráfico, confirmaciones, frecuencia de código, red y bifurcaciones
   - Solicitudes de extracción en borrador
   - Revisores de equipo para solicitudes de extracción
+  - Ramas protegidas
+  - Propietarios del código
   - Recordatorios programados
-{% ifversion fpt %}
+  - {% data variables.product.prodname_pages %}
+  - Wikis
+  - Gráficos de información del repositorio: pulso, contribuyentes, tráfico, confirmaciones, frecuencia de código, red y bifurcaciones
+{% ifversion fpt or ghec %}
 - La opción para habilitar {% data variables.product.prodname_github_codespaces %}
   - Los propietarios de organizaciones pueden habilitar los {% data variables.product.prodname_github_codespaces %} para la organización si configuran un límite de gastos y otorgan permisos de usuario para los miembros de su organziación. Para obtener más información, consulta la sección "[Habilitar los Codespaces para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)".
 {% endif %}
@@ -93,8 +98,8 @@ Adicionalmente a las características disponibles con {% data variables.product.
 - Controles de seguridad, cumplimiento e implementación adicionales
 - Autenticación con inicio de sesión único SAML
 - Provisión de acceso con SAML o SCIM
-- {% data variables.product.prodname_github_connect %}{% ifversion fpt or ghae or ghes > 2.22 %}
-- La opción para comprar {% data variables.product.prodname_GH_advanced_security %}. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)". {% endif %}
+- {% data variables.product.prodname_github_connect %}
+- La opción para comprar {% data variables.product.prodname_GH_advanced_security %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)".
 
 {% data variables.product.prodname_ghe_cloud %} también incluye lo siguiente:
 - {% data variables.contact.enterprise_support %}. Para obtener más información, consulta "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} soporte</a>" y "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} Adenda</a>."
@@ -102,8 +107,8 @@ Adicionalmente a las características disponibles con {% data variables.product.
 - 50GB de almacenamiento de {% data variables.product.prodname_registry %}
 - Control de acceso para los sitios de {% data variables.product.prodname_pages %}. Para obtener más información, consulta la sección "<a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Cambiar la visibilidad de tu sitio de {% data variables.product.prodname_pages %}</a>"
 - Un acuerdo de nivel de servicio del 99.9% de tiempo activo mensual
-- La opción de configurar tu empresa para los {% data variables.product.prodname_emus %}, para que puedas aprovisionar y administrar a los miembros con tu proveedor de identidad y restringir sus contribuciones para que solo se hagan en tu empresa. Para obtener más información, consulta la sección "<a href="/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users" class="dotcom-only">Acerca de {% data variables.product.prodname_emus %}</a>".
-- La opción de administrar de forma centralizada las políticas y la facturación de múltiples organizaciones {% data variables.product.prodname_dotcom_the_website %} con una cuenta de empresa. Para obtener más información, consulta la sección "<a href="/articles/about-enterprise-accounts" class="dotcom-only">Acerca de las cuentas empresariales</a>."
+- La opción de configurar tu empresa para los {% data variables.product.prodname_emus %}, para que puedas aprovisionar y administrar a los miembros con tu proveedor de identidad y restringir sus contribuciones para que solo se hagan en tu empresa. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+- La opción de administrar de forma centralizada las políticas y la facturación de múltiples organizaciones {% data variables.product.prodname_dotcom_the_website %} con una cuenta de empresa. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
 
 Puedes configurar una prueba para evaluar {% data variables.product.prodname_ghe_cloud %}. Para obtener más información, consulta "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Configurar una prueba de {% data variables.product.prodname_ghe_cloud %}</a>".
 

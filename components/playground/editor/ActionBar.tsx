@@ -13,7 +13,7 @@ export const ActionBar = ({ code }: Props) => {
   })
 
   return (
-    <div className="d-flex flex-justify-between flex-items-center color-bg-primary border-left border-top border-right px-3 py-1">
+    <div className="d-flex flex-justify-between flex-items-center color-bg-default border-left border-top border-right px-3 py-1">
       <div />
       <div className="d-flex">
         {/* <Tooltip aria-label="View repository" className="mr-2">

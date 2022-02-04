@@ -32,13 +32,22 @@ export default async function learningTrack(req, res, next) {
 
   const currentLearningTrack = { trackName, trackProduct }
   const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.pagePath))
-  let guideIndex = track.guides.findIndex((path) => path === guidePath)
+
+  // The raw track.guides will return all guide paths, need to use getLinkData
+  // so we only get guides available in the current version
+  const trackGuides = await getLinkData(track.guides, req.context)
+
+  const trackGuidePaths = trackGuides.map((guide) => {
+    return getPathWithoutLanguage(getPathWithoutVersion(guide.href))
+  })
+
+  let guideIndex = trackGuidePaths.findIndex((path) => path === guidePath)
 
   // The learning track path may use Liquid version conditionals, handle the
   // case where the requested path is a learning track path but won't match
   // because of a Liquid conditional.
   if (guideIndex < 0) {
-    guideIndex = await indexOfLearningTrackGuide(track.guides, guidePath, req.context)
+    guideIndex = await indexOfLearningTrackGuide(trackGuidePaths, guidePath, req.context)
   }
 
   // Also check if the learning track path is now a redirect to the requested
@@ -48,14 +57,14 @@ export default async function learningTrack(req, res, next) {
     for (const redirect of req.context.page.redirect_from) {
       if (guideIndex >= 0) break
 
-      guideIndex = await indexOfLearningTrackGuide(track.guides, redirect, req.context)
+      guideIndex = await indexOfLearningTrackGuide(trackGuidePaths, redirect, req.context)
     }
   }
 
   if (guideIndex < 0) return noTrack()
 
   if (guideIndex > 0) {
-    const prevGuidePath = track.guides[guideIndex - 1]
+    const prevGuidePath = trackGuidePaths[guideIndex - 1]
     const result = await getLinkData(prevGuidePath, req.context, { title: true, intro: false })
     if (!result) return noTrack()
 
@@ -64,8 +73,8 @@ export default async function learningTrack(req, res, next) {
     currentLearningTrack.prevGuide = { href, title }
   }
 
-  if (guideIndex < track.guides.length - 1) {
-    const nextGuidePath = track.guides[guideIndex + 1]
+  if (guideIndex < trackGuidePaths.length - 1) {
+    const nextGuidePath = trackGuidePaths[guideIndex + 1]
     const result = await getLinkData(nextGuidePath, req.context, { title: true, intro: false })
     if (!result) return noTrack()
 

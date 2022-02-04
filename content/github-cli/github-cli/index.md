@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /about-github-cli
   - /quickstart
@@ -13,3 +14,4 @@ children:
   - /using-github-cli-extensions
   - /github-cli-reference
 ---
+

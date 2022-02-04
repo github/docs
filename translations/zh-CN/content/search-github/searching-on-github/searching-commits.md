@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
 
 您可以在所有 {% data variables.product.product_name %} 内全局搜索提交，也可以在特定仓库或组织内搜索提交。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
 
-当您搜索提交时，仅搜索仓库的[默认分支](/articles/about-branches)。
+当您搜索提交时，仅搜索仓库的[默认分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)。
 
 {% data reusables.search.syntax_tips %}
 
@@ -104,7 +105,16 @@ topics:
 
 `is` 限定符匹配具有指定可见性的仓库中的提交。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
-| 限定符  | 示例 | ------------- | ------------- |{% ifversion fpt or ghes %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) 匹配对公共仓库的提交。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) 匹配对内部仓库的提交。 | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) 匹配对私有仓库的提交。
+| 限定符 | 示例 |
+| --- | -- |
+|     |    |
+{%- ifversion fpt or ghes or ghec %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.
+{%- endif %}
+{%- ifversion ghes or ghec or ghae %}
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories.
+{%- endif %}
+| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) 匹配对私有仓库的提交。
 
 ## 延伸阅读
 

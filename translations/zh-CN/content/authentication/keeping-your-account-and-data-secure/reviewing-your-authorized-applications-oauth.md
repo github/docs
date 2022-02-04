@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -21,6 +22,6 @@ shortTitle: 查看 OAuth 应用程序
 {% data reusables.user_settings.review-oauth-apps %}
 
 ## 延伸阅读
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - “[关于集成](/articles/about-integrations)”{% endif %}
 - “[审查授权的集成](/articles/reviewing-your-authorized-integrations)”

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -36,12 +37,12 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 ## GitHub からのペイロードを検証する
 
-シークレットトークンが設定されると、{% data variables.product.product_name %} はそれを使用して各ペイロードでハッシュ署名を作成します。 このハッシュ署名は、{% ifversion fpt or ghes > 2.22 or ghae %}`X-Hub-Signature-256`{% elsif ghes < 3.0 %}`X-Hub-Signature` として各リクエストのヘッダに含まれています{% endif %}。
+シークレットトークンが設定されると、{% data variables.product.product_name %} はそれを使用して各ペイロードでハッシュ署名を作成します。 This hash signature is included with the headers of each request as `X-Hub-Signature-256`.
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**注釈:** 下位互換性のために、SHA-1 ハッシュ関数を使用して生成される `X-Hub-Signature` ヘッダーも含まれています。 可能であれば、セキュリティを向上させるために `X-Hub-Signature-256` ヘッダを使用することをお勧めします。 The example below demonstrates using the `X-Hub-Signature-256` header.
+**注釈:** 下位互換性のために、SHA-1 ハッシュ関数を使用して生成される `X-Hub-Signature` ヘッダーも含まれています。 可能であれば、セキュリティを向上させるために `X-Hub-Signature-256` ヘッダを使用することをお勧めします。 以下は、`X-Hub-Signature-256` ヘッダの使用例です。
 
 {% endnote %}
 {% endif %}
@@ -70,26 +71,21 @@ post '/payload' do
   "I got some JSON: #{push.inspect}"
 end
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 def verify_signature(payload_body)
   signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
   return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
-end{% elsif ghes < 3.0 %}
-def verify_signature(payload_body)
-  signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['SECRET_TOKEN'], payload_body)
-  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
-end{% endif %}
+end
 ```
 
 {% note %}
 
-**Note:** Webhook payloads can contain unicode characters. If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8.
+**注釈:** Webhookペイロードには、Unicode 文字を含めることができます。 言語とサーバーの実装で文字エンコーディングが指定されている場合は、ペイロードをUTF-8として扱うようにしてください。
 
 {% endnote %}
 
 言語とサーバーの実装は、この例で使用したコードとは異なる場合があります。 ただし、次のようないくつかの非常に重要な事項があります。
 
-* No matter which implementation you use, the hash signature starts with {% ifversion fpt or ghes > 2.22 or ghae %}`sha256=`{% elsif ghes < 3.0 %}`sha1=`{% endif %}, using the key of your secret token and your payload body.
+* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
 
 * プレーンな `==` 演算子を使用することは**お勧めしません**。 [`secure_compare`][secure_compare] のようなメソッドは、「一定時間」の文字列比較を実行します。これは、通常の等式演算子に対する特定のタイミング攻撃を軽減するのに役立ちます。
 

@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/unblocking-a-user-from-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Organization からのブロックの解除
@@ -32,7 +33,7 @@ Organization からユーザのブロックを解除すると、そのユーザ�
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.block_users %}
+{% data reusables.organizations.moderation-settings %}
 5. [Blocked users] の下で、ブロックを解除したいユーザの横にある [**Unblock**] をクリックします。 ![ユーザブロックの解除ボタン](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## 参考リンク

@@ -1,24 +1,25 @@
 ---
 title: Fazer downgrade da sua assinatura do GitHub
-intro: 'Você pode rebaixar sua assinatura para qualquer tipo de conta {% data variables.product.product_name %} a qualquer momento.'
+intro: 'Você pode fazer o downgrade da assinatura para qualquer tipo de conta em {% data variables.product.product_location %} a qualquer momento.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
-  - /articles/downgrading-your-personal-account-s-billing-plan/
-  - /articles/how-do-i-cancel-my-account/
-  - /articles/downgrading-a-user-account-to-free/
-  - /articles/removing-paid-seats-from-your-organization/
-  - /articles/downgrading-your-organization-s-paid-seats/
-  - /articles/downgrading-your-organization-s-billing-plan/
-  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free/
-  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free/
-  - /articles/downgrading-your-organization-to-free/
-  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan/
-  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan/
-  - /articles/downgrading-your-github-billing-plan/
+  - /articles/downgrading-your-personal-account-s-billing-plan
+  - /articles/how-do-i-cancel-my-account
+  - /articles/downgrading-a-user-account-to-free
+  - /articles/removing-paid-seats-from-your-organization
+  - /articles/downgrading-your-organization-s-paid-seats
+  - /articles/downgrading-your-organization-s-billing-plan
+  - /articles/downgrading-an-organization-with-per-seat-pricing-to-free
+  - /articles/downgrading-an-organization-with-per-repository-pricing-to-free
+  - /articles/downgrading-your-organization-to-free
+  - /articles/downgrading-your-organization-from-the-business-plan-to-the-team-plan
+  - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan
+  - /articles/downgrading-your-github-billing-plan
   - /articles/downgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Downgrades
@@ -83,5 +84,4 @@ Para reduzir o número de estações pagas usadas pela sua organização, remova
 - "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
 - "[Como a atualização ou o downgrade afetam o processo de cobrança?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
 - "[Sobre a cobrança no {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)"
-- "[Remover forma de pagamento](/articles/removing-a-payment-method)"
 - "[Sobre preços por usuário](/articles/about-per-user-pricing)"

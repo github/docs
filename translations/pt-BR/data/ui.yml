@@ -13,14 +13,22 @@ header:
     ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
     ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
     ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+  sign_up_cta: inscrever
+picker:
+  language_picker_default_text: Choose a language
+  product_picker_default_text: All products
+  version_picker_default_text: Choose a version
 release_notes:
-  banner_text_current: These changes will roll out over the next one week.
-  banner_text_past: These changes rolled out to enterprises during the week of
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: Precisa de ajuda?
   placeholder: Pesquisar tópicos, produtos...
   loading: Carregando
   no_results: Nenhum resultado encontrado
+  search_results_for: Search results for
+  no_content: No content
+  matches_displayed: Matches displayed
+  search_error: An error occurred trying to perform the search.
 homepage:
   explore_by_product: Explorar por produto
   version_picker: Versão
@@ -29,6 +37,8 @@ toc:
   popular: Popular
   guides: Guias
   whats_new: O que há de novo
+  videos: Vídeos
+  all_changelogs: All changelog posts
 pages:
   article_version: 'Versão do artigo'
   miniToc: Neste artigo
@@ -52,7 +62,8 @@ survey:
   optional: Opcional
   required: Obrigatório
   email_placeholder: email@example.com
-  email_label: Podemos entrar em contato com você em caso de dúvidas?
+  email_label: If we can contact you with more questions, please enter your email address
+  email_validation: Please enter a valid email address
   send: Enviar
   feedback: Thank you! We received your feedback.
   not_support: If you need a reply, please contact support instead.
@@ -134,6 +145,8 @@ product_landing:
   guides: Guias
   code_examples: Exemplos de códigos
   search_code_examples: Exemplos de código de pesquisa
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: Show more
   explore_people_and_projects: Explore people and projects
   sorry: Desculpe, não há resultados para
@@ -148,10 +161,12 @@ product_landing:
   release_notes_for: Release notes for
   upgrade_from: Upgrade from
   browse_all_docs: Browse all docs
+  browse_all: Browse all
+  docs: documentação
   explore_release_notes: Explore release notes
-product_sublanding:
-  start: Início
-  start_path: Caminho de início
+  view: Visualizar Tudo
+product_guides:
+  start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'
   learning_paths_desc: Os caminhos de aprendizado são uma coleção de guias que ajudam você a dominar um assunto específico.
   guides: '{{ productMap[currentProduct].name }} guides'

@@ -2,13 +2,14 @@
 title: Entregar despliegues
 intro: 'Al utilizar la API de REST de Despliegues, puedes crear herramientas personalizadas que interactúen con tu servidor y con una app de terceros.'
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---

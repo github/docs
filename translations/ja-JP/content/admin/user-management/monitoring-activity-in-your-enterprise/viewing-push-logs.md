@@ -2,7 +2,7 @@
 title: プッシュログの表示
 intro: サイト管理者は、Enterprise 上の任意のリポジトリに対する Git プッシュ操作の一覧を確認することができます。
 redirect_from:
-  - /enterprise/admin/articles/viewing-push-logs/
+  - /enterprise/admin/articles/viewing-push-logs
   - /enterprise/admin/installation/viewing-push-logs
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs

@@ -2,12 +2,13 @@
 title: Alterar os métodos de entrega da autenticação de dois fatores em dispositivos móveis
 intro: Você pode alternar entre receber códigos de notificação por meio de uma mensagem de texto ou um aplicativo móvel.
 redirect_from:
-  - /articles/changing-two-factor-authentication-delivery-methods/
+  - /articles/changing-two-factor-authentication-delivery-methods
   - /articles/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /github/authenticating-to-github/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Altere método de entrega de 2FA
@@ -15,7 +16,7 @@ shortTitle: Altere método de entrega de 2FA
 
 {% note %}
 
-**Observação:** alterar o método de autenticação de dois fatores invalida a configuração do método atual de dois fatores. No entanto, isso não afeta os códigos de recuperação nem retrocede a configuração de SMS. É possível atualizar os códigos de recuperação ou o retrocesso da configuração de SMS na página de configurações de segurança da sua conta pessoal se desejado.
+**Observação:** Mudar o seu método principal para a autenticação de dois fatores invalida a configuração atual de autenticação de dois fatores, incluindo os seus códigos de recuperação. Mantenha o seu novo conjunto de códigos de recuperação seguros. Mudar o seu método principal para autenticação de dois fatores não afeta sua configuração de SMS padrão, caso esteja configurado. Para obter mais informações, consulte "[Configurando métodos de recuperação de autenticação de dois fatores](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)".
 
 {% endnote %}
 

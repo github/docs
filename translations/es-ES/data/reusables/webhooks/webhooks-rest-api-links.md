@@ -1,5 +1,5 @@
-Las API de REST de los webhooks te permiten administrar los webhooks de repositorios {% ifversion ghes < 3.0 %} y organizaciones{% else %}, organizaciones y aplicaciones{% endif %}.{% ifversion fpt or ghes > 3.2 or ghae %} Puedes utilizar esta API para listar las entregas de listas de webhooks para un webhook u obtener y volver a hacer entregas individuales para un webhook, el cual se pueda integrar en un servicio o app externa.{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %} También puedes utilizar la API de REST para cambiar la configuración del webhook. Por ejemplo, puedes modificar la URL de la carga útil, el tipo de contenido, la verificación SSL y el secreto.{% endif %} Para obtener más información, consulta las secciones:
+Las API de REST de los webhooks te permiten administrar webhooks de repositorio, organización y aplicación.{% ifversion fpt or ghes > 3.2 or ghae or ghec %} Puedes utilizar esta API para listar las entregas de webhook para uno de ellos u obtener y volver a hacer una entrega individual para uno de ellos, la cual puede integrarse en una app o servicio externo.{% endif %}. También puedes utilizar la API de REST para cambiar la configuración del webhook. Por ejemplo, puedes modificar la URL de la carga útil, el tipo de contenido, la verificación de SSL, y el secreto. Para obtener más información, consulta:
 
-- [API de REST para los webhooks de los repositorios](/rest/reference/repos#webhooks)
-- [API de REST para los Webhooks de las Organizaciones](/rest/reference/orgs#webhooks){% ifversion fpt or ghes > 2.22 or ghae %}
-- [{% data variables.product.prodname_github_app %} API de REST de Webhooks](/rest/reference/apps#webhooks){% endif %}
+- [API de REST para los webhooks de los repositorios](/rest/reference/webhooks#repository-webhooks)
+- [API de REST de webhooks de organización](/rest/reference/orgs#webhooks)
+- [{% data variables.product.prodname_github_app %} API de REST de Webhooks](/rest/reference/apps#webhooks)

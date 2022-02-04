@@ -9,6 +9,9 @@ on:
     types:
       - labeled
 
+permissions:
+  contents: none
+
 jobs:
   transfer-issue:
     name: Transfer issue

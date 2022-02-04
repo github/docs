@@ -2,14 +2,15 @@
 title: Troubleshooting custom domains and GitHub Pages
 intro: 'You can check for common errors to resolve issues with custom domains or HTTPS for your {% data variables.product.prodname_pages %} site.'
 redirect_from:
-  - /articles/my-custom-domain-isn-t-working/
-  - /articles/custom-domain-isn-t-working/
-  - /articles/troubleshooting-custom-domains/
+  - /articles/my-custom-domain-isn-t-working
+  - /articles/custom-domain-isn-t-working
+  - /articles/troubleshooting-custom-domains
   - /articles/troubleshooting-custom-domains-and-github-pages
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Troubleshoot a custom domain
@@ -54,7 +55,7 @@ For a list of supported custom domains, see "[About custom domains and {% data v
 
 ## HTTPS errors
 
-{% data variables.product.prodname_pages %} sites using custom domains that are correctly configured with _CNAME_, `ALIAS`, `ANAME`, or `A` DNS records can be accessed over HTTPS. For more information, see "[Securing your {% data variables.product.prodname_pages %} site with HTTPS](/articles/securing-your-github-pages-site-with-https)."
+{% data variables.product.prodname_pages %} sites using custom domains that are correctly configured with `CNAME`, `ALIAS`, `ANAME`, or `A` DNS records can be accessed over HTTPS. For more information, see "[Securing your {% data variables.product.prodname_pages %} site with HTTPS](/articles/securing-your-github-pages-site-with-https)."
 
 It can take up to an hour for your site to become available over HTTPS after you configure your custom domain. After you update existing DNS settings, you may need to remove and re-add your custom domain to your site's repository to trigger the process of enabling HTTPS. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 

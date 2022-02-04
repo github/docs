@@ -37,10 +37,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Pull requests
 shortTitle: Filter and search
+type: how_to
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
@@ -98,13 +100,13 @@ Once you've [applied labels to an issue or pull request](/articles/applying-labe
 フィルタを使用して、レビューステータスでプルリクエストをフィルタリングしたり、自分でレビューしたプルリクエストや他のユーザにレビューするよう依頼されたプルリクエストを検索したりできます。
 
 プルリクエストのリポジトリのリストをフィルタリングして、次の検索を行えます:
-- まだ[レビュー](/articles/about-pull-request-reviews)されていないプルリクエスト
+- まだ[レビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)されていないプルリクエスト
 - マージの前に[レビューが必要](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)なプルリクエスト
 - レビュー担当者が承認したプルリクエスト
 - レビュー担当者が変更を求めているプルリクエスト
-- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 %}
+- Pull requests that you have reviewed{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 - Pull requests that someone has asked you directly to review{% endif %}
-- [自分、または自分のチームに誰かがレビューを依頼](/articles/requesting-a-pull-request-review)したプルリクエスト
+- [自分、または自分のチームに誰かがレビューを依頼](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)したプルリクエスト
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
@@ -116,8 +118,6 @@ Once you've [applied labels to an issue or pull request](/articles/applying-labe
 You can use advanced filters to search for issues and pull requests that meet specific criteria.
 
 ### Searching for issues and pull requests
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -163,7 +163,7 @@ Issue およびプルリクエストの検索用語により、次のことが�
 - ラベルにより Issue とプルエストをフィルタリング: `state:open type:issue label:"bug"`
 - 次の用語の前に `-` を使用して検索用語を除外: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 {% tip %}
 
 **Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
@@ -173,7 +173,7 @@ Issue およびプルリクエストの検索用語により、次のことが�
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 Issueについては、以下も検索に利用できます。
 
 - クローズしているリファレンス`linked:pr`によってプルリクエストにリンクされているIssueのフィルタリング
@@ -181,14 +181,14 @@ Issueについては、以下も検索に利用できます。
 
 プルリクエストについては、検索を利用して以下の操作もできます。
 - [ドラフト](/articles/about-pull-requests#draft-pull-requests)プルリクエストのフィルタリング: `is:draft`
-- まだ[レビュー](/articles/about-pull-request-reviews)されていないプルリクエストのフィルタリング: `state:open type:pr review:none`
+- まだ[レビュー](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)されていないプルリクエストのフィルタリング: `state:open type:pr review:none`
 - マージされる前に[レビューを必要とする](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)プルリクエストのフィルタリング: `state:open type:pr review:required`
 - レビュー担当者が承認したプルリクエストのフィルタリング: `state:open type:pr review:approved`
 - レビュー担当者が変更を要求したプルリクエストのフィルタリング: `state:open type:pr review:changes_requested`
 - [レビュー担当者](/articles/about-pull-request-reviews/)によるプルリクエストのフィルタリング: `state:open type:pr reviewed-by:octocat`
-- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 %}
+- Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
 - Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
-- レビューを要求されたチームによるプルリクエストのフィルタリング: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae %}
+- レビューを要求されたチームによるプルリクエストのフィルタリング: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
 - プルリクエストでクローズできるIssueにリンクされているプルリクエストのフィルタリング: `linked:issue`{% endif %}
 
 ## Issue およびプルリクエストをソートする
@@ -226,4 +226,4 @@ Issue が生成した URL は、どのユーザにも送れます。そして、
 
 ## 参考リンク
 
-- "[Searching issues and pull requests](/articles/searching-issues)""
+- "[Searching issues and pull requests](/articles/searching-issues)"

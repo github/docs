@@ -1,3 +1,3 @@
-Você pode visualizar a identidade de logon único que um integrante vinculou à sua conta de {% data variables.product.product_name %}
+You can view the single sign-on identity that a member has linked to their account on {% data variables.product.product_location %}.
 
-Se um integrante vincular a identidade incorreta à sua conta de {% data variables.product.product_name %}, você poderá revogar a identidade vinculada para permitir que o integrante tente novamente.
+If a member links the wrong identity to their account on {% data variables.product.product_location %}, you can revoke the linked identity to allow the member to try again.

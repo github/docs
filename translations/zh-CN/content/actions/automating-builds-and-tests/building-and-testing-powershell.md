@@ -1,19 +1,19 @@
 ---
 title: 构建和测试 PowerShell
 intro: 您可以创建持续集成 (CI) 工作流程来构建和测试您的 PowerShell 项目。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-powershell
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - potatoqualitee
 type: tutorial
 topics:
   - CI
-  - Powershell
+  - PowerShell
 shortTitle: 构建和测试 PowerShell
 ---
 
@@ -26,7 +26,8 @@ shortTitle: 构建和测试 PowerShell
 
 {% data variables.product.prodname_dotcom %} 托管的运行器具有预安装了软件的工具缓存，包括 PowerShell 和 Pester。
 
-{% ifversion ghae %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}有关最新版软件以及 PowerShell 和 Pester 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
 {% endif %}
 
@@ -72,7 +73,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - 检查仓库的根目录中是否存在名为 `resultsfile.log` 的文件。
 * `Should -Be $true` - 使用 Pester 定义预期结果。 如果结果是非预期的，则 {% data variables.product.prodname_actions %} 会将此标记为失败的测试。 例如：
 
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   {% else %}
   ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test.png)

@@ -2,13 +2,13 @@
 title: アクションの終了コードの設定
 shortTitle: 終了コードの設定
 intro: '終了コードを使って、アクションのステータスを設定できます。 {% data variables.product.prodname_dotcom %}は、パスした、あるいは失敗したアクションを示すステータスを表示します。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 ---
 

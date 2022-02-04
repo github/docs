@@ -4,6 +4,7 @@ intro: 'Habilite {% data variables.product.prodname_discussions %} em um reposit
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: QuickStart
 ---
 

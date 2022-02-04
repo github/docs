@@ -2,12 +2,12 @@
 title: Azure PipelinesからGitHub Actionsへの移行
 intro: '{% data variables.product.prodname_actions %}とAzure Pipelinesは、いくつかの点で設定が似ており、そのため{% data variables.product.prodname_actions %}への移行は比較的単純です。'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions
   - /actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Azure Pipelines

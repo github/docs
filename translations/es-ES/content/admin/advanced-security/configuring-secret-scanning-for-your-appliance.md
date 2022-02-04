@@ -7,7 +7,7 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -20,7 +20,11 @@ topics:
 
 ## Acerca de {% data variables.product.prodname_secret_scanning %}
 
-{% data reusables.secret-scanning.about-secret-scanning %} Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)".
+If someone checks a secret with a known pattern into a repository, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. Se notifica a los administradores de repositorio sobre cualquier confirmación que contenga un secreto y pueden ver rápidamente todos los secretos en la pestaña de seguridad de éste. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".
+
+## Verificar si tu licencia incluye a la {% data variables.product.prodname_GH_advanced_security %}
+
+{% data reusables.advanced-security.check-for-ghas-license %}
 
 ## Prerequisitos del {% data variables.product.prodname_secret_scanning %}
 
@@ -31,33 +35,20 @@ topics:
 
 - Eñ {% data variables.product.prodname_secret_scanning_caps %} habilitado en la consola de administración (consulta la sección "[Habilitar la {% data variables.product.prodname_GH_advanced_security %} para tu empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 
-## Verificar la compatibilidad del marcador de las SSSE3 en tus vCPU
+### Verificar la compatibilidad del marcador de las SSSE3 en tus vCPU
 
 El conjunto de instrucciones de las SSSE3 se requiere porque el {% data variables.product.prodname_secret_scanning %} impulsa el patrón acelerado de hardware que empata para encontrar las credenciales potenciales que se confirmaron en tus repositorios de {% data variables.product.prodname_dotcom %}. Las SSSE3 se habilitan para la mayoría de los CPU modernos. Puedes verificar si las SSSE3 están habilitadas para los vCPU disponibles para tu instancia de {% data variables.product.prodname_ghe_server %}.
 
 1. Conéctate al shell administrativo para tu instancia de {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
 2. Ingresa el siguiente comando:
 
-```shell
-grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
-```
+   ```shell
+   grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
+   ```
 
-Si esto devuelve el valor `0`, esto significa que el marcador de SSSE3 se encuentra disponible y habilitado. Ahora puedes habilitar el {% data variables.product.prodname_secret_scanning %} para {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Habilitar el {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" que se encuentra más adelante.
+   Si esto devuelve el valor `0`, esto significa que el marcador de SSSE3 se encuentra disponible y habilitado. Ahora puedes habilitar el {% data variables.product.prodname_secret_scanning %} para {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Habilitar el {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" que se encuentra más adelante.
 
-Si no se devuelve un `0`, entonces no se ha habilitado las SSSE3 en tu VM/KVM. Necesitarás referirte a la documentación del hardware/hípervisor para encontrar cómo habilitar el marcador o ponerlo disponible como VM invitadas.
-
-### Verificar si tienes una licencia de {% data variables.product.prodname_advanced_security %}
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-1. Verifica si hay una entrada {% ifversion ghes < 3.2 %}de **{% data variables.product.prodname_advanced_security %}**{% else %} de **Seguridad**{% endif %} en la barra lateral izquierda.
-{% ifversion ghes < 3.2 %}
-   ![Barra lateral de seguridad avanzada](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
-{% else %}
-   ![Barra lateral de seguridad](/assets/images/enterprise/3.2/management-console/sidebar-security.png)
-{% endif %}
-
-{% data reusables.enterprise_management_console.advanced-security-license %}
+   Si no se devuelve un `0`, entonces no se ha habilitado las SSSE3 en tu VM/KVM. Necesitarás referirte a la documentación del hardware/hípervisor para encontrar cómo habilitar el marcador o ponerlo disponible como VM invitadas.
 
 ## Habilitar las {% data variables.product.prodname_secret_scanning %}
 

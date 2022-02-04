@@ -4,6 +4,7 @@ intro: 您可以通过配置测试在作业仓库中运行，来自动提供对�
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
@@ -20,7 +21,7 @@ redirect_from:
 
 您可以通过导航 {% data variables.product.prodname_classroom %} 中的作业来查看哪些学生通过了自动分级测试的概况。 绿色复选标记表示学生的所有测试都已通过，红色 X 表示学生的部分或所有测试都未通过。 如果您为一个或多个测试评分，则气泡会显示测试的分数以及作业可得最高分数。
 
-![包含自动评分结果的作业概述](/assets/images/help/classroom/autograding-hero.png)
+![包含自动评分结果的作业概述](/assets/images/help/classroom/assignment-individual-hero.png)
 
 ## 评分方法
 
@@ -59,7 +60,7 @@ redirect_from:
 
 您可以在创建新作业时添加自动评分测试。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-您可以添加、编辑或删除现有作业的自动评分测试。 如果您更改现有作业的自动评分测试，现有作业仓库将不会受到影响。 学生或团队必须接受作业并创建一个新的作业仓库来使用新的测试。
+您可以添加、编辑或删除现有作业的自动评分测试。 All changes made via the Classroom UI will be pushed to the existing student repositories, so use caution when editing your tests.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
@@ -71,15 +72,15 @@ redirect_from:
     - 要删除测试，请点击测试名称右侧的 {% octicon "trash" aria-label="The trash icon" %}。  ![用于删除自动评分测试的垃圾桶图标](/assets/images/help/classroom/autograding-click-trash.png)
 1. 在页面底部，单击 **Update assignment（更新作业）**。 ![页面底部的"更新作业"按钮](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-## Viewing and downloading results from autograding tests
+## 查看和下载自动分级测试的结果
 
-### Download autograding results
+### 下载自动评分结果
 
-You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+您也可以通过“Download（下载）”按钮下载学生自动评分的 CSV。 这将生成并下载一个包含学生仓库链接、其 {% data variables.product.prodname_dotcom %} 处理、名册标识、提交时间戳和自动评分的CSV。
 
-!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+![选择"下载" 按钮会显示"下载成绩突出显示" 和另一个选项"下载仓库"](/assets/images/help/classroom/download-grades.png)
 
-### View individual logs
+### 查看单个日志
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}

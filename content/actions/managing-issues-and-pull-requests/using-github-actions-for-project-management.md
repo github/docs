@@ -1,18 +1,19 @@
 ---
 title: Using GitHub Actions for project management
 intro: 'You can use {% data variables.product.prodname_actions %} to automate many of your project management tasks.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/using-github-actions-for-project-management
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Project management
 shortTitle: Actions for project management
 ---
+
 
 You can use {% data variables.product.prodname_actions %} to automate your project management tasks by creating workflows. Each workflow contains a series of tasks that are performed automatically every time the workflow runs. For example, you can create a workflow that runs every time an issue is created to add a label, leave a comment, and move the issue onto a project board.
 

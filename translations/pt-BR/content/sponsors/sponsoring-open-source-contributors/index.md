@@ -7,6 +7,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors
 versions:
   fpt: '*'
+  ghec: '*'
 children:
   - /sponsoring-an-open-source-contributor
   - /managing-your-sponsorship

@@ -4,7 +4,6 @@ intro: 'Puedes borrar una versión de un paquete {% ifversion not ghae %}privado
 product: '{% data reusables.gated-features.packages %}'
 versions:
   ghes: '>=2.22 <3.1'
-  ghae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

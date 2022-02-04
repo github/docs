@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: Missing contributions
@@ -16,7 +17,7 @@ shortTitle: Missing contributions
 
 ## About your contribution graph
 
-您的个人资料贡献图是您对 {% data variables.product.product_name %} 仓库所做贡献的记录。 贡献按照协调世界时 (UTC) 而不是您当地的时区加时间戳。 只有在满足特定标准时才会计算贡献。 在某些情况下，我们可能需要重建您的图表才能显示贡献。
+Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.product.product_location %}. 贡献按照协调世界时 (UTC) 而不是您当地的时区加时间戳。 只有在满足特定标准时才会计算贡献。 在某些情况下，我们可能需要重建您的图表才能显示贡献。
 
 ## 计算的贡献
 
@@ -26,7 +27,7 @@ shortTitle: Missing contributions
 
 ### 提交
 如果提交符合以下**所有**条件，则会在您的贡献图中显示：
-- 用于提交的电子邮件地址与您的 {% data variables.product.product_name %} 帐户关联。
+- The email address used for the commits is associated with your account on {% data variables.product.product_location %}.
 - 提交在独立的仓库而不是复刻中进行。
 - 提交在以下位置进行：
   - 在仓库的默认分支中
@@ -50,7 +51,7 @@ shortTitle: Missing contributions
 
 ### 您的本地 Git 提交电子邮件地址未连接到您的帐户
 
-必须使用已连接到 {% data variables.product.product_name %} 帐户的电子邮件地址{% ifversion fpt %}或 {% data variables.product.product_name %} 在电子邮件设置中提供的 `noreply` 电子邮件地址进行提交，{% endif %} 提交才会显示在您的贡献图中。{% ifversion fpt %} 有关 `noreply` 电子邮件地址的更多信息，请参阅“[设置提交电子邮件地址](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)”。{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.product.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
 
 您可以通过将 `.patch` 添加到提交 URL 结尾来检查用于提交的电子邮件地址，例如 <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>：
 
@@ -63,11 +64,11 @@ Subject: [PATCH] updated index for better welcome message
 
 `From:` 字段中的电子邮件地址是在[本地 git 配置设置](/articles/set-up-git)中设置的地址。 在本例中，用于提交的电子邮件地址是 `octocat@nowhere.com`。
 
-如果用于提交的电子邮件地址未连接到您的 {% data variables.product.product_name %} 帐户，{% ifversion ghae %}请更改用于在 Git 中创作提交的电子邮件地址。 更多信息请参阅“[设置提交电子邮件地址](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)”。{% else %}您必须[添加电子邮件地址](/articles/adding-an-email-address-to-your-github-account)到您的 {% data variables.product.product_name %} 帐户。 您的贡献图将在添加新地址后自动重建。{% endif %}
+If the email address used for the commit is not connected to your account on {% data variables.product.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your account on {% data variables.product.product_location %}. 您的贡献图将在添加新地址后自动重建。{% endif %}
 
 {% warning %}
 
-通用电子邮件地址（例如 `jane@computer.local`）无法添加到 {% data variables.product.product_name %} 帐户。 如果为您的提交使用这类电子邮件，则提交不会链接到您的 {% data variables.product.product_name %} 个人资料，并且不会在您的贡献图中显示。
+**Warning**: Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts. If you use such an email for your commits, the commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
 
 {% endwarning %}
 
@@ -81,7 +82,7 @@ Subject: [PATCH] updated index for better welcome message
 
 {% warning %}
 
-更改仓库的默认分支将为所有仓库协作者进行更改。 仅当您希望新分支成为进行所有未来拉取请求和提交的基础时才执行此操作。
+**Warning**: Changing the default branch of the repository will change it for all repository collaborators. 仅当您希望新分支成为进行所有未来拉取请求和提交的基础时才执行此操作。
 
 {% endwarning %}
 
@@ -89,7 +90,7 @@ Subject: [PATCH] updated index for better welcome message
 
 在复刻中进行的提交不会计入您的贡献。 要将其计入，您必须执行以下操作之一：
 - [打开拉取请求](/articles/creating-a-pull-request)以将您的更改合并到父仓库。
-- 要分离复刻并将其变为 {% data variables.product.product_name %} 上独立的仓库，请联系 {% data variables.contact.contact_support %}。 如果该复刻有自己的复刻，让 {% data variables.contact.github_support %} 了解这些复刻是随您的仓库移入新网络还是留在当前网络中。 更多信息请参阅“[关于复刻](/articles/about-forks/)”。
+- To detach the fork and turn it into a standalone repository on {% data variables.product.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. 更多信息请参阅“[关于复刻](/articles/about-forks/)”。
 
 ## 延伸阅读
 

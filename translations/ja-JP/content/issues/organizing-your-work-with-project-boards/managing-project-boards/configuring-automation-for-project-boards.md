@@ -9,9 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Projects
+  - Issues
+  - Project management
 shortTitle: 自動化の設定
+type: how_to
 ---
 
 {% data reusables.projects.project_boards_old %}

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -22,3 +23,6 @@ shortTitle: Deploy keys
 	![Deploy key list](/assets/images/help/settings/settings-deploy-key-review.png)
 
 For more information, see "[Managing deploy keys](/guides/managing-deploy-keys)."
+
+## Further reading
+- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

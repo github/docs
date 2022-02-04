@@ -4,6 +4,7 @@ intro: 'Você pode adicionar um README ao seu perfil de{% data variables.product
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Profiles
 redirect_from:
@@ -14,7 +15,7 @@ shortTitle: Seu perfil LEIAME
 
 ## Sobre o README do seu perfil
 
-Você pode compartilhar informações sobre si mesmo com a comunidade em {% data variables.product.prodname_dotcom %} criando um README sobre o seu perfil. {% data variables.product.prodname_dotcom %} mostra o README do seu perfil na parte superior da sua página de perfil.
+Você pode compartilhar informações sobre si mesmo com a comunidade em {% data variables.product.product_location %} criando um README sobre o seu perfil. {% data variables.product.prodname_dotcom %} mostra o README do seu perfil na parte superior da sua página de perfil.
 
 Você decide quais informações incluir no README do seu perfil. Portanto, você tem total controle sobre a forma como se apresenta no {% data variables.product.prodname_dotcom %}. Aqui estão alguns exemplos de informações que os visitantes podem achar interessantes, divertidas ou úteis no README do seu perfil.
 

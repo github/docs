@@ -1,19 +1,19 @@
 ---
 title: PowerShell のビルドとテスト
 intro: PowerShell プロジェクトのビルドとテストのための継続的インテグレーション (CI) ワークフローを作成できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-powershell
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - potatoqualitee
 type: tutorial
 topics:
   - CI
-  - Powershell
+  - PowerShell
 shortTitle: Build & test PowerShell
 ---
 
@@ -26,7 +26,8 @@ shortTitle: Build & test PowerShell
 
 {% data variables.product.prodname_dotcom %}ホストランナーは、PowerShell及びPesterを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。
 
-{% ifversion ghae %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}最新のソフトウェアと、PowerShell および Pester のプレインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 {% endif %}
 
@@ -72,7 +73,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - リポジトリのルートディレクトリに`resultsfile.log`というファイルが存在するかをチェックします。
 * `Should -Be $true` - Pesterを使って期待される結果を定義します。 結果が期待どおりではなかった場合、{% data variables.product.prodname_actions %}はこれを失敗したテストとしてフラグを立てます。 例:
 
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![失敗したPesterテスト](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   {% else %}
   ![失敗したPesterテスト](/assets/images/help/repository/actions-failed-pester-test.png)

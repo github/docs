@@ -3,7 +3,7 @@ title: 使用 SNMP 进行监视
 intro: '{% data variables.product.prodname_enterprise %} 通过 SNMP 提供关于磁盘使用情况、CPU 利用率和内存使用情况等方面的数据。'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
-  - /enterprise/admin/articles/monitoring-using-snmp/
+  - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:

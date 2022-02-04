@@ -4,6 +4,7 @@ shortTitle: ディスカッションを使用してコラボレーションす�
 intro: コミュニティメンバーや他のメンテナと集まってプロジェクトについてディスカッションしましょう。
 versions:
   fpt: '*'
+  ghec: '*'
 children:
   - /about-discussions
   - /participating-in-a-discussion

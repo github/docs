@@ -79,7 +79,7 @@ Usa un paquete de actualización para actualizar una agrupación de {% data vari
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-5. El proceso de actualización reiniciará el nodo MySQL principal una vez que esté completo. Verifica que puedes hacer `ping` en cada nodo después de que reinicie.{% ifversion ghes > 2.22 %}
+5. El proceso de actualización reiniciará el nodo MySQL principal una vez que esté completo. Verifica que puedes hacer `ping` en cada nodo después de que reinicie.{% ifversion ghes %}
 6. Conéctate al shell administrativo del nodo primario de MySQL y ejecuta el comando `ghe-cluster-config-apply`.
 7. Cuando se cmpleta el `ghe-cluster-config-apply`, verifica que los servicios estén en un estado saludable ejecutando `ghe-cluster-status`.{% endif %}
 8. Cierra el modo de mantenimiento desde el shell administativo de cualquier nodo al ejecutar `ghe-cluster-maintenance -u`.

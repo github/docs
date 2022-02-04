@@ -1,13 +1,13 @@
 ---
 title: Moving assigned issues on project boards
 intro: 'You can use {% data variables.product.prodname_actions %} to automatically move an issue to a specific column on a project board when the issue is assigned.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows

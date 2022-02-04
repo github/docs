@@ -1,6 +1,6 @@
 ---
-title: Acerca de las ramas protegidas
-intro: 'Puedes proteger las ramas importantes si configuras las reglas de protección de rama, las cuales definen si los colaboradores pueden borrar o hacer subidas forzadas a la rama y configura los requisitos para cualquier subida a la rama, tal como que pasen las verificaciones de estado o un historial de confirmaciones linear.'
+title: About protected branches
+intro: 'You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.'
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
@@ -21,143 +21,162 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
+## About branch protection rules
 
-## Acerca de las reglas de protección de rama
+You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule.
 
-Puedes requerir ciertos flujos de trabajo o requisitos antes de que un colaborador pueda subir los cambios a una rama en tu repositorio, incluyendo la fusión de una solicitud de cambios en la rama, si creas una regla de protección de rama.
+By default, each branch protection rule disables force pushes to the matching branches and prevents the matching branches from being deleted. You can optionally disable these restrictions and enable additional branch protection settings.
 
-Predeterminadamente, cada regla de protección de rama inhabilita las subidas forzadas en las ramas coincidentes y previene que éstas se borren. Opcionalmente, puedes inhabilitar estas restricciones y habilitar la configuración adicional de protección de ramas.
+By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository. You can optionally choose to include administrators, too.
 
-Predeterminadamente, las restricciones de una regla de protección de rama no aplicarán a las personas con permisos administrativos en el repositorio. Opcionalmente, también puedes elegir el incluir administradores.
-
-{% data reusables.repositories.branch-rules-example %} Para obtener más información sobre los patrones de nombre de rama, consulta la sección "[Administrar una regla de protección de rama](/github/administering-a-repository/managing-a-branch-protection-rule)".
+{% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
 
 {% data reusables.pull_requests.you-can-auto-merge %}
 
-## Acerca de la configuración de protección de rama
+## About branch protection settings
 
-Para cada regla de protección de rama, puedes elegir habilitar o inhabilitar la siguiente configuración.
-- [Requerir revisiones de solicitudes de cambio antes de fusionarlas](#require-pull-request-reviews-before-merging)
-- [Requerir verificaciones de estado antes de las fusiones](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
-- [Requiere que haya resolución en las conversaciones antes de la fusión](#require-conversation-resolution-before-merging){% endif %}
-- [Requerir confirmaciones firmadas](#require-signed-commits)
-- [Requerir un historial linear](#require-linear-history)
-- [Incluir administradores](#include-administrators)
-- [Restringir quiénes pueden subir a las ramas coincidentes](#restrict-who-can-push-to-matching-branches)
-- [Permitir las subidas forzadas](#allow-force-pushes)
-- [Permitir el borrado](#allow-deletions)
+For each branch protection rule, you can choose to enable or disable the following settings.
+- [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
+- [Require status checks before merging](#require-status-checks-before-merging)
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+- [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
+- [Require signed commits](#require-signed-commits)
+- [Require linear history](#require-linear-history)
+{% ifversion fpt or ghec %}
+- [Require merge queue](#require-merge-queue)
+{% endif %}
+- [Include administrators](#include-administrators)
+- [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
+- [Allow force pushes](#allow-force-pushes)
+- [Allow deletions](#allow-deletions)
 
-Para obtener más información sobre cómo configurar la protección de ramas, consulta la sección "[Administrar la regla de protección de ramas](/github/administering-a-repository/managing-a-branch-protection-rule)".
+For more information on how to set up branch protection, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
 
-### Requerir revisiones de solicitudes de cambio antes de fusionarlas
+### Require pull request reviews before merging
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
-Si habilitas las revisiones requeridas, los colaboradores solo podrán subir los cambios a una rama protegida a través de una solicitud de cambios que se encuentre aprobada por el total de revisores requeridos con permisos de escritura.
+If you enable required reviews, collaborators can only push changes to a protected branch via a pull request that is approved by the required number of reviewers with write permissions.
 
-Si una persona con permisos administrativos elige la opción **Solicitar cambios** en una revisión, entonces deberá aprobar la solicitud de cambios antes de que se pueda fusionar. Si un revisor que solicita cambios en una solicitud de cambios no está disponible, cualquiera con permisos de escritura para el repositorio podrá descartar la revisión que está haciendo el bloqueo.
+If a person with admin permissions chooses the **Request changes** option in a review, then that person must approve the pull request before the pull request can be merged. If a reviewer who requests changes on a pull request isn't available, anyone with write permissions for the repository can dismiss the blocking review.
 
 {% data reusables.repositories.review-policy-overlapping-commits %}
 
-Si un colaborador intenta fusionar una solicitud de cambios con revisiones rechazadas o pendientes en la rama protegida, el colaborador recibirá un mensaje de error.
+If a collaborator attempts to merge a pull request with pending or rejected reviews into the protected branch, the collaborator will receive an error message.
 
 ```shell
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Changes have been requested.
 ```
 
-Opcionalmente, puedes elegir descartar las aprobaciones de la solicitud de cambios estancada cuando se suban las confirmaciones. Si cualquiera sube una confirmación que modifique el código de una solicitud de cambios aprobada, la aprobación se descartará y la solicitud de cambios no podrá fusionarse. Esto no aplicará si el colaborador sube confirmaciones que no modifiquen el código, como fusionar la rama base en la rama de la solicitud de cambios. Para obtener información acerca de las ramas base, consulta "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)."
+Optionally, you can choose to dismiss stale pull request approvals when commits are pushed. If anyone pushes a commit that modifies code to an approved pull request, the approval will be dismissed, and the pull request cannot be merged. This doesn't apply if the collaborator pushes commits that don't modify code, like merging the base branch into the pull request's branch. For information about the base branch, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
-Opcionalmente, puedes restringir la capacidad para descartar las revisiones de las solicitudes de cambio para que solo puedan hacerlas algunos equipos o personas específicos. Para obtener más información, consulta "[Descartar una revisión de solicitud de extracción](/articles/dismissing-a-pull-request-review)".
+Optionally, you can restrict the ability to dismiss pull request reviews to specific people or teams. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 
-Opcionalmente, puedes elegir el requerir revisiones de los propietarios del código. Si lo haces, el propietario de código deberá aprobar cualquier solicitud de cambios que afecte dicho código antes de que la solicitud de cambios pueda fusionarse en la rama protegida.
+Optionally, you can choose to require reviews from code owners. If you do, any pull request that affects code with a code owner must be approved by that code owner before the pull request can be merged into the protected branch.
 
-### Requerir verificaciones de estado antes de las fusiones
+### Require status checks before merging
 
-Las verificaciones de estado requeridas garantizan que todas las pruebas de integración continua (CI) requeridas sean aprobadas antes de que los colaboradores puedan realizar cambios en una rama protegida. Para obtener más información, consulta "[Configurar ramas protegidas](/articles/configuring-protected-branches/)" y "[Activar verificaciones de estado requeridas](/articles/enabling-required-status-checks)". Para obtener más información, consulta "[Acerca de las verificaciones de estado ](/github/collaborating-with-issues-and-pull-requests/about-status-checks)".
+Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)."
 
-Antes de que puedas habilitar las verificaciones de estado requeridas, debes configurar el repositorio para utilizar la API de estado. Para obtener más información, consulta la sección "[Repositorios](/rest/reference/repos#statuses)" en la documentación de REST.
+Before you can enable required status checks, you must configure the repository to use the status API. For more information, see "[Repositories](/rest/reference/commits#commit-statuses)" in the REST documentation.
 
-Después de habilitar las verificaciones de estado requierdas, cualquier verificación de estado deberá pasar antes de que los colaboradores puedan fusionar los cambios en la rama protegida. Una vez que hayan pasado todas las verificaciones de estado requeridas, cualquier confirmación deberá ya sea subirse en otra rama y después fusionarse, o subirse directo a la rama protegida.
+After enabling required status checks, all required status checks must pass before collaborators can merge changes into the protected branch. After all required status checks pass, any commits must either be pushed to another branch and then merged or pushed directly to the protected branch.
 
-{% note %}
+Any person or integration with write permissions to a repository can set the state of any status check in the repository{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app that has recently set this check as the expected source of status updates.{% endif %} If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
 
-**Nota:** Cualquier persona o integración con permisos de escritura en un repositorio puede establecer el estado de cualquier comprobación de estado en el repositorio. {% data variables.product.company_short %} no verifica que el autor de una comprobación está autorizado para crear un determinado nombre o modificar un estado existente. Antes de fusionar una solicitud de extracción, deberás verificar que se esté esperando al autor de cada estado, los cuales se encuentran listados en la caja de fusión.
+You can set up required status checks to either be "loose" or "strict." The type of required status check you choose determines whether your branch is required to be up to date with the base branch before merging.
 
-{% endnote %}
+| Type of required status check | Setting | Merge requirements | Considerations |
+| --- | --- | --- | --- |
+| **Strict** | The **Require branches to be up to date before merging** checkbox is checked. | The branch **must** be up to date with the base branch before merging. | This is the default behavior for required status checks. More builds may be required, as you'll need to bring the head branch up to date after other collaborators merge pull requests to the protected base branch.|
+| **Loose** | The **Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
+| **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
 
-Puedes configurar las verificaciones de estado requeridas para que sean "laxas" o "estrictas". El tipo de verificación de estado requerida que elijas determina si se requiere que tu rama esté actualizada con la rama base antes de la fusión.
+For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
 
-| Tipo de verificación de estado requerida | Parámetro                                                                                                                                           | Requisitos de fusión                                                          | Consideraciones                                                                                                                                                                                                                                                                                         |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Estricta**                             | La casilla de verificación **Requerir que las ramas estén actualizadas antes de fusionar** está seleccionada.                                       | La rama **debe** estar actualizada con la rama de base antes de la fusión.    | Este es el comportamiento predeterminado para las verificaciones de estado requeridas. Se pueden requerir más construcciones, ya que deberás actualizar la rama de encabezado después de que otros colaboradores fusionen las solicitudes de extracción con la rama de base protegida.                  |
-| **Flexible**                             | La casilla de verificación **Requerir que las ramas estén actualizadas antes de fusionar** **no** está seleccionada.                                | La rama **no debe** estar actualizada con la rama de base antes de la fusión. | Tendrás menos construcciones requeridas, ya que no necesitarás actualizar la rama de encabezado después de que otros colaboradores fusionen las solicitudes de extracción. Las verificaciones de estado pueden fallar después de que fusiones tu rama si hay cambios incompatibles con la rama de base. |
-| **Inhabilitada**                         | La casilla **Require status checks to pass before merging** (Se deben superar las verificaciones de estado antes de la fusión) **no** está marcada. | La rama no tiene restricciones de fusión.                                     | Si las verificaciones de estado requeridas no están habilitadas, los colaboradores pueden fusionar la rama en cualquier momento, independientemente de si está actualizada con la rama de base. Esto aumenta la posibilidad de cambios incompatibles.                                                   |
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+### Require conversation resolution before merging
 
-Para obtener información sobre la solución de problemas, consulta la sección "[Solucionar probelmas para las verificaciones de estado requeridas](/github/administering-a-repository/troubleshooting-required-status-checks)".
-
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
-### Requerir la resolución de conversaciones antes de fusionar
-
-Requiere que se resuelvan todos los comentarios de la solicitud de cambios antes de qeu se pueda fusionar con una rama protegida. Esto garantiza que todos los comentarios se traten o reconozcan antes de fusionar.
+Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
 {% endif %}
 
-### Requerir confirmaciones firmadas
+### Require signed commits
 
-Cuando habilitas el requerir el firmado de confirmaciones en una rama, los colaboradores {% ifversion fpt %}y bots{% endif %} solo podrán subir a la rama aquellas confirmaciones que se hayan firmado y verificado. Para obtener más información, consulta "[Acerca de la verificación de firmas en las confirmaciones](/articles/about-commit-signature-verification)."
+When you enable required commit signing on a branch, contributors {% ifversion fpt or ghec %}and bots{% endif %} can only push commits that have been signed and verified to the branch. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)."
 
 {% note %}
 
-{% ifversion fpt %}
-**Notas:**
+{% ifversion fpt or ghec %}
+**Notes:** 
 
-* Si habilitaste el modo vigilante, el cual indica que tus confirmaciones siempre se firmarán, cualquier confirmación que {% data variables.product.prodname_dotcom %} identifique como "Verificada parcialmente" se permitirá en aquellas ramas que requieran confirmaciones firmadas. Para obtener más información sobre el modo vigilante, consulta la sección "[Mostrar los estados de verificación para todas tus confirmaciones](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)".
-* Si un colaborador sube una confirmación sin firmar a una rama que requiere firmas de confirmación, este necesitará rebasar dicha confirmación para incluir una firma verificada y luego subir forzadamente la confirmación reescrita a esta.
+* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
+* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 
 {% else %}
-**Nota:** Si un colaborador sube una confirmación sin firmar a una rama que requiere firmas de confirmación, éste necesitará rebasar la confirmación para incluir una firma verificada y luego subir forzadamente la confirmación re-escrita a la rama.
+**Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 {% endif %}
 
 {% endnote %}
 
-Siempre puedes subir confirmaciones locales a la rama si estas se firmaron y verificaron. {% ifversion fpt %}También puedes fusionar las confirmaciones firmadas y verificadas en la rama utilizando una solicitud de extracción en {% data variables.product.product_name %}. Sin embargo, no puedes combinar y fusionar una solicitud de extracción en la rama en {% data variables.product.product_name %} a menos de que seas el autor de dicha solicitud.{% else %} Sin embargo, no puedes fusionar solicitudes de extracción en la rama en {% data variables.product.product_name %}.{% endif %} Puedes {% ifversion fpt %}combinar y {% endif %}fusionar las solicitudes de extracción localmente. Para obtener más información, consulta la sección "[Revisar las solicitudes de extracción localmente](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)".
+You can always push local commits to the branch if the commits are signed and verified. {% ifversion fpt or ghec %}You can also merge signed and verified commits into the branch using a pull request on {% data variables.product.product_name %}. However, you cannot squash and merge a pull request into the branch on {% data variables.product.product_name %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.product_name %}.{% endif %} You can {% ifversion fpt or ghec %}squash and {% endif %}merge pull requests locally. For more information, see "[Checking out pull requests locally](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
 
-{% ifversion fpt %} Para obtener más información sobre los métodos de fusión consulta la sección "[Acerca de los métodos de fusión en {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)".{% endif %}
+{% ifversion fpt or ghec %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
 
-### Requerir un historial linear
+### Require linear history
 
-El requerir un historial de confirmaciones linear previene que los colaboradores suban confirmaciones de fusión a la rama. Esto significa que cualquier solicitud de extracción fusionada con la rama protegida deberá utilizar una fusión combinada o una fusión de rebase. Un historial de confirmaciones estrictamente linear puede ayudar a los equipos a revertir los cambios con mayor facilidad. Para obtener más información acerca de los métodos de fusión, consulta "[Acerca de la fusión de solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)."
+Enforcing a linear commit history prevents collaborators from pushing merge commits to the branch. This means that any pull requests merged into the protected branch must use a squash merge or a rebase merge. A strictly linear commit history can help teams reverse changes more easily. For more information about merge methods, see "[About pull request merges](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)."
 
-Antes de poder requerir un historial de confirmaciones linear, tu repositorio deberá permitir fusiones combinadas o fusiones de rebase. Para obtener más información, consulta "[Configurar las fusiones de solicitud de extracción](/github/administering-a-repository/configuring-pull-request-merges)."
+Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[Configuring pull request merges](/github/administering-a-repository/configuring-pull-request-merges)."
 
-### Incluir administradores
+{% ifversion fpt or ghec %}
+### Require merge queue
 
-Predeterminadamente, las reglas de rama protegida no aplican a las personas con permisos administrativos en un repositorio. Puedes habilitar esta configuración para incluir a los administradores en tus reglas de rama protegida.
+{% data reusables.pull_requests.merge-queue-beta %}
+{% data reusables.pull_requests.merge-queue-overview %}
+ 
+{% data reusables.pull_requests.merge-queue-merging-method %}
+{% data reusables.pull_requests.merge-queue-references %}
 
-### Restringir quiénes pueden subir a las ramas coincidentes
+{% endif %}
+### Include administrators
 
-{% ifversion fpt %}
-Puedes habilitar restricciones de rama si tu repositorio le pertenece a una organización que utilice {% data variables.product.prodname_team %} o {% data variables.product.prodname_ghe_cloud %}.
+By default, protected branch rules do not apply to people with admin permissions to a repository. You can enable this setting to include administrators in your protected branch rules.
+
+### Restrict who can push to matching branches
+
+{% ifversion fpt or ghec %}
+You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
-Cuando habilitas las restricciones de rama, solo los usuarios, equipos o apps a los que se les haya dado permisos pueden subir información a la rama protegida. Puedes ver y editar los usuarios, equipos o apps con acceso de escritura a una rama protegida en la configuración de la misma.
+When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings. When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging if the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
 
-Solo puedes dar acceso de escritura a una rama protegida para usuarios, equipos o {% data variables.product.prodname_github_apps %} instaladas con acceso de tipo write a un repositorio. Las personas y apps con permisos administrativos en un repositorio siempre pueden subir información a una rama protegida.
+You can only give push access to a protected branch to users, teams, or installed {% data variables.product.prodname_github_apps %} with write access to a repository. People and apps with admin permissions to a repository are always able to push to a protected branch.
 
-### Permitir las subidas forzadas
+### Allow force pushes
 
-Predeterminadamente, {% data variables.product.product_name %} bloquea las subidas forzadas en todas las ramas protegidas. Cuando habilitas estas subidas forzadas en una rama protegida, cualquiera que tenga privilegios por lo menos de escritura en ese repositorio puede forzar la subida de información a la rama, incluyendo aquellos con permisos de administrador.
+{% ifversion fpt or ghec %}
+By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
 
-Habilitar las subidas forzadas no invalidará ninguna otra regla de protección a la rama. Por ejemplo, si una rama requiere un historial de confirmaciones linear, no puedes forzar la subida de fusión de confirmaciones en esa rama.
+1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
+1. Allow only specific people or teams to force push to the branch.
 
-{% ifversion ghes or ghae %}No puedes habilitar las subidas forzadas en una rama protegida si un administrador de sitio las ha bloqueado en todas las ramas de tu repositorio. Para obtener más información, consulta "[Bloquear las subidas de información forzadas en los repositorios que sean propiedad de una organización o cuenta de usuario](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
 
-Si un administrador de sitio ha bloqueado las subidas de información forzadas en la rama predeterminada únicamente, entonces aún puedes habilitarlas en cualquier otra rama protegida.{% endif %}
+{% else %}
+By default, {% data variables.product.product_name %} blocks force pushes on all protected branches. When you enable force pushes to a protected branch, anyone with at least write permissions to the repository can force push to the branch, including those with admin permissions. If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+{% endif %}
 
-### Permitir el borrado
+Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 
-Por defecto, no puedes eliminar una rama protegida. Cuando habilitas el borrado de una rama protegida, cualquiera que tenga por lo menos permiso de escritura en el repositorio podrá borrar la rama.
+{% ifversion ghes or ghae %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a user account or organization](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+
+If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
+
+### Allow deletions
+
+By default, you cannot delete a protected branch. When you enable deletion of a protected branch, anyone with at least write permissions to the repository can delete the branch.

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Issues
@@ -28,7 +29,7 @@ Issueを作成するにはリポジトリが必要です。 書き込みアク�
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.repositories.new_issue %}
-1. この例では、空のIssueから始めます。 リポジトリでは、コントリビューターが特定の情報を提供することを促進するためにIssueテンプレート{% ifversion fpt %}及びIssueフォーム{% endif %}が使われるかもしれません。 リポジトリがIssueテンプレートを使うなら、{% ifversion fpt or ghes %}**Open a blank Issue（空のIssueをオープン）**をクリック{% else %}**Open a regular issue（通常のIssueをオープン）をクリック**{% endif %}してください。
+1. この例では、空のIssueから始めます。 リポジトリでは、コントリビューターが特定の情報を提供することを促進するためにIssueテンプレート{% ifversion fpt or ghec %}及びIssueフォーム{% endif %}が使われるかもしれません。 リポジトリがIssueテンプレートを使うなら、{% ifversion fpt or ghes or ghec %}**Open a blank Issue（空のIssueをオープン）**をクリック{% else %}**Open a regular issue（通常のIssueをオープン）をクリック**{% endif %}してください。
 
 ![空のIssue](/assets/images/help/issues/blank-issue.png)
 
@@ -70,7 +71,7 @@ Issueを分類するために、ラベルを追加してください。 たと�
 
 ## プロジェクトへのIssueの追加
 
-Issueを既存のプロジェクトに追加できます。 {% ifversion fpt %}プロジェクト（ベータ）を使っているなら、プロジェクトのメタデータを展開することもできます。 {% endif %}プロジェクトに関する詳しい情報については{% ifversion fpt %}「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」及び{% endif %}「[プロジェクトボードで作業を整理する](/issues/organizing-your-work-with-project-boards)」を参照してください。
+Issueを既存のプロジェクトに追加できます。 {% ifversion fpt or ghec %}プロジェクト（ベータ）を使っているなら、プロジェクトのメタデータを展開することもできます。 {% endif %}プロジェクトに関する詳しい情報については{% ifversion fpt or ghec %}「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」及び{% endif %}「[プロジェクトボードで作業を整理する](/issues/organizing-your-work-with-project-boards)」を参照してください。
 
 ![プロジェクトを持つIssue](/assets/images/help/issues/issue-project.png)
 
@@ -96,5 +97,5 @@ Issueは、幅広い目的で使用できます。 例:
 {% data variables.product.prodname_github_issues %} で次のステップに進む際に役立つ、以下のようなリソースを参照してください。
 
 - Issueについてさらに学ぶには「[Issueについて](/issues/tracking-your-work-with-issues/about-issues)」を参照してください。
-- プロジェクトが計画と追跡にどのように役立つかをさらに学ぶには、{% ifversion fpt %}「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」あるいは{% endif %}「[プロジェクトボードでの作業の整理](/issues/organizing-your-work-with-project-boards)」を参照してください。
-- Issueテンプレート{% ifversion fpt %}及びIssueフォーム{% endif %}を利用して、コントリビューターが特定の情報を提供してくれるよう促進することについてさらに学ぶには「[IssueやPull Requestが役立つものになるよう促進するためのテンプレートの利用](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」を参照してください。
+- プロジェクトが計画と追跡にどのように役立つかをさらに学ぶには、{% ifversion fpt or ghec %}「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」あるいは{% endif %}「[プロジェクトボードでの作業の整理](/issues/organizing-your-work-with-project-boards)」を参照してください。
+- Issueテンプレート{% ifversion fpt or ghec %}及びIssueフォーム{% endif %}を利用して、コントリビューターが特定の情報を提供してくれるよう促進することについてさらに学ぶには「[IssueやPull Requestが役立つものになるよう促進するためのテンプレートの利用](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」を参照してください。

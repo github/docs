@@ -1,11 +1,11 @@
 ---
 title: Notificações para execução de fluxo de trabalho
 intro: Você pode assinar as notificações sobre execuções do fluxo de trabalho que você acionar.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Notificações
 ---
 

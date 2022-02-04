@@ -4,6 +4,7 @@ intro: 'You can allow {% data variables.product.company_short %} to automaticall
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

@@ -1,6 +1,6 @@
 ---
 title: Understanding connections between repositories
-intro: "You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository."
+intro: You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository.
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -18,6 +18,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Connections between repositories
@@ -48,7 +49,7 @@ The Members graph displays all the forks of a repository.
 
 Forks are listed alphabetically by the username of the person who forked the repository. You can click on the username to be redirected to the user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![Repository members graph](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
@@ -65,7 +66,7 @@ Forks are listed alphabetically by the username of the person who forked the rep
 3. In the left sidebar, click **Forks**.
 ![Forks tab](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes > 2.22 or ghae-issue-4864 %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Viewing the dependencies of a repository
 
 You can use the dependency graph to explore the code your repository depends on.

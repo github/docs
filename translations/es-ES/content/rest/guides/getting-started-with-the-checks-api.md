@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Introducción - API de verificaciones
@@ -40,7 +41,7 @@ Una ejecución de verificación es una prueba individual que forma parte de una 
 
 ![Flujo de trabajo de las ejecuciones de verificación](/assets/images/check_runs.png)
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 Si una ejecución de verificación permanece en un estado incompleto por más de 14 días, entonces las `conclusion` de dicha ejecución se convierten en `stale` y aparecen en
 {% data variables.product.prodname_dotcom %} como quedadas con el {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Solo {% data variables.product.prodname_dotcom %} puede marcar las ejecuciones de verificación como `stale`. Para obtener más información acerca de las conclusiones posibles para una ejecución de verificación, consulta el [parámetro de `conclusion`](/rest/reference/checks#create-a-check-run--parameters).
 {% endif %}

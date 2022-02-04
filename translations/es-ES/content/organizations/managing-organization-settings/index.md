@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -40,5 +41,5 @@ children:
 shortTitle: Administrar la configuración de la organización
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% endif %}

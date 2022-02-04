@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Inhabilitar la 2FA
@@ -17,7 +18,7 @@ Te recomendamos encarecidamente que uses la autenticación de dos factores para 
 
 {% warning %}
 
-**Advertencia:** Si eres un miembro,{% ifversion fpt %}, gerente de facturación{% endif %} o colaborador externo de un repositorio público de una organización que requiere autenticación de dos factores y procedes a su inhabilitación, serás automáticamente eliminado de la organización y ya no podrás acceder a sus repositorios. Para volver a obtener acceso a la organización, habilita nuevamente la autenticación de dos factores y comunícate con un propietario de la organización.
+**Advertencia:** Si eres un miembro,{% ifversion fpt or ghec %}, gerente de facturación{% endif %} o colaborador externo de un repositorio público de una organización que requiere autenticación de dos factores y procedes a su inhabilitación, serás automáticamente eliminado de la organización y ya no podrás acceder a sus repositorios. Para volver a obtener acceso a la organización, habilita nuevamente la autenticación de dos factores y comunícate con un propietario de la organización.
 
 {% endwarning %}
 

@@ -2,7 +2,7 @@
 title: Sobre gráficos do repositório
 intro: Os gráficos do repositório ajudam a exibir e analisar dados do repositório.
 redirect_from:
-  - /articles/using-graphs/
+  - /articles/using-graphs
   - /articles/about-repository-graphs
   - /github/visualizing-repository-data-with-graphs/about-repository-graphs
   - /github/visualizing-repository-data-with-graphs/accessing-basic-repository-data/about-repository-graphs
@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-Os gráficos de um repositório fornecem informações sobre o tráfego do {% ifversion fpt %}, projetos que dependem do repositório,{% endif %} contribuidores e commits do repositório, além de bifurcações e rede de um repositório. Se você mantém um repositório, é possível usar esses dados para entender melhor quem está usando o repositório e por que está usando.
+Os gráficos de um repositório fornecem informações sobre o tráfego do {% ifversion fpt or ghec %}, projetos que dependem do repositório,{% endif %} contribuidores e commits do repositório, além de bifurcações e rede de um repositório. Se você mantém um repositório, é possível usar esses dados para entender melhor quem está usando o repositório e por que está usando.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Alguns gráficos do repositório estão disponíveis somente em repositórios públicos com o {% data variables.product.prodname_free_user %}:
 - Pulso

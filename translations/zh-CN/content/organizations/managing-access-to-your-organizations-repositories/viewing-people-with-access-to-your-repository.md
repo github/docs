@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,7 +21,7 @@ shortTitle: 查看有访问权限的人
 
 ## 查看具有仓库访问权限的人员
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **注**：您还可以查看有权访问仓库的团队和人员的组合概述。 更多信息请参阅“[管理有权访问仓库的团队和人员](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)”。

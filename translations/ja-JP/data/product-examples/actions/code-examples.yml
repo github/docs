@@ -221,7 +221,7 @@
 - 
   title: 設定されたGitHub Actionsを最新バージョンにアップデート
   description: すべてのアクションが最新かどうかをチェックするCLIツール
-  languages: 'C#, Inno Setup, PowerSHell, Shell'
+  languages: 'C#, Inno Setup, PowerShell, Shell'
   href: fabasoad/ghacu
   tags:
     - versions

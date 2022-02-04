@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.discussions %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_discussions %} for the repository.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 redirect_from:

@@ -67,9 +67,9 @@ sections:
       heading: Filtro do GitHub Mobile
       notes:
         - |
-          [{% data variables.product.prodname_mobile %}](https://github.com/mobile) o filtro permite que você procure e encontre problemas, pull requests e discussões do seu dispositivo. Novos metadados para problemas e itens da lista de pull request permitem que você filtre por responsáveis, verifique status, status de revisão e contagens de comentários.
+          [{% data variables.product.prodname_mobile %}](https://github.com/mobile) filtering allows you to search for and find issues, pull requests, and discussions from your device. New metadata for issues and pull request list items allow you to filter by assignees, checks status, review states, and comment counts.
 
-          A beta de {% data variables.product.prodname_mobile %} está disponível para {% data variables.product.prodname_ghe_server %}. Efetue o login com os nossos aplicativos de [Android](https://play.google.com/store/apps/details?id=com. ithub.android) e [iOS](https://apps.apple.com/app/github/id1477376905) para triar as notificações e gerenciar problemas e pull requests em qualquer lugar. Os administradores podem desabilitar o suporte móvel para sua empresa usando o console de gerenciamento ou executando o `ghe-config app.mobile.enabled false`. Para mais informações, consulte "[GitHub for mobile](/github/getting-started-with-github/using-github/github-for-mobile)."
+          {% data variables.product.prodname_mobile %} beta is available for {% data variables.product.prodname_ghe_server %}. Sign in with our [Android](https://play.google.com/store/apps/details?id=com.github.android) and [iOS](https://apps.apple.com/app/github/id1477376905) apps to triage notifications and manage issues and pull requests on the go. Administrators can disable mobile support for their Enterprise using the management console or by running `ghe-config app.mobile.enabled false`. For more information, see "[GitHub Mobile](/get-started/using-github/github-mobile)."
   changes:
     - 
       heading: Alterações na administração
@@ -139,7 +139,7 @@ sections:
       ghe-actions-console -s ações -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
       ```
     - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
   deprecations:
     - 
       heading: Obsoletização do GitHub Enterprise Server 2.20

@@ -12,9 +12,9 @@ The options available to specify the additional queries you want to run are:
 You can use both `packs` and `queries` in the same workflow.
 {% else %}
 Any additional queries you want to run must belong to a
-{% data variables.product.prodname_ql %} pack in a repository. For more information, see {% ifversion ghes < 3.0 %}"[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning#about-codeql)."{% else %}"[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."{% endif %}
+{% data variables.product.prodname_ql %} pack in a repository. For more information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
 
 Você pode especificar um único arquivo _.ql_, um diretório que contém múltiplos arquivos _.ql_, um arquivo de definição de suite de consultas _.qls_ ou qualquer outra combinação. Para obter mais informações sobre definições do conjunto de consultas, consulte "[Criar as conjuntos de consulta do {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)".
 {% endif %}
 
-{% ifversion fpt %}We don't recommend referencing query suites directly from the `github/codeql` repository, like `github/codeql/cpp/ql/src@main`. Tais consultas não podem ser compiladas com a mesma versão do {% data variables.product.prodname_codeql %} que é usada para outras consultas, que poderia gerar erros durante a análise.{% endif %}
+{% ifversion fpt or ghec %}Não recomendamos fazer referência a conjuntos de consulta diretamente do repositório `github/codeql`, como `github/codeql/cpp/ql/src@main`. Tais consultas não podem ser compiladas com a mesma versão do {% data variables.product.prodname_codeql %} que é usada para outras consultas, que poderia gerar erros durante a análise.{% endif %}

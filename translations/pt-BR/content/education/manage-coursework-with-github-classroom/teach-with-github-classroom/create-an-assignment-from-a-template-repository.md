@@ -1,6 +1,7 @@
 ---
 title: Criar uma atividade a partir de um repositório de modelo
 intro: 'Você pode criar uma atividade a partir de um repositório de modelo para fornecer código inicial, documentação e outros recursos aos seus alunos.'
+permissions: 'Organization owners who are admins for a classroom can create an assignment from a template repository that is public or owned by the organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
   fpt: '*'
 redirect_from:

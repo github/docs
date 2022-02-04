@@ -1,6 +1,6 @@
 ---
 title: Excluir arquivos em um repositório
-intro: 'Você pode excluir um arquivo individual{% ifversion fpt or ghes > 3.0 %} ou um diretório inteiro{% endif %} no seu repositório em {% data variables.product.product_name %}.'
+intro: 'Você pode excluir um arquivo individual{% ifversion fpt or ghes > 3.0 or ghec %} ou um diretório inteiro{% endif %} no seu repositório em {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/deleting-files
   - /github/managing-files-in-a-repository/deleting-files
@@ -11,19 +11,20 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-permissions: 'People with write permissions can delete files{% ifversion fpt or ghes > 3.0 %} or directories{% endif %} in a repository.'
+  ghec: '*'
+permissions: 'People with write permissions can delete files{% ifversion fpt or ghes > 3.0 or ghec %} or directories{% endif %} in a repository.'
 topics:
   - Repositories
 shortTitle: Excluir arquivos
 ---
 
-## Sobre a exclusão de arquivo{% ifversion fpt or ghes > 3.0 %} e diretório{% endif %}
+## Sobre a exclusão de arquivo{% ifversion fpt or ghes > 3.0 or ghec %} e diretório{% endif %}
 
-É possível excluir um arquivo individual no repositório{% ifversion fpt or ghes > 3.0 %} ou um diretório inteiro, incluindo todos os arquivos no diretório{% endif %}.
+É possível excluir um arquivo individual no repositório{% ifversion fpt or ghes > 3.0 or ghec %} ou um diretório inteiro, incluindo todos os arquivos no diretório{% endif %}.
 
-Se você tentar excluir um arquivo{% ifversion fpt or ghes > 3.0 %} ou diretório{% endif %} em um repositório no qual você não tem permissões de gravação, faremos uma bifurcação do projeto para a sua conta de usuário e iremos ajudá-lo a enviar um pull request para o repositório original depois de fazer commit da sua alteração. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
+Se você tentar excluir um arquivo{% ifversion fpt or ghes > 3.0 or ghec %} ou diretório{% endif %} em um repositório no qual você não tem permissões de gravação, faremos uma bifurcação do projeto para a sua conta de usuário e iremos ajudá-lo a enviar um pull request para o repositório original depois de fazer commit da sua alteração. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
 
-Se o arquivo{% ifversion fpt or ghes > 3.0 %} ou diretório{% endif %} que você excluiu contém dados cnfidenciais, os dados ainda estarão disponíveis no histórico Git do repositório. Para remover completamente o arquivo de {% data variables.product.product_name %}, você deve remover o arquivo do histórico do seu repositório. Para obter mais informações, consulte "[Remover dados confidenciais do repositório](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
+Se o arquivo{% ifversion fpt or ghes > 3.0 or ghec %} ou diretório{% endif %} que você excluiu contém dados cnfidenciais, os dados ainda estarão disponíveis no histórico Git do repositório. Para remover completamente o arquivo de {% data variables.product.product_name %}, você deve remover o arquivo do histórico do seu repositório. Para obter mais informações, consulte "[Remover dados confidenciais do repositório](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
 
 ## Excluir um arquivo
 
@@ -34,7 +35,7 @@ Se o arquivo{% ifversion fpt or ghes > 3.0 %} ou diretório{% endif %} que você
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 ## Excluir um diretório
 
 1. Acesse o diretório no seu repositório que deseja excluir.

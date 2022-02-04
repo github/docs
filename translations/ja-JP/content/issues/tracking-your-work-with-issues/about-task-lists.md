@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **ノート:** 改善されたタスクリストは現在ベータであり、変更されることがあります。
@@ -27,9 +28,9 @@ topics:
 
 タスクリストはタスクの集合で、それぞれのタスクはクリックできるチェックボックス付きの行に個別に表示されます。 タスクが完了しているか未完了かをマークするために、チェックボックスを選択あるいは選択解除できます。
 
-{% data variables.product.product_name %}上の任意のコメント内で、Markdownを使ってタスクリストを作成できます。 {% ifversion fpt %}タスクリストでIssue、Pull Request、ディスカッションを参照すると、その参照はタイトルと状態を表示するように展開されます。{% endif %}
+{% data variables.product.product_name %}上の任意のコメント内で、Markdownを使ってタスクリストを作成できます。 {% ifversion fpt or ghec %}タスクリストでIssue、Pull Request、ディスカッションを参照すると、その参照はタイトルと状態を表示するように展開されます。{% endif %}
 
-{% ifversion not fpt %}
+{% ifversion not fpt or ghec %}
 タスクリストが先頭のコメント内にある場合、タスクリストのサマリ情報を Issue およびプルリクエストのリスト中で見ることができます。
 {% else %}
 
@@ -50,11 +51,20 @@ topics:
 
 {% data reusables.repositories.task-list-markdown %}
 
+{% tip %}
+
+**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+
+{% endtip %}
+
 ## タスクの順序変更
 
 タスクリスト内のアイテムは、タスクのチェックボックスの左をクリックし、新しい場所へドラッグして落とすことによって、順序を変更できます。 同じコメント中のリスト間でタスクを並び替えることができますが、別々のコメント間でタスクを並び替えることはできません。
 
-![順序変更されたタスクリスト](/assets/images/help/writing/task-list-reordered.gif)
+{% ifversion fpt %} ![順序変更されたタスクリスト](/assets/images/help/writing/task-list-reordered.gif)
+{% else %} ![Reordered task list](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
+
+{% ifversion fpt %}
 
 ## 追跡されたIssueへのアクセス
 
@@ -62,6 +72,9 @@ topics:
 
 ![追跡元の例](/assets/images/help/writing/task_list_tracked.png)
 
+{% endif %}
+
 ## 参考リンク
 
-* [基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)
+* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+* "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

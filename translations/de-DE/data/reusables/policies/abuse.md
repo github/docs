@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %} toleriert keinen Missbrauch.{% ifversion fpt %} Weitere Informationen zu den Richtlinien von {% data variables.product.prodname_dotcom %} findest Du in unseren [Nutzungsbedingungen](/articles/github-terms-of-service) and [Community-Richtlinien](/articles/github-community-guidelines).{% endif %}

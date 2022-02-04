@@ -4,6 +4,7 @@ intro: 'Overview of the {% data variables.product.prodname_codespaces %} securit
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Security
@@ -56,6 +57,8 @@ If you need to allow external access to services running on a codespace, you can
 If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet.
 
 **Privately forwarded ports**: Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
+
+**Publicly forwarded ports within your organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
 
 **Publicly forwarded ports**: Are accessible on the internet, and anyone on the internet can access them. No authentication is needed to access public forwarded ports.
 

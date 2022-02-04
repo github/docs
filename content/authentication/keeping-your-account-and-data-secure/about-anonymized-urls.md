@@ -2,13 +2,14 @@
 title: About anonymized URLs
 intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
 redirect_from:
-  - /articles/why-do-my-images-have-strange-urls/
+  - /articles/why-do-my-images-have-strange-urls
   - /articles/about-anonymized-image-urls
   - /authenticating-to-github/about-anonymized-image-urls
   - /github/authenticating-to-github/about-anonymized-urls
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-anonymized-urls
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -27,7 +28,7 @@ In rare circumstances, images that are processed through Camo might not appear o
 
 {% tip %}
 
-Windows users will either need to use the Git Powershell (which is installed alongside [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) or download [curl for Windows](http://curl.haxx.se/download.html).
+Windows users will either need to use the Git PowerShell (which is installed alongside [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) or download [curl for Windows](http://curl.haxx.se/download.html).
 
 {% endtip %}
 

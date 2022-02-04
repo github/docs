@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,11 +26,11 @@ shortTitle: 将成员转换为协作者
 - @提及任何可见团队
 - 成为团队维护员
 
-更多信息请参阅“[组织的权限级别](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)”。
+For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 建议查看组织成员对仓库的访问权限，以确保其访问权限符合您的预期。 更多信息请参阅“[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)”。
 
-将组织成员转换为外部协作者时，他们作为组织成员的权限将保存三个月，因此，如果您在该时间范围内{% ifversion fpt %} 邀请他们重新加入{% else %} 将他们重新添加到{% endif %} 您的组织，您可以恢复其成员权限。 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
+将组织成员转换为外部协作者时，他们作为组织成员的权限将保存三个月，因此，如果您在该时间范围内{% ifversion fpt or ghec %} 邀请他们重新加入{% else %} 将他们重新添加到{% endif %} 您的组织，您可以恢复其成员权限。 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

@@ -1,7 +1,7 @@
 ---
 title: Prácticas de Privacidad Globales
 redirect_from:
-  - /eu-safe-harbor/
+  - /eu-safe-harbor
   - /articles/global-privacy-practices
 versions:
   fpt: '*'

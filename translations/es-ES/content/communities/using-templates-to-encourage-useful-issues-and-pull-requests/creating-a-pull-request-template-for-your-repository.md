@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Crear una plantilla de solicitud de cambios
@@ -17,9 +18,9 @@ Para obtener más información, consulta "[Acerca de las plantillas de propuesta
 
 Puedes crear un subdirectorio *PULL_REQUEST_TEMPLATE/* en alguna de las carpetas admitidas para incluir múltiples plantillas de solicitudes de extracción, y utilizar el parámetro de consulta `template` para especificar la plantilla que completará el cuerpo de la solicitud de extracción. Para obtener más información, consulta "[Acerca de la automatización para las propuestas y las solicitudes de extracción con parámetros de consulta ](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-Puedes crear plantillas de solicitud de extracción predeterminadas para tu organización{% ifversion fpt or ghes %} o cuenta de usuario{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear plantillas de solicitud de extracción predeterminadas para tu organización{% ifversion fpt or ghes or ghec %} o cuenta de usuario{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

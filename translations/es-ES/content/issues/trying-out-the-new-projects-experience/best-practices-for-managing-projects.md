@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Projects
@@ -46,8 +47,22 @@ Los proyectos de {% data variables.product.company_short %} se actualizan autom�
 
 ## Utiliza la automatización
 
-Las tareas de auotmatización te permiten pasar menos tiempo trabajando y más en el proyecto mismo. Entre menos tengas que recordar para hacer manualmente, será más probable que tu proyecto se mantenga actualizado. {% data variables.product.prodname_actions %} y la API de GraphQL te permiten automatizar las tareas de administración rutinarias de un proyecto. Por ejemplo, para hacer un seguimiento de las solicitudes de cambios que están esperando una revisión, puedes crear un flujo de trabajo que agregue una solicitud de cambios a un proyecto y configure el estado en "necesita revisión"; este proceso se puede activar automátiamente cuando una solicitud de cambios se marque como "lista para revisión".
+Puedes automatizar las tareas para pasar menos tiempo ocupado en el trabajo y más en el proyecto mismo. Entre menos tengas que recordar para hacer manualmente, será más probable que tu proyecto se mantenga actualizado.
+
+Los proyectos (beta) ofrecen flujos de trabajo integrados. Por ejemplo, cuando se cierra una propuesta, puedes configurar el estado automáticamente a "Hecho".
+
+Adicionalmente, {% data variables.product.prodname_actions %} y la API de GraphQL te permiten automatizar las tareas rutinarias de administración de proyectos. Por ejemplo, para hacer un seguimiento de las solicitudes de cambios que están esperando una revisión, puedes crear un flujo de trabajo que agregue una solicitud de cambios a un proyecto y configure el estado en "necesita revisión"; este proceso se puede activar automátiamente cuando una solicitud de cambios se marque como "lista para revisión."
 
 - Para encontrar un flujo de trabajo de ejemplo, consulta la sección "[Automatizar proyectos](/issues/trying-out-the-new-projects-experience/automating-projects)".
 - Para obtener más información sobre la API, consulta la sección "[Utilizar la API para administrar los proyectos](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)".
 - Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[{% data variables.product.prodname_actions %}](/actions)".
+
+## Utilizar tipos de campo diferentes
+
+Toma ventaja de los diversos tipos de campo para satisfacer tus necesidades.
+
+Utiliza el campo de iteración para programar trabajo o crear una línea de tiempo. Puedes agrupar por iteración para ver si los elementos se balancean entre iteraciones o puedes filtrarlos para enfocarte en una iteración simple. Los campos de iteración también te permiten ver el trabajo que completaste en las iteraciones pasadas, lo cual puede ayudarte con la planeación rápida y puede reflejar los logros de tu equipo.
+
+Utiliza un campo de selección simple para rastrear la información de una tarea con base en una lista de valores preconfigurados. Por ejemplo, rastrea la prioridad o fase de un proyecto. Ya que los valores se seleccionan desde una lista preconfigurada, puedes agrupar, filtrar o enfocarte fácilmente en elementos con un valor específico.
+
+Para obtener más información sobre los diferentes tipos de campo, consulta la sección "[Crear un proyecto (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-custom-fields)".

@@ -14,7 +14,7 @@ redirect_from:
 
 Antes de inicializar sua empresa, você deve comprar {% data variables.product.product_name %}. Para mais informações, entre em contato com {% data variables.contact.contact_enterprise_sales %}.
 
-{% data reusables.github-ae.initialize-enterprise %} Certifique-se de que as informações fornecidas correspondem às informações do proprietário corporativo desejado no IdP. Para obter mais informações sobre os proprietários corporativos, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
+{% data reusables.github-ae.initialize-enterprise %} Certifique-se de que as informações fornecidas correspondem às informações do proprietário corporativo desejado no IdP. Para obter mais informações sobre os proprietários corporativos, consulte "[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
 
 {% note %}
 

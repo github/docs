@@ -1,10 +1,11 @@
 ---
 title: Autoscaling with self-hosted runners
-intro: 'You can automatically scale your self-hosted runners in response to webhook events.'
+intro: You can automatically scale your self-hosted runners in response to webhook events.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>3.2'
-type: 'overview'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
+type: overview
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
@@ -21,7 +22,7 @@ You can automatically increase or decrease the number of self-hosted runners in 
 
 The following repositories have detailed instructions for setting up these autoscalers: 
 
-- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runnners.
+- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runners.
 - [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - A Terraform module for scalable {% data variables.product.prodname_actions %} runners on Amazon Web Services.
 
 Each solution has certain specifics that may be important to consider:
@@ -31,7 +32,7 @@ Each solution has certain specifics that may be important to consider:
 | Runtime | Kubernetes | Linux and Windows VMs |
 | Supported Clouds | Azure, Amazon Web Services, Google Cloud Platform, on-premises | Amazon Web Services |
 | Where runners can be scaled | Enterprise, organization, and repository levels. By runner label and runner group. | Organization and repository levels. By runner label and runner group. |
-| Pull-based autoscaling support | Yes | No |
+| How runners can be scaled | Webhook events, Scheduled, Pull-based | Webhook events, Scheduled (org-level runners only) |
 
 ## Using ephemeral runners for autoscaling
 
@@ -41,8 +42,8 @@ This approach allows you to manage your runners as ephemeral systems, since you 
 
 To add an ephemeral runner to your environment, include the `--ephemeral` parameter when registering your runner using `config.sh`. For example:
 
-```
-$ ./config.sh --url https://github.com/octo-org --token example-token --ephemeral
+```shell
+./config.sh --url https://github.com/octo-org --token example-token --ephemeral
 ```
 
 The {% data variables.product.prodname_actions %} service will then automatically de-register the runner after it has processed one job. You can then create your own automation that wipes the runner after it has been de-registered.
@@ -50,6 +51,28 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 {% note %}
 
 **Note:**  If a job is labeled for a certain type of runner, but none matching that type are available, the job does not immediately fail at the time of queueing. Instead, the job will remain queued until the 24 hour timeout period expires.
+
+{% endnote %}
+
+## Controlling runner software updates on self-hosted runners
+
+By default, self-hosted runners will automatically perform a software update whenever a new version of the runner software is available.  If you use ephemeral runners in containers then this can lead to repeated software updates when a new runner version is released.  Turning off automatic updates allows you to update the runner version on the container image directly on your own schedule.
+
+If you want to turn off automatic software updates and install software updates yourself, you can specify the `--disableupdate` parameter when starting the runner.  For example:
+
+```shell
+./run.sh --disableupdate
+```
+
+If you disable automatic updates, you must still update your runner version regularly.  New functionality in {% data variables.product.prodname_actions %} requires changes in both the {% data variables.product.prodname_actions %} service _and_ the runner software.  The runner may not be able to correctly process jobs that take advantage of new features in {% data variables.product.prodname_actions %} without a software update.
+
+If you disable automatic updates, you will be required to update your runner version within 30 days of a new version being made available.  You may want to subscribe to notifications for releases in the [`actions/runner` repository](https://github.com/actions/runner/releases). For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#about-custom-notifications)."
+
+For instructions on how to install the latest runner version, see the installation instructions for [the latest release](https://github.com/actions/runner/releases).
+
+{% note %}
+
+**Note:** If you do not perform a software update within 30 days, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner.  In addition, if a critical security update is required, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner until it has been updated.
 
 {% endnote %}
 
@@ -75,4 +98,4 @@ To  authenticate using a {% data variables.product.prodname_dotcom %} App, it mu
 
 You can register and delete enterprise self-hosted runners using [the API](/rest/reference/enterprise-admin#github-actions). To authenticate to the API, your autoscaling implementation can use an access token.
 
-Your access token will requite the `manage_runners:enterprise` scope.
+Your access token will require the `manage_runners:enterprise` scope.

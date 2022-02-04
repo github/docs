@@ -31,15 +31,11 @@ async function getBreadcrumbs(
   intendedLanguage
 ) {
   // Find the page that starts with the requested path
-  let childPage = pageArray.find((page) =>
-    currentPathWithoutLanguage.startsWith(page.href.slice(3))
-  )
+  let childPage = findPageWithPath(currentPathWithoutLanguage, pageArray)
 
   // Find the page in the fallback page array (likely the English sub-tree)
   const fallbackChildPage =
-    (fallbackPageArray || []).find((page) => {
-      return currentPathWithoutLanguage.startsWith(page.href.slice(3))
-    }) || childPage
+    findPageWithPath(currentPathWithoutLanguage, fallbackPageArray || []) || childPage
 
   // No matches, we bail
   if (!childPage && !fallbackChildPage) {
@@ -73,4 +69,35 @@ async function getBreadcrumbs(
   } else {
     return [breadcrumb]
   }
+}
+
+// Finds the page that starts with or equals the requested path in the array of
+// pages e.g. if the current page is /actions/learn-github-actions/understanding-github-actions,
+// depending on the pages in the pageArray agrument, would find:
+//
+// * /actions
+// * /actions/learn-github-actions
+// * /actions/learn-github-actions/understanding-github-actions
+function findPageWithPath(pageToFind, pageArray) {
+  return pageArray.find((page) => {
+    const pageWithoutLanguage = page.href.slice(3)
+    const numPathSegments = pageWithoutLanguage.split('/').length
+    const pageToFindNumPathSegments = pageToFind.split('/').length
+
+    if (pageToFindNumPathSegments > numPathSegments) {
+      // if the current page to find has more path segments, add a trailing
+      // slash to the page comparison to avoid an overlap like:
+      //
+      // * /github-cli/github-cli/about-github-cli with /github
+      return pageToFind.startsWith(`${pageWithoutLanguage}/`)
+    } else if (pageToFindNumPathSegments === numPathSegments) {
+      // if the current page has the same number of path segments, only match
+      // if the paths are the same to avoid an overlap like:
+      //
+      // * /get-started/using-github with /get-started/using-git
+      return pageToFind === pageWithoutLanguage
+    } else {
+      return false
+    }
+  })
 }

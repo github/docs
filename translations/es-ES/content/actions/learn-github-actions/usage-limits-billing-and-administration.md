@@ -1,14 +1,13 @@
 ---
 title: 'Límites de uso, facturación y administración'
 intro: 'Hay límites de uso para los flujos de trabajo de {% data variables.product.prodname_actions %}. Los cargos de uso aplican a los repositorios que salen de la cantidad de minutos y almacenamiento gratuitos de un repositorio.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
   - /actions/reference/usage-limits-billing-and-administration
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
+  ghec: '*'
 topics:
   - Billing
 shortTitle: Límites & facturación de los flujos de trabajo
@@ -19,15 +18,19 @@ shortTitle: Límites & facturación de los flujos de trabajo
 
 ## Acerca de la facturación para {% data variables.product.prodname_actions %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Acerca de la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 {% else %}
 El uso de GitHub Actions es gratuito para los {% data variables.product.prodname_ghe_server %} que utilicen ejecutores auto-hospedados.
 {% endif %}
 
+## Disponibilidad
+
+{% data variables.product.prodname_actions %} está disponible en todos los productos de {% data variables.product.prodname_dotcom %}, pero {% data variables.product.prodname_actions %} no está disponible para los repositorios privados que pertenezcan a cuentas que utilicen planes tradicionales por repositorio. {% data reusables.gated-features.more-info %}
+
 ## Límites de uso
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Hay algunos límites de uso de {% data variables.product.prodname_actions %} cuando se utilizan ejecutores hospedados en {% data variables.product.prodname_dotcom %}. Estos límites están sujetos a cambios.
 
 {% note %}
@@ -54,19 +57,20 @@ Hay algunos límites de uso de {% data variables.product.prodname_actions %} cua
 Los límites de uso aplican a los ejecutores auto-hospedados. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Política de uso
 
-Además de los límites de uso, debes asegurarte de usar las {% data variables.product.prodname_actions %} dentro de los [Términos de servicio de GitHub](/articles/github-terms-of-service/). Para obtener más información sobre los términos específicos de las {% data variables.product.prodname_actions %}, consulta los [Términos adicionales de producto de GitHub](/github/site-policy/github-additional-product-terms#a-actions-usage).
+Además de los límites de uso, debes asegurarte de usar las {% data variables.product.prodname_actions %} dentro de los [Términos de servicio de GitHub](/free-pro-team@latest/github/site-policy/github-terms-of-service/). Para obtener más información sobre los términos específicos de las {% data variables.product.prodname_actions %}, consulta los [Términos adicionales de producto de GitHub](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghec %}
 ## Facturación para los flujos de trabajo reutilizables
 
-Si vuelves a utilizar un flujo de trabajo la facturación siempre se asociará con aquél del que llama. Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
+Si vuelves a utilizar un flujo de trabajo la facturación siempre se asociará con aquél del que llama. La asignación de los ejecutores hospedados en {% data variables.product.prodname_dotcom %} siempre se evalúa utilizando únicamente el contexto del llamador. El llamador no puede utilizar ejecutores hospedados en {% data variables.product.prodname_dotcom %} desde el repositorio llamado.
+
+Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Polìtica de retenciòn de artefactos y bitàcoras
 
 Puedes configurar el periodo de retenciòn de artefactos y bitàcoras para tu repositorio, organizaciòn o cuenta empresarial.
@@ -77,8 +81,7 @@ Para obtener más información, consulta:
 
 - "[Administrar los ajustes de {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)"
 - "[Configurar el periodo de retención de {% data variables.product.prodname_actions %} para los artefactos y bitácoras en tu organización](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)"
-- "[Configurar el periodo de retención de {% data variables.product.prodname_actions %} para los artefactos y bitácoras en tu empresa](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)"
-{% endif %}
+- "[Requerir políticas para la {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
 
 ## Inhabilitar o limitar {% data variables.product.prodname_actions %} para tu repositorio u organización
 
@@ -86,10 +89,9 @@ Para obtener más información, consulta:
 
 Para obtener más información, consulta:
 - "[Administrar los ajustes de {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
-- "[Inhabilitar o limitar {% data variables.product.prodname_actions %} para tu organización](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"{% ifversion fpt %}
-- "[Requerir políticas de {% data variables.product.prodname_actions %} en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)" para {% data variables.product.prodname_ghe_cloud %}{% endif %}
+- "[Inhabilitar o limitar {% data variables.product.prodname_actions %} para tu organización](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
+- "[Requerir políticas para la {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Inhabilitar y habilitar flujos de trabajo
 
 Puedes habilitar e inhabilitar flujos de trabajo independientes en tu repositorio en {% data variables.product.prodname_dotcom %}.
@@ -97,4 +99,3 @@ Puedes habilitar e inhabilitar flujos de trabajo independientes en tu repositori
 {% data reusables.actions.scheduled-workflows-disabled %}
 
 Para obtener más información, consulta la sección "[Inhabilitar y habilitar un flujo de trabajo](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)".
-{% endif %}

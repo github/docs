@@ -2,7 +2,7 @@
 title: コミットをリモートリポジトリにプッシュする
 intro: ローカルブランチで実行されたコミットをリモートリポジトリにプッシュするには、`git push` を使用します。
 redirect_from:
-  - /articles/pushing-to-a-remote/
+  - /articles/pushing-to-a-remote
   - /articles/pushing-commits-to-a-remote-repository
   - /github/using-git/pushing-commits-to-a-remote-repository
   - /github/getting-started-with-github/pushing-commits-to-a-remote-repository
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Push commits to a remote
 ---
 
@@ -93,14 +94,14 @@ git fetch upstream
 >  * [new branch]      master     -> upstream/master
 ```
 
-ローカルの変更が終わったら、ローカルブランチを GitHub にプッシュし、[プルリクエストを開始する](/articles/about-pull-requests)ことができます。
+ローカルの変更が終わったら、ローカルブランチを GitHub にプッシュし、[プルリクエストを開始する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)ことができます。
 
-フォークの扱いに関する詳細は、「[フォークを同期する](/articles/syncing-a-fork)」を参照してください。
+フォークの扱いに関する詳細は、「[フォークを同期する](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)」を参照してください。
 
 ## 参考リンク
 
 - [「Pro Git」ブックの「リモート」の章](https://git-scm.com/book/ch5-2.html)
-- [`git remote` の man ページ](https://git-scm.com/docs/git-remote.html)
+- [`git remote` main page](https://git-scm.com/docs/git-remote.html)
 - [Git チートシート](/articles/git-cheatsheet)
 - [Git のワークフロー](/github/getting-started-with-github/git-workflows)
 - 「[Git ハンドブック](https://guides.github.com/introduction/git-handbook/)」

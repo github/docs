@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: 開発環境
@@ -17,7 +18,7 @@ shortTitle: 開発環境
 
 このガイドは、GitHub Appを設定してサーバー上で実行するために必要なステップを案内します。 GitHub Appには、webhookイベントを管理し、GitHub上のアプリケーションの登録をコードに接続するためのセットアップのステップが必要です。 このガイドのアプリケーションは、拡張して新しいGitHub Appを構築するための基盤の役目を果たします。
 
-このガイドを終えれば、GitHub Appを登録し、webhookイベントを受信するためのWebサーバーをセットアップできます。 Smeeというツールを使ってwebhookペイロードをキャプチャし、ローカルの開発環境に転送する方法を学びます。 このセクションで設定するテンプレートのアプリケーションは特別なことはしませんが、APIを使ってアプリケーションコードを書きはじめたり、他の[クイックスタートガイド](/apps/quickstart-guides/)を完了させたりするために使用できるフレームワークとして働きます。 {% ifversion fpt %} アプリケーションの成功例は、[GitHub Marketplace](https://github.com/marketplace)や[Works with GitHub](https://github.com/works-with)で調べることができます。{% endif %}
+このガイドを終えれば、GitHub Appを登録し、webhookイベントを受信するためのWebサーバーをセットアップできます。 Smeeというツールを使ってwebhookペイロードをキャプチャし、ローカルの開発環境に転送する方法を学びます。 このセクションで設定するテンプレートのアプリケーションは特別なことはしませんが、APIを使ってアプリケーションコードを書きはじめたり、他の[クイックスタートガイド](/apps/quickstart-guides/)を完了させたりするために使用できるフレームワークとして働きます。 {% ifversion fpt or ghec %} アプリケーションの成功例は、[GitHub Marketplace](https://github.com/marketplace)や[Works with GitHub](https://github.com/works-with)で調べることができます。{% endif %}
 
 このプロジェクトを完了すると、GitHub App及びインストールとして認証を受ける方法と、それらの認証方法の違いを理解できます。
 

@@ -1,7 +1,6 @@
 ---
 title: Tipos de eventos do GitHub
 intro: 'Para a API de eventos de {% data variables.product.prodname_dotcom %}, saiba sobre cada tipo de evento, a ação de acionamento em {% data variables.product.prodname_dotcom %} e as propriedades exclusivas de cada evento.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types
@@ -9,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
 
 A API de eventos pode retornar diferentes tipos de eventos acionados por atividades no GitHub. Cada resposta ao evento contém propriedades compartilhadas, mas tem um objeto de `carga` único, determinado pelo seu tipo de evento. As [propriedades comuns do objeto de evento](#event-object-common-properties) descrevem as propriedades compartilhadas por todos os eventos, e cada tipo de evento descreve as propriedades da `carga` que são únicas para o evento específico.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% endif %}
 
@@ -164,7 +164,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
@@ -244,7 +244,7 @@ Este evento retorna um objeto de `carga` vazio.
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## SponsorshipEvent
 
 {% data reusables.webhooks.sponsorship_short_desc %}

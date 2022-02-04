@@ -2,19 +2,20 @@
 title: Drafting a listing for your app
 intro: 'When you create a {% data variables.product.prodname_marketplace %} listing, GitHub saves it in draft mode until you submit the app for approval. Your listing shows customers how they can use your app.'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/listing-an-app-on-github-marketplace/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/listing-an-app-on-github-marketplace/
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/removing-a-listing-from-github-marketplace/
-  - /apps/marketplace/managing-github-marketplace-listings/removing-a-listing-from-github-marketplace/
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/editing-a-github-marketplace-listing/
-  - /apps/marketplace/managing-github-marketplace-listings/editing-a-github-marketplace-listing/
-  - /apps/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
+  - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/listing-an-app-on-github-marketplace
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/listing-an-app-on-github-marketplace
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/removing-a-listing-from-github-marketplace
+  - /apps/marketplace/managing-github-marketplace-listings/removing-a-listing-from-github-marketplace
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/editing-a-github-marketplace-listing
+  - /apps/marketplace/managing-github-marketplace-listings/editing-a-github-marketplace-listing
+  - /apps/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /developers/github-marketplace/drafting-a-listing-for-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Draft an app listing
@@ -60,7 +61,7 @@ Once you've created a {% data variables.product.prodname_marketplace %} draft li
 
 ## Submitting your app
 
-Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
+Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
 
 ## Removing a {% data variables.product.prodname_marketplace %} listing
 

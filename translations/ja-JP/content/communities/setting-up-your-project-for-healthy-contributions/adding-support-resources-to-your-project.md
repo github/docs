@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: サポートリソースの追加
@@ -17,7 +18,7 @@ shortTitle: サポートリソースの追加
 
 ![サポートガイドライン](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 Organization またはユーザアカウントのデフォルトのサポートリソースを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 

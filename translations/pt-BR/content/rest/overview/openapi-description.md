@@ -4,6 +4,7 @@ intro: 'A API REST de {% data variables.product.product_name %} está totalmente
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - API
 ---

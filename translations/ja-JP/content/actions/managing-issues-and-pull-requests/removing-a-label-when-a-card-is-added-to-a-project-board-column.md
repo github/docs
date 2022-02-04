@@ -1,13 +1,13 @@
 ---
 title: カードがプロジェクトボードの列に追加されたときにラベルを削除する
 intro: '{% data variables.product.prodname_actions %} を使用すると、プロジェクトボードの特定の列に Issue またはプルリクエストが追加されたときに、ラベルを自動的に削除できます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -42,7 +42,7 @@ shortTitle: Remove label when adding card
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
         permissions:
           issues: write
           pull-requests: write{% endif %}

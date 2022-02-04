@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -31,7 +32,7 @@ Cuando alguien publica o responde a un debate público en la página de un equip
 
 {% tip %}
 
-**Sugerencia:** Dependiendo de los parámetros de tu notificación, recibirás actualizaciones por correo electrónico, la página de notificaciones web en {% data variables.product.product_name %}, o ambas. Para obtener más información, consulta las secciones {% ifversion fpt or ghae or ghes %}"[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}[Acerca de las notificaciones por correo electrónico](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" y "[Acerca de las notificaciones web](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}".
+**Sugerencia:** Dependiendo de los parámetros de tu notificación, recibirás actualizaciones por correo electrónico, la página de notificaciones web en {% data variables.product.product_name %}, o ambas. Para obtener más información, consulta las secciones {% ifversion fpt or ghae or ghes or ghec %}"[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}[Acerca de las notificaciones por correo electrónico](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" y "[Acerca de las notificaciones web](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}".
 
 {% endtip %}
 
@@ -39,7 +40,7 @@ Por defecto, si se menciona tu nombre de usuario en un debate del equipo, recibi
 
 Para apagar las notificaciones para los debates del equipo, puedes cancelar la suscripción a una publicación de debate específica o cambiar tus parámetros de notificación para dejar de ver o ignorar por completo los debtaes de un equipo específico. Te puedes suscribir a las notificaciones para la publicación de un debate específico incluso si dejaste de ver los debates de ese equipo.
 
-Para obtener más información, consulta la sección {% ifversion fpt or ghae or ghes %}"[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Suscribirte y desuscribirte de las notificaciones](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" y "[Equipos anidados](/articles/about-teams/#nested-teams)".
+Para obtener más información, consulta la sección {% ifversion fpt or ghae or ghes or ghec %}"[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Suscribirte y desuscribirte de las notificaciones](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" y "[Equipos anidados](/articles/about-teams/#nested-teams)".
 
 ## Leer más
 

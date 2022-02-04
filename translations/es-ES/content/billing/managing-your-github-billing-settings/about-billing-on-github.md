@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -15,7 +16,7 @@ topics:
 ## Productos y características pagos
 
 Puedes actualizar tu cuenta personal u organización a una suscripción paga en cualquier momento. También puedes elegir comprar apps desde {% data variables.product.prodname_marketplace %} o actualizar el almacenamiento y el ancho de banda para {% data variables.large_files.product_name_long %}. Para obtener más información, consulta:
-- "[Acerca de la facturación para las cuentas de {% data variables.product.product_name %}](/articles/about-billing-for-github-accounts)"
+- "[Acerca de la facturación para las cuentas de {% data variables.product.prodname_dotcom %}](/articles/about-billing-for-github-accounts)"
 - "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)"
 - "[Acerca de la facturación para {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
 - "[Acerca de la facturación para {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)"
@@ -35,7 +36,7 @@ Si eres un propietario de empresa y organización, puedes cambiar entre los ajus
 {% data reusables.user_settings.access_settings %}
 1. En la parte superior de la lágina, a la derecha de tu nombre de usuario, haz clic en **Cambiar a otra cuenta**. ![Botón de interruptor de contexto](/assets/images/help/settings/context-switcher-button.png)
 1. Comienza a teclear el nombre de la cuenta a la que quieres cambiar y luego haz clic en su nombre. ![Menú del interruptor de contexto](/assets/images/help/settings/context-switcher-menu.png)
-1. En la barra lateral izquierda, haz clic en **Facturación & planes**. ![Facturación & planes en la barra lateral de configuración](/assets/images/help/organizations/billing-settings.png)
+1. In the left sidebar, click **{% octicon "credit-card" aria-label="The credit card icon" %} Billing and plans**.
 
 ## Leer más
 

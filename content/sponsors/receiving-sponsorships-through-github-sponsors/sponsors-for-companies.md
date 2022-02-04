@@ -5,6 +5,7 @@ intro: 'To accept payments from the Sponsors for Companies service, you must acc
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Sponsors
@@ -26,7 +27,7 @@ The "GitHub Maintainer Additional Terms for Optional Data Provision" agreement i
 * Due to the way the service is set up, you'll receive payment from {% data variables.product.company_short %}, not from another company.
 * If taxes are required to be withheld on payment made through this program, {% data variables.product.company_short %} will deduct taxes from the amount owed and pay them to the appropriate taxing authority.
 * We'll share some aggregated data on your project(s) or projects you contribute to with the companies that pay for access to this data on a {% data variables.product.company_short %} dashboard. These data fields are outlined in Section 5 of the agreement.
-* Data will be aggregated and will not include any User Personal Information (as defined in {% data variables.product.company_short %}’s [Privacy Statement](/github/site-policy/github-privacy-statement)), or any information from private repositories.
+* Data will be aggregated and will not include any User Personal Information (as defined in {% data variables.product.company_short %}’s [Privacy Statement](/free-pro-team@latest/github/site-policy/github-privacy-statement)), or any information from private repositories.
 * You, as a Maintainer, can terminate the agreement with 14 days notice by contacting us.
 
 If you agree to the terms outlined in the "GitHub Maintainer Additional Terms for Optional Data Provision" agreement, you will receive a payment from {% data variables.product.company_short %} each time a company purchases access to the service. The company purchases access to the dashboard from {% data variables.product.company_short %} for a limited amount of time (for example, one month or one year), and {% data variables.product.company_short %} purchases a license to your data to populate the dashboard. Your financial relationship is with {% data variables.product.company_short %}, not the company taking part in the service.

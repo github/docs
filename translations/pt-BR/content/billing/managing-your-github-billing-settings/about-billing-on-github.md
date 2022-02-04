@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -15,7 +16,7 @@ topics:
 ## Recursos e produtos pagos
 
 Você pode atualizar sua conta pessoal ou organização para uma assinatura paga a qualquer momento. Também é possível optar por comprar aplicativos no {% data variables.product.prodname_marketplace %} ou atualizar o armazenamento e a largura de banda para o {% data variables.large_files.product_name_long %}. Para obter mais informações, consulte:
-- "[Sobre a cobrança das contas do {% data variables.product.product_name %}](/articles/about-billing-for-github-accounts)"
+- "[Sobre a cobrança das contas do {% data variables.product.prodname_dotcom %}](/articles/about-billing-for-github-accounts)"
 - "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)"
 - "[Sobre a cobrança do {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
 - "[Sobre a cobrança do {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)"
@@ -35,7 +36,7 @@ Se você for uma organização ou proprietário de empresa, você poderá altern
 {% data reusables.user_settings.access_settings %}
 1. Na parte superior da página, à direita do seu nome de usuário, clique em **Mudar para outra conta**. ![Botão alternador de contexto](/assets/images/help/settings/context-switcher-button.png)
 1. Comece a digitar o nome da conta para a qual você deseja alternar e, em seguida, clique no nome da conta. ![Menu alternador de contexto](/assets/images/help/settings/context-switcher-menu.png)
-1. Na barra lateral esquerda, clique em **Planos de & cobrança **. ![Planos de & cobrança na barra lateral de configurações](/assets/images/help/organizations/billing-settings.png)
+1. In the left sidebar, click **{% octicon "credit-card" aria-label="The credit card icon" %} Billing and plans**.
 
 ## Leia mais
 

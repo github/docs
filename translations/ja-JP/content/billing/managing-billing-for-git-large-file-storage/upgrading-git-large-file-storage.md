@@ -3,12 +3,13 @@ title: Git Large File Storage をアップグレードする
 intro: '追加のデータパックを購入すると、{% data variables.large_files.product_name_short %} の毎月の帯域幅容量と総ストレージ容量を増やすことができます。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
-  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account/
-  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization/
+  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account
+  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization
   - /articles/upgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - LFS

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -34,7 +35,7 @@ shortTitle: Organizationダッシュボード
 
 ニュースフィードの [All activity] セクションでは、Organization 内の他の Team やリポジトリからの更新情報を見ることができます。
 
-[All activity] セクションは、Organization 内のすべての最近のアクティビティを表示します。これにはあなたがサブスクライブしていないリポジトリでのアクティビティや、フォローしていない人々のアクティビティも含まれます。 詳細は、{% ifversion fpt or ghes or ghae %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}」[リポジトリの Watch と Watch 解除](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}」および「[人をフォローする](/articles/following-people)」を参照してください。
+[All activity] セクションは、Organization 内のすべての最近のアクティビティを表示します。これにはあなたがサブスクライブしていないリポジトリでのアクティビティや、フォローしていない人々のアクティビティも含まれます。 詳細は、{% ifversion fpt or ghes or ghae or ghec %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}」[リポジトリの Watch と Watch 解除](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}」および「[人をフォローする](/articles/following-people)」を参照してください。
 
 たとえば Organization のニュースフィードは Organization 内の誰かが以下のようなことをしたときに 更新情報を知らせます:
  - 新しいブランチを作成する
@@ -42,7 +43,7 @@ shortTitle: Organizationダッシュボード
  - プルリクエストのレビューコメントをサブミットする
  - リポジトリをフォーク
  - ウィキページを作成
- - コミットのプッシュ{% ifversion fpt or ghes %}
+ - コミットのプッシュ{% ifversion fpt or ghes or ghec %}
  - パブリックリポジトリを作成する{% endif %}
 
 ## さらなる情報

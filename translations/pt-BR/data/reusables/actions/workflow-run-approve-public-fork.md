@@ -4,6 +4,6 @@ Para ajudar a evitar isso, os fluxos de trabalho em pull requests para repositó
 
 {% note %}
 
-**Note:** Workflows triggered by `pull_request_target` events are run in the context of the base branch. Since the base branch is considered trusted, workflows triggered by these events will always run, regardless of approval settings.
+**Nota:** Fluxos de trabalho acionados por eventos de `pull_request_target` são executados no contexto do branch de base. Como o branc de base é considerado confiável, os fluxos de trabalho acionados por esses eventos sempre serão executados, independente das configurações de aprovação.
 
 {% endnote %}

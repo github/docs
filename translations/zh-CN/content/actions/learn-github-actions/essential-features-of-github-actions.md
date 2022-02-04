@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -91,6 +92,8 @@ jobs:
         with:
           name: output-log-file
 ```
+
+要从同一工作流程运行中下载构件，下载作业应指定 `needs: upload-job-name`，使其在上传作业完成之前不会开始。
 
 有关构件的更多信息，请参阅“[使用构件持久化工作流程](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)”。
 

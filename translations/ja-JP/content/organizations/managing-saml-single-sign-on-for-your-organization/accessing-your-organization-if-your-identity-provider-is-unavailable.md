@@ -1,12 +1,11 @@
 ---
 title: アイデンティティプロバイダが利用できない場合の Organization へのアクセス
 intro: 'アイデンティティプロバイダが利用できない場合でも、Organization の管理者はシングルサインオンをバイパスし、リカバリコードを利用して {% data variables.product.product_name %}にサインインできます。'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams

@@ -2,7 +2,7 @@
 title: Obter alterações de um repositório remote
 intro: É possível usar comandos Git comuns para acessar repositórios remotes.
 redirect_from:
-  - /articles/fetching-a-remote/
+  - /articles/fetching-a-remote
   - /articles/getting-changes-from-a-remote-repository
   - /github/using-git/getting-changes-from-a-remote-repository
   - /github/getting-started-with-github/getting-changes-from-a-remote-repository
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Obter alterações de um controle remoto
 ---
 
@@ -73,9 +74,9 @@ $ git pull <em>remotename</em> <em>branchname</em>
 # Captura atualizações online e faz merge delas em seu trabalho local
 ```
 
-Você deve garantir que fez commit de seu trabalho local antes de executar o comando `pull`, pois `pull` faz um merge nas alterações recuperadas. Caso se depare com [um conflito de merge](/articles/resolving-a-merge-conflict-using-the-command-line) que não consegue resolver, ou se decidir interromper o merge, é possível usar `git merge --abort` para o branch voltar onde estava antes de você fazer o pull.
+Você deve garantir que fez commit de seu trabalho local antes de executar o comando `pull`, pois `pull` faz um merge nas alterações recuperadas. Caso se depare com [um conflito de merge](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) que não consegue resolver, ou se decidir interromper o merge, é possível usar `git merge --abort` para o branch voltar onde estava antes de você fazer o pull.
 
 ## Leia mais
 
-- ["Trabalhar com remotes" no livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt %}
+- ["Trabalhar com remotes" no livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
 - "[Solucionar problemas de conectividade](/articles/troubleshooting-connectivity-problems)"{% endif %}

@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Jekyllでのサイトの作成
@@ -67,7 +68,9 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
  サイトを `gh-pages` ブランチから公開する場合には、`gh-pages` ブランチを作成してチェックアウトします。
  ```shell
  $ git checkout --orphan gh-pages
- # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
+ # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
+ $ git rm -rf 
+ # Removes the contents from your default branch from the working directory
  ```
 1. 新しい Jekyll サイトを作成するには、`jekyll new` コマンドを使用します。
    ```shell
@@ -99,9 +102,9 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 git add .
 git commit -m 'Initial GitHub pages site with Jekyll'
 ```
-1. {% data variables.product.product_name %} リポジトリをリモートとして追加します。{% ifversion ghes or ghae %}_HOSTNAME_ は Enterprise のホスト名に、{% endif %}_USER_ はリポジトリ所有者のアカウントに{% ifversion ghes or ghae %}、{% endif %}そして _REPOSITORY_ はリポジトリの名前に置き換えてください。
+1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and _REPOSITORY_ with the name of the repository.
 ```shell
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
 {% else %}
 $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</em>.git
@@ -115,9 +118,10 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 

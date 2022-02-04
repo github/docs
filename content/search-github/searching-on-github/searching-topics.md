@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -20,7 +21,7 @@ You can search for topics on {% data variables.product.product_name %}, explore 
 2. Type a topic keyword.
   ![search field](/assets/images/help/search/search-field.png)
 3. In the left sidebar, to narrow your search to topics, click **Topics**.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
   ![Jekyll repository search results page with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% else %}
   ![Jekyll repository search results page on dotcom with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation.png){% endif %}
 

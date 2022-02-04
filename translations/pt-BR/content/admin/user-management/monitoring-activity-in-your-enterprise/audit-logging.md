@@ -2,7 +2,7 @@
 title: Gerar logs de auditoria
 intro: '{% data variables.product.product_name %} mantém registros de{% ifversion ghes %} sistema auditado,{% endif %} eventos de usuários, organização e repositórios. Os logs são úteis para fins de depuração e conformidade interna e externa.'
 redirect_from:
-  - /enterprise/admin/articles/audit-logging/
+  - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
   - /enterprise/admin/user-management/audit-logging
   - /admin/user-management/audit-logging
@@ -26,7 +26,7 @@ Todas as operações de push no Git têm um log. Para obter mais informações, 
 {% ifversion ghes %}
 ## Eventos do sistema
 
-Todos os eventos auditados do sistema, inclusive pushes e pulls, são registrados em logs no caminho `/var/log/github/audit.log`. Os logs passam por rotação a cada 24 horas e ficam guardados por sete dias.
+All audited system events are logged to `/var/log/github/audit.log`. Os logs passam por rotação a cada 24 horas e ficam guardados por sete dias.
 
 O pacote de suporte inclui logs de sistema. Para obter mais informações, consulte "[Fornecer dados para suporte de {% data variables.product.prodname_dotcom %}](/admin/enterprise-support/providing-data-to-github-support)."
 

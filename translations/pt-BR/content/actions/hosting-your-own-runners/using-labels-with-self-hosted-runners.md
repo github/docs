@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Executores de etiqueta
 ---
@@ -18,7 +19,7 @@ Para obter informações sobre como usar etiquetas para encaminhar trabalhos par
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 ## Criar etiquetas personalizadas
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
  1. Na seção "Etiquetas", clique em {% octicon "gear" aria-label="The Gear icon" %}.
@@ -34,7 +35,7 @@ Para obter informações sobre como usar etiquetas para encaminhar trabalhos par
 O rótulo personalizado é criado e atribuído ao executor auto-hospedado. É possível remover as etiquetas personalizadas dos executores auto-hospedados, mas não é possível excluí-las manualmente. {% data reusables.github-actions.actions-unused-labels %}
 {% endif %}
 ## Atribuir uma etiqueta a um executor auto-hospedado
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}
@@ -48,7 +49,7 @@ O rótulo personalizado é criado e atribuído ao executor auto-hospedado. É po
 1. Clique em uma etiqueta a ser atribuída ao seu executor auto-hospedado.
 {% endif %}
 ## Remover uma etiqueta personalizada de um executor auto-hospedado
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}

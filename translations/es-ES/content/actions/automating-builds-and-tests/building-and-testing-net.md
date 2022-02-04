@@ -1,14 +1,14 @@
 ---
 title: Compilar y probar desarrollos en .NET
 intro: Puedes crear un flujo de trabajo de integración continua (IC) para compilar y probar tu proyecto de .NET.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-net
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Crear & probar .NET
+  ghec: '*'
+shortTitle: Crear & probar en .NET
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -18,7 +18,7 @@ shortTitle: Crear & probar .NET
 
 Esta guía te muestra cómo construir, probar y publicar un paquete de .NET.
 
-{% ifversion ghae %} Para crear y probar tu proyecto de .NET en {% data variables.product.prodname_ghe_managed %}, necesitarás crear una imagen de sistema operativo personalizada que incluya .NET Core SDK. Para obtener las instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tenga instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %} Para compilar y probar tu proyecto de .NET en {% data variables.product.prodname_ghe_managed %}, se requiere el SDK de .NET Core. {% data reusables.actions.self-hosted-runners-software %}
 {% else %}Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen un caché de herramientas con software preinstalado, el cual incluye a .NET Core SDK. Para encontrar una lista completa de software actualizado y las versiones preinstaladas de .NET Core SDK, consulta la sección de [software instalado en los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners).
 {% endif %}
 
@@ -28,13 +28,14 @@ Ya debes estar familiarizado con la sintaxis de YAML y con cómo se utiliza con 
 
 Te recomendamos que tengas un entendimiento básico de .NET Core SDK. Para obtener más información, consulta la sección [Iniciar con .NET](https://dotnet.microsoft.com/learn).
 
-## Iniciar con la plantilla de flujo de trabajo de .NET
+## Utilizar el flujo de trabajo inicial de .NET
 
-{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de .NET que debería funcionar para la mayoría de los proyectos de .NET, y esta guía incluye ejemplos que te muestran cómo personalizar esta plantilla. Para obtener más información, consulta la [plantilla de flujo de trabajo de.NET](https://github.com/actions/setup-dotnet).
+{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de .NET que debería funcionar para la mayoría de los proyectos de .NET y esta guía incluye ejemplos que te muestran cómo personalizarlo. Para obtener más información, consulta el [flujo de trabajo inicial de.NET](https://github.com/actions/setup-dotnet).
 
-Para comenzar rápidamente, agrega la plantilla al directorio `.github/workflows` de tu repositorio.
+Para comenzar rápidamente, agrega el flujo de trabajo inicial al directorio de `.github/workflows` de tu repositorio.
 
 {% raw %}
+
 ```yaml
 name: dotnet package
 
@@ -61,6 +62,7 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 ```
+
 {% endraw %}
 
 ## Especificar una versión de .NET
@@ -128,7 +130,7 @@ steps:
 ```
 {% endraw %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### Almacenar dependencias en caché
 
@@ -227,7 +229,7 @@ jobs:
 
 ## Publicar en registros de paquetes
 
-Puedes configurar tu flujo de trabajo para publicar tu paquete de Dotnet a un registro de paquetes cuando pasen tus pruebas de IC. Puedes utilizar secretos de los repositorios para almacenar cualquier token o credenciales que se necesiten para publicar tu binario. El siguiente ejemplo crea y publica un paquete en el {% data variables.product.prodname_registry %} utilizando `dotnet core cli`.
+You can configure your workflow to publish your .NET package to a package registry when your CI tests pass. Puedes utilizar secretos de los repositorios para almacenar cualquier token o credenciales que se necesiten para publicar tu binario. El siguiente ejemplo crea y publica un paquete en el {% data variables.product.prodname_registry %} utilizando `dotnet core cli`.
 
 ```yaml
 name: Upload dotnet package
@@ -238,7 +240,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

@@ -2,11 +2,11 @@
 title: プロフィールをパーソナライズする
 intro: 'プロフィール画像を設定し、プロフィールに略歴を追加することで、自分自身についての情報を他の {% data variables.product.product_name %} ユーザと共有することができます。'
 redirect_from:
-  - /articles/adding-a-bio-to-your-profile/
-  - /articles/setting-your-profile-picture/
-  - /articles/how-do-i-set-up-my-profile-picture/
-  - /articles/gravatar-problems/
-  - /articles/how-do-i-set-up-my-avatar/
+  - /articles/adding-a-bio-to-your-profile
+  - /articles/setting-your-profile-picture
+  - /articles/how-do-i-set-up-my-profile-picture
+  - /articles/gravatar-problems
+  - /articles/how-do-i-set-up-my-avatar
   - /articles/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: Personalize
@@ -25,11 +26,14 @@ shortTitle: Personalize
 
 アカウントにサインアップすると、{% data variables.product.product_name %} はとりあえずランダムなアイデンティコンを生成します。 [アイデンティコン](https://github.com/blog/1586-identicons)は、ユーザ ID のハッシュから生成されるもので、その色やパターンをコントロールする方法はありません。 アイデンティコンは、あなたを表す画像に置き換えることができます。
 
-{% tip %}
+{% note %}
 
-**参考**: プロフィール画像は、1 MB 以下の PNG、JPG または GIF である必要があります。 最高の画質をもたらすには、画像を 500 × 500 ピクセルに収めることを推奨します。
+**Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
 
-{% endtip %}
+* {% endif %}Your profile picture should be a PNG, JPG, or GIF file under 1 MB in size. 最高の画質をもたらすには、画像を 500 × 500 ピクセルに収めることを推奨します。
+{% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
+
+{% endnote %}
 
 ### プロフィール画像を設定する
 
@@ -48,7 +52,7 @@ shortTitle: Personalize
 
 プロフィールに表示される名前は変更可能です。 この名前は、Organization が所有するプライベートリポジトリへのコメントの横に表示されることもあります。 詳細は「[Organization のメンバー名表示を管理する](/articles/managing-the-display-of-member-names-in-your-organization)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Note:** If you're a member of an {% data variables.product.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
@@ -63,7 +67,7 @@ shortTitle: Personalize
 
 自分に関する情報を他の {% data variables.product.product_name %} ユーザーと共有するには、プロフィールに略歴を追加します。 [@メンション](/articles/basic-writing-and-formatting-syntax)と絵文字を使えば、あなたの現在あるいは過去の職場、職種、またどんな種類のコーヒーを飲んでいるかといった情報も含めることができます。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 自分に関するカスタマイズした情報を長いフォームで、もっと目立つように表示する場合は、プロフィール README を使用することもできます。 詳しい情報については、「[プロフィール README の管理](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)」を参照してください。
 
@@ -100,9 +104,9 @@ shortTitle: Personalize
 
 ![リクエストされたレビュー担当者のユーザ名の隣に "Busy" ノートが表示される](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
-[Busy] オプションを選択すると、ユーザがあなたのユーザ名を @メンションしたり、Issue やプルリクエストをあなたに割り当てたりしたとき、またはあなたに Pull Request レビューをリクエストしたとき、ユーザ名の隣にビジーであることを示すノートが表示されます。 You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)」を参照してください。
+[Busy] オプションを選択すると、ユーザがあなたのユーザ名を @メンションしたり、Issue やプルリクエストをあなたに割り当てたりしたとき、またはあなたに Pull Request レビューをリクエストしたとき、ユーザ名の隣にビジーであることを示すノートが表示されます。 You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
 
-1. {% data variables.product.product_name %} の右上隅で、プロフィール画像をクリックしてから [**Set your status**] をクリックするか、すでにステータスを設定している場合は、現在のステータスをクリックします。 ![プロフィールでステータスを設定するボタン](/assets/images/help/profile/set-status-on-profile.png)
+1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Set your status** or, if you already have a status set, click your current status. ![プロフィールでステータスを設定するボタン](/assets/images/help/profile/set-status-on-profile.png)
 2. ステータスにカスタムテキストを追加する場合は、テキストフィールドをクリックしてステータスメッセージを入力します。 ![ステータスメッセージを入力するフィールド](/assets/images/help/profile/type-a-status-message.png)
 3. オプションで、ステータス絵文字を設定する場合は、絵文字のアイコンをクリックしてリストから選択します。 ![絵文字ステータスを選択するボタン](/assets/images/help/profile/select-emoji-status.png)
 4. オプションで、時間に制約があるという情報を共有するには、[Busy] を選択します。 ![[Edit status] オプションで [Busy] オプションを選択](/assets/images/help/profile/limited-availability-status.png)
@@ -110,7 +114,7 @@ shortTitle: Personalize
 6. ドロップダウンメニューを使って、ステータスを表示する Organization をクリックします。 Organization を選択しない場合、あなたのステータスはパブリックになります。 ![ステータスが表示されるときに選択するドロップダウンメニュー](/assets/images/help/profile/status-visibility.png)
 7. [**Set status**] をクリックします。 ![ステータスを設定するボタン](/assets/images/help/profile/set-status-button.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## プロフィールでバッジを表示する
 
 特定のプログラムに参加すると、{% data variables.product.prodname_dotcom %} でプロフィールに自動的にバッジが表示されます。
@@ -120,10 +124,10 @@ shortTitle: Personalize
 | ![Mars 2020 Helicopter Contributor badge icon](/assets/images/help/profile/badge-mars-2020-small.png)                    | **Mars 2020 Helicopter Contributor**                                 | If you authored any commit(s) present in the commit history for the relevant tag of an open source library used in the Mars 2020 Helicopter Mission, you'll get a Mars 2020 Helicopter Contributor badge on your profile. Hovering over the badge shows you several of the repositories you contributed to that were used in the mission. For the full list of repositories that will qualify you for the badge, see "[List of qualifying repositories for Mars 2020 Helicopter Contributor badge](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#list-of-qualifying-repositories-for-mars-2020-helicopter-contributor-badge)." |
 | ![Arctic Code Vault Contributor badge icon](/assets/images/help/profile/badge-arctic-code-vault-small.png)               | **{% data variables.product.prodname_arctic_vault %} Contributor** | 2020 Arctic Vault プログラムでアーカイブされたリポジトリのデフォルトブランチでコミットを作成すると、プロフィールで {% data variables.product.prodname_arctic_vault %} コントリビューターバッジを取得できます。 Hovering over the badge shows you several of the repositories you contributed to that were part of the program. 詳しい情報については、[{% data variables.product.prodname_archive %}](https://archiveprogram.github.com) を参照してください。                                                                                                                                                                                                                                                                                           |
 | ![{% data variables.product.prodname_dotcom %} Sponsor badge icon](/assets/images/help/profile/badge-sponsors-small.png) | **{% data variables.product.prodname_dotcom %} Sponsor**             | If you sponsored an open source contributor through {% data variables.product.prodname_sponsors %} you'll get a {% data variables.product.prodname_dotcom %} Sponsor badge on your profile. Clicking the badge takes you to the **Sponsoring** tab of your profile. 詳細は、「[オープンソースコントリビューターに対するスポンサー](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)」を参照してください。                                                                                                                                                                                                                                        |
-| {% octicon "cpu" aria-label="The Developer Program icon" %}                                                              | **開発者プログラムメンバー**                                                     | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% data variables.product.prodname_dotcom %} API, you'll get a Developer Program Member badge on your profile. For more information on the {% data variables.product.prodname_dotcom %} Developer Program, see [GitHub Developer](/program/).                                                                                                                                                                                                                                                                                   |
+| {% octicon "cpu" aria-label="The Developer Program icon" %}                                                              | **開発者プログラムメンバー**                                                     | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you'll get a Developer Program Member badge on your profile. For more information on the {% data variables.product.prodname_dotcom %} Developer Program, see [GitHub Developer](/program/).                                                                                                                                                                                        |
 | {% octicon "star-fill" aria-label="The star icon" %}                                                                     | **Pro**                                                              | {% data variables.product.prodname_pro %} を使用すると、プロフィールで PRO バッジを取得します。 {% data variables.product.prodname_pro %} の詳細は、「[{% data variables.product.prodname_dotcom %} の製品](/github/getting-started-with-github/githubs-products#github-pro)」を参照してください。                                                                                                                                                                                                                                                                                                                                                                                                        |
 | {% octicon "lock" aria-label="The lock icon" %}                                                                          | **Security Bug Bounty Hunter**                                       | If you helped out hunting down security vulnerabilities, you'll get a Security Bug Bounty Hunter badge on your profile. For more information about the {% data variables.product.prodname_dotcom %} Security program, see [{% data variables.product.prodname_dotcom %} Security](https://bounty.github.com/).                                                                                                                                                                                                                                                                                                                                                  |
-| {% octicon "mortar-board" aria-label="The mortar-board icon" %}                                                          | **Github Campus Expert**                                             | If you participate in the {% data variables.product.prodname_dotcom %} Campus Program you'll get a {% data variables.product.prodname_dotcom %} Campus Expert badge on your profile. For more information about the Campus Experts program, see [Campus Experts](https://education.github.com/experts).                                                                                                                                                                                                                                                                                                                                                       |
+| {% octicon "mortar-board" aria-label="The mortar-board icon" %}                                                          | **{% data variables.product.prodname_dotcom %} Campus Expert**       | If you participate in the {% data variables.product.prodname_campus_program %}, you will get a {% data variables.product.prodname_dotcom %} Campus Expert badge on your profile. For more information about the Campus Experts program, see [Campus Experts](https://education.github.com/experts).                                                                                                                                                                                                                                                                                                                                                           |
 
 ## プロフィールでバッジを無効にする
 
@@ -137,7 +141,7 @@ You can disable some of the badges for {% data variables.product.prodname_dotcom
 
 ## List of qualifying repositories for Mars 2020 Helicopter Contributor badge
 
-If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor badge on your profile. The authored commit must be with a verified email address, associated with your account at the time {% data variables.product.prodname_dotcom %} determined the eligible contributions, in order to be attributed to you. You can be the original author or [one of the co-authors](/github/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) of the commit. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
+If you authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor badge on your profile. The authored commit must be with a verified email address, associated with your account at the time {% data variables.product.prodname_dotcom %} determined the eligible contributions, in order to be attributed to you. You can be the original author or [one of the co-authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) of the commit. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
 
 | {% data variables.product.prodname_dotcom %} Repository                       | バージョン     | Tag                                                                                                        |
 | ----------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |

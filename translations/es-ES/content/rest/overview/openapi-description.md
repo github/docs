@@ -4,6 +4,7 @@ intro: 'La API de REST de {% data variables.product.product_name %} se describe 
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - API
 ---

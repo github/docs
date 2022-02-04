@@ -1,1 +1,0 @@
-{% data variables.product.prodname_github_apps %} making server-to-server requests use the installation's minimum rate limit of 5,000 requests per hour. 具有 20 个以上用户的组织安装每小时每个用户将再收到 50 个请求。 具有 20 个以上仓库的安装每小时会为每个仓库再接收 50 个请求。 安装的最大速率限制为每小时 12,500 个请求。

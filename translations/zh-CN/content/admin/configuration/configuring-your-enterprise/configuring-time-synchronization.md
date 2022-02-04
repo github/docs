@@ -2,10 +2,10 @@
 title: 配置时间同步
 intro: '{% data variables.product.prodname_ghe_server %} 通过连接到 NTP 服务器自动同步其时钟。 您可以设置用于同步时钟的 NTP 服务器，也可以使用默认 NTP 服务器。'
 redirect_from:
-  - /enterprise/admin/articles/adjusting-the-clock/
-  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings/
-  - /enterprise/admin/articles/setting-ntp-servers/
-  - /enterprise/admin/categories/time/
+  - /enterprise/admin/articles/adjusting-the-clock
+  - /enterprise/admin/articles/configuring-time-zone-and-ntp-settings
+  - /enterprise/admin/articles/setting-ntp-servers
+  - /enterprise/admin/categories/time
   - /enterprise/admin/installation/configuring-time-synchronization
   - /enterprise/admin/configuration/configuring-time-synchronization
   - /admin/configuration/configuring-time-synchronization

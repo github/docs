@@ -9,8 +9,9 @@ redirect_from:
   - /code-security/secure-coding
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -21,4 +22,3 @@ children:
   - /using-codeql-code-scanning-with-your-existing-ci-system
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

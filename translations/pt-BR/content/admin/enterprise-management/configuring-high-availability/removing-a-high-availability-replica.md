@@ -40,7 +40,7 @@ shortTitle: Remover uma réplica HA
   $ ghe-repl-teardown
   ```
 
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   {% note %}
 
   **Observação:** Se você tiver {% data variables.product.prodname_actions %} habilitado, você deverá desabilitar o antigo servidor de réplica ou atualizar sua configuração de {% data variables.product.prodname_actions %} para usar um armazenamento externo diferente. Para obter mais informações, consulte "[Alta disponibilidade para {% data variables.product.prodname_actions %}](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)".

@@ -6,8 +6,10 @@ redirect_from:
   - /admin/github-actions/manually-syncing-actions-from-githubcom
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
+type: tutorial
 topics:
+  - Actions
   - Enterprise
 shortTitle: Sincronizar ações manualmente
 ---
@@ -17,7 +19,7 @@ shortTitle: Sincronizar ações manualmente
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-{% ifversion ghes or ghae-next %}
+{% ifversion ghes or ghae %}
 
 A abordagem recomendada de habilitar o acesso a ações a partir de {% data variables.product.prodname_dotcom_the_website %} é permitir o acesso automático para todas as ações. Você pode fazer isso usando {% data variables.product.prodname_github_connect %} para integrar {% data variables.product.product_name %} com {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Habilitar o acesso automático às ações de {% data variables.product.prodname_dotcom_the_website %} usando o {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 
@@ -30,6 +32,14 @@ A ferramenta `actions-sync` deve ser executada em uma máquina que pode acessar 
 Se sua máquina tiver acesso aos dois sistemas ao mesmo tempo, você poderá fazer a sincronização com um único comando de `actions-sync`. Se você só puder acessar um sistema de cada vez, pode usar os comandos `actions-sync pull` e `push`.
 
 A ferramenta `actions-sync` só pode fazer download de ações de {% data variables.product.prodname_dotcom_the_website %} armazenadas em repositórios públicos.
+
+{% ifversion ghes > 3.2 or ghae-issue-4815 %}
+{% note %}
+
+**Observação:** A ferramenta `actions-sync` destina-se a ser usada em sistemas em que {% data variables.product.prodname_github_connect %} não está habilitado. Se você executar a ferramenta em um sistema com {% data variables.product.prodname_github_connect %} habilitado, você poderá ver o erro `O repositório <repo_name> foi desativado e não pode ser reutilizado`. Isso indica que um fluxo de trabalho usou essa ação diretamente em {% data variables.product.prodname_dotcom_the_website %} e o namespace está desativado em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Desativação automática de namespaces para ações acessadas em {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)".
+
+{% endnote %}
+{% endif %}
 
 ## Pré-requisitos
 

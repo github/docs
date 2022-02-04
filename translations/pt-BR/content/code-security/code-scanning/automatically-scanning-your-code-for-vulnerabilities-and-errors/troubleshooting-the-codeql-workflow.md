@@ -10,8 +10,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -26,7 +27,6 @@ topics:
   - Java
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
@@ -34,6 +34,24 @@ topics:
 ## Produzir registros detalhados para depuração
 
 Para produzir a saída de log mais detalhada, você pode habilitar o log de depuração da etapa. Para obter mais informações, consulte "[Habilitar o registro de depuração](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)".
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5601 %}
+
+## Criando artefatos de depuração de {% data variables.product.prodname_codeql %}
+
+Você pode obter artefatos para ajudar você a depurar {% data variables.product.prodname_codeql %}, definindo um sinalizador da configuração de depuração. Modifique a etapa `init` do seu arquivo de fluxo de trabalho {% data variables.product.prodname_codeql %} e defina `debug: true`.
+
+```yaml
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v1
+  with:
+    debug: true
+```
+Os artefatos de depuração serão carregados para a execução do fluxo de trabalho como um artefato denominado `debug-artifacts`. Os dados contém os registros de {% data variables.product.prodname_codeql %}, banco(s) de dados de {% data variables.product.prodname_codeql %}, e todo(s) o(s) outro(s) arquivo(s) SARIF produzido(s) pelo fluxo de trabalho.
+
+Estes artefatos ajudarão você a depurar problemas com digitalização de código de {% data variables.product.prodname_codeql %}. Se você entrar em contato com o suporte do GitHub, eles poderão pedir estes dados.
+
+{% endif %}
 
 ## Ocorreu uma falha durante a criação automática para uma linguagem compilada
 
@@ -47,7 +65,7 @@ Se ocorrer uma falha na uma criação automática de código para uma linguagem 
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -75,12 +93,12 @@ Se seu fluxo de trabalho falhar com um erro `Nenhum código fonte foi visto dura
 <pre><code class="yaml">  strategy:
     fail-fast: false
     matrix:
-      # Override automatic language detection by changing the list below
-      # Supported options are:
-      # ['csharp', 'cpp', 'go', 'java', 'javascript', 'python']
+      # Override automatic language detection by changing the list below.
+      # As opções compatíveis estão listadas em um comentário no fluxo de trabalho padrão.
       language: ['go', 'javascript']
 `</pre>
-Para obter mais informações, consulte a extração de fluxo de trabalho em "[Criação automática para falhas de linguagem compilada](#automatic-build-for-a-compiled-language-fails)" acima.
+
+   Para obter mais informações, consulte a extração de fluxo de trabalho em "[Criação automática para falhas de linguagem compilada](#automatic-build-for-a-compiled-language-fails)" acima.
 1. O seu fluxo de trabalho de {% data variables.product.prodname_code_scanning %} está analisando uma linguagem compilada (C, C++, C#, ou Java), mas o código não foi compilado. Por padrão, o fluxo de trabalho da análise do {% data variables.product.prodname_codeql %} contém uma etapa `autobuild`. No entanto, esta etapa representa um melhor processo de esforço, e pode não ter sucesso na criação do seu código, dependendo do seu ambiente de criação específico. Também pode ocorrer uma falha na criação se você removeu a etapa de `autobuild` e não incluiu as etapas de criação manualmente.  Para obter mais informações sobre a especificação de etapas de criação, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 1. O seu fluxo de trabalho está analisando uma linguagem compilada (C, C++, C#, ou Java), mas partes de sua compilação são armazenadas em cache para melhorar o desempenho (é mais provável que ocorra com sistemas de criação como o Gradle ou Bazel). Uma vez que o {% data variables.product.prodname_codeql %} observa a atividade do compilador para entender os fluxos de dados em um repositório, {% data variables.product.prodname_codeql %} exige uma compilação completa para realizar a análise.
 1. O seu fluxo de trabalho está analisando uma linguagem compilada (C, C++, C#, ou Java), mas a compilação não ocorre entre as etapas `init` e `analisar` no fluxo de trabalho. O {% data variables.product.prodname_codeql %} exige que a sua compilação aconteça entre essas duas etapas para observar a atividade do compilador e realizar a análise.
@@ -90,20 +108,20 @@ Para obter mais informações, consulte a extração de fluxo de trabalho em "[C
    * Criar usando um sistema de compilação distribuído externo às Ações GitHub, usando um processo de daemon.
    * {% data variables.product.prodname_codeql %} não está ciente do compilador específico que você está usando.
 
-  Para projetos de .NET Framework, e para projetos de C# que usam `dotnet build` ou `msbuild` que miram .NET Core 2, você deve especificar `/p:UseSharedCompilation=false` na etapa de `executar` do seu fluxo de trabalho quando você construir seu código. O sinalizador `UseSharedCompilation` não é necessário para o .NET Core 3.0 ou versão superior.
+  Para projetos de .NET Framework e para projetos C# que usam `dotnet build` ou `msbuild`, você deverá especificar `/p:UseSharedCompilation=false` na etapa de `executar` do seu fluxo de trabalho, ao criar o seu código.
 
   Por exemplo, a seguinte configuração para C# irá passar o sinalizador durante a primeira etapa de criação.
 
    ``` yaml
    - run: |
-       dotnet build /p:UseSharedCompilation=false 
+       dotnet build /p:UseSharedCompilation=false
    ```
 
   Se você encontrar outro problema com seu compilador específico ou configuração, entre em contato com {% data variables.contact.contact_support %}.
 
 Para obter mais informações sobre a especificação de etapas de criação, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-{% ifversion fpt or ghes > 3.1  or ghae-next %}
+{% ifversion fpt or ghes > 3.1  or ghae or ghec %}
 ## As inhas de código digitalizadas são menores do que o esperado
 
 Para linguagens compiladas como, por exemplo, C/C++, C#, Go e Java, {% data variables.product.prodname_codeql %} só faz a digitalização de arquivos criados durante a análise. Portanto, o número de linhas de código digitalizadas será menor do que o esperado se parte do código-fonte não for compilado corretamente. Isso pode acontecer por várias razões:
@@ -118,13 +136,15 @@ Se a sua análise de {% data variables.product.prodname_codeql %} digitalizar me
 Substitua a etapa `autobuild` pelos os mesmos comandos de compilação que você usaria em produção. Isso garante que {% data variables.product.prodname_codeql %} sabe exatamente como compilar todos os arquivos de origem que você deseja digitalizar. Para obter mais informações, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
 ### Inspecionar a cópia dos arquivos de origem no banco de dados de {% data variables.product.prodname_codeql %}
-Talvez você seja possa entender por que alguns arquivos de origem não foram analisados inspecionando a cópia do código-fonte incluído na base de dados de {% data variables.product.prodname_codeql %}. Para obter o banco de dados de seu fluxo de trabalho de ações, adicione uma ação `upload-artifact` após a etapa de análise de seu fluxo de trabalho de digitalização de código:
-```
-- uses: actions/upload-artifact@v2
+Talvez você seja possa entender por que alguns arquivos de origem não foram analisados inspecionando a cópia do código-fonte incluído na base de dados de {% data variables.product.prodname_codeql %}. Para obter o banco de dados a partir do seu fluxo de trabalho, modifique a etapa `init` do seu arquivo de fluxo de trabalho de {% data variables.product.prodname_codeql %} e defina `debug: true`.
+
+```yaml
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v1
   with:
-    name: codeql-database
-    path: ../codeql-database
+    debug: true
 ```
+
 Isso faz o upload do banco de dados como um artefato de ações que você pode baixar para a sua máquina local. Para obter mais informações, consulte "[Armazenando artefatos de fluxo de trabalho](/actions/guides/storing-workflow-data-as-artifacts)".
 
 O artefato conterá uma cópia arquivada dos arquivos de origem digitalizados por {% data variables.product.prodname_codeql %} denominada _src.zip_. Se você comparar os arquivos do código-fonte no repositório e os arquivos em _src. ip_, você poderá ver quais tipos de arquivo estarão faltando. Uma vez que você sabe quais tipos de arquivo não estão sendo analisados, é mais fácil entender como você pode precisar alterar o fluxo de trabalho para a análise de {% data variables.product.prodname_codeql %}.
@@ -158,9 +178,9 @@ O {% data variables.product.prodname_codeql_workflow %} padrão usa uma matriz d
 
 O tempo de análise é tipicamente proporcional à quantidade de código em análise. Você pode reduzir o tempo de análise reduzindo a quantidade de código em análise de uma vez, por exemplo, excluindo o código de teste, ou dividindo a análise em vários fluxos de trabalho que analisam apenas um subconjunto do seu código por vez.
 
-Para linguagens compiladas como Java, C, C++ e C#, o {% data variables.product.prodname_codeql %} analisa todo o código construído durante a execução do fluxo de trabalho. Para limitar a quantidade de código em análise, crie apenas o código que você deseja analisar especificando suas próprias etapas de criação em um bloco `Executar`. Você pode combinar a especificação das suas próprias etapas de criação ao usar os filtros `caminhos` ou `paths-ignore` nos eventos `pull_request` e `push` para garantir que o seu fluxo de trabalho só será executado quando o código específico for alterado. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)".
+Para linguagens compiladas como Java, C, C++ e C#, o {% data variables.product.prodname_codeql %} analisa todo o código construído durante a execução do fluxo de trabalho. Para limitar a quantidade de código em análise, crie apenas o código que você deseja analisar especificando suas próprias etapas de criação em um bloco `Executar`. Você pode combinar a especificação das suas próprias etapas de criação ao usar os filtros `caminhos` ou `paths-ignore` nos eventos `pull_request` e `push` para garantir que o seu fluxo de trabalho só será executado quando o código específico for alterado. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)".
 
-Para linguagens interpretadas como Go, JavaScript, Python e TypeScript, que {% data variables.product.prodname_codeql %} analisa sem uma criação específica, você pode especificar opções de configuração adicionais para limitar a quantidade de código a ser analisado. Para obter mais informações, consulte "[Especificar diretórios a serem varridos](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan)".
+Para linguagens como Go, JavaScript, Python e TypeScript, que {% data variables.product.prodname_codeql %} analisa sem compilar o código-fonte, você pode especificar as opções de configuração adicionais para limitar a quantidade de código a ser analisado. Para obter mais informações, consulte "[Especificar diretórios a serem varridos](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan)".
 
 Se você dividir sua análise em vários fluxos de trabalho, conforme descrito acima, ainda assim recomendamos que você tenha pelo menos um fluxo de trabalho que seja executado em um `agendamento` que analise todo o código no seu repositório. Já que o {% data variables.product.prodname_codeql %} analisa os fluxos de dados entre os componentes, alguns comportamentos de segurança complexos só podem ser detectados em uma criação completa.
 
@@ -168,7 +188,20 @@ Se você dividir sua análise em vários fluxos de trabalho, conforme descrito a
 
 <p spaces-before="0">Se sua análise ainda é muito lenta para ser executada durante eventos <code>push` ou `pull_request`, você poderá acionar apenas a análise no evento `agendamento`. Para obter mais informações, consulte "[Eventos](/actions/learn-github-actions/introduction-to-github-actions#events)".</p>
 
-{% ifversion fpt %}
+### Check which query suites the workflow runs
+
+By default, there are three main query suites available for each language. If you have optimized the CodeQL database build and the process is still too long, you could reduce the number of queries you run. The default query suite is run automatically; it contains the fastest security queries with the lowest rates of false positive results.
+
+You may be running extra queries or query suites in addition to the default queries. Check whether the workflow defines an additional query suite or additional queries to run using the `queries` element. You can experiment with disabling the additional query suite or queries. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
+
+{% if codeql-ml-queries %}
+{% note %}
+
+**Note:** If you run the `security-extended` or `security-and-quality` query suite for JavaScript, then some queries use experimental technology. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."
+{% endnote %}
+{% endif %}
+
+{% ifversion fpt or ghec %}
 ## Os resultados diferem entre as plataformas de análise
 
 Se você estiver analisando o código escrito no Python, você poderá ver resultados diferentes dependendo se você executa o {% data variables.product.prodname_codeql_workflow %} no Linux, macOS ou Windows.
@@ -183,11 +216,11 @@ Se a execução de um fluxo de trabalho para {% data variables.product.prodname_
 
 ## Erro: "Fora do disco" ou "Sem memória"
 
-Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar ficar sem disco ou sem memória no executor do {% data variables.product.prodname_actions %} hospedado.
-{% ifversion fpt %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
+On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+{% ifversion fpt or ghec %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
 {% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Erro: 403 "Resource not accessible by integration" ao usar {% data variables.product.prodname_dependabot %}
 
 {% data variables.product.prodname_dependabot %} é considerado não confiável quando aciona uma execução de fluxo de trabalho, e o fluxo de trabalho será executado com escopos somente leitura. Fazer o upload dos resultados de {% data variables.product.prodname_code_scanning %} para um branch, geralmente exige o escopo `security_events: write`. No entanto, {% data variables.product.prodname_code_scanning %} sempre permite o upload de resultados quando o evento `pull_request` aciona a ação executar. Esse é o motivo pelo qual, para branches de {% data variables.product.prodname_dependabot %}, recomendamos que você use o evento `pull_request` em vez do evento `push`.

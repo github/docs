@@ -3,6 +3,7 @@ title: ユーザアカウントのリポジトリの所有権の継続性を管�
 intro: 自分が管理できない場合にユーザ所有のリポジトリを管理してもらえるように、他のユーザを招待することができます。
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -22,7 +23,7 @@ shortTitle: Ownership continuity
 
 後継者があなたのアカウントにログインすることはできません。
 
-指名された後継者は、死亡証明書の提出から 7 日間経ってから、または死亡記事が掲載されてから 21 日間経ってから、あなたのパブリックリポジトリを管理できるようになります。 詳しい情報については、「[{% data variables.product.company_short %} ユーザの死亡に関するポリシー](/github/site-policy/github-deceased-user-policy)」を参照してください。
+指名された後継者は、死亡証明書の提出から 7 日間経ってから、または死亡記事が掲載されてから 21 日間経ってから、あなたのパブリックリポジトリを管理できるようになります。 For more information, see "[{% data variables.product.company_short %} Deceased User Policy](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)."
 
 後継者としてリポジトリ管理のアクセス権をリクエストするには、[GitHub サポート](https://support.github.com/contact?tags=docs-accounts)にお問い合わせください。
 

@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_github_app %} に IP 許可リスト�
 versions:
   fpt: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: 許可 IPアドレスの管理
@@ -11,7 +12,7 @@ shortTitle: 許可 IPアドレスの管理
 
 ## {% data variables.product.prodname_github_apps %} に対する IPアドレス許可リストについて
 
-Enterprise および Organization のオーナーは、IPアドレス許可リストを設定することで、アセットへのアクセスを制限できます。 このリストは、接続が許可される IPアドレスを指定するものです。 詳しい情報については、「[Organization に対する許可 IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses)」および{% ifversion ghae %}「[Enterprise へのネットワークトラフィックを制限する](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)」を参照してください。 {% else %}「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)」を参照してください。 {% endif %}
+Enterprise および Organization のオーナーは、IPアドレス許可リストを設定することで、アセットへのアクセスを制限できます。 このリストは、接続が許可される IPアドレスを指定するものです。 詳しい情報については、「[Enterprise にセキュリティ設定のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)」以下を参照してください。
 
 Organization に許可リストがある場合、{% data variables.product.prodname_github_app %} 経由で接続するサードパーティアプリケーションは、以下の両方が真でない限りアクセスを拒否されます。
 

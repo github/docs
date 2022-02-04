@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -19,7 +20,7 @@ Se você estiver encontrando algumas situações estranhas na API, aqui está um
 
 Normalmente, enviamos um erro `404` quando seu cliente não está autenticado corretamente. Nesses casos, você pode esperar ver um `403 Forbidden`. No entanto, como não queremos fornecer _nenhuma_ informação sobre repositórios privados, a API retorna um erro `404`.
 
-To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+Para solucionar problemas, certifique-se de [você está efetuando a autenticação corretamente](/guides/getting-started/), [seu token de acesso OAuth tenha os escopos necessários](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [restrições do aplicativo de terceiros][oap-guide] não estejam bloqueando o acesso, e [o token não venceu ou foi revogado](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
 ## Nem todos os resultados retornados
 
@@ -27,7 +28,7 @@ A maioria das chamadas da API que acessam uma lista de recursos (_por exemplo,_,
 
 É importante *não* tentar adivinhar o formato da URL de paginação. Nem todas as chamadas de API usam a mesma estrutura. Em vez disso, extraia as informações de paginação do [Cabeçalho do link](/rest#pagination), que é enviado com cada solicitação.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Erros de autenticação básica
 
 Em 13 de novembro de 2020 a autenticação de nome de usuário e senha da API REST e da API de Autorizações OAuth tornaram-se obsoletas e já não funcionaram mais.
@@ -62,9 +63,9 @@ curl -u my_username:my_password -X POST "https://api.github.com/authorizations" 
 
 Você deverá alternar para o fluxo do aplicativo web [](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para gerar tokens de acesso.
 
-## Timeouts
+## Tempo esgotado
 
-If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
+Se  {% data variables.product.product_name %} demorar mais de 10 segundos para processar uma solicitação de API, {% data variables.product.product_name %} encerrará a solicitação e você receberá uma resposta de tempo esgotado.
 
 {% endif %}
 

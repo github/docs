@@ -1,8 +1,9 @@
 ---
 title: The github.dev web-based editor
-intro: Use the github.dev {% data variables.product.prodname_serverless %} from your repository or pull request to create and commit changes.
+intro: 'Use the github.dev {% data variables.product.prodname_serverless %} from your repository or pull request to create and commit changes.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 miniTocMaxHeadingLevel: 3
 topics:
@@ -67,7 +68,7 @@ Because the web-based editor uses the GitHub Repositories extension to power its
 ### Create a new branch
 
 {% data reusables.codespaces.create-or-switch-branch %}
-  Any uncommited changes you have made in your old branch will be available on your new branch.
+  Any uncommitted changes you have made in your old branch will be available on your new branch.
 
 ### Commit your changes
 
@@ -104,3 +105,4 @@ If you have issues opening the {% data variables.product.prodname_serverless %},
 
 - The {% data variables.product.prodname_serverless %} is currently supported in Chrome (and various other Chromium-based browsers), Edge, Firefox, and Safari. We recommend that you use the latest versions of these browsers.
 - Some keybindings may not work, depending on the browser you are using. These keybinding limitations are documented in the "[Known limitations and adaptations](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" section of the {% data variables.product.prodname_vscode %} documentation.
+- `.` may not work to open the {% data variables.product.prodname_serverless %} according to your local keyboard layout. In that case, you can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.product.prodname_serverless %} by changing the URL from `github.com` to `github.dev`.

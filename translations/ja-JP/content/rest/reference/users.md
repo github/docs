@@ -7,18 +7,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
 
-ユーザ API のリソースの多くには、現在認証されているユーザについての情報を取得するためのショートカットがあります。 リクエスト URL に `{username}` パラメータが含まれていない場合、レスポンスはログインしているユーザに対して行われます (リクエストで [認証情報](/rest/overview/resources-in-the-rest-api#authentication) を渡す必要があります)。{% ifversion fpt or ghes %}ユーザが 2 要素認証を有効にしているかなど、その他の個人情報は、基本認証または `user` スコープ付きで OAuth 認証されている場合に含まれます。{% endif %}
+ユーザ API のリソースの多くには、現在認証されているユーザについての情報を取得するためのショートカットがあります。 リクエスト URL に `{username}` パラメータが含まれていない場合、レスポンスはログインしているユーザに対して行われます (リクエストで [認証情報](/rest/overview/resources-in-the-rest-api#authentication) を渡す必要があります)。{% ifversion fpt or ghes or ghec %}ユーザが 2 要素認証を有効にしているかなど、その他の個人情報は、基本認証または `user` スコープ付きで OAuth 認証されている場合に含まれます。{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## ユーザのブロック
 
 {% for operation in currentRestOperations %}
@@ -27,7 +28,7 @@ miniTocMaxHeadingLevel: 3
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## Emails
 
 API を通じたメールアドレスの管理には、基本認証、またはエンドポイントに対する正しいスコープの付いた OAuth で認証する必要があります。

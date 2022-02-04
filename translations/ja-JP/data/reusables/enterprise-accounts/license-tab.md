@@ -1,4 +1,4 @@
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 1. 左のサイドバーで、** Enterprise licensing（Enterpriseライセンス）**をクリックしてください。 ![[Enterprise account settings] サイトバーの "Enterprise licensing"](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 

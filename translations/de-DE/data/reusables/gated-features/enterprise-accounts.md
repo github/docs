@@ -1,1 +1,0 @@
-Enterprise accounts are available with {% data variables.product.prodname_ghe_cloud %}{% ifversion ghae %}, {% data variables.product.prodname_ghe_managed %},{% endif %} and {% data variables.product.prodname_ghe_server %}. {% ifversion fpt %}Weitere Informationen findest Du unter „[Über Enterprise-Konten](/articles/about-enterprise-accounts)".{% endif %}

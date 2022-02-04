@@ -8,6 +8,7 @@ redirect_from:
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -79,7 +80,7 @@ Para obtener más información acerca de cómo configurar Stripe Connect utiliza
 
 ## Habilitar la autenticación de dos factores (2FA) en tu cuenta {% data variables.product.prodname_dotcom %}
 
-Antes de que tu organización pueda convertirse en patrocinada, deberás habilitar la autenticación de dos factores en tu cuenta de {% data variables.product.product_name %}. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)".
+Antes de que tu organización pueda convertirse en una organización patrocinada, debes habilitar la 2FA para tu cuenta en {% data variables.product.product_location %}. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)".
 
 ## Enviar tu aplicación a {% data variables.product.prodname_dotcom %} para su aprobación
 

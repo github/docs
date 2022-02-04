@@ -1,13 +1,13 @@
 ---
 title: Cerrar las propuestas inactivas
 intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para comentar o cerrar las propuestas que han estado inactivas por algún tiempo.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/closing-inactive-issues
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -37,7 +37,7 @@ En el tutorial, prmero crearás un archivo de flujo de trabajo que utilice la [a
 
     jobs:
       close-issues:
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
         permissions:
           issues: write
           pull-requests: write{% endif %}

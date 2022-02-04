@@ -1,13 +1,13 @@
 ---
 title: 非アクティブな Issue をクローズする
 intro: '{% data variables.product.prodname_actions %} を使用して、一定期間、非アクティブであった Issue にコメントしたり、Issue をクローズしたりすることができます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/closing-inactive-issues
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -37,7 +37,7 @@ topics:
 
     jobs:
       close-issues:
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
         permissions:
           issues: write
           pull-requests: write{% endif %}

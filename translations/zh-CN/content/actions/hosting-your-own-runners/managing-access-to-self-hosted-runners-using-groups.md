@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: 管理运行器组
 ---
@@ -23,8 +24,14 @@ shortTitle: 管理运行器组
 **注：**所有组织都有一个默认的自托管运行器组。 只有企业帐户和企业帐户拥有的组织才能创建和管理其他自托管的运行器组。
 
 {% endnote %}
+
+Self-hosted runner groups are used to control access to self-hosted runners. 组织管理员可以配置访问策略，用以控制组织中的哪些组织可以访问运行器组。
+如果您使用
+
+{% data variables.product.prodname_ghe_cloud %}, you can create additional runner groups; enterprise admins can configure access policies that control which organizations in an enterprise have access to the runner group; and organization admins can assign additional granular repository access policies to the enterprise runner group. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups).
 {% endif %}
 
+{% ifversion ghec or ghes or ghae %}
 自托管运行器组用于控制对组织和企业级自托管运行器的访问。 企业管理员可以配置访问策略，用以控制企业中的哪些组织可以访问运行器组。 组织管理员可以配置访问策略，用以控制组织中的哪些组织可以访问运行器组。
 
 当企业管理员授予组织对运行器组的访问权限时，组织管理员可以看到组织的自托管运行器设置中列出的运行器组。 然后，组织管理员可以为企业运行器组分配其他细致的仓库访问策略。
@@ -33,13 +40,13 @@ shortTitle: 管理运行器组
 
 ## 为组织创建自托管的运行器组
 
-所有组织都有一个默认的自托管运行器组。 企业帐户中的组织可以创建其他自托管组。 组织管理员可以允许单个仓库访问运行器组。
+所有组织都有一个默认的自托管运行器组。 企业帐户中的组织可以创建其他自托管组。 组织管理员可以允许单个仓库访问运行器组。 有关如何使用 REST API 创建自托管运行器组的信息，请参阅“[自托管运行器组](/rest/reference/actions#self-hosted-runner-groups)”。
 
 自托管运行器在创建时会自动分配给默认组，并且每次只能成为一个组的成员。 您可以将运行器从默认组移到您创建的任何组。
 
 创建组时，必须选择用于定义哪些仓库有权访问运行器组的策略。
 
-{% ifversion fpt %}
+{% ifversion ghec %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-groups %}
@@ -64,7 +71,7 @@ shortTitle: 管理运行器组
     ![添加运行器组](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. 输入运行程序组的名称，并分配仓库访问策略。
 
-   {% ifversion ghes > 2.22 or ghae %} 您可以配置一个运行器组可供一组特定的仓库或组织中所有仓库访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 如果配置企业共享的组织运行组，则此设置无法覆盖。{% endif %}{% ifversion ghes = 2.22 %}您可以配置一个运行器组，以便访问特定的仓库列表、所有私有仓库或组织中的所有仓库。{% endif %}
+   {% ifversion ghes or ghae %} 您可以配置一个运行器组可供一组特定的仓库或组织中所有仓库访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
 
    {% warning %}
 
@@ -80,16 +87,15 @@ shortTitle: 管理运行器组
 1. 单击 **Save group（保存组）**创建组并应用策略。
 {% endif %}
 
-
 ## 为企业创建自托管运行器组
 
-企业可以将其自托管的运行器添加到组以进行访问管理。 企业可以创建供企业帐户中特定组织访问的自托管运行器组。 然后，组织管理员可以为企业运行器组分配其他细致的仓库访问策略。
+企业可以将其自托管的运行器添加到组以进行访问管理。 企业可以创建供企业帐户中特定组织访问的自托管运行器组。 然后，组织管理员可以为企业运行器组分配其他细致的仓库访问策略。 有关如何使用 REST API 创建自托管运行器组的信息，请参阅[企业管理 GitHub Actions API](/rest/reference/enterprise-admin#github-actions)。
 
 自托管运行器在创建时会自动分配给默认组，并且每次只能成为一个组的成员。 您可以在注册过程中将运行器分配给特定组，也可以稍后将运行器从默认组移到自定义组。
 
 创建组时，必须选择用于定义哪些组织有权访问运行器组的策略。
 
-{% ifversion fpt %}
+{% ifversion ghec %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
@@ -118,7 +124,7 @@ shortTitle: 管理运行器组
     ![添加运行器组](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
 1. 输入运行程序组的名称，并分配组织访问策略。
 
-   {% ifversion fpt or ghes > 2.22 or ghae %} 您可以配置运行器组供特定的组织列表或企业中所有组织访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 如果配置企业共享的组织运行组，则此设置无法覆盖。{% elsif ghes = 2.22 %}您可以配置一个运行器组，以便访问企业中的所有组织或选择特定的组织。{% endif %}
+    您可以配置运行器组供特定的组织列表或企业中所有组织访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.
 
    {% warning %}
 
@@ -133,11 +139,12 @@ shortTitle: 管理运行器组
     ![添加运行器组选项](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
 1. 单击 **Save group（保存组）**创建组并应用策略。
 {% endif %}
+{% endif %}
 
 ## 更改自托管运行器组的访问策略
 
 您可以更新运行器组的访问策略，或重命名运行器组。
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-groups-selection %}
 1. 修改访问选项或更改运行器组名称。
@@ -155,6 +162,8 @@ shortTitle: 管理运行器组
 {% ifversion ghae or ghes %}
 {% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
+
+{% ifversion ghec or ghes or ghae %}
 ## 自动向组添加自托管运行器
 
 您可以使用配置脚本自动向组添加新的自托管运行器。 例如， 此命令将注册一个新的自托管运行器，并使用 `--runnergroup` 参数将其添加到名为 `rg-runnergroup` 的组。
@@ -172,29 +181,32 @@ shortTitle: 管理运行器组
 ## 将自托管的运行器移动到组
 
 如果您在注册过程中没有指定运行器组，新的自托管运行器将自动分配到默认组，然后可以移到另一个组。
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
-{% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+{% ifversion ghec or ghes > 3.1 or ghae %}
+{% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
 1. 在“Runners（运行器）”列表中，单击您要配置的运行器。
-1. 选择运行器组下拉菜单。
-1. In "Move runner to group", choose a destination group for the runner.
-{% else %}
-1. In the "Self-hosted runners" section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![查看运行器组成员](/assets/images/help/settings/actions-org-runner-group-members.png)
-1. 选中自托管运行器旁边的复选框，然后单击 **Move to group（移动到组）**以查看可用的目的地。 ![运行器组成员移动](/assets/images/help/settings/actions-org-runner-group-member-move.png)
-1. 要移动运行器，请单击目标组。 ![运行器组成员移动](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
+2. 选择运行器组下拉菜单。
+3. 在“Move runner to group（将运行器移动到组）”中，选择运行器的目的地组。
+{% endif %}
+{% ifversion ghes < 3.2 or ghae %}
+1. 在设置页面的“Self-hosted runners（自托管运行器）：部分，找到要移动的运行器的当前组，并展开组成员列表。 ![查看运行器组成员](/assets/images/help/settings/actions-org-runner-group-members.png)
+2. 选中自托管运行器旁边的复选框，然后单击 **Move to group（移动到组）**以查看可用的目的地。 ![运行器组成员移动](/assets/images/help/settings/actions-org-runner-group-member-move.png)
+3. 要移动运行器，请单击目标组。 ![运行器组成员移动](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
 ## 删除自托管运行器组
 
 自托管运行器在其组被删除时将自动返回到默认组。
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion ghes > 3.1 or ghae or ghec %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
-1. In the list of groups, to the right of the group you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-1. 要删除组，请单击 **Remove group（删除组）**。
-1. 查看确认提示，然后单击 **Remove this runner group（删除此运行器组）**。
-{% else %}
-1. In the "Self-hosted runners" section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button. ![查看运行器组设置](/assets/images/help/settings/actions-org-runner-group-kebab.png)
+1. 在组列表中，在要删除的组右侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。
+2. 要删除组，请单击 **Remove group（删除组）**。
+3. 查看确认提示，然后单击 **Remove this runner group（删除此运行器组）**。
+{% endif %}
+{% ifversion ghes < 3.2 or ghae %}
+1. 在设置页面的“Self-hosted runners（自托管运行器）”部分，找到要删除的组，然后单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 按钮。 ![查看运行器组设置](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. 要删除组，请单击 **Remove group（删除组）**。 ![查看运行器组设置](/assets/images/help/settings/actions-org-runner-group-remove.png)
 
 1. 查看确认提示，然后单击 **Remove this runner group（删除此运行器组）**。
+{% endif %}
 {% endif %}

@@ -1,12 +1,17 @@
-import fs from 'fs'
-import path from 'path'
-import readJsonFile from '../../lib/read-json-file.js'
+import { readCompressedJsonFileFallback } from '../../lib/read-json-file.js'
 import { allVersions } from '../../lib/all-versions.js'
-const previews = readJsonFile('./lib/graphql/static/previews.json')
-const upcomingChanges = readJsonFile('./lib/graphql/static/upcoming-changes.json')
-const changelog = readJsonFile('./lib/graphql/static/changelog.json')
-const prerenderedObjects = readJsonFile('./lib/graphql/static/prerendered-objects.json')
-const prerenderedInputObjects = readJsonFile('./lib/graphql/static/prerendered-input-objects.json')
+const previews = readCompressedJsonFileFallback('./lib/graphql/static/previews.json')
+const upcomingChanges = readCompressedJsonFileFallback('./lib/graphql/static/upcoming-changes.json')
+const changelog = readCompressedJsonFileFallback('./lib/graphql/static/changelog.json')
+const prerenderedObjects = readCompressedJsonFileFallback(
+  './lib/graphql/static/prerendered-objects.json'
+)
+const prerenderedInputObjects = readCompressedJsonFileFallback(
+  './lib/graphql/static/prerendered-input-objects.json'
+)
+const prerenderedMutations = readCompressedJsonFileFallback(
+  './lib/graphql/static/prerendered-mutations.json'
+)
 
 const explorerUrl =
   process.env.NODE_ENV === 'production'
@@ -27,13 +32,14 @@ export default function graphqlContext(req, res, next) {
   const graphqlVersion = currentVersionObj.miscVersionName
 
   req.context.graphql = {
-    schemaForCurrentVersion: JSON.parse(
-      fs.readFileSync(path.join(process.cwd(), `lib/graphql/static/schema-${graphqlVersion}.json`))
+    schemaForCurrentVersion: readCompressedJsonFileFallback(
+      `lib/graphql/static/schema-${graphqlVersion}.json`
     ),
     previewsForCurrentVersion: previews[graphqlVersion],
     upcomingChangesForCurrentVersion: upcomingChanges[graphqlVersion],
     prerenderedObjectsForCurrentVersion: prerenderedObjects[graphqlVersion],
     prerenderedInputObjectsForCurrentVersion: prerenderedInputObjects[graphqlVersion],
+    prerenderedMutationsForCurrentVersion: prerenderedMutations[graphqlVersion],
     explorerUrl,
     changelog,
   }

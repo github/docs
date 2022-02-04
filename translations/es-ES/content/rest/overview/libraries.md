@@ -1,13 +1,14 @@
 ---
 title: Bibliotecas
-intro: 'Puedes utilizar la biblioteca oficial de Octokit y otras bibliotecas de terceros para extender y simplificar cómo utilizas la API de {% data variables.product.prodname_dotcom %}.'
+intro: 'Puedes utilizar la librería oficial de Octokit y otras librerías de terceros para extender y simplificar la forma en que usas la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.'
 redirect_from:
-  - /libraries/
+  - /libraries
   - /v3/libraries
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---

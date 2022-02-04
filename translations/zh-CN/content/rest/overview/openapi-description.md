@@ -4,6 +4,7 @@ intro: 'OpenAPI 3.0 标准文档中全面描述了 {% data variables.product.pro
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - API
 ---

@@ -5,6 +5,7 @@ redirect_from:
   - /v4/reference/mutation
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -17,6 +18,5 @@ topics:
 
 詳しい情報については「[ミューテーションについて](/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
 
-{% for item in graphql.schemaForCurrentVersion.mutations %}
-  {% include graphql-mutation %}
-{% endfor %}
+<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
+<!-- see lib/graphql/static/prerendered-mutations.json -->

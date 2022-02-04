@@ -2,16 +2,17 @@
 title: 关于 GitHub 的 IP 地址
 intro: '{% data variables.product.product_name %} 可服务于多个 IP 地址范围的应用程序，使用 API 可获取地址。'
 redirect_from:
-  - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist/
-  - /categories/73/articles/
-  - /categories/administration/
-  - /articles/github-s-ip-addresses/
+  - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist
+  - /categories/73/articles
+  - /categories/administration
+  - /articles/github-s-ip-addresses
   - /articles/about-github-s-ip-addresses
   - /articles/about-githubs-ip-addresses
   - /github/authenticating-to-github/about-githubs-ip-addresses
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-githubs-ip-addresses
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -25,6 +26,8 @@ shortTitle: GitHub 的 IP 地址
 **注意：** Meta API 返回的 {% data variables.product.prodname_dotcom %} IP 地址列表并非详尽无遗。 例如，某些 {% data variables.product.prodname_dotcom %} 服务的 IP 地址可能不会列出，例如 LFS 或 {% data variables.product.prodname_registry %}。
 
 {% endnote %}
+
+These IP addresses are used by {% data variables.product.prodname_dotcom %} to serve our content, deliver webhooks, and perform hosted {% data variables.product.prodname_actions %} builds.
 
 这些范围在 [CIDR 表示法](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)中。 您可以使用在线转换工具（例如s这个  [CIDR / VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php)）将 CIDR 表示法转换为 IP 地址范围。
 

@@ -1,8 +1,8 @@
 ---
 title: 提交 DMCA 反对通知的指南
 redirect_from:
-  - /dmca-counter-notice-how-to/
-  - /articles/dmca-counter-notice-how-to/
+  - /dmca-counter-notice-how-to
+  - /articles/dmca-counter-notice-how-to
   - /articles/guide-to-submitting-a-dmca-counter-notice
 versions:
   fpt: '*'

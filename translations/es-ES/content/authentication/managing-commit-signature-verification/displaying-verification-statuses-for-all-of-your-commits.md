@@ -4,6 +4,7 @@ shortTitle: Mostrar la verificación de todas las confirmaciones
 intro: Puedes habilitar el modo vigilante para verificar la firma de las confirmaciones y así marcar todas tus etiquetas y confirmaciones con un estado de verificación de firma.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management

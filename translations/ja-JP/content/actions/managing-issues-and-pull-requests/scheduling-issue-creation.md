@@ -1,13 +1,13 @@
 ---
 title: Issue の作成をスケジュールする
 intro: '{% data variables.product.prodname_actions %} を使用して、毎日の会議や四半期ごとのレビューなどの Issue を定期的に作成できます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/scheduling-issue-creation
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -40,7 +40,7 @@ topics:
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
         permissions:
           issues: write{% endif %}
         steps:

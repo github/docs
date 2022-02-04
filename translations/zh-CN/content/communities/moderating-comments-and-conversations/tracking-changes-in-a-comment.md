@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: 跟踪评论更改
@@ -33,5 +34,5 @@ shortTitle: 跟踪评论更改
 
 ## 延伸阅读
 
-{% ifversion fpt %}-“[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”{% endif %}
+{% ifversion fpt or ghec %}-“[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”{% endif %}
 - “[编辑评论](/articles/editing-a-comment)”

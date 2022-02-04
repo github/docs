@@ -1,6 +1,6 @@
 ---
 title: Localizar arquivos no GitHub
-intro: 'É possível localizar um arquivo em um repositório usando o localizador de arquivos. To search for a file in multiple repositories on {% data variables.product.product_name %}, use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename).'
+intro: 'É possível localizar um arquivo em um repositório usando o localizador de arquivos. Para pesquisar um arquivo em vários repositórios em {% data variables.product.product_name %}, use [o qualificador da pesquisa de código "filename"](/search-github/searching-on-github/searching-code#search-by-filename).'
 redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---

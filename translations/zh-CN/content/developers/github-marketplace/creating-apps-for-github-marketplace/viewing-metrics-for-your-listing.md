@@ -2,13 +2,14 @@
 title: 查看上架产品的指标
 intro: '{% data variables.product.prodname_marketplace %} Insights 页面显示 {% data variables.product.prodname_github_app %} 的指标。 您可以使用这些指标来跟踪 {% data variables.product.prodname_github_app %} 的表现，并就价格、计划、免费试用以及如何看待营销活动的效果做出更明智的决定。'
 redirect_from:
-  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/github-marketplace-insights/
+  - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing
+  - /apps/marketplace/github-marketplace-insights
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: 查看列表指标

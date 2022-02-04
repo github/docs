@@ -5,6 +5,7 @@ intro: '您可以管理 {% data variables.product.prodname_codespaces %} 可以�
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Security

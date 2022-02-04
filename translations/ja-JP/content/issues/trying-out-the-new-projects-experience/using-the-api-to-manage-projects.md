@@ -3,6 +3,7 @@ title: APIを使ったプロジェクト（ベータ）の管理
 intro: GraphQL APIを使って、プロジェクトに関する情報を見つけたり、プロジェクトを更新したりできます。
 versions:
   fpt: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 type: how_to
@@ -10,19 +11,15 @@ topics:
   - Projects
 ---
 
-この記事では、GraphQL API を使用してプロジェクトを管理する方法を説明します。
+この記事では、GraphQL API を使用してプロジェクトを管理する方法を説明します。 For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating projects (beta)](/issues/trying-out-the-new-projects-experience/automating-projects)." For a full list of the available data types, see "[Reference](/graphql/reference)."
 
 {% data reusables.projects.projects-beta %}
 
-{% data reusables.projects.api-beta %}
-
 ## 認証
-
-{% include tool-switcher %}
 
 {% curl %}
 
-以下のすべてのcURLの例で、`TOKEN`を`read:org`スコープ（クエリの場合）もしくは`write:org`スコープ（クエリ及びミューテーションの場合）を持つトークンで置き換えてください。 トークンの作成に関する詳しい情報については「[個人アクセストークンの作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
+以下のすべてのcURLの例で、`TOKEN`を`read:org`スコープ（クエリの場合）もしくは`write:org`スコープ（クエリ及びミューテーションの場合）を持つトークンで置き換えてください。 The token can be a personal access token for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a personal access token, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)."
 
 {% endcurl %}
 
@@ -30,7 +27,7 @@ topics:
 
 {% data reusables.cli.cli-learn-more %}
 
-{% data variables.product.prodname_cli %}コマンドを実行する前に、`gh auth login`を実行して`read:org`スコープ（クエリの場合）あるいは`write:org`スコープ（クエリ及びミューティションの場合）を持つ認証トークンを渡さなければなりません。 ベータの間は、Webブラウザを使って認証を受けることはできません。 コマンドラインの認証に関する詳しい情報については「[ gh authログイン](https://cli.github.com/manual/gh_auth_login)」を参照してください。 トークンの作成に関する詳しい情報については「[個人アクセストークンの作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
+Before running {% data variables.product.prodname_cli %} commands, you must authenticate by running `gh auth login --scopes "write:org"`. If you only need to read, but not edit, projects, you can omit the `--scopes` argument. コマンドラインの認証に関する詳しい情報については「[ gh authログイン](https://cli.github.com/manual/gh_auth_login)」を参照してください。
 
 {% endcli %}
 
@@ -43,7 +40,7 @@ topics:
 ```shell
 my_org="octo-org"
 my_num=5
-gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
+gh api graphql -f query='
   query($organization: String! $number: Int!){
     organization(login: $organization){
       projectNext(number: $number) {
@@ -53,35 +50,32 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-詳しい情報については「[GraphQLでの呼び出しの形成](/graphql/guides/forming-calls-with-graphql#working-with-variables)」を参照してください。
+For more information, see "[Forming calls with GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#working-with-variables)."
 
 {% endcli %}
 
 ## プロジェクトに関する情報を見つける
 
-プロジェクトに関するデータを取得するには、クエリを使ってください。 詳しい情報については「[クエリについて](/graphql/guides/forming-calls-with-graphql#about-queries)」を参照してください。
+プロジェクトに関するデータを取得するには、クエリを使ってください。 For more information, see "[About queries]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-queries)."
 
-### プロジェクトのノードIDを見つける
+### Finding the node ID of an organization project
 
 APIを通じてプロジェクトを更新するには、プロジェクトのノードIDを知る必要があります。
 
-プロジェクトのノードIDは、Organization名とプロジェクト番号を知っていれば見つけることができます。 `ORGANIZATION`をOrganization名で置き換えてください。 たとえば`octo-org`というようにします。 `NUMBER`はプロジェクト番号で置き換えてください。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば`https://github.com/orgs/octo-org/projects/5`ではプロジェクト番号は5です。
-
-{% include tool-switcher %}
+You can find the node ID of an organization project if you know the organization name and project number. `ORGANIZATION`をOrganization名で置き換えてください。 たとえば`octo-org`というようにします。 Replace `NUMBER` with the project number. プロジェクト番号を知るには、プロジェクトのURLを見てください。 たとえば`https://github.com/orgs/octo-org/projects/5`ではプロジェクト番号は5です。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: token <em>TOKEN</em>' \
-  --header 'GraphQL-Features: projects_next_graphql' \
   --data '{"query":"query{organization(login: \"<em>ORGANIZATION</em>\") {projectNext(number: <em>NUMBER</em>){id}}}"}'
 ```
 {% endcurl %}
 
 {% cli %}
 ```shell
-gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
+gh api graphql -f query='
   query{
     organization(login: "<em>ORGANIZATION</em>"){
       projectNext(number: <em>NUMBER</em>) {
@@ -94,21 +88,18 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
 
 Organization中のすべてのプロジェクトのノードIDを見つけることもできます。 以下の例は、Orgazation中の最初の20個のプロジェクトのノードIDとタイトルを返します。 `ORGANIZATION`をOrganization名で置き換えてください。 たとえば`octo-org`というようにします。
 
-{% include tool-switcher %}
-
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: token <em>TOKEN</em>' \
-  --header 'GraphQL-Features: projects_next_graphql' \
   --data '{"query":"{organization(login: \"<em>ORGANIZATION</em>\") {projectsNext(first: 20) {nodes {id title}}}}"}'
 ```
 {% endcurl %}
 
 {% cli %}
 ```shell
-gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
+gh api graphql -f query='
   query{
     organization(login: "<em>ORGANIZATION</em>") {
       projectsNext(first: 20) {
@@ -122,27 +113,79 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
 ```
 {% endcli %}
 
-### フィールドのノードIDを見つける
+### Finding the node ID of a user project
 
-フィールドの値を更新するには、フィールドのノードIDを知る必要があります。 加えて、単一選択フィールドの例の場合、選択肢のIDを知る必要があります。
+APIを通じてプロジェクトを更新するには、プロジェクトのノードIDを知る必要があります。
 
-以下の例は、プロジェクト内の最初の20個のフィールドのID、名前、設定を返します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。
-
-{% include tool-switcher %}
+You can find the node ID of a user project if you know the project number. Replace `USER` with your user name. `octocat`などです。 `NUMBER`はプロジェクト番号で置き換えてください。 プロジェクト番号を知るには、プロジェクトのURLを見てください。 For example, `https://github.com/users/octocat/projects/5` has a project number of 5.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: token <em>TOKEN</em>' \
-  --header 'GraphQL-Features: projects_next_graphql' \
+  --data '{"query":"query{user(login: \"<em>USER</em>\") {projectNext(number: <em>NUMBER</em>){id}}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  query{
+    user(login: "<em>USER</em>"){
+      projectNext(number: <em>NUMBER</em>) {
+        id
+      }
+    }
+  }'
+```
+{% endcli %}
+
+You can also find the node ID for all of your projects. The following example will return the node ID and title of your first 20 projects. Replace `USER` with your username. `octocat`などです。
+
+{% curl %}
+```shell
+curl --request POST \
+  --url https://api.github.com/graphql \
+  --header 'Authorization: token <em>TOKEN</em>' \
+  --data '{"query":"{user(login: \"<em>USER</em>\") {projectsNext(first: 20) {nodes {id title}}}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  query{
+    user(login: "<em>USER</em>") {
+      projectsNext(first: 20) {
+        nodes {
+          id
+          title
+        }
+      }
+    }
+  }'
+```
+{% endcli %}
+
+### フィールドのノードIDを見つける
+
+フィールドの値を更新するには、フィールドのノードIDを知る必要があります。 Additionally, you will need to know the ID of the options for single select fields and the ID of the iterations for iteration fields.
+
+以下の例は、プロジェクト内の最初の20個のフィールドのID、名前、設定を返します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。
+
+{% curl %}
+```shell
+curl --request POST \
+  --url https://api.github.com/graphql \
+  --header 'Authorization: token <em>TOKEN</em>' \
   --data '{"query":"query{node(id: \"<em>PROJECT_ID</em>\") {... on ProjectNext {fields(first: 20) {nodes {id name settings}}}}}"}'
 ```
 {% endcurl %}
 
 {% cli %}
 ```shell
-gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
+gh api graphql -f query='
   query{
     node(id: "<em>PROJECT_ID</em>") {
       ... on ProjectNext {
@@ -181,6 +224,11 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
             "id": "MDE2OlByb2plY3ROZXh0RmllbGQxMzE2MQ==",
             "name": "Status",
             "settings": "{\"options\":[{\"id\":\"f75ad846\",\"name\":\"Todo\",\"name_html\":\"Todo\"},{\"id\":\"47fc9ee4\",\"name\":\"In Progress\",\"name_html\":\"In Progress\"},{\"id\":\"98236657\",\"name\":\"Done\",\"name_html\":\"Done\"}]}"
+          },
+          {
+            "id": "MDE2OlByb2plY3ROZXh0RmllbGQ3NTEwNw==",
+            "name": "Iteration",
+            "settings": "{\"configuration\":{\"duration\":7,\"start_day\":5,\"iterations\":[{\"id\":\"c4d8e84d\",\"title\":\"Iteration 2\",\"duration\":7,\"start_date\":\"2021-10-08\",\"title_html\":\"Iteration 2\"},{\"id\":\"fafa9c9f\",\"title\":\"Iteration 3\",\"duration\":7,\"start_date\":\"2021-10-15\",\"title_html\":\"Iteration 3\"}],\"completed_iterations\":[{\"id\":\"fa62c118\",\"title\":\"Iteration 1\",\"duration\":7,\"start_date\":\"2021-10-01\",\"title_html\":\"Iteration 1\"}]}}"
           }
         ]
       }
@@ -189,29 +237,32 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
 }
 ```
 
-各フィールドはIDを持ちます。 加えて、単一選択フィールドの各選択肢はそれぞれIDを持ちます。
+各フィールドはIDを持ちます。 Additionally, single select fields and iteration fields have a `settings` value. In the single select settings, you can find the ID of each option for the single select. In the iteration settings, you can find the duration of the iteration, the start day of the iteration (from 1 for Monday to 7 for Sunday), the list of incomplete iterations, and the list of completed iterations. For each iteration in the lists of iterations, you can find the ID, title, duration, and start date of the iteration.
 
 ### プロジェクト中のアイテムに関する情報を見つける
 
 APIでクエリを行い、プロジェクト中のアイテムに関する情報を見つけることができます。
 
-以下の例は、プロジェクト中の最初の20個のアイテムのタイトルとIDを返します。 それぞれのアイテムについては、プロジェクト中の最初の8個のフィールドの値と名前も返します。 アイテムがIssueあるいはPull Requestの場合、アサインされた最初の10人のログインも返します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。
+{% note %}
 
-{% include tool-switcher %}
+**Note**: The API will not return information about draft issues.
+
+{% endnote %}
+
+以下の例は、プロジェクト中の最初の20個のアイテムのタイトルとIDを返します。 それぞれのアイテムについては、プロジェクト中の最初の8個のフィールドの値と名前も返します。 アイテムがIssueあるいはPull Requestの場合、アサインされた最初の10人のログインも返します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: token <em>TOKEN</em>' \
-  --header 'GraphQL-Features: projects_next_graphql' \
   --data '{"query":"query{node(id: \"<em>PROJECT_ID</em>\") {... on ProjectNext {items(first: 20) {nodes{title id fieldValues(first: 8) {nodes{value projectField{name}}} content{...on Issue {assignees(first: 10) {nodes{login}}} ...on PullRequest {assignees(first: 10) {nodes{login}}}}}}}}}"}'
 ```
 {% endcurl %}
 
 {% cli %}
 ```shell
-gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
+gh api graphql -f query='
   query{
     node(id: "<em>PROJECT_ID</em>") {
       ... on ProjectNext {
@@ -251,7 +302,7 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
 ```
 {% endcli %}
 
-プロジェクトは、ユーザが表示権限を持たないアイテムを含んでいることがあります。 この場合、レスポンスには削減済みのアイテムが含まれます。
+プロジェクトは、ユーザが表示権限を持たないアイテムを含んでいることがあります。 In this case, the response will include a redacted item.
 
 ```shell
 {
@@ -264,7 +315,7 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
 
 ## プロジェクトの更新
 
-プロジェクトを更新するには、ミューテーションを使ってください。 詳しい情報については「[ミューテーションについて](/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
+プロジェクトを更新するには、ミューテーションを使ってください。 For more information, see "[About mutations]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
 {% note %}
 
@@ -276,21 +327,18 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
 
 以下の例は、プロジェクトにIssueあるいはPull Requestを追加します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 `CONTENT_ID`を、追加したいIssueあるいはPull RequestのノードIDで置き換えてください。
 
-{% include tool-switcher %}
-
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: token <em>TOKEN</em>' \
-  --header 'GraphQL-Features: projects_next_graphql' \
   --data '{"query":"mutation {addProjectNextItem(input: {projectId: \"<em>PROJECT_ID</em>\" contentId: \"<em>CONTENT_ID</em>\"}) {projectNextItem {id}}}"}'
 ```
 {% endcurl %}
 
 {% cli %}
 ```shell
-gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
+gh api graphql -f query='
   mutation {
     addProjectNextItem(input: {projectId: "<em>PROJECT_ID</em>" contentId: "<em>CONTENT_ID</em>"}) {
       projectNextItem {
@@ -315,27 +363,24 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
 }
 ```
 
-すでに存在しているアイテムを追加しようとすると、代わりに既存のアイテムのIDが返されます。
+If you try to add an item that already exists, the existing item ID is returned instead.
 
-### カスタムの、単一選択ではないフィールドの更新
+### Updating a custom text, number, or date field
 
-以下の例は、日付フィールドを更新します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 `ITEM_ID`を、更新したいアイテムのノードIDで置き換えてください。 `FIELD_ID`を、更新したいフィールドのIDで置き換えてください。
-
-{% include tool-switcher %}
+The following example will update the value of a date field for an item. `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 `ITEM_ID`を、更新したいアイテムのノードIDで置き換えてください。 `FIELD_ID`を、更新したいフィールドのIDで置き換えてください。
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: token <em>TOKEN</em>' \
-  --header 'GraphQL-Features: projects_next_graphql' \
   --data '{"query":"mutation {updateProjectNextItemField(input: {projectId: \"<em>PROJECT_ID</em>\" itemId: \"<em>ITEM_ID</em>\" fieldId: \"<em>FIELD_ID</em>\" value: \"2021-5-11\"}) {projectNextItem {id}}}"}'
 ```
 {% endcurl %}
 
 {% cli %}
 ```shell
-gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
+gh api graphql -f query='
   mutation {
     updateProjectNextItemField(
       input: {
@@ -355,33 +400,31 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
 
 {% note %}
 
-**ノート:** `updateProjectNextItemField`を使って`Assignees`、`Labels`、`Milestone`、`Repository`を変更することはできません。これは、これらのフィールドがプロジェクトのアイテムのプロパティではなく、Pull RequestやIssueのプロパティだからです。 その代わりに、[addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)、[removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)、[addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)、[removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)、[updateIssue](/graphql/reference/mutations#updateissue)、[updatePullRequest](/graphql/reference/mutations#updatepullrequest)、[transferIssue](/graphql/reference/mutations#transferissue) といったミューテーションを使わなければなりません。
+**ノート:** `updateProjectNextItemField`を使って`Assignees`、`Labels`、`Milestone`、`Repository`を変更することはできません。これは、これらのフィールドがプロジェクトのアイテムのプロパティではなく、Pull RequestやIssueのプロパティだからです。 Instead, you must use the [addAssigneesToAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addassigneestoassignable), [removeAssigneesFromAssignable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removeassigneesfromassignable), [addLabelsToLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#addlabelstolabelable), [removeLabelsFromLabelable]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#removelabelsfromlabelable), [updateIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updateissue), [updatePullRequest]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#updatepullrequest), or [transferIssue]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#transferissue) mutations.
 
 {% endnote %}
 
-### 単一選択フィールドの更新
+### Updating a single select field
 
-以下の例は、単一選択フィールドを更新します。
+The following example will update the value of a single select field for an item.
+
 - `PROJECT_ID` - プロジェクトのノードIDで置き換えてください。
 - `ITEM_ID` - 更新したいアイテムのノードIDで置き換えてください。
-- `FIELD_ID` -  更新したいフィールドのIDで置き換えてください。
-- `OPTION_ID` - 設定したい値のIDで置き換えてください。
-
-{% include tool-switcher %}
+- `FIELD_ID` -  Replace this with the ID of the single select field that you want to update.
+- `OPTION_ID` - Replace this with the ID of the desired single select option.
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: token <em>TOKEN</em>' \
-  --header 'GraphQL-Features: projects_next_graphql' \
   --data '{"query":"mutation {updateProjectNextItemField(input: {projectId: \"<em>PROJECT_ID</em>\" itemId: \"<em>ITEM_ID</em>\" fieldId: \"<em>FIELD_ID</em>\" value: \"<em>OPTION_ID</em>\"}) {projectNextItem {id}}}"}'
 ```
 {% endcurl %}
 
 {% cli %}
 ```shell
-gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
+gh api graphql -f query='
   mutation {
     updateProjectNextItemField(
       input: {
@@ -399,25 +442,60 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
 ```
 {% endcli %}
 
-### プロジェクトからのアイテムの削除
+### Updating an iteration field
 
-以下の例は、プロジェクトからアイテムを削除します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 `ITEM_ID`を、削除したいアイテムのノードIDで置き換えてください。
+The following example will update the value of an iteration field for an item.
 
-{% include tool-switcher %}
+- `PROJECT_ID` - プロジェクトのノードIDで置き換えてください。
+- `ITEM_ID` - 更新したいアイテムのノードIDで置き換えてください。
+- `FIELD_ID` -  Replace this with the ID of the iteration field that you want to update.
+- `ITERATION_ID` - Replace this with the ID of the desired iteration. This can be either an active iteration (from the `iterations` array) or a completed iteration (from the `completed_iterations` array).
 
 {% curl %}
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: token <em>TOKEN</em>' \
-  --header 'GraphQL-Features: projects_next_graphql' \
+  --data '{"query":"mutation {updateProjectNextItemField(input: {projectId: \"<em>PROJECT_ID</em>\" itemId: \"<em>ITEM_ID</em>\" fieldId: \"<em>FIELD_ID</em>\" value: \"<em>ITERATION_ID</em>\"}) {projectNextItem {id}}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  mutation {
+    updateProjectNextItemField(
+      input: {
+        projectId: "<em>PROJECT_ID</em>"
+        itemId: "<em>ITEM_ID</em>"
+        fieldId: "<em>FIELD_ID</em>"
+        value: "<em>ITERATION_ID</em>"
+      }
+    ) {
+      projectNextItem {
+        id
+      }
+    }
+  }'
+```
+{% endcli %}
+
+### プロジェクトからのアイテムの削除
+
+以下の例は、プロジェクトからアイテムを削除します。 `PROJECT_ID`をプロジェクトのノードIDで置き換えてください。 `ITEM_ID`を、削除したいアイテムのノードIDで置き換えてください。
+
+{% curl %}
+```shell
+curl --request POST \
+  --url https://api.github.com/graphql \
+  --header 'Authorization: token <em>TOKEN</em>' \
   --data '{"query":"mutation {deleteProjectNextItem(input: {projectId: \"<em>PROJECT_ID</em>\" itemId: \"<em>ITEM_ID</em>\"}) {deletedItemId}}"}'
 ```
 {% endcurl %}
 
 {% cli %}
 ```shell
-gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
+gh api graphql -f query='
   mutation {
     deleteProjectNextItem(
       input: {
@@ -430,263 +508,3 @@ gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
   }'
 ```
 {% endcli %}
-
-## リファレンス
-
-### オブジェクト
-
-#### ProjectNext
-
-- [Closable](/graphql/reference/interfaces#closable)
-- [Node](/graphql/reference/interfaces#node)
-- [Updatable](/graphql/reference/interfaces#updatable)
-
-**フィールド**
-
-| 名前                               | 説明                                                                                                                                                                                                                                                     |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `closed` (`Boolean!`)            | プロジェクトがクローズされていれば`true`。                                                                                                                                                                                                                               |
-| `closedAt` (`DateTime!`)         | オブジェクトがクローズされた日時を示す。                                                                                                                                                                                                                                   |
-| `createdAt` (`DateTime!`)        | オブジェクトが作成された日時を示す。                                                                                                                                                                                                                                     |
-| `creator` (`Actor`)              | プロジェクトを最初に作成したアクター。                                                                                                                                                                                                                                    |
-| `databaseId` (`Int`)             | データベースの主キーを示す。                                                                                                                                                                                                                                         |
-| `description` (`String`)         | プロジェクトの説明。                                                                                                                                                                                                                                             |
-| `fields` (`[ProjectNextField]!`) | プロジェクト中のフィールドのリスト。<br><br>**引数**<br>`after` (`String`): 指定されたカーソルの後に来るリスト中の要素を返す。<br>`before` (`String`): 指定されたカーソルの前に来るリスト中の要素を返す。<br>`first` (`Int`): リスト中の最初の*n*個の要素を返す。<br>`last` (`Int`): リスト中の最後の*n*個の要素を返す。 |
-| `items` (`[ProjectNextItem]`)    | プロジェクト中のアイテムのリスト。<br><br>**引数**<br>`after` (`String`): 指定されたカーソルの後に来るリスト中の要素を返す。<br>`before` (`String`): 指定されたカーソルの前に来るリスト中の要素を返す。<br>`first` (`Int`): リスト中の最初の*n*個の要素を返す。<br>`last` (`Int`): リスト中の最後の*n*個の要素を返す。  |
-| `number` (`Int!`)                | プロジェクトの番号。                                                                                                                                                                                                                                             |
-| `owner` (`ProjectNextOwner!`)    | プロジェクトのオーナー。 現在はOrganizationの場合のみ。                                                                                                                                                                                                                     |
-| `title` (`String!`)              | プロジェクトの名前。                                                                                                                                                                                                                                             |
-| `updatedAt` (`DateTime!`)        | オブジェクトが最後に更新された日時を示す。                                                                                                                                                                                                                                  |
-| `viewerCanUpdate` (`Boolean!`)   | 現在の閲覧者がこのオブジェクトを更新できるかを示す。                                                                                                                                                                                                                             |
-
-#### ProjectNextConnection
-
-ProjectNextのコネクションタイプ。
-
-| 名前                          | 説明                  |
-| --------------------------- | ------------------- |
-| `edges` ([ProjectNextEdge]) | エッジのリスト。            |
-| `nodes` ([ProjectNext])     | ノードのリスト。            |
-| `pageInfo` (PageInfo!)      | ページネーションを支援するための情報。 |
-| `totalCount` (Int!)         | コネクション中のアイテムの総数を示す。 |
-
-#### ProjectNextEdge
-
-| 名前                   | 説明                 |
-| -------------------- | ------------------ |
-| `cursor` (String!)   | ページネーションで使用するカーソル。 |
-| `node` (ProjectCard) | エッジの最後にあるアイテム。     |
-
-#### ProjectNextField
-
-プロジェクト内のフィールド。
-
-| 名前                         | 説明                    |
-| -------------------------- | --------------------- |
-| `createdAt` (`DateTime!`)  | オブジェクトが作成された日時を示す。    |
-| `name` (`String!`)         | プロジェクトフィールドの名前。       |
-| `project` (`ProjectNext!`) | このフィールドを含むプロジェクト。     |
-| `settings` (`String`)      | プロジェクトフィールドの設定の文字列表現。 |
-| `updatedAt` (`DateTime!`)  | オブジェクトが最後に更新された日時を示す。 |
-
-#### ProjectNextFieldConnection
-
-ProjectNextFieldのコネクションタイプ。
-
-| 名前                               | 説明                  |
-| -------------------------------- | ------------------- |
-| `edges` ([ProjectNextFieldEdge]) | エッジのリスト。            |
-| `nodes` ([ProjectNextField])     | ノードのリスト。            |
-| `pageInfo` (PageInfo!)           | ページネーションを支援するための情報。 |
-| `totalCount` (Int!)              | コネクション中のアイテムの総数を示す。 |
-
-#### ProjectNextFieldEdge
-
-| 名前                   | 説明                 |
-| -------------------- | ------------------ |
-| `cursor` (String!)   | ページネーションで使用するカーソル。 |
-| `node` (ProjectCard) | エッジの最後にあるアイテム。     |
-
-#### ProjectNextItem
-
-- [ノード](/graphql/reference/interfaces#node)
-
-`ProjectNext`内のアイテム。
-
-| 名前                                             | 説明                                                                                                                                                                                                                                                   |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `content` (`ProjectNextItemContent`)           | 参照されたIssueまたはPull Requestの内容。                                                                                                                                                                                                                        |
-| `createdAt` (DateTime!)                        | オブジェクトが作成された日時を示す。                                                                                                                                                                                                                                   |
-| `creator` (`Actor`)                            | このアイテムを作成したアクター。                                                                                                                                                                                                                                     |
-| `databaseId` (`Int`)                           | データベースの主キーを示す。                                                                                                                                                                                                                                       |
-| `fieldValues` (`[ProjectNextItemFieldValue]!`) | アイテムのフィールド値のリスト。<br><br>**引数**<br>`after` (`String`): 指定されたカーソルの後に来るリスト中の要素を返す。<br>`before` (`String`): 指定されたカーソルの前に来るリスト中の要素を返す。<br>`first` (`Int`): リスト中の最初の*n*個の要素を返す。<br>`last` (`Int`): リスト中の最後の*n*個の要素を返す。 |
-| `project` (`ProjectNext!`)                     | このアイテムを含むプロジェクト。                                                                                                                                                                                                                                     |
-| `title` (`String!`)                            | アイテムのタイトル。                                                                                                                                                                                                                                           |
-| `updatedAt` (DateTime!)                        | オブジェクトが最後に更新された日時を示す。                                                                                                                                                                                                                                |
-
-#### ProjectNextItemContent
-
-`ProjectNextItem`に関連づけられたコンテンツ。
-
-**型:**
-
-- `issue` - Issueへの参照
-- `pull request` - Pull Requestへの参照。
-
-#### ProjectNextItemConnection
-
-ProjectNextItemのコネクションタイプ。
-
-| 名前                                | 説明                  |
-| --------------------------------- | ------------------- |
-| `edges` ([`ProjectNextItemEdge`]) | エッジのリスト。            |
-| `nodes` ([`ProjectNextItem`])     | ノードのリスト。            |
-| `pageInfo` (`PageInfo!`)          | ページネーションを支援するための情報。 |
-| `totalCount` (`Int!`)             | コネクション中のアイテムの総数を示す。 |
-
-#### ProjectNextItemEdge
-
-| 名前                     | 説明                 |
-| ---------------------- | ------------------ |
-| `cursor` (`String!`)   | ページネーションで使用するカーソル。 |
-| `node` (`ProjectCard`) | エッジの最後にあるアイテム。     |
-
-#### ProjectNextItemFieldValue
-
-- [ノード](/graphql/reference/interfaces#node)
-
-`ProjectNext`中のアイテムの中のフィールドの値。
-
-| 名前                                   | 説明                    |
-| ------------------------------------ | --------------------- |
-| `createdAt` (`DateTime!`)            | オブジェクトが作成された日時を示す。    |
-| `creator` (`Actor`)                  | このアイテムを作成したアクター。      |
-| `databaseId` (`Int`)                 | データベースの主キーを示す。        |
-| `projectField` (`ProjectNextField!`) | この値を含むプロジェクトフィールド。    |
-| `projectItem` (`ProjectNextItem!`)   | この値を含むプロジェクトアイテム。     |
-| `updatedAt` (`DateTime!`)            | オブジェクトが最後に更新された日時を示す。 |
-| `value`                              | フィールドの値。              |
-
-#### ProjectNextItemFieldValueConnection
-
-ProjectNextItemFieldValueのコネクションタイプ。
-
-| 名前                                          | 説明                  |
-| ------------------------------------------- | ------------------- |
-| `edges` ([`ProjectNextItemFieldValueEdge`]) | エッジのリスト。            |
-| `nodes` ([`ProjectNextItemFieldValue`])     | ノードのリスト。            |
-| `pageInfo` (`PageInfo!`)                    | ページネーションを支援するための情報。 |
-| `totalCount` (`Int!`)                       | コネクション中のアイテムの総数を示す。 |
-
-#### ProjectNextItemEdge
-
-コネクション中のエッジ。
-
-| 名前                     | 説明                 |
-| ---------------------- | ------------------ |
-| `cursor` (`String!`)   | ページネーションで使用するカーソル。 |
-| `node` (`ProjectCard`) | エッジの最後にあるアイテム。     |
-
-### インターフェース
-
-#### ProjectNextOwner
-
-プロジェクトのオーナーを表します。
-
-**実装**
-
-- `Organization`
-
-**フィールド**
-
-| 名前                                        | 説明                                                                                                                                                                                                                                                          |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `projectNext` (`ProjectNext`)             | 数値でプロジェクトを見つける。<br><br>**引数**<br>`number`(`Int!`): 見つけるプロジェクトの番号。                                                                                                                                                                         |
-| `projectsNext` (`ProjectNextConnection!`) | オーナーの配下のプロジェクトの次のアイテムのリスト。<br><br>**引数**<br>` after`(`String`): 指定されたカーソルの後に来るリスト中の要素を返す。<br>`before`(`String`): 指定されたカーソルの前に来るリスト中の要素を返す。<br>`first`(`Int`): リスト中の最初の*n*個の要素を返す。<br>`last`(`Int`): リスト中の最後の*n*個の要素を返す。 |
-
-### ミューテーション
-
-#### addProjectNextItem
-
-既存のアイテム（IssueもしくはPull Request）をプロジェクトに追加します。
-
-**入力フィールド**
-
-- `input`(`AddProjectNextItemInput!`)
-
-**返値フィールド**
-
-| 名前                                    | 説明                           |
-| ------------------------------------- | ---------------------------- |
-| `clientMutationId` (`String`)         | ミューテーションを行っているクライアントの一意の識別子。 |
-| `projectNextItem` (`ProjectNextItem`) | プロジェクトに追加されたアイテム。            |
-
-#### updateProjectNextItemField
-
-プロジェクトのアイテムのフィールドを更新します。
-
-**入力フィールド**
-
-- `input`(`UpdateProjectNextItemFieldInput!`)
-
-**返値フィールド**
-
-| 名前                                    | 説明                           |
-| ------------------------------------- | ---------------------------- |
-| `clientMutationId` (`String`)         | ミューテーションを行っているクライアントの一意の識別子。 |
-| `projectNextItem` (`ProjectNextItem`) | プロジェクトに追加されたアイテム。            |
-
-#### deleteProjectNextItem
-
-プロジェクトからアイテムを削除します。
-
-**入力フィールド**
-
-- `input`(`DeleteProjectNextItemInput!`)
-
-**返値フィールド**
-
-| 名前                            | 説明                           |
-| ----------------------------- | ---------------------------- |
-| `clientMutationId` (`String`) | ミューテーションを行っているクライアントの一意の識別子。 |
-| `deletedItemId` (`ID`)        | 削除されたアイテムのID。                |
-
-### 入力オブジェクト
-
-#### DeleteProjectNextItemInput
-
-AddProjectNextItemの自動生成された入力タイプ。
-
-**入力フィールド**
-
-| 名前                            | 説明                                 |
-| ----------------------------- | ---------------------------------- |
-| `clientMutationId` (`String`) | ミューテーションを行っているクライアントの一意の識別子。       |
-| `contentId` (`ID!`)           | 追加するアイテム（IssueあるいはPullRequest）のID。 |
-| `projectId` (`ID!`)           | アイテムを追加するプロジェクトのID。                |
-
-#### UpdateProjectNextItemFieldInput
-
-UpdateProjectNextItemFieldの自動生成された入力タイプ。
-
-**入力フィールド**
-
-| 名前                            | 説明                                         |
-| ----------------------------- | ------------------------------------------ |
-| `clientMutationId` (`String`) | ミューテーションを行っているクライアントの一意の識別子。               |
-| `fieldId` (`ID!`)             | 更新するフィールドのID。 現在はカスタムフィールドとステータスをサポートしている。 |
-| `itemId` (`ID!`)              | 更新するアイテムのID。                               |
-| `projectId` (`ID!`)           | プロジェクトのID。                                 |
-| `value` (`String!`)           | フィールドに設定される値。                              |
-
-#### DeleteProjectNextItemInput
-
-DeleteProjectNextItemの自動生成された入力タイプ。
-
-**入力フィールド**
-
-| 名前                            | 説明                           |
-| ----------------------------- | ---------------------------- |
-| `clientMutationId` (`String`) | ミューテーションを行っているクライアントの一意の識別子。 |
-| `itemId` (`ID!`)              | 削除されるアイテムのID。                |
-| `projectId` (`ID!`)           | アイテムが削除されるプロジェクトのID。         |

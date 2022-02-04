@@ -5,8 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
-  - /articles/how-do-i-set-up-guidelines-for-contributors/
+  - /articles/how-do-i-set-up-guidelines-for-contributors
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
@@ -25,15 +26,15 @@ shortTitle: コントリビューターのガイドライン
 
 オーナーおよびコントリビューターの双方にとって、コントリビューションガイドラインは、プルリクエストや Issue のリジェクトや再提出の手間を未然に軽減するための有効な手段です。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-Organization {% ifversion fpt or ghes %}またはユーザアカウント{% endif %}用のデフォルトのコントリビューションガイドラインを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
+Organization {% ifversion fpt or ghes or ghec %}またはユーザアカウント{% endif %}用のデフォルトのコントリビューションガイドラインを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% endif %}
 
 {% tip %}
 
-**ヒント:** リポジトリメンテナは、リポジトリの Issue やプルリクエストのテンプレートを作成することで、Issue についての特定のガイドラインを定めることができます。 詳しい情報については[Issue およびプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
+**ヒント:** リポジトリメンテナは、リポジトリの Issue やプルリクエストのテンプレートを作成することで、Issue についての特定のガイドラインを定めることができます。 詳しい情報については[Issue およびPull Requestのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
 
 {% endtip %}
 
@@ -62,6 +63,6 @@ Organization {% ifversion fpt or ghes %}またはユーザアカウント{% endi
 - オープンガバメント [コントリビューションガイドライン](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
 ## 参考リンク
-- オープンソースガイドのセクション「[オープンソースプロジェクトを始める](https://opensource.guide/starting-a-project/)」{% ifversion fpt %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes %}
+- オープンソースガイドのセクション「[オープンソースプロジェクトを始める](https://opensource.guide/starting-a-project/)」{% ifversion fpt or ghec %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes or ghec %}
 - 「[リポジトリへのライセンスの追加](/articles/adding-a-license-to-a-repository)」{% endif %}

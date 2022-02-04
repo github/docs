@@ -1,3 +1,3 @@
-- Optionally, autoscaling parameters for each pool.
-  - Minimum number of idle runners for the pool
-  - Active timeout: The number of minutes that a runner should remain active in the pool before the pool is reduced to the idle count
+- Opcionalmente, os parâmetros de dimensionamento automático para cada grupo.
+  - Número mínimo de executores ociosos para o pool
+  - Tempo-limite ativo: O número de minutos que um executor deve permanecer ativo no pool antes que este seja reduzido para o número ocioso

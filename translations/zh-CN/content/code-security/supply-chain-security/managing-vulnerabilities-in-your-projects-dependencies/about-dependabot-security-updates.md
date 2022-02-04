@@ -8,6 +8,8 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependabot-security-updates
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '> 3.2'
 type: overview
 topics:
   - Dependabot
@@ -20,12 +22,14 @@ topics:
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
 
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## 关于 {% data variables.product.prodname_dependabot_security_updates %}
 
 {% data variables.product.prodname_dependabot_security_updates %} 使您更容易修复仓库中的有漏洞依赖项。 如果启用此功能，当 {% data variables.product.prodname_dependabot %} 针对仓库依赖关系图中的有漏洞依赖项发出警报时，{% data variables.product.prodname_dependabot %} 将自动尝试修复它。 更多信息请参阅“[关于漏洞依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”和“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)”。
 
-{% data variables.product.prodname_dotcom %} 可能会向受最近发布的 {% data variables.product.prodname_dotcom %} 安全通告披露的漏洞影响的仓库发送 {% data variables.product.prodname_dependabot %} 警报。 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#dependabot-alerts-for-published-security-advisories)”。
-
+{% data variables.product.prodname_dotcom %} may send  {% data variables.product.prodname_dependabot_alerts %} to repositories affected by a vulnerability disclosed by a recently published {% data variables.product.prodname_dotcom %} security advisory. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 {% data variables.product.prodname_dependabot %} 将检查是否可以在不破坏仓库依赖关系图的情况下将有漏洞依赖项升级到已修复版本。 然后，{% data variables.product.prodname_dependabot %} 提出拉取请求以将依赖项更新到包含补丁的最低版本，并将拉取请求链接到 {% data variables.product.prodname_dependabot %} 警报，或者在警报中报告错误。 更多信息请参阅“[排查 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)”。
 
@@ -49,9 +53,13 @@ topics:
 
 {% data reusables.dependabot.automated-tests-note %}
 
+{% ifversion fpt or ghec %}
+
 ## 关于兼容性分数
 
-{% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a dependency could cause breaking changes to your project. 这些分数是根据已生成相同安全更新的其他公共仓库中的 CI 测试计算的。 更新的兼容性分数是在依赖项的特定版本之间进行更新时，CI 运行被视为通过的百分比。
+{% data variables.product.prodname_dependabot_security_updates %} 可能包括兼容性分数，以便您了解更新依赖项是否可能导致对项目的重大更改。 这些分数是根据已生成相同安全更新的其他公共仓库中的 CI 测试计算的。 更新的兼容性分数是在依赖项的特定版本之间进行更新时，CI 运行被视为通过的百分比。
+
+{% endif %}
 
 ## 关于 {% data variables.product.prodname_dependabot %} 安全更新通知
 

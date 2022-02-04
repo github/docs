@@ -1,12 +1,12 @@
 ---
 title: 查看 GitHub Actions 使用情况
 intro: '您可以查看 {% data variables.product.prodname_actions %} 的分钟数和存储空间使用详情。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/viewing-your-github-actions-usage
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Actions

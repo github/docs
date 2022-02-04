@@ -1,9 +1,9 @@
 ---
 title: Syntax for issue forms
 intro: 'You can define different input types, validations, default assignees, and default labels for your issue forms.'
-product: 'Issue forms are available in beta for public repositories on {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -165,3 +165,4 @@ body:
 ## Further reading
 
 - [YAML](https://yaml.org/)
+- [Common validation errors when creating issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)

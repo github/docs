@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage secrets for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Secret store

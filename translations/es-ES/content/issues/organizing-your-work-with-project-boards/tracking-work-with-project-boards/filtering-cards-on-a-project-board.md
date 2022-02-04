@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Filtrar las tarjetas en el tablero
@@ -29,7 +30,7 @@ También puedes usar la barra de búsqueda "Filtrar tarjetas" en la parte superi
 - Filtrar por comprobación de estado usando `status:pending`, `status:success` o `status:failure`
 - Filtrar tarjetas por tipo usando `type:issue`, `type:pr` o `type:note`
 - Filtrar tarjetas por estado y tipo usando `is:open`, `is:closed` o `is:merged` y `is:issue`, `is:pr` o `is:note`
-- Filtrar tarjetas por informes de problemas que se enlazan con alguna solicitud de extracción mediante una referencia de cierre utilizando `linked:pr`{% ifversion fpt or ghes or ghae %}
+- Filtrar tarjetas por informes de problemas que se enlazan con alguna solicitud de extracción mediante una referencia de cierre utilizando `linked:pr`{% ifversion fpt or ghes or ghae or ghec %}
 - Filtrar tarjetas por repositorio en un tablero de proyecto de toda la organización utilizando `repo:ORGANIZATION/REPOSITORY`{% endif %}
 
 1. Dirígete al tablero de proyecto que contenga las tarjetas que desees filtrar.

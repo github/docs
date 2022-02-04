@@ -38,6 +38,7 @@ export enum EventType {
   exit = 'exit',
   link = 'link',
   search = 'search',
+  searchResult = 'searchResult',
   navigate = 'navigate',
   survey = 'survey',
   experiment = 'experiment',
@@ -58,6 +59,11 @@ type SendEventProps = {
   link_url?: string
   search_query?: string
   search_context?: string
+  search_result_query?: string
+  search_result_index?: number
+  search_result_total?: number
+  search_result_rank?: number
+  search_result_url?: string
   navigate_label?: string
   survey_token?: string // Honeypot, doesn't exist in schema
   survey_vote?: boolean
@@ -123,10 +129,14 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
     ...props,
   }
 
-  // Only send the beacon if the feature is not disabled in the user's browser
-  if (navigator?.sendBeacon) {
-    const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
-    navigator.sendBeacon('/events', blob)
+  const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
+  const endpoint = '/events'
+  try {
+    // Only send the beacon if the feature is not disabled in the user's browser
+    // Even if the function exists, it can still throw an error from the call being blocked
+    navigator?.sendBeacon(endpoint, blob)
+  } catch {
+    console.warn(`sendBeacon to '${endpoint}' failed.`)
   }
 
   return body
@@ -260,7 +270,7 @@ export default function initializeEvents() {
   initPrintEvent()
   // survey event in ./survey.js
   // experiment event in ./experiment.js
-  // search event in ./search.js
+  // search and search_result event in ./search.js
   // redirect event in middleware/record-redirect.js
   // preference event in ./display-tool-specific-content.js
 }

@@ -30,7 +30,7 @@ topics:
 
 ## クラスタの初期化
 
-クラスタを初期化するためには、クラスタ設定ファイル（`cluster.conf`）が必要です。 詳しい情報については[クラスタの設定について](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)を参照してください。
+クラスタを初期化するためには、クラスタ設定ファイル（`cluster.conf`）が必要です。 For more information, see "[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
 1. 設定された最初のノードで、`ghe-cluster-config-init` を実行します。  実行すると、クラスタ設定ファイルに設定されていないノードがある場合にクラスタを初期化します。
 2. `ghe-cluster-config-apply` を実行します。 これにより、 `cluster.conf` ファイルを検証して各ノードファイルに設定を適用し、各ノードで設定されたサービスを起動します。

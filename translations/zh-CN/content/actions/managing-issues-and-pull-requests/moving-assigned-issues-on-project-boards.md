@@ -1,13 +1,13 @@
 ---
 title: 在项目板上移动分配的议题
 intro: '您可以使用 {% data variables.product.prodname_actions %} 在议题被分配时自动将议题移到项目板上的特定列。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows

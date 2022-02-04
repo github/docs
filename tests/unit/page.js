@@ -18,7 +18,7 @@ const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
 const opts = {
   relativePath:
-    'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
+    'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
   basePath: path.join(__dirname, '../../content'),
   languageCode: 'en',
 }
@@ -84,17 +84,29 @@ describe('Page class', () => {
         page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentPath:
-          '/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
+          '/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
         currentLanguage: 'en',
       }
       const rendered = await page.render(context)
       const $ = cheerio.load(rendered)
-      expect(page.markdown.includes('(/articles/about-pull-requests)')).toBe(true)
-      expect(page.markdown.includes('(/en/articles/about-pull-requests)')).toBe(false)
-      expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
+      expect(
+        page.markdown.includes(
+          '(/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
+        )
+      ).toBe(true)
+      expect(
+        page.markdown.includes(
+          '(/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
+        )
+      ).toBe(false)
       expect(
         $(
-          `a[href="/en/${`enterprise-server@${enterpriseServerReleases.latest}`}/articles/about-pull-requests"]`
+          'a[href="/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
+        ).length
+      ).toBe(0)
+      expect(
+        $(
+          `a[href="/en/${`enterprise-server@${enterpriseServerReleases.latest}`}/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]`
         ).length
       ).toBeGreaterThan(0)
     })
@@ -113,18 +125,31 @@ describe('Page class', () => {
 
     test('rewrites links in the intro to include the current language prefix and version', async () => {
       const page = await Page.init(opts)
-      page.rawIntro = '[Pull requests](/articles/about-pull-requests)'
+      page.rawIntro =
+        '[Pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
         currentPath:
-          '/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
+          '/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
         currentLanguage: 'en',
       }
+      // This is needed because unit tests are weird. The page.render()
+      // method is dependent on module global cache.
+      // We need to fudge the `currentPath` so it appears to be different.
+      context.currentPath += Math.random()
       await page.render(context)
       const $ = cheerio.load(page.intro)
-      expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
-      expect($('a[href="/en/articles/about-pull-requests"]').length).toBeGreaterThan(0)
+      expect(
+        $(
+          'a[href="/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
+        ).length
+      ).toBe(0)
+      expect(
+        $(
+          'a[href="/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
+        ).length
+      ).toBeGreaterThan(0)
     })
 
     test('does not rewrite links that include deprecated enterprise release numbers', async () => {
@@ -164,7 +189,7 @@ describe('Page class', () => {
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
-        currentPath: `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches`,
+        currentPath: `/en/${nonEnterpriseDefaultVersion}/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches`,
         currentLanguage: 'en',
       }
       const rendered = await page.render(context)
@@ -187,6 +212,7 @@ describe('Page class', () => {
         currentLanguage: 'en',
         enterpriseServerVersions,
       }
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       let rendered = await page.render(context)
       let $ = cheerio.load(rendered)
       expect($.text()).toBe(
@@ -197,6 +223,7 @@ describe('Page class', () => {
       // change version to the oldest enterprise version, re-render, and test again;
       // the results should be the same
       context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).toBe(
@@ -207,6 +234,7 @@ describe('Page class', () => {
       // change version to non-enterprise, re-render, and test again;
       // the results should be the opposite
       context.currentVersion = nonEnterpriseDefaultVersion
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).not.toBe(
@@ -244,6 +272,7 @@ describe('Page class', () => {
         currentVersion: 'github-ae@latest',
         currentLanguage: 'en',
       }
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}`
       await expect(() => {
         return page.render(context)
       }).not.toThrow()
@@ -302,7 +331,7 @@ describe('Page class', () => {
     test('sets versioned values', async () => {
       const page = await Page.init(opts)
       const expectedPath =
-        'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
+        'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
           .href
@@ -346,7 +375,7 @@ describe('Page class', () => {
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
           .href
       ).toBe(expectedPath)
-      expect(page.permalinks.length).toBe(1)
+      expect(page.permalinks.length).toBe(2)
     })
 
     test('permalinks for enterprise-only pages', async () => {
@@ -511,6 +540,37 @@ describe('Page class', () => {
     })
   })
 
+  describe('videos', () => {
+    let page
+
+    beforeEach(async () => {
+      page = await Page.init({
+        relativePath: 'article-with-videos.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+    })
+
+    it('includes videos specified in the featuredLinks frontmatter', async () => {
+      expect(page.featuredLinks.videos).toStrictEqual([
+        {
+          title: 'codespaces',
+          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+        },
+        {
+          title: 'more codespaces',
+          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+        },
+        {
+          title: 'even more codespaces',
+          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+        },
+      ])
+
+      expect(page.featuredLinks.videosHeading).toBe('Custom Videos heading')
+    })
+  })
+
   describe('Page.parseFrontmatter()', () => {
     it('throws an error on bad input', () => {
       const markdown = null
@@ -543,15 +603,6 @@ describe('Page class', () => {
       )
       // expect(variants.find(({ code }) => code === 'ja').href).toBe('/ja/enterprise/2.14/user/articles/github-glossary')
     })
-  })
-
-  test('fixes translated frontmatter that includes verdadero', async () => {
-    const page = await Page.init({
-      relativePath: 'article-with-mislocalized-frontmatter.md',
-      basePath: path.join(__dirname, '../fixtures'),
-      languageCode: 'ja',
-    })
-    expect(page.mapTopic).toBe(true)
   })
 
   describe('page.versions frontmatter', () => {
@@ -609,7 +660,7 @@ describe('Page class', () => {
       // and placeholder.yml has:
       //
       // versions:
-      //   ghes: '<2.22'
+      //   ghes: '<3.0'
       //   ghae: '*'
       //
       // So we expect to get the versioning from both.
@@ -623,8 +674,6 @@ describe('Page class', () => {
       expect(page.versions.fpt).toBe('*')
       expect(page.versions.ghes).toBe('>2.21')
       expect(page.versions.ghae).toBeUndefined()
-      // The `feature` prop gets deleted by lib/get-applicable-versions, so it's undefined.
-      expect(page.versions.feature).toBeUndefined()
 
       // Test the resolved versioning, where GHES releases specified in frontmatter and in
       // feature versions are combined (i.e., one doesn't overwrite the other).
@@ -632,7 +681,7 @@ describe('Page class', () => {
       // because lib/get-applicable-versions only returns currently supported versions,
       // so as soon as 2.21 is deprecated, a test for that _not_ to exist will not be meaningful.
       // But by testing that the _latest_ GHES version is returned, we can ensure that the
-      // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<2.22`.
+      // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<3.0`.
       expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
       expect(page.applicableVersions.includes('github-ae@latest')).toBe(true)

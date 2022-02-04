@@ -1,10 +1,10 @@
 ---
 title: Términos de servicio de GitHub
 redirect_from:
-  - /tos/
-  - /terms/
-  - /terms-of-service/
-  - /github-terms-of-service-draft/
+  - /tos
+  - /terms
+  - /terms-of-service
+  - /github-terms-of-service-draft
   - /articles/github-terms-of-service
 versions:
   fpt: '*'
@@ -101,7 +101,7 @@ Aceptas que en ningún caso violarás nuestras [Políticas de uso aceptable](/ar
 Puedes crear o cargar Contenido generado por el Usuario mientras usas el Servicio. Eres el único responsable del contenido y por cualquier daño que resulte de cualquier Contenido generado por el Usuario que publiques, cargues, enlaces o que de otra forma esté disponible a través del Servicio, independientemente de la forma de dicho Contenido. No eres responsable de ninguna visualización pública o uso indebido del Contenido generado por el Usuario.
 
 ### 2. GitHub puede eliminar contenido
-Tenemos el derecho de rechazar o eliminar cualquier contenido generado por el usuario que, a nuestro exclusivo criterio, viole alguna ley o [términos o políticas de GitHub](/github/site-policy). El contenido generado por el usuario que se muestra en GitHub para móvil puede estar sujeto a los términos adicionales de las tiendas de aplicaciones móviles.
+Tenemos el derecho de rechazar o eliminar cualquier contenido generado por el usuario que, a nuestro exclusivo criterio, viole alguna ley o [términos o políticas de GitHub](/github/site-policy). El contenido generado por el usuario que se muestra en GitHub Móvil puede estar sujeto a los términos adicionales de las tiendas de aplicaciones móviles.
 
 ### 3. Propiedad del Contenido, Derecho a publicar y Otorgamientos de licencia
 Conservas la propiedad y la responsabilidad de tu contenido. Si estás publicando algo que no hayas creado tu mismo o de lo cual no posees los derechos, aceptas que eres responsable de cualquier Contenido que publiques; que sólo enviarás contenido que tengas derecho a publicar; y que cumplirás plenamente con cualquier licencia de terceros relacionada con el Contenido que publiques.

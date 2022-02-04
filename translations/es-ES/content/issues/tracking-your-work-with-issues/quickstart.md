@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Issues
@@ -28,7 +29,7 @@ Primero, crea una propuesta. Hay varias formas de crear una propuesta; puedes el
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.repositories.new_issue %}
-1. En este ejemplo, comenzaremos con una propuesta en blanco. Tu repositorio podría utilizar las plantillas de propuesta{% ifversion fpt %} y formatos de propuesta{% endif %} para exhortar a que los contribuyentes proporcionen información específica. Si tu repositorio utiliza plantillas de propuestas, {% ifversion fpt or ghes %}Haz clic en **Abrir una propuesta en blanco**{% else %}haz clic en **Abrir una propuesta normal.**{% endif %}.
+1. En este ejemplo, comenzaremos con una propuesta en blanco. Tu repositorio podría utilizar las plantillas de propuesta{% ifversion fpt or ghec %} y formatos de propuesta{% endif %} para exhortar a que los contribuyentes proporcionen información específica. Si tu repositorio utiliza plantillas de propuestas, {% ifversion fpt or ghes or ghec %}Haz clic en **Abrir una propuesta en blanco**{% else %}haz clic en **Abrir una propuesta normal.**{% endif %}.
 
 ![propuesta en blanco](/assets/images/help/issues/blank-issue.png)
 
@@ -70,7 +71,7 @@ Para comunicar la responsabilidad, puedes asignar la propeusta a un miembro de t
 
 ## Agregar la propuesta a un proyecto
 
-Puedes agregar la propuesta a un proyecto existente. {% ifversion fpt %}Si estás utilizando proyectos (beta), también puedes llenar los metadatos del proyecto. {% endif %} Para obtener más información sobre los proyectos, consulta las secciones {% ifversion fpt %}"[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" y {% endif %}"[Organizar tu trabajo con tableros de proyecto](/issues/organizing-your-work-with-project-boards)".
+Puedes agregar la propuesta a un proyecto existente. {% ifversion fpt or ghec %}Si estás utilizando proyectos (beta), también puedes llenar los metadatos del proyecto. {% endif %} Para obtener más información sobre los proyectos, consulta las secciones {% ifversion fpt or ghec %}"[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" y {% endif %}"[Organizar tu trabajo con tableros de proyecto](/issues/organizing-your-work-with-project-boards)".
 
 ![propuesta con proyectos](/assets/images/help/issues/issue-project.png)
 
@@ -96,5 +97,5 @@ Puedes utilizar las propuestas para una amplia gama de propósitos. Por ejemplo:
 Aquí tienes algunos recursos útiles para que tomes tus siguientes pasos con {% data variables.product.prodname_github_issues %}:
 
 - Para aprender más sobre las propuestas, consulta la sección "[Acerca de las propuestas](/issues/tracking-your-work-with-issues/about-issues)".
-- Para aprender sobre cómo pueden ayudarte los proyectos para planear y hacer rastres, consulta la sección {% ifversion fpt %}"[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" o la sección{% endif %}"[Organizar tu trabajo con tableros de proyecto](/issues/organizing-your-work-with-project-boards)".
-- Para aprender más sobre cómo utilizar las plantillas de propuestas{% ifversion fpt %} y emitir formatos{% endif %} para motivar a los contribuyentes a proporcionar información específica, consulta la sección "[Utilizar las plantillas para motivar las propuestas y solicitudes de cambios útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)".
+- Para aprender sobre cómo pueden ayudarte los proyectos para planear y hacer rastres, consulta la sección {% ifversion fpt or ghec %}"[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" o la sección{% endif %}"[Organizar tu trabajo con tableros de proyecto](/issues/organizing-your-work-with-project-boards)".
+- Para aprender más sobre cómo utilizar las plantillas de propuestas{% ifversion fpt or ghec %} y emitir formatos{% endif %} para motivar a los contribuyentes a proporcionar información específica, consulta la sección "[Utilizar las plantillas para motivar las propuestas y solicitudes de cambios útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)".

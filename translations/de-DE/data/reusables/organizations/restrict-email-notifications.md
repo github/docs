@@ -1,1 +1,0 @@
-1. Under "Notification preferences", select **Restrict email notifications to only approved or verified domains**. ![Kontrollkästchen zur Beschränkung von E-Mail-Benachrichtigungen auf eine genehmigte E-Mail-Domain](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)

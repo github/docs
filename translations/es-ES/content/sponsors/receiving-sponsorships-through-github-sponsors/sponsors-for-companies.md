@@ -5,6 +5,7 @@ intro: 'Para aceptar pagos del servicio de Patrocinadores para Compañías, debe
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Sponsors
@@ -26,7 +27,7 @@ El acuerdo de "Términos Adicionales de Mantenedor de GitHub para Provisión de 
 * Debido a la forma en la que se configura el servicio, recibirás el pago de {% data variables.product.company_short %}, no de otra compañía.
 * Si se requiere retener impuestos sobre el pago que se haga mediante este programa, {% data variables.product.company_short %} los deducirá de la cantidad que se deba y los pagará a la autoridad fiscal adecuada.
 * Compartiremos en un tablero de {% data variables.product.company_short %} los datos agregados sobre tus proyectos o sobre aquellos en los cuales contribuyas con las compañías que pagan por el acceso a estos datos. Estos campos de datos se detallan en la sección 5 del acuerdo.
-* Los datos se agregarán y no incluirán Información Personal de Usuario (de acuerdo a como se define en la [Declaración de privacidad](/github/site-policy/github-privacy-statement) de {% data variables.product.company_short %}) ni cualquier información de los repositorios privados.
+* Los datos se agregarán y no incluirán Información Personal de Usuario (de acuerdo a como se define en la [Declaración de privacidad](/free-pro-team@latest/github/site-policy/github-privacy-statement) de {% data variables.product.company_short %}) ni cualquier información de los repositorios privados.
 * Tú, como mantenedor, puedes finalizar el acuerdo si nos contactas con 14 días de antelación para notificarnos.
 
 Si estás de acuerdo con los términos que se detallan en el acuerdo de "Términos Adicionales de Mantenedor de GitHub para la Provisión de Datos Opcionales", recibirás un pago de {% data variables.product.company_short %} cada que una compañía compre el acceso a este servicio. La compañía compra el acceso al tablero desde {% data variables.product.company_short %} por una cantidad limitada de tiempo (por ejemplo, por un mes o un año) y {% data variables.product.company_short %} compra la licencia para tus datos o llena el tablero. Tu relación financiera es con{% data variables.product.company_short %} y no con la compañía que participa en el servicio.

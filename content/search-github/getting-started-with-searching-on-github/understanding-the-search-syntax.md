@@ -2,7 +2,7 @@
 title: Understanding the search syntax
 intro: 'When searching {% data variables.product.product_name %}, you can construct queries that match specific numbers and words.'
 redirect_from:
-  - /articles/search-syntax/
+  - /articles/search-syntax
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/understanding-the-search-syntax
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 shortTitle: Understand search syntax
@@ -73,8 +74,8 @@ Another way you can narrow down search results is to exclude certain subsets. Yo
 
 Query  | Example
 ------------- | -------------
-<code>-<em>QUALIFIER</em></code>  | **[cats stars:>10 -language:javascript](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** matches repositories with the word "cats" that have more than 10 stars but are not written in JavaScript.
- | **[mentions:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization
+<code>-<em>QUALIFIER</em></code>  | **[`cats stars:>10 -language:javascript`](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** matches repositories with the word "cats" that have more than 10 stars but are not written in JavaScript.
+ | **[`mentions:defunkt -org:github`](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization
 
 ## Use quotation marks for queries with whitespace
 
@@ -85,7 +86,7 @@ If your search query contains whitespace, you will need to surround it with quot
 
 Some non-alphanumeric symbols, such as spaces, are dropped from code search queries within quotation marks, so results can be unexpected.
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Queries with usernames
 
 If your search query contains a qualifier that requires a username, such as `user`, `actor`, or `assignee`, you can use any {% data variables.product.product_name %} username, to specify a specific person, or `@me`, to specify the current user.

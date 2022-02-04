@@ -1,6 +1,6 @@
 ---
-title: Niveles de permiso para un repositorio de cuenta de usuario
-intro: 'Un repositorio que pertenece a una cuenta de usuario tiene dos niveles de permiso: propietario del repositorio y colaboradores.'
+title: Permission levels for a user account repository
+intro: 'A repository owned by a user account has two permission levels: the repository owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository
@@ -9,90 +9,83 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
-shortTitle: Permisos bajo los repositorios
+shortTitle: Permission user repositories
 ---
+## About permissions levels for a user account repository
 
-## Acerca de los niveles de permisos para un repositorio de una cuenta de usuario
+Repositories owned by user accounts have one owner. Ownership permissions can't be shared with another user account.
 
-Los repositorios que pertenecen a las cuentas de usuario tienen un propietario. Los permisos de propiedad no pueden compartirse con otra cuenta de usuario.
-
-También puedes {% ifversion fpt %}invitar{% else %}agregar{% endif %} usuarios de {% data variables.product.product_name %} a tu repositorio como colaboradores. Para obtener más información, consulta la sección "[Invitar colaboradores a un repositorio personal](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)".
+You can also {% ifversion fpt or ghec %}invite{% else %}add{% endif %} users on {% data variables.product.product_name %} to your repository as collaborators. For more information, see "[Inviting collaborators to a personal repository](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)."
 
 {% tip %}
 
-**Tip:** Si necesitas un acceso más granular para un repositorio que le pertenezca a tu cuenta de usuario, considera transferirlo a una organización. Para obtener más información, consulta "[Transferir un repositorio](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)".
+**Tip:** If you require more granular access to a repository owned by your user account, consider transferring the repository to an organization. For more information, see "[Transferring a repository](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)."
 
 {% endtip %}
 
-## Acceso de propietarios a un repositorio que pertenezca a una cuenta de usuario
+## Owner access for a repository owned by a user account
 
-El propietario del repositorio tiene control completo del repositorio. Adicionalmente a las acciones que pudiera realizar cualquier colaborador, el propietario del repositorio puede realizar las siguientes.
+The repository owner has full control of the repository. In addition to the actions that any collaborator can perform, the repository owner can perform the following actions.
 
-| Acción                                                                                                                                                          | Más información                                                                                                                                                                                                                                                |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| {% ifversion fpt %}Invitar colaboradores{% else %}Agregar colaboradores{% endif %}                                                                              |                                                                                                                                                                                                                                                                |
-| "[Invitar colaboradores a un repositorio personal](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)"   |                                                                                                                                                                                                                                                                |
-| Cambiar la visibilidad del repositorio                                                                                                                          | "[Configurar la visibilidad del repositorio](/github/administering-a-repository/setting-repository-visibility)" |{% ifversion fpt %}
-| Limitar las interacciones con el repositorio                                                                                                                    | "[Limitar las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)" |{% endif %}{% ifversion fpt or ghes > 3.0 or ghae-next %}
-| Renombrar una rama, incluyendo la rama predeterminada                                                                                                           | "[Renombrar una rama](/github/administering-a-repository/renaming-a-branch)" 
-{% endif %}
-| Fusionar una solicitud de extracción sobre una rama protegida, incluso si no hay revisiones de aprobación                                                       | "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches)"                                                                                                                                                                |
-| Eliminar el repositorio                                                                                                                                         | "[Borrar un repositorio](/github/administering-a-repository/deleting-a-repository)"                                                                                                                                                                            |
-| Administrar los temas del repositorio                                                                                                                           | "[Clasificar tu repositorio con temas](/github/administering-a-repository/classifying-your-repository-with-topics)" |{% ifversion fpt %}
-| Administrar la seguridad y la configuración de análisis del repositorio                                                                                         | "[Administrar la configuración de análisis y seguridad de tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" |{% endif %}{% ifversion fpt %}
-| Habilitar la gráfica de dependencias para un repositorio privado                                                                                                | "[Explorar las dependencias de un repositorio](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)" |{% endif %}{% ifversion fpt or ghes > 3.0 %}
-| Borrar y restablecer paquetes                                                                                                                                   | "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)" |{% endif %}{% ifversion ghes = 2.22 or ghes = 3.0 or ghae %}
-| Borrar paquetes                                                                                                                                                 | "[Borrar paquetes](/packages/learn-github-packages/deleting-a-package)" 
-{% endif %}
-| Personalizar la vista previa de las redes sociales de un repositorio                                                                                            | "[Personalizar la vista previa de las redes sociales de tu repositorio](/github/administering-a-repository/customizing-your-repositorys-social-media-preview)"                                                                                                 |
-| Crear una plantilla del repositorio                                                                                                                             | "[Crear un repositorio de plantilla](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)" |{% ifversion fpt or ghes %}
-| Recibir                                                                                                                                                         |                                                                                                                                                                                                                                                                |
-| {% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de seguridad{% endif %} para las dependencias vulnerables | "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" |{% endif %}{% ifversion fpt %}
-| Descartar las {% data variables.product.prodname_dependabot_alerts %} en el repositorio                                                                       | "[Ver y actualizar las dependencias vulnerables en tu repositorio](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"                                                                                 |
-| Administrar el uso de datos para un repositorio privado                                                                                                         | "[Administrar la configuración del uso de datos para tu repositorio privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)"
-{% endif %}
-| Definir propietarios del código para un repositorio                                                                                                             | "[Acerca de los propietarios del código](/github/creating-cloning-and-archiving-repositories/about-code-owners)"                                                                                                                                               |
-| Archivar el repositorio                                                                                                                                         | "[Archivar repositorios](/repositories/archiving-a-github-repository/archiving-repositories)" |{% ifversion fpt %}
-| Crear asesorías de seguridad                                                                                                                                    | "[Acerca de las {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)"                                                                                                      |
-| Mostrar el botón del patrocinador                                                                                                                               | "[Mostrar un botón de patrocinador en tu repositorio](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}{% ifversion fpt or ghae or ghes > 3.0 %}
-| Permitir o dejar de permitir la fusión automática para las solicitudes de cambios                                                                               | "[Administrar la fusión automática para las solicitudes de cambios en tu repositorio](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)" | {% endif %}
+| Action | More information |
+| :- | :- |
+| {% ifversion fpt or ghec %}Invite collaborators{% else %}Add collaborators{% endif %} | "[Inviting collaborators to a personal repository](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)" |
+| Change the visibility of the repository | "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)" |{% ifversion fpt or ghec %}
+| Limit interactions with the repository | "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)" |{% endif %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+| Rename a branch, including the default branch | "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)" |{% endif %}
+| Merge a pull request on a protected branch, even if there are no approving reviews | "[About protected branches](/github/administering-a-repository/about-protected-branches)" |
+| Delete the repository | "[Deleting a repository](/repositories/creating-and-managing-repositories/deleting-a-repository)" |
+| Manage the repository's topics | "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)" |{% ifversion fpt or ghec %}
+| Manage security and analysis settings for the repository | "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" |{% endif %}{% ifversion fpt or ghec %}
+| Enable the dependency graph for a private repository | "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)" |{% endif %}{% ifversion fpt or ghes > 3.1 or ghec or ghae %}
+| Delete and restore packages | "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" |{% endif %}{% ifversion ghes < 3.1 %}
+| Delete packages | "[Deleting packages](/packages/learn-github-packages/deleting-a-package)" |{% endif %}
+| Customize the repository's social media preview | "[Customizing your repository's social media preview](/github/administering-a-repository/customizing-your-repositorys-social-media-preview)" |
+| Create a template from the repository | "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)" |{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| Control access to {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies | "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" |{% endif %}{% ifversion fpt or ghec %}
+| Dismiss {% data variables.product.prodname_dependabot_alerts %} in the repository | "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)" |
+| Manage data use for a private repository | "[Managing data use settings for your private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"|{% endif %}
+| Define code owners for the repository | "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)" |
+| Archive the repository | "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)" |{% ifversion fpt or ghec %}
+| Create security advisories | "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)" |
+| Display a sponsor button | "[Displaying a sponsor button in your repository](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
+| Allow or disallow auto-merge for pull requests | "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)" | {% endif %}
 
-## Acceso de colaborador para un repositorio que pertenezca a una cuenta de usuario
+## Collaborator access for a repository owned by a user account
 
-Los colaboradores de un repositorio personal pueden extraer (leer) el contienido del mismo y subir (escribir) los cambios al repositorio.
+Collaborators on a personal repository can pull (read) the contents of the repository and push (write) changes to the repository.
 
 {% note %}
 
-**Nota:** en un repositorio privado, los propietarios del repositorio solo pueden otorgar acceso de escritura a los colaboradores. Los colaboradores no pueden tener acceso de solo lectura a los repositorio propiedad de una cuenta de usuario.
+**Note:** In a private repository, repository owners can only grant write access to collaborators. Collaborators can't have read-only access to repositories owned by a user account.
 
 {% endnote %}
 
-Los colaboradores también pueden realizar las siguientes acciones.
+Collaborators can also perform the following actions.
 
-| Acción                                                                                                         | Más información                                                                                                                                                                                                 |
-|:-------------------------------------------------------------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Bifurcar el repositorio                                                                                        | "[Acerca de las bifurcaciones](/github/collaborating-with-issues-and-pull-requests/about-forks)" |{% ifversion fpt or ghes > 3.1 or ghae-next %}
-| Renombrar una rama diferente a la predeterminada                                                               | "[Renombrar una rama](/github/administering-a-repository/renaming-a-branch)" 
-{% endif %}
-| Crear, editar, y borrar comentarios en las confirmaciones, solicitudes de cambios y propuestas del repositorio | <ul><li>"[Acerca de las propuestas](/github/managing-your-work-on-github/about-issues)"</li><li>"[Comentar en una solilcitud de cambios](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)"</li><li>"[Administrar los comentarios perjudiciales](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"</li></ul>                                                                                                                                                                                       |
-| Crear, asignar, cerrar y volver a abrir las propuestas en el repositorio                                       | "[Administrar tu trabajo con las propuestas](/github/managing-your-work-on-github/managing-your-work-with-issues)"                                                                                              |
-| Administrar las etiquetas para las propuestas y solicitudes de cambios en el repositorio                       | "[Etiquetar las propuestas y solicitudes de cambios](/github/managing-your-work-on-github/labeling-issues-and-pull-requests)"                                                                                   |
-| Administrar hitos para las propuestas y solicitudes de cambios en el repositorio                               | "[Crear y editar hitos para propuestas y solicitudes de extracción](/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests)"                                         |
-| Marcar una propuesta o solicitud de cambios en el repositorio como duplicada                                   | "[Acerca de las propuestas y soicitudes de cambio duplicadas](/github/managing-your-work-on-github/about-duplicate-issues-and-pull-requests)"                                                                   |
-| Crear, fusionar y cerrar las solicitudes de cambios en el repositorio                                          | "[Proponer cambios en tu trabajo con solicitudes de cambios](/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests)" |{% ifversion fpt or ghae or ghes > 3.0 %}
-| Habilitar e inhabilitar la fusión automática para una solicitud de cambios                                     | "[Fusionar automáticamente una solicitud de cambios](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)"{% endif %}
-| Aplicar los cambios sugeridos a las solicitudes de cambios en el repositorio                                   | "[Incorporar retroalimentación en tu solicitud de cambios](/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request)"                                                    |
-| Crear una solicitud de cambios desde una bifurcación del repositorio                                           | "[Crear una solicitud de extracción desde una bifurcación](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)"                                                            |
-| Emitir una revisión de una solicitud de cambios que afecte la capacidad de fusión de una solicitud de cambios  | "[Revisar los cambios propuestos en una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request)"                                             |
-| Crear y editar un wiki para el repositorio                                                                     | "[Acerca de los wikis](/communities/documenting-your-project-with-wikis/about-wikis)"                                                                                                                           |
-| Crear y editar los lanzamientos del repositorio                                                                | "[Administrar los lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository)"                                                                                        |
-| Actuar como propietario del código del repositorio                                                             | "[Acerca de los propietarios del código](/articles/about-code-owners)" |{% ifversion fpt or ghae %}
-| Publicar, ver o instalar paquetes                                                                              | "[Publicar y mantener paquetes](/github/managing-packages-with-github-packages/publishing-and-managing-packages)" 
-{% endif %}
-| Eliminarse como colaboradores del repositorio                                                                  | "[Eliminarte a ti mismo del repositorio de un colaborador](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository)"                                         |
+| Action | More information |
+| :- | :- |
+| Fork the repository | "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)" |{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+| Rename a branch other than the default branch | "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)" |{% endif %}
+| Create, edit, and delete comments on commits, pull requests, and issues in the repository | <ul><li>"[About issues](/github/managing-your-work-on-github/about-issues)"</li><li>"[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"</li><li>"[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"</li></ul> |
+| Create, assign, close, and re-open issues in the repository | "[Managing your work with issues](/github/managing-your-work-on-github/managing-your-work-with-issues)" |
+| Manage labels for issues and pull requests in the repository | "[Labeling issues and pull requests](/github/managing-your-work-on-github/labeling-issues-and-pull-requests)" |
+| Manage milestones for issues and pull requests in the repository | "[Creating and editing milestones for issues and pull requests](/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests)" |
+| Mark an issue or pull request in the repository as a duplicate | "[About duplicate issues and pull requests](/github/managing-your-work-on-github/about-duplicate-issues-and-pull-requests)" |
+| Create, merge, and close pull requests in the repository | "[Proposing changes to your work with pull requests](/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests)" |{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
+| Enable and disable auto-merge for a pull request | "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)"{% endif %}
+| Apply suggested changes to pull requests in the repository |"[Incorporating feedback in your pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)" |
+| Create a pull request from a fork of the repository | "[Creating a pull request from a fork](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)" |
+| Submit a review on a pull request that affects the mergeability of the pull request | "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)" |
+| Create and edit a wiki for the repository | "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)" |
+| Create and edit releases for the repository | "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)" |
+| Act as a code owner for the repository | "[About code owners](/articles/about-code-owners)" |{% ifversion fpt or ghae or ghec %}
+| Publish, view, or install packages | "[Publishing and managing packages](/github/managing-packages-with-github-packages/publishing-and-managing-packages)" |{% endif %}
+| Remove themselves as collaborators on the repository | "[Removing yourself from a collaborator's repository](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository)" |
 
-## Leer más
+## Further reading
 
-- "[Niveles de permiso del repositorio para una organización](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

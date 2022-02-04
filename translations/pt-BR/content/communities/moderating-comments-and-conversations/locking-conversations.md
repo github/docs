@@ -8,11 +8,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
 
-É apropriado bloquear uma conversa quando toda ela não é construtiva ou infringe o código de conduta da sua comunidade{% ifversion fpt %} ou das [Diretrizes da comunidade](/articles/github-community-guidelines) do GitHub{% endif %}. Quando você bloqueia uma conversa, você também pode especificar o motivo, que é visível publicamente.
+É apropriado bloquear uma conversa quando toda a conversa não é construtiva ou viola o código de conduta da sua comunidade{% ifversion fpt or ghec %} ou as [diretrizes da comunidade do GitHub](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}. Quando você bloqueia uma conversa, você também pode especificar o motivo, que é visível publicamente.
 
 Bloquear uma conversa cria um evento na linha do tempo visível a qualquer um com acesso de leitura ao repositório. No entanto, o nome de usuário da pessoa que bloqueou a conversa somente pode ser visualizado pelas pessoas com acesso de gravação ao repositório. Para qualquer pessoa sem acesso de gravação, o evento na linha do tempo é anônimo.
 
@@ -32,7 +33,7 @@ Para pesquisar conversas bloqueadas em um repositório que não está arquivado,
 
 - "[Configurar seu projeto para contribuições úteis](/communities/setting-up-your-project-for-healthy-contributions)"
 - "[Usando modelos para encorajar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Gerenciando comentários disruptivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- "[Gerenciando comentários disruptivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
 - "[Denunciar abuso ou spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Limitando interações em seu repositório](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"

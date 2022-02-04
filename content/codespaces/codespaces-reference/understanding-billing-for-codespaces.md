@@ -3,6 +3,7 @@ title: Understanding billing for Codespaces
 intro: 'Learn how your {% data variables.product.prodname_codespaces %} usage is billed.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/about-billing-for-codespaces
   - /codespaces/getting-started-with-codespaces/about-billing-for-codespaces
@@ -53,3 +54,7 @@ Your codespace will be automatically deleted when you are removed from an organi
 ## Deleting your unused codespaces
 
 You can manually delete your codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, you can manually delete files using the terminal or from within {% data variables.product.prodname_vscode %}.
+
+## Further reading
+
+- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

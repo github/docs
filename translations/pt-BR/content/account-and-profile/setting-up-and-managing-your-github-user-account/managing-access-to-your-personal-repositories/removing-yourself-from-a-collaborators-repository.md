@@ -2,9 +2,9 @@
 title: Remover a si mesmo de um repositório de colaborador
 intro: 'Se não desejar mais ser um colaborador no repositório de outro usuário, você poderá remover a si mesmo.'
 redirect_from:
-  - /leave-a-collaborative-repo/
-  - /leave-a-repo/
-  - /articles/removing-yourself-from-a-collaborator-s-repo/
+  - /leave-a-collaborative-repo
+  - /leave-a-repo
+  - /articles/removing-yourself-from-a-collaborator-s-repo
   - /articles/removing-yourself-from-a-collaborator-s-repository
   - /articles/removing-yourself-from-a-collaborators-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository
@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories

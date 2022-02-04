@@ -21,6 +21,8 @@ O {% data variables.product.prodname_ghe_server %} precisa de dois volumes de ar
 
 O sistema de arquivos raiz está incluído na imagem da máquina distribuída. Ele contém o sistema operacional de base e o ambiente de aplicativo do {% data variables.product.prodname_ghe_server %}. O sistema de arquivos raiz deve ser tratado como efêmero. Todos os dados no sistema de arquivos raiz serão substituídos nas atualizações futuras do {% data variables.product.prodname_ghe_server %}.
 
+O volume do armazenamento raiz é dividido em duas partições de tamanho igual. Uma das partes será montada como sistema de arquivos raiz (`/`). A outra parte é montada somente durante atualizações e reversões das atualizações como `/mnt/upgrade`, para para fazer com que os rollbacks sejam implementados de forma mais fácil, se necessário. Por exemplo, se for alocado um volume raiz de 200 GB, haverá 100 GB alocados no sistema de arquivos raiz e 100 GB reservados para atualizações e reversões.
+
 O sistema de arquivos raiz tem o seguinte:
   - Certificados personalizados de uma autoridade certificada (CA) (em */usr/local/share/ca-certificates*);
   - Configurações de rede personalizadas;

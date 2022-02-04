@@ -5,6 +5,7 @@ intro: 'Você pode escolher se os objetos {% data variables.large_files.product_
 permissions: 'People with admin permissions for a repository can manage whether {% data variables.large_files.product_name_short %} objects are included in archives of the repository.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 redirect_from:
@@ -18,7 +19,7 @@ O {% data variables.product.product_name %} cria arquivos de código-fonte do se
 
 Sevocê optar por incluir os objetos {% data variables.large_files.product_name_short %}  nos arquivos de seu repositório, cada download desses arquivos contará para o uso de largura de banda de sua conta. Cada conta recebe {% data variables.large_files.initial_bandwidth_quota %} por mês de largura de banda gratuitamente, e você pode pagar pelo uso adicional. Para obter mais informações, consulte "[Sobre armazenamento e uso de largura de banda](/github/managing-large-files/about-storage-and-bandwidth-usage)" e "[Gerenciando a cobrança para {% data variables.large_files.product_name_long %}](/billing/managing-billing-for-git-large-file-storage)".
 
-If you use an external LFS server (configured in your `.lfsconfig`), those LFS files will not be included in archives of the repository. The archive will only contain files that have been committed to {% data variables.product.product_name %}.
+Se você usar um servidor LFS externo (configurado no seu `.lfsconfig`), os arquivos LFS não serão incluídos nos arquivos do repositório. O arquivo conterá apenas arquivos que têm commit para {% data variables.product.product_name %}.
 
 ## Gerenciando objetos {% data variables.large_files.product_name_short %} nos arquivos
 

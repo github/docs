@@ -34,15 +34,14 @@ function getUserLanguage(browserLanguages) {
   }
 }
 
-export default function detectLanguage(req, res, next) {
-  // determine language code from the URL, or default to English
-  // /en/articles/foo
-  //  ^^
-  // /_next/data/development/en/articles/foo
-  //                         ^^
-  const maybeLanguage = req.path.split('/')[req.path.startsWith('/_next/data/') ? 4 : 1]
+// determine language code from a path. Default to en if no valid match
+export function getLanguageCodeFromPath(path) {
+  const maybeLanguage = (path.split('/')[path.startsWith('/_next/data/') ? 4 : 1] || '').slice(0, 2)
+  return languageCodes.includes(maybeLanguage) ? maybeLanguage : 'en'
+}
 
-  req.language = languageCodes.includes(maybeLanguage) ? maybeLanguage : 'en'
+export default function detectLanguage(req, res, next) {
+  req.language = getLanguageCodeFromPath(req.path)
   // Detecting browser language by user preference
   const browserLanguages = parser.parse(req.headers['accept-language'])
   req.userLanguage = getUserLanguage(browserLanguages)

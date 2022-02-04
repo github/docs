@@ -4,7 +4,7 @@ intro: Você pode gerenciar sua conta corporativa e as organizações detêm com
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
-  fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -58,12 +58,12 @@ Para alguns exemplos de consulta, veja "[Exemplo de consulta usando a API de Con
     - `admin:enterprise`
 
   Os escopos específicos da conta corporativa são:
-    - `admin:enterprise`: Gives full control of enterprises (includes {% ifversion ghes > 3.2 or fpt or ghae %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` and `read:enterprise`)
-    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes > 3.2 or fpt or ghae  %}
-    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
+    - `admin:enterprise`: Fornece controle total de empresas (inclui {% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` e `read:enterprise`)
+    - `manage_billing:enterprise`: Lê e escreve os dados de cobrança da empresa.{% ifversion ghes > 3.2 or ghae  %}
+    - `manage_runners:enterprise`: Acesso para gerenciar executores corporativos e grupos de executores do GitHub Actions{% endif %}
     - `read:enterprise`: Lê dados do perfil empresarial.
 
-4. Copie seu token de acesso pessoal e guarde-o em um lugar seguro até adicioná-lo ao seu cliente do GraphQL.
+3. Copie seu token de acesso pessoal e guarde-o em um lugar seguro até adicioná-lo ao seu cliente do GraphQL.
 
 ### 2. Escolha um cliente do GraphQL
 
@@ -95,7 +95,7 @@ Agora você está pronto para começar a fazer consultas.
 
 ## Um exemplo e consulta usando a API de Contas corporativas
 
-Essa consulta do GraphQL solicita o número total de repositórios {% ifversion not ghae %}`públicos`{% else %}`privados`{% endif %} em cada uma das organizações dos seus aplicativos usando a API de contas corporativas. Para personalizar esta consulta, substitua `<enterprise-account-name>` pelo slug do slug de instância da sua empresa.
+Essa consulta do GraphQL solicita o número total de repositórios {% ifversion not ghae %}`públicos`{% else %}`privados`{% endif %} em cada uma das organizações dos seus aplicativos usando a API de contas corporativas. Para personalizar essa consulta, substitua `<enterprise-account-name>` com o identificador da conta corporativa. Por exemplo, se sua conta corporativa estiver localizada em `https://github.com/enterprises/octo-enterprise`, substitua `<enterprise-account-name>` por `octo-enterprise`.
 
 {% ifversion not ghae %}
 

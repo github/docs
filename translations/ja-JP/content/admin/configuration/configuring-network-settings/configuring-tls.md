@@ -2,8 +2,8 @@
 title: TLSの設定
 intro: '信頼できる認証機関によって署名された証明書を使用できるように、{% data variables.product.product_location %} で Transport Layer Security (TLS) を設定できます。'
 redirect_from:
-  - /enterprise/admin/articles/ssl-configuration/
-  - /enterprise/admin/guides/installation/about-tls/
+  - /enterprise/admin/articles/ssl-configuration
+  - /enterprise/admin/guides/installation/about-tls
   - /enterprise/admin/installation/configuring-tls
   - /enterprise/admin/configuration/configuring-tls
   - /admin/configuration/configuring-tls
@@ -44,11 +44,11 @@ SSL が有効な場合、{% data variables.product.prodname_ghe_server %} アプ
 {% data reusables.enterprise_management_console.select-tls-only %}
 4. [TLS Protocol support] で、許可するプロトコルを選択します。 ![TLS プロトコルを選択するオプションを備えたラジオボタン](/assets/images/enterprise/management-console/tls-protocol-support.png)
 5. "Certificate（証明書）"の下で**Choose File（ファイルの選択）**をクリックし、インストールしたいTLS証明書もしくは証明書チェーン（PEMフォーマット）を選択してください。 このファイルは通常、*.pem*、*.crt*、*.cer* といった拡張子を持ちます。 ![TLS 証明書ファイルを見つけるためのボタン](/assets/images/enterprise/management-console/install-tls-certificate.png)
-6. "Unencrypted key（暗号化されていない鍵）"の下で**Choose File（ファイルの選択）**をクリックし、インストールするTLS鍵（PEMフォーマット）を選択してください。 このファイルは通常*.key*という拡張子を持ちます。 ![TLS鍵ファイルを見つけるためのボタン](/assets/images/enterprise/management-console/install-tls-key.png)
+6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. このファイルは通常*.key*という拡張子を持ちます。 ![TLS鍵ファイルを見つけるためのボタン](/assets/images/enterprise/management-console/install-tls-key.png)
 
   {% warning %}
 
-  **警告**: このTLS鍵はパスフレーズを持っていてはなりません。 詳しい情報については"[キーファイルからのパスフレーズの除去](/enterprise/{{ currentVersion }}/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)"を参照してください。
+  **Warning**: Your key must be an RSA key and must not have a passphrase. 詳しい情報については"[キーファイルからのパスフレーズの除去](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)"を参照してください。
 
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}

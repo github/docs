@@ -1,6 +1,6 @@
 ---
 title: 在个人资料中公开或隐藏您的私人贡献
-intro: '您的 {% data variables.product.product_name %} 个人资料显示过去一年中您的仓库贡献图。 除了公共存储库的活动外，您还可以选择显示 {% ifversion fpt or ghes %}私人和内部{% else %}私人{% endif %} 仓库中的匿名活动{% ifversion fpt or ghes %}{% endif %}。'
+intro: '您的 {% data variables.product.product_name %} 个人资料显示过去一年中您的仓库贡献图。 除了公共存储库的活动外，您还可以选择显示 {% ifversion fpt or ghes or ghec %}私人和内部{% else %}私人{% endif %} 仓库中的匿名活动{% ifversion fpt or ghes or ghec %}{% endif %}。'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/publicizing-or-hiding-your-private-contributions-on-your-profile
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: 私有贡献
@@ -18,7 +19,7 @@ shortTitle: 私有贡献
 
 {% note %}
 
-**Note:** {% ifversion fpt or ghes %}On {% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.product.product_location%}{% endif %}.{% elsif ghae %}On {% data variables.product.prodname_ghe_managed %}, only other members of your enterprise can see the contributions on your profile.{% endif %}
+**Note:** {% ifversion fpt or ghes or ghec %}On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt or ghec %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.product.product_location%}{% endif %}.{% elsif ghae %}On {% data variables.product.prodname_ghe_managed %}, only other members of your enterprise can see the contributions on your profile.{% endif %}
 
 {% endnote %}
 

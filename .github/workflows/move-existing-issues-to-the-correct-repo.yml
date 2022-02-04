@@ -7,6 +7,9 @@ name: Move existing issues to correct docs repo
 on:
   workflow_dispatch:
 
+permissions:
+  contents: none
+
 jobs:
   transfer_issues:
     runs-on: ubuntu-latest

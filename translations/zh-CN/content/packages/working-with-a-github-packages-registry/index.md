@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /working-with-the-container-registry
   - /working-with-the-docker-registry
@@ -25,7 +26,7 @@ children:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ![显示支持 Docker、容器注册表、RubyGems、npm、Apache Maven、NuGet 和 Gradle 的软件包的示意图](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
 {% else %}
 ![显示支持 Docker、RubyGems、npm、Apache Maven、Gradle、Nuget 和 Docker 的软件包的示意图](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)

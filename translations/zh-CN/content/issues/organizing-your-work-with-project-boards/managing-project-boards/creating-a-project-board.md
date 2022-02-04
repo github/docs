@@ -3,15 +3,20 @@ title: 创建项目板
 intro: 项目板可用于创建满足您需求的自定义工作流程，例如对特定功能工作、全面路线图甚至发布检查清单进行跟踪和排列优先级。
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
-  - /articles/creating-a-project/
+  - /articles/creating-a-project
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Projects
+  - Project management
+type: how_to
 ---
 
 {% data reusables.projects.project_boards_old %}
@@ -87,7 +92,7 @@ topics:
 ## 延伸阅读
 
 - "[关于项目板](/articles/about-project-boards)"
-- "[编辑项目板](/articles/editing-a-project-board)"{% ifversion fpt %}
+- "[编辑项目板](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}
 - "[关闭项目板](/articles/closing-a-project-board)"
 - “[关于项目板的自动化](/articles/about-automation-for-project-boards)”

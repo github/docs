@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,7 +21,7 @@ topics:
 
 {% note %}
 
-**メモ:** 新しい GPG キーを生成する前にメールアドレスを検証しておいてください。 メールアドレスを検証していないと、GPG を使用してコミットやタグに署名できません。{% ifversion fpt %}詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。{% endif %}
+**メモ:** 新しい GPG キーを生成する前にメールアドレスを検証しておいてください。 メールアドレスを検証していないと、GPG を使用してコミットやタグに署名できません。{% ifversion fpt or ghec %}詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。{% endif %}
 
 {% endnote %}
 
@@ -43,7 +44,7 @@ topics:
 
   {% note %}
 
-  **メモ:** メールアドレスの入力を求められた場合は、GitHub アカウント用の検証済みメールアドレスを入力してください。 {% data reusables.gpg.private-email %} {% ifversion fpt %}詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」および「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
+  **メモ:** メールアドレスの入力を求められた場合は、GitHub アカウント用の検証済みメールアドレスを入力してください。 {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %}詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」および「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
 
   {% endnote %}
 

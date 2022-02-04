@@ -3,6 +3,7 @@ title: Limitar interações para sua conta de usuário
 intro: Você pode aplicar temporariamente um período de atividade limitada para certos usuários em todos os repositórios públicos pertencentes à sua conta de usuário.
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: Anyone can limit interactions for their own user account.
 redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account

@@ -3,6 +3,7 @@ title: Organization のリポジトリ内でレポートされたコンテンツ
 intro: コントリビューターがリポジトリ内の混乱をもらたすコンテンツをレポートすると、リポジトリメンテナはレポートを表示および管理できます。
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:

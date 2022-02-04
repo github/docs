@@ -1,8 +1,8 @@
 ---
 title: 审核整个企业的用户
-intro: 审核日志仪表板向站点管理员显示过去 90 天内企业中所有用户和组织执行的操作，包括操作执行者、操作内容以及操作执行时间等详细信息。
+intro: The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the current month and previous six months. 审核日志包含操作执行人、操作内容和执行时间等详细信息。
 redirect_from:
-  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
+  - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
@@ -47,7 +47,7 @@ shortTitle: 审计用户
 **注意：**
 
 - 您无法使用文本搜索审核条目，但您可以使用多个筛选器构建搜索查询。 {% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 中使用多种运算符进行搜索。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/github/searching-for-information-on-github/about-searching-on-github)”。
-- 要搜索 90 天之前的事件，请使用 `created` 限定符。
+- Audit records are available for the current month and every day of the previous six months.
 
 {% endwarning %}
 

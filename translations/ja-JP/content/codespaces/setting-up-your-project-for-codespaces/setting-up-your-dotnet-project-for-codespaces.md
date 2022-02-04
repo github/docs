@@ -8,8 +8,11 @@ redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
+hasExperimentalAlternative: true
+hidden: true
 ---
 
 
@@ -35,14 +38,14 @@ codespace を作成すると、プロジェクトは専用のリモート VM 上
 
 vCPU と RAM の量を調整したり、[ドットファイルを追加して環境をパーソナライズ](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)したり、インストールされているツールやスクリプトを変更したりして、codespace をカスタマイズできます。
 
-{% data variables.product.prodname_codespaces %} は、`devcontainer.json` というファイルを使用して設定を保存します。 起動時に、{% data variables.product.prodname_codespaces %} はファイルを使用して、プロジェクトに必要となる可能性のあるツール、依存関係、またはその他のセットアップをインストールします。 詳しい情報については、「[プロジェクトの Codespaces を設定する](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)」を参照してください。
+{% data variables.product.prodname_codespaces %} は、`devcontainer.json` というファイルを使用して設定を保存します。 起動時に、{% data variables.product.prodname_codespaces %} はファイルを使用して、プロジェクトに必要となる可能性のあるツール、依存関係、またはその他のセットアップをインストールします。 For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
 
 ## ステップ 2: テンプレートから codespace に開発コンテナを追加する
 
 デフォルトの Codespaces コンテナには、最新の .NET バージョンと一般的なツールがプリインストールされています。 ただし、カスタムコンテナを設定して、codespace 作成の一部として実行されるツールとスクリプトをプロジェクトのニーズに合わせて調整し、リポジトリ内のすべての {% data variables.product.prodname_codespaces %} ユーザに完全に再現可能な環境を確保することをお勧めします。
 
-カスタムコンテナを使用してプロジェクトを設定するには、`devcontainer.json` ファイルを使用して環境を定義する必要があります。 {% data variables.product.prodname_codespaces %} で、これをテンプレートから追加することも、独自に作成することもできます。 開発コンテナの詳細については、「[プロジェクトの Codespaces を設定する](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)」を参照してください。
+カスタムコンテナを使用してプロジェクトを設定するには、`devcontainer.json` ファイルを使用して環境を定義する必要があります。 {% data variables.product.prodname_codespaces %} で、これをテンプレートから追加することも、独自に作成することもできます。 For more information on dev containers, see "[Introduction to dev containers ](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
 
 {% data reusables.codespaces.command-palette-container %}
@@ -123,14 +126,14 @@ C# (.NET) 開発コンテナテンプレートを追加すると、次のファ�
 
 - **名前** - 開発コンテナには任意の名前を付けることができます。これはデフォルトです。
 - **ビルド** - ビルドプロパティです。
-  - **Dockerfile** - ビルドオブジェクトでは、Dockerfile は、テンプレートからも追加された `dockerfile` への参照です。
+  - **Dockerfile** - ビルドオブジェクトでは、Dockerfile は、これもまたテンプレートから追加された `dockerfile` への参照です。
   - **Args**
     - **バリアント**: このファイルには、使用する .NETCore バージョンであるビルド引数が1つだけ含まれています。
 - **設定** - これらは {% data variables.product.prodname_vscode %} 設定です。
   - **Terminal.integrated.shell.linux** - ここでは bash がデフォルトですが、これを変更することで他のターミナルシェルを使用できます。
 - **機能拡張** - これらはデフォルト設定で含まれている機能拡張です。
   - **ms-dotnettools.csharp** - Microsoft C# 機能拡張は、IntelliSense、linting、デバッグ、コードナビゲーション、コード形式、リファクタリング、変数エクスプローラ、テストエクスプローラなどの機能を含む、C# での開発に豊富なサポートを提供します。
-- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。
+- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 - **postCreateCommand** - `dotnet restore` のように、Dockerfileで定義されていない codespace への到達後に何らかの操作を実行する場合は、ここで実行できます。
 - **remoteUser** - デフォルト設定では、vscode ユーザとして実行していますが、オプションでこれを root に設定できます。
 

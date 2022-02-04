@@ -9,8 +9,7 @@ import { allVersions } from '../../lib/all-versions.js'
 import processPreviews from './utils/process-previews.js'
 import processUpcomingChanges from './utils/process-upcoming-changes.js'
 import processSchemas from './utils/process-schemas.js'
-import prerenderObjects from './utils/prerender-objects.js'
-import prerenderInputObjects from './utils/prerender-input-objects.js'
+import prerender from './utils/prerender-graphql.js'
 import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
 import loadData from '../../lib/site-data.js'
 
@@ -22,8 +21,7 @@ const dataFilenames = JSON.parse(
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
-  console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
-  process.exit(1)
+  throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
 }
 
 const versionsToBuild = Object.keys(allVersions)
@@ -33,105 +31,111 @@ const currentLanguage = 'en'
 main()
 
 async function main() {
-  try {
-    const previewsJson = {}
-    const upcomingChangesJson = {}
-    const prerenderedObjects = {}
-    const prerenderedInputObjects = {}
+  const previewsJson = {}
+  const upcomingChangesJson = {}
+  const prerenderedObjects = {}
+  const prerenderedInputObjects = {}
+  const prerenderedMutations = {}
 
-    const siteData = await loadData()
+  const siteData = loadData()
 
-    // create a bare minimum context for rendering the graphql-object.html layout
-    const context = {
-      currentLanguage,
-      site: siteData[currentLanguage].site,
-    }
+  // create a bare minimum context for rendering the graphql-object.html layout
+  const context = {
+    currentLanguage,
+    site: siteData[currentLanguage].site,
+  }
 
-    for (const version of versionsToBuild) {
-      // Get the relevant GraphQL name  for the current version
-      // For example, free-pro-team@latest corresponds to dotcom,
-      // enterprise-server@2.22 corresponds to ghes-2.22,
-      // and github-ae@latest corresponds to ghae
-      const graphqlVersion = allVersions[version].miscVersionName
+  for (const version of versionsToBuild) {
+    // Get the relevant GraphQL name  for the current version
+    // For example, free-pro-team@latest corresponds to dotcom,
+    // enterprise-server@2.22 corresponds to ghes-2.22,
+    // and github-ae@latest corresponds to ghae
+    const graphqlVersion = allVersions[version].miscVersionName
 
-      // 1. UPDATE PREVIEWS
-      const previewsPath = getDataFilepath('previews', graphqlVersion)
-      const safeForPublicPreviews = yaml.load(
-        await getRemoteRawContent(previewsPath, graphqlVersion)
+    // 1. UPDATE PREVIEWS
+    const previewsPath = getDataFilepath('previews', graphqlVersion)
+    const safeForPublicPreviews = yaml.load(await getRemoteRawContent(previewsPath, graphqlVersion))
+    await updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
+    previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
+
+    // 2. UPDATE UPCOMING CHANGES
+    const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
+    const previousUpcomingChanges = yaml.load(await fs.readFile(upcomingChangesPath, 'utf8'))
+    const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
+    await updateFile(upcomingChangesPath, safeForPublicChanges)
+    upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
+
+    // 3. UPDATE SCHEMAS
+    // note: schemas live in separate files per version
+    const schemaPath = getDataFilepath('schemas', graphqlVersion)
+    const previousSchemaString = await fs.readFile(schemaPath, 'utf8')
+    const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
+    await updateFile(schemaPath, latestSchema)
+    const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
+    await updateStaticFile(
+      schemaJsonPerVersion,
+      path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`)
+    )
+
+    // Add some version specific data to the context
+    context.graphql = { schemaForCurrentVersion: schemaJsonPerVersion }
+    context.currentVersion = version
+
+    // 4. PRERENDER OBJECTS HTML
+    // because the objects page is too big to render on page load
+    prerenderedObjects[graphqlVersion] = await prerender(context, 'objects', 'graphql-object.html')
+
+    // 5. PRERENDER INPUT OBJECTS HTML
+    // because the objects page is too big to render on page load
+    prerenderedInputObjects[graphqlVersion] = await prerender(
+      context,
+      'inputObjects',
+      'graphql-input-object.html'
+    )
+
+    // Prerender mutations
+    prerenderedMutations[graphqlVersion] = await prerender(
+      context,
+      'mutations',
+      'graphql-mutation.html'
+    )
+
+    // 6. UPDATE CHANGELOG
+    if (allVersions[version].nonEnterpriseDefault) {
+      // The Changelog is only build for free-pro-team@latest
+      const changelogEntry = await createChangelogEntry(
+        previousSchemaString,
+        latestSchema,
+        safeForPublicPreviews,
+        previousUpcomingChanges.upcoming_changes,
+        yaml.load(safeForPublicChanges).upcoming_changes
       )
-      await updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
-      previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
-
-      // 2. UPDATE UPCOMING CHANGES
-      const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-      const previousUpcomingChanges = yaml.load(await fs.readFile(upcomingChangesPath, 'utf8'))
-      const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
-      await updateFile(upcomingChangesPath, safeForPublicChanges)
-      upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
-
-      // 3. UPDATE SCHEMAS
-      // note: schemas live in separate files per version
-      const schemaPath = getDataFilepath('schemas', graphqlVersion)
-      const previousSchemaString = await fs.readFile(schemaPath, 'utf8')
-      const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
-      await updateFile(schemaPath, latestSchema)
-      const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
-      await updateStaticFile(
-        schemaJsonPerVersion,
-        path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`)
-      )
-
-      // Add some version specific data to the context
-      context.graphql = { schemaForCurrentVersion: schemaJsonPerVersion }
-      context.currentVersion = version
-
-      // 4. PRERENDER OBJECTS HTML
-      // because the objects page is too big to render on page load
-      prerenderedObjects[graphqlVersion] = await prerenderObjects(context)
-
-      // 5. PRERENDER INPUT OBJECTS HTML
-      // because the objects page is too big to render on page load
-      prerenderedInputObjects[graphqlVersion] = await prerenderInputObjects(context)
-
-      // 6. UPDATE CHANGELOG
-      if (allVersions[version].nonEnterpriseDefault) {
-        // The Changelog is only build for free-pro-team@latest
-        const changelogEntry = await createChangelogEntry(
-          previousSchemaString,
-          latestSchema,
-          safeForPublicPreviews,
-          previousUpcomingChanges.upcoming_changes,
-          yaml.load(safeForPublicChanges).upcoming_changes
+      if (changelogEntry) {
+        prependDatedEntry(
+          changelogEntry,
+          path.join(process.cwd(), 'lib/graphql/static/changelog.json')
         )
-        if (changelogEntry) {
-          prependDatedEntry(
-            changelogEntry,
-            path.join(process.cwd(), 'lib/graphql/static/changelog.json')
-          )
-        }
       }
     }
-
-    await updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
-    await updateStaticFile(
-      upcomingChangesJson,
-      path.join(graphqlStaticDir, 'upcoming-changes.json')
-    )
-    await updateStaticFile(
-      prerenderedObjects,
-      path.join(graphqlStaticDir, 'prerendered-objects.json')
-    )
-    await updateStaticFile(
-      prerenderedInputObjects,
-      path.join(graphqlStaticDir, 'prerendered-input-objects.json')
-    )
-
-    // Ensure the YAML linter runs before checkinging in files
-    execSync('npx prettier -w "**/*.{yml,yaml}"')
-  } catch (e) {
-    console.error(e)
-    process.exit(1)
   }
+
+  await updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
+  await updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
+  await updateStaticFile(
+    prerenderedObjects,
+    path.join(graphqlStaticDir, 'prerendered-objects.json')
+  )
+  await updateStaticFile(
+    prerenderedInputObjects,
+    path.join(graphqlStaticDir, 'prerendered-input-objects.json')
+  )
+  await updateStaticFile(
+    prerenderedMutations,
+    path.join(graphqlStaticDir, 'prerendered-mutations.json')
+  )
+
+  // Ensure the YAML linter runs before checkinging in files
+  execSync('npx prettier -w "**/*.{yml,yaml}"')
 }
 
 // get latest from github/github
@@ -170,6 +174,7 @@ async function setBranchAsRef(options, graphqlVersion, branch = false) {
 
   const branches = {
     dotcom: defaultBranch,
+    ghec: defaultBranch,
     ghes: `enterprise-${graphqlVersion.replace('ghes-', '')}-release`,
     // TODO confirm the below is accurate after the release branch is created
     ghae: 'github-ae-release',

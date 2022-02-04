@@ -2,11 +2,11 @@
 title: 从个人仓库中删除协作者
 intro: 当您从项目中删除协作者时，他们将失去对您仓库的读取/写入权限。 如果仓库为私有并且该人员已创建复刻，则该复刻也将删除。
 redirect_from:
-  - /articles/how-do-i-remove-a-collaborator/
-  - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository/
-  - /articles/removing-a-collaborator-from-a-private-repository/
-  - /articles/deleting-a-private-fork-of-a-private-user-repository/
-  - /articles/how-do-i-delete-a-fork-of-my-private-repository/
+  - /articles/how-do-i-remove-a-collaborator
+  - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository
+  - /articles/removing-a-collaborator-from-a-private-repository
+  - /articles/deleting-a-private-fork-of-a-private-user-repository
+  - /articles/how-do-i-delete-a-fork-of-my-private-repository
   - /articles/removing-a-collaborator-from-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-a-collaborator-from-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository
@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -29,7 +30,7 @@ shortTitle: 删除协作者
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. 在要要删除的协作者的右侧，单击 {% octicon "trash" aria-label="The trash icon" %}。 ![用于删除协作者的按钮](/assets/images/help/repository/collaborator-remove.png)
 {% else %}

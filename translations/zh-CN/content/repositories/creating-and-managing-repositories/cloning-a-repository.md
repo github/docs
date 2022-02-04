@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -23,8 +24,6 @@ topics:
 您可以克隆自己的现有仓库或克隆其他人的现有仓库以参与项目。
 
 ## 克隆仓库
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -89,7 +88,7 @@ gh repo clone <em>https://github.com/cli/cli</em>
 - 您有权访问要克隆的仓库。 更多信息请参阅“[错误：找不到仓库](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)”。
 - 要克隆的默认分支仍然存在。 您有权访问要克隆的仓库。 更多信息请参阅“[错误：远程 HEAD 引用不存在的 ref，无法检出](/github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 延伸阅读
 

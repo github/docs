@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
 
 {% data variables.product.product_name %} 全体にわたってグローバルにコミットを検索できます。あるいは、特定のリポジトリや Organization のコミットに限った検索もできます。 詳細は「[{% data variables.product.company_short %} での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。
 
-コミットを検索する場合、リポジトリの[デフォルトブランチ](/articles/about-branches)だけが検索されます。
+コミットを検索する場合、リポジトリの[デフォルトブランチ](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)だけが検索されます。
 
 {% data reusables.search.syntax_tips %}
 
@@ -104,7 +105,16 @@ topics:
 
 `is` 修飾子は、指定した可視性を持つリポジトリからのコミットにマッチします。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| 修飾子  | 例 | ------------- | ------------- |{% ifversion fpt or ghes %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) はパブリックリポジトリへのコミットにマッチします。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) は内部リポジトリへのコミットにマッチします。 | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) はプライベートリポジトリへのコミットに一致します。
+| 修飾子 | サンプル |
+| --- | ---- |
+|     |      |
+{%- ifversion fpt or ghes or ghec %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.
+{%- endif %}
+{%- ifversion ghes or ghec or ghae %}
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories.
+{%- endif %}
+| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) はプライベートリポジトリへのコミットに一致します。
 
 ## 参考リンク
 

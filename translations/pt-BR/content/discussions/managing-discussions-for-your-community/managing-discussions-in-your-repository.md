@@ -4,6 +4,7 @@ intro: 'Você pode categorizar, destacar e transferir ou excluir as discussões 
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Gerenciar discussões
 ---
 
@@ -70,7 +71,7 @@ Editar uma discussão fixada não irá alterar a categoria da discussão. Para o
 
 ## Transferir uma discussão
 
-Para transferir uma discussão, você precisa ter permissão de criar discussões no repositório, em que você deseja transferir a discussão.
+Para transferir uma discussão, você precisa ter permissão de criar discussões no repositório, em que você deseja transferir a discussão. Você somente pode transferir discussões entre repositórios pertencentes à mesma conta de usuário ou organização. Você não pode transferir uma discussão de um repositório privado para um repositório público.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

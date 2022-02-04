@@ -10,9 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
 shortTitle: すべてのIssueとPRを表示
+type: how_to
 ---
 
 Issue およびPull Requestダッシュボードは、すべてのページの上部にもあります。 各ダッシュボードで、リストをフィルタリングして、自分に割り当てられている、または自分がメンションしている Issue またはPull Requestを検索することができます。 レビューを依頼されたPull Requestを検索することもできます。
@@ -22,4 +25,4 @@ Issue およびPull Requestダッシュボードは、すべてのページの�
 
 ## 参考リンク
 
-- {% ifversion fpt or ghes or ghae %}”[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}”[Watch しているリポジトリのリスト](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- {% ifversion fpt or ghes or ghae or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

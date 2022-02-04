@@ -3,6 +3,7 @@ title: コントリビューターが Organization のリポジトリで不正�
 intro: コントリビューターが混乱をもたらす振る舞いをリポジトリメンテナに直接報告できるようにすることができます。
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:

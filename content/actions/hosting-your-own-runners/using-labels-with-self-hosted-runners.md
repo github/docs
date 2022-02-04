@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Label runners
 ---
@@ -18,7 +19,7 @@ For information on how to use labels to route jobs to specific types of self-hos
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 ## Creating a custom label
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
  1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
@@ -36,7 +37,7 @@ For information on how to use labels to route jobs to specific types of self-hos
 The custom label is created and assigned to the self-hosted runner. Custom labels can be removed from self-hosted runners, but they currently can't be manually deleted. {% data reusables.github-actions.actions-unused-labels %}
 {% endif %}
 ## Assigning a label to a self-hosted runner
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}
@@ -50,7 +51,7 @@ The custom label is created and assigned to the self-hosted runner. Custom label
 1. Click on a label to assign it to your self-hosted runner. 
 {% endif %}
 ## Removing a custom label from a self-hosted runner
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}
@@ -71,7 +72,7 @@ You can use the configuration script on the self-hosted runner to create and ass
 ./config.sh --labels gpu
 ```
 
-The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture. 
+The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture.
 
 You can use comma separation to assign multiple labels. For example:
 

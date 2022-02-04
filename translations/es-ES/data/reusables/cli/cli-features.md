@@ -5,4 +5,5 @@ El {% data variables.product.prodname_cli %} incluye características de {% data
 - Revisar, fusionar y hacer diffs con las solicitudes de cambios
 - Ejecutar, visualizar y listar flujos de trabajo
 - Crear, listar, visualizar y borrar lanzamientos
-- Crear, editar, listar, ver y borrar gists
+- Crear, editar, listar, ver y borrar gists{% ifversion fpt %}
+- Listar, crear, borrar y conectarte a un codespace{% endif %}

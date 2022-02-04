@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/adding-a-code-of-conduct-to-your-project
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Add a code of conduct

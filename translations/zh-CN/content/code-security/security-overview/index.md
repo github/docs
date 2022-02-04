@@ -7,10 +7,13 @@ versions:
   fpt: '*'
   ghae: issue-4554
   ghes: '>3.1'
+  ghec: '*'
 topics:
   - Security overview
   - Advanced Security
 children:
   - /about-the-security-overview
+  - /viewing-the-security-overview
+  - /filtering-alerts-in-the-security-overview
 ---
 

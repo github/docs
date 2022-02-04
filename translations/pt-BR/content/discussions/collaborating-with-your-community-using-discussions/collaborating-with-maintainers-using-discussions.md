@@ -5,6 +5,7 @@ intro: 'Você pode contribuir para objetivos, planos, saúde e comunidade para u
 permissions: 'People with read access to a repository can start and participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 

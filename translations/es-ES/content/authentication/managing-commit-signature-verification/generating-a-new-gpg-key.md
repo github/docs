@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,7 +21,7 @@ topics:
 
 {% note %}
 
-**Nota:** Antes de generar una nueva llave GPG, asegúrate de haber verificado tu dirección de correo electrónico. Si no has verificado tu dirección de correo electrónico, no podrás firmar confirmaciones y etiquetas con GPG.{% ifversion fpt %}Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".{% endif %}
+**Nota:** Antes de generar una nueva llave GPG, asegúrate de haber verificado tu dirección de correo electrónico. Si no has verificado tu dirección de correo electrónico, no podrás firmar confirmaciones y etiquetas con GPG.{% ifversion fpt or ghec %}Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".{% endif %}
 
 {% endnote %}
 
@@ -43,7 +44,7 @@ topics:
 
   {% note %}
 
-  **Nota:** Cuando se te pida que ingreses tu dirección de correo electrónico, asegúrate de ingresar la dirección de correo electrónico verificada para tu cuenta Github. {% data reusables.gpg.private-email %} {% ifversion fpt %}  Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)" and "[Establecer tu dirección de correo electrónico para confirmaciones](/articles/setting-your-commit-email-address)".{% endif %}
+  **Nota:** Cuando se te pida que ingreses tu dirección de correo electrónico, asegúrate de ingresar la dirección de correo electrónico verificada para tu cuenta Github. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %}  Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)" and "[Establecer tu dirección de correo electrónico para confirmaciones](/articles/setting-your-commit-email-address)".{% endif %}
 
   {% endnote %}
 

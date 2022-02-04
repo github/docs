@@ -3,6 +3,10 @@ title: Usar ações no GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} inclui a maioria das ações de autoria de {% data variables.product.prodname_dotcom %}.'
 versions:
   ghae: '*'
+type: how_to
+topics:
+  - Actions
+  - Enterprise
 redirect_from:
   - /admin/github-actions/using-actions-in-github-ae
 shortTitle: Usar ações

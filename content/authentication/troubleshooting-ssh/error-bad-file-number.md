@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 ---
@@ -42,7 +43,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em
 
 If you can connect the computer to another network that doesn't have a firewall, you can try testing your SSH connection to {% data variables.product.product_name %}. If everything works as it should, contact your network administrator for help on changing the firewall settings to allow your SSH connection to {% data variables.product.product_name %} to succeed.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### Using SSH over the HTTPS port
 
@@ -50,7 +51,7 @@ If using HTTPS is not an option, and your firewall admin refuses to allow SSH co
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Further reading
 

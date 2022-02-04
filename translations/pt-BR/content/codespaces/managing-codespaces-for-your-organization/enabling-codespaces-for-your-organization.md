@@ -1,6 +1,6 @@
 ---
 title: Habilitando codespaces para a sua organização
-shortTitle: Habilitando codespaces
+shortTitle: Habilitar codespaces
 intro: 'Você pode controlar quais usuários da sua organização podem usar {% data variables.product.prodname_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage user permissions for {% data variables.product.prodname_codespaces %} for an organization, you must be an organization owner.'
@@ -8,6 +8,7 @@ redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -23,8 +24,9 @@ Os proprietários da organização podem controlar quais usuários da sua organi
 Para usar codespaces na sua organização, você deve fazer o seguinte:
 
 - Certifique-se de que os usuários tenham [pelo menos acesso de gravação](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization) nos repositórios onde desejam usar um codespace.
-- [Habilitar {% data variables.product.prodname_codespaces %} para os usuários da sua organização](#configuring-which-users-in-your-organization-can-use-codespaces). Você pode escolher permitir {% data variables.product.prodname_codespaces %} para usuários selecionados ou apenas para usuários específicos.
+- [Habilitar {% data variables.product.prodname_codespaces %} para os usuários da sua organização](#enable-codespaces-for-users-in-your-organization). Você pode escolher permitir {% data variables.product.prodname_codespaces %} para usuários selecionados ou apenas para usuários específicos.
 - [Definir um limite de gastos](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
+- Certifique-se de que a sua organização não tem um endereço IP permitir a lista habilitada. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
 Por padrão, um codespace só pode acessar o repositório no qual ele foi criado. Se você quiser que os codespaces na sua organização possam acessar outros repositórios da organização que o criador do codespace possa acessar, consulte "[Gerenciar acesso e segurança para {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)".
 
@@ -35,10 +37,19 @@ Por padrão, um codespace só pode acessar o repositório no qual ele foi criado
 {% data reusables.organizations.click-codespaces %}
 1. Em "Permissões de usuário", selecione uma das seguintes opções:
 
-   * **Permitir para todos os usuários** para permitir que todos os integrantes da sua organização usem {% data variables.product.prodname_codespaces %}.
    * **Usuários selecionados** para selecionar integrantes específicos da organização para usar {% data variables.product.prodname_codespaces %}.
+   * **Permitir para todos os integrantes** para permitir todos os integrantes da organização usem {% data variables.product.prodname_codespaces %}.
+   * **Permitir para todos os integrantes e colaboradores externos** para permitir que todos os integrantes da sua organização, bem como os colaboradores externos, usem {% data variables.product.prodname_codespaces %}.
 
-   ![Botões de opção para "Permissões do usuário"](/assets/images/help/codespaces/organization-user-permission-settings.png)
+   ![Botões de opção para "Permissões do usuário"](/assets/images/help/codespaces/org-user-permission-settings-outside-collaborators.png)
+
+   {% note %}
+
+   **Observação:** Ao selecionar **Permitir para todos os integrantes e colaboradores externos**, todos os colaboradores externos que foram adicionados aos repositórios específicos poderão criar e usar {% data variables.product.prodname_codespaces %}. Sua organização será cobrada pelo uso de todos os colaboradores externos. Para obter mais informações sobre como gerenciar colaboradores externos, consulte "[Sobre colaboradores externos](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)".
+
+   {% endnote %}
+
+1. Clique em **Salvar**.
 
 ## Desabilitando {% data variables.product.prodname_codespaces %} para sua organização
 

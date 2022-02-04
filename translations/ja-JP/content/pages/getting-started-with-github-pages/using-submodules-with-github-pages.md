@@ -2,12 +2,13 @@
 title: GitHub Pages でサブモジュールを使用する
 intro: '{% data variables.product.prodname_pages %} でサブモジュールを使用すると、他のサイトのコードで他のプロジェクトを含めることができます。'
 redirect_from:
-  - /articles/using-submodules-with-pages/
+  - /articles/using-submodules-with-pages
   - /articles/using-submodules-with-github-pages
   - /github/working-with-github-pages/using-submodules-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Pagesでのサブモジュールの利用

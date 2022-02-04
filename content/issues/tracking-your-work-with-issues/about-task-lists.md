@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Note:** Improved task lists are currently in beta and subject to change.
@@ -27,9 +28,9 @@ topics:
 
 A task list is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete. 
 
-You can use Markdown to create a task list in any comment on {% data variables.product.product_name %}. {% ifversion fpt %}If you reference an issue, pull request, or discussion in a task list, the reference will unfurl to show the title and state.{% endif %} 
+You can use Markdown to create a task list in any comment on {% data variables.product.product_name %}. {% ifversion fpt or ghec %}If you reference an issue, pull request, or discussion in a task list, the reference will unfurl to show the title and state.{% endif %} 
 
-{% ifversion not fpt %} 
+{% ifversion not fpt or ghec %} 
 You can view task list summary information in issue and pull request lists, when the task list is in the initial comment.
 {% else %}
 
@@ -50,11 +51,20 @@ If you add a task list to the body of an issue, the list has added functionality
 
 {% data reusables.repositories.task-list-markdown %}
 
+{% tip %}
+
+**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+
+{% endtip %}
+
 ## Reordering tasks
 
 You can reorder the items in a task list by clicking to the left of a task's checkbox, dragging the task to a new location, and dropping the task. You can reorder tasks across different lists in the same comment, but you can not reorder tasks across different comments.
 
-![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
+{% ifversion fpt %} ![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
+{% else %} ![Reordered task list](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
+
+{% ifversion fpt %}
 
 ## Navigating tracked issues
 
@@ -62,6 +72,9 @@ Any issues that are referenced in a task list specify that they are tracked by t
 
 ![Tracked in example](/assets/images/help/writing/task_list_tracked.png)
 
+{% endif %}
+
 ## Further reading
 
-* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
+* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+* "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

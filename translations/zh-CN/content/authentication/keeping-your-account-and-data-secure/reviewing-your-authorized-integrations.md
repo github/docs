@@ -9,27 +9,28 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
 shortTitle: 授权集成
 ---
 
-## Reviewing your authorized {% data variables.product.prodname_oauth_apps %}
+## 审查授权的 {% data variables.product.prodname_oauth_apps %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.access_applications %}
 {% data reusables.user_settings.access_authorized_oauth_apps %}
 {% data reusables.user_settings.review-oauth-apps %}
 
-## Reviewing your authorized {% data variables.product.prodname_github_apps %}
+## 审查授权的 {% data variables.product.prodname_github_apps %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.access_applications %}
-3. Click the **Authorized {% data variables.product.prodname_github_apps %}** tab. ![Authorized {% data variables.product.prodname_github_apps %} tab](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
-3. Review the {% data variables.product.prodname_github_apps %} that have access to your account. 对于您无法识别或已过期的应用程序，请单击 **Revoke（撤销）**。 To revoke all {% data variables.product.prodname_github_apps %}, click **Revoke all**. ![授权的 {% data variables.product.prodname_github_app %}列表](/assets/images/help/settings/revoke-github-app.png)
+3. 单击 **Authorized {% data variables.product.prodname_github_apps %}s（授权的 GitHub 应用程序）**选项卡。 ![授权的 {% data variables.product.prodname_github_apps %}选项卡](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
+3. 审查有您帐户访问权限的 {% data variables.product.prodname_github_apps %}。 对于您无法识别或已过期的应用程序，请单击 **Revoke（撤销）**。 要撤销所有 {% data variables.product.prodname_github_apps %}，请单击 **Revoke all（全部撤销）**。 ![授权的 {% data variables.product.prodname_github_app %}列表](/assets/images/help/settings/revoke-github-app.png)
 
 ## 延伸阅读
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - “[关于集成](/articles/about-integrations)”{% endif %}
 - “[审查您的授权应用程序 (OAuth)](/articles/reviewing-your-authorized-applications-oauth)”

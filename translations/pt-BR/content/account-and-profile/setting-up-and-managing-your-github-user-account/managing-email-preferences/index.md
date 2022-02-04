@@ -1,14 +1,15 @@
 ---
 title: Gerenciar preferências de e-mail
-intro: 'Você pode adicionar ou alterar os endereços de e-mail associados à sua conta{% data variables.product.product_name %}. Também é possível gerenciar os e-mails que você recebe do {% data variables.product.product_name %}.'
+intro: 'Você pode adicionar ou alterar os endereços de e-mail associados à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Também é possível gerenciar os e-mails que você recebe do {% data variables.product.product_name %}.'
 redirect_from:
-  - /categories/managing-email-preferences/
+  - /categories/managing-email-preferences
   - /articles/managing-email-preferences
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications

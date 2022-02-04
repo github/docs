@@ -1,7 +1,6 @@
 ---
 title: 暗号化されたシークレット
-intro: '暗号化されたシークレットを使うと、機密情報をOrganization{% ifversion fpt or ghes > 3.0 %}、リポジトリ、あるいはリポジトリの環境{% else %}あるいはリポジトリ{% endif %}に保存できます。'
-product: '{% data reusables.gated-features.actions %}'
+intro: '暗号化されたシークレットを使うと、機密情報をOrganization{% ifversion fpt or ghes > 3.0 or ghec %}、リポジトリ、あるいはリポジトリの環境{% else %}あるいはリポジトリ{% endif %}に保存できます。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -19,21 +19,31 @@ versions:
 
 ## 暗号化されたシークレットについて
 
-シークレットは暗号化された環境変数で、Organization{% ifversion fpt or ghes > 3.0 or ghae %} リポジトリ、あるいはリポジトリ環境{% else %}あるいはリポジトリ{% endif %}に作成できます。 作成したシークレットは、{% data variables.product.prodname_actions %}ワークフローで利用できます。 {% data variables.product.prodname_dotcom %}はシークレットが{% data variables.product.prodname_dotcom %}に到達する前に暗号化され、ワークフローで使用されるまで暗号化されたままになっていることを確実にするのを助けるために[libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)を使います。
+シークレットは暗号化された環境変数で、Organization{% ifversion fpt or ghes > 3.0 or ghae or ghec %} リポジトリ、あるいはリポジトリ環境{% else %}あるいはリポジトリ{% endif %}に作成できます。 作成したシークレットは、{% data variables.product.prodname_actions %}ワークフローで利用できます。 {% data variables.product.prodname_dotcom %}はシークレットが{% data variables.product.prodname_dotcom %}に到達する前に暗号化され、ワークフローで使用されるまで暗号化されたままになっていることを確実にするのを助けるために[libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)を使います。
 
 {% data reusables.github-actions.secrets-org-level-overview %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 環境レベルで保存されたシークレットについては、それらへのアクセスを制御するために必須のレビュー担当者を有効化することができます。 必須の承認者によって許可されるまで、ワークフローのジョブは環境のシークレットにアクセスできません。
+{% endif %}
+
+{% ifversion fpt or ghec or ghae-issue-4856 %}
+
+{% note %}
+
+**注釈**: {% data reusables.actions.about-oidc-short-overview %}
+
+{% endnote %}
+
 {% endif %}
 
 ### シークレットに名前を付ける
 
 {% data reusables.codespaces.secrets-naming %}
 
-  たとえば {% ifversion fpt or ghes > 3.0 or ghae %}環境のレベルで作成されたシークレットはその環境内でユニークな名前になっていなければならず、{% endif %}リポジトリのレベルで作成されたシークレットはそのリポジトリ内でユニークな名前になっていなければならず、Organizationのレベルで作成されたシークレットはそのレベルでユニークな名前になっていなければなりません。
+  たとえば {% ifversion fpt or ghes > 3.0 or ghae or ghec %}環境のレベルで作成されたシークレットはその環境内でユニークな名前になっていなければならず、{% endif %}リポジトリのレベルで作成されたシークレットはそのリポジトリ内でユニークな名前になっていなければならず、Organizationのレベルで作成されたシークレットはそのレベルでユニークな名前になっていなければなりません。
 
-  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae %}同様に、Organization、リポジトリ、および環境がすべて同じ名前のシークレットがある場合、環境レベルのシークレットが優先されます。{% endif %}
+  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %}同様に、Organization、リポジトリ、および環境がすべて同じ名前のシークレットがある場合、環境レベルのシークレットが優先されます。{% endif %}
 
 {% data variables.product.prodname_dotcom %} がログのシークレットを確実に削除するよう、シークレットの値として構造化データを使用しないでください。 たとえば、JSONやエンコードされたGit blobを含むシークレットは作成しないでください。
 
@@ -43,13 +53,9 @@ versions:
 
 ファイルを編集するアクセス権を持っていれば、ワークフローファイル中の暗号化されたシークレットを使い、読み取ることができます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/github/getting-started-with-github/access-permissions-on-github)」を参照してください。
 
-{% warning %}
+{% data reusables.github-actions.secrets-redaction-warning %}
 
-**警告：** {% data variables.product.prodname_dotcom %}は、ログに出力されたシークレットを自動的に削除しますが、シークレットをログに出力することは意識的に避けなくてはなりません。
-
-{% endwarning %}
-
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Organization及びリポジトリのシークレットはワークフローの実行がキューイングされた時点で読まれ、環境のシークレットは環境を参照しているジョブが開始された時点で読まれます。
 {% endif %}
 
@@ -57,7 +63,7 @@ REST API を使用してシークレットを管理することもできます�
 
 ### 認証情報のアクセス許可を制限する
 
-クレデンシャルを生成する際には、可能な限り最小限の権限だけを許可することをおすすめします。 たとえば、個人の認証情報を使う代わりに、[デプロイキー](/developers/overview/managing-deploy-keys#deploy-keys)あるいはサービスアカウントを使ってください。 必要なのが読み取りだけであれば、読み取りのみの権限を許可すること、そしてアクセスをできるかぎり限定することを考慮してください。 個人アクセストークン（PAT）を生成する際には、必要最小限のスコープを選択してください。
+認証情報を生成する際には、可能な限り最小限の権限だけを許可することをおすすめします。 たとえば、個人の認証情報を使う代わりに、[デプロイキー](/developers/overview/managing-deploy-keys#deploy-keys)あるいはサービスアカウントを使ってください。 必要なのが読み取りだけであれば、読み取りのみの権限を許可すること、そしてアクセスをできるかぎり限定することを考慮してください。 個人アクセストークン（PAT）を生成する際には、必要最小限のスコープを選択してください。
 
 {% note %}
 
@@ -69,8 +75,6 @@ REST API を使用してシークレットを管理することもできます�
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -81,7 +85,7 @@ REST API を使用してシークレットを管理することもできます�
 1. シークレットの値を入力します。
 1. [**Add secret（シークレットの追加）**] をクリックします。
 
-リポジトリが{% ifversion fpt or ghes > 3.0 or ghae %}環境のシークレットを持っているか{% endif %}親のOrganizationのシークレットにアクセスできるなら、それらのシークレットもこのページにリストされます。
+リポジトリが{% ifversion fpt or ghes > 3.0 or ghae or ghec %}環境のシークレットを持っているか{% endif %}親のOrganizationのシークレットにアクセスできるなら、それらのシークレットもこのページにリストされます。
 
 {% endwebui %}
 
@@ -105,13 +109,11 @@ To list all secrets for the repository, use the `gh secret list` subcommand.
 
 {% endcli %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
 ## 環境の暗号化されたシークレットの生成
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -149,8 +151,6 @@ gh secret list --env <em>environment-name</em>
 Organizationでシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
 
 {% data reusables.github-actions.permissions-statement-secrets-organization %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -279,13 +279,13 @@ steps:
 
 ## シークレットの制限
 
-You can store up to 1,000 organization secrets{% ifversion fpt or ghes > 3.0 or ghae %}, 100 repository secrets, and 100 environment secrets{% else %} and 100 repository secrets{% endif %}.
+You can store up to 1,000 organization secrets{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, 100 repository secrets, and 100 environment secrets{% else %} and 100 repository secrets{% endif %}.
 
 A workflow created in a repository can access the following number of secrets:
 
 * All 100 repository secrets.
 * If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
-{% ifversion fpt or ghes > 3.0 or ghae %}* All 100 environment secrets.{% endif %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}* All 100 environment secrets.{% endif %}
 
 シークレットの容量は最大64 KBです。 64 KBより大きなシークレットを使うには、暗号化されたシークレットをリポジトリ内に保存して、復号化パスフレーズを{% data variables.product.prodname_dotcom %}に保存します。 たとえば、{% data variables.product.prodname_dotcom %}のリポジトリにファイルをチェックインする前に、`gpg`を使って認証情報をローカルで暗号化します。 詳しい情報については、「[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)」を参照してください。
 
@@ -348,8 +348,8 @@ A workflow created in a repository can access the following number of secrets:
           env:
             LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
         # このコマンドは、あなたの秘密が印刷されていることを示す例
-        # シークレットを出力する文は必ず削除してください。 GitHubは
-        # この回避先を使うシークレットは隠蔽しません。
+        # シークレットを出力する文は必ず削除してください。 GitHub does
+        # not hide secrets that use this workaround.
         - name: Test printing your secret (Remove this step in production)
           run: cat $HOME/secrets/my_secret.json
   ```

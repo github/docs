@@ -57,29 +57,35 @@ async function main() {
           // There are certain links like #{GitHub.help_url}#{learn_more_path} and #{GitHub.developer_help_url}#{learn_more_path} that we should skip
           if (
             (contents.substring(numIndex, numIndex + 11) === 'GitHub.help' &&
-              contents.charAt(numIndex + 16) !== '#') ||
+              contents.charAt(numIndex + 16) === '#') ||
             (contents.substring(numIndex, numIndex + 16) === 'GitHub.developer' &&
-              contents.charAt(numIndex + 26) !== '#')
+              contents.charAt(numIndex + 26) === '#')
           ) {
-            const startSearchIndex = contents.indexOf('/', numIndex)
-            // Looking for the closest '/' after GitHub.developer_help_url or GitHub.help_url
-            // There are certain links that don't start with `/` so we want to skip those.
-            // If there's no `/` within 30 characters of GitHub.help_url/GitHub.developer_help_url, skip
-            if (startSearchIndex - numIndex < 30) {
-              const helpLink =
-                'https://docs.github.com' +
-                contents
-                  .substring(
-                    startSearchIndex,
-                    regexIndexOf(
-                      contents,
-                      /\n|"\)|{@email_tracking_params}|\^http|Ahttps|example|This|TODO"|[{}|"%><.,')* ]/,
-                      startSearchIndex + 1
-                    )
-                  )
-                  .trim()
-              docsLinksFiles.push([helpLink, file])
+            return
+          }
+
+          const startSearchIndex = contents.indexOf('/', numIndex)
+          // Looking for the closest '/' after GitHub.developer_help_url or GitHub.help_url
+          // There are certain links that don't start with `/` so we want to skip those.
+          // If there's no `/` within 30 characters of GitHub.help_url/GitHub.developer_help_url, skip
+          if (startSearchIndex - numIndex < 30) {
+            const linkPath = contents
+              .substring(
+                startSearchIndex,
+                regexIndexOf(
+                  contents,
+                  /\n|"\)|{@email_tracking_params}|\^http|Ahttps|example|This|TODO"|[{}|"%><.,')* ]/,
+                  startSearchIndex + 1
+                )
+              )
+              .trim()
+
+            // Certain specific links can be ignored as well
+            if (['/deprecation-1'].includes(linkPath)) {
+              return
             }
+
+            docsLinksFiles.push([`https://docs.github.com${linkPath}`, file])
           }
         })
       }

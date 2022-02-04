@@ -2,12 +2,12 @@
 title: Migrarse de Travis CI a GitHub Actions
 intro: '{% data variables.product.prodname_actions %} y Travis CI comparte muchas similitudes, lo cual hace que el migrarse a {% data variables.product.prodname_actions %} sea relativamente fácil.'
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Travis CI
@@ -101,7 +101,7 @@ jobs:
 
 ### Apuntar a ramas específicas
 
-Tanto Travis CI como {% data variables.product.prodname_actions %} te permiten apuntar tu IC a una rama específica. Para obtener más información, consultala sección "[Sintaxis de flujo de trabajo para GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
+Tanto Travis CI como {% data variables.product.prodname_actions %} te permiten apuntar tu IC a una rama específica. Para obtener más información, consultala sección "[Sintaxis de flujo de trabajo para GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
 
 Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 
@@ -187,7 +187,7 @@ Cuando te migres de Travis CI, consider las siguientes características clave en
 
 ### Almacenar secretos
 
-{% data variables.product.prodname_actions %} te permite almacenar secretos y referenciarlos en tus jobs. Las organizaciones de {% data variables.product.prodname_actions %} pueden limitar qué repositorios pueden acceder a sus secretos. {% ifversion fpt or ghes > 3.0 or ghae %}Las reglas de protección de ambiente pueden requerir aprobación manual para que un flujo de trabajo acceda a los secretos del ambiente. {% endif %}Para obtener más información, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
+{% data variables.product.prodname_actions %} te permite almacenar secretos y referenciarlos en tus jobs. Las organizaciones de {% data variables.product.prodname_actions %} pueden limitar qué repositorios pueden acceder a sus secretos. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Las reglas de protección de ambiente pueden requerir aprobación manual para que un flujo de trabajo acceda a los secretos del ambiente. {% endif %}Para obtener más información, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 
 ### Compartir archivos entre jobs y flujos de trabajo
 
@@ -197,9 +197,13 @@ Cuando te migres de Travis CI, consider las siguientes características clave en
 
 Si tus jobs requieren de hardware o software específico, {% data variables.product.prodname_actions %} te permite almacenar tus propios ejecutores y enviar tus jobs para que éstos los procesen. {% data variables.product.prodname_actions %} también te permite utilizar políticas para controlar cómo se accede a estos ejecutores, otorgando acceso a nivel de organización o de repositorio. Para obtener más información, consulta la sección "[Hospedar tus propios ejecutores](/actions/hosting-your-own-runners)".
 
+{% ifversion fpt or ghec %}
+
 ### Tiempo de ejecución y jobs simultáneos
 
 Los jobs simultáneos y los tiempos de ejecución de los flujos de trabajo en {% data variables.product.prodname_actions %} pueden variad dependiendo de tu plan de {% data variables.product.company_short %}. Para obtener más información, consulta la sección "[Límites de uso y administración](/actions/reference/usage-limits-billing-and-administration)".
+
+{% endif %}
 
 ### Utilizar lenguajes diferentes en {% data variables.product.prodname_actions %}
 
@@ -333,7 +337,7 @@ cache: npm
 </tr>
 </table>
 
-El almacenamiento en caché de {% data variables.product.prodname_actions %} solo aplica a los ejecutores hospedados en {% data variables.product.prodname_dotcom %}.  Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+El almacenamiento en caché de las {% data variables.product.prodname_actions %} solo se aplica a los repositorios que se hospedan en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
 
 ## Ejemplos de tareas comunes
 

@@ -5,6 +5,7 @@ intro: 您可以配置企业以适应组织的需求。
 redirect_from:
   - /enterprise/admin/configuration
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -12,7 +13,7 @@ topics:
 children:
   - /configuring-your-enterprise
   - /configuring-network-settings
-  - /managing-connections-between-your-enterprise-accounts
+  - /configuring-github-connect
 ---
 
 {% ifversion ghes %}

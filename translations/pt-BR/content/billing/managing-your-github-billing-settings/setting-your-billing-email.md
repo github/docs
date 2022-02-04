@@ -3,14 +3,15 @@ title: Definir seu e-mail de cobrança
 intro: 'O e-mail de cobrança da conta é o endereço para o qual o {% data variables.product.product_name %} envia recibos e outras comunicações relacionadas a cobranças.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-your-billing-email
-  - /articles/setting-your-personal-account-s-billing-email/
-  - /articles/can-i-change-what-email-address-received-my-github-receipt/
-  - '/articles/how-do-i-change-the-billing-email,setting-your-billing-email/'
-  - /articles/setting-your-organization-s-billing-email/
+  - /articles/setting-your-personal-account-s-billing-email
+  - /articles/can-i-change-what-email-address-received-my-github-receipt
+  - '/articles/how-do-i-change-the-billing-email,setting-your-billing-email'
+  - /articles/setting-your-organization-s-billing-email
   - /articles/setting-your-billing-email
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/setting-your-billing-email
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations

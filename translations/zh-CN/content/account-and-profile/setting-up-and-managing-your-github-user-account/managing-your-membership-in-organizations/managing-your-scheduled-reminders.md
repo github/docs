@@ -3,6 +3,7 @@ title: 管理您的预定提醒
 intro: 当您或您的团队有等待审查的拉取请求时，您会在 Slack 中收到提醒。
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:

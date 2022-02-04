@@ -7,6 +7,8 @@ redirect_from:
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -19,6 +21,9 @@ topics:
 shortTitle: 更新のカスタマイズ
 ---
 
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## 依存関係の更新のカスタマイズについて
 
 バージョン更新を有効にしてから、*dependabot.yml* ファイルにさらにオプションを追加することで、{% data variables.product.prodname_dependabot %} が依存関係を維持する方法をカスタマイズできます。 たとえば、次のような方法を使用します。
@@ -29,9 +34,9 @@ shortTitle: 更新のカスタマイズ
 - `open-pull-requests-limit`: バージョン更新のオープンプルリクエストの最大数をデフォルトの 5 件から変更する
 - `target-branch`: デフォルトブランチではなく、特定のブランチを対象とするバージョン更新のプルリクエストを開く
 
-設定オプションの詳細については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates) 」を参照してください。
+設定オプションの詳細については、「[依存関係の更新の設定オプション](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates) 」を参照してください。
 
-リポジトリ内の *dependabot.yml* ファイルを更新すると、{% data variables.product.prodname_dependabot %} は新しい設定で即座にチェックを実行します。 数分以内に、[**{% data variables.product.prodname_dependabot %}**] タブに更新された依存関係のリストが表示されます。リポジトリに多くの依存関係がある場合、表示までにさらに時間がかかることがあります。 バージョン更新に関する新しいプルリクエストが表示されることもあります。 詳しい情報については、「[バージョン更新用に設定された依存関係を一覧表示する](/github/administering-a-repository/listing-dependencies-configured-for-version-updates) 」を参照してください。
+リポジトリ内の *dependabot.yml* ファイルを更新すると、{% data variables.product.prodname_dependabot %} は新しい設定で即座にチェックを実行します。 数分以内に、[**{% data variables.product.prodname_dependabot %}**] タブに更新された依存関係のリストが表示されます。リポジトリに多くの依存関係がある場合、表示までにさらに時間がかかることがあります。 バージョン更新に関する新しいプルリクエストが表示されることもあります。 詳しい情報については、「[バージョン更新用に設定された依存関係を一覧表示する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates) 」を参照してください。
 
 ## 設定変更によるセキュリティアップデートへの影響
 
@@ -134,4 +139,4 @@ updates:
 
 ## その他の例
 
-その他の例ついては、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates) 」を参照してください。
+その他の例ついては、「[依存関係の更新の設定オプション](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates) 」を参照してください。

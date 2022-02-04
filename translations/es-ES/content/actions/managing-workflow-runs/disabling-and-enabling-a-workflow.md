@@ -1,11 +1,11 @@
 ---
 title: Inhabilitar y habilitar un flujo de trabajo
 intro: 'Puedes inhabilitar y volver a habilitar un flujo de trabajo utilizando la IU de {% data variables.product.prodname_dotcom %}, la API de REST, o el {% data variables.product.prodname_cli %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Inhabilitar & habilitar un flujo de trabajo
 ---
 
@@ -31,8 +31,6 @@ También puedes inhabilitar y habilitar un flujo de trabajo utilizando la API de
 
 ## Inhabilitar un flujo de trabajo
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -56,8 +54,6 @@ gh workflow disable <em>workflow</em>
 {% endcli %}
 
 ## Habilitar un flujo de trabajo
-
-{% include tool-switcher %}
 
 {% webui %}
 

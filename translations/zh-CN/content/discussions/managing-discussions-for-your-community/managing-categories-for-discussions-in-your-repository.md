@@ -4,6 +4,7 @@ intro: 您可以对仓库中的讨论进行分类，以组织社区成员的对�
 permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 管理类别
 ---
 

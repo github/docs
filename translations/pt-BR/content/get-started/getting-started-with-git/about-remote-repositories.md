@@ -1,10 +1,10 @@
 ---
 title: Sobre repositórios remotos
 redirect_from:
-  - /articles/working-when-github-goes-down/
-  - /articles/sharing-repositories-without-github/
+  - /articles/working-when-github-goes-down
+  - /articles/sharing-repositories-without-github
   - /articles/about-remote-repositories
-  - /articles/which-url-should-i-use/
+  - /articles/which-url-should-i-use
   - /articles/which-remote-url-should-i-use
   - /github/using-git/which-remote-url-should-i-use
   - /github/using-git/about-remote-repositories
@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Sobre repositórios remotos
@@ -64,15 +65,15 @@ Quando você aplicar `git clone`, `git fetch`, `git pull` ou `git push` a um rep
 
 {% endtip %}
 
- {% ifversion fpt %}Se você prefere usar o SSH mas não consegue conectar-se pela porta 22, você poderá usar o SSH através da porta HTTPS. Para obter mais informações, consulte "[Usar SSH através da porta HTTPS](/github/authenticating-to-github/using-ssh-over-the-https-port)".{% endif %}
+ {% ifversion fpt or ghec %}Se você prefere usar o SSH mas não consegue conectar-se pela porta 22, você poderá usar o SSH através da porta HTTPS. Para obter mais informações, consulte "[Usar SSH através da porta HTTPS](/github/authenticating-to-github/using-ssh-over-the-https-port)".{% endif %}
 
 ## Clonar com URLs de SSH
 
-As URLs de SSH fornecem acesso a um repositório do Git via SSH, um protocolo seguro. Para usar essas URLs, você deve gerar um par de chaves SSH no seu computador e adicionar a chave **pública** à sua conta de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Conectar-se ao {% data variables.product.prodname_dotcom %} com SSH](/github/authenticating-to-github/connecting-to-github-with-ssh)".
+As URLs de SSH fornecem acesso a um repositório do Git via SSH, um protocolo seguro. Para usar estas URLs, você deve gerar um par de chaves SSH no seu computador e adicionar a chave **pública** à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Para obter mais informações, consulte "[Conectar-se ao {% data variables.product.prodname_dotcom %} com SSH](/github/authenticating-to-github/connecting-to-github-with-ssh)".
 
 Quando você aplicar `git clone`, `git fetch`, `git pull` ou `git push` a um repositório remote usando URLs de SSH, precisará digitar uma senha e a frase secreta da sua chave SSH. Para obter mais informações, consulte "[Trabalhar com frases secretas da chave SSH](/github/authenticating-to-github/working-with-ssh-key-passphrases)".
 
-{% ifversion fpt %}Se você estiver acessando uma organização que usa o logon único SAML (SSO), você deverá autorizar sua chave SSH para acessar a organização antes de efetuar a autenticação. Para mais informações, consulte "[Sobre autenticação com logon único SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" e "[Autorizando uma chave SSH para uso com logon único SAML](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".{% endif %}
+{% ifversion fpt or ghec %}Se você estiver acessando uma organização que usa o logon único SAML (SSO), você deverá autorizar sua chave SSH para acessar a organização antes de efetuar a autenticação. Para obter mais informações, consulte "[Sobre a autenticação com o logon único SAML em](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" e "[Autorizando uma chave SSH para uso com o logon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 
 {% tip %}
 
@@ -80,7 +81,7 @@ Quando você aplicar `git clone`, `git fetch`, `git pull` ou `git push` a um rep
 
 {% endtip %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 
 ## Clonar com {% data variables.product.prodname_cli %}
 

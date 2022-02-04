@@ -1,12 +1,12 @@
 ---
 title: 关于 GitHub Actions 的计费
 intro: '如果要对 {% data variables.product.prodname_actions %} 的使用超出帐户所含存储容量或分钟数，您需要支付额外的使用费。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Actions
@@ -20,11 +20,13 @@ shortTitle: GitHub Actions 的计费
 
 {% data reusables.github-actions.actions-spending-limit-brief %} 更多信息请参阅“[关于支出限制](#about-spending-limits)”。
 
-如果您通过 Microsoft 企业协议购买 {% data variables.product.prodname_enterprise %}，可以将 Azure 订阅 ID 连接到您的企业帐户，以便启用并支付超出您的帐户金额的 {% data variables.product.prodname_actions %} 使用费用。 更多信息请参阅“[将 Azure 订阅连接到您的企业](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)”。
+{% ifversion ghec %}
+如果您通过 Microsoft 企业协议购买 {% data variables.product.prodname_enterprise %}，可以将 Azure 订阅 ID 连接到您的企业帐户，以便启用并支付超出您的帐户金额的 {% data variables.product.prodname_actions %} 使用费用。 更多信息请参阅“[将 Azure 订阅连接到您的企业](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)”。
+{% endif %}
 
 分钟数每月都会重置，而存储使用量不重置。
 
-### Included storage and minutes
+### 包括存储和分钟数
 
 | 产品                                                    | 存储器    | 分钟数（每月） |
 | ----------------------------------------------------- | ------ | ------- |
@@ -36,7 +38,7 @@ shortTitle: GitHub Actions 的计费
 
 在 {% data variables.product.prodname_dotcom %} 主机的 Windows 和 macOS 运行器上运行的作业，其消耗分钟数是在 Linux 运行器上运行的作业的 2 倍和 10 倍。 例如，使用 1,000 Windows 分钟将消耗帐户中包含的 2,000 分钟。 使用 1,000 macOS 分钟，将消耗帐户中包含的 10,000 分钟。
 
-### Minute multipliers
+### 分钟乘数
 
 | 操作系统    | 分钟乘数 |
 | ------- | ---- |
@@ -46,7 +48,7 @@ shortTitle: GitHub Actions 的计费
 
 仓库使用的存储空间是 {% data variables.product.prodname_actions %} 构件和 {% data variables.product.prodname_registry %} 使用的存储空间总计。 您的存储成本是您帐户拥有的所有帐户的总使用量。 有关 {% data variables.product.prodname_registry %} 定价的更多信息，请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”。
 
- If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.25 USD per GB of storage per month and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} 将每个作业使用的分钟数舍入到最接近的分钟整数。
+ 如果您的帐户使用量超出了这些限额，并且您设置的支出限额高于 0 美元，则每月的每 GB 存储用量和每分钟用量需要支付 0.25 美元，具体取决于 {% data variables.product.prodname_dotcom %} 托管运行器使用的操作系统。 {% data variables.product.prodname_dotcom %} 将每个作业使用的分钟数舍入到最接近的分钟整数。
 
 {% note %}
 
@@ -54,13 +56,13 @@ shortTitle: GitHub Actions 的计费
 
 {% endnote %}
 
-### Per-minute rates
+### 每分钟费率
 
-| 操作系统    | Per-minute rate (USD) |
-| ------- | --------------------- |
-| Linux   | $0.008                |
-| macOS   | $0.08                 |
-| Windows | $0.016                |
+| 操作系统    | 每分钟费率（美元） |
+| ------- | --------- |
+| Linux   | $0.008    |
+| macOS   | $0.08     |
+| Windows | $0.016    |
 
 可在用户或组织帐户的所有仓库中同时运行的作业数量取决于您的 GitHub 计划。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
 
@@ -72,7 +74,7 @@ shortTitle: GitHub Actions 的计费
 
 在月末，{% data variables.product.prodname_dotcom %} 会计算您使用的超过帐户自带限额的分钟数和存储空间费用。
 
-### Sample minutes cost calculation
+### 样品分钟数成本计算
 
 For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
 

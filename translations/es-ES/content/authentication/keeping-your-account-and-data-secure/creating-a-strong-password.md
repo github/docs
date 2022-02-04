@@ -1,27 +1,29 @@
 ---
 title: Crear una contraseña segura
-intro: 'Protege tu cuenta de {% data variables.product.product_name %} con una contraseña segura y única usando un administrador de contraseñas.'
+intro: 'Asegura tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} con una contraseña única y fuerte utilizando el administrador de contraseñas.'
 redirect_from:
-  - /articles/what-is-a-strong-password/
+  - /articles/what-is-a-strong-password
   - /articles/creating-a-strong-password
   - /github/authenticating-to-github/creating-a-strong-password
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
 shortTitle: Crear una contraseña fuerte
 ---
 
-Debes elegir o generar una contraseña para tu cuenta de {% data variables.product.product_name %} que por lo menos cumpla con:
+Debes elegir o generar una contraseña para tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} que tenga por lo menos:
 - Una longitud de {% ifversion ghes %}siete{% else %}ocho{% endif %}caracteres, si incluye un número y una letra minúscula, o
 - 15 caracteres de largo con cualquier combinación de caracteres
 
 Para preservar la seguridad de tu cuenta, te recomendamos que sigas estas buenas prácticas:
 - Utiliza un administrador de contraseñas, tal como [LastPass](https://lastpass.com/) o [1Password](https://1password.com/), para generar una contraseña de por lo menos 15 caracteres.
-- Genera una contraseña que sea única para {% data variables.product.product_name %}. Si usas tu contraseña de {% data variables.product.product_name %} en algún otro lugar y ese servicio se ve comprometido, los atacantes u otros actores maliciosos pueden usar esa información para acceder a tu cuenta de {% data variables.product.product_name %}.
+- Genera una contraseña que sea única para {% data variables.product.product_name %}. Si utilizas tu contraseña de {% data variables.product.product_name %} en cualquier otro lugar y el servicio se puso en riesgo, entonces los atacantes y actores malintenconados podrían utilizar dicha información para acceder a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+
 - Configura la autenticación de dos factores para tu cuenta personal. Para obtener más información, consulta "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)".
 - Nunca compartas tu contraseña con nadie, aunque se trate de un potencial colaborador. Cada persona debe usar su propia cuenta personal en {% data variables.product.product_name %}. Para obtener más información acerca de cómo colaborar, consulta: "[Invitar colaboradores a un repositorio personal](/articles/inviting-collaborators-to-a-personal-repository)," "[Acerca de los modelos de desarrollo colaborativos](/articles/about-collaborative-development-models/)," o "[Colaborar con los grupos en las organizaciones](/organizations/collaborating-with-groups-in-organizations/)".
 
@@ -29,7 +31,7 @@ Para preservar la seguridad de tu cuenta, te recomendamos que sigas estas buenas
 
 Solo puedes utilizar tu contraseña para ingresar en {% data variables.product.product_name %} a través de tu buscador. Cuadno te atutenticas en {% data variables.product.product_name %} con otros medios, tales como la línea de comandos o la API, debes utilizar otras credenciales. Para obtener más información, consulta la sección "[Acerca de la autenticación en {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)".
 
-{% ifversion fpt %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
 
 ## Leer más
 

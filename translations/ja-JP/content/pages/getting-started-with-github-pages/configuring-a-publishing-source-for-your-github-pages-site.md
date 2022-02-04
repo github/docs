@@ -1,8 +1,8 @@
 ---
 title: GitHub Pages サイトの公開元を設定する
-intro: '{% data variables.product.prodname_pages %} サイトでデフォルトの公開元を使用している場合、サイトは自動的に公開されます。 様々なブランチあるいはフォルダから選択して{% ifversion ghes < 3.0 %}プロジェクト{% endif %}サイトを公開することもできます。'
+intro: '{% data variables.product.prodname_pages %} サイトでデフォルトの公開元を使用している場合、サイトは自動的に公開されます。 You can also choose to publish your site from a different branch or folder.'
 redirect_from:
-  - /articles/configuring-a-publishing-source-for-github-pages/
+  - /articles/configuring-a-publishing-source-for-github-pages
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
   - /github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: 公開ソースの設定
@@ -20,20 +21,31 @@ shortTitle: 公開ソースの設定
 
 ## 公開元を選択する
 
-公開ソースを設定する前に、公開ソースとして使いたいブランチ{% ifversion ghes < 3.0 %}もしくはフォルダ{% endif %}がすでにリポジトリ中に存在することを確認してください。{% ifversion ghes < 3.0 %}たとえば、プロジェクトサイトをリポジトリの`master`ブランチ上の`/docs`フォルダから公開するには、あなたあるいはコラボレータがリポジトリのデフォルトの`master`ブランチ上に`/docs`フォルダを作成しなければなりません。{% endif %}
+Before you configure a publishing source, make sure the branch you want to use as your publishing source already exists in your repository.
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 3. [{% data variables.product.prodname_pages %}] で、[**None**] または [**Branch**] ドロップダウンメニューから公開元を選択します。 ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
 4. 必要に応じて、ドロップダウンメニューで発行元のフォルダを選択します。 ![公開元のフォルダを選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-folder-drop-down.png)
-5. [**Save**] をクリックします。 ![Button to save changes to publishing source settings](/assets/images/help/pages/publishing-source-save.png){% else %}
-3. [{% data variables.product.prodname_pages %}] で、[**Source**] ドロップダウンメニューから公開元を選択します。 ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
-{% endif %}
+5. [**Save**] をクリックします。 ![公開元の設定への変更を保存するボタン](/assets/images/help/pages/publishing-source-save.png)
 
 ## {% data variables.product.prodname_pages %} サイトの公開に関するトラブルシューティング
 
 {% data reusables.pages.admin-must-push %}
 
-公開元として{% ifversion fpt or ghes > 2.22 or ghae %}いずれかの{% else %}`master`{% endif %} ブランチの `docs` フォルダを選択した場合、その後リポジトリ内のそのブランチから `/docs` フォルダを削除すると、サイトがビルドされず、`/docs` フォルダが見つからないことのページのビルドエラーメッセージが表示されます。 詳細については、「[{% data variables.product.prodname_pages %} サイトの Jekyll ビルドエラーに関するトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)」を参照してください。
+If you choose the `docs` folder on any branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. 詳細については、「[{% data variables.product.prodname_pages %} サイトの Jekyll ビルドエラーに関するトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)」を参照してください。
+
+{% ifversion fpt %}
+
+Your {% data variables.product.prodname_pages %} site will always be deployed with a {% data variables.product.prodname_actions %} workflow run, even if you've configured your {% data variables.product.prodname_pages %} site to be built using a different CI tool. Most external CI workflows "deploy" to GitHub Pages by committing the build output to the `gh-pages` branch of the repository, and typically include a `.nojekyll` file. When this happens, the {% data variables.product.prodname_actions %} worfklow will detect the state that the branch does not need a build step, and will execute only the steps necessary to deploy the site to {% data variables.product.prodname_pages %} servers.
+
+To find potential errors with either the build or deployment, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. 詳しい情報については、「[ワークフロー実行の履歴を表示する](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)」を参照してください。  For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+
+{% note %}
+
+{% data reusables.pages.pages-builds-with-github-actions-public-beta %}
+
+{% endnote %}
+
+{% endif %}

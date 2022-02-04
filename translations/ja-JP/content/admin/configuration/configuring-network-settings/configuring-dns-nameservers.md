@@ -2,7 +2,7 @@
 title: DNSネームサーバの設定
 intro: '{% data variables.product.prodname_ghe_server %} は、動的ホスト構成プロトコル (DHCP) のリースがネームサーバーを提供するときに、DNS 設定に対して DHCP を使用します。 ネームサーバがDHCPのリースで提供されない場合、あるいは特定のDNS設定を使う必要がある場合は、手動でネームサーバを指定できます。'
 redirect_from:
-  - /enterprise/admin/guides/installation/about-dns-nameservers/
+  - /enterprise/admin/guides/installation/about-dns-nameservers
   - /enterprise/admin/installation/configuring-dns-nameservers
   - /enterprise/admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-dns-nameservers

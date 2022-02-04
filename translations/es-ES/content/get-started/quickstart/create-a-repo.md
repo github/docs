@@ -1,15 +1,16 @@
 ---
 title: Crear un repositorio
 redirect_from:
-  - /create-a-repo/
+  - /create-a-repo
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
-intro: 'Para subir tu proyecto a {% data variables.product.product_location %}, deberás crear un repositorio donde alojarlo.'
+intro: 'Para subir tu proyecto a {% data variables.product.prodname_dotcom %}, deberás crear un repositorio donde alojarlo.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -19,9 +20,9 @@ topics:
 
 ## Crear un repositorio
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-Puedes almacenar distintos proyectos en los repositorios de {% data variables.product.product_name %}, incluso proyectos de código abierto. Con [proyectos de código abierto](http://opensource.org/about), puedes compartir el código para hacer que el software funcione mejor y sea más confiable. Puedes utilizar los repositorios para colaborar con otros y rastrear tu trabajo. Para obtener más información, consulta la sección "[Acerca de los repositorios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)".
+Puedes almacenar distintos proyectos en los repositorios de {% data variables.product.prodname_dotcom %}, incluso proyectos de código abierto. Con [proyectos de código abierto](http://opensource.org/about), puedes compartir el código para hacer que el software funcione mejor y sea más confiable. Puedes utilizar los repositorios para colaborar con otros y rastrear tu trabajo. Para obtener más información, consulta la sección "[Acerca de los repositorios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)".
 
 {% elsif ghes or ghae %}
 
@@ -29,7 +30,7 @@ Puedes almacenar varios proyectos en los repositorios de {% data variables.produ
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -38,8 +39,6 @@ Puedes almacenar varios proyectos en los repositorios de {% data variables.produ
 {% endnote %}
 
 {% endif %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -59,19 +58,13 @@ Puedes almacenar varios proyectos en los repositorios de {% data variables.produ
 {% data reusables.cli.cli-learn-more %}
 
 1. En la línea de comandos, navega al directorio en donde te gustaría crear un clon local de tu proyecto nuevo.
-2. Para crear un repositorio de tu proyecto, utiliza el subcomando `gh repo create`. Reemplaza a `project-name` con el nombre que deseas dar a tu repositorio. Si quieres que tu proyecto pertenezca a una organización en vez de a tu cuenta de usuario, especifica el nombre de la organización y del proyecto con `organization-name/project-name`.
-
-   ```shell
-   gh repo create <em>project-name</em>
-   ```
-
-3. Sigue los mensajes interactivos. Para clonar el repositorio localmente, confirma que sí cuando se te pregunte si quisieras clonar el directorio remoto del proyecto. Como alternativa, puedes especificar los argumentos para omitir estos mensajes. Para obtener más información sobre los argumentos posibles, consulta [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_repo_create).
+2. Para crear un repositorio de tu proyecto, utiliza el subcomando `gh repo create`. Cuando se te indique, selecciona **Crear un repositorio nuevo en GitHub desde cero** e ingresa el nombre de tu nuevo proyecto. Si quieres que tu proyecto pertenezca a una organización en vez de a tu cuenta de usuario, especifica el nombre de la organización y del proyecto con `organization-name/project-name`.
+3. Sigue los mensajes interactivos. Para clonar el repositorio localmente, confirma que sí cuando se te pregunte si quisieras clonar el directorio remoto del proyecto.
+4. Como alternativa, para saltar las indicaciones, proporciona el nombre del repositorio y un marcador de visibilidad (`--public`, `--private` o `--internal`). Por ejemplo, `gh repo create project-name --public`. Para clonar el repositorio localmente, pasa el marcador `--clone`.  Para obtener más información sobre los argumentos posibles, consulta el [manual del CLI de GitHub](https://cli.github.com/manual/gh_repo_create).
 
 {% endcli %}
 
 ## Confirma tu primer cambio
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -137,12 +130,12 @@ Los archivos *README* son un lugar ideal para describir tu proyecto en más deta
 
 {% webui %}
 
-Ahora puedes clonar un repositorio de {% data variables.product.product_name %} para crear una copia local en tu computadora. Desde tu repositorio local, puedes confirmar y crear una solicitud de cambios para actualizar los cambios en el repositorio de nivel superior. Para obtener más información, consulta las secciones "[Clonar un repositorio](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)" y "[Configurar Git](/articles/set-up-git)".
+Ahora puedes clonar un repositorio de {% data variables.product.prodname_dotcom %} para crear una copia local en tu computadora. Desde tu repositorio local, puedes confirmar y crear una solicitud de cambios para actualizar los cambios en el repositorio de nivel superior. Para obtener más información, consulta las secciones "[Clonar un repositorio](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)" y "[Configurar Git](/articles/set-up-git)".
 
 {% endwebui %}
 
-Puedes encontrar proyectos y repositorios interesantes en {% data variables.product.product_name %} y hacerles cambios creando una bifurcación del repositorio. Para obtener más información, consulta la sección "[Bifurcar un repositorio](/articles/fork-a-repo)".
+Puedes encontrar proyectos y repositorios interesantes en {% data variables.product.prodname_dotcom %} y hacerles cambios creando una bifurcación del repositorio. Para obtener más información, consulta la sección "[Bifurcar un repositorio](/articles/fork-a-repo)".
 
-Cada repositorio en {% data variables.product.product_name %} pertenece a una persona u organización. Puedes interactuar con las personas, repositorios y organizaciones conectándote y siguiéndolos en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sé sociable ](/articles/be-social)".
+Cada repositorio en {% data variables.product.prodname_dotcom %} pertenece a una persona u organización. Puedes interactuar con las personas, repositorios y organizaciones conectándote y siguiéndolos en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Sé sociable ](/articles/be-social)".
 
 {% data reusables.support.connect-in-the-forum-bootcamp %}

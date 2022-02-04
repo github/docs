@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 变基后解决冲突
 ---
 
@@ -33,4 +34,4 @@ Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Change fake file
 * 您可以运行 `git rebase --skip` 完全跳过提交。 这意味着将不包括由有问题的提交引入的任何更改。 您很少会选择此选项。
 * 您可以解决冲突。
 
-要解决冲突，可以按照[从命令行解决合并冲突的标准过程](/articles/resolving-a-merge-conflict-using-the-command-line)操作。 完成后，您需要调用 `git rebase --continue` 以便 Git 继续处理变基的其余部分。
+要解决冲突，可以按照[从命令行解决合并冲突的标准过程](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)操作。 完成后，您需要调用 `git rebase --continue` 以便 Git 继续处理变基的其余部分。

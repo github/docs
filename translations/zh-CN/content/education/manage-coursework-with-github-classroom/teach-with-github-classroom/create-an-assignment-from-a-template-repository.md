@@ -1,6 +1,7 @@
 ---
 title: 从模板仓库创建作业
 intro: 您可以从模板仓库创建作业，为学生提供起始代码、文档和其他资源。
+permissions: 'Organization owners who are admins for a classroom can create an assignment from a template repository that is public or owned by the organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
   fpt: '*'
 redirect_from:

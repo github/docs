@@ -3,12 +3,13 @@ title: 取消 GitHub Marketplace 应用程序
 intro: '您可以随时从您的帐户取消和删除 {% data variables.product.prodname_marketplace %} 应用程序。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/canceling-a-github-marketplace-app
-  - /articles/canceling-an-app-for-your-personal-account/
-  - /articles/canceling-an-app-for-your-organization/
+  - /articles/canceling-an-app-for-your-personal-account
+  - /articles/canceling-an-app-for-your-organization
   - /articles/canceling-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Cancellation

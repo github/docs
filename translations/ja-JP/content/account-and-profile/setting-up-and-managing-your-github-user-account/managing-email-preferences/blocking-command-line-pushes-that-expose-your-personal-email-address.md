@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications

@@ -1,7 +1,7 @@
 ---
 title: ソーシャル機能
 redirect_from:
-  - /be-social/
+  - /be-social
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profile
   - Pull requests
@@ -23,7 +24,7 @@ topics:
 
 ## 人をフォローする
 
-{% data variables.product.product_location %} 上で人をフォローすれば、その人のアクティビティについてパーソナルダッシュボードで通知を受けられます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
+{% data variables.product.prodname_dotcom %} 上で人をフォローすれば、その人のアクティビティについてパーソナルダッシュボードで通知を受けられます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
 
 人をフォローするには、その人のプロフィールページで [**Follow**] をクリックします。
 
@@ -31,7 +32,7 @@ topics:
 
 ## リポジトリを Watch する
 
-リポジトリを Watch して、新しいプルリクエストと Issue に関する通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人ダッシュボード上で変更を見ることができます。 詳しい情報については、{% ifversion fpt or ghae or ghes %}「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}「[リポジトリを Watch および Watch 解除する](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}」を参照してください。
+リポジトリを Watch して、新しいプルリクエストと Issue に関する通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人ダッシュボード上で変更を見ることができます。 詳しい情報については、{% ifversion fpt or ghae or ghes or ghec %}「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}「[リポジトリを Watch および Watch 解除する](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}」を参照してください。
 
 リポジトリを Watch するには、リポジトリの上部で [**Watch**] をクリックします。
 
@@ -49,7 +50,7 @@ topics:
 
 ### プルリクエストを作成する
 
- 機能を追加したり、バグを修正したりして、他者のプロジェクトにコントリビュートしたいこともあるでしょう。 変更を行ったら、プルリクエストを送信してオリジナルの作者に知らせましょう。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests)を参照してください。
+ 機能を追加したり、バグを修正したりして、他者のプロジェクトにコントリビュートしたいこともあるでしょう。 変更を行ったら、プルリクエストを送信してオリジナルの作者に知らせましょう。 詳しい情報については[プルリクエストについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)を参照してください。
 
  ![プルリクエストボタン](/assets/images/help/repository/repo-actions-pullrequest.png)
 

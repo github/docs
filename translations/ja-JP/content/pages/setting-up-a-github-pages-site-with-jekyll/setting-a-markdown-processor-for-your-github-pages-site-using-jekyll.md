@@ -2,8 +2,8 @@
 title: Jekyll を使用して、GitHub Pages サイトの Markdown プロセッサを設定する
 intro: 'Markdown プロセッサを選択して、{% data variables.product.prodname_pages %} サイトで Markdown をどのようにレンダリングするかを決めることができます。'
 redirect_from:
-  - /articles/migrating-your-pages-site-from-maruku/
-  - /articles/updating-your-markdown-processor-to-kramdown/
+  - /articles/migrating-your-pages-site-from-maruku
+  - /articles/updating-your-markdown-processor-to-kramdown
   - /articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Markdownプロセッサの設定

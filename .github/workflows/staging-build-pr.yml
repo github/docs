@@ -4,46 +4,40 @@ name: Staging - Build PR
 # **Why we have it**: Because it's not safe to share our deploy secrets with forked repos: https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
 # **Who does it impact**: All contributors.
 
+# IT'S CRUCIALLY IMPORTANT THAT THIS WORKFLOW IS ONLY ENABLED IN docs!
+
 on:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
 
 permissions:
   contents: read
 
-# This allows one Build workflow run to interrupt another
+# This allows a subsequently queued workflow run to interrupt previous runs
+# These are different from the concurrency in that here it checks if the
+# whole workflow runs again. The "inner concurrency" is used for
+# undeployments to cleaning up resources.
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label }}'
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump full context for debugging
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
   build-pr:
-    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
-    runs-on: ubuntu-latest
+    # Important. This whole file is only supposed to run in the PUBLIC repo.
+    if: ${{ github.repository == 'github/docs' }}
+
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 5
-    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
-    # progress for this PR branch.
+    # This interrupts Build and Deploy workflow runs in progress for this PR branch.
     concurrency:
-      group: 'PR Staging @ ${{ github.event.pull_request.head.label }}'
+      group: 'PR Staging @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
       cancel-in-progress: true
     steps:
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       # Make sure only approved files are changed if it's in github/docs
       - name: Check changed files
-        if: ${{ github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger' }}
+        if: ${{ github.event.pull_request.user.login != 'Octomerger' }}
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
         id: filter
         with:
@@ -59,10 +53,13 @@ jobs:
             notAllowed:
               - '*.js'
               - '*.mjs'
+              - '*.cjs'
               - '*.ts'
               - '*.tsx'
               - '*.json'
               - '.npmrc'
+              - '.babelrc*'
+              - '.env*'
               - 'script/**'
               - 'Procfile'
 
@@ -72,9 +69,9 @@ jobs:
         run: exit 1
 
       - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       # Required for `npm pkg ...` command support
@@ -83,6 +80,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Cache nextjs build
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
       - name: Build
         run: npm run build
@@ -116,11 +119,17 @@ jobs:
             app.json \
             Procfile
 
+          # We can't delete the .next/cache directory from the workflow
+          # because it's needed for caching, but we can at least delete it
+          # from within the tarball. Then it can be cached but not
+          # weigh down the tarball we intend to deploy.
+          tar --delete --file=app.tar .next/cache
+
       # Upload only the files needed to run this application.
       # We are not willing to trust the rest (e.g. script/) for the remainder
       # of the deployment process.
       - name: Upload build artifact
-        uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2
         with:
           name: pr_build
           path: app.tar

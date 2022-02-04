@@ -10,9 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
 shortTitle: 查看您所有的议题和 PR
+type: how_to
 ---
 
 您的议题和拉取请求仪表板在任何页面顶部提供。 在每个仪表板上，您可以过滤列表以查找您创建的、分配给您的或其中提及您的议题或拉取请求。 您还可以查找已要求审查的拉取请求。
@@ -22,4 +25,4 @@ shortTitle: 查看您所有的议题和 PR
 
 ## 延伸阅读
 
-- {% ifversion fpt or ghes or ghae %}”[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}”[列出您关注的仓库](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- {% ifversion fpt or ghes or ghae or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

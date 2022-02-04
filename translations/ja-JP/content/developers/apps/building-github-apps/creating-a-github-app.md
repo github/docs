@@ -2,21 +2,22 @@
 title: GitHub App を作成する
 intro: '{% data reusables.shortdesc.creating_github_apps %}'
 redirect_from:
-  - /early-access/integrations/creating-an-integration/
-  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps/
+  - /early-access/integrations/creating-an-integration
+  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps
   - /apps/building-github-apps/creating-a-github-app
   - /developers/apps/creating-a-github-app
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
 
-{% ifversion fpt %}構成済みの GitHub App を作成できる GitHub App Manifest の使い方については、「[マニフェストから GitHub App を作成する](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}構成済みの GitHub App を作成できる GitHub App Manifest の使い方については、「[マニフェストから GitHub App を作成する](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **ノート：** {% data reusables.apps.maximum-github-apps-allowed %}
@@ -34,7 +35,7 @@ topics:
 
 1. 必要に応じて、ユーザーに表示されるアプリケーションの説明を [Description] に入力します。 ![GitHub App の説明フィールド](/assets/images/github-apps/github_apps_description.png)
 1. [Homepage URL] に、アプリケーションのウェブサイトの完全な URL を入力します。 ![GitHub App のホームページ URL フィールド](/assets/images/github-apps/github_apps_homepage_url.png)
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 1. [Callback URL] に、ユーザがインストールを認可した後にリダイレクトされる URL を完全な形で入力します。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。
 
   [**Add callback URL**] を使用して、コールバック URL を最大 10 個追加できます。

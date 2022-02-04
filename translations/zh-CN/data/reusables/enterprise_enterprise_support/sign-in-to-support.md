@@ -1,1 +1,1 @@
-1. 访问 https://enterprise.github.com/support 并登录（如果提示）。
+1. If a support engineer has given you an upload link for your support bundle, use this link. Otherwise, visit https://support.github.com/ and sign in (if prompted) to an enterprise account that is entitled to support.

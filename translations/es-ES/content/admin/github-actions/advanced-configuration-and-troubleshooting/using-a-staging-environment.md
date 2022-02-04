@@ -2,7 +2,7 @@
 title: Utilizar un ambiente de montaje
 intro: 'Aprende sobre cómo utilizar {% data variables.product.prodname_actions %} con los ambientes de montaje de {% data variables.product.prodname_ghe_server %}.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Actions

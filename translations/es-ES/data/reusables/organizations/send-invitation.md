@@ -1,1 +1,1 @@
-1. Da clic en {% ifversion fpt %}**Enviar invitación**{% else %}**Agregar miembro**{% endif %}.
+1. Da clic en {% ifversion fpt or ghec %}**Enviar invitación**{% else %}**Agregar miembro**{% endif %}.

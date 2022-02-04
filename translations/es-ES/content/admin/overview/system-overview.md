@@ -21,6 +21,8 @@ El {% data variables.product.prodname_ghe_server %} requiere dos volúmenes de a
 
 El sistema de archivos raíz está incluido en la imagen de máquina distribuida. Contiene el sistema operativo base y el entorno de aplicación {% data variables.product.prodname_ghe_server %}. El sistema de archivos raíz debería tratarse como efímero. Cualquier dato en el sistema de archivos raíz será reemplazado cuando se actualice con futuros lanzamientos del {% data variables.product.prodname_ghe_server %}.
 
+El volumen de almacenamiento raíz se divide en dos particiones del mismo tamaño. Una de las particiones se montará como el sistema de archivos raíz (`/`). La otra partición solo se montará durante mejoras y reversiones de mejoras como `/mnt/upgrade`, para hacer que dichas reversiones se lleven a cabo más fácilmente en caso de que sea necesario. Por ejemplo, si se asigna un volumen raíz de 200GB, 100GB se asignarán al sistema de archivos raíz y otros 100GB se reservarán para las mejoras y reversiones.
+
 El sistema de archivos raíz contiene:
   - Los certificados de autoridad de certificación personalizados (CA) (en */usr/local/share/ca-certificates*)
   - Las configuraciones de red personalizadas

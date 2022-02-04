@@ -7,6 +7,7 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: Organization owners can limit interactions in an organization.
 topics:
   - Community
@@ -41,4 +42,4 @@ shortTitle: 限制组织中的交互
 - “[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
 - "[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository)"
-- "[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

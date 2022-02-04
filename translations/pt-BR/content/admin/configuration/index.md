@@ -5,6 +5,7 @@ intro: É possível configurar sua empresa para atender às necessidades da sua 
 redirect_from:
   - /enterprise/admin/configuration
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -12,7 +13,7 @@ topics:
 children:
   - /configuring-your-enterprise
   - /configuring-network-settings
-  - /managing-connections-between-your-enterprise-accounts
+  - /configuring-github-connect
 ---
 
 {% ifversion ghes %}

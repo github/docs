@@ -3,6 +3,10 @@ title: 在 GitHub AE 中使用操作
 intro: '{% data variables.product.prodname_ghe_managed %} 包含大部分 {% data variables.product.prodname_dotcom %} 编写的操作。'
 versions:
   ghae: '*'
+type: how_to
+topics:
+  - Actions
+  - Enterprise
 redirect_from:
   - /admin/github-actions/using-actions-in-github-ae
 shortTitle: 使用操作

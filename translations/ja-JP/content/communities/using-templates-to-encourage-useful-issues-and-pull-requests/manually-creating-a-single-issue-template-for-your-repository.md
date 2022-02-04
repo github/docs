@@ -2,13 +2,14 @@
 title: リポジトリ用の単一 Issue テンプレートを手動で作成する
 intro: 手動で作成した Issue テンプレートをリポジトリに追加すると、プロジェクトのコントリビューターは自動的に Issue の本体でテンプレートの内容が見えるようになります。
 redirect_from:
-  - /articles/creating-an-issue-template-for-your-repository/
+  - /articles/creating-an-issue-template-for-your-repository
   - /articles/manually-creating-a-single-issue-template-for-your-repository
   - /github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Issue テンプレートの作成
@@ -37,13 +38,13 @@ assignees: octocat
 
 {% endnote %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 

@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **注意：**改进的作业列表目前处于测试阶段，可能会更改。
@@ -27,9 +28,9 @@ topics:
 
 任务列表是一组任务，每个任务都在单独的行上呈现，带有可点击的复选框。 您可以选中或取消选中复选框来将任务标记为完成或未完成。
 
-您可以使用 Markdown 在 {% data variables.product.product_name %} 上的任何评论中创建任务列表。 {% ifversion fpt %}如果您在列表中引用议题、拉取请求或讨论，则引用将展开以显示标题和状态。{% endif %}
+您可以使用 Markdown 在 {% data variables.product.product_name %} 上的任何评论中创建任务列表。 {% ifversion fpt or ghec %}如果您在列表中引用议题、拉取请求或讨论，则引用将展开以显示标题和状态。{% endif %}
 
-{% ifversion not fpt %}
+{% ifversion not fpt or ghec %}
 当任务列表在初始评论中时，您可以查看议题和拉取请求列表中的任务列表摘要信息。
 {% else %}
 
@@ -50,11 +51,20 @@ topics:
 
 {% data reusables.repositories.task-list-markdown %}
 
+{% tip %}
+
+**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+
+{% endtip %}
+
 ## 对任务重新排序
 
 您可以单击任务左边的复选框并将任务拖放至新位置，对任务列表中的项目重新排序。 您可以在相同的评论中对不同列表中的任务重新排序，但是不能在不同的评论中重新排序任务。
 
-![重新排序的任务列表](/assets/images/help/writing/task-list-reordered.gif)
+{% ifversion fpt %} ![重新排序的任务列表](/assets/images/help/writing/task-list-reordered.gif)
+{% else %} ![Reordered task list](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
+
+{% ifversion fpt %}
 
 ## 导航跟踪的议题
 
@@ -62,6 +72,9 @@ topics:
 
 ![跟踪示例](/assets/images/help/writing/task_list_tracked.png)
 
+{% endif %}
+
 ## 延伸阅读
 
-* "[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax)"
+* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+* "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

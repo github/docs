@@ -53,6 +53,7 @@
     - 脚本
   versions:
     fpt: '*'
+    ghec: '*'
 - 
   #Dependabot configuration only relevant to GitHub.com
   #Convert "languages" to "package-ecosystems" for Dependabot configurations
@@ -71,6 +72,7 @@
     - Configuration
   versions:
     fpt: '*'
+    ghec: '*'
 - 
   title: Dependabot 版本更新 PR
   description: 由 Depabot 版本在超级语法检查仓库中更新配置生成的示例拉取请求。
@@ -82,3 +84,4 @@
     - 拉取请求
   versions:
     fpt: '*'
+    ghec: '*'

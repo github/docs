@@ -6,6 +6,8 @@ redirect_from:
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Repositories
@@ -15,15 +17,18 @@ topics:
 shortTitle: 設定された依存関係の一覧
 ---
 
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## {% data variables.product.prodname_dependabot %} によって監視されている依存関係を表示する
 
-バージョン更新を有効にした後、リポジトリの依存関係グラフの [**{% data variables.product.prodname_dependabot %}**] タブで、設定が正しいかどうかを確認できます。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」を参照してください。
+バージョン更新を有効にした後、リポジトリの依存関係グラフの [**{% data variables.product.prodname_dependabot %}**] タブで、設定が正しいかどうかを確認できます。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
 {% data reusables.dependabot.click-dependabot-tab %}
-5. 必要に応じて、パッケージマネージャーで監視されているファイルを表示するには、関連する {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。 ![監視対象の依存関係ファイル](/assets/images/help/dependabot/monitored-dependency-files.png)
+1. 必要に応じて、パッケージマネージャーで監視されているファイルを表示するには、関連する {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックします。 ![監視対象の依存関係ファイル](/assets/images/help/dependabot/monitored-dependency-files.png)
 
 依存関係が見つからない場合は、ログファイルでエラーを確認します。 パッケージマネージャーが見つからない場合は、設定ファイルを確認してください。
 

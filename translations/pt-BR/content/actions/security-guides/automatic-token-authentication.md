@@ -1,7 +1,6 @@
 ---
 title: Autenticação automática de token
 intro: '{% data variables.product.prodname_dotcom %} fornece um token que você pode usar para autenticar em nome de {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
   - /actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Autenticação automática de token
 ---
 
@@ -29,9 +29,9 @@ O token também está disponível no contexto `github.token`. Para obter mais in
 
 ## Usar o `GITHUB_TOKEN` em um fluxo de trabalho
 
-Você pode usar o `GITHUB_TOKEN` ao usar a sintaxe padrão para fazer referência a segredos: {%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}. Exemplos de uso do `GITHUB_TOKEN` incluem passar o token como uma entrada para uma ação ou usá-lo para fazer uma solicitação da API de {% data variables.product.prodname_dotcom %} autenticada.
+Você pode usar o `GITHUB_TOKEN` ao usar a sintaxe padrão para fazer referência a segredos: {%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}. Exemplos de uso do `GITHUB_TOKEN` incluem passar o token como uma entrada para uma ação ou usá-lo para fazer uma solicitação da API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} autenticada.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% note %}
 
 **Importante:** Uma ação pode acessar o `GITHUB_TOKEN` por meio do contexto `github.token`, mesmo que o fluxo de trabalho não passe explicitamente o `GITHUB_TOKEN` para a ação. Como uma boa prática de segurança, você deve sempre certificar-se de que as ações só têm o acesso mínimo necessário limitando as permissões concedidas ao `GITHUB_TOKEN`. Para obter mais informações, consulte "[Permissões para o `GITHUB_TOKEN`](#permissions-for-the-github_token)".
@@ -43,26 +43,7 @@ Você pode usar o `GITHUB_TOKEN` ao usar a sintaxe padrão para fazer referênci
 
 ### Exemplo 1: Passar o `GITHUB_TOKEN` como uma entrada
 
-Este exemplo de fluxo de trabalho usa a [ação etiquetadora](https://github.com/actions/labeler), que exige o `GITHUB_TOKEN` como o valor para o parâmetro de entrada do `token`:
-
-```yaml
-name: Pull request labeler
-
-on: [ pull_request_target ]
-
-{% ifversion fpt or ghes > 3.1 or ghae-next %}permissions:
-  contents: read
-  pull-requests: write
-
-{% endif %}
-jobs:
-  triage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/labeler@v2
-        with:
-          repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```
+{% data reusables.github-actions.github_token-input-example %}
 
 ### Exemplo 2: chamando a API REST
 
@@ -75,7 +56,7 @@ on: [ push ]
 
 jobs:
   create_commit:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       issues: write {% endif %}
     steps:
@@ -96,40 +77,41 @@ jobs:
 
 Para obter informações sobre quais os pontos de extremidade da API de {% data variables.product.prodname_github_apps %} podem acessar com cada permissão, consulte "[Permissões de {% data variables.product.prodname_github_app %}](/rest/reference/permissions-required-for-github-apps)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
-A tabela a seguir mostra as permissões concedidas ao `GITHUB_TOKEN` por padrão. As pessoas com permissões de administrador para uma empresa, organização ou repositório de {% ifversion not ghes %}{% else %}organização ou repositório{% endif %} pode definir as permissões padrão como permissivas ou restritas. Para obter informações sobre como definir permissões padrão para `GITHUB_TOKEN` para a sua {% ifversion not ghes %}empresa, organização ou repositório,{% else %}organização ou repositório,{% endif %}, consulte {% ifversion not ghes %}"[Aplicar políticas de {% data variables.product.prodname_actions %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account#setting-the-permissions-of-the-github_token-for-your-enterprise)," {% endif %}"[Desabilitar ou limitar organizações de {% data variables.product.prodname_actions %} para a sua organização](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," ou "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+A tabela a seguir mostra as permissões concedidas ao `GITHUB_TOKEN` por padrão. As pessoas com permissões de administrador para uma empresa, organização ou repositório de {% ifversion not ghes %}{% else %}organização ou repositório{% endif %} pode definir as permissões padrão como permissivas ou restritas. Para informações sobre como definir as permissões padrão para o `GITHUB_TOKEN` para a sua empresa, organização ou repositório, consulte "[Aplicando políticas para {% data variables.product.prodname_actions %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise), "[Desabilitando ou limitando {% data variables.product.prodname_actions %} para sua organização](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization), ou "[Gerenciando configurações do {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
-| Escopo                  | Acesso padrão<br>(permissivo) | Acesso padrão<br>(restrito) | Acesso máximo<br>por repositórios bifurcados |
-| ----------------------- | ----------------------------------- | --------------------------------- | -------------------------------------------------- |
-| ações                   | leitura/gravação                    | nenhum                            | leitura                                            |
-| Verificações            | leitura/gravação                    | nenhum                            | leitura                                            |
-| Conteúdo                | leitura/gravação                    | leitura                           | leitura                                            |
-| Implantações            | leitura/gravação                    | nenhum                            | leitura                                            |
-| Problemas               | leitura/gravação                    | nenhum                            | leitura                                            |
-| metadados               | leitura                             | leitura                           | leitura                                            |
-| pacotes                 | leitura/gravação                    | nenhum                            | leitura                                            |
-| Pull requests           | leitura/gravação                    | nenhum                            | leitura                                            |
-| Projetos de repositório | leitura/gravação                    | nenhum                            | leitura                                            |
-| eventos de segurança    | leitura/gravação                    | nenhum                            | leitura                                            |
-| Status                  | leitura/gravação                    | nenhum                            | leitura                                            |
+| Escopo       | Acesso padrão<br>(permissivo) | Acesso padrão<br>(restrito) | Acesso máximo<br>por repositórios bifurcados |
+| ------------ | ----------------------------------- | --------------------------------- | -------------------------------------------------- |
+| ações        | leitura/gravação                    | nenhum                            | leitura                                            |
+| Verificações | leitura/gravação                    | nenhum                            | leitura                                            |
+| Conteúdo     | leitura/gravação                    | leitura                           | leitura                                            |
+| Implantações | leitura/gravação                    | nenhum                            | leitura                                            |
+| id-token     | leitura/gravação                    | nenhum                            | leitura                                            |
+| Problemas    | leitura/gravação                    | nenhum                            | leitura                                            |
+| metadados    | leitura                             | leitura                           | leitura                                            |
+| pacotes      | leitura/gravação                    | nenhum                            | leitura                                            |
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6187 %}
+| pages         | read/write  | none | read |
+{%- endif %}
+| pull-requests | read/write  | none | read | | repository-projects | read/write | none | read | | security-events     | read/write | none | read | | statuses      | read/write  | none | read |
 {% else %}
-| Escopo                  | Tipo de acesso   | Acesso pelos repositórios bifurcados |
-| ----------------------- | ---------------- | ------------------------------------ |
-| ações                   | leitura/gravação | leitura                              |
-| Verificações            | leitura/gravação | leitura                              |
-| Conteúdo                | leitura/gravação | leitura                              |
-| Implantações            | leitura/gravação | leitura                              |
-| Problemas               | leitura/gravação | leitura                              |
-| metadados               | leitura          | leitura                              |
-| pacotes                 | leitura/gravação | leitura                              |
-| Pull requests           | leitura/gravação | leitura                              |
-| Projetos de repositório | leitura/gravação | leitura                              |
-| Status                  | leitura/gravação | leitura                              |
+| Escopo              | Tipo de acesso   | Acesso pelos repositórios bifurcados |
+| ------------------- | ---------------- | ------------------------------------ |
+| ações               | leitura/gravação | leitura                              |
+| Verificações        | leitura/gravação | leitura                              |
+| Conteúdo            | leitura/gravação | leitura                              |
+| Implantações        | leitura/gravação | leitura                              |
+| Problemas           | leitura/gravação | leitura                              |
+| metadados           | leitura          | leitura                              |
+| pacotes             | leitura/gravação | leitura                              |
+| pull-requests       | leitura/gravação | leitura                              |
+| repository-projects | leitura/gravação | leitura                              |
+| Status              | leitura/gravação | leitura                              |
 {% endif %}
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Modificar as permissões para o `GITHUB_TOKEN`
 
 Você pode modificar as permissões para o `GITHUB_TOKEN` nos arquivos de fluxo de trabalho individuais. Se as permissões padrão para o `GITHUB_TOKEN` forem restritivas, você poderá ter que elevar as permissões para permitir que algumas ações e comandos sejam executados com sucesso. Se as permissões padrão forem permissivas, você poderá editar o arquivo do fluxo de trabalho para remover algumas permissões do `GITHUB_TOKEN`. Como uma boa prática de segurança, você deve conceder ao `GITHUB_TOKEN` o acesso menos necessário.
@@ -155,3 +137,7 @@ Se você precisa de um token que exige premissões que não estão disponíveis 
 
 1. Use ou crie um token com as permissões adequadas para o repositório. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
 1. Adicione o token como um segredo no repositório do fluxo de trabalho e refira-se a ele usando a sintaxe {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %}. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+
+### Leia mais
+
+- "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)"

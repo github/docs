@@ -1,5 +1,5 @@
 {
-  "action": "queued",
+  "action": "in_progress",
   "workflow_job": {
     "id": 2832853555,
     "run_id": 940463255,
@@ -8,16 +8,31 @@
     "head_sha": "e3103f8eb03e1ad7f2331c5446b23c070fc54055",
     "url": "https://api.github.com/repos/octo-org/example-workflow/actions/jobs/2832853555",
     "html_url": "https://github.com/octo-org/example-workflow/runs/2832853555",
-    "status": "queued",
+    "status": "in_progress",
     "conclusion": null,
     "started_at": "2021-06-15T19:22:27Z",
     "completed_at": null,
     "name": "Test workflow",
     "steps": [
-
+      {
+        "name": "Set up job",
+        "status": "in_progress",
+        "conclusion": null,
+        "number": 1,
+        "started_at": "2021-06-15T19:22:27.000Z",
+        "completed_at": null
+      }
     ],
     "check_run_url": "https://api.github.com/repos/octo-org/example-workflow/check-runs/2832853555",
-    "labels": ["gpu", "db-app", "dc-03"]
+    "labels": [
+      "gpu", 
+      "db-app", 
+      "dc-03"
+    ],
+    "runner_id": 1,
+    "runner_name": "my runner",
+    "runner_group_id": 2,
+    "runner_group_name": "my runner group"
   },
   "repository": {
     "id": 376034443,

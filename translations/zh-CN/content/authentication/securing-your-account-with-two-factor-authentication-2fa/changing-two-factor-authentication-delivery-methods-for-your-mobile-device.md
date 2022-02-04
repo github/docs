@@ -2,12 +2,13 @@
 title: 更改移动设备的双重身份验证递送方式
 intro: 您可以选择通过短信或移动应用程序接收验证码。
 redirect_from:
-  - /articles/changing-two-factor-authentication-delivery-methods/
+  - /articles/changing-two-factor-authentication-delivery-methods
   - /articles/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /github/authenticating-to-github/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: 更改 2FA 递送方式
@@ -15,7 +16,7 @@ shortTitle: 更改 2FA 递送方式
 
 {% note %}
 
-**注：**更改双重身份验证方法会使当前的双因素方法设置无效。 但是，这不会影响您的恢复代码或后备 SMS 配置。 如果需要，您可以在个人帐户的安全设置页面中更新恢复代码或后备 SMS 配置。
+**Note:** Changing your primary method for two-factor authentication invalidates your current two-factor authentication setup, including your recovery codes. Keep your new set of recovery codes safe. Changing your primary method for two-factor authentication does not affect your fallback SMS configuration, if configured. For more information, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)."
 
 {% endnote %}
 

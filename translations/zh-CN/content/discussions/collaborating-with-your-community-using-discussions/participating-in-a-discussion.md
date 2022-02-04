@@ -4,6 +4,7 @@ intro: '您可以在仓库的论坛中与社区和维护者交流 {% data variab
 permissions: 'People with read access to a repository can participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 参与讨论
 ---
 
@@ -18,7 +19,7 @@ shortTitle: 参与讨论
 
 ## 基本要求
 
-{% data variables.product.prodname_discussions %} must be enabled for the repository for you to participate in a discussion in the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+必须对仓库启用 {% data variables.product.prodname_discussions %}，您才可以参与仓库中的讨论。 更多信息请参阅“[为仓库启用或禁用 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
 
 ## 创建讨论
 

@@ -1,5 +1,4 @@
-- [Requisitos mínimos](#minimum-requirements){% ifversion ghes = 2.22 %}
-- [Características beta en {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}
+- [Requisitos mínimos](#minimum-requirements)
 - [Almacenamiento](#storage)
 - [CPU y memoria](#cpu-and-memory)
 
@@ -17,11 +16,11 @@ Tu instancia requiere un disco de datos persistentes independiente del disco ra�
 
 {% ifversion ghes %}
 
-Para configurar{% ifversion ghes = 2.22 %} el beta de {% endif %} {% data variables.product.prodname_actions %}, debes proporcionar un almacenamiento externo de blobs. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)".
+Para configurar las {% data variables.product.prodname_actions %}, debes proporcionar un almacenamiento de blobs externos. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)".
 
 {% endif %}
 
-Puedes redimensionar el disco raíz de tu instancia si creas una instancia nueva o si utilizas una instancia existente. Para obtener más información, consulta la sección [Incrementar la capacidad de almacenamiento](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)"
+El espacio disponible en el sistema de archivos raíz será de 50% del tamaño total en disco. Puedes redimensionar el disco raíz de tu instancia si creas una instancia nueva o si utilizas una instancia existente. Para obtener más información, consulta las secciones "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview#storage-architecture)" y "[Incrementar la capacidad de almacenamiento](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)".
 
 ### CPU y memoria
 
@@ -29,7 +28,7 @@ Los recursos de memoria y CPU que {% data variables.product.prodname_ghe_server 
 
 {% ifversion ghes %}
 
-Si {% ifversion ghes = 2.22 %}habilitaste el beta de{% else %}planeas habilitar{% endif %} {% data variables.product.prodname_actions %} para los usuarios de tu instancia de {% data variables.product.prodname_ghe_server %}, podrías necesitar aprovisionar recursos adicionales de memoria y CPU para tu instancia. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
+Si planeas habilitar las {% data variables.product.prodname_actions %} para los usuarios de tu instancia de {% data variables.product.prodname_ghe_server %}, podrías necesitar aprovisionar recursos de memoria y CPU adicionales para esta. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
 
 {% endif %}
 

@@ -2,7 +2,7 @@
 title: Eliminarte de una organización
 intro: 'Si eres colaborador externo o miembro de una organización, puedes abandonar la organización en cualquier momento.'
 redirect_from:
-  - /articles/how-do-i-remove-myself-from-an-organization/
+  - /articles/how-do-i-remove-myself-from-an-organization
   - /articles/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization
@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Dejar una organización
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% warning %}
 

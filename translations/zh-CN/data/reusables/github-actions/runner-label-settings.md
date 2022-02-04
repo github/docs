@@ -1,1 +1,1 @@
- 1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
+ 1. 在“Labels（标签）”部分，单击 {% octicon "gear" aria-label="The Gear icon" %}。

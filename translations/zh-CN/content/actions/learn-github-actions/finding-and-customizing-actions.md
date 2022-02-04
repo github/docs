@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Fundamentals
@@ -23,15 +24,16 @@ topics:
 
 在工作流程中使用的操作可以定义于：
 
-- 公共仓库
-- 工作流程文件引用操作的同一仓库
+- The same repository as your workflow file{% if internal-actions %}
+- An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
+- Any public repository
 - Docker Hub 上发布的 Docker 容器图像
 
-{% data variables.product.prodname_marketplace %} 是您查找 {% data variables.product.prodname_dotcom %} 社区创建的操作的中心位置。{% ifversion fpt %} [{% data variables.product.prodname_marketplace %} 页面](https://github.com/marketplace/actions/)可用于按类别筛选操作。 {% endif %}
+{% data variables.product.prodname_marketplace %} 是您查找 {% data variables.product.prodname_dotcom %} 社区创建的操作的中心位置。{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} 页面](https://github.com/marketplace/actions/)可用于按类别筛选操作。 {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 在工作流程编辑器中浏览 Marketplace 操作
 
@@ -43,6 +45,10 @@ topics:
 
 ## 添加操作到工作流程
 
+You can add an action to your workflow by referencing the action in your workflow file.
+
+### Adding an action from {% data variables.product.prodname_marketplace %}
+
 操作的列表页包括操作的版本以及使用操作所需的工作流程语法。 为使工作流程在操作有更新时也保持稳定，您可以在工作流程文件中指定 Git 或 Docker 标记号以引用所用操作的版本。
 
 1. 导航到要在工作流程中使用的操作。
@@ -53,6 +59,66 @@ topics:
 {% data reusables.dependabot.version-updates-for-actions %}
 
 {% endif %}
+
+### Adding an action from the same repository
+
+如果操作在工作流程文件使用该操作的同一仓库中定义，您可以在工作流程文件中通过 ‌`{owner}/{repo}@{ref}` 或 `./path/to/dir` 语法引用操作。
+
+示例仓库文件结构：
+
+```
+|-- hello-world (repository)
+|   |__ .github
+|       └── workflows
+|           └── my-first-workflow.yml
+|       └── actions
+|           |__ hello-world-action
+|               └── action.yml
+```
+
+示例工作流程文件：
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # This step checks out a copy of your repository.
+      - uses: actions/checkout@v2
+      # This step references the directory that contains the action.
+      - uses: ./.github/actions/hello-world-action
+```
+
+`action.yml` 文件用于提供操作的元数据。 Learn about the content of this file in "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)."
+
+### Adding an action from a different repository
+
+If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
+
+The action must be stored in a public repository{% if internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: actions/setup-node@v1.1.0
+```
+
+### 引用 Docker Hub 上的容器
+
+如果操作在 Docker Hub 上发布的 Docker 容器图像中定义，您必须在工作流程文件中通过 `docker://{image}:{tag}` 语法引用操作。 为保护代码和数据，强烈建议先验证 Docker Hub 中 Docker 容器图像的完整性后再将其用于工作流程。
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://alpine:3.8
+```
+
+有关 Docker 操作的部分示例，请参阅 [Docker-image.yml 工作流程](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml)和“[创建 Docker 容器操作](/articles/creating-a-docker-container-action)”。
+
 
 ## 对自定义操作使用发行版管理
 
@@ -77,7 +143,7 @@ steps:
 
 ### 使用 SHA
 
-如果需要更可靠的版本控制，应使用与操作版本关联的 SHA 值。 SHA 是不可变的，因此比标记或分支更可靠。 但是，此方法意味着您不会自动接收操作的更新，包括重要的 Bug 修复和安全更新。 {% ifversion fpt or ghes > 3.0 or ghae %}您必须使用提交的完整 SHA 值，而不是缩写值。 {% endif %}此示例针对操作的 SHA：
+如果需要更可靠的版本控制，应使用与操作版本关联的 SHA 值。 SHA 是不可变的，因此比标记或分支更可靠。 但是，此方法意味着您不会自动接收操作的更新，包括重要的 Bug 修复和安全更新。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}您必须使用提交的完整 SHA 值，而不是缩写值。 {% endif %}此示例针对操作的 SHA：
 
 ```yaml
 steps:
@@ -123,51 +189,6 @@ outputs:
 
 {% data variables.product.prodname_dotcom %} 授权的操作（在 {% data variables.product.prodname_ghe_managed %} 中）。 更多信息请参阅“[使用 {% data variables.product.prodname_ghe_managed %} 中的操作](/admin/github-actions/using-actions-in-github-ae)”。
 {% endif %}
-
-## 在工作流程文件使用操作的同一仓库中引用操作
-
-如果操作在工作流程文件使用该操作的同一仓库中定义，您可以在工作流程文件中通过 ‌`{owner}/{repo}@{ref}` 或 `./path/to/dir` 语法引用操作。
-
-示例仓库文件结构：
-
-```
-|-- hello-world (repository)
-|   |__ .github
-|       └── workflows
-|           └── my-first-workflow.yml
-|       └── actions
-|           |__ hello-world-action
-|               └── action.yml
-```
-
-示例工作流程文件：
-
-```yaml
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      # This step checks out a copy of your repository.
-      - uses: actions/checkout@v2
-      # This step references the directory that contains the action.
-      - uses: ./.github/actions/hello-world-action
-```
-
-`action.yml` 文件用于提供操作的元数据。 要了解此文件的内容，请参阅“[GitHub Actions 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”
-
-## 引用 Docker Hub 上的容器
-
-如果操作在 Docker Hub 上发布的 Docker 容器图像中定义，您必须在工作流程文件中通过 `docker://{image}:{tag}` 语法引用操作。 为保护代码和数据，强烈建议先验证 Docker Hub 中 Docker 容器图像的完整性后再将其用于工作流程。
-
-```yaml
-jobs:
-  my_first_job:
-    steps:
-      - name: My first step
-        uses: docker://alpine:3.8
-```
-
-有关 Docker 操作的部分示例，请参阅 [Docker-image.yml 工作流程](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml)和“[创建 Docker 容器操作](/articles/creating-a-docker-container-action)”。
 
 ## 后续步骤
 

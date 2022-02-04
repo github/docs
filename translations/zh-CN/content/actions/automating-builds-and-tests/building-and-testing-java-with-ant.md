@@ -1,7 +1,6 @@
 ---
 title: 使用 Ant 构建和测试 Java
 intro: 您可以在 GitHub Actions 中创建持续集成 (CI) 工作流程，以使用 Ant 构建和测试 Java 项目。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-ant
   - /actions/guides/building-and-testing-java-with-ant
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -24,7 +24,8 @@ shortTitle: 构建和测试 Java & Ant
 
 本指南介绍如何使用 Ant 构建系统为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以从工作流程运行上传构件。
 
-{% ifversion ghae %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 Java Development Kits (JDKs) 和 Ant。 有关软件以及 JDK 和 Ant 预安装版本的列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
 {% endif %}
@@ -39,11 +40,11 @@ shortTitle: 构建和测试 Java & Ant
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## 从 Ant 工作流程模板开始
+## Using the Ant starter workflow
 
-{% data variables.product.prodname_dotcom %} 提供有 Ant 工作流程模板，应该适用于大多数基于 Ant 的 Java 项目。 更多信息请参阅 [Ant 工作流程模板](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml)。
+{% data variables.product.prodname_dotcom %} provides an Ant starter workflow that will work for most Ant-based Java projects. For more information, see the [Ant starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
 
-要快速开始，您可以在创建新工作流程时选择预配置的 Ant 模板。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
+To get started quickly, you can choose the preconfigured Ant starter workflow when you create a new workflow. 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
@@ -75,7 +76,7 @@ jobs:
 2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “使用 Ant 构建”步骤以非交互模式运行 `build.xml` 中的默认目标。
 
-在创建构建和测试工作流程时，默认工作流模板是很好的起点，然后您可以自定义模板以满足项目的需求。
+The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
 {% data reusables.github-actions.example-github-runner %}
 
@@ -87,7 +88,7 @@ jobs:
 
 初学者工作流程将运行 _build.xml_ 文件中指定的默认目标。  默认目标通常设置为将类、运行测试和包类设置为其可分发格式，例如 JAR 文件。
 
-如果使用不同的命令来构建项目，或者想要运行不同的目标，则可以指定这些命令。 例如，您可能想要运行在 _build-ci.xml_ 文件中配置的 `jar` 目标。
+如果使用不同的命令来构建项目，或者想要运行不同的目标，则可以指定这些命令。 For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
 
 {% raw %}
 ```yaml{:copy}

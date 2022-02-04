@@ -3,13 +3,14 @@ title: Acerca de los tableros de proyecto
 intro: 'Los tableros de proyecto en {% data variables.product.product_name %} te ayudan a organizar y priorizar tu trabajo. Puedes crear tableros de proyecto para un trabajo con características específicas, hojas de ruta completas y hasta listas de verificación de lanzamientos. Con los tableros de proyecto, tienes la flexibilidad de crear flujos de trabajo personalizados que se adapten a tus necesidades.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
-  - /articles/about-projects/
+  - /articles/about-projects
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -20,7 +21,7 @@ Los tableros de proyecto están compuestos por propuestas, solicitudes de extrac
 
 Las tarjetas del tablero de proyecto contienen metadatos relevantes para las propuestas y las solicitudes de extracción, como etiquetas, asignatarios, el estado y quién la abrió. {% data reusables.project-management.edit-in-project %}
 
-También puedes crear notas dentro de las columnas para servir como recordatorios de tarea, referencias a propuestas y solicitudes de extracción desde cualquier repositorio en {% data variables.product.product_name %}, o agregar información relacionada con tu tablero de proyecto. Puedes crear una tarjeta de referencia para otro tablero de proyecto agregando un enlace a una nota. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. Para obtener más información sobre cómo convertir las notas del tablero de proyecto en propuestas, consulta "[Agregar notas a un tablero de proyecto](/articles/adding-notes-to-a-project-board)".
+También puedes crear notas dentro de las columnas para servir como recordatorios de tarea, referencias a propuestas y solicitudes de extracción desde cualquier repositorio en {% data variables.product.product_location %}, o agregar información relacionada con tu tablero de proyecto. Puedes crear una tarjeta de referencia para otro tablero de proyecto agregando un enlace a una nota. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. Para obtener más información sobre cómo convertir las notas del tablero de proyecto en propuestas, consulta "[Agregar notas a un tablero de proyecto](/articles/adding-notes-to-a-project-board)".
 
 Tipos de tableros de proyecto:
 
@@ -66,7 +67,7 @@ Para obtener más información, consulta "[Acerca de la automatización para tab
 ## Leer más
 
 - "[Crear un tablero de proyecto](/articles/creating-a-project-board)"
-- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% ifversion fpt %}
+- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
 - "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - [Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)"

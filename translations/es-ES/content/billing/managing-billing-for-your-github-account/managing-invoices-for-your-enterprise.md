@@ -2,9 +2,8 @@
 title: Administrar facturas para tu empresa
 shortTitle: Adminsitrar las facturas
 intro: 'Puedes ver, pagar o descargar una factura actual de tu empresa y puedes ver tu historial de pagos.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
-  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Enterprise

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 在板上筛选卡
@@ -29,7 +30,7 @@ shortTitle: 在板上筛选卡
 - 使用 `status:pending`、`status:success` 或 `status:failure` 按检查状态过滤
 - 使用 `type:issue`、`type:pr` 或 `type:note` 按类型过滤卡
 - 使用 `is:open`、`is:closed` 或 `is:merged` 和 `is:issue`、`is:pr` 或 `is:note` 按状态和类型过滤卡
-- 使用 `linked:pr` 关闭引用，按链接到拉取请求的议题过滤卡{% ifversion fpt or ghes or ghae %}
+- 使用 `linked:pr` 关闭引用，按链接到拉取请求的议题过滤卡{% ifversion fpt or ghes or ghae or ghec %}
 - 使用 `repo:ORGANIZATION/REPOSITORY` 在组织范围的项目板中按仓库过滤卡{% endif %}
 
 1. 导航到包含要过滤的卡的项目板。

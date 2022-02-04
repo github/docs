@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Projects
@@ -18,15 +19,21 @@ topics:
 
 ## 必要な環境
 
-プロジェクトを作成するには、プロジェクトベータの一部である{% data variables.product.prodname_dotcom %} Organizationが必要です。 Organizationの作成に関する詳しい情報については「[新しいOrganizationを最初から作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch) 」を参照してください。 このベータに関する詳しい情報については「[プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)」を参照してください。
+You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. Organizationの作成に関する詳しい情報については「[新しいOrganizationを最初から作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch) 」を参照してください。
 
-このガイドでは、Organization内のリポジトリから既存のIssueを新しいプロジェクトに追加します。 Issueの作成に関する詳しい情報については「[Issueの作成](/issues/tracking-your-work-with-issues/creating-an-issue)」を参照してください。
+In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. Issueの作成に関する詳しい情報については「[Issueの作成](/issues/tracking-your-work-with-issues/creating-an-issue)」を参照してください。
 
 ## プロジェクトの作成
 
-最初に、Organizationのプロジェクトページからプロジェクトを作成してください。
+First, create an organization project or a user project.
+
+### Creating an organization project
 
 {% data reusables.projects.create-project %}
+
+### Creating a user project
+
+{% data reusables.projects.create-user-project %}
 
 ## プロジェクトへのIssueの追加
 
@@ -41,6 +48,14 @@ topics:
 上記のステップを何回か繰り返し、複数のIssueをプロジェクトに追加してください。
 
 プロジェクトにIssueを追加する他の方法、あるいはプロジェクトに追加できる他のアイテムに関する情報については、「[プロジェクトの作成](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)」を参照してください。
+
+## Adding draft issues to your project
+
+Next, add a draft issue to your project.
+
+1. カーソルをプロジェクトの最下行、{% octicon "plus" aria-label="plus icon" %}の隣に持ってきてください。
+1. アイデアを入力し、**Enter**を押してください。
+1. Click on the title of the draft issue. In the markdown input box that appears, enter the some more information about your idea, then click **Save**.
 
 ## 優先度を追跡するためのフィールドの作成
 
@@ -89,11 +104,11 @@ topics:
 
 ビューが保存されると、プロジェクトをオープンした人は誰でもこの保存されたビューを見ることができます。 ここでは優先度でグループ化していますが、ソート、フィルタ、レイアウトなどの他の修飾子を追加することもできます。 次に、レイアウトを変更した新しいビューを作成しましょう。
 
-## ボードビューの追加
+## Adding a board layout
 
 プロジェクトのIssueの進捗状況を見るには、ボードレイアウトに切り替えることができます。
 
-ボードビューはstatusフィールドに基づくので、プロジェクト中の各Issueのステータスを指定してください。
+The board layout is based on the status field, so specify a status for each issue in your project.
 
 ![ステータスの例](/assets/images/help/projects/status_example.png)
 
@@ -118,6 +133,16 @@ topics:
 2. 既存のテキストを、新しい名前の`Progress`で置き換えてください。
 
 ![優先度の例](/assets/images/help/projects/project-view-switch.gif)
+
+## Configure built-in automation
+
+Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
+
+1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
+2. Under **Default workflows**, click **Item added to project**.
+3. Next to **When**, ensure that both `issues` and `pull requests` are selected.
+4. Next to **Set**, select **Status:Todo**.
+5. Click the **Disabled** toggle to enable the workflow.
 
 ## 次のステップ
 

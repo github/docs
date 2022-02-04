@@ -6,8 +6,10 @@ redirect_from:
   - /admin/github-actions/manually-syncing-actions-from-githubcom
 versions:
   ghes: '*'
-  ghae: 'next'
+  ghae: '*'
+type: tutorial
 topics:
+  - Actions
   - Enterprise
 shortTitle: Manually sync actions
 ---
@@ -17,7 +19,7 @@ shortTitle: Manually sync actions
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-{% ifversion ghes or ghae-next %}
+{% ifversion ghes or ghae %}
 
 The recommended approach of enabling access to actions from {% data variables.product.prodname_dotcom_the_website %} is to enable automatic access to all actions. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
 
@@ -30,6 +32,14 @@ The `actions-sync` tool must be run on a machine that can access the {% data var
 If your machine has access to both systems at the same time, you can do the sync with a single `actions-sync sync` command. If you can only access one system at a time, you can use the `actions-sync pull` and `push` commands.
 
 The `actions-sync` tool can only download actions from {% data variables.product.prodname_dotcom_the_website %} that are stored in public repositories.
+
+{% ifversion ghes > 3.2 or ghae-issue-4815 %}
+{% note %}
+
+**Note:** The `actions-sync` tool is intended for use in systems where {% data variables.product.prodname_github_connect %} is not enabled. If you run the tool on a system with {% data variables.product.prodname_github_connect %} enabled, you may see the error `The repository <repo_name> has been retired and cannot be reused`. This indicates that a workflow has used that action directly on {% data variables.product.prodname_dotcom_the_website %} and the namespace is retired on {% data variables.product.product_location %}. For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)." 
+
+{% endnote %}
+{% endif %}
 
 ## Prerequisites
 

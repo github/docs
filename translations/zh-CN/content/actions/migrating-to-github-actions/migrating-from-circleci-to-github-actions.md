@@ -2,12 +2,12 @@
 title: 从 CircleCI 迁移到 GitHub Actions
 intro: GitHub Actions 和 CircleCI 在配置上具有若干相似之处，这使得迁移到 GitHub Actions 相对简单。
 redirect_from:
-  - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
   - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CircleCI
@@ -36,7 +36,7 @@ CircleCI 和 {% data variables.product.prodname_actions %} 都允许您创建能
 从 CircleCI 迁移时，考虑以下差异：
 
 - CircleCI 的自动测试并行性根据用户指定的规则或历史计时信息自动对测试进行分组。 此功能未内置于 {% data variables.product.prodname_actions %}。
-- 在 Docker 容器中执行的操作对权限问题很敏感，因为容器具有不同的用户映射。 您可以通过在 *Dockerfile* 中不使用 `USER` 指令来避免这些问题。 {% ifversion ghae %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+- 在 Docker 容器中执行的操作对权限问题很敏感，因为容器具有不同的用户映射。 您可以通过在 *Dockerfile* 中不使用 `USER` 指令来避免这些问题。 {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
 {% else %}有关 {% data variables.product.product_name %} 托管的运行器上 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
 {% endif %}
 
@@ -63,9 +63,8 @@ CircleCI 提供一套具有共同依赖项的预建映像。 这些映像的 `US
 
 {% ifversion ghae %}
 有关 Docker 文件系统的更多信息，请参阅“[Docker 容器文件系统](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)”。
-有关如何确定
 
-{% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 有关 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
 有关

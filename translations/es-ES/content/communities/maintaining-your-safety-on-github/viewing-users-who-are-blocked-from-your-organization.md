@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/viewing-users-who-are-blocked-from-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Ver usuarios bloqueados en la organización

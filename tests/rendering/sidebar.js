@@ -34,10 +34,11 @@ describe('sidebar', () => {
     expect(
       $homePage('[data-testid=sidebar] a[href="https://codeql.github.com/docs"]')
     ).toHaveLength(1)
+    expect($homePage('[data-testid=sidebar] a[href="https://docs.npmjs.com/"]')).toHaveLength(1)
   })
 
   test('adds `data-is-current-page` and `data-is-active-category` properties to the sidebar link for the current page', async () => {
-    const url = '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
+    const url = '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
     const $ = await getDOM(url)
     expect($('[data-testid=sidebar] [data-is-active-category=true]').length).toBe(1)
     expect($('[data-testid=sidebar] [data-is-current-page=true]').length).toBe(1)

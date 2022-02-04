@@ -3,6 +3,7 @@ title: O editor github.dev baseado na web
 intro: 'Use o github.dev {% data variables.product.prodname_serverless %} do seu repositório ou pull request para criar e fazer commit das alterações.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 miniTocMaxHeadingLevel: 3
 topics:
@@ -67,7 +68,7 @@ Como o editor da web usa a extensão dos repositórios do GitHub para melhorar s
 ### Criar um branch
 
 {% data reusables.codespaces.create-or-switch-branch %}
-  Todas as alterações sem commit feitas no seu branch antigo estarão disponíveis no seu novo branch.
+  Quaisquer alterações não feitas no seu branch antigo estarão disponíveis no seu novo branch.
 
 ### Faça commit das suas alterações
 
@@ -104,3 +105,4 @@ Se você tiver problemas ao abrir {% data variables.product.prodname_serverless 
 
 - O {% data variables.product.prodname_serverless %} atualmente é compatível com o Chrome (e vários outros navegadores baseados no Chromium), Edge, Firefox e Safari. Recomendamos que você use as versões mais recentes desses navegadores.
 - Algumas teclas de atalho podem não funcionar, dependendo do navegador que você estiver usando. Essas limitações de atalhos de tecla estão documentadas na seção "[Limitações e adaptações conhecidas](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" da documentação de {% data variables.product.prodname_vscode %}.
+- `.` pode não funcionar para abrir o {% data variables.product.prodname_serverless %} de acordo com o layout local do teclado. Nesse caso, você pode abrir qualquer repositório {% data variables.product.prodname_dotcom %} em {% data variables.product.prodname_serverless %} alterando o URL de `github.com` para `github.dev`.

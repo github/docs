@@ -1,6 +1,6 @@
 ---
 title: Instalar aplicativos GitHub
-intro: 'Quando seu aplicativo é público, qualquer pessoa pode usar {% ifversion fpt %} o {% data variables.product.prodname_marketplace %} ou {% endif %}uma URL de instalação para instalar o aplicativo no seu repositório. Quando seu app é privado, somente você pode instalar o aplicativo em repositórios que você possui.'
+intro: 'Quando seu aplicativo é público, qualquer pessoa pode usar {% ifversion fpt or ghec %} o {% data variables.product.prodname_marketplace %} ou {% endif %}uma URL de instalação para instalar o aplicativo no seu repositório. Quando seu app é privado, somente você pode instalar o aplicativo em repositórios que você possui.'
 redirect_from:
   - /apps/installing-github-apps
   - /developers/apps/installing-github-apps
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
@@ -28,7 +29,7 @@ Depois de criar um aplicativo GitHub privado, é possível instalá-lo em um dos
 4. Instale o aplicativo em todos os repositórios ou repositórios selecionados. ![Permissões de instalação do aplicativo](/assets/images/install_permissions.png)
 5. Uma vez instalado, você verá as opções de configuração para o aplicativo na conta selecionada. Você pode fazer alterações aqui ou pode repetir as etapas anteriores para instalar o aplicativo em outra conta.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Oferecer seu aplicativo no GitHub Marketplace
 
 Você pode oferecer uma versão paga ou gratuita do seu aplicativo em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace), onde as pessoas podem pesquisar e ver informações sobre seu aplicativo. O {% data variables.product.prodname_marketplace %} instala automaticamente um aplicativo GitHub quando um pedido é concluído.

@@ -2,13 +2,17 @@
 title: XenServer で GitHub Enterprise Server をインストールする
 intro: '{% data variables.product.prodname_ghe_server %} を XenServer にインストールするには、{% data variables.product.prodname_ghe_server %} のディスクイメージを XenServer ホストに配備する必要があります。'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-xenserver/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-xenserver
   - /enterprise/admin/installation/installing-github-enterprise-server-on-xenserver
   - /admin/installation/installing-github-enterprise-server-on-xenserver
 versions:
-  ghes: '*'
+  ghes: <=3.2
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Install on XenServer
 ---
 
@@ -55,5 +59,5 @@ shortTitle: Install on XenServer
 
 ## 参考リンク
 
-- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes > 2.22 %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes %}
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

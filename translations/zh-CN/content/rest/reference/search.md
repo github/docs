@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -22,9 +23,9 @@ miniTocMaxHeadingLevel: 3
 
 ### 速率限制
 
-搜索 API 有自定义速率限制。 对于使用[基本身份验证](/rest#authentication)、[OAuth](/rest#authentication) 或[客户端 ID 和密码](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)的请求，您每分钟最多可以提出 30 个请求。 对于未经身份验证的请求，速率限制允许您每分钟最多提出 10 个请求。
-
 {% data reusables.enterprise.rate_limit %}
+
+搜索 API 有自定义速率限制。 对于使用[基本身份验证](/rest#authentication)、[OAuth](/rest#authentication) 或[客户端 ID 和密码](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)的请求，您每分钟最多可以提出 30 个请求。 对于未经身份验证的请求，速率限制允许您每分钟最多提出 10 个请求。
 
 请参阅[速率限制文档](/rest/reference/rate-limit)，以详细了解如何确定您的当前速率限制状态。
 
@@ -50,7 +51,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-有关可用限定符及其格式的完整列表和使用示例，请参阅“[在 GitHub 上搜索](/articles/searching-on-github/)”。 For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
+See "[Searching on GitHub](/search-github/searching-on-github)" for a complete list of available qualifiers, their format, and an example of how to use them. 有关如何使用运算符匹配特定数量、日期或排除结果，请参阅“[了解搜索语法](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)”。
 
 ### 查询长度限制
 
@@ -68,7 +69,7 @@ const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:def
 
 ### 访问错误或缺少搜索结果
 
-您需要成功完成身份验证并且对您搜索查询的仓库具有访问权限，否则，您将看到 `422 Unprocessible Entry` 错误和“验证失败”消息。 例如，如果您的查询中包含 `repo:`、`user:` 或 `org:` 限定符，但它们请求的资源是您登录 {% data variables.product.prodname_dotcom %} 后无权访问的资源，则搜索将失败。
+You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. 例如，如果您的查询中包含 `repo:`、`user:` 或 `org:` 限定符，但它们请求的资源是您登录 {% data variables.product.prodname_dotcom %} 后无权访问的资源，则搜索将失败。
 
 当您的搜索查询请求多个资源时，响应将只包含您有权访问的资源，并且**不会**提供列出未返回资源的错误消息。
 

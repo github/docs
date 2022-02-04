@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -23,8 +24,6 @@ Clonar un repositorio extrae una copia integral de todos los datos del mismo que
 Puedes clonar tu repositorio existente o clonar el repositorio existente de alguien más para contribuir con un proyecto.
 
 ## Clonar un repositorio
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -89,7 +88,7 @@ Si no puedes clonar un repositorio, revisa que:
 - Tienes permiso para acceder al repositorio que quieres clonar. Para obtener más información, consulta la sección "[Error: Repositorio no encontrado](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)".
 - La rama predeterminada que quieres clonar aún existe. Para obtener más información, verifica que tienes permiso para acceder al repositorio que quieres clonar. Para obtener más información, consulta "[Error: El HEAD remoto se refiere a una ref inexistente, imposible registrar](/github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)",
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Leer más
 

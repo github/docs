@@ -3,6 +3,7 @@ title: Gerenciando o conteúdo denunciado no repositório da sua organização
 intro: 'Depois que um colaborador relata conteúdo disruptivo em um repositório, os mantenedores do repositório podem exibir e gerenciar o relatório.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:

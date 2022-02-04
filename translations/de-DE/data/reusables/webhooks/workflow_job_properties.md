@@ -1,4 +1,0 @@
-| Schlüssel      | Typ      | Beschreibung                                                                                                                                                |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`       | `string` | The action performed. Can be one of: <ul><li> `queued` - A new job was created.</li><li> `in_progress` - The job has started processing on the runner.</li><li> `completed` - The `status` of the job is `completed`.</li></ul>                                                                                               |
-| `workflow_job` | `Objekt` | The workflow job. Many `workflow_job` keys, such as `head_sha`, `conclusion`, and `started_at` are the same as those in a [`check_run`](#check_run) object. |

@@ -3,6 +3,7 @@ title: Administrar la forma en que los colaboradores reportan abusos en el repos
 intro: Puedes permitir que los colaboradores reporten el comportamiento ofensivo directamente a los mantenedores de los repositorios.
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:

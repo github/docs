@@ -3,6 +3,7 @@ title: スケジュールされたリマインダーの管理
 intro: 自分または自分の Team に対してレビュー待ちのプルリクエストがあるとき、Slack でリマインダーを受け取ります。
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:

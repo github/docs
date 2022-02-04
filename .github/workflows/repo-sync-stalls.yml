@@ -9,6 +9,9 @@ on:
   schedule:
     - cron: '32 */2 * * *' # At minute 32 past every 2nd hour.
 
+permissions:
+  pull-requests: read
+
 jobs:
   repo-sync-stalls:
     runs-on: ubuntu-latest
@@ -17,7 +20,6 @@ jobs:
         name: Check if repo sync is stalled
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
-          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           script: |
             let pulls;
             const owner = context.repo.owner
@@ -50,7 +52,7 @@ jobs:
               }
             })
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
         if: ${{ failure() }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

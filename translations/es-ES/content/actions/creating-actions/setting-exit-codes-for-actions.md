@@ -2,13 +2,13 @@
 title: Configurar códigos de salida para acciones
 shortTitle: Configurar códigos de salida
 intro: 'Puedes usar códigos de salida para establecer el estado de una acción. {% data variables.product.prodname_dotcom %} muestra los estados para indicar las acciones que se pasan o fallan.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 ---
 

@@ -1,1 +1,0 @@
-1. Klicke in der linken Seitenleiste auf **Deleted repositories** (gelöschte Repositorys). ![Registerkarte „Deleted repositories" (Gelöschte Reposiorys)](/assets/images/help/organizations/deleted-repos.png)

@@ -8,6 +8,9 @@ on:
   repository_dispatch:
     types: remove_from_docs_FR_board
 
+permissions:
+  contents: none
+
 jobs:
   remove_from_FR_board:
     if: github.repository == 'github/docs-internal'

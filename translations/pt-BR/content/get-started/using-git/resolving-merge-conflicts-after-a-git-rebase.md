@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Resolver conflitos após rebase
 ---
 
@@ -28,4 +29,4 @@ Aqui, o Git informa qual commit está causando o conflito (`fa39187`). Você tem
 * Você pode executar o `git rebase --skip` para ignorar completamente o commit. Isso significa que nenhuma das alterações apresentadas pelo commit com problema será incluída. Essa opção dificilmente é usada.
 * Você pode corrigir o conflito.
 
-Para corrigir o conflito, você pode seguir os [procedimentos padrão para resolução de conflitos de merge a partir da linha de comando](/articles/resolving-a-merge-conflict-using-the-command-line). Quando terminar, você precisará chamar o `git rebase --continue` para o Git continuar a processar o restante do rebase.
+Para corrigir o conflito, você pode seguir os [procedimentos padrão para resolução de conflitos de merge a partir da linha de comando](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line). Quando terminar, você precisará chamar o `git rebase --continue` para o Git continuar a processar o restante do rebase.

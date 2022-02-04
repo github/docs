@@ -1,7 +1,6 @@
 ---
 title: 构建和测试 Node.js
 intro: 您可以创建持续集成 (CI) 工作流程来构建和测试您的 Node.js 项目。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions
   - /actions/language-and-framework-guides/using-nodejs-with-github-actions
@@ -10,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 hidden: true
 topics:
@@ -36,11 +36,11 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## 从 Node.js 工作流程模板开始
+## Using the Node.js starter workflow
 
-{% data variables.product.prodname_dotcom %} 提供 Node.js 适用于大多数 Node.js 项目的工作流程模板。 本指南包含可用于自定义模板的 npm 和 Yarn 示例。 更多信息请参阅 [Node.js 工作流程模板](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml)。
+{% data variables.product.prodname_dotcom %} provides a Node.js starter workflow that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the starter workflow. For more information, see the [Node.js starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-要快速开始，请将模板添加到仓库的 `.github/workflows` 目录中。 下面显示的工作流假定仓库的默认分支是 `main`。
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. 下面显示的工作流假定仓库的默认分支是 `main`。
 
 {% raw %}
 ```yaml{:copy}
@@ -81,7 +81,7 @@ jobs:
 
 `setup-node` 操作采用 Node.js 版本作为输入，并在运行器上配置该版本。 `setup-node` 操作从每个运行器上的工具缓存中查找特定版本的 Node.js，并将必要的二进制文件添加到 `PATH`，这可继续用于作业的其余部分。 使用 `setup-node` 操作是 Node.js 与 {% data variables.product.prodname_actions %} 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 Node.js 行为一致。 如果使用自托管运行器，则必须安装 Node.js 并将其添加到 `PATH`。
 
-模板包含一个矩阵策略：用四个 Node.js 版本 10.x、12.x、14.x 和 15.x 构建和测试代码， "x" 是一个通配符，与版本的最新次要版本和修补程序版本匹配。 `node-version` 阵列中指定的每个 Node.js 版本都会创建一个运行相同步骤的作业。
+The starter workflow includes a matrix strategy that builds and tests your code with four Node.js versions: 10.x, 12.x, 14.x, and 15.x. "x" 是一个通配符，与版本的最新次要版本和修补程序版本匹配。 `node-version` 阵列中指定的每个 Node.js 版本都会创建一个运行相同步骤的作业。
 
 每个作业都可以使用 `matrix` 上下文访问矩阵 `node-version` 阵列中定义的值。 `setup-node` 操作使用上下文作为 `node-version` 输入。 `setup-node` 操作在构建和测试代码之前使用不同的 Node.js 版本配置每个作业。 For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
@@ -134,7 +134,7 @@ jobs:
 {% endraw %}
 
 如果不指定 Node.js 版本，{% data variables.product.prodname_dotcom %} 将使用环境的默认 Node.js 版本。
-{% ifversion ghae %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %}
 {% else %}更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
 {% endif %}
 
@@ -189,7 +189,7 @@ steps:
   run: yarn
 ```
 
-或者，您可以传递 `--frozen-lockfile` 来安装 *yarn.lock* 文件中的版本，并阻止更新 *yarn.lock* 文件。
+或者，您可以传递 `--frozen-lockfile` 来安装 `yarn.lock` 文件中的版本，并阻止更新 `yarn.lock` 文件。
 
 ```yaml{:copy}
 steps:
@@ -267,7 +267,7 @@ steps:
 - run: yarn test
 ```
 
-The following example caches dependencies for pnpm (v6.10+).
+以下示例缓存 pnpm (v6.10+) 的依赖项。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -287,7 +287,7 @@ steps:
 - run: pnpm test
 ```
 
-To cache dependencies, you must have a `package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml` file in the root of the repository. 如果您需要更灵活的自定义功能，可以使用 [`cache` 操作](https://github.com/marketplace/actions/cache)。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 ## 构建和测试代码
 

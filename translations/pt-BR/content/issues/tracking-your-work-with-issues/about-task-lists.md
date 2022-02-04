@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Observação:** A lista de tarefas melhorada está atualmente na versão beta e sujeita a alterações.
@@ -27,9 +28,9 @@ topics:
 
 Uma lista de tarefas é um conjunto de tarefas que cada uma interpreta em uma linha separada com uma caixa de seleção clicável. Você pode selecionar ou desmarcar as caixas de seleção para marcar as tarefas como concluídas ou não concluídas.
 
-Você pode usar Markdown para criar uma lista de tarefas em qualquer comentário em {% data variables.product.product_name %}. {% ifversion fpt %}Se você fizer referência a um problema, pull request, ou discussão em uma lista de tarefas, a referência irá desenrolar-se para mostrar o título e o estado.{% endif %}
+Você pode usar Markdown para criar uma lista de tarefas em qualquer comentário em {% data variables.product.product_name %}. {% ifversion fpt or ghec %}Se você fizer referência a um problema, pull request, ou discussão em uma lista de tarefas, a referência irá desenrolar-se para mostrar o título e o estado.{% endif %}
 
-{% ifversion not fpt %}
+{% ifversion not fpt or ghec %}
 Você poderá exibir informações de resumo da lista de tarefas nas listas de problemas e pull requests quando a lista de tarefas estiver no comentário inicial.
 {% else %}
 
@@ -50,11 +51,20 @@ Se você adicionar uma lista de tarefas ao texto de um problema, isso significa 
 
 {% data reusables.repositories.task-list-markdown %}
 
+{% tip %}
+
+**Dica:** Você não pode criar itens de lista de tarefas em problemas fechados ou problemas com pull requests vinculados.
+
+{% endtip %}
+
 ## Reordenar tarefas
 
 Você pode reordenar os itens de uma lista de tarefas clicando à esquerda da caixa de seleção de uma tarefa arrastando a tarefa para uma nova localidade e soltando a tarefa. Você pode reordenar tarefas em diferentes listas no mesmo comentário, mas você não pode reordenar tarefas em diferentes comentários.
 
-![Lista de tarefas reordenadas](/assets/images/help/writing/task-list-reordered.gif)
+{% ifversion fpt %} ![Lista de tarefas reordenadas](/assets/images/help/writing/task-list-reordered.gif)
+{% else %} ![Reordered task list](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
+
+{% ifversion fpt %}
 
 ## Navegação de problemas monitorizados
 
@@ -62,6 +72,9 @@ Todos os problemas referenciados em uma lista de tarefas especificam que são ac
 
 ![Rastreado no exemplo](/assets/images/help/writing/task_list_tracked.png)
 
+{% endif %}
+
 ## Leia mais
 
-* "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)"
+* "[Escrita básica e sintaxe de formatação](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+* "[Rastreando alertas de {% data variables.product.prodname_code_scanning %} em problemas que usam listas de tarefas](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

@@ -3,6 +3,7 @@ title: Preguntas frecuentes sobre los cambios en los planes de GitHub
 intro: 'Desde el primero de abril de 2020, GitHub anunció que todas las características principales de la empresa son ahora gratuitas para todos.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub
 redirect_from:
@@ -91,6 +92,6 @@ Si actualmente eres un cliente que paga por factura, contacta por correo electr�
 
 ## ¿Cómo va afectar esto a los usuarios y organizaciones que se encuentran en regiones donde se aplican las sanciones del gobierno de los EE.UU?
 
-Debido a los controles de comercio y restricciones legales de los EE.UU. , GitHub no puede proporcionar servicios para repositorios privados y servicios pagados a cuentas que se encuentren en las zonas sancionadas por los EE.UU. Sin embargo, GitHub ha preservado el acceso a los servicios gratuitos para repositorios públicos. Por favor lee sobre [GitHub y los Controles Comerciales](/github/site-policy/github-and-trade-controls) para obtener más información.
+Debido a los controles de comercio y restricciones legales de los EE.UU. , GitHub no puede proporcionar servicios para repositorios privados y servicios pagados a cuentas que se encuentren en las zonas sancionadas por los EE.UU. Sin embargo, GitHub ha preservado el acceso a los servicios gratuitos para repositorios públicos. Por favor lee sobre [GitHub y los Controles Comerciales](/free-pro-team@latest/github/site-policy/github-and-trade-controls) para obtener más información.
 
 GitHub seguirá fomentando, en conjunto con los reguladores de los EE.UU. , por contar con el mejor acceso posible a los servicios colaborativos gratuitos de código abierto para los desarrolladores en las regiones sancionadas, incluyendo repositorios privados gratuitos. Creemos que, el ofrecer estos servicios gratuitos, apoya la política externa de los EE.UU. para fomentar el flujo libre de información y libertad de expresión en estas regiones.

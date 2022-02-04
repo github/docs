@@ -7,6 +7,8 @@ redirect_from:
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -19,6 +21,9 @@ topics:
 shortTitle: 自定义更新
 ---
 
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## 关于自定义依赖项更新
 
 启用版本更新后，您可以自定义 {% data variables.product.prodname_dependabot %} 通过向 *dependabot.yml* 文件添加更多选项来维护依赖项。 例如，您可以：
@@ -29,9 +34,9 @@ shortTitle: 自定义更新
 - 更改为版本更新打开的拉取请求默认最大数 5：`open-pull-requests-limit`
 - 打开版本更新的拉取请求以定位特定分支，而不是默认分支：`target-branch`
 
-有关配置选项的详细信息，请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates)”。
+有关配置选项的详细信息，请参阅“[依赖项更新的配置选项](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)”。
 
-更新仓库中的 *dependabot.yml* 文件时，{% data variables.product.prodname_dependabot %} 使用新配置即刻进行检查。 几分钟内，您将在 **{% data variables.product.prodname_dependabot %}** 选项卡上看到更新的依赖项列表，如果仓库有很多依赖项，可能需要更长时间。 您可能还会看到针对版本更新的新拉取请求。 更多信息请参阅“[列出为版本更新配置的依赖项](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)”。
+更新仓库中的 *dependabot.yml* 文件时，{% data variables.product.prodname_dependabot %} 使用新配置即刻进行检查。 几分钟内，您将在 **{% data variables.product.prodname_dependabot %}** 选项卡上看到更新的依赖项列表，如果仓库有很多依赖项，可能需要更长时间。 您可能还会看到针对版本更新的新拉取请求。 更多信息请参阅“[列出为版本更新配置的依赖项](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)”。
 
 ## 配置更改对安全更新的影响
 
@@ -135,4 +140,4 @@ updates:
 
 ## 更多示例
 
-更多示例请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates)。”
+更多示例请参阅“[依赖项更新的配置选项](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)。”

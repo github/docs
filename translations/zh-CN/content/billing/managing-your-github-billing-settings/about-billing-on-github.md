@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -15,7 +16,7 @@ topics:
 ## 付费功能和产品
 
 您可以随时将个人帐户或组织升级到付费订阅。 也可以选择从 {% data variables.product.prodname_marketplace %} 购买应用程序，或者升级 {% data variables.large_files.product_name_long %} 的存储空间和带宽。 更多信息请参阅：
-- "[关于 {% data variables.product.product_name %} 帐户的计费](/articles/about-billing-for-github-accounts)"
+- "[关于 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/about-billing-for-github-accounts)"
 - "[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)"
 - "[关于 {% data variables.large_files.product_name_long %} 的计费](/articles/about-billing-for-git-large-file-storage)"
 - "[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)"

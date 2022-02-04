@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: 创建议题
+type: how_to
 ---
 
 议题可用于跟踪漏洞、增强功能或其他请求。 更多信息请参阅“[关于议题](/issues/tracking-your-work-with-issues/about-issues)”。
@@ -81,14 +83,14 @@ gh issue create --title "My new issue" --body "Here are more details." --assigne
 {% data reusables.repositories.navigate-to-repo %}
 1. 找到要在议题中引用的代码：
     - 要打开文件中代码相关的议题，请找到该文件。
-    - 要打开拉取请求中代码相关的议题，请找到该拉取请求并单击 {% octicon "diff" aria-label="The file diff icon" %} **Files changed（文件已更改）**。 然后浏览到含有要包含在评论中的代码的文件，并单击 **View（查看）**。
+    - 要打开拉取请求中代码相关的议题，请找到该拉取请求并单击 {% octicon "diff" aria-label="The file diff icon" %} **Files changed（文件已更改）**。 Then, browse to the file that contains the code you want included in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
 4. 在代码范围左侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}。 在下拉菜单中，单击 **Reference in new issue（新议题中的引用）**。 ![带有从所选行打开新议题的选项的烤肉串式菜单](/assets/images/help/repository/open-new-issue-specific-line.png)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating an issue from discussion
 
@@ -109,7 +111,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 如果使用项目板对工作进行跟踪和排列优先级，您可以将项目板注释转换为议题。 更多信息请参阅“[关于项目板](/github/managing-your-work-on-github/about-project-boards)”和“[向项目板添加备注](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 从任务列表项创建议题
 
@@ -127,7 +129,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 {% endtip %}
 
-必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有向议题添加标签的权限才可使用 `labels` 查询参数。 更多信息请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)”。
+必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有向议题添加标签的权限才可使用 `labels` 查询参数。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 如果使用查询参数创建无效的 URL，或者没有适当的权限，URL 将返回 `404 未找到`错误页。 如果您创建的 URL 超过服务器限制，URL 将返回 `414 URI 过长`错误页面。
 
@@ -140,6 +142,15 @@ When you create an issue from a discussion, the contents of the discussion post 
 | `assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` 创建议题并分配到 @octocat。                                                                                                                                                                                         |
 | `projects`  | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` 创建标题为 "Bug fix" 的议题并将其添加到组织的项目板 1。                                                                                                                                                     |
 | `模板`        | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` 使用模板在议题正文中创建议题。 `template` 查询参数支持仓库根目录 `docs/` 或 `.github/` 的 `ISSUE_TEMPLATE` 子目录中存储的模板。 更多信息请参阅“[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)”。 |
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
+
+{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
+If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
+{% data reusables.code-scanning.alert-tracking-link %}
+
+{% endif %}
 
 ## 延伸阅读
 

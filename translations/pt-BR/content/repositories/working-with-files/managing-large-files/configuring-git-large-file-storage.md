@@ -2,7 +2,7 @@
 title: Configurar o GitLarge File Storage
 intro: 'Assim que o [{% data variables.large_files.product_name_short %} estiver instalado](/articles/installing-git-large-file-storage/), você precisará associá-lo a um arquivo grande no seu repositório.'
 redirect_from:
-  - /articles/configuring-large-file-storage/
+  - /articles/configuring-large-file-storage
   - /articles/configuring-git-large-file-storage
   - /github/managing-large-files/configuring-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/configuring-git-large-file-storage
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Configurar o LFS do Git
 ---
 
@@ -62,5 +63,5 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
 
 ## Leia mais
 
-- "[Colaboração com {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt %}
+- "[Colaboração com {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
 - "[Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

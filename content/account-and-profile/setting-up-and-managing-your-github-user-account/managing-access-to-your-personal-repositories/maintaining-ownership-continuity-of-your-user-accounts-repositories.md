@@ -3,6 +3,7 @@ title: Maintaining ownership continuity of your user account's repositories
 intro: You can invite someone to manage your user owned repositories if you are not able to.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -21,7 +22,7 @@ We recommend inviting another {% data variables.product.company_short %} user to
 
 Successors cannot log into your account.
 
-An appointed successor can manage your public repositories after presenting a death certificate then waiting for 7 days or presenting an obituary then waiting for 21 days. For more information, see “[{% data variables.product.company_short %} Deceased User Policy](/github/site-policy/github-deceased-user-policy)."
+An appointed successor can manage your public repositories after presenting a death certificate then waiting for 7 days or presenting an obituary then waiting for 21 days. For more information, see "[{% data variables.product.company_short %} Deceased User Policy](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)."
 
 To request access to manage repositories as a successor, contact [GitHub Support](https://support.github.com/contact?tags=docs-accounts).
 

@@ -4,6 +4,7 @@ intro: '{% data variables.product.product_name %} のプロジェクトのリポ
 permissions: 'People with read access to a repository can participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Participate in discussion
 ---
 

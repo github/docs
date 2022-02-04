@@ -1,7 +1,7 @@
 ---
 title: Utilizar la rebase de Git en la línea de comando
 redirect_from:
-  - /articles/using-git-rebase/
+  - /articles/using-git-rebase
   - /articles/using-git-rebase-on-the-command-line
   - /github/using-git/using-git-rebase-on-the-command-line
   - /github/getting-started-with-github/using-git-rebase-on-the-command-line
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Rebase de Git
 ---
 

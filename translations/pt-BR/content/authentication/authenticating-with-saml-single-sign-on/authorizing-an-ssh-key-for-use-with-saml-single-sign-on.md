@@ -2,18 +2,20 @@
 title: Autorizar o uso de uma chave SSH para uso com logon único SAML
 intro: 'Para usar uma chave SSH com uma organização que usa logon único SAML (SSO), primeiramente, você deve autorizar a chave.'
 redirect_from:
-  - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization/
+  - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 versions:
-  fpt: '*'
+  ghec: '*'
 topics:
   - SSO
 shortTitle: Chave SSH com SAML
 ---
 
 Você pode autorizar uma chave SSH existente ou criar uma e autorizá-la. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+
+{% data reusables.saml.authorized-creds-info %}
 
 {% note %}
 

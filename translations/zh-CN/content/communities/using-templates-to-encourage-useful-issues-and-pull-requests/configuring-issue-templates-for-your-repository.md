@@ -9,18 +9,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: 配置
 ---
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## 创建议题模板
 
@@ -35,10 +36,10 @@ shortTitle: 配置
 7. 要自动设置默认的议题标题、将议题分配给对仓库有读取权限的人或者对议题模板应用标签，请在“Optional additional information（可选附加信息）”下输入这些详细信息。 还可以通过 YAML 前页格式中的 `title`、`labels` 或 `assignees` 为议题模板添加这些详细信息。 ![议题模板的其他信息](/assets/images/help/repository/additional-issue-template-info.png)
 8. 完成编辑和预览模板后，请单击页面右上角的 **Propose changes（提议更改）**。 ![提议更改按钮](/assets/images/help/repository/propose-changes-button.png)
 9. 输入提交消息，描述您的更改。 ![议题模板提交消息字段](/assets/images/help/repository/issue-template-commit-message-field.png)
-10. 在提交消息字段的下方，决定是直接将模板提交到默认分支，还是创建新分支并打开拉取请求。 有关拉取请求的更多信息，请参阅“[关于拉取请求](/articles/about-pull-requests)”。 ![选择将议题模板提交到主要或打开的拉取请求](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
+10. 在提交消息字段的下方，决定是直接将模板提交到默认分支，还是创建新分支并打开拉取请求。 有关拉取请求的更多信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。 ![选择将议题模板提交到主要或打开的拉取请求](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. 单击 **Commit changes（提交更改）**。 将这些更改合并到默认分支后，贡献者在仓库中打开新议题时便可使用该模板。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 创建议题表单
 
@@ -61,7 +62,7 @@ shortTitle: 配置
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 ## 配置模板选择器
 
 {% data reusables.repositories.issue-template-config %}
@@ -70,7 +71,7 @@ shortTitle: 配置
 
 {% note %}
 
-**Note:** If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your *config.yml* file, the template in `issue_template.md` will be used when people chose to open a blank issue. 如果您禁用空白议题，将永远不会使用模板。
+**注：** 如果您使用旧工作流程手动在 `.github` 文件夹中创建一个 `issue_template.md` 文件并在您的 *config.yml* 文件中启用空白问题。人们选择打开空白议题时将使用 `issue_template.md` 中的模板。 如果您禁用空白议题，将永远不会使用模板。
 
 {% endnote %}
 

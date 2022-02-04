@@ -3,6 +3,7 @@ title: Sobre a API do GraphQL
 intro: 'A API do GraphQL de {% data variables.product.prodname_dotcom %} oferece flexibilidade e a capacidade de definir precisamente os dados que você deseja buscar.'
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

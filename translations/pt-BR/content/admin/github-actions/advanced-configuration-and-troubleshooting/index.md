@@ -2,7 +2,7 @@
 title: Configuração avançada e solução de problemas
 intro: 'Configurar alta disponibilidade para {% data variables.product.prodname_actions %} e solução de problemas, {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 topics:
   - Enterprise
 children:

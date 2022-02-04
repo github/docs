@@ -3,9 +3,9 @@ title: GitHub Enterprise API について
 intro: '{% data variables.product.product_name %} は、REST および GraphQL API をサポートしています。'
 redirect_from:
   - /enterprise/admin/installation/about-the-github-enterprise-server-api
-  - /enterprise/admin/articles/about-the-enterprise-api/
-  - /enterprise/admin/articles/using-the-api/
-  - /enterprise/admin/categories/api/
+  - /enterprise/admin/articles/about-the-enterprise-api
+  - /enterprise/admin/articles/using-the-api
+  - /enterprise/admin/categories/api
   - /enterprise/admin/overview/about-the-github-enterprise-server-api
   - /admin/overview/about-the-github-enterprise-server-api
 versions:

@@ -7,6 +7,7 @@ redirect_from:
   - /github/managing-your-work-on-github/copying-a-project-board
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---

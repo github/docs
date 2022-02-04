@@ -5,6 +5,7 @@ redirect_from:
   - /v4/reference/scalar
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

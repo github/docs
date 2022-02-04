@@ -1,7 +1,6 @@
 ---
 title: 使用 Maven 构建和测试 Java
 intro: 您可以在 GitHub Actions 中创建持续集成 (CI) 工作流程，以使用 Maven 构建和测试 Java 项目。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-maven
   - /actions/guides/building-and-testing-java-with-maven
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -24,7 +24,8 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 本指南介绍如何使用 Maven 软件项目管理工具为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以缓存文件并且从工作流程运行上传构件。
 
-{% ifversion ghae %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 Java Development Kits (JDKs) 和 Maven。 有关软件以及 JDK 和 Maven 预安装版本的列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
 {% endif %}
@@ -39,11 +40,11 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## 从 Maven 工作流程模板开始
+## Using the Maven starter workflow
 
-{% data variables.product.prodname_dotcom %} 提供有 Maven 工作流程模板，应该适用于大多数基于 Maven 的 Java 项目。 更多信息请参阅 [Maven 工作流程模板](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml)。
+{% data variables.product.prodname_dotcom %} provides a Maven starter workflow that will work for most Maven-based Java projects. For more information, see the [Maven starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
-要快速开始，您可以在创建新工作流程时选择预配置的 Maven 模板。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
+To get started quickly, you can choose the preconfigured Maven starter workflow when you create a new workflow. 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
@@ -75,7 +76,7 @@ jobs:
 2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “使用 Maven 构建”步骤以非交互模式运行 Maven `package` 目标，以确保创建代码版本、测试通行证和软件包。
 
-在创建构建和测试工作流程时，默认工作流模板是很好的起点，然后您可以自定义模板以满足项目的需求。
+The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
 {% data reusables.github-actions.example-github-runner %}
 
@@ -104,7 +105,7 @@ steps:
 
 ## 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Maven 仓库将存储在 GitHub Actions 基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程 Maven 仓库下载依赖项。 You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration.
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Maven 仓库将存储在 GitHub Actions 基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程 Maven 仓库下载依赖项。 您可以简单地使用 [`setup-java` 操作](https://github.com/marketplace/actions/setup-java-jdk)缓存依赖项，也可使用 [`cache` 操作](https://github.com/actions/cache)进行自定义和更高级的配置。
 
 {% raw %}
 ```yaml{:copy}

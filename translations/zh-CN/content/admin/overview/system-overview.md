@@ -21,6 +21,8 @@ topics:
 
 根文件系统包含在分布式机器映像中。 它包含基本操作系统和 {% data variables.product.prodname_ghe_server %} 应用程序环境。 根文件系统应被视为临时性的。 升级到今后的 {% data variables.product.prodname_ghe_server %} 版本时，根文件系统中的所有数据都将被替代。
 
+根存储量分成两个相同大小的分区。 其中一个分区将被挂载为根文件系统 (`/`)。 另一个分区仅在升级和升级的回滚过程中作为 `/mnt/upgrade` 安装，以便在必要时更容易行回滚。 例如，如果分配了 200GB 根卷，將有 100GB 分配到根文件系统，100GB 用于升级和回滚。
+
 根文件系统包含：
   - 自定义证书颁发机构 (CA) 证书（*/usr/local/share/ca-certificates* 中）
   - 自定义网络配置
@@ -74,11 +76,11 @@ topics:
 
 {% data variables.product.prodname_ghe_server %} 运行自定义的 Linux 操作系统，其中只包含必要的应用程序和服务。 {% data variables.product.prodname_dotcom %} 将管理设备核心操作系统的补丁作为其标准产品发布周期的一部分。 补丁可解决 {% data variables.product.prodname_dotcom %} 应用程序的功能、稳定性和非关键性安全问题。 {% data variables.product.prodname_dotcom %} 还根据需要在常规发布周期之外提供重要的安全补丁。
 
-{% data variables.product.prodname_ghe_server %} is provided as an appliance, and many of the operating system packages are modified compared to the usual Debian distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
+{% data variables.product.prodname_ghe_server %} 作为一种设备提供，许多操作系统包与通常的 Debian 分发相比进行了修改。 因此，我们不支持修改基础操作系统（包括操作系统升级），与 [{% data variables.product.prodname_ghe_server %} 许可和支持协议](https://enterprise.github.com/license)第 11.3“除外条款”保持一致。
 
-Currently, the base of the {% data variables.product.prodname_ghe_server %} appliance is Debian 9 (Stretch) and receives support under the Debian Long Term Support program.  There are plans to move to a newer base operating system before the end of the Debian LTS period for Stretch.
+目前，{% data variables.product.prodname_ghe_server %} 设备的基础是 Debian 9 (Stretch)，并接受 Debian 长期支持计划的支持。  计划在 Stretch 的 Debian LTS 期间结束前迁移到更新的基础操作系统。
 
-Regular patch updates are released on the {% data variables.product.prodname_ghe_server %} [releases](https://enterprise.github.com/releases) page, and the [release notes](/enterprise-server/admin/release-notes) page provides more information. These patches typically contain upstream vendor and project security patches after they've been tested and quality approved by our engineering team. There can be a slight time delay from when the upstream update is released to when it's tested and bundled in an upcoming {% data variables.product.prodname_ghe_server %} patch release.
+定期补丁更新发布在 {% data variables.product.prodname_ghe_server %} [发行](https://enterprise.github.com/releases)页面上，[发行说明](/enterprise-server/admin/release-notes)页面提供详细信息。 这些补丁一般含有经过测试并且质量经过我们工程团队批准的上游供应商和项目安全补丁。 从上游更新发布到测试以及捆绑于即将发布的 {% data variables.product.prodname_ghe_server %} 补丁版本中时，可能稍有延迟。
 
 ### 网络安全性
 

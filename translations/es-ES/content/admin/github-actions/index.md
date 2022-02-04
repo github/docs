@@ -4,11 +4,13 @@ intro: 'Habilita las {% data variables.product.prodname_actions %} en {% ifversi
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
   - Enterprise
 children:
+  - /getting-started-with-github-actions-for-your-enterprise
   - /using-github-actions-in-github-ae
   - /enabling-github-actions-for-github-enterprise-server
   - /managing-access-to-actions-from-githubcom

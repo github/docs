@@ -1,8 +1,8 @@
 ---
 title: 复刻仓库
 redirect_from:
-  - /fork-a-repo/
-  - /forking/
+  - /fork-a-repo
+  - /forking
   - /articles/fork-a-repo
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -37,7 +38,7 @@ topics:
 
 有关将开源原则应用于组织在 {% data variables.product.product_location %} 上的开发工作的详细信息，请参阅 {% data variables.product.prodname_dotcom %} 的白皮书“[内部来源简介](https://resources.github.com/whitepapers/introduction-to-innersource/)”。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 更多信息请参阅 choosealicense.com 上的“[选择开源许可](https://choosealicense.com/)”。
 
@@ -51,12 +52,11 @@ topics:
 
 ## 复刻仓库
 
-{% include tool-switcher %}
 {% webui %}
 
 您可能为了对上游或原始仓库提议更改而复刻项目。 在这种情况下，最好定期将您的复刻与上游仓库同步。 为此，您需要在命令行上使用 Git。 您可以使用刚才复刻的 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库练习设置上游仓库。
 
-1. 在 {% data variables.product.product_location %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 2. 在页面的右上角，单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
 
 {% endwebui %}
@@ -86,10 +86,9 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally on your computer.
 
-{% include tool-switcher %}
 {% webui %}
 
-1. 在 {% data variables.product.product_name %} 上，导航到 Spoon-Knife 仓库的**复刻**。
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -134,12 +133,11 @@ gh repo fork <em>repository</em> --clone=true
 
 ## 配置 Git 以将您的复刻与原始仓库同步
 
-为了对原始仓库提议更改而复刻项目时，您可以配置 Git 以将更改从原始或上游仓库拉取到复刻的本地克隆。
+When you fork a project in order to propose changes to the original repository, you can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
 
-{% include tool-switcher %}
 {% webui %}
 
-1. 在 {% data variables.product.product_name %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. 将目录更改为您克隆的复刻的位置。
@@ -168,7 +166,7 @@ gh repo fork <em>repository</em> --clone=true
   > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
-现在，您可以使用一些 Git 命令使您的复刻与上游仓库保持同步。 更多信息请参阅“[同步复刻](/articles/syncing-a-fork)”。
+现在，您可以使用一些 Git 命令使您的复刻与上游仓库保持同步。 For more information, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."
 
 {% endwebui %}
 
@@ -195,12 +193,12 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 您可以对复刻进行任何更改，包括：
 
 - **创建分支：**[*分支*](/articles/creating-and-deleting-branches-within-your-repository/)允许您在不影响主项目的情况下构建新功能或测试创意。
-- **打开拉取请求：**如果您希望回馈原始仓库，您可以通过提交[拉取请求](/articles/about-pull-requests)请求原作者将您的复刻拉取到他们的仓库。
+- **打开拉取请求：**如果您希望回馈原始仓库，您可以通过提交[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)请求原作者将您的复刻拉取到他们的仓库。
 
 ## 另找一个仓库进行复刻
 复刻仓库，开始参与项目。 {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt %}您可以浏览 [Explore](https://github.com/explore) 以查找项目并开始参与开源仓库。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
+{% ifversion fpt or ghec %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
 
 {% endif %}
 

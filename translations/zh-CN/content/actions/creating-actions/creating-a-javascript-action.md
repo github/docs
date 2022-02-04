@@ -1,7 +1,6 @@
 ---
 title: 创建 JavaScript 操作
 intro: 在本指南中，您将了解如何使用操作工具包构建 JavaScript 操作。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -37,9 +37,9 @@ shortTitle: JavaScript 操作
 
 在开始之前，您需要下载 Node.js 并创建公共 {% data variables.product.prodname_dotcom %} 仓库。
 
-1. 下载并安装 Node.js 12.x，其中包含 npm。
+1. Download and install Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, which includes npm.
 
-  https://nodejs.org/en/download/current/
+  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
 1. 在 {% data variables.product.product_location %} 上创建一个新的公共仓库，并将其称为 "hello-world-javascript-action"。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
 
@@ -47,13 +47,13 @@ shortTitle: JavaScript 操作
 
 1. 从您的终端，将目录更改为新仓库。
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-javascript-action
   ```
 
 1. 从您的终端，使用 npm 初始化目录以生成 `package.json` 文件。
 
-  ```shell
+  ```shell{:copy}
   npm init -y
   ```
 
@@ -61,7 +61,7 @@ shortTitle: JavaScript 操作
 
 使用以下示例代码在 `hello-world-javascript-action` 目录中创建新文件 `action.yml`。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”。
 
-```yaml
+```yaml{:copy}
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
@@ -73,7 +73,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
@@ -91,7 +91,7 @@ runs:
 
 在您的终端，安装操作工具包 `core` 和 `github` 包。
 
-```shell
+```shell{:copy}
 npm install @actions/core
 npm install @actions/github
 ```
@@ -107,7 +107,7 @@ GitHub Actions 提供有关 web 挂钩实践、Git 引用、工作流程、操�
 使用以下代码添加名为 `index.js` 的新文件。
 
 {% raw %}
-```javascript
+```javascript{:copy}
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -127,7 +127,6 @@ try {
 {% endraw %}
 
 如果在上述 `index.js` 示例中出现错误 `core.setFailed(error.message);`，请使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包记录消息并设置失败退出代码。 更多信息请参阅“[设置操作的退出代码](/actions/creating-actions/setting-exit-codes-for-actions)”。
-
 
 ## 创建自述文件
 
@@ -174,8 +173,7 @@ with:
 
 最佳做法是同时为操作版本添加版本标记。 有关对操作进行版本管理的详细信息，请参阅“[关于操作](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)”。
 
-
-```shell
+```shell{:copy}
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1.1
@@ -215,7 +213,7 @@ git push --follow-tags
 将以下 YAML 复制到 `.github/workflows/main.yml` 上的新文件中，并使用您的用户名和上面创建的公共仓库名称更新 `uses: octocat/hello-world-javascript-action@v1.1` 行。 您还可以将 `who-to-greet` 输入替换为您的名称。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -242,7 +240,7 @@ jobs:
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -265,11 +263,11 @@ jobs:
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif ghes %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run.png)

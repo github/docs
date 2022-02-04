@@ -1,19 +1,18 @@
 ---
 title: Acessar sua organização se o provedor de identidade não estiver disponível
 intro: 'Os administradores da organização podem entrar no {% data variables.product.product_name %} mesmo se o provedor de identidade deles estiver indisponível, ignorando o logon único e usando os respectivos códigos de recuperação.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Provedor de identidade indisponível
 ---
 
-Os administradores da organização podem usar [um de seus códigos de recuperação baixados ou salvos](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) para ignorar o logon único. You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+Os administradores da organização podem usar [um de seus códigos de recuperação baixados ou salvos](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) para ignorar o logon único. Você pode ter salvado em um gerenciador de senhas, como [LastPass](https://lastpass.com/) ou [1Password](https://1password.com/).
 
 {% note %}
 

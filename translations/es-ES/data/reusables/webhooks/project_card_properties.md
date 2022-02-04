@@ -1,4 +1,4 @@
-| Clave                 | Type        | Descripción                                                                                                                          |
+| Clave                 | Tipo        | Descripción                                                                                                                          |
 | --------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `Acción`              | `secuencia` | La acción llevada a cabo en la tarjeta del proyecto. Puede ser `created`, `edited`, `moved`, `converted`, o `deleted`.               |
 | `changes`             | `objeto`    | Los cambios a la tarjeta del proyecto si la acción se puso como `edited` o `converted`.                                              |

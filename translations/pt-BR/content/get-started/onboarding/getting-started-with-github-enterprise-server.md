@@ -74,22 +74,22 @@ Você também pode exigir autenticação de dois fatores para cada uma de suas o
 ### 2. Manter a conformidade
 Você pode implementar verificações de status necessárias e realizar verificações de commit para fazer cumprir os padrões de conformidade da sua organização e automatizar os fluxos de trabalho de conformidade. Você também pode usar o log de auditoria para sua organização revisar as ações executadas pela sua equipe. Para obter mais informações, consulte "[Aplicando a política com hooks pre-receive](/admin/policies/enforcing-policy-with-pre-receive-hooks)" e "[Log de auditoria](/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)".
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ### 3. Configurar as funcionalidades de segurança para as suas organizações
 {% data reusables.getting-started.configuring-security-features %}
 {% endif %}
 
 {% ifversion ghes %}
-### {% ifversion ghes = 2.22 %}3.{% else %}4.{% endif %} Habilitar funcionalidades de {% data variables.product.prodname_GH_advanced_security %}
+### 4. Habilitando funcionalidades de {% data variables.product.prodname_GH_advanced_security %}
 Você pode atualizar sua licença do {% data variables.product.product_name %} para incluir {% data variables.product.prodname_GH_advanced_security %}. Isso fornece funcionalidades extras que ajudam os usuários a encontrar e corrigir problemas de segurança no seu código como, por exemplo, digitalização de código e segredo. Para obter mais informações, consulte "[{% data variables.product.prodname_GH_advanced_security %} para a sua empresa "](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)".
 {% endif %}
 
 ## Parte 4: Personalizando e automatizando o trabalho da sua empresa em {% data variables.product.prodname_dotcom %}
-Você pode personalizar e automatizar o trabalho em organizações da sua empresa com {% data variables.product.prodname_dotcom %} e {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_dotcom %} API, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} e {% data variables.product.prodname_pages %}.
+Você pode personalizar e automatizar o trabalho em organizações na sua empresa com a API de {% data variables.product.prodname_dotcom %} e {% data variables.product.prodname_oauth_apps %}, {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} e {% data variables.product.prodname_pages %}.
 
 ### 1. Criando {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}
-Você pode criar integrações com a API do {% data variables.product.prodname_dotcom %}, como, por exemplo, {% data variables.product.prodname_github_apps %} ou {% data variables.product.prodname_oauth_apps %}, para usar em organizações da sua empresa para complementar e ampliar seus fluxos de trabalho. Para obter mais informações, consulte "[Sobre os aplicativos](/developers/apps/getting-started-with-apps/about-apps)".
-### 2. Usando a API de {% data variables.product.prodname_dotcom %}
+Você pode criar integrações com a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} como, por exemplo, {% data variables.product.prodname_github_apps %} ou {% data variables.product.prodname_oauth_apps %}, para uso em organizações da empresa para complementar e ampliar seus fluxos de trabalho. Para obter mais informações, consulte "[Sobre os aplicativos](/developers/apps/getting-started-with-apps/about-apps)".
+### 2. Usando a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
 
 {% ifversion ghes %}
@@ -114,7 +114,13 @@ Se você for o proprietário de uma instância de {% data variables.product.prod
 
 ## Parte 6: Usando o aprendizado de {% data variables.product.prodname_dotcom %} e o suporte recursos
 Os membros da sua empresa podem aprender mais sobre o Git e {% data variables.product.prodname_dotcom %} com os nossos recursos de aprendizagem. e você pode obter o suporte de que precisa ao configurar e gerenciar {% data variables.product.product_location %} com o suporte do enterprise de {% data variables.product.prodname_dotcom %}.
-### 1. Aprendendo com {% data variables.product.prodname_learning %}
+
+### 1. Lendo sobre {% data variables.product.product_name %} em {% data variables.product.prodname_docs %}
+
+Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
+### 2. Aprendendo com {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab-enterprise %}
-### 2. Trabalhando com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}
+
+### 3. Trabalhando com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}
 {% data reusables.getting-started.contact-support-enterprise %}

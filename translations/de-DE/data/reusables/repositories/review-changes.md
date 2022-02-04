@@ -1,1 +1,0 @@
-1. Klicke oberhalb des veränderten Code auf **Review changes** (Änderungen überprüfen). ![Schaltfläche „Review changes" (Änderungen überprüfen)](/assets/images/help/pull_requests/review-changes-button.png)

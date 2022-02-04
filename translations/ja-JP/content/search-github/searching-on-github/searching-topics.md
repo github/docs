@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -20,7 +21,7 @@ topics:
 1. Https://github.com/search に移動します。
 2. トピックのキーワードを入力します。 ![検索フィールド](/assets/images/help/search/search-field.png)
 3. 検索をトピックに絞るため、左サイドバーで [**Topics**] をクリックします。
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
   ![サイドメニューのオプションが強調されたトピックを含む Jekyll リポジトリ検索結果ページ](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% else %}
 ![Jekyll repository search results page on dotcom with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation.png)
 {% endif %}

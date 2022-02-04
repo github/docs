@@ -2,11 +2,11 @@
 title: Expresiones
 shortTitle: Expresiones
 intro: Puedes evaluar las expresiones en los flujos de trabajo y acciones.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 ---
 
@@ -15,7 +15,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Acerca de las expresiones
 
-Puedes usar expresiones para establecer variables programáticamente en archivos de flujo de trabajo y contextos de acceso. Una expresión puede ser cualquier combinación de valores literales, referencias a un contexto o funciones. Puedes combinar valores literales, referencias de contexto y funciones usando operadores. Para obtener más información sobre los contextos, consulta la sección "[Contextos](/actions/learn-github-actions/contexts)".
+You can use expressions to programmatically set environment variables in workflow files and access contexts. Una expresión puede ser cualquier combinación de valores literales, referencias a un contexto o funciones. Puedes combinar valores literales, referencias de contexto y funciones usando operadores. Para obtener más información sobre los contextos, consulta la sección "[Contextos](/actions/learn-github-actions/contexts)".
 
 Las expresiones se utilizan comúnmente con la palabra clave condicional `if` en un archivo de flujo de trabajo para determinar si un paso debe ejecutar. Cuando un condicional `if` es `true`, se ejecutará el paso.
 
@@ -50,16 +50,17 @@ env:
 
 Como parte de una expresión, puedes usar tipos de datos `boolean`, `null`, `number` o `string`.
 
-| Tipo de datos | Valor literal                                                                           |
-| ------------- | --------------------------------------------------------------------------------------- |
-| `boolean`     | `verdadero` o `falso`                                                                   |
-| `null`        | `null`                                                                                  |
-| `number`      | Cualquier formato de número compatible con JSON.                                        |
-| `secuencia`   | Debes usar comillas simples. Escapar comillas simples literales con una comilla simple. |
+| Tipo de datos | Valor literal                                                                                                                                                                                                                 |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `boolean`     | `verdadero` o `falso`                                                                                                                                                                                                         |
+| `null`        | `null`                                                                                                                                                                                                                        |
+| `number`      | Cualquier formato de número compatible con JSON.                                                                                                                                                                              |
+| `secuencia`   | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
 
 #### Ejemplo
 
 {% raw %}
+
 ```yaml
 env:
   myNull: ${{ null }}
@@ -68,33 +69,34 @@ env:
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
   myExponentialNumber: ${{ -2.99-e2 }}
-  myString: ${{ 'Mona the Octocat' }}
-  myEscapedString: ${{ 'It''s open source!' } }}
+  myString: Mona the Octocat
+  myStringInBraces: ${{ 'It''s open source!' }}
 ```
+
 {% endraw %}
 
 ## Operadores
 
-| Operador                  | Descripción                |
-| ------------------------- | -------------------------- |
-| `( )`                     | Agrupación lógica          |
-| `[ ]`                     | Índice                     |
-| `.`                       | Desreferencia de propiedad |
-| `!`                       | No                         |
-| `<`                    | Menor que                  |
-| `<`                    | Menor o igual              |
-| `>`                    | Mayor que                  |
-| `>=`                   | Mayor o igual              |
-| `==`                      | Igual                      |
-| `!=`                      | No es igual                |
-| `&&`              | Y                          |
-| <code>\|\|</code> | O                          |
+| Operador                  | Descripción           |
+| ------------------------- | --------------------- |
+| `( )`                     | Agrupación lógica     |
+| `[ ]`                     | Índice                |
+| `.`                       | Property de-reference |
+| `!`                       | No                    |
+| `<`                    | Menor que             |
+| `<`                    | Menor o igual         |
+| `>`                    | Mayor que             |
+| `>=`                   | Mayor o igual         |
+| `==`                      | Igual                 |
+| `!=`                      | No es igual           |
+| `&&`              | Y                     |
+| <code>\|\|</code> | O                     |
 
 {% data variables.product.prodname_dotcom %} realiza comparaciones de igualdad flexible.
 
 * Si los tipos no coinciden, {% data variables.product.prodname_dotcom %} fuerza el tipo a un número. {% data variables.product.prodname_dotcom %} fusiona los tipos de datos con un número usando estas conversiones:
 
-  | Type      | Resultado                                                                                                                      |
+  | Tipo      | Resultado                                                                                                                      |
   | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
   | Nulo      | `0`                                                                                                                            |
   | Booleano  | `verdadero` devuelve `1` <br /> `falso` devuelve `0`                                                                     |
@@ -109,7 +111,7 @@ env:
 
 {% data variables.product.prodname_dotcom %} ofrece un conjunto de funciones integradas que puedes usar en expresiones. Algunas funciones fusionan valores en una cadena para realizar las comparaciones. {% data variables.product.prodname_dotcom %} fusiona los tipos de datos con una cadena usando estas conversiones:
 
-| Type     | Resultado                                         |
+| Tipo     | Resultado                                         |
 | -------- | ------------------------------------------------- |
 | Nulo     | `''`                                              |
 | Booleano | `'verdadero'` o `'falso'`                         |
@@ -125,11 +127,11 @@ Arroja `true` si `search` contiene `item`. Si `search` es una matriz, esta funci
 
 #### Ejemplo usando una matriz
 
-`contains(github.event.issue.labels.*.name, 'bug')`
+`contains(github.event.issue.labels.*.name, 'bug')` devuelve la información de si la propuesta que está relacionada al evento tiene una etiqueta de "bug" o no.
 
 #### Ejemplo usando una cadena
 
-`contains('Hello world', 'llo')` devuelve `verdadero`
+`contains('Hello world', 'llo')` devuelve `verdadero`.
 
 ### startsWith
 
@@ -139,7 +141,7 @@ Arroja `true` cuando `searchString` empieza con `searchValue`. Esta función no 
 
 #### Ejemplo
 
-`startsWith('Hello world', 'He')` regresa a `verdadero`
+`startsWith('Hello world', 'He')` regresa a `verdadero`.
 
 ### endsWith
 
@@ -149,7 +151,7 @@ Arroja `true` si `searchString` termina con `searchValue`. Esta función no dist
 
 #### Ejemplo
 
-`endsWith('Hello world', 'He')` devuelve `verdadero`
+`endsWith('Hello world', 'He')` devuelve `verdadero`.
 
 ### format
 
@@ -159,19 +161,19 @@ Reemplaza valores en la `string`, con la variable `replaceValueN`. Las variables
 
 #### Ejemplo
 
-Arroja 'Hello Mona the Octocat'
-
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-#### Ejemplo de evasión de llaves
+Devuelve 'Hello Mona the Octocat'.
 
-Devuelve '{Hello Mona the Octocat!}'
+#### Ejemplo de evasión de llaves
 
 {% raw %}
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
+
+Devuelve '{Hello Mona the Octocat!}'.
 
 ### join
 
@@ -252,7 +254,7 @@ jobs:
 
 Arroja un solo hash para el conjunto de archivos que coincide con el patrón de `path`. Puedes proporcionar un patrón de `path` o `path` múltiples se parados por comas. El `path` está relacionado con el directorio `GITHUB_WORKSPACE` y solo puede incluir archivos dentro del directorio `GITHUB_WORKSPACE`. Esta función calcula un hash SHA-256 individual para cada archivo coincidente, y luego usa esos hashes para calcular un hash SHA-256 final para el conjunto de archivos. Para más información sobre SHA-256, consulta "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
 
-Puedes usar caracteres de coincidencia de patrones para encontrar nombres de archivos. La coincidencia de patrones no distingue mayúsculas de minúsculas en Windows. Para obtener más información acerca de los caracteres compatibles con los patrones, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)".
+Puedes usar caracteres de coincidencia de patrones para encontrar nombres de archivos. La coincidencia de patrones no distingue mayúsculas de minúsculas en Windows. Para obtener más información acerca de los caracteres compatibles con los patrones, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)".
 
 #### Ejemplo con un solo patrón
 
@@ -266,9 +268,15 @@ Crea un hash para cualquier archivo de `package-lock.json` y de `Gemfile.lock` e
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-## Funciones de verificación del estado del trabajo
 
-Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if`. Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. Para obtener información sobre los condicionales `if`, consulta "[Sintaxis de flujo de trabajo para acciones de GitHub](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+## Funciones de verificación del estado
+
+Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if` (si). Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. Para obtener más información sobre los condicionales `if`, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" y "[Sintaxis de metadatos para las Acciones Compuestas de GitHub](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+{% else %}
+## Check Functions
+Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if` (si). Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% endif %}
 
 ### success
 
@@ -295,7 +303,7 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 ### cancelled
 
-Arroja `true` si se canceló el flujo de trabajo.
+Devuelve `verdadero` si se canceló el flujo de trabajo.
 
 #### Ejemplo
 
@@ -305,7 +313,7 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 ### failure
 
-Arroja `true` cuando falla cualquiera de los pasos anteriores de un trabajo.
+Arroja `true` cuando falla cualquiera de los pasos anteriores de un trabajo. Si tienes una cadena de jobs dependientes, `failure()` devolverá el valor `true` en caso de que cualquier job ascendiente falle.
 
 #### Ejemplo
 
@@ -315,6 +323,34 @@ steps:
   - name: The job has failed
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+### Evaluar los estados explícitamente
+
+En vez de utilizar alguno de los métodos anteriores, puedes evaluar el estado del job o de la acción compuesta que esté ejecutando el paso directamente:
+
+#### Ejemplo de un paso de flujo de trabajo
+
+```yaml
+steps:
+  ...
+  - name: The job has failed
+    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
+```
+
+Esto es lo mismo que utilizar `if: failure()` en un paso de un job.
+
+#### Ejemplo de un paso de una acción compuesta
+
+```yaml
+steps:
+  ...
+  - name: The composite action has failed
+    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
+```
+
+Esto es lo mismo que utilizar `if: failure()` en un paso de acción compuesta.
+{% endif %}
 
 ## Filtros de objetos
 
@@ -330,4 +366,4 @@ Por ejemplo, considera una matriz de objetos llamada `fruits`.
 ]
 ```
 
-El filtro `fruits.*.name` arroja la matriz `[ "apple", "orange", "pear" ]`
+El filtro `fruits.*.name` devuelve la matriz `[ "apple", "orange", "pear" ]`

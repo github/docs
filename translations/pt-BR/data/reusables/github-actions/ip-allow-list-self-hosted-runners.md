@@ -1,6 +1,6 @@
 {% ifversion ghae %}
-Para permitir que os seus
-{% data variables.actions.hosted_runner %} se comuniquem com {% data variables.product.prodname_dotcom %}, adicione o endereço IP ou o intervalo de endereço IP dos seus {% data variables.actions.hosted_runner %}s para a lista de permissões de IP. Para obter mais informações, consulte "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
+Para permitir que os seus executores auto-hospedados se comuniquem com
+{% data variables.product.prodname_dotcom %}, adicione o endereço IP ou o intervalo de endereços IP dos seus executores auto-hospedados à lista de permissões de IP. Para obter mais informações, consulte "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
 {% else %}
 {% warning %}
 

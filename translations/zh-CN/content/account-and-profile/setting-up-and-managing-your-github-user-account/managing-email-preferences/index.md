@@ -1,14 +1,15 @@
 ---
 title: 管理电子邮件首选项
-intro: '您可以添加或更改与 {% data variables.product.product_name %} 帐户关联的电子邮件地址。 您也可以管理从 {% data variables.product.product_name %} 收到的电子邮件。'
+intro: 'You can add or change the email addresses associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. 您也可以管理从 {% data variables.product.product_name %} 收到的电子邮件。'
 redirect_from:
-  - /categories/managing-email-preferences/
+  - /categories/managing-email-preferences
   - /articles/managing-email-preferences
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications

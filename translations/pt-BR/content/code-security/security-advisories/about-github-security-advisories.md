@@ -7,6 +7,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-github-security-advisories
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Security advisories

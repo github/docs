@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -89,15 +90,15 @@ topics:
 | <code>followers:<em>n</em></code> | [**followers:>=1000**](https://github.com/search?q=followers%3A%3E%3D1000&type=Users) 匹配有 1,000 个或更多关注者的用户。                              |
 |                           | [**sparkle followers:1..10**](https://github.com/search?q=sparkle+followers%3A1..10&type=Users) 匹配具有 1 到 10 个关注者、其名称中含有 "sparkle" 字样的用户。 |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-## Search based on ability to sponsor
+## 基于赞助能力的搜索
 
-You can search for users and organizations who can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。
+您可以使用 `is:sponsorable` 限定符在 {% data variables.product.prodname_sponsors %} 上搜索可以赞助的用户和组织。 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。
 
-| 限定符              | 示例                                                                                                                                                                               |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:sponsorable` | [**is:sponsorable**](https://github.com/search?q=is%3Asponsorable&type=Users) matches users and organizations who have a {% data variables.product.prodname_sponsors %} profile. |
+| 限定符              | 示例                                                                                                                                            |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `is:sponsorable` | [**is:sponsorable**](https://github.com/search?q=is%3Asponsorable&type=Users) 匹配具有 {% data variables.product.prodname_sponsors %} 配置文件的用户和组织。 |
 
 {% endif %}
 

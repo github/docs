@@ -1,7 +1,7 @@
 ---
 title: サイトポリシー
 redirect_from:
-  - /categories/61/articles/
+  - /categories/61/articles
   - /categories/site-policy
 versions:
   fpt: '*'
@@ -27,7 +27,7 @@ children:
   - /github-private-information-removal-policy
   - /github-subprocessors-and-cookies
   - /github-bug-bounty-program-legal-safe-harbor
-  - /responsible-disclosure-of-security-vulnerabilities
+  - /coordinated-disclosure-of-security-vulnerabilities
   - /guidelines-for-legal-requests-of-user-data
   - /github-government-takedown-policy
   - /github-acceptable-use-policies

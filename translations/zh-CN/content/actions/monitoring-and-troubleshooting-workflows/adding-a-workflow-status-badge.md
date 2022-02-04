@@ -1,13 +1,13 @@
 ---
 title: 添加工作流程状态徽章
 intro: 您可以在您的仓库中显示状态徽章，以指示您的工作流程状态。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 添加状态徽章
 ---
 
@@ -19,7 +19,7 @@ shortTitle: 添加状态徽章
 您使用工作流程文件的名称来引用工作流程。
 
 ```markdown
-![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
+![example workflow]({% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 ```
 ## 使用工作流程文件名称
 
@@ -39,8 +39,8 @@ shortTitle: 添加状态徽章
 
 ## 使用 `event` 参数
 
-此 Markdown 示例添加显示通过 `pull_request` 事件触发运行的工作流程状态的徽章。
+This Markdown example adds a badge that displays the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
 
 ```markdown
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
 ```
