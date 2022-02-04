@@ -24,7 +24,7 @@ links:
     url: https://github.com/github/docs-engineering/blob/main/docs/playbooks/docs/index.md
   - name: Maintaining the deployment
     description: Document describing the production deployment and how to troubleshoot it.
-    kind: 🪁
+    kind: docs
     service: docs-internal
     url: https://github.com/github/docs-internal#deployments
   - name: PagerDuty escalation policy
