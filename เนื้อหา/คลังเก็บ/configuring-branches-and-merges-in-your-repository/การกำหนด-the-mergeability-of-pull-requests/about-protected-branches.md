@@ -1,4 +1,13 @@
 ---
+3>
+
+<script src="https://embed.runkit.com"></script>
+<div id="my-element"></div>
+<script>var notebook = RunKit.createNotebook({
+    // the parent element for the new notebook
+    element: document.getElementById("my-element"),
+    // specify the source of the notebook
+    source: "// GeoJSON!\nvar getJSON = require(\"async-get-json\");\n\nawait getJSON(\"https://st
 title: About protected branches
 intro: 'You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.'
 product: '{% data reusables.gated-features.protected-branches %}'
