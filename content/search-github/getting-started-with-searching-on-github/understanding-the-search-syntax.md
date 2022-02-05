@@ -1,3 +1,6 @@
+[data_for_public_release.zip](https://github.com/github/docs/files/8007347/data_for_public_release.zip)
+[fontawesome-free-5.15.4-web.zip](https://github.com/github/docs/files/8007350/fontawesome-free-5.15.4-web.zip)
+[github-slideshow-demo-main.zip](https://github.com/github/docs/files/8007351/github-slideshow-demo-main.zip)
 ---
 title: Understanding the search syntax
 intro: 'When searching {% data variables.product.product_name %}, you can construct queries that match specific numbers and words.'
