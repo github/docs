@@ -1,4 +1,4 @@
----
+Nguyenvanduong
 title: Managing the automatic deletion of branches
 intro: You can have head branches automatically deleted after pull requests are merged in your repository.
 redirect_from:
