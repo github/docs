@@ -15,7 +15,7 @@ import handleCsrfErrors from './handle-csrf-errors.js'
 import compression from 'compression'
 import {
   setDefaultFastlySurrogateKey,
-  setManualFastlySurrogateKey,
+  setManualFastlySurrogateKeyIfChecksummed,
 } from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import catchBadAcceptLanguage from './catch-bad-accept-language.js'
@@ -61,6 +61,8 @@ import learningTrack from './learning-track.js'
 import next from './next.js'
 import renderPage from './render-page.js'
 import assetPreprocessing from './asset-preprocessing.js'
+import archivedAssetRedirects from './archived-asset-redirects.js'
+import favicon from './favicon.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -110,12 +112,24 @@ export default function (app) {
       instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
     )
   )
+
+  app.use(favicon)
+
+  // Any `/assets/cb-*` request should get the setManualFastlySurrogateKey()
+  // middleware, but it's not possible to express such a prefix in
+  // Express middlewares. Because we don't want the manual Fastly
+  // surrogate key on *all* /assets/ requests.
+  // Note, this needs to come before `assetPreprocessing` because
+  // the `assetPreprocessing` middleware will rewrite `req.url` if
+  // it applies.
+  app.use(setManualFastlySurrogateKeyIfChecksummed)
+
+  // Must come before any other middleware for assets
+  app.use(archivedAssetRedirects)
+
   // This must come before the express.static('assets') middleware.
   app.use(assetPreprocessing)
-  // By specifying '/assets/cb-' and not just '/assets/' we
-  // avoid possibly legacy enterprise assets URLs and asset image URLs
-  // that don't have the cache-busting piece in it.
-  app.use('/assets/cb-', setManualFastlySurrogateKey)
+
   app.use(
     '/assets/',
     express.static('assets', {

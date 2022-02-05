@@ -18,15 +18,22 @@ shortTitle: Workflow billing & limits
 
 ## About billing for {% data variables.product.prodname_actions %}
 
+{% data reusables.repositories.about-github-actions %} For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
+
 {% ifversion fpt or ghec %}
 {% data reusables.github-actions.actions-billing %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %}s that use self-hosted runners.
+GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
+
+
+{% ifversion fpt or ghec %}
 
 ## Availability
 
 {% data variables.product.prodname_actions %} is available on all {% data variables.product.prodname_dotcom %} products, but {% data variables.product.prodname_actions %} is not available for private repositories owned by accounts using legacy per-repository plans. {% data reusables.gated-features.more-info %}
+
+{% endif %}
 
 ## Usage limits
 

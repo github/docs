@@ -104,7 +104,7 @@ You can define a default platform in the frontmatter. For more information, see 
 
 ## Tool tags
 
-We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
 
 ### Usage
 
@@ -154,6 +154,22 @@ These instructions are pertinent to Codespaces users. They are mostly used outsi
 These instructions are pertinent to VS Code users.
 
 {% endvscode %}
+```
+
+```
+{% importer_cli %}
+
+These instructions are pertinent to GitHub Enterprise Importer CLI users.
+
+{% endimporter_cli %}
+```
+
+```
+{% graphql %}
+
+These instructions are pertinent to GraphQL API users.
+
+{% endgraphql %}
 ```
 
 You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).

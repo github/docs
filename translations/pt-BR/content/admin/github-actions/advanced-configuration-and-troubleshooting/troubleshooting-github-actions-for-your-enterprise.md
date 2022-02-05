@@ -52,32 +52,34 @@ Se você usa ações do contêiner do Docker ou contêineres de serviço nos seu
 
 Se estas configurações não estiverem definidas corretamente, você poderá receber erros como `Recurso movido inesperadamente para https://<IP_ADDRESS>` ao definir ou mudar a configuração de {% data variables.product.prodname_actions %}.
 
-## Os executores que não se conectam a {% data variables.product.prodname_ghe_server %} depois de mudar o hostname
+## Runners not connecting to {% data variables.product.prodname_ghe_server %} with a new hostname
 
-Se você alterar o nome do host de {% data variables.product.product_location %}, os executores auto-hospedados não poderão conectar-se ao host antigo e não executarão nenhum trabalho.
+{% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-Você precisará atualizar a configuração dos seus executores auto-hospedados para usar o novo nome de host para {% data variables.product.product_location %}. Cada executor auto-hospedado exigirá um dos seguintes procedimentos:
+If you deploy {% data variables.product.prodname_ghe_server %} in your environment with a new hostname and the old hostname no longer resolves to your instance, self-hosted runners will be unable to connect to the old hostname, and will not execute any jobs.
+
+You will need to update the configuration of your self-hosted runners to use the new hostname for {% data variables.product.product_location %}. Each self-hosted runner will require one of the following procedures:
 
 * No diretório de do aplicativo do executor auto-hospedado, edite os arquivos de `.runner` e `.credentials` para substituir todas as menções do nome de host antigo pelo novo nome de host. Em seguida, reinicie o aplicativo do executor auto-hospedado.
 * Remova o executor de {% data variables.product.prodname_ghe_server %} usando a interface do usuário e adicione-o novamente. Para obter mais informações, consulte "[Removendo os executores auto-hospedados](/actions/hosting-your-own-runners/removing-self-hosted-runners)" e "[Adicionando executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
 
 ## Trabalhos travados e limites de CPU e de memória das {% data variables.product.prodname_actions %}
 
-{% data variables.product.prodname_actions %} é composto de vários serviços em execução em {% data variables.product.product_location %}. Por padrão, esses serviços são configurados com limites padrão de CPU e memória que devem funcionar para a maioria das instâncias. No entanto, usuários assíduos de {% data variables.product.prodname_actions %} talvez precisem para ajustar essas configurações.
+{% data variables.product.prodname_actions %} is composed of multiple services running on {% data variables.product.product_location %}. By default, these services are set up with default CPU and memory limits that should work for most instances. However, heavy users of {% data variables.product.prodname_actions %} might need to adjust these settings.
 
-É possível que você atinja o limite de CPU ou memória se você notar que os trabalhos não estão sendo iniciados (ainda que existam executores inativos), ou se o progresso do trabalho não estiver sendo atualizado ou alterando na interface do usuário.
+You may be hitting the CPU or memory limits if you notice that jobs are not starting (even though there are idle runners), or if the job's progress is not updating or changing in the UI.
 
 ### 1. Verifique o uso total da CPU e memória no console de gerenciamento
 
-Acesse o console de gerenciamento e use o painel do monitor para inspecionar os gráficos gerais de CPU e memória em "Saúde do Sistema". Para obter mais informações, consulte "[Acessar o painel do monitor](/admin/enterprise-management/accessing-the-monitor-dashboard)".
+Access the management console and use the monitor dashboard to inspect the overall CPU and memory graphs under "System Health". For more information, see "[Accessing the monitor dashboard](/admin/enterprise-management/accessing-the-monitor-dashboard)."
 
-Se o uso geral de "Saúde do Sistema" da CPU estiver próximo a 100% ou não houver mais memória livre, {% data variables.product.product_location %} será executado na capacidade e precisará ser dimensionado. Para obter mais informações, consulte "[Increasing CPU or memory resources](/admin/enterprise-management/increasing-cpu-or-memory-resources)."
+If the overall "System Health" CPU usage is close to 100%, or there is no free memory left, then {% data variables.product.product_location %} is running at capacity and needs to be scaled up. For more information, see "[Increasing CPU or memory resources](/admin/enterprise-management/increasing-cpu-or-memory-resources)."
 
 ### 2. Verifique o uso de CPU e a memória dos trabalhos Nomad no console de gerenciamento
 
-Se a "Saúde do Sistema" para o uso total da CPU e da memória estiver OK, acesse a seção "Trabalhos Normad" na parte inferior do painel e observe os gráficos "Valor porcentual da CPU" e "Uso da memória".
+If the overall "System Health" CPU and memory usage is OK, scroll down the monitor dashboard page to the "Nomad Jobs" section, and look at the "CPU Percent Value" and "Memory Usage" graphs.
 
-Cada seção nesses gráficos corresponde a um serviço. Para os serviços de {% data variables.product.prodname_actions %}, busque:
+Each plot in these graphs corresponds to one service. For {% data variables.product.prodname_actions %} services, look for:
 
 * `mps_frontend`
 * `mps_backend`
@@ -86,7 +88,7 @@ Cada seção nesses gráficos corresponde a um serviço. Para os serviços de {%
 * `actions_frontend`
 * `actions_backend`
 
-Se qualquer um destes serviços estiver em ou perto de 100% de utilização da CPU ou se a memória estiver próxima do seu limite (2 GB por padrão), talvez seja necessário aumentar a atribuição de recursos para estes serviços. Tome nota de quais dos serviços acima estão no ou próximo do seu limite.
+If any of these services are at or near 100% CPU utilization, or the memory is near their limit (2 GB by default), then the resource allocation for these services might need increasing. Take note of which of the above services are at or near their limit.
 
 ### 3. Aumenta a alocação de recursos para serviços em seu limite
 
@@ -159,11 +161,11 @@ Se qualquer um destes serviços estiver em ou perto de 100% de utilização da C
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
-Após configurar as atualizações de {% data variables.product.prodname_dependabot %} para {% data variables.product.product_location %}, você pode ver falhas quando os fluxos de trabalho existentes são acionados por eventos de {% data variables.product.prodname_dependabot %}.
+After you set up {% data variables.product.prodname_dependabot %} updates for {% data variables.product.product_location %}, you may see failures when existing workflows are triggered by {% data variables.product.prodname_dependabot %} events.
 
-Por padrão, as execuções do fluxo de trabalho de {% data variables.product.prodname_actions %} que são acionadas por {% data variables.product.prodname_dependabot %} a partir de eventos de `push`, `pull_request`, `pull_request_review`, ou `pull_request_review_comment` são tratados como se tivessem sido abertas em uma bifurcação de repositório. Ao contrário dos fluxos de trabalho acionados por outros criadores, isso significa que eles recebem somente leitura de `GITHUB_TOKEN` e não têm acesso a nenhum segredo que esteja normalmente disponível. Isso fará com que quaisquer fluxos de trabalho que tentam gravar no repositório falhem quando forem acionados por {% data variables.product.prodname_dependabot %}.
+By default, {% data variables.product.prodname_actions %} workflow runs that are triggered by {% data variables.product.prodname_dependabot %} from `push`, `pull_request`, `pull_request_review`, or `pull_request_review_comment` events are treated as if they were opened from a repository fork. Unlike workflows triggered by other actors, this means they receive a read-only `GITHUB_TOKEN` and do not have access to any secrets that are normally available. This will cause any workflows that attempt to write to the repository to fail when they are triggered by {% data variables.product.prodname_dependabot %}.
 
-Há três maneiras de resolver este problema:
+There are three ways to resolve this problem:
 
 1. Você pode atualizar seus fluxos de trabalho para que não sejam mais acionados por {% data variables.product.prodname_dependabot %} usando uma expressão como: `if: github.actor != 'dependabot[bot]'`. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 2. Você pode modificar seus fluxos de trabalho para usar um processo de duas etapas que inclui `pull_request_target` que não tem essas limitações. Para obter mais informações, consulte "[Automatizando {% data variables.product.prodname_dependabot %} com {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#responding-to-events)".

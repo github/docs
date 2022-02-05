@@ -13,6 +13,7 @@ versions:
   ghae: '*'
   ghec: '*'
 type: reference
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,7 +21,7 @@ type: reference
 
 ## Acerca de la nueva sintaxis YAML para {% data variables.product.prodname_actions %}
 
-Las acciones Docker y JavaScript requieren un archivo de metadatos. El nombre del archivo de metadatos debe ser `action.yml` o `action.yaml`. Los datos del archivo de metadatos definen las entradas, las salidas y el punto de entrada principal para tu acción.
+All actions require a metadata file. El nombre del archivo de metadatos debe ser `action.yml` o `action.yaml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
 
 Los archivos de metadatos de acción usan la sintaxis YAML. Si eres nuevo en YAML, puedes leer "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
@@ -40,7 +41,7 @@ Los archivos de metadatos de acción usan la sintaxis YAML. Si eres nuevo en YAM
 
 **Opcional** Los parámetros de entrada te permiten especificar datos que la acción espera para usar durante el tiempo de ejecución. {% data variables.product.prodname_dotcom %} almacena parámetros de entrada como variables de entorno. Las Id de entrada con letras mayúsculas se convierten a minúsculas durante el tiempo de ejecución. Recomendamos usar Id de entrada en minúsculas.
 
-### Ejemplo
+### Example: Specifying inputs
 
 Este ejemplo configura dos entradas: numOctocats y octocatEyeColor. La entrada numOctocats no se requiere y se predeterminará a un valor de '1'. Se requiere la entrada octocatEyeColor y no tiene un valor predeterminado. Los archivos de flujo de trabajo que usan esta acción deben usar la palabra clave `with` (con) para establecer un valor de entrada para octocatEyeColor. Para obtener información sobre la sintaxis `with` (con), consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)".
 
@@ -83,13 +84,13 @@ Por ejemplo, si un flujo de trabajo definió las entradas de `numOctocats` y `oc
 
 **Opcional** Si se utiliza el parámetro de entrada, esta `string` se registrará como un mensaje de advertencia. Puedes utilizar esta advertencia para notificar a los usuarios que la entrada es obsoleta y mencionar cualquier alternativa.
 
-## `outputs (salidas)`
+## `outputs` for Docker container and JavaScript actions
 
 **Opcional** Los parámetros de salida te permiten declarar datos que una acción establece. Las acciones que se ejecutan más tarde en un flujo de trabajo pueden usar el conjunto de datos de salida en acciones de ejecución anterior.  Por ejemplo, si tuviste una acción que realizó la adición de dos entradas (x + y = z), la acción podría dar como resultado la suma (z) para que otras acciones la usen como entrada.
 
 Si no declaras una salida en tu archivo de metadatos de acción, todavía puedes configurar las salidas y utilizarlas en un flujo de trabajo. Para obtener más información acerca de la configuración de salidas en una acción, consulta "[Comandos de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)".
 
-### Ejemplo
+### Example: Declaring outputs for Docker container and JavaScript actions
 
 ```yaml
 outputs:
@@ -107,9 +108,9 @@ outputs:
 
 ## `outputs` para las acciones compuestas
 
-Los `outputs` **Opcionales** utilizan los mismos parámetros que los `outputs.<output_id>` and los `outputs.<output_id>.description` (consulta la sección "[`outputs` para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), pero también incluyen el token de `value`.
+**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
 
-### Ejemplo
+### Example: Declaring outputs for composite actions
 
 {% raw %}
 ```yaml
@@ -134,13 +135,13 @@ Para obtener más información sobre cómo utilizar la sintaxis de contexto, con
 
 ## `runs`
 
-**Requerido** Especifica si esta es una acción de JavaScript, una acción compuesta o una acción de Docker y cómo se ejecuta dicha acción.
+**Required** Specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
 
 ## `runs` para acciones de JavaScript
 
 **Requerido** Configura la ruta al código de la acción y el tiempo de ejecución que se utiliza para ejecutarlo.
 
-### Ejemplo de uso con Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
+### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
 runs:
@@ -159,9 +160,9 @@ runs:
 
 **Requerido** El archivo que contiene tu código de acción. El tiempo de ejecución que se especifica en [`using`](#runsusing) ejecuta este archivo.
 
-### `pre`
+### `runs.pre`
 
-**Opcional** Te permite ejecutar un script al inicio de un job, antes de que la acción `main:` comience. Por ejemplo, puedes utilizar `pre:` para ejecutar un script de configuración de pre-requisitos. El tiempo de ejecución que ese especifica con la sintaxis de [`using`](#runsusing) ejecutará este archivo. La acción `pre:` siempre se ejecuta predeterminadamente pero puedes invalidarla utilizando [`pre-if`](#pre-if).
+**Opcional** Te permite ejecutar un script al inicio de un job, antes de que la acción `main:` comience. Por ejemplo, puedes utilizar `pre:` para ejecutar un script de configuración de pre-requisitos. El tiempo de ejecución que ese especifica con la sintaxis de [`using`](#runsusing) ejecutará este archivo. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
 En este ejemplo, la acción `pre:` ejecuta un script llamado `setup.js`:
 
@@ -173,7 +174,7 @@ runs:
   post: 'cleanup.js'
 ```
 
-### `pre-if`
+### `runs.pre-if`
 
 **Opcional** Te permite definir las condiciones para la ejecución de la acción `pre:`. La acción `pre:` únicamente se ejecutará si se cumplen las condiciones en `pre-if`. Si no se configura, `pre-if` se configurará predefinidamente como `always()`. En `pre-if`, las funciones de verificación de estado evalúan contra el estado del job y no contra el estado de la propia acción.
 
@@ -186,7 +187,7 @@ En este ejemplo, `cleanup.js` se ejecuta únicamente en los ejecutores basados e
   pre-if: runner.os == 'linux'
 ```
 
-### `publicación`
+### `runs.post`
 
 **Opcional** Te permite ejecutar un script al final de un job, una vez que se haya completado la acción `main:`. Por ejemplo, puedes utilizar `post:` para finalizar algunos procesos o eliminar los archivos innecesarios. El tiempo de ejecución que ese especifica con la sintaxis de [`using`](#runsusing) ejecutará este archivo.
 
@@ -201,7 +202,7 @@ runs:
 
 La acción `post:` siempre se ejecuta predeterminadamente, pero la puedes invalidar utilizando `post-if`.
 
-### `post-if`
+### `runs.post-if`
 
 **Opcional** Te permite definir condiciones para la ejecución de la acción `post:`. La acción `post` únicamente se ejecutará si se cumplen las condiciones en `post-if`. Si no se configura, `pre-if` se configurará predeterminadamente como `always()`. En `post-if`, las funciones de verificación de estado evalúan contra el estado del job y no contra el estado de la propia acción.
 
@@ -364,11 +365,11 @@ runs:
 ```
 {% endif %}
 
-## `runs` para acciones de Docker
+## `runs` for Docker container actions
 
-**Requerido** Configura la imagen que se utiliza para la acción de Docker.
+**Required** Configures the image used for the Docker container action.
 
-### Ejemplo utilizando un Dockerfile en tu repositorio
+### Example: Using a Dockerfile in your repository
 
 ```yaml
 runs:
@@ -376,7 +377,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-### Ejemplo usando un contenedor de registro Docker público
+### Example: Using public Docker registry container
 
 ```yaml
 runs:
@@ -388,9 +389,9 @@ runs:
 
 **Requerido** Debes configurar este valor como `'docker'`.
 
-### `pre-entrypoint`
+### `runs.pre-entrypoint`
 
-**Opcional** Te permite ejecutar un script antes de que comience la acción `entrypoint`. Por ejemplo, puedes utilizar `pre-entrypoint` para ejecutar un script de configuración de pre-requisitos. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción, y ejecuta el script dentro de un contenedor nuevo que utiliza la misma imagen base. Esto significa que el estado del tiempo de ejecución difiere de el contenedor principal `entrypoint`, y se deberá acceder a cualquier estado que requieras ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. La acción `pre-entrypoint:` siempre se ejecuta predeterminadamente pero la puedes invalidar utilizando [`pre-if`](#pre-if).
+**Opcional** Te permite ejecutar un script antes de que comience la acción `entrypoint`. Por ejemplo, puedes utilizar `pre-entrypoint` para ejecutar un script de configuración de pre-requisitos. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción, y ejecuta el script dentro de un contenedor nuevo que utiliza la misma imagen base. Esto significa que el estado del tiempo de ejecución difiere de el contenedor principal `entrypoint`, y se deberá acceder a cualquier estado que requieras ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
 El tiempo de ejecución que ese especifica con la sintaxis de [`using`](#runsusing) ejecutará este archivo.
 
@@ -422,7 +423,7 @@ Para obtener más información acerca de cómo se ejecuta el `entrypoint`, consu
 
 ### `post-entrypoint`
 
-**Opcional** Te permite ejecutar un script de limpieza una vez que se haya completado la acción de `runs.entrypoint`. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción. Ya que {% data variables.product.prodname_actions %} ejecuta el script dentro de un contenedor nuevo utilizando la misma imagen base, el estado de tiempo de ejecución es diferente del contenedor principal de `entrypoint`. Puedes acceder a cualquier estado que necesites, ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. La acción `post-entrypoint:` siempre se ejecuta predeterminadamente, pero puedes invalidarla utilizando [`post-if`](#post-if).
+**Opcional** Te permite ejecutar un script de limpieza una vez que se haya completado la acción de `runs.entrypoint`. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción. Ya que {% data variables.product.prodname_actions %} ejecuta el script dentro de un contenedor nuevo utilizando la misma imagen base, el estado de tiempo de ejecución es diferente del contenedor principal de `entrypoint`. Puedes acceder a cualquier estado que necesites, ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
 
 ```yaml
 runs:
@@ -446,7 +447,7 @@ Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta eje
 
 Para obtener más información sobre el uso de la instrucción `CMD` con {% data variables.product.prodname_actions %}, consulta la sección "[Soporte de Dockerfile para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)".
 
-#### Ejemplo
+#### Example: Defining arguments for the Docker container
 
 {% raw %}
 ```yaml
@@ -464,7 +465,7 @@ runs:
 
 Puedes usar un color y un icono de [Pluma](https://feathericons.com/) para crear una insignia que personalice y diferencie tu acción. Los distintivos se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
-### Ejemplo
+### Example: Configuring branding for an action
 
 ```yaml
 branding:
@@ -478,7 +479,12 @@ El color de fondo de la insignia. Puede ser: `blanco`, `amarillow`, `azul`, `ver
 
 ### `branding.icon`
 
-El nombre del icono de [Pluma](https://feathericons.com/) que se debe usar.
+El nombre del icono de [Pluma](https://feathericons.com/) que se debe usar. <!-- 
+  This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
+  This table does not match the latest version the feather library. 
+  (Brand icons are omitted, and our supported list is not necessarily up-to-date with the latest version of the feather icon library.)
+  To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
+-->
 
 <table>
 <tr>
