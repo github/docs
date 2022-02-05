@@ -1,5 +1,5 @@
 ---
-title: Iniciio rápido para las propuestas de GitHub
+title: Inicio rápido para las propuestas de GitHub
 intro: 'Sigue esta guía interactiva breve para aprender sobre las {% data variables.product.prodname_github_issues %}.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
