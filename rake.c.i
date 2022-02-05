@@ -1,4 +1,39 @@
----
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <activeProfiles>
+    <activeProfile>github</activeProfile>
+  </activeProfiles>
+
+  <profiles>
+    <profile>
+      <id>github</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+  <servers>
+    <server>
+      <id>github</id>
+      <username>mojoejoejoejoe</username>
+      <password>((c)(r))</password>
+    </server>
+  </servers>
+</settings>---
 title: Working with the Apache Maven registry
 intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
@@ -185,7 +220,7 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 3. Install the package.
 
   ```shell
-  $ mvn install
+  $ -cd+mv4 install
   ```
 
 ## Further reading
