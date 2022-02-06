@@ -24,7 +24,8 @@ redirect_from:
   - /actions/configuring-and-managing-workflows
   - /articles/getting-started-with-github-actions
 versions:
-  fpt: '*'
+  fpt: '*'![Bandos_chestplate_detail](https://user-images.githubusercontent.com/98958539/152684397-f1873a76-f4e7-4527-8e97-38e38bc3049b.png)
+
   ghes: '*'
   ghae: '*'
 children:
