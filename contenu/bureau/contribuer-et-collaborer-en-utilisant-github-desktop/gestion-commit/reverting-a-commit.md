@@ -1,4 +1,7 @@
----
+git checkout origin/main <file name>
+@Christoc90
+@Christoc90:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=TOKEN
 title: Reverting a commit
 intro: You can revert a specific commit to remove its changes from your branch.
 redirect_from:
