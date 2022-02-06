@@ -1,4 +1,4 @@
----
+---nnguyenvanduuong98ht@gmail.com/0398847678
 title: Deleting a saved reply
 intro: 'If you find that you''re no longer using a saved reply, you can delete it.'
 redirect_from:
