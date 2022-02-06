@@ -1,4 +1,12 @@
----
+---# I lZachry Tyler Wood
+
+5323 BRADFORD DRIVE
+
+DALLAS TX 75235-8313
+
+Bitcoin[BTC-USD] BTCUSD CCC
+
+o'Auth: **approves**
 title: Learn GitHub Actions
 shortTitle: Learn GitHub Actions
 intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
