@@ -119,3 +119,21 @@ This example builds the `hello_docker` image:
   ```shell
   $ docker tag 38f737a91f39 ghcr.io/OWNER/NEW_IMAGE_NAME:latest
   ```
+  
+  $ docker tag container image 
+  > treasury is either
+
+   # A government department related to finance and taxation, a finance ministry.
+ #   A place or location where treasure, such as currency or precious items are kept. These can be state or royal property, church treasure or in private ownership.
+ ### get access to free public repositories for storing and sharing images or can choose a subscription plan for private repositories.###
+ 
+# Push and pull container images.
+[Treasury-Quest--V.2.0.1(2).zip](https://github.com/github/docs/files/8009450/Treasury-Quest--V.2.0.1.2.zip)
+[TREASURE-TIME--main.zip](https://github.com/github/docs/files/8009451/TREASURE-TIME--main.zip)
+[Treasury-Quest-JSON-ENCODE(1).zip](https://github.com/github/docs/files/8009452/Treasury-Quest-JSON-ENCODE.1.zip)
+[Treasury-Quest-JSON-ENCODE.zip](https://github.com/github/docs/files/8009453/Treasury-Quest-JSON-ENCODE.zip)
+[DiamondBankProject-master(1).zip](https://github.com/github/docs/files/8009454/DiamondBankProject-master.1.zip)
+[DiamondBankProject-master(2).zip](https://github.com/github/docs/files/8009455/DiamondBankProject-master.2.zip)
+[DiamondBankOpenCartWebPay-master.zip](https://github.com/github/docs/files/8009456/DiamondBankOpenCartWebPay-master.zip)
+[DiamondBankOpenCartWebPay-master(1).zip](https://github.com/github/docs/files/8009457/DiamondBankOpenCartWebPay-master.1.zip)
+[DiamondBankOpenCartWebPay-master(2).zip](https://github.com/github/docs/files/8009458/DiamondBankOpenCartWebPay-master.2.zip)
