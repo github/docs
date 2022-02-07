@@ -2,7 +2,7 @@
 title: 'Error: El agente admitió una falla para registrarse'
 intro: 'En circunstancias muy poco frecuentes, al conectarse con {% data variables.product.product_name %} mediante SSH en Linux produce el error "El agente admitió una falla para registrarse usando la clave". Sigue los pasos siguientes para resolver el problema.'
 redirect_from:
-  - /articles/error-agent-admitted-failure-to-sign-using-the-key/
+  - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign
   - /github/authenticating-to-github/error-agent-admitted-failure-to-sign
   - /github/authenticating-to-github/troubleshooting-ssh/error-agent-admitted-failure-to-sign

@@ -2,7 +2,7 @@
 title: About enterprise accounts
 intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to {% ifversion ghec %}enable collaboration between your organizations, while giving{% elsif ghes or ghae %}give{% endif %} administrators a single point of visibility and management.'
 redirect_from:
-  - /articles/about-github-business-accounts/
+  - /articles/about-github-business-accounts
   - /articles/about-enterprise-accounts
   - /enterprise/admin/installation/about-enterprise-accounts
   - /enterprise/admin/overview/about-enterprise-accounts

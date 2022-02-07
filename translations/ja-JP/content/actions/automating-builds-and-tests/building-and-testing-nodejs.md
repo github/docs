@@ -22,7 +22,6 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -37,11 +36,11 @@ Node.js、YAML、ワークフローの設定オプションと、ワークフロ
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Node.jsワークフローテンプレートでの開始
+## Using the Node.js starter workflow
 
-{% data variables.product.prodname_dotcom %}は、ほとんどのNode.jsプロジェクトで使えるNode.jsのワークフローテンプレートを提供しています。 このガイドには、カスタマイズして利用できるnpm及びYarnの例が含まれます。 詳しい情報については[Node.jsのワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml)を参照してください。
+{% data variables.product.prodname_dotcom %} provides a Node.js starter workflow that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the starter workflow. For more information, see the [Node.js starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。 以下に示すワークフローは、リポジトリのデフォルトブランチが `main` であることを前提としています。
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. 以下に示すワークフローは、リポジトリのデフォルトブランチが `main` であることを前提としています。
 
 {% raw %}
 ```yaml{:copy}
@@ -82,7 +81,7 @@ jobs:
 
 `setup-node`アクションはNode.jsのバージョンを入力として取り、ランナー上でそのバージョンを設定します。 `setup-node`は各ランナー上のツールキャッシュから指定されたNode.jsのバージョンを見つけ、必要なバイナリを`PATH`に追加します。設定されたバイナリは、ジョブでそれ以降永続化されます。 `setup-node`アクションの利用は、{% data variables.product.prodname_actions %}でNode.jsを使うための推奨される方法です。これは、そうすることで様々なランナーや様々なバージョンのNode.jsで一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、Node.jsをインストールして`PATH`に追加しなければなりません。
 
-このテンプレートには、Node.jsの4つのバージョン、10.x、12.x、14.x、15.xでコードをビルドしてテストするマトリクス戦略が含まれています。 この'x'はワイルドカードキャラクターで、そのバージョンで利用できる最新のマイナー及びパッチリリースにマッチします。 `node-version`配列で指定されたNode.jsの各バージョンに対して、同じステップを実行するジョブが作成されます。
+The starter workflow includes a matrix strategy that builds and tests your code with four Node.js versions: 10.x, 12.x, 14.x, and 15.x. この'x'はワイルドカードキャラクターで、そのバージョンで利用できる最新のマイナー及びパッチリリースにマッチします。 `node-version`配列で指定されたNode.jsの各バージョンに対して、同じステップを実行するジョブが作成されます。
 
 それぞれのジョブは、配列`node-version` のマトリクスで定義された値に、`matrix`コンテキストを使ってアクセスできます。 `setup-node`アクションは、このコンテキストを`node-version`のインプットとして使います。 `setup-node`アクションは、コードのビルドとテストに先立って、様々なNode.jsのバージョンで各ジョブを設定します。 For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
@@ -135,7 +134,7 @@ jobs:
 {% endraw %}
 
 Node.jsのバージョンを指定しなかった場合、{% data variables.product.prodname_dotcom %}は環境のデフォルトのNode.jsのバージョンを使います。
-{% ifversion ghae %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %}
 {% else %} 詳しい情報については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 {% endif %}
 
@@ -190,7 +189,7 @@ steps:
   run: yarn
 ```
 
-あるいは`--frozen-lockfile`を渡して*yarn.lock*ファイル中のバージョンをインストールし、*yarn.lock*ファイルの更新を回避できます。
+あるいは`--frozen-lockfile`を渡して`yarn.lock`ファイル中のバージョンをインストールし、`yarn.lock`ファイルの更新を回避できます。
 
 ```yaml{:copy}
 steps:
@@ -288,7 +287,7 @@ steps:
 - run: pnpm test
 ```
 
-To cache dependencies, you must have a `package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml` file in the root of the repository. If you need more flexible customization, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>".
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>".
 
 ## コードのビルドとテスト
 

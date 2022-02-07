@@ -1,0 +1,20 @@
+date: '2022-02-01'
+sections:
+  security_fixes:
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'Pages would become unavailable following a MySQL secret rotation until `nginx` was manually restarted.'
+    - 'When setting the maintenance schedule with a ISO 8601 date, the actual scheduled time wouldn''t match due to the timezone not being transformed to UTC.'
+    - 'The version number would not be correctly updated after a installing a hotpatch using `ghe-cluster-each`.'
+    - 'Spurious error messages concerning the `cloud-config.service` would be output to the console.'
+    - 'When using CAS authentication and the "Reactivate suspended users" option was enabled, suspended users were not automatically reactivated.'
+  changes:
+    - 'The GitHub Connect data connection record now includes a count of the number of active and dormant users and the configured dormancy period.'
+  known_issues:
+    - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'

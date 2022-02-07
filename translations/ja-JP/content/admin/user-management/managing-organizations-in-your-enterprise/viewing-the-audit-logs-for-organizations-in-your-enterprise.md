@@ -1,10 +1,9 @@
 ---
 title: Viewing the audit logs for organizations in your enterprise
 intro: Enterprise オーナーは、Enterprise アカウントが所有するすべての Organization からのアクションが集約された Audit log を表示できます。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
-  - /articles/viewing-the-audit-logs-for-organizations-in-your-business-account/
+  - /articles/viewing-the-audit-logs-for-organizations-in-your-business-account
   - /articles/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
@@ -29,6 +28,8 @@ shortTitle: View organization audit logs
 - アクションが発生した日時
 
 Audit log で特定のイベントを検索したり、Audit log データをエクスポートしたりできます。 Audit log の検索と特定の Organization イベントの詳細については、「[Organization の Audit log をレビューする](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)」を参照してください。
+
+You can also stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit logs for organizations in your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

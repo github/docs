@@ -2,15 +2,15 @@
 title: Configurar backups no appliance
 shortTitle: Configuração de backups
 redirect_from:
-  - /enterprise/admin/categories/backups-and-restores/
-  - /enterprise/admin/articles/backup-and-recovery/
-  - /enterprise/admin/articles/backing-up-github-enterprise/
-  - /enterprise/admin/articles/restoring-github-enterprise/
-  - /enterprise/admin/articles/backing-up-repository-data/
-  - /enterprise/admin/articles/restoring-enterprise-data/
-  - /enterprise/admin/articles/restoring-repository-data/
-  - /enterprise/admin/articles/backing-up-enterprise-data/
-  - /enterprise/admin/guides/installation/backups-and-disaster-recovery/
+  - /enterprise/admin/categories/backups-and-restores
+  - /enterprise/admin/articles/backup-and-recovery
+  - /enterprise/admin/articles/backing-up-github-enterprise
+  - /enterprise/admin/articles/restoring-github-enterprise
+  - /enterprise/admin/articles/backing-up-repository-data
+  - /enterprise/admin/articles/restoring-enterprise-data
+  - /enterprise/admin/articles/restoring-repository-data
+  - /enterprise/admin/articles/backing-up-enterprise-data
+  - /enterprise/admin/guides/installation/backups-and-disaster-recovery
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
@@ -137,5 +137,5 @@ $ ghe-restore -c 169.154.1.1
 {% endnote %}
 
 Você pode usar estas opções adicionais com o comando `ghe-restore`:
-- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, consulte a seção "Usar comandos de backup e restauração" do [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
+- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
 - O sinalizador `-s` permite selecionar outro instantâneo de backup.

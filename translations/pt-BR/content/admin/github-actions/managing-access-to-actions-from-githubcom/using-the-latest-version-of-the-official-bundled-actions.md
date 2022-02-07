@@ -3,7 +3,7 @@ title: Usar a versão mais recente das ações agrupadas oficialmente
 intro: 'Você pode atualizar as ações que estão empacotadas com a sua empresa ou usar ações diretamente a partir de {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
-  ghae: next
+  ghae: '*'
 type: how_to
 topics:
   - Actions
@@ -16,7 +16,6 @@ shortTitle: Use as últimas ações empacotadas
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 A instância da sua empresa inclui uma série de ações integradas que podem ser usadas nos seus fluxos de trabalho. Para obter mais informações sobre as ações agrupadas, consulte "[Ações oficiais agrupadas com a sua instância corporativa](/admin/github-actions/about-using-actions-in-your-enterprise#official-actions-bundled-with-your-enterprise-instance)".
 
@@ -42,3 +41,11 @@ Uma vez configurado {% data variables.product.prodname_github_connect %}, você 
 1. Exclua o repositório do `check-out` dentro organização das `ações`. Para obter informações sobre como excluir um repositório, consulte "[Excluir um repositório](/github/administering-a-repository/deleting-a-repository)". ![Ver link de código](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
 1. Configure o YAML do seu fluxo de trabalho para usar `ações/checkout@v2`.
 1. Cada vez que o seu fluxo de trabalho é executado, o executor usará a versão `v2` de `actions/checkout` de {% data variables.product.prodname_dotcom_the_website %}.
+
+   {% ifversion ghes > 3.2 or ghae-issue-4815 %}
+   {% note %}
+
+   **Nota:** A primeira vez que a ação `checkout` é usada a partir de {% data variables.product.prodname_dotcom_the_website %}, o namespace `actions/check-` é automaticamente desativado em {% data variables.product.product_location %}. Se você quiser reverter para uma cópia local da ação, primeiro você precisará remover o namespace da desativação. Para obter mais informações, consulte "[Desativação automática de namespaces para ações acessadas em {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)".
+
+   {% endnote %}
+   {% endif %}

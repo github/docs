@@ -16,7 +16,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de los secretos cifrados
 
@@ -54,11 +53,7 @@ Para hacer que un secreto esté disponible para una acción, debes configurar el
 
 Puedes usar y leer secretos cifrados en un archivo de flujo de trabajo si tienes acceso para editar el archivo. Para obtener más información, consulta "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
-{% warning %}
-
-**Advertencia:** {% data variables.product.prodname_dotcom %} redacta automáticamente secretos impresos en el registro, pero debes evitar imprimir secretos en el registro intencionalmente.
-
-{% endwarning %}
+{% data reusables.github-actions.secrets-redaction-warning %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Los secretos de organización y de repositorio se leen cuando una ejecución de flujo de trabajo está en cola y los secretos de ambiente se leen cuando un job que referencia el ambiente comienza.
@@ -79,8 +74,6 @@ Cuando generes credenciales, te recomendamos que otorgues los mínimos permisos 
 ## Crear secretos cifrados para un repositorio
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -122,8 +115,6 @@ Para listar todos los secretos del repositorio, utiliza el subcomando `gh secret
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -160,8 +151,6 @@ gh secret list --env <em>environment-name</em>
 Cuando creas un secreto en una organización, puedes utilizar una política para limitar el acceso de los repositorios a este. Por ejemplo, puedes otorgar acceso a todos los repositorios, o limitarlo a solo los repositorios privados o a una lista específica de estos.
 
 {% data reusables.github-actions.permissions-statement-secrets-organization %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -232,7 +221,7 @@ Puedes revisar qué políticas de acceso se están aplicando a un secreto en tu 
 
 {% endnote %}
 
-Para proporcionar una acción con un secreto como variable de entrada o de entorno, puedes usar el contexto de `secrets` para acceder a los secretos que has creado en tu repositorio. Para obtener más información, consulta las secciones de "[Contextos](/actions/learn-github-actions/contexts)" y "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
+Para proporcionar una acción con un secreto como una variable de entrada o de entorno, puedes usar el contexto de `secretos` para acceder a los secretos que has creado en tu repositorio. Para obtener más información, consulta las secciones de "[Contextos](/actions/learn-github-actions/contexts)" y "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
 
 {% raw %}
 ```yaml
@@ -365,3 +354,50 @@ Los secretos tienen un tamaño máximo de 64 KB. Para usar secretos de un tamañ
           run: cat $HOME/secrets/my_secret.json
   ```
 {% endraw %}
+
+
+## Storing Base64 binary blobs as secrets
+
+You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see ["Limits for secrets"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
+
+{% note %}
+
+**Note**: Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
+
+{% endnote %}
+
+1. Use `base64` to encode your file into a Base64 string. Por ejemplo:
+
+   ```
+   $ base64 -i cert.der -o cert.base64
+   ```
+
+1. Create a secret that contains the Base64 string. Por ejemplo:
+
+   ```
+   $ gh secret set CERTIFICATE_BASE64 < cert.base64
+   ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
+   ```
+
+1. To access the Base64 string from your runner, pipe the secret to `base64 --decode`.  Por ejemplo:
+
+   ```yaml
+   name: Retrieve Base64 secret
+   on:
+     push:
+       branches: [ octo-branch ]
+   jobs:
+     decode-secret:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - name: Retrieve the secret and decode it to a file
+           env:
+             {% raw %}CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}{% endraw %}
+           run: |
+             echo $CERTIFICATE_BASE64 | base64 --decode > cert.der
+         - name: Show certificate information
+           run: |
+             openssl x509 -in cert.der -inform DER -text -noout
+   ```
+

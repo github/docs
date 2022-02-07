@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '> 3.2'
 type: how_to
 topics:
   - Repositories
@@ -18,11 +19,15 @@ topics:
 shortTitle: Gerenciar PRs do Dependabot
 ---
 
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## Sobre pull requests {% data variables.product.prodname_dependabot %}
 
 {% data reusables.dependabot.pull-request-introduction %}
 
-Quando o {% data variables.product.prodname_dependabot %} cria uma pull request, você é notificado pelo método escolhido para o repositório. Cada pull request contém informações detalhadas sobre a mudança proposta, retirada do gerenciador de pacotes. Essas pull requests seguem as verificações e testes normais definidas no seu repositório. Além disso, onde informações suficientes estão disponíveis, você verá uma pontuação de compatibilidade. Isso também pode ajudá-lo a decidir se deve ou não mesclar a alteração. Para obter informações sobre essa pontuação, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+Quando o {% data variables.product.prodname_dependabot %} cria uma pull request, você é notificado pelo método escolhido para o repositório. Cada pull request contém informações detalhadas sobre a mudança proposta, retirada do gerenciador de pacotes. Essas pull requests seguem as verificações e testes normais definidas no seu repositório.
+{% ifversion fpt or ghec %}Além disso, quando informações suficientes estiverem disponíveis, você verá uma pontuação de compatibilidade. Isso também pode ajudá-lo a decidir se deve ou não mesclar a alteração. Para obter informações sobre essa pontuação, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."{% endif %}
 
 Se você tem muitas dependências para gerenciar, você pode querer personalizar a configuração para cada gerenciador de pacotes para que as pull requests tenham revisores, responsáveis e etiquetas específicos. Para obter mais informações, consulte "[Personalizar atualizações de dependência](/github/administering-a-repository/customizing-dependency-updates)".
 
@@ -30,8 +35,8 @@ Se você tem muitas dependências para gerenciar, você pode querer personalizar
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-1. Quaisquer pull requests de atualização de segurança e versão são fáceis de identificar.
-    - O autor é [dependabot](https://github.com/dependabot), a conta de bot usada por {% data variables.product.prodname_dependabot %}.
+1. Todos os pull requests de atualização de segurança ou versão são fáceis de identificar.
+    - O autor é {% ifversion fpt or ghec %}[dependabot](https://github.com/dependabot){% else %}dependabot{% endif %}, e a conta do bot é usada por {% data variables.product.prodname_dependabot %}.
     - Por padrão, eles têm as etiquetas das `dependências`.
 
 ## Alterando a estratégia de rebase para pull requests {% data variables.product.prodname_dependabot %}

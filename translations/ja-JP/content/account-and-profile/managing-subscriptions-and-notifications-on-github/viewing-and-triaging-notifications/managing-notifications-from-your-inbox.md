@@ -109,7 +109,7 @@ shortTitle: Manage from your inbox
 
 ### サポートされている `is:` クエリ
 
-{% data variables.product.product_location %} での特定のアクティビティの通知をフィルタするには、`is` クエリを使用できます。 たとえば、リポジトリの招待の更新のみを表示するには、`is:repository-invitation`{% ifversion not ghae %} を使用し、{% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dependabot %}{% else %}セキュリティ{% endif %}アラートのみを表示するには、`is:repository-vulnerability-alert`を使用します。{% endif %}
+{% data variables.product.product_location %} での特定のアクティビティの通知をフィルタするには、`is` クエリを使用できます。 For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
 
 - `is:check-suite`
 - `is:commit`
@@ -168,7 +168,7 @@ Organization ごとに通知をフィルタするには、`org:` クエリを使
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## {% data variables.product.prodname_dependabot %}カスタムフィルタ
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 If you use {% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
 - `is:repository_vulnerability_alert` は {% data variables.product.prodname_dependabot_alerts %} の通知を表示します。
 - `reason:security_alert` は {% data variables.product.prodname_dependabot_alerts %} とセキュリティアップデートのプルリクエストの通知を表示します。
@@ -177,9 +177,9 @@ If you use {% data variables.product.prodname_dependabot %} to keep your depende
 For more information about {% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
 {% endif %}
 
-{% ifversion ghes or ghae-issue-4864 %}
+{% ifversion ghes < 3.3 or ghae-issue-4864 %}
 
-If you use {% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
+If you use {% data variables.product.prodname_dependabot %} to tell you about vulnerable dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 

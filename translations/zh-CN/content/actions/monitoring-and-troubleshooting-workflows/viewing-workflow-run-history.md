@@ -13,11 +13,8 @@ shortTitle: 查看工作流程运行历史记录
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-read %}
-
-{% include tool-switcher %}
 
 {% webui %}
 

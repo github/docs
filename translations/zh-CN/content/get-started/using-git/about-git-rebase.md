@@ -1,7 +1,7 @@
 ---
 title: 关于 Git 变基
 redirect_from:
-  - /rebase/
+  - /rebase
   - articles/interactive-rebase/
   - /articles/about-git-rebase
   - /github/using-git/about-git-rebase
@@ -23,7 +23,7 @@ versions:
 
 {% warning %}
 
-**警告**：由于更改您的提交历史记录可能会给其他人使用仓库造成困难，因此如果提交已经推送到仓库，提交变基被视为一种坏习惯。 要了解如何在 {% data variables.product.product_location %} 上安全地变基，请参阅“[关于拉取请求合并](/articles/about-pull-request-merges)”。
+**警告**：由于更改您的提交历史记录可能会给其他人使用仓库造成困难，因此如果提交已经推送到仓库，提交变基被视为一种坏习惯。 要了解如何在 {% data variables.product.product_location %} 上安全地变基，请参阅“[关于拉取请求合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)”。
 
 {% endwarning %}
 

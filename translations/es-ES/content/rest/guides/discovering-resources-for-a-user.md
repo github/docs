@@ -2,7 +2,7 @@
 title: Descubrir los recursos para un usuario
 intro: Aprende cómo encontrar los repositorios y organizaciones a los cuales puede acceder tu app para un usuario de manera confiable para tus solicitudes autenticadas a la API de REST.
 redirect_from:
-  - /guides/discovering-resources-for-a-user/
+  - /guides/discovering-resources-for-a-user
   - /v3/guides/discovering-resources-for-a-user
 versions:
   fpt: '*'
@@ -14,11 +14,11 @@ topics:
 shortTitle: Descubrir recursos para un usuario
 ---
 
- 
 
-When making authenticated requests to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, applications often need to fetch the current user's repositories and organizations. En esta guía, te explicaremos cómo descubrir estos recursos de forma confiable.
 
-To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using [Octokit.rb][octokit.rb]. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
+Cuando se hacen solicitudes autenticadas a la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, las aplicaciones a menudo necesitan recuperar los repositorios y organizaciones actuales del usuario. En esta guía, te explicaremos cómo descubrir estos recursos de forma confiable.
+
+Para interactuar con la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, utilizaremos [Octokit.rb][octokit.rb]. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
 
 ## Empezar
 
@@ -26,7 +26,7 @@ Si aún no lo has hecho, deberías leer la guía de ["Conceptos Básicos de la A
 
 ## Descubre los repositorios a los cuales tu app puede acceder para un usuario
 
-Adicionalmente a tener sus propios repositorios personales, un usuario puede ser un colaborador en los repositorios que pertenezcan a otros usuarios y organizaciones. En conjunto, estos son los repositorios en donde el usuario tiene acceso privilegiado: ya sea que constituya un repositorio privado en donde el usuario tenga acceso de lectura o escritura, o que sea un repositorio {% ifversion not ghae %}público{% else %}interno{% endif %} en donde el usuario tenga acceso de escritura.
+Adicionalmente a tener sus propios repositorios personales, un usuario puede ser un colaborador en los repositorios que pertenezcan a otros usuarios y organizaciones. En conjunto, estos son los repositorios en donde el usuario tiene acceso privilegiado: ya sea que se trate de un repositorio en donde el usuario tiene acceso de escritura o lectura o que sea un repositorio {% ifversion fpt %}público{% elsif ghec or ghes %} público o interno{% elsif ghae %} interno{% endif %} al cual tenga acceso dicho usuario.
 
 Los [alcances de OAuth][scopes] y las [políticas de aplicación de la organización][oap] determinan a cuáles de estos repositorios puede acceder tu app para un usuario. Utiliza el siguiente flujo de trabajo para descubrir estos repositorios.
 

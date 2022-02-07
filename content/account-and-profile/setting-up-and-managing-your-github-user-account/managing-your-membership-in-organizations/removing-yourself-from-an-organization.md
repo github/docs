@@ -2,7 +2,7 @@
 title: Removing yourself from an organization
 intro: 'If you''re an outside collaborator or a member of an organization, you can leave the organization at any time.'
 redirect_from:
-  - /articles/how-do-i-remove-myself-from-an-organization/
+  - /articles/how-do-i-remove-myself-from-an-organization
   - /articles/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization

@@ -15,10 +15,11 @@ topics:
 shortTitle: Sobre a configuração HA
 ---
 
-Quando você configura alta disponibilidade, há uma configuração automatizada de replicação assíncrona e unidirecional de todos os armazenamentos de dados (repositórios do Git, MySQL, Redis e Elasticsearch) do appliance primário para o appliance réplica.
+Quando você configura alta disponibilidade, há uma configuração automatizada de replicação assíncrona e unidirecional de todos os armazenamentos de dados (repositórios do Git, MySQL, Redis e Elasticsearch) do appliance primário para o appliance réplica. A maioria das configurações de {% data variables.product.prodname_ghe_server %} também são replicadas, incluindo a senha de {% data variables.enterprise.management_console %}. Para obter mais informações, consulte "[Acessando o console de gerenciamento](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
 
 O {% data variables.product.prodname_ghe_server %} dá suporte a uma configuração ativa/passiva, em que o appliance réplica é executado em espera com os serviços de banco de dados em execução no modo de replicação, mas os serviços de aplicativos são interrompidos.
 
+Após a replicação ser estabelecida, o {% data variables.enterprise.management_console %} se torna inacessível nos dispositivos da réplica. Se você acessar o endereço IP da réplica ou nome do host na porta 8443, verá uma mensagem "Servidor no modo de replicação", o que indica que o dispositivo está atualmente configurado como uma réplica.
 {% data reusables.enterprise_installation.replica-limit %}
 
 ## Cenários de falha
@@ -29,7 +30,8 @@ Use a configuração de alta disponibilidade para proteção contra:
 
 A configuração de alta disponibilidade não é uma boa solução para:
 
-  - **Dimensionamento**. Mesmo que você possa distribuir o tráfego geograficamente usando a replicação geográfica, o desempenho das gravações fica limitado à velocidade e à disponibilidade do appliance primário. Para obter mais informações, consulte "[Sobre a replicação geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)".
+  - **Dimensionamento**. Mesmo que você possa distribuir o tráfego geograficamente usando a replicação geográfica, o desempenho das gravações fica limitado à velocidade e à disponibilidade do appliance primário. Para obter mais informações, consulte "[Sobre a georreplicação](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)".{% ifversion ghes > 3.2 %}
+  - **Carga de CI/CD**. Se você tiver um grande número de clientes de CI que estão geograficamente distantes da sua instância principal, você pode beneficiar-se de configurar um cache de repositório. Para obter mais informações, consulte "[Sobre o cache do repositório](/admin/enterprise-management/caching-repositories/about-repository-caching)".{% endif %}
   - **Backup do appliance primário**. Uma réplica de alta disponibilidade não substitui os backups externos do seu plano de recuperação de desastres. Algumas formas de violação ou perda de dados podem ser replicadas de imediato do appliance primário para o de réplica. Para garantir a reversão segura a um estado anterior estável, você deve fazer backups regulares com instantâneos de histórico.
   - **Atualizações sem tempo de inatividade**. Para evitar a perda de dados e situações de split-brain em cenários de promoção controlados, deixe o appliance primário em modo de manutenção e aguarde a conclusão de todas as gravações antes de promover o de réplica.
 
@@ -186,3 +188,4 @@ O comando `ghe-repl-teardown` desativa por completo o modo de replicação, remo
 ## Leia mais
 
 - [Criar réplica de alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)
+- "[Portas de rede](/admin/configuration/configuring-network-settings/network-ports)"

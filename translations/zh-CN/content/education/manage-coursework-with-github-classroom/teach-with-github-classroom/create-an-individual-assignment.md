@@ -3,6 +3,7 @@ title: 创建个人作业
 intro: 您可以为课程中的学生创建需单独完成的作业。
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can create and manage individual assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
@@ -100,11 +101,20 @@ shortTitle: 个人作业
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-您可以在作业的 **All students（所有学生）**选项卡中查看学生是否已进入教室或提交作业。 {% data reusables.classroom.assignments-to-prevent-submission %}
+You can see whether a student has joined the classroom and accepted or submitted an assignment in the **Classroom roster** tab for the assignment. You can also link students' {% data variables.product.prodname_dotcom %} aliases to their associated roster identifier and vice versa in this tab. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="个人作业" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
+
+## Monitoring students' progress
+The assignment overview page provides an overview of your assignment acceptances and student progress. You may have different summary information based on the configurations of your assignments.
+
+- **Rostered students**: The number of students on the Classroom's roster.
+- **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
+-  **Accepted students**: The number of accounts have accepted this assignment.
+-  **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
+-  **Passing students**: The number of students currently passing the autograding tests for this assignment.
 
 ## 后续步骤
 
@@ -112,7 +122,7 @@ shortTitle: 个人作业
 
 - 当学生完成作业时，您可以查看仓库中的文件，或者查看仓库的历史和可视化内容，以更好地了解学生的工作。 更多信息请参阅“[使用图表可视化仓库](/github/visualizing-repository-data-with-graphs)”。
 
-- 您可以通过在拉取请求中评论个别提交或行来提供作业反馈。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)”和“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。 有关创建已保存回复以对常见错误提供反馈的信息，请参阅“[关于已保存回复](/github/writing-on-github/about-saved-replies)”。
+- 您可以通过在拉取请求中评论个别提交或行来提供作业反馈。 更多信息请参阅“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”和“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。 有关创建已保存回复以对常见错误提供反馈的信息，请参阅“[关于已保存回复](/github/writing-on-github/about-saved-replies)”。
 
 ## 延伸阅读
 

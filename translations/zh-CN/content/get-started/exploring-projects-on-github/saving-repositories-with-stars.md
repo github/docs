@@ -2,10 +2,10 @@
 title: 使用星标保存仓库
 intro: '您可以对仓库和主题标星以跟踪您感兴趣的项目{% ifversion fpt or ghec %} and discover related content in your news feed{% endif %}。'
 redirect_from:
-  - /articles/stars/
-  - /articles/about-stars/
-  - /articles/browsing-friends-stars/
-  - /articles/managing-your-stars/
+  - /articles/stars
+  - /articles/about-stars
+  - /articles/browsing-friends-stars
+  - /articles/managing-your-stars
   - /articles/saving-repositories-with-stars
   - /github/getting-started-with-github/saving-repositories-with-stars
   - /github/getting-started-with-github/exploring-projects-on-github/saving-repositories-with-stars
@@ -39,7 +39,62 @@ shortTitle: 保存有星标的仓库
 1. 在页面的右上角，单击 **Star（星标）**。 ![对仓库标星](/assets/images/help/stars/starring-a-repository.png)
 1. （可选）要取消先前已标星仓库的星标，请点击 **Unstar（取消星标）**。 ![解压仓库](/assets/images/help/stars/unstarring-a-repository.png)
 
-## 搜索星标
+{% ifversion fpt or ghec %}
+## Organizing starred repositories with lists
+
+{% note %}
+
+**Note:** Lists are currently in public beta and subject to change.
+
+{% endnote %}
+
+Curate repositories that you've starred with public lists. You can create public lists that appear on your stars page at `https://github.com/USERNAME?tab=stars`.
+
+If you add a private repository to a list, then the private repository will only appear in your list for people with `read` access to the repository.
+
+![Screenshot of lists on stars page](/assets/images/help/stars/lists-overview-on-stars-page.png)
+
+You can add a repository to an existing or new list wherever you see a repository's **Star** or **Starred** dropdown menu, whether on a repository page or in a list of starred repositories.
+
+![Screenshot of "Star" dropdown menu with list options featured from the repository page](/assets/images/help/stars/stars-dropdown-on-repo.png)
+
+![Screenshot of "Starred" dropdown menu with list options featured from a starred repository list](/assets/images/help/stars/add-repo-to-list.png)
+
+### Creating a list
+
+{% data reusables.stars.stars-page-navigation %}
+2. Next to "Lists", click **Create list**. ![Screenshot of "Create list" button](/assets/images/help/stars/create-list.png)
+3. Enter a name and description for your list and click **Create**. ![Screenshot of modal showing where you enter a name and description with the "Create" button.](/assets/images/help/stars/create-list-with-description.png)
+
+### Adding a repository to a list
+
+{% data reusables.stars.stars-page-navigation %}
+2. Find the repository you want to add to your list. ![Screenshot of starred repos search bar](/assets/images/help/stars/search-bar-for-starred-repos.png)
+3. Next to the repository you want to add, use the **Starred** dropdown menu and select your list. ![Screenshot of dropdown showing a list checkboxes](/assets/images/help/stars/add-repo-to-list.png)
+
+### Removing a repository from your list
+
+{% data reusables.stars.stars-page-navigation %}
+2. Select your list.
+3. Next to the repository you want to remove, use the **Starred** dropdown menu and deselect your list. ![Screenshot of dropdown showing list checkboxes](/assets/images/help/stars/add-repo-to-list.png)
+
+### Editing a list name or description
+
+{% data reusables.stars.stars-page-navigation %}
+1. Select the list you want to edit.
+2. Click **Edit list**.
+3. Update the name or description and click **Save list**. ![Screenshot of modal showing "Save list" button](/assets/images/help/stars/edit-list-options.png)
+
+### Deleting a list
+
+{% data reusables.stars.stars-page-navigation %}
+2. Select the list you want to delete.
+3. Click **Delete list**. ![Screenshot of modal showing "Delete list" button](/assets/images/help/stars/edit-list-options.png)
+4. To confirm, click **Delete**.
+
+{% endif %}
+
+## Searching starred repositories and topics
 
 您可以使用 {% data variables.explore.your_stars_page %} 上的搜索栏快速查找您标星的仓库和主题。
 
@@ -48,7 +103,7 @@ shortTitle: 保存有星标的仓库
 
 搜索栏只能根据仓库或主题名称搜索，而不能根据任何其他限定符（如仓库大小或上次更新时间）搜索。
 
-## 排序和过滤星标
+## Sorting and filtering stars on your stars page
 
 您可以使用排序或筛选来自定义您如何在星标页面上查看标星的仓库和主题。
 

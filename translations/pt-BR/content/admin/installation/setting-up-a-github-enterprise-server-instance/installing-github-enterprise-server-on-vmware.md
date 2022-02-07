@@ -2,10 +2,10 @@
 title: Instalar o GitHub Enterprise Server no VMware
 intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no VMware, você deve fazer o download do cliente do VMware vSphere e, em seguida, fazer o download e implantar o software do {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
-  - /enterprise/admin/articles/getting-started-with-vmware/
-  - /enterprise/admin/articles/installing-vmware-tools/
-  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums/
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware/
+  - /enterprise/admin/articles/getting-started-with-vmware
+  - /enterprise/admin/articles/installing-vmware-tools
+  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware
   - /enterprise/admin/installation/installing-github-enterprise-server-on-vmware
   - /admin/installation/installing-github-enterprise-server-on-vmware
 versions:

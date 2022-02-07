@@ -1,5 +1,5 @@
 ---
-title: 既存の CI システムで CodeQL コードスキャンを使用する
+title: 既存の CI システムで CodeQL Code scanningを使用する
 shortTitle: CIシステムでのCodeQLの利用
 intro: '既存のCIシステム内で{% data variables.product.prodname_codeql %}分析を実行し、結果を{% data variables.product.product_name %}にアップロードして{% data variables.product.prodname_code_scanning %}アラートとして表示させることができます。'
 product: '{% data reusables.gated-features.code-scanning %}'

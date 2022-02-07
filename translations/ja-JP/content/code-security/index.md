@@ -1,7 +1,7 @@
 ---
-title: コードセキュリティ
-shortTitle: コードセキュリティ
-intro: 'コードベースからシークレットや脆弱性を排除{% ifversion not ghae %}し、ソフトウェアサプライチェーンを管理{% endif %}する機能で、{% data variables.product.prodname_dotcom %}ワークフローにセキュリティを組み込んでください。'
+title: Code security
+shortTitle: Code security
+intro: 'Build security into your {% data variables.product.prodname_dotcom %} workflow with features to keep secrets and vulnerabilities out of your codebase{% ifversion not ghae %}, and to maintain your software supply chain{% endif %}.'
 introLinks:
   overview: /code-security/getting-started/github-security-features
 featuredLinks:
@@ -12,7 +12,7 @@ featuredLinks:
     - '{% ifversion ghes or ghae %}/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository{% endif%}'
   guideCards:
     - '{% ifversion fpt %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates{% endif %}'
-    - '{% ifversion fpt %}/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates{% endif %}'
+    - '{% ifversion fpt %}/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates{% endif %}'
     - '{% ifversion fpt %}/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository{% endif %}'
     - '{% ifversion ghes %}/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository{% endif %}'
     - '{% ifversion ghes %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies{% endif %}'

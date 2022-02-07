@@ -2,8 +2,8 @@
 title: コラボレーターを個人リポジトリに招待する
 intro: '個人リポジトリにコラボレーターとして{% ifversion fpt or ghec %}ユーザを招待{% else %}ユーザを追加{% endif %}することができます。'
 redirect_from:
-  - /articles/how-do-i-add-a-collaborator/
-  - /articles/adding-collaborators-to-a-personal-repository/
+  - /articles/how-do-i-add-a-collaborator
+  - /articles/adding-collaborators-to-a-personal-repository
   - /articles/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository

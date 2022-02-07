@@ -1,12 +1,10 @@
 ---
 title: Gerenciar bots e contas de serviço com logon único SAML
 intro: Organizações que habilitaram logon único SAML podem manter o acesso para bots e contas de serviço.
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/managing-bots-and-service-accounts-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/managing-bots-and-service-accounts-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

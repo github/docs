@@ -26,5 +26,5 @@ shortTitle: Configure commit squashing
 
 ## 参考リンク
 
-- [プルリクエストのマージについて](/articles/about-pull-request-merges)
-- [プルリクエストのマージ](/articles/merging-a-pull-request)
+- [プルリクエストのマージについて](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)
+- [プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)

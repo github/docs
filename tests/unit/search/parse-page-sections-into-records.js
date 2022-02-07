@@ -18,6 +18,10 @@ const fixtures = {
     path.join(__dirname, 'fixtures/page-without-body.html'),
     'utf8'
   ),
+  pageMultipleH1s: await fs.readFile(
+    path.join(__dirname, 'fixtures/page-with-multiple-h1s.html'),
+    'utf8'
+  ),
 }
 
 describe('search parsePageSectionsIntoRecords module', () => {
@@ -77,5 +81,13 @@ describe('search parsePageSectionsIntoRecords module', () => {
     }
 
     expect(record).toEqual(expected)
+  })
+
+  test('only picks up the first h1 for the title', () => {
+    const html = fixtures.pageMultipleH1s
+    const $ = cheerio.load(html)
+    const href = '/example/href'
+    const record = parsePageSectionsIntoRecords({ href, $, languageCode: 'en' })
+    expect(record.title).toEqual('I am the page title')
   })
 })

@@ -24,7 +24,9 @@ shortTitle: 删除成员
 **警告：**当您从组织删除成员时：
 - 付费的许可数不会自动降级。 要在从组织中删除用户后减少付费的许可数，请按照“[降级组织的付费席位](/articles/downgrading-your-organization-s-paid-seats)”中的步骤操作。
 - 被删除的成员将无法访问组织私有仓库的私人复刻，但仍可拥有本地副本。 但是，它们无法将本地副本与组织的仓库同步。 如果用户在从组织中删除后的三个月内[恢复为组织成员](/articles/reinstating-a-former-member-of-your-organization)，则可以恢复其私人复刻。 最终，您负责确保无法访问仓库的人员删除任何机密信息或知识产权。
--  如果您的组织归企业帐户所有，当被删除成员不是同一企业帐户拥有的任何其他组织的成员时，则被删除成员也将失去对组织内部仓库私人复刻的访问权限。 更多信息请参阅“[关于企业帐户](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)”。
+{%- ifversion ghec %}
+-  Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. 更多信息请参阅“[关于企业帐户](/admin/overview/about-enterprise-accounts)”。
+{%- endif %}
 - 被删除成员发出的任何组织邀请，如果没有被接受，都会取消，且无法访问。
 
 {% endwarning %}

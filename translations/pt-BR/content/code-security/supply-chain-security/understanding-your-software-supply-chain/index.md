@@ -13,6 +13,6 @@ children:
   - /about-the-dependency-graph
   - /exploring-the-dependencies-of-a-repository
   - /about-dependency-review
-shortTitle: Entenda a cadeia de suprimentos
+shortTitle: Entenda sua cadeia de suprimentos
 ---
 

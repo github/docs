@@ -20,7 +20,11 @@ topics:
 
 ## Sobre o {% data variables.product.prodname_secret_scanning %}
 
-{% data reusables.secret-scanning.about-secret-scanning %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning).
+Se alguém verificar um segredo com um padrão conhecido em um repositório, {% data variables.product.prodname_secret_scanning %} irá pegar o segredo conforme o check-in e ajudará você a mitigar o impacto da fuga. Os administradores do repositório são notificados sobre qualquer submissão que contém um segredo e podem visualizar rapidamente todos os segredos detectados na aba Segurança do repositório. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)
+
+## Verificando se a sua licença inclui {% data variables.product.prodname_GH_advanced_security %}
+
+{% data reusables.advanced-security.check-for-ghas-license %}
 
 ## Pré-requisitos para {% data variables.product.prodname_secret_scanning %}
 
@@ -31,33 +35,20 @@ topics:
 
 - {% data variables.product.prodname_secret_scanning_caps %} habilitado no console de gerenciamento (consulte "[Habilitando {% data variables.product.prodname_GH_advanced_security %} para a sua empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 
-## Verificar suporte para o sinalizador SSSE3 nos seus vCPUs
+### Verificar suporte para o sinalizador SSSE3 nos seus vCPUs
 
 O conjunto de instruções das SSSE3 é necessário porque o {% data variables.product.prodname_secret_scanning %} alavanca o padrão acelerado de hardware que corresponde para encontrar possíveis credenciais confirmadas com os seus repositórios de {% data variables.product.prodname_dotcom %}. SSSE3 está habilitado para a maioria das CPUs modernas. Você pode verificar se o SSSE3 está habilitado para oa vCPUs disponíveis para sua instância de {% data variables.product.prodname_ghe_server %}.
 
 1. Conecte ao shell administrativo para sua instância de {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)".
 2. Insira o seguinte comando:
 
-```shell
-grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
-```
+   ```shell
+   grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
+   ```
 
-Se ele retornar o valor `0`, significa que o sinalizador SSSE3 está disponível e habilitado. Agora você pode habilitar {% data variables.product.prodname_secret_scanning %} para {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" abaixo.
+   Se ele retornar o valor `0`, significa que o sinalizador SSSE3 está disponível e habilitado. Agora você pode habilitar {% data variables.product.prodname_secret_scanning %} para {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" abaixo.
 
-Se isso não retornar `0`, SSSE3 não está habilitado no seu VM/KVM. Você precisa consultar a documentação do hardware/hipervisor sobre como habilitar o sinalizador ou disponibilizá-lo para VMs convidados.
-
-### Verificar se você tem uma licença de {% data variables.product.prodname_advanced_security %}
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-1. Verifique se há {% ifversion ghes < 3.2 %}um **{% data variables.product.prodname_advanced_security %}**{% else %}uma entrada de **de segurança**{% endif %} na barra lateral esquerda.
-{% ifversion ghes < 3.2 %}
-   ![Barra lateral de segurança avançada](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
-{% else %}
-   ![Barra lateral de segurança](/assets/images/enterprise/3.2/management-console/sidebar-security.png)
-{% endif %}
-
-{% data reusables.enterprise_management_console.advanced-security-license %}
+   Se isso não retornar `0`, SSSE3 não está habilitado no seu VM/KVM. Você precisa consultar a documentação do hardware/hipervisor sobre como habilitar o sinalizador ou disponibilizá-lo para VMs convidados.
 
 ## Habilitar {% data variables.product.prodname_secret_scanning %}
 

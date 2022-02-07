@@ -3,7 +3,7 @@ title: Issues guides
 shortTitle: 指南
 intro: '了解如何使用 {% data variables.product.prodname_github_issues %} 来规划和跟踪您的工作。'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'

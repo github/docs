@@ -2,8 +2,8 @@
 title: Links permanentes em arquivos
 intro: 'Ao visualizar um arquivo em {% data variables.product.product_location %}, é possível pressionar a tecla "y" para atualizar a URL para um permalink com a versão exata do arquivo visualizado.'
 redirect_from:
-  - /articles/getting-a-permanent-link-to-a-file/
-  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
+  - /articles/getting-a-permanent-link-to-a-file
+  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
   - /articles/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/managing-files-on-github/getting-permanent-links-to-files
@@ -33,7 +33,7 @@ refere-se ao repositório `hubot` do GitHub e apresenta a versão atual do branc
 
 A versão de um arquivo no head de um branch pode ser modificada assim que novos commits são feitos. Desta forma, caso você copie a URL normal, os conteúdos dos arquivos podem não ser os mesmos quando outra pessoa olhá-los posteriormente.
 
-## Pressione <kbd>y</kbd> para gerar um permalink para um arquivo em um commit específico
+## Pressione <kbd>Y</kbd> para criar um permalink para um arquivo em commit específico
 
 Para um link permanente em uma versão específica de um arquivo que você vê, em vez de usar o nome do branch na URL (por exemplo: a parte `master` no exemplo acima), coloque o ID do commit.  Isso vinculará permanentemente a versão exata do arquivo naquele commit.  Por exemplo:
 

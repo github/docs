@@ -2,7 +2,7 @@
 title: Colaboração com o Git Large File Storage
 intro: 'Com o {% data variables.large_files.product_name_short %} habilitado, você poderá fazer fetch, modificar e fazer push de arquivos grandes, assim como em qualquer arquivo gerenciado pelo Git. No entanto, um usuário que não tem o {% data variables.large_files.product_name_short %} verá um fluxo de trabalho diferente.'
 redirect_from:
-  - /articles/collaboration-with-large-file-storage/
+  - /articles/collaboration-with-large-file-storage
   - /articles/collaboration-with-git-large-file-storage
   - /github/managing-large-files/collaboration-with-git-large-file-storage
   - /github/managing-large-files/versioning-large-files/collaboration-with-git-large-file-storage
@@ -30,7 +30,7 @@ O {% data variables.product.product_name %} não renderiza objetos do {% data va
 
 Para obter mais informações sobre arquivos de ponteiro, consulte "[Sobre o {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)".
 
-Para ver as alterações feitas em arquivos grandes, confira o pull request localmente para revisar a diferença. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)".
+Para ver as alterações feitas em arquivos grandes, confira o pull request localmente para revisar a diferença. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)".
 
 {% ifversion fpt or ghec %}
 

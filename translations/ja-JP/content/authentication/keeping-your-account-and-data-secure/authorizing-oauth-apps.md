@@ -1,6 +1,6 @@
 ---
-title: OAuth アプリケーションの認可
-intro: '{% data variables.product.product_name %}のアイデンティティを、OAuth を使うサードパーティのアプリケーションに接続できます。 {% data variables.product.prodname_oauth_app %}を認可する際には、そのアプリケーションを信頼することを確認し、誰が開発したのかをレビューし、そのアプリケーションがどういった種類の情報にアクセスしたいのかをレビューしなければなりません。'
+title: Authorizing OAuth Apps
+intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing an {% data variables.product.prodname_oauth_app %}, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
 redirect_from:
   - /articles/authorizing-oauth-apps
   - /github/authenticating-to-github/authorizing-oauth-apps
@@ -14,63 +14,62 @@ topics:
   - Identity
   - Access management
 ---
-
 When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**ヒント:** {% data variables.product.prodname_oauth_app %}を認可するには、[メールアドレスを検証](/articles/verifying-your-email-address)しておかなければなりません。
+**Tip:** You must [verify your email address](/articles/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
 
 {% endtip %}
 
 {% endif %}
 
-## {% data variables.product.prodname_oauth_app %}のアクセス
+## {% data variables.product.prodname_oauth_app %} access
 
 {% data variables.product.prodname_oauth_apps %} can have *read* or *write* access to your {% data variables.product.product_name %} data.
 
-- **読み取りアクセス**がアプリケーションに許すのは、データを*見る*ことだけです。
-- **書き込みアクセス**は、アプリケーションに対してデータを*変更*することを許します。
+- **Read access** only allows an app to *look at* your data.
+- **Write access** allows an app to *change* your data.
 
 {% tip %}
 
-**ヒント:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**Tip:** {% data reusables.user_settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 
-### OAuth のスコープについて
+### About OAuth scopes
 
-*スコープ*は、{% data variables.product.prodname_oauth_app %}がパブリックおよび非パブリックのデータにアクセスするためにリクエストできる権限の名前付きグループです。
+*Scopes* are named groups of permissions that an {% data variables.product.prodname_oauth_app %} can request to access both public and non-public data.
 
-{% data variables.product.product_name %}と統合される {% data variables.product.prodname_oauth_app %}を使用したい場合、そのアプリケーションはデータに対してどういった種類のアクセスが必要になるのかを知らせてきます。 アプリケーションにアクセスを許可すれば、アプリケーションはあなたの代わりにデータの読み取りや変更といったアクションを行えるようになります。 たとえば `user:email` スコープをリクエストするアプリケーションを使用したい場合、そのアプリケーションはあなたのプライベートのメールアドレスに対してリードオンリーのアクセスを持つことになります。 For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+When you want to use an {% data variables.product.prodname_oauth_app %} that integrates with {% data variables.product.product_name %}, that app lets you know what type of access to your data will be required. If you grant access to the app, then the app will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
 
 {% tip %}
 
-**メモ:** 現時点では、ソースコードへのアクセスのスコープをリードオンリーにすることはできません。
+**Note:** Currently, you can't scope source code access to read-only.
 
 {% endtip %}
 
 {% data reusables.apps.oauth-token-limit %}
 
-### リクエストされるデータの種類
+### Types of requested data
 
 {% data variables.product.prodname_oauth_apps %} can request several types of data.
 
-| データの種類                | 説明                                                                                                                                                           |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| コミットのステータス            | アプリケーションにコミットのステータスをレポートするためのアクセスを許可できます。 コミットステータスのアクセスがあれば、アプリケーションはビルドが特定のコミットに対して成功したかどうかを判定できます。 アプリケーションはコードへのアクセスは持ちませんが、特定のコミットに対するステータス情報を読み書きできます。 |
-| デプロイメント               | デプロイメントのステータスへアクセスできれば、アプリケーションはパブリック及びプライベートのリポジトリの特定のコミットに対してデプロイメントが成功したかを判断できます。 アプリケーションはコードにはアクセスできません。                                                |
-| Gist                  | [Gist](https://gist.github.com) アクセスがあれば、アプリケーションはあなたのパブリックおよびシークレット Gist の双方を読み書きできます。                                                                      |
-| フック                   | [webhook](/webhooks) アクセスがあれば、アプリケーションはあなたが管理するリポジトリ上のフックの設定を読み書きできます。                                                                                       |
-| 通知                    | 通知アクセスがあれば、アプリケーションは Issue やプルリクエストへのコメントなど、あなたの {% data variables.product.product_name %}通知を読むことができます。 しかし、アプリケーションはリポジトリ内へはアクセスできないままです。                   |
-| Organization および Team | Organization および Team のアクセスがあれば、アプリケーションは Organization および Team のメンバー構成へのアクセスと管理ができます。                                                                       |
-| 個人ユーザデータ              | ユーザデータには、名前、メールアドレス、所在地など、ユーザプロファイル内の情報が含まれます。                                                                                                               |
-| リポジトリ                 | リポジトリ情報には、コントリビュータの名前、あなたが作成したブランチ、リポジトリ内の実際のファイルなどが含まれます。 アプリケーションはユーザ単位のレベルでパブリックあるいはプライベートリポジトリへのアクセスをリクエストできます。                                          |
-| リポジトリの削除              | アプリケーションはあなたが管理するリポジトリの削除をリクエストできますが、コードにアクセスすることはできません。                                                                                                     |
+| Type of data | Description |
+| --- | --- |
+| Commit status | You can grant access for an app to report your commit status. Commit status access allows apps to determine if a build is a successful against a specific commit. Apps won't have access to your code, but they can read and write status information against a specific commit. |
+| Deployments | Deployment status access allows apps to determine if a deployment is successful against a specific commit for public and private repositories. Apps won't have access to your code. |
+| Gists | [Gist](https://gist.github.com) access allows apps to read or write to both your public and secret Gists. |
+| Hooks | [Webhooks](/webhooks) access allows apps to read or write hook configurations on repositories you manage. |
+| Notifications | Notification access allows apps to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, apps remain unable to access anything in your repositories. |
+| Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
+| Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
+| Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Apps can request access for either public or private repositories on a user-wide level. |
+| Repository delete | Apps can request to delete repositories that you administer, but they won't have access to your code. |
 
-## 更新された権限のリクエスト
+## Requesting updated permissions
 
 When {% data variables.product.prodname_oauth_apps %} request new access permissions, they will notify you of the differences between their current permissions and the new permissions.
 
@@ -78,13 +77,13 @@ When {% data variables.product.prodname_oauth_apps %} request new access permiss
 
 ## {% data variables.product.prodname_oauth_apps %} and organizations
 
-{% data variables.product.prodname_oauth_app %}をあなたの個人ユーザアカウントに対して認可する際には、その認可があなたがメンバーになっているそれぞれの Organization に対してどう影響するかを理解してください。
+When you authorize an {% data variables.product.prodname_oauth_app %} for your personal user account, you'll also see how the authorization will affect each organization you're a member of.
 
-- **{% data variables.product.prodname_oauth_app %}のアクセス制限が*ある* Organization の場合、Organization の管理者にその Organization 内でのアプリケーションの利用を承認してもらえるようリクエストできます。**Organization がそのアプリケーションを承認しなければ、そのアプリケーションは Organization のパブリックなリソースにしかアクセスできません。 あなたが Organization の管理者であれば、自分自身で [アプリケーションを承認](/articles/approving-oauth-apps-for-your-organization)できます。
+- **For organizations *with* {% data variables.product.prodname_oauth_app %} access restrictions, you can request that organization admins approve the application for use in that organization.** If the organization does not approve the application, then the application will only be able to access the organization's public resources. If you're an organization admin, you can [approve the application](/articles/approving-oauth-apps-for-your-organization) yourself.
 
 - **For organizations *without* {% data variables.product.prodname_oauth_app %} access restrictions, the application will automatically be authorized for access to that organization's resources.** For this reason, you should be careful about which {% data variables.product.prodname_oauth_apps %} you approve for access to your personal account resources as well as any organization resources.
 
-SAML シングルサインオンを実施する Organization に所属している場合は、{% data variables.product.prodname_oauth_app %}を承認するたびに、Organization ごとのアクティブな SAML セッションが必要です。
+If you belong to any organizations that enforce SAML single sign-on, you must have an active SAML session for each organization each time you authorize an {% data variables.product.prodname_oauth_app %}.
 
 {% note %}
 
@@ -92,10 +91,10 @@ SAML シングルサインオンを実施する Organization に所属してい�
 
 {% endnote %}
 
-## 参考リンク
+## Further reading
 
-- [{% data variables.product.prodname_oauth_app %}のアクセス制限について](/articles/about-oauth-app-access-restrictions)
+- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
 - "[Authorizing GitHub Apps](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
-- [{% data variables.product.prodname_marketplace %}のサポート](/articles/github-marketplace-support)
+- "[{% data variables.product.prodname_marketplace %} support](/articles/github-marketplace-support)"
 
 {% endif %}

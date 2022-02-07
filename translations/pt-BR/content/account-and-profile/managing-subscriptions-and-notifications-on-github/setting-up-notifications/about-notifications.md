@@ -2,7 +2,7 @@
 title: Sobre notificações
 intro: 'As notificações fornecem atualizações sobre a atividade no {% data variables.product.product_location %} que você assinou. Você pode usar a caixa de entrada de notificações para personalizar, fazer triagem e gerenciar suas atualizações.'
 redirect_from:
-  - /articles/notifications/
+  - /articles/notifications
   - /articles/about-notifications
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications-beta
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications
@@ -29,7 +29,7 @@ Você pode optar por receber atualizações em curso sobre a atividade específi
 Você pode optar por assinar notificações para:
 - Uma conversa em um problema específico, pull request ou gist.
 - Todas as atividades em um repositório ou em uma discussão em equipe.
-- Atividade CI, como o status de fluxos de trabalho nos repositórios configurados com {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
+- Atividade CI, como o status de fluxos de trabalho nos repositórios configurados com {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - Repositório {% data reusables.notifications-v2.custom-notification-types %} (se habilitado).{% else %}
 - Versões em um repositório.{% endif %}
 
@@ -64,7 +64,7 @@ Para manter suas assinaturas gerenciáveis, revise suas assinaturas e os reposit
 Para personalizar como você gostaria de receber atualizações de pull requests ou problemas específicos, é possível configurar suas preferências dentro do problema ou da pull request. Para obter mais informações, consulte “[Fazendo triagem de uma só notificação](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
 
 {% ifversion fpt or ghes or ghec %}
-Você pode personalizar e programar notificações de push no aplicativo de {% data variables.product.prodname_mobile %}. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)".
+Você pode personalizar e programar notificações de push no aplicativo de {% data variables.product.prodname_mobile %}. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-mobile)".
 {% endif %}
 
 ## Motivos para receber notificações
@@ -101,4 +101,4 @@ Notificações que não estão marcadas como **Salvas** são mantidas por 5 mese
 
 ## Feedback e suporte
 
-Se você tiver feedback ou solicitações de recursos para notificações, use o [formulário de feedback para notificações](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback).
+Se você tiver comentários ou pedidos de recursos para notificações, use uma discussão de feedback de [{% data variables.product.product_name %}](https://github.com/github/feedback/discussions/categories/general-feedback).

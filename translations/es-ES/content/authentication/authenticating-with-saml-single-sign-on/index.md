@@ -1,13 +1,12 @@
 ---
 title: Autenticación con inicio de sesión único de SAML
-intro: 'Puedes autenticarte en {% ifversion fpt %} una organización de {% data variables.product.product_name %} {% elsif ghae %}{% data variables.product.product_location %} {% endif %}con el inicio de sesión único (SSO) de SAML{% ifversion fpt %} y ver tus sesiones activas{% endif %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
+intro: 'Puedes autenticarte en {% data variables.product.product_name %} con el inicio de sesión único (SSO) de SAML{% ifversion ghec %} y ver tus sesiones activas{% endif %}.'
 redirect_from:
-  - /articles/authenticating-to-a-github-organization-with-saml-single-sign-on/
+  - /articles/authenticating-to-a-github-organization-with-saml-single-sign-on
   - /articles/authenticating-with-saml-single-sign-on
-  - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/
+  - /github/authenticating-to-github/authenticating-with-saml-single-sign-on
+  - /authentication/authenticating-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghae: '*'
   ghec: '*'
 topics:

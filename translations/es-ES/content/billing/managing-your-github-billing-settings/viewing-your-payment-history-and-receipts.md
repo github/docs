@@ -3,9 +3,9 @@ title: Ver tu historial de pagos y recibos
 intro: Puedes ver el historial de pagos de tu cuenta y descargar los últimos recibos en cualquier momento.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-payment-history-and-receipts
-  - /articles/downloading-receipts/
-  - /articles/downloading-receipts-for-personal-accounts/
-  - /articles/downloading-receipts-for-organizations/
+  - /articles/downloading-receipts
+  - /articles/downloading-receipts-for-personal-accounts
+  - /articles/downloading-receipts-for-organizations
   - /articles/viewing-your-payment-history-and-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
 versions:

@@ -23,7 +23,7 @@ shortTitle: 'ssh-add: illegal option -- K'
 要将 SSH 私钥添加到 ssh 代理，可以指定到 `ssh-add` Apple 版本的路径：
 
 ```shell
-  $ /usr/bin/ssh-add -K ~/.ssh/id_rsa
+  $ /usr/bin/ssh-add -K ~/.ssh/id_ed25519
 ```
 
 {% note %}

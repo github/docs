@@ -2,7 +2,7 @@
 title: Administrar el acceso a los tableros de proyecto de tu cuenta de usuario
 intro: 'Como propietario de un tablero de proyecto, puedes agregar o eliminar a un colaborador y personalizar sus permisos a un tablero de proyecto.'
 redirect_from:
-  - /articles/managing-project-boards-in-your-repository-or-organization/
+  - /articles/managing-project-boards-in-your-repository-or-organization
   - /articles/managing-access-to-your-user-account-s-project-boards
   - /articles/managing-access-to-your-user-accounts-project-boards
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-user-accounts-project-boards

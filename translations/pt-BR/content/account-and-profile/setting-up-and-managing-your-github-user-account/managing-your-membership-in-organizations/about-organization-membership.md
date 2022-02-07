@@ -15,7 +15,7 @@ topics:
 shortTitle: Associação à organização
 ---
 
-Um proprietário da organização pode convidar você para ingressar na organização dele como um integrante, gerente de cobrança ou proprietário. Um proprietário da organização ou integrante com privilégios administrativos para um repositório pode convidar você para colaborar em um ou mais repositórios como um colaborador externo. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Um proprietário da organização pode convidar você para ingressar na organização dele como um integrante, gerente de cobrança ou proprietário. Um proprietário da organização ou integrante com privilégios administrativos para um repositório pode convidar você para colaborar em um ou mais repositórios como um colaborador externo. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
 É possível acessar organizações das quais você é integrante em sua página de perfil. Para obter mais informações, consulte "[Acessar uma organização](/articles/accessing-an-organization)".
 
@@ -41,7 +41,7 @@ Por padrão, a visibilidade de sua associação à organização é definida com
 
 {% ifversion fpt or ghec %}
 
-Se sua organização pertence a uma conta corporativa, você automaticamente é um integrante da conta corporativa e está visível aos proprietários da conta corporativa. Para obter mais informações, consulte "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)".
+Se sua organização pertence a uma conta corporativa, você automaticamente é um integrante da conta corporativa e está visível aos proprietários da conta corporativa. Para obter mais informações, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}
 
 {% endif %}
 

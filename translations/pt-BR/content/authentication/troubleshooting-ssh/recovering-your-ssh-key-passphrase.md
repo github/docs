@@ -2,8 +2,8 @@
 title: Recuperar frase secreta da chave SSH
 intro: 'Se você perder a frase secreta da chave SSH, poderá recuperá-la ou gerar uma nova, dependendo do sistema operacional usado.'
 redirect_from:
-  - /articles/how-do-i-recover-my-passphrase/
-  - /articles/how-do-i-recover-my-ssh-key-passphrase/
+  - /articles/how-do-i-recover-my-passphrase
+  - /articles/how-do-i-recover-my-ssh-key-passphrase
   - /articles/recovering-your-ssh-key-passphrase
   - /github/authenticating-to-github/recovering-your-ssh-key-passphrase
   - /github/authenticating-to-github/troubleshooting-ssh/recovering-your-ssh-key-passphrase

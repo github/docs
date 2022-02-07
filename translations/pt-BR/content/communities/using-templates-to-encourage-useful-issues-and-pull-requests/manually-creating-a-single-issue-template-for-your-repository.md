@@ -2,7 +2,7 @@
 title: Criar manualmente um modelo único de problema no repositório
 intro: 'Ao adicionar um modelo de problema criado manualmente no repositório, os colaboradores de projetos verão automaticamente o conteúdo do modelo no texto do problema.'
 redirect_from:
-  - /articles/creating-an-issue-template-for-your-repository/
+  - /articles/creating-an-issue-template-for-your-repository
   - /articles/manually-creating-a-single-issue-template-for-your-repository
   - /github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository
 versions:

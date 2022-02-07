@@ -3,7 +3,7 @@ title: 审核的操作
 intro: 您可以在审核日志中搜索各种操作。
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /enterprise/admin/articles/audited-actions/
+  - /enterprise/admin/articles/audited-actions
   - /enterprise/admin/installation/audited-actions
   - /enterprise/admin/user-management/audited-actions
   - /admin/user-management/audited-actions
@@ -51,7 +51,7 @@ topics:
 ## 企业配置设置
 
 | 操作                                                      | 描述                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes > 3.0 or ghae-next %}
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes > 3.0 or ghae %}
 | `business.advanced_security_policy_update`              | 站点管理员创建、更新或删除 {% data variables.product.prodname_GH_advanced_security %} 策略。 更多信息请参阅“[在企业中执行 {% data variables.product.prodname_advanced_security %} 的策略](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)”。{% endif %}
 | `business.clear_members_can_create_repos`               | 站点管理员取消了对在企业中的组织中创建仓库的限制。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。{% ifversion ghes > 3.1 %}
 | `business.referrer_override_enable`                     | 站点管理员可以改写推荐策略。 更多信息请参阅“[配置企业的推荐策略](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)”。                                                                                                              |
@@ -94,22 +94,22 @@ topics:
 
 ## 拉取请求
 
-| 操作 | 描述n | | :- | :- |{% ifversion ghes > 3.1 or ghae-next %} | `pull_request.create` | 创建了拉取请求。 更多信息请参阅“[创建拉取请求](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)”。 | | `pull_request.close` | 关闭了拉取请求而未合并。 更多信息请参阅“[关闭拉取请求](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)”。 | | `pull_request.reopen` | 重新打开了之前关闭的拉取请求。 | | `pull_request.merge` | 合并了拉取请求。 更多信息请参阅“[合并拉取请求](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。 | | `pull_request.indirect_merge` | 考虑合并拉取请求，因为拉取请求的提交已合并到目标分支。 | | `pull_request.ready_for_review` | 拉取请求标记为可供审查。 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)”。 | | `pull_request.converted_to_draft` | 拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)”。 | | `pull_request.create_review_request` | 请求对拉取请求的审查。 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request.remove_review_request` | 从拉取请求删除审查请求。 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review.submit` | 为拉取请求提交审查。 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review.discute` | 撤销对拉取请求的审查。 更多信息请参阅“[忽略拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。 | | `pull_request_review.delete` | 删除对拉取请求的审查。 | | `pull_request_review_comment.create` | 审查评论添加到拉取请求。 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review_comment.update` | 更改拉取请求上的审查评论。 |{% endif %} | `pull_request_review_comment.delete` | 删除了拉取请求上的审查评论。 |
+| 操作 | 描述n | | :- | :- |{% ifversion ghes > 3.1 or ghae %} | `pull_request.create` | 创建了拉取请求。 更多信息请参阅“[创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)”。 | | `pull_request.close` | 关闭了拉取请求而未合并。 更多信息请参阅“[关闭拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)”。 | | `pull_request.reopen` | 重新打开了之前关闭的拉取请求。 | | `pull_request.merge` | 合并了拉取请求。 更多信息请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。 | | `pull_request.indirect_merge` | 考虑合并拉取请求，因为拉取请求的提交已合并到目标分支。 | | `pull_request.ready_for_review` | 拉取请求标记为可供审查。 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)”。 | | `pull_request.converted_to_draft` | 拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)”。 | | `pull_request.create_review_request` | 请求对拉取请求的审查。 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request.remove_review_request` | 从拉取请求删除审查请求。 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review.submit` | 为拉取请求提交审查。 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review.discute` | 撤销对拉取请求的审查。 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。 | | `pull_request_review.delete` | 删除对拉取请求的审查。 | | `pull_request_review_comment.create` | 审查评论添加到拉取请求。 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review_comment.update` | 更改拉取请求上的审查评论。 |{% endif %} | `pull_request_review_comment.delete` | 删除了拉取请求上的审查评论。 |
 
 ## 受保护分支
 
-| 操作                                                                 | 描述                     |
-| ------------------------------------------------------------------ | ---------------------- |
-| `protected_branch.create`                                          | 已在分支上启用分支保护。           |
-| `protected_branch.destroy`                                         | 已在分支上禁用分支保护。           |
-| `protected_branch.update_admin_enforced`                           | 已为仓库管理员强制执行分支保护。       |
-| `protected_branch.update_require_code_owner_review`                | 已在分支上更新必需代码所有者审查的强制执行。 |
-| `protected_branch.dismiss_stale_reviews`                           | 已在分支上更新忽略旧拉取请求的强制执行。   |
-| `protected_branch.update_signature_requirement_enforcement_level`  | 已在分支上更新必需提交签名的强制执行。    |
-| `protected_branch.update_pull_request_reviews_enforcement_level`   | 已在分支上更新必需拉取请求审查的强制执行。  |
-| `protected_branch.update_required_status_checks_enforcement_level` | 已在分支上更新必需状态检查的强制执行。    |
-| `protected_branch.rejected_ref_update`                             | 分支更新尝试被拒。              |
-| `protected_branch.policy_override`                                 | 分支保护要求被仓库管理员覆盖。        |
+| 操作                                                                 | 描述                                                                                    |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| `protected_branch.create`                                          | 已在分支上启用分支保护。                                                                          |
+| `protected_branch.destroy`                                         | 已在分支上禁用分支保护。                                                                          |
+| `protected_branch.update_admin_enforced`                           | 已为仓库管理员强制执行分支保护。                                                                      |
+| `protected_branch.update_require_code_owner_review`                | 已在分支上更新必需代码所有者审查的强制执行。                                                                |
+| `protected_branch.dismiss_stale_reviews`                           | 已在分支上更新忽略旧拉取请求的强制执行。                                                                  |
+| `protected_branch.update_signature_requirement_enforcement_level`  | 已在分支上更新必需提交签名的强制执行。                                                                   |
+| `protected_branch.update_pull_request_reviews_enforcement_level`   | 已在分支上更新必需拉取请求审查的强制执行。 Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone). |
+| `protected_branch.update_required_status_checks_enforcement_level` | 已在分支上更新必需状态检查的强制执行。                                                                   |
+| `protected_branch.rejected_ref_update`                             | 分支更新尝试被拒。                                                                             |
+| `protected_branch.policy_override`                                 | 分支保护要求被仓库管理员覆盖。                                                                       |
 
 ## 仓库
 
@@ -133,13 +133,14 @@ topics:
 
 ## 站点管理员工具
 
-| 操作                   | 描述                                                         |
-| -------------------- | ---------------------------------------------------------- |
-| `staff.disable_repo` | 站点管理员已禁用对仓库及其所有复刻的访问。                                      |
-| `staff.enable_repo`  | 站点管理员已重新启用对仓库及其所有复刻的访问。                                    |
-| `staff.fake_login`   | 站点管理员以另一用户的身份登录 {% data variables.product.product_name %}。 |
-| `staff.repo_unlock`  | 站点管理员已解锁（临时获得完全访问权限）用户的一个私有仓库。                             |
-| `staff.unlock`       | 站点管理员已解锁（临时获得完全访问权限）用户的所有私有仓库。                             |
+| 操作                      | 描述                                                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------------------------------ |
+| `staff.disable_repo`    | 站点管理员已禁用对仓库及其所有复刻的访问。                                                                                  |
+| `staff.enable_repo`     | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghae or ghes > 3.2 %}
+| `staff.exit_fake_login` | A site admin ended an impersonation session on {% data variables.product.product_name %}.              |
+| `staff.fake_login`      | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
+| `staff.repo_unlock`     | 站点管理员已解锁（临时获得完全访问权限）用户的一个私有仓库。                                                                         |
+| `staff.unlock`          | 站点管理员已解锁（临时获得完全访问权限）用户的所有私有仓库。                                                                         |
 
 ## 团队
 
@@ -173,7 +174,7 @@ topics:
 | `user.two_factor_requested`     | 已提示用户输入双重身份验证码。{% endif %}
 | `user.unsuspend`                | 站点管理员已取消挂起用户帐户。                                                                                               |
 
-{% ifversion ghes > 3.1 or ghae-issue-1157 %}
+{% ifversion ghes > 3.1 or ghae %}
 ## 工作流程
 
 {% data reusables.actions.actions-audit-events-workflow %}

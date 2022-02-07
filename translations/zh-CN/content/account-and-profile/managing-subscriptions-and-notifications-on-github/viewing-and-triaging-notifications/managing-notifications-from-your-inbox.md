@@ -109,7 +109,7 @@ shortTitle: 从收件箱管理
 
 ### 支持的 `is:` 查询
 
-要在 {% data variables.product.product_location %} 上过滤特定活动的通知，您可以使用 `is` 查询。 例如，要仅查看仓库邀请更新，则使用 `is:repository-invitation`{% ifversion not ghae %}，要仅查看 {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dependabot %}{% else %} 安全{% endif %}警报，则使用 `is:repository-vulnerability-alert`。{% endif %}
+要在 {% data variables.product.product_location %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
 
 - `is:check-suite`
 - `is:commit`
@@ -168,7 +168,7 @@ shortTitle: 从收件箱管理
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## {% data variables.product.prodname_dependabot %} 自定义过滤器
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 如果您使用 {% data variables.product.prodname_dependabot %} 来保持依赖项更新，您可以使用并保存这些自定义过滤器：
 - `is:repository_vulnerability_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知。
 - `reason:security_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知和安全更新拉取请求。
@@ -177,9 +177,9 @@ shortTitle: 从收件箱管理
 有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于管理有漏洞的依赖项](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)”。
 {% endif %}
 
-{% ifversion ghes or ghae-issue-4864 %}
+{% ifversion ghes < 3.3 or ghae-issue-4864 %}
 
-如果您使用 {% data variables.product.prodname_dependabot %} 保持依赖项更新，您可以使用并保存这些自定义过滤器以显示 {% data variables.product.prodname_dependabot_alerts %} 的通知。
+If you use {% data variables.product.prodname_dependabot %} to tell you about vulnerable dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 

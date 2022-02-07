@@ -2,7 +2,7 @@
 title: パブリックリポジトリのコミュニティプロフィールについて
 intro: リポジトリメンテナは、コミュニティの成長を支援し、コントリビューターをサポートする方法を学ぶために、パブリックリポジトリのコミュニティプロフィールをレビューできます。 コントリビューターは、プロジェクトにコントリビュートしたいかを知るために、パブリックリポジトリのコミュニティプロフィールを見ることができます。
 redirect_from:
-  - /articles/viewing-your-community-profile/
+  - /articles/viewing-your-community-profile
   - /articles/about-community-profiles-for-public-repositories
   - /github/building-a-strong-community/about-community-profiles-for-public-repositories
 versions:

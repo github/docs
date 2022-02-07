@@ -20,7 +20,6 @@ shortTitle: Docker container action
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -57,7 +56,7 @@ shortTitle: Docker container action
 
 ## Dockerfileの作成
 
-新しい`hello-world-docker-action`ディレクトリ内に、新たに`Dockerfile`というファイルを作成してください。 詳しい情報については、「[{% data variables.product.prodname_actions %} のための Dockerfile サポート](/actions/creating-actions/dockerfile-support-for-github-actions)」を参照してください。
+新しい`hello-world-docker-action`ディレクトリ内に、新たに`Dockerfile`というファイルを作成してください。 Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. 詳しい情報については、「[{% data variables.product.prodname_actions %} のための Dockerfile サポート](/actions/creating-actions/dockerfile-support-for-github-actions)」を参照してください。
 
 **Dockerfile**
 ```Dockerfile{:copy}

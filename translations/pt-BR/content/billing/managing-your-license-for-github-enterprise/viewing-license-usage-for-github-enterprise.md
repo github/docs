@@ -30,6 +30,10 @@ Você pode visualizar o uso da licença para {% data variables.product.prodname_
 
 ## Visualizando uso da licença em {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}
 
+You can view the license usage for your enterprise and download a file with license details.
+
+{% data reusables.billing.license-statuses %}
+
 {% ifversion ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}

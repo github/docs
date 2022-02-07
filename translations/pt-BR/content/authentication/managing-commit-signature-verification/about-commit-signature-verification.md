@@ -2,8 +2,8 @@
 title: Sobre a verificação de assinatura de commit
 intro: 'Ao usar GPG ou S/MIME, você pode assinar tags e commits localmente. Essas tags ou commits estão marcadas como verificadas em {% data variables.product.product_name %} para que outras pessoas possam estar confiantes de que as alterações vêm de uma fonte de confiança.'
 redirect_from:
-  - /articles/about-gpg-commit-and-tag-signatures/
-  - /articles/about-gpg/
+  - /articles/about-gpg-commit-and-tag-signatures
+  - /articles/about-gpg
   - /articles/about-commit-signature-verification
   - /github/authenticating-to-github/about-commit-signature-verification
   - /github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification
@@ -50,7 +50,7 @@ Os administradores do repositório podem impor a assinatura de commit obrigatór
 {% data reusables.identity-and-permissions.verification-status-check %}
 
 {% ifversion fpt or ghec %}
-{% data variables.product.product_name %} usará automaticamente o GPG para assinar os commits que você fizer usando a interface web do {% data variables.product.product_name %} exceto quando você faz combinação por squash e mescla um pull request do qual você não é o autor. Commits assinados por {% data variables.product.product_name %} terão um status de verificado em {% data variables.product.product_name %}. É possível verificar a assinatura localmente usando a chave pública disponível em https://github.com/web-flow.gpg. A impressão digital completa da chave é `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. Opcionalmente, você pode escolher que {% data variables.product.product_name %} assine os commits que você fizer em {% data variables.product.prodname_codespaces %}. Para obter mais informações sobre como habilitar a verificação de GPG para os seus códigos, consulte "[Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".
+{% data variables.product.product_name %} usará automaticamente o GPG para assinar os commits que você criar usando a interface web de {% data variables.product.product_name %}. Commits assinados por {% data variables.product.product_name %} terão um status de verificado em {% data variables.product.product_name %}. É possível verificar a assinatura localmente usando a chave pública disponível em https://github.com/web-flow.gpg. A impressão digital completa da chave é `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. Opcionalmente, você pode escolher que {% data variables.product.product_name %} assine os commits que você fizer em {% data variables.product.prodname_codespaces %}. Para obter mais informações sobre como habilitar a verificação de GPG para os seus códigos, consulte "[Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".
 {% endif %}
 
 ## Verificação da assinatura de commit GPG

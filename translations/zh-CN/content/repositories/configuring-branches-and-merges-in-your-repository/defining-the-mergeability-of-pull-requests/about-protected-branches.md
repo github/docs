@@ -43,7 +43,7 @@ topics:
 对于每个分支保护规则，您可以选择启用或禁用以下设置。
 - [合并前必需拉取请求审查](#require-pull-request-reviews-before-merging)
 - [合并前必需状态检查](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 - [Require conversation resolution before merging（在合并前需要对话解决）](#require-conversation-resolution-before-merging){% endif %}
 - [要求签名提交](#require-signed-commits)
 - [需要线性历史记录](#require-linear-history)
@@ -74,9 +74,9 @@ remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Changes have been requested.
 ```
 
-（可选）您可以选择在推送提交时忽略旧拉取请求批准。 如果有人将修改代码的提交推送到已批准的拉取请求，则该批准将被忽略，拉取请求无法合并。 这不适用于协作者推送不修改代码的提交，例如将基础分值合并到拉取请求的分支。 有关基础分支的信息，请参阅“[关于拉取请求](/articles/about-pull-requests)”。
+（可选）您可以选择在推送提交时忽略旧拉取请求批准。 如果有人将修改代码的提交推送到已批准的拉取请求，则该批准将被忽略，拉取请求无法合并。 这不适用于协作者推送不修改代码的提交，例如将基础分值合并到拉取请求的分支。 有关基础分支的信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
 
-（可选）您可以限制特定人员或团队忽略拉取请求审查的权限。 更多信息请参阅“[忽略拉取请求审查](/articles/dismissing-a-pull-request-review)”。
+（可选）您可以限制特定人员或团队忽略拉取请求审查的权限。 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。
 
 （可选）您可以选择要求代码所有者进行审查。 如果这样做，则任何影响代码的拉取请求都必须得到代码所有者的批准，才能合并到受保护分支。
 
@@ -88,11 +88,7 @@ remote: error: Changes have been requested.
 
 启用必需状态检查后，必须通过所有必需状态检查，协作者才能将更改合并到受保护分支。 所有必需状态检查通过后，必须将任何提交推送到另一个分支，然后合并或直接推送到受保护分支。
 
-{% note %}
-
-**注：**对仓库具有写入权限的任何个人或集成可以在仓库中设置任何状态检查的状态。 {% data variables.product.company_short %} 无法验证检查的作者是否被授权创建具有特定名称的检查或修改现有状态。 在合并拉取请求之前，应验证合并框中列出的每个状态的作者是否符合预期。
-
-{% endnote %}
+Any person or integration with write permissions to a repository can set the state of any status check in the repository{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app that has recently set this check as the expected source of status updates.{% endif %} If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
 
 您可以将必需状态检查设置为“宽松”或“严格”。 您选择的必需状态检查类型确定合并之前是否需要使用基础分支将您的分支保持最新状态。
 
@@ -104,7 +100,7 @@ remote: error: Changes have been requested.
 
 有关故障排除信息，请参阅“[必需状态检查故障排除](/github/administering-a-repository/troubleshooting-required-status-checks)”。
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### 合并前需要对话解决
 
 在合并到受保护的分支之前，所有对拉取请求的评论都需要解决。 这确保所有评论在合并前都得到解决或确认。
@@ -128,7 +124,7 @@ remote: error: Changes have been requested.
 
 {% endnote %}
 
-如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% ifversion fpt or ghec %}您也可以使用 {% data variables.product.product_name %} 上的拉请求将已经签名和验证的提交合并到分支。 但除非您是拉取请求的作者，否则不能将拉取请求压缩并合并到 {% data variables.product.product_name %} 。{% else %}但不能将拉取请求合并到 {% data variables.product.product_name %} 上的分支。{% endif %} 您可以在本地{% ifversion fpt or ghec %}压缩和{% endif %}合并拉取请求。 更多信息请参阅“[在本地检出拉取请求](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)”。
+如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% ifversion fpt or ghec %}您也可以使用 {% data variables.product.product_name %} 上的拉请求将已经签名和验证的提交合并到分支。 但除非您是拉取请求的作者，否则不能将拉取请求压缩并合并到 {% data variables.product.product_name %} 。{% else %}但不能将拉取请求合并到 {% data variables.product.product_name %} 上的分支。{% endif %} 您可以在本地{% ifversion fpt or ghec %}压缩和{% endif %}合并拉取请求。 更多信息请参阅“[在本地检出拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)”。
 
 {% ifversion fpt or ghec %} 有关合并方法的更多信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的合并方法](/github/administering-a-repository/about-merge-methods-on-github)”。{% endif %}
 
@@ -143,6 +139,8 @@ remote: error: Changes have been requested.
 
 {% data reusables.pull_requests.merge-queue-beta %}
 {% data reusables.pull_requests.merge-queue-overview %}
+
+{% data reusables.pull_requests.merge-queue-merging-method %}
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
@@ -156,13 +154,23 @@ remote: error: Changes have been requested.
 如果您的仓库为使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 的组织所拥有，您可以启用分支限制。
 {% endif %}
 
-启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。
+启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。 When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging if the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
 
 您只能向对仓库具有 write 权限的用户、团队或已安装的 {% data variables.product.prodname_github_apps %} 授予推送到受保护分支的权限。 对仓库具有管理员权限的人员和应用程序始终能够推送到受保护分支。
 
 ### 允许强制推送
 
-默认情况下，{% data variables.product.product_name %} 阻止对所有受保护分支的强制推送。 对受保护分支启用强制推送时，只要具有仓库写入权限，任何人（包括具有管理员权限的人）都可以强制推送到该分支。
+{% ifversion fpt or ghec %}
+默认情况下，{% data variables.product.product_name %} 阻止对所有受保护分支的强制推送。 When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
+
+1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
+1. Allow only specific people or teams to force push to the branch.
+
+If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+
+{% else %}
+默认情况下，{% data variables.product.product_name %} 阻止对所有受保护分支的强制推送。 对受保护分支启用强制推送时，只要具有仓库写入权限，任何人（包括具有管理员权限的人）都可以强制推送到该分支。 If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+{% endif %}
 
 启用强制推送不会覆盖任何其他分支保护规则。 例如，如果分支需要线性提交历史记录，则无法强制推送合并提交到该分支。
 

@@ -16,7 +16,6 @@ shortTitle: Automatic token authentication
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 关于 `GITHUB_TOKEN` 密码
 
@@ -32,7 +31,7 @@ shortTitle: Automatic token authentication
 
 您可以使用标准语法引用密钥以使用 `GITHUB_TOKEN`：{%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}。 Examples of using the `GITHUB_TOKEN` include passing the token as an input to an action, or using it to make an authenticated {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API request.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% note %}
 
 **重要：**即使工作流程没有明确将 `GITHUB_TOKEN` 传递到操作，操作也可以通过 `github.token` 上下文访问 `GITHUB_TOKEN` 。 作为一种良好的安全做法，您应该始终通过限制授予 `GITHUB_TOKEN` 的权限，确保操作只有所需的最低访问权限。 更多信息请参阅“[`GITHUB_TOKEN`](#permissions-for-the-github_token) 的权限”。
@@ -44,26 +43,7 @@ shortTitle: Automatic token authentication
 
 ### 示例 1：将 `GITHUB_TOKEN` 作为输入传递
 
-此示例工作流程使用[贴标器操作](https://github.com/actions/labeler)，需要 `GITHUB_TOKEN` 作为 `repo-token` 输入参数的值：
-
-```yaml
-name: Pull request labeler
-
-on: [ pull_request_target ]
-
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}permissions:
-  contents: read
-  pull-requests: write
-
-{% endif %}
-jobs:
-  triage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/labeler@v2
-        with:
-          repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```
+{% data reusables.github-actions.github_token-input-example %}
 
 ### 例2：调用 REST API
 
@@ -76,7 +56,7 @@ on: [ push ]
 
 jobs:
   create_commit:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
       issues: write {% endif %}
     steps:
@@ -97,41 +77,41 @@ jobs:
 
 有关 {% data variables.product.prodname_github_apps %} 可通过各种权限访问的 API 端点的信息，请参阅“[{% data variables.product.prodname_github_app %} 权限](/rest/reference/permissions-required-for-github-apps)”。
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 下表显示默认情况下授予 `GITHUB_TOKEN` 的权限。 People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
-| 作用域      | 默认访问<br>（允许） | 默认访问<br>（限制） | 复刻的仓库的最大访问权限<br> |
-| -------- | ------------------ | ------------------ | ---------------------- |
-| 操作       | 读/写                | 无                  | 读取                     |
-| 检查       | 读/写                | 无                  | 读取                     |
-| 内容       | 读/写                | 读取                 | 读取                     |
-| 部署       | 读/写                | 无                  | 读取                     |
-| id_token | 读/写                | 无                  | 读取                     |
-| 议题       | 读/写                | 无                  | 读取                     |
-| 元数据      | 读取                 | 读取                 | 读取                     |
-| 包        | 读/写                | 无                  | 读取                     |
-| 拉取请求     | 读/写                | 无                  | 读取                     |
-| 仓库项目     | 读/写                | 无                  | 读取                     |
-| 安全事件     | 读/写                | 无                  | 读取                     |
-| 状态       | 读/写                | 无                  | 读取                     |
+| 作用域                 | 默认访问<br>（允许） | 默认访问<br>（限制） | 复刻的仓库的最大访问权限<br> |
+| ------------------- | ------------------ | ------------------ | ---------------------- |
+| 操作                  | 读/写                | 无                  | 读取                     |
+| 检查                  | 读/写                | 无                  | 读取                     |
+| 内容                  | 读/写                | 读取                 | 读取                     |
+| 部署                  | 读/写                | 无                  | 读取                     |
+| id-token            | 读/写                | 无                  | 读取                     |
+| 议题                  | 读/写                | 无                  | 读取                     |
+| 元数据                 | 读取                 | 读取                 | 读取                     |
+| 包                   | 读/写                | 无                  | 读取                     |
+| pull-requests       | 读/写                | 无                  | 读取                     |
+| repository-projects | 读/写                | 无                  | 读取                     |
+| security-events     | 读/写                | 无                  | 读取                     |
+| 状态                  | 读/写                | 无                  | 读取                     |
 {% else %}
-| 作用域  | 访问类型 | 通过复刻的仓库访问 |
-| ---- | ---- | --------- |
-| 操作   | 读/写  | 读取        |
-| 检查   | 读/写  | 读取        |
-| 内容   | 读/写  | 读取        |
-| 部署   | 读/写  | 读取        |
-| 议题   | 读/写  | 读取        |
-| 元数据  | 读取   | 读取        |
-| 包    | 读/写  | 读取        |
-| 拉取请求 | 读/写  | 读取        |
-| 仓库项目 | 读/写  | 读取        |
-| 状态   | 读/写  | 读取        |
+| 作用域                 | 访问类型 | 通过复刻的仓库访问 |
+| ------------------- | ---- | --------- |
+| 操作                  | 读/写  | 读取        |
+| 检查                  | 读/写  | 读取        |
+| 内容                  | 读/写  | 读取        |
+| 部署                  | 读/写  | 读取        |
+| 议题                  | 读/写  | 读取        |
+| 元数据                 | 读取   | 读取        |
+| 包                   | 读/写  | 读取        |
+| pull-requests       | 读/写  | 读取        |
+| repository-projects | 读/写  | 读取        |
+| 状态                  | 读/写  | 读取        |
 {% endif %}
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### 修改 `GITHUB_TOKEN` 的权限
 
 您可以在个别工作流程文件中修改 `GITHUB_TOKENN` 的权限。 如果 `GITHUB_TOKEN` 的默认权限是限制的，您可能需要提高权限以允许一些操作和命令成功运行。 如果默认权限是允许的，您可以编辑工作流程文件以从 `GITHUB_TOKEN` 中删除某些权限。 作为一种良好的安全做法，您应该授予 `GITHUB_TOKEN` 所需的最小访问权限。
@@ -157,3 +137,7 @@ jobs:
 
 1. 使用或创建具有该仓库适当权限的令牌。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 1. 添加令牌作为工作流程仓库中的密码，然后使用 {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} 语法进行引用。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+
+### 延伸阅读
+
+- "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)"

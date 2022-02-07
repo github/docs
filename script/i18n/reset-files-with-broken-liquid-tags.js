@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import program from 'commander'
+import { execSync } from 'child_process'
 import { languageFiles, compareLiquidTags } from '../../lib/liquid-tags/tokens.js'
 import languages from '../../lib/languages.js'
-import fs from 'fs'
 
 program
   .description('show-liquid-tags-diff')
@@ -12,15 +12,15 @@ program
   .parse(process.argv)
 
 function resetFiles(files) {
-  console.log(`Files to be reset (${files.length}): \n${files.join('\n')}`)
+  console.log(`Reseting ${files.length} files:`)
+
+  const dryRun = program.opts().dryRun ? '--dry-run' : ''
 
   files.forEach((file) => {
-    // remove file so it falls back to English
-    console.log(`removing ${file}`)
-
-    if (!program.opts().dryRun) {
-      fs.unlinkSync(file)
-    }
+    execSync(
+      `script/i18n/reset-translated-file.js ${file} --reason="broken liquid tags" ${dryRun}`,
+      { stdio: 'inherit' }
+    )
   })
 }
 
@@ -32,7 +32,8 @@ async function main() {
     throw new Error(`Language ${options.language} not found`)
   }
 
-  const files = languageFiles(language, 'content')
+  const files = [languageFiles(language, 'content'), languageFiles(language, 'data')].flat()
+
   const brokenFiles = []
 
   files.forEach((file) => {

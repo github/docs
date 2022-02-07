@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Repositories
@@ -16,15 +17,18 @@ topics:
 shortTitle: 列出已配置的依赖项
 ---
 
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## 查看由 {% data variables.product.prodname_dependabot %} 监视的依赖项
 
-启用版本更新后，可以使用仓库依赖关系图中的 **{% data variables.product.prodname_dependabot %}** 选项卡确认配置是否正确。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
+启用版本更新后，可以使用仓库依赖关系图中的 **{% data variables.product.prodname_dependabot %}** 选项卡确认配置是否正确。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
 {% data reusables.dependabot.click-dependabot-tab %}
-5. 或者，要查看为包管理器监视的文件，请单击关联的 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![受监视的依赖项文件](/assets/images/help/dependabot/monitored-dependency-files.png)
+1. 或者，要查看为包管理器监视的文件，请单击关联的 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![受监视的依赖项文件](/assets/images/help/dependabot/monitored-dependency-files.png)
 
 如果缺少任何依赖项，请检查日志文件是否有错误。 如果缺少任何包管理器，请审查配置文件。
 

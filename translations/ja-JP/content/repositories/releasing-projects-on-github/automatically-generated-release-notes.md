@@ -5,6 +5,8 @@ permissions: Repository collaborators and people with write access to a reposito
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.3'
+  ghae: issue-4974
 topics:
   - Repositories
 shortTitle: Automated release notes
@@ -43,19 +45,29 @@ Automatically generated release notes provide an automated alternative to manual
 12. リリースを公開する準備ができている場合は、[**Publish release**] をクリックします。 リリースの作業を後でする場合は、[**Save draft**] をクリックします。 ![[Publish release] と [Save draft] ボタン](/assets/images/help/releases/release_buttons.png)
 
 
-## Creating a template for automatically generated release notes
+## Configuring automatically generated release notes
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. In the file name field, type `.github/release.yml` to create the `release.yml` file in the `.github` directory. ![Create new file](/assets/images/help/releases/release-yml.png)
-4. In the file, specify the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them. 詳しい情報については、「[ラベルを管理する](/issues/using-labels-and-milestones-to-track-work/managing-labels)」を参照してください。
+4. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them.
 
-## 設定例
+### 設定オプション
+
+| Parameter                                 | 説明                                                                                                                                                             |
+|:----------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `changelog.exclude.labels`                | A list of labels that exclude a pull request from appearing in release notes.                                                                                  |
+| `changelog.exclude.authors`               | A list of user or bot login handles whose pull requests are to be excluded from release notes.                                                                 |
+| `changelog.categories[*].title`           | **Required.** The title of a category of changes in release notes.                                                                                             |
+| `changelog.categories[*].labels`          | **Required.** Labels that qualify a pull request for this category. Use `*` as a catch-all for pull requests that didn't match any of the previous categories. |
+| `changelog.categories[*].exclude.labels`  | A list of labels that exclude a pull request from appearing in this category.                                                                                  |
+| `changelog.categories[*].exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from this category.                                                                 |
+
+### 設定例
 
 {% raw %}
-**release.yml**
 ```yaml{:copy}
-# release.yml
+# .github/release.yml
 
 changelog:
   exclude:
@@ -78,14 +90,6 @@ changelog:
 ```
 {% endraw %}
 
-## Release template syntax
+## 参考リンク
 
-| Parameter | 説明                                                                                                                                                                               | 必須                                                                           | 値                                                                         |
-|:--------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------- |:------------------------------------------------------------------------- |
-| `変更履歴`    | Defines the contents within it as the custom template for your release notes.                                                                                                    | 必須.                                                                          | No value accepted.                                                        |
-| `除外`      | Creates a category of pull requests to be excluded from the release. Can be set at the top-level of the changelog to apply to all categories or applied on a per-category basis. | 任意                                                                           | No value accepted.                                                        |
-| `authors` | Specifies authors to be excluded from the release.                                                                                                                               | Optional for `exclude` category.                                             | Accepts usernames and bots as values.                                     |
-| `カテゴリ`    | Defines the nested contents as custom categories to be included in the template.                                                                                                 | 任意                                                                           | No value accepted.                                                        |
-| `title`   | Creates an individual category.                                                                                                                                                  | Required if `categories` parameter exists.                                   | Takes the category name as its value.                                     |
-| `labels`  | Specifies labels to be used by the enclosing category.                                                                                                                           | Required if `categories` parameter exists, optional for `exclude` parameter. | Accepts any labels, whether currently existing or planned for the future. |
-| `"*"`     | Catchall for any pull request not included within a category *above*. If used, it must be added at the end of the file.                                                          | 任意                                                                           | No value accepted.                                                        |
+- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 

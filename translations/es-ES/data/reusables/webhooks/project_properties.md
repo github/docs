@@ -1,4 +1,4 @@
-| Clave                 | Type        | Descripción                                                                                                              |
+| Clave                 | Tipo        | Descripción                                                                                                              |
 | --------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `Acción`              | `secuencia` | La acción que se realizó en el proyecto. Puede ser uno de entre: `created`, `edited`, `closed`, `reopened`, o `deleted`. |
 | `changes`             | `objeto`    | Los cambios al proyecto si la acción se puso como `edited`.                                                              |

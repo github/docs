@@ -2,7 +2,7 @@
 title: Representar dados como gráficos
 intro: Aprenda a visualizar as linguagens de programação do seu repositório usando a biblioteca D3.js e o Ruby Octokit.
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
   fpt: '*'
@@ -15,7 +15,7 @@ topics:
  
 
 
-Neste guia, vamos usar a API para obter informações sobre repositórios dos quais somos proprietários e as linguagens de programação que as compõem. Em seguida, vamos visualizar essas informações de algumas formas diferentes usando a biblioteca [D3.js][D3.js]. To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
+Neste guia, vamos usar a API para obter informações sobre repositórios dos quais somos proprietários e as linguagens de programação que as compõem. Em seguida, vamos visualizar essas informações de algumas formas diferentes usando a biblioteca [D3.js][D3.js]. Para interagir com a API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, usaremos a excelente biblioteca do Ruby, [Octokit][Octokit].
 
 Caso você ainda não o tenha feito, você deve ler o guia ["Princípios básicos da autentifcação"][basics-of-authentication] antes de iniciar este exemplo. Você pode encontrar o código-fonte completo para este projeto no repositório de [platform-samples][platform samples].
 
@@ -76,7 +76,7 @@ run Example::MyGraphApp
 
 ## Buscar informações do repositório
 
-This time, in order to talk to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we're going to use the [Octokit Ruby library][Octokit]. Isso é muito mais fácil do que fazer diretamente um monte de chamadas de REST. Além disso, o Octokit foi desenvolvido por um GitHubber e é mantido ativamente, para que você saiba que vai funcionar.
+Dessa vez, para falar com a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, vamos usar a biblioteca do Ruby [Octokit][Octokit]. Isso é muito mais fácil do que fazer diretamente um monte de chamadas de REST. Além disso, o Octokit foi desenvolvido por um GitHubber e é mantido ativamente, para que você saiba que vai funcionar.
 
 É fácil a autenticação com a API através do Octokit. Basta passar seu login e token para o `Octokit::Client` do cliente:
 
@@ -332,7 +332,6 @@ Et voila! São lindos retângulos que contém suas linguagens de repositório, c
 [basics-of-authentication]: /rest/guides/basics-of-authentication
 [basics-of-authentication]: /rest/guides/basics-of-authentication
 [sinatra auth github]: https://github.com/atmos/sinatra_auth_github
-[Octokit]: https://github.com/octokit/octokit.rb
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
 [D3 treemap]: https://www.d3-graph-gallery.com/treemap.html

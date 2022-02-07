@@ -2,7 +2,7 @@
 title: Organization のグループでコラボレーションする
 intro: グループの人々は、Organization のアカウントで、多くのプロジェクトをまたいで同時にコラボレーションできます。
 redirect_from:
-  - /articles/creating-a-new-organization-account/
+  - /articles/creating-a-new-organization-account
   - /articles/collaborating-with-groups-in-organizations
   - /github/setting-up-and-managing-organizations-and-teams/collaborating-with-groups-in-organizations
 versions:

@@ -3,6 +3,7 @@ title: 将学习管理系统连接到 GitHub Classroom
 intro: '您可以配置 LTI 兼容的学习管理系统 (LMS) 连接到 {% data variables.product.prodname_classroom %}，以便导入用于课堂的名册。'
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configuring-a-learning-management-system-for-github-classroom
   - /education/manage-coursework-with-github-classroom/connect-to-lms
@@ -99,7 +100,7 @@ shortTitle: 连接 LMS
 
 您必须使用 Moodle 版本 3.0 或更高版本。
 
-1. 登录 [Moodle](https://moodle.org/login/index.php)。
+1. 登录 [Moodle](https://moodle.org/login/)。
 1. 选择要与 {% data variables.product.prodname_classroom %} 集成的 Moodle 课程。
 1. 单击 **Turn editing on（打开编辑）**。
 1. 当希望 {% data variables.product.prodname_classroom %} 在 Moodle 中可用时，单击 **Add an activity or resource（添加活动或资源）**。

@@ -19,7 +19,7 @@ shortTitle: 转发端口
 
 通过端口转发，您可以访问在代码空间内运行的 TCP 端口。 For example, if you're running a web application on a particular port in your codespace, you can forward that port. This allows you to access the application from the browser on your local machine for testing and debugging.
 
-When an application running inside a codespace prints output to the terminal that contains a localhost URL, such as `http://localhost:PORT` or `http://127.0.0.1:PORT`, the port is automatically forwarded. If you're using {% data variables.product.prodname_github_codespaces %} in the browser or in {% data variable.product.prodname_vscode %}, the URL string in the terminal is converted into a link that you can click to view the web page on your local machine. 默认情况下，{% data variables.product.prodname_codespaces %} 使用 HTTP 转发端口。
+When an application running inside a codespace prints output to the terminal that contains a localhost URL, such as `http://localhost:PORT` or `http://127.0.0.1:PORT`, the port is automatically forwarded. If you're using {% data variables.product.prodname_codespaces %} in the browser or in {% data variables.product.prodname_vscode %}, the URL string in the terminal is converted into a link that you can click to view the web page on your local machine. 默认情况下，{% data variables.product.prodname_codespaces %} 使用 HTTP 转发端口。
 
 ![自动端口转发](/assets/images/help/codespaces/automatic-port-forwarding.png)
 
@@ -28,8 +28,6 @@ You can also forward a port manually, label forwarded ports, share forwarded por
 ## 转发端口
 
 您可以手动转发未自动转发的端口。
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -73,7 +71,7 @@ You can also forward a port manually, label forwarded ports, share forwarded por
 To forward a port use the `gh codespace ports forward` subcommand. Replace `codespace-port:local-port` with the remote and local ports that you want to connect. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
-gh codespace ports forward <em>codespace-port</em>:<em>local-port</em> 
+gh codespace ports forward <em>codespace-port</em>:<em>local-port</em>
 ```
 
 For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_ports_forward).
@@ -91,8 +89,6 @@ To see details of forwarded ports enter `gh codespace ports` and then choose a c
 {% endnote %}
 
 If you want to share a forwarded port with others, you can either make the port private to your organization or make the port public. After you make a port private to your organization, anyone in the organization with the port's URL can view the running application. After you make a port public, anyone who knows the URL and port number can view the running application without needing to authenticate.
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -119,7 +115,7 @@ To change the visibility of a forwarded port, use the `gh codespace ports visibi
 Replace `codespace-port` with the forwarded port number. Replace `setting` with `private`, `org`, or `public`. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
-gh codespace ports visibility <em>codespace-port</em>:<em>setting</em> 
+gh codespace ports visibility <em>codespace-port</em>:<em>setting</em>
 ```
 
 You can set the visibility for multiple ports with one command. 例如：

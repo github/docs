@@ -67,9 +67,9 @@ sections:
       heading: Filtro do GitHub Mobile
       notes:
         - |
-          [{% data variables.product.prodname_mobile %}](https://github.com/mobile) o filtro permite que você procure e encontre problemas, pull requests e discussões do seu dispositivo. Novos metadados para problemas e itens da lista de pull request permitem que você filtre por responsáveis, verifique status, status de revisão e contagens de comentários.
+          [{% data variables.product.prodname_mobile %}](https://github.com/mobile) filtering allows you to search for and find issues, pull requests, and discussions from your device. New metadata for issues and pull request list items allow you to filter by assignees, checks status, review states, and comment counts.
 
-          A beta de {% data variables.product.prodname_mobile %} está disponível para {% data variables.product.prodname_ghe_server %}. Efetue o login com os nossos aplicativos de [Android](https://play.google.com/store/apps/details?id=com. ithub.android) e [iOS](https://apps.apple.com/app/github/id1477376905) para triar as notificações e gerenciar problemas e pull requests em qualquer lugar. Os administradores podem desabilitar o suporte móvel para sua empresa usando o console de gerenciamento ou executando o `ghe-config app.mobile.enabled false`. Para mais informações, consulte "[GitHub for mobile](/github/getting-started-with-github/using-github/github-for-mobile)."
+          {% data variables.product.prodname_mobile %} beta is available for {% data variables.product.prodname_ghe_server %}. Sign in with our [Android](https://play.google.com/store/apps/details?id=com.github.android) and [iOS](https://apps.apple.com/app/github/id1477376905) apps to triage notifications and manage issues and pull requests on the go. Administrators can disable mobile support for their Enterprise using the management console or by running `ghe-config app.mobile.enabled false`. For more information, see "[GitHub Mobile](/get-started/using-github/github-mobile)."
   changes:
     - 
       heading: Alterações na administração

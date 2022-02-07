@@ -23,7 +23,7 @@ shortTitle: Visualizar las bitácoras del escaneo de código
 
 Puedes utilizar diversas herramientas para configurar el {% data variables.product.prodname_code_scanning %} en tu repositorio. Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} en un repositorio](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 La bitácora y la información diagnóstica que tengas disponible dependerá del método que utilices para el {% data variables.product.prodname_code_scanning %} en tu repositorio. Puedes verificar el tipo de {% data variables.product.prodname_code_scanning %} que estás utilizando en la pestaña de **Seguridad** de tu repositorio si utilizas el menú desplegable de **Herramienta** en la lista de alertas. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_code_scanning %} para tu repositorio](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
 
 ## Acerca del análisis y la información de diagnóstico

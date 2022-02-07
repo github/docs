@@ -20,7 +20,6 @@ shortTitle: Ação de contêiner do Docker
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -57,7 +56,7 @@ Antes de começar, você deverá criar um repositório de {% data variables.prod
 
 ## Criar um arquivo Docker
 
-Em seu novo diretório `hello-world-docker-action`, crie um arquivo `Dockerfile`. Para obter mais informações, consulte "[Suporte do arquivo Docker para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)".
+Em seu novo diretório `hello-world-docker-action`, crie um arquivo `Dockerfile`. Certifique-se de que seu nome de arquivo esteja em maiúsculas corretamente (use um `D` maiúsculo mas não um `f` maiúsculo) se você tiver problemas. Para obter mais informações, consulte "[Suporte do arquivo Docker para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)".
 
 **arquivo Docker**
 ```Dockerfile{:copy}

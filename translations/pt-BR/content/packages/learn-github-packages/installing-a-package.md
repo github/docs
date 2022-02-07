@@ -19,7 +19,7 @@ versions:
 
 ## Sobre a instalação do pacote
 
-You can search on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. Para obter mais informações, consulte "[Pesquisar pacotes no {% data variables.product.prodname_registry %}](/search-github/searching-on-github/searching-for-packages)".
+Você pode pesquisar em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} para encontrar pacotes em {% data variables.product.prodname_registry %} que você pode instalar no seu próprio projeto. Para obter mais informações, consulte "[Pesquisar pacotes no {% data variables.product.prodname_registry %}](/search-github/searching-on-github/searching-for-packages)".
 
 Depois de encontrar um pacote, você pode ler a descrição e as instruções de instalação e utilização na página de pacotes.
 

@@ -140,7 +140,7 @@ Once you've selected the package you're interested in sharing with codespaces in
 6. 在“Container creation（容器创建）”下，选择是要启用公共、私有或内部容器映像。
     - 要让组织成员创建公共容器映像，请单击 **Public（公共）**。
     - 要让组织成员创建只对其他组织成员可见的私有容器映像，请单击 **Private（私有）**。 您可以进一步自定义私有容器映像的可见性。
-    - **仅适用于 {% data variables.product.prodname_ghe_cloud %} ：**要让组织成员创建仅供其他组织成员可见的内部容器映像，请单击 **Internal（内部）**。 ![组织成员发布的容器图像的可见性选项](/assets/images/help/package-registry/container-creation-org-settings.png)
+    - To enable organization members to create internal container images that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the container images will be visible to all enterprise members. ![组织成员发布的容器图像的可见性选项](/assets/images/help/package-registry/container-creation-org-settings.png)
 
 ## 为组织配置容器映像的可见性
 

@@ -28,11 +28,16 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   }, [])
 
   const onClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo(0, 0)
+    const topOfPage = document.getElementById('github-logo')
+    if (topOfPage) topOfPage.focus()
   }
 
   return (
-    <div className={cx(className, 'transition-200', show ? 'opacity-100' : 'opacity-0')}>
+    <div
+      role="tooltip"
+      className={cx(className, 'transition-200', show ? 'opacity-100' : 'opacity-0')}
+    >
       <button
         onClick={onClick}
         className={cx(

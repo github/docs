@@ -83,13 +83,16 @@ You can help to make your organization more secure by recommending or requiring 
 ### 2. Interacting with the {% data variables.product.prodname_gcf %}
 {% data reusables.support.ask-and-answer-forum %}
 
-### 3. Learning with {% data variables.product.prodname_learning %}
+### 3. Reading about {% data variables.product.prodname_team %} on {% data variables.product.prodname_docs %}
+You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
+### 4. Learning with {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab %}
 
-### 4. Supporting the open source community
+### 5. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### 5. {% data variables.contact.github_support %} への連絡
+### 6. {% data variables.contact.github_support %} への連絡
 {% data reusables.getting-started.contact-support %}
 ## 参考リンク
 

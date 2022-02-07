@@ -2,12 +2,12 @@
 title: Exportar los datos de migración de tu empresa
 intro: 'Para cambiar las plataformas o migrarse de una instancia de pruebas a una productiva, puedes exportar los datos de migración de una instancia de {% data variables.product.prodname_ghe_server %} si preparas la instancia, bloqueas los repositorios, y generas un archivo de migración.'
 redirect_from:
-  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
+  - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
   - /enterprise/admin/migrations/preparing-the-github-enterprise-server-source-instance
   - /enterprise/admin/migrations/exporting-the-github-enterprise-server-source-repositories
-  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance/
-  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories/
+  - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance
+  - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/exporting-migration-data-from-your-enterprise
 versions:

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -325,7 +325,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Especifique pacotes ou consultas de {% data variables.product.prodname_codeql %} para executar. Para executar as consultas padrão usadas para {% data variables.product.prodname_code_scanning %}, omita este parâmetro. Para ver os outros itens de consultas incluídos no pacote de {% data variables.product.prodname_codeql_cli %}, procure em <code>/&lt;extraction-root&gt;/codeql/qlpacks/codeql-&lt;language&gt;/codeql-suites</code>. Para obter informações sobre como criar seu próprio conjunto de consulta, consulte <a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">Criando conjuntos de consultas de CodeQL</a> na documentação do {% data variables.product.prodname_codeql_cli %}.
+      Especifique pacotes ou consultas de {% data variables.product.prodname_codeql %} para executar. Para executar as consultas padrão usadas para {% data variables.product.prodname_code_scanning %}, omita este parâmetro. To see the other query suites included in the {% data variables.product.prodname_codeql_cli %} bundle, look in <code>/&lt;extraction-root&gt;/qlpacks/codeql/&lt;language&gt;-queries/codeql-suites</code>. Para obter informações sobre como criar seu próprio conjunto de consulta, consulte <a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">Criando conjuntos de consultas de CodeQL</a> na documentação do {% data variables.product.prodname_codeql_cli %}.
     </td>
   </tr>
   
@@ -367,7 +367,20 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Opcional para análise única do banco de dados. Necessário para definir a linguagem quando você analisa vários bancos de dados para um único commit em um repositório. Especifique uma categoria a incluir no arquivo de resultados SARIF para esta análise. Usa-e uma categoria para distinguir várias análises para a mesma ferramenta e commit, mas é realizada em diferentes linguagens ou diferentes partes do código.{% endif %}{% if codeql-packs %}
+      Opcional para análise única do banco de dados. Necessário para definir a linguagem quando você analisa vários bancos de dados para um único commit em um repositório. Especifique uma categoria a incluir no arquivo de resultados SARIF para esta análise. Usa-e uma categoria para distinguir várias análises para a mesma ferramenta e commit, mas é realizada em diferentes linguagens ou diferentes partes do código.{% endif %}{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <nobr>`--sarif-add-query-help`</nobr>
+    </td>
+    
+    <td align="center">
+    </td>
+    
+    <td>
+      Opcional. Use se quiser incluir qualquer ajuda de consulta disponível para consultas personalizadas usadas na sua análise. Qualquer consulta ajuda para consultas personalizadas incluídas na saída do SARIF será exibida na interface de digitalização de código se a consulta relevante gerar um alerta. Para obter mais informações, consulte <a href="https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/#including-query-help-for-custom-codeql-queries-in-sarif-files">Analisando bancos de dados com o {% data variables.product.prodname_codeql_cli %}</a> na documentação do {% data variables.product.prodname_codeql_cli %}.{% endif %}{% if codeql-packs %}
     </td>
   </tr>
   
@@ -410,6 +423,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
   </tr>
 </table>
+
 
 Para obter mais informações, consulte [Analisando bancos de dados com {% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/) na documentação do {% data variables.product.prodname_codeql_cli %}.
 
@@ -640,7 +654,7 @@ $ codeql database analyze /codeql-dbs/example-repo  octo-org/security-queries \
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## Exemplo de configuração de CI para análise de {% data variables.product.prodname_codeql %}
 
@@ -694,7 +708,7 @@ Se desejar fazer o upload de mais de um conjunto de resultados para a API de {% 
 
 ### Alternativa caso o seu sistema de CI não puder acionar {% data variables.product.prodname_codeql_cli %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 
 Se o seu sistema CI não puder habilitar o autobuild {% data variables.product.prodname_codeql_cli %} e você não puder especificar uma linha de comando para a compilação, você poderá usar o rastreamento de compilação indireto para criar bancos de dados de {% data variables.product.prodname_codeql %} para linguagens compiladas. Para obter mais informações, consulte [Usando o rastreamento indireto de compilação](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#using-indirect-build-tracing) na documentação de {% data variables.product.prodname_codeql_cli %}.
 

@@ -15,7 +15,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## Sobre ambientes
 
@@ -26,14 +25,16 @@ Você pode configurar ambientes com regras de proteção e segredos. Quando um t
 {% ifversion fpt %}
 {% note %}
 
-**Observação:** Se você não usar {% data variables.product.prodname_ghe_cloud %} e converter um repositório de público em privado, todas as regras de proteção configuradas ou segredos de ambiente serão ignorados e você não poderá de configurar nenhum ambiente. Se você converter seu repositório de volta para público, você terá acesso a todas as regras de proteção e segredos de ambiente previamente configurados. {% data reusables.enterprise.link-to-ghec-trial %}
+**Observação:** Você só pode configurar ambientes para repositórios públicos. Se você converter um repositório de público em privado, todas as regras de proteção ou segredos de ambiente configurados serão ignorados, e você não conseguirá configurar nenhum ambiente. Se você converter seu repositório de volta para público, você terá acesso a todas as regras de proteção e segredos de ambiente previamente configurados.
+
+As organizações que usam {% data variables.product.prodname_ghe_cloud %} podem configurar ambientes para repositórios privados. Para obter mais informações, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment). {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
 
 ## Regras de proteção de ambiente
 
-As normas de proteção do ambiente exigem a aprovação de condições específicas antes que um trabalho que faz referência ao ambiente possa prosseguir. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}Você pode usar regras de proteção do ambiente para exigir uma aprovação manual, atrasar um trabalho ou restringir o ambiente a certos branches.{% else %}Você pode usar as regras de proteção de ambiente para exigir uma aprovação manual ou atrasar um trabalho.{% endif %}
+As normas de proteção do ambiente exigem a aprovação de condições específicas antes que um trabalho que faz referência ao ambiente possa prosseguir. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Você pode usar regras de proteção do ambiente para exigir uma aprovação manual, atrasar um trabalho ou restringir o ambiente a certos branches.{% else %}Você pode usar as regras de proteção de ambiente para exigir uma aprovação manual ou atrasar um trabalho.{% endif %}
 
 ### Revisores necessários
 
@@ -45,7 +46,7 @@ Para obter mais informações sobre os trabalhos de revisão que fazem referênc
 
 Use o temporizador de espera para atrasar o trabalho por um período específico de tempo depois que o trabalho for inicialmente acionado. O tempo (em minutos) deve ser um número inteiro entre 0 e 43.200 (30 dias).
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ### Implementar branches
 
 Use os branches de implantação para restringir quais branches podem ser implementados no ambiente. Abaixo, estão as opções para branches de implantação para um ambiente:
@@ -92,7 +93,7 @@ Os segredos armazenados em um ambiente só estão disponíveis para trabalhos de
    1. Insira o valor do segredo.
    1. Clique em **Add secret** (Adicionar segredo).
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}Você também pode criar e configurar ambientes por meio da API REST. Para obter mais informações, consulte "[Ambientes](/rest/reference/repos#environments)" e "[Segredos](/rest/reference/actions#secrets)."{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}Você também pode criar e configurar ambientes por meio da API REST. Para obter mais informações, consulte "[Ambientes](/rest/reference/repos#environments)" e "[Segredos](/rest/reference/actions#secrets)."{% endif %}
 
 Executar um fluxo de trabalho que faz referência a um ambiente que não existe criará um ambiente com o nome referenciado. O novo ambiente não terá nenhuma regra de proteção ou segredos configurados. Qualquer pessoa que possa editar fluxos de trabalho no repositório pode criar ambientes por meio de um arquivo de fluxo de trabalho, mas apenas os administradores do repositório podem configurar o ambiente.
 
@@ -116,7 +117,7 @@ A exclusão de um ambiente apagará todos os segredos e regras de proteção ass
 1. Ao lado do ambiente que você deseja excluir, clique em {% octicon "trash" aria-label="The trash icon" %}.
 2. Clique em **Eu entendi, exclua este ambiente**.
 
-{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}Você também pode excluir ambientes por meio da API REST. Para obter mais informações, consulte "[Ambientes](/rest/reference/repos#environments)."{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}Você também pode excluir ambientes por meio da API REST. Para obter mais informações, consulte "[Ambientes](/rest/reference/repos#environments)."{% endif %}
 
 ## Como os ambientes relacionam-se com as implantações
 

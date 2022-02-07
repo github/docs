@@ -1,8 +1,8 @@
 ---
 title: Managing organizations in your enterprise
 redirect_from:
-  - /enterprise/admin/articles/adding-users-and-teams/
-  - /enterprise/admin/categories/admin-bootcamp/
+  - /enterprise/admin/articles/adding-users-and-teams
+  - /enterprise/admin/categories/admin-bootcamp
   - /enterprise/admin/user-management/organizations-and-teams
   - /enterprise/admin/user-management/managing-organizations-in-your-enterprise
   - /articles/managing-organizations-in-your-enterprise-account
@@ -26,8 +26,8 @@ children:
   - /viewing-the-audit-logs-for-organizations-in-your-enterprise
   - /streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /removing-users-from-teams-and-organizations
+  - /removing-organizations-from-your-enterprise
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
 ---
-

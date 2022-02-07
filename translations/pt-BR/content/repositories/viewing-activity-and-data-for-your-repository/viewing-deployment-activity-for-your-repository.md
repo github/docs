@@ -31,4 +31,4 @@ Também é possível ver informações de implantação na guia "Conversation" (
 2. À direita da lista de arquivos, clique em **ambientes**. ![Ambientes à direita da página do repositório](/assets/images/help/repository/environments.png)
 
 ## Leia mais
- - "[Sobre pull requests](/articles/about-pull-requests)"
+ - "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"

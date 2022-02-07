@@ -22,7 +22,27 @@
 
 {% ifversion ghes %}
 
-Si planeas habilitar las {% data variables.product.prodname_actions %} para los usuarios de tu instancia, revisa los requisitos de hardware, almacenamiento externo y ejecutores que se encuentran en "[Iniciar con {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
+Si planeas habilitar las {% data variables.product.prodname_actions %} para los usuarios de tu instancia, se necesitarán más recursos.
+
+{%- ifversion ghes < 3.2 %}
+
+{% data reusables.actions.hardware-requirements-before %}
+
+{%- endif %}
+
+{%- ifversion ghes = 3.2 %}
+
+{% data reusables.actions.hardware-requirements-3.2 %}
+
+{%- endif %}
+
+{%- ifversion ghes > 3.2 %}
+
+{% data reusables.actions.hardware-requirements-after %}
+
+{%- endif %}
+
+Para obtener más información sobre estos requisitos, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
 
 {% endif %}
 

@@ -2,8 +2,8 @@
 title: Obtener enlaces permanentes a archivos
 intro: 'Cuando ves un archivo en {% data variables.product.product_location %}, puedes presionar la tecla "y" para actualizar la URL y obtener un enlace permanente para la versión exacta del archivo que estás viendo.'
 redirect_from:
-  - /articles/getting-a-permanent-link-to-a-file/
-  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
+  - /articles/getting-a-permanent-link-to-a-file
+  - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
   - /articles/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/getting-permanent-links-to-files
   - /github/managing-files-in-a-repository/managing-files-on-github/getting-permanent-links-to-files
@@ -33,7 +33,7 @@ se refiere al repositorio `codeql` de GitHub, y muestra la versión más recient
 
 La versión de un archivo en el encabezado de una rama puede cambiar cuando se realizan nuevas confirmaciones, por eso si copias la URL normal, el contenido del archivo puede no ser el mismo cuando alguien lo vea más tarde.
 
-## Presiona <kbd>y</kbd> para obtener un enlace permanente en archivo en una confirmación específica
+## Presiona <kbd>Y</kbd> para obtener un enlace permanente a un archivo en una confirmación específica
 
 Para encontrar un enlace permanente a la versión específica de un archivo que veas, en vez de utilizar el nombre de la rama en la URL (por ejemplo, la parte de `main` en el ejemplo anterior), coloca una id de confirmación.  Esto generará un enlace permanente a la versión exacta del archivo en esa confirmación.  Por ejemplo:
 

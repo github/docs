@@ -67,7 +67,6 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Islândia</li>
 <li>Índia</li>
 <li>Indonésia</li>
-<li>Irã</li>
 <li>Irlanda</li>
 <li>Israel</li>
 <li>Itália</li>
@@ -95,7 +94,7 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Montserrat</li>
 <li>Moçambique</li>
 <li>Namíbia</li>
-<li>Holanda</li>
+<li>Países baixos</li>
 <li>Antilhas Holandesas</li>
 <li>Nova Zelândia</li>
 <li>Nigéria</li>
@@ -105,12 +104,11 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Portugal</li>
 <li>Catar</li>
 <li>Romênia</li>
-<li>Rússia</li>
 <li>Ruanda</li>
 <li>Senegal</li>
 <li>Sérvia</li>
 <li>Seicheles</li>
-<li>Cingapura</li>
+<li>Singapura</li>
 <li>Eslováquia</li>
 <li>Eslovênia</li>
 <li>África do Sul</li>
@@ -125,10 +123,8 @@ Se seu país não estiver nesta lista, isso significa que, no momento, não pode
 <li>Tanzânia</li>
 <li>Togo</li>
 <li>Trinidade e Tobago</li>
-<li>Turquia</li>
 <li>Ilhas Turks e Caicos</li>
 <li>Uganda</li>
-<li>Ucrânia</li>
 <li>Emirados Árabes Unidos</li>
 <li>Reino Unido</li>
 <li>Estados Unidos</li>

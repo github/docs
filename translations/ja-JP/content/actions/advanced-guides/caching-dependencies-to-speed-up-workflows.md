@@ -23,11 +23,34 @@ topics:
 
 ジョブのために依存関係をキャッシュするには、{% data variables.product.prodname_dotcom %}の`cache`アクションを使わなければなりません。 このアクションは、ユニークなキーで指定されるキャッシュを取得します。 詳しい情報については「[`actions/cache`](https://github.com/actions/cache)」を参照してください。
 
-Ruby gem をキャッシュする場合は、代わりに、開始時にバンドルインストールをキャッシュ可能な Ruby で維持されているアクションを使用することを検討してください。 詳しい情報については、[`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically) を参照してください。
+If you are caching the package managers listed below, consider using the respective setup-* actions, which require almost zero configuration and are easy to use.
 
-To cache and restore dependencies for npm, Yarn, or pnpm, you can use the [`actions/setup-node` action](https://github.com/actions/setup-node).
-
-Gradle and Maven caching is available with [`actions/setup-java` action](https://github.com/actions/setup-java).
+<table>
+<thead>
+  <tr>
+    <th>Package managers</th>
+    <th>setup-* action for caching</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>npm, yarn, pnpm</td>
+    <td><a href="https://github.com/actions/setup-node">setup-node</a></td>
+  </tr>
+  <tr>
+    <td>pip, pipenv</td>
+    <td><a href="https://github.com/actions/setup-python">setup-python</a></td>
+  </tr>
+  <tr>
+    <td>gradle, maven</td>
+    <td><a href="https://github.com/actions/setup-java">setup-java</a></td>
+  </tr>
+  <tr>
+    <td>ruby gems</td>
+    <td><a href="https://github.com/ruby/setup-ruby">setup-ruby</a></td>
+  </tr>
+</tbody>
+</table>
 
 {% warning %}
 
@@ -209,4 +232,4 @@ restore-keys: |
 
 ## 利用制限と退去のポリシー
 
-{% data variables.product.prodname_dotcom %}は、7日間以上アクセスされていないキャッシュエントリを削除します。 保存できるキャッシュ数には上限がありませんが、1つのリポジトリ内のすべてのキャッシュの合計サイズは5GBに制限されます。 If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 5 GB.
+{% data variables.product.prodname_dotcom %}は、7日間以上アクセスされていないキャッシュエントリを削除します。 保存できるキャッシュ数には上限がありませんが、1つのリポジトリ内のすべてのキャッシュの合計サイズは10GBに制限されます。 この制限を超えた場合、{% data variables.product.prodname_dotcom %}はキャッシュを保存しますが、合計サイズが10GB以下になるまでキャッシュを退去させはじめます。

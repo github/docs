@@ -28,7 +28,7 @@ topics:
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- [复刻](/articles/about-forks)中的代码仅当复刻的星号超过父级仓库时可搜索。 星号少于父仓库的复刻**不**为代码搜索编索引。 要在搜索结果中包括星号比其父项多的复刻，您需要将 `fork:true` 或 `fork:only` 添加到查询。 更多信息请参阅“[在复刻中搜索](/search-github/searching-on-github/searching-in-forks)”。
+- [复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)中的代码仅当复刻的星号超过父级仓库时可搜索。 星号少于父仓库的复刻**不**为代码搜索编索引。 要在搜索结果中包括星号比其父项多的复刻，您需要将 `fork:true` 或 `fork:only` 添加到查询。 更多信息请参阅“[在复刻中搜索](/search-github/searching-on-github/searching-in-forks)”。
 - 只有_默认分支_被索引用于代码搜索。{% ifversion fpt or ghec %}
 - 只有小于 384 KB 的文件可搜索。{% else %}* 只有小于 5 MB 的文件可搜索。
 - 只有每个文件的前 500 KB 可搜索。{% endif %}

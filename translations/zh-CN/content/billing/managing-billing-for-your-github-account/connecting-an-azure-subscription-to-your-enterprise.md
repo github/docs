@@ -1,7 +1,6 @@
 ---
 title: 将 Azure 订阅连接到您的企业
 intro: '您可以使用 Microsoft Enterprise 协议来启用并支付超过企业所含金额的 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 的使用。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise

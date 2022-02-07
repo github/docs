@@ -19,13 +19,13 @@ shortTitle: Crear & probar en Java con Maven
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
 Esta guía te muestra cómo crear un flujo de trabajo que realiza la integración continua (CI) para tu proyecto Java utilizando la herramienta de gestión de proyectos de software Maven. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. Puedes extender tu flujo de trabajo de CI para almacenar en caché los archivos y cargar artefactos desde una ejecución de flujo de trabajo.
 
-{% ifversion ghae %}Para obtener instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 Los ejecutores alojados en {% data variables.product.prodname_dotcom %} tienen una caché de herramientas con un software preinstalado, que incluye kits de desarrollo de Java (JDK) y Maven. Para encontrar una lista de software y de las versiones pre-instaladas de JDK y de Maven, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
@@ -40,11 +40,11 @@ Te recomendamos que tengas una comprensión básica de Java y del marco de Maven
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Comenzar con una plantilla de flujo de trabajo de Maven
+## Utilizar el flujo de trabajo inicial de Maven
 
-{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Maven que funcionará para la mayoría de los proyectos Java basados en Maven. Para obtener más información, consulta la sección [Plantilla de flujo de trabajo de Maven](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de Maven que funcionará para la mayoría de los proyectos Java basados en Maven. Para obtener más información, consulta el [Fluje de trabajo inicial de Maven](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
-Para comenzar rápidamente, puedes elegir la plantilla Maven preconfigurada cuando creas un nuevo flujo de trabajo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
+Para iniciar rápidamente, puedes elegir el flujo de trabajo inicial de Maven preconfigurado cuando crees un flujo de trabajo nuevo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
 También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
@@ -76,7 +76,7 @@ Este flujo de trabajo realiza los siguientes pasos:
 2. El paso `setup-java` configura el JDK de Java 11 por Adoptium.
 3. El paso "Build with Maven" (Construir con Maven) ejecuta el `paquete` destino de Maven en modo no interactivo para garantizar que tu código se compile, se superen las pruebas y se pueda crear un paquete.
 
-Las plantillas de flujo de trabajo predeterminadas son excelentes puntos de inicio cuando creas tu flujo de trabajo de construcción y prueba, y puedes personalizar la plantilla para adaptarla a las necesidades de tu proyecto.
+Los flujos de trabajo iniciales predeterminados son un punto de partida excelente para crear tu flujo de trabajo de prueba y de compilación y puedes personalizarlos de acuerdo con las necesidades de tu proyecto.
 
 {% data reusables.github-actions.example-github-runner %}
 

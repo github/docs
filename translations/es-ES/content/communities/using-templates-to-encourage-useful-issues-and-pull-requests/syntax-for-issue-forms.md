@@ -1,7 +1,6 @@
 ---
-title: Sintaxis para formatos de propuesta
-intro: 'Puedes definir diferentes tipos de entrada, validaciones, asingados predeterminados y etiquetas predeterminadas para tus formatos de propuesta.'
-product: 'Los formatos de propuesta están disponibles en beta para los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %}'
+title: Syntax for issue forms
+intro: 'You can define different input types, validations, default assignees, and default labels for your issue forms.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,21 +10,21 @@ topics:
 
 {% data reusables.community.issue-forms-beta %}
 
-## Acerca de la sintaxis YAML para formatos de propuesta
+## About YAML syntax for issue forms
 
-Puedes crear formatos de propuesta personalizados agregando un archivo de definición de formato YAML a la carpeta `/.github/ISSUE_TEMPLATE` en tu repositorio. {% data reusables.actions.learn-more-about-yaml %} Puedes definir diferentes tipos de entrada, validaciones, asingados predeterminados y etiquetas predeterminadas para tus formatos de propuesta.
+You can create custom issue forms by adding a YAML form definition file to the `/.github/ISSUE_TEMPLATE` folder in your repository. {% data reusables.actions.learn-more-about-yaml %} You can define different input types, validations, default assignees, and default labels for your issue forms.
 
-Cuando un colaborador llega un formato de propuesta, sus respuestas para cada entrada se convierten en lenguaje de marcado y se agregan al cuerpo de una propuesta. Los contribuyentes pueden editar las propuestas que se crearon con estos formatos de propuesta y otras personas pueden interactuar con las propuestas como con una de ellas que se creó mediante otros métodos.
+When a contributor fills out an issue form, their responses for each input are converted to markdown and added to the body of an issue. Contributors can edit their issues that were created with issue forms and other people can interact with the issues like an issue created through other methods.
 
-Los formatos de propuesta no son compatibles para las solicitudes de cambios. Puedes crear plantillas de solicitudes de cambios en tus repositorios para que las utilicen los colaboradores. Para obtener más información, consulta [Crear plantillas de solicitud de extracción para tu repositorio](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)".
+Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. For more information, see "[Creating a pull request template for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)."
 
-Este archivo de configuración YAML define un formato de propuesta utilizando varias entradas para reportar un error.
+This example YAML configuration file defines an issue form using several inputs to report a bug.
 
 {% data reusables.community.issue-forms-sample %}
 
-## Sintaxis de nivel superior
+## Top-level syntax
 
-Todos los archivos de configuración de formatos de propuestas deben comenzar con los pares de llave-valor `name`, `description`, y `body`.
+All issue form configuration files must begin with `name`, `description`, and `body` key-value pairs.
 
 ```YAML{:copy}
 name:
@@ -33,28 +32,28 @@ description:
 body:
 ```
 
-Puedes configurar las siguientes llaves de nivel superior para cada formato de propuesta.
+You can set the following top-level keys for each issue form.
 
-| Clave           | Descripción                                                                                                                                                | Requerido | Type                                     |
-|:--------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------- |:---------------------------------------- |
-| `name (nombre)` | Un nombre para la plantilla de formato de propuesta. Debe ser único entre el resto de las plantillas, incluyendo de las plantillas de lenguaje de marcado. | Requerido | Secuencia                                |
-| `descripción`   | Una descripción para la plantilla de formato de propuesta, la cual aparece en la interfaz de elección de plantilla.                                        | Requerido | Secuencia                                |
-| `cuerpo`        | Definición de los tipos de entrada en el formato.                                                                                                          | Requerido | Arreglo                                  |
-| `asignatarios`  | Las personas que se asignarán automáticamente a las propuestas que se crearán con esta plantilla.                                                          | Opcional  | Arreglo o secuencia delimitada por comas |
-| `etiquetas`     | Las etiquetas que se agregarán automáticamente a las propuestas que se crearán con esta plantilla.                                                         | Opcional  | Secuencia                                |
-| `título`        | Un título predeterminado que se pre-llenará en el formato de emisión de propuestas.                                                                        | Opcional  | Secuencia                                |
+| Key | Description | Required | Type |
+| :-- | :-- | :-- | :-- | :-- |
+| `name` | A name for the issue form template. Must be unique from all other templates, including Markdown templates. | Required | String |
+| `description` | A description for the issue form template, which appears in the template chooser interface. | Required | String |
+| `body` | Definition of the input types in the form. | Required | Array |
+| `assignees` | People who will be automatically assigned to issues created with this template. | Optional | Array or comma-delimited string |
+| `labels` | Labels that will automatically be added to issues created with this template. | Optional | Array or comma-delimited string |
+| `title` | A default title that will be pre-populated in the issue submission form. | Optional | String |
 
-Para los tipos de entrada de `body` disponibles y sus sintaxis, consulta la sección "[Sintaxis para el modelo de formato de {% data variables.product.prodname_dotcom %}](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)".
+For the available `body` input types and their syntaxes, see "[Syntax for {% data variables.product.prodname_dotcom %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
 
-## Convertir una plantilla de propuesta de lenguaje de marcado en una plantilla de formato de propuesta YAML
+## Converting a Markdown issue template to a YAML issue form template
 
-Puedes utilizar plantillas de propuestas tanto de YAML como de lenguaje de marcado en tu repositorio. Si quieres convertir una plantilla de propuesta con lenguaje de marcado en una plantilla de formato de propuesta YAML, debes crear un archivo YAML nuevo para definir el formato de la propuesta. Puedes transponer manualmente una plantilla de propuesta de lenguaje de marcado hacia un formato de propuesta YAML. Para obtener más información, consulta "[Configurar plantillas de propuestas para tu repositorio](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)".
+You can use both Markdown and YAML issue templates in your repository. If you want to convert a Markdown issue template to a YAML issue form template, you must create a new YAML file to define the issue form. You can manually transpose an existing Markdown issue template to a YAML issue form. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)."
 
-Si quieres utilizar el mismo nombre de archivo para tu formato de propuesta YAML, debes borrar la plantilla de propuesta en lenguaje de marcado cuando confirmes el archivo nuevo en tu repositorio.
+If you want to use the same file name for your YAML issue form, you must delete the Markdown issue template when you commit the new file to your repository.
 
-A continuación podrás encontrar un ejemplo de plantilla de propuesta de lenguaje de marcado y una plantilla de formato de propuesta YAML correspondiente.
+An example of a Markdown issue template and a corresponding YAML issue form template are below.
 
-### Plantilla de propuesta de lenguaje de marcado
+### Markdown issue template
 
 ```markdown{:copy}
 ---
@@ -95,11 +94,11 @@ Example:
 
 ### Anything else:
 {% raw %}<{% endraw %}!--
-Links? Referencias? Anything that will give us more context about the issue that you are encountering!
+Links? References? Anything that will give us more context about the issue that you are encountering!
 --{% raw %}>{% endraw %}
 ```
 
-### Plantilla de formato de propuesta YAML
+### YAML issue form template
 
 ```yaml{:copy}
 name: 🐞 Bug
@@ -156,13 +155,14 @@ body:
   attributes:
     label: Anything else?
     description: |
-      Links? Referencias? Anything that will give us more context about the issue you are encountering!
+      Links? References? Anything that will give us more context about the issue you are encountering!
 
-      Tip: Puedes adjuntar imágenes o archivos de bitácora si haces clic en esta área para resaltarla y luego arrastrar los archivos hacia ella.
+      Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
   validations:
     required: false
 ```
 
-## Leer más
+## Further reading
 
 - [YAML](https://yaml.org/)
+- [Common validation errors when creating issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)

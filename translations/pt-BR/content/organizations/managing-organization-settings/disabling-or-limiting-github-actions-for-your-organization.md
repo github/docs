@@ -51,7 +51,7 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista.
-   {%- ifversion ghes %}
+   {%- ifversion ghes > 3.0 %}
    ![Adicionar ações para permitir lista](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
    ![Adicionar ações para permitir lista](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
@@ -78,6 +78,10 @@ Você pode configurar esse comportamento para uma organização seguindo o proce
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+{% ifversion ghec or ghae or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 ### Configurar a política de bifurcação privada para uma organização
 
 {% data reusables.profile.access_org %}
@@ -86,7 +90,7 @@ Você pode configurar esse comportamento para uma organização seguindo o proce
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Definindo as permissões do `GITHUB_TOKEN` para a sua organização
 
 {% data reusables.github-actions.workflow-permissions-intro %}

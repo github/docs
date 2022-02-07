@@ -24,8 +24,6 @@ topics:
   - Repositories
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
-
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -35,13 +33,21 @@ Você decide como gerar alertas de {% data variables.product.prodname_code_scann
 
 {% data reusables.code-scanning.enabling-options %}
 
+{% ifversion ghae %}
+## Pré-requisitos
+
+Antes de configurar {% data variables.product.prodname_code_scanning %} para um repositório, você deverá garantir que haja pelo menos um executor de {% data variables.product.prodname_actions %} auto-hospedado disponível para o repositório.
+
+Os proprietários da empresa, administradores de organização e repositórios podem adicionar executores auto-hospedados. Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
+{% endif %}
+
 ## Configurar {% data variables.product.prodname_code_scanning %} usando ações
 
 {% ifversion fpt or ghec %}Usando ações para executar {% data variables.product.prodname_code_scanning %} usará minutos. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. À direita dos " alertas de {% data variables.product.prodname_code_scanning_capc %}", clique em **Configurar {% data variables.product.prodname_code_scanning %}**. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}Se {% data variables.product.prodname_code_scanning %} está faltando, peça ao proprietário da organização ou administrador do repositório para habilitar {% data variables.product.prodname_GH_advanced_security %}. Para mais informações consulte "[Gerenciar as configurações de segurança e análise para a sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" ou "[Gerenciar as configurações de segurança e análise para o seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).{% endif %} ![Botão "Configurar {% data variables.product.prodname_code_scanning %}" à direita de "{% data variables.product.prodname_code_scanning_capc %}" na Visão Geral de Segurança](/assets/images/help/security/overview-set-up-code-scanning.png)
+1. À direita dos " alertas de {% data variables.product.prodname_code_scanning_capc %}", clique em **Configurar {% data variables.product.prodname_code_scanning %}**. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Se {% data variables.product.prodname_code_scanning %} está faltando, peça ao proprietário da organização ou administrador do repositório para habilitar {% data variables.product.prodname_GH_advanced_security %}. Para mais informações consulte "[Gerenciar as configurações de segurança e análise para a sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" ou "[Gerenciar as configurações de segurança e análise para o seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).{% endif %} ![Botão "Configurar {% data variables.product.prodname_code_scanning %}" à direita de "{% data variables.product.prodname_code_scanning_capc %}" na Visão Geral de Segurança](/assets/images/help/security/overview-set-up-code-scanning.png)
 4. Em "Começar com {% data variables.product.prodname_code_scanning %}", clique em **Configurar este fluxo de trabalho** no {% data variables.product.prodname_codeql_workflow %} ou em um fluxo de trabalho de terceiros. !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png)Os fluxos de trabalho são exibidos apenas se forem relevantes para as linguagens de programação detectadas no repositório. O {% data variables.product.prodname_codeql_workflow %} é sempre exibido, mas o botão "Configurar este fluxo de trabalho" só é habilitado se a análise de {% data variables.product.prodname_codeql %} for compatível com as linguagens presentes no repositório.
 5. Para personalizar como {% data variables.product.prodname_code_scanning %} faz a varredura do seu código, edite o fluxo de trabalho.
 
@@ -57,7 +63,7 @@ No {% data variables.product.prodname_codeql_workflow %} padrão, {% data variab
 Os gatilhos `on:pull_request` e `on:push` para digitalização de código são úteis para diferentes finalidades. Para obter mais informações, consulte "[Digitalizando pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-pull-requests)" e "[Digitalizando ao fazer push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)".
 ## Configuração em massa de {% data variables.product.prodname_code_scanning %}
 
-Você pode configurar {% data variables.product.prodname_code_scanning %} em vários repositórios de uma vez usando um script. Se você desejar de usar um script para levantar pull requests que adicionam um fluxo de trabalho de {% data variables.product.prodname_actions %} a vários repositórios, consulte o repositório [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) para ver um exemplo usando Powershell ou [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) para equipes que não possuem Powershell e que gostariam de usar o NodeJS.
+Você pode configurar {% data variables.product.prodname_code_scanning %} em vários repositórios de uma vez usando um script. Se você desejar de usar um script para levantar pull requests que adicionam um fluxo de trabalho de {% data variables.product.prodname_actions %} a vários repositórios, consulte o repositório [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) para ver um exemplo usando PowerShell ou [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) para equipes que não possuem PoweSshell e que gostariam de usar o NodeJS.
 
 ## Visualizar a saída do registro de {% data variables.product.prodname_code_scanning %}
 
@@ -83,7 +89,7 @@ Depois de configurar o {% data variables.product.prodname_code_scanning %} para 
 
 **Observação:** Se você criou um pull request para adicionar o fluxo de trabalho de {% data variables.product.prodname_code_scanning %} ao repositório, os alertas desse pull request não serão exibidos diretamente na página de {% data variables.product.prodname_code_scanning_capc %} até que o pull request seja mesclado. Se algum alerta for encontrado, você poderá visualizá-los, antes do merge do pull request, clicando no link dos **_n_ alertas encontrados** no banner na página de {% data variables.product.prodname_code_scanning_capc %}.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
   ![Clique no link "n alertas encontrados"](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 {% else %}
   ![Clique no link "n alertas encontrados"](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
@@ -125,7 +131,7 @@ Há outras situações em que não pode haver análise para o último commit do 
 
   Para verificar se um branch foi verificado, acesse a página {% data variables.product.prodname_code_scanning_capc %}, clique no menu suspenso **Branch** e selecione o branch relevante.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
   ![Escolha um branch no menu suspenso Branch](/assets/images/help/repository/code-scanning-branch-dropdown.png)
 {% else %}
   ![Escolha um branch no menu suspenso Branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)

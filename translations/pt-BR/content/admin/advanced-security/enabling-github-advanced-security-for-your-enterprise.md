@@ -28,17 +28,6 @@ Ao habilitar {% data variables.product.prodname_GH_advanced_security %} para a s
 Para obter orientação sobre uma implantação em fases da segurança avançada do GitHub, consulte "[Implantando a segurança avançada do GitHub na sua empresa](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)".
 {% endif %}
 
-## Pré-requisitos para habilitar {% data variables.product.prodname_GH_advanced_security %}
-
-1. Atualize a sua licença para {% data variables.product.product_name %} para incluir {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes > 3.0 %} Para obter informações sobre a licença, consulte "[Sobre cobrança para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
-2. Faça o download do novo arquivo de licença. Para obter mais informações, consulte "[Fazer o download da sua licença para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)".
-3. Faça o upload do novo arquivo de licença para {% data variables.product.product_location %}. Para obter mais informações, consulte "[Fazer o upload de uma nova licença para {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)".{% ifversion ghes %}
-4. Revise os pré-requisitos para as funcionalidades que você pretende habilitar.
-
-    - {% data variables.product.prodname_code_scanning_capc %}, consulte "[Configurando {% data variables.product.prodname_code_scanning %} para seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
-    - {% data variables.product.prodname_secret_scanning_caps %}, consulte "[Configurando {% data variables.product.prodname_secret_scanning %} para seu dispositivo](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
-    - {% data variables.product.prodname_dependabot %}, consulte "[Habilitando o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %} na conta corporativa](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)".
-
 ## Verificando se a sua licença inclui {% data variables.product.prodname_GH_advanced_security %}
 
 {% ifversion ghes > 3.0 %}
@@ -55,6 +44,17 @@ Para obter orientação sobre uma implantação em fases da segurança avançada
 
 {% data reusables.enterprise_management_console.advanced-security-license %}
 {% endif %}
+
+## Pré-requisitos para habilitar {% data variables.product.prodname_GH_advanced_security %}
+
+1. Atualize a sua licença para {% data variables.product.product_name %} para incluir {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes > 3.0 %} Para obter informações sobre a licença, consulte "[Sobre cobrança para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
+2. Faça o download do novo arquivo de licença. Para obter mais informações, consulte "[Fazer o download da sua licença para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)".
+3. Faça o upload do novo arquivo de licença para {% data variables.product.product_location %}. Para obter mais informações, consulte "[Fazer o upload de uma nova licença para {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)".{% ifversion ghes %}
+4. Revise os pré-requisitos para as funcionalidades que você pretende habilitar.
+
+    - {% data variables.product.prodname_code_scanning_capc %}, consulte "[Configurando {% data variables.product.prodname_code_scanning %} para seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
+    - {% data variables.product.prodname_secret_scanning_caps %}, consulte "[Configurando {% data variables.product.prodname_secret_scanning %} para seu dispositivo](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
+    - {% data variables.product.prodname_dependabot %}, consulte "[Habilitando o gráfico de dependência e {% data variables.product.prodname_dependabot_alerts %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
 
 ## Habilitar e desabilitar funcionalidades de {% data variables.product.prodname_GH_advanced_security %}
 
@@ -107,7 +107,7 @@ Por exemplo, você pode habilitar qualquer recurso de {% data variables.product.
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - Para desabilitar {% data variables.product.prodname_dependabot %}, digite os comandos a seguir {% ifversion ghes > 3.1 %}{% else %}comandos{% endif %}.
+    - Para desabilitar {% data variables.product.prodname_dependabot_alerts %}, digite os comandos a seguir {% ifversion ghes > 3.1 %}{% else %}comandos{% endif %}.
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled false
     ```

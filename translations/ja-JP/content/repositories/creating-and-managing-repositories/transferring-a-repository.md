@@ -2,15 +2,15 @@
 title: リポジトリを移譲する
 intro: 他のユーザや Organization アカウントにリポジトリを移譲できます。
 redirect_from:
-  - /articles/about-repository-transfers/
-  - /move-a-repo/
-  - /moving-a-repo/
-  - /articles/what-is-transferred-with-a-repository/
-  - /articles/what-is-transferred-with-a-repo/
-  - /articles/how-to-transfer-a-repo/
-  - /articles/how-to-transfer-a-repository/
-  - /articles/transferring-a-repository-owned-by-your-personal-account/
-  - /articles/transferring-a-repository-owned-by-your-organization/
+  - /articles/about-repository-transfers
+  - /move-a-repo
+  - /moving-a-repo
+  - /articles/what-is-transferred-with-a-repository
+  - /articles/what-is-transferred-with-a-repo
+  - /articles/how-to-transfer-a-repo
+  - /articles/how-to-transfer-a-repository
+  - /articles/transferring-a-repository-owned-by-your-personal-account
+  - /articles/transferring-a-repository-owned-by-your-organization
   - /articles/transferring-a-repository
   - /github/administering-a-repository/transferring-a-repository
   - /github/administering-a-repository/managing-repository-settings/transferring-a-repository
@@ -31,7 +31,8 @@ Prerequisites for repository transfers:
 - When you transfer a repository that you own to another user account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. 新しいオーナーが移譲を 1 日以内に受け入れなければ、招待は期限切れになります。{% endif %}
 - 自分が所有しているリポジトリを Organization に移譲するには、対象 Organization のリポジトリを作成する権限が必要です。
 - ターゲットのアカウントは、同じ名前のリポジトリを持っていたり、同じネットワーク内にフォークを持っていたりしてはなりません。
-- リポジトリのオリジナルのオーナーは、移譲されたリポジトリにコラボレーターとして追加されます。 他のコラボレーターは、移譲されたリポジトリにそのまま残されます。
+- リポジトリのオリジナルのオーナーは、移譲されたリポジトリにコラボレーターとして追加されます。 Other collaborators to the transferred repository remain intact.{% ifversion ghec or ghes or ghae %}
+- Internal repositories can't be transferred.{% endif %}
 - プライベートフォークは移譲できません。
 
 {% ifversion fpt or ghec %}プライベートリポジトリを {% data variables.product.prodname_free_user %} ユーザまたは Organization アカウントに移譲すると、リポジトリは保護されたブランチや {% data variables.product.prodname_pages %} などの機能にアクセスできなくなります。 {% data reusables.gated-features.more-info %}{% endif %}
@@ -53,7 +54,7 @@ Prerequisites for repository transfers:
 
 - When you transfer a repository from an organization to a user account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a user account. For more information about repository permission levels, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+詳しい情報については「[リモートリポジトリの管理](/github/getting-started-with-github/managing-remote-repositories)」を参照してください。
 
 ### リポジトリの移譲および Organization
 

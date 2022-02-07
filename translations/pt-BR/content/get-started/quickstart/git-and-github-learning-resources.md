@@ -1,8 +1,8 @@
 ---
 title: Recursos de aprendizagem Git e GitHub
 redirect_from:
-  - /articles/good-resources-for-learning-git-and-github/
-  - /articles/what-are-other-good-resources-for-learning-git-and-github/
+  - /articles/good-resources-for-learning-git-and-github
+  - /articles/what-are-other-good-resources-for-learning-git-and-github
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
@@ -35,7 +35,7 @@ Conheça melhor o {% data variables.product.product_name %} por meio dos nossos 
 
 ### Branches, bifurcações e pull requests
 
-Saiba como [criar branches no Git ](http://learngitbranching.js.org/) com uma ferramenta interativa. Leia sobre [bifurcações](/articles/about-forks) e [pull requests](/articles/using-pull-requests) e também sobre [como usamos pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) em {% data variables.product.prodname_dotcom %}. Acesse as referências sobre como usar {% data variables.product.prodname_dotcom %} na [linha de comando](https://cli.github.com/).
+Saiba como [criar branches no Git ](http://learngitbranching.js.org/) com uma ferramenta interativa. Leia sobre [bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) e [pull requests](/articles/using-pull-requests) e também sobre [como usamos pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) em {% data variables.product.prodname_dotcom %}. Acesse as referências sobre como usar {% data variables.product.prodname_dotcom %} na [linha de comando](https://cli.github.com/).
 
 ### Fique antenado
 
@@ -57,7 +57,7 @@ O {% data variables.product.prodname_dotcom %} oferece [aulas presenciais](https
 
 ## Extras
 
-An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Fique à vontade para adaptar nossos [modelos .gitignore](https://github.com/github/gitignore) de acordo com as suas necessidades.
+Um [curso online e interativo sobre o Git](https://www.pluralsight.com/courses/code-school-git-real) da [Pluralsight](https://www.pluralsight.com/codeschool) tem sete níveis com dezenas de exercícios em formato de jogos divertidos. Fique à vontade para adaptar nossos [modelos .gitignore](https://github.com/github/gitignore) de acordo com as suas necessidades.
 
 Amplie seu alcance {% data variables.product.prodname_dotcom %} com {% ifversion fpt or ghec %}[integrações](/articles/about-integrations){% else %}integrações{% endif %} ou instalando [{% data variables.product.prodname_desktop %}](https://desktop.github.com) o robusto editor de texto [Atom](https://atom.io).
 

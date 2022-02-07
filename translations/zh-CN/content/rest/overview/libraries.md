@@ -2,7 +2,7 @@
 title: 库
 intro: '您可以使用官方的 Octokit 库和其他第三方库来扩展和简化您使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 的方式。'
 redirect_from:
-  - /libraries/
+  - /libraries
   - /v3/libraries
 versions:
   fpt: '*'

@@ -18,7 +18,6 @@ shortTitle: 使用 GitHub Actions 进行打包
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.package_registry.about-packaging-and-actions %}
 

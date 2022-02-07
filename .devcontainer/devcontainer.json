@@ -20,16 +20,17 @@
 		"sissel.shopify-liquid",
 		"davidanson.vscode-markdownlint",
 		"bierner.markdown-preview-github-styles",
-		"yzhang.markdown-all-in-one",
-		"streetsidesoftware.code-spell-checker"
+		"streetsidesoftware.code-spell-checker",
+		"hubwriter.open-reusable"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [4000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	 "postCreateCommand": "npm ci && npm run build",
-
+	"postCreateCommand": "npm ci && npm run build",
+		 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node"
+
 }

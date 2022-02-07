@@ -1,7 +1,6 @@
 ---
 title: Adicionando organizações à sua empresa
-intro: You can create new organizations or invite existing organizations to manage within your enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
+intro: É possível criar novas organizações ou convidar organizações existentes para gerenciar dentro da sua empresa.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /articles/adding-organizations-to-your-enterprise-account
@@ -21,7 +20,9 @@ shortTitle: Adicionar organizações
 
 Sua conta corporativa pode ser proprietária de organizações. Os integrantes da sua empresa podem colaborar em projetos relacionados dentro de uma organização. Para obter mais informações, consulte "[Sobre organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
-Enterprise owners can create new organizations within an enterprise account's settings or invite existing organizations to join an enterprise. To add an organization to your enterprise, you must create the organization from within the enterprise account settings.
+Os proprietários corporativos podem criar novas organizações dentro das configurações de uma conta corporativa ou convidar organizações existentes para participar de uma empresa. Para adicionar uma organização à sua empresa, você deve criar a organização dentro das configurações de conta corporativa.
+
+Você só pode adicionar organizações dessa forma a uma conta corporativa existente. {% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, consulte "[Criando uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
 
 ## Criar uma organização em sua conta corporativa
 
@@ -38,12 +39,12 @@ Os proprietários da empresa que criam uma organização pertencente à conta co
 
 ## Convidar uma organização para se juntar-se à sua conta corporativa
 
-Os proprietários corporativos podem convidar organizações existentes para juntar-se à sua conta corporativa. Se a organização que deseja convidar já pertence a outra empresa, você não poderá enviar um convite até que a empresa anterior desista da propriedade da organização.
+Os proprietários corporativos podem convidar organizações existentes para juntar-se à sua conta corporativa. Se a organização que deseja convidar já pertence a outra empresa, você não poderá enviar um convite até que a empresa anterior desista da propriedade da organização. Para obter mais informações, consulte "[Removendo uma organização da sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 2. Na aba **Organizações**, acima da lista de organizações, clique em **Convidar organização**. ![Convidar organização](/assets/images/help/business-accounts/enterprise-account-invite-organization.png)
 3. Em "Organização", comece a digitar o nome da organização que deseja convidar e selecione-a quando aparecer na lista suspensa. ![Pesquisar organização](/assets/images/help/business-accounts/enterprise-account-search-for-organization.png)
 4. Clique em **Convidar organização**.
-5. Os proprietários da organização receberão um e-mail convidando-os para participar da organização. Pelo menos um proprietário deverá aceitar o convite antes que o processo possa continuar. Você pode cancelar ou reenviar o convite a qualquer momento antes que um proprietário o aprove. ![Cancelar ou reenviar](/assets/images/help/business-accounts/enterprise-account-invitation-sent.png)
+5. Os proprietários da organização receberão um e-mail convidando-os para participar da empresa. Pelo menos um proprietário deverá aceitar o convite antes que o processo possa continuar. Você pode cancelar ou reenviar o convite a qualquer momento antes que um proprietário o aprove. ![Cancelar ou reenviar](/assets/images/help/business-accounts/enterprise-account-invitation-sent.png)
 6. Uma vez que o proprietário da organização tenha aprovado o convite, você poderá ver o seu estado na lista de convites pendentes. ![Convite pendente](/assets/images/help/business-accounts/enterprise-account-pending.png)
 7. Clique em **Aprovar** para concluir a transferência ou **Cancelar** para cancelá-la. ![Aprovar convite](/assets/images/help/business-accounts/enterprise-account-transfer-approve.png)

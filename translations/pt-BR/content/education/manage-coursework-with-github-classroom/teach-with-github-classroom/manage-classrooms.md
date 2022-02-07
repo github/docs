@@ -1,7 +1,7 @@
 ---
 title: Gerenciar salas de aula
 intro: 'Você pode criar e gerenciar uma sala de aula para cada curso que você der usando {% data variables.product.prodname_classroom %}.'
-permissions: Organization owners can manage a classroom for an organization.
+permissions: 'Organization owners who are admins for a classroom can manage the classroom for an organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
   fpt: '*'
 redirect_from:
@@ -21,7 +21,7 @@ redirect_from:
 
 Depois de criar uma sala de aula, {% data variables.product.prodname_classroom %} solicitará que você convide assistentes de ensino (ETI) e administradores para a sala de aula. Cada sala de aula pode ter um ou mais administradores. Os administradores podem ser professores, TAs ou qualquer outro administrador do curso o qual que você gostaria que tivesse controle das suas salas de aula em {% data variables.product.prodname_classroom %}.
 
-Convide TAs e administradores para a sua sala de aula, convidando as contas de usuário em {% data variables.product.product_name %} para a sua organização como proprietários e compartilhando a URL da sua sala de aula. Os proprietários da organização podem administrar qualquer sala de aula da organização. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
+Convide TAs e administradores para a sua sala de aula, convidando as contas de usuário em {% data variables.product.product_name %} para a sua organização como proprietários e compartilhando a URL da sua sala de aula. Os proprietários da organização podem administrar qualquer sala de aula da organização. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" e "[Convidando usuários para participar da sua organização](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
 
 Ao terminar de usar uma sala de aula, você pode arquivar a sala de aula e consultar a sala de aula, lista, e recomendações posteriormente, ou você pode excluir a sala de aula se não precisar mais dela.
 

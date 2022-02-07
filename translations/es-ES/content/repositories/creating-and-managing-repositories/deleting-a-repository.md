@@ -2,8 +2,8 @@
 title: Eliminar un repositorio
 intro: Puedes eliminar cualquier repositorio o bifurcación si eres un propietario de la organización o si tienes permisos de administración para el repositorio o la bifurcación. Eliminar un repositorio bifurcado no elimina el repositorio ascendente.
 redirect_from:
-  - /delete-a-repo/
-  - /deleting-a-repo/
+  - /delete-a-repo
+  - /deleting-a-repo
   - /articles/deleting-a-repository
   - /github/administering-a-repository/deleting-a-repository
   - /github/administering-a-repository/managing-repository-settings/deleting-a-repository
@@ -25,11 +25,11 @@ topics:
 **Advertencias**:
 
 - El borrar un repositorio borrará los adjuntos del lanzamiento y los permisos de equpo **permanentemente**. Esta acción **no** se puede deshacer.
-- Deleting a private or internal repository will delete all forks of the repository.
+- El borrar un repositorio privado{% ifversion ghes or ghec or ghae %} o interno{% endif %} borrará también todas sus bifurcaciones.
 
 {% endwarning %}
 
-Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+Algunos repositorios borrados pueden restablecerse dentro de los primeros 90 días después de haberse borrado. {% ifversion ghes or ghae %}Tu administrador de sitio podría ser capaz de restablecer un repositorio borrado para ti. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}Para obtener más información, consulta la sección"[Restaurar un repositorio eliminado](/articles/restoring-a-deleted-repository)".{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

@@ -2,7 +2,7 @@
 title: 在 OpenStack KVM 上安装 GitHub Enterprise Server
 intro: '要在 OpenStack KVM 上安装 {% data variables.product.prodname_ghe_server %}，您必须具有 OpenStack 访问权限并下载 {% data variables.product.prodname_ghe_server %} QCOW2 映像。'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm
   - /enterprise/admin/installation/installing-github-enterprise-server-on-openstack-kvm
   - /admin/installation/installing-github-enterprise-server-on-openstack-kvm
 versions:

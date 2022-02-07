@@ -3,8 +3,8 @@ title: webhook イベントとペイロード
 intro: webhook イベントごとに、イベントの発生日時、ペイロードの例、およびペイロードオブジェクトパラメータに関する説明を確認できます。
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
-  - /early-access/integrations/webhooks/
-  - /v3/activity/events/types/
+  - /early-access/integrations/webhooks
+  - /v3/activity/events/types
   - /webhooks/event-payloads
   - /developers/webhooks-and-events/webhook-events-and-payloads
 versions:
@@ -101,7 +101,7 @@ webhook によって設定されている URL エンドポイントに配信さ�
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 ## branch_protection_rule
 
 ブランチ保護ルールに関するアクティビティです。 詳しい情報については「[ブランチ保護ルールについて](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)」を参照してください。
@@ -127,6 +127,34 @@ webhook によって設定されている URL エンドポイントに配信さ�
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+A Git ref has been successfully synced to a cache replica. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+
+### webhook ペイロードオブジェクト
+
+| キー               | 種類       | 説明                                                             |
+| ---------------- | -------- | -------------------------------------------------------------- |
+| `cache_location` | `string` | The location of the cache server that has been updated.        |
+| `ref`            | `string` | The ref that has been updated.                                 |
+| `before`         | `string` | The OID of the ref on the cache replica before it was updated. |
+| `after`          | `string` | The OID of the ref on the cache replica after the update.      |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -191,7 +219,7 @@ webhook によって設定されている URL エンドポイントに配信さ�
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 `sender`オブジェクトは、他の全てのアクションに対して{% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae-next %}`github-enterprise`{% else %}empty{% endif %}です。
+`sender` | `object` | `action` が `reopened_by_user` または `closed_by_user` の場合、`sender` オブジェクトは、イベントをトリガーしたユーザになります。 The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
 
 ### webhook ペイロードの例
 
@@ -219,6 +247,7 @@ webhook によって設定されている URL エンドポイントに配信さ�
 
 {{ webhookPayloadsForCurrentVersion.commit_comment.created }}
 
+{% ifversion ghes < 3.4 %}
 ## content_reference
 
 {% data reusables.webhooks.content_reference_short_desc %}
@@ -233,13 +262,14 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {{ webhookPayloadsForCurrentVersion.content_reference.created }}
 
+{% endif %}
 ## create
 
 {% data reusables.webhooks.create_short_desc %}
 
 {% note %}
 
-**注釈:** 一度に 3 つ以上のタグをプッシュすると、このイベントの webhook を受信しません。
+**Note:** You will not receive a webhook for this event when you create more than three tags at once.
 
 {% endnote %}
 
@@ -323,10 +353,10 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー           | 種類                                          | 説明                                                 |
-| ------------ | ------------------------------------------- | -------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| キー           | 種類                                          | 説明                                                              |
+| ------------ | ------------------------------------------- | --------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `action`     | `string`                                    | 実行されたアクション。 `created` を指定可。{% endif %}
-| `deployment` | `オブジェクト`                                    | [デプロイメント](/rest/reference/repos#list-deployments)。 |
+| `deployment` | `オブジェクト`                                    | The [deployment](/rest/reference/deployments#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -348,14 +378,14 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー                                 | 種類                                          | 説明                                                                   |
-| ---------------------------------- | ------------------------------------------- | -------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| キー                                 | 種類                                          | 説明                                                                                                  |
+| ---------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `action`                           | `string`                                    | 実行されたアクション。 `created` を指定可。{% endif %}
-| `deployment_status`                | `オブジェクト`                                    | [デプロイメントステータス](/rest/reference/repos#list-deployment-statuses)。      |
-| `deployment_status["state"]`       | `string`                                    | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。              |
-| `deployment_status["target_url"]`  | `string`                                    | ステータスに追加されたオプションのリンク。                                                |
-| `deployment_status["description"]` | `string`                                    | オプションの人間可読の説明がステータスに追加。                                              |
-| `deployment`                       | `オブジェクト`                                    | このステータスが関連付けられている [デプロイメント](/rest/reference/repos#list-deployments)。 |
+| `deployment_status`                | `オブジェクト`                                    | The [deployment status](/rest/reference/deployments#list-deployment-statuses).                      |
+| `deployment_status["state"]`       | `string`                                    | 新しい状態。 `pending`、`success`、`failure`、`error` のいずれかを指定可。                                             |
+| `deployment_status["target_url"]`  | `string`                                    | ステータスに追加されたオプションのリンク。                                                                               |
+| `deployment_status["description"]` | `string`                                    | オプションの人間可読の説明がステータスに追加。                                                                             |
+| `deployment`                       | `オブジェクト`                                    | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -379,9 +409,9 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 ### webhook ペイロードオブジェクト
 
-| キー       | 種類       | 説明                                                                                                                                              |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action` | `string` | 実行されたアクション。 `created`、`edited`、`deleted`、`pinned`、`unpinned`、`locked`、`unlocked`、`transferred`、`category_changed`、`answered`、`unanswered`のいずれか。 |
+| キー       | 種類       | 説明                                                                                                                                                                                     |
+| -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action` | `string` | 実行されたアクション。 Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled`, or `unlabeled`. |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -506,7 +536,7 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {{ webhookPayloadsForCurrentVersion.gollum }}
 
-## インストール
+## installation
 
 {% data reusables.webhooks.installation_short_desc %}
 
@@ -819,7 +849,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 | キー    | 種類        | 説明                                                                         |
 | ----- | --------- | -------------------------------------------------------------------------- |
 | `id`  | `integer` | ページビルドの一意の識別子。                                                             |
-| `ビルド` | `オブジェクト`  | [GitHub Pages ビルドのリスト](/rest/reference/repos#list-github-pages-builds) 自体。 |
+| `ビルド` | `オブジェクト`  | [GitHub Pages ビルドのリスト](/rest/reference/pages#list-github-pages-builds) 自体。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -845,7 +875,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 | -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `zen`          | `string`  | GitHub zen のランダムな文字列。                                                                                                                                                                                                                                                                                              |
 | `hook_id`      | `integer` | ping をトリガーした webhook の ID。                                                                                                                                                                                                                                                                                         |
-| `フック`          | `オブジェクト`  | [webhook 設定](/rest/reference/repos#get-a-repository-webhook)。                                                                                                                                                                                                                                                      |
+| `フック`          | `オブジェクト`  | [webhook 設定](/rest/reference/webhooks#get-a-repository-webhook)。                                                                                                                                                                                                                                                   |
 | `hook[app_id]` | `integer` | 新しい {% data variables.product.prodname_github_app %} を登録すると、{% data variables.product.product_name %} は登録時に指定した **webhook URL** に ping イベントを送信します。 イベントには、アプリケーションの[認証](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/)に必要な `app_id` が含まれています。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -854,6 +884,38 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.ping }}
+
+## project
+
+{% data reusables.webhooks.project_short_desc %}
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_apps %}
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
+
+### webhook ペイロードオブジェクト
+
+{% data reusables.webhooks.project_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.project.created }}
+
+{% ifversion fpt or ghes or ghec %}
 
 ## project_card
 
@@ -864,6 +926,14 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 - リポジトリ webhook
 - Organization webhook
 - `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_apps %}
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
 
 ### webhook ペイロードオブジェクト
 
@@ -899,29 +969,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-## project
-
-{% data reusables.webhooks.project_short_desc %}
-
-### 利用の可否
-
-- リポジトリ webhook
-- Organization webhook
-- `repository_projects` または `organization_projects` 権限のある {% data variables.product.prodname_github_apps %}
-
-### webhook ペイロードオブジェクト
-
-{% data reusables.webhooks.project_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
-
-### webhook ペイロードの例
-
-{{ webhookPayloadsForCurrentVersion.project.created }}
-
-{% ifversion fpt or ghes or ghec %}
 ## public
 
 {% data reusables.webhooks.public_short_desc %}
@@ -1033,29 +1080,29 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 ### webhook ペイロードオブジェクト
 
-| キー                         | 種類        | 説明                                                                                                                                                                                                                                         |
-| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ref`                      | `string`  | プッシュされた完全な[`git ref`](/rest/reference/git#refs)。 例: `refs/heads/main`または`refs/tags/v3.14.1`。                                                                                                                                               |
-| `before`                   | `string`  | プッシュ前の`ref` 上の最新のコミットのSHA。                                                                                                                                                                                                                 |
-| `after`                    | `string`  | プッシュ後の`ref`上の最新のコミットのSHA。                                                                                                                                                                                                                  |
-| `created`                  | `boolean` | プッシュが`ref`を作成したかどうか。                                                                                                                                                                                                                       |
-| `deleted`                  | `boolean` | プッシュが`ref`を削除したかどうか。                                                                                                                                                                                                                       |
-| `forced`                   | `boolean` | プッシュが `ref`のフォースプッシュであったかどうか。                                                                                                                                                                                                              |
-| `head_commit`              | `オブジェクト`  | `after`がコミットオブジェクトであるか、コミットオブジェクトを指している場合、そのコミットの拡張表現。 `after`がアノテーションされたタグオブジェクトを指すプッシュの場合、そのアノテーションされたタグが指すコミットの拡張表現。                                                                                                                    |
-| `compare`                  | `string`  | `before`コミットから`after`コミットまで、この`ref`更新にある変更を示すURL。 デフォルトブランチに直接基づいて新規作成された`ref`の場合、デフォルトブランチのheadと`after`コミットとの比較。 それ以外の場合は、`after`コミットまでのすべてのコミットを示す。                                                                                      |
-| `commits`                  | `array`   | プッシュされたコミットを示すコミットオブジェクトの配列。 (プッシュされたコミットは、`before`コミットと`after`コミットの間で`compare`されたものに含まれる全てのコミット。) 配列には最大で20のコミットが含まれる。 必要な場合は、追加のコミットを[Commits API](/rest/reference/repos#commits)を使ってフェッチできる。 この制限はタイムラインイベントにのみ適用され、webhookの配信には適用されない。 |
-| `commits[][id]`            | `string`  | コミットのSHA。                                                                                                                                                                                                                                  |
-| `commits[][timestamp]`     | `string`  | コミットの ISO 8601 タイムスタンプ。                                                                                                                                                                                                                    |
-| `commits[][message]`       | `string`  | コミットメッセージ。                                                                                                                                                                                                                                 |
-| `commits[][author]`        | `オブジェクト`  | コミットのGit作者。                                                                                                                                                                                                                                |
-| `commits[][author][name]`  | `string`  | Git作者の名前。                                                                                                                                                                                                                                  |
-| `commits[][author][email]` | `string`  | Git作者のメールアドレス。                                                                                                                                                                                                                             |
-| `commits[][url]`           | `url`     | コミットAPIのリソースを指すURL。                                                                                                                                                                                                                        |
-| `commits[][distinct]`      | `boolean` | このコミットが以前にプッシュされたいずれとも異なっているか。                                                                                                                                                                                                             |
-| `commits[][added]`         | `array`   | コミットに追加されたファイルの配列。                                                                                                                                                                                                                         |
-| `commits[][modified]`      | `array`   | コミットによって変更されたファイルの配列。                                                                                                                                                                                                                      |
-| `commits[][removed]`       | `array`   | コミットから削除されたファイルの配列。                                                                                                                                                                                                                        |
-| `pusher`                   | `オブジェクト`  | コミットをプッシュしたユーザ。                                                                                                                                                                                                                            |
+| キー                         | 種類        | 説明                                                                                                                                                    |
+| -------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ref`                      | `string`  | プッシュされた完全な[`git ref`](/rest/reference/git#refs)。 例: `refs/heads/main`または`refs/tags/v3.14.1`。                                                          |
+| `before`                   | `string`  | プッシュ前の`ref` 上の最新のコミットのSHA。                                                                                                                            |
+| `after`                    | `string`  | プッシュ後の`ref`上の最新のコミットのSHA。                                                                                                                             |
+| `created`                  | `boolean` | プッシュが`ref`を作成したかどうか。                                                                                                                                  |
+| `deleted`                  | `boolean` | プッシュが`ref`を削除したかどうか。                                                                                                                                  |
+| `forced`                   | `boolean` | プッシュが `ref`のフォースプッシュであったかどうか。                                                                                                                         |
+| `head_commit`              | `オブジェクト`  | `after`がコミットオブジェクトであるか、コミットオブジェクトを指している場合、そのコミットの拡張表現。 `after`がアノテーションされたタグオブジェクトを指すプッシュの場合、そのアノテーションされたタグが指すコミットの拡張表現。                               |
+| `compare`                  | `string`  | `before`コミットから`after`コミットまで、この`ref`更新にある変更を示すURL。 デフォルトブランチに直接基づいて新規作成された`ref`の場合、デフォルトブランチのheadと`after`コミットとの比較。 それ以外の場合は、`after`コミットまでのすべてのコミットを示す。 |
+| `commits`                  | `array`   | プッシュされたコミットを示すコミットオブジェクトの配列。 (プッシュされたコミットは、`before`コミットと`after`コミットの間で`compare`されたものに含まれる全てのコミット。)                                                    |
+| `commits[][id]`            | `string`  | コミットのSHA。                                                                                                                                             |
+| `commits[][timestamp]`     | `string`  | コミットの ISO 8601 タイムスタンプ。                                                                                                                               |
+| `commits[][message]`       | `string`  | コミットメッセージ。                                                                                                                                            |
+| `commits[][author]`        | `オブジェクト`  | コミットのGit作者。                                                                                                                                           |
+| `commits[][author][name]`  | `string`  | Git作者の名前。                                                                                                                                             |
+| `commits[][author][email]` | `string`  | Git作者のメールアドレス。                                                                                                                                        |
+| `commits[][url]`           | `url`     | コミットAPIのリソースを指すURL。                                                                                                                                   |
+| `commits[][distinct]`      | `boolean` | このコミットが以前にプッシュされたいずれとも異なっているか。                                                                                                                        |
+| `commits[][added]`         | `array`   | コミットに追加されたファイルの配列。                                                                                                                                    |
+| `commits[][modified]`      | `array`   | コミットによって変更されたファイルの配列。                                                                                                                                 |
+| `commits[][removed]`       | `array`   | コミットから削除されたファイルの配列。                                                                                                                                   |
+| `pusher`                   | `オブジェクト`  | コミットをプッシュしたユーザ。                                                                                                                                       |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1197,8 +1244,9 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
-セキュリティアドバイザリに関連するアクティビティ。 セキュリティアドバイザリは、GitHub 上のソフトウェアのセキュリティ関連の脆弱性に関する情報を提供します。 The security advisory dataset also powers the GitHub security alerts, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
-{% endif %}
+Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
+
+The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照してください。
 
 ### 利用の可否
 
@@ -1214,6 +1262,8 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ## スポンサーシップ

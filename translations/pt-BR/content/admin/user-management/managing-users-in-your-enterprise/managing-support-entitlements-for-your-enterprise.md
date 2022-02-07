@@ -1,7 +1,6 @@
 ---
 title: Gerenciando direitos de suporte para sua empresa
 intro: Você pode conceder aos integrantes da empresa a capacidade de gerenciar tíquetes de suporte para a conta corporativa.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 versions:
@@ -16,7 +15,7 @@ shortTitle: Gerenciar titularidades de suporte
 
 As pessoas com suporte titulares de direitos para a conta corporativa podem usar o portal de suporte para abrir, visualizar e comentar tíquetes de suporte associados à conta corporativa.
 
-Os proprietários das empresas e os gerentes de cobrança têm automaticamente direito a suporte. Os proprietários das empresas podem adicionar direitos de suporte aos integrantes de organizações pertencentes à sua conta corporativa.
+Os proprietários das empresas e os gerentes de cobrança têm automaticamente direito a suporte. Enterprise owners can add support entitlements to up to 20 additional members of organizations owned by their enterprise account.
 
 ## Adicionar um direito de suporte a um integrante da empresa
 

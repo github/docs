@@ -2,12 +2,12 @@
 title: Invitar colaboradores a un repositorio personal
 intro: 'Puedes {% ifversion fpt or ghec %}invitar usuarios para convertir{% else %}agregar usuarios como{% endif %} colaboradores de tu repositorio personal.'
 redirect_from:
-  - /articles/how-do-i-add-a-collaborator/
-  - /articles/adding-collaborators-to-a-personal-repository/
+  - /articles/how-do-i-add-a-collaborator
+  - /articles/adding-collaborators-to-a-personal-repository
   - /articles/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
-product: '{% ifversion fpt %}{% data reusables.gated-features.user-repo-collaborators %}{% endif %}'
+product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -38,8 +38,8 @@ Si eres un miembro de una {% data variables.product.prodname_emu_enterprise %}, 
 1. Solicita el nombre de usuario de la persona a la que estás invitando como colaborador.{% ifversion fpt or ghec %} Si aún no tiene un nombre de usuario, puede registrarse para {% data variables.product.prodname_dotcom %} Para obtener más información, consulta "[Registrar una cuenta {% data variables.product.prodname_dotcom %} nueva](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658%}
+{% data reusables.repositories.click-collaborators-teams %}
 1. Da clic en **Invitar un colaborador**. ![botón de "invitar un colaborador"](/assets/images/help/repository/invite-a-collaborator-button.png)
 2. En el campo de búsqueda, comienza a teclear el nombre de la persona que quieres invitar, luego da clic en un nombre de la lista de resultados. ![Campo de búsqueda para teclear el nombre de una persona e invitarla al repositorio](/assets/images/help/repository/manage-access-invite-search-field-user.png)
 3. Da clic en **Añadir NOMBRE a REPOSITORIO**. ![Botón para añadir un colaborador](/assets/images/help/repository/add-collaborator-user-repo.png)

@@ -9,6 +9,7 @@ topics:
   - Community
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 ---
@@ -37,7 +38,7 @@ JavaScript actions are Node.js repositories with metadata. However, JavaScript a
 
 * Dependent packages are committed alongside the code, typically in a compiled and minified form. This means that automated builds and secure community contributions are important.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 * Tagged releases can be published directly to {% data variables.product.prodname_marketplace %} and consumed by workflows across {% data variables.product.prodname_dotcom %}.
 
@@ -54,7 +55,7 @@ To support the developer process in the next section, add two {% data variables.
 
 ### Example developer process
 
-Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt%} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
+Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt or ghec%} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
 
 1. Do feature work in branches per GitHub flow. For more information, see "[GitHub flow](/get-started/quickstart/github-flow)."
    * Whenever a commit is pushed to the feature branch, your testing workflow will automatically run the tests.
@@ -65,7 +66,7 @@ Here is an example process that you can follow to automatically run tests, creat
 
    * **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. If your tests or other workflows triggered upon pull request require access to secrets, consider using a different event like a [manual trigger](/actions/reference/events-that-trigger-workflows#manual-events) or a [`pull_request_target`](/actions/reference/events-that-trigger-workflows#pull_request_target). Read more [here](/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
 
-3. Create a semantically tagged release. {% ifversion fpt %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt %} and "[Publishing actions in {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
+3. Create a semantically tagged release. {% ifversion fpt or ghec %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} and "[Publishing actions in {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
 
    * When a release is published or edited, your release workflow will automatically take care of compilation and adjusting tags.
 
@@ -82,7 +83,7 @@ Using semantic releases means that the users of your actions can pin their workf
 {% data variables.product.product_name %} provides tools and guides to help you work with the open source community. Here are a few tools we recommend setting up for healthy bidirectional communication. By providing the following signals to the community, you encourage others to use, modify, and contribute to your action:
 
 * Maintain a `README` with plenty of usage examples and guidance. 詳しい情報については「[README について](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)」を参照してください。
-* Include a workflow status badge in your `README` file. For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)." Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt %}
+* Include a workflow status badge in your `README` file. For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)." Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
 * Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file#supported-file-types)."{% endif %}
 * Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).
 

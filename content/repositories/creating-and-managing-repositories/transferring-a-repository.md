@@ -2,15 +2,15 @@
 title: Transferring a repository
 intro: You can transfer repositories to other users or organization accounts.
 redirect_from:
-  - /articles/about-repository-transfers/
-  - /move-a-repo/
-  - /moving-a-repo/
-  - /articles/what-is-transferred-with-a-repository/
-  - /articles/what-is-transferred-with-a-repo/
-  - /articles/how-to-transfer-a-repo/
-  - /articles/how-to-transfer-a-repository/
-  - /articles/transferring-a-repository-owned-by-your-personal-account/
-  - /articles/transferring-a-repository-owned-by-your-organization/
+  - /articles/about-repository-transfers
+  - /move-a-repo
+  - /moving-a-repo
+  - /articles/what-is-transferred-with-a-repository
+  - /articles/what-is-transferred-with-a-repo
+  - /articles/how-to-transfer-a-repo
+  - /articles/how-to-transfer-a-repository
+  - /articles/transferring-a-repository-owned-by-your-personal-account
+  - /articles/transferring-a-repository-owned-by-your-organization
   - /articles/transferring-a-repository
   - /github/administering-a-repository/transferring-a-repository
   - /github/administering-a-repository/managing-repository-settings/transferring-a-repository
@@ -30,7 +30,8 @@ Prerequisites for repository transfers:
 - When you transfer a repository that you own to another user account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
 - To transfer a repository that you own to an organization, you must have permission to create a repository in the target organization.
 - The target account must not have a repository with the same name, or a fork in the same network.
-- The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.
+- The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.{% ifversion ghec or ghes or ghae %}
+- Internal repositories can't be transferred.{% endif %}
 - Private forks can't be transferred.
 
 {% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
@@ -50,7 +51,8 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
   $ git remote set-url origin <em>new_url</em>
   ```
 
-- When you transfer a repository from an organization to a user account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a user account. For more information about repository permission levels, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+- When you transfer a repository from an organization to a user account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a user account. For more information about repository permission levels, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}
+- Sponsors who have access to the repository through a sponsorship tier may be affected. For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)".{% endif %}
 
 For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 

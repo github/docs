@@ -37,7 +37,7 @@ Ao verificar as revisões de dependências nos pull requests, você pode evitar 
 ## {% data variables.product.prodname_dependabot_alerts %}
 {% data variables.product.product_name %} pode criar {% data variables.product.prodname_dependabot_alerts %} quando detectar dependências vulneráveis no seu repositório. O alerta é exibido na aba Segurança do repositório. O alerta inclui um link para o arquivo afetado no projeto, e informações sobre uma versão corrigida. {% data variables.product.product_name %} também notifica os mantenedores do repositório, de acordo com as suas preferências de notificação. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 ## {% data variables.product.prodname_dependabot_security_updates %}
 Quando {% data variables.product.product_name %} gera um alerta de {% data variables.product.prodname_dependabot %} para uma dependência vulnerável no seu repositório, {% data variables.product.prodname_dependabot %} pode tentar corrigir automaticamente para você. {% data variables.product.prodname_dependabot_security_updates %} são pull requests gerados automaticamente que atualizam uma dependência vulnerável para uma versão fixa. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 

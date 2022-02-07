@@ -3,9 +3,9 @@ title: GitHub アカウントの割引プラン
 intro: '{% data variables.product.product_name %}は、学生、教師、教育機関、非営利団体、図書館などに割引を提供しています。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/discounted-subscriptions-for-github-accounts
-  - /articles/discounted-personal-accounts/
-  - /articles/discounted-organization-accounts/
-  - /articles/discounted-billing-plans/
+  - /articles/discounted-personal-accounts
+  - /articles/discounted-organization-accounts
+  - /articles/discounted-billing-plans
   - /articles/discounted-subscriptions-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts
 versions:

@@ -3,7 +3,7 @@ title: Crear un tablero de proyecto
 intro: 'Los tableros de proyecto se pueden usar para crear flujos de trabajo personalizados de acuerdo con tus necesidades, como hacer un seguimiento y priorizar trabajos con características específicas, hojas de ruta completas y hasta listas de verificación de lanzamientos.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
-  - /articles/creating-a-project/
+  - /articles/creating-a-project
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:

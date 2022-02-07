@@ -2,9 +2,9 @@
 title: カスタムドメインとGitHub Pages のトラブルシューティング
 intro: '{% data variables.product.prodname_pages %} サイトのカスタムドメインまたは HTTPS について、よくあるエラーを確認して Issue を解決することができます。'
 redirect_from:
-  - /articles/my-custom-domain-isn-t-working/
-  - /articles/custom-domain-isn-t-working/
-  - /articles/troubleshooting-custom-domains/
+  - /articles/my-custom-domain-isn-t-working
+  - /articles/custom-domain-isn-t-working
+  - /articles/troubleshooting-custom-domains
   - /articles/troubleshooting-custom-domains-and-github-pages
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
@@ -55,7 +55,7 @@ You can also use one of the following methods to test whether your custom domain
 
 ## HTTPS エラー
 
-_CNAME_、`ALIAS`、`ANAME` や `A` DNS レコードで適切に設定されたカスタムドメインを使っている {% data variables.product.prodname_pages %} サイトは、HTTPS でアクセスできます。 詳しい情報については[HTTPSで{% data variables.product.prodname_pages %}サイトをセキュアにする](/articles/securing-your-github-pages-site-with-https)を参照してください。
+`CNAME`、`ALIAS`、`ANAME` や `A` DNS レコードで適切に設定されたカスタムドメインを使っている {% data variables.product.prodname_pages %} サイトは、HTTPS でアクセスできます。 詳しい情報については[HTTPSで{% data variables.product.prodname_pages %}サイトをセキュアにする](/articles/securing-your-github-pages-site-with-https)を参照してください。
 
 カスタムドメインを設定した後、サイトが HTTPS 経由で利用可能になるには最長 1 時間かかります。 既存の DNS 設定をアップデートした後、HTTPS を有効化するプロセスを開始するには、カスタムドメインを削除してサイトのリポジトリに再追加しなければならない可能性があります。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 

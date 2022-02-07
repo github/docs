@@ -13,11 +13,8 @@ shortTitle: View workflow run history
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-read %}
-
-{% include tool-switcher %}
 
 {% webui %}
 

@@ -3,7 +3,7 @@ title: Excluir um quadro de projeto
 intro: Você pode excluir um quadro de projeto existente se já não precisa mais ter acesso ao conteúdo dele.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/deleting-a-project-board
-  - /articles/deleting-a-project/
+  - /articles/deleting-a-project
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:

@@ -2,7 +2,7 @@
 title: 删除 OAuth 应用程序
 intro: '{% data reusables.shortdesc.deleting_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/deleting-an-oauth-app/
+  - /apps/building-integrations/managing-oauth-apps/deleting-an-oauth-app
   - /apps/managing-oauth-apps/deleting-an-oauth-app
   - /developers/apps/deleting-an-oauth-app
 versions:

@@ -2,7 +2,7 @@
 title: Criar uma senha forte
 intro: 'Proteja sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} com uma senha forte e única usando um gerenciador de senhas.'
 redirect_from:
-  - /articles/what-is-a-strong-password/
+  - /articles/what-is-a-strong-password
   - /articles/creating-a-strong-password
   - /github/authenticating-to-github/creating-a-strong-password
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password

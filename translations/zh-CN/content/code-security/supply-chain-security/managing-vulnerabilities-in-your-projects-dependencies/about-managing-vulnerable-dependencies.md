@@ -37,7 +37,7 @@ shortTitle: 有漏洞的依赖项
 ## {% data variables.product.prodname_dependabot_alerts %}
 检测到仓库中存在有漏洞依赖项时，{% data variables.product.product_name %} 可创建 {% data variables.product.prodname_dependabot_alerts %}。 警报显示在仓库的 Security（安全）选项卡上。 该警报包括指向项目中受影响的文件的链接，以及有关修复的版本的信息。 {% data variables.product.product_name %} 还根据仓库维护员的通知首选项通知他们。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 ## {% data variables.product.prodname_dependabot_security_updates %}
 当 {% data variables.product.product_name %} 针对仓库中的有漏洞依赖项生成 {% data variables.product.prodname_dependabot %} 警报时，{% data variables.product.prodname_dependabot %} 可以自动尝试为您修复它。 {% data variables.product.prodname_dependabot_security_updates %} 是自动生成的拉取请求，用于将有漏洞依赖项更新到修复版本。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
 

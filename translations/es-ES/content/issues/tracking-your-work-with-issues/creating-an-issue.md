@@ -1,6 +1,6 @@
 ---
-title: Crear una propuesta
-intro: 'Las propuestas pueden crearse de varias formas, así que puedes elegir el método más conveniente para tu flujo de trabajo.'
+title: Creating an issue
+intro: 'Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow.'
 permissions: 'People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-an-issue
@@ -27,122 +27,141 @@ topics:
   - Pull requests
   - Issues
   - Project management
-shortTitle: Crear un informe de problemas
+shortTitle: Create an issue
 type: how_to
 ---
 
-Las propuestas se pueden usar para hacer un seguimiento de los errores, mejoras u otras solicitudes. Para obtener más información, consulta "[Acerca de las propuestas](/issues/tracking-your-work-with-issues/about-issues)".
+Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."
 
 {% data reusables.repositories.administrators-can-disable-issues %}
 
-## Crear una propuesta desde un repositorio
+## Creating an issue from a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.repositories.new_issue %}
-1. Si tu repositorio utiliza plantillas, haz clic en **Iniciar** junto al tipo de propuesta que te gustaría abrir. ![Select the type of issue you want to create](/assets/images/help/issues/issue_template_get_started_button.png)O haz clic en **Abrir una propuesta en blanco** si el tipo de propuesta que te gustaría abrir no se incluye en las opciones disponibles. ![Enlace para abrir una propuesta en blanco](/assets/images/help/issues/blank_issue_link.png)
+1. If your repository uses issue templates, click **Get started** next to the type of issue you'd like to open.
+  ![Select the type of issue you want to create](/assets/images/help/issues/issue_template_get_started_button.png)
+   Or, click **Open a blank issue** if the type of issue you'd like to open isn't included in the available options.
+  ![Link to open a blank issue](/assets/images/help/issues/blank_issue_link.png)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-## Crear una propuesta con {% data variables.product.prodname_cli %}
+## Creating an issue with {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} Para aprender más sobre el {% data variables.product.prodname_cli %}, consulta la sección "[Acerca del {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-Para crear una propuesta, utiliza el subcomando `gh issue create`. Para omitir los mensajes interactivos, incluye los marcadores `--body` y `--title`.
-
-```shell
-gh issue create --title "My new issue" --body "Here are more details".
-```
-
-También puedes especificar asignados, etiquetas, hitos y proyectos.
+To create an issue, use the `gh issue create` subcommand. To skip the interactive prompts, include the `--body` and the `--title` flags.
 
 ```shell
-gh issue create --title "My new issue" --body "Here are more details". --assignee @me,monalisa --label "bug,help wanted" --project onboarding --milestone "learning codebase"
+gh issue create --title "My new issue" --body "Here are more details."
 ```
 
-## Crear una propuesta desde un comentario
+You can also specify assignees, labels, milestones, and projects.
 
-Puedes abrir una propuesta nueva desde un comentario en otra propuesta o solicitud de cambios. Cuando abres un informe de problemas desde un comentario, este informe contiene un fragmento de código que muestra en dónde se hizo el comentario originalmente.
+```shell
+gh issue create --title "My new issue" --body "Here are more details." --assignee @me,monalisa --label "bug,help wanted" --project onboarding --milestone "learning codebase"
+```
 
-1. Navega al comentario desde el cual te gustaría abrir una propuesta.
-2. Dentro del comentario, da clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Botón Kebab en el comentario de la revisión de solicitud de extracción](/assets/images/help/pull_requests/kebab-in-pull-request-review-comment.png)
-3. Haz clic en **Reference in new issue** (Referencia en la propuesta nueva). ![Referencia en el elemento del menú de propuestas nuevas](/assets/images/help/pull_requests/reference-in-new-issue.png)
-4. Usa el menú desplegable "Repository" (Repositorio) y selecciona el repositorio donde desees abrir la propuesta. ![Repositorio desplegable para nueva propuesta](/assets/images/help/pull_requests/new-issue-repository.png)
-5. Escribe un título descriptivo y un cuerpo para la propuesta. ![Título y cuerpo para la nueva propuesta](/assets/images/help/pull_requests/new-issue-title-and-body.png)
-6. Haz clic en **Create issue** (Crear propuesta). ![Botón para crear la nueva propuesta](/assets/images/help/pull_requests/create-issue.png)
+## Creating an issue from a comment
+
+You can open a new issue from a comment in an issue or pull request. When you open an issue from a comment, the issue contains a snippet showing where the comment was originally posted.
+
+1. Navigate to the comment that you would like to open an issue from.
+2. In that comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+  ![Kebab button in pull request review comment](/assets/images/help/pull_requests/kebab-in-pull-request-review-comment.png)
+3. Click **Reference in new issue**.
+  ![Reference in new issue menu item](/assets/images/help/pull_requests/reference-in-new-issue.png)
+4. Use the "Repository" drop-down menu, and select the repository you want to open the issue in.
+  ![Repository dropdown for new issue](/assets/images/help/pull_requests/new-issue-repository.png)
+5. Type a descriptive title and body for the issue.
+  ![Title and body for new issue](/assets/images/help/pull_requests/new-issue-title-and-body.png)
+6. Click **Create issue**.
+  ![Button to create new issue](/assets/images/help/pull_requests/create-issue.png)
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-## Crear una propuesta desde el código
+## Creating an issue from code
 
-Puedes abrir una nueva propuesta desde una línea específica o líneas de código en un archivo o solicitud de extracción. Cuando abres una propuesta desde el código, la propuesta contiene un fragmento de código que muestra la línea o rango de código que elegiste. Solo puedes abrir una propuesta en el mismo repositorio donde se almacena el código.
+You can open a new issue from a specific line or lines of code in a file or pull request. When you open an issue from code, the issue contains a snippet showing the line or range of code you chose. You can only open an issue in the same repository where the code is stored.
 
-![Fragmento de código representado en una propuesta abierta desde el código](/assets/images/help/repository/issue-opened-from-code.png)
+![Code snippet rendered in an issue opened from code](/assets/images/help/repository/issue-opened-from-code.png)
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Ubica el código que deseas hacer referencia en una propuesta:
-    - Para abrir una propuesta acerca de un código en un archivo, navega hasta el archivo.
-    - Para abrir una propuesta acerca de un código en una solicitud de extracción, navega hasta la solicitud de extracción y haz clic en {% octicon "diff" aria-label="The file diff icon" %} **Files changed (Archivos modificados)**. Luego, desplázate hasta el archivo que contiene el código que deseas incluir en tu comentario y haz clic en **Ver**.
+1. Locate the code you want to reference in an issue:
+    - To open an issue about code in a file, navigate to the file.
+    - To open an issue about code in a pull request, navigate to the pull request and click {% octicon "diff" aria-label="The file diff icon" %} **Files changed**. Then, browse to the file that contains the code you want included in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
-4. Hacia la izquierda del rango de código, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. En el menú desplegable, da clic en **Referenciar en nuevo informe de problemas**. ![Menú Kebab con opción para abrir una propuesta nueva desde una línea seleccionada](/assets/images/help/repository/open-new-issue-specific-line.png)
+4. To the left of the code range, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. In the drop-down menu, click **Reference in new issue**.
+  ![Kebab menu with option to open a new issue from a selected line](/assets/images/help/repository/open-new-issue-specific-line.png)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
 {% ifversion fpt or ghec %}
 
-## Crear una propuesta a partir de un debate
+## Creating an issue from discussion
 
-Las personas con permiso de clasificación en un repositorio pueden crear una propuesta a partir de un debate.
+People with triage permission to a repository can create an issue from a discussion.
 
-Cuando creas una propuesta a partir de un debate, el contenido de la publicación del debate se incluirá automáticamente en el cuerpo de la propuesta y cualquier etiqueta se retendrá. El crear una propuesta a partir de un debate no convertirá el debate en una propuesta ni borrará el debate existente. Para obtener más información sobre los {% data variables.product.prodname_discussions %}, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
+When you create an issue from a discussion, the contents of the discussion post will be automatically included in the issue body, and any labels will be retained. Creating an issue from a discussion does not convert the discussion to an issue or delete the existing discussion. For more information about {% data variables.product.prodname_discussions %}, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. En la barra lateral derecha, haz clic en {% octicon "issue-opened" aria-label="The issues icon" %} **Crear propuesta a partir de un debate**. ![Botón para crear una propuesta a partir de un debate](/assets/images/help/discussions/create-issue-from-discussion.jpg)
+1. In the right sidebar, click {% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion**.
+   ![Button to create issue from discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
 {% endif %}
 
-## Crear una propuesta desde una nota de un tablero de proyecto
+## Creating an issue from a project board note
 
-Si utilizas un tablero de proyecto para rastrear y priorizar tu trabajo, puedes convertir las notas del mismo en informes de problemas. Para obtener más información, consulta la sección "[Acerca de los tableros de proyecto](/github/managing-your-work-on-github/about-project-boards)" y "[Agregar notas a un tablero de proyecto](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)".
+If you're using a project board to track and prioritize your work, you can convert project board notes to issues. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)" and "[Adding notes to a project board](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)."
 
 {% ifversion fpt or ghec %}
 
-## Crear una propuesta desde un elemento de lista de tareas
+## Creating an issue from a task list item
 
-Dentro de una propuesta, puedes utilizar las listas de tareas para desglosar el trabajo en tareas más pequeñas y rastrear todo el conjunto del trabajo hasta que se complete. Si se requiere más rastreo o debate, puedes convertir la tarea en una propuesta si deslizas el puntero del mouse sobre la tarea y haces clic en {% octicon "issue-opened" aria-label="The issue opened icon" %} en la esquina superior derecha de la misma. Para obtener más información, consulta "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
+Within an issue, you can use task lists to break work into smaller tasks and track the full set of work to completion. If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
 
 {% endif %}
 
-## Crear una propuesta desde una consulta de URL
+## Creating an issue from a URL query
 
-Puedes consultar parámetros para abrir propuestas. Los parámetros de consulta son partes opcionales de una URL que puedes personalizar para compartir una vista de página web específica, como los resultados de filtro de búsqueda o una plantilla de propuestas en {% data variables.product.prodname_dotcom %}. Para crear tus propios parámetros de consulta, debes hacer coincidir el par de clave y valor.
+You can use query parameters to open issues. Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair.
 
 {% tip %}
 
-**Sugerencia:** También puedes crear plantillas de propuestas que se abran con etiquetas, asignatarios y un título de propuesta predeterminados. Para obtener más información, consulta la sección "[Utilizar plantillas para fomentar las propuestas y solicitudes de cambio útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)".
+**Tip:** You can also create issue templates that open with default labels, assignees, and an issue title. For more information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
 
 {% endtip %}
 
-Debes tener los permisos adecuados para cualquier acción para usar el parámetro de consulta equivalente. Por ejemplo, debes tener permiso para agregar una etiqueta a una propuesta para usar el parámetro de consulta `labels`. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-Si creas una URL inválida utilizando parámetros de consulta o si no tienes los permisos adecuados, la URL devolverá una página de error `404 Not Found`. Si creas una URL que exceda el límite del servidor, esta devolverá una página de error `414 URI Too Long`.
+If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
-| Parámetro de consulta | Ejemplo                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `título`              | `https://github.com/octo-org/octo-repo/issues/new?labels=bug&title=New+bug+report` crea una propuesta en la etiqueta "error" y el título "Nuevo informe de error".                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `cuerpo`              | `https://github.com/octo-org/octo-repo/issues/new?title=New+bug+report&body=Describe+the+problem.` crea una propuesta con el título "New bug report" y el comentario "Describe de problem" en el cuerpo de la misma.                                                                                                                                                                                                                                                                                                                                                  |
-| `etiquetas`           | `https://github.com/octo-org/octo-repo/issues/new?labels=help+wanted,bug` crea una propuesta con las etiquetas "help wanted" y "bug".                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `hito`                | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` crea una propuesta con el hito "probando hitos".                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `asignatarios`        | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` crea una propuesta y la asigna a @octocat.                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `proyectos`           | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` crea una propuesta con el título "Solución del problema" y la agrega al tablero de proyecto 1 de la organización.                                                                                                                                                                                                                                                                                                                                                                |
-| `plantilla`           | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` crea una propuesta con una plantilla en el cuerpo de la propuesta. El parámetro de consulta `template` funciona con plantillas almacenadas en un subdirectorio de `ISSUE_TEMPLATE` dentro de la raíz, el directorio `docs/` o el directorio `.github/` en un repositorio. Para obtener más información, consulta la sección "[Utilizar plantillas para fomentar las propuestas y solicitudes de cambio útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)". |
+Query parameter | Example
+---  | ---
+`title` | `https://github.com/octo-org/octo-repo/issues/new?labels=bug&title=New+bug+report` creates an issue with the label "bug" and title "New bug report."
+`body` | `https://github.com/octo-org/octo-repo/issues/new?title=New+bug+report&body=Describe+the+problem.` creates an issue with the title "New bug report" and the comment "Describe the problem" in the issue body.
+`labels` | `https://github.com/octo-org/octo-repo/issues/new?labels=help+wanted,bug` creates an issue with the labels "help wanted" and "bug".
+`milestone` | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` creates an issue with the milestone "testing milestones."
+`assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` creates an issue and assigns it to @octocat.
+`projects` | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` creates an issue with the title "Bug fix" and adds it to the organization's project board 1.
+`template` | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` creates an issue with a template in the issue body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository. For more information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
 
-## Leer más
+{% if code-scanning-task-lists %}
+## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
 
-- "[Escribir en GitHub](/github/writing-on-github)"
+{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
+If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
+{% data reusables.code-scanning.alert-tracking-link %}
+
+{% endif %}
+
+## Further reading
+
+- "[Writing on GitHub](/github/writing-on-github)"

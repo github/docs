@@ -26,7 +26,6 @@ shortTitle: Políticas do GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre as políticas para {% data variables.product.prodname_actions %} na sua empresa
 
@@ -54,7 +53,7 @@ Você pode optar por desativar {% data variables.product.prodname_actions %} par
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista.
-   {%- ifversion ghes or ghae-issue-5094 %}
+   {%- ifversion ghes > 3.0 or ghae-issue-5094 %}
    ![Adicionar ações para permitir lista](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
    ![Adicionar ações para permitir lista](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
@@ -69,8 +68,7 @@ Você pode optar por desativar {% data variables.product.prodname_actions %} par
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
@@ -102,6 +100,10 @@ Você pode aplicar políticas para controlar como {% data variables.product.prod
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+If a policy is enabled for an enterprise, the policy can be selectively disabled in individual organizations or repositories. If a policy is disabled for an enterprise, individual organizations or repositories cannot enable it.
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
@@ -109,7 +111,7 @@ Você pode aplicar políticas para controlar como {% data variables.product.prod
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 or ghae-next %}
+{% ifversion ghec or ghes > 3.1 or ghae %}
 
 ## Aplicando uma política de permissões de fluxo de trabalho na sua empresa
 

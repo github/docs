@@ -1,12 +1,10 @@
 ---
 title: SAML シングルサインオンを使うアイデンティティおよびアクセス管理について
 intro: 'ユーザのアイデンティティとアプリケーションをアイデンティティプロバイダ (IdP) で集中管理する場合、Security Assertion Markup Language (SAML) シングルサインオン (SSO) を設定して {% data variables.product.prodname_dotcom %} での Organization のリソースを保護することができます。'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-identity-and-access-management-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -23,8 +21,6 @@ shortTitle: SAML SSOを使うIAM
 {% data reusables.saml.saml-accounts %}
 
 Organization のオーナーは、個々の Organization に SAML SSO を適用できます。または、Enterprise のオーナーは、Enterprise アカウント内のすべての Organization に SAML SSO を適用できます。 詳しい情報については、「[Enterprise 向けのSAML シングルサインオンを設定する](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
-
-{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
 

@@ -20,7 +20,7 @@ export function GenericError() {
 
       <div className="container-xl p-responsive py-9 width-full flex-1">
         <article className="col-md-10 col-lg-7 mx-auto">
-          <h1 className="mb-3 pb-3 border-bottom">Ooops!</h1>
+          <h1>Ooops!</h1>
           <Lead>It looks like something went wrong.</Lead>
           <p className="f3">
             We track these errors automatically, but if the problem persists please feel free to
@@ -51,12 +51,7 @@ export const SimpleHeader = () => {
   return (
     <div className="border-bottom color-border-muted no-print">
       <header className="container-xl p-responsive py-3 position-relative d-flex width-full">
-        <div
-          className="d-flex flex-items-center"
-          style={{ zIndex: 3 }}
-          id="github-logo-mobile"
-          role="banner"
-        >
+        <div className="d-flex flex-items-center" style={{ zIndex: 3 }} id="github-logo-mobile">
           <Link href={`/${router.locale}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a aria-hidden="true" tabIndex={-1}>

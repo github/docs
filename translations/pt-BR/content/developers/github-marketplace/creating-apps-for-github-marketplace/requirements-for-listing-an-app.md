@@ -2,11 +2,11 @@
 title: Requisitos para listar um aplicativo
 intro: 'Os aplicativos em {% data variables.product.prodname_marketplace %} devem atender aos requisitos definidos nessa página antes que o anúncio possa ser publicado.'
 redirect_from:
-  - /apps/adding-integrations/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/getting-started-with-github-marketplace-listings/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/creating-and-submitting-your-app-for-approval/requirements-for-listing-an-app-on-github-marketplace/
-  - /apps/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/listing-apps-on-github-marketplace/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/getting-started-with-github-marketplace-listings/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/creating-and-submitting-your-app-for-approval/requirements-for-listing-an-app-on-github-marketplace
+  - /apps/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
   - /marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
   - /developers/github-marketplace/requirements-for-listing-an-app
 versions:
@@ -75,7 +75,7 @@ Quando estiver pronto para publicar o aplicativo em {% data variables.product.pr
 
 Seu aplicativo não precisa gerenciar pagamentos, mas precisa usar eventos de compra de {% data variables.product.prodname_marketplace %} para gerenciar novas compras, atualizações, downgrades, cancelamentos e testes grátis. Para obter informações sobre como integrar esses eventos no seu aplicativo, consulte "[Usar a API de {% data variables.product.prodname_marketplace %} no seu aplicativo](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
-Using GitHub's billing API allows customers to purchase an app without leaving GitHub and to pay for the service with the payment method already attached to their account on {% data variables.product.product_location %}.
+Usar a API de cobrança do GitHub permite aos clientes comprar um aplicativo sem sair do GitHub e pagar o serviço com o método de pagamento já anexado à sua conta em {% data variables.product.product_location %}.
 
 - Os aplicativos devem ser compatíveis tanto com a cobrança anual quanto mensal para as compras de suas assinaturas pagas.
 - As listagens podem oferecer qualquer combinação de planos grátis e pagos. Os planos grátis são opcionais, porém incentivados. Para obter mais informações, consulte "[Definir um plano de preços da listagem do {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)".

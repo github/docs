@@ -1,7 +1,7 @@
 ---
 title: GitHub 社区指导方针
 redirect_from:
-  - /community-guidelines/
+  - /community-guidelines
   - /articles/github-community-guidelines
 versions:
   fpt: '*'

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -39,7 +39,7 @@ Depois que alguém informar uma vulnerabilidade de segurança no seu projeto, vo
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% ifversion ghes > 3.0 or ghae-next %}
+{% ifversion ghes > 3.0 or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 Ao disponibilizar claramente instruções de relatório de segurança, você torna mais fácil para os usuários relatar quaisquer vulnerabilidades de segurança que encontrem no repositório usando seu canal de comunicação preferido.
 {% endif %}

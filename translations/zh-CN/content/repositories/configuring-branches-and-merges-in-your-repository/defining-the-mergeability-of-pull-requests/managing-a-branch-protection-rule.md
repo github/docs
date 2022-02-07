@@ -41,7 +41,7 @@ shortTitle: 分支保护规则
 
 要创建对现有分支规则的例外，您可以创建优先级更高的新分支保护规则，例如针对特定分支名称的分支规则。
 
-有关每个可用分支保护设置的更多信息，请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
+For more information about each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
 ## 创建分支保护规则
 
@@ -51,17 +51,26 @@ shortTitle: 分支保护规则
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
+{% ifversion fpt or ghec %}
+1. Optionally, enable required pull requests.
+   - Under "Protect matching branches", select **Require a pull request before merging**. ![拉取请求审查限制复选框](/assets/images/help/repository/PR-reviews-required-updated.png)
+   - Optionally, to require approvals before a pull request can be merged, select **Require approvals**, click the **Required number of approvals before merging** drop-down menu, then select the number of approving reviews you would like to require on the branch. ![用于选择必需审查批准数量的下拉菜单](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
+{% else %}
 1. （可选）启用必需拉取请求审查。
    - 在“Protect matching branches（保护匹配分支）”下，选择 **Require pull request reviews before merging（合并前必需拉取请求审查）**。 ![拉取请求审查限制复选框](/assets/images/help/repository/PR-reviews-required.png)
-   - 单击 **Required approving reviews（必需批准审查）**下拉菜单，然后选择要对分支要求的批准审查数量。 ![用于选择必需审查批准数量的下拉菜单](/assets/images/help/repository/number-of-required-review-approvals.png)
+   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you would like to require on the branch. ![用于选择必需审查批准数量的下拉菜单](/assets/images/help/repository/number-of-required-review-approvals.png)
+{% endif %}
    - （可选）要在将代码修改提交推送到分支时忽略拉取请求批准审查，请选择 **Dismiss stale pull request approvals when new commits are pushed（推送新提交时忽略旧拉取请求批准）**。 ![在推送新提交时，关闭旧拉取请求批准的复选框](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - （可选）要在拉取请求影响具有指定所有者的代码时要求代码所有者审查，请选择 **Require review from Code Owners（需要代码所有者审查）**。 更多信息请参阅“[关于代码所有者](/github/creating-cloning-and-archiving-repositories/about-code-owners)”。 ![代码所有者的必需审查](/assets/images/help/repository/PR-review-required-code-owner.png)
-   - （可选）如果仓库属于组织，请选择 **Restrict who can dismiss pull request reviews（限制谁可以忽略拉取请求审查）**。 然后，搜索并选择有权忽略拉取请求审查的人员或团队。 更多信息请参阅“[忽略拉取请求审查](/github/collaborating-with-issues-and-pull-requests/dismissing-a-pull-request-review)”。 ![限制可以忽略拉取请求审查的人员复选框](/assets/images/help/repository/PR-review-required-dismissals.png)
-1. （可选）启用必需状态检查。
+{% ifversion fpt or ghec %}
+   - Optionally, to allow specific people or teams to push code to the branch without being subject to the pull request rules above, select **Allow specific actors to bypass pull request requirements**. Then, search for and select the people or teams who are allowed to bypass the pull request requirements. ![Allow specific actors to bypass pull request requirements checkbox](/assets/images/help/repository/PR-bypass-requirements.png)
+{% endif %}
+   - （可选）如果仓库属于组织，请选择 **Restrict who can dismiss pull request reviews（限制谁可以忽略拉取请求审查）**。 然后，搜索并选择有权忽略拉取请求审查的人员或团队。 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。 ![限制可以忽略拉取请求审查的人员复选框](/assets/images/help/repository/PR-review-required-dismissals.png)
+1. （可选）启用必需状态检查。 更多信息请参阅“[关于状态检查](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)”。
    - 选中 **Require status checks to pass before merging（合并前必需状态检查通过）**。 ![必需状态检查选项](/assets/images/help/repository/required-status-checks.png)
    - （可选）要确保使用受保护分支上的最新代码测试拉取请求，请选择 **Require branches to be up to date before merging（要求分支在合并前保持最新）**。 ![宽松或严格的必需状态复选框](/assets/images/help/repository/protecting-branch-loose-status.png)
-   - 从可用状态检查列表中，选择您想要设为必需的检查。 ![可用状态检查列表](/assets/images/help/repository/required-statuses-list.png)
-{%- ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+   - Search for status checks, selecting the checks you want to require. ![Search interface for available status checks, with list of required checks](/assets/images/help/repository/required-statuses-list.png)
+{%- ifversion fpt or ghes > 3.1 or ghae %}
 1. （可选）选中 **Require conversation resolution before merging（在合并前需要对话解决）**。 ![合并选项前需要对话解决](/assets/images/help/repository/require-conversation-resolution.png)
 {%- endif %}
 1. （可选）选择 **Require signed commits（必需签名提交）**。 ![必需签名提交选项](/assets/images/help/repository/require-signed-commits.png)
@@ -74,11 +83,18 @@ shortTitle: 分支保护规则
 
   {% endtip %}
 {%- endif %}
-1. 视情况可选择 **Include administrators（包括管理员）**。 ![包括管理员复选框](/assets/images/help/repository/include-admins-protected-branches.png)
+1. Optionally, select **Apply the rules above to administrators**. ![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
 1. （可选）{% ifversion fpt or ghec %}如果仓库由组织拥有，可使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %}{% endif %} 启用分支限制。
    - 选择 **Restrict who can push to matching branches（限制谁可以推送到匹配分支）**。 ![分支限制复选框](/assets/images/help/repository/restrict-branch.png)
    - 搜索并选择有权限推送到受保护分支的人员、团队或应用程序。 ![分支限制搜索](/assets/images/help/repository/restrict-branch-search.png)
 1. （可选）在“Rules applied to everyone including administrators（适用于包括管理员在内的所有人规则）”下，选择 **Allow force pushes（允许强制推送）**。 ![允许强制推送选项](/assets/images/help/repository/allow-force-pushes.png)
+{% ifversion fpt or ghec %}
+  Then, choose who can force push to the branch.
+    - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
+    - Select **Specify who can force push** to allow only specific people or teams to force push to the branch. Then, search for and select those people or teams. ![Screenshot of the options to specify who can force push](/assets/images/help/repository/allow-force-pushes-specify-who.png)
+{% endif %}
+
+    For more information about force pushes, see "[Allow force pushes](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)."
 1. （可选）选择 **Allow deletions（允许删除）**。 ![允许分支删除选项](/assets/images/help/repository/allow-branch-deletions.png)
 1. 单击 **Create（创建）**。
 

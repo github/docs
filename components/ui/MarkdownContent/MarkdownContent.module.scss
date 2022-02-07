@@ -4,6 +4,10 @@
 @import "./stylesheets/table.scss";
 
 .markdownBody {
+  a {
+    text-decoration: underline;
+  }
+
   summary {
     outline: none;
 
@@ -14,13 +18,20 @@
     h5,
     h6 {
       display: inline-block;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
 
       p {
         margin: 0;
         padding: 0;
       }
+    }
+  }
+
+  /* For REST pages which have Parameters and Code Samples h4 headings that are also links. */
+  h4 {
+    a {
+      text-decoration: none;
     }
   }
 
@@ -36,8 +47,8 @@
       }
     }
     & > a[class~="doctocat-link"] {
-      padding: 8px;
-      margin-left: -32px;
+      padding: 0.5rem;
+      margin-left: -2rem;
       color: var(--color-fg-muted);
       &:active,
       &:focus {

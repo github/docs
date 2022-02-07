@@ -3,7 +3,7 @@ title: 添加注释到项目板
 intro: 您可以添加注释到项目板以用作任务提醒，或者添加与项目板相关的信息。
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
-  - /articles/adding-notes-to-a-project/
+  - /articles/adding-notes-to-a-project
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:

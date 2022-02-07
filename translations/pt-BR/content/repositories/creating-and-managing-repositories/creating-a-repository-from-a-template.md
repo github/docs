@@ -36,7 +36,7 @@ Criar um repositório a partir de um modelo é semelhante a bifurcar um reposit�
 - Os commits em uma bifurcação não aparecem no gráfico de contribuições, enquanto os commits em um repositório criado de um modelo aparecem no gráfico de contribuição.
 - Uma bifurcação pode ser uma maneira temporária de contribuir com código em um projeto existente, enquanto criar um repositório de um modelo inicia um novo projeto rapidamente.
 
-Para obter mais informações sobre bifurcações, consulte "[Sobre bifurcações](/articles/about-forks)".
+Para obter mais informações sobre bifurcações, consulte "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)".
 
 ## Criar um repositório a partir de um modelo
 

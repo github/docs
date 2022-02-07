@@ -4,7 +4,7 @@ import cheerio from 'cheerio'
 import createApp from '../../lib/app.js'
 import { jest } from '@jest/globals'
 
-jest.useFakeTimers()
+jest.useFakeTimers('legacy')
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)

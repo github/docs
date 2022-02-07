@@ -2,8 +2,8 @@
 title: 恢复 SSH 密钥密码
 intro: 如果您丢失 SSH 密钥密码，则根据您使用的操作系统，您可能可以恢复它，也可能需要生成新的 SSH 密钥密码。
 redirect_from:
-  - /articles/how-do-i-recover-my-passphrase/
-  - /articles/how-do-i-recover-my-ssh-key-passphrase/
+  - /articles/how-do-i-recover-my-passphrase
+  - /articles/how-do-i-recover-my-ssh-key-passphrase
   - /articles/recovering-your-ssh-key-passphrase
   - /github/authenticating-to-github/recovering-your-ssh-key-passphrase
   - /github/authenticating-to-github/troubleshooting-ssh/recovering-your-ssh-key-passphrase

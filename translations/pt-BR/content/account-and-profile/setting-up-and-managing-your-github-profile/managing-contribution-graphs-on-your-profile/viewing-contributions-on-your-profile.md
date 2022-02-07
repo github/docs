@@ -2,8 +2,8 @@
 title: Exibir contribuições no perfil
 intro: 'O seu perfil {% data variables.product.product_name %} mostra {% ifversion fpt or ghes or ghec %}os seus repositórios fixos, bem como{% endif %} um gráfico das contribuições do repositório ao longo do último ano.'
 redirect_from:
-  - /articles/viewing-contributions/
-  - /articles/viewing-contributions-on-your-profile-page/
+  - /articles/viewing-contributions
+  - /articles/viewing-contributions-on-your-profile-page
   - /articles/viewing-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/viewing-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/viewing-contributions-on-your-profile
@@ -92,14 +92,10 @@ A seção de atividade de contribuição contém uma linha do tempo detalhada do
 
 ![Filtro de hora de atividade de contribuição](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion fpt or ghes or ghae-next or ghec %}
+{% ifversion fpt or ghes or ghae or ghec %}
 
 ## Exibir contribuições da {% data variables.product.prodname_enterprise %} no {% data variables.product.prodname_dotcom_the_website %}
 
-Se você usar {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} ou {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} e proprietário da sua empresa permiteir {% data variables.product.prodname_unified_contributions %}, você poderá enviar contribuições corporativas a partir do seu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviando contribuições corporativas para seu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
+Se você usar {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} ou {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} e proprietário da sua empresa permiteir {% data variables.product.prodname_unified_contributions %}, você poderá enviar contribuições corporativas a partir do seu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviando contribuições corporativas para seu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
 
 {% endif %}
-
-## Leia mais
-
-- "[Visualizar contribuições na página de perfil](/articles/viewing-contributions-on-your-profile-page)"

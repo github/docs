@@ -23,9 +23,9 @@ Search API は、見つけたい特定の項目を検索するために役立ち
 
 ### レート制限
 
-Search API にはカスタムレート制限があります。 リクエストに[基本認証](/rest#authentication)、[OAuth](/rest#authentication)、または[クライアント ID とシークレット](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)を使用する場合は、1 分間に最大 30 件のリクエストが行えます。 認証されていないリクエストでは、レート制限により 1 分間あたり最大 10 件のリクエストが行えます。
-
 {% data reusables.enterprise.rate_limit %}
+
+Search API にはカスタムレート制限があります。 リクエストに[基本認証](/rest#authentication)、[OAuth](/rest#authentication)、または[クライアント ID とシークレット](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)を使用する場合は、1 分間に最大 30 件のリクエストが行えます。 認証されていないリクエストでは、レート制限により 1 分間あたり最大 10 件のリクエストが行えます。
 
 現在のレート制限状態を確認する方法の詳細については、[レート制限ドキュメンテーション](/rest/reference/rate-limit)を参照してください。
 
@@ -51,7 +51,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-使用可能な修飾子の完全な一覧、フォーマット、使用例については、「[GitHub での検索](/articles/searching-on-github/)」を参照してください。 For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
+See "[Searching on GitHub](/search-github/searching-on-github)" for a complete list of available qualifiers, their format, and an example of how to use them. For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
 
 ### クエリの長さの制限
 
@@ -69,7 +69,7 @@ Search API は、以下のクエリをサポートしていません。
 
 ### アクセスエラーまたは検索結果の欠落
 
-検索クエリでは、認証に成功してリポジトリにアクセスできるようにする必要があります。そうしない場合は、`422 Unprocessible Entry` エラーと、「Validation Failed」というメッセージが表示されます。 たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
+You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
 
 検索クエリで複数のリソースをリクエストする場合、レスポンスにはあなたがアクセスできるリソースのみが含まれ、返されないリソースを一覧表示するようなエラーメッセージは**表示されません**。
 

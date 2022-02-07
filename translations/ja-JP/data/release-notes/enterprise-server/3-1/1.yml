@@ -1,31 +1,30 @@
----
 date: '2021-06-10'
 sections:
   security_fixes:
-    - パッケージは最新のセキュリティバージョンにアップデートされました。
+    - Packages have been updated to the latest security versions.
   bugs:
-    - SVN 1.7及びそれよりも古いクライアントが、`svn co`及び`svn export`コマンドを使った場合にエラーを表示しました。
-    - 管理シェルを通じて`ghe-repo <owner>/<reponame>`を使ってリポジトリにアクセスすると、ハングします。
-    - アップグレード後、サービスが過剰に頻繁に再起動するために、高負荷の際にユーザからみて可用性が低下しました。これは、nomadの設定と内部サービスの設定間のタイムアウトのミスマッチによって生じます。
-    - インスタンスによっては、GitHub Actionsをセットアップした後に`ghe-repl-status`を実行するとエラーが生じ、`ghe-actions-teardown`が失敗します。
-    - '状況によっては、`ghe-dbconsole`がエラーを返します。'
-    - GitHub以外のソースからのOrganizationあるいはリポジトリのインポートの失敗が、`undefined method '[]' for nil:NilClass`エラーを生じさせることがあります。
-    - SAML認証を使っていて、GitHubのプロフィール名が管理コンソールの`Full name`フィールドにマップされる属性の値とマッチしない場合、GitHubのプロフィール名が意図せず変更されてしまうことがあります。
-    - 以前に2.13リリースを実行していたインスタンスをアップグレードすると、`AddRepositoryIdToCheckRuns`データ移行に関係するデータベースの移行エラーが生じました。
+    - SVN 1.7 and older clients showed an error when using the `svn co` and `svn export` commands.
+    - Accessing a repository through the administrative shell using `ghe-repo <owner>/<reponame>` would hang.
+    - After upgrading, users experienced reduced availability during heavy usage, because services restarted too frequently. This would occur due to timeout mismatches between the nomad configuration and that of the internal services.
+    - In some instances, running `ghe-repl-status` after setting up GitHub Actions would produce an error and `ghe-actions-teardown` would fail.
+    - '`ghe-dbconsole` would return errors under some circumstances.'
+    - Import failures of organizations or repositories from non-GitHub sources could produce an `undefined method '[]' for nil:NilClass` error.
+    - GitHub profile names might have changed unintentionally when using SAML authentication, if the GitHub profile name did not match the value of the attribute mapped to the `Full name` field in the Management Console.
+    - Upgrading an instance that had previously ran a 2.13 release, but not a 2.14 release, resulted in a database migration error relating to the `AddRepositoryIdToCheckRuns` data transition.
   changes:
-    - GraphQL APIのユーザが、`PullRequest`オブジェクトの公開フィールドの`closingIssuesReferences`に対するクエリを行えます。このフィールドは、関連するPull Requestがマージされたときに自動的にクローズされるIssueを取得します。このアプローチは、より忠実度の高い移行プロセスの一部として、このデータが将来移行されることも可能にします。
+    - Users of the GraphQL API can query the public field `closingIssuesReferences` on the `PullRequest` object. This field retrieves issues that will be automatically closed when the related pull request is merged. This approach will also allow this data to be migrated in future, as part of a higher fidelity migration process.
   known_issues:
-    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
-    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
-    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
-    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
-    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
-    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - |
-      3.0.xから3.1.xにアップグレードすると、GitHub Actionsが`An unexpected error occurred when executing this workflow`というエラーで失敗する場合があります。この問題を回避するには、管理シェル（ssh）を接続して以下を実行してください。
+      After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions can fail with an error: `An unexpected error occurred when executing this workflow.` To workaround this problem, connect to the administrative shell (ssh) and run:
       ```
       ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
       ```
-    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
-    - '{% data variables.product.prodname_ghe_server %}で{% data variables.product.prodname_actions %}が有効化されていると、`ghe-repl-teardown`でのレプリカノードの解体は成功しますが、`ERROR:Running migrations`が返されることがあります。'
-    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。
+    - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
+    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

@@ -1,2 +1,1 @@
-1. In your user settings sidebar, click **Blocked users** under **Moderation settings**.
-![Blocked users tab](/assets/images/help/settings/settings-sidebar-blocked-users.png)
+1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Blocked users**.

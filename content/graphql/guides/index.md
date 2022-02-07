@@ -18,5 +18,6 @@ children:
   - /using-the-explorer
   - /managing-enterprise-accounts
   - /using-the-graphql-api-for-discussions
+  - /migrating-graphql-global-node-ids
 ---
 

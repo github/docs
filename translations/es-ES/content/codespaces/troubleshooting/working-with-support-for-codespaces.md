@@ -26,7 +26,7 @@ El nombre del codespace también se incluye en muchos otros archivos de bitácor
 
 ### ID de los codespaces
 
-Cada codespace también tiene un ID (identificador). Este no se muestra predeterminadamente en {% data variables.product.prodname_vscode %}, así que podrías tener que actualizar los ajustes para la extensión de {% data variables.product.prodname_github_codespaces %} antes de que puedas acceder a la ID.
+Every codespace also has an ID (identifier). Este no se muestra predeterminadamente en {% data variables.product.prodname_vscode %}, así que podrías tener que actualizar los ajustes para la extensión de {% data variables.product.prodname_github_codespaces %} antes de que puedas acceder a la ID.
 
 1. En {% data variables.product.prodname_vscode %}, ya sea la versión de buscador o de escritorio, en la barra de actividad a la izquierda, haz clic en **Explorador remoto** para que se muestren los detalles del codespace.
 2. Si la barra lateral incluye una sección de "Rendimiento del Codespace", pasa el puntero del mouse sobre "ID del Codespace" y haz clic en el icono de portapapeles para copiar la ID.

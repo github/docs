@@ -82,7 +82,7 @@ Enterprise アカウントのドメイン検証するには、ドメインホス
 {% data reusables.organizations.domains-approve-it-instead %}
 {% data reusables.organizations.domains-approve-domain %}
 
-## Removing an approved or verified domain
+## 検証済みあるいは承認済みのドメインの削除
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

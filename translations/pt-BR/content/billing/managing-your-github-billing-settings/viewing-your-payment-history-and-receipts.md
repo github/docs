@@ -3,9 +3,9 @@ title: Exibir histórico de pagamento e recibos
 intro: Você pode exibir o histórico de pagamentos da sua conta e baixar recibos anteriores a qualquer momento.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-payment-history-and-receipts
-  - /articles/downloading-receipts/
-  - /articles/downloading-receipts-for-personal-accounts/
-  - /articles/downloading-receipts-for-organizations/
+  - /articles/downloading-receipts
+  - /articles/downloading-receipts-for-personal-accounts
+  - /articles/downloading-receipts-for-organizations
   - /articles/viewing-your-payment-history-and-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
 versions:

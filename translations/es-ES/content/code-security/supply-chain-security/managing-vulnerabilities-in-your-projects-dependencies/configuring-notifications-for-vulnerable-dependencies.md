@@ -1,7 +1,7 @@
 ---
 title: Configurar las notificaciones para las dependencias vulnerables
 shortTitle: Configurar notificaciones
-intro: 'Optimiza la forma en la que recibes las notificaciones sobre las alertas del {% data variables.product.prodname_dependabot %}.'
+intro: 'Optimiza la forma en la que recibes notificaciones de {% data variables.product.prodname_dependabot_alerts %}.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
@@ -33,7 +33,7 @@ Cuando el {% data variables.product.prodname_dependabot %} detecta las dependenc
 {% ifversion ghes or ghae-issue-4864 %}
 Predeterminadamente, si el propietario de tu empresa configuró las notificaciones por correo electrónico en ella, recibirás las {% data variables.product.prodname_dependabot_alerts %} por este medio.
 
-Los propietarios de empresas también pueden habilitar las {% data variables.product.prodname_dependabot_alerts %} sin notificaciones. Para obtener más información, consulta la sección "[Habilitar la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %} en tu cuenta empresarial](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)".
+Los propietarios de empresas también pueden habilitar las {% data variables.product.prodname_dependabot_alerts %} sin notificaciones. Para obtener más información, consulta la sección "[Habilitar la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %} en tu cuenta empresarial](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)".
 {% endif %}
 
 ## Configurar las notificaciones para las {% data variables.product.prodname_dependabot_alerts %}
@@ -51,7 +51,7 @@ Puedes configurar los ajustes de notificaciones para ti mismo o para tu organiza
 
 {% note %}
 
-**Nota:** Puedes filtrar tus notificaciones en {% data variables.product.company_short %} para mostrar las alertas del {% data variables.product.prodname_dependabot %}. Para recibir más información, consulta la sección "[Administrar las notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".
+**Nota:** Puedes filtrar tus notificaciones en {% data variables.product.company_short %} para mostrar las {% data variables.product.prodname_dependabot_alerts %}. Para recibir más información, consulta la sección "[Administrar las notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".
 
 {% endnote %}
 

@@ -19,52 +19,62 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Resumen
 
-Las {% data variables.product.prodname_actions %} te ayudan a automatizar tareas dentro de tu ciclo de vida de desarrollo de software. Las {% data variables.product.prodname_actions %} se manejan por eventos, lo cual significa que puedes ejecutar una serie de comandos después de que haya ocurrido un evento especificado. Por ejemplo, cada vez que alguien crea una solicitud de cambios para un repositorio, puedes ejecutar automáticamente un comando que ejecute un script de prueba de software.
+{% data reusables.actions.about-actions %} Puedes crear flujos de trabajo y crear y probar cada solicitud de cambios en tu repositorio o desplegar solicitudes de cambios fusionadas a producción.
 
-Este diagrama ilustra como puedes utilizar las {% data variables.product.prodname_actions %} para ejecutar automáticamente tus scripts de pruebas de software. Un evento activa el _flujo de trabajo_ automáticamente, el cual contiene un _job_. Entonces, el job utiliza _pasos_ para controlar el orden en el que se ejecutan las _acciones_. Estas acciones son los comandos que automatizan las pruebas de tu software.
+{% data variables.product.prodname_actions %} va más allá de solo DevOps y te permite ejecutar flujos de trabajo cuando otros eventos suceden en tu repositorio. Por ejemplo, puedes ejecutar un flujo de trabajo para que agregue automáticamente las etiquetas adecuadas cada que alguien cree una propuesta nueva en tu repositorio.
 
-![Resumen del flujo de trabajo](/assets/images/help/images/overview-actions-simple.png)
+{% data variables.product.prodname_dotcom %} proporciona máquinas virtuales Linux, Windows y macOS para que ejecutes tus flujos de trabajo o puedes hospedar tus propios ejecutores auto-hospedados en tu propio centro de datos o infraestructura en la nube.
 
 ## Los componentes de las {% data variables.product.prodname_actions %}
 
-A continuación, encontrarás una lista de los diferentes componentes de las {% data variables.product.prodname_actions %} que funcionan en conjunto para ejecutar jobs. Puedes ver cómo dichos componentes interactúan entre ellos.
+Puedes configurar un _flujo de trabajo_ de {% data variables.product.prodname_actions %} para que se active cuando ocurre un _evento_ en tu repositorio, tal como la apertura de una solicitud de cambios o la creación de una propuesta.  Tu flujo de trabajo contiene uno o más _jobs_, los cuales pueden ejecutarse en orden secuencial o en paralelo.  Cada job se ejecutará dentro del _ejecutor_ de su propia máquina virtual o dentro de un contenedor y tendrá uno o más _pasos_ que ya sea puedan ejecutar un script que definas o que ejecuten una _acción_, la cual es una extensión reutilizable que puede simplificar tu flujo de trabajo.
 
-![Resumen de componentes y servicios](/assets/images/help/images/overview-actions-design.png)
+![Resumen del flujo de trabajo](/assets/images/help/images/overview-actions-simple.png)
 
 ### Flujos de trabajo
 
-El flujo de trabajo es un procedimiento automatizado que agregas a tu repositorio. Los flujos de trabajo se componen de uno o más jobs y pueden programarse o activarse a través de un evento. El flujo de trabajo se puede utilizar para crear, probar, empacar, lanzar o desplegar un proyecto en {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Puedes referenciar un flujo de trabajo dentro de otro flujo de trabajo, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".{% endif %}
+Un flujo de trabajo es un proceso automatizado configurable que ejecutará uno o más jobs.  Los flujos de trabajo se definen mediante un archivo de YAML que se verifica en tu repositorio y se ejecutará cuando lo active un evento dentro de este o puede activarse manualmente o en una programación definida.
+
+Tu repositorio puede tener varios flujos de trabajo dentro de él, cada uno de los cuales puede llevar a cabo un conjunto de pasos diferente.  Por ejemplo, puedes tener un flujo de trabajo para crear y probar las solicitudes de cambio, otro para desplegar tu aplicación cada que se cree un lanzamiento y todavía otro más que agregue una etiqueta cada que alguien abra una propuesta nueva.
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Puedes referenciar un flujo de trabajo dentro de otro flujo de trabajo, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".{% endif %}
+
+Para obtener más información sobre los flujos de trabajo, consulta la sección "[Utilizar flujos de trabajo](/actions/using-workflows)".
 
 ### Eventos
 
-En evento es una actividad específica que activa un flujo de trabajo. Por ejemplo, la actividad se puede originar desde {% data variables.product.prodname_dotcom %} cuando alguien sube una confirmación a un repositorio o cuando se crea una propuesta o solicitud de extracción. También puedes utilizar el [webhook de envío del repositorio](/rest/reference/repos#create-a-repository-dispatch-event) para activar un flujo de trabajo cuando ocurra un evento externo. Para encontrar una lista de eventos completa que puede utilizarse para activar flujos de trabajo, consulta los [Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows).
+Un evento es una actividad específica en un repositorio, la cual activa una ejecución de flujo de trabajo. Por ejemplo, la actividad puede originarse desde {% data variables.product.prodname_dotcom %} cuando alguien crea una solicitud de cambios, abre una propuesta o sube una confirmación a un repositorio.  También puedes activar una ejecución de flujo de trabajo de acuerdo con una programación si la [publicas en una API de REST](/rest/reference/repos#create-a-repository-dispatch-event) o si lo haces manualmente.
+
+Para encontrar una lista de eventos completa que puede utilizarse para activar flujos de trabajo, consulta los [Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows).
 
 ### Jobs
 
-Un job es un conjunto de pasos que se ejecutan en el mismo ejecutor. Predeterminadamente, un flujode trabajo con varios jobs los ejecutará en paralelo. También puedes configurar el flujo de trabajo para que los ejecute secuencialmente. Por ejemplo, un flujo de trabajo puede tener dos trabajos consecutivos para desarrollar y probar el código. El trabajo de prueba depende del estado del trabajo de desarrollo. Si el trabajo de desarrollo falla, no se ejecutará el trabajo de prueba.
+Un job es un conjunto de _pasos_ en un flujo de trabajo, los cuales se ejecutan en el mismo ejecutor.  Cada paso es ya sea un script de shell o una _acción_ que se ejecutarán.  Los pasos se ejecutarán en orden y serán dependientes uno del otro.  Ya que cada paso se ejecuta en el mismo ejecutor, puedes compartir datos de un paso a otro.  Por ejemplo, puedes tener un paso que compile tu aplicación, seguido de otro que pruebe la aplicación que se compiló.
 
-### Pasos
+Puedes configurar las dependencias de un job con otros jobs; predeterminadamente, los jobs no tienen dependencias y se ejecutan en paralelo entre ellos.  Cuando un job lleva una dependencia a otro job, este esperará a que el job dependiente se complete antes de que pueda ejecutarse.  Por ejemplo, puedes tener jobs de compilación múltiple para arquitecturas diferentes que no tengan dependencias y un job de empaquetado que sea dependiente de estos jobs.  Los jobs de compilación se ejecutarán en paralelo y, cuando se hayan completado con éxito, se ejecutará el job de empaquetado.
 
-Un paso es una tarea individual que puede ejecutar comandos en un job. Un paso puede ser tanto una _acción_ como un comando de shell. Cada paso en un job se ejecuta en el mismo ejecutor, lo cual permite que las acciones en dicho job compartan datos entre ellas.
+Para obtener más información sobre los jobs, consulta la sección "[Utilizar jobs](/actions/using-jobs)".
 
 ### Acciones
 
-Las _Acciones_ son comandos independientes que se combinan en _pasos_ para crear un _job_. Las acciones son el componente portable más pequeño de un flujo de trabajo. Puedes crear tus propias acciones, o utilizar acciones que haya creado la comunidad de {% data variables.product.prodname_dotcom %}. Para utilizar una acción en un flujo de trabajo, debes incluirla como paso.
+Una _acción_ es una aplicación personalizada para la plataforma de {% data variables.product.prodname_actions %} que realiza una tarea compleja pero que se repite frecuentemente.  Utiliza una acción para ayudarte a reducir la cantidad de código repetitivo que escribes en tus archivos de flujo de trabajo.  Una acción puede extraer tu repositorio de git desde {% data variables.product.prodname_dotcom %}, configurar la cadena de herramientas correcta para tu ambiente de compilación o configurar la autenticación en tu proveedor de servicios en la nube.
+
+Puedes escribir tus propias acciones o puedes encontrar acciones para utilizar en tus flujos de trabajo dentro de {% data variables.product.prodname_marketplace %}.
+
+{% data reusables.actions.internal-actions-summary %}
+
+Para obtener más información, consulta la sección "[Crear acciones](/actions/creating-actions)".
 
 ### Ejecutores
 
-{% ifversion ghae %}Un ejecutor es un servidor que tiene instalada la [{% data variables.product.prodname_actions %} aplicación de ejecutor](https://github.com/actions/runner). En el caso de {% data variables.product.prodname_ghe_managed %}, puedes utilizar los {% data variables.actions.hosted_runner %} con seguridad robustecida que están empaquetados con tu instancia en la nube. Un ejecutor escucha a los jobs disponibles, ejecuta un job a la vez, y reporta el progreso, bitácoras y resultados de vuelta a {% data variables.product.prodname_dotcom %}. Los {% data variables.actions.hosted_runner %} ejecutan cada job del flujo de trabajo en un ambiente virtual nuevo. Para obtener más información, consulta la sección "[Acerca de los {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners)".
-{% else %}
-Un ejecutor es un servidor que tiene instalada la [aplilcación de ejecutor de {% data variables.product.prodname_actions %}](https://github.com/actions/runner). Puedes utilizar un ejecutor que esté hospedado en {% data variables.product.prodname_dotcom %}, o puedes hospedar el tuyo propio. Un ejecutor escucha a los jobs disponibles, ejecuta un job a la vez, y reporta el progreso, bitácoras y resultados de vuelta a {% data variables.product.prodname_dotcom %}. Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se basan en Ubuntu Linux, Microsoft Windows y macOS, y cada job en un flujo de trabajo se ejecuta en un ambiente virtual nuevo.  Para obtener más información sobre los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Acerca de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)". Si necesitas un sistema operativo diferente o si requieres de una configuración de hardware específica, puedes hospedar tus propios ejecutores. Para obtener información sobre los ejecutores auto-hospedados, consulta la sección "[Hospedar tus propios ejecutores](/actions/hosting-your-own-runners)".
-{% endif %}
+{% data reusables.actions.about-runners %} Cada ejecutor puede ejecutar un job individual a la vez. {% ifversion ghes or ghae %} Debes hospedar tus propios ejecutores para {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} proporciona ejecutores de Ubuntu Linux, Microsoft Windows y macOS para ejecutar tus flujos de trabajo; cada flujo de trabajo se ejecuta en una máquina virtual nueva y recién aprovisionada. Si necesitas un sistema operativo diferente o si requieres una configuración de hardware específica, puedes hospedar tus propios ejecutores.{% endif %} Para obtener más información{% ifversion fpt or ghec %} sobre los ejecutores auto-hospedados{% endif %}, consulta la sección "[Hospedar tus propios ejecutores](/actions/hosting-your-own-runners)".
 
 ## Crear un flujo de trabajo de ejemplo
 
-Las {% data variables.product.prodname_actions %} usan la sintaxis de YAML para definir los eventos, jobs y pasos. Estos archivos de YAML se almacenan en el repositorio de tu código, en un directorio que se llama `.github/workflows`.
+Las {% data variables.product.prodname_actions %} utilizan la sintaxis de YAML para definir el flujo de trabajo.  Cada flujo de trabajo se almacena como un archivo de YAML por separado en tu repositorio de código en un directorio que se llama `.github/workflows`.
 
 Puedes crear un flujo de trabajo de ejemplo en tu repositorio que active automáticamente una serie de comandos cada que se suba código. En este flujo de trabajo, las {% data variables.product.prodname_actions %} verifican el código que se subió, instalan las dependencias de software, y ejecutan `bats -v`.
 
@@ -112,7 +122,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-  Especifica el evento que activa automáticamente el archivo de flujo de trabajo. Este ejemplo utiliza el evento <code>push</code>, para que los jobs se ejecuten cada que alguien sube un cambio al repositorio. Puedes configurar el flujo de trabajo para que solo se ejecuten en ciertas ramas, rutas, o etiquetas. Para encontrar ejemplos de sintaxis que incluyan o excluyan ramas, rutas, o etiquetas, consulta la sección <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">"Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}".</a>
+Especifica el activador de este flujo de trabajo. Este ejemplo utiliza el evento <code>push</code>, así que una ejecución de flujo de trabajo se activa cada que alguien sube un cambio al repositorio o fusiona una solicitud de cambios.  Esto se activa mediante una subida a cada rama; para encontrar ejemplos de la sintaxis que solo se ejecuta en subidas a ramas específicas, rutas o etiquetas, consulta la sección <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">"Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}".</a>
 </td>
 </tr>
 <tr>
@@ -123,7 +133,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
- Agrupa los jobs que se ejecutan en el archivo de flujo de trabajo <code>learn-github-actions</code>.
+ Agrupa los jobs que se ejecutan en el flujo de trabajo <code>learn-github-actions</code>.
 </td>
 </tr>
 <tr>
@@ -134,7 +144,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-  Define el nombre del job <code>check-bats-version</code> que se almacena en la sección <code>jobs</code>.
+Define un job que se llame <code>check-bats-version</code>. Las llaves hijas definirán las propiedades del job.
 </td>
 </tr>
 <tr>
@@ -145,7 +155,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-  Configura el job para ejecutarse en un ejecutor Ubuntu Linux. Esto significa que el job se ejecutará en una máquina virtual nueva que se hospede en GitHub. Para encontrar ejemplos de sintaxis que utilicen otros ejecutores, consulta la sección <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">"Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}".</a>
+  Configura el job para que se ejecute en la versión más reciente de un ejecutor Ubuntu Linux. Esto significa que el job se ejecutará en una máquina virtual nueva que se hospede en GitHub. Para encontrar ejemplos de sintaxis que utilicen otros ejecutores, consulta la sección <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">"Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}".</a>
 </td>
 </tr>
 <tr>
@@ -156,7 +166,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-  Agrupa todos los pasos que se ejecutan en el job <code>check-bats-version</code>. Cada elemento anidado bajo esta sección es un comando de shell o acción separada.
+  Agrupa todos los pasos que se ejecutan en el job <code>check-bats-version</code>. Cada elemento anidado debajo de esta sección es una acción o script de shell por separado.
 </td>
 </tr>
 <tr>
@@ -167,7 +177,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-  La palabra clave <code>uses</code> le dice al job que recupere la <code>v2</code> de la acción comunitaria que se llama <code>actions/checkout@v2</code>. Esta es una acción que revisa tu repositorio y lo descarga al ejecutor, lo que te permite ejecutar acciones contra tu código (tales como las herramientas de prueba). Debes utilizar la acción de verificación cada que tu flujo de trabajo se ejecute contra el código del repositorio o cada que estés utilizando una acción definida en el repositorio.
+La palabra clave <code>uses</code> especifica que este paso ejecutará la <code>v2</code> de la acción <code>actions/checkout</code>.  Esta es una acción que comprueba tu repositorio en el ejecutor, lo cual te permite ejecutar scripts u otras acciones contra tu código (tales como herramientas de compilación y prueba). Debes utilizar la acción de verificación en cualquier momento en el que tu flujo de trabajo se ejecute contra el código del repositorio.
 </td>
 </tr>
 <tr>
@@ -180,7 +190,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-  Este paso utiliza la acción <code>actions/setup-node@v2</code> para instala la versión especificada del paquete de software del <code>node</code> en el ejecutor, lo cual te otorga acceso al comando <code>npm</code>.
+  Este paso utiliza la acción <code>actions/setup-node@v2</code> para instalar la versión especificada del Node.js (este ejemplo utiliza la v14). Esto pone a los comandos <code>node</code> y <code>npm</code> en tu <code>PATH</code>.
 </td>
 </tr>
 <tr>
@@ -209,13 +219,13 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
 
 ### Visualizar el archivo de flujo de trabajo
 
-En este diagrama, puedes ver el archivo de flujo de trabajo que acabas de crear, así como la forma en que los componentes de {% data variables.product.prodname_actions %} se organizan en una jerarquía. Cada paso ejecuta una acción simple o un comando de shell. Los pasos 1 y 2 utilizan acciones comunitarias preconstruidas. Los pasos 3 y 4 ejecutan comandos de shell directamente en el ejecutor. Para encontrar más acciones preconstruidas para tus flujos de trabajo, consulta la sección "[Encontrar y personalizar acciones](/actions/learn-github-actions/finding-and-customizing-actions)".
+En este diagrama, puedes ver el archivo de flujo de trabajo que acabas de crear, así como la forma en que los componentes de {% data variables.product.prodname_actions %} se organizan en una jerarquía. Cada paso ejecuta una acción o script de shell simples. Los pasos 1 y 2 ejecutan acciones, mientras que los pasos 3 y 4 ejecutan scripts de shell. Para encontrar más acciones preconstruidas para tus flujos de trabajo, consulta la sección "[Encontrar y personalizar acciones](/actions/learn-github-actions/finding-and-customizing-actions)".
 
 ![Resumen del flujo de trabajo](/assets/images/help/images/overview-actions-event.png)
 
-## Visualizar la actividad de un job
+## Ver la actividad del flujo de trabajo
 
-Una vez que tu job comience a ejecutarse, podrás{% ifversion fpt or ghes > 3.0 or ghae or ghec %}ver una gráfica de visualización del progreso de dicha ejecución y {% endif %}ver la actividad de cada paso en {% data variables.product.prodname_dotcom %}.
+Una vez que tu flujo de trabajo comience a ejecutarse, podrás{% ifversion fpt or ghes > 3.0 or ghae or ghec %}ver una gráfica de visualización del progreso de dicha ejecución y {% endif %}ver la actividad de cada paso en {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Debajo del nombre de tu repositorio, da clic en **Acciones**. ![Navegar al repositorio](/assets/images/help/images/learn-github-actions-repository.png)
@@ -236,8 +246,17 @@ Una vez que tu job comience a ejecutarse, podrás{% ifversion fpt or ghes > 3.0 
 
 Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Encontrar y personalizar las acciones](/actions/learn-github-actions/finding-and-customizing-actions)".
 
+{% ifversion fpt or ghec or ghes %}
+
 Para entender cómo funciona la facturación de las {% data variables.product.prodname_actions %}, consulta la sección "[Acerca de la facturación para las {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
+
+{% endif %}
 
 ## Contactar con soporte técnico
 
 {% data reusables.github-actions.contacting-support %}
+
+## Leer más
+
+{% ifversion ghec or ghes or ghae %}
+- "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}

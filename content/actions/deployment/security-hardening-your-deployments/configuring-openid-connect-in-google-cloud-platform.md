@@ -49,14 +49,7 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 ### Adding permissions settings
 
-The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. For example:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-You may need to specify additional permissions here, depending on your workflow's requirements. 
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Requesting the access token
 
@@ -70,6 +63,7 @@ This example has a job called `Get_OIDC_ID_token` that uses actions to request a
 
 This action exchanges a {% data variables.product.prodname_dotcom %} OIDC token for a Google Cloud access token, using [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation).
 
+{% raw %}
 ```yaml{:copy}
 name: List services in GCP
 on:
@@ -95,5 +89,6 @@ jobs:
       name: 'gcloud'
       run: |-
         gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
-        gcloud config list
+        gcloud services list
 ```
+{% endraw %}

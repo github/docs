@@ -19,14 +19,14 @@ El uso de {% data variables.product.prodname_codespaces %} se factura para todas
 
 El uso de {% data variables.product.prodname_codespaces %} se cobra de acuerdo con las unidades de medida en la siguiente tabla:
 
-| Producto           | SKU            | Unit of measure | Price |
-| ------------------ | -------------- | --------------- | ----- |
-| Codespaces Compute | 2 núcleos      | 1 hour          | $0.18 |
-|                    | 4 núcleos      | 1 hour          | $0.36 |
-|                    | 8 núcleos      | 1 hour          | $0.72 |
-|                    | 16 núcleos     | 1 hour          | $1.44 |
-|                    | 32 núcleos     | 1 hour          | $2.88 |
-| Codespaces Storage | Almacenamiento | 1 GB-month      | $0.07 |
+| Producto                     | SKU            | Unidad de medida | Precio |
+| ---------------------------- | -------------- | ---------------- | ------ |
+| Cálculos de codespaces       | 2 núcleos      | 1 hora           | $0.18  |
+|                              | 4 núcleos      | 1 hora           | $0.36  |
+|                              | 8 núcleos      | 1 hora           | $0.72  |
+|                              | 16 núcleos     | 1 hora           | $1.44  |
+|                              | 32 núcleos     | 1 hora           | $2.88  |
+| Almacenamiento de codespaces | Almacenamiento | 1 GB-mes         | $0.07  |
 
 ## Acerca de la facturación para {% data variables.product.prodname_codespaces %}
 
@@ -47,6 +47,12 @@ Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerd
 Para obtener más información sobre cómo administrar y cambiar el límite de gastos de tu organización, consulta la sección "[Administrar tu límite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
 
 {% data reusables.codespaces.exporting-changes %}
+
+## Limitar la elección de tipos de máquina
+
+El tipo de máquina que elija un usuario cuando crea un codespace afectará la carga por minuto del mismo, como se muestra anteriormente.
+
+Los propietarios de las organizaciones pueden crear una política para restringir los tipos de máquina que están disponibles para los usuarios. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
 
 ## Cómo se maneja la facturación para los repositorios bifurcados
 

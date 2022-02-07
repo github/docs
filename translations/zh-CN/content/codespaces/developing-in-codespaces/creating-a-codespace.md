@@ -14,6 +14,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Create a codespace
 ---
 
 ## 关于代码空间的创建
@@ -31,6 +32,10 @@ You can create a codespace on {% data variables.product.prodname_dotcom_the_webs
 - 第 4 步：代码空间继续创建后设置。
 
 有关创建代码空间时会发生什么的更多信息，请参阅“[深潜](/codespaces/getting-started/deep-dive)”。
+
+For more information on the lifecycle of a codespace, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
+
+If you want to use Git hooks for your codespace, then you should set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`, during step 4. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created. For more information on using `postCreateCommand`, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the Visual Studio Code documentation.
 
 {% data reusables.codespaces.use-visual-studio-features %}
 
@@ -62,8 +67,6 @@ You can create a codespace on {% data variables.product.prodname_dotcom_the_webs
 
 ## 创建代码空间
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -75,7 +78,11 @@ You can create a codespace on {% data variables.product.prodname_dotcom_the_webs
 
    ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 
-   如果您是组织的成员，并且在该组织拥有的仓库上创建代码空间，您可以选择不同机器类型的选项。 从对话框中选择机器类型，然后点击 **Create codespace（创建代码空间）**。 ![机器类型选择](/assets/images/help/codespaces/choose-custom-machine-type.png)
+   如果您是组织的成员，并且在该组织拥有的仓库上创建代码空间，您可以选择不同机器类型的选项。 From the dialog box, choose a machine type and then click **Create codespace**.
+
+   ![机器类型选择](/assets/images/help/codespaces/choose-custom-machine-type.png)
+
+   {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% endwebui %}
 

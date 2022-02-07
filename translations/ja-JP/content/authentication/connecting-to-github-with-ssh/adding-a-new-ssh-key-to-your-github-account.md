@@ -25,7 +25,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% mac %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. SSH 公開鍵をクリップボードにコピーします。
@@ -56,8 +55,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 {% endmac %}
 
 {% windows %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -90,7 +87,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% linux %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. SSH 公開鍵をクリップボードにコピーします。
@@ -125,6 +121,8 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% data reusables.cli.cli-learn-more %}
 
+Before you can use the {% data variables.product.prodname_cli %} to add an SSH key to your account, you must authenticate to the {% data variables.product.prodname_cli %}. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login) in the {% data variables.product.prodname_cli %} documentation.
+
 To add an SSH key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key.
 
 ```shell
@@ -135,6 +133,12 @@ To include a title for the new key, use the `-t` or `--title` flag.
 
 ```shell
 gh ssh-key add <em>key-file</em> --title "personal laptop"
+```
+
+If you generated your SSH key by following the instructions in "[Generating a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", you can add the key to your account with this command.
+
+```shell
+gh ssh-key add ~/.ssh/id_ed25519.pub
 ```
 
 {% endcli %}

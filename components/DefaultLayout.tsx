@@ -6,6 +6,7 @@ import { SmallFooter } from 'components/page-footer/SmallFooter'
 import { ScrollButton } from 'components/ui/ScrollButton'
 import { SupportSection } from 'components/page-footer/SupportSection'
 import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
+import { RestRepoBanner } from 'components/page-header/RestRepoBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useRouter } from 'next/router'
@@ -80,22 +81,27 @@ export const DefaultLayout = (props: Props) => {
           </>
         )}
       </Head>
-
+      <a href="#main-content" className="sr-only">
+        Skip to main content
+      </a>
       <SidebarNav />
-
-      <main className="flex-1 min-width-0">
+      <div className="flex-column flex-1 overflow-auto">
         <Header />
-        <DeprecationBanner />
+        <main id="main-content">
+          <DeprecationBanner />
+          <RestRepoBanner />
 
-        {props.children}
-
-        <SupportSection />
-        <SmallFooter />
-        <ScrollButton
-          className="position-fixed bottom-0 mb-4 right-0 mr-4"
-          ariaLabel={t('scroll_to_top')}
-        />
-      </main>
+          {props.children}
+        </main>
+        <footer>
+          <SupportSection />
+          <SmallFooter />
+          <ScrollButton
+            className="position-fixed bottom-0 mb-4 right-0 mr-4"
+            ariaLabel={t('scroll_to_top')}
+          />
+        </footer>
+      </div>
     </div>
   )
 }

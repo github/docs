@@ -2,7 +2,7 @@
 title: Duplicar um repositório
 intro: 'Para manter um espelho de um repositório sem a bifurcação, é possível executar um comando especial de clone e, em seguida, fazer push do espelho para o novo repositório.'
 redirect_from:
-  - /articles/duplicating-a-repo/
+  - /articles/duplicating-a-repo
   - /articles/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/duplicating-a-repository
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/duplicating-a-repository
@@ -19,7 +19,7 @@ topics:
 
 {% note %}
 
-**Observação:** Se você tem um projeto hospedado em outro sistema de controle de versão, você poderá importar automaticamente seu projeto para {% data variables.product.prodname_dotcom %} usando a ferramenta Importador de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre o importador de {% data variables.product.prodname_dotcom %}](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
+**Observação:** Se você tem um projeto hospedado em outro sistema de controle de versão, você poderá importar automaticamente seu projeto para {% data variables.product.prodname_dotcom %} usando a ferramenta Importador de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre o importador de {% data variables.product.prodname_dotcom %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
 
 {% endnote %}
 
@@ -88,18 +88,18 @@ Se você deseja espelhar um repositório em outro local e ainda obter atualizaç
   $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
+Assim como um clone bare, um clone espelhado inclui todos os branches remotes e tags, mas todas as referências locais serão substituídas todas as vezes que você fizer fetch, assim ele sempre será o mesmo do repositório original. O push no espelho é simplificado pela configuração da URL para pushes.
 
-Assim como um clone bare, um clone espelhado inclui todos os branches remotes e tags, mas todas as referências locais serão substituídas todas as vezes que você fizer fetch, assim ele sempre será o mesmo do repositório original. O push no espelho é simplificado pela configuração da URL para pushes. Para atualizar o espelho, obtenha atualizações e faça push.
-
-```shell
-$ git fetch -p origin
-$ git push --mirror
-```
+4. Para atualizar o espelho, obtenha atualizações e faça push.
+  ```shell
+  $ git fetch -p origin
+  $ git push --mirror
+  ```
 {% ifversion fpt or ghec %}
 ## Leia mais
 
 * "[Enviando por push as alterações para o GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
 * "[Sobre o armazenamento de arquivos grandes do Git e do GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
-* "[Sobre o Importador do GitHub](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
+* "[Sobre o Importador do GitHub](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
 
 {% endif %}

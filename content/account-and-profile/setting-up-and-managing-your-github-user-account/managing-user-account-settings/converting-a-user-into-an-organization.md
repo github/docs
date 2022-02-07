@@ -1,8 +1,8 @@
 ---
 title: Converting a user into an organization
 redirect_from:
-  - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization/
-  - /articles/explaining-the-account-transformation-warning/
+  - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization
+  - /articles/explaining-the-account-transformation-warning
   - /articles/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization

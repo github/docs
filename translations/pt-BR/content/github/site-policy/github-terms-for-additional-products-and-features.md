@@ -16,11 +16,11 @@ Ao usar o GitHub, você pode ter acesso a muitos produtos e funcionalidades adic
 Ao usar as Funcionalidades e Produtos Adicionais, você também concorda com os Termos do GitHub aplicáveis para Produtos Adicionais e Funcionalidades listados abaixo. A violação destes termos do GitHub para Produtos e Funcionalidades Adicionais constitui uma violação do Contrato. Os termos em maiúsculas não definidos aqui têm o significado consignado no Contrato.
 
 **Para usuários corporativos**
-- Os usuários do **GitHub Enterprise Cloud** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança avançada, base de dados de consultores, códigos, pré-visualizações de dependência, laboratório de aprendizado, Octoshift, pacotes e páginas.
+- Os usuários do **GitHub Enterprise Cloud** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança avançada, base de dados de consultores, códigos, pré-visualizações do Dependabot, importaor do GitHub Enterprise, laboratório de aprendizado, pacotes e páginas.
 
-- Os usuários do **GitHub Enterprise Server** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança Avançada, Dados de Consultoria, Conexões, Visualização de Dependabot, Laboratório, Octoshift, Pacotes, Páginas e Imagens de Servidor SQL.
+- Os usuários do **GitHub Enterprise Server** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança Avançada, Dados de Consultoria, Conexões, Visualização de Dependabot, Importador do GitHub Enterprise, Laboratório de Aprendizado, Pacotes, Páginas e Imagens de Servidor SQL.
 
-- Os usuários do **GitHub AE** podem acessar os seguintes Produtos e Características: Ações, Segurança Avançada, Banco de Dados de Consultoria,{% ifversion ghae-next %}Conectar, {% endif %}Visualiazçãodo Dependabot, Octoshift, Pacotes e Páginas.
+- Os usuários do **GitHub AE** podem ter acesso aos seguintes produtos e funcionalidades: ações, segurança avançada, dados de consultoria, conexões, visualização de dependência, Importador do GitHub Enterprise, pacotes e páginas.
 
 ## Ações
 As Ações GitHub permitem criar fluxos de trabalho personalizados do ciclo de vida de desenvolvimento de softwares diretamente no seu repositório GitHub. Ações são cobradas conforme o uso. A [Documentação de ações](/actions) inclui detalhes, que abrangem quantidades de computação e armazenamento (dependendo do plano da sua conta) e como monitorar seus minutos de ação de uso e definir limites de uso.
@@ -63,12 +63,15 @@ O GitHub Codespaces permite que você desenvolva o código diretamente a partir 
 
 Para evitar violações dessas limitações e abusos do GitHub Codespaces, este pode monitorar o seu uso do GitHub Codespaces. O mau uso do GitHub Codespaces pode resultar no cancelamento do seu acesso aos Codespaces, em restrições na sua capacidade de usar o GitHub Codespaces ou na desativação de repositórios criados para executar codespaces de forma a violar estes Termos.
 
-Os Codespaces permitem que você carregue extensões do Marketplace do Microsoft Visual ("Extensões do Marketplace") para uso no seu ambiente de desenvolvimento como, por exemplo, para processar as linguagens de programação na qual o seu código está escrito. As extensões do Marketplace são licenciadas nos seus próprios termos de uso separados, conforme, observado no Visual Studio Marketplace e os termos de uso localizados em https://aka. /pt_BR/vsmarketplace-ToU. O GitHub não faz nenhuma garantia de qualquer natureza com relação às Extensões do Marketplace e não é responsável por ações de autores de terceiros das Extensões do Marketplace que tenham acesso ao Seu Conteúdo. Codespaces also allows you to load software into your environment through devcontainer features. Such software is provided under the separate terms of use accompanying it. Seu uso de qualquer aplicativo de terceiros é de inteira responsabilidade sua.
+Os Codespaces permitem que você carregue extensões do Marketplace do Microsoft Visual ("Extensões do Marketplace") para uso no seu ambiente de desenvolvimento como, por exemplo, para processar as linguagens de programação na qual o seu código está escrito. As extensões do Marketplace são licenciadas nos seus próprios termos de uso separados, conforme, observado no Visual Studio Marketplace e os termos de uso localizados em https://aka. /pt_BR/vsmarketplace-ToU. O GitHub não faz nenhuma garantia de qualquer natureza com relação às Extensões do Marketplace e não é responsável por ações de autores de terceiros das Extensões do Marketplace que tenham acesso ao Seu Conteúdo. Os codespaces também permitem que você carregue o software no seu ambiente por meio de recursos de devcontainer. Este tipo de software é fornecido ao abrigo dos termos de utilização separados que o acompanha. Seu uso de qualquer aplicativo de terceiros é de inteira responsabilidade sua.
 
 A versão geralmente disponível do Codespaces não está disponível atualmente para os clientes de governo dos EUA. EUA os clientes governamentais podem continuar usando a Visualização Beta de Codespaces em termos separados. Consulte [Termos de Visualização Beta](/github/site-policy/github-terms-of-service#j-beta-previews).
 
 ## Connect
-Com GitHub Connect, você pode compartilhar certas funcionalidades e dados entre seu GitHub Enterprise Server {% ifversion ghae-next %}ou sua instância do GitHub AE {% endif %}e sua organização do GitHub Enterprise Cloud ou conta corporativa no GitHub.com. Para habilitar o GitHub Connect, você precisa ter ao menos uma (1) conta no GitHub Enterprise Cloud ou GitHub.com e uma (1) instância licenciada do GitHub Enterprise Server{% ifversion ghae-next %} ou GitHub AE{% endif %}. O seu uso do GitHub Enterprise Cloud ou GitHub.com por meio do Connect é regido pelos termos sob os quais você licencia o GitHub Enterprise Cloud ou GitHub.com. O uso de dados pessoais é regido pela [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
+Com GitHub Connect, você pode compartilhar certas funcionalidades e dados entre seu GitHub Enterprise Server ou sua instância do GitHub AE e sua organização do GitHub Enterprise Cloud ou conta corporativa no GitHub.com. Para habilitar o GitHub Connect, você precisa ter ao menos uma (1) conta no GitHub Enterprise Cloud ou GitHub.com e uma (1) instância licenciada do GitHub Enterprise Server ou GitHub AE. O seu uso do GitHub Enterprise Cloud ou GitHub.com por meio do Connect é regido pelos termos sob os quais você licencia o GitHub Enterprise Cloud ou GitHub.com. O uso de dados pessoais é regido pela [Declaração de Privacidade do GitHub](/github/site-policy/github-privacy-statement).
+
+## Importador do GitHub Enterprise
+O Importador é uma estrutura para exportar dados de outras fontes a serem importados para a plataforma GitHub. O Importador é fornecido como se apresenta.
 
 ## Learning Lab
 O GitHub Learning Lab oferece cursos interativos grátis que são construídos no GitHub com feedback e ajuda automatizados instantaneamente.
@@ -86,10 +89,7 @@ O uso de dados pessoais é regido pela [Declaração de Privacidade do GitHub](/
 ## npm
 npm é um serviço de hospedagem de pacotes de software que permite a você hospedar seus pacotes de software de forma privada ou pública e usar pacotes como dependências nos seus projetos. npm é o registro do ecossistema do JavaScript. O registro público do npm é gratuito para usar, mas os clientes são cobrados se quiserem publicar pacotes privados ou gerenciar pacotes privados usando equipes. A [documentação do npm](https://docs.npmjs.com/) inclui detalhes sobre a limitação dos tipos de conta e como gerenciar [pacotes privados](https://docs.npmjs.com/about-private-packages) e [organizações](https://docs.npmjs.com/organizations). O uso aceitável do registro npm está definido nos [termos do open-source](https://www.npmjs.com/policies/open-source-terms). Existem termos suplementares para os dois planos do npm [solo](https://www.npmjs.com/policies/solo-plan) e [org](https://www.npmjs.com/policies/orgs-plan). Os [Termos de Uso](https://www.npmjs.com/policies/terms) do npm aplicam-se ao seu uso do npm.
 
-## Octoshift
-O Octoshift é uma estrutura para exportar dados de outras fontes a serem importados para a plataforma GitHub. O Octoshift é fornecido como se apresenta.
-
-## Pacotes
+## Packages
 O GitHub Packages é um serviço de hospedagem de pacotes de software que permite que você hospede os seus pacotes de software de forma privada ou pública e usar pacotes como dependências nos seus projetos. O GitHub Packages são cobrados com base no uso. A [Documentação de pacotes](/packages/learn-github-packages/introduction-to-github-packages) inclui detalhes, que abrangem a largura de banda e quantidades de armazenamento (dependendo do plano da sua conta) e como monitorar seu uso de pacotes e definir limites de uso. O uso de largura de banda de pacotes é limitado pela [Política de Uso Aceitável do GitHub](/github/site-policy/github-acceptable-use-policies).
 
 ## Pages
@@ -98,18 +98,13 @@ Cada Conta vem com acesso a [serviços de hospedagem estática do GitHub Pages](
 
 O GitHub Pages não foi projetado e nem tem permissão para ser usado como um serviço de hospedagem gratuita na web, capaz de administrar sua empresa online, seu site de comércio eletrônico ou qualquer outro site desenvolvido principalmente para facilitar transações comerciais ou fornecer software comercial como um serviço (SaaS). Alguns esforços de monetização são permitidos no Pages, como botões de doação e links para crowdfunding.
 
-### a. Banda larga e limites de uso
-O GitHub Pages está sujeito a limites específicos de uso e largura de banda e pode não ser apropriado para alguns usos elevados de banda larga. Consulte nossas [diretrizes do GitHub Pages](/github/working-with-github-pages/about-github-pages) para obter mais informações.
+_Banda larga e limites de uso_
 
-### b. Uso proibido
-O uso proibido do GitHub Pages inclui
-- Conteúdo ou atividade ilegal ou proibido pelos nossos [Termos de Serviço](/github/site-policy/github-terms-of-service), [Políticas de uso aceitáveis](/github/site-policy/github-acceptable-use-policies) ou [Diretrizes da comunidade](/github/site-policy/github-community-guidelines)
-- Atividade ou conteúdo violento ou ameaçador
-- Excesso de atividade automatizada em massa (spam, por exemplo)
-- Atividade que comprometa serviços ou usuários do GitHub
-- Esquemas para enriquecer rapidamente
-- Conteúdo sexual obsceno
-- Conteúdo que deturpe sua identidade ou a finalidade do site
+O GitHub Pages está sujeito a limites específicos de uso e largura de banda e pode não ser apropriado para alguns usos elevados de banda larga. Consulte nossos [limites do GitHub Pages](/github/working-with-github-pages/about-github-pages) para obter mais informações.
+
+_Uso proibido_
+
+O GitHub Pages não pode ser usado de forma a violar o Contrato, as [Políticas de Uso Aceitável](/github/site-policy/github-acceptable-use-policies) do GitHub ou as limitações de serviço do GitHub Pages definidas na [documentação do GitHub Pages](/pages/getting-started-with-github-pages/about-github-pages#guidelines-for-using-github-pages).
 
 Se você tiver dúvidas sobre se o seu uso ou uso pretendido se enquadram nessas categorias, entre em contato com o [Suporte do GitHube](https://support.github.com/contact?tags=docs-policy). O GitHub se reserva o direito de recuperar qualquer subdomínio GitHub sem responsabilidade.
 

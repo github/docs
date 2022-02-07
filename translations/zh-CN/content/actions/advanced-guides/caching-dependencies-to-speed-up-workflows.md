@@ -23,11 +23,34 @@ topics:
 
 要缓存作业的依赖项，您需要使用 {% data variables.product.prodname_dotcom %} 的 `cache` 操作。 该操作检索由唯一键标识的缓存。 更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。
 
-如果您缓存 Ruby Gems，则考虑使用 Ruby 维护的操作，可在启动时缓存捆绑安装。 更多信息请参阅 [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)。
+If you are caching the package managers listed below, consider using the respective setup-* actions, which require almost zero configuration and are easy to use.
 
-要缓存并恢复 npm、Yarn 或 pnpm 的依赖项，您可以使用 [`actions/setup-node` 操作](https://github.com/actions/setup-node)。
-
-Gradle 和 Maven 缓存可用于 [`actions/setup-java` 操作](https://github.com/actions/setup-java)。
+<table>
+<thead>
+  <tr>
+    <th>Package managers</th>
+    <th>setup-* action for caching</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>npm, yarn, pnpm</td>
+    <td><a href="https://github.com/actions/setup-node">setup-node</a></td>
+  </tr>
+  <tr>
+    <td>pip, pipenv</td>
+    <td><a href="https://github.com/actions/setup-python">setup-python</a></td>
+  </tr>
+  <tr>
+    <td>gradle, maven</td>
+    <td><a href="https://github.com/actions/setup-java">setup-java</a></td>
+  </tr>
+  <tr>
+    <td>ruby gems</td>
+    <td><a href="https://github.com/ruby/setup-ruby">setup-ruby</a></td>
+  </tr>
+</tbody>
+</table>
 
 {% warning %}
 
@@ -209,4 +232,4 @@ restore-keys: |
 
 ## 使用限制和收回政策
 
-{% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制为 5 GB。 如果超过此限制，{% data variables.product.prodname_dotcom %} 将保存缓存，但会开始收回缓存，直到总大小小于 5 GB。
+{% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制为 10 GB。 如果超过此限制，{% data variables.product.prodname_dotcom %} 将保存缓存，但会开始收回缓存，直到总大小小于 10 GB。

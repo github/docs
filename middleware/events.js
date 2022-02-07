@@ -19,15 +19,15 @@ router.post('/', async function postEvents(req, res, next) {
     return res.status(400).json(isDev ? ajv.errorsText() : {})
   }
 
-  if (req.hydro.maySend()) {
-    // intentionally don't await this async request
-    // so that the http response afterwards is sent immediately
-    req.hydro.publish(hydroNames[fields.type], omit(fields, OMIT_FIELDS)).catch((e) => {
-      if (isDev) console.error(e)
-    })
-  }
+  res.json({})
 
-  return res.status(200).json({})
+  if (req.hydro.maySend()) {
+    try {
+      await req.hydro.publish(hydroNames[fields.type], omit(fields, OMIT_FIELDS))
+    } catch (err) {
+      console.error('Failed to submit event to Hydro', err)
+    }
+  }
 })
 
 export default router

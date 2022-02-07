@@ -1,85 +1,50 @@
 import { useRouter } from 'next/router'
-import { Box, Dropdown, Details, Text, useDetails } from '@primer/components'
-import { ChevronDownIcon } from '@primer/octicons-react'
-
 import { Link } from 'components/Link'
 import { useLanguages } from 'components/context/LanguagesContext'
+import { Picker } from 'components/ui/Picker'
+import { useTranslation } from 'components/hooks/useTranslation'
 
 type Props = {
   variant?: 'inline'
 }
+
 export const LanguagePicker = ({ variant }: Props) => {
   const router = useRouter()
   const { languages } = useLanguages()
-  const { getDetailsProps, setOpen } = useDetails({ closeOnOutsideClick: true })
   const locale = router.locale || 'en'
   const langs = Object.values(languages)
   const selectedLang = languages[locale]
+  const { t } = useTranslation('picker')
 
-  if (variant === 'inline') {
-    return (
-      <Details {...getDetailsProps()} data-testid="language-picker">
-        <summary
-          className="d-block btn btn-invisible color-fg-default"
-          aria-label="Toggle language list"
-        >
-          <div className="d-flex flex-items-center flex-justify-between">
-            <Text>{selectedLang.nativeName || selectedLang.name}</Text>
-            <ChevronDownIcon size={24} className="arrow ml-md-1" />
-          </div>
-        </summary>
-        <Box mt={1}>
-          {langs.map((lang) => {
-            if (lang.wip) {
-              return null
-            }
-
-            return (
-              <Dropdown.Item onClick={() => setOpen(false)} key={lang.code}>
-                <Link href={router.asPath} locale={lang.code}>
-                  {lang.nativeName ? (
-                    <>
-                      {lang.nativeName} ({lang.name})
-                    </>
-                  ) : (
-                    lang.name
-                  )}
-                </Link>
-              </Dropdown.Item>
-            )
-          })}
-        </Box>
-      </Details>
-    )
-  }
+  // The `router.asPath` will always be without a hash in SSR
+  // So to avoid a hydraration failure on the client, we have to
+  // normalize it to be without the hash. That way the path is treated
+  // in a "denormalized" way.
+  const routerPath = router.asPath.split('#')[0]
 
   return (
-    <Details {...getDetailsProps()} data-testid="language-picker" className="position-relative">
-      <summary className="d-block btn btn-invisible color-fg-default">
-        <Text>{selectedLang.nativeName || selectedLang.name}</Text>
-        <Dropdown.Caret />
-      </summary>
-      <Dropdown.Menu direction="sw" style={{ width: 'unset' }}>
-        {langs.map((lang) => {
-          if (lang.wip) {
-            return null
-          }
-
-          return (
-            <Dropdown.Item key={lang.code} onClick={() => setOpen(false)}>
-              <Link href={router.asPath} locale={lang.code}>
-                {lang.nativeName ? (
-                  <>
-                    {lang.nativeName} ({lang.name})
-                  </>
-                ) : (
-                  lang.name
-                )}
-              </Link>
-            </Dropdown.Item>
-          )
-        })}
-      </Dropdown.Menu>
-    </Details>
+    <Picker
+      variant={variant}
+      data-testid="language-picker"
+      defaultText={t('language_picker_default_text')}
+      options={langs
+        .filter((lang) => !lang.wip)
+        .map((lang) => ({
+          text: lang.nativeName || lang.name,
+          selected: lang === selectedLang,
+          item: (
+            <Link href={routerPath} locale={lang.code}>
+              {lang.nativeName ? (
+                <>
+                  <span lang={lang.code}>{lang.nativeName}</span> (
+                  <span lang="en">{lang.name}</span>)
+                </>
+              ) : (
+                <span lang={lang.code}>{lang.name}</span>
+              )}
+            </Link>
+          ),
+        }))}
+    />
   )
 }

@@ -2,7 +2,7 @@
 title: Viewing your repository's releases and tags
 intro: You can view the chronological history of your repository by release name or tag version number.
 redirect_from:
-  - /articles/working-with-tags/
+  - /articles/working-with-tags
   - /articles/viewing-your-repositorys-tags
   - /github/administering-a-repository/viewing-your-repositorys-tags
   - /github/administering-a-repository/viewing-your-repositorys-releases-and-tags

@@ -2,9 +2,9 @@
 title: コラボレーターのリポジトリから自分を削除する
 intro: 他の人の個人リポジトリのコラボレーターを続けたくなくなった場合は、自分を削除できます。
 redirect_from:
-  - /leave-a-collaborative-repo/
-  - /leave-a-repo/
-  - /articles/removing-yourself-from-a-collaborator-s-repo/
+  - /leave-a-collaborative-repo
+  - /leave-a-repo
+  - /articles/removing-yourself-from-a-collaborator-s-repo
   - /articles/removing-yourself-from-a-collaborator-s-repository
   - /articles/removing-yourself-from-a-collaborators-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository

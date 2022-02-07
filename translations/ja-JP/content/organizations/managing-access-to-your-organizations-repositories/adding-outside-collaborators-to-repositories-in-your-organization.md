@@ -13,13 +13,18 @@ topics:
   - Organizations
   - Teams
 shortTitle: 外部コラボレータの追加
+permissions: People with admin access to a repository can add an outside collaborator to the repository.
 ---
 
 ## About outside collaborators
 
-{% data reusables.organizations.owners-and-admins-can %} 外部コラボレーターをリポジトリに追加できます。ただし、Organization のオーナーがコラボレーターの招待を禁じていない場合に限ります。 詳しい情報については、「[外部のコラボレーターを追加するための権限を設定する](/articles/setting-permissions-for-adding-outside-collaborators)」を参照してください。
-
 {% data reusables.organizations.outside-collaborators-use-seats %}
+
+An organization owner can restrict the ability to invite collaborators. 詳しい情報については、「[外部のコラボレーターを追加するための権限を設定する](/articles/setting-permissions-for-adding-outside-collaborators)」を参照してください。
+
+{% ifversion ghes %}
+Before you can add someone as an outside collaborator on a repository, the person must have a user account on {% data variables.product.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site admin can create a user account for the person. 詳しい情報については、「[ビルトイン認証の利用](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)」を参照してください。
+{% endif %}
 
 {% ifversion not ghae %}
 Organization が[メンバーおよび外部コラボレーターに 2 要素認証を使うことを求める](/articles/requiring-two-factor-authentication-in-your-organization)なら、メンバーおよび外部コラボレーターはあなたからの Organization のリポジトリでのコラボレーションの招待を受諾する前に、2 要素認証を有効化しなければなりません。

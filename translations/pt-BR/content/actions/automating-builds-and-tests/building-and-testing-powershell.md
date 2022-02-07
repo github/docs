@@ -13,13 +13,12 @@ authors:
 type: tutorial
 topics:
   - CI
-  - Powershell
+  - PowerShell
 shortTitle: Criar & testar o PowerShell
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -27,7 +26,8 @@ Este guia mostra como usar PowerShell para CI. Ele descreve como usar o Pester, 
 
 Executores hospedados em {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado que inclui PowerShell e Pester.
 
-{% ifversion ghae %}Para instruções instruções sobre como ter certeza de que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}Para obter uma lista completa do software atualizado e das versões pré-instaladas do PowerShell e Pester, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 

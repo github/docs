@@ -61,7 +61,7 @@ Pull Requestレビューは、Pull Request上のPull Requestレビューコメ�
 
 ## レビューコメント
 
-Pull Requestレビューコメントは、Pull Requestのレビュー中に unified 形式の diff の一部に付けられたコメントです。 コミットコメントおよび Issue コメントは、Pull Requestレビューコメントとは異なります。 コミットコメントはコミットに直接付けるもので、Issue コメントは、unified 形式の diff の一部を参照することなく付けるものです。 詳しい情報については、「[コミットコメントの作成](/rest/reference/git#create-a-commit)」および「[Issue コメントの作成](/rest/reference/issues#create-an-issue-comment)」を参照してください。
+Pull Requestレビューコメントは、Pull Requestのレビュー中に unified 形式の diff の一部に付けられたコメントです。 コミットコメントおよび Issue コメントは、Pull Requestレビューコメントとは異なります。 コミットコメントはコミットに直接付けるもので、Issue コメントは、unified 形式の diff の一部を参照することなく付けるものです。 詳しい情報については、「[コミットコメントの作成](/rest/reference/commits#create-a-commit-comment)」および「[Issue コメントの作成](/rest/reference/issues#create-an-issue-comment)」を参照してください。
 
 ### Pull Requestレビューコメントのカスタムメディアタイプ
 

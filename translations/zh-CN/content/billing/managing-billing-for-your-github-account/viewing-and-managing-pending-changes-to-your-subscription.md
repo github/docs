@@ -3,9 +3,9 @@ title: 查看和管理对订阅的待定更改
 intro: 在下一个结算日期其生效之前，您可以查看和取消对订阅的待定更改。
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-and-managing-pending-changes-to-your-subscription
-  - /articles/viewing-and-managing-pending-changes-to-your-personal-account-s-billing-plan/
-  - /articles/viewing-and-managing-pending-changes-to-your-organization-s-billing-plan/
-  - /articles/viewing-and-managing-pending-changes-to-your-billing-plan/
+  - /articles/viewing-and-managing-pending-changes-to-your-personal-account-s-billing-plan
+  - /articles/viewing-and-managing-pending-changes-to-your-organization-s-billing-plan
+  - /articles/viewing-and-managing-pending-changes-to-your-billing-plan
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/viewing-and-managing-pending-changes-to-your-subscription
 versions:

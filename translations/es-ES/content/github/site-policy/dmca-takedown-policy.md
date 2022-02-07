@@ -1,10 +1,10 @@
 ---
 title: Política de retiro de DMCA
 redirect_from:
-  - /dmca/
-  - /dmca-takedown/
-  - /dmca-takedown-policy/
-  - /articles/dmca-takedown/
+  - /dmca
+  - /dmca-takedown
+  - /dmca-takedown-policy
+  - /articles/dmca-takedown
   - /articles/dmca-takedown-policy
 versions:
   fpt: '*'

@@ -1,7 +1,7 @@
 ---
 title: Manage classrooms
 intro: 'You can create and manage a classroom for each course that you teach using {% data variables.product.prodname_classroom %}.'
-permissions: Organization owners can manage a classroom for an organization.
+permissions: Organization owners who are admins for a classroom can manage the classroom for an organization. {% data reusables.classroom.classroom-admins-link %}
 versions:
   fpt: '*'
 redirect_from:

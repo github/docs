@@ -19,13 +19,13 @@ shortTitle: Criar & testar Java & Ant
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
 Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando o sistema de criação do Ant. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. Você pode estender seu fluxo de trabalho de CI para enviar artefatos a partir da execução de um fluxo de trabalho.
 
-{% ifversion ghae %}Para instruções instruções sobre como ter certeza de que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %}
+{% data reusables.actions.self-hosted-runners-software %}
 {% else %}
 Os executores hospedados em {% data variables.product.prodname_dotcom %} têm uma cache de ferramentas com com software pré-instalado, que inclui kits de desenvolvimento Java (JDKs) e Ant. Para uma lista de software e as versões pré-instaladas para JDK e Ant, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
@@ -40,11 +40,11 @@ Recomendamos que você tenha um entendimento básico da estrutura do Java e do A
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Introdução com o modelo do fluxo de trabalho do Ant
+## Usando o fluxo de trabalho inicial do Ant
 
-{% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho Ant que funcionará para a maioria dos projetos Java baseados no Ant. Para obter mais informações, consulte o [modelo do fluxo de trabalho do Ant](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
+{% data variables.product.prodname_dotcom %} fornece um fluxo de trabalho inicial do Ant que funcionará para a maioria dos projetos Java baseados no Ant. Para obter mais informações, consulte o [fluxo de trabalho inicial do Ant](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
 
-Para começar rapidamente, você pode escolher o modelo do Ant pré-configurado ao criar um novo fluxo de trabalho. Para obter mais informações, consulte o início rápido "[{% data variables.product.prodname_actions %}](/actions/quickstart)".
+Para iniciar rapidamente, você pode escolher o fluxo de trabalho inicial pré-configurado ao criar um novo fluxo de trabalho. Para obter mais informações, consulte o início rápido "[{% data variables.product.prodname_actions %}](/actions/quickstart)".
 
 Você também pode adicionar este fluxo de trabalho manualmente, criando um novo arquivo no diretório `.github/workflows` do seu repositório.
 
@@ -76,7 +76,7 @@ Este fluxo de trabalho executa os seguintes passos:
 2. A etapa `setup-java` configura o Java 11 JDK pelo Adoptium.
 3. A etapa "Criar com Ant" executa o alvo-padrão em seu `build.xml` de modo não interativo.
 
-Os modelos-padrão do fluxo de trabalho são excelentes pontos de partida ao criar seu fluxo de trabalho de compilação e teste, e você pode personalizar o modelo para atender às necessidades do seu projeto.
+Os fluxos de trabalho inicial padrão são excelentes pontos de partida ao criar seu fluxo de trabalho de criação e teste, e você pode personalizar o fluxo de trabalho inicial para atender às necessidades do seu projeto.
 
 {% data reusables.github-actions.example-github-runner %}
 
@@ -88,7 +88,7 @@ Você pode usar os mesmos comandos usados localmente para criar e testar seu có
 
 O fluxo de trabalho inicial executará o alvo-padrão especificado no arquivo _build.xml_.  Seu alvo-padrão será comumente definido para criar classes, executar testes e classes de pacote em seu formato distribuível como, por exemplo, um arquivo JAR.
 
-Se você usa comandos diferentes para criar seu projeto ou se você quer executar um alvo diferente, você poderá especificá-los. Por exemplo, você pode desejar executar o `jar` alvo configurado no arquivo _build-ci.xml_.
+Se você usa comandos diferentes para criar seu projeto ou se você quer executar um alvo diferente, você poderá especificá-los. Por exemplo, você deverá executar o `jar` configurado no seu arquivo `_build-ci.xml_`.
 
 {% raw %}
 ```yaml{:copy}

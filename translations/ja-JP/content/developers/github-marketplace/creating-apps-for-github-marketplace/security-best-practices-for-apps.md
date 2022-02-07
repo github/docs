@@ -2,7 +2,7 @@
 title: アプリケーションのセキュリティベストプラクティス
 intro: '{% data variables.product.prodname_marketplace %}上でセキュアなアプリケーションを共有する準備のガイドライン'
 redirect_from:
-  - /apps/marketplace/getting-started/security-review-process/
+  - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
   - /developers/github-marketplace/security-review-process-for-submitted-apps
   - /developers/github-marketplace/security-best-practices-for-apps

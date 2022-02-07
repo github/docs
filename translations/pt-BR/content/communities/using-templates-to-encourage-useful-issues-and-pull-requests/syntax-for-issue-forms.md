@@ -1,7 +1,6 @@
 ---
 title: Sintaxe para formulários de problema
 intro: 'Você pode definir diferentes tipos de entrada, validações, responsáveis padrão e etiquetas padrão para seus formulários de problemas.'
-product: 'Os formulários de problemas estão disponíveis em beta para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -41,7 +40,7 @@ Você pode definir as seguintes chaves de nível superior para cada formulário 
 | `descrição` | Uma descrição para o modelo de formulário de problema, que aparece na interface de modelo de seletor.                          | Obrigatório | string                                    |
 | `texto`     | Definição dos tipos de entrada no formulário.                                                                                  | Obrigatório | Array                                     |
 | `assignees` | As pessoas que serão automaticamente atribuídas a problemas criados com este modelo.                                           | Opcional    | Matriz ou strings delimitadas por vírgula |
-| `etiquetas` | Etiquetas que serão adicionadas automaticamente a problemas criados com este modelo.                                           | Opcional    | string                                    |
+| `etiquetas` | Etiquetas que serão adicionadas automaticamente a problemas criados com este modelo.                                           | Opcional    | Matriz ou strings delimitadas por vírgula |
 | `title`     | Um título padrão que será preenchido no formulário de envio do problema.                                                       | Opcional    | string                                    |
 
 Para os tipos de entrada disponíveis `texto` e suas sintaxes, consulte "[Sintaxe para o esquema de formulário {% data variables.product.prodname_dotcom %}](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)".
@@ -166,3 +165,4 @@ body:
 ## Leia mais
 
 - [YAML](https://yaml.org/)
+- [Common validation errors when creating issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)

@@ -7,6 +7,10 @@ name: Check for Spammy Issues
 on:
   issues:
     types: [opened]
+
+permissions:
+  contents: none
+
 jobs:
   spammy-title-check:
     name: Remove issues with spammy titles

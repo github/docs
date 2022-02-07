@@ -1,11 +1,11 @@
 ---
 title: ブランチの名前を変更する
 intro: リポジトリにあるブランチの名前を変更できます。
-permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
+permissions: 'People with write permissions to a repository can rename a branch in the repository unless it is the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch){% ifversion fpt or ghec or ghes > 3.3 %} or a [protected branch](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% endif %}. People with admin permissions can rename the default branch{% ifversion fpt or ghec or ghes > 3.3 %} and protected branches{% endif %}.'
 versions:
   fpt: '*'
   ghes: '>=3.1'
-  ghae: next
+  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -16,7 +16,7 @@ redirect_from:
 
 ## ブランチの名前変更について
 
-{% data variables.product.product_location %} にあるリポジトリのブランチの名前を変更できます。 ブランチ関する詳しい情報については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches)」を参照してください。
+{% data variables.product.product_location %} にあるリポジトリのブランチの名前を変更できます。 For more information about branches, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches))."
 
 {% data variables.product.product_location %} 上のブランチ名を変更すると、古いブランチ名を含む URL は、名前を変更したブランチの URL に自動的にリダイレクトされます。 ブランチ保護ポリシー、オープンなプルリクエストのベースブランチ (フォーク含む) およびドラフトリリースも更新されます。 名前の変更が完了すると、{% data variables.product.prodname_dotcom %} は、リポジトリのホームページに、コントリビューターにローカルの Git 環境を更新するよう指示を掲載します。
 

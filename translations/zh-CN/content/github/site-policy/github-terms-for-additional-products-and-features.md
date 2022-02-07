@@ -16,11 +16,11 @@ topics:
 通过使用附加产品和特性，您也同意下面列出的适用的 GitHub 条款。 违反 GitHub 关于附加产品和特性的条款便是违反协议。 在本文未定义的任何大写术语采用“协议”中的含义。
 
 **对于企业用户**
-- **GitHub Enterprise Cloud** 用户可以访问以下附加产品和特性：Actions、Advanced Security、Advisory Database、Codespaces、Dependabot Preview、Learning Lab、Octoshift、Packages 和 Pages。
+- **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, and Pages.
 
-- **GitHub Enterprise Server** 用户可以访问以下附加产品和特性：Actions、Advanced Security、Advisory Database、Connect、Dependabot Preview、Learning Lab、Octoshift, Packages、Pages 和 SQL Server Images。
+- **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, Pages, and SQL Server Images.
 
-- **GitHub AE** 用户可以访问以下附加产品和特性：Actions、Advanced Security、Advisory Database、{% ifversion ghae-next %}Connect、{% endif %}Dependabot Preview、Octoshift、Packages 和 Pages。
+- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages and Pages.
 
 ## 操作
 GitHub Actions 使您能够直接在您的 GitHub 仓库中创建自定义软件开发生命周期工作流程。 Actions 按使用情况计费。 [Actions 文档](/actions)包含详细信息，包括计算和存储量（取决于您的帐户计划）以及如何监控您的 Actions 分钟使用和设置使用限制。
@@ -68,7 +68,10 @@ Codespaces allows you to load extensions from the Microsoft Visual Studio Market
 Codespaces 的一般版本目前不适用于美国。 政府客户。 美国 government customers may continue to use the Codespaces Beta Preview under separate terms. See [Beta Preview terms](/github/site-policy/github-terms-of-service#j-beta-previews).
 
 ## Connect
-使用 GitHub Connect，您可以在 GitHub Enterprise Server {% ifversion ghae-next %}或 GitHub AE {% endif %}实例与您的GitHub Enterprise Cloud 组织或 GitHub.com 上的企业帐户之间分享某些功能和数据。 要启用 GitHub Connect，您必须在 GitHub Enterprise Cloud 或 GitHub.com 上至少有一 (1) 个帐户，以及一 (1) 个许可的 GitHub Enterprise Server{% ifversion ghae-next %} 或 GitHub AE{% endif %} 实例。 您通过 Connect 使用 GitHub Enterprise Cloud 或 GitHub.com 是由您许可 GitHub Enterprise Cloud 或 GitHub.com的条款管理的。 个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管制。
+With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server or GitHub AE instance and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed instance of GitHub Enterprise Server or GitHub AE. 您通过 Connect 使用 GitHub Enterprise Cloud 或 GitHub.com 是由您许可 GitHub Enterprise Cloud 或 GitHub.com的条款管理的。 个人数据的使用受 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)管制。
+
+## GitHub Enterprise Importer
+Importer is a framework for exporting data from other sources to be imported to the GitHub platform. Importer is provided “AS-IS”.
 
 ## Learning Lab
 GitHub Learning Lab 提供已编入GitHub 的免费交互式课程，并提供即时自动反馈和帮助。
@@ -86,10 +89,7 @@ GitHub Learning Lab 提供已编入GitHub 的免费交互式课程，并提供�
 ## npm
 npm 是一种软件包托管服务，允许您私下或公开托管软件包，并将包用作项目中的依赖项。 npm 是 JavaScript 生态系统的记录注册表。 npm 公共注册表可以免费使用，但客户如果想要发布私有包或使用团队管理私有包，则需收取费用。 [npm 文档](https://docs.npmjs.com/) 包含帐户类型限制以及如何管理[私有包](https://docs.npmjs.com/about-private-packages)和[组织](https://docs.npmjs.com/organizations)的详细信息。 [开放源码条款](https://www.npmjs.com/policies/open-source-terms)概述了可接受的 npm 注册表的使用。 npm [solo](https://www.npmjs.com/policies/solo-plan) 和 [org](https://www.npmjs.com/policies/orgs-plan) 计划都有补充条款。 npm [使用条款](https://www.npmjs.com/policies/terms) 适用于您的 npm 使用。
 
-## Octoshift
-Octoshift 是一个从其他来源导出数据到 GitHub 平台的框架。 Octoshift“按原样”提供。
-
-## 包
+## Packages
 GitHub Packages 是一种软件包托管服务，允许您私下或公开托管软件包，并将包用作项目中的依赖项。 GitHub Packages 按用量计费。 [Packages 文档](/packages/learn-github-packages/introduction-to-github-packages)包含详细信息，包括带宽和存储量（取决于您的帐户计划）以及如何监控您的 Packages 使用和设置使用限制。 Packages 带宽使用受 [GitHub 可接受使用政策](/github/site-policy/github-acceptable-use-policies)限制。
 
 ## 页面
@@ -98,18 +98,13 @@ GitHub Packages 是一种软件包托管服务，允许您私下或公开托管�
 
 GitHub Pages 并非旨在用于或允许用作免费的 Web 托管服务来运行您的在线业务、电子商务站点或主要针对促进商业交易或提供商业软件即服务 (SaaS) 的任何其他网站。 页面上允许一些货币化工作，如捐款按钮和筹款链接。
 
-### a. 带宽和使用限制
-GitHub Pages 受某些特定带宽和使用限制的约束，可能不适用于某些高带宽用途。 请参阅我们的 [GitHub Pages 指南](/github/working-with-github-pages/about-github-pages)了解更多信息。
+_带宽和使用限制_
 
-### b. 禁止使用
-GitHub Pages 的禁止用途包括
-- 非法或者我们的[服务条款](/github/site-policy/github-terms-of-service)、[可接受使用政策](/github/site-policy/github-acceptable-use-policies)或[社区指导方针](/github/site-policy/github-community-guidelines)禁止的内容或活动
-- 暴力或有威胁的内容或活动
-- 过多的自动批量活动（例如，垃圾邮件）
-- 危害 GitHub 用户或 GitHub 服务的活动
-- 快速致富计划
-- 性淫秽内容
-- 歪曲您的身份或站点目的的内容
+GitHub Pages 受某些特定带宽和使用限制的约束，可能不适用于某些高带宽用途。 Please see our [GitHub Pages limits](/github/working-with-github-pages/about-github-pages) for more information.
+
+_禁止使用_
+
+GitHub Pages may not be used in violation of the Agreement, the GitHub [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies), or the GitHub Pages service limitations set forth in the [Pages documentation](/pages/getting-started-with-github-pages/about-github-pages#guidelines-for-using-github-pages).
 
 如果您对用途或预期用途是否归入这些类别有疑问，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-policy)。 GitHub 保留随时收回任何 GitHub 子域而不承担任何责任的权利。
 

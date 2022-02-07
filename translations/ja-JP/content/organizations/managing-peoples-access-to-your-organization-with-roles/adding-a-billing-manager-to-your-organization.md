@@ -53,7 +53,7 @@ Organization のオーナーの Team のメンバーは、人に*支払いマネ
 {% ifversion ghec %}
 {% note %}
 
-**Note:** If your organization is managed using [Enterprise Accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) you will not be able to invite Billing Managers at the organization level.
+**Note:** If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
 
 {% endnote %}
 {% endif %}

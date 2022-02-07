@@ -2,7 +2,7 @@
 title: コミットをリモートリポジトリにプッシュする
 intro: ローカルブランチで実行されたコミットをリモートリポジトリにプッシュするには、`git push` を使用します。
 redirect_from:
-  - /articles/pushing-to-a-remote/
+  - /articles/pushing-to-a-remote
   - /articles/pushing-commits-to-a-remote-repository
   - /github/using-git/pushing-commits-to-a-remote-repository
   - /github/getting-started-with-github/pushing-commits-to-a-remote-repository
@@ -94,9 +94,9 @@ git fetch upstream
 >  * [new branch]      master     -> upstream/master
 ```
 
-ローカルの変更が終わったら、ローカルブランチを GitHub にプッシュし、[プルリクエストを開始する](/articles/about-pull-requests)ことができます。
+ローカルの変更が終わったら、ローカルブランチを GitHub にプッシュし、[プルリクエストを開始する](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)ことができます。
 
-フォークの扱いに関する詳細は、「[フォークを同期する](/articles/syncing-a-fork)」を参照してください。
+フォークの扱いに関する詳細は、「[フォークを同期する](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)」を参照してください。
 
 ## 参考リンク
 

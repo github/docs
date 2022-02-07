@@ -1,11 +1,10 @@
 ---
 title: Funções em uma empresa
 intro: 'Todas as pessoas em uma empresa são integrantes da empresa. Para controlar o acesso às configurações e dados da sua empresa, você pode atribuir diferentes funções aos integrantes da sua empresa.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
-  - /articles/permission-levels-for-a-business-account/
+  - /articles/permission-levels-for-a-business-account
   - /articles/roles-for-an-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise
 versions:
@@ -42,7 +41,7 @@ Os proprietários corporativos têm controle total da empresa e podem executar t
 
 Os proprietários corporativos não podem acessar as configurações ou o conteúdo da organização, a menos que sejam incluídos como proprietário da organização ou recebam acesso direto a um repositório de propriedade da organização. Da mesma forma, os proprietários de organizações na sua empresa não têm acesso à empresa propriamente dita, a não ser que você os torne proprietários da empresa.
 
-Um proprietário da empresa só consumirá uma licença se for um proprietário ou integrante de pelo menos uma organização dentro da empresa. {% ifversion ghec %}Os proprietários de empresas devem ter uma conta pessoal em {% data variables.product.prodname_dotcom %}.{% endif %} Como prática recomendada, sugerimos que você converta apenas algumas pessoas da sua empresa em proprietários para reduzir o risco para a sua empresa.
+Um proprietário da empresa só consumirá uma licença se for um proprietário ou integrante de pelo menos uma organização dentro da empresa. Mesmo que o proprietário de uma empresa tenha uma função em várias organizações, ele consumirá uma única licença. {% ifversion ghec %}Os proprietários de empresas devem ter uma conta pessoal em {% data variables.product.prodname_dotcom %}.{% endif %} Como prática recomendada, sugerimos que você converta apenas algumas pessoas da sua empresa em proprietários para reduzir o risco para a sua empresa.
 
 ## Integrantes da empresa
 
@@ -52,7 +51,7 @@ As pessoas na sua empresa podem ter diferentes níveis de acesso às várias org
 
 Para obter mais informações sobre permissões no nível da organização, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-Pessoas com acesso de colaborador externo aos repositórios pertencentes à sua organização também estão listadas na aba Pessoas da sua empresa, mas não são integrantes da empresa e não têm qualquer acesso à mesma. For more information about outside collaborators, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+Pessoas com acesso de colaborador externo aos repositórios pertencentes à sua organização também estão listadas na aba Pessoas da sua empresa, mas não são integrantes da empresa e não têm qualquer acesso à mesma. Para obter mais informações sobre colaboradores externos, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)".
 
 {% ifversion ghec %}
 

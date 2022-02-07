@@ -390,7 +390,7 @@ O pull request foi mesclado. O atributo `commit_id` é o SHA1 do commit do `HEAD
 
 | Tipo de problema           | API de eventos de problema | API de eventos da linha de tempo |
 |:-------------------------- |:--------------------------:|:--------------------------------:|
-| <ul><li>Pull requests</li></ul> |           **X**            |                                  |
+| <ul><li>Pull requests</li></ul> |           **X**            |              **X**               |
 
 ### Propriedades do objeto do evento
 
@@ -446,7 +446,7 @@ O problema foi fixado.
 
 ## ready_for_review
 
-Um pull request que não está no modo rascunho foi criado.
+Um rascunho de pull request foi marcado como pronto para revisão.
 
 ### Disponibilidade
 

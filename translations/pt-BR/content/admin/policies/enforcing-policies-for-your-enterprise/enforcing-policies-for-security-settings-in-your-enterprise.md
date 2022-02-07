@@ -2,11 +2,10 @@
 title: Aplicando políticas para configurações de segurança na sua empresa
 intro: É possível impor políticas para gerenciar as configurações de segurança nas organizações da sua empresa ou permitir que as políticas sejam definidas em cada organização.
 permissions: Enterprise owners can enforce policies for security settings in an enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
-  - /articles/enforcing-security-settings-for-organizations-in-your-business-account/
-  - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-security-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account
   - /articles/enforcing-security-settings-in-your-enterprise-account
   - /github/articles/managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
@@ -147,9 +146,8 @@ A exclusão de uma CA não pode ser desfeita. Se você quiser usar a mesma CA no
 {% data reusables.organizations.delete-ssh-ca %}
 
 {% ifversion ghec or ghae %}
-
 ## Leia mais
 
-- "[Sobre a identidade e gerenciamento de acesso para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"
-
+- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
+- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
 {% endif %}

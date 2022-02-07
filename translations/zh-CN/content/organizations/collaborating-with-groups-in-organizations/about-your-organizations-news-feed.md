@@ -2,7 +2,7 @@
 title: 关于组织的消息馈送
 intro: 您可以使用组织的消息馈送跟进该组织拥有的仓库上的近期活动。
 redirect_from:
-  - /articles/news-feed/
+  - /articles/news-feed
   - /articles/about-your-organization-s-news-feed
   - /articles/about-your-organizations-news-feed
   - /github/setting-up-and-managing-organizations-and-teams/about-your-organizations-news-feed

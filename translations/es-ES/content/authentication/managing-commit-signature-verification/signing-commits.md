@@ -2,8 +2,8 @@
 title: Firmar confirmaciones
 intro: Puedes firmar las confirmaciones localmente utilizando GPG o S/MIME.
 redirect_from:
-  - /articles/signing-commits-and-tags-using-gpg/
-  - /articles/signing-commits-using-gpg/
+  - /articles/signing-commits-and-tags-using-gpg
+  - /articles/signing-commits-using-gpg
   - /articles/signing-commits
   - /github/authenticating-to-github/signing-commits
   - /github/authenticating-to-github/managing-commit-signature-verification/signing-commits
@@ -37,7 +37,7 @@ Si tienes múltiples llaves o estás intentando firmar confirmaciones o etiqueta
 
 1. Cuando confirmas los cambios en tu rama local, agrega la marca -S al comando de confirmación de Git:
   ```shell
-  $ git commit -S -m <em>your commit message</em>
+  $ git commit -S -m <em>"your commit message"</em>
   # Creates a signed commit
   ```
 2. Si estás utilizando GPG, después de crear tu confirmación, proporciona la contraseña que configuraste cuando [generaste tu llave GPG](/articles/generating-a-new-gpg-key).

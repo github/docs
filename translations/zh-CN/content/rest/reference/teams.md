@@ -52,13 +52,14 @@ miniTocMaxHeadingLevel: 3
   {% if operation.subcategory == 'members' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion ghec %}
+{% ifversion ghec or ghae %}
 ## External groups
 
 The external groups API allows you to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.
 
 要使用此 API，经过身份验证的用户必须是团队维护员或与团队关联的组织的所有者。
 
+{% ifversion ghec %}
 {% note %}
 
 **注意：**
@@ -67,6 +68,7 @@ The external groups API allows you to view the external identity provider groups
 - If your organization uses team synchronization, you can use the Team Synchronization API. For more information, see "[Team synchronization API](#team-synchronization)."
 
 {% endnote %}
+{% endif %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'external-groups' %}{% include rest_operation %}{% endif %}

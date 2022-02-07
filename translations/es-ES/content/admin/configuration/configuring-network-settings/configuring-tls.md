@@ -2,8 +2,8 @@
 title: Configurar TLS
 intro: 'Puedes configurar la Seguridad de la capa de transporte (TLS) en {% data variables.product.product_location %} para poder usar un certificado firmado por una entidad de certificación confiable.'
 redirect_from:
-  - /enterprise/admin/articles/ssl-configuration/
-  - /enterprise/admin/guides/installation/about-tls/
+  - /enterprise/admin/articles/ssl-configuration
+  - /enterprise/admin/guides/installation/about-tls
   - /enterprise/admin/installation/configuring-tls
   - /enterprise/admin/configuration/configuring-tls
   - /admin/configuration/configuring-tls
@@ -38,17 +38,19 @@ Puedes generar una solicitud de firma de certificados (CSR) para tu instancia us
 
 ## Cargar un certificado TLS personalizado
 
+{% data reusables.enterprise_site_admin_settings.tls-downtime %}
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 {% data reusables.enterprise_management_console.select-tls-only %}
 4. En "TLS Protocol support" (Asistencia de protocolo TLS), selecciona los protocolos que quieres permitir. ![Botones de radio con opciones para elegir protocolos TLS](/assets/images/enterprise/management-console/tls-protocol-support.png)
 5. En "Certificate" (Certificado), haz clic en **Choose File** (Elegir archivo) para elegir el certificado TLS o la cadena de certificación (en formato de PEM) que quieras instalar. Este archivo suele tener una extensión *.pem*, *.crt* o *.cer*. ![Botón para encontrar archivo de certificado TLS](/assets/images/enterprise/management-console/install-tls-certificate.png)
-6. En "Unencrypted key" (Clave no cifrada), haz clic en **Choose File** (Elegir archivo) para elegir la clave TLS (en formato de PEM) que quieras instalar. Ese archivo suele tener una extensión *.key*. ![Botón para encontrar archivo de clave TLS](/assets/images/enterprise/management-console/install-tls-key.png)
+6. Debajo de "Llave descifrada", haz clic en **Elegir archivo** para elegir una llave RSA (en formato PEM) a instalar. Ese archivo suele tener una extensión *.key*. ![Botón para encontrar archivo de clave TLS](/assets/images/enterprise/management-console/install-tls-key.png)
 
   {% warning %}
 
-  **Advertencia**: Tu clave TLS no debe tener contraseña. Para obtener más información, consulta "[Eliminar la contraseña de tu archivo clave](/enterprise/{{ currentVersion }}/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
+  **Advertencia**: Tu llave debe ser una llave RSA y no debe tener una frase de acceso. Para obtener más información, consulta "[Eliminar la contraseña de tu archivo clave](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)".
 
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
@@ -66,6 +68,8 @@ También puedes usar la utilidad de la línea de comando `ghe-ssl-acme` en {% da
 ## Configurar TLS usando Let's Encrypt
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
+
+{% data reusables.enterprise_site_admin_settings.tls-downtime %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

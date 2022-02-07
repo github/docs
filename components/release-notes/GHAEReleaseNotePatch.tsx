@@ -16,20 +16,11 @@ export function GHAEReleaseNotePatch({ patch, didEnterView }: Props) {
     }
   }, [onScreen])
 
-  const bannerText = patch.currentWeek
-    ? t('banner_text_current')
-    : `${t('banner_text_past')} ${patch.friendlyDate}.`
+  const bannerText = t('banner_text')
 
   return (
-    <div
-      ref={containerRef}
-      className="mb-10 color-bg-subtle pb-6 border-bottom border-top"
-      id={patch.date}
-    >
-      <header
-        style={{ zIndex: 1 }}
-        className="container-xl position-sticky top-0 color-bg-subtle border-bottom px-3 pt-4 pb-2"
-      >
+    <div ref={containerRef} className="mb-10 pb-6 border-bottom border-top" id={patch.date}>
+      <header style={{ zIndex: 1 }} className="container-xl border-bottom px-3 pt-4 pb-2">
         <div className="d-flex flex-items-center">
           <h2 className="border-bottom-0 m-0 p-0">{patch.title}</h2>
 
@@ -45,7 +36,7 @@ export function GHAEReleaseNotePatch({ patch, didEnterView }: Props) {
           <button className="js-print btn-link ml-3 text-small text-bold">Print</button>
         </div>
         <p className="color-fg-muted mt-1">
-          {patch.friendlyDate} - {bannerText}
+          {bannerText} {patch.friendlyDate}.
         </p>
       </header>
 

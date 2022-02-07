@@ -14,6 +14,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Create a codespace
 ---
 
 ## codespace の作成について
@@ -31,6 +32,10 @@ When you create a codespace, a number of steps happen to create and connect you 
 - Step 4: Codespace continues with post-creation setup.
 
 For more information on what happens when you create a codespace, see "[Deep Dive](/codespaces/getting-started/deep-dive)."
+
+For more information on the lifecycle of a codespace, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
+
+If you want to use Git hooks for your codespace, then you should set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`, during step 4. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created. For more information on using `postCreateCommand`, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the Visual Studio Code documentation.
 
 {% data reusables.codespaces.use-visual-studio-features %}
 
@@ -62,8 +67,6 @@ If you would like to create a codespace for a repository owned by your personal 
 
 ## codespace を作成する
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -75,7 +78,11 @@ If you would like to create a codespace for a repository owned by your personal 
 
    ![[New codespace] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
 
-   If you are a member of an organization and are creating a codespace on a repository owned by that organization, you can select the option of a different machine type. From the dialog, choose a machine type and then click **Create codespace**. ![Machine type choice](/assets/images/help/codespaces/choose-custom-machine-type.png)
+   If you are a member of an organization and are creating a codespace on a repository owned by that organization, you can select the option of a different machine type. From the dialog box, choose a machine type and then click **Create codespace**.
+
+   ![Machine type choice](/assets/images/help/codespaces/choose-custom-machine-type.png)
+
+   {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% endwebui %}
 

@@ -1,9 +1,9 @@
 ---
-title: Acerca de la verificación de firma de confirmación
-intro: 'Puedes firmar etiquetas y confirmaciones localmente utilizando GPG o S/MIME. Estas etiquetas o confirmaciones se marcan como verificadas en {% data variables.product.product_name %} para que otras personas tengan la confianza de que los cambios vienen de una fuente confiable.'
+title: About commit signature verification
+intro: 'Using GPG or S/MIME, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can be confident that the changes come from a trusted source.'
 redirect_from:
-  - /articles/about-gpg-commit-and-tag-signatures/
-  - /articles/about-gpg/
+  - /articles/about-gpg-commit-and-tag-signatures
+  - /articles/about-gpg
   - /articles/about-commit-signature-verification
   - /github/authenticating-to-github/about-commit-signature-verification
   - /github/authenticating-to-github/managing-commit-signature-verification/about-commit-signature-verification
@@ -15,85 +15,84 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Verificción de la firma de confirmación
+shortTitle: Commit signature verification
 ---
+## About commit signature verification
 
-## Acerca de la verificación de firma de confirmación
+You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag {% ifversion fpt or ghec %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
 
-Puedes firmar confirmaciones y etiquetas localmente para darles a otras personas la confianza necesaria sobre el origen de un cambio que hayas realizado. Si una confirmación o etiqueta tiene una firma GPG o S/MIME que se pueda verificar criptográficamente, GitHub la marcará como {% ifversion fpt or ghec %}"Verificada" o "Verificada parcialmente".{% else %}"Verificada".{% endif %}
-
-![Confirmación verificada](/assets/images/help/commits/verified-commit.png)
+![Verified commit](/assets/images/help/commits/verified-commit.png)
 
 {% ifversion fpt or ghec %}
-Las confirmaciones y etiquetas tienen los siguientes estados de verificación dependiendo de si las habilitaste en modo vigilante. Predeterminadamente, el modo vigilante no está habilitado. Para obtener más información sobre cómo habilitar el modo vigilante, consulta la sección "[Mostrar los estados de verificación para todas tus confirmaciones](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)".
+Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-### Estados predeterminados
+### Default statuses
 
-| Estado                     | Descripción                                                 |
-| -------------------------- | ----------------------------------------------------------- |
-| **Verificado**             | La confirmación se firmó y la firma se verificó con éxito.  |
-| **Sin verificar**          | La confirmación se firmó pero la firma no pudo verificarse. |
-| Sin estado de verificación | La confirmación no se firmó.                                |
+| Status         | Description |
+| -------------- | ----------- |
+| **Verified**   | The commit is signed and the signature was successfully verified.
+| **Unverified** | The commit is signed but the signature could not be verified.
+| No verification status | The commit is not signed.
 
-### Estados con modo vigilante habilitado
+### Statuses with vigilant mode enabled
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
 {% else %}
-Si una confirmaciòn o etiqueta tiene una firma que no puede verificarse, {% data variables.product.product_name %} marcarà la confirmaciòn o etiqueta como "No verificada".
+If a commit or tag has a signature that can't be verified, {% data variables.product.product_name %} marks the commit or tag "Unverified."
 {% endif %}
 
-Los administradores de repositorios pueden implementar la firma de confirmación requerida en una rama para bloquear todas las confirmaciones que no estén firmadas y verificadas. Para obtener más información, consulta la sección "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-signed-commits)".
+Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
 {% ifversion fpt or ghec %}
-{% data variables.product.product_name %} utilizará GPG automáticamente para firmar las confirmaciones que hagas utilizando la interface web de {% data variables.product.product_name %}, con excepción de cuando combinas y fusionas una solicitud de cambios de la cual no seas autor. Las confirmaciones que firme {% data variables.product.product_name %} tendrán un estado verificado en {% data variables.product.product_name %}. Puedes verificar la firma localmente usando la clave pública disponible en https://github.com/web-flow.gpg. La huella dactilar completa de la llave es `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. Opcionalmente, puedes elegir que {% data variables.product.product_name %} firme las confirmaciones que hagas en {% data variables.product.prodname_codespaces %}. Para obtener más información sobre cómo habilitar la verificación de GPG para tus codespaces, consulta la sección "[Administrar la verificación de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".
+{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface. Commits signed by {% data variables.product.product_name %} will have a verified status on {% data variables.product.product_name %}. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg. The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
 {% endif %}
 
-## Verificación de firma de confirmación GPG
+## GPG commit signature verification
 
-Puedes usar GPG para firmar confirmaciones con una clave GPG que generas tu mismo.
+You can use GPG to sign commits with a GPG key that you generate yourself.
 
 {% data variables.product.product_name %} uses OpenPGP libraries to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
-Para firmar confirmaciones usando GPG y que esas confirmaciones sean verificadas en {% data variables.product.product_name %}, sigue estos pasos:
+To sign commits using GPG and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
-1. [Comprobar las claves GPG existentes](/articles/checking-for-existing-gpg-keys)
-2. [Generar una clave GPG nueva](/articles/generating-a-new-gpg-key)
-3. [Agregar una clave GPG nueva a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account)
-4. [Informarle a Git acerca de tu clave de firma](/articles/telling-git-about-your-signing-key)
-5. [Firmar confirmaciones](/articles/signing-commits)
-6. [Firmar etiquetas](/articles/signing-tags)
+1. [Check for existing GPG keys](/articles/checking-for-existing-gpg-keys)
+2. [Generate a new GPG key](/articles/generating-a-new-gpg-key)
+3. [Add a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)
+4. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
+5. [Sign commits](/articles/signing-commits)
+6. [Sign tags](/articles/signing-tags)
 
-## Verificación de firma de confirmación S/MIME
+## S/MIME commit signature verification
 
-Puedes usar S/MIME para firmar confirmaciones con una clave X.509 emitida por tu organización.
+You can use S/MIME to sign commits with an X.509 key issued by your organization.
 
-{% data variables.product.product_name %} usa [el paquete de certificados CA Debian](https://packages.debian.org/hu/jessie/ca-certificates), el mismo almacenamiento de confianza usado por los navegadores Mozilla, para confirmar que tus confirmaciones y etiquetas firmadas localmente son criptográficamente comprobables con una clave pública en un certificado raíz de confianza.
+{% data variables.product.product_name %} uses [the Debian ca-certificates package](https://packages.debian.org/hu/jessie/ca-certificates), the same trust store used by Mozilla browsers, to confirm that your locally signed commits and tags are cryptographically verifiable against a public key in a trusted root certificate.
 
 {% data reusables.gpg.smime-git-version %}
 
-Para firmar confirmaciones usando S/MIME y que esas confirmaciones sean verificadas en {% data variables.product.product_name %}, sigue estos pasos:
+To sign commits using S/MIME and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
-1. [Informarle a Git acerca de tu clave de firma](/articles/telling-git-about-your-signing-key)
-2. [Firmar confirmaciones](/articles/signing-commits)
-3. [Firmar etiquetas](/articles/signing-tags)
+1. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
+2. [Sign commits](/articles/signing-commits)
+3. [Sign tags](/articles/signing-tags)
 
-No es necesario cargar tu clave pública a {% data variables.product.product_name %}.
+You don't need to upload your public key to {% data variables.product.product_name %}.
 
 {% ifversion fpt or ghec %}
-## Verificación de firma para bots
+## Signature verification for bots
 
-Las organizaciones y {% data variables.product.prodname_github_apps %} que requieren de la firma de confirmación pueden usar bots para firmar las confirmaciones. Si una confirmación o etiqueta tienen una firma de bot que es criptográficamente comprobable, {% data variables.product.product_name %} marca la confirmación o etiqueta como verificada.
+Organizations and {% data variables.product.prodname_github_apps %} that require commit signing can use bots to sign commits. If a commit or tag has a bot signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag as verified.
 
-La verificación de firma para bots solo funcionará si la solicitud se verifica y se autentica como la {% data variables.product.prodname_github_app %} o el bot y no contiene información de autor personalizada, información de persona que confirma el cambio personalizada ni información de firma personalizada, como API de confirmaciones.
+Signature verification for bots will only work if the request is verified and authenticated as the {% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
 {% endif %}
 
-## Leer más
+## Further reading
 
-- "[Firmar confirmaciones](/articles/signing-commits)"
-- "[Firmar etiquetas](/articles/signing-tags)"
-- "[Solucionar problemas de la verificación de firma de confirmación](/articles/troubleshooting-commit-signature-verification)"
+- "[Signing commits](/articles/signing-commits)"
+- "[Signing tags](/articles/signing-tags)"
+- "[Troubleshooting commit signature verification](/articles/troubleshooting-commit-signature-verification)"

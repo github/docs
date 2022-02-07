@@ -19,6 +19,7 @@ topics:
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}
+{% data reusables.dotcom_billing.codespaces-report-download %}
 
 ## 查看企业帐户的 {% data variables.product.prodname_codespaces %} 使用情况
 

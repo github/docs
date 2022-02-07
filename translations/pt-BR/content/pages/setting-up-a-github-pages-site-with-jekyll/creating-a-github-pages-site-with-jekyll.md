@@ -68,7 +68,9 @@ Antes de poder usar o Jekyll para criar um site do {% data variables.product.pro
  Se você optou por publicar seu site a partir do branch `gh-pages`, crie e faça checkout do branch `gh-pages`.
  ```shell
  $ git checkout --orphan gh-pages
- # Cria um novo branch, sem histórico ou conteúdo, chamado gh-pages e alterna para o branch gh-pages
+ # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
+ $ git rm -rf 
+ # Removes the contents from your default branch from the working directory
  ```
 1. Para criar um novo site do Jekyll, use o comando `jekyll new`:
    ```shell
@@ -100,7 +102,7 @@ Antes de poder usar o Jekyll para criar um site do {% data variables.product.pro
 git add .
 git commit -m 'Initial GitHub pages site with Jekyll'
 ```
-1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and _REPOSITORY_ with the name of the repository.
+1. Adicione o seu repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} como remoto, substituindo {% ifversion ghes or ghae %}_HOSTNAME_ pelo nome de host da sua empresa,{% endif %} _USUÁRIO_ pela conta à qual o repositório pertence{% ifversion ghes or ghae %},{% endif %} e _REPOSITÓRIO_ pelo nome do repositório.
 ```shell
 {% ifversion fpt or ghec %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
@@ -119,6 +121,7 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
 {% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
+{% data reusables.pages.check-workflow-run %}
 
 {% data reusables.pages.admin-must-push %}
 

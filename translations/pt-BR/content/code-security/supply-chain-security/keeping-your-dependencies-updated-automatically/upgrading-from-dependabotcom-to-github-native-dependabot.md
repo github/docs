@@ -52,4 +52,4 @@ Se você estiver usando repositórios privados, você terá que conceder acesso 
 
 Se você estiver usando registros privados, será necessário adicionar seus segredos de Dependabot Preview aos "Segredos de Dependabot" do seu repositório ou da organização. Para obter mais informações, consulte "[Gerenciar segredos criptografados para o Dependabot](/code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot). ".
 
-Se você tiver alguma dúvidas ou precisar de ajuda para migrar, você poderá visualizar ou abrir problemas no repositório [dependabot/dependabot-core](https://github.com/dependabot/dependabot-core/issues/new?assignees=%40dependabot%2Fpreview-migration-reviewers&labels=E%3A+preview-migration&template=migration-issue.md&title=).
+Em caso de dúvidas ou de precisar de ajuda para realizar a migração, você poderá visualizar ou abrir problemas no repositório [`dependabot/dependabot-core`](https://github.com/dependabot/dependabot-core/issues/new?assignees=%40dependabot%2Fpreview-migration-reviewers&labels=E%3A+preview-migration&template=migration-issue.md&title=).

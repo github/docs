@@ -1,10 +1,10 @@
 ---
 title: GitHub 子处理器和 Cookie
 redirect_from:
-  - /subprocessors/
-  - /github-subprocessors/
-  - /github-tracking/
-  - /github-cookies/
+  - /subprocessors
+  - /github-subprocessors
+  - /github-tracking
+  - /github-cookies
   - /articles/github-subprocessors-and-cookies
 versions:
   fpt: '*'

@@ -54,3 +54,7 @@ Seu código será automaticamente excluído quando você for removido de uma org
 ## Excluindo seus codespaces não utilizados
 
 Você pode excluir manualmente os seus codespaces em https://github.com/codespaces e de dentro de {% data variables.product.prodname_vscode %}. Para reduzir o tamanho de um codespace, você pode excluir arquivos manualmente usando o terminal ou de dentro de {% data variables.product.prodname_vscode %}.
+
+## Leia mais
+
+- "[Gerenciando a cobrança para codespaces na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

@@ -48,7 +48,7 @@ You can pull changes from the remote repository into your codespace at any time.
 ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button.png)
 1. In the drop-down menu, click **Pull**.
 
-If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
+If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
 
 ## Setting your codespace to automatically fetch new changes 
 

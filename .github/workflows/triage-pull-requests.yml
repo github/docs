@@ -11,9 +11,9 @@ on:
       - opened
 
 permissions:
+  issues: write
   pull-requests: write
   repository-projects: write
-  issues: write
 
 jobs:
   triage_pulls:

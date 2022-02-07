@@ -45,7 +45,7 @@ Enterprise アカウントの {% data variables.product.prodname_codespaces %} �
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Above "{% data variables.product.prodname_codespaces %} monthly usage", click **Spending Limit**. ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
+1. Above "{% data variables.product.prodname_codespaces %} monthly usage", click **Spending Limit**. ![利用上限タブ](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
@@ -57,3 +57,8 @@ Enterprise アカウントの {% data variables.product.prodname_codespaces %} �
 Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, and 90% of your account's spending limit.
 
 You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+
+## 参考リンク
+
+- "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

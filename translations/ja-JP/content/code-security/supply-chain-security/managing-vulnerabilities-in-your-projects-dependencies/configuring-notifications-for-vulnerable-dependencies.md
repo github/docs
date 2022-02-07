@@ -1,7 +1,7 @@
 ---
 title: 脆弱性のある依存関係の通知を設定する
 shortTitle: 通知を設定する
-intro: '{% data variables.product.prodname_dependabot %}アラートに関する通知の受信方法の最適化'
+intro: 'Optimize how you receive notifications about  {% data variables.product.prodname_dependabot_alerts %}.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
@@ -33,7 +33,7 @@ topics:
 {% ifversion ghes or ghae-issue-4864 %}
 By default, if your enterprise owner has configured email for notifications on your enterprise, you will receive {% data variables.product.prodname_dependabot_alerts %} by email.
 
-Enterprise owners can also enable {% data variables.product.prodname_dependabot_alerts %} without notifications. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."
+Enterprise owners can also enable {% data variables.product.prodname_dependabot_alerts %} without notifications. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
 {% endif %}
 
 ## {% data variables.product.prodname_dependabot_alerts %}の通知設定
@@ -51,7 +51,7 @@ When a new {% data variables.product.prodname_dependabot %} alert is detected, {
 
 {% note %}
 
-**ノート:** {% data variables.product.company_short %}の通知をフィルタして、{% data variables.product.prodname_dependabot %}アラートを表示できます。 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)」を参照してください。
+**Note:** You can filter your notifications on {% data variables.product.company_short %} to show  {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)」を参照してください。
 
 {% endnote %}
 

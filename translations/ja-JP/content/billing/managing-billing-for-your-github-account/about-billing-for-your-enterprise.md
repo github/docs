@@ -1,7 +1,6 @@
 ---
 title: About billing for your enterprise
 intro: Enterprise の支払情報を確認できます。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /admin/overview/managing-billing-for-your-enterprise
   - /enterprise/admin/installation/managing-billing-for-github-enterprise

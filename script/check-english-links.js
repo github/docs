@@ -13,7 +13,7 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
-import linkinator from 'linkinator'
+import { LinkChecker } from 'linkinator'
 import program from 'commander'
 import { pull, uniq } from 'lodash-es'
 import rimraf from 'rimraf'
@@ -24,7 +24,7 @@ import excludedLinks from '../lib/excluded-links.js'
 import libLanguages from '../lib/languages.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const checker = new linkinator.LinkChecker()
+const checker = new LinkChecker()
 const root = 'https://docs.github.com'
 const englishRoot = `${root}/en`
 
@@ -52,7 +52,7 @@ program
 // Skip non-English content.
 const languagesToSkip = Object.keys(libLanguages)
   .filter((code) => code !== 'en')
-  .map((code) => `${root}/${code}`)
+  .map((code) => new RegExp(`${root}/${code}`))
 
 // Skip deprecated Enterprise content.
 // Capture the old format https://docs.github.com/enterprise/2.1/
@@ -66,7 +66,19 @@ const config = {
   recurse: !program.opts().dryRun,
   silent: true,
   // The values in this array are treated as regexes.
-  linksToSkip: [enterpriseReleasesToSkip, ...languagesToSkip, ...excludedLinks],
+  linksToSkip: linksToSkipFactory([enterpriseReleasesToSkip, ...languagesToSkip, ...excludedLinks]),
+}
+
+// Return a function that can as quickly as possible check if a certain
+// href input should be skipped.
+// Do this so we can use a `Set` and a `iterable.some()` for a speedier
+// check. The default implementation in Linkinator, if you set
+// the `linksToSkip` config to be an array, it will, for every URL it
+// checks turn that into a new regex every single time.
+function linksToSkipFactory(regexAndURLs) {
+  const set = new Set(regexAndURLs.filter((regexOrURL) => typeof regexOrURL === 'string'))
+  const regexes = regexAndURLs.filter((regexOrURL) => regexOrURL instanceof RegExp)
+  return (href) => set.has(href) || regexes.some((regex) => regex.test(href))
 }
 
 main()
@@ -126,6 +138,9 @@ async function main() {
   // Format and display the results.
   console.log(`${brokenLinks.length} broken links found on docs.github.com\n`)
   displayBrokenLinks(brokenLinks)
+  console.log(
+    '\nIf links are "false positives" (e.g. can only be opened by a browser) consider making a pull request that edits `lib/excluded-links.js`.'
+  )
 
   // Exit unsuccessfully if broken links are found.
   process.exit(1)

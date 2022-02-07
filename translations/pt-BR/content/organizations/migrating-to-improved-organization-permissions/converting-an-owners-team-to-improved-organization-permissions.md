@@ -2,8 +2,8 @@
 title: Migrar uma equipe de proprietários para permissões de organização aprimoradas
 intro: 'Se sua organização foi criada depois de setembro de 2015, tem permissões de organização aprimoradas por padrão. Organizações criadas antes de setembro de 2015 podem precisar migrar proprietários e equipes de administradores antigos para o modelo de permissões aprimoradas. O "proprietário" é agora uma função administrativa fornecida a integrantes individuais da sua organização. Os integrantes da equipe de proprietários legada recebem automaticamente privilégios de proprietário.'
 redirect_from:
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program/
-  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions/
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program
+  - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:
