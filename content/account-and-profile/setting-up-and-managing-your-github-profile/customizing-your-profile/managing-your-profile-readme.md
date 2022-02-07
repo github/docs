@@ -48,7 +48,7 @@ GitHub will display your profile README on your profile page if all of the follo
 {% data reusables.repositories.create_new %}
 2. Under "Repository name", type a repository name that matches your {% data variables.product.prodname_dotcom %} username. For example, if your username is "octocat", the repository name must be "octocat".
   ![Repository name field which matches username](/assets/images/help/repository/repo-username-match.png)
-3. Optionally, add a description of your repository. For example, "My personal repository."
+3. Optionally, you may add a description of your repository. For example, "My personal repository."
   ![Field for entering a repository description](/assets/images/help/repository/create-personal-repository-desc.png)
 4. Select **Public**.
  ![Radio button to select visibility with public selected](/assets/images/help/repository/create-personal-repository-visibility.png)
