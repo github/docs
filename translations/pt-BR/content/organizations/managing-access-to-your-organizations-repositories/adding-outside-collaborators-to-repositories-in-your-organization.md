@@ -40,8 +40,8 @@ Para apoiar ainda mais as habilidades de colaboração da sua equipe, você pode
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% data reusables.repositories.click-collaborators-teams %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. No campo de pesquisa, comece a digitar o nome da pessoa que deseja convidar e, em seguida, clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma pessoa para convidar para o repositório](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Em "Escolher uma função", selecione as permissões a serem concedidas à pessoa e, em seguida, clique em **Adicionar NOME ao REPOSITÓRIO**. ![Selecionar permissões para a pessoa](/assets/images/help/repository/manage-access-invite-choose-role-add.png)

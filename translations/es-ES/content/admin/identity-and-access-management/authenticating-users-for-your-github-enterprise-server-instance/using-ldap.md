@@ -178,7 +178,7 @@ Puedes ver la lista completa de usuarios LDAP que tienen acceso a tu instancia y
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. En la barra lateral izquierda, haz clic en **LDAP users** (Usuarios LDAP). ![Pestaña LDAP users (Usuarios LDAP)](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
-4. Para buscar un usuario, escribe un nombre de usuario completo o parcial y haz clic en **Search** (Buscar). Se mostrarán los usuarios existentes en los resultados de búsqueda. Si un usuario no existe, haz clic en **Create** (Crear) para aprovisionar la nueva cuenta de usuario. ![Búsqueda LDAP](/assets/images/enterprise/site-admin-settings/ldap-users-search.png)
+4. Para buscar un usuario, escribe un nombre de usuario completo o parcial y haz clic en **Search** (Buscar). Se mostrarán los usuarios existentes en los resultados de búsqueda. Si un usuario no existe, haz clic en **Create** (Crear) para aprovisionar la nueva cuenta de usuario. ![Búsqueda LDAP](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
 
 ## Actualizar cuentas LDAP
 
