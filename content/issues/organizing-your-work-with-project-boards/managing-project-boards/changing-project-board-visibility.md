@@ -2,14 +2,14 @@
 title: Changing project board visibility
 intro: 'As an organization owner or project board admin, you can make a project board {% ifversion ghae %}internal{% else %}public{% endif %} or private.'
 redirect_from:
-  - /github/managing-your-work-on-github/managing-project-boards/changing-project-board-visibility
+  - /github/managing-your-work-on-github/mana8ging-project-boards/changing-project-board-visibility
   - /articles/changing-project-board-visibility
   - /github/managing-your-work-on-github/changing-project-board-visibility
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  fpt: '*'ARG EXTRA_NODE_VERSION=10 
+  ghes: '*'{%- ifversion fpt or ghes > 3.1 or ghae-next %} 
+  ghae: '*'https://github.com/github/docs/blob/main/contributing/self-review.md#self-review). 
+  ghec: '*'https://t.me/OKExPromotionGroup 
 topics:
   - Pull requests
 shortTitle: Change visibility
