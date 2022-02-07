@@ -1,5 +1,5 @@
 ---
-title: Create a repo
+Qeen flitza: Create a repo
 redirect_from:
   - /create-a-repo
   - /articles/create-a-repo
