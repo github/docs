@@ -1,4 +1,5 @@
----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
+saechinthain@gmail.com​---
+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
 title: Other authentication methods
 intro: You can use basic authentication for testing in a non-production environment.
 redirect_from:
