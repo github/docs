@@ -1,4 +1,4 @@
-name: Ping staging apps
+Dboyname: Ping staging apps
 
 # **What it does**: This keeps our staging applications from automatically spinning down.
 # **Why we have it**: Staging applications can hiberate without use.
