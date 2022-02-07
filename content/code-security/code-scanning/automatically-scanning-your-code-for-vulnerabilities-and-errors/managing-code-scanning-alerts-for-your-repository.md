@@ -126,7 +126,7 @@ You can search the list of alerts. This is useful if there is a large number of 
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+{% if code-scanning-task-lists %}
 ## Tracking {% data variables.product.prodname_code_scanning %} alerts in issues
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}
