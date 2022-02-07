@@ -1,0 +1,179 @@
+package professor.marcomaddo.appcoordenadasgps;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.location.LocationManagerCompat;
+
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    String[] permissoesRequiridas = {Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.READ_CONTACTS};
+
+    public static final int APP_PERMISSOES_ID = 2021;
+
+
+    TextView txtValorLatitude, txtValorLongitude;
+
+    double latitude, longitude;
+
+    // 1º Passo - Verificar se a localização está ativada
+
+    LocationManager locationManager;
+
+    boolean gpsAtivo = true;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        txtValorLatitude = findViewById(R.id.txtValorLatitude);
+        txtValorLongitude = findViewById(R.id.txtValorLongitude);
+
+        // 2º - Conferir os serviços disponiveis via LocationManger
+
+        locationManager = (LocationManager) getApplication().getSystemService(Context.LOCATION_SERVICE);
+
+        gpsAtivo = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+        if (gpsAtivo) {
+
+            obterCoordenadas();
+
+        } else {
+
+            latitude = 0.00;
+            longitude = 0.00;
+
+            txtValorLatitude.setText(String.valueOf(latitude));
+            txtValorLongitude.setText(String.valueOf(longitude));
+
+            Toast.makeText(this,
+                    "Coordenadas não Disponíveis", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    private void obterCoordenadas() {
+
+        boolean permissaoAtiva = solicitarPermissaoParaObterLocalizacao();
+
+        if (permissaoAtiva) {
+
+            capturarUltimaLocalizacaoValida();
+
+        }
+
+
+    }
+
+    private boolean solicitarPermissaoParaObterLocalizacao() {
+
+        Toast.makeText(this,
+                "Aplicativo não tem permissão....", Toast.LENGTH_LONG).show();
+
+        List<String> permissoesNegadas = new ArrayList<>();
+
+        int permissaoNegada;
+
+        for (String permissao : this.permissoesRequiridas) {
+
+            permissaoNegada = ContextCompat.checkSelfPermission(MainActivity.this, permissao);
+
+            if (permissaoNegada != PackageManager.PERMISSION_GRANTED) {
+                permissoesNegadas.add(permissao);
+            }
+
+        }
+
+        if (!permissoesNegadas.isEmpty()) {
+
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    permissoesNegadas.toArray(new String[permissoesNegadas.size()]),
+                    APP_PERMISSOES_ID);
+
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    private void capturarUltimaLocalizacaoValida() {
+
+
+        @SuppressLint("MissingPermission")
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+        if(location != null){
+
+            // Geopoint
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+
+        }else{
+
+            latitude = 0.00;
+            longitude = 0.00;
+
+        }
+
+        txtValorLatitude.setText(formatarGeopoint(latitude));
+        txtValorLongitude.setText(formatarGeopoint(longitude));
+
+        Toast.makeText(this,
+                "Coordenadas obtidas com sucesso",Toast.LENGTH_LONG).show();
+
+
+    }
+
+    private String formatarGeopoint(double valor){
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.####");
+
+        return decimalFormat.format(valor);
+
+    }
+
+
+}
+<resources>
+    <string name="app_name">AppTexto V2</string>
+    <string name="txt_titulo">Aplicativo do Maddo</string>
+    <string name="txtDataAtual">03/01/2020</string>
+    <string name="txtHoraAtual">10:05:00</string>
+    <string name="btnCadastro">CADASTRAR</string>
+    <string name="btnVoltar">Voltar</string>
+ 
+    <!-- formulário de cadastro de usuários -->
+ 
+    <string name="txtCadastro">Cadastro</string>
+    <string name="txtNome">Nome</string>
+    <string name="txtHintNome">Digite seu primeiro nome...</string>
+    <string name="txtEmail">E-mail</string>
+    <string name="txtHintEmail">Digite o seu melhor e-mail...</string>
+    <string name="txtSenhaA">Senha</string>
+    <string name="txtHintSenhaA">Informe uma senha...</string>
+    <string name="txtSenhaB">Repita a senha</string>
+    <string name="txtHintSenhaB">Confirme a senha digitada...</string>
+    <string name="txtTermo">Li e concordo com os termos de uso e política de privacidade.</string>
+ 
+</resources>
