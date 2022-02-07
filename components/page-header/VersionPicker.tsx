@@ -26,8 +26,8 @@ export const VersionPicker = ({ variant }: Props) => {
     selected: allVersions[currentVersion].versionTitle === permalink.pageVersionTitle,
     item: <Link href={permalink.href}>{permalink.pageVersionTitle}</Link>,
   }))
-  const hasEnterpriseVersions = (page.permalinks || []).find((permalink) =>
-    permalink.pageVersion.startsWith('enterprise-version')
+  const hasEnterpriseVersions = (page.permalinks || []).some((permalink) =>
+    permalink.pageVersion.startsWith('enterprise-server')
   )
 
   if (hasEnterpriseVersions) {

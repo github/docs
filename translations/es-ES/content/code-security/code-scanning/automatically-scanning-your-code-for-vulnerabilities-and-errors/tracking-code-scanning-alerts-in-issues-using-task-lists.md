@@ -5,9 +5,7 @@ intro: You can add code scanning alerts to issues using task lists. This makes i
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can track {% data variables.product.prodname_code_scanning %} alerts in issues using task lists.'
 versions:
-  fpt: '*'
-  ghes: '> 3.3'
-  ghae: issue-5036
+  feature: 'code-scanning-task-lists'
 type: how_to
 topics:
   - Advanced Security
