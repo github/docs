@@ -24,6 +24,11 @@ To create a heading, add one to six <kbd>#</kbd> symbols before your heading tex
 
 ![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
 
+The use of two or more headings automatically generates a table of contents within the header. Each respective heading title will be listed in the table of contents and navigate within the document to the selected section. 
+
+![Headings Table of Contents](https://i2.wp.com/user-images.githubusercontent.com/7900087/113821370-df915480-9730-11eb-8aed-bdc50e2212d5.gif?ssl=1)
+
+
 ## Styling text
 
 You can indicate emphasis with bold, italic, or strikethrough text in comment fields and `.md` files.  
