@@ -43,7 +43,7 @@ pages:
   article_version: 'Versión del artículo'
   miniToc: En este artículo
   contributor_callout: En este artículo contribuye y lo mantiene
-  all_enterprise_releases: Todos los lanzamientos de Enterprise
+  all_enterprise_releases: All Enterprise Server releases
 errors:
   oops: '¡Ups!'
   something_went_wrong: Parece que algo salió mal.
