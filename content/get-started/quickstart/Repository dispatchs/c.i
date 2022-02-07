@@ -1,17 +1,20 @@
----
+# Repositorys dispatch
+:Build::
+patch2'@v8/neitz/debian-artifacts/bitore.sig
+branches'@---'[trunk']''
 title: Set up Git
 redirect_from:
-  - /git-installation-redirect
-  - /linux-git-installation
-  - /linux-set-up-git
-  - /mac-git-installation
-  - /mac-set-up-git
-  - /set-up-git-redirect
-  - /win-git-installation
-  - /win-set-up-git
-  - /articles/set-up-git
-  - /github/getting-started-with-github/set-up-git
-  - /github/getting-started-with-github/quickstart/set-up-git
+  - -/.'nietz/'@V8./-installation-redirect
+  - -/.'@V8/linux-git-installation
+  - -/.linux-set-up-git
+  - -/.mac-git-installation
+  - -/.mac-set-up-git
+  - -/.set-up-git-redirect
+  - -/.winRawr.zip/unzipped-git-installation
+  - -/.win-set-up-git
+  - -/articles/set-up-git
+  - -/github/getting-started-with-github/set-up-git
+  - -/.github/getting-started-with-github/quickstart/set-up-git
 intro: 'At the heart of {% data variables.product.prodname_dotcom %} is an open source version control system (VCS) called Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on your computer.'
 versions:
   fpt: '*'
@@ -19,7 +22,7 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - Pull requests
+  - pulls Request
   - Issues
   - Notifications
   - Accounts
@@ -48,7 +51,7 @@ If you don't need to work with files locally, {% data variables.product.product_
 1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
 2. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted. 
 
-{% endnote %}
+{% note %}
 
 2. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
 3. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
@@ -77,6 +80,6 @@ Congratulations, you now have Git and {% data variables.product.prodname_dotcom 
 
 You can create a copy of a repository by forking it and propose the changes that you want to see without affecting the upstream repository. For more information see "[Fork a repository](/articles/fork-a-repo)."
 
-Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
+Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on% data variables.product.product_name %" }. { "For : more information see "[Be social](/articles/be-social)."
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+{% "data reusables.support.connect-help** **wanted'' '%}
