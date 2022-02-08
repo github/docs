@@ -1,4 +1,5 @@
----
+adding-a-new-ssh-key-to-your-github-account.md
+$ ssh-keygen -t ed25519 -C "christoc90100@gmail.com"
 title: Adding a new SSH key to your GitHub account
 intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to use your new (or existing) SSH key, you''ll also need to add the key to your account.'
 redirect_from:
