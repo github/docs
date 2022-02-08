@@ -36,6 +36,27 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 - **Security overview** - Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 
+{% ifversion fpt %}
+The table below summarizes the availability of GitHub Advanced Security features on public and private repositories.
+
+|                   | **Public repository**           | **Private repository without Advanced Security** | **Private repository with Advanced Security** |
+| :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
+| Code scanning     | Yes                         | No                                           | No                                        |
+| Secret scanning   | Yes (limited functionality only) | No                                           | Yes                                       |
+| Dependency review | Yes                         | No                                           | Yes                                       |
+{% endif %}
+
+{% ifversion ghec %}
+The table below summarizes the availability of GitHub Advanced Security features on public and private repositories.
+
+|                   | **Public repository**           | **Private repository without Advanced Security** | **Private repository with Advanced Security** |
+| :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
+| Code scanning     | Yes                         | No                                           | No                                        |
+| Secret scanning   | Yes (limited functionality only) | No                                           | Yes                                       |
+| Dependency review | Yes                         | No                                           | Yes                                       |
+| Security Overview | No                          | No                                           | Yes                                          |
+{% endif %}
+
 For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
 {% ifversion fpt or ghec %}
@@ -59,9 +80,9 @@ The site administrator must enable {% data variables.product.prodname_advanced_s
 Once your system is set up, you can enable and disable these features at the organization or repository level.
 
 {%- elsif ghec %}
-For public repositories these features are permanently on and can only be disabled if you change the visibility of the project so that the code is no longer public. 
+For public repositories these features are permanently on and can only be disabled if you change the visibility of the project so that the code is no longer public.
 
-For other repositories, once you have a license for your enterprise account, you can enable and disable these features at the organization or repository level. 
+For other repositories, once you have a license for your enterprise account, you can enable and disable these features at the organization or repository level.
 
 {%- elsif ghae %}
 You can enable and disable these features at the organization or repository level.
