@@ -917,8 +917,6 @@ on:
 ```yaml
 on:
   push:
-    types:
-      - opened
     branches:    
       - 'releases/**'
     paths:
@@ -960,8 +958,6 @@ on:
 ```yaml
 on:
   push:
-    types:
-      - opened
     branches:    
       - 'releases/**'
     paths:
