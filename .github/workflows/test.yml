@@ -47,8 +47,12 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
+          lfs: true
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
+
+      - name: Checkout LFS objects
+        run: git lfs checkout
 
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
