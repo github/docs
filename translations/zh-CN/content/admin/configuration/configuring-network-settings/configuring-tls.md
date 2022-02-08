@@ -38,6 +38,8 @@ topics:
 
 ## 上传自定义 TLS 证书
 
+{% data reusables.enterprise_site_admin_settings.tls-downtime %}
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
@@ -66,6 +68,8 @@ Let's Encrypt 是公共证书颁发机构，他们使用 ACME 协议颁发受浏
 ## 使用 Let's Encrypt 配置 TLS
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
+
+{% data reusables.enterprise_site_admin_settings.tls-downtime %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

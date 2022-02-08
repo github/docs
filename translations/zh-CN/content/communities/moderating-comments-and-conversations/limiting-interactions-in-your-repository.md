@@ -28,8 +28,7 @@ shortTitle: 限制仓库中的交互
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. 在左侧边栏中，单击 **Moderation settings（仲裁设置）**。 ![仓库设置侧边栏中的"Moderation settings（仲裁设置）"](/assets/images/help/repository/repo-settings-moderation-settings.png)
-1. 在“Moderation settings（仲裁设置）”下，单击 **Interaction limits（交互限制）**。 ![仓库设置中的交互限制 ](/assets/images/help/repository/repo-settings-interaction-limits.png)
+1. In the "Access" section of the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![临时交互限制选项](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
