@@ -87,7 +87,7 @@ Show the full impact of changes to dependencies and see details of any vulnerabl
 {% ifversion ghec or ghes > 3.1 %}
 ### Security overview
 
-Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 
 ## Further reading
