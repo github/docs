@@ -1,4 +1,4 @@
-#!/bin/sh
+/bin/sh
 [ -n "$CI" ] && exit 0
 if command -v git-lfs >/dev/null 2>&1
 then
@@ -13,3 +13,31 @@ fi
 . "$(dirname "$0")/_/husky.sh"
 
 npm run prevent-pushes-to-main
+
+Name: set-up-prettier.write
+
+Pulls: Branch
+
+Branch: 
+
+- trunk
+
+:Build::
+
+Return: 'Run ''
+
+I'm... Zachry Tyler Wood
+
+e-mail: zachryiixixiiwood@gmail.com
+
+5323 BRADFORD DRIVE
+
+DALLAS TX 75235-8313
+
+Bitcoin[BTC-USD] BTCUSD CCC
+
+o'Auth: **approves**
+
+:BUILF::
+
+- DISTRIBUTED LEDGER TECHNOLOGIES'@'[COIN']
