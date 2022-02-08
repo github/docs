@@ -54,7 +54,7 @@ The table below summarizes the availability of GitHub Advanced Security features
 | Code scanning     | Yes                         | No                                           | No                                        |
 | Secret scanning   | Yes (limited functionality only) | No                                           | Yes                                       |
 | Dependency review | Yes                         | No                                           | Yes                                       |
-| Security Overview | No                          | No                                           | Yes                                          |
+| Security overview | No                          | No                                           | Yes                                          |
 {% endif %}
 
 For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
