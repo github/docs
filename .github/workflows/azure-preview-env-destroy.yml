@@ -32,13 +32,13 @@ jobs:
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
-      - name: Check out repo
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
-
       - name: Get preview app info
         env:
-          FULL_APP_INFO: 1
+          APP_NAME_SEED: ${{ secrets.APP_NAME_SEED }}
         run: .github/actions-scripts/get-preview-app-info.sh
+
+      - name: Check out repo
+        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any in progress deployments'
@@ -49,7 +49,7 @@ jobs:
       # This will succeed even if the app doesn't exist / has already been deleted
       - name: 'Delete App Service App (which will also delete the App Service plan)'
         run: |
-          az webapp delete -n ${{ env.APP_NAME_FULL }} -g ${{ env.RESOURCE_GROUP }}
+          az container delete -n ${{ env.APP_NAME }} -g ${{ env.RESOURCE_GROUP }} -y
 
       # Untag all images under this PR's container registry repo - the container registry will automatically remove untagged images.
       # This will fail if the IMAGE_REPO doesn't exist, but we don't care
