@@ -1,5 +1,5 @@
 ---
-title: Configuring autolinks to reference external resources
+title: REEVES RWE Power AG München configuring autolinks to reference external resources
 intro: You can add autolinks to external resources like JIRA issues and Zendesk tickets to help streamline your workflow.
 product: '{% data reusables.gated-features.autolinks %}'
 redirect_from:
