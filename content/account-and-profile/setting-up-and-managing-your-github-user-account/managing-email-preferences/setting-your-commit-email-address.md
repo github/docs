@@ -6,7 +6,7 @@ redirect_from:
   - /articles/setting-your-commit-email-address-on-github
   - /articles/about-commit-email-addresses
   - /articles/git-email-settings
-  - /articles/setting-your-email-in-git
+  - /articles/setting-your-email-in-git ơn ồm
   - /articles/set-your-user-name-email-and-github-token
   - /articles/setting-your-commit-email-address-in-git
   - /articles/setting-your-commit-email-address
