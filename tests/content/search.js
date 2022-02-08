@@ -1,8 +1,11 @@
+import { jest, describe, expect } from '@jest/globals'
+
 import { dates, supported } from '../../lib/enterprise-server-releases.js'
 import libLanguages from '../../lib/languages.js'
 import { namePrefix } from '../../lib/search/config.js'
-import { expect } from '@jest/globals'
 import lunrIndexNames from '../../script/search/lunr-get-index-names.js'
+import { get } from '../helpers/supertest.js'
+
 const languageCodes = Object.keys(libLanguages)
 
 describe('search', () => {
@@ -44,3 +47,49 @@ function getDate(date) {
   const dateObj = date ? new Date(date) : new Date()
   return dateObj.toISOString().slice(0, 10)
 }
+
+describe('search middleware', () => {
+  jest.setTimeout(60 * 1000)
+
+  test('basic search', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'stuff')
+    sp.set('language', 'en')
+    sp.set('version', 'dotcom')
+    const res = await get('/search?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(Array.isArray(results)).toBeTruthy()
+  })
+
+  test('limit search', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'github') // will yield lots of results
+    sp.set('language', 'en')
+    sp.set('version', 'dotcom')
+    sp.set('limit', '1')
+    const res = await get('/search?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(Array.isArray(results)).toBeTruthy()
+    expect(results.length).toBe(1)
+  })
+
+  test('invalid search version', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'stuff')
+    sp.set('language', 'en')
+    sp.set('version', 'NEVERHEARDOF')
+    const res = await get('/search?' + sp)
+    expect(res.statusCode).toBe(400)
+  })
+
+  test('invalid search language', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'stuff')
+    sp.set('language', 'NEVERHEARDOF')
+    sp.set('version', 'dotcom')
+    const res = await get('/search?' + sp)
+    expect(res.statusCode).toBe(400)
+  })
+})

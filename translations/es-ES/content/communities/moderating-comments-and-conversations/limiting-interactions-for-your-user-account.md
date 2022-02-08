@@ -27,6 +27,6 @@ También puedes bloquear usuarios. Para obtener más información, consulta la s
 ## Limitar las interacciones para tu cuenta de usuario
 
 {% data reusables.user_settings.access_settings %}
-1. En tu barra lateral de configuración de usuario, debajo de "Configuración de moderación", da clic en **Límites de interacción**. ![Pestaña de "límites de interacción" en la barra lateral de la configuración de usuario](/assets/images/help/settings/settings-sidebar-interaction-limits.png)
+1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![Opciones de límites de interacción temporarios](/assets/images/help/settings/user-account-temporary-interaction-limits-options.png)

@@ -1,12 +1,14 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import cheerio from 'cheerio'
+import { describe, expect } from '@jest/globals'
+
 import Page from '../../lib/page.js'
 import readJsonFile from '../../lib/read-json-file.js'
 import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-// import getLinkData from '../../lib/get-link-data.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const prerenderedObjects = readJsonFile('./lib/graphql/static/prerendered-objects.json')
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
@@ -765,5 +767,36 @@ describe('catches errors thrown in Page class', () => {
     await expect(getPage).rejects.toThrowError(
       /`versions` frontmatter.*? product is not available in/
     )
+  })
+
+  describe('versionining optional attributes', () => {
+    test("re-rendering set appropriate 'product', 'permissions', 'learningTracks'", async () => {
+      const page = await Page.init({
+        relativePath: 'page-with-optional-attributes.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+      const context = {
+        page: { version: `enterprise-server@3.2` },
+        currentVersion: `enterprise-server@3.2`,
+        currentProduct: 'snowbird',
+        currentLanguage: 'en',
+        currentPath: '/en/enterprise-server@3.2/optional/attributes',
+        fpt: false, // what the shortVersions contextualizer does
+      }
+
+      await page.render(context)
+      expect(page.product).toBe('')
+      expect(page.permissions).toBe('')
+
+      // Change to FPT
+      context.page.version = nonEnterpriseDefaultVersion
+      context.version = nonEnterpriseDefaultVersion
+      context.currentPath = '/en/optional/attributes'
+      context.fpt = true
+      await page.render(context)
+      expect(page.product).toContain('FPT rulez!')
+      expect(page.permissions).toContain('FPT only!')
+    })
   })
 })
