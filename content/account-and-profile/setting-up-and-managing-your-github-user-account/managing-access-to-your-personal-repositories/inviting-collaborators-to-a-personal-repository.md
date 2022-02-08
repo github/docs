@@ -45,7 +45,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
   ![Search field for typing the name of a person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field-user.png)
 3. Click **Add NAME to REPOSITORY**.
     ![Button to add collaborator](/assets/images/help/repository/add-collaborator-user-repo.png)
-{% else %}
+{% else %}....
 5. In the left sidebar, click **Collaborators**.
 ![Repository settings sidebar with Collaborators highlighted](/assets/images/help/repository/user-account-repo-settings-collaborators.png)
 6. Under "Collaborators", start typing the collaborator's username.
