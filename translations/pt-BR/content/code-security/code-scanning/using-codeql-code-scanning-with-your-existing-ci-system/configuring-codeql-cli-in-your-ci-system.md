@@ -325,7 +325,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Especifique pacotes ou consultas de {% data variables.product.prodname_codeql %} para executar. Para executar as consultas padrão usadas para {% data variables.product.prodname_code_scanning %}, omita este parâmetro. Para ver os outros itens de consultas incluídos no pacote de {% data variables.product.prodname_codeql_cli %}, procure em <code>/&lt;extraction-root&gt;/codeql/qlpacks/codeql-&lt;language&gt;/codeql-suites</code>. Para obter informações sobre como criar seu próprio conjunto de consulta, consulte <a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">Criando conjuntos de consultas de CodeQL</a> na documentação do {% data variables.product.prodname_codeql_cli %}.
+      Especifique pacotes ou consultas de {% data variables.product.prodname_codeql %} para executar. Para executar as consultas padrão usadas para {% data variables.product.prodname_code_scanning %}, omita este parâmetro. To see the other query suites included in the {% data variables.product.prodname_codeql_cli %} bundle, look in <code>/&lt;extraction-root&gt;/qlpacks/codeql/&lt;language&gt;-queries/codeql-suites</code>. Para obter informações sobre como criar seu próprio conjunto de consulta, consulte <a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">Criando conjuntos de consultas de CodeQL</a> na documentação do {% data variables.product.prodname_codeql_cli %}.
     </td>
   </tr>
   

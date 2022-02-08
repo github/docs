@@ -17,20 +17,16 @@ import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
-  const { relativePath, error, allVersions } = useMainContext()
+  const { relativePath, error } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header', 'homepage'])
   const [isMenuOpen, setIsMenuOpen] = useState(
     router.pathname !== '/' && router.query.query && true
   )
   const [scroll, setScroll] = useState(false)
-  const [signupCTAVisible, setSignupCTAVisible] = useState(false)
 
-  useEffect(() => {
-    const allowedVersions: RegExp = /ghec|fpt/
-    const canShowSignupCTA = allowedVersions.test(allVersions[currentVersion].shortName)
-    setSignupCTAVisible(canShowSignupCTA)
-  }, [currentVersion])
+  const signupCTAVisible =
+    currentVersion === 'free-pro-team@latest' || currentVersion === 'enterprise-cloud@latest'
 
   useEffect(() => {
     function onScroll() {

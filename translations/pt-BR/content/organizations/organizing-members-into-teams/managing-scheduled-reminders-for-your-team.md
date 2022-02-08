@@ -27,7 +27,6 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Botão de lembretes agendados](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.add-reminder %}
 {% data reusables.reminders.authorize-slack %}
 {% data reusables.reminders.slack-channel %}
@@ -51,7 +50,6 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Botão de lembretes agendados](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.edit-existing %}
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
@@ -62,7 +60,6 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![Botão de lembretes agendados](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.delete %}
 
 ## Leia mais

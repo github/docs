@@ -41,7 +41,7 @@ jobs:
           #   package-lock.json, instead of checking node_modules and
           #   downloading dependencies.
           #
-          npm install --package-lock-only --ignore-scripts
+          npm install --package-lock-only --ignore-scripts --include=optional
 
           # If the package.json (dependencies and devDependencies) is
           # in correct sync with package-lock.json running the above command

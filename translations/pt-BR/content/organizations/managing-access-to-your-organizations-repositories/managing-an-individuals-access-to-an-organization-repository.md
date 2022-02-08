@@ -28,9 +28,13 @@ Ao remover um colaborador de um repositório de sua organização, o colaborador
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% data reusables.repositories.click-collaborators-teams %}
+{% elsif ghes < 3.4 or ghae %}
 {% data reusables.repositories.navigate-to-manage-access %}
+{% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
-5. No campo de busca, comece a digitar o nome da pessoa para convidar e, em seguida, clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma equipe ou pessoa para convidar ao repositório](/assets/images/help/repository/manage-access-invite-search-field.png)
+1. No campo de busca, comece a digitar o nome da pessoa para convidar e, em seguida, clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma equipe ou pessoa para convidar ao repositório](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Em "Escolher uma função ", selecione a função do repositório para atribuir a pessoa e, em seguida, clique em **Adicionar NOME ao REPOSITÓRIO**. ![Selecionando permissões para a equipe ou pessoa](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
 ## Gerenciar o acesso de um indivíduo a um repositório da organização

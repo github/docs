@@ -83,6 +83,12 @@ macOS Catalina 10.15
 </tbody>
 </table>
 
+{% note %}
+
+**Note:** The `-latest` virtual environments are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+
+{% endnote %}
+
 {% warning %}
 
 <b>Nota:</b> Las imágenes beta y obsoletizadas se proporcionan "tal cual", "con todos sus fallos" y "conforme estén disponibles" y se les excluye del acuerdo de nivel de servicio y de la garantía. El soporte al cliente podría no cubrir las imágenes beta.
