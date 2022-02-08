@@ -39,20 +39,20 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 {% ifversion fpt %}
 The table below summarizes the availability of GitHub Advanced Security features on public and private repositories.
 
-|                   | **Public repository**           | **Private repository without Advanced Security** | **Private repository with Advanced Security** |
+|                   | Public repository           | Private repository without Advanced Security | Private repository with Advanced Security |
 | :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
 | Code scanning     | Yes                         | No                                           | No                                        |
-| Secret scanning   | Yes (limited functionality only) | No                                           | Yes                                       |
+| Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
 | Dependency review | Yes                         | No                                           | Yes                                       |
 {% endif %}
 
 {% ifversion ghec %}
 The table below summarizes the availability of GitHub Advanced Security features on public and private repositories.
 
-|                   | **Public repository**           | **Private repository without Advanced Security** | **Private repository with Advanced Security** |
+|                   | Public repository           | Private repository without Advanced Security | Private repository with Advanced Security |
 | :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
 | Code scanning     | Yes                         | No                                           | No                                        |
-| Secret scanning   | Yes (limited functionality only) | No                                           | Yes                                       |
+| Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
 | Dependency review | Yes                         | No                                           | Yes                                       |
 | Security overview | No                          | No                                           | Yes                                          |
 {% endif %}
