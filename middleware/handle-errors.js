@@ -1,5 +1,4 @@
 import FailBot from '../lib/failbot.js'
-import loadSiteData from '../lib/site-data.js'
 import { nextApp } from './next.js'
 
 function shouldLogException(error) {
@@ -33,7 +32,10 @@ export default async function handleError(error, req, res, next) {
   // anywhere. So this is why we log it additionally.
   // Note, not using console.error() because it's arguably handled.
   // Some tests might actually expect a 500 error.
-  if (process.env.NODE_ENV === 'test') {
+  if (
+    process.env.NODE_ENV === 'test' &&
+    !(req.path.startsWith('/assets') || req.path.startsWith('/_next/static'))
+  ) {
     console.warn('An error occurrred in some middleware handler', error)
   }
 
@@ -47,14 +49,11 @@ export default async function handleError(error, req, res, next) {
       return next(error)
     }
 
-    // if the error is thrown before req.context is created (say, in the Page class),
-    // set req.context.site here so we can pass data/ui.yml text to the 500 layout
     if (!req.context) {
-      const site = await loadSiteData()
-      req.context = { site: site[req.language || 'en'].site }
+      req.context = {}
     }
     // display error on the page in development and staging, but not in production
-    if (req.context && process.env.HEROKU_PRODUCTION_APP !== 'true') {
+    if (process.env.HEROKU_PRODUCTION_APP !== 'true') {
       req.context.error = error
     }
 
