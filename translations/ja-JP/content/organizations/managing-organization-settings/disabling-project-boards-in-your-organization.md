@@ -24,10 +24,13 @@ Organization 内にあるリポジトリのプロジェクトボードを無効�
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. Organization 全体のプロジェクトボードを無効化するのか、Organization 内にあるリポジトリのプロジェクトボードを無効化するのか、その両方なのかを判断します。 次に [Projects] の下で:
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+{% endif %}
+1. Organization 全体のプロジェクトボードを無効化するのか、Organization 内にあるリポジトリのプロジェクトボードを無効化するのか、その両方なのかを判断します。 次に [Projects] の下で:
     - Organization 全体のプロジェクトボードを無効化するには、[**Enable projects for the organization**] の選択を解除します。
     - Organization 内にあるリポジトリのプロジェクトボードを無効化するには、[**Enable projects for all repositories**] の選択を解除します。 ![Organization や Organization の全リポジトリのプロジェクトを無効にするチェックボックス](/assets/images/help/projects/disable-org-projects-checkbox.png)
-5. [**Save**] をクリックします。
+1. [**Save**] をクリックします。
 
 {% data reusables.organizations.disable_project_board_results %}
 
