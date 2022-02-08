@@ -1,1 +1,1 @@
-1. 左のサイドバーで**Codespaces**をクリックしてください。 ![ユーザ設定サイドバーのCodespacesタブ](/assets/images/help/settings/codespaces-tab.png)
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces**.

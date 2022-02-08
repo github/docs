@@ -9,7 +9,6 @@ redirect_from:
   - /articles/removing-yourself-from-a-collaborators-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository
-product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   fpt: '*'
   ghes: '*'

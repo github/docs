@@ -22,12 +22,10 @@ shortTitle: セキュリティ ログ
 The security log lists all actions performed within the last 90 days.
 
 {% data reusables.user_settings.access_settings %}
-{% ifversion fpt or ghae or ghes or ghec %}
-2. ユーザ設定サイドバーで [**Security log**] をクリックします。 ![セキュリティログのタブ](/assets/images/help/settings/audit-log-tab.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-label="The log icon" %} Security log**.
 {% else %}
-{% data reusables.user_settings.security %}
-3. [Security history] の下に、自分のログが表示されます。 ![セキュリティ ログ](/assets/images/help/settings/user_security_log.png)
-4. エントリをクリックして、イベントに関する詳細情報を表示します。 ![セキュリティ ログ](/assets/images/help/settings/user_security_history_action.png)
+1. ユーザ設定サイドバーで [**Security log**] をクリックします。 ![セキュリティログのタブ](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
 {% ifversion fpt or ghae or ghes or ghec %}

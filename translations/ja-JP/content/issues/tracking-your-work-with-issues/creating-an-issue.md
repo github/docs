@@ -143,7 +143,7 @@ Issueをオープンするのにクエリパラメータを利用できます。
 | `projects`  | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` は、"Bug fix" というタイトルを付けて Issue を作成し、それを Organization のプロジェクトボード 1 に追加します。                                                                                                                                                                                              |
 | `template`  | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` は、ボディにテンプレートを付けて Issue を作成します。 `template`クエリパラメータは、ルート内の`ISSUE_TEMPLATE`サブディレクトリ、リポジトリ内の`docs/`あるいは`.github/`ディレクトリに保存されたテンプレートで動作します。 詳しい情報については「[有益なIssueとPull Requestを促進するためのテンプレートの利用](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」を参照してください。 |
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+{% if code-scanning-task-lists %}
 ## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}

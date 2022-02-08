@@ -1,6 +1,6 @@
 ---
 title: 使用 Jira 管理项目
-intro: '您可以将 Jira 与 {% data variables.product.prodname_enterprise %} 集成以进行项目管理。'
+intro: '您可以将 Jira 与 {% data variables.product.product_name %} 集成以进行项目管理。'
 redirect_from:
   - /enterprise/admin/guides/installation/project-management-using-jira
   - /enterprise/admin/articles/project-management-using-jira
@@ -10,6 +10,7 @@ redirect_from:
   - /admin/user-management/managing-projects-using-jira
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
