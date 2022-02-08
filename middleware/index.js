@@ -13,10 +13,7 @@ import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import compression from 'compression'
-import {
-  setDefaultFastlySurrogateKey,
-  setManualFastlySurrogateKey,
-} from './set-fastly-surrogate-key.js'
+import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import catchBadAcceptLanguage from './catch-bad-accept-language.js'
 import reqUtils from './req-utils.js'
@@ -61,7 +58,9 @@ import learningTrack from './learning-track.js'
 import next from './next.js'
 import renderPage from './render-page.js'
 import assetPreprocessing from './asset-preprocessing.js'
+import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicon from './favicon.js'
+import setStaticAssetCaching from './static-asset-caching.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -114,12 +113,23 @@ export default function (app) {
 
   app.use(favicon)
 
+  // Any static URL that contains some sort of checksum that makes it
+  // unique gets the "manual" surrogate key. If it's checksummed,
+  // it's bound to change when it needs to change. Otherwise,
+  // we want to make sure it doesn't need to be purged just because
+  // there's a production deploy.
+  // Note, for `/assets/cb-*...` requests,
+  // this needs to come before `assetPreprocessing` because
+  // the `assetPreprocessing` middleware will rewrite `req.url` if
+  // it applies.
+  app.use(setStaticAssetCaching)
+
+  // Must come before any other middleware for assets
+  app.use(archivedAssetRedirects)
+
   // This must come before the express.static('assets') middleware.
   app.use(assetPreprocessing)
-  // By specifying '/assets/cb-' and not just '/assets/' we
-  // avoid possibly legacy enterprise assets URLs and asset image URLs
-  // that don't have the cache-busting piece in it.
-  app.use('/assets/cb-', setManualFastlySurrogateKey)
+
   app.use(
     '/assets/',
     express.static('assets', {

@@ -6,6 +6,6 @@
 #
 # [end-readme]
 
-mv docs-early-access/assets assets/images/early-access
+mv docs-early-access/assets/images assets/images/early-access
 mv docs-early-access/content content/early-access
 mv docs-early-access/data data/early-access

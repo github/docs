@@ -21,7 +21,7 @@ miniTocMaxHeadingLevel: 4
 
 ## Sobre sintaxe YAML para o {% data variables.product.prodname_actions %}
 
-Ações Docker e JavaScript requerem um arquivo de metadados. O nome do arquivo dos metadados deve ser `action.yml` ou `action.yaml`. Os dados no arquivo de metadados definem as entradas, as saídas e o ponto de entrada principal para sua ação.
+All actions require a metadata file. O nome do arquivo dos metadados deve ser `action.yml` ou `action.yaml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
 
 Arquivos de metadados de ação usam a sintaxe YAML. Se você não souber o que é YAML, consulte "[Aprender a usar YAML em cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 

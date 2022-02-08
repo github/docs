@@ -1,6 +1,8 @@
 files:
   - source: /content/**/*.md
     translation: /translations/%locale%/%original_path%/%original_file_name%
+    # See lib/page-data.js for a matching list of prefix exceptions
+    # Try to keep these in sync when editing in either location.
     ignore:
       - '/content/README.md'
       - '/content/early-access'
