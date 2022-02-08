@@ -1,5 +1,5 @@
 ---
-title: Configuring OpenID Connect in cloud providers
+title: Configurar OpenID Connect en los proveedores de servicios en la nube
 shortTitle: Configurar OpenID Connect en los proveedores de servicios en la nube
 intro: Use OpenID Connect within your workflows to authenticate with cloud providers.
 miniTocMaxHeadingLevel: 3
@@ -30,21 +30,14 @@ To use OIDC, you will first need to configure your cloud provider to trust {% da
 ## Actualizar tu flujo de trabajo de {% data variables.product.prodname_actions %}
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
-1. Add permissions settings for the token.
+1. Agregar ajustes de permisos para el token.
 2. Use the official action from your cloud provider to exchange the OIDC token (JWT) for a cloud access token.
 
 If your cloud provider doesn't yet offer an official action, you can update your workflows to perform these steps manually.
 
-### Adding permissions settings
+### Agregar ajustes de permisos
 
-El flujo de trabajo requerirá una configuración de `permissions` con un valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. Si solo necesitas recuperar un token de OIDC para un solo job, entonces este permiso puede configurarse dentro de dicho job. Por ejemplo:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-Puede que necesites especificar permisos adicionales aquí, dependiendo de los requisitos de tu flujo de trabajo.
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Using official actions
 
@@ -64,7 +57,7 @@ To update your workflows using this approach, you will need to make three change
 
 ### Requesting the JWT using the Actions core toolkit
 
-The following example demonstrates how to use `actions/github-script` with the `core` toolkit to request the JWT from {% data variables.product.prodname_dotcom %}'s OIDC provider. For more information, see "[Adding actions toolkit packages](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
+The following example demonstrates how to use `actions/github-script` with the `core` toolkit to request the JWT from {% data variables.product.prodname_dotcom %}'s OIDC provider. Para obtener más información, consulta la sección "[Agregar paquetes de kit de herramientas de acciones](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)".
 
 ```yaml
 jobs:
