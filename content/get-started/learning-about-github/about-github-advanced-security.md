@@ -41,7 +41,7 @@ The table below summarizes the availability of GitHub Advanced Security features
 
 |                   | Public repository           | Private repository without Advanced Security | Private repository with Advanced Security |
 | :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
-| Code scanning     | Yes                         | No                                           | No                                        |
+| Code scanning     | Yes                         | No                                           | Yes                                        |
 | Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
 | Dependency review | Yes                         | No                                           | Yes                                       |
 {% endif %}
@@ -51,7 +51,7 @@ The table below summarizes the availability of GitHub Advanced Security features
 
 |                   | Public repository           | Private repository without Advanced Security | Private repository with Advanced Security |
 | :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
-| Code scanning     | Yes                         | No                                           | No                                        |
+| Code scanning     | Yes                         | No                                           | Yes                                        |
 | Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
 | Dependency review | Yes                         | No                                           | Yes                                       |
 | Security overview | No                          | No                                           | Yes                                          |
