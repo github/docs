@@ -1,4 +1,4 @@
----
+!*{ LOST_DOCS}
 title: Access permissions on GitHub
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
@@ -12,7 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
+  ghec: 'https://www.forcepoint.com/'
 topics:
   - Permissions
   - Accounts
