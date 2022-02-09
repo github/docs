@@ -47,34 +47,30 @@ If you add an organization-wide policy, you should set it to the largest choice 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Under "Codespaces", click **Policy**.
-
-   !["Policy" tab in left sidebar](/assets/images/help/organizations/codespaces-policy-sidebar.png)
-
-1. On the "Codespace policies" page, click **Create Policy**.
-1. Enter a name for your new policy.
-1. Click **Add constraint** and choose **Machine types**.
+1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policy**.
+2. On the "Codespace policies" page, click **Create Policy**.
+3. Enter a name for your new policy.
+4. Click **Add constraint** and choose **Machine types**.
 
    ![Add a constraint for machine types](/assets/images/help/codespaces/add-constraint-dropdown.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint, then clear the selection of any machine types that you don't want to be available.
+5. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint, then clear the selection of any machine types that you don't want to be available.
 
    ![Edit the machine type constraint](/assets/images/help/codespaces/edit-machine-constraint.png)
 
-1. In the "Change policy target" area, click the dropdown button.
-1. Choose either **All repositories** or **Selected repositories** to determine which repositories this policy will apply to.
-1. [**Selected repositories**] を選択した場合、以下の手順に従います。
+6. In the "Change policy target" area, click the dropdown button.
+7. Choose either **All repositories** or **Selected repositories** to determine which repositories this policy will apply to.
+8. [**Selected repositories**] を選択した場合、以下の手順に従います。
    1. {% octicon "gear" aria-label="The settings icon" %} をクリックします。
 
       ![Edit the settings for the policy](/assets/images/help/codespaces/policy-edit.png)
 
-   1. Select the repositories you want this policy to apply to.
-   1. At the bottom of the repository list, click **Select repositories**.
+   2. Select the repositories you want this policy to apply to.
+   3. At the bottom of the repository list, click **Select repositories**.
 
       ![Select repositories for this policy](/assets/images/help/codespaces/policy-select-repos.png)
 
-1. [**Save**] をクリックします。
+9. [**Save**] をクリックします。
 
 ## Editing a policy
 

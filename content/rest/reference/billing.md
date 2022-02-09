@@ -4,6 +4,7 @@ intro: 'With the Billing API, you can monitor the charges and usage {% data vari
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>=3.4'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

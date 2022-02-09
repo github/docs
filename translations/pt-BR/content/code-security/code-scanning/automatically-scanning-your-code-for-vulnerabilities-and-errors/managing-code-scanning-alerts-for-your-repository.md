@@ -120,7 +120,7 @@ Você pode pesquisar na lista de alertas. Isso é útil se houver um grande núm
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+{% if code-scanning-task-lists %}
 ## Rastreando alertas de {% data variables.product.prodname_code_scanning %} em problemas
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}

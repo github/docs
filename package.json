@@ -167,8 +167,7 @@
     "strip-ansi": "^7.0.1",
     "supertest": "^6.2.2",
     "typescript": "^4.5.5",
-    "url-template": "^3.0.0",
-    "yesno": "^0.3.1"
+    "url-template": "^3.0.0"
   },
   "engines": {
     "node": "16.x"
@@ -178,7 +177,6 @@
   "name": "docs.github.com",
   "optionalDependencies": {
     "bottleneck": "^2.19.5",
-    "csv-parse": "^4.16.3",
     "esm": "^3.2.25",
     "image-size": "^1.0.0",
     "jest-puppeteer": "^5.0.4",

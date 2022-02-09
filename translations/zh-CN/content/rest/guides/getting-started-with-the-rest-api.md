@@ -390,7 +390,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 
 `304` 状态表示该资源自上次请求以来没有发生改变，该响应将不包含任何正文。 As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
 
-耶！ 现在您了解 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 的基础知识了！
+现在您了解 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 的基础知识了！
 
 * 基本 & OAuth 身份验证
 * 获取和创建仓库及议题
