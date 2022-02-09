@@ -50,12 +50,12 @@ env:
 
 式の一部として、`boolean`、`null`、`number`、または`string`のデータ型を使用できます。
 
-| データ型      | リテラル値                                                                                                                                                                                                                         |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `boolean` | `true` または `false`                                                                                                                                                                                                            |
-| `null`    | `null`                                                                                                                                                                                                                        |
-| `number`  | JSONでサポートされている任意の数値書式。                                                                                                                                                                                                        |
-| `string`  | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
+| データ型      | リテラル値                                                                                                                                                                                                                                                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `boolean` | `true` または `false`                                                                                                                                                                                                                                                                                                                    |
+| `null`    | `null`                                                                                                                                                                                                                                                                                                                                |
+| `number`  | JSONでサポートされている任意の数値書式。                                                                                                                                                                                                                                                                                                                |
+| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
 #### サンプル
 

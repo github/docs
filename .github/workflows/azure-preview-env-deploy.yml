@@ -40,7 +40,11 @@ jobs:
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
-      url: ${{ steps.deploy.outputs.defaultHostName }}
+      # The environment variable is computer later in this job in
+      # the "Get preview app info" step.
+      # That script sets environment variables which is used by Actions
+      # to link a PR to a list of environments later.
+      url: ${{ env.APP_URL }}
     env:
       PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER }}
       NONPROD_REGISTRY_USERNAME: ghdocs
@@ -75,6 +79,8 @@ jobs:
         run: git lfs checkout
 
       - name: Get preview app info
+        env:
+          APP_NAME_SEED: ${{ secrets.APP_NAME_SEED }}
         run: .github/actions-scripts/get-preview-app-info.sh
 
       - name: 'Set env vars'
@@ -156,11 +162,10 @@ jobs:
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
           template: ./azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
-          parameters: appName="${{ env.APP_NAME_SHORT }}"
+          parameters: appName="${{ env.APP_NAME }}"
             location="${{ env.APP_LOCATION }}"
-            linuxFxVersion="DOCKER|${{ env.DOCKER_IMAGE }}"
-            dockerRegistryUrl="https://${{ secrets.NONPROD_REGISTRY_SERVER }}"
+            containerImage="${{ env.DOCKER_IMAGE }}"
+            dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
-
-      - run: echo ${{ steps.deploy.outputs.defaultHostName }}
+          additionalArguments: --no-wait

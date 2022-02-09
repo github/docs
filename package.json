@@ -177,7 +177,6 @@
   "name": "docs.github.com",
   "optionalDependencies": {
     "bottleneck": "^2.19.5",
-    "csv-parse": "^4.16.3",
     "esm": "^3.2.25",
     "image-size": "^1.0.0",
     "jest-puppeteer": "^5.0.4",
