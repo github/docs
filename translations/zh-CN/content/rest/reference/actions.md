@@ -1,5 +1,5 @@
 ---
-title: Actions
+title: 操作
 intro: 'With the Actions API, you can manage and control {% data variables.product.prodname_actions %} for an organization or repository.'
 redirect_from:
   - /v3/actions
@@ -14,15 +14,15 @@ miniTocMaxHeadingLevel: 3
 ---
 
 
-The {% data variables.product.prodname_actions %} API enables you to manage {% data variables.product.prodname_actions %} using the REST API. {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} require the permissions mentioned in each endpoint. For more information, see "[{% data variables.product.prodname_actions %} Documentation](/actions)."
+{% data variables.product.prodname_actions %} API 允许您使用 REST API 来管理 {% data variables.product.prodname_actions %}。 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 需要在每个端点中提及的权限。 更多信息请参阅“[{% data variables.product.prodname_actions %} 文档](/actions)”。
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Artifacts
+## 构件
 
-The Artifacts API allows you to download, delete, and retrieve information about workflow artifacts. {% data reusables.actions.about-artifacts %} For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+构件 API 允许您下载、删除和检索有关工作流程构件的信息。 {% data reusables.actions.about-artifacts %}更多信息请参阅“[使用构件持久化工作流程](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 
@@ -31,58 +31,58 @@ The Artifacts API allows you to download, delete, and retrieve information about
 {% endfor %}
 
 {% ifversion fpt or ghes > 2.22 or ghae or ghec %}
-## Permissions
+## 权限
 
 The Permissions API allows you to set permissions for what organizations and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions are allowed to run.{% ifversion fpt or ghec or ghes %} For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)."{% endif %}
 
-You can also set permissions for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin#github-actions)" REST API.
+您还可以为企业设置权限。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)”REST API。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'permissions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 {% endif %}
 
-## Secrets
+## 密码
 
-The Secrets API lets you create, update, delete, and retrieve information about encrypted secrets. {% data reusables.actions.about-secrets %} For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+密码 API 允许您创建、更新、删除和检索有关加密密码的信息。 {% data reusables.actions.about-secrets %}更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `secrets` permission to use this API. Authenticated users must have collaborator access to a repository to create, update, or read secrets.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 必须具有`密码`权限才可使用此 API。 经过身份验证的用户必须对仓库具有协作者权限才可创建、更新或读取密码。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'secrets' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Self-hosted runners
+## 自托管运行器
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
-The Self-hosted Runners API allows you to register, view, and delete self-hosted runners. {% data reusables.actions.about-self-hosted-runners %} For more information, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+自托管运行器 API 允许您注册、查看和删除自托管的运行器。 {% data reusables.actions.about-self-hosted-runners %} 更多信息请参阅“[托管您自己的运行器](/actions/hosting-your-own-runners)”。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to the repository or organization to use this API.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 必须对仓库具有`管理`权限，或者对组织具有 `organization_self_hosted_runners` 权限。 经过身份验证的用户必须对仓库或组织具有管理员权限才可使用此 API。
 
-You can manage self-hosted runners for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin#github-actions)" REST API.
+您可以管理企业的自托管运行器。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)”REST API。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runners' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Self-hosted runner groups
+## 自托管运行器组
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
-The Self-hosted Runners Groups API allows you manage groups of self-hosted runners. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+自托管运行器组 API 允许您管理自托运行器组。 更多信息请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to the repository or organization to use this API.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 必须对仓库具有`管理`权限，或者对组织具有 `organization_self_hosted_runners` 权限。 经过身份验证的用户必须对仓库或组织具有管理员权限才可使用此 API。
 
-You can manage self-hosted runner groups for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin##github-actions)" REST API.
+您可以管理企业的自托管运行器组。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin##github-actions)”REST API。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runner-groups' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Workflows
+## 工作流程
 
-The Workflows API allows you to view workflows for a repository. {% data reusables.actions.about-workflows %} For more information, see "[Automating your workflow with GitHub Actions](/actions/automating-your-workflow-with-github-actions)."
+工作流程 API 允许您查看仓库的工作流程。 {% data reusables.actions.about-workflows %} 更多信息请参阅“[使用 GitHub Actions 自动化工作流程](/actions/automating-your-workflow-with-github-actions)”。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 
@@ -90,9 +90,9 @@ The Workflows API allows you to view workflows for a repository. {% data reusabl
   {% if operation.subcategory == 'workflows' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Workflow jobs
+## 工作流程作业
 
-The Workflow Jobs API allows you to view logs and workflow jobs. {% data reusables.actions.about-workflow-jobs %} For more information, see "[Workflow syntax for GitHub Actions](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
+工作流程作业 API 允许您查看日志和工作流程作业。 {% data reusables.actions.about-workflow-jobs %} 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 
@@ -100,9 +100,9 @@ The Workflow Jobs API allows you to view logs and workflow jobs. {% data reusabl
   {% if operation.subcategory == 'workflow-jobs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Workflow runs
+## 工作流程运行
 
-The Workflow Runs API allows you to view, re-run, cancel, and view logs for workflow runs. {% data reusables.actions.about-workflow-runs %} For more information, see "[Managing a workflow run](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)."
+工作流程运行 API 允许您查看、重新运行、取消和查看工作流程运行的日志。 {% data reusables.actions.about-workflow-runs %} 更多信息请参阅“[管理工作流程运行](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)”。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 

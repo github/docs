@@ -1,6 +1,6 @@
 ---
-title: Linking a pull request to an issue
-intro: You can link a pull request to an issue to show that a fix is in progress and to automatically close the issue when the pull request is merged.
+title: 将拉取请求链接到议题
+intro: 您可以将拉取请求链接到议题，以显示修复正在进行中，并在拉取请求被合并时自动关闭该议题。
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
   - /articles/closing-issues-via-commit-message
@@ -16,25 +16,26 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Link PR to issue
+shortTitle: 将 PR 链接到议题
 ---
+
 {% note %}
 
-**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+**注：**当拉取请求指向仓库的*默认*分支时，将解析拉取请求说明中的特殊关键字。 但是，如果拉取请求的基础是*任何其他分支*，则将忽略这些关键字，不创建任何链接，并且合并拉取请求对议题没有影响。 **如果要使用关键字将拉取请求链接到议题，则拉取请求必须在默认分支上。**
 
 {% endnote %}
 
-## About linked issues and pull requests
+## 关于链接的议题和拉取请求
 
-You can link an issue to a pull request {% ifversion fpt or ghes or ghae or ghec %}manually or {% endif %}using a supported keyword in the pull request description.
+您可以{% ifversion fpt or ghes or ghae or ghec %}手动或{% endif %}使用拉取请求说明中支持的关键词将议题链接到拉取请求。
 
-When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
+当您将拉取请求链接到拉取请求指向的议题，如果有人正在操作该议题，协作者可以看到。
 
-When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+将链接的拉取请求合并到仓库的默认分支时，其链接的议题将自动关闭。 有关默认分支的更多信息，请参阅“[更改默认分支](/github/administering-a-repository/changing-the-default-branch)”。
 
-## Linking a pull request to an issue using a keyword
+## 使用关键词将拉取请求链接到议题
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message (please note that the pull request must be on the default branch).
+您可以在拉取请求说明或提交消息中使用支持的关键字将拉取请求链接到议题（请注意，拉取请求必须在默认分支上）。
 
 * close
 * closes
@@ -42,41 +43,39 @@ You can link a pull request to an issue by using a supported keyword in the pull
 * fix
 * fixes
 * fixed
-* resolve
+* 解决
 * resolves
 * resolved
 
 If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request will also close the referenced pull request.
 
-The syntax for closing keywords depends on whether the issue is in the same repository as the pull request.
+关闭关键词的语法取决于议题是否与拉取请求在同一仓库中。
 
-Linked issue | Syntax | Example
---------------- | ------ | ------
-Issue in the same repository | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
-Issue in a different repository | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
-Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
+| 链接的议题    | 语法                                            | 示例                                                             |
+| -------- | --------------------------------------------- | -------------------------------------------------------------- |
+| 同一仓库中的议题 | *KEYWORD* #*ISSUE-NUMBER*                     | `Closes #10`                                                   |
+| 不同仓库中的议题 | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
+| 多个议题     | 对每个议题使用完整语法                                   | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% ifversion fpt or ghes or ghae or ghec %}Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.{% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}只有手动链接的拉取请求才能手动取消链接。 要取消链接您使用关键词链接的议题，必须编辑拉取请求说明以删除该关键词。{% endif %}
 
-You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
+您也可以在提交消息中使用关闭关键词。 议题将在提交合并到默认分支时关闭，但包含提交的拉取请求不会列为链接的拉取请求。
 
 
 {% ifversion fpt or ghes or ghae or ghec %}
-## Manually linking a pull request to an issue
+## 手动将拉取请求链接到议题
 
-Anyone with write permissions to a repository can manually link a pull request to an issue.
+对仓库有写入权限的任何人都可以手动将拉取请求链接到议题。
 
-You can manually link up to ten issues to each pull request. The issue and pull request must be in the same repository.
+您可以手动链接最多 10 个议题到每个拉取请求。 议题和拉取请求必须位于同一仓库中。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-3. In the list of pull requests, click the pull request that you'd like to link to an issue.
-4. In the right sidebar, click **Linked issues**.
-  ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)
-5. Click the issue you want to link to the pull request.
-  ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
+3. 在拉取请求列表中，单击要链接到议题的拉取请求。
+4. 在右侧边栏中，单击 **Linked issues（链接的议题）**。 ![右侧边栏中链接的议题](/assets/images/help/pull_requests/linked-issues.png)
+5. 单击要链接到拉取请求的议题。 ![下拉以链接议题](/assets/images/help/pull_requests/link-issue-drop-down.png)
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"
+- "[自动链接的引用和 URL](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"

@@ -1,7 +1,6 @@
 ---
 title: Managing unowned organizations in your enterprise
 intro: 您可以成为企业帐户中目前没有所有者的组织的所有者。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage unowned organizations in an enterprise account.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account

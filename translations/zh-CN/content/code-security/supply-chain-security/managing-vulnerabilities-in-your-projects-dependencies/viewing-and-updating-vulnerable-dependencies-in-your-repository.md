@@ -1,12 +1,12 @@
 ---
-title: Viewing and updating vulnerable dependencies in your repository
-intro: 'If {% data variables.product.product_name %} discovers vulnerable dependencies in your project, you can view them on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the vulnerability.'
+title: 查看和更新仓库中有漏洞的依赖项
+intro: '如果 {% data variables.product.product_name %} 发现项目中存在有漏洞的依赖项，您可以在仓库的 Dependabot 警报选项卡中查看它们。 然后，您可以更新项目以解决或忽略漏洞。'
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository
 permissions: Repository administrators and organization owners can view and update dependencies.
-shortTitle: View vulnerable dependencies
+shortTitle: 查看有漏洞的依赖项
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,60 +25,53 @@ topics:
 {% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-Your repository's  {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes > 3.2 %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. You can sort the list of alerts by selecting the drop-down menu, and you can click into specific alerts for more details. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+Your repository's  {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes > 3.2 %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. 您可以选择下拉菜单对警报列表进行排序，并且可以单击特定警报以获取更多详细信息。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
-You can enable automatic security updates for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+您可以为使用 {% data variables.product.prodname_dependabot_alerts %} 和依赖关系图的任何仓库启用自动安全更新。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)“。
 {% endif %}
 
 {% data reusables.repositories.dependency-review %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
-## About updates for vulnerable dependencies in your repository
+## 关于仓库中有漏洞的依赖项的更新
 
-{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known vulnerabilities. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
+{% data variables.product.product_name %} 在检测到您的代码库正在使用具有已知漏洞的依赖项时会生成 {% data variables.product.prodname_dependabot_alerts %}。 对于启用了 {% data variables.product.prodname_dependabot_security_updates %} 的仓库，当 {% data variables.product.product_name %} 在默认分支中检测到有漏洞的依赖项时，{% data variables.product.prodname_dependabot %} 会创建拉取请求来修复它。 拉取请求会将依赖项升级到避免漏洞所需的最低安全版本。
 {% endif %}
 
-## Viewing and updating vulnerable dependencies
+## 查看和更新有漏洞的依赖项
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Click the alert you'd like to view.
-  ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list.png)
-1. Review the details of the vulnerability and, if available, the pull request containing the automated security update.
-1. Optionally, if there isn't already a {% data variables.product.prodname_dependabot_security_updates %} update for the alert, to create a pull request to resolve the vulnerability, click **Create {% data variables.product.prodname_dependabot %} security update**.
-  ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button.png)
-1. When you're ready to update your dependency and resolve the vulnerability, merge the pull request. Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
-1. Optionally, if the alert is being fixed, if it's incorrect, or located in unused code, select the "Dismiss" drop-down, and click a reason for dismissing the alert.
-   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down.png)
+1. 单击您想要查看的警报。 ![在警报列表中选择的警报](/assets/images/help/graphs/click-alert-in-alerts-list.png)
+1. 查看漏洞的详细信息以及包含自动安全更新的拉取请求（如果有）。
+1. （可选）如果还没有针对该警报的 {% data variables.product.prodname_dependabot_security_updates %} 更新，要创建拉取请求以解决该漏洞，请单击 **Create {% data variables.product.prodname_dependabot %} security update（创建 Dependabot 安全更新）**。 ![创建 {% data variables.product.prodname_dependabot %} 安全更新按钮](/assets/images/help/repository/create-dependabot-security-update-button.png)
+1. 当您准备好更新依赖项并解决漏洞时，合并拉取请求。 {% data variables.product.prodname_dependabot %} 提出的每个拉取请求都包含可用于控制 {% data variables.product.prodname_dependabot %} 的命令的相关信息。 更多信息请参阅“[管理依赖项更新的拉取请求](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
+1. （可选）如果警报正在修复、不正确或位于未使用的代码中，请选择“Dismiss（忽略）”，然后单击忽略警报的原因。 ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down.png)
 
 {% elsif ghes > 3.0 or ghae-issue-4864 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Click the alert you'd like to view.
-  ![Alert selected in list of alerts](/assets/images/enterprise/graphs/click-alert-in-alerts-list.png)
-1. Review the details of the vulnerability and determine whether or not you need to update the dependency.
-1. When you merge a pull request that updates the manifest or lock file to a secure version of the dependency, this will resolve the alert. Alternatively, if you decide not to update the dependency, select the **Dismiss** drop-down, and click a reason for dismissing the alert.
-   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/enterprise/repository/dependabot-alert-dismiss-drop-down.png)
+1. 单击您想要查看的警报。 ![在警报列表中选择的警报](/assets/images/enterprise/graphs/click-alert-in-alerts-list.png)
+1. 查看漏洞的详细信息，并确定您是否需要更新依赖项。
+1. 当您合并拉取请求以将清单或锁定文件更新为依赖项的安全版本时，这将解决警报。 或者，如果您决定不更新依赖项，请选择 **Dismiss（忽略）**下拉菜单，并单击忽略警报的原因。 ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/enterprise/repository/dependabot-alert-dismiss-drop-down.png)
 
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
-1. Click the version number of the vulnerable dependency to display detailed information.
-  ![Detailed information on the vulnerable dependency](/assets/images/enterprise/3.0/dependabot-alert-info.png)
-1. Review the details of the vulnerability and determine whether or not you need to update the dependency. When you merge a pull request that updates the manifest or lock file to a secure version of the dependency, this will resolve the alert.
-1. The banner at the top of the **Dependencies** tab is displayed until all the vulnerable dependencies are resolved or you dismiss it. Click **Dismiss** in the top right corner of the banner and select a reason for dismissing the alert.
-  ![Dismiss security banner](/assets/images/enterprise/3.0/dependabot-alert-dismiss.png)
+1. 单击有漏洞依赖项的版本号以显示详细信息。 ![关于有漏洞依赖项的详细信息](/assets/images/enterprise/3.0/dependabot-alert-info.png)
+1. 查看漏洞的详细信息，并确定您是否需要更新依赖项。 当您合并拉取请求以将清单或锁定文件更新为依赖项的安全版本时，这将解决警报。
+1. **Dependencies（依赖项）**选项卡顶部的横幅将会显示，直到解决所有漏洞依赖项或者您忽略该横幅。 单击横幅右上角的 **Dismiss（忽略）**并选择忽略警报的原因。 ![忽略安全横幅](/assets/images/enterprise/3.0/dependabot-alert-dismiss.png)
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes > 3.2 %}
-- "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)"{% endif %}
-- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
-- "[Troubleshooting the detection of vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes > 3.2 %}
-- "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}
+- "[关于有漏洞依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)" {% ifversion fpt or ghec or ghes > 3.2 %}
+- "[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)"{% endif %}
+- "[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- "[漏洞依赖项检测疑难解答](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes > 3.2 %}
+- [排除 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}

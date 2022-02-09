@@ -3,8 +3,8 @@ title: Cancelar una app Mercado GitHub
 intro: 'Puedes cancelar y eliminar una app {% data variables.product.prodname_marketplace %} desde tu cuenta en cualquier momento.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/canceling-a-github-marketplace-app
-  - /articles/canceling-an-app-for-your-personal-account/
-  - /articles/canceling-an-app-for-your-organization/
+  - /articles/canceling-an-app-for-your-personal-account
+  - /articles/canceling-an-app-for-your-organization
   - /articles/canceling-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app
 versions:

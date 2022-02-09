@@ -1,6 +1,6 @@
 ---
-title: About GitHub AE
-intro: '{% data variables.product.prodname_ghe_managed %} is a security-enhanced and compliant way to use {% data variables.product.prodname_dotcom %} in the cloud.'
+title: 关于 GitHub AE
+intro: '{% data variables.product.prodname_ghe_managed %} 是一种在云端使用 {% data variables.product.prodname_dotcom %} 的安全性更强的标准方法。'
 versions:
   ghae: '*'
 type: overview
@@ -9,33 +9,33 @@ topics:
   - Fundamentals
 ---
 
-## About {% data variables.product.prodname_ghe_managed %}
+## 关于 {% data variables.product.prodname_ghe_managed %}
 
-{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} is fully managed, reliable, and scalable, allowing you to accelerate delivery without sacrificing risk management.
+{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} 受到完全管理、可靠和且可扩展的，允许您在不牺牲风险管理的情况下加速交付。
 
-{% data variables.product.prodname_ghe_managed %} offers one developer platform from idea to production. You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with unique security and access controls, workflow automation, and policy enforcement. 
+{% data variables.product.prodname_ghe_managed %} 提供一个从想法到生产的开发者平台。 您可以使用团队了解和喜爱的工具提高开发速度，同时通过独特的安全和访问控制、工作流自动化及政策执行来维护行业和监管合规性。
 
-## A highly available and planet-scale cloud
+## 高度可用的行星级云
 
-{% data variables.product.prodname_ghe_managed %} is a fully managed service, hosted in a high availability architecture. {% data variables.product.prodname_ghe_managed %} is hosted globally in a cloud that can scale to support your full development lifecycle without limits. {% data variables.product.prodname_dotcom %} fully manages backups, failover, and disaster recovery, so you never need to worry about your service or data. 
+{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，托管在高可用性架构中。 {% data variables.product.prodname_ghe_managed %} 全球托管于云中，可以不受限制地扩展以支持您的完整开发生命周期。 {% data variables.product.prodname_dotcom %} 完全管理备份、故障转移和灾难恢复，因此您无需担心您的服务或数据。
 
-## Data residency
+## 数据存储
 
-All of your data is stored within the geographic region of your choosing. You can comply with GDPR and global data protection standards by keeping all of your data within your chosen region.
+您的所有数据都存储在您选择的地理区域内。 您可以遵守 GDRPR 和全球数据保护标准，将您的所有数据保存在您选定的区域。
 
-## Isolated accounts
+## 隔离的帐户
 
-All developer accounts are fully isolated in {% data variables.product.prodname_ghe_managed %}. You can fully control the accounts through your identity provider, with SAML single sign on as mandatory. SCIM enables you to ensure that employees only have access to the resources they should, as defined in your central identity management system. For more information, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)."
+所有开发者帐户在 {% data variables.product.prodname_ghe_managed %} 中完全隔离。 您可以通过身份提供商完全控制帐户，以 SAML 单点登录作为强制性要求。 SCIM 可让您确保员工只能访问他们应该访问的资源，如您的中央身份管理系统中所定义。 更多信息请参阅“[管理企业的身份和访问](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。
 
-## Restricted network access
+## 受限制的网络访问
 
-Secure access to your enterprise on {% data variables.product.prodname_ghe_managed %} with restricted network access, so that your data can only be accessed from within your network. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)."
+以受限的网络访问权限保护对您在 {% data variables.product.prodname_ghe_managed %} 上的企业的访问，以便只能从您的网络内访问您的数据。 更多信息请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”。
 
-## Commercial and government environments
+## 商业和政府环境
 
-{% data variables.product.prodname_ghe_managed %} is available in the Azure Government cloud, the trusted cloud for US government agencies and their partners. {% data variables.product.prodname_ghe_managed %} is also available in the commercial cloud, so you can choose the hosting environment that is right for your organization.
+{% data variables.product.prodname_ghe_managed %} 可用于 Azure Government 云（是美国政府机构及其伙伴信任的云）。 {% data variables.product.prodname_ghe_managed %} 也可在商业云中使用，因此您可以选择适合您组织的托管环境。
 
-## Further reading
+## 延伸阅读
 
 - "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
-- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"
+- "[从 {% data variables.product.company_short %} 支持获得帮助](/admin/enterprise-support/receiving-help-from-github-support)"

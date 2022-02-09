@@ -47,8 +47,6 @@ If you want to create a new branch for your pull request and do not have write p
 
 ## 创建拉取请求
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -164,6 +162,7 @@ gh pr create --web
 ## 延伸阅读
 
 - "[从复刻创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+- "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)"
 - “[更改拉取请求的基本分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)”
 - “[从侧边栏向项目板添加议题和拉取请求](/articles/adding-issues-and-pull-requests-to-a-project-board/#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)”
 - "[关于使用查询参数自动化议题和拉取请求](/issues/tracking-your-work-with-issues/creating-issues/about-automation-for-issues-and-pull-requests-with-query-parameters)"

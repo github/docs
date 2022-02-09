@@ -1,6 +1,6 @@
 ---
-title: Migrating admin teams to improved organization permissions
-intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. Members of legacy admin teams automatically retain the ability to create repositories until those teams are migrated to the improved organization permissions model.'
+title: 管理者 Team を改善された Organization の権限に移行する
+intro: 2015 年 9 月以降に作成された Organization の場合、Organization の権限モデルはデフォルトで改善されています。 2015 年 9 月より前に作成された Organization は、古いオーナーおよび管理者 Team から、改善された権限モデルに移行する必要があるかもしれません。 レガシーの管理者 Team は、改善された Organization 権限モデルに移行するまで、リポジトリの作成資格を自動的に維持します。
 redirect_from:
   - /articles/migrating-your-previous-admin-teams-to-the-improved-organization-permissions
   - /articles/migrating-admin-teams-to-improved-organization-permissions
@@ -12,37 +12,34 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Migrate admin team
+shortTitle: 管理Teamの移行
 ---
 
-By default, all organization members can create repositories. If you restrict [repository creation permissions](/articles/restricting-repository-creation-in-your-organization) to organization owners, and your organization was created under the legacy organization permissions structure, members of legacy admin teams will still be able to create repositories.
+デフォルトでは、Organization のすべてのメンバーがリポジトリを作成できます。 [リポジトリ作成権限](/articles/restricting-repository-creation-in-your-organization) を Organization のオーナーに制限しており、Organization がレガシーの Organization の権限構造で作成されていた場合、レガシーの管理者 Team のメンバーも引き続きリポジトリを作成できます。
 
-Legacy admin teams are teams that were created with the admin permission level under the legacy organization permissions structure. Members of these teams were able to create repositories for the organization, and we've preserved this ability in the improved organization permissions structure.
+レガシーの管理者 Team とは、レガシーの Organization の権限構造で、管理者権限レベルを使用して作成された Team のことです。 この Team のメンバーは、Organization のリポジトリを作成できました。改善された Organization 権限構造でも、その機能は維持されています。
 
-You can remove this ability by migrating your legacy admin teams to the improved organization permissions.
+レガシーの 管理者 Team を改善された Organization の権限に移行すれば、この機能をなくすことができます。
 
 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% warning %}
 
-**Warning:** If your organization has disabled [repository creation permissions](/articles/restricting-repository-creation-in-your-organization) for all members, some members of legacy admin teams may lose repository creation permissions. If your organization has enabled member repository creation, migrating legacy admin teams to improved organization permissions will not affect team members' ability to create repositories.
+**警告:** Organization ですべてのメンバーに対して[リポジトリ作成権限](/articles/restricting-repository-creation-in-your-organization)を無効にされている場合は、レガシーの管理者 Team のメンバーの一部がリポジトリ作成権限を失うことがあります。 Organization でメンバーよるリポジトリ作成を有効にしている場合は、レガシーの管理者 Team を改善された Organization の権限に移行しても、チームメンバーのリポジトリ作成機能は影響されません。
 
 {% endwarning %}
 
-## Migrating all of your organization's legacy admin teams
+## Organization のレガシーの管理者 Team をすべて移行する
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.teams_sidebar %}
-1. Review your organization's legacy admin teams, then click **Migrate all teams**.
-  ![Migrate all teams button](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
-1. Read the information about possible permissions changes for members of these teams, then click **Migrate all teams.**
-  ![Confirm migration button](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
+1. Organization のレガシーの管理者 Team をレビューし、[**Migrate all teams**] をクリックします。 ![[Migrate all teams] ボタン](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
+1. 移行するチームのメンバーについて起きうる変化についての情報を読んだら、[**Migrate all teams**] をクリックします。 ![移行を確定するボタン](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
-## Migrating a single admin team
+## 1 つの管理者 Team を移行する
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
-1. In the team description box, click **Migrate team**.
-  ![Migrate team button](/assets/images/help/teams/migrate-a-legacy-admin-team.png)
+1. チーム説明のボックスで、[**Migrate team**] をクリックします。 ![[Migrate team] ボタン](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

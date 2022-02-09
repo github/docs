@@ -1,6 +1,6 @@
 ---
-title: About GitHub Pages and Jekyll
-intro: 'Jekyll is a static site generator with built-in support for {% data variables.product.prodname_pages %}.'
+title: 关于 GitHub Pages 和 Jekyll
+intro: 'Jekyll 是一个静态站点生成器，内置 {% data variables.product.prodname_pages %} 支持。'
 redirect_from:
   - /articles/about-jekyll-themes-on-github
   - /articles/configuring-jekyll
@@ -29,19 +29,19 @@ topics:
 shortTitle: GitHub Pages & Jekyll
 ---
 
-## About Jekyll
+## 关于 Jekyll
 
-Jekyll is a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. Jekyll takes Markdown and HTML files and creates a complete static website based on your choice of layouts. Jekyll supports Markdown and Liquid, a templating language that loads dynamic content on your site. For more information, see [Jekyll](https://jekyllrb.com/).
+Jekyll 是一个静态站点生成器，内置 {% data variables.product.prodname_pages %} 支持和简化的构建过程。 Jekyll 使用 Markdown 和 HTML 文件，并根据您选择的布局创建完整静态网站。 Jekyll 支持 Markdown 和 Lick，这是一种可在网站上加载动态内容的模板语言。 更多信息请参阅 [Jekyll](https://jekyllrb.com/)。
 
-Jekyll is not officially supported for Windows. For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
+Windows 并未正式支持 Jekyll。 更多信息请参阅 Jekyll 文档中的“[Windows 上的 Jekyll](http://jekyllrb.com/docs/windows/#installation)”。
 
-We recommend using Jekyll with {% data variables.product.prodname_pages %}. If you prefer, you can use other static site generators or customize your own build process locally or on another server. For more information, see "[About {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)."
+我们建议将 Jekyll 用于 {% data variables.product.prodname_pages %}。 如果您喜欢，可以使用其他静态站点生成器或者在本地或其他服务器上自定义构建过程。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)”。
 
-## Configuring Jekyll in your {% data variables.product.prodname_pages %} site
+## 在 {% data variables.product.prodname_pages %} 网站中配置 Jekyll
 
-You can configure most Jekyll settings, such as your site's theme and plugins, by editing your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation.
+您可以通过编辑 *_config.yml* 文件来配置大多数 Jekyll 设置，例如网站的主题和插件。 更多信息请参阅 Jekyll 文档中的“[配置](https://jekyllrb.com/docs/configuration/)”。
 
-Some configuration settings cannot be changed for {% data variables.product.prodname_pages %} sites.
+对于 {% data variables.product.prodname_pages %} 站点，有些配置设置不能更改。
 
 ```yaml
 lsi: false
@@ -56,36 +56,36 @@ kramdown:
   syntax_highlighter: rouge
 ```
 
-By default, Jekyll doesn't build files or folders that:
-- are located in a folder called `/node_modules` or `/vendor`
-- start with `_`, `.`, or `#`
-- end with `~`
-- are excluded by the `exclude` setting in your configuration file
+默认情况下，Jekyll 不会构建以下文件或文件夹：
+- 位于文件夹 `/node_modules` 或 `/vendor` 中
+- 开头为 `_`、`.` 或 `#`
+- 结尾为 `~`
+- 被配置文件中的 `exclude` 设置排除
 
-If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
+如果您想要 Jekyll 处理其中任何文件，可以使用配置文件中的 `includes` 设置。
 
-## Front matter
+## 前页附属资料
 
 {% data reusables.pages.about-front-matter %}
 
-You can add `site.github` to a post or page to add any repository references metadata to your site. For more information, see "[Using `site.github`](https://jekyll.github.io/github-metadata/site.github/)" in the Jekyll Metadata documentation.
+您可以添加 `site.github` 到帖子或页面，以将任何仓库引用元数据添加到您的网站。 更多信息请参阅 Jekyll 元数据文档中的“[使用`site.github`](https://jekyll.github.io/github-metadata/site.github/)”。
 
-## Themes
+## 主题
 
-{% data reusables.pages.add-jekyll-theme %} For more information, see "[Themes](https://jekyllrb.com/docs/themes/)" in the Jekyll documentation.
+{% data reusables.pages.add-jekyll-theme %} 更多信息请参阅 Jekyll 文档中的“[主题](https://jekyllrb.com/docs/themes/)”。
 
 {% ifversion fpt or ghec %}
-You can add a supported theme to your site on {% data variables.product.prodname_dotcom %}. For more information, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and "[Adding a theme to your {% data variables.product.prodname_pages %} site with the theme chooser](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)."
+您可以在 {% data variables.product.prodname_dotcom %} 上添加支持的主题到站点。 更多信息请参阅 {% data variables.product.prodname_pages %} 站点上“[支持的主题](https://pages.github.com/themes/)"和"[使用主题选择器添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)”。
 
-To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt or ghec %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+要使用 {% data variables.product.prodname_dotcom %} 上托管的任何其他开源 Jekyll 主题，您可以手动添加主题。{% else %} 您可以手动添加主题到站点。{% endif %} 更多信息请参阅{% ifversion fpt or ghec %} [{% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) 上托管的主题和 {% else %}{% data variables.product.prodname_pages %} 站点上 "[支持的主题](https://pages.github.com/themes/)"和{% endif %}“[使用 Jekyll 添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)”。
 
-You can override any of your theme's defaults by editing the theme's files. For more information, see your theme's documentation and "[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" in the Jekyll documentation.
+您可以通过编辑主题文件来覆盖任何主题的默认值。 更多信息请参阅您的主题文档和 Jekyll 文档中的“[覆盖主题默认值](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)“。
 
-## Plugins
+## 插件
 
-You can download or create Jekyll plugins to extend the functionality of Jekyll for your site. For example, the [jemoji](https://github.com/jekyll/jemoji) plugin lets you use {% data variables.product.prodname_dotcom %}-flavored emoji in any page on your site the same way you would on {% data variables.product.prodname_dotcom %}. For more information, see "[Plugins](https://jekyllrb.com/docs/plugins/)" in the Jekyll documentation.
+您可以下载或创建 Jekyll 插件，以便为您的网站扩展 Jekyll 的功能。 例如， [jemoji](https://github.com/jekyll/jemoji) 插件允许您在站点的任何页面上使用 {% data variables.product.prodname_dotcom %} 风格的表情符号，就像在 {% data variables.product.prodname_dotcom %} 上使用一样。 更多信息请参阅 Jekyll 文档中的“[插件](https://jekyllrb.com/docs/plugins/)”。
 
-{% data variables.product.prodname_pages %} uses plugins that are enabled by default and cannot be disabled:
+{% data variables.product.prodname_pages %} 使用默认启用且不能禁用的插件：
 - [`jekyll-coffeescript`](https://github.com/jekyll/jekyll-coffeescript)
 - [`jekyll-default-layout`](https://github.com/benbalter/jekyll-default-layout)
 - [`jekyll-gist`](https://github.com/jekyll/jekyll-gist)
@@ -96,25 +96,25 @@ You can download or create Jekyll plugins to extend the functionality of Jekyll 
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-You can enable additional plugins by adding the plugin's gem to the `plugins` setting in your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation. 
+您可以通过在 *_config.yml* 文件中添加插件的 gem 到 `plugins` 设置来启用额外的插件。 更多信息请参阅 Jekyll 文档中的“[配置](https://jekyllrb.com/docs/configuration/)”。
 
-For a list of supported plugins, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.  For usage information for a specific plugin, see the plugin's documentation.
+有关支持的插件列表，请参阅 {% data variables.product.prodname_pages %} 网站上的“[依赖项版本](https://pages.github.com/versions/)”。  有关特定插件的使用信息，请参阅插件的文档。
 
 {% tip %}
 
-**Tip:** You can make sure you're using the latest version of all plugins by keeping the {% data variables.product.prodname_pages %} gem updated. For more information, see "[Testing your GitHub Pages site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)" and "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
+**提示：** 您可以保持更新 {% data variables.product.prodname_pages %} gem，确保使用所有插件的最新版本。 更多信息请参阅 {% data variables.product.prodname_pages %} 网站上的“[使用 Jekyll 本地测试 GitHub Pages 站点](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)”和“[依赖项版本](https://pages.github.com/versions/)”。
 
 {% endtip %}
 
-{% data variables.product.prodname_pages %} cannot build sites using unsupported plugins. If you want to use unsupported plugins, generate your site locally and then push your site's static files to {% data variables.product.product_name %}.
+{% data variables.product.prodname_pages %} 无法使用不支持的插件构建网站。 如果想使用不支持的插件，请在本地生成网站，然后将网站的静态文件推送到 {% data variables.product.product_name %}。
 
-## Syntax highlighting
+## 语法突显
 
-To make your site easier to read, code snippets are highlighted on {% data variables.product.prodname_pages %} sites the same way they're highlighted on {% data variables.product.product_name %}. For more information about syntax highlighting on {% data variables.product.product_name %}, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
+为了使网站更容易读取，代码片段在 {% data variables.product.prodname_pages %} 上突显，就像在 {% data variables.product.product_name %} 上突显一样。 有关在 {% data variables.product.product_name %} 上突显语法的更多信息，请参阅“[创建和突显代码块](/articles/creating-and-highlighting-code-blocks)”。
 
-By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses the [Rouge](https://github.com/jneen/rouge) highlighter, which is compatible with [Pygments](http://pygments.org/). If you specify Pygments in your *_config.yml* file, Rouge will be used instead. Jekyll cannot use any other syntax highlighter, and you'll get a page build warning if you specify another syntax highlighter in your *_config.yml* file. For more information, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+默认情况下，网站上的代码块将被 Jekyll 突出显示。 Jekyll 使用 [Rouge](https://github.com/jneen/rouge) 突显工具，它兼容于 [Pygments](http://pygments.org/)。 Pygments has been deprecated and not supported in Jekyll 4. If you specify Pygments in your *_config.yml* file, Rouge will be used as the fallback instead. Jekyll 不能使用任何其他语法突显工具，如果您在 *_config.yml* 文件中指定其他语法突显工具，将会收到页面构建警告。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误](/articles/about-jekyll-build-errors-for-github-pages-sites)”。
 
-If you want to use another highlighter, such as `highlight.js`, you must disable Jekyll's syntax highlighting by updating your project's *_config.yml* file.
+如果想使用其他突显工具，如 `highlight.js`，则必须更新项目的 *_config.yml* 文件来禁用 Jekyll 的语法突显。
 
 ```yaml
 kramdown:
@@ -122,12 +122,12 @@ kramdown:
     disable : true
 ```
 
-If your theme doesn't include CSS for syntax highlighting, you can generate {% data variables.product.prodname_dotcom %}'s syntax highlighting CSS and add it to your project's `style.css` file.
+如果您的主题不含用于语法突显的 CSS，可以生成 {% data variables.product.prodname_dotcom %} 的语法突显 CSS 并将其添加到项目的 `style.css` 文件。
 
 ```shell
 $ rougify style github > style.css
 ```
 
-## Building your site locally
+## 本地构建网站
 
 {% data reusables.pages.test-locally %}

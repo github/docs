@@ -1,6 +1,6 @@
 ---
-title: Creating a codespace
-intro: You can create a codespace for a branch in a repository to develop online.
+title: 创建代码空间
+intro: 您可以为仓库中的分支创建代码空间以便在线开发。
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: '{% data reusables.codespaces.availability %}'
 redirect_from:
@@ -17,21 +17,21 @@ topics:
 shortTitle: Create a codespace
 ---
 
-## About codespace creation
+## 关于代码空间的创建
 
 You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
 
-Codespaces are associated with a specific branch of a repository and the repository cannot be empty. {% data reusables.codespaces.concurrent-codespace-limit %} For more information, see "[Deleting a codespace](/github/developing-online-with-codespaces/deleting-a-codespace)."
+代码空间与仓库的特定分支相关联，且仓库不能为空。 {% data reusables.codespaces.concurrent-codespace-limit %} 更多信息请参阅“[删除代码空间](/github/developing-online-with-codespaces/deleting-a-codespace)”。
 
 
-When you create a codespace, a number of steps happen to create and connect you to your development environment:
+创建代码空间时，需要执行一些步骤并将您连接到开发环境。
 
-- Step 1: VM and storage are assigned to your codespace.
-- Step 2: Container is created and your repository is cloned.
-- Step 3: You can connect to the codespace.
-- Step 4: Codespace continues with post-creation setup.
+- 第 1 步：虚拟机和存储被分配到您的代码空间。
+- 第 2 步：创建容器并克隆仓库。
+- 第 3 步：您可以连接到代码空间。
+- 第 4 步：代码空间继续创建后设置。
 
-For more information on what happens when you create a codespace, see "[Deep Dive](/codespaces/getting-started/deep-dive)."
+有关创建代码空间时会发生什么的更多信息，请参阅“[深潜](/codespaces/getting-started/deep-dive)”。
 
 For more information on the lifecycle of a codespace, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)."
 
@@ -41,61 +41,62 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
-## Access to {% data variables.product.prodname_codespaces %}
+## 访问 {% data variables.product.prodname_codespaces %}
 
 {% data reusables.codespaces.availability %}
 
-When you have access to {% data variables.product.prodname_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
+当您访问 {% data variables.product.prodname_codespaces %} 时，在查看仓库时会看到 **{% octicon "code" aria-label="The code icon" %} Code（代码）**下拉菜单中的“Codespaces（代码空间）”选项卡。
 
-You'll have access to codespaces under the following conditions:
+在以下条件下，您可以访问代码空间：
 
-* You are a member of an organization that has enabled {% data variables.product.prodname_codespaces %} and set a spending limit.
-* An organization owner has granted you access to {% data variables.product.prodname_codespaces %}.
-* The repository is owned by the organization that has enabled {% data variables.product.prodname_codespaces %}.
+* 您是已启用 {% data variables.product.prodname_codespaces %} 并设定支出限额的组织的成员。
+* 组织所有者已授予您访问 {% data variables.product.prodname_codespaces %}。
+* 仓库归启用 {% data variables.product.prodname_codespaces %} 的组织所有。
 
 {% note %}
 
-**Note:** Individuals who have already joined the beta with their personal {% data variables.product.prodname_dotcom %} account will not lose access to {% data variables.product.prodname_codespaces %}, however {% data variables.product.prodname_codespaces %} for individuals will continue to remain in beta.
+**注意：** 已使用个人 {% data variables.product.prodname_dotcom %} 帐户加入测试版的个人不会失去 {% data variables.product.prodname_codespaces %} 访问权限，但个人的 {% data variables.product.prodname_codespaces %} 将继续保留在测试版中。
 
 {% endnote %}
 
-Organization owners can allow all members of the organization to create codespaces, limit codespace creation to selected organization members, or disable codespace creation. For more information about managing access to codespaces within your organization, see "[Enable Codespaces for users in your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)."
+组织所有者可以允许组织的所有成员创建代码空间，将代码空间创建限制为选定的组织成员，或者禁用代码空间的创建。 有关管理对组织内代码空间的访问的更多信息，请参阅“[为组织中的用户启用代码空间](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)”。
 
-Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[About spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)."
+在组织中使用 {% data variables.product.prodname_codespaces %} 之前，所有者或帐单管理员必须设定支出限额。 更多信息请参阅“[关于代码空间的支出限额](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)”。
 
-If you would like to create a codespace for a repository owned by your personal account or another user, and you have permission to create repositories in an organization that has enabled {% data variables.product.prodname_codespaces %}, you can fork user-owned repositories to that organization and then create a codespace for the fork. 
+如果想为您的个人帐户或其他用户拥有的仓库创建代码空间， 并且您有权在已启用 {% data variables.product.prodname_codespaces %} 的组织中创建仓库， 您可以将用户拥有的仓库复刻到该组织，然后为该复刻创建一个代码空间。
 
-## Creating a codespace
+## 创建代码空间
 
-{% include tool-switcher %}
-   
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Under the repository name, use the "Branch" drop-down menu, and select the branch you want to create a codespace for.
+2. 在仓库名称下，使用“Branch（分支）”下拉菜单选择您要为其创建代码的分支。
 
-   ![Branch drop-down menu](/assets/images/help/codespaces/branch-drop-down.png)
+   ![分支下拉菜单](/assets/images/help/codespaces/branch-drop-down.png)
 
 3. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
 
-   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+   ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 
-   If you are a member of an organization and are creating a codespace on a repository owned by that organization, you can select the option of a different machine type. From the dialog, choose a machine type and then click **Create codespace**.
-     ![Machine type choice](/assets/images/help/codespaces/choose-custom-machine-type.png)
+   如果您是组织的成员，并且在该组织拥有的仓库上创建代码空间，您可以选择不同机器类型的选项。 From the dialog box, choose a machine type and then click **Create codespace**.
+
+   ![机器类型选择](/assets/images/help/codespaces/choose-custom-machine-type.png)
+
+   {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% endwebui %}
-   
+
 {% vscode %}
 
 {% data reusables.codespaces.creating-a-codespace-in-vscode %}
 
 {% endvscode %}
-   
+
 {% cli %}
 
 {% data reusables.cli.cli-learn-more %}
 
-To create a new codespace, use the `gh codespace create` subcommand. 
+To create a new codespace, use the `gh codespace create` subcommand.
 
 ```shell
 gh codespace create 

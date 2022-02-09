@@ -38,27 +38,33 @@ describe('featuredLinks', () => {
       const $featuredLinks = $('[data-testid=article-list] a')
       expect($featuredLinks).toHaveLength(9)
       expect($featuredLinks.eq(0).attr('href')).toBe('/en/get-started/quickstart/set-up-git')
-      expect($featuredLinks.eq(0).children('h4').text().startsWith('Set up Git')).toBe(true)
+      expect($featuredLinks.eq(0).children('h3').text().startsWith('Set up Git')).toBe(true)
       expect($featuredLinks.eq(0).children('p').text().startsWith('At the heart of GitHub')).toBe(
         true
       )
 
       expect($featuredLinks.eq(8).attr('href')).toBe('/en/pages')
-      expect($featuredLinks.eq(8).children('h4').text().startsWith('GitHub Pages')).toBe(true)
+      expect($featuredLinks.eq(8).children('h3').text().startsWith('GitHub Pages')).toBe(true)
       expect($featuredLinks.eq(8).children('p').text().startsWith('You can create a website')).toBe(
         true
       )
     })
 
-    // Skipped. Docs Engineering issue: 923
-    test.skip('localized intro links link to localized pages', async () => {
-      const $ = await getDOM('/ja')
-      const $featuredLinks = $('[data-testid=article-list] a')
-      expect($featuredLinks).toHaveLength(9)
-      expect($featuredLinks.eq(0).attr('href').startsWith('/ja')).toBe(true)
-      expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('h4').text())).toBe(true)
-      // skip for now
-      // expect(japaneseCharacters.presentIn($featuredLinks.eq(1).children('p').text())).toBe(true)
+    test('localized intro links link to localized pages', async () => {
+      const $jaPages = await getDOM('/ja')
+      const $enPages = await getDOM('/en')
+      const $jaFeaturedLinks = $jaPages('[data-testid=article-list] a')
+      const $enFeaturedLinks = $enPages('[data-testid=article-list] a')
+      expect($jaFeaturedLinks.length).toBe($enFeaturedLinks.length)
+      expect($jaFeaturedLinks.eq(0).attr('href').startsWith('/ja')).toBe(true)
+
+      // Footer translations change very rarely if ever, so we can more
+      // reliably test those text values for the language
+      const footerText = []
+      $jaPages('footer a').each((index, element) => {
+        footerText.push($jaPages(element).text())
+      })
+      expect(footerText.some((elem) => japaneseCharacters.presentIn(elem)))
     })
 
     test('Enterprise user intro links have expected values', async () => {
@@ -68,7 +74,7 @@ describe('featuredLinks', () => {
       expect($featuredLinks.eq(0).attr('href')).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
       )
-      expect($featuredLinks.eq(0).children('h4').text().startsWith("GitHub's products")).toBe(true)
+      expect($featuredLinks.eq(0).children('h3').text().startsWith("GitHub's products")).toBe(true)
       expect(
         $featuredLinks
           .eq(0)

@@ -1,6 +1,6 @@
 ---
-title: Downgrading Git Large File Storage
-intro: 'You can downgrade storage and bandwidth for {% data variables.large_files.product_name_short %} by increments of 50 GB per month.'
+title: 降级 Git Large File Storage
+intro: '您可以按照每月 50 GB 的增量，降级 {% data variables.large_files.product_name_short %} 的存储和带宽。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-git-large-file-storage
   - /articles/downgrading-storage-and-bandwidth-for-a-personal-account
@@ -16,18 +16,19 @@ topics:
   - LFS
   - Organizations
   - User account
-shortTitle: Downgrade Git LFS storage
+shortTitle: 降级 Git LFS 存储
 ---
-When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)."
 
-## Downgrading storage and bandwidth for a personal account
+降级数据包数量后，更改将在下一个结算日期生效。 更多信息请参阅“[关于 {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage) 的计费”。
+
+## 降级个人帐户的存储和带宽
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-remove-data %}
 {% data reusables.large_files.downgrade_data_packs %}
 
-## Downgrading storage and bandwidth for an organization
+## 降级组织的存储和带宽
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

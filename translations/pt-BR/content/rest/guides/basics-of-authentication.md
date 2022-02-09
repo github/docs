@@ -51,7 +51,7 @@ end
 ```
 
 O seu ID de cliente e as chaves secretas de cliente vêm da [página de configuração do seu aplicativo][app settings].
-{% ifversion fpt or ghec %} You should **never, _ever_** store these values in
+{% ifversion fpt or ghec %} Você **nunca __** deve armazenar esses valores em
 {% data variables.product.product_name %}--ou qualquer outro lugar público, para essa questão.{% endif %}Recomendamos armazená-los como
 [Variáveis de ambiente][about env vars]--que é exatamente o que fizemos aqui.
 
@@ -67,7 +67,7 @@ Em seguida, em _views/index.erb_, cole este conteúdo:
     </p>
     <p>
       We're going to now talk to the GitHub API. Pronto?
-      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">Click here</a> to begin!</a>
+      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">Click here</a> to begin!
     </p>
     <p>
       If that link doesn't work, remember to provide your own <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">Client ID</a>!
@@ -133,7 +133,7 @@ Além disso, uma vez que existe uma relação hierárquica entre os escopos, voc
 
 Verificar escopos apenas antes de fazer solicitações não é suficiente, já que é possível que os usuários mudem os escopos entre a sua verificação e a solicitação real. Caso isso aconteça, as chamadas par a API que você espera ter sucesso podem falhar com o status `404` ou `401` ou retornar um subconjunto diferente de informações.
 
-Para ajudá-lo a gerenciar essas situações facilmente, todas as respostas da API para solicitações feitas com tokens válidos também contêm um [`cabeçalho de ` X-OAuth-Scopes][oauth scopes]. Este cabeçalho contém a lista de escopos do token que foi usado para fazer a solicitação. In addition to that, the OAuth Applications API provides an endpoint to {% ifversion fpt or ghes or ghec %} [check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}. Use esta informação para detectar alterações no escopo do token e informar os seus usuários sobre mudanças nas funcionalidades do aplicativo disponível.
+Para ajudá-lo a gerenciar essas situações facilmente, todas as respostas da API para solicitações feitas com tokens válidos também contêm um [`cabeçalho de ` X-OAuth-Scopes][oauth scopes]. Este cabeçalho contém a lista de escopos do token que foi usado para fazer a solicitação. Além disso, a API de aplicativos OAuth fornece um ponto de extremidade para {% ifversion fpt or ghes or ghec %} [verifica se há validade do token](/rest/reference/apps#check-a-token){% else %}[verifica se há validade do token](/rest/reference/apps#check-an-authorization){% endif %}. Use esta informação para detectar alterações no escopo do token e informar os seus usuários sobre mudanças nas funcionalidades do aplicativo disponível.
 
 ### Fazer solicitações autenticadas
 
@@ -265,7 +265,7 @@ get '/callback' do
 end
 ```
 
-Grande parte do código deve parecer familiar. For example, we're still using `RestClient.get` to call out to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and we're still passing our results to be rendered in an ERB template (this time, it's called `advanced.erb`).
+Grande parte do código deve parecer familiar. Por exemplo, ainda estamos usando o `RestClient.get` para chamar para a {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, e ainda estamos passando nossos resultados para serem interpretados em um modelo de ERB (dessa vez, ele é denominado `advanced.erb`).
 
 Além disso, agora temos o método `authenticated?` que verifica se o usuário já está autenticado. Caso não esteja, chama-se o método `authenticate!`, que executa o fluxo do OAuth e atualiza a sessão com o token e escopos concedidos.
 

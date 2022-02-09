@@ -1,6 +1,6 @@
 ---
-title: Changing two-factor authentication delivery methods for your mobile device
-intro: You can switch between receiving authentication codes through a text message or a mobile application.
+title: Alterar os métodos de entrega da autenticação de dois fatores em dispositivos móveis
+intro: Você pode alternar entre receber códigos de notificação por meio de uma mensagem de texto ou um aplicativo móvel.
 redirect_from:
   - /articles/changing-two-factor-authentication-delivery-methods
   - /articles/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
@@ -11,25 +11,24 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: Change 2FA delivery method
+shortTitle: Altere método de entrega de 2FA
 ---
+
 {% note %}
 
-**Note:** Changing your primary method for two-factor authentication invalidates your current two-factor authentication setup, including your recovery codes. Keep your new set of recovery codes safe. Changing your primary method for two-factor authentication does not affect your fallback SMS configuration, if configured. For more information, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)."
+**Observação:** Mudar o seu método principal para a autenticação de dois fatores invalida a configuração atual de autenticação de dois fatores, incluindo os seus códigos de recuperação. Mantenha o seu novo conjunto de códigos de recuperação seguros. Mudar o seu método principal para autenticação de dois fatores não afeta sua configuração de SMS padrão, caso esteja configurado. Para obter mais informações, consulte "[Configurando métodos de recuperação de autenticação de dois fatores](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)".
 
 {% endnote %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-3. Next to "SMS delivery", click **Edit**.
-  ![Edit SMS delivery options](/assets/images/help/2fa/edit-sms-delivery-option.png)
-4. Under "Delivery options", click **Reconfigure two-factor authentication**.
-    ![Switching your 2FA delivery options](/assets/images/help/2fa/2fa-switching-methods.png)
-5. Decide whether to set up two-factor authentication using a TOTP mobile app or text message. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
-    - To set up two-factor authentication using a TOTP mobile app, click **Set up using an app**.
-    - To set up two-factor authentication using text message (SMS), click **Set up using SMS**.
+3. Ao lado de "SMS delivery" (Entrega de SMS), clique em **Edit** (Editar). ![Opções para editar entrega de SMS](/assets/images/help/2fa/edit-sms-delivery-option.png)
+4. Em "Delivery options" (Opções de entrega), clique em **Reconfigure two-factor authentication** (Reconfigurar autenticação de dois fatores). ![Alternar as opções de entrega de 2FA](/assets/images/help/2fa/2fa-switching-methods.png)
+5. Decida se deseja configurar a autenticação de dois fatores usando um app móvel TOTP ou uma mensagem de texto. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
+    - Para configurar a autenticação de dois fatores usando um app móvel TOTP, clique em **Set up using an app** (Configurar usando um app).
+    - Para configurar a autenticação de dois fatores usando mensagem de texto (SMS), clique em **Set up using SMS** (Configurar usando SMS).
 
-## Further reading
+## Leia mais
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
+- [Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication)"
+- "[Configurar métodos de recuperação de autenticação de dois fatores](/articles/configuring-two-factor-authentication-recovery-methods)"

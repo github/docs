@@ -1,6 +1,6 @@
 ---
-title: Publishing Java packages with Gradle
-intro: You can use Gradle to publish Java packages to a registry as part of your continuous integration (CI) workflow.
+title: 使用 Gradle 发布 Java 包
+intro: 您可以使用 Gradle 将 Java 包发布到注册表，作为持续集成 (CI) 工作流程的一部分。
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-gradle
   - /actions/guides/publishing-java-packages-with-gradle
@@ -15,40 +15,40 @@ topics:
   - Publishing
   - Java
   - Gradle
-shortTitle: Java packages with Gradle
+shortTitle: 带有 Gradle 的 Java 包
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## 简介
 
 {% data reusables.github-actions.publishing-java-packages-intro %}
 
-## Prerequisites
+## 基本要求
 
-We recommend that you have a basic understanding of workflow files and configuration options. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+建议对工作流程文件和配置选项有一个基本了解。 更多信息请参阅“[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
 
-For more information about creating a CI workflow for your Java project with Gradle, see "[Building and testing Java with Gradle](/actions/language-and-framework-guides/building-and-testing-java-with-gradle)."
+有关使用 Gradle 为 Java 项目创建 CI 工作流程的详细信息，请参阅“[使用 Gradle 构建和测试用 Java](/actions/language-and-framework-guides/building-and-testing-java-with-gradle)”。
 
-You may also find it helpful to have a basic understanding of the following:
+您可能还发现基本了解以下内容是有帮助的：
 
-- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
-- "[Environment variables](/actions/reference/environment-variables)"
-- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
-- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
+- “[使用 npm 注册表](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)”
+- "[环境变量](/actions/reference/environment-variables)"
+- [加密的密码](/actions/reference/encrypted-secrets)"
+- "[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)"
 
-## About package configuration
+## 关于包配置
 
-The `groupId` and `artifactId` fields in the `MavenPublication` section of the _build.gradle_ file create a unique identifier for your package that registries use to link your package to a registry.  This is similar to the `groupId` and `artifactId` fields of the Maven _pom.xml_ file.  For more information, see the "[Maven Publish Plugin](https://docs.gradle.org/current/userguide/publishing_maven.html)" in the Gradle documentation.
+_build.gradle_ 文件 `MavenPublication` 部分的 `groupId` 和 `artifactId` 字段为包创建唯一标识符，供注册表用来将包链接到注册表。  这类似于 Maven _pom.xml_ 文件的 `groupId` 和 `artifactId` 字段。  更多信息请参阅 Gradle 文档中的“[Maven 发布插件](https://docs.gradle.org/current/userguide/publishing_maven.html)”。
 
-The _build.gradle_ file also contains configuration for the distribution management repositories that Gradle will publish packages to. Each repository must have a name, a deployment URL, and credentials for authentication.
+_build.gradle_ 文件还包含 Gradle 将在其中部署包的分发管理仓库的配置。 每个仓库必须有名称、部署 URL 和验证凭据。
 
-## Publishing packages to the Maven Central Repository
+## 将包发布到 Maven 中心仓库
 
-Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to the Maven Central Repository if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
+每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程将包发布到 Maven 中心仓库。 有关 `release` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#release)”。
 
-You can define a new Maven repository in the publishing block of your _build.gradle_ file that points to your package repository.  For example, if you were deploying to the Maven Central Repository through the OSSRH hosting project, your _build.gradle_ could specify a repository with the name `"OSSRH"`.
+您可以在 _build.gradle_ 文件的发布块中定义指向包仓库的新 Maven 仓库。  例如，如果您通过 OSSRH 托管项目部署到 Maven 中心仓库，则 _build.gradle_ 可以指定名称为 `"OSSRH"` 的仓库。
 
 {% raw %}
 ```groovy{:copy}
@@ -74,7 +74,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by running the `gradle publish` command. In the deploy step, you’ll need to set environment variables for the username and password or token that you use to authenticate to the Maven repository. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+使用此配置可创建一个工作流程，以通过运行 `gradle publish` 命令将包发布到 Maven 中心仓库。 在部署步骤中，您需要为用于向 Maven 仓库验证身份的用户名和密码或令牌设置环境变量。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -96,26 +96,28 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: publish
         env:
           MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
           MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the `gradle publish` command to publish to the `OSSRH` Maven repository. The `MAVEN_USERNAME` environment variable will be set with the contents of your `OSSRH_USERNAME` secret, and the `MAVEN_PASSWORD` environment variable will be set with the contents of your `OSSRH_TOKEN` secret.
+1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to the `OSSRH` Maven repository. `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
-## Publishing packages to {% data variables.product.prodname_registry %}
+## 发布包到 {% data variables.product.prodname_registry %}
 
-Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
+每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件触发时运行。 如果 CI 测试通过，工作流程会将包发布到 {% data variables.product.prodname_registry %}。 有关 `release` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#release)”。
 
-You can define a new Maven repository in the publishing block of your _build.gradle_ that points to {% data variables.product.prodname_registry %}.  In that repository configuration, you can also take advantage of environment variables set in your CI workflow run.  You can use the `GITHUB_ACTOR` environment variable as a username, and you can set the `GITHUB_TOKEN` environment variable with your `GITHUB_TOKEN` secret.
+您可以在 _build.gradle_ 文件的发布块中定义指向 {% data variables.product.prodname_registry %} 的新 Maven 仓库。  在仓库配置中，您也可以利用在 CI 工作流程运行中设置的环境变量。  您可以使用 `GITHUB_ACTOR` 环境变量作为用户名，并且可以使用 `GITHUB_TOKENN` 密码设置 `GITHUB_TOKEN` 环境变量。
 
 {% data reusables.github-actions.github-token-permissions %}
 
-For example, if your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _build.gradle_ would look similar to the below example.
+例如，如果组织名为“octocat”且仓库名为“hello-world”，则 _build.gradle_ 中的 {% data variables.product.prodname_registry %} 配置看起来类似于以下示例。
 
 {% raw %}
 ```groovy{:copy}
@@ -141,7 +143,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by running the `gradle publish` command.
+使用此配置可创建一个工作流程，以通过运行 `gradle publish` 命令将包发布到 {% data variables.product.prodname_registry %}。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -165,25 +167,27 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: publish
         env:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the `gradle publish` command to publish to {% data variables.product.prodname_registry %}. The `GITHUB_TOKEN` environment variable will be set with the content of the `GITHUB_TOKEN` secret. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to {% data variables.product.prodname_registry %}. `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
-## Publishing packages to the Maven Central Repository and {% data variables.product.prodname_registry %}
+## 发布包到 Maven 中心仓库和 {% data variables.product.prodname_registry %}
 
-You can publish your packages to both the Maven Central Repository and {% data variables.product.prodname_registry %} by configuring each in your _build.gradle_ file.
+您可以通过在 _build.gradle_ 文件中配置每项设置，将包发布到 Maven 中心仓库和 {% data variables.product.prodname_registry %}。
 
-Ensure your _build.gradle_ file includes a repository for both your {% data variables.product.prodname_dotcom %} repository and your Maven Central Repository provider.
+确保 _build.gradle_ 文件包含用于 {% data variables.product.prodname_dotcom %} 仓库和 Maven 中心仓库提供商的仓库。
 
-For example, if you deploy to the Central Repository through the OSSRH hosting project, you might want to specify it in a distribution management repository with the `name` set to `OSSRH`. If you deploy to {% data variables.product.prodname_registry %}, you might want to specify it in a distribution management repository with the `name` set to `GitHubPackages`.
+例如，如果您通过 OSSRH 托管项目部署到 Maven 中心仓库，您可能想要在分发管理仓库中指定它，并将 `name` 设置为 `OSSRH`。 如果您部署到 {% data variables.product.prodname_registry %}，您可能想要在分发管理仓库中指定它，并将 `name` 设置为 `GitHubPackages`。
 
-If your organization is named "octocat" and your repository is named "hello-world", then the configuration in _build.gradle_ would look similar to the below example.
+如果组织名为“octocat”且仓库名为“hello-world”，则 _build.gradle_ 中的配置看起来类似于以下示例。
 
 {% raw %}
 ```groovy{:copy}
@@ -217,7 +221,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to both the Maven Central Repository and {% data variables.product.prodname_registry %} by running the `gradle publish` command.
+使用此配置可创建一个工作流程，以通过运行 `gradle publish` 命令将包发布到 Maven 中心仓库和 {% data variables.product.prodname_registry %}。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -242,7 +246,9 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: publish
         env: {% raw %}
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -250,6 +256,6 @@ jobs:
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the `gradle publish` command to publish to the `OSSRH` Maven repository and {% data variables.product.prodname_registry %}. The `MAVEN_USERNAME` environment variable will be set with the contents of your `OSSRH_USERNAME` secret, and the `MAVEN_PASSWORD` environment variable will be set with the contents of your `OSSRH_TOKEN` secret. The `GITHUB_TOKEN` environment variable will be set with the content of the `GITHUB_TOKEN` secret. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to the `OSSRH` Maven repository and {% data variables.product.prodname_registry %}. `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。

@@ -27,45 +27,23 @@ After you enable SCIM, the following provisioning features are available for any
 | Push Profile Updates | When you update a user's profile in Okta, Okta will update the metadata for the user's membership in your organization on {% data variables.product.product_location %}. |
 | Reactivate Users | When you reactivate a user in Okta, Okta will send an email invitation for the user to rejoin your organization on {% data variables.product.product_location %}. |
 
-## Prerequisites
-
-{% data reusables.saml.use-classic-ui %}
+Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for enterprise accounts is only available with Enterprise Managed Users. For more information, see "[Configuring SAML single sign-on for your enterprise using Okta](/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)" and "[Configuring SCIM provisioning for Enterprise Managed Users with Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)."
 
 ## Adding the {% data variables.product.prodname_ghe_cloud %} application in Okta
 
-{% data reusables.saml.okta-dashboard-click-applications %}
-{% data reusables.saml.add-okta-application %}
-{% data reusables.saml.search-ghec-okta %}
-4. To the right of "Github Enterprise Cloud - Organization", click **Add**.
-  ![Clicking "Add" for the {% data variables.product.prodname_ghe_cloud %} application](/assets/images/help/saml/okta-add-ghec-application.png)
-
-5. In the **GitHub Organization** field, type the name of your organization on {% data variables.product.product_location %}. For example, if your organization's URL is https://github.com/octo-org, the organization name would be `octo-org`.
-  ![Type GitHub organization name](/assets/images/help/saml/okta-github-organization-name.png)
-
-6. Click **Done**.
-
-## Enabling and testing SAML SSO
-
-{% data reusables.saml.okta-dashboard-click-applications %}
-{% data reusables.saml.okta-applications-click-ghec-application-label %}
-{% data reusables.saml.assign-yourself-to-okta %}
 {% data reusables.saml.okta-sign-on-tab %}
 {% data reusables.saml.okta-view-setup-instructions %}
-6. Enable and test SAML SSO on {% data variables.product.prodname_dotcom %} using the sign on URL, issuer URL, and public certificates from the "How to Configure SAML 2.0" guide. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)."
+1. Enable and test SAML SSO on {% data variables.product.prodname_dotcom %} using the sign on URL, issuer URL, and public certificates from the "How to Configure SAML 2.0" guide. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization)."
 
 ## Configuring access provisioning with SCIM in Okta
-
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
 {% data reusables.saml.okta-provisioning-tab %}
 {% data reusables.saml.okta-configure-api-integration %}
 {% data reusables.saml.okta-enable-api-integration %}
+1. Click **Authenticate with Github Enterprise Cloud - Organization**.
+1. To the right of your organization's name, click **Grant**.
 
-
-6. Click **Authenticate with Github Enterprise Cloud - Organization**.
-  !["Authenticate with Github Enterprise Cloud - Organization" button for Okta application](/assets/images/help/saml/okta-authenticate-with-ghec-organization.png)
-
-7. To the right of your organization's name, click **Grant**.
   !["Grant" button for authorizing Okta SCIM integration to access organization](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)
 
   {% note %}
@@ -74,7 +52,6 @@ After you enable SCIM, the following provisioning features are available for any
 
   {% endnote %}
 1. Click **Authorize OktaOAN**.
-  !["Authorize OktaOAN" button for authorizing Okta SCIM integration to access organization](/assets/images/help/saml/okta-scim-integration-authorize-oktaoan.png)
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}
 

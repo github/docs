@@ -18,6 +18,10 @@ shortTitle: About 2FA
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
+{% ifversion fpt or ghec %}
+In addition to security keys, you can also use {% data variables.product.prodname_mobile %} for 2FA after configuring a TOTP mobile app or text messages. {% data variables.product.prodname_mobile %} uses public-key cryptography to secure your account, allowing you to use any mobile device that you've used to signed in to {% data variables.product.prodname_mobile %} as your second factor.
+{% endif %}
+
 2 要素認証の認証情報にアクセスできなくなった場合に備えて、追加のリカバリ方法を設定することもできます。 2FA のセットアップに関する詳しい情報については[2 要素認証の設定](/articles/configuring-two-factor-authentication)および[2 要素認証のリカバリ方法の設定](/articles/configuring-two-factor-authentication-recovery-methods)を参照してください。
 
 アカウントの安全のため、{% data variables.product.product_name %} だけでなく、2FA をサポートする他の Web サイトやアプリケーションでも、2FA を有効にすることを**強く**お勧めします。 2FA が {% data variables.product.product_name %} および {% data variables.product.prodname_desktop %} にアクセスできるようにすることができます。

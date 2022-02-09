@@ -42,11 +42,11 @@ We recommend that you have a basic understanding of Python, PyPy, and pip. For m
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Starting with the Python workflow template
+## Using the Python starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Python workflow template that should work for most Python projects. This guide includes examples that you can use to customize the template. For more information, see the [Python workflow template](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
+{% data variables.product.prodname_dotcom %} provides a Python starter workflow that should work for most Python projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Python starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
-To get started quickly, add the template to the `.github/workflows` directory of your repository.
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
 ```yaml{:copy}
@@ -426,4 +426,4 @@ jobs:
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
 
-For more information about the template workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
+For more information about the starter workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

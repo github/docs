@@ -1,5 +1,5 @@
 ---
-title: Site policy
+title: 站点策略
 redirect_from:
   - /categories/61/articles
   - /categories/site-policy

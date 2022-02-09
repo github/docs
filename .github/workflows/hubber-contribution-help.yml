@@ -5,7 +5,7 @@ name: Hubber contribution help
 # **Who does it impact**: docs-internal contributors
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
     paths:

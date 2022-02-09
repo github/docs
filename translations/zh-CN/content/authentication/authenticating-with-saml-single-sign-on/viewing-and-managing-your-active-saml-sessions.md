@@ -1,6 +1,6 @@
 ---
-title: Viewing and managing your active SAML sessions
-intro: You can view and revoke your active SAML sessions in your security settings.
+title: 查看和管理活动的 SAML 会话
+intro: 您可以在安全设置中查看和撤销活动的 SAML 会话。
 redirect_from:
   - /articles/viewing-and-managing-your-active-saml-sessions
   - /github/authenticating-to-github/viewing-and-managing-your-active-saml-sessions
@@ -9,23 +9,21 @@ versions:
   ghec: '*'
 topics:
   - SSO
-shortTitle: Active SAML sessions
+shortTitle: 活动的 SAML 会话
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-3. Under "Sessions," you can see your active SAML sessions.
-   ![List of active SAML sessions](/assets/images/help/settings/saml-active-sessions.png)
-4. To see the session details, click **See more**.
-   ![Button to open SAML session details](/assets/images/help/settings/saml-expand-session-details.png)
-5. To revoke a session, click **Revoke SAML**.
-   ![Button to revoke a SAML session](/assets/images/help/settings/saml-revoke-session.png)
+3. 在“Sessions（会话）”下，您可以看到活动的 SAML 会话。 ![活动 SAML 会话列表](/assets/images/help/settings/saml-active-sessions.png)
+4. 要查看会话详细信息，请单击 **See more（查看更多）**。 ![用于打开 SAML 会话详细信息的按钮](/assets/images/help/settings/saml-expand-session-details.png)
+5. 要撤销会话，请单击 **Revoke SAML（撤销 SAML）**。 ![撤销 SAML 会话的按钮](/assets/images/help/settings/saml-revoke-session.png)
 
   {% note %}
 
-  **Note:** When you revoke a session, you remove your SAML authentication to that organization. To access the organization again, you will need to single sign-on through your identity provider. For more information, see "[About authentication with SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."
+  **注：**撤销会话时，将删除对该组织的 SAML 身份验证。 要再次访问该组织，您需要通过身份提供程序单点登录。 更多信息请参阅“[关于使用 SAML SSO 进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”。
 
   {% endnote %}
 
-## Further reading
+## 延伸阅读
 
-- "[About authentication with SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"
+- “[关于使用 SAML SSO 进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”

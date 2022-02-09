@@ -1,6 +1,6 @@
 ---
-title: About migrations
-intro: 'A migration is the process of transferring data from a *source* location (either a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance. Migrations can be used to transfer your data when changing platforms or upgrading hardware on your instance.'
+title: 移行について
+intro: '移行とは、「ソース」場所 ({% data variables.product.prodname_dotcom_the_website %} Organization か {% data variables.product.prodname_ghe_server %} インスタンスのいずれか) から「ターゲット」となる {% data variables.product.prodname_ghe_server %} インスタンスにデータを移譲するプロセスです。 移行は、プラットフォームを変更したり、インスタンスのハードウェアをアップグレードしたりする場合にデータを転送するのに利用できます。'
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
   - /enterprise/admin/user-management/about-migrations
@@ -12,40 +12,41 @@ topics:
   - Enterprise
   - Migration
 ---
-## Types of migrations
 
-There are three types of migrations you can perform:
+## 移行の種類
 
-- A migration from a {% data variables.product.prodname_ghe_server %} instance to another {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by any user or organization on the instance. Before performing a migration, you must have site administrator access to both instances.
-- A migration from a {% data variables.product.prodname_dotcom_the_website %} organization to a {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by the organization. Before performing a migration, you must have [administrative access](/enterprise/user/articles/permission-levels-for-an-organization/) to the {% data variables.product.prodname_dotcom_the_website %} organization as well as site administrator access to the target instance.
-- *Trial runs* are migrations that import data to a [staging instance](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). These can be useful to see what *would* happen if a migration were applied to {% data variables.product.product_location %}. **We strongly recommend that you perform a trial run on a staging instance before importing data to your production instance.**
+行える移行は3種類あります。
 
-## Migrated data
+- {% data variables.product.prodname_ghe_server %} インスタンスから別の {% data variables.product.prodname_ghe_server %} インスタンスへの移行。 インスタンス上の任意のユーザあるいはOrganizationが所有する任意の数のリポジトリを移行できます。 移行を行う前に、双方のインスタンスにサイト管理者としてアクセスできなければなりません。
+- {% data variables.product.prodname_dotcom_the_website %} Organization から {% data variables.product.prodname_ghe_server %} インスタンスへの移行。 Organizationが所有する任意の数のリポジトリを移行できます。 移行を実行するためには、{% data variables.product.prodname_dotcom_the_website %} Organization への[管理アクセス](/enterprise/user/articles/permission-levels-for-an-organization/)と、ターゲットインスタンスへのサイト管理者としてのアクセスが必要です。
+- *トライアル実行*は、データを[ステージングインスタンス](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)にインポートする移行です。 これは、{% data variables.product.product_location %} に対して移行を行ったときに何が起こる*ことになる*のかを確認するのに役立ちます。 **本番インスタンスへデータをインポートする前に、ステージングインスタンスで試行することを強くおすすめします。**
 
-In a migration, everything revolves around a repository. Most data associated with a repository can be migrated. For example, a repository within an organization will migrate the repository *and* the organization, as well as any users, teams, issues, and pull requests associated with the repository.
+## データの移行
 
-The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data can not be migrated.
+移行においては、すべての事項についてリポジトリが中心になります。 リポジトリに関係するほとんどのデータは移行できます。 たとえば Organization 内のリポジトリは、リポジトリ*および*その Organization、またそのリポジトリに関連付けられているユーザ、Team、Issue、プルリクエストのすべてを移行します。
+
+以下の表の項目はレポジトリと共に移行できます。 このデータの移行リストに記載されていない項目はどれも移行できません。
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
-|  Data associated with a migrated repository | Notes  |
-|---------------------------------------------|--------|
-| Users | **@mentions** of users are rewritten to match the target.
-| Organizations | An organization's name and details are migrated.
-| Repositories | Links to Git trees, blobs, commits, and lines are rewritten to match the target. The migrator follows a maximum of three repository redirects.
-| Wikis | All wiki data is migrated.
-| Teams | **@mentions** of teams are rewritten to match the target.
-| Milestones | Timestamps are preserved.
-| Project boards | Project boards associated with the repository and with the organization that owns the repository are migrated.
-| Issues | Issue references and timestamps are preserved.
-| Issue comments | Cross-references to comments are rewritten for the target instance.
-| Pull requests | Cross-references to pull requests are rewritten to match the target. Timestamps are preserved.
-| Pull request reviews | Pull request reviews and associated data are migrated.
-| Pull request review comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved.
-| Commit comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved.
-| Releases | All releases data is migrated.
-| Actions taken on pull requests or issues | All modifications to pull requests or issues, such as assigning users, renaming titles, and modifying labels are preserved, along with timestamps for each action.
-|  File attachments | [File attachments on issues and pull requests](/articles/file-attachments-on-issues-and-pull-requests) are migrated. You can choose to disable this as part of the migration.
-| Webhooks | Only active webhooks are migrated.
-| Repository deploy keys | Repository deploy keys are migrated.
-| Protected branches | Protected branch settings and associated data are migrated.
+| 移行されたリポジトリに関連するデータ            | 注釈                                                                                                            |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| ユーザ                           | ユーザの**@メンション**は、ターゲットにマッチするよう書き換えられます。                                                                        |
+| Organization                  | Organizationの名前と詳細は移行されます。                                                                                    |
+| リポジトリ                         | Git ツリー、blob、コミット、および行へのリンクは、ターゲットにマッチするよう書き換えられます。 移行者がリダイレクトできるリポジトリの上限は 3 つです。                             |
+| Wiki                          | すべてのWikiのデータは移行されます。                                                                                          |
+| Team                          | チームの**@メンション**はターゲットにマッチするよう書き換えられます。                                                                         |
+| マイルストーン                       | タイムスタンプは保持されます。                                                                                               |
+| プロジェクトボード                     | リポジトリやリポジトリを所有するOrganizationに関連するプロジェクトボードは移行されます。                                                            |
+| Issue                         | Issueへの参照とタイムスタンプは保持されます。                                                                                     |
+| Issueのコメント                    | コメントへの相互参照は、ターゲットインスタンスに合わせて書き換えられます。                                                                         |
+| プルリクエスト                       | プルリクエストへの相互参照はターゲットにマッチするよう書き換えられます。 タイムスタンプは保持されます。                                                          |
+| プルリクエストのレビュー                  | プルリクエストのレビューと関連データは移行されます。                                                                                    |
+| プルリクエストのレビューのコメント             | コメントへの相互参照は、ターゲットインスタンスに合わせて書き換えられます。 タイムスタンプは保持されます。                                                         |
+| コミットのコメント                     | コメントへの相互参照は、ターゲットインスタンスに合わせて書き換えられます。 タイムスタンプは保持されます。                                                         |
+| リリース                          | すべてのリリースデータは移行されます。                                                                                           |
+| プルリクエストあるいはIssueに対して行われたアクション | ユーザの割り当て、タイトルの変更、ラベルの変更など、プルリクエストあるいはIssueに対するすべての変更は、それぞれのアクションのタイムスタンプと共に保持されます。                            |
+| 添付ファイル                        | [Issue およびプルリクエストの添付ファイル](/articles/file-attachments-on-issues-and-pull-requests)は移行されます。 移行に関するこの機能は無効化できます。 |
+| webhook                       | アクティブなwebhookのみが移行されます。                                                                                       |
+| リポジトリのデプロイキー                  | リポジトリのデプロイキーは移行されます。                                                                                          |
+| 保護されたブランチ                     | 保護されたブランチの設定と関連データは移行されます。                                                                                    |

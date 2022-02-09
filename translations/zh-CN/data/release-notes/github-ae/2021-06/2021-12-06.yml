@@ -53,7 +53,7 @@ sections:
       heading: 'GitHub Packages'
       notes:
         - |
-          You can now delete any package or package version for GitHub Packages from {% data variables.product.product_name %}'s web UI or REST API. You can also undo the deletion of any package or package version within 30 days.
+          You can now delete any package or package version for GitHub Packages from {% data variables.product.product_name %}'s web UI. You can also undo the deletion of any package or package version within 30 days. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
         - |
           The npm registry for GitHub Packages and {% data variables.product.prodname_dotcom_the_website %} no longer returns a time value in metadata responses, providing substantial performance improvements. {% data variables.product.company_short %} will continue returning the time value in the future.
     - 

@@ -1,6 +1,6 @@
 ---
-title: Removing yourself from an organization
-intro: 'If you''re an outside collaborator or a member of an organization, you can leave the organization at any time.'
+title: 从组织中删除自己
+intro: 如果您是外部协作者或组织成员，您可以随时离开组织。
 redirect_from:
   - /articles/how-do-i-remove-myself-from-an-organization
   - /articles/removing-yourself-from-an-organization
@@ -13,15 +13,16 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Leave an organization
+shortTitle: 离开组织
 ---
+
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Warning:** If you're currently responsible for paying for {% data variables.product.product_name %} in your organization, removing yourself from the organization **does not** update the billing information on file for the organization. If you are currently responsible for billing, **you must** have another owner or billing manager for the organization [update the organization's payment method](/articles/adding-or-editing-a-payment-method).
+**警告：**如果您目前在组织中负责为 {% data variables.product.product_name %} 付款，从组织中删除自己**不会**更新组织的存档帐单信息。 如果您目前负责计费，则**必须**让组织的其他所有者或帐单管理员[更新组织的付款方式](/articles/adding-or-editing-a-payment-method)。
 
-For more information, see "[Transferring organization ownership](/articles/transferring-organization-ownership)."
+更多信息请参阅“[转让组织所有权](/articles/transferring-organization-ownership)”。
 
 {% endwarning %}
 
@@ -29,5 +30,4 @@ For more information, see "[Transferring organization ownership](/articles/trans
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
-3. Under "Organizations", find the organization you'd like to remove yourself from, then click **Leave**.
-  ![Leave organization button with roles shown](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)
+3. 在“Organizations（组织）”下，找到您想要从中删除自己的组织，然后单击 **Leave（离开）**。 ![显示角色的离开组织按钮](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

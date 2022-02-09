@@ -13,11 +13,7 @@ import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import compression from 'compression'
-import disableCachingOnSafari from './disable-caching-on-safari.js'
-import {
-  setDefaultFastlySurrogateKey,
-  setManualFastlySurrogateKey,
-} from './set-fastly-surrogate-key.js'
+import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import catchBadAcceptLanguage from './catch-bad-accept-language.js'
 import reqUtils from './req-utils.js'
@@ -30,7 +26,6 @@ import detectLanguage from './detect-language.js'
 import context from './context.js'
 import shortVersions from './contextualizers/short-versions.js'
 import redirectsExternal from './redirects/external.js'
-import helpToDocs from './redirects/help-to-docs.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
 import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
@@ -63,9 +58,13 @@ import learningTrack from './learning-track.js'
 import next from './next.js'
 import renderPage from './render-page.js'
 import assetPreprocessing from './asset-preprocessing.js'
+import archivedAssetRedirects from './archived-asset-redirects.js'
+import favicon from './favicon.js'
+import setStaticAssetCaching from './static-asset-caching.js'
 
-const { NODE_ENV } = process.env
+const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
+const isAzureDeployment = DEPLOYMENT_ENV === 'azure'
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
 // Catch unhandled promise rejections and passing them to Express's error handler
@@ -74,13 +73,23 @@ const asyncMiddleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
 
+// The IP address that Fastly regards as the true client making the request w/ fallback to req.ip
+morgan.token('client-ip', (req) => req.headers['Fastly-Client-IP'] || req.ip)
+const productionLogFormat = `:client-ip - ":method :url" :status - :response-time ms`
+
 export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
   app.use(abort)
 
-  // *** Development tools ***
-  app.use(morgan('dev', { skip: (req, res) => !isDevelopment }))
+  // *** Request logging ***
+  // Enabled in development and azure deployed environments
+  // Not enabled in Heroku because the Heroku router + papertrail already logs the request information
+  app.use(
+    morgan(isAzureDeployment ? productionLogFormat : 'dev', {
+      skip: (req, res) => !(isDevelopment || isAzureDeployment),
+    })
+  )
 
   // *** Observability ***
   if (process.env.DD_API_KEY) {
@@ -101,12 +110,26 @@ export default function (app) {
       instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
     )
   )
+
+  app.use(favicon)
+
+  // Any static URL that contains some sort of checksum that makes it
+  // unique gets the "manual" surrogate key. If it's checksummed,
+  // it's bound to change when it needs to change. Otherwise,
+  // we want to make sure it doesn't need to be purged just because
+  // there's a production deploy.
+  // Note, for `/assets/cb-*...` requests,
+  // this needs to come before `assetPreprocessing` because
+  // the `assetPreprocessing` middleware will rewrite `req.url` if
+  // it applies.
+  app.use(setStaticAssetCaching)
+
+  // Must come before any other middleware for assets
+  app.use(archivedAssetRedirects)
+
   // This must come before the express.static('assets') middleware.
   app.use(assetPreprocessing)
-  // By specifying '/assets/cb-' and not just '/assets/' we
-  // avoid possibly legacy enterprise assets URLs and asset image URLs
-  // that don't have the cache-busting piece in it.
-  app.use('/assets/cb-', setManualFastlySurrogateKey)
+
   app.use(
     '/assets/',
     express.static('assets', {
@@ -132,7 +155,7 @@ export default function (app) {
   app.set('trust proxy', 1)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
-  app.use(instrument(handleNextDataPath, './handle-next-data-path'))
+  app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
   // *** Security ***
   app.use(cors)
@@ -154,7 +177,6 @@ export default function (app) {
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
   app.use(compression())
-  app.use(disableCachingOnSafari)
   app.use(catchBadAcceptLanguage)
 
   // *** Config and context for redirects ***
@@ -168,7 +190,6 @@ export default function (app) {
   // I ordered these by use frequency
   app.use(connectSlashes(false))
   app.use(instrument(redirectsExternal, './redirects/external'))
-  app.use(instrument(helpToDocs, './redirects/help-to-docs'))
   app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
 
@@ -207,7 +228,7 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
   app.use(instrument(graphQL, './contextualizers/graphql'))
-  app.use(instrument(rest, './contextualizers/rest'))
+  app.use(asyncMiddleware(instrument(rest, './contextualizers/rest')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))

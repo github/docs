@@ -1,5 +1,5 @@
 ---
-title: GitHub Logo Policy
+title: GitHubロゴのポリシー
 redirect_from:
   - /articles/i-m-developing-a-third-party-github-app-what-do-i-need-to-know
   - /articles/using-an-octocat-to-link-to-github-or-your-github-profile
@@ -11,6 +11,6 @@ topics:
   - Legal
 ---
 
-You can add {% data variables.product.prodname_dotcom %} logos to your website or third-party application in some scenarios. For more information and specific guidelines on logo usage, see the [{% data variables.product.prodname_dotcom %} Logos and Usage page](https://github.com/logos).
+場合によっては、{% data variables.product.prodname_dotcom %} のロゴをあなたのウェブサイトまたはサードパーティアプリケーションに追加できます。 ロゴの使用に関する詳細と具体的なガイドラインについては、[{% data variables.product.prodname_dotcom %} のロゴと使い方のページ](https://github.com/logos)をご覧ください。
 
-You can also use an octocat as your personal avatar or on your website to link to your {% data variables.product.prodname_dotcom %} account, but not for your company or a product you're building. {% data variables.product.prodname_dotcom %} has an extensive collection of octocats in the [Octodex](https://octodex.github.com/). For more information on using the octocats from the Octodex, see the [Octodex FAQ](https://octodex.github.com/faq/).
+また、Octocat をあなたの個人的なアバターとして、またはあなたのウェブサイトで使用して、{% data variables.product.prodname_dotcom %} アカウントにリンクすることもできますが、あなたの会社やあなたが構築している製品に対して使用することはできません。 {% data variables.product.prodname_dotcom %} は、[Octodex](https://octodex.github.com/) にさまざまな Octocat を所有しています。 Octodex の Octocat を使用する際の詳細については、[Octodex FAQ](https://octodex.github.com/faq/) をご覧ください。

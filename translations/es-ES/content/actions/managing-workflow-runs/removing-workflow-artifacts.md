@@ -1,22 +1,22 @@
 ---
-title: Removing workflow artifacts
-intro: 'You can reclaim used {% data variables.product.prodname_actions %} storage by deleting artifacts before they expire on {% data variables.product.product_name %}.'
+title: Eliminar artefactos de flujo de trabajo
+intro: 'Puedes reclamar el almacenamiento de {% data variables.product.prodname_actions %} que se haya utilizado si borras los artefactos antes de que venzan en {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Remove workflow artifacts
+shortTitle: Eliminar los artefactos de un flujo de trabajo
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Deleting an artifact
+## Borrar un artefacto
 
 {% warning %}
 
-**Warning:** Once you delete an artifact, it can not be restored.
+**Advertencia:** Una vez que eliminas un artefacto, no se puede restaurar.
 
 {% endwarning %}
 
@@ -28,19 +28,20 @@ shortTitle: Remove workflow artifacts
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Under **Artifacts**, click {% octicon "trash" aria-label="The trash icon" %} next to the artifact you want to remove.
+1. Debajo de **Artefactos**, da clic en
+el {% octicon "trash" aria-label="The trash icon" %} junto al artefacto que quieras eliminar.
     {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-    ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact-updated.png)
+    ![Menú desplegable Delete artifact (Eliminar artefacto)](/assets/images/help/repository/actions-delete-artifact-updated.png)
     {% else %}
-    ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact.png)
+    ![Menú desplegable Delete artifact (Eliminar artefacto)](/assets/images/help/repository/actions-delete-artifact.png)
     {% endif %}
 
-## Setting the retention period for an artifact
+## Configurar el periodo de retención para un artefacto
 
-Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."{% elsif ghae %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)," "[Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)," or "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)."{% endif %}
+Los periodos de retención para los artefactos y las bitácoras pueden configurarse a nivel de repositorio, organización y empresa. Para obtener más información, consulta la sección {% ifversion fpt or ghec or ghes %}"[Límites de uso, facturación y administración](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)".{% elsif ghae %}"[Administrar los ajustes de {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)". "[Configurar el periodo de retención de las {% data variables.product.prodname_actions %} para los artefactos y bitácoras en tu organización](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)" o "[Requerir políticas para las {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)".{% endif %}
 
-You can also define a custom retention period for individual artifacts using the `actions/upload-artifact` action in a workflow. For more information, see "[Storing workflow data as artifacts](/actions/guides/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period)."
+También puedes definir un periodo de retención personalizado para los artefactos individuales que utilizan la acción `actions/upload-artifact` en un flujo de trabajo. Para obtener más información, consulta la sección "[Almacenar datos del flujo de trabajo como artefactos](/actions/guides/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period)".
 
-## Finding the expiration date of an artifact
+## Encontrar la fecha de vencimiento de un artefacto
 
-You can use the API to confirm the date that an artifact is scheduled to be deleted. For more information, see the `expires_at` value returned by "[List artifacts for a repository](/rest/reference/actions#artifacts)."
+Puedes utilizar la API para confirmar la fecha de programación para el borrado de un artefacto. Para obtener más información, consulta el valor de `expires_at` que devuelve la acción "[Listar artefactos para un repositorio](/rest/reference/actions#artifacts)".

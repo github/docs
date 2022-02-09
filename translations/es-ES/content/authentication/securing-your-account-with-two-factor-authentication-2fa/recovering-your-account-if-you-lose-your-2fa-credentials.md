@@ -1,6 +1,6 @@
 ---
-title: Recovering your account if you lose your 2FA credentials
-intro: 'If you lose access to your two-factor authentication credentials, you can use your recovery codes, or another recovery option, to regain access to your account.'
+title: Recuperar tu cuenta si pierdes tus credenciales 2FA
+intro: 'Si pierdes el acceso a tus credenciales de autenticación de dos factores, puedes utilizar tus códigos de recuperación, o cualquier otra opción de recuperación, para recuperar el acceso a tu cuenta.'
 redirect_from:
   - /articles/recovering-your-account-if-you-lost-your-2fa-credentials
   - /articles/authenticating-with-an-account-recovery-token
@@ -13,75 +13,68 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: Recover an account with 2FA
+shortTitle: Recuperar una cuenta con 2FA
 ---
+
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Warning**: {% data reusables.two_fa.support-may-not-help %}
+**Advertencia**: {% data reusables.two_fa.support-may-not-help %}
 
 {% endwarning %}
 
 {% endif %}
 
-## Using a two-factor authentication recovery code
+## Utilizar un código de recuperación de autenticación de dos factores
 
-Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+Utiliza uno de tus códigos de recuperación para recuperar automáticamente el ingreso a tu cuenta. Es posible que hayas guardado tus códigos de recuperación en un administrador de contraseñas o en la carpeta de descargas de tu computadora. El nombre de archivo por defecto para códigos de recuperación es `github-recovery-codes.txt`. Para obtener más información acerca de códigos de recuperación, consulta "[Configurar métodos de recuperación de autenticación de dos factores](/articles/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
 
 {% data reusables.two_fa.username-password %}{% ifversion fpt or ghec %}
-2. Under "Having Problems?", click **Enter a two-factor recovery code**.
-  ![Link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png){% else %}
-2. On the 2FA page, under "Don't have your phone?", click **Enter a two-factor recovery code**.
-  ![Link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
-3. Type one of your recovery codes, then click **Verify**.
-  ![Field to type a recovery code and Verify button](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
+2. Da clic en **Ingresar un código de recuperación de dos factores** debajo de "¿Tienes Problemas?". ![Link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png){% else %}
+2. En la página 2FA, dentro de "Don't have your phone?" (¿No tienes tu teléfono?), haz clic en **Enter a two-factor recovery code (Ingresar un código de recuperación de dos factores)**. ![Link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
+3. Escribe uno de tus códigos de recuperación, después haz clic en **Verify (Verificar)**. ![Campo para escribir un código de recuperación y botón Verificar](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
 
 {% ifversion fpt or ghec %}
-## Authenticating with a fallback number
+## Autenticar con un número de reserva
 
-If you lose access to your primary TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
+Si pierdes el acceso a tu app TOTP principal o número de teléfono, puedes proporcionar un código de autenticación de dos factores enviado a tu número de reserva para recuperar automáticamente el acceso a tu cuenta.
 {% endif %}
 
-## Authenticating with a security key
+## Autenticar con una clave de seguridad
 
-If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+Si has configurado autenticación de dos factores utilizando una clave de seguridad, puedes utilizar tu clave de seguridad como un método de autenticación secundario para obtener acceso a tu cuenta automáticamente. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)".
 
 {% ifversion fpt or ghec %}
-## Authenticating with a verified device, SSH token, or personal access token
+## Autentificarse con un dispositivo verificado, token SSH, o token de acceso personal
 
-If you know your {% data variables.product.product_name %} password but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+Si conoces tu contraseña de {% data variables.product.product_name %} pero no tienes credenciales o códigos de autenticación bifactorial, se te puede enviar una contraseña de única ocasión a tu dirección de correo electrónico verificada para comenzar con el proceso de verificación y volver a obtener acceso a tu cuenta.
 
 {% note %}
 
-**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take 3-5 business days. Additional requests submitted during this time will not be reviewed.
+**Nota**: Por razones de seguridad, recobrar el acceso a tu cuenta autenticándose con una contraseña de una sola ocasión puede demorar de 3 a 5 días hábiles. Las solicitudes adicionales emitidas durante este periodo no se revisarán.
 
 {% endnote %}
 
-You can use your two-factor authentication credentials or two-factor authentication recovery codes to regain access to your account anytime during the 3-5 day waiting period.
+Puedes utilizar tus credenciales de autenticación de dos factores para recobrar el acceso a tu cuenta en cualquier momento durante el periodo de espera de 3 a 5 días.
 
-1. Type your username and password to prompt authentication. If you do not know your {% data variables.product.product_name %} password, you will not be able to generate a one-time password.
-2. Under "Having Problems?", click **Can't access your two factor device or valid recovery codes?**
-  ![Link if you don't have your 2fa device or recovery codes](/assets/images/help/2fa/no-access-link.png)
-3. Click **I understand, get started** to request a reset of your authentication settings.
-  ![Reset authentication settings button](/assets/images/help/2fa/reset-auth-settings.png)
-4. Click **Send one-time password** to send a one-time password to all email addresses associated with your account.
-  ![Send one-time password button](/assets/images/help/2fa/send-one-time-password.png)
-5. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent.
-  ![One-time password field](/assets/images/help/2fa/one-time-password-field.png)
-6. Click **Verify email address**.
-7. Choose an alternative verification factor.
-    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
-    - If you've previously set up an SSH key on this account and would like to use the SSH key for verification, click **SSH key**.
-    - If you've previously set up a personal access token and would like to use the personal access token for verification, click **Personal access token**.
-  ![Alternative verification buttons](/assets/images/help/2fa/alt-verifications.png)
-8. A member of {% data variables.contact.github_support %} will review your request and email you within 3-5 business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.
+1. Teclea tu nombre de usuario y contraseña en el prompt de autenticación. Si no conoces tu contraseña de {% data variables.product.product_name %}, no podrás generar una contraseña de una sola ocasión.
+2. Da clic en **¿No puedes acceder a tu dispositivo de dos factores o a tus códigos de recuperación válidos?** debajo de "¿Tienes Problemas ![Enlace si no tienes tu dispositivo de 2fa o códigos de recuperación](/assets/images/help/2fa/no-access-link.png)
+3. Da clic en **Entiendo, comenzar** para solicitar un restablecimiento de tu configuración de autenticación. ![Botón de restablecimiento de configuración de autenticación](/assets/images/help/2fa/reset-auth-settings.png)
+4. Da clic en **Enviar contraseña de una sola vez** para enviarla a todas las direcciones de correo electrónico asociadas con tu cuenta. ![Botón para enviar contraseña de una sola vez](/assets/images/help/2fa/send-one-time-password.png)
+5. Debajo de "Contraseña de una sola vez", teclea la contraseña temporal del correo electrónico de recuperación que envió {% data variables.product.prodname_dotcom %}. ![Campo para contraseña de una sola vez](/assets/images/help/2fa/one-time-password-field.png)
+6. Da clic en **Verificar dirección de correo electrónico**.
+7. Escoge un factor de verificación alterno.
+    - Si utilizaste tu dispositivo actual para ingresar en esta cuenta anteriormente y te gustaría utilizarlo para verificación, haz clic en **Verificar con este dispositivo**.
+    - Si has configurado una llave SSH previamente en esta cuenta y quieres utilizarla para verificación, da clic en **Llave SSH**.
+    - Si configuraste un token de acceso personal previamente y te gustaría utilizarlo para verificación, da clic en **Token de acceso personal**. ![Botones de verificación alternativa](/assets/images/help/2fa/alt-verifications.png)
+8. Un miembro de {% data variables.contact.github_support %} revisará tu solicitud y te enviará un mensaje de correo electrónico dentro de los siguientes 3 a 5 días. Si se aprueba tu solicitud, recibirás un enlace para completar el proceso de recuperación de tu cuenta. Si se te niega la solicitud, el mensaje incluirá un medio para contactar a soporte con cualquier pregunta adicional.
 
 {% endif %}
 
-## Further reading
+## Leer más
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
-- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
-- "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/articles/accessing-github-using-two-factor-authentication)"
+- "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)"
+- [Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)"
+- [Configurar métodos de recuperación de autenticación de dos factores](/articles/configuring-two-factor-authentication-recovery-methods)"
+- "[Acceder {% data variables.product.prodname_dotcom %} utilizando autenticación de dos factores](/articles/accessing-github-using-two-factor-authentication)"

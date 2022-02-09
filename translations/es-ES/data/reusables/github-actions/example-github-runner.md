@@ -1,6 +1,6 @@
 ### Ejecución en un sistema operativo diferente
 
-La plantilla inicial de flujo de trabajo configura los jobs para que se ejecuten en Linux, utilizando los ejecutores `ubuntu-latest` hospedados en {% data variables.product.prodname_dotcom %}. Puedes cambiar la clave `runs-on` para ejecutar tus jobs en un sistema operativo diferente. Por ejemplo, puedes utilizar los ejecutores de Windows hospedados en {% data variables.product.prodname_dotcom %}.
+El flujo de trabajo inicial configura los jobs para que se ejecuten en Linux, utilizando los ejecutores `ubuntu-latest` hospedados en {% data variables.product.prodname_dotcom %}. Puedes cambiar la clave `runs-on` para ejecutar tus jobs en un sistema operativo diferente. Por ejemplo, puedes utilizar los ejecutores de Windows hospedados en {% data variables.product.prodname_dotcom %}.
 
 {% raw %}
 ```yaml

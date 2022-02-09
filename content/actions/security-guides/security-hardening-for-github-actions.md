@@ -196,6 +196,12 @@ You can help mitigate this risk by following these good practices:
 The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)." 
 {% endif %}
 
+{% if internal-actions %}
+## Allowing workflows to access internal repositories
+
+{% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+{% endif %}
+
 ## Potential impact of a compromised runner
 
 These sections consider some of the steps an attacker can take if they're able to run malicious commands on a {% data variables.product.prodname_actions %} runner. 

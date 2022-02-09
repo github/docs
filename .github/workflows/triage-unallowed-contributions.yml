@@ -21,7 +21,7 @@ on:
       - 'lib/search/indexes/**'
       - 'package*.json'
       - 'Procfile'
-      - 'scripts/**'
+      - 'script/**'
       - 'translations/**'
 
 permissions:

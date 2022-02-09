@@ -1,6 +1,6 @@
 ---
-title: Viewing your subscriptions and billing date
-intro: 'You can view your account''s subscription, your other paid features and products, and your next billing date in your account''s billing settings.'
+title: Exibir assinaturas e data de cobrança
+intro: 'Nas configurações de cobrança da sua conta, você pode exibir a assinatura da conta, outros produtos e recursos pagos e a próxima data de cobrança.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/viewing-your-subscriptions-and-billing-date
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-subscriptions-and-billing-date
@@ -17,21 +17,22 @@ topics:
   - Accounts
   - Organizations
   - User account
-shortTitle: Subscriptions & billing date
+shortTitle: Assinaturas & data de cobrança
 ---
-## Finding your personal account's next billing date
+
+## Localizar a próxima data de cobrança da sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-## Finding your organization's next billing date
+## Localizar a próxima data de cobrança da sua organização
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-## Further reading
+## Leia mais
 
-- "[About billing for {% data variables.product.prodname_dotcom %} accounts](/articles/about-billing-for-github-accounts)"
+- "[Sobre a cobrança das contas do {% data variables.product.prodname_dotcom %}](/articles/about-billing-for-github-accounts)"

@@ -96,14 +96,16 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: publish
         env:
           MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
           MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the `gradle publish` command to publish to the `OSSRH` Maven repository. The `MAVEN_USERNAME` environment variable will be set with the contents of your `OSSRH_USERNAME` secret, and the `MAVEN_PASSWORD` environment variable will be set with the contents of your `OSSRH_TOKEN` secret.
+1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to the `OSSRH` Maven repository. The `MAVEN_USERNAME` environment variable will be set with the contents of your `OSSRH_USERNAME` secret, and the `MAVEN_PASSWORD` environment variable will be set with the contents of your `OSSRH_TOKEN` secret.
 
    For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
@@ -165,13 +167,15 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: publish
         env:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the `gradle publish` command to publish to {% data variables.product.prodname_registry %}. The `GITHUB_TOKEN` environment variable will be set with the content of the `GITHUB_TOKEN` secret. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to {% data variables.product.prodname_registry %}. The `GITHUB_TOKEN` environment variable will be set with the content of the `GITHUB_TOKEN` secret. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
 
    For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
@@ -242,7 +246,9 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: publish
         env: {% raw %}
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -250,6 +256,6 @@ jobs:
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the `gradle publish` command to publish to the `OSSRH` Maven repository and {% data variables.product.prodname_registry %}. The `MAVEN_USERNAME` environment variable will be set with the contents of your `OSSRH_USERNAME` secret, and the `MAVEN_PASSWORD` environment variable will be set with the contents of your `OSSRH_TOKEN` secret. The `GITHUB_TOKEN` environment variable will be set with the content of the `GITHUB_TOKEN` secret. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to the `OSSRH` Maven repository and {% data variables.product.prodname_registry %}. The `MAVEN_USERNAME` environment variable will be set with the contents of your `OSSRH_USERNAME` secret, and the `MAVEN_PASSWORD` environment variable will be set with the contents of your `OSSRH_TOKEN` secret. The `GITHUB_TOKEN` environment variable will be set with the content of the `GITHUB_TOKEN` secret. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
 
    For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."

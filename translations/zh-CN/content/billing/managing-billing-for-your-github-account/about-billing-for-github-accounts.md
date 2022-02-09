@@ -1,6 +1,6 @@
 ---
-title: About billing for GitHub accounts
-intro: '{% data variables.product.company_short %} offers free and paid products for every developer or team.'
+title: 关于 GitHub 帐户的计费
+intro: '{% data variables.product.company_short %} 为每个开发者或团队提供免费和付费产品。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
   - /articles/what-is-the-total-cost-of-using-an-organization-account
@@ -21,14 +21,14 @@ topics:
   - Discounts
   - Fundamentals
   - Upgrades
-shortTitle: About billing
+shortTitle: 关于计费
 ---
 
-For more information about the products available for your account, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)." You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data variables.product.product_name %} does not offer custom products or subscriptions.  
+For more information about the products available for your account, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)." 您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。 {% data variables.product.product_name %} 不提供自定义产品或订阅。
 
-You can choose monthly or yearly billing, and you can upgrade or downgrade your subscription at any time. For more information, see "[Managing billing for your {% data variables.product.prodname_dotcom %} account](/articles/managing-billing-for-your-github-account)."
+您可以选择月度或年度计费，也可以随时升级或降级订阅。 更多信息请参阅“[管理您的 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/managing-billing-for-your-github-account)”。
 
-You can purchase other features and products with your existing {% data variables.product.product_name %} payment information. For more information, see "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
+您可以使用现有 {% data variables.product.product_name %} 付款信息购买其他功能和产品。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 的计费](/articles/about-billing-on-github)”。
 
 {% data reusables.accounts.accounts-billed-separately %}
 
@@ -36,7 +36,7 @@ You can purchase other features and products with your existing {% data variable
 
 {% tip %}
 
-**Tip:** {% data variables.product.prodname_dotcom %} has programs for verified students and academic faculty, which include academic discounts. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).
+**提示：** {% data variables.product.prodname_dotcom %} 为验证的学生和学院教师提供课程，可享有学术折扣。 更多信息请访问 [{% data variables.product.prodname_education %}](https://education.github.com/)。
 
 {% endtip %}
 

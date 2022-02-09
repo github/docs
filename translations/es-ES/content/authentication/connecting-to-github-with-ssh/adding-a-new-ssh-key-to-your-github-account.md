@@ -24,7 +24,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% mac %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. Copy the SSH public key to your clipboard.
@@ -58,8 +57,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 {% endmac %}
 
 {% windows %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -96,7 +93,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% linux %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. Copy the SSH public key to your clipboard.
@@ -114,7 +110,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
   **Tip:** Alternatively, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
 
   {% endtip %}
-  
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**.

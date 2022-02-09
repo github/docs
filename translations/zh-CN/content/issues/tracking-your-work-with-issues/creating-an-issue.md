@@ -83,7 +83,7 @@ gh issue create --title "My new issue" --body "Here are more details." --assigne
 {% data reusables.repositories.navigate-to-repo %}
 1. 找到要在议题中引用的代码：
     - 要打开文件中代码相关的议题，请找到该文件。
-    - 要打开拉取请求中代码相关的议题，请找到该拉取请求并单击 {% octicon "diff" aria-label="The file diff icon" %} **Files changed（文件已更改）**。 然后浏览到含有要包含在评论中的代码的文件，并单击 **View（查看）**。
+    - 要打开拉取请求中代码相关的议题，请找到该拉取请求并单击 {% octicon "diff" aria-label="The file diff icon" %} **Files changed（文件已更改）**。 Then, browse to the file that contains the code you want included in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
 4. 在代码范围左侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}。 在下拉菜单中，单击 **Reference in new issue（新议题中的引用）**。 ![带有从所选行打开新议题的选项的烤肉串式菜单](/assets/images/help/repository/open-new-issue-specific-line.png)
 {% data reusables.repositories.type-issue-title-and-description %}
@@ -143,7 +143,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 | `projects`  | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` 创建标题为 "Bug fix" 的议题并将其添加到组织的项目板 1。                                                                                                                                                     |
 | `模板`        | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` 使用模板在议题正文中创建议题。 `template` 查询参数支持仓库根目录 `docs/` 或 `.github/` 的 `ISSUE_TEMPLATE` 子目录中存储的模板。 更多信息请参阅“[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)”。 |
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+{% if code-scanning-task-lists %}
 ## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}

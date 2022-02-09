@@ -1,6 +1,6 @@
 ---
-title: Requesting organization approval for OAuth Apps
-intro: 'Organization members can request that an owner approve access to organization resources for {% data variables.product.prodname_oauth_app %}.'
+title: 请求组织批准 OAuth 应用程序
+intro: '组织成员可以请求所有者批准对 {% data variables.product.prodname_oauth_app %}组织资源的访问权限。'
 redirect_from:
   - /articles/requesting-organization-approval-for-third-party-applications
   - /articles/requesting-organization-approval-for-your-authorized-applications
@@ -12,20 +12,18 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Request OAuth App approval
+shortTitle: 请求 OAuth 应用程序批准
 ---
-## Requesting organization approval for an {% data variables.product.prodname_oauth_app %} you've already authorized for your personal account
+
+## 请求组织批准您已为个人帐户授权的 {% data variables.product.prodname_oauth_app %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.access_applications %}
 {% data reusables.user_settings.access_authorized_oauth_apps %}
-3. In the list of applications, click the name of the {% data variables.product.prodname_oauth_app %} you'd like to request access for.
-![View application button](/assets/images/help/settings/settings-third-party-view-app.png)
-4. Next to the organization you'd like the {% data variables.product.prodname_oauth_app %} to access, click **Request access**.
-![Request access button](/assets/images/help/settings/settings-third-party-request-access.png)
-5. After you review the information about requesting {% data variables.product.prodname_oauth_app %} access, click **Request approval from owners**.
-![Request approval button](/assets/images/help/settings/oauth-access-request-approval.png)
+3. 在应用程序列表中，单击您想要请求访问权限的 {% data variables.product.prodname_oauth_app %}的名称。 ![查看应用程序按钮](/assets/images/help/settings/settings-third-party-view-app.png)
+4. 在您想要 {% data variables.product.prodname_oauth_app %}访问的组织旁边，单击 **Request access（请求访问权限）**。 ![请求访问权限按钮](/assets/images/help/settings/settings-third-party-request-access.png)
+5. 审查关于请求 {% data variables.product.prodname_oauth_app %}访问权限的信息后，单击 **Request approval from owners（请求所有者的批准）**。 ![请求批准按钮](/assets/images/help/settings/oauth-access-request-approval.png)
 
-## Further reading
+## 延伸阅读
 
-- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
+- "[关于 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/about-oauth-app-access-restrictions)"

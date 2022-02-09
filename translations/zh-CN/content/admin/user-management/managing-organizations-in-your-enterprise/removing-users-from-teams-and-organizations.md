@@ -6,6 +6,7 @@ redirect_from:
   - /admin/user-management/removing-users-from-teams-and-organizations
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -25,6 +26,8 @@ shortTitle: 删除用户成员资格
 
 ## 移除团队成员
 
+{% ifversion ghes %}
+
 {% warning %}
 
 **注**：{% data reusables.enterprise_management_console.badge_indicator %}
@@ -32,6 +35,8 @@ shortTitle: 删除用户成员资格
 要移除已同步到 LDAP 组的某个团队的现有成员，请联系您的 LDAP 管理员。
 
 {% endwarning %}
+
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

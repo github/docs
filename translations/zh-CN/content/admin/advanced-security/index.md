@@ -1,7 +1,7 @@
 ---
-title: Managing GitHub Advanced Security for your enterprise
-shortTitle: Managing GitHub Advanced Security
-intro: 'You can configure {% data variables.product.prodname_advanced_security %} and manage use by your enterprise to suit your organization''s needs.'
+title: 管理企业的 GitHub Advanced Security
+shortTitle: 管理 GitHub Advanced Security
+intro: '您可以配置 {% data variables.product.prodname_advanced_security %} 并管理企业的使用，以满足组织的需求。'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /enterprise/admin/configuration/configuring-advanced-security-features
@@ -18,3 +18,4 @@ children:
   - /overview-of-github-advanced-security-deployment
   - /deploying-github-advanced-security-in-your-enterprise
 ---
+

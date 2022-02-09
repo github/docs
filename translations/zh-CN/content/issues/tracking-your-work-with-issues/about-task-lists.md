@@ -51,6 +51,12 @@ topics:
 
 {% data reusables.repositories.task-list-markdown %}
 
+{% tip %}
+
+**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+
+{% endtip %}
+
 ## 对任务重新排序
 
 您可以单击任务左边的复选框并将任务拖放至新位置，对任务列表中的项目重新排序。 您可以在相同的评论中对不同列表中的任务重新排序，但是不能在不同的评论中重新排序任务。
@@ -70,5 +76,5 @@ topics:
 
 ## 延伸阅读
 
-* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% if code-scanning-task-lists %}
 * "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

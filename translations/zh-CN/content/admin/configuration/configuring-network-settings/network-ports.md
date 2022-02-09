@@ -1,5 +1,5 @@
 ---
-title: Network ports
+title: 网络端口
 redirect_from:
   - /enterprise/admin/articles/configuring-firewalls
   - /enterprise/admin/articles/firewall
@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
-intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
+intro: 根据您需要为管理员、最终用户和电子邮件支持显示的网络服务有选择地打开网络端口。
 versions:
   ghes: '*'
 type: reference
@@ -18,36 +18,37 @@ topics:
   - Networking
   - Security
 ---
-## Administrative ports
 
-Some administrative ports are required to configure {% data variables.product.product_location %} and run certain features. Administrative ports are not required for basic application use by end users.
+## 管理端口
 
-| Port | Service | Description |
-|---|---|---|
-| 8443 | HTTPS | Secure web-based {% data variables.enterprise.management_console %}. Required for basic installation and configuration. |
-| 8080 | HTTP | Plain-text web-based {% data variables.enterprise.management_console %}. Not required unless SSL is disabled manually. |
-| 122 | SSH | Shell access for {% data variables.product.product_location %}. Required to be open to incoming connections between all nodes in a high availability configuration. The default SSH port (22) is dedicated to Git and SSH application network traffic. |
-| 1194/UDP | VPN | Secure replication network tunnel in high availability configuration. Required to be open for communication between all nodes in the configuration.|
-| 123/UDP| NTP | Required for time protocol operation. |
-| 161/UDP | SNMP | Required for network monitoring protocol operation. |
+需要使用一些管理端口来配置 {% data variables.product.product_location %} 和运行某些功能。 最终用户在使用基本应用程序时不需要管理端口。
 
-## Application ports for end users
+| 端口       | 服务    | 描述                                                                                                                                                                                                      |
+| -------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 8443     | HTTPS | 基于安全 Web 的 {% data variables.enterprise.management_console %}。 进行基本安装和配置时需要。                                                                                                                            |
+| 8080     | HTTP  | 基于纯文本 Web 的 {% data variables.enterprise.management_console %}。 除非手动禁用 SSL，否则不需要。                                                                                                                       |
+| 122      | SSH   | 对 {% data variables.product.product_location %} 进行 Shell 访问。 Required to be open to incoming connections between all nodes in a high availability configuration. 默认 SSH 端口 (22) 专用于 Git 和 SSH 应用程序网络流量。 |
+| 1194/UDP | VPN   | 采用高可用性配置的安全复制网络隧道。 Required to be open for communication between all nodes in the configuration.                                                                                                        |
+| 123/UDP  | NTP   | 为时间协议操作所需。                                                                                                                                                                                              |
+| 161/UDP  | SNMP  | 为网络监视协议操作所需。                                                                                                                                                                                            |
 
-Application ports provide web application and Git access for end users.
+## 最终用户的应用程序端口
 
-| Port | Service | Description |
-|---|---|---|
-| 443 | HTTPS | Access to the web application and Git over HTTPS. |
-| 80 | HTTP | Access to the web application. All requests are redirected to the HTTPS port when SSL is enabled. |
-| 22 | SSH | Access to Git over SSH. Supports clone, fetch, and push operations to public and private repositories. |
-| 9418 | Git | Git protocol port supports clone and fetch operations to public repositories with unencrypted network communication. {% data reusables.enterprise_installation.when-9418-necessary %} |
+应用程序端口为最终用户提供 Web 应用程序和 Git 访问。
+
+| 端口   | 服务    | 描述                                                                                                  |
+| ---- | ----- | --------------------------------------------------------------------------------------------------- |
+| 443  | HTTPS | 通过 HTTPS 访问 Web 应用程序和 Git。                                                                          |
+| 80   | HTTP  | 访问 Web 应用程序。 当 SSL 启用时，所有请求都会重定向到 HTTPS 端口。                                                         |
+| 22   | SSH   | 通过 SSH 访问 Git。 支持对公共和私有仓库执行克隆、提取和推送操作。                                                              |
+| 9418 | Git   | Git 协议端口支持通过未加密网络通信对公共仓库执行克隆和提取操作。 {% data reusables.enterprise_installation.when-9418-necessary %}
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-## Email ports
+## 电子邮件端口
 
-Email ports must be accessible directly or via relay for inbound email support for end users.
+电子邮件端口必须可直接访问或通过中继访问，以便为最终用户提供入站电子邮件支持。
 
-| Port | Service | Description |
-|---|---|---|
-| 25 | SMTP | Support for SMTP with encryption (STARTTLS). |
+| 端口 | 服务   | 描述                       |
+| -- | ---- | ------------------------ |
+| 25 | SMTP | 支持采用加密的 SMTP (STARTTLS)。 |

@@ -37,7 +37,7 @@ The default base role is `write`, meaning that everyone in the organization can 
 
 ### Managing access for teams and individual members of your organization
 
-You can also add teams, and individual organization members, as collaborators. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+You can also add teams, and individual organization members, as collaborators. 詳細は「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
 
 You can only invite an individual user to collaborate on your organization-level project if they are a member of the organization.
 

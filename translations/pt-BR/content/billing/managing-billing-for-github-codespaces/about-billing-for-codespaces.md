@@ -48,6 +48,12 @@ Para obter informações sobre como gerenciar e alterar o limite de gastos da su
 
 {% data reusables.codespaces.exporting-changes %}
 
+## Limitando a escolha dos tipos de máquina
+
+O tipo de máquina que um usuário escolhe ao criar um codespace afeta a carga por minuto desse codespace, conforme mostrado acima.
+
+Os proprietários da organização podem criar uma política para restringir os tipos de máquina disponíveis para os usuários. Para obter mais informações, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+
 ## Como a cobrança é administrada para repositórios bifurcados
 
 {% data variables.product.prodname_codespaces %} só pode ser usado em organizações em que um proprietário cobrável tenha sido definido. Para incorrer em encargos com a organização, o usuário deve ser integrante ou colaborador. Caso contrário, não poderá criar um codespace.

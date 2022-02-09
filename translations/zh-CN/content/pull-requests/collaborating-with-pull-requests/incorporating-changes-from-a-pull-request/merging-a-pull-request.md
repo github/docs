@@ -42,8 +42,6 @@ topics:
 
 ## 合并拉取请求
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}

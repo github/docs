@@ -1,6 +1,6 @@
 ---
-title: Managing bots and service accounts with SAML single sign-on
-intro: Organizations that have enabled SAML single sign-on can retain access for bots and service accounts.
+title: SAML シングルサインオンでボットおよびサービスアカウントを管理する
+intro: SAML シングルサインオンを有効にしている Organization は、ボットおよびサービスアカウントへのアクセスを維持できます。
 redirect_from:
   - /articles/managing-bots-and-service-accounts-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/managing-bots-and-service-accounts-with-saml-single-sign-on
@@ -9,17 +9,17 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Manage bots & service accounts
+shortTitle: ボット及びサービスアカウントの管理
 ---
 
-To retain access for bots and service accounts, organization administrators can [enable](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), but **not** [enforce](/articles/enforcing-saml-single-sign-on-for-your-organization) SAML single sign-on for their organization. If you need to enforce SAML single sign-on for your organization, you can create an external identity for the bot or service account with your identity provider (IdP).
+ボットおよびサービスアカウントへのアクセスを維持するために、Organization の管理者はその Organization に対して SAML シングルサインオンを[有効化](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)することはできますが、[強制](/articles/enforcing-saml-single-sign-on-for-your-organization)することは**できません**。 Organization に対して SAML シングルサインオンを強制する必要がある場合は、アイデンティティプロバイダ (IdP) を利用してボットまたはサービスアカウントに外部アイデンティティを作成する方法があります。
 
 {% warning %}
 
-**Note:** If you enforce SAML single sign-on for your organization and **do not** have external identities set up for bots and service accounts with your IdP, they will be removed from your organization.
+**注釈:** Organization に対して SAML シングルサインオンを強制しておらず、ボットおよびサービスアカウントに対して IdP で外部 ID を設定して**いない**場合、それらは Organization から削除されます。
 
 {% endwarning %}
 
-## Further reading
+## 参考リンク
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)

@@ -1,6 +1,6 @@
 ---
-title: Connecting with third-party applications
-intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing one of these applications, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
+title: Conectar con aplicaciones de terceros
+intro: 'Puedes conectar tu identidad {% data variables.product.product_name %} con aplicaciones de terceros mediante OAuth. Al autorizar una de estas aplicaciones, deberías asegurarte de que confías en la aplicación, revisar quién la desarrolló y revisar los tipos de información a la que desea acceder la aplicación.'
 redirect_from:
   - /articles/connecting-with-third-party-applications
   - /github/authenticating-to-github/connecting-with-third-party-applications
@@ -13,65 +13,66 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Third-party applications
+shortTitle: Aplicaciones de terceros
 ---
-When a third-party application wants to identify you by your {% data variables.product.product_name %} login, you'll see a page with the developer contact information and a list of the specific data that's being requested.
 
-## Contacting the application developer
+Cuando una aplicación de terceros desea identificarte mediante tu inicio de sesión de {% data variables.product.product_name %}, verás una página con la información de contacto del programador y una lista de los datos específicos que se han solicitado.
 
-Because an application is developed by a third-party who isn't {% data variables.product.product_name %}, we don't know exactly how an application uses the data it's requesting access to. You can use the developer information at the top of the page to contact the application admin if you have questions or concerns about their application.
+## Contactarse con el programador de la aplicación
 
-![{% data variables.product.prodname_oauth_app %} owner information](/assets/images/help/platform/oauth_owner_bar.png)
+Dado que una aplicación está desarrollada por un tercero que no es {% data variables.product.product_name %}, no sabemos exactamente cómo una aplicación usa los datos a los que solicita acceso. Puedes usar la información del programador en la parte superior de la página para contactarte con el administrador de la aplicación si tienes preguntas o inquietudes sobre tu aplicación.
 
-If the developer has chosen to supply it, the right-hand side of the page provides a detailed description of the application, as well as its associated website.
+![Información del propietario de {% data variables.product.prodname_oauth_app %}](/assets/images/help/platform/oauth_owner_bar.png)
 
-![OAuth application information and website](/assets/images/help/platform/oauth_app_info.png)
+Si el programador ha elegido suministrarla, el lateral derecho de la página brinda una descripción detallada de la aplicación, así como su sitio web asociado.
 
-## Types of application access and data
+![Información de la aplicación OAuth y sitio web](/assets/images/help/platform/oauth_app_info.png)
 
-Applications can have *read* or *write* access to your {% data variables.product.product_name %} data.
+## Tipos de acceso a la aplicación y datos
 
-- **Read access** only allows an application to *look at* your data.
-- **Write access** allows an application to *change* your data.
+Las aplicaciones pueden tener acceso de *lectura* o *escritura* a tus datos de {% data variables.product.product_name %}.
 
-### About OAuth scopes
+- El **acceso de lectura** solo permite que una aplicación *mire* tus datos.
+- El **acceso de escritura** permite que una aplicación *cambie* tus datos.
 
-*Scopes* are named groups of permissions that an application can request to access both public and non-public data.
+### Acerca de los alcances de OAuth
 
-When you want to use a third-party application that integrates with {% data variables.product.product_name %}, that application lets you know what type of access to your data will be required. If you grant access to the application, then the application will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+*Alcances* son grupos de permisos designados que una aplicación puede solicitar para acceder a los datos públicos y no públicos.
 
-{% tip %}
-
-**Note:** Currently, you can't scope source code access to read-only.
-
-{% endtip %}
-
-### Types of requested data
-
-There are several types of data that applications can request.
-
-![OAuth access details](/assets/images/help/platform/oauth_access_types.png)
+Cuando quieres usar una aplicación de terceros que se integra con {% data variables.product.product_name %}, esa aplicación te permite conocer qué tipo de acceso a tus datos serán necesarios. Si otorgas acceso a la aplicación, la aplicación podrá realizar acciones en tu nombre, como leer o modificar datos. Por ejemplo, si quieres usar una app que solicita el alcance `usuario:correo electrónico`, la app solo tendrá acceso de lectura a tus direcciones de correo electrónico privado. Para obtener más información, consulta la sección "[Acerca de los alcances para {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)".
 
 {% tip %}
 
-**Tip:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**Nota:** Actualmente, no puedes demarcar el acceso al código fuente a solo lectura.
 
 {% endtip %}
 
-| Type of data | Description |
-| --- | --- |
-| Commit status | You can grant access for a third-party application to report your commit status. Commit status access allows applications to determine if a build is a successful against a specific commit. Applications won't have access to your code, but they <em>can</em> read and write status information against a specific commit. |
-| Deployments | Deployment status access allows applications to determine if a deployment is successful against a specific commit for a repository. Applications won't have access to your code. |
-| Gists | [Gist](https://gist.github.com) access allows applications to read or write to {% ifversion not ghae %}both your public and{% else %}both your internal and{% endif %} secret Gists. |
-| Hooks | [Webhooks](/webhooks) access allows applications to read or write hook configurations on repositories you manage. |
-| Notifications | Notification access allows applications to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, applications remain unable to access anything in your repositories. |
-| Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
-| Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
-| Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. An application can request access to all of your repositories of any visibility level. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)." |
-| Repository delete | Applications can request to delete repositories that you administer, but they won't have access to your code. |
+### Tipos de datos solicitados
 
-## Requesting updated permissions
+Existen varios tipos de datos que las aplicaciones pueden solicitar.
 
-Applications can request new access privileges. When asking for updated permissions, the application will notify you of the differences.
+![Detalles de acceso a OAuth](/assets/images/help/platform/oauth_access_types.png)
 
-![Changing third-party application access](/assets/images/help/platform/oauth_existing_access_pane.png)
+{% tip %}
+
+**Sugerencia:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+
+{% endtip %}
+
+| Tipos de datos               | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Estado de confirmación       | Puedes otorgar acceso a una aplicación de terceros para que informe tu estado de confirmación. El acceso al estado de confirmación permite que las aplicaciones determinen si una construcción es exitosa frente a una confirmación específica. Las aplicaciones no tendrán acceso a tu código, pero <em>pueden</em> leer y escribir la información del estado frente a una confirmación específica.                          |
+| Implementaciones             | El acceso a los estados de despliegue les permite a las aplicaciones determinar si un despliegue es exitoso contra una confirmación específica para un repositorio. Las aplicaciones no tendrán acceso a tu código.                                                                                                                                                                                                                   |
+| Gists                        | El acceso a los [Gists](https://gist.github.com) permite a las aplicaciones leer o escribir tanto en{% ifversion not ghae %}tus gists públicos y{% else %}tus gists internos y{% endif %} secretos.                                                                                                                                                                                                                                   |
+| Ganchos                      | El acceso a [webhooks](/webhooks) permite que las aplicaciones lean o escriban configuraciones de gancho en los repositorios que administras.                                                                                                                                                                                                                                                                                         |
+| Notificaciones               | El acceso a las notificaciones permite a las aplicaciones leer tus notificaciones de {% data variables.product.product_name %}, tales como los comentarios sobre las propuestas y las solicitudes de cambios. Sin embargo, las aplicaciones permanecen inhabilitadas para acceder a tus repositorios.                                                                                                                                 |
+| Organizaciones y equipos     | El acceso a organizaciones y equipos permite que las apps accedan y administren la membresía de la organización y del equipo.                                                                                                                                                                                                                                                                                                         |
+| Datos personales del usuario | Entre los datos del usuario se incluye información que se encuentra en tu perfil de usuario, como tu nombre, dirección de correo electrónico y ubicación.                                                                                                                                                                                                                                                                             |
+| Repositorios                 | La información del repositorio incluye los nombres de los colaboradores, las ramas que creaste y los archivos actuales dentro de tu repositorio. Una aplicación puede solicitar acceso a todos tus repositorios en cualquier nivel de visibilidad. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)". |
+| Eliminación de repositorio   | Las aplicaciones pueden solicitar la eliminación de los repositorios que administras,, pero no tendrán acceso a tu código.                                                                                                                                                                                                                                                                                                            |
+
+## Solicitar permisos actualizados
+
+Las aplicaciones pueden solicitar nuevos privilegios de acceso. Al solicitar permisos actualizados, la aplicación te notificará de las diferencias.
+
+![Cambiar el acceso a aplicaciones de terceros](/assets/images/help/platform/oauth_existing_access_pane.png)

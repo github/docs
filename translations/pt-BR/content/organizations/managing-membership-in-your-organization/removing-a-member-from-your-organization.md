@@ -1,6 +1,6 @@
 ---
-title: Removing a member from your organization
-intro: 'If members of your organization no longer require access to any repositories owned by the organization, you can remove them from the organization.'
+title: Remover um integrante da organização
+intro: 'Se integrantes não precisarem mais acessar os repositórios pertencentes à organização, você poderá removê-los da organização.'
 redirect_from:
   - /articles/removing-a-member-from-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/removing-a-member-from-your-organization
@@ -12,22 +12,22 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Remove a member
+shortTitle: Remover um integrante
 ---
 
-Only organization owners can remove members from an organization.
+Somente proprietários da organização podem remover integrantes da organização.
 
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Warning:** When you remove members from an organization:
-- The paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in "[Downgrading your organization's paid seats](/articles/downgrading-your-organization-s-paid-seats)."
-- Removed members will lose access to private forks of your organization's private repositories, but they may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/articles/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
+**Aviso:** Ao remover integrantes de uma organização:
+- O número de licenças pagas não faz o downgrade automaticamente. Para pagar menos licenças depois de remover os usuários da sua organização, siga as etapas em "[Fazer o downgrade das estações pagas da sua organização](/articles/downgrading-your-organization-s-paid-seats)".
+- Os integrantes removidos perderão o acesso às bifurcações privadas dos repositórios privados da sua organização, mas ainda poderão ter cópias locais. No entanto, eles não conseguem sincronizar as cópias locais com os repositórios da organização. As bifurcações privadas poderão ser restauradas se o usuário for [restabelecido como um integrante da organização](/articles/reinstating-a-former-member-of-your-organization) em até três meses após sua remoção da organização. Em última análise, você é responsável por garantir que as pessoas que perderam o acesso a um repositório excluam qualquer informação confidencial ou de propriedade intelectual.
 {%- ifversion ghec %}
--  Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+-  Os integrantes removidos também perderão acesso a bifurcações privadas dos repositórios internos da sua organização, se o integrante removido não for integrante de qualquer outra organização pertencente à mesma conta corporativa. Para obter mais informações, consulte "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)".
 {%- endif %}
-- Any organization invitations sent by a removed member, that have not been accepted, are cancelled and will not be accessible.
+- Quaisquer convites para organizações enviados por um integrante removido que não foram aceitos, serão cancelados e não serão acessíveis.
 
 {% endwarning %}
 
@@ -35,10 +35,10 @@ Only organization owners can remove members from an organization.
 
 {% warning %}
 
-**Warning:** When you remove members from an organization:
- - Removed members will lose access to private forks of your organization's private repositories, but may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/articles/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
-- Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization in your enterprise.
- - Any organization invitations sent by the removed user, that have not been accepted, are cancelled and will not be accessible.
+**Aviso:** Ao remover integrantes de uma organização:
+ - Os integrantes removidos perderão o acesso às bifurcações privadas dos repositórios privados da sua organização, mas ainda poderão ter cópias locais. No entanto, eles não conseguem sincronizar as cópias locais com os repositórios da organização. As bifurcações privadas poderão ser restauradas se o usuário for [restabelecido como um integrante da organização](/articles/reinstating-a-former-member-of-your-organization) em até três meses após sua remoção da organização. Em última análise, você é responsável por garantir que as pessoas que perderam o acesso a um repositório excluam qualquer informação confidencial ou de propriedade intelectual.
+- Os integrantes removidos também perderão acesso a bifurcações privadas dos repositórios internos da sua organização, se o integrante removido não for um integrante de outra organização na sua empresa.
+ - Quaisquer convites para organizações enviados pelo usuário removido, que não foram aceitos, serão cancelados e não serão acessíveis.
 
 {% endwarning %}
 
@@ -46,24 +46,21 @@ Only organization owners can remove members from an organization.
 
 {% ifversion fpt or ghec %}
 
-To help the person you're removing from your organization transition and help ensure they delete confidential information or intellectual property, we recommend sharing a checklist of best practices for leaving your organization. For an example, see "[Best practices for leaving your company](/articles/best-practices-for-leaving-your-company/)."
+Para auxiliar a transição e garantir a exclusão das informações confidenciais ou de propriedade intelectual, recomendamos o compartilhamento de uma lista de práticas recomendadas ao sair da organização com o usuário que está sendo removido. Consulte um exemplo em "[Práticas recomendadas para sair da empresa](/articles/best-practices-for-leaving-your-company/)".
 
 {% endif %}
 
 {% data reusables.organizations.data_saved_for_reinstating_a_former_org_member %}
 
-## Revoking the user's membership
+## Revogar a associação do usuário
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
-4. Select the member or members you'd like to remove from the organization.
-  ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
-5. Above the list of members, use the drop-down menu, and click **Remove from organization**.
-  ![Drop-down menu with option to remove members](/assets/images/help/teams/user-bulk-management-options.png)
-6. Review the member or members who will be removed from the organization, then click **Remove members**.
-  ![List of members who will be removed and Remove members button](/assets/images/help/teams/confirm-remove-members-bulk.png)
+4. Selecione um ou mais integrantes que deseja remover da organização. ![Lista de integrantes com dois integrantes selecionados](/assets/images/help/teams/list-of-members-selected-bulk.png)
+5. Acima da lista de integrantes, use o menu suspenso e clique **Remove from organization** (Remover da organização). ![Menu suspenso com opção de remover integrantes](/assets/images/help/teams/user-bulk-management-options.png)
+6. Revise os integrantes que serão removidos da organização e clique em **Remove members** (Remover integrantes). ![Lista de integrantes que serão removidos e botão Remove members (Remover integrantes)](/assets/images/help/teams/confirm-remove-members-bulk.png)
 
-## Further reading
+## Leia mais
 
-- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"
+- "[Remover integrantes da organização de uma equipe](/articles/removing-organization-members-from-a-team)"

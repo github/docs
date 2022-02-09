@@ -1,6 +1,6 @@
 ---
-title: Enabling debug logging
-intro: 'If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging.'
+title: 启用调试日志
+intro: 如果工作流程日志没有提供足够的详细信息来诊断工作流程、作业或步骤未按预期工作的原因，您可以启用额外的调试日志。
 redirect_from:
   - /actions/managing-workflow-runs/enabling-debug-logging
 versions:
@@ -13,7 +13,7 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-These extra logs are enabled by setting secrets in the repository containing the workflow, so the same permissions requirements will apply:
+这些额外的日志将通过在包含工作流程的仓库中设置密码来启用，因此将应用相同的权限要求：
 
 - {% data reusables.github-actions.permissions-statement-secrets-repository %}
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
@@ -22,23 +22,23 @@ These extra logs are enabled by setting secrets in the repository containing the
 - {% data reusables.github-actions.permissions-statement-secrets-organization %}
 - {% data reusables.github-actions.permissions-statement-secrets-api %}
 
-For more information on setting secrets, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+有关设置密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
-## Enabling runner diagnostic logging
+## 启用运行程序诊断日志
 
-Runner diagnostic logging provides additional log files that contain information about how a runner is executing a job. Two extra log files are added to the log archive:
+Runner diagnostic logging provides additional log files that contain information about how a runner is executing a job. 两个额外的日志文件被添加到日志存档中：
 
-* The runner process log, which includes information about coordinating and setting up runners to execute jobs.
-* The worker process log, which logs the execution of a job.
+* 运行程序进程日志，其中包含关于如何协调和设置运行程序执行作业的信息。
+* 工作程序进程日志，用于记录作业执行情况。
 
-1. To enable runner diagnostic logging, set the following secret in the repository that contains the workflow: `ACTIONS_RUNNER_DEBUG` to `true`.
+1. 要启用运行程序诊断日志，请在包含工作流程的仓库中设置以下密码：将 `ACTIONS_RUNNER_DEBUG` 设置为 `true`。
 
-1. To download runner diagnostic logs, download the log archive of the workflow run. The runner diagnostic logs are contained in the `runner-diagnostic-logs` folder. For more information on downloading logs, see "[Downloading logs](/actions/managing-workflow-runs/using-workflow-run-logs/#downloading-logs)."
+1. 要下载运行程序诊断日志，请下载工作流程运行情况的日志存档。 运行程序诊断日志包含在 `runner-diagnostic-logs` 文件夹中。 关于下载日志的更多信息，请参阅“[下载日志](/actions/managing-workflow-runs/using-workflow-run-logs/#downloading-logs)”。
 
-## Enabling step debug logging
+## 启用步骤调试日志
 
-Step debug logging increases the verbosity of a job's logs during and after a job's execution.
+步骤调试日志增加了作业执行期间和执行之后的作业日志的详细程度。
 
-1. To enable step debug logging, you must set the following secret in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`.
+1. 要启用步骤调试日志，必须在包含工作流程的仓库中设置以下密码：将 `ACTIONS_STEP_DEBUG` 设置为 `true`。
 
-1. After setting the secret, more debug events are shown in the step logs. For more information, see ["Viewing logs to diagnose failures"](/actions/managing-workflow-runs/using-workflow-run-logs/#viewing-logs-to-diagnose-failures).
+1. 设置密码后，步骤日志中会显示更多调试事件。 更多信息请参阅[“查看日志以诊断故障”](/actions/managing-workflow-runs/using-workflow-run-logs/#viewing-logs-to-diagnose-failures)。

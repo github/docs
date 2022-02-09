@@ -5,11 +5,15 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.2.0-alpine as base
+FROM node:16.13.2-alpine@sha256:f21f35732964a96306a84a8c4b5a829f6d3a0c5163237ff4b6b8b34f8d70064b as base
 
-RUN apk add --no-cache make g++ git
+# This directory is owned by the node user
+ARG APP_HOME=/home/node/app
 
-WORKDIR /usr/src/docs
+# Make sure we don't run anything as the root user
+USER node
+
+WORKDIR $APP_HOME
 
 
 # ---------------
@@ -17,10 +21,14 @@ WORKDIR /usr/src/docs
 # ---------------
 FROM base as all_deps
 
-COPY .npmrc ./
-COPY package*.json ./
+COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm ci
+RUN npm ci --no-optional
+
+# For Next.js v12+
+# This the appropriate necessary extra for node:16-alpine
+# Other options are https://www.npmjs.com/search?q=%40next%2Fswc
+# RUN npm i @next/swc-linux-x64-musl --no-save
 
 
 # ---------------
@@ -51,25 +59,16 @@ COPY next-env.d.ts ./next-env.d.ts
 RUN npm run build
 
 # --------------------------------------------------------------------------------
-# MAIN IMAGE
+# PREVIEW IMAGE - no translations
 # --------------------------------------------------------------------------------
 
-FROM node:16.2.0-alpine as production
+FROM base as preview
 
-# Let's make our home
-WORKDIR /usr/src/docs
-
-# Ensure our node user owns the directory we're using
-RUN chown node:node /usr/src/docs -R
-
-# This should be our normal running user
-USER node
-
-# Copy just our prod dependencies
-COPY --chown=node:node --from=prod_deps /usr/src/docs/node_modules /usr/src/docs/node_modules
+# Copy just prod dependencies
+COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules $APP_HOME/node_modules
 
 # Copy our front-end code
-COPY --chown=node:node --from=builder /usr/src/docs/.next /usr/src/docs/.next
+COPY --chown=node:node --from=builder $APP_HOME/.next $APP_HOME/.next
 
 # We should always be running in production mode
 ENV NODE_ENV production
@@ -77,16 +76,15 @@ ENV NODE_ENV production
 # Whether to hide iframes, add warnings to external links
 ENV AIRGAP false
 
-# By default we typically don't want to run in clustered mode
-ENV WEB_CONCURRENCY 1
-
-# This makes sure server.mjs always picks up the preferred port
+# Preferred port for server.mjs
 ENV PORT 4000
 
+ENV ENABLED_LANGUAGES "en"
+
 # Copy only what's needed to run the server
+COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node includes ./includes
-COPY --chown=node:node translations ./translations
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node middleware ./middleware
@@ -99,13 +97,10 @@ EXPOSE $PORT
 
 CMD ["node", "server.mjs"]
 
-
 # --------------------------------------------------------------------------------
-# MAIN IMAGE WITH EARLY ACCESS
+# PRODUCTION IMAGE - includes all translations
 # --------------------------------------------------------------------------------
+FROM preview as production
 
-FROM production as production_early_access
-
-COPY --chown=node:node content/early-access ./content/early-access
-
-CMD ["node", "server.mjs"]
+# Copy in all translations
+COPY --chown=node:node translations ./translations

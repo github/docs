@@ -1,6 +1,6 @@
 ---
-title: Synchronizing a team with an identity provider group
-intro: 'You can synchronize a {% data variables.product.product_name %} team with an identity provider (IdP) group to automatically add and remove team members.'
+title: Sincronizar un equipo con un grupo de proveedor de identidad
+intro: 'Puedes sincronizar un equipo de {% data variables.product.product_name %} con un grupo de proveedor de identidad (IdP) para agregar y eliminar miembros del grupo automáticamente.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
 permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
@@ -10,95 +10,90 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Synchronize with an IdP
+shortTitle: Sincronizar con un IdP
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
-## About team synchronization
+## Acerca de la sincronización de equipo
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
-{% ifversion ghec %}You can connect up to five IdP groups to a {% data variables.product.product_name %} team.{% elsif ghae %}You can connect a team on {% data variables.product.product_name %} to one IdP group. All users in the group are automatically added to the team and also added to the parent organization as members. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization.{% endif %} You can assign an IdP group to multiple {% data variables.product.product_name %} teams.
+{% ifversion ghec %}Puedes conectar hasta cinco grupos de IdP a un equipo de {% data variables.product.product_name %}.{% elsif ghae %}Puedes conectar a un equipo de {% data variables.product.product_name %} a un grupo de IdP. Todos los usuarios en el grupo se agregan automáticamente al equipo y también a la organización padre como miembros. Cuando desconectas a un grupo de un equipo, los usuarios que se convirtieron en miembros de la organización a través de una membrecía de equipo se eliminan de dicha organización.{% endif %} Puedes asignar un grupo de IdP a varios equipos de {% data variables.product.product_name %}.
 
-{% ifversion ghec %}Team synchronization does not support IdP groups with more than 5000 members.{% endif %}
+{% ifversion ghec %}La sincronización de equipos no es compatible con grupos de IdP con más de 5000 miembros.{% endif %}
 
-Once a {% data variables.product.prodname_dotcom %} team is connected to an IdP group, your IdP administrator must make team membership changes through the identity provider. You cannot manage team membership on {% data variables.product.product_name %}{% ifversion ghec %} or using the API{% endif %}.
+Una vez que un equipo de {% data variables.product.prodname_dotcom %} se conecta a un grupo de IdP, tu administrador de IdP debe hacer cambios en la membrecía del equipo a través del proveedor de identidad. No puedes administrar las membrecías de equipo en {% data variables.product.product_name %}{% ifversion ghec %} ni utilizando la API{% endif %}.
 
 {% ifversion ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
 {% ifversion ghec %}
-All team membership changes made through your IdP will appear in the audit log on {% data variables.product.product_name %} as changes made by the team synchronization bot. Your IdP will send team membership data to {% data variables.product.prodname_dotcom %} once every hour.
-Connecting a team to an IdP group may remove some team members. For more information, see "[Requirements for members of synchronized teams](#requirements-for-members-of-synchronized-teams)."
+Todos los cambios a la membrecía de equipo que se hagan con tu IdP aparecerán en la bitácora de auditoría en {% data variables.product.product_name %} como cambios que realiza el bot de sincronización de equipos. Tu IdP enviará datos de la membresía de equipo a {% data variables.product.prodname_dotcom %} una vez por hora. Conectar un equipo a un grupo IdP puede eliminar a algunos miembros del equipo. Para obtener más información, consulta "[Requisitos para los miembros de los equipos sincronizados](#requirements-for-members-of-synchronized-teams)."
 {% endif %}
 
 {% ifversion ghae %}
-When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.product_name %} according to the schedule determined by your IdP. Any requests that change {% data variables.product.prodname_dotcom %} team or organization membership will register in the audit log as changes made by the account used to configure user provisioning. For more information about this account, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)." For more information about SCIM request schedules, see "[Check the status of user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)" in the Microsoft Docs.
+Cuando cambia la membrecía de grupo en tu IdP, este envía una solicitud de SCIM con los cambios a {% data variables.product.product_name %} de acuerdo con la programación que determinó tu IdP. Cualquier solicitud que cambie la membrecía de organización o equipo de {% data variables.product.prodname_dotcom %} se registrará en la bitácora de auditoría como cambios que realizó la cuenta que se utilizó para configurar el aprovisionamiento de usuarios. Para obtener más información sobre esta cuenta, consulta la sección "[Configurar el aprovisionamiento de usuarios para tu empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)". Para obtener más información acerca de los itinerarios de solicitudes de SCIM, consulta la sección "[Verificar el estado del aprovisionamiento de usuarios](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)" en Microsoft Docs.
 {% endif %}
 
-Parent teams cannot synchronize with IdP groups. If the team you want to connect to an IdP group is a parent team, we recommend creating a new team or removing the nested relationships that make your team a parent team. For more information, see "[About teams](/articles/about-teams#nested-teams)," "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)," and "[Moving a team in your organization's hierarchy](/articles/moving-a-team-in-your-organizations-hierarchy)."
+Los equipos padre no pueden sincronizarse con los grupos de IdP. Si el equipo que quieres conectar a un grupo de IdP es un equipo padre, te recomendamos crear un equipo nuevo o eliminar las relaciones anidadas que hacen de tu equipo un equipo padre. Para obtener más información, consulta las secciónes "[Acerca de los equipos](/articles/about-teams#nested-teams)", "[Crear un equipo](/organizations/organizing-members-into-teams/creating-a-team)", y "[Mover un equipo en la jerarquía de tu organización](/articles/moving-a-team-in-your-organizations-hierarchy)".
 
-To manage repository access for any {% data variables.product.prodname_dotcom %} team, including teams connected to an IdP group, you must make changes with {% data variables.product.product_name %}. For more information, see "[About teams](/articles/about-teams)" and "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)." 
+Para administrar el acceso de un repositorio para cualquier equipo de {% data variables.product.prodname_dotcom %}, incluyendo los equipos conectados a un grupo de IdP debes hacer cambios con {% data variables.product.product_name %}. Para obtener más información, consulta "[Acerca de equipos](/articles/about-teams)" y "[Administrar el acceso de equipo a un repositorio de la organización](/articles/managing-team-access-to-an-organization-repository)."
 
-{% ifversion ghec %}You can also manage team synchronization with the API. For more information, see "[Team synchronization](/rest/reference/teams#team-sync)."{% endif %}
+{% ifversion ghec %}También puedes administrar la sincronización de equipos con la API. Para obtener más información, consulta la sección "[Sincronización de equipos](/rest/reference/teams#team-sync)".{% endif %}
 
 {% ifversion ghec %}
-## Requirements for members of synchronized teams
+## Requisitos para los miembros de los equipos sincronizados
 
-After you connect a team to an IdP group, team synchronization will add each member of the IdP group to the corresponding team on {% data variables.product.product_name %} only if:
-- The person is a member of the organization on {% data variables.product.product_name %}.
-- The person has already logged in with their user account on {% data variables.product.product_name %} and authenticated to the organization or enterprise account via SAML single sign-on at least once.
-- The person's SSO identity is a member of the IdP group.  
+Después de que conectas un equipo a un grupo de IdP, la sincronización de equipos agregará a cada miembro del grupo de IdP al equipo correspondiente en {% data variables.product.product_name %} únicamente si:
+- La persona es un miembro de la organización en {% data variables.product.product_name %}.
+- La persona ya ingresó con su cuenta de usuario en {% data variables.product.product_name %} y se autenticó en la cuenta organizacional o empresarial a través del inicio de sesión único de SAML por lo menos una vez.
+- La identidad de SSO de la persona es miembro del grupo de IdP.
 
-Existing teams or group members who do not meet these criteria will be automatically removed from the team on {% data variables.product.product_name %} and lose access to repositories. Revoking a user's linked identity will also remove the user from from any teams mapped to IdP groups. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" and "[Viewing and managing a user's SAML access to your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
+Los equipos o miembros del grupo existentes que no cumplan con estos criterios se eliminarán automáticamente del equipo en {% data variables.product.product_name %} y perderán acceso a los repositorios. El revocar la identidad ligada a un usuario también eliminará a dicho usuario de cualquier equipo que se encuentre mapeado en los grupos de IdP. Para obtener más información, consulta las secciones "[Ver y administrar el acceso SAML de los miembros a tu organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" y "[Ver y administrar el acceso SAML de los usuarios a tu empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)".
 
-A removed team member can be added back to a team automatically once they have authenticated to the organization or enterprise account using SSO and are moved to the connected IdP group.
+Puedes volver a agregar automáticamente a aquellos miembros del equipo que hayas eliminado una vez que se autentiquen en la cuenta empresarial u organizacional utilizando el SSO y así se migren al grupo de IdP conectado.
 
-To avoid unintentionally removing team members, we recommend enforcing SAML SSO in your organization or enterprise account, creating new teams to synchronize membership data, and checking IdP group membership before synchronizing existing teams. For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Configuring SAML single sign-on for your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+Para evitar eliminar miembros del equipo accidentalmente, te recomendamos requerir el SSO de SAML en tu cuenta organizacional o empresarial mediante la creación de nuevos equipos para sincronizar datos de membrecías y revisar la membrecía del grupo de IdP antes de que sincronices a los equipos existentes. Para obtener más información, consulta las secciones "[Requerir el inicio de sesión único de SAML para tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)" y "[Configurar el inicio de sesión único de SAML para tu empresa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
 {% endif %}
 
-## Prerequisites
+## Prerrequisitos
 
 {% ifversion ghec %}
-Before you can connect a {% data variables.product.product_name %} team with an identity provider group, an organization or enterprise owner must enable team synchronization for your organization or enterprise account. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise account](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
+Antes de que puedas conectar a un equipo de {% data variables.product.product_name %} con un grupo de proveedores de identidad, un propietario de empresa u organización debe habilitar la sincronización de equipos para tu organización o cuenta empresarial. Para obtener más información, consulta las secciones "[Administrar la sincronización de equipos para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" y "[Administrar la sincronización de equipos para las organizaciones de tu cuenta empresarial](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)".
 
-To avoid unintentionally removing team members, visit the administrative portal for your IdP and confirm that each current team member is also in the IdP groups that you want to connect to this team. If you don't have this access to your identity provider, you can reach out to your IdP administrator.
+Para evitar el eliminar miembros del equipo accidentalmente, visita el protal administrativo para tu IdP y confirma que cada miembro actual del equipo también se encuentre en los grupos de IdP que quieras conectar a este equipo. Si no tienes este acceso a tu proveedor de identidad, puedes comunicarte con tu administrador de IdP.
 
-You must authenticate using SAML SSO. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
+Debes autenticarte utilizando el SSO de SAML. Para obtener más información, consulta "[Acerca de la autenticación con el inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)".
 
 {% elsif ghae %}
-Before you can connect a {% data variables.product.product_name %} team with an IdP group, you must first configure user provisioning for {% data variables.product.product_location %} using a supported System for Cross-domain Identity Management (SCIM). For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
+Antes de que puedas conectar a un equipo de {% data variables.product.product_name %} con un grupo de IdP, primero debes configurar el aprovisionamiento de usuarios para {% data variables.product.product_location %} utilizando un sistema compatible para la Administración de Identidad entre Dominios (SCIM). Para obtener más información, consulta la sección "[Configurar el aprovisionamiento de usuarios para tu empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)".
 
-Once user provisioning for {% data variables.product.product_name %} is configured using SCIM, you can assign the {% data variables.product.product_name %} application to every IdP group that you want to use on {% data variables.product.product_name %}. For more information, see [Configure automatic user provisioning to GitHub AE](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae) in the Microsoft Docs.
+Una vez que se configure el aprovisionamiento de usuarios para {% data variables.product.product_name %} utilizando SCIM, puedes asignar la aplicación de {% data variables.product.product_name %} a cada grupo de IdP que quieras utilizar en {% data variables.product.product_name %}. Para obtener más información, consulta la sección de [Configurar el aprovisionamiento automático de usuarios en GitHub AE](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae) en los Microsoft Docs.
 {% endif %}
 
-## Connecting an IdP group to a team
+## Conectar un grupo de IdP a tu equipo
 
-When you connect an IdP group to a {% data variables.product.product_name %} team, all users in the group are automatically added to the team. {% ifversion ghae %}Any users who were not already members of the parent organization members are also added to the organization.{% endif %}
-
-{% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team_settings %}
-{% ifversion ghec %}
-6. Under "Identity Provider Groups", use the drop-down menu, and select up to 5 identity provider groups.
-    ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png){% elsif ghae %}
-6. Under "Identity Provider Group", use the drop-down menu, and select an identity provider group from the list.
-    ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png){% endif %}
-7. Click **Save changes**.
-
-## Disconnecting an IdP group from a team
-
-If you disconnect an IdP group from a {% data variables.product.prodname_dotcom %} team, team members that were assigned to the {% data variables.product.prodname_dotcom %} team through the IdP group will be removed from the team. {% ifversion ghae %} Any users who were members of the parent organization only because of that team connection are also removed from the organization.{% endif %}
+Cuando conectas un grupo de IdP a un equipo de {% data variables.product.product_name %}, todos los usuarios en el grupo se agregan automáticamente al equipo. {% ifversion ghae %}Cualquier usuario que no fuera un miembro de aquellos de la organización desde antes también se agregará a esta.{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion ghec %}
-6. Under "Identity Provider Groups", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}. 
-    ![Unselect a connected IdP group from the GitHub team](/assets/images/help/teams/unselect-idp-group.png){% elsif ghae %}
-6. Under "Identity Provider Group", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}. 
-    ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png){% endif %}
-7. Click **Save changes**.
+6. Debajo de "Grupos del Proveedor de Identidad", utiliza el menú desplegable y selecciona hasta 5 grupos del proveedor de identidad. ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png){% elsif ghae %}
+6. Debajo de "Grupo del Proveedor de Identidad", utiliza el menú desplegable y selecciona un grupo de proveedor de identidad de la lista. ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png){% endif %}
+7. Haz clic en **Guardar cambios**.
+
+## Desconectar un grupo de IdP de un equipo
+
+Si desconectas un grupo de IdP de un equipo de {% data variables.product.prodname_dotcom %}, los miembros de este equipo que fueran asignados al equipo {% data variables.product.prodname_dotcom %} a través del grupo de IdP se eliminarán de dicho equipo. {% ifversion ghae %} Cualquier usuario que fuera miembro de la organización padre únicamente debido a esa conexión de equipo también se eliminará de la organización.{% endif %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
+{% ifversion ghec %}
+6. Debajo de "Grupos del Proveedor de Identidad", a la derecha del grupo de IdP que quieras desconectar, da clic en {% octicon "x" aria-label="X symbol" %}. ![Unselect a connected IdP group from the GitHub team](/assets/images/help/teams/unselect-idp-group.png){% elsif ghae %}
+6. Debajo de "Grupo del Proveedor de Identidad", a la derecha del grupo de IdP que quieras desconectar, da clic en {% octicon "x" aria-label="X symbol" %}. ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png){% endif %}
+7. Haz clic en **Guardar cambios**.

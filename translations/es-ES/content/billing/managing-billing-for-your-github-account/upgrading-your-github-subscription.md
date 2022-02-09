@@ -1,22 +1,23 @@
 ---
-title: Upgrading your GitHub subscription
-intro: 'You can upgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
+title: Subir de categoría tu suscripción de GitHub
+intro: 'Puedes mejorar la suscripción de cualquier tipo de cuenta de {% data variables.product.product_location %} en cualquier momento.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
-  - /articles/upgrading-your-personal-account-s-billing-plan/
-  - /articles/upgrading-your-personal-account/
-  - /articles/upgrading-your-personal-account-from-free-to-a-paid-account/
-  - /articles/upgrading-your-personal-account-from-free-to-paid-with-a-credit-card/
-  - /articles/upgrading-your-personal-account-from-free-to-paid-with-paypal/
-  - /articles/500-error-while-upgrading/
-  - /articles/upgrading-your-organization-s-billing-plan/
-  - /articles/changing-your-organization-billing-plan/
-  - /articles/upgrading-your-organization-account-from-free-to-paid-with-a-credit-card/
-  - /articles/upgrading-your-organization-account-from-free-to-paid-with-paypal/
-  - /articles/upgrading-your-organization-account/
-  - /articles/switching-from-per-repository-to-per-user-pricing/
-  - /articles/adding-seats-to-your-organization/
-  - /articles/upgrading-your-github-billing-plan/
+  - /articles/upgrading-your-personal-account-s-billing-plan
+  - /articles/upgrading-your-personal-account
+  - /articles/upgrading-your-personal-account-from-free-to-a-paid-account
+  - /articles/upgrading-your-personal-account-from-free-to-paid-with-a-credit-card
+  - /articles/upgrading-your-personal-account-from-free-to-paid-with-paypal
+  - /articles/500-error-while-upgrading
+  - /articles/upgrading-your-organization-s-billing-plan
+  - /articles/changing-your-organization-billing-plan
+  - /articles/upgrading-your-organization-account-from-free-to-paid-with-a-credit-card
+  - /articles/upgrading-your-organization-account-from-free-to-paid-with-paypal
+  - /articles/upgrading-your-organization-account
+  - /articles/switching-from-per-repository-to-per-user-pricing
+  - /articles/adding-seats-to-your-organization
+  - /articles/upgrading-your-github-billing-plan
   - /articles/upgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
@@ -28,26 +29,36 @@ topics:
   - Troubleshooting
   - Upgrades
   - User account
-shortTitle: Upgrade your subscription
+shortTitle: Mejorar tu suscripción
 ---
-## Upgrading your personal account's subscription
 
-You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories. {% data reusables.gated-features.more-info %}
+## Acerca de las mejoras de tu suscripción
+
+{% data reusables.accounts.accounts-billed-separately %}
+
+Cuando mejoras las suscripción de una cuenta, esta mejora cambia las características de pago disponibles solo para esa cuenta y no de el resto de las cuentas que utilices.
+
+## Subir de categoría la suscripción de tu cuenta personal
+
+Puedes mejorar tu cuenta personal desde {% data variables.product.prodname_free_user %} a {% data variables.product.prodname_pro %} para obtener herramientas avanzadas de revisión de código en repositorios privados que pertenezcan a tu cuenta de usuario. El mejorar tu cuenta personal no afecta a las organizaciones que pudieras administrar ni a los repositorios que pertenezcan a dichas organizaciones. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
-1. Next to "Current plan", click **Upgrade**.
-  ![Upgrade button](/assets/images/help/billing/settings_billing_user_upgrade.png)
-2. Under "Pro" on the "Compare plans" page, click **Upgrade to Pro**.
+1. Junto a "Plan actual", haz clic en **Mejorar**. ![Botón para actualizar](/assets/images/help/billing/settings_billing_user_upgrade.png)
+2. Debajo de "Pro" en la página de "Comparar planes", haz clic en **Actualizar a Pro**.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
 {% data reusables.dotcom_billing.enter-billing-info %}
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-## Upgrading your organization's subscription
+## Administrar la suscripción de tu organización
 
-You can upgrade your organization from {% data variables.product.prodname_free_team %} for an organization to {% data variables.product.prodname_team %} to access advanced collaboration and management tools for teams, or upgrade your organization to {% data variables.product.prodname_ghe_cloud %} for additional security, compliance, and deployment controls. {% data reusables.gated-features.more-info-org-products %}
+Puedes mejorar la suscripción de tu organización para que tenga un producto diferente, agregarle plazas a tu producto existente o cambiar de un plan de pago por repositorio a uno por usuario.
+
+### Subir de categoría la suscripción de tu organización
+
+Puedes mejorar a tu organización desde {% data variables.product.prodname_free_team %} para organizaciones a {% data variables.product.prodname_team %} para acceder a herramientas de administración y colaboración avanzadas para equipos, o mejorarla a {% data variables.product.prodname_ghe_cloud %} para tener controles adicionales de seguridad, cumplimiento y despliegue. El mejorar una organización no afecta a tu cuenta personal o a los repositorios que pertenezcan a ella. {% data reusables.gated-features.more-info-org-products %}
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -60,41 +71,39 @@ You can upgrade your organization from {% data variables.product.prodname_free_t
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### Next steps for organizations using {% data variables.product.prodname_ghe_cloud %}
+### Próximos pasos para las organizaciones que usan {% data variables.product.prodname_ghe_cloud %}
 
-If you upgraded your organization to {% data variables.product.prodname_ghe_cloud %}, you can set up identity and access management for your organization. For more information, see "[Managing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Si mejoras a tu organización a {% data variables.product.prodname_ghe_cloud %}, puedes configurar la administración de accesos e identidad para la misma. Para obtener más información, consulta la sección "[Administrar el inicio de sesión único de SAML de tu organización](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 
-If you'd like to use an enterprise account with {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Si quisieras utilizar una cuenta empresarial con {% data variables.product.prodname_ghe_cloud %}, contacta a {% data variables.contact.contact_enterprise_sales %}. Para obtener más información, consulta la sección "[Acerca de las cuentas empresariales](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 
-## Adding seats to your organization
+### Agregar asientos a tu organización
 
-If you'd like additional users to have access to your {% data variables.product.prodname_team %} organization's private repositories, you can purchase more seats anytime.
+Si quisieras que usuarios adicionales tengan acceso a los repositorios privados de {% data variables.product.prodname_team %} en tu organización, puedes comprar más plazas en cualquier momento.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-## Switching your organization from per-repository to per-user pricing
+### Cambiar tu organización de precio por repositorio a precio por usuario
 
-{% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."
+{% data reusables.dotcom_billing.switch-legacy-billing %}Para obtener más información, consulta "[Acerca de los precios por usuario](/articles/about-per-user-pricing)".
 
 {% data reusables.organizations.billing-settings %}
-5. To the right of your plan name, use the **Edit** drop-down menu, and select **Edit plan**.
-  ![Edit drop-down menu](/assets/images/help/billing/per-user-upgrade-button.png)
-6. To the right of "Advanced tools for teams", click **Upgrade now**.
-  ![Upgrade now button](/assets/images/help/billing/per-user-upgrade-now-button.png)
+5. A la derecha de tu nombre de plan, utiliza el menú desplegable de **Editar** y selecciona **Editar plan**. ![Menú desplegable de editar](/assets/images/help/billing/per-user-upgrade-button.png)
+6. A la derecha de "Herramientas avanzadas para equipos", da clic en **Mejorar ahora**. ![Botón de mejorar ahora](/assets/images/help/billing/per-user-upgrade-now-button.png)
 {% data reusables.dotcom_billing.choose_org_plan %}
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-## Troubleshooting a 500 error when upgrading
+## Solucionar problemas de un error 500 al subir de categoría
 
 {% data reusables.dotcom_billing.500-error %}
 
-## Further reading
+## Leer más
 
-- "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"
-- "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
-- "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
+- "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)"
+- "[¿Cómo afecta subir o bajar de categoría al proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
+- "[Acerca de la facturación en {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)".

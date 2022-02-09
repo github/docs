@@ -1,6 +1,6 @@
 ---
-title: Creating and deleting branches within your repository
-intro: 'You can create or delete branches directly on {% data variables.product.product_name %}.'
+title: リポジトリ内でブランチを作成および削除する
+intro: '{% data variables.product.product_name %}上で直接、ブランチの作成や削除ができます。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
   - /articles/deleting-branches-in-a-pull-request
@@ -15,39 +15,36 @@ topics:
   - Pull requests
 shortTitle: Create & delete branches
 ---
-## Creating a branch
+
+## ブランチの作成
 
 {% data reusables.repositories.navigate-to-repo %}
 
-1. Optionally, if you want to create your new branch from a branch other than the default branch for the repository, click {% octicon "git-branch" aria-label="The branch icon" %} **<em>NUMBER</em> branches** then choose another branch:
-    ![Branches link on overview page](/assets/images/help/branches/branches-link.png)
-1. Click the branch selector menu.
-    ![branch selector menu](/assets/images/help/branch/branch-selection-dropdown.png)
-1. Type a unique name for your new branch, then select **Create branch**.
-    ![branch creation text box](/assets/images/help/branch/branch-creation-text-box.png)
+1. 必要に応じて、リポジトリのデフォルトブランチ以外のブランチから新しいブランチを作成する場合は、[{% octicon "git-branch" aria-label="The branch icon" %} **<em>NUMBER</em> branches**] をクリックし、別のブランチを選択します。 ![概要ページのブランチリンク](/assets/images/help/branches/branches-link.png)
+1. ブランチセレクタメニューをクリックします。 ![ブランチセレクタメニュー](/assets/images/help/branch/branch-selection-dropdown.png)
+1. 新しいブランチに、一意の名前を入力して、[**Create branch**] を選択します。 ![ブランチ作成のテキストボックス](/assets/images/help/branch/branch-creation-text-box.png)
 
-## Deleting a branch
+## ブランチの削除
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
 {% note %}
 
-**Note:** If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+**注釈:** 削除するブランチがリポジトリのデフォルトブランチである場合は、ブランチを削除する前に新しいデフォルトブランチを選択する必要があります。 詳しい情報については「[デフォルトブランチの変更](/github/administering-a-repository/changing-the-default-branch)」を参照してください。
 
 {% endnote %}
 
-If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)" or "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."
+削除するブランチがオープンなプルリクエストに関連付けられている場合は、ブランチを削除する前にプルリクエストをマージまたはクローズする必要があります。 詳しい情報については、「[プルリクエストをマージする](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)」または「[プルリクエストをクローズする](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Scroll to the branch that you want to delete, then click {% octicon "trash" aria-label="The trash icon to delete the branch" %}.
-    ![delete the branch](/assets/images/help/branches/branches-delete.png)
+1. 削除するブランチまでスクロールし、{% octicon "trash" aria-label="The trash icon to delete the branch" %} をクリックします。 ![ブランチを削除する](/assets/images/help/branches/branches-delete.png)
 
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
+詳細は「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)」を参照してください。
 
-## Further reading
+## 参考リンク
 
 - "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
-- "[Viewing branches in your repository](/github/administering-a-repository/viewing-branches-in-your-repository)"
-- "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"
+- "[リポジトリ内のブランチを表示する](/github/administering-a-repository/viewing-branches-in-your-repository)"
+- "[プルリクエスト中のブランチの削除と復元](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"

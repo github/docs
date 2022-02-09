@@ -1,6 +1,6 @@
 ---
-title: Commits
-intro: 'The commits API allows you to retrieve information and commits, create commit comments, and create commit statuses.'
+title: 提交
+intro: 'The commits API allows you to list, view, and compare commits in a repository. You can also interact with commit comments and commit statuses.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,56 +12,40 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Commits
-
-The Repo Commits API supports listing, viewing, and comparing commits in a repository.
-
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Commit comments
+## 提交注释
 
-### Custom media types for commit comments
+### 提交评论的自定义媒体类型
 
-These are the supported media types for commit comments. You can read more
-about the use of media types in the API [here](/rest/overview/media-types).
+以下是提交评论支持的媒体类型。 您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
     application/vnd.github-commitcomment.html+json
     application/vnd.github-commitcomment.full+json
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+更多信息请参阅“[自定义媒体类型](/rest/overview/media-types)”。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Commit statuses
+## 提交状态
 
-The status API allows external services to mark commits with an `error`,
-`failure`, `pending`, or `success` state, which is then reflected in pull requests
-involving those commits.
+状态 API 允许外部服务将提交标记为 `error`、`failure`、`pending` 或 `success` 状态，然后将其反映在涉及这些提交的拉取请求中。
 
-Statuses can also include an optional `description` and `target_url`, and
-we highly recommend providing them as they make statuses much more
-useful in the GitHub UI.
+状态还可以包含可选的 `description` 和 `target_url`，强烈建议使用它们，因为它们使状态在 GitHub UI 中更有用。
 
-As an example, one common use is for continuous integration
-services to mark commits as passing or failing builds using status.  The
-`target_url` would be the full URL to the build output, and the
-`description` would be the high level summary of what happened with the
-build.
+一种常见用例是持续集成服务使用状态将提交标记为构建成功或失败。  `target_url` 是构建输出的完整 URL，`description` 是关于构建过程中所发生情况的高级摘要。
 
-Statuses can include a `context` to indicate what service is providing that status.
-For example, you may have your continuous integration service push statuses with a context of `ci`, and a security audit tool push statuses with a context of `security`.  You can
-then use the [Get the combined status for a specific reference](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) to retrieve the whole status for a commit.
+状态可以包括 `context` 以指示提供该状态的服务是什么。 例如，您可以让持续集成服务推送上下文为 `ci` 的状态，让安全审核工具推送上下文为 `security` 的状态。  然后，您可以使用[获取特定引用的组合状态](/rest/reference/commits#get-the-combined-status-for-a-specific-reference)来检索提交的整个状态。
 
-Note that the `repo:status` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to statuses **without** also granting access to repository code, while the
-`repo` scope grants permission to code as well as statuses.
+请注意，`repo:status` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps)授予对状态的定向访问权限，但**不**授予对仓库代码的访问权限，而 `repo` 作用域同时授予对代码和状态的权限。
 
-If you are developing a GitHub App and want to provide more detailed information about an external service, you may want to use the [Checks API](/rest/reference/checks).
+如果您正在开发 GitHub 应用程序，希望提供有关外部服务的更多信息，则可能需要使用[检查 API](/rest/reference/checks)。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}

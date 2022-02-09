@@ -1,6 +1,6 @@
 ---
-title: Webhooks
-intro: 'The webhooks API allows you to create and manage webhooks for your repositories.'
+title: webhook
+intro: The webhooks API allows you to create and manage webhooks for your repositories.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -14,48 +14,65 @@ miniTocMaxHeadingLevel: 3
 
 Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
 
-If you would like to set up a single webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
+Organization のすべてのリポジトリからイベントを受信するため単一の webhook を設定する場合は、[Organization Webhooks](/rest/reference/orgs#webhooks) の API ドキュメントを参照してください。
 
 In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-### Receiving Webhooks
+## リポジトリ webhook
 
-In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'repos' %}{% include rest_operation %}{% endif %}
+{% endfor %}
 
-#### Webhook headers
+## Repository webhook configuration
 
-{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) for details.
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'repo-config' %}{% include rest_operation %}{% endif %}
+{% endfor %}
 
-### PubSubHubbub
+## Repository webhook deliveries
 
-GitHub can also serve as a [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub) hub for all repositories. PSHB is a simple publish/subscribe protocol that lets servers register to receive updates when a topic is updated. The updates are sent with an HTTP POST request to a callback URL.
-Topic URLs for a GitHub repository's pushes are in this format:
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'repo-deliveries' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+## webhook の受信
+
+{% data variables.product.product_name %} で webhook ペイロードを送信するには、インターネットからサーバーにアクセスできる必要があります。 暗号化されたペイロードを HTTPS 経由で送信できるように、SSL の使用も強く推奨します。
+
+### webhook ヘッダー
+
+{% data variables.product.product_name %} は、イベントタイプとペイロード識別子を区別するために、複数の HTTP ヘッダーも送信します。 詳細は「[webhook ヘッダー](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers)」を参照してください。
+
+## PubSubHubbub
+
+GitHub は、すべてのリポジトリに対する [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub) のハブとして機能することもできます。 PSHB はシンプルな公開/サブスクライブプロトコルで、トピックが更新されたときにサーバーが更新を受信できるよう登録できます。 更新は HTTP POST リクエストでコールバック URL に送信されます。 GitHub リポジトリのプッシュに対するトピック URL のフォーマットは以下の通りです。
 
 `https://github.com/{owner}/{repo}/events/{event}`
 
-The event can be any available webhook event. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
+イベントには、任意の使用可能な webhook イベントを指定します。 詳しい情報については、「[webhook イベントとペイロード](/developers/webhooks-and-events/webhook-events-and-payloads)」を参照してください。
 
-#### Response format
+### レスポンスのフォーマット
 
-The default format is what [existing post-receive hooks should expect](/post-receive-hooks/): A JSON body sent as the `payload` parameter in a POST.  You can also specify to receive the raw JSON body with either an `Accept` header, or a `.json` extension.
+デフォルトのフォーマットは、[既存の post-receive フックから予想できます](/post-receive-hooks/)。すなわち、POST で `payload` パラメータとして送信される JSON の本文です。  また、`Accept` ヘッダまたは `.json` 拡張子で、Raw 形式の JSON 本文を受信するよう指定できます。
 
     Accept: application/json
     https://github.com/{owner}/{repo}/events/push.json
 
-#### Callback URLs
+### コールバック URL
 
-Callback URLs can use the `http://` protocol.
+コールバック URL は `http://` プロトコルを使用できます。
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-#### Subscribing
+### サブスクライブ
 
-The GitHub PubSubHubbub endpoint is: `{% data variables.product.api_url_code %}/hub`. A successful request with curl looks like:
+GitHub PubSubHubbub のエンドポイントは `{% data variables.product.api_url_code %}/hub` です。 curl でリクエストに成功すると、以下のように表示されます。
 
 ``` shell
 curl -u "user" -i \
@@ -65,13 +82,13 @@ curl -u "user" -i \
   -F "hub.callback=http://postbin.org/123"
 ```
 
-PubSubHubbub requests can be sent multiple times. If the hook already exists, it will be modified according to the request.
+PubSubHubbub リクエストは複数回送信できます。 フックがすでに存在する場合は、リクエストに従って変更されます。
 
-##### Parameters
+#### パラメータ
 
-Name | Type | Description
------|------|--------------
-``hub.mode``|`string` | **Required**. Either `subscribe` or `unsubscribe`.
-``hub.topic``|`string` |**Required**.  The URI of the GitHub repository to subscribe to.  The path must be in the format of `/{owner}/{repo}/events/{event}`.
-``hub.callback``|`string` | The URI to receive the updates to the topic.
-``hub.secret``|`string` | A shared secret key that generates a hash signature of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes > 2.22 or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghes < 3.0 %}`X-Hub-Signature` header{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details.
+| 名前             | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hub.mode`     | `string` | **必須**。 `subscribe` または `unsubscribe`。                                                                                                                                                                                                                                                                                                                                                   |
+| `hub.topic`    | `string` | **必須**。  GitHub リポジトリがサブスクライブする URI。  パスのフォーマットは `/{owner}/{repo}/events/{event}` としてください。                                                                                                                                                                                                                                                                                               |
+| `hub.callback` | `string` | トピックの更新を受信する URI。                                                                                                                                                                                                                                                                                                                                                                        |
+| `hub.secret`   | `string` | 送信する本文コンテンツの ハッシュ署名を生成する共有秘密鍵。  GitHubからきたプッシュを、そのリクエストのボディを{% ifversion fpt or ghes > 2.22 or ghec %}`X-Hub-Signature`もしくは`X-Hub-Signature-256`ヘッダ{% elsif ghes < 3.0 %}`X-Hub-Signature`ヘッダ{% elsif ghae %}`X-Hub-Signature-256`ヘッダ{% endif %}と比較して、検証できます。 詳細は、 [PubSubHubbub のドキュメント](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)を参照してください。 |

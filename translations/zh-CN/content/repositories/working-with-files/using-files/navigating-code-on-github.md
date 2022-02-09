@@ -1,6 +1,6 @@
 ---
-title: Navigating code on GitHub
-intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.product_name %}.'
+title: 在 GitHub 上导航代码
+intro: '您可以直接在 {% data variables.product.product_name %} 中导航代码，来理解仓库内及仓库之间的关系。'
 redirect_from:
   - /articles/navigating-code-on-github
   - /github/managing-files-in-a-repository/navigating-code-on-github
@@ -11,9 +11,10 @@ versions:
 topics:
   - Repositories
 ---
+
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
-## About navigating code on {% data variables.product.prodname_dotcom %}
+## 关于在 {% data variables.product.prodname_dotcom %} 上导航代码
 
 Code navigation helps you to read, navigate, and understand code by showing and linking definitions of a named entity corresponding to a reference to that entity, as well as references corresponding to an entity's definition.
 
@@ -21,17 +22,17 @@ Code navigation helps you to read, navigate, and understand code by showing and 
 
 Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported:
 
-| Language   | search-based code navigation | precise code navigation |
+|     语言     | search-based code navigation | precise code navigation |
 |:----------:|:----------------------------:|:-----------------------:|
-| C#         | ✅                           |                         |
-| CodeQL     | ✅                           |                         |
-| Go         | ✅                           |                         |
-| Java       | ✅                           |                         |
-| JavaScript | ✅                           |                         |
-| PHP        | ✅                           |                         |
-| Python     | ✅                           | ✅                      |
-| Ruby       | ✅                           |                         |
-| TypeScript | ✅                           |                         |
+|     C#     |              ✅               |                         |
+|   CodeQL   |              ✅               |                         |
+|     Go     |              ✅               |                         |
+|    Java    |              ✅               |                         |
+| JavaScript |              ✅               |                         |
+|    PHP     |              ✅               |                         |
+|   Python   |              ✅               |            ✅            |
+|    Ruby    |              ✅               |                         |
+| TypeScript |              ✅               |                         |
 
 
 You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
@@ -44,17 +45,17 @@ To learn more about these approaches, see "[Precise and search-based navigation]
 
 Future releases will add *precise code navigation* for more languages, which is a code navigation approach that can give more accurate results.
 
-## Jumping to the definition of a function or method
+## 跳至功能或方法的定义
 
-You can jump to a function or method's definition within the same repository by clicking the function or method call in a file.
+您可以在文件中单击函数或方法调用，跳至同一仓库中该函数或方法的定义。
 
-![Jump-to-definition tab](/assets/images/help/repository/jump-to-definition-tab.png)
+![跳至定义选项卡](/assets/images/help/repository/jump-to-definition-tab.png)
 
-## Finding all references of a function or method
+## 查找函数或方法的所有引用
 
-You can find all references for a function or method within the same repository by clicking the function or method call in a file, then clicking the **References** tab.
+您可以在文件中单击函数或方法调用，然后单击 **References（引用）**选项卡，查找同一仓库中该函数或方法的所有引用。
 
-![Find all references tab](/assets/images/help/repository/find-all-references-tab.png)
+![查找所有引用选项卡](/assets/images/help/repository/find-all-references-tab.png)
 
 ## Precise and search-based navigation
 
@@ -72,5 +73,5 @@ If code navigation is enabled for you but you don't see links to the definitions
 - Code navigation only works for active branches. Push to the branch and try again.
 - Code navigation only works for repositories with fewer than 100,000 files.
 
-## Further reading
-- "[Searching code](/github/searching-for-information-on-github/searching-code)"
+## 延伸阅读
+- “[搜索代码](/github/searching-for-information-on-github/searching-code)”

@@ -18,16 +18,13 @@ A codespace will stop running after a period of inactivity. You can specify the 
 
 {% endwarning %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
 ## Setting your default timeout
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
-1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours).
-   ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
+1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours). ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
 
 {% endwebui %}
 

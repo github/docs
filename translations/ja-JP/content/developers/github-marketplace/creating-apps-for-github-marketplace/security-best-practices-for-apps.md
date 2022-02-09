@@ -1,63 +1,63 @@
 ---
-title: Security best practices for apps
-intro: 'Guidelines for preparing a secure app to share on {% data variables.product.prodname_marketplace %}.'
+title: アプリケーションのセキュリティベストプラクティス
+intro: '{% data variables.product.prodname_marketplace %}上でセキュアなアプリケーションを共有する準備のガイドライン'
 redirect_from:
   - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
   - /developers/github-marketplace/security-review-process-for-submitted-apps
   - /developers/github-marketplace/security-best-practices-for-apps
-shortTitle: Security best practice
+shortTitle: セキュリティベストプラクティス
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Marketplace
 ---
-If you follow these best practices it will help you to provide a secure user experience.
 
-## Authorization, authentication, and access control
+以下のベストプラクティスに従えば、セキュアなユーザ体験を提供するための役に立つでしょう。
 
-We recommend creating a GitHub App rather than an OAuth App. {% data reusables.marketplace.github_apps_preferred %}. See "[Differences between GitHub Apps and OAuth Apps](/apps/differences-between-apps/)" for more details.
-- Apps should use the principle of least privilege and should only request the OAuth scopes and GitHub App permissions that the app needs to perform its intended functionality. For more information, see [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) in Wikipedia.
-- Apps should provide customers with a way to delete their account, without having to email or call a support person.
-- Apps should not share tokens between different implementations of the app. For example, a desktop app should have a separate token from a web-based app. Individual tokens allow each app to request the access needed for GitHub resources separately.
-- Design your app with different user roles, depending on the functionality needed by each type of user. For example, a standard user should not have access to admin functionality, and billing managers might not need push access to repository code.
-- Apps should not share service accounts such as email or database services to manage your SaaS service.
-- All services used in your app should have unique login and password credentials.
-- Admin privilege access to the production hosting infrastructure should only be given to engineers and employees with administrative duties.
-- Apps should not use personal access tokens to authenticate and should authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or a [GitHub App](/apps/about-apps/#about-github-apps):
-  - OAuth Apps should authenticate using an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/).
-  - GitHub Apps should authenticate using either a [JSON Web Token (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [OAuth token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/), or [installation access token](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+## 認可、認証、アクセスコントロール
 
-## Data protection
+OAuth AppよりもGitHub Appを作成することをおすすめします。 {% data reusables.marketplace.github_apps_preferred %}. 詳細については、「[GitHub AppsとOAuth Appsの違い](/apps/differences-between-apps/)」を参照してください。
+- アプリケーションは、最小権限の原則を用い、アプリケーションが意図された機能を実行するために必要なOAuthのスコープとGitHub Appの権限だけをリクエストすべきです。 詳しい情報については、Wikipediaで[最小権限の原則](https://ja.wikipedia.org/wiki/最小権限の原則)を参照してください。
+- アプリケーションは、サポート担当者にメールや連絡をすることなく、顧客が自分のアカウントを削除する方法を提供しなければなりません。
+- アプリケーションは、異なる実装間でトークンを共有してはなりません。 たとえば、デスクトップのアプリケーションはWebベースのアプリケーションとは別のトークンを持つべきです。 個々のトークンを使うことで、それぞれのアプリケーションはGitHubのリソースに必要なアクセスを個別にリクエストできます。
+- ユーザの種類に応じて求められる機能によって、様々なユーザのロールを持たせてアプリケーションを設計してください。 たとえば、標準的なユーザは管理機能を利用できるべきではなく、支払いマネージャーはリポジトリのコードにプッシュアクセスできるべきではありません。
+- アプリケーションは、SaaSサービスを管理するためのメールやデータベースサービスのようなサービスアカウントを共有するべきではありません。
+- アプリケーションで使用されるすべてのサービスは、固有のログインとパスワードクレデンシャルを持たなければなりません。
+- プロダクションのホスティングインフラストラクチャへの管理権限でのアクセスは、管理業務を持つエンジニアや従業員にのみ与えられるべきです。
+- アプリケーションは、認証に個人アクセストークンを使うべきではなく、[OAuth App](/apps/about-apps/#about-oauth-apps)あるいは[GitHub App](/apps/about-apps/#about-github-apps)として認証されなければなりません。
+  - OAuth Appsは、[OAuthトークン](/apps/building-oauth-apps/authorizing-oauth-apps/)を使って認証を受けるべきです。
+  - GitHub Appは、[JSON Webトークン (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)、[OAuthトークン](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)、[インストールアクセストークン](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)のいずれかで認証を受けるべきです。
 
-- Apps should encrypt data transferred over the public internet using HTTPS, with a valid TLS certificate, or SSH for Git.
-- Apps should store client ID and client secret keys securely. We recommend storing them as [environmental variables](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables).
-- Apps should delete all GitHub user data within 30 days of receiving a request from the user, or within 30 days of the end of the user's legal relationship with GitHub.
-- Apps should not require the user to provide their GitHub password.
-- Apps should encrypt tokens, client IDs, and client secrets.
+## データの保護
 
-## Logging and monitoring
+- アプリケーションは、パブリックなインターネット上で転送されるデータを、有効なTLS証明書を用いたHTTPSもしくはSSH for Gitで暗号化すべきです。
+- アプリケーションは、クライアントIDとクライアントシークレットキーをセキュアに保存すべきです。 それらは[環境変数](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables)に保存することをおすすめします。
+- アプリケーションは、ユーザからの要求を受けてから30日以内、あるいはユーザのGitHubとの法的な関係が終了してから30日以内に、すべてのGitHubユーザデータを削除すべきです。
+- アプリケーションは、ユーザにGitHubパスワードの提供を求めるべきではありません。
+- アプリケーションは、トークン、クライアントID、クライアントシークレットを暗号化すべきです。
 
-Apps should have logging and monitoring capabilities. App logs should be retained for at least 30 days and archived for at least one year.
-A security log should include:
+## ロギング及びモニタリング
 
-- Authentication and authorization events
-- Service configuration changes
-- Object reads and writes
-- All user and group permission changes
-- Elevation of role to admin
-- Consistent timestamping for each event
-- Source users, IP addresses, and/or hostnames for all logged actions
+アプリケーションは、ロギング及びモニタリングの機能を持つべきです。 アプリケーションのログは最低でも30日間保存され、最低でも1年間アーカイブされるべきです。 セキュリティログは以下を含まなければなりません。
 
-## Incident response workflow
+- 認証及び認可イベント
+- サービス設定の変更
+- オブジェクトの読み書き
+- すべてのユーザ及びグループの権限変更
+- ロールの管理者への昇格
+- 各イベントに対する一貫したタイムスタンプ
+- 記録されたすべてのアクションのソースユーザ、IPアドレス及びホスト名
 
-To provide a secure experience for users, you should have a clear incident response plan in place before listing your app. We recommend having a security and operations incident response team in your company rather than using a third-party vendor. You should have the capability to notify {% data variables.product.product_name %} within 24 hours of a confirmed incident.
+## インシデントレスポンスのワークフロー
 
-For an example of an incident response workflow, see the "Data Breach Response Policy" on the [SANS Institute website](https://www.sans.org/information-security-policy/). A short document with clear steps to take in the event of an incident is more valuable than a lengthy policy template.
+ユーザのセキュアな体験を提供するためには、アプリケーションをリストする前に明確なインシデントレスポンスプランを用意しておくべきです。 サードパーティのベンダを利用するよりは、自社内にセキュリティ及び運用インシデントレスポンスチームを持つことをおすすめします。 インシデントの確認から24時間以内に{% data variables.product.product_name %}に通知する機能を持っていなければなりません。
 
-## Vulnerability management and patching workflow
+インシデントレスポンスのワークフローの例としては、[SANS Institute website](https://www.sans.org/information-security-policy/)の"Data Breach Response Policy"を参照してください。 インシデントが生じた際に取るべき明確なステップを記した短いドキュメントは、長いポリシーテンプレートよりも価値があります。
 
-You should conduct regular vulnerability scans of production infrastructure. You should triage the results of vulnerability scans and define a period of time in which you agree to remediate the vulnerability.
+## 脆弱性管理とパッチ適用ワークフロー
 
-If you are not ready to set up a full vulnerability management program, it's useful to start by creating a patching process. For guidance in creating a patch management policy, see this TechRepublic article "[Establish a patch management policy](https://www.techrepublic.com/blog/it-security/establish-a-patch-management-policy-87756/)."
+プロダクションインフラストラクチャーの定期的な脆弱性スキャンを行わなければなりません。 脆弱性スキャンの結果をトリアージし、脆弱性の修正までの期間を定義して同意しなければなりません。
+
+完全な脆弱性管理のプログラムをセットアップする準備ができていない場合は、パッチ適用のプロセスを作成することから始めると役立ちます。 パッチ管理ポリシーを作成するためのガイダンスとしては、TechRepublicの記事「[Establish a patch management policy](https://www.techrepublic.com/blog/it-security/establish-a-patch-management-policy-87756/)」を参照してください。

@@ -1,6 +1,6 @@
 ---
-title: About your organization’s news feed
-intro: You can use your organization's news feed to keep up with recent activity on repositories owned by that organization.
+title: Sobre o feed de notícias da sua organização
+intro: Você pode usar o feed de notícias da sua organização para se manter atualizado com atividades recentes nos repositórios de propriedade da organização.
 redirect_from:
   - /articles/news-feed
   - /articles/about-your-organization-s-news-feed
@@ -14,17 +14,14 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Organization news feed
+shortTitle: Feed de notícias da organização
 ---
 
-An organization's news feed shows other people's activity on repositories owned by that organization. You can use your organization's news feed to see when someone opens, closes, or merges an issue or pull request, creates or deletes a branch, creates a tag or release, comments on an issue, pull request, or commit, or pushes new commits to {% data variables.product.product_name %}.
+O feed de notícias de uma organização mostra a atividade de outras pessoas nos repositórios que pertencem a essa organização. Você pode usar o feed de notícias da sua organização para ver quando alguém abre, fecha ou faz merge de um problema ou uma pull request, cria ou exclui um branch, cria uma tag ou versão, comenta sobre um problema, uma pull request, ou faz commit, ou faz push de novos commits no {% data variables.product.product_name %}.
 
-## Accessing your organization's news feed
+## Acessar o feed de notícias da sua organização
 
-1. {% data variables.product.signin_link %} to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
-2. Open your {% data reusables.user_settings.personal_dashboard %}.
-3. Click the account context switcher in the upper-left corner of the page.
-  ![Context switcher button in Enterprise](/assets/images/help/organizations/account_context_switcher.png)
-4. Select an organization from the drop-down menu.{% ifversion fpt or ghec %}
-  ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
-  ![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}
+1. {% data variables.product.signin_link %} para a sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+2. Abra o seu {% data reusables.user_settings.personal_dashboard %}.
+3. Clique no alternador de contexto da conta no canto superior esquerdo da página. ![Botão do alternador de contexto no Enterprise](/assets/images/help/organizations/account_context_switcher.png)
+4. Selecione uma organização no menu suspenso.{% ifversion fpt or ghec %}![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}

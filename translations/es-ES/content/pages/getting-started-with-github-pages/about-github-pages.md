@@ -2,12 +2,12 @@
 title: About GitHub Pages
 intro: 'You can use {% data variables.product.prodname_pages %} to host a website about yourself, your organization, or your project directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
-  - /articles/what-are-github-pages/
-  - /articles/what-is-github-pages/
-  - /articles/user-organization-and-project-pages/
-  - /articles/using-a-static-site-generator-other-than-jekyll/
-  - /articles/mime-types-on-github-pages/
-  - /articles/should-i-rename-usernamegithubcom-repositories-to-usernamegithubio/
+  - /articles/what-are-github-pages
+  - /articles/what-is-github-pages
+  - /articles/user-organization-and-project-pages
+  - /articles/using-a-static-site-generator-other-than-jekyll
+  - /articles/mime-types-on-github-pages
+  - /articles/should-i-rename-usernamegithubcom-repositories-to-usernamegithubio
   - /articles/about-github-pages
   - /github/working-with-github-pages/about-github-pages
 product: '{% data reusables.gated-features.pages %}'

@@ -1,6 +1,6 @@
 ---
-title: Viewing workflow run history
-intro: You can view logs for each run of a workflow. Logs include the status for each job and step in a workflow.
+title: Visualizar el historial de ejecución del flujo de trabajo
+intro: Puedes ver las bitácoras de cada ejecución de un flujo de trabajo. Las bitácoras incluyen el estado de cada job y de cada paso en un flujo de trabajo.
 redirect_from:
   - /actions/managing-workflow-runs/viewing-workflow-run-history
 versions:
@@ -8,15 +8,13 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: View workflow run history
+shortTitle: Visualizar el historial de ejecución de un flujo de trabajo
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.repositories.permissions-statement-read %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -31,53 +29,53 @@ shortTitle: View workflow run history
 
 {% data reusables.cli.cli-learn-more %}
 
-### Viewing recent workflow runs
+### Visualizar las ejecuciones de flujo de trabajo recientes
 
-To list the recent workflow runs, use the `run list` subcommand.
+Para listar las ejecuciones de flujo de trabajo recientes, utiliza el subcomando `run list`.
 
 ```shell
 gh run list
 ```
 
-To specify the maximum number of runs to return, you can use the `-L` or `--limit` flag . The default is `10`.
+Para especificar la cantidad máxima de ejecuciones a devolver, puedes utilizar el marcador `-L` o `--limit`. Por defecto es `10`.
 
 ```shell
 gh run list --limit 5
 ```
 
-To only return runs for the specified workflow, you can use the `-w` or `--workflow` flag.  Replace `workflow` with either the workflow name, workflow ID, or workflow file name. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`.
+Para que se devuelvan únicamente las ejecuciones del flujo de trabajo especificado, puedes utilizar el marcador `-w` o `--workflow`.  Reemplaza a `workflow` ya sea con el nombre, ID o nombre de archivo del flujo de trabajo. Por ejemplo `"Link Checker"`, `1234567`, o `"link-check-test.yml"`.
 
 ```shell
 gh run list --workflow <em>workflow</em>
 ```
 
-### Viewing details for a specific workflow run
+### Visualizar los detalles de una ejecución de flujo de trabajo específica
 
-To display details for a specific workflow run, use the `run view` subcommand. Replace `run-id` with the ID of the run that you want to view. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run.
+Para mostrar los detalles de una ejecución de flujo de trabajo específica, utiliza el subcomando `run view`. Reemplaza `run-id` con la ID de la ejecución que quieres ver. Si no especificas una `run-id`, {% data variables.product.prodname_cli %} devolverá un menú interactivo para que elijas una ejecución reciente.
 
 ```shell
 gh run view <em>run-id</em>
 ```
 
-To include job steps in the output, use the `-v` or `--verbose` flag.
+Par aincluir los pasos del job en la salida, utiliza el marcador `-v` o `--verbose`.
 
 ```shell
 gh run view <em>run-id</em> --verbose
 ```
 
-To view details for a specific job in the run, use the `-j` or `--job` flag.  Replace `job-id` with the ID of the job that you want to view.
+Para ver los detalles de un job específico en la ejecución, utiliza el marcador `-j` o `--job`.  Reemplaza a `job-id` con la ID del job que quieres ver.
 
 ```shell
 gh run view --job <em>job-id</em>
 ```
 
-To view the full log for a job, use the `--log` flag.
+Para ver la bitácora completa de un job, utiliza el marcador `--log`.
 
 ```shell
 gh run view --job <em>job-id</em> --log
 ```
 
-Use the `--exit-status` flag to exit with a non-zero status if the run failed. For example:
+Utiliza el marcador `--exit-status` para salir con un estado diferente a cero si la ejecución falló. Por ejemplo:
 
 ```shell
 gh run view 0451 --exit-status && echo "run pending or passed"

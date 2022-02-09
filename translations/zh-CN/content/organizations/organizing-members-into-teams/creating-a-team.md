@@ -1,6 +1,6 @@
 ---
-title: Creating a team
-intro: You can create independent or nested teams to manage repository permissions and mentions for groups of people.
+title: 创建团队
+intro: 您可以创建独立或嵌套团队来管理仓库权限和提及人群。
 redirect_from:
   - /articles/creating-a-team-early-access-program
   - /articles/creating-a-team
@@ -15,7 +15,7 @@ topics:
   - Teams
 ---
 
-Only organization owners and maintainers of a parent team can create a new child team under a parent. Owners can also restrict creation permissions for all teams in an organization. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)."
+只有父团队的组织所有者和维护员才能在父团队下创建新的子团队。 所有者还可以限制组织中所有团队的创建权限。 更多信息请参阅“[设置组织中的团队创建权限](/articles/setting-team-creation-permissions-in-your-organization)”。
 
 {% data reusables.organizations.team-synchronization %}
 
@@ -26,17 +26,16 @@ Only organization owners and maintainers of a parent team can create a new child
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.create-team-choose-parent %}
 {% ifversion ghec %}
-1. Optionally, if your organization or enterprise account uses team synchronization or your enterprise uses {% data variables.product.prodname_emus %}, connect an identity provider group to your team.
-    * If your enterprise uses {% data variables.product.prodname_emus %}, use the "Identity Provider Groups" drop-down menu, and select a single identity provider group to connect to the new team. For more information, "[Managing team memberships with identity provider groups](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)."
-    * If your organization or enterprise account uses team synchronization, use the "Identity Provider Groups" drop-down menu, and select up to five identity provider groups to connect to the new team. For more information, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
-    ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png)
+1. （可选）如果您的组织或企业帐户使用团队同步或您的企业使用 {% data variables.product.prodname_emus %}，则将身份提供商组连接到您的团队。
+    * 如果您的企业使用 {% data variables.product.prodname_emus %}，请使用“Identity Provider Groups（身份提供商组）”下拉菜单，并选择单个身份提供商组以连接到新团队。 更多信息请参阅“[使用身份提供商组管理团队成员](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)”。
+    * 如果您的组织或企业使用团队同步 ，请使用“Identity Provider Groups（身份提供商组）”下拉菜单，并选择五个身份提供商组以连接到新团队。 更多信息请参阅“[同步团队与身份提供程序组](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。 ![用于选择身份提供程序组的下拉菜单](/assets/images/help/teams/choose-an-idp-group.png)
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
-1. Optionally, [give the team access to organization repositories](/articles/managing-team-access-to-an-organization-repository).
+1. （可选）[授予团队访问组织仓库的权限](/articles/managing-team-access-to-an-organization-repository)。
 
-## Further reading
+## 延伸阅读
 
-- "[About teams](/articles/about-teams)"
-- "[Changing team visibility](/articles/changing-team-visibility)"
-- "[Moving a team in your organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)"
+- "[关于团队](/articles/about-teams)"
+- “[更改团队可见性](/articles/changing-team-visibility)”
+- “[在组织的层次结构中移动团队](/articles/moving-a-team-in-your-organization-s-hierarchy)”

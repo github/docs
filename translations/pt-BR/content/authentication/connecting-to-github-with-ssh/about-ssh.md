@@ -1,6 +1,6 @@
 ---
-title: About SSH
-intro: 'Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and personal access token at each visit.'
+title: Sobre o SSH
+intro: 'Usando o protocolo SSH, você pode se conectar a servidores e serviços remotos e se autenticar neles. Com chaves SSH, você pode conectar-se a {% data variables.product.product_name %} sem inserir seu nome de usuário e token de acesso pessoal em cada visita.'
 redirect_from:
   - /articles/about-ssh
   - /github/authenticating-to-github/about-ssh
@@ -13,22 +13,23 @@ versions:
 topics:
   - SSH
 ---
-When you set up SSH, you will need to generate a new SSH key and add it to the ssh-agent. You must add the SSH key to your account on {% data variables.product.product_name %} before you use the key to authenticate. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" and "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
-You can further secure your SSH key by using a hardware security key, which requires the physical hardware security key to be attached to your computer when the key pair is used to authenticate with SSH. You can also secure your SSH key by adding your key to the ssh-agent and using a passphrase. For more information, see "[Working with SSH key passphrases](/github/authenticating-to-github/working-with-ssh-key-passphrases)."
+Ao configurar o SSH, você precisará gerar uma nova chave SSH e adicioná-la ao agente ssh. Você deve adicionar a chave SSH à sua conta {% data variables.product.product_name %} antes de usar a chave para efetuar a autenticação. Para mais informações consulte "[Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" e "[Adicionar uma nova chave SSH à sua conta de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)".
 
-{% ifversion fpt or ghec %}To use your SSH key with a repository owned by an organization that uses SAML single sign-on, you must authorize the key. For more information, see "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+Você pode proteger ainda mais sua chave SSH usando uma chave de segurança de hardware, o que exige que a chave de segurança física do hardware seja conectada ao seu computador quando o par de chaves é usado para efetuar a autenticação com SSH. Você também pode proteger sua chave SSH, adicionando sua chave ao agente do ssh-agent e usando uma frase secreta. Para obter mais informações, consulte "[Trabalhar com frases secretas da chave SSH](/github/authenticating-to-github/working-with-ssh-key-passphrases)".
 
-To maintain account security, you can regularly review your SSH keys list and revoke any keys that are invalid or have been compromised. For more information, see "[Reviewing your SSH keys](/github/authenticating-to-github/reviewing-your-ssh-keys)."
+{% ifversion fpt or ghec %}Para usar a chave SSH com um repositório pertencente a uma organização que usa o logon único SAML, você deverá autorizar a chave. Para mais informações consulte "[Autorizando uma chave SSH para usar com o o logon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %} .{% else %}."{% endif %}{% endif %}
+
+Para manter a segurança da conta, você pode revisar regularmente sua lista de chaves SSH e revogar quaisquer chaves que sejam inválidas ou que tenham sido comprometidas. Para obter mais informações, consulte "[Revisar as chaves SSH](/github/authenticating-to-github/reviewing-your-ssh-keys)".
 
 {% ifversion fpt or ghec %}
-If you haven't used your SSH key for a year, then {% data variables.product.prodname_dotcom %} will automatically delete your inactive SSH key as a security precaution. For more information, see "[Deleted or missing SSH keys](/articles/deleted-or-missing-ssh-keys)."
+Se você ficou sem usar a chave SSH por um ano, o {% data variables.product.prodname_dotcom %} excluirá automaticamente essa chave SSH inativa como uma medida de segurança. Para obter mais informações, consulte "[Chaves SSH excluídas ou ausentes](/articles/deleted-or-missing-ssh-keys)".
 {% endif %}
 
-If you're a member of an organization that provides SSH certificates, you can use your certificate to access that organization's repositories without adding the certificate to your account on {% data variables.product.product_name %}. You cannot use your certificate to access forks of the organization's repositories that are owned by your user account. For more information, see "[About SSH certificate authorities](/articles/about-ssh-certificate-authorities)."
+Se você for integrante de uma organização que fornece certificados SSH, você poderá usar seu certificado para acessar os repositórios da organização sem adicionar o certificado à sua conta em {% data variables.product.product_name %}. Você não pode usar seu certificado para acessar bifurcações dos repositórios da organização pertencentes à sua conta de usuário. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/articles/about-ssh-certificate-authorities)".
 
-## Further reading
+## Leia mais
 
-- "[Checking for existing SSH keys](/articles/checking-for-existing-ssh-keys)"
-- "[Testing your SSH connection](/articles/testing-your-ssh-connection)"
-- "[Troubleshooting SSH](/articles/troubleshooting-ssh)"
+- "[Verificar se há chaves SSH existentes](/articles/checking-for-existing-ssh-keys)"
+- "[Testar a conexão SSH](/articles/testing-your-ssh-connection)"
+- "[Solucionar problemas de SSH](/articles/troubleshooting-ssh)"

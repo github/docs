@@ -51,7 +51,6 @@ If you haven't yet, you should first [set up Git](/articles/set-up-git). Don't f
 
 ## Forking a repository
 
-{% include tool-switcher %}
 {% webui %}
 
 You might fork a project to propose changes to the upstream, or original, repository. In this case, it's good practice to regularly sync your fork with the upstream repository. To do this, you'll need to use Git on the command line. You can practice setting the upstream repository using the same [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository you just forked.
@@ -87,7 +86,6 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally on your computer.
 
-{% include tool-switcher %}
 {% webui %}
 
 1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
@@ -137,7 +135,6 @@ gh repo fork <em>repository</em> --clone=true
 
 When you fork a project in order to propose changes to the original repository, you can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
 
-{% include tool-switcher %}
 {% webui %}
 
 1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.

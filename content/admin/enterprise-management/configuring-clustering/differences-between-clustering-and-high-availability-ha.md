@@ -34,7 +34,7 @@ High Availability (HA) and Clustering both provide redundancy by eliminating the
 
 ## Backups and disaster recovery
 
-Neither HA or Clustering should be considered a replacement for regular backups. For more information, see "[Configuring backups on your appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)."
+Neither HA nor Clustering should be considered a replacement for regular backups. For more information, see "[Configuring backups on your appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)."
 
 ## Monitoring
 

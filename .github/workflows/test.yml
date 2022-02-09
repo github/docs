@@ -20,9 +20,6 @@ concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
-env:
-  CI: true
-
 jobs:
   test:
     # Run on self-hosted if the private repo or ubuntu-latest if the public repo
@@ -50,8 +47,12 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
+          lfs: true
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
+
+      - name: Checkout LFS objects
+        run: git lfs checkout
 
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
@@ -69,7 +70,7 @@ jobs:
           echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
 
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -85,7 +86,7 @@ jobs:
           GIT_BRANCH: ${{ github.head_ref || github.ref }}
 
       - name: Cache nextjs build
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -96,4 +97,4 @@ jobs:
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
-        run: npm run test tests/${{ matrix.test-group }}/
+        run: npm test -- tests/${{ matrix.test-group }}/

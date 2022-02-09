@@ -1,6 +1,6 @@
 ---
-title: Changing the duration of your billing cycle
-intro: You can pay for your account's subscription and other paid features and products on a monthly or yearly billing cycle.
+title: 支払いサイクル期間の変更
+intro: アカウントのプランや、その他有料機能、有料製品は、月次または年次のサイクルで支払うことができます。
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/changing-the-duration-of-your-billing-cycle
   - /articles/monthly-and-yearly-billing
@@ -16,31 +16,30 @@ topics:
   - Organizations
   - Repositories
   - User account
-shortTitle: Billing cycle
+shortTitle: 支払いサイクル
 ---
-When you change your billing cycle's duration, your {% data variables.product.prodname_dotcom %} subscription, along with any other paid features and products, will be moved to your new billing cycle on your next billing date.
 
-## Changing the duration of your personal account's billing cycle
+支払いサイクル期間を変更すると、{% data variables.product.prodname_dotcom %}のプランおよびその他の有料機能、有料製品は、次の支払日から新しい支払いサイクルに移行します。
+
+## 個人アカウントの支払いサイクル期間の変更
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 
-## Changing the duration of your organization's billing cycle
+## Organization の支払いサイクル期間の変更
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-### Changing the duration of a per-user subscription
+### ユーザ単位プランの期間の変更
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 
-### Changing the duration of a legacy per-repository plan
+### 過去のリポジトリ単位プランの期間の変更
 
 {% data reusables.organizations.billing-settings %}
-4. Under "Billing overview", click **Change plan**.
-  ![Billing overview change plan button](/assets/images/help/billing/billing_overview_change_plan.png)
-5. At the top right corner, click **Switch to monthly billing** or **Switch to yearly billing**.
-  ![Billing information section](/assets/images/help/billing/settings_billing_organization_plans_switch_to_yearly.png)
+4. [Billing overview] で、[**Change plan**] をクリックします。 ![[Billing overview] の [Change plan] ボタン](/assets/images/help/billing/billing_overview_change_plan.png)
+5. ページの右上で [**Switch to monthly billing**] または [**Switch to yearly billing**] をクリックします。 ![支払い情報セクション](/assets/images/help/billing/settings_billing_organization_plans_switch_to_yearly.png)

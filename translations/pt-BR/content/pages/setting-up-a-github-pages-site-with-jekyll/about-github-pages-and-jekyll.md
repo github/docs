@@ -1,6 +1,6 @@
 ---
-title: About GitHub Pages and Jekyll
-intro: 'Jekyll is a static site generator with built-in support for {% data variables.product.prodname_pages %}.'
+title: Sobre o GitHub Pages e Jekyll
+intro: 'Jekyll é um gerador de site estático com suporte integrado para {% data variables.product.prodname_pages %}.'
 redirect_from:
   - /articles/about-jekyll-themes-on-github
   - /articles/configuring-jekyll
@@ -29,19 +29,19 @@ topics:
 shortTitle: GitHub Pages & Jekyll
 ---
 
-## About Jekyll
+## Sobre o Jekyll
 
-Jekyll is a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. Jekyll takes Markdown and HTML files and creates a complete static website based on your choice of layouts. Jekyll supports Markdown and Liquid, a templating language that loads dynamic content on your site. For more information, see [Jekyll](https://jekyllrb.com/).
+O Jekyll é um gerador de site estático com suporte integrado para {% data variables.product.prodname_pages %} e um processo de compilação simplificado. O Jekyll usa arquivos Markdown e HTML, além de criar um site estático completo com base na sua escolha de layouts. O Jekyll aceita Markdown e Liquid, uma linguagem de modelagem que carrega conteúdo dinâmico no site. Para obter mais informações, consulte [Jekyll](https://jekyllrb.com/).
 
-Jekyll is not officially supported for Windows. For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
+O Jekyll não é oficialmente compatível com o Windows. Para obter mais informações, consulte "[Jekyll no Windows](http://jekyllrb.com/docs/windows/#installation)" na documentação do Jekyll.
 
-We recommend using Jekyll with {% data variables.product.prodname_pages %}. If you prefer, you can use other static site generators or customize your own build process locally or on another server. For more information, see "[About {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)."
+É recomendável usar o Jekyll com o {% data variables.product.prodname_pages %}. Se preferir, você pode usar outros geradores de site estáticos ou personalizar seu próprio processo de compilação localmente ou em outro servidor. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)".
 
-## Configuring Jekyll in your {% data variables.product.prodname_pages %} site
+## Configurar o Jekyll em seu site do {% data variables.product.prodname_pages %}
 
-You can configure most Jekyll settings, such as your site's theme and plugins, by editing your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation.
+É possível configurar a maioria das definições do Jekyll, como o tema e os plugins do seu site, editando o arquivo *_config.yml*. Para obter mais informações, consulte "[Configuração](https://jekyllrb.com/docs/configuration/)" na documentação do Jekyll.
 
-Some configuration settings cannot be changed for {% data variables.product.prodname_pages %} sites.
+Algumas definições de configuração não podem ser alteradas para sites do {% data variables.product.prodname_pages %}.
 
 ```yaml
 lsi: false
@@ -56,36 +56,36 @@ kramdown:
   syntax_highlighter: rouge
 ```
 
-By default, Jekyll doesn't build files or folders that:
-- are located in a folder called `/node_modules` or `/vendor`
-- start with `_`, `.`, or `#`
-- end with `~`
-- are excluded by the `exclude` setting in your configuration file
+Por padrão, o Jekyll não cria arquivos nem pastas que:
+- estão localizadas em uma pasta chamada `/node_modules` ou `/vendor`
+- comece com `_`, `.` ou `#`
+- terminam com `~`
+- são excluídos pela configuração `exclude` em seu arquivo de configuração
 
-If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
+Se quiser que o Jekyll processe algum desses arquivos, você poderá usar a configuração `includes` no seu arquivo de configuração.
 
-## Front matter
+## Material inicial
 
 {% data reusables.pages.about-front-matter %}
 
-You can add `site.github` to a post or page to add any repository references metadata to your site. For more information, see "[Using `site.github`](https://jekyll.github.io/github-metadata/site.github/)" in the Jekyll Metadata documentation.
+Você pode adicionar `site.github` a uma publicação ou página para incluir metadados de referências de repositório ao seu site. Para obter mais informações, consulte "[Usar `site.github`](https://jekyll.github.io/github-metadata/site.github/)" na documentação de metadados do Jekyll.
 
-## Themes
+## Temas
 
-{% data reusables.pages.add-jekyll-theme %} For more information, see "[Themes](https://jekyllrb.com/docs/themes/)" in the Jekyll documentation.
+{% data reusables.pages.add-jekyll-theme %} Para obter mais informações, consulte "[Temas](https://jekyllrb.com/docs/themes/)" na documentação do Jekyll.
 
 {% ifversion fpt or ghec %}
-You can add a supported theme to your site on {% data variables.product.prodname_dotcom %}. For more information, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and "[Adding a theme to your {% data variables.product.prodname_pages %} site with the theme chooser](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)."
+É possível adicionar um tema compatível ao seu site no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %} e "[Adicionar um tema ao seu site do {% data variables.product.prodname_pages %} com o seletor de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)".
 
-To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt or ghec %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+Para usar qualquer tema de código aberto do Jekyll hospedado em {% data variables.product.prodname_dotcom %}, você pode adicionar o tema manualmente.{% else %} Você pode adicionar um tema ao seu site manualmente.{% endif %} Para obter mais informações, consulte {% ifversion fpt or ghec %} [temas hospedados em {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) e{% else %} "[Temas compatíveisthemes](https://pages.github.com/themes/)" no site de {% data variables.product.prodname_pages %} e {% endif %} "[Adicionar um tema ao seu site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
 
-You can override any of your theme's defaults by editing the theme's files. For more information, see your theme's documentation and "[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" in the Jekyll documentation.
+Você pode substituir qualquer um dos padrões do seu tema editando os arquivos do tema. Para obter mais informações, consulte a documentação do seu tema e "[Substituir padrões do tema](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" na documentação do Jekyll.
 
 ## Plugins
 
-You can download or create Jekyll plugins to extend the functionality of Jekyll for your site. For example, the [jemoji](https://github.com/jekyll/jemoji) plugin lets you use {% data variables.product.prodname_dotcom %}-flavored emoji in any page on your site the same way you would on {% data variables.product.prodname_dotcom %}. For more information, see "[Plugins](https://jekyllrb.com/docs/plugins/)" in the Jekyll documentation.
+Você pode baixar ou criar plugins do Jekyll para ampliar a funcionalidade do Jekyll em seu site. Por exemplo, o plugin [jemoji](https://github.com/jekyll/jemoji) permite usar emoji em estilo do {% data variables.product.prodname_dotcom %} em qualquer página do seu site da mesma forma que você faria no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Plugins](https://jekyllrb.com/docs/plugins/)" na documentação do Jekyll.
 
-{% data variables.product.prodname_pages %} uses plugins that are enabled by default and cannot be disabled:
+O {% data variables.product.prodname_pages %} usa plugins que são habilitados por padrão e não podem ser desabilitados:
 - [`jekyll-coffeescript`](https://github.com/jekyll/jekyll-coffeescript)
 - [`jekyll-default-layout`](https://github.com/benbalter/jekyll-default-layout)
 - [`jekyll-gist`](https://github.com/jekyll/jekyll-gist)
@@ -96,25 +96,25 @@ You can download or create Jekyll plugins to extend the functionality of Jekyll 
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-You can enable additional plugins by adding the plugin's gem to the `plugins` setting in your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation. 
+Você pode habilitar plugins adicionais incluindo a gem do plugin à configuração `plugins` em seu arquivo *_config.yml*. Para obter mais informações, consulte "[Configuração](https://jekyllrb.com/docs/configuration/)" na documentação do Jekyll.
 
-For a list of supported plugins, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.  For usage information for a specific plugin, see the plugin's documentation.
+Para obter uma lista de plugins compatíveis, consulte "[Versões de dependência](https://pages.github.com/versions/)" no site do {% data variables.product.prodname_pages %}.  Para obter informações de uso para um plugin específico, consulte a documentação do plugin.
 
 {% tip %}
 
-**Tip:** You can make sure you're using the latest version of all plugins by keeping the {% data variables.product.prodname_pages %} gem updated. For more information, see "[Testing your GitHub Pages site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)" and "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
+**Dica:** você pode ter certeza de que está usando a versão mais recente de todos os plugins mantendo o gem do {% data variables.product.prodname_pages %} atualizado. Para obter mais informações, consulte "[Testar o site do GitHub Pages localmente com o Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)" e "[Versões de dependência](https://pages.github.com/versions/)" no site do {% data variables.product.prodname_pages %}.
 
 {% endtip %}
 
-{% data variables.product.prodname_pages %} cannot build sites using unsupported plugins. If you want to use unsupported plugins, generate your site locally and then push your site's static files to {% data variables.product.product_name %}.
+O {% data variables.product.prodname_pages %} não pode criar sites usando plugins incompatíveis. Se quiser usar plugins incompatíveis, gere seu site localmente e faça push dos arquivos estáticos do site no {% data variables.product.product_name %}.
 
-## Syntax highlighting
+## Realce de sintaxe
 
-To make your site easier to read, code snippets are highlighted on {% data variables.product.prodname_pages %} sites the same way they're highlighted on {% data variables.product.product_name %}. For more information about syntax highlighting on {% data variables.product.product_name %}, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
+Para facilitar a leitura do seu site, trechos de código são destacados nos sites do {% data variables.product.prodname_pages %} da mesma maneira que são destacados no {% data variables.product.product_name %}. Para mais informações sobre destaque de sintaxe em {% data variables.product.product_name %}, consulte "[Criar e realçar blocos de código](/articles/creating-and-highlighting-code-blocks)".
 
-By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses the [Rouge](https://github.com/jneen/rouge) highlighter, which is compatible with [Pygments](http://pygments.org/). If you specify Pygments in your *_config.yml* file, Rouge will be used instead. Jekyll cannot use any other syntax highlighter, and you'll get a page build warning if you specify another syntax highlighter in your *_config.yml* file. For more information, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+Por padrão, blocos de código no seu site serão destacados pelo Jekyll. O Jekyll usa o realçador [Rouge](https://github.com/jneen/rouge), que é compatível com [Pygments](http://pygments.org/). Pigmentos foram desativados e não são compatíveis com o Jekyll 4. If you specify Pygments in your *_config.yml* file, Rouge will be used as the fallback instead. O Jekyll não pode usar qualquer outro realçador de sintaxe, e você receberá um aviso de criação de página se especificar outro realçador de sintaxe no arquivo *_config.yml*. Para obter mais informações, consulte "[Sobre erros de criação do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/about-jekyll-build-errors-for-github-pages-sites)".
 
-If you want to use another highlighter, such as `highlight.js`, you must disable Jekyll's syntax highlighting by updating your project's *_config.yml* file.
+Se quiser usar outro realçador, como `highlight.js`, você deverá desabilitar o realce da sintaxe do Jekyll atualizando o arquivo *_config.yml* do projeto.
 
 ```yaml
 kramdown:
@@ -122,12 +122,12 @@ kramdown:
     disable : true
 ```
 
-If your theme doesn't include CSS for syntax highlighting, you can generate {% data variables.product.prodname_dotcom %}'s syntax highlighting CSS and add it to your project's `style.css` file.
+Se o seu tema não incluir CSS para realce da sintaxe, você poderá gerar CSS de realce de sintaxe do {% data variables.product.prodname_dotcom %} e adicioná-lo ao arquivo `style.css` do projeto.
 
 ```shell
 $ rougify style github > style.css
 ```
 
-## Building your site locally
+## Criar site localmente
 
 {% data reusables.pages.test-locally %}

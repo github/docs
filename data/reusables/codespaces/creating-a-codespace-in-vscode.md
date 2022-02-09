@@ -16,3 +16,5 @@ After you connect your account on {% data variables.product.product_location %} 
 5. Click the machine type you want to develop in.
 
    ![Instance types for a new {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-sku-vscode.png)
+
+   {% data reusables.codespaces.codespaces-machine-type-availability %}

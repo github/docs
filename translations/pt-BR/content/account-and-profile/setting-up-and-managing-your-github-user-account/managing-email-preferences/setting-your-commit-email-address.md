@@ -1,6 +1,6 @@
 ---
-title: Setting your commit email address
-intro: 'You can set the email address that is used to author commits on {% data variables.product.product_location %} and on your computer.'
+title: Configurar o endereço de e-mail do commit
+intro: 'Você pode definir o endereço de e-mail que é usado para criar commits em {% data variables.product.product_location %} e no seu computador.'
 redirect_from:
   - /articles/keeping-your-email-address-private
   - /articles/setting-your-commit-email-address-on-github
@@ -20,43 +20,44 @@ versions:
 topics:
   - Accounts
   - Notifications
-shortTitle: Set commit email address
+shortTitle: Definir endereço de e-mail do commit
 ---
-## About commit email addresses
 
-{% data variables.product.prodname_dotcom %} uses your commit email address to associate commits with your account on {% data variables.product.product_location %}. You can choose the email address that will be associated with the commits you push from the command line as well as web-based Git operations you make.
+## Sobre os endereços de e-mail do commit
 
-For web-based Git operations, you can set your commit email address on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. For commits you push from the command line, you can set your commit email address in Git.
+{% data variables.product.prodname_dotcom %} utiliza seu endereço de e-mail de commit para associar commits à sua conta em {% data variables.product.product_location %}. Você pode escolher o endereço de e-mail que será associado aos commits cujo push é feito usando a linha de comando e às operações do Git baseadas na web executadas.
 
-{% ifversion fpt or ghec %}Any commits you made prior to changing your commit email address are still associated with your previous email address.{% else %}After changing your commit email address on {% data variables.product.product_name %}, the new email address will be visible in all of your future web-based Git operations by default. Any commits you made prior to changing your commit email address are still associated with your previous email address.{% endif %}
+Para operações com base na web do Git, você pode definir seu endereço de e-mail de commit em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Para commits cujo push é feito usando a linha de comando, você pode configurar o endereço de e-mail do commmit no Git.
+
+{% ifversion fpt or ghec %}Os commits feitos antes da alteração do endereço de e-mail do commit continuarão associados ao endereço de e-mail anterior.{% else %}Depois de alterar o endereço de e-mail do commit no {% data variables.product.product_name %}, o novo endereço de e-mail ficará visível por padrão em todas as próximas operações do Git baseadas na web. Os commits feitos antes da alteração do endereço de e-mail do commit continuarão associados ao endereço de e-mail anterior.{% endif %}
 
 {% ifversion fpt or ghec %}
 
 {% note %}
 
-**Note**: {% data reusables.user_settings.no-verification-disposable-emails %}
+**Observação**: {% data reusables.user_settings.no-verification-disposable-emails %}
 
 {% endnote %}
 
 {% endif %}
 
-{% ifversion fpt or ghec %}If you'd like to keep your personal email address private, you can use a `no-reply` email address from {% data variables.product.product_name %} as your commit email address. To use your `noreply` email address for commits you push from the command line, use that email address when you set your commit email address in Git. To use your `noreply` address for web-based Git operations, set your commit email address on GitHub and choose to **Keep my email address private**.
+{% ifversion fpt or ghec %}Se você quiser manter seu endereço de e-mail pessoal, você poderá usar um endereço de e-mail `no-reply` de {% data variables.product.product_name %} como seu endereço de e-mail de commit. Para usar o endereço de e-mail `noreply` para commits cujo push é feito usando a linha de comando, use esse endereço de e-mail ao configurar o endereço de e-mail do commit no Git. Para usar o endereço `noreply` para operações do Git baseadas na web, configure o endereço de e-mail do commit no GitHub e selecione **Keep my email address private** (Manter meu endereço de e-mail privado).
 
-You can also choose to block commits you push from the command line that expose your personal email address. For more information, see "[Blocking command line pushes that expose your personal email](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)."{% endif %}
+Você também pode optar por bloquear os commits cujo push é feito usando a linha de comando que expõem seu endereço de e-mail pessoal. Para obter mais informações, consulte "[Bloquear pushes de linha de comando que mostrem endereços de e-mail pessoais](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)".{% endif %}
 
-To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your account on {% data variables.product.product_location %}{% ifversion fpt or ghec %}, or the `noreply` email address provided to you in your email settings{% endif %}. {% ifversion not ghae %}For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)."{% endif %}
+Para garantir que os commits sejam atribuídos a você e que apareçam no gráfico de contribuição, use um endereço de e-mail conectado à sua conta em {% data variables.product.product_location %}{% ifversion fpt or ghec %} ou o endereço de e-mail `noreply` fornecido a você nas suas configurações de e-mail{% endif %}. {% ifversion not ghae %}Para obter mais informações, consulte "[Adicionar um endereço de e-mail à sua conta de {% data variables.product.prodname_dotcom %}](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account){% endif %}
 
 {% ifversion fpt or ghec %}
 
 {% note %}
 
-**Note:** If you created your account on {% data variables.product.product_location %} _after_ July 18, 2017, your `no-reply` email address for {% data variables.product.product_name %} is a seven-digit ID number and your username in the form of <code><em>ID+username</em>@users.noreply.github.com</code>. If you created your account on {% data variables.product.product_location %} _prior to_ July 18, 2017, your `no-reply` email address from {% data variables.product.product_name %} is <code><em>username</em>@users.noreply.github.com</code>. You can get an ID-based `no-reply` email address for {% data variables.product.product_name %} by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
+**Observação:** Se você criou a sua conta em {% data variables.product.product_location %} _após_ julho de 2017, seu endereço de e-mail `no-reply` para {% data variables.product.product_name %} será um número de ID de 7 dígitos e seu nome de usuário no seguinte formato: <code><em>ID+nome de usuário</em>@users.noreply.github.com</code>. Se você criou sua conta em {% data variables.product.product_location %} _antes de_ 18 de julho de 2017, o seu endereço de e-mail `no-reply` de {% data variables.product.product_name %} será <code><em>nome de usuário</em>@users.noreply.github.com</code>. Você pode obter um endereço de e-mail `no-reply` baseado no ID para {% data variables.product.product_name %}, selecionando (ou desmarcando e selecionando) **Mantenha meu endereço de e-mail privado** nas suas configurações de e-mail.
 
 {% endnote %}
 
-If you use your `noreply` email address for {% data variables.product.product_name %} to make commits and then [change your username](/articles/changing-your-github-username), those commits will not be associated with your account on {% data variables.product.product_location %}. This does not apply if you're using the ID-based `noreply` address from {% data variables.product.product_name %}. For more information, see "[Changing your {% data variables.product.prodname_dotcom %} username](/articles/changing-your-github-username)."{% endif %}
+Se você usar o seu endereço de e-mail `noreply` para {% data variables.product.product_name %} fazer commits e, em seguida, [mudar seu nome de usuário](/articles/changing-your-github-username), esses commits não serão associados à sua conta no {% data variables.product.product_location %}. Isso não se aplica se você estiver usando o endereço `noreply` baseado no ID de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Alterar seu nome de usuário do {% data variables.product.prodname_dotcom %}](/articles/changing-your-github-username)".{% endif %}
 
-## Setting your commit email address on {% data variables.product.prodname_dotcom %}
+## Configurar o endereço de e-mail do commit no {% data variables.product.prodname_dotcom %}
 
 {% data reusables.files.commit-author-email-options %}
 
@@ -66,11 +67,11 @@ If you use your `noreply` email address for {% data variables.product.product_na
 {% data reusables.user_settings.select_primary_email %}{% ifversion fpt or ghec %}
 {% data reusables.user_settings.keeping_your_email_address_private %}{% endif %}
 
-## Setting your commit email address in Git
+## Configurar o endereço de e-mail do commit no Git
 
-You can use the `git config` command to change the email address you associate with your Git commits. The new email address you set will be visible in any future commits you push to {% data variables.product.product_location %} from the command line. Any commits you made prior to changing your commit email address are still associated with your previous email address.
+Você pode usar o comando `git config` para alterar o endereço de e-mail associado aos commits do Git. O novo endereço de e-mail configurado ficará visível em todos os commits cujo push é feito para o {% data variables.product.product_location %} usando a linha de comando. Os commits feitos antes da alteração do endereço de e-mail do commit continuarão associados ao endereço de e-mail anterior.
 
-### Setting your email address for every repository on your computer
+### Configurar o endereço de e-mail para todos os repositórios no computador
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. {% data reusables.user_settings.set_your_email_address_in_git %}
@@ -84,14 +85,14 @@ You can use the `git config` command to change the email address you associate w
    ```
 4. {% data reusables.user_settings.link_email_with_your_account %}
 
-### Setting your email address for a single repository
+### Configurar o endereço de e-mail para um repositório específico
 
-{% data variables.product.product_name %} uses the email address set in your local Git configuration to associate commits pushed from the command line with your account on {% data variables.product.product_location %}.
+{% data variables.product.product_name %} usa o endereço de e-mail definido na sua configuração local do Git para associar commits enviados por push a partir da linha de comando para sua conta em {% data variables.product.product_location %}.
 
-You can change the email address associated with commits you make in a single repository. This will override your global Git config settings in this one repository, but will not affect any other repositories.
+Você pode alterar o endereço de e-mail associado aos commits feitos em um repositório específico. Isso sobrescreverá as definições de configuração global do Git no repositório em questão, mas não afetará nenhum outro repositório.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to the local repository where you want to configure the email address that you associate with your Git commits.
+2. Altere o diretório de trabalho atual para o repositório local no qual deseja configurar o endereço de e-mail associado aos commits do Git.
 3. {% data reusables.user_settings.set_your_email_address_in_git %}
    ```shell
    $ git config user.email "<em>email@example.com</em>"

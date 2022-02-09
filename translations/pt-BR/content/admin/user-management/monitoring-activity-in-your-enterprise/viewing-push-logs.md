@@ -1,6 +1,6 @@
 ---
-title: Viewing push logs
-intro: Site administrators can view a list of Git push operations for any repository on the enterprise.
+title: Exibir logs de push
+intro: Os administradores do site podem ver uma lista de operações de push do Git para qualquer repositório na empresa.
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs
   - /enterprise/admin/installation/viewing-push-logs
@@ -16,31 +16,30 @@ topics:
   - Git
   - Logging
 ---
-Push log entries show:
 
-- Who initiated the push
-- Whether it was a force push or not
-- The branch someone pushed to
-- The protocol used to push
-- The originating IP address
-- The Git client used to push
-- The SHA hashes from before and after the operation
+As entradas de log de push mostram o seguinte:
 
-## Viewing a repository's push logs
+- Quem iniciou o push;
+- Se o push foi forçado ou não;
+- O branch para o qual o push foi feito;
+- O protocolo usado para fazer push;
+- O endereço IP de origem;
+- O cliente Git usado para fazer push;
+- Os hashes SHA de antes e depois da operação.
 
-1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
-1. Navigate to a repository.
-1. In the upper-right corner of the repository's page, click {% octicon "rocket" aria-label="The rocket ship" %}.
-    ![Rocketship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+## Exibir os logs de push do repositório
+
+1. Efetue o login em {% data variables.product.prodname_ghe_server %} como administrador do site.
+1. Navegue até um repositório.
+1. No canto superior direito da página do repositório, clique em {% octicon "rocket" aria-label="The rocket ship" %}. ![Ícone de foguete para acessar as configurações de administrador do site](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
-4. In the left sidebar, click **Push Log**.
-![Push log tab](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
+4. Na barra lateral esquerda, clique em **Push Log** (Log de push). ![Guia de log de push](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 {% ifversion ghes %}
-## Viewing a repository's push logs on the command-line
+## Exibir os logs de push do repositório na linha de comando
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. In the appropriate Git repository, open the audit log file:
+1. No repositório do Git adequado, abra o arquivo de log de auditoria:
   ```shell
   ghe-repo <em>owner</em>/<em>repository</em> -c "less audit_log"
   ```

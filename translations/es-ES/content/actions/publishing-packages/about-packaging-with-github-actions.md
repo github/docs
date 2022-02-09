@@ -1,6 +1,6 @@
 ---
-title: About packaging with GitHub Actions
-intro: 'You can set up workflows in {% data variables.product.prodname_actions %} to produce packages and upload them to {% data variables.product.prodname_registry %} or another package hosting provider.'
+title: Acerca del empaquetado con acciones de GitHub
+intro: 'Puedes configurar flujos de trabajo en {% data variables.product.prodname_actions %} para generar paquetes y cargarlos en {% data variables.product.prodname_registry %} u otro proveedor de alojamiento del paquete.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-packaging-with-github-actions
   - /actions/publishing-packages-with-github-actions/about-packaging-with-github-actions
@@ -13,7 +13,7 @@ versions:
 type: overview
 topics:
   - Packaging
-shortTitle: Packaging with GitHub Actions
+shortTitle: Empaquetar con GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -21,6 +21,6 @@ shortTitle: Packaging with GitHub Actions
 
 {% data reusables.package_registry.about-packaging-and-actions %}
 
-## Further reading
+## Leer más
 
-- "[Publishing Node.js packages](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)"
+- "[Publicar paquetes Node.js](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)"

@@ -1,6 +1,6 @@
 ---
-title: About SCIM
-intro: 'With System for Cross-domain Identity Management (SCIM), administrators can automate the exchange of user identity information between systems.'
+title: Sobre o SCIM
+intro: 'Com o Sistema para gerenciamento de identidades entre domínios (SCIM, System for Cross-domain Identity Management), os administradores podem automatizar a troca de informações de identidade do usuário entre sistemas.'
 redirect_from:
   - /articles/about-scim
   - /github/setting-up-and-managing-organizations-and-teams/about-scim
@@ -13,20 +13,26 @@ topics:
 
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
-If you use [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) in your organization, you can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.product_name %}. For example, an administrator can deprovision an organization member using SCIM and automatically remove the member from the organization.
+Se você usa [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) em sua organização, é possível implementar o SCIM pra adicionar, gerenciar e remover o acesso dos integrantes da organização ao {% data variables.product.product_name %}. Por exemplo, um administrador pode desprovisionar um integrante da organização usando SCIM e remover automaticamente o integrante da organização.
 
-If you use SAML SSO without implementing SCIM, you won't have automatic deprovisioning. When organization members' sessions expire after their access is removed from the IdP, they aren't automatically removed from the organization. Authorized tokens grant access to the organization even after their sessions expire. To remove access, organization administrators can either manually remove the authorized token from the organization or automate its removal with SCIM.
+Se o SAML SSO for usado sem implementação do SCIM, você não terá desprovisionamento automático. Quando as sessões dos integrantes da organização expiram depois que o acesso deles é removido do IdP, eles não podem ser removidos automaticamente da organização. Os tokens autorizados concedem acesso à organização mesmo depois que as respectivas sessões expiram. Para remover o acesso, os administradores da organização podem remover o token autorizado manualmente da organização ou automatizar a remoção com o SCIM.
 
-These identity providers are compatible with the {% data variables.product.product_name %} SCIM API for organizations. For more information, see [SCIM](/rest/reference/scim) in the {% ifversion ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API documentation.
+Estes provedores de identidade são compatíveis com a API de SCIM de {% data variables.product.product_name %} para organizações. Para obter mais informações, consulte [SCIM](/rest/reference/scim) na documentação da API {% ifversion ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.
 - Azure AD
 - Okta
 - OneLogin
 
+{% note %}
+
+**Observação:** {% data reusables.scim.nameid-and-username-must-match %}
+
+{% endnote %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
-## Further reading
+## Leia mais
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Connecting your identity provider to your organization](/articles/connecting-your-identity-provider-to-your-organization)"
-- "[Enabling and testing SAML single sign-on for your organization](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)"
-- "[Viewing and managing a member's SAML access to your organization](/github/setting-up-and-managing-organizations-and-teams//viewing-and-managing-a-members-saml-access-to-your-organization)"
+- "[Sobre gerenciamento de identidade e acesso com o SAML de logon único](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[Conectar o provedor de identidade à sua organização](/articles/connecting-your-identity-provider-to-your-organization)"
+- "[Habilitar e testar SAML de logon único para sua organização](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)"
+- "[Visualizar e gerenciar acesso de SAML de um integrante à sua organização](/github/setting-up-and-managing-organizations-and-teams//viewing-and-managing-a-members-saml-access-to-your-organization)"

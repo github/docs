@@ -26,8 +26,6 @@ To transfer an open issue to another repository, you must have write access to t
 
 ## 将开放的议题转让给其他仓库
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}

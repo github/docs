@@ -1,12 +1,14 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import cheerio from 'cheerio'
+import { describe, expect } from '@jest/globals'
+
 import Page from '../../lib/page.js'
 import readJsonFile from '../../lib/read-json-file.js'
 import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-// import getLinkData from '../../lib/get-link-data.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const prerenderedObjects = readJsonFile('./lib/graphql/static/prerendered-objects.json')
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
@@ -134,6 +136,10 @@ describe('Page class', () => {
           '/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
         currentLanguage: 'en',
       }
+      // This is needed because unit tests are weird. The page.render()
+      // method is dependent on module global cache.
+      // We need to fudge the `currentPath` so it appears to be different.
+      context.currentPath += Math.random()
       await page.render(context)
       const $ = cheerio.load(page.intro)
       expect(
@@ -208,6 +214,7 @@ describe('Page class', () => {
         currentLanguage: 'en',
         enterpriseServerVersions,
       }
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       let rendered = await page.render(context)
       let $ = cheerio.load(rendered)
       expect($.text()).toBe(
@@ -218,6 +225,7 @@ describe('Page class', () => {
       // change version to the oldest enterprise version, re-render, and test again;
       // the results should be the same
       context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).toBe(
@@ -228,6 +236,7 @@ describe('Page class', () => {
       // change version to non-enterprise, re-render, and test again;
       // the results should be the opposite
       context.currentVersion = nonEnterpriseDefaultVersion
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).not.toBe(
@@ -265,6 +274,7 @@ describe('Page class', () => {
         currentVersion: 'github-ae@latest',
         currentLanguage: 'en',
       }
+      context.currentPath = `/${context.currentLanguage}/${context.currentVersion}`
       await expect(() => {
         return page.render(context)
       }).not.toThrow()
@@ -666,8 +676,6 @@ describe('Page class', () => {
       expect(page.versions.fpt).toBe('*')
       expect(page.versions.ghes).toBe('>2.21')
       expect(page.versions.ghae).toBeUndefined()
-      // The `feature` prop gets deleted by lib/get-applicable-versions, so it's undefined.
-      expect(page.versions.feature).toBeUndefined()
 
       // Test the resolved versioning, where GHES releases specified in frontmatter and in
       // feature versions are combined (i.e., one doesn't overwrite the other).
@@ -759,5 +767,36 @@ describe('catches errors thrown in Page class', () => {
     await expect(getPage).rejects.toThrowError(
       /`versions` frontmatter.*? product is not available in/
     )
+  })
+
+  describe('versionining optional attributes', () => {
+    test("re-rendering set appropriate 'product', 'permissions', 'learningTracks'", async () => {
+      const page = await Page.init({
+        relativePath: 'page-with-optional-attributes.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+      const context = {
+        page: { version: `enterprise-server@3.2` },
+        currentVersion: `enterprise-server@3.2`,
+        currentProduct: 'snowbird',
+        currentLanguage: 'en',
+        currentPath: '/en/enterprise-server@3.2/optional/attributes',
+        fpt: false, // what the shortVersions contextualizer does
+      }
+
+      await page.render(context)
+      expect(page.product).toBe('')
+      expect(page.permissions).toBe('')
+
+      // Change to FPT
+      context.page.version = nonEnterpriseDefaultVersion
+      context.version = nonEnterpriseDefaultVersion
+      context.currentPath = '/en/optional/attributes'
+      context.fpt = true
+      await page.render(context)
+      expect(page.product).toContain('FPT rulez!')
+      expect(page.permissions).toContain('FPT only!')
+    })
   })
 })

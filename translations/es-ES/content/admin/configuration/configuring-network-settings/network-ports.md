@@ -1,14 +1,14 @@
 ---
-title: Network ports
+title: Puertos de red
 redirect_from:
-  - /enterprise/admin/articles/configuring-firewalls/
-  - /enterprise/admin/articles/firewall/
-  - /enterprise/admin/guides/installation/network-configuration/
-  - /enterprise/admin/guides/installation/network-ports-to-open/
+  - /enterprise/admin/articles/configuring-firewalls
+  - /enterprise/admin/articles/firewall
+  - /enterprise/admin/guides/installation/network-configuration
+  - /enterprise/admin/guides/installation/network-ports-to-open
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
-intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
+intro: 'Abre los puertos de red de forma selectiva en base a los servicios de red que necesitas exponer a los administradores, usuarios finales y apoyo de correo electrónico.'
 versions:
   ghes: '*'
 type: reference
@@ -18,36 +18,37 @@ topics:
   - Networking
   - Security
 ---
-## Administrative ports
 
-Some administrative ports are required to configure {% data variables.product.product_location %} and run certain features. Administrative ports are not required for basic application use by end users.
+## Puertos administrativos
 
-| Port | Service | Description |
-|---|---|---|
-| 8443 | HTTPS | Secure web-based {% data variables.enterprise.management_console %}. Required for basic installation and configuration. |
-| 8080 | HTTP | Plain-text web-based {% data variables.enterprise.management_console %}. Not required unless SSL is disabled manually. |
-| 122 | SSH | Shell access for {% data variables.product.product_location %}. Required to be open to incoming connections between all nodes in a high availability configuration. The default SSH port (22) is dedicated to Git and SSH application network traffic. |
-| 1194/UDP | VPN | Secure replication network tunnel in high availability configuration. Required to be open for communication between all nodes in the configuration.|
-| 123/UDP| NTP | Required for time protocol operation. |
-| 161/UDP | SNMP | Required for network monitoring protocol operation. |
+Se requieren algunos puertos administrativos para configurar {% data variables.product.product_location %} y ejecutar determinadas funciones. No se requieren puertos administrativos para el uso de la aplicación básica por parte de los usuarios finales.
 
-## Application ports for end users
+| Port (Puerto) | Servicio | Descripción                                                                                                                                                                                                                                                                       |
+| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 8443          | HTTPS    | {% data variables.enterprise.management_console %} segura basada en la web. Requerida para la instalación y la configuración básicas.                                                                                                                                             |
+| 8080          | HTTP     | {% data variables.enterprise.management_console %} basada en la web de texto simple. No se requiere excepto que el SSL esté inhabilitado de forma manual.                                                                                                                         |
+| 122           | SSH      | Acceso shell para {% data variables.product.product_location %}. Se necesita abierto a las conexiones entrantes entre todos los nodos en una configuración de disponibilidad alta. El puerto SSH predeterminado (22) está destinado al tráfico de red de la aplicación SSH y Git. |
+| 1194/UDP      | VPN      | Túnel de red de replicación segura en la configuración de alta disponibilidad. Se requiere abierto a las comunicaciones entre todos los nodos en la configuración.                                                                                                                |
+| 123/UDP       | NTP      | Se requiere para operar el protocolo de tiempo.                                                                                                                                                                                                                                   |
+| 161/UDP       | SNMP     | Se requiere para operar el protocolo de revisión de red.                                                                                                                                                                                                                          |
 
-Application ports provide web application and Git access for end users.
+## Puertos de la aplicación para usuarios finales
 
-| Port | Service | Description |
-|---|---|---|
-| 443 | HTTPS | Access to the web application and Git over HTTPS. |
-| 80 | HTTP | Access to the web application. All requests are redirected to the HTTPS port when SSL is enabled. |
-| 22 | SSH | Access to Git over SSH. Supports clone, fetch, and push operations to public and private repositories. |
-| 9418 | Git | Git protocol port supports clone and fetch operations to public repositories with unencrypted network communication. {% data reusables.enterprise_installation.when-9418-necessary %} |
+Los puertos de la aplicación permiten que los usuarios finales accedan a Git y a las aplicaciones web.
+
+| Port (Puerto) | Servicio | Descripción                                                                                                                                                                                            |
+| ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 443           | HTTPS    | Acceso a la aplicación web y a Git por HTTPS.                                                                                                                                                          |
+| 80            | HTTP     | Acceso a la aplicación web. Todas las solicitudes se redireccionan al puerto HTTPS cuando se habilita SSL.                                                                                             |
+| 22            | SSH      | Acceso a Git por SSH. Admite las operaciones clonar, extraer y subir a los repositorios privados y públicos.                                                                                           |
+| 9418          | Git      | El puerto de protocolo Git admite las operaciones clonar y extraer a los repositorios públicos con comunicación de red desencriptada. {% data reusables.enterprise_installation.when-9418-necessary %}
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-## Email ports
+## Puertos de correo electrónico
 
-Email ports must be accessible directly or via relay for inbound email support for end users.
+Los puertos de correo electrónico deben ser accesibles directamente o por medio de la retransmisión del correo electrónico entrante para los usuarios finales.
 
-| Port | Service | Description |
-|---|---|---|
-| 25 | SMTP | Support for SMTP with encryption (STARTTLS). |
+| Port (Puerto) | Servicio | Descripción                                    |
+| ------------- | -------- | ---------------------------------------------- |
+| 25            | SMTP     | Soporte para SMTP con encriptación (STARTTLS). |

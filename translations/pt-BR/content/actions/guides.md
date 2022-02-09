@@ -1,6 +1,6 @@
 ---
-title: Guides for GitHub Actions
-intro: 'These guides for {% data variables.product.prodname_actions %} include specific use cases and examples to help you configure workflows.'
+title: Guias para o GitHub Actions
+intro: 'Estes guias para {% data variables.product.prodname_actions %} incluem casos de uso específicos e exemplos para ajudar você a configurar fluxos de trabalho.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -20,7 +20,7 @@ includeGuides:
   - /actions/quickstart
   - /actions/learn-github-actions/introduction-to-github-actions
   - /actions/creating-actions/creating-a-docker-container-action
-  - /actions/learn-github-actions/using-workflow-templates
+  - /actions/learn-github-actions/using-starter-workflows
   - /actions/automating-builds-and-tests/building-and-testing-python
   - /actions/automating-builds-and-tests/building-and-testing-nodejs
   - /actions/publishing-packages/about-packaging-with-github-actions

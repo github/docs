@@ -1,48 +1,45 @@
 ---
-title: Setting your timeout period for Codespaces
-intro: 'You can set your default timeout for {% data variables.product.prodname_codespaces %} in your personal settings page.'
+title: Definindo seu período de tempo limite para os codespaces.
+intro: 'Você pode definir seu tempo limite padrão para {% data variables.product.prodname_codespaces %} na sua página de configurações pessoais.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Codespaces
-shortTitle: Set the timeout
+shortTitle: Definir o tempo limite
 ---
 
-A codespace will stop running after a period of inactivity. You can specify the length of this timeout period. The updated setting will apply to any newly created codespace.
+Um codespace irá parar de funcionar após um período de inatividade. Você pode especificar a duração deste período de tempo limite. A configuração atualizada será aplicada a qualquer código recém-criado.
 
 {% warning %}
 
-**Warning**: Codespaces are billed per minute. If you are not actively using a codespace but the codespace has not yet timed out, you are still billed for the time that the codespace is running. For more information, see "[About billing for Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+**Aviso**: Os codespaces são cobrados por minuto. Se você não está usando ativamente um codepsace, mas o este ainda não expirou, você ainda será cobrado pelo tempo em que o codespace estiver em execução. Para obter mais informações, consulte[Sobre a cobrança dos codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
 
 {% endwarning %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
-## Setting your default timeout
+## Definir seu tempo limite padrão
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
-1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours).
-   ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
+1. Em "Tempo de inatividade", digite o tempo que você deseja e, em seguida, clique em **Salvar**. O tempo deve ser entre 5 minutos e 240 minutos (4 horas). ![Selecionando o tempo limite](/assets/images/help/codespaces/setting-default-timeout.png)
 
 {% endwebui %}
 
 {% cli %}
 
-## Setting your timeout period
+## Definindo seu período de tempo limite
 
 {% data reusables.cli.cli-learn-more %}
 
-To set the timeout period when you create a codespace, use the `idle-timeout` argument with the `codespace create` subcommand. Specify the time in minutes, followed by `m`. The time must be between 5 minutes and 240 minutes (4 hours).
+Para definir o período de tempo limite ao criar um codespace, use o argumento `idle-timeout` com o subcomando `codespace create`. Especifique o tempo em minutos, seguido por `m`. O tempo deve ser entre 5 minutos e 240 minutos (4 horas).
 
 ```shell
 gh codespace create --idle-timeout 90m
 ```
 
-If you don't specify a timeout period when you create a codespace, then the default timeout period will be used. For information about setting a default timeout period, click the "Web browser" tab on this page. You can't currently specify a default timeout period through {% data variables.product.prodname_cli %}.
+Se você não especificar um período de tempo limite ao criar um codespace, será usado o período de tempo limite padrão. Para informações sobre como definir um período de tempo limite padrão, clique na aba "Navegador da Web" nesta página. Você não pode especificar um período de tempo padrão para {% data variables.product.prodname_cli %}.
 
 {% endcli %}

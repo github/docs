@@ -1,6 +1,6 @@
 ---
-title: Adding information to your receipts
-intro: 'You can add extra information to your {% data variables.product.product_name %} receipts, such as tax or accounting information required by your company or country.'
+title: Adicionar informações aos recibos
+intro: 'Você pode adicionar informações extras aos recibos do {% data variables.product.product_name %}, como imposto ou informações contábeis exigidas pela empresa ou pelo país.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/adding-information-to-your-receipts
   - /articles/can-i-add-my-credit-card-number-to-my-receipts
@@ -21,28 +21,29 @@ topics:
   - Organizations
   - Receipts
   - User account
-shortTitle: Add to your receipts
+shortTitle: Adicionar aos seus recibos
 ---
-Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for [other paid features and products](/articles/about-billing-on-github).
+
+Seus recibos incluem sua assinatura do {% data variables.product.prodname_dotcom %}, bem como qualquer assinatura para [outros recursos e produtos pagos](/articles/about-billing-on-github).
 
 {% warning %}
 
-**Warning**: For security reasons, we strongly recommend against including any confidential or financial information (such as credit card numbers) on your receipts.
+**Aviso**: por motivos de segurança, é enfaticamente recomendável não incluir informações confidenciais ou financeiras (como números de cartão de crédito) nos recibos.
 
 {% endwarning %}
 
-## Adding information to your personal account's receipts
+## Adicionar informações aos recibos da sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
-## Adding information to your organization's receipts
+## Adicionar informações ao recibos da sua organização
 
 {% note %}
 
-**Note**: {% data reusables.dotcom_billing.org-billing-perms %}
+**Observação**: {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% endnote %}
 

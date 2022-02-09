@@ -1,6 +1,6 @@
 ---
-title: Canceling a GitHub Marketplace app
-intro: 'You can cancel and remove a {% data variables.product.prodname_marketplace %} app from your account at any time.'
+title: Cancelar um app do GitHub Marketplace
+intro: 'Você pode cancelar e remover um app do {% data variables.product.prodname_marketplace %} da sua conta a qualquer momento.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/canceling-a-github-marketplace-app
   - /articles/canceling-an-app-for-your-personal-account
@@ -17,29 +17,30 @@ topics:
   - Organizations
   - Trials
   - User account
-shortTitle: Cancel a Marketplace app
+shortTitle: Cancelar um aplicativo do Marketplace
 ---
-When you cancel an app, your subscription remains active until the end of your current billing cycle. The cancellation takes effect on your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
 
-When you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. If you don't cancel your free trial within the trial period, the payment method on file for your account will be charged for the plan you chose at the end of the trial period. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
+Quando você cancela um app, sua assinatura permanece ativa até o fim do ciclo de cobrança atual. O cancelamento entra em vigor na próxima data de cobrança. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
+
+Quando você cancela uma versão de avaliação gratuita em um plano pago, a assinatura é imediatamente cancelada e você perde acesso ao app. Se você não cancelar a versão de avaliação gratuita dentro do período de avaliação, o método de pagamento registrado para a conta será aplicado para o plano escolhido no fim do período de avaliação. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-## Canceling an app for your personal account
+## Cancelar um app da sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-## Canceling a free trial for an app for your personal account
+## Cancelar a versão de avaliação gratuita de um app da sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-## Canceling an app for your organization
+## Cancelar um app da organização
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -50,7 +51,7 @@ When you cancel a free trial on a paid plan, your subscription is immediately ca
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-## Canceling a free trial for an app for your organization
+## Cancelar a versão de avaliação gratuita de um app da organização
 
 {% data reusables.marketplace.marketplace-org-perms %}
 

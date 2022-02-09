@@ -1,6 +1,6 @@
 ---
-title: Reviewing deployments
-intro: You can approve or reject jobs awaiting review.
+title: Revisar implantações
+intro: Você pode aprovar ou rejeitar trabalhos que estão aguardando revisão.
 product: '{% data reusables.gated-features.environments %}'
 versions:
   fpt: '*'
@@ -10,19 +10,17 @@ versions:
 ---
 
 
-## About required reviews in workflows
+## Sobre revisões necessárias nos fluxos de trabalho
 
-Jobs that reference an environment configured with required reviewers will wait for an approval before starting. While a job is awaiting approval, it has a status of "Waiting". If a job is not approved within 30 days, the workflow run will be automatically canceled.
+Os trabalhos que fazem referência a um ambiente configurado com os revisores necessários irão aguardar a aprovação antes de serem iniciados. Enquanto um trabalho está aguardando aprovação, ele tem um status de "Aguardando". Se um trabalho não for aprovado em 30 dias, a execução do fluxo de trabalho será automaticamente cancelada.
 
-For more information about environments and required approvals, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."{% ifversion fpt or ghae or ghes > 3.1 or ghec %} For information about how to review deployments with the REST API, see "[Workflow Runs](/rest/reference/actions#workflow-runs)."{% endif %}
+Para obter mais informações sobre ambientes e aprovações necessárias, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment).{% ifversion fpt or ghae or ghes > 3.1 or ghec %} Para obter informações sobre como revisar implantações com a API REST, consulte "[Execuções de trabalho](/rest/reference/actions#workflow-runs)."{% endif %}
 
-## Approving or rejecting a job
+## Aprovar ou rejeitar um trabalho
 
-1. Navigate to the workflow run that requires review. For more information about navigating to a workflow run, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
-2. Click **Review deployments**. 
-   ![Review deployments](/assets/images/actions-review-deployments.png)
-3. Select the job environment(s) to approve or reject. Optionally, leave a comment.
-   ![Approve deployments](/assets/images/actions-approve-deployments.png)
-4. Approve or reject:
-   - To approve the job, click **Approve and deploy**. Once a job is approved (and any other environment protection rules have passed), the job will proceed. At this point, the job can access any secrets stored in the environment.
-   - To reject the job, click **Reject**. If a job is rejected, the workflow will fail.
+1. Acesse a execução do fluxo de trabalho que requer revisão. Para obter mais informações sobre navegação até uma execução do fluxo de trabalho, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+2. Clique em **Revisar implantações**. ![Revisar implantações](/assets/images/actions-review-deployments.png)
+3. Selecione o(s) ambiente(s) de trabalho a serem aprovados ou rejeitados. Opcionalmente, deixe um comentário. ![Aprovar implantações](/assets/images/actions-approve-deployments.png)
+4. Aprovar ou rejeitar:
+   - Para aprovar o trabalho, clique em **Aprovar e implantar**. Assim que um trabalho for aprovado (e quaisquer outras regras de proteção do ambiente serem aprovadas), o trabalho prosseguirá. Nesta altura, o trabalho pode acessar quaisquer segredos armazenados no ambiente.
+   - Para rejeitar o trabalho, clique em **Rejeitar**. Se um trabalho for rejeitado, o fluxo de trabalho falhará.

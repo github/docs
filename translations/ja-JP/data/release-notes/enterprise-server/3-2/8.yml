@@ -1,0 +1,26 @@
+---
+date: '2022-02-01'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - Pages would become unavailable following a MySQL secret rotation until `nginx` was manually restarted.
+    - Migrations could fail when {% data variables.product.prodname_actions %} was enabled.
+    - When setting the maintenance schedule with a ISO 8601 date, the actual scheduled time wouldn't match due to the timezone not being transformed to UTC.
+    - Spurious error messages concerning the `cloud-config.service` would be output to the console.
+    - The version number would not be correctly updated after a installing a hotpatch using `ghe-cluster-each`.
+    - Webhook table cleanup jobs could run simultaneously, causing resource contention and increasing job run time.
+    - When run from the primary, `ghe-repl-teardown` on a replica would not remove the replica from the MSSQL availability group.
+    - When using CAS authentication and the "Reactivate suspended users" option was enabled, suspended users were not automatically reactivated.
+    - The ability to limit email-based notifications to users with emails on a verified or approved domain did not work correctly.
+    - A long-running database migration related to Security Alert settings could delay upgrade completion.
+  changes:
+    - The GitHub Connect data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

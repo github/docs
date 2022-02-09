@@ -1,6 +1,6 @@
 ---
-title: Migrating from CircleCI to GitHub Actions
-intro: 'GitHub Actions and CircleCI share several similarities in configuration, which makes migration to GitHub Actions relatively straightforward.'
+title: CircleCIからGitHub Actionsへの移行
+intro: GitHub ActionsとCircleCIには設定に相似点があるので、GitHub Actionsへの移行は比較的単純明快です。
 redirect_from:
   - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
 versions:
@@ -20,68 +20,69 @@ shortTitle: Migrate from CircleCI
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## はじめに
 
-CircleCI and {% data variables.product.prodname_actions %} both allow you to create workflows that automatically build, test, publish, release, and deploy code. CircleCI and {% data variables.product.prodname_actions %} share some similarities in workflow configuration:
+CircleCIと{% data variables.product.prodname_actions %}は、どちらも自動的にコードのビルド、テスト、公開、リリース、デプロイを行うワークフローを作成できます。 CircleCIと{% data variables.product.prodname_actions %}は、ワークフローの設定において似ているところがあります。
 
-- Workflow configuration files are written in YAML and stored in the repository.
-- Workflows include one or more jobs.
-- Jobs include one or more steps or individual commands.
-- Steps or tasks can be reused and shared with the community.
+- ワークフローの設定ファイルはYAMLで書かれ、リポジトリに保存されます。
+- ワークフローには1つ以上のジョブが含まれます。
+- ジョブには1つ以上のステップもしくは個別のコマンドが含まれます。
+- ステップもしくはタスクは、再利用とコミュニティとの共有が可能です。
 
-For more information, see "[Core concepts for {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)."
+詳しい情報については、「[{% data variables.product.prodname_actions %}の中核的概念](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)」を参照してください。
 
-## Key differences
+## 主要な差異
 
-When migrating from CircleCI, consider the following differences:
+CircleCIから移行する際には、以下の差異を考慮してください。
 
-- CircleCI’s automatic test parallelism automatically groups tests according to user-specified rules or historical timing information. This functionality is not built into {% data variables.product.prodname_actions %}.
-- Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your *Dockerfile*. {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
-{% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[Virtual environments for {% data variables.product.product_name %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
+- CircleCIの自動テストの並列性は、ユーザが指定したルールもしくは過去のタイミングの情報に基づいて、自動的にテストをグループ化します。 この機能は{% data variables.product.prodname_actions %}には組み込まれていません。
+- コンテナはユーザのマッピングが異なるので、Dockerコンテナ内で実行されるアクションは、権限の問題に敏感です。 これらの問題の多くは、*Dockerfile*中で`USER`命令を使わなければ回避できます。 {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
+{% else %}{% data variables.product.product_name %}ホストランナー上の Docker のファイルシステムに関する詳しい情報については「[{% data variables.product.product_name %} ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
 {% endif %}
 
-## Migrating workflows and jobs
+## ワークフローとジョブの移行
 
-CircleCI defines `workflows` in the *config.yml* file, which allows you to configure more than one workflow. {% data variables.product.product_name %} requires one workflow file per workflow, and as a consequence, does not require you to declare `workflows`. You'll need to create a new workflow file for each workflow configured in *config.yml*.
+CircleCIは*config.yml*ファイル中で`workflows`を定義するので、複数のワークフローを設定できます。 {% data variables.product.product_name %}はワークフローごとに1つのワークフローファイルを必要とするので、結果として`workflows`を宣言する必要がありません。 それぞれのワークフローごとに、*config.yml*で内で設定された新しいワークフローファイルを作成しなければなりません。
 
-Both CircleCI and {% data variables.product.prodname_actions %} configure `jobs` in the configuration file using similar syntax. If you configure any dependencies between jobs using `requires` in your CircleCI workflow, you can use the equivalent {% data variables.product.prodname_actions %} `needs` syntax. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)."
+CircleCIと{% data variables.product.prodname_actions %}は、どちらも似た構文を使って設定ファイル中で`jobs`を設定します。 CircleCIワークフロー中で`requires`を使ってジョブ間の依存関係を設定しているなら、相当する{% data variables.product.prodname_actions %}の`needs`構文を利用できます。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。
 
-## Migrating orbs to actions
+## orbsからアクションへの移行
 
-Both CircleCI and {% data variables.product.prodname_actions %} provide a mechanism to reuse and share tasks in a workflow. CircleCI uses a concept called orbs, written in YAML, to provide tasks that people can reuse in a workflow. {% data variables.product.prodname_actions %} has powerful and flexible reusable components called actions, which you build with either JavaScript files or Docker images. You can create actions by writing custom code that interacts with your repository in any way you'd like, including integrating with {% data variables.product.product_name %}'s APIs and any publicly available third-party API. For example, an action can publish npm modules, send SMS alerts when urgent issues are created, or deploy production-ready code. For more information, see "[Creating actions](/actions/creating-actions)."
+CircleCIと{% data variables.product.prodname_actions %}は、どちらもワークフロー中のタスクを再利用し、共有するための仕組みを提供しています。 CircleCIはorbsという概念を利用します。これはYAMLで書かれ、ワークフロー中で再利用できるタスクを提供します。 {% data variables.product.prodname_actions %}はアクションと呼ばれる強力で柔軟な再利用できるコンポーネントを持っており、これはJavaScriptファイルもしくはDockerイメージで構築できます。 {% data variables.product.product_name %} の API やパブリックに利用可能なサードパーティ API との統合など、リポジトリと相互作用するカスタムコードを書いてアクションを作成することができます。 たとえば、アクションでnpmモジュールを公開する、緊急のIssueが発生したときにSMSアラートを送信する、本番対応のコードをデプロイすることなどが可能です。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
 
-CircleCI can reuse pieces of workflows with YAML anchors and aliases. {% data variables.product.prodname_actions %} supports the most common need for reusability using build matrixes. For more information about build matrixes, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)."
+CircleCIは、YAMLのアンカーとエイリアスでワークフローの部分を再利用できます。 {% data variables.product.prodname_actions %}はビルドマトリックスを使って、再利用性についての一般的な要求のほとんどをサポートします。 ビルドマトリックスに関する詳細な情報については「[複雑なワークフローを管理する](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)」を参照してください。
 
-## Using Docker images
+## Dockerイメージの利用
 
 
-Both CircleCI and {% data variables.product.prodname_actions %} support running steps inside of a Docker image.
+CircleCIと{% data variables.product.prodname_actions %}は、どちらもDockerイメージ内でのステップの実行をサポートします。
 
-CircleCI provides a set of pre-built images with common dependencies. These images have the `USER` set to `circleci`, which causes permissions to conflict with {% data variables.product.prodname_actions %}.
+CircleCIは、共通の依存関係を持つ一連のビルド済みのイメージを提供します。 これらのイメージでは`USER`が`circleci`に設定されており、それが{% data variables.product.prodname_actions %}との権限の衝突を引き起こすことになります。
 
-We recommend that you move away from CircleCI's pre-built images when you migrate to {% data variables.product.prodname_actions %}. In many cases, you can use actions to install the additional dependencies you need.
+{% data variables.product.prodname_actions %}への移行に際しては、CircleCIの構築済みイメージから離脱することをおすすめします。 多くの場合、必要な追加の依存関係のインストールにアクションを使うことができます。
 
 {% ifversion ghae %}
-For more information about the Docker filesystem, see "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
+Docker ファイルシステムの詳細については、「[Docker コンテナファイルシステム](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)」を参照してください。
 
 {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-For more information about the Docker filesystem, see "[Virtual environments for {% data variables.product.product_name %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
+Dockerのファイルシステムに関する詳しい情報については「[{% data variables.product.product_name %}ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
+ー
 
-For more information about the tools and packages available on {% data variables.product.prodname_dotcom %}-hosted virtual environments, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.product.prodname_dotcom %} ホストの仮想環境で使用できるツールとパッケージの詳細については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
 {% endif %}
 
-## Using variables and secrets
+## 変数とシークレットの利用
 
-CircleCI and {% data variables.product.prodname_actions %} support setting environment variables in the configuration file and creating secrets using the CircleCI or {% data variables.product.product_name %} UI.
+CircleCIと{% data variables.product.prodname_actions %}は、設定ファイル内での環境変数の設定と、CircleCIもしくは{% data variables.product.product_name %}のUIを使ったシークレットの作成をサポートしています。
 
-For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and "[Creating and using encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+詳しい情報については「[環境変数の利用](/actions/configuring-and-managing-workflows/using-environment-variables)」及び「[暗号化されたシークレットの作成と利用](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
 
-## Caching
+## キャッシング
 
-CircleCI and {% data variables.product.prodname_actions %} provide a method to manually cache files in the configuration file.
+CircleCIと{% data variables.product.prodname_actions %}は、設定ファイル中で手動でファイルをキャッシュする方法を提供しています。
 
-Below is an example of the syntax for each system.
+以下は、それぞれのシステムにおける構文の例です。
 
 <table class="d-block">
 <tr>
@@ -118,15 +119,15 @@ GitHub Actions
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable for repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+{% data variables.product.prodname_actions %} キャッシュは、{% data variables.product.prodname_dotcom_the_website %} でホストされているリポジトリにのみ適用できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
-{% data variables.product.prodname_actions %} does not have an equivalent of CircleCI’s Docker Layer Caching (or DLC).
+{% data variables.product.prodname_actions %}は、CircleCIのDocker Layer Caching（DLC）に相当する機能を持っていません。
 
-## Persisting data between jobs
+## ジョブ間でのデータの永続化
 
-Both CircleCI and {% data variables.product.prodname_actions %} provide mechanisms to persist data between jobs.
+CircleCIと{% data variables.product.prodname_actions %}は、どちらもジョブ間でデータを永続化するための仕組みを提供しています。
 
-Below is an example in CircleCI and {% data variables.product.prodname_actions %} configuration syntax.
+以下は、CircleCIと{% data variables.product.prodname_actions %}の設定構文の例です。
 
 <table>
 <tr>
@@ -174,15 +175,15 @@ GitHub Actions
 </tr>
 </table>
 
-For more information, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)」を参照してください。
 
-## Using databases and service containers
+## データベースとサービスコンテナの利用
 
-Both systems enable you to include additional containers for databases, caching, or other dependencies.
+どちらのシステムでも、データベース、キャッシング、あるいはその他の依存関係のための追加コンテナを含めることができます。
 
-In CircleCI, the first image listed in the *config.yaml* is the primary image used to run commands. {% data variables.product.prodname_actions %} uses explicit sections: use `container` for the primary container, and list additional containers in `services`.
+CircleCIでは、*config.yaml*で最初に挙げられているイメージが、コマンドの実行に使われる主要なイメージです。 {% data variables.product.prodname_actions %}は明示的なセクションを使います。主要なコンテナには`container`を使い、追加のコンテナは`services`にリストしてください。
 
-Below is an example in CircleCI and {% data variables.product.prodname_actions %} configuration syntax.
+以下は、CircleCIと{% data variables.product.prodname_actions %}の設定構文の例です。
 
 <table class="d-block">
 <tr>
@@ -275,12 +276,12 @@ jobs:
           POSTGRES_PASSWORD: ""
         ports:
           - 5432:5432
-        # Add a health check
+        # ヘルスチェックを追加
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-      # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
-      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      # このDockerファイルは、デフォルトユーザではなくUSERをcirceciに変更するので、このイメージのファイルの権限をGH Actionsで動作するように変更しなければならない。
+      # https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem を参照
       - name: Setup file system permissions
         run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
       - uses: actions/checkout@v2
@@ -298,11 +299,11 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[About service containers](/actions/configuring-and-managing-workflows/about-service-containers)."
+詳しい情報については「[サービスコンテナについて](/actions/configuring-and-managing-workflows/about-service-containers)」を参照してください。
 
-## Complete Example
+## 完全な例
 
-Below is a real-world example. The left shows the actual CircleCI *config.yml* for the [thoughtbot/administrator](https://github.com/thoughtbot/administrate) repository. The right shows the {% data variables.product.prodname_actions %} equivalent.
+以下は実際の例です。 左は[ thoughtbot/administrator](https://github.com/thoughtbot/administrate)リポジトリのための実際の*config.yml*を示しています。 右は、同等の{% data variables.product.prodname_actions %}を示しています。
 
 <table class="d-block">
 <tr>

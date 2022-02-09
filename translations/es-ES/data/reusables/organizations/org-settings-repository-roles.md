@@ -1,1 +1,1 @@
-4. En la barra lateral izquierda, da clic en **Roles del repositorio**. ![La pestaña de roles del repositorio en la configuración de la organización](/assets/images/help/organizations/org-settings-repository-roles.png)
+1. In the "Access" section of the sidebar, click **{% octicon "id-badge" aria-label="The ID badge icon" %} Repository roles**.

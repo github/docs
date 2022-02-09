@@ -1,6 +1,6 @@
 ---
-title: Transferring organization ownership
-intro: 'To make someone else the owner of an organization account, you must add a new owner{% ifversion fpt or ghec %}, ensure that the billing information is updated,{% endif %} and then remove yourself from the account.'
+title: Organization の所有権を移譲する
+intro: '他の誰かを Organization アカウントのオーナーにするには、新しいオーナーを追加し、{% ifversion fpt or ghec %}請求情報が更新されることを確認し、{% endif %}アカウントから自分を削除します。'
 redirect_from:
   - /articles/needs-polish-how-do-i-give-ownership-to-an-organization-to-someone-else
   - /articles/transferring-organization-ownership
@@ -13,25 +13,26 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Transfer ownership
+shortTitle: 所有権の移譲
 ---
-{% ifversion fpt or ghec %}
+
+{% ifversion ghec %}
 {% note %}
 
-**Note:** {% data reusables.enterprise-accounts.invite-organization %}
+**注釈:** {% data reusables.enterprise-accounts.invite-organization %}
 
 {% endnote %}{% endif %}
 
-1. If you're the only member with *owner* privileges, give another organization member the owner role. For more information, see "[Appointing an organization owner](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)."
-2. Contact the new owner and make sure he or she is able to [access the organization's settings](/articles/accessing-your-organization-s-settings).
+1. もしあなたが *owner* の権限を持つ唯一のメンバーである場合、他の Organization メンバーにオーナーロールを付与します。 詳細は「[Organizationのオーナーの指名](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)」を参照してください。
+2. 新しいオーナーに連絡し、そのオーナーが [Organization の設定にアクセス](/articles/accessing-your-organization-s-settings)できることを確認します。
 {% ifversion fpt or ghec %}
-3. If you are currently responsible for paying for GitHub in your organization, you'll also need to have the new owner or a [billing manager](/articles/adding-a-billing-manager-to-your-organization/) update the organization's payment information. For more information, see "[Adding or editing a payment method](/articles/adding-or-editing-a-payment-method)."
+3. Organization で GitHub への支払いを現在担当している場合、新しいオーナーまたは[支払いマネージャー](/articles/adding-a-billing-manager-to-your-organization/)に Organization の支払い情報を更新してもらう必要があります。 詳細は「[支払い方法を追加または編集する](/articles/adding-or-editing-a-payment-method)」を参照してください。
 
   {% warning %}
 
-  **Warning**: Removing yourself from the organization **does not** update the billing information on file for the organization account. The new owner or a billing manager must update the billing information on file to remove your credit card or PayPal information.
+  **警告**: Organization から自身を削除しても、Organization アカウントのファイル上の支払い情報は**更新されません**。 新しいコードオーナーまたは支払いマネージャーは、あなたのクレジットカードまたは Paypal の情報を削除するためにファイル上の支払い情報を更新しなければなりません。
 
   {% endwarning %}
 
 {% endif %}
-4. [Remove yourself](/articles/removing-yourself-from-an-organization) from the organization.
+4. Organization から[自分を削除する](/articles/removing-yourself-from-an-organization)

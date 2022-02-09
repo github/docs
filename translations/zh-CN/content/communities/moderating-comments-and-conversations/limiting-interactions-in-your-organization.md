@@ -33,8 +33,7 @@ shortTitle: 限制组织中的交互
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. 在组织设置侧边栏中，单击 **Moderation settings（仲裁设置）**。 ![组织设置侧边栏中的"Moderation settings（仲裁设置）"](/assets/images/help/organizations/org-settings-moderation-settings.png)
-1. 在“Moderation settings（仲裁设置）”下，单击 **Interaction limits（交互限制）**。 ![组织设置侧边栏中的"Interaction limits（交互限制）"](/assets/images/help/organizations/org-settings-interaction-limits.png)
+1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![临时交互限制选项](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 

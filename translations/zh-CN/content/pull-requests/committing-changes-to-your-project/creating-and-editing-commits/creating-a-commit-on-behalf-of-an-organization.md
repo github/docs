@@ -1,6 +1,6 @@
 ---
-title: Creating a commit on behalf of an organization
-intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.product_name %}.'
+title: 代表组织创建提交
+intro: '通过在提交消息中添加尾行可代表组织创建提交。 归属于组织的提交应包含 {% data variables.product.product_name %} 上的 `on-behalf-of` 徽章。'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
@@ -8,28 +8,29 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: On behalf of an organization
+shortTitle: 代表组织
 ---
+
 {% note %}
 
-**Note:** The ability to create a commit on behalf of an organization is currently in public beta and is subject to change.
+**注：**代表组织创建提交的功能目前处于公开测试阶段，可能会有所变化。
 
 {% endnote %}
 
-To create commits on behalf of an organization:
+要代表组织创建提交：
 
-- you must be a member of the organization indicated in the trailer
-- you must sign the commit
-- your commit email and the organization email must be in a domain verified by the organization
-- your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
-  - `org` is the organization's login
-  - `name@organization.com` is in the organization's domain
+- 您必须是尾行所述组织的成员
+- 您必须对提交签名
+- 您的提交电子邮件地址和组织电子邮件地址必须位于经组织验证的域中
+- 您的提交消息必须以尾行 `on-behalf-of: @org <name@organization.com>` 结尾。
+  - `org` 是组织的登录名
+  - `name@organization.com` 位于组织的域中
 
 Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
 
-## Creating commits with an `on-behalf-of` badge on the command line
+## 在命令行上使用 `on-behalf-of` 徽章创建提交
 
-1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
+1. 输入提交消息以及简短、有意义的更改描述。 在提交描述后，不要加上右引号，而是添加两个空行。
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -37,11 +38,11 @@ Organizations can use the `name@organization.com` email as a public point of con
   ```
   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+  **提示：** 如果您使用文本编辑器在命令行上输入提交消息，请确保在提交描述末尾与 `on-behalf-of:` 提交尾行之间有两个换行符。
 
   {% endtip %}
 
-2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
+2. 在提交消息的下一行，键入 `on-behalf-of: @org <name@organization.com>`，然后键入右引号。
 
   ```shell
   $ git commit -m "Refactor usability tests.
@@ -50,25 +51,24 @@ Organizations can use the `name@organization.com` email as a public point of con
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-The new commit, message, and badge will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+在下次推送时，新的提交、消息和徽章将显示在 {% data variables.product.product_location %} 上。 更多信息请参阅“[推送更改到远程仓库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)”。
 
-## Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
+## 在 {% data variables.product.product_name %} 上使用 `on-behalf-of` 徽章创建提交
 
-After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
+在 {% data variables.product.product_name %} 上使用 web 编辑器对文件进行更改后，您可以通过在提交消息中添加 `on-behalf-of:` 尾行来创建代表组织的提交。
 
-1. After making your changes, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
+1. 进行更改后，在页面底部键入简短、有意义的提交消息，以描述您所做的更改。 ![有关更改的提交消息](/assets/images/help/repository/write-commit-message-quick-pull.png)
 
-2. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
+2. 在提交消息下方的文本框中，添加 `on-behalf-of: @org <name@organization.com>`。
 
-  ![Commit message on-behalf-of trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+  ![第二个提交消息文本框中的提交消息代表尾行示例](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
+4. 单击 **Commit changes（提交更改）**或 **Propose changes（提议更改）**。
 
-The new commit, message, and badge will appear on {% data variables.product.product_location %}.
+新的提交、消息和徽章将显示在 {% data variables.product.product_location %} 上。
 
-## Further reading
+## 延伸阅读
 
-- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Viewing a project’s contributors](/articles/viewing-a-projects-contributors)"
-- "[Changing a commit message](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+- "[在个人资料中查看贡献](/articles/viewing-contributions-on-your-profile)"
+- “[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
+- “[查看项目的贡献者](/articles/viewing-a-projects-contributors)”
+- “[更改提交消息](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)”

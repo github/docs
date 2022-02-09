@@ -1,5 +1,5 @@
 ---
-title: Managing your theme settings
+title: テーマ設定を管理する
 intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
 versions:
   fpt: '*'
@@ -14,7 +14,7 @@ redirect_from:
 shortTitle: Manage theme settings
 ---
 
-For choice and flexibility in how and when you use {% data variables.product.product_name %}, you can configure theme settings to change how {% data variables.product.product_name %} looks to you. You can choose from themes that are light or dark, or you can configure {% data variables.product.product_name %} to follow your system settings.
+{% data variables.product.product_name %} を使用時期と使用方法を選択して柔軟性を高めるために、テーマ設定をして {% data variables.product.product_name %} の外観を変更できます。 You can choose from themes that are light or dark, or you can configure {% data variables.product.product_name %} to follow your system settings.
 
 You may want to use a dark theme to reduce power consumption on certain devices, to reduce eye strain in low-light conditions, or because you prefer how the theme looks.
 
@@ -29,14 +29,12 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 {% endif %}
 
 {% data reusables.user_settings.access_settings %}
-1. In the user settings sidebar, click **Appearance**.
-
-   !["Appearance" tab in user settings sidebar](/assets/images/help/settings/appearance-tab.png)
+{% data reusables.user_settings.appearance-settings %}
 
 1. Under "Theme mode", select the drop-down menu, then click a theme preference.
 
    ![Drop-down menu under "Theme mode" for selection of theme preference](/assets/images/help/settings/theme-mode-drop-down-menu.png)
-1. Click the theme you'd like to use.
+1. 使いたいテーマをクリックしてください。
     - If you chose a single theme, click a theme.
 
       {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
@@ -56,6 +54,6 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 
 {% endif %}
 
-## Further reading
+## 参考リンク
 
-- "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"
+- "[{% data variables.product.prodname_desktop %}用のテーマの設定方法](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"

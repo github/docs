@@ -28,7 +28,7 @@ For more information about repository roles, see "[Permission levels for a user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 4. [Manage access] の検索フィールドで、検索する Team または人の名前を入力します。 ![アクセスできる Team または人のリストをフィルタリングするための検索フィールド](/assets/images/help/repository/manage-access-filter.png)
 
 ## Team または人の権限を変更する
@@ -42,7 +42,7 @@ For more information about repository roles, see "[Permission levels for a user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. 検索フィールドで、招待する Team または人の名前を入力し、リストから一致する名前をクリックします。 ![リポジトリに招待する Team または人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Under "Choose a role", select the repository role to grant to the team or person, then click **Add NAME to REPOSITORY**. ![Team または人の権限を選択する](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
@@ -51,7 +51,7 @@ For more information about repository roles, see "[Permission levels for a user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 4. [Manage access] でアクセスを削除する Team またはユーザーを探し、{% octicon "trash" aria-label="The trash icon" %} をクリックします。 ![アクセス削除用のゴミ箱アイコン](/assets/images/help/repository/manage-access-remove.png)
 
 ## 参考リンク

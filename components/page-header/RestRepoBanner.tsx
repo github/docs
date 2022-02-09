@@ -11,7 +11,7 @@ const restDisplayPages = [
   '/rest/reference/pages',
   '/rest/reference/releases',
   '/rest/reference/repos',
-  '/rest/reference/repository-metrics',
+  '/rest/reference/metrics',
   '/rest/reference/webhooks',
 ]
 const restRepoCategoryExceptionsTitles = {
@@ -21,7 +21,7 @@ const restRepoCategoryExceptionsTitles = {
   deployments: 'Deployments',
   pages: 'GitHub Pages',
   releases: 'Releases',
-  'repository-metrics': 'Repository metrics',
+  metrics: 'Metrics',
   webhooks: 'Webhooks',
 }
 
