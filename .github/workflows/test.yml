@@ -91,6 +91,7 @@ jobs:
           ref: ${{ steps.check-early-access.outputs.result }}
 
       - name: Merge docs-early-access repo's folders
+        if: ${{ github.repository == 'github/docs-internal' }}
         run: |
           mv docs-early-access/assets assets/images/early-access
           mv docs-early-access/content content/early-access
