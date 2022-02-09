@@ -1,6 +1,7 @@
 import { getDOM, getJSON } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
 
+// TODO: Use `describeViaActionsOnly` instead. See tests/rendering/server.js
 const describeInternalOnly =
   process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
 // Breadcrumbs were moved to the Header and in the Menu for mobile, so there are now double the Breadcrumbs
