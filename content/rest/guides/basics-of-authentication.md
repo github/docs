@@ -1,5 +1,6 @@
 ---
 title: Basics of authentication
+
 intro: Learn about the different ways to authenticate with some examples.
 redirect_from:
   - /guides/basics-of-authentication
@@ -19,11 +20,15 @@ In this section, we're going to focus on the basics of authentication. Specifica
 we're going to create a Ruby server (using [Sinatra][Sinatra]) that implements
 the [web flow][webflow] of an application in several different ways.
 
-{% tip %}
+<hr>
+
+` TIP `
+
 
 You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
 
-{% endtip %}
+`ENDTIP`
+<hr>
 
 ## Registering your app
 
@@ -42,7 +47,7 @@ is set to `http://localhost:4567`. Let's fill in the callback URL as `http://loc
 
 ## Accepting user authorization
 
-{% data reusables.apps.deprecating_auth_with_query_parameters %}
+` data reusables.apps.deprecating_auth_with_query_parameters `
 
 Now, let's start filling out our simple server. Create a file called _server.rb_ and paste this into it:
 
@@ -60,8 +65,8 @@ end
 ```
 
 Your client ID and client secret keys come from [your application's configuration
-page][app settings].{% ifversion fpt or ghec %} You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
+page][app settings].` ifversion fpt or ghec ` You should **never, _ever_** store these values in
+` data variables.product.product_name `--or any other public place, for that matter.` endif ` We recommend storing them as
 [environment variables][about env vars]--which is exactly what we've done here.
 
 Next, in _views/index.erb_, paste this content:
