@@ -28,9 +28,13 @@ Organization のリポジトリからコラボレーターを削除すると、�
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% data reusables.repositories.click-collaborators-teams %}
+{% elsif ghes < 3.4 or ghae %}
 {% data reusables.repositories.navigate-to-manage-access %}
+{% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
-5. In the search field, start typing the name of the person to invite, then click a name in the list of matches. ![リポジトリに招待する Team または人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field.png)
+1. In the search field, start typing the name of the person to invite, then click a name in the list of matches. ![リポジトリに招待する Team または人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Under "Choose a role", select the repository role to assign the person, then click **Add NAME to REPOSITORY**. ![Team または人の権限を選択する](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
 ## Organization のリポジトリへの個人のアクセスを管理する

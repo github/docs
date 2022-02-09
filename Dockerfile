@@ -76,9 +76,6 @@ ENV NODE_ENV production
 # Whether to hide iframes, add warnings to external links
 ENV AIRGAP false
 
-# By default we typically don't want to run in clustered mode
-ENV WEB_CONCURRENCY 1
-
 # Preferred port for server.mjs
 ENV PORT 4000
 

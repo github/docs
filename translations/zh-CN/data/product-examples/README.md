@@ -2,7 +2,7 @@
 
 使用 `product-landing` 布局的页面可以选择包含 `Examples` 部分。 目前，我们支持三种类型的示例：
 
-1. 代码示例 请参阅 https://docs.github.com/en/actions#code-examples。
+1. 代码示例 请参阅 https://docs.github.com/en/codespaces#code-examples。
 
 2. 社区示例 请参阅 https://docs.github.com/en/discussions#community-examples。
 
@@ -10,7 +10,7 @@
 
 ## 工作原理
 
-每个产品的示例数据定义在 `data/product-landing-examples` 中，名为 **product** 的子目录中，以及名为 **example type** 的 YML 文件中（例如，`data/product-examples/sponsors/user-examples.yml` 或 `data/product-examples/actions/code-examples.yml`）。 我们目前只支持每个产品一种示例。
+Example data for each product is defined in `data/product-landing-examples`, in a subdirectory named for the **product** and a YML file named for the **example type** (e.g., `data/product-examples/sponsors/user-examples.yml` or `data/product-examples/codespaces/code-examples.yml`). 我们目前只支持每个产品一种示例。
 
 ### 版本
 

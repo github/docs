@@ -12,7 +12,7 @@ shortTitle: GitHub AE trial
 
 Puedes configurar un periodo de 90 días para evaluar {% data variables.product.prodname_ghe_managed %}. This process allows you to deploy a {% data variables.product.prodname_ghe_managed %} account in your existing Azure region.
 
-- **{% data variables.product.prodname_ghe_managed %} account**: The Azure resource that contains the required components, including the instance.
+- **{% data variables.product.prodname_ghe_managed %} account**: The Azure resource that contains the deployment of {% data variables.product.prodname_ghe_managed %}.
 - **{% data variables.product.prodname_ghe_managed %} portal**: The Azure management tool at [https://portal.azure.com](https://portal.azure.com). This is used to deploy the {% data variables.product.prodname_ghe_managed %} account.
 
 ## Configurar tu prueba de {% data variables.product.prodname_ghe_managed %}
@@ -39,24 +39,24 @@ The email address you entered above will receive instructions on how to access y
 
 {% note %}
 
-**Note:** Software updates for your {% data variables.product.prodname_ghe_managed %} instance are performed by {% data variables.product.prodname_dotcom %}. For more information, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+**Note:** Software updates for your {% data variables.product.prodname_ghe_managed %} deployment are performed by {% data variables.product.prodname_dotcom %}. For more information, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
 
 {% endnote %}
 
 ## Navigating to your enterprise
 
-You can use the {% data variables.actions.azure_portal %} to navigate to your {% data variables.product.prodname_ghe_managed %} instance. The resulting list includes all the {% data variables.product.prodname_ghe_managed %} instances in your Azure region.
+You can use the {% data variables.actions.azure_portal %} to navigate to your {% data variables.product.prodname_ghe_managed %} deployment. The resulting list includes all the {% data variables.product.prodname_ghe_managed %} deployments in your Azure region.
 
 1. On the {% data variables.actions.azure_portal %}, in the left panel, click **All resources**.
 1. From the available filters, click **All types**, then deselect **Select all** and select **GitHub AE**: ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-type-filter.png)
 
 ## Pasos siguientes
 
-Once your instance has been provisioned, the next step is to initialize {% data variables.product.prodname_ghe_managed %}. Para obtener más información, consulta la sección "[Inicializar {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)".
+Once your deployment has been provisioned, the next step is to initialize {% data variables.product.prodname_ghe_managed %}. Para obtener más información, consulta la sección "[Inicializar {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)".
 
 ## Finalizar tu prueba
 
-You can upgrade to a full license at any time during the trial period by contacting contact {% data variables.contact.contact_enterprise_sales %}. If you haven't upgraded by the last day of your trial, then the instance is automatically deleted.
+You can upgrade to a full license at any time during the trial period by contacting contact {% data variables.contact.contact_enterprise_sales %}. If you haven't upgraded by the last day of your trial, then the deployment is automatically deleted.
 
 Si necesitas más tiempo para evaluar {% data variables.product.prodname_ghe_managed %}, contacta a {% data variables.contact.contact_enterprise_sales %} para solicitar una extensión.
 

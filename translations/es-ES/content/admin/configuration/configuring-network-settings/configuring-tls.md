@@ -38,6 +38,8 @@ Puedes generar una solicitud de firma de certificados (CSR) para tu instancia us
 
 ## Cargar un certificado TLS personalizado
 
+{% data reusables.enterprise_site_admin_settings.tls-downtime %}
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
@@ -66,6 +68,8 @@ También puedes usar la utilidad de la línea de comando `ghe-ssl-acme` en {% da
 ## Configurar TLS usando Let's Encrypt
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
+
+{% data reusables.enterprise_site_admin_settings.tls-downtime %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

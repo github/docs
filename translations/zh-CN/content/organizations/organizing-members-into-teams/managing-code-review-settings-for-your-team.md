@@ -57,7 +57,11 @@ When code owners are automatically requested for review, the team is still remov
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
 1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
+{% endif %}
 1. Select **Only notify requested team members.** ![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
 1. 单击 **Save changes（保存更改）**。
 {% endif %}
@@ -67,7 +71,11 @@ When code owners are automatically requested for review, the team is still remov
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
 1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
+{% endif %}
 1. 选择 **Enable auto assignment（启用自动分配）**。 ![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
 1. 在“How many team members should be assigned to review?（应分配多少团队成员进行审查？）”下，使用下拉菜单选择多个要分配给每个拉取请求的审查者。 ![审查者人数下拉列表](/assets/images/help/teams/review-assignment-number.png)
 1. 在“Routing algorithm（路由算法）”下，使用下拉菜单选择要使用的算法。 更多信息请参阅“[路由算法](#routing-algorithms)”。 ![路由算法下拉列表](/assets/images/help/teams/review-assignment-algorithm.png)

@@ -25,12 +25,12 @@ This guide will lead you through creating a user site at `username.github.io`.
 {% data reusables.repositories.create_new %}
 1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`. ![Repository name field](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
-1. 左のサイドバーで**Pages（ページ）**をクリックしてください。 ![左のサイドバーのPageタブ](/assets/images/help/pages/pages-tab.png)
+{% data reusables.pages.sidebar-pages %}
 1. Click **Choose a theme**. ![[Choose a theme] ボタン](/assets/images/help/pages/choose-theme.png)
-1. The Theme Chooser will open. Browse the available themes, then click **Select theme** to select a theme. It's easy to change your theme later, so if you're not sure, just choose one for now. ![テーマのオプションおよび [Select theme] ボタン](/assets/images/help/pages/select-theme.png)
-1. After you select a theme, your repository's `README.md` file will open in the file editor. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
-1. When you are done editing the file, click **Commit changes**.
-1. Visit `username.github.io` to view your new website. **メモ:** サイトに対する変更は、その変更を{% data variables.product.product_name %}にプッシュしてから公開されるまでに、最大20分かかることがあります。
+2. The Theme Chooser will open. Browse the available themes, then click **Select theme** to select a theme. It's easy to change your theme later, so if you're not sure, just choose one for now. ![テーマのオプションおよび [Select theme] ボタン](/assets/images/help/pages/select-theme.png)
+3. After you select a theme, your repository's `README.md` file will open in the file editor. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
+4. When you are done editing the file, click **Commit changes**.
+5. Visit `username.github.io` to view your new website. **メモ:** サイトに対する変更は、その変更を{% data variables.product.product_name %}にプッシュしてから公開されるまでに、最大20分かかることがあります。
 
 ## Changing the title and description
 

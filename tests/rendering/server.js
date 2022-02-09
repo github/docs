@@ -1034,7 +1034,16 @@ describe('static routes', () => {
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    expect(res.headers['surrogate-key']).toBeTruthy()
+    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
+  })
+
+  it('no manual surrogate key for /assets requests without caching-busting prefix', async () => {
+    const res = await get('/assets/images/site/be-social.gif')
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
 
   it('serves schema files from the /data/graphql directory at /public', async () => {
