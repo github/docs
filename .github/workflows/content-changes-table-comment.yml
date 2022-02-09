@@ -48,13 +48,13 @@ jobs:
     env:
       PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
+      - name: check out repo content
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+
       - name: Get preview app info
         env:
           APP_NAME_SEED: ${{ secrets.APP_NAME_SEED }}
         run: .github/actions-scripts/get-preview-app-info.sh
-
-      - name: check out repo content
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Setup Node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
