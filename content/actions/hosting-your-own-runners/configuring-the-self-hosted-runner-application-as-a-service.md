@@ -79,6 +79,8 @@ You can manage the runner service in the Windows **Services** application, or yo
    ```
 {% endmac %}
 
+The command takes an optional argument to install as a different user.
+
 ## Starting the service
 
 Start the service with the following command:
