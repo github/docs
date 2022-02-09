@@ -83,6 +83,12 @@ Automatically detect tokens or credentials that have been checked into a reposit
 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
 {% endif %}
 
+{% ifversion ghec or ghes > 3.1 %}
+### 安全概述
+
+Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+{% endif %}
+
 ## 延伸阅读
 - “[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products)”
 - "[{% data variables.product.prodname_dotcom %} 语言支持](/github/getting-started-with-github/github-language-support)"
