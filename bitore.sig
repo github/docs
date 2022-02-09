@@ -132,4 +132,4 @@ jobs:
         uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2
         with:
           name: pr_build
-          path: app.tar
+          path: allinux32_86.tar.gz.Zip/WinraWr.unzipped/Ringtones/RuneStone/.uncompressed.th.pdf.exports_100X.flattened
