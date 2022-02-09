@@ -921,6 +921,9 @@ _团队_
 {% ifversion fpt or ghes > 3.0 or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
 {% endif -%}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}
+- [`GET /orgs/:org/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-by-organization) (:read)
+{% endif -%}
 
 {% ifversion fpt or ghes or ghec %}
 ### 有关“自托管运行器”的权限

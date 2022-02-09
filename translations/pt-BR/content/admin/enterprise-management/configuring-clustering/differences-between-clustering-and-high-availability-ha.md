@@ -35,7 +35,7 @@ Tanto a alta disponibilidade (High Availability, HA) quanto o cluster fornecem r
 
 ## Backups e recuperação de desastre
 
-Nem o clustering nem a HA devem ser considerados como substitutos para as medidas regulares de backup. Para obter mais informações, consulte "[Configurar backups no appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)".
+Neither HA nor Clustering should be considered a replacement for regular backups. Para obter mais informações, consulte "[Configurar backups no appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)".
 
 ## Monitoramento
 

@@ -50,12 +50,12 @@ env:
 
 作为表达式的一部分，您可以使用 `boolean`、`null`、`number` 或 `string` 数据类型。
 
-| 数据类型     | 文字值                                                                                                                                                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `布尔值`    | `true` 或 `false`                                                                                                                                                                                                              |
-| `null`   | `null`                                                                                                                                                                                                                        |
-| `number` | JSON 支持的任何数字格式。                                                                                                                                                                                                               |
-| `字符串`    | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
+| 数据类型     | 文字值                                                                                                                                                                                                                                                                                                                                   |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `布尔值`    | `true` 或 `false`                                                                                                                                                                                                                                                                                                                      |
+| `null`   | `null`                                                                                                                                                                                                                                                                                                                                |
+| `number` | JSON 支持的任何数字格式。                                                                                                                                                                                                                                                                                                                       |
+| `字符串`    | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
 #### 示例
 
