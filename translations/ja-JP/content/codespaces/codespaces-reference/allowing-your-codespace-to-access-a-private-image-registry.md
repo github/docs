@@ -12,7 +12,7 @@ shortTitle: プライベートイメージレジストリ
 
 ## About private image registries and {% data variables.product.prodname_codespaces %}
 
-A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more devcontainers. There are many examples of registries, such as {% data variables.product.prodname_dotcom %} Container Registry, Azure Container Registry, or DockerHub.
+A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more images. There are many examples of registries, such as {% data variables.product.prodname_dotcom %} Container Registry, Azure Container Registry, or DockerHub.
 
 {% data variables.product.prodname_dotcom %} Container Registry can be configured to pull container images seamlessly, without having to provide any authentication credentials to {% data variables.product.prodname_codespaces %}. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_codespaces %} to access images stored in that registry.
 
@@ -87,7 +87,7 @@ To access AWS Elastic Container Registry (ECR),  you can provide an AWS access k
 ```
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
 *_CONTAINER_REGISTRY_USER = <AWS_ACCESS_KEY_ID>
-*_container_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
+*_CONTAINER_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
 ```
 
 You must also ensure you have the appropriate AWS IAM permissions to perform the credential swap (e.g. `sts:GetServiceBearerToken`) as well as the ECR read operation (either `AmazonEC2ContainerRegistryFullAccess` or `ReadOnlyAccess`).
@@ -97,7 +97,7 @@ Alternatively, if you don't want GitHub to perform the credential swap on your b
 ```
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
 *_CONTAINER_REGISTRY_USER = AWS
-*_container_REGISTRY_PASSWORD = <TOKEN>
+*_CONTAINER_REGISTRY_PASSWORD = <TOKEN>
 ```
 
 Since these tokens are short lived and need to be refreshed periodically, we recommend providing an access key ID and secret.

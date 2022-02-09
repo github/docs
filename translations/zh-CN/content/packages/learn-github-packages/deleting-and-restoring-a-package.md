@@ -176,7 +176,7 @@ To review who can delete a package version, see "[Required permissions to delete
 - 您在删除后 30 天内恢复包。
 - 相同的包名称空间和版本仍然可用，并且不重复用于新包。
 
-例如，如果您删除了名为 `octo-package` 且范围为 repo `octo-repo-owner/octo-repo` 的 rubygem 包，则您仅在包名称空间 `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` 仍然可用且 30 天未过时才可恢复包。
+For example, if you have a deleted RubyGems package named `octo-package` that was scoped to the repo `octo-repo-owner/octo-repo`, then you can only restore the package if the package namespace `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` is still available, and 30 days have not yet passed.
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:

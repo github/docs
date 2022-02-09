@@ -87,6 +87,10 @@ You can configure this behavior for a repository using the procedure below. Modi
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 ### リポジトリのプライベートフォークポリシーを設定する
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -137,11 +141,11 @@ You can configure whether {% if internal-actions%}actions and {% endif %}workflo
 
 ## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
 
-リポジトリ内の {% data variables.product.prodname_actions %} アーティファクトとログの保持期間を設定できます。
+You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-ワークフローによって作成された特定のアーティファクトのカスタム保存期間を定義することもできます。 詳しい情報については、「[アーティファクトの保持期間を設定する](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)」を参照してください。
+You can also define a custom retention period for a specific artifact created by a workflow. For more information, see "[Setting the retention period for an artifact](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)."
 
 ## リポジトリの保持期間を設定する
 

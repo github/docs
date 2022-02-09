@@ -238,7 +238,7 @@ jobs:
 
 ## コードの文法チェック
 
-以下の例は`rubocop`をインストールし、それを使ってすべてのファイルの文法チェックを行います。 詳しい情報については[ Rubocop](https://github.com/rubocop-hq/rubocop)を参照してください。 特定の文法チェックルールを決めるために、[ Rubocopを設定](https://docs.rubocop.org/rubocop/configuration.html)できます。
+以下の例は`rubocop`をインストールし、それを使ってすべてのファイルの文法チェックを行います。 For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). 特定の文法チェックルールを決めるために、[ Rubocopを設定](https://docs.rubocop.org/rubocop/configuration.html)できます。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}

@@ -42,6 +42,7 @@ adopting_github_actions_for_your_enterprise:
   title: 'Adopt GitHub Actions for your enterprise'
   description: 'Learn how to plan and implement a roll out of {% data variables.product.prodname_actions %} in your enterprise.'
   guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
     - /actions/learn-github-actions/understanding-github-actions
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions

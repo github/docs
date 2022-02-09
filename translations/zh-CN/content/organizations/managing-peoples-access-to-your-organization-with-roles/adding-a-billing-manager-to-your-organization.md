@@ -63,3 +63,7 @@ shortTitle: 添加帐单管理员
 {% data reusables.organizations.billing-settings %}
 1. 在“Billing management（帐单管理）”下的“Billing managers（帐单管理员）”旁边，单击 **Add（添加）**。 ![邀请帐单管理员](/assets/images/help/billing/settings_billing_managers_list.png)
 6. 输入您要添加的人员的用户名或电子邮件地址，然后单击 **Send invitation（发送邀请）**。 ![邀请帐单管理员页面](/assets/images/help/billing/billing_manager_invite.png)
+
+## 延伸阅读
+
+- "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

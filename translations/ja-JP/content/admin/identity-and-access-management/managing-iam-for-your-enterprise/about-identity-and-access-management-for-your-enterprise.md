@@ -47,6 +47,7 @@ Configuring {% data variables.product.prodname_emus %} for SAML single-sign on a
 | ------------------------------------- |:--------------------------------------------------------------:|:-------------------------------------------------------------:|
 | Active Directory フェデレーションサービス (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} |                                                               |
 | Azure Active Directory (Azure AD)     | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %}
+| Okta                                  | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %}
 | OneLogin                              | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | PingOne                               | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | Shibboleth                            | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |

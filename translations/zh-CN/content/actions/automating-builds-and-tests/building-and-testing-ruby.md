@@ -238,7 +238,7 @@ jobs:
 
 ## 嵌入代码
 
-下面的示例安装 `rubocop` 并用它来嵌入所有文件。 更多信息请参阅 [Rubocop](https://github.com/rubocop-hq/rubocop)。 您可以[配置 Rubocop](https://docs.rubocop.org/rubocop/configuration.html) 来决定特定的嵌入规则。
+下面的示例安装 `rubocop` 并用它来嵌入所有文件。 For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). 您可以[配置 Rubocop](https://docs.rubocop.org/rubocop/configuration.html) 来决定特定的嵌入规则。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
