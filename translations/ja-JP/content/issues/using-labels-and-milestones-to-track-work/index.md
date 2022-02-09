@@ -1,11 +1,12 @@
 ---
 title: ラベルとマイルストーンを使って作業を追跡する
 shortTitle: ラベルとマイルストーン
-intro: '{% data variables.product.prodname_dotcom %}の作業を分類して追跡するためのラベルとマイルストーン'
+intro: 'ラベルとマイルストーンを使って、{% data variables.product.prodname_dotcom %}上の作業を分類し、追跡してください。'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Issues
 children:

@@ -4,6 +4,7 @@ intro: 'Tips on getting the best help from support for {% data variables.product
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces
@@ -26,7 +27,7 @@ The name the codespace is also included in many of the log files. For example, i
 
 ### Codespaces IDs
 
-Every codespace also has an ID (identifer). This is not shown by default in {% data variables.product.prodname_vscode %} so you may need to update the settings for the {% data variables.product.prodname_github_codespaces %} extension before you can access the ID.
+Every codespace also has an ID (identifier). This is not shown by default in {% data variables.product.prodname_vscode %} so you may need to update the settings for the {% data variables.product.prodname_github_codespaces %} extension before you can access the ID.
 
 1. In {% data variables.product.prodname_vscode %}, browser or desktop, in the Activity Bar on the left, click **Remote Explorer** to show details for the codespace.
 2. If the sidebar includes a "Codespace Performance" section, hover over the "Codespace ID" and click the clipboard icon to copy the ID.

@@ -4,16 +4,17 @@ intro: 'GraphQL Explorer 是浏览器中的集成开发环境，包含文档、�
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 关于 GraphQL Explorer
+## 关于 GraphQL Explorer
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 [GraphQL Explorer](/graphql/overview/explorer) 是 [GraphiQL](https://github.com/graphql/graphiql) -“浏览器内的图形交互式 GraphQL IDE”- 的实例。
 
@@ -29,11 +30,11 @@ topics:
 
 {% endif %}
 
-### 使用 GraphiQL
+## 使用 GraphiQL
 
 要使用 GraphiQL 应用程序，请从 https://github.com/skevy/graphiql-app 下载并安装。
 
-#### 配置 GraphiQL
+### 配置 GraphiQL
 
 1. 获取 [OAuth 令牌](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)。
 1. 启动 GraphiQL。
@@ -62,7 +63,7 @@ query {
 
 如果一切运行正常，将会显示您的登录信息。 您已设置完成，可以开始查询。
 
-### 访问边栏文档
+## 访问边栏文档
 
 GraphQL 架构中的所有类型都包含一个编译到文档中的 `description` 字段。 Explorer 页面右侧可折叠的 **Docs（文档）**窗格可用于浏览有关类型系统的文档。 文档将自动更新，并删除已弃用的字段。
 
@@ -72,7 +73,7 @@ GraphQL 架构中的所有类型都包含一个编译到文档中的 `descriptio
 
 {% endnote %}
 
-### 使用变量窗格
+## 使用变量窗格
 
 包含[变量](/graphql/guides/forming-calls-with-graphql#working-with-variables)的一些示例调用可能写作：
 
@@ -102,11 +103,11 @@ variables {
 }
 ```
 
-### 请求支持
+## 请求支持
 
 {% data reusables.support.help_resources %}
 
-### 排查错误
+## 排查错误
 
 由于 GraphQL 可以[自省](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)，因此 Explorer 支持：
 

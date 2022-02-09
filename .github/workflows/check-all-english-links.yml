@@ -9,27 +9,36 @@ on:
   schedule:
     - cron: '40 19 * * *' # once a day at 19:40 UTC / 11:40 PST
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   check_all_english_links:
     name: Check all links
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+      GITHUB_TOKEN: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
       FIRST_RESPONDER_PROJECT: Docs content first responder
       REPORT_AUTHOR: docubot
       REPORT_LABEL: broken link report
       REPORT_REPOSITORY: github/docs-content
     steps:
       - name: Check out repo's default branch
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
       - name: Setup Node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
       - name: npm ci
         run: npm ci
+      - name: Cache nextjs build
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
       - name: npm run build
         run: npm run build
       - name: Run script

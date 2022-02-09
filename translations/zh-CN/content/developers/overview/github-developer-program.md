@@ -4,7 +4,8 @@ intro: '要构建与 {% data variables.product.prodname_dotcom %} 集成的工�
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -21,7 +22,7 @@ topics:
 
 ## 纳入企业
 
-[取得开发者许可](http://github.com/contact?form%5Bsubject%5D=Development+licenses)以根据 {% data variables.product.prodname_ghe_server %} 构建和测试您的应用程序。
+Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
 
 ## 有适用于 GitHub 的集成？

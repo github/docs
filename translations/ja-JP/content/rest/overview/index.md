@@ -3,9 +3,10 @@ title: REST API の概要
 shortTitle: 概要
 intro: '{% data variables.product.prodname_dotcom %} の REST API のリソース、ライブラリ、プレビュー、トラブルシューティングについて学びます。'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 children:

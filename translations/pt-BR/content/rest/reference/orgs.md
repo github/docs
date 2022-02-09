@@ -1,21 +1,24 @@
 ---
 title: Organizações
+intro: 'A API de organizações concede acesso para controlar e gerenciar todas as suas organizações de {% data variables.product.product_name %}.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 ## Bloquear usuários
 
 O token usado para autenticar a chamada deve ter o escopo `admin:org` para fazer quaisquer chamadas de bloqueio para uma organização. Caso contrário, a resposta retornará `HTTP 404`.
@@ -38,9 +41,19 @@ O token usado para autenticar a chamada deve ter o escopo `admin:org` para fazer
   {% if operation.subcategory == 'outside-collaborators' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghes > 3.4  %}
+## Funções de repositório personalizadas
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'custom_roles' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
+
 ## Webhooks
 
-Os webhooks da organização permitem que você receba cargas de HTTP do tipo `POST` sempre que certos eventos ocorrerem dentro da organização. Assinar esses eventos viabiliza a construção de integrações que reagem aos eventos em {% data variables.product.product_name %}. Para obter mais informações sobre ações que você pode assinar, consulte "[ tipos de evento de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
+Os webhooks da organização permitem que você receba cargas de HTTP do tipo `POST` sempre que certos eventos ocorrerem dentro da organização. {% data reusables.webhooks.webhooks-rest-api-links %}
+
+Para obter mais informações sobre ações que você pode assinar, consulte "[ tipos de evento de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
 
 ### Escopos & Restrições
 

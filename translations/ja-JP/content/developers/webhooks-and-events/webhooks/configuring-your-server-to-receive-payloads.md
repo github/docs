@@ -5,24 +5,26 @@ redirect_from:
   - /webhooks/configuring
   - /developers/webhooks-and-events/configuring-your-server-to-receive-payloads
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
+shortTitle: webhookのためのサーバー設定
 ---
 
 webhookがメッセージを配信する準備ができたので、受信するペイロードを処理するための基本的なSinatraサーバーをセットアップしましょう。
 
 {% note %}
 
-**Note:** You can download the complete source code for this project [from the platform-samples repo][platform samples].
+**注釈:** このプロジェクトの完全なソースコードは、[platform-samplesリポジトリ][platform samples]からダウンロードできます。
 
 {% endnote %}
 
-### サーバーの作成
+## サーバーの作成
 
-サーバーを`/payload`で`POST`リクエストに対して待ち受けさせたいですが、これはGitHubにそこがwebhookのURLだと伝えたからです。 Because we're using ngrok to expose our local environment, we don't need to set up a real server somewhere online, and can happily test out our code locally.
+サーバーを`/payload`で`POST`リクエストに対して待ち受けさせたいですが、これはGitHubにそこがwebhookのURLだと伝えたからです。 ここではngrokでローカル環境を公開するので、オンラインでどこかに本物のサーバーをセットアップする必要はなく、ローカルでコードをうまくテストできます。
 
 小さなSinatraのアプリケーションをセットアップして、この情報で何かをさせてみましょう。 初期のセットアップは以下のようになるでしょう。
 
@@ -40,7 +42,7 @@ end
 
 このサーバーを起動してください。
 
-Since we set up our webhook to listen to events dealing with `Issues`, go ahead and create a new issue on the repository you're testing with. 作成できたら、ターミナルに戻ってください。 以下のような出力があるでしょう。
+webhookは`Issues`と関連するイベントを待ち受けるようにセットアップしたので、先へ進んで新しいIssueをテストしているリポジトリで作成してください。 作成できたら、ターミナルに戻ってください。 以下のような出力があるでしょう。
 
 ```shell
 $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.rb

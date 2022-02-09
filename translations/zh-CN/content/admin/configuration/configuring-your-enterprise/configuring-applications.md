@@ -6,14 +6,14 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
   - /admin/configuration/configuring-applications
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
 ---
 
-### 调整图像缓存
+## 调整图像缓存
 
 您可以选择 {% data variables.product.product_location %} 缓存头像的时长。 如果您增加缓存时间，则会增加加载用户头像所需的时长。 将缓存时间值配置为过小的值会导致 {% data variables.product.product_location %} 工作进程过载。
 

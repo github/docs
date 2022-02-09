@@ -17,9 +17,11 @@ sections:
   changes:
     - 'Se archivarán las anotaciones de verificación más viejas de 4 meses.'
   known_issues:
-    - 'Access to a repository through the administrative shell using `ghe-repo <owner>/<reponame>` will hang. As a workaround, use `ghe-repo <owner>/<reponame> -c "bash -i"` until a fix is available in the next version.'
+    - 'Demoraremos en tener acceso a un repositorio a través del shell administrativo utilizando `ghe-repo <owner>/<reponame>`. Como medida alterna, utilizaremos `ghe-repo <owner>/<reponame> -c "bash -i"` hasta que tengamos disponible una solución en la siguiente versión.'
     - 'En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.'
     - 'Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.'
     - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
     - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.'
     - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'

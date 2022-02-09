@@ -6,20 +6,22 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/changing-your-sponsorship-tiers
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors profile
+shortTitle: 管理付款等级
 ---
 
-### 关于赞助等级
+## 关于赞助等级
 
 {% data reusables.sponsors.tier-details %}
 
 {% data reusables.sponsors.maximum-tier %}
 
-### 添加等级
+## 添加等级
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
@@ -29,10 +31,11 @@ topics:
 1. （可选）要编辑草稿级，找到草稿级并点击 **Edit（编辑）**。 ![草稿等级旁边的编辑按钮](/assets/images/help/sponsors/draft-tier-edit.png)
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 
-### 编辑或撤销等级
+## 编辑或撤销等级
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
@@ -46,12 +49,12 @@ topics:
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}
 
-### 启用具有自定义金额的等级
+## 启用具有自定义金额的等级
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.enable-custom-amounts %}
 
-### 禁用具有自定义金额的等级
+## 禁用具有自定义金额的等级
 
 您可以通过在 **Sponsor tiers（赞助者等级）**选项卡中取消选择 **Enable custom amounts（启用自定义金额）**选项来禁用具有自定义金额的等级。 如果您禁用自定义金额，所有自定义等级都将退出。

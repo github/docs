@@ -1,20 +1,25 @@
 ---
 title: SCIM
+intro: 'Puedes controlar y administrar el accesp de tus miembros de la organización de {% data variables.product.product_name %} utilizando la API de SCIM.'
 redirect_from:
   - /v3/scim
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Aprovisionamiento de SCIM para las Organizaciones
 
-Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM para automatizar el aprovisionamiento de la membrecía de las organizaciones de {% data variables.product.product_name %}. La API de {% data variables.product.product_name %} se basa en la versión 2.0 del [estándar de SCIM](http://www.simplecloud.info/). La terminal de SCIM de {% data variables.product.product_name %} que deben utilizar los IdP es: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
+Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM para automatizar el aprovisionamiento de la membrecía de las organizaciones de {% data variables.product.product_name %}. La API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} se basa en la versión 2.0 del [SCIM estándar](http://www.simplecloud.info/). La terminal de SCIM de {% data variables.product.product_name %} que deben utilizar los IdP es: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
 
 {% note %}
 
-**Nota:** La API de SCIM está disponible solo para las organizaciones en [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) que tienen habilitado el [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso). Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+**Notas:**
+  - La API de SCIM se encuentra disponible únicamente para las organizaciones de [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) que cuentan con el [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. {% data reusables.scim.enterprise-account-scim %} Para obtener más información sobre SCIM, consulta la sección "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+  - La API de SCIM no puede utilizarse con {% data variables.product.prodname_emus %}.
 
 {% endnote %}
 
@@ -24,11 +29,11 @@ Debes autenticarte como un propietario de una organización de {% data variables
 
 ### Mapeo de los datos de SAML y de SCIM
 
-El IdP de SAML y el cliente de SCIM deben utilizar valores coincidentes de `NameID` y `userName` para cada usuario. Esto le permite al usuario que se autentica mediante SAML el poder enlazarse con su identidad aprovisionada de SCIM.
+{% data reusables.scim.nameid-and-username-must-match %}
 
 ### Atributos de Usuario de SCIM compatibles
 
-| Nombre           | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Nombre           | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ---------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `userName`       | `secuencia` | El nombre de usuario para el usuario.                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `name.givenName` | `secuencia` | El primer nombre del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                     |

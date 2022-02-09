@@ -1,10 +1,9 @@
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
 import copyCode from 'components/lib/copy-code'
-import displayPlatformSpecificContent from 'components/lib/display-platform-specific-content'
-import displayToolSpecificContent from 'components/lib/display-tool-specific-content'
 import localization from 'components/lib/localization'
 import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
@@ -16,10 +15,10 @@ import {
   ProductLandingContext,
 } from 'components/context/ProductLandingContext'
 import {
-  getProductSubLandingContextFromRequest,
-  ProductSubLandingContextT,
-  ProductSubLandingContext,
-} from 'components/context/ProductSubLandingContext'
+  getProductGuidesContextFromRequest,
+  ProductGuidesContextT,
+  ProductGuidesContext,
+} from 'components/context/ProductGuidesContext'
 
 import {
   getArticleContextFromRequest,
@@ -29,7 +28,7 @@ import {
 import { ArticlePage } from 'components/article/ArticlePage'
 
 import { ProductLanding } from 'components/landing/ProductLanding'
-import { ProductSubLanding } from 'components/sublanding/ProductSubLanding'
+import { ProductGuides } from 'components/guides/ProductGuides'
 import { TocLanding } from 'components/landing/TocLanding'
 import {
   getTocLandingContextFromRequest,
@@ -38,29 +37,37 @@ import {
 } from 'components/context/TocLandingContext'
 import { useEffect } from 'react'
 
+function initiateArticleScripts() {
+  copyCode()
+  localization()
+  wrapCodeTerms()
+}
+
 type Props = {
   mainContext: MainContextT
   productLandingContext: ProductLandingContextT
-  productSubLandingContext: ProductSubLandingContextT
+  productGuidesContext: ProductGuidesContextT
   tocLandingContext: TocLandingContextT
   articleContext: ArticleContextT
 }
 const GlobalPage = ({
   mainContext,
   productLandingContext,
-  productSubLandingContext,
+  productGuidesContext,
   tocLandingContext,
   articleContext,
 }: Props) => {
   const { currentLayoutName, relativePath } = mainContext
+  const router = useRouter()
 
   useEffect(() => {
-    copyCode()
-    displayPlatformSpecificContent()
-    displayToolSpecificContent()
-    localization()
-    wrapCodeTerms()
-  }, [])
+    // https://stackoverflow.com/a/67063998
+    initiateArticleScripts() // on initiate page
+    router.events.on('routeChangeComplete', initiateArticleScripts) // on client side route
+    return () => {
+      router.events.off('routeChangeComplete', initiateArticleScripts)
+    }
+  }, [router.events])
 
   let content
   if (currentLayoutName === 'product-landing') {
@@ -69,11 +76,11 @@ const GlobalPage = ({
         <ProductLanding />
       </ProductLandingContext.Provider>
     )
-  } else if (currentLayoutName === 'product-sublanding') {
+  } else if (currentLayoutName === 'product-guides') {
     content = (
-      <ProductSubLandingContext.Provider value={productSubLandingContext}>
-        <ProductSubLanding />
-      </ProductSubLandingContext.Provider>
+      <ProductGuidesContext.Provider value={productGuidesContext}>
+        <ProductGuides />
+      </ProductGuidesContext.Provider>
     )
   } else if (relativePath?.endsWith('index.md')) {
     content = (
@@ -102,7 +109,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     props: {
       mainContext: getMainContext(req, res),
       productLandingContext: getProductLandingContextFromRequest(req),
-      productSubLandingContext: getProductSubLandingContextFromRequest(req),
+      productGuidesContext: getProductGuidesContextFromRequest(req),
       tocLandingContext: getTocLandingContextFromRequest(req),
       articleContext: getArticleContextFromRequest(req),
     },

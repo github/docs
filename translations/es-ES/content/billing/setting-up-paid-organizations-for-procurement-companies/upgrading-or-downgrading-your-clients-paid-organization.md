@@ -5,14 +5,15 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /articles/upgrading-or-downgrading-your-client-s-paid-organization
   - /articles/upgrading-or-downgrading-your-clients-paid-organization
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
   - Upgrades
+shortTitle: Mejorar o bajar de nivel
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
@@ -25,7 +26,7 @@ topics:
 
 {% endtip %}
 
-### Subir de categoría la cantidad de asientos pagos de una organización
+## Subir de categoría la cantidad de asientos pagos de una organización
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.add-seats %}
@@ -34,7 +35,7 @@ topics:
 
 Después de agregar asientos, al método de pago archivado para la organización se le cobrará un monto prorrateado en función de la cantidad de asientos que agregues y la cantidad de tiempo que quede en tu ciclo de facturación.
 
-### Bajar la categoría de la cantidad de asientos pagos de una organización a gratuita
+## Bajar la categoría de la cantidad de asientos pagos de una organización a gratuita
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}

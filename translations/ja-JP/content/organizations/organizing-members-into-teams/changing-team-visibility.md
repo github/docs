@@ -5,9 +5,10 @@ redirect_from:
   - /articles/changing-team-visibility
   - /github/setting-up-and-managing-organizations-and-teams/changing-team-visibility
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams

@@ -15,13 +15,16 @@ on:
     # Schedule for five minutes after the hour every hour
     - cron: '5 * * * *'
 
+permissions:
+  issues: write
+
 jobs:
   noResponse:
     runs-on: ubuntu-latest
     steps:
       - uses: lee-dohm/no-response@9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           closeComment: >
             This issue has been automatically closed because there has been no response
             to our request for more information from the original author. With only the

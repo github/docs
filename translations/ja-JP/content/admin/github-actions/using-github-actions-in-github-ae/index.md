@@ -1,10 +1,10 @@
 ---
-title: GitHub AE で GitHub Actions を使用する
-intro: '{% data variables.product.prodname_ghe_managed %} で {% data variables.product.prodname_actions %} を設定する方法を学びます。'
+title: Using GitHub Actions in GitHub AE
+intro: 'Learn how to configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_managed %}.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 children:
-  - /getting-started-with-github-actions-for-github-ae
   - /using-actions-in-github-ae
+shortTitle: Use Actions in GitHub AE
 ---
 

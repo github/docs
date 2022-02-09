@@ -14,3 +14,4 @@ sections:
     - '推送到命令行上的仓库时，不会报告安全警报。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - '审核日志可归因于 127.0.0.1，而不是实际源 IP 地址。（更新于 2020-11-02） {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
     - "配置仓库的权限到“分类”或“维护”失败，且显示错误消息。"
+    - '当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。'

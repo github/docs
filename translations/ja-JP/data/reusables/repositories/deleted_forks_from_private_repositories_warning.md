@@ -1,11 +1,11 @@
 {% warning %}
 
-**警告:**
+**Warning:**
 
-- プライベートリポジトリへの個人のアクセス権を削除すると、そのプライベートリポジトリからその人が作成したフォークはすべて削除されます。 プライベートリポジトリのローカルクローンは残ります。 プライベートリポジトリへのTeamのアクセス権が削除されたり、プライベートリポジトリへのアクセス権を持つTeamが削除された場合、Teamのメンバーが他のTeamを通じてそのリポジトリへのアクセス権を持っていなければ、そのリポジトリのプライベートフォークは削除されます。{% if enterpriseServerVersions contains currentVersion %}
-- [LDAP Syncが有効化されている](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap/#enabling-ldap-sync)場合、リポジトリから個人を削除すると、その人はアクセス権を失いますが、その人のフォークは削除されません。 元々のOrganizationのリポジトリへのアクセスできるように3ヶ月以内にその人がTeamに追加されたなら、次回の同期の際にフォークへのアクセスは自動的に回復されます。{% endif %}
-- リポジトリへのアクセスを失った個人に、機密情報や知的財産を確実に削除してもらうのは、あなたの責任です。
+- If you remove a person’s access to a private repository, any of their forks of that private repository are deleted. Local clones of the private repository are retained. If a team's access to a private repository is revoked or a team with access to a private repository is deleted, and team members do not have access to the repository through another team, private forks of the repository will be deleted.{% ifversion ghes %}
+- When [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync), if you remove a person from a repository, they will lose access but their forks will not be deleted. If the person is added to a team with access to the original organization repository within three months, their access to the forks will be automatically restored on the next sync.{% endif %}
+- You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
 
-- プライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}もしくはインターナル{% endif %}リポジトリに対する管理権限を持っている人は、そのリポジトリのフォークを禁止でき、OrganizationのオーナーはOrganization内の任意のプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}もしくはインターナル{% endif %}リポジトリのフォークを禁止できます。 詳しい情報については「[Organizationのためのフォークのポリシーの管理](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」及び「[リポジトリのフォークのポリシーの管理](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」を参照してください。
+- People with admin permissions to a private{% ifversion ghes or ghae or ghec %} or internal{% endif %} repository can disallow forking of that repository, and organization owners can disallow forking of any private{% ifversion ghes or ghae or ghec %} or internal{% endif %} repository in an organization. For more information, see "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)" and "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
 
 {% endwarning %}

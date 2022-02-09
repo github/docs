@@ -27,7 +27,7 @@ for (const dir of dirs) {
 
   for (const filename of filenames) {
     for (const language of Object.values(languages)) {
-      if (language.code === 'en') return
+      if (language.code === 'en') continue
       const fullPath = path.join(__dirname, '..', language.dir, dir, filename)
       if (!fs.existsSync(fullPath)) {
         console.log('missing', fullPath)

@@ -2,21 +2,22 @@
 title: 配置内置防火墙规则
 intro: '您可以查看默认防火墙规则并自定义 {% data variables.product.product_location %} 的规则。'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-firewall-settings/
+  - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-built-in-firewall-rules
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: 配置防火墙规则
 ---
 
-### 关于 {% data variables.product.product_location %} 的防火墙
+## 关于 {% data variables.product.product_location %} 的防火墙
 
 {% data variables.product.prodname_ghe_server %} 在虚拟设备上使用 Ubuntu 的简单防火墙 (UFW)。 更多信息请参阅 Ubuntu 文档中的“[UFW](https://help.ubuntu.com/community/UFW)”。 {% data variables.product.prodname_ghe_server %} 在每次发布时都会自动更新允许服务的防火墙允许名单。
 
@@ -24,7 +25,7 @@ topics:
 
 UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所需的其他多个端口才能正常运行。 更多关于 UFW 规则集的信息，请参阅 [UFW 自述文件](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)。
 
-### 查看默认防火墙规则
+## 查看默认防火墙规则
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. 要查看默认防火墙规则，请使用 `sudo ufw status` 命令。 您看到的输出应类似于：
@@ -55,7 +56,7 @@ UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所�
   > ghe-9418 (v6)              ALLOW       Anywhere (v6)
   ```
 
-### 添加自定义防火墙规则
+## 添加自定义防火墙规则
 
 {% warning %}
 
@@ -70,12 +71,12 @@ UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所�
   ```
 3. 要备份自定义防火墙规则，请使用 `cp` 命令将规则移至新文件。
   ```shell
-  $ sudo cp -r /lib/ufw ~/ufw.backup
+  $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
 升级 {% data variables.product.product_location %} 后，您必须重新应用自定义防火墙规则。 我们建议您创建脚本来重新应用防火墙自定义规则。
 
-### 恢复默认防火墙规则
+## 恢复默认防火墙规则
 
 如果更改防火墙规则后出现问题，您可以通过原始备份重置规则。
 
@@ -88,7 +89,7 @@ UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所�
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. 要恢复之前的备份规则，请使用 `cp` 命令将规则复制到防火墙。
   ```shell
-  $ sudo cp -f ~/ufw.backup/*rules /lib/ufw
+  $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
 3. 使用 `systemctl` 命令重新启动防火墙。
   ```shell

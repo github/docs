@@ -1,1 +1,0 @@
-{% data variables.product.prodname_cli %} can authenticate using your {% data variables.product.prodname_dotcom %} account. Before running {% data variables.product.prodname_cli %} commands, you will need to authenticate by running `gh auth login`. For more information on command line authentication, see "[`gh auth login`](https://cli.github.com/manual/gh_auth_login)."

@@ -4,27 +4,29 @@ sections:
   security_fixes:
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
-    - During upgrades, the process would pause indefinitely after `cleanup nomad job`.
-    - 'Failing `ghe-cluster-failover` with the error message `Trilogy::Error: trilogy_connect`.'
-    - '`ghe-cluster-status-mysql` showed warnings about failovers as errors.'
-    - Setup script running on MySQL replication may have caused unnecessary database reseeding during database failover.
-    - Upgrades did not include the latest version of Actions runner properly installed.
-    - '`github-env` configuration could result in zombie processes.'
-    - '`config-apply` could take longer than necessary due to `rake db:migrate` being called unnecessarily.'
-    - Orchestrator could have failed over to a MySQL replica which was not replicating from primary during seeding phase when primary could not be connected.
-    - Organizations or projects with errors blocked migration and could not be excluded.
-    - The Create Repository button was disabled for users who belonged to more than 50 organizations.
-    - Deleting a branch would temporarily flash an error message indicating something went wrong when the deletion was successful.
-    - The `rms-packages` index was shown in the site admin dashboard.
-    - Organization owner was unable to create internal repository due to the correct visibility options not being displayed on the form.
-    - The repository actions tab rendered a 500 in cases where the actions starter workflows were misconfigured.
-    - Customers with more than three storage hosts were unable to restore to their disaster-recovery cluster due to the fullest disks being selected instead of empty nodes.
-    - Code Scanning backend services did not start up reliably after applying hotpatches.
+    - Durante as atualizações, o processo seria pausado indefinidamente após de `cleanup nomad job`.
+    - 'Um ''ghe-cluster-failover'' falhou com a mensagem de erro ''Trilogy::Error: trilogy_connect''.'
+    - '`ghe-cluster-status-mysql` mostrou avisos de falhas como erros.'
+    - O script de configuração em execução na replicação do MySQL pode ter causado uma ressemeadura desnecessária do banco de dados durante a falha do banco de dados.
+    - As atualizações não incluíram a versão mais recente do executor de ações instalado corretamente.
+    - 'A configuração do `github-env` pode resultar em processos zumbis.'
+    - 'O arquivo `config-apply` pode levar mais tempo do que o necessário devido ao chamado desnecessário de `rake db:migrate`.'
+    - O Orchestrator poderia ter falhado para uma réplica do MySQL que não estava sendo replicada a partir do primário durante a fase de semeadura quando não era possível conectar o primário.
+    - Organizações ou projetos com erros bloquearam a migração e não puderam ser excluídos.
+    - O botão Criar Repositório foi desabilitado para usuários que pertenceram a mais de 50 organizações.
+    - A exclusão de um branch geraria temporariamente uma mensagem de erro indicando que algo deu errado quando a exclusão foi bem-sucedida.
+    - O índice `rms-packages` foi exibido no painel de administração do site.
+    - O proprietário da organização não conseguiu criar o repositório interno devido às opções de visibilidade corretas que não estão sendo exibidas no formulário.
+    - A aba de ações do repositório apresentou um 500 nos casos em que os fluxos de trabalho iniciais das ações foram mal configurados.
+    - Os clientes com mais de três hosts de armazenamento não conseguiram restaurar seu cluster de recuperação de catástrofes devido à seleção dos mais completos discos em vez de nós vazios.
+    - Serviços de verificação de código de backend não iniciaram de forma confiável após a aplicação de hotpatches.
   changes:
-    - Preflight checks allow all AWS instance types by default.
+    - Verificações de preliminares permitem todos os tipos de instância de AWS por padrão.
   known_issues:
-    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras personalizadas de firewall não são mantidas durante uma atualização.
     - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório onde o caminho do arquivo tem mais de 255 caracteres.
     - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

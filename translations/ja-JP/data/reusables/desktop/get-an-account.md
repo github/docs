@@ -1,4 +1,4 @@
-{% data variables.product.prodname_dotcom %}あるいは{% data variables.product.prodname_enterprise %}のアカウントをすでに持っている必要があります。
+you must already have an account on {% data variables.product.product_location %}.
 
-- {% data variables.product.prodname_dotcom %}アカウントの作成に関する詳しい情報については「[新規{% data variables.product.prodname_dotcom %}アカウントのサインアップ](/articles/signing-up-for-a-new-github-account/)」を参照してください。
+- For more information on creating an account on {% data variables.product.product_location %} account, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account/)".
 - {% data variables.product.prodname_enterprise %}アカウントについては、{% data variables.product.prodname_enterprise %}のサイト管理者に連絡してください。

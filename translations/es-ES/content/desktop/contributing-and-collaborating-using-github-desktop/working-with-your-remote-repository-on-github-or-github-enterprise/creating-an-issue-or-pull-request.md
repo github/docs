@@ -7,23 +7,24 @@ redirect_from:
   - /desktop/contributing-to-projects/creating-a-pull-request
   - /desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Crear una propuesta o solicitud de cambios
 ---
 
-### Acerca de los informes de problemas y solicitudes de extracción
+## Acerca de los informes de problemas y solicitudes de extracción
 
 Puedes utilizar los informes de problemas para rastrear ideas, errores, tareas, y otros tipos de información que sean importantes para tu proyecto. Puedes crear un informe de problemas en el repositorio de tu proyecto con {% data variables.product.prodname_desktop %}. Para obtener más información acerca de los informes de problemas, consulta la sección "[Acerca de los informes de problemas](/github/managing-your-work-on-github/about-issues)".
 
 Después de que crees una rama y hagas cambios a los archivos en un proyecto, puedes crear una solicitud de extracción. Con una solicitud de extracción, puedes proponer, debatir e iterar entre los cambios antes de fusionarlos en el proyecto. Puedes crear una solicitud de extracción en el repositorio de tu proyecto con {% data variables.product.prodname_desktop %}. Para obtener más información acerca de las solicitudes de extracción, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
 
-### Prerrequisitos
+## Prerrequisitos
 
 Amtes de crear una solicitud de extracción, necesitarás subir los cambios a una rama en {% data variables.product.prodname_dotcom %}.
 - Guardar y confirmar cualquier cambio en tu rama local. Para obtener más información, consulta la sección "[Confirmar y revisar cambios hechos a tu proyecto](/desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project)".
 - Cambiar tus confirmaciones locales en el repositorio remoto. Para obtener más información, consulta la sección"[Subir cambios a GitHub](/desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github)".
 - Publicar tu rama actual en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Administrar ramas](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches)".
 
-### Crear una propuesta
+## Crear una propuesta
 
 {% mac %}
 
@@ -45,7 +46,7 @@ Amtes de crear una solicitud de extracción, necesitarás subir los cambios a un
 
 {% endnote %}
 
-### Crear una solicitud de extracción
+## Crear una solicitud de extracción
 
 {% mac %}
 
@@ -67,7 +68,7 @@ Amtes de crear una solicitud de extracción, necesitarás subir los cambios a un
 
 {% endwindows %}
 
-### Leer más
+## Leer más
 - "[Informe de problemas](/github/getting-started-with-github/github-glossary#issue)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Solicitud de extracción](/github/getting-started-with-github/github-glossary#pull-request)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Rama base](/github/getting-started-with-github/github-glossary#base-branch)" en el glosario de {% data variables.product.prodname_dotcom %}

@@ -5,7 +5,9 @@ redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -13,9 +15,12 @@ topics:
   - Secret store
   - Repositories
   - Dependencies
+shortTitle: 管理加密密钥
 ---
 
-### 关于 {% data variables.product.prodname_dependabot %} 的加密密码
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
+## 关于 {% data variables.product.prodname_dependabot %} 的加密密码
 
 {% data variables.product.prodname_dependabot %} 密码是您在组织级别或仓库级别创建的加密凭据。
 当您在组织级别添加密码时，可以指定哪些仓库可以访问该密码。 您可以使用密码允许 {% data variables.product.prodname_dependabot %} 更新位于私人包注册表中的依赖项。 添加密码时，它会在到达 {% data variables.product.prodname_dotcom %} 之前进行加密，并且保持加密到 {% data variables.product.prodname_dependabot %} 用于访问私有包注册表。
@@ -30,14 +35,14 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
 更多信息请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)。”
 
-#### 命名您的密码
+### 命名您的密码
 
 {% data variables.product.prodname_dependabot %} 密码的名称：
 * 只能包含字母数字字符（`[A-Z]`、`[0-9]`）或下划线 (`_`)。 不允许空格。 如果您输入小写字母，这些字母将更改为大写字母。
 * 不能以 `GITHUB_` 前缀开头。
 * 不能以数字开头。
 
-### 为 {% data variables.product.prodname_dependabot %} 添加仓库密码
+## 为 {% data variables.product.prodname_dependabot %} 添加仓库密码
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
 
@@ -54,7 +59,7 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
    ![更新或删除仓库密码](/assets/images/help/dependabot/update-remove-repo-secret.png)
 
-### 将组织机密添加到 {% data variables.product.prodname_dependabot %}
+## 将组织机密添加到 {% data variables.product.prodname_dependabot %}
 
 在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
 
@@ -78,4 +83,8 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
    密码名称列在 Dependabot 密码页面上。 您可以单击 **Update（更新）**来更改机密值或其访问策略。 您可以单击**Remove（删除）**来删除密码。
 
-   ![更新或删除组织机密](/assets/images/help/dependabot/update-remove-repo-secret.png)
+   ![更新或删除组织机密](/assets/images/help/dependabot/update-remove-org-secret.png)
+
+## 将 {% data variables.product.prodname_dependabot %} 添加到您的注册表 IP 允许列表
+
+如果您的私人注册表配置了 IP 允许列表，则您可以在 `dependabot` 密钥下找到 {% data variables.product.prodname_dependabot %} 用于访问元 API 端点中注册表的 IP 地址。 更多信息请参阅“[元数据](/rest/reference/meta)”。

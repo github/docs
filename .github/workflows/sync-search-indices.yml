@@ -21,8 +21,20 @@ name: Sync search indexes
 
 on:
   workflow_dispatch:
+    inputs:
+      language:
+        description: 'Language to generate the search index for. Can be one of: `en` English, `cn` Chinese simplified, `ja` Japanese, `es` Spanish, `pt` Portuguese., `all` all languages.'
+        required: false
+        default: 'all'
+      version:
+        description: 'Version to generate the search index for. Can be one of: `free-pro-team@latest`, `enterprise-server@<RELEASE NUMBER>`, `github-ae@latest`, `all` all versions.'
+        required: false
+        default: 'all'
   schedule:
     - cron: '53 0/8 * * *' # Run every eight hours at 53 minutes past the hour
+
+permissions:
+  contents: none
 
 env:
   FREEZE: ${{ secrets.FREEZE }}
@@ -39,25 +51,32 @@ jobs:
           exit 1 # prevents further steps from running
       # Check out internal docs repository
       - name: checkout
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
-          token: ${{ secrets.DOCS_BOT }}
+          token: ${{ secrets.DOCS_BOT_FR }}
 
       - name: Setup Node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Cache nextjs build
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
       - name: Run build scripts
         run: npm run build
 
       - name: Update search indexes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ github.event.inputs.version }}
+          LANGUAGE: ${{ github.event.inputs.language }}
         run: npm run sync-search
 
       - name: Update private docs repository search indexes
@@ -97,7 +116,7 @@ jobs:
           git lfs push --all public-docs-repo
 
       - name: Send slack notification if workflow run fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
         if: failure() && env.FREEZE != 'true'
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

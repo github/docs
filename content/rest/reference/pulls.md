@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -29,8 +30,6 @@ These are the supported media types for pull requests.
 
 For more information, see "[Custom media types](/rest/overview/media-types)."
 
-<a id="diff-error">
-
 If a diff is corrupt, contact {% data variables.contact.contact_support %}. Include the repository name and pull request ID in your message.
 
 ### Link Relations
@@ -46,7 +45,7 @@ Name | Description
 `review_comments`| The API location of this Pull Request's [Review comments](/rest/reference/pulls#comments).
 `review_comment`| The [URL template](/rest#hypermedia) to construct the API location for a [Review comment](/rest/reference/pulls#comments) in this Pull Request's repository.
 `commits`|The API location of this Pull Request's [commits](#list-commits-on-a-pull-request).
-`statuses`| The API location of this Pull Request's [commit statuses](/rest/reference/repos#statuses), which are the statuses of its `head` branch.
+`statuses`| The API location of this Pull Request's [commit statuses](/rest/reference/commits#commit-statuses), which are the statuses of its `head` branch.
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -63,7 +62,7 @@ Request, grouped together with a state and optional body comment.
 
 ## Review comments
 
-Pull request review comments are comments on a portion of the unified diff made during a pull request review. Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/git#create-a-commit)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
+Pull request review comments are comments on a portion of the unified diff made during a pull request review. Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/commits#create-a-commit-comment)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
 
 ### Custom media types for pull request review comments
 

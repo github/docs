@@ -4,14 +4,15 @@ redirect_from:
   - /v4/union
   - /v4/reference/union
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 关于并集
+## 关于并集
 
 [并集](https://graphql.github.io/graphql-spec/June2018/#sec-Unions)是一种表示多个对象的对象类型。
 

@@ -2,11 +2,13 @@
 title: 为组织申请发布者验证
 intro: 要为应用程序提供付费计划或在应用程序上架信息中包含 Marketplace 徽章，您必须完成组织的发布者验证流程。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:
   - /developers/github-marketplace/applying-for-publisher-verification-for-your-organization
+shortTitle: 发布者验证
 ---
 
 发布者验证确保 {% data variables.product.prodname_dotcom %} 有方法联系您、您已经为组织启用双重身份验证并且您组织的域已通过验证。
@@ -15,7 +17,7 @@ redirect_from:
 
 要为应用程序提供付费计划，该应用程序必须为组织所有，并且您必须拥有该组织的所有者权限。 如果您的应用程序目前由用户帐户所有，您需要将该应用程序的所有权转让给组织。 更多信息请参阅“[转让 GitHub 应用程序的所有权](/developers/apps/transferring-ownership-of-a-github-app)”或“[转让 OAuth 应用程序的所有权](/developers/apps/transferring-ownership-of-an-oauth-app)”。
 
-### 请求发布者验证
+## 请求发布者验证
 
 
 {% data reusables.profile.access_org %}
@@ -31,6 +33,6 @@ redirect_from:
 
 2. 单击 **Request Verification（申请验证）**。 {% data variables.product.company_short %} 将检查您的详细信息，并在您的发布者验证完成后通知您。
 
-### 延伸阅读
+## 延伸阅读
 
 有关发布应用程序的流程，请参阅“[关于 GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)”。

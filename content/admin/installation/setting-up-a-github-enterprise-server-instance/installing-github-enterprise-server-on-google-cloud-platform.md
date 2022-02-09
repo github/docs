@@ -2,13 +2,17 @@
 title: Installing GitHub Enterprise Server on Google Cloud Platform
 intro: 'To install {% data variables.product.prodname_ghe_server %} on Google Cloud Platform, you must deploy onto a supported machine type and use a persistent standard disk or a persistent SSD.'
 redirect_from:
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform/
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
   - /admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Install on GCP
 ---
 ## Prerequisites
@@ -93,5 +97,5 @@ To create the {% data variables.product.prodname_ghe_server %} instance, you'll 
 
 ## Further reading
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

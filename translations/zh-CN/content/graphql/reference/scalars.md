@@ -4,14 +4,15 @@ redirect_from:
   - /v4/scalar
   - /v4/reference/scalar
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 关于标量
+## 关于标量
 
 [标量](https://graphql.github.io/graphql-spec/June2018/#sec-Scalars)为原始值：`Int`、`Float`、`String`、`Boolean` 或 `ID`。
 

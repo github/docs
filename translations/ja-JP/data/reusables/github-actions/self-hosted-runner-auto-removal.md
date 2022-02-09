@@ -1,1 +1,1 @@
-セルフホストランナーは、{% data variables.product.prodname_actions %}に30日以上接続されないと、{% data variables.product.product_name %}から自動的に削除されます。
+A self-hosted runner is automatically removed from {% data variables.product.product_name %} if it has not connected to {% data variables.product.prodname_actions %} for more than 30 days.

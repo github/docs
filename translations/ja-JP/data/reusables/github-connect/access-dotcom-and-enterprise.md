@@ -1,1 +1,1 @@
-1. {% data variables.product.product_location_enterprise %}と{% data variables.product.prodname_dotcom_the_website %}にサインインしてください。
+1. Sign in to {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_ghe_managed %}{% endif %} and {% data variables.product.prodname_dotcom_the_website %}.

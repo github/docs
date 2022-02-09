@@ -1,51 +1,52 @@
 ---
-title: 为 GitHub Packages 配置 MinIO 存储桶的快速入门
-intro: '配置您的自定义 MinIO 存储桶，用于 {% data variables.product.prodname_registry %}。'
+title: Quickstart for configuring your MinIO storage bucket for GitHub Packages
+intro: 'Configure your custom MinIO storage bucket for use with {% data variables.product.prodname_registry %}.'
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 type: quick_start
 topics:
   - Packages
   - Enterprise
   - Storage
+shortTitle: Quickstart for MinIO
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-在 {% data variables.product.product_location_enterprise %} 上启用和配置 {% data variables.product.prodname_registry %} 之前，您必须准备第三方存储解决方案。
+Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your third-party storage solution.
 
-MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.product.prodname_registry %}。
+MinIO offers object storage with support for the S3 API and {% data variables.product.prodname_registry %} on your enterprise.
 
-此快速入门将演示如何使用 Docker 设置 MinIO 以与 {% data variables.product.prodname_registry %} 使用，但除了 Docker 之外，您还有其他用于管理 MinIO 的选项。 有关 MinIO 的更多信息，请参阅官方的 [MinIO 文档](https://docs.min.io/)。
+This quickstart shows you how to set up MinIO using Docker for use with {% data variables.product.prodname_registry %} but you have other options for managing MinIO besides Docker. For more information about MinIO, see the official [MinIO docs](https://docs.min.io/).
 
-### 1. 根据您的需求选择 MinIO 模式
+## 1. Choose a MinIO mode for your needs
 
-| MinIO 模式                | 针对以下平台优化    | 需要存储基础架构     |
-| ----------------------- | ----------- | ------------ |
-| 独立 MinIO（在单个主机上）        | 快速设置        | 不适用          |
-| MinIO 作为 NAS 网关         | NAS（网络连接存储） | NAS 设备       |
-| 群集式 MinIO（也称为分布式 MinIO） | 数据安全        | 在群集中运行的存储服务器 |
+| MinIO mode | Optimized for | Storage infrastructure required |
+|----|----|----|
+| Standalone MinIO (on a single host) | Fast setup |  N/A |
+| MinIO as a NAS gateway |  NAS (Network-attached storage)| NAS devices |
+| Clustered MinIO (also called Distributed MinIO)|  Data security | Storage servers running in a cluster |
 
-有关您的选项的更多信息，请参阅官方的 [MinIO 文档](https://docs.min.io/)。
+For more information about your options, see the official [MinIO docs](https://docs.min.io/).
 
-### 2. 安装、运行和登录到 MinIO
+## 2. Install, run, and sign in to MinIO
 
-1. 为 MinIO 设置首选环境变量。
+1. Set up your preferred environment variables for MinIO.
 
-    以下示例使用 `MINIO_DIR`：
+    These examples use `MINIO_DIR`:
     ```shell
     $ export MINIO_DIR=$(pwd)/minio
     $ mkdir -p $MINIO_DIR
     ```
 
-2. 安装 MinIO。
+2. Install MinIO.
 
     ```shell
     $ docker pull minio/minio
     ```
-    更多信息请参阅官方的“[MinIO 快速入门指南](https://docs.min.io/docs/minio-quickstart-guide)”。
+    For more information, see the official "[MinIO Quickstart Guide](https://docs.min.io/docs/minio-quickstart-guide)."
 
-3. 使用您的 MinIO 访问密钥登录 MinIO。
+3. Sign in to MinIO using your MinIO access key and secret.
 
     {% linux %}
     ```shell
@@ -63,16 +64,16 @@ MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.produ
     ```
     {% endmac %}
 
-    您可以使用环境变量访问 MinIO 密钥：
+    You can access your MinIO keys using the environment variables:
 
     ```shell
     $ echo $MINIO_ACCESS_KEY
     $ echo $MINIO_SECRET_KEY
     ```
 
-4. 在您选择的模式下运行 MinIO。
+4. Run MinIO in your chosen mode.
 
-   * 在单一主机上使用 Docker 运行 MinIO：
+   * Run MinIO using Docker on a single host:
 
      ```shell
      $ docker run -p 9000:9000 \
@@ -82,11 +83,11 @@ MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.produ
              minio/minio server /data
      ```
 
-     更多信息请参阅“[MinIO Docker 快速入门指南](https://docs.min.io/docs/minio-docker-quickstart-guide.html)”。
+     For more information, see "[MinIO Docker Quickstart guide](https://docs.min.io/docs/minio-docker-quickstart-guide.html)."
 
-   * 使用 Docker 作为 NAS 网关运行 MinIO：
+   * Run MinIO using Docker as a NAS gateway:
 
-     此设置对于已经有 NAS 用作 {% data variables.product.prodname_registry %} 的备份存储的部署非常有用。
+     This setup is useful for deployments where there is already a NAS you want to use as the backup storage for {% data variables.product.prodname_registry %}.
 
      ```shell
      $ docker run -p 9000:9000 \
@@ -96,42 +97,42 @@ MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.produ
              minio/minio gateway nas /data
      ```
 
-     更多信息请参阅“[NAS 的 MinIO 网关](https://docs.min.io/docs/minio-gateway-for-nas.html)”。
+     For more information, see "[MinIO Gateway for NAS](https://docs.min.io/docs/minio-gateway-for-nas.html)."
 
-   * 使用 Docker 作为集群运行 MinIO： 此 MinIO 部署使用多个主机和 MinIO 的擦除编码来提供最强的数据保护。 要在群集模式下运行 MinIO，请参阅“[分布式 MinIO 快速入门指南](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)”。
+   * Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the "[Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
 
-### 3. 为 {% data variables.product.prodname_registry %} 创建 MinIO 存储桶
+## 3. Create your MinIO bucket for {% data variables.product.prodname_registry %}
 
-1. 安装 MinIO 客户端。
+1. Install the MinIO client.  
 
     ```shell
     $ docker pull minio/mc
     ```
 
-2. 使用 {% data variables.product.prodname_ghe_server %} 可以访问的主机 URL 创建存储桶。
+2. Create a bucket with a host URL that {% data variables.product.prodname_ghe_server %} can access.
 
-   * 本地部署示例：
+   * Local deployments example:
 
      ```shell
      $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
      $ docker run minio/mc <em>BUCKET-NAME</em>
      ```
 
-     此示例可用于 MinIO 单机版或作为 NAS 网关的 MinIO。
+     This example can be used for MinIO standalone or MinIO as a NAS gateway.
 
-   * 集群部署示例：
+   * Clustered deployments example:
 
      ```shell
      $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @minioclustername.example.com:9000"
      $ docker run minio/mc mb packages
      ```
 
-### 后续步骤
+## Next steps
 
-要完成 {% data variables.product.prodname_registry %} 的存储配置，您需要复制 MinIO 存储 URL：
+To finish configuring storage for {% data variables.product.prodname_registry %}, you'll need to copy the MinIO storage URL:
 
   ```
   echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
   ```
 
-关于后续步骤，请参阅“[使用 MinIO 启用 {% data variables.product.prodname_registry %}](/admin/packages/enabling-github-packages-with-minio)”。
+For the next steps, see "[Enabling {% data variables.product.prodname_registry %} with  MinIO](/admin/packages/enabling-github-packages-with-minio)."

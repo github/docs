@@ -4,15 +4,17 @@ intro: You can use basic authentication for testing in a non-production environm
 redirect_from:
   - /v3/auth
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Other authentication methods
 ---
 
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 While the API provides multiple methods for authentication, we strongly
 recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) for production applications. The other
 methods provided are intended to be used for scripts or testing (i.e., cases
@@ -22,23 +24,23 @@ Instead, they should use the [OAuth web flow](/apps/building-oauth-apps/authoriz
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 To authenticate we recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) tokens, such a personal access token through the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
 
 {% endif %}
 
-### Basic Authentication
+## Basic Authentication
 
 The API supports Basic Authentication as defined in
 [RFC2617](http://www.ietf.org/rfc/rfc2617.txt) with a few slight differences.
 The main difference is that the RFC requires unauthenticated requests to be
 answered with `401 Unauthorized` responses. In many places, this would disclose
-the existence of user data. Instead, the {% data variables.product.product_name %} API responds with `404 Not Found`.
+the existence of user data. Instead, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API responds with `404 Not Found`.
 This may cause problems for HTTP libraries that assume a `401 Unauthorized`
 response. The solution is to manually craft the `Authorization` header.
 
-#### Via OAuth and personal access tokens
+### Via OAuth and personal access tokens
 
 We recommend you use OAuth tokens to authenticate to the GitHub API. OAuth tokens include [personal access tokens][personal-access-tokens] and enable the user to revoke access at any time.
 
@@ -48,20 +50,20 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 This approach is useful if your tools only support Basic Authentication but you want to take advantage of OAuth access token security features.
 
-#### Via username and password
+### Via username and password
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_dotcom %} has discontinued password authentication to the API starting on November 13, 2020 for all {% data variables.product.prodname_dotcom_the_website %} accounts, including those on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plan. You must now authenticate to the {% data variables.product.prodname_dotcom %} API with an API token, such as an OAuth access token, GitHub App installation access token, or personal access token, depending on what you need to do with the token. For more information, see "[Troubleshooting](/rest/overview/troubleshooting#basic-authentication-errors)."
+**Note:** {% data variables.product.prodname_dotcom %} has discontinued password authentication to the API starting on November 13, 2020 for all {% data variables.product.prodname_dotcom_the_website %} accounts, including those on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plan. You must now authenticate to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API with an API token, such as an OAuth access token, GitHub App installation access token, or personal access token, depending on what you need to do with the token. For more information, see "[Troubleshooting](/rest/overview/troubleshooting#basic-authentication-errors)."
  
 {% endnote %}
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-To use Basic Authentication with the {% data variables.product.product_name %} API, simply send the username and
+{% ifversion ghes %}
+To use Basic Authentication with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, simply send the username and
 password associated with the account.
 
 For example, if you're accessing the API via [cURL][curl], the following command
@@ -75,8 +77,8 @@ If you have two-factor authentication enabled, make sure you understand how to [
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### Authenticating for SAML SSO
+{% ifversion fpt or ghec %}
+### Authenticating for SAML SSO
 
 {% note %}
 
@@ -107,17 +109,17 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 The value `organizations` is a comma-separated list of organization IDs for organizations require authorization of your personal access token.
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-### Working with two-factor authentication
+{% ifversion fpt or ghes or ghec %}
+## Working with two-factor authentication
 
-When you have two-factor authentication enabled, [Basic Authentication](#basic-authentication) for _most_ endpoints in the REST API requires that you use a personal access token{% if enterpriseServerVersions contains currentVersion %} or OAuth token instead of your username and password{% endif %}.
+When you have two-factor authentication enabled, [Basic Authentication](#basic-authentication) for _most_ endpoints in the REST API requires that you use a personal access token{% ifversion ghes %} or OAuth token instead of your username and password{% endif %}.
 
-You can generate a new personal access token {% if currentVersion == "free-pro-team@latest" %}using [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %}{% if enterpriseServerVersions contains currentVersion %} or with the "[Create a new authorization][/rest/reference/oauth-authorizations#create-a-new-authorization]" endpoint in the OAuth Authorizations API to generate a new OAuth token{% endif %}. For more information, see "[Creating a personal access token for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the {% data variables.product.prodname_dotcom %} API.{% if enterpriseServerVersions contains currentVersion %} The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.{% endif %}
+You can generate a new personal access token {% ifversion fpt or ghec %}using [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %}{% ifversion ghes %} or with the "[Create a new authorization][/rest/reference/oauth-authorizations#create-a-new-authorization]" endpoint in the OAuth Authorizations API to generate a new OAuth token{% endif %}. For more information, see "[Creating a personal access token for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.{% ifversion ghes %} The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.{% endif %}
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-#### Using the OAuth Authorizations API with two-factor authentication
+{% ifversion ghes %}
+### Using the OAuth Authorizations API with two-factor authentication
 
 When you make calls to the OAuth Authorizations API, Basic Authentication requires that you use a one-time password (OTP) and your username and password instead of tokens. When you attempt to authenticate with the OAuth Authorizations API, the server will respond with a `401 Unauthorized` and one of these headers to let you know that you need a two-factor authentication code:
 
@@ -136,7 +138,7 @@ $ curl --request POST \
 {% endif %}
 
 [curl]: http://curl.haxx.se/
-[oauth-auth]: /rest#authentication
+[oauth-auth]: /rest/overview/resources-in-the-rest-api#authentication
 [personal-access-tokens]: /articles/creating-a-personal-access-token-for-the-command-line
 [saml-sso]: /articles/about-identity-and-access-management-with-saml-single-sign-on
 [saml-sso-tokens]: https://github.com/settings/tokens

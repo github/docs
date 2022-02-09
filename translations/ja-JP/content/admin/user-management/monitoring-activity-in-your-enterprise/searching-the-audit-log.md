@@ -2,13 +2,13 @@
 title: Audit log を検索する
 intro: サイト管理者は、Enterprise で監査されたアクションの広範なリストを検索できます。
 redirect_from:
-  - /enterprise/admin/articles/searching-the-audit-log/
+  - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
   - /enterprise/admin/user-management/searching-the-audit-log
   - /admin/user-management/searching-the-audit-log
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,7 +16,7 @@ topics:
   - Logging
 ---
 
-### 検索クエリの構文
+## 検索クエリの構文
 
 AND/ORの論理演算子で区切られた値のペア:1つ以上のキーを使って、検索クエリを構成します。
 
@@ -43,7 +43,7 @@ AND/ORの論理演算子で区切られた値のペア:1つ以上のキーを使
 
 アクションの完全なリストについては、「[監査済みのアクション](/admin/user-management/audited-actions)」を参照してください。
 
-### Audit log を検索する
+## Audit log を検索する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

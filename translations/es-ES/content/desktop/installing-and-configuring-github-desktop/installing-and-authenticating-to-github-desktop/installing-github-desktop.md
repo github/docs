@@ -6,10 +6,10 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/installing-github-desktop
   - /desktop/installing-and-configuring-github-desktop/installing-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### Acerca de la instalación de {% data variables.product.prodname_desktop %}
+## Acerca de la instalación de {% data variables.product.prodname_desktop %}
 
 Puedes instalar {% data variables.product.prodname_desktop %} en los sistemas operativos compatibles, lo cual incluye acutalmente las {% data variables.desktop.mac-osx-versions %} y {% data variables.desktop.windows-versions %}. Si tienes una cuenta en {% data variables.product.prodname_dotcom %} o en {% data variables.product.prodname_enterprise %}, puedes conectarla a {% data variables.product.prodname_desktop %}. Para obtener más información acerca de cómo crear una cuenta, consulta la sección "[Registrar una cuenta de {% data variables.product.prodname_dotcom %} nueva](/articles/signing-up-for-a-new-github-account/)" o contacta a tu administrador de stio de {% data variables.product.prodname_enterprise %}.
 
@@ -23,7 +23,7 @@ Si un usuario ejecuta el paquete de instalación en Windows de {% data variables
 
 {% endwindows %}
 
-### Descargar e instalar {% data variables.product.prodname_desktop %}
+## Descargar e instalar {% data variables.product.prodname_desktop %}
 
 {% mac %}
 

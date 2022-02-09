@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Get started - Checks API
@@ -40,7 +41,7 @@ A check run is an individual test that is part of a check suite. Each run includ
 
 ![Check runs workflow](/assets/images/check_runs.png)
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 If a check run is in a incomplete state for more than 14 days, then the check run's `conclusion` becomes `stale` and appears on {% data variables.product.prodname_dotcom %} as stale with {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Only {% data variables.product.prodname_dotcom %} can mark check runs as `stale`. For more information about possible conclusions of a check run, see the [`conclusion` parameter](/rest/reference/checks#create-a-check-run--parameters).
 {% endif %}
 

@@ -1,1 +1,0 @@
-1. Klicke neben der geplanten Erinnerung, die Du aktualisieren möchtest, auf **Edit** (Bearbeiten). ![Vorhandene geplante Erinnerung bearbeiten](/assets/images/help/settings/scheduled-reminders-edit-existing.png)

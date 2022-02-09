@@ -5,6 +5,7 @@ intro: 'You can choose whether {% data variables.large_files.product_name_long %
 permissions: 'People with admin permissions for a repository can manage whether {% data variables.large_files.product_name_short %} objects are included in archives of the repository.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 redirect_from:

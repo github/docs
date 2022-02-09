@@ -1,10 +1,9 @@
 ---
 title: Customizing GitHub-hosted runners
 intro: You can install additional software on GitHub-hosted runners as a part of your workflow.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows

@@ -5,12 +5,14 @@ redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 外部コラボレータの削除
 ---
 
 {% data reusables.profile.access_org %}

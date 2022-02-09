@@ -1,37 +1,37 @@
-# Release notes for GitHub Enterprise Server
+# Notas de lanzamiento para GitHub Enterprise Server
 
-Rendered here: https://docs.github.com/en/enterprise-server@latest/admin/release-notes
+Interpretado aquí: https://docs.github.com/en/enterprise-server@latest/admin/release-notes
 
-## How it works
+## Cómo funciona
 
-### Placeholder content file
+### Archivo de contenido de marcador de posición
 
-A content file exists in `content/admin/release-notes.md`. It has a special frontmatter property `layout: release-notes` and no Markdown content. The source of the release notes comes from YAML data.
+Un archivo de contexto existe en `content/admin/release-notes.md`. Tiene una propiedad preliminar especial `layout: release-notes` y no tiene contenido de lenguaje de marcado. La fuente de las notas de lanzamiento viene de los datos de YAML.
 
-### YAML source
+### Fuente de YAML
 
-The source data for the release notes lives in this directory (`data/release-notes/enterprise-server`).
+Los datos fuente de las notas de lanzamiento viven en este directorio (`data/release-notes/enterprise-server`).
 
-The directories are named by GHES release number (with a hyphen instead of a period).
+Los directorios se nombran con un número de lanzamiento de GHES (con un guion en vez de un punto).
 
-The YAML files in each directory are named by patch number. Some patch filenames may end with `-rc<num>.yml`, which means it's a release candidate. A release candidate file also requires `release_candidate: true` in the YAML data.
+Los archivos de YAML en cada directorio se nombran de acuerdo al número de parche. Algunos nombres de archivo de parche pueden terminar con `-rc<num>.yml`, lo que significa que es un candidato a lanzamiento. Un archivo de candidato a lanzamiento también requiere `release_candidate: true` en los datos de YAML.
 
-Release notes of deprecated GHES versions (see `lib/enterprise-server-releases.js`) are **not** removed from the site and will always be displayed alongside currently supported versions.
+Las notas de las versiones obsoletizadas de GHES (consulta `lib/enterprise-server-releases.js`) **no** se eliminaron del sitio y siempre se mostrarán en conjunto con las versiones compatibles actuales.
 
-Note that patch files can be deprecated individually (i.e., hidden on the docs site) by an optional `deprecated: true` property.
+Nota que los archivos de parche pueden obsoletizarse individualmente (es decir, ocultos en el sitio de documentos) mediante una propiedad opcional de `deprecated: true`.
 
-### Middleware processing
+### Procesamiento de recursos intermedios
 
-The YAML data is processed and sorted by `middleware/contextualizers/release-notes.js` and added to the `context` object.
+Los datos de YAML se procesan y clasifican por `middleware/contextualizers/release-notes.js` y se agregan al objeto `context`.
 
-### Layouts
+### Diseños
 
-The `context` object data is rendered by `layouts/release-notes.html` and `includes/enterprise-server-release-notes.html`.
+`components/release-notes` interpreta el objeto de datos de `context`.
 
-The release notes page has a custom design with CSS in `stylesheets/release-notes.scss` and client-side JavaScript in `javascripts/release-notes.js`.
+La página de notas de lanzamiento tiene un diseño personalizado con CSS en `stylesheets/release-notes.scss`.
 
 ### Modelo
 
-The schema that validates the YAML data lives in `tests/helpers/schemas/ghes-release-notes-schema.js`. See the schema file to find out the required and optional properties.
+El modelo que valida los datos de YAML vive en `tests/helpers/schemas/ghes-release-notes-schema.js`. Consulta el archivo de modelado para encontrar las propiedades requeridas y opcionales.
 
-The schema is exercised by a test in `tests/linting/lint-files.js`. The test will fail if the data does not pass validation.
+El modelo que se ejerce en una prueba en `tests/linting/lint-files.js`. La prueba fallará si los datos no pasan la validación.

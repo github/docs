@@ -5,6 +5,8 @@ import { GHAEReleaseNotePatch } from './GHAEReleaseNotePatch'
 import { GHAEReleaseNotesContextT } from './types'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 
+import styles from './PatchNotes.module.scss'
+
 type GitHubAEProps = {
   context: GHAEReleaseNotesContextT
 }
@@ -15,7 +17,7 @@ export function GHAEReleaseNotes({ context }: GitHubAEProps) {
   return (
     <div className="d-flex">
       <article className="min-width-0 flex-1">
-        <div className="d-flex flex-items-center flex-justify-between color-bg-primary px-5 py-2">
+        <div className="d-flex flex-items-center flex-justify-between color-bg-default px-5 py-2">
           <div></div>
           <h1 className="f4 py-3 m-0">{currentVersion.planTitle} release notes</h1>
           <div></div>
@@ -35,8 +37,10 @@ export function GHAEReleaseNotes({ context }: GitHubAEProps) {
       </article>
 
       <aside
-        className="position-sticky top-0 d-none d-md-block border-left no-print color-bg-primary flex-shrink-0"
-        style={{ width: 260, height: '100vh' }}
+        className={cx(
+          'position-sticky d-none d-md-block border-left no-print color-bg-default flex-shrink-0',
+          styles.aside
+        )}
       >
         <nav className="height-full overflow-auto">
           <MarkdownContent data-search="article-content">
@@ -84,17 +88,20 @@ const CollapsibleReleaseSection = ({
         <summary className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between outline-none">
           {release.version}
           <div className="d-flex">
-            <span className="color-text-tertiary text-small text-normal mr-1">
-              {release.patches.length} releases
+            <span className="color-fg-muted text-small text-normal mr-1">
+              {release.patches.length} {release.patches.length === 1 ? 'release' : 'releases'}
             </span>
             <ChevronDownIcon className={isOpen ? 'rotate-180' : ''} />
           </div>
         </summary>
-        <ul className="color-bg-tertiary border-top list-style-none py-4 px-0 my-0">
+        <ul className="color-bg-subtle border-top list-style-none py-4 px-0 my-0">
           {release.patches.map((patch) => {
             const isActive = patch.version === focusedPatch
             return (
-              <li key={patch.version} className={cx('px-3 my-0 py-1', isActive && 'color-bg-info')}>
+              <li
+                key={patch.version}
+                className={cx('px-3 my-0 py-1', isActive && 'color-bg-accent')}
+              >
                 <a
                   href={`#${patch.date}`}
                   className="d-flex flex-items-center flex-justify-between"

@@ -6,18 +6,20 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
+shortTitle: 创建咨询意见
 ---
 
 任何对仓库有管理员权限的人都可以创建安全通告。
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-### 创建安全通告
+## 创建安全通告
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -30,7 +32,7 @@ topics:
 {% data reusables.repositories.security-advisory-edit-description %}
 11. 单击 **Create draft security advisory（创建安全通告草稿）**。 ![创建安全通告按钮。](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
-### 后续步骤
+## 后续步骤
 
 - 评论安全通告草稿，与团队讨论漏洞。
 - 添加协作者到安全通告。 更多信息请参阅“[添加协作者到安全通告](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory)”。

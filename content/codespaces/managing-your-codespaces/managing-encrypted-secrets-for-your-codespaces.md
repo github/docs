@@ -4,6 +4,7 @@ intro: 'You can store sensitive information, like tokens, that you want to acces
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
@@ -80,3 +81,7 @@ You can update the value of an existing secret, and you can change which reposit
   !["Delete" button](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Read the warning, then click **OK**.
   ![Confirmation to delete secret](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## Further reading
+
+- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"

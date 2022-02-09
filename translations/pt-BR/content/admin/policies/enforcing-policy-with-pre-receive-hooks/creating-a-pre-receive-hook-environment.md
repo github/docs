@@ -6,12 +6,13 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
   - /admin/policies/creating-a-pre-receive-hook-environment
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: Ambientes de hook pre-receive.
 ---
 
 Um ambiente pre-receive para o {% data variables.product.prodname_ghe_server %} é um ambiente Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot). Como são executados em todos os eventos de push, os hooks pre-receive devem ser rápidos e leves. Em geral, o ambiente necessário para tais verificações é mínimo.
@@ -20,7 +21,7 @@ O {% data variables.product.prodname_ghe_server %} fornece um ambiente padrão q
 
 Se você tiver algum requisito específico não atendido por esse ambiente, como suporte a determinado idioma, é possível criar e fazer upload do seu próprio ambiente Linux `chroot` de 64 bits.
 
-### Criar um ambiente de hook pre-receive usando o Docker
+## Criar um ambiente de hook pre-receive usando o Docker
 
 Você pode usar uma ferramenta de gerenciamento de contêineres do Linux para criar um ambiente de hook pre-receive. Este exemplo usa o [Alpine Linux](http://www.alpinelinux.org/) e o [Docker](https://www.docker.com/).
 
@@ -56,7 +57,7 @@ Você pode usar uma ferramenta de gerenciamento de contêineres do Linux para cr
 
    O arquivo `alpine-3.3.tar.gz` está pronto para o upload no appliance do {% data variables.product.prodname_ghe_server %}.
 
-### Criar um ambiente de hook pre-receive usando chroot
+## Criar um ambiente de hook pre-receive usando chroot
 
 1. Crie um ambiente Linux `chroot`.
 2. Crie um arquivo `tar` do diretório `chroot` compactado em um `gzip`.
@@ -76,7 +77,7 @@ Você pode usar uma ferramenta de gerenciamento de contêineres do Linux para cr
 
 Para obter mais informações sobre como criar um ambiente chroot, consulte "[Chroot](https://wiki.debian.org/chroot)" na *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" na *Ubuntu Community Help Wiki* ou "[Instalar Alpine Linux em chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" na *Alpine Linux Wiki*.
 
-### Fazer upload de um ambiente de hook pre-receive no {% data variables.product.prodname_ghe_server %}
+## Fazer upload de um ambiente de hook pre-receive no {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -87,7 +88,7 @@ Para obter mais informações sobre como criar um ambiente chroot, consulte "[Ch
 8. Informe a URL do arquivo `*.tar.gz` que contém o ambiente. ![Fazer upload de um ambiente a partir da URL](/assets/images/enterprise/site-admin-settings/upload-environment-from-url.png)
 9. Clique em **Add environments** (Adicionar ambientes). ![Botão Adicionar ambiente](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
 
-### Fazer upload de um ambiente de hook pre-receive via shell administrativo
+## Fazer upload de um ambiente de hook pre-receive via shell administrativo
 1. Faça upload do arquivo legível `*.tar.gz` que contém o seu ambiente para um host na web e copie a URL, ou transfira o arquivo para o appliance do {% data variables.product.prodname_ghe_server %} via `scp`. Ao usar o `scp`, você deve ajustar as permissões do arquivo `*.tar.gz` para que ele seja legível.
 1.  Conecte-se ao shell administrativo.
 2.  Use o comando `ghe-hook-env-create` e digite o nome que você deseja para o ambiente como o primeiro argumento. Em seguida, informe o caminho local completo ou a URL do arquivo `*.tar.gz` que contém seu ambiente como segundo argumento.

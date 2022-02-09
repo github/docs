@@ -5,14 +5,16 @@ redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: Migrarse de REST a GraphQL
 ---
 
-### Diferencias en la lógica de la API
+## Diferencias en la lógica de la API
 
 Migrar desde Rest hacia GraphQL represente un cambio significativo en la lógica de las API. Las diferencias entre REST como un estilo y GraphQL como una especificación hacen difícil &mdash;y a menudo indeseable&mdash; reemplazar los llamados de la API de REST con las consultas de la API de GraphQL de una forma uno a uno. Hemos incluido ejemplos específicos de migración a continuación.
 

@@ -1,14 +1,15 @@
 ---
 title: Administrar las categorías de los debates en tu repositorio
 intro: 'Puedes categorizar los debates en tu repositorio para organizar las conversaciones para los miembros de tu comunidad, y puedes elegir un formato para cada categoría.'
-permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
+permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Administrar las categorías
 ---
 
-{% data reusables.discussions.beta %}
 
-### Acerca de las categorías para los debates
+## Acerca de las categorías para los debates
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
@@ -16,7 +17,7 @@ versions:
 
 Cada categoría debe tener un nombre único y un emoji distintivo, y se le puede acompañar con una descripción detallada que describa su propósito. Las categorías ayudan a que los mantenedores organicen cómo se archivan sus conversaciones y se pueden personalizar para distinguir si las categorías que son de preguntas y respuestas o más abiertas. {% data reusables.discussions.repository-category-limit %} Para obtener más información, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)".
 
-### Categorías predeterminadas
+## Categorías predeterminadas
 
 | Categoría          | Propósito                                                                      | Formato              |
 |:------------------ |:------------------------------------------------------------------------------ |:-------------------- |
@@ -26,7 +27,7 @@ Cada categoría debe tener un nombre único y un emoji distintivo, y se le puede
 | 🙏 Q&A              | Preguntas para que responda la comunidad, con un formato de pregunta/respuesta | Pregunta y respuesta |
 | 🙌 Mostrar y contar | Creaciones, experimentos, o pruebas relevantes para el proyecto                | Debates abiertos     |
 
-### Crear una categoría
+## Crear una categoría
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
@@ -35,7 +36,7 @@ Cada categoría debe tener un nombre único y un emoji distintivo, y se le puede
 1. Edita el emoji, título, descripción y formato del debate para la categoría. Para obtener más información sobre los formatos de debate, consulta la sección [Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)". ![Emoji, título, descripción y formato de debate para la categoría nueva](/assets/images/help/discussions/edit-category-details.png)
 1. Da clic en **Crear**. ![Botón de "Crear" para la categoría nueva](/assets/images/help/discussions/new-category-click-create-button.png)
 
-### Editar una categoría
+## Editar una categoría
 
 Puedes editar una categoría para cambiar el emoji, título, descripción y formato de debate de la misma.
 
@@ -46,7 +47,7 @@ Puedes editar una categoría para cambiar el emoji, título, descripción y form
 ![Editar el emoji, título, descripción y formato del debate para la categoría existente](/assets/images/help/discussions/edit-existing-category-details.png)
 1. Haz clic en **Guardar cambios**. ![Botón de "Guardar cambios" para la categoría existente](/assets/images/help/discussions/existing-category-click-save-changes-button.png)
 
-### Borrar una categoría
+## Borrar una categoría
 
 Cuando borras una categoría, {% data variables.product.product_name %} enviará todos los debates en la categoría que se borró a una categoría existente que elijas.
 

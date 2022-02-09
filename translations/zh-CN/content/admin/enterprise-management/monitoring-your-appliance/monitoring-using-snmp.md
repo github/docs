@@ -3,11 +3,11 @@ title: 使用 SNMP 进行监视
 intro: '{% data variables.product.prodname_enterprise %} 通过 SNMP 提供关于磁盘使用情况、CPU 利用率和内存使用情况等方面的数据。'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
-  - /enterprise/admin/articles/monitoring-using-snmp/
+  - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -20,7 +20,7 @@ SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启�
 
 {% data variables.product.prodname_enterprise %} 采用标准 SNMP 安装，因此您可以充分利用 Nagios 或其他任何监视系统可用的[多种插件](http://www.monitoring-plugins.org/doc/man/check_snmp.html)。
 
-### 配置 SNMP v2c
+## 配置 SNMP v2c
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -37,14 +37,14 @@ SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启�
 
 这应该返回 {% data variables.product.product_location %} 主机上的系统时间。
 
-### 基于用户的安全性
+## 基于用户的安全性
 
 如果您启用 SNMP v3，则可以通过用户安全模型 (USM) 充分利用提升的基于用户的安全性。 对于每个唯一的用户，您可以指定一个安全等级：
 - `noAuthNoPriv`: 此安全等级不提供任何身份验证和隐私保护。
 - `authNoPriv`: 此安全等级提供身份验证，但不提供隐私保护。 要查询设备，您需要用户名和密码（长度必须至少为八个字符）。 与 SNMPv2 相似，发送的信息不会进行加密。 身份验证协议可以是 MD5 或 SHA，默认为 SHA。
 - `authPriv`: 这个安全等级提供身份验证和隐私保护。 要求进行身份验证（包含一个长度至少为八个字符的身份验证密码），并且会对响应进行加密。 不需要隐私密码，但如果提供隐私密码，其长度必须至少为八个字符。 如果不提供隐私密码，将使用身份验证密码。 隐私协议可以是 DES 或 AES，默认为 AES。
 
-### 配置 SNMP v3 的用户
+## 配置 SNMP v3 的用户
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -64,7 +64,7 @@ SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启�
 9. 单击 **Add user（添加用户）**。 ![用于添加 SNMP v3 用户的按钮](/assets/images/enterprise/management-console/snmpv3-adduser.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-##### 查询 SNMP 数据
+#### 查询 SNMP 数据
 
 关于您的设备的硬件和软件级信息都适用于 SNMP v3。 由于 `noAuthNoPriv` 和 `authNoPriv` 安全等级缺乏加密和隐私，因此我们的结果 SNMP 报告中不包括 `hrSWRun` 表 (1.3.6.1.2.1.25.4.)。 如果您使用的是 `authPriv` 安全等级，我们将包括此表。 更多信息请参阅“[OID 参考文档](http://oidref.com/1.3.6.1.2.1.25.4)。
 

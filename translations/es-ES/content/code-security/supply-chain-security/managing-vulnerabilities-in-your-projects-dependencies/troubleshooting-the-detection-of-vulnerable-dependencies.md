@@ -1,13 +1,15 @@
 ---
-title: Solucionar problemas en la detección de dependencias vulnerables
-intro: 'Si la información de la dependencia que reportó {% data variables.product.product_name %} no es lo que esperabas, hay varios puntos a considerar y varias cosas que puedes revisar.'
-shortTitle: Solución de problemas de las detecciones
+title: Troubleshooting the detection of vulnerable dependencies
+intro: 'If the dependency information reported by {% data variables.product.product_name %} is not what you expected, there are a number of points to consider, and various things you can check.'
+shortTitle: Troubleshoot detection
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies
   - /code-security/supply-chain-security/troubleshooting-the-detection-of-vulnerable-dependencies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '*'
+  ghae: issue-4864
+  ghec: '*'
 type: how_to
 topics:
   - Dependabot
@@ -23,98 +25,100 @@ topics:
   - Repositories
 ---
 
-Los resultados de la detección de dependencias que reporta {% data variables.product.product_name %} pueden ser diferentes a aquellos que devuelven otras herramientas. Esto está justificado y es útil el entender cómo {% data variables.product.prodname_dotcom %} determina las dependencias para tu proyecto.
+{% data reusables.dependabot.beta-security-and-version-updates %}
 
-### ¿Por qué parece que faltan algunas dependencias?
+The results of dependency detection reported by {% data variables.product.product_name %} may be different from the results returned by other tools. There are good reasons for this and it's helpful to understand how {% data variables.product.prodname_dotcom %} determines dependencies for your project.
 
-{% data variables.product.prodname_dotcom %} genera y muestra los datos de las dependencias de forma diferente a otras herramientas. En consecuencia, si has estado utilizando otra herramienta para identificar dependencias, muy probablemente encuentres resultados diferentes. Considera lo sigueinte:
+## Why do some dependencies seem to be missing?
 
-*   {% data variables.product.prodname_advisory_database %} es una de las fuentes de datos que utiliza {% data variables.product.prodname_dotcom %} para identificar las dependencias vulnerables. Es una base de datos de información de vulnerabilidades orgtanizada y gratuita para los ecosistemas de paquetes comunes en {% data variables.product.prodname_dotcom %}. Esta incluye tanto los datos reportados directamente a {% data variables.product.prodname_dotcom %} desde {% data variables.product.prodname_security_advisories %}, así como las fuentes oficiales y las comunitarias. {% data variables.product.prodname_dotcom %} revisa y organiza estos datos para garantizar que la información falsa o inprocesable no se comparta con la comunidad de desarrollo. {% data reusables.security-advisory.link-browsing-advisory-db %}
-*   La gráfica de dependencias analiza todos los archivos de manifiesto de paquetes conocidos en un repositorio de usuario. Por ejemplo, para npm analizará el archivo _package-lock.json_. Construye una gráfica de todas las dependencias del repositorio y de los dependientes públicos. Esto sucede cuando habilitas la gráfica de dependencias y cuando alguien hace cargas a la rama predeterminada, y esto incluye a las confirmaciones que hacen cambios a un formato de manifiesto compatible. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
-*   {% data variables.product.prodname_dependabot %} escanea cualquier subida a la rama predeterminada que contenga un archivo de manifiesto. Cuando se agrega un registro de vulnerabilidad nuevo, este escanea todos los repositorios existentes y genera una alerta para cada repositorio vulnerable. Las {% data variables.product.prodname_dependabot_alerts %} se agregan a nivel del repositorio, en vez de crear una alerta por cada vulnerabilidad. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
-*   {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot_security_updates %} se activa cuando recibes una alerta sobre una dependencia vulnerable en tu repositorio. Cuando sea posible, el {% data variables.product.prodname_dependabot %} creará una solicitud de cambios en tu repositorio para actualizar la dependencia vulnerable a la versión segura mínima posible que se requiere para evitar la vulnerabilidad. Para obtener más información, consulta las secciones "[Acerca de las {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)" y "[Solucionar problemas en los errores del {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)".
+{% data variables.product.prodname_dotcom %} generates and displays dependency data differently than other tools. Consequently, if you've been using another tool to identify dependencies you will almost certainly see different results. Consider the following:
 
-    {% endif %}El {% data variables.product.prodname_dependabot %} no escanea los repositorios para encontrar dependencias vulnerables en horarios específicos, sino cuando algo cambia. Por ejemplo, se activará un escaneo cuando se agregue una dependencia nueva ({% data variables.product.prodname_dotcom %} verifica esto en cada subida) o cuando se agrega una vulnerabilidad a la base de datos de las asesorías {% if currentVersion ver_gt "enterprise-server@2.22" %} y se sincroniza con {% data variables.product.prodname_ghe_server %}{% endif %}. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)".
+*   {% data variables.product.prodname_advisory_database %} is one of the data sources that {% data variables.product.prodname_dotcom %} uses to identify vulnerable dependencies. It's a free, curated database of vulnerability information for common package ecosystems on {% data variables.product.prodname_dotcom %}. It includes both data reported directly to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_security_advisories %}, as well as official feeds and community sources. This data is reviewed and curated by {% data variables.product.prodname_dotcom %} to ensure that false or unactionable information is not shared with the development community. {% data reusables.security-advisory.link-browsing-advisory-db %}
+*   The dependency graph parses all known package manifest files in a user’s repository. For example, for npm it will parse the _package-lock.json_ file. It constructs a graph of all of the repository’s dependencies and public dependents. This happens when you enable the dependency graph and when anyone pushes to the default branch, and it includes commits that makes changes to a supported manifest format. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+*   {% data variables.product.prodname_dependabot %} scans any push, to the default branch, that contains a manifest file. When a new vulnerability record is added, it scans all existing repositories and generates an alert for each vulnerable repository. {% data variables.product.prodname_dependabot_alerts %} are aggregated at the repository level, rather than creating one alert per vulnerability. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+*   {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot_security_updates %} are triggered when you receive an alert about a vulnerable dependency in your repository. Where possible, {% data variables.product.prodname_dependabot %} creates a pull request in your repository to upgrade the vulnerable dependency to the minimum possible secure version needed to avoid the vulnerability. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)."
+  
+    {% endif %}{% data variables.product.prodname_dependabot %} doesn't scan repositories for vulnerable dependencies on a schedule, but rather when something changes. For example, a scan is triggered when a new dependency is added ({% data variables.product.prodname_dotcom %} checks for this on every push), or when a new vulnerability is added to the advisory database{% ifversion ghes or ghae-issue-4864 %} and synchronized to {% data variables.product.product_location %}{% endif %}. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)."
 
-### ¿Por qué no me llegan alertas de vulnerabilidades de algunos ecosistemas?
+## Why don't I get vulnerability alerts for some ecosystems?
 
-{% data variables.product.prodname_dotcom %} limita su soporte para alertas de vulnerabilidades a un conjunto de ecosistemas donde podemos proporcionar datos procesables de alta calidad. Las vulnerabilidades que se seleccionan para la{% data variables.product.prodname_advisory_database %}, la gráfica de dependencias, {% if currentVersion == "free-pro-team@latest" %} las actualizaciones de seguridad del {% data variables.product.prodname_dependabot %} {% endif %}y las alertas del {% data variables.product.prodname_dependabot %}, se proporcionan para varios ecosistemas, incluyendo Maven de java, npm y Yarn de JavaScript, NuGet de .NET, pip de Python, RubyGems de Ruby y Composer de PHP. Seguiremos agregando soporte para más ecosistemas a la larga. Para obtener una vista general de los ecosistemas de paquete que soportamos, consulta la sección "[Acerca del gráfico de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
+{% data variables.product.prodname_dotcom %} limits its support for vulnerability alerts to a set of ecosystems where we can provide high-quality, actionable data. Curated vulnerabilities in the {% data variables.product.prodname_advisory_database %}, the dependency graph, {% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot %} security updates, {% endif %}and  {% data variables.product.prodname_dependabot_alerts %} are provided for several ecosystems, including Java’s Maven, JavaScript’s npm and Yarn, .NET’s NuGet, Python’s pip, Ruby's RubyGems, and PHP’s Composer. We'll continue to add support for more ecosystems over time. For an overview of the package ecosystems that we support, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
 
-No vale de nada que las Asesorías de Seguridad de {% data variables.product.prodname_dotcom %} pudiese existir para otros ecosistemas. La información en una asesoría de seguridad la porporcionan los mantenedores de un repositorio específico. Estos datos no se organizan de la misma forma que la información para los ecosistemas compatibles. {% if currentVersion == "free-pro-team@latest" %}Para obtener más información, consulta la sección "[Acerca de las Asesorías de Seguridad de {% data variables.product.prodname_dotcom %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."{% endif %}
+It's worth noting that {% data variables.product.prodname_dotcom %} Security Advisories may exist for other ecosystems. The information in a security advisory is provided by the maintainers of a particular repository. This data is not curated in the same way as information for the supported ecosystems. {% ifversion fpt or ghec %}For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."{% endif %}
 
-**Verifica**: ¿Acaso la vulnerabilidad que no se detectó aplica a algún ecosistema no compatible?
+**Check**: Does the uncaught vulnerability apply to an unsupported ecosystem?
 
-### ¿Acaso la gráfica de dependencias solo encuentra depedencias en los manifiestos y lockfiles?
+## Does the dependency graph only find dependencies in manifests and lockfiles?
 
-La gráfica de dependencias incluye información sobre las dependencias, la cual se declara explícitamente en tu ambiente. Esto es, dependencias que se especifican en un manifiesto o en un lockfile. La gráfica de dependencias también incluye dependencias transitivas generalmente, aún cuando no se especifican en un lockfile, mediante la revisión de las dependencias de las dependencias en un archivo de manifiesto.
+The dependency graph includes information on dependencies that are explicitly declared in your environment. That is, dependencies that are specified in a manifest or a lockfile. The dependency graph generally also includes transitive dependencies, even when they aren't specified in a lockfile, by looking at the dependencies of the dependencies in a manifest file.
 
-Las {% data variables.product.prodname_dependabot_alerts %} te asesoran sobre las dependencias que debes actualizar, incluyendo aquellas transitivas en donde la versión se puede determinar desde un manifiesto o lockfile. {% if currentVersion == "free-pro-team@latest" %}Las {% data variables.product.prodname_dependabot_security_updates %} solo sugieren un cambio donde el {% data variables.product.prodname_dependabot %} pueda "arreglar" la dependencia directamente, es decir, cuando estas son:
-* Dependencias directas declaradas explícitamente en un manifiesto o lockfile
-* Dependencias transitorias declaradas en un archivo de bloqueo{% endif %}
+{% data variables.product.prodname_dependabot_alerts %} advise you about dependencies you should update, including transitive dependencies, where the version can be determined from a manifest or a lockfile. {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot_security_updates %} only suggest a change where {% data variables.product.prodname_dependabot %} can directly "fix" the dependency, that is, when these are:
+* Direct dependencies explicitly declared in a manifest or lockfile
+* Transitive dependencies declared in a lockfile{% endif %}
 
-La gráfica de dependencias no incluye las dependencias "sueltas". Las dependencias "sueltas" son archivos individuales que se copian de otra fuernte y se revisan directamente en el repositorio o dentro de un archivo (tal como un archivo ZIP o JAR) en ves de que se referencien en un manifiesto de paquete de administrador o en un lockfile.
+The dependency graph doesn't include "loose" dependencies. "Loose" dependencies are individual files that are copied from another source and checked into the repository directly or within an archive (such as a ZIP or JAR file), rather than being referenced by in a package manager’s manifest or lockfile. 
 
-**Verifica**; ¿Acaso no se especifica la vulnerabilidad no detectada para un componente en el manifiesto o lockfile del repositorio?
+**Check**: Is the uncaught vulnerability for a component that's not specified in the repository's manifest or lockfile?
 
-### ¿Acaso la gráfica de dependencias detecta dependencias que se especifican utilizando variables?
+## Does the dependency graph detect dependencies specified using variables?
 
-La gráfica de dependencias analiza los manifiestos mientras se suben a {% data variables.product.prodname_dotcom %}. Por lo tanto, la gráfica de dependencias no tiene acceso al ambiente de compilación del proyecto, así que no puede resolver variables que se utilizan dentro de los manifiestos. Si utilizas variables dentro de un manifiesto para especificar el nombre, o más comunmente la versión de una dependencia, entonces dicha dependencia no se incluirá en la gráfica de dependencias.
+The dependency graph analyzes manifests as they’re pushed to {% data variables.product.prodname_dotcom %}. The dependency graph doesn't, therefore, have access to the build environment of the project, so it can't resolve variables used within manifests. If you use variables within a manifest to specify the name, or more commonly the version of a dependency, then that dependency will not be included in the dependency graph.
 
-**Verifica**: ¿Acaso la dependencia faltante se declara en el manifiesto utilizando una variable para su nombre o versión?
+**Check**: Is the missing dependency declared in the manifest by using a variable for its name or version?
 
-### ¿Existen límites que afecten los datos de la gráfica de dependencias?
+## Are there limits which affect the dependency graph data?
 
-Sí, la gráfica de dependencias tiene dos categorías de límites:
+Yes, the dependency graph has two categories of limits:
 
-1. **Límites de procesamiento**
+1. **Processing limits**
 
-    Estos afectan la gráfica de dependencias que se muestra dentro de {% data variables.product.prodname_dotcom %} y también previenen la creación de {% data variables.product.prodname_dependabot_alerts %}.
+    These affect the dependency graph displayed within {% data variables.product.prodname_dotcom %} and also prevent {% data variables.product.prodname_dependabot_alerts %} being created.
 
-    Los manifiestos mayores a 0.5 MB solo se procesan para las cuentas empresariales. En el caso de otras cuentas, los manifiestos mayores a 0.5 MB se ingoran y no crearán {% data variables.product.prodname_dependabot_alerts %}.
+    Manifests over 0.5 MB in size are only processed for enterprise accounts. For other accounts, manifests over 0.5 MB are ignored and will not create {% data variables.product.prodname_dependabot_alerts %}.
 
-    Predeterminadamente, {% data variables.product.prodname_dotcom %} no procesará más de 20 manifiestos por repositorio. Las {% data variables.product.prodname_dependabot_alerts %} no deben crearse para los manifiestos mas allá de éste límite. Si necesitas incrementar el límite, contacta a {% data variables.contact.contact_support %}.
+    By default, {% data variables.product.prodname_dotcom %} will not process more than 20 manifests per repository. {% data variables.product.prodname_dependabot_alerts %} are not created for manifests beyond this limit. If you need to increase the limit, contact {% data variables.contact.contact_support %}. 
 
-2. **Límites de visualización**
+2. **Visualization limits**
 
-    Estos afectan a lo que se muestra en la gráfica de dependencias dentro de {% data variables.product.prodname_dotcom %}. Sin embargo, estos no afectan las {% data variables.product.prodname_dependabot_alerts %} que se crean.
+    These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_alerts %} that are created.
 
-    La vista de dependencias de la gráfica de dependencias para un repositorio solo muestra 1000 manifiestos. Habitualmente, esto es tan adecuado como es significativamente más alto que el límite de procesamiento descrito anteriormente. En situaciones en donde le límite de procesamiento es mayor a 100, las {% data variables.product.prodname_dependabot_alerts %} se crearán aún para cualquier manifiesto que no se muestre dentro de {% data variables.product.prodname_dotcom %}.
+    The Dependencies view of the dependency graph for a repository only displays 100 manifests. Typically this is adequate as it is significantly higher than the processing limit described above. In situations where the processing limit is over 100, {% data variables.product.prodname_dependabot_alerts %} are still created for any manifests that are not shown within {% data variables.product.prodname_dotcom %}.
 
-**Verifica**: ¿La dependencia faltante está en un archivo de manifiesto que tiene más de 0.5 MB, o en un repositorio con una gran cantidad de manifiesto?
+**Check**: Is the missing dependency in a manifest file that's over 0.5 MB, or in a repository with a large number of manifests?
 
-### ¿Acaso el {% data variables.product.prodname_dependabot %} genera alertas para vulnerabilidades que se han conocido por muchos años?
+## Does {% data variables.product.prodname_dependabot %} generate alerts for vulnerabilities that have been known for many years?
 
-La {% data variables.product.prodname_advisory_database %} se lanzó en noviembre de 2019 e incialmente rellenó la inclusión de vulnerabilidades informáticas para los ecosistemas compatibles, comenzando en 2017. Cuando agregas CVE a la base de datos, priorizamos la organización de CVE nuevos y los CVE que afecten las versiones nuevas del software.
+The {% data variables.product.prodname_advisory_database %} was launched in November 2019, and initially back-filled to include vulnerability information for the supported ecosystems, starting from 2017. When adding CVEs to the database, we prioritize curating newer CVEs, and CVEs affecting newer versions of software.
 
-Alguna información sobre las vulnerabilidades antiguas se encuentra disponible, especialmente en donde estos CVE se diseminan específicamente, sin embargo, algunas vulnerabilidades no se incluyen en la {% data variables.product.prodname_advisory_database %}. Si hay una vulnerabilidad antigua específica la cual necesites incluir en la base de datos, contacta a {% data variables.contact.contact_support %}.
+Some information on older vulnerabilities is available, especially where these CVEs are particularly widespread, however some old vulnerabilities are not included in the {% data variables.product.prodname_advisory_database %}. If there's a specific old vulnerability that you need to be included in the database, contact {% data variables.contact.contact_support %}. 
 
-**Verifica**: ¿Acaso la vulnerabilidad no detectada tiene una fecha depublicación más antigua de 2017 en la Base de Datos de Vulnerabilidades Nacional?
+**Check**: Does the uncaught vulnerability have a publish date earlier than 2017 in the National Vulnerability Database?
 
-### Por qué la {% data variables.product.prodname_advisory_database %} utiliza un subconjunto de datos de vulnerabilidades publicados?
+## Why does {% data variables.product.prodname_advisory_database %} use a subset of published vulnerability data?
 
-Algunas herramientas de terceros utilizan datos de CVE sin organizar y no las verificó ni filtró un humano. Esto significa que los CVE con errores de etiquetado o de severidad, o con cualquier problema de calidad, causarán alertas más frecuentes, ruidosas y menos útiles.
+Some third-party tools use uncurated CVE data that isn't checked or filtered by a human. This means that CVEs with tagging or severity errors, or other quality issues, will cause more frequent, more noisy, and less useful alerts.
 
-Ya que {% data variables.product.prodname_dependabot %} utiliza datos organizado en la {% data variables.product.prodname_advisory_database %}, la cantidad de alertas podría ser menor, pero las alertas que sí recibas serán exactas y relevantes.
+Since {% data variables.product.prodname_dependabot %} uses curated data in the {% data variables.product.prodname_advisory_database %}, the volume of alerts may be lower, but the alerts you do receive will be accurate and relevant.
 
-{% if currentVersion == "free-pro-team@latest" %}
-### ¿Acaso cada vulnerabilidad de la dependencia genera una alerta separada?
+{% ifversion fpt or ghec %}
+## Does each dependency vulnerability generate a separate alert?
 
-Cuadno una dependencia tiene vulnerabilidades múltiples, solo se genera una alerta agregada para esta dependencia en vez de una por cada vulnerabilidad.
+When a dependency has multiple vulnerabilities, only one aggregated alert is generated for that dependency, instead of one alert per vulnerability.
 
-Las {% data variables.product.prodname_dependabot_alerts %} cuentan en {% data variables.product.prodname_dotcom %} y muestran un total para la cantidad de alertas, es decir, la cantidad de dependencias con vulnerabilidades y no la cantidad de vulnerabilidades.
+The {% data variables.product.prodname_dependabot_alerts %} count in {% data variables.product.prodname_dotcom %} shows a total for the number of alerts, that is, the number of dependencies with vulnerabilities, not the number of vulnerabilities.
 
-![Vista de las {% data variables.product.prodname_dependabot_alerts %}](/assets/images/help/repository/dependabot-alerts-view.png)
+![{% data variables.product.prodname_dependabot_alerts %} view](/assets/images/help/repository/dependabot-alerts-view.png)
 
-Cuando das clic para mostrar los detalles de la alerta puedes ver cuántas vulnerabilidades se incluyen en la misma.
+When you click to display the alert details, you can see how many vulnerabilities are included in the alert.
 
-![Vulnerabilidades múltiples para una alerta de {% data variables.product.prodname_dependabot %}](/assets/images/help/repository/dependabot-vulnerabilities-number.png)
+![Multiple vulnerabilities for a {% data variables.product.prodname_dependabot %} alert](/assets/images/help/repository/dependabot-vulnerabilities-number.png)
 
-**Verifica**: Si hay una discrepancia en la cantidad total que ves, verifica si no estás comparando la cantidad de alertas con la cantidad de vulnerabilidades.
+**Check**: If there is a discrepancy in the totals you are seeing, check that you are not comparing alert numbers with vulnerability numbers.
 {% endif %}
 
-### Leer más
+## Further reading
 
-- "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
-- "[Ver y actualizar las dependencias vulnerables en tu repositorio](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
-- "[Administrar la configuración de seguridad y análisis de tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Solucionar problemas de los errores del {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}
+- "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
+- "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
+- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"{% ifversion fpt or ghec or ghes > 3.2 %}
+- "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}

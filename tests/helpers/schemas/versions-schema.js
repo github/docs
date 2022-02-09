@@ -1,5 +1,5 @@
 // match plan@release
-// e.g., free-pro-team@latest, enterprise-server@2.22
+// e.g., free-pro-team@latest, enterprise-server@3.0
 const planPattern = '^[a-z-]+'
 const releasePattern = '[a-z0-9-.]+'
 const delimiter = '@'

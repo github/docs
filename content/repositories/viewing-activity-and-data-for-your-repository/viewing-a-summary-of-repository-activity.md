@@ -1,6 +1,6 @@
 ---
 title: Viewing a summary of repository activity
-intro: "You can view an overview of a repository's pull request, issue, and commit activity."
+intro: 'You can view an overview of a repository''s pull request, issue, and commit activity.'
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: View repository activity

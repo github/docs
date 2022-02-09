@@ -1,5 +1,5 @@
 import { getDOM } from '../helpers/supertest.js'
-import { oldestSupported, latest } from '../../lib/enterprise-server-releases.js'
+import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 import { jest } from '@jest/globals'
 
 describe('header', () => {
@@ -7,7 +7,7 @@ describe('header', () => {
 
   test('includes localized meta tags', async () => {
     const $ = await getDOM('/en')
-    expect($('meta[name="next-head-count"]').length).toBe(1)
+    expect($('link[rel="alternate"]').length).toBeGreaterThan(2)
   })
 
   test("includes a link to the homepage (in the current page's language)", async () => {
@@ -26,31 +26,36 @@ describe('header', () => {
       )
       expect(
         $(
-          '[data-testid=language-picker] a[href="/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
+          '[data-testid=desktop-header] [data-testid=language-picker] a[href="/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
         ).length
       ).toBe(1)
     })
 
     test('display the native name and the English name for each translated language', async () => {
       const $ = await getDOM('/en')
-      expect($('[data-testid=language-picker] a[href="/en/"]').text().trim()).toBe('English')
-      expect($('[data-testid=language-picker] a[href="/cn/"]').text().trim()).toBe(
-        '简体中文 (Simplified Chinese)'
-      )
-      expect($('[data-testid=language-picker] a[href="/ja/"]').text().trim()).toBe(
-        '日本語 (Japanese)'
-      )
+
+      expect(
+        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/en"]').text().trim()
+      ).toBe('English')
+      expect(
+        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/cn"]').text().trim()
+      ).toBe('简体中文 (Simplified Chinese)')
+      expect(
+        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/ja"]').text().trim()
+      ).toBe('日本語 (Japanese)')
     })
 
     test('emphasize the current language', async () => {
       const $ = await getDOM('/en')
-      expect($('[data-testid=language-picker] a[href="/en/"]').length).toBe(1)
-      expect($('[data-testid=language-picker] a[href="/ja/"]').length).toBe(1)
+      expect($('[data-testid=desktop-header] [data-testid=language-picker] summary').text()).toBe(
+        'English'
+      )
     })
   })
 
   describe('notices', () => {
-    test('displays a "localization in progress" notice for WIP languages', async () => {
+    // Docs engineering issue: 1055
+    test.skip('displays a "localization in progress" notice for WIP languages', async () => {
       const $ = await getDOM('/de')
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href="/en"]').length).toBe(1)
@@ -63,6 +68,7 @@ describe('header', () => {
       expect($('[data-testid=header-notification] a[href*="github.com/contact"]').length).toBe(1)
     })
 
+    // Docs Engineering issue: 966
     test.skip('does not display any notices for English', async () => {
       const $ = await getDOM('/en')
       expect($('[data-testid=header-notification]').length).toBe(0)
@@ -132,36 +138,35 @@ describe('header', () => {
   })
 
   describe('mobile-only product dropdown links', () => {
-    test('include github and admin, and emphasize the current product', async () => {
+    test('include Get started and admin, and emphasize the current product', async () => {
       const $ = await getDOM(
-        '/en/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
+        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
       )
-      const github = $('#homepages a.active[href="/en/github"]')
-      expect(github.length).toBe(1)
-      expect(github.text().trim()).toBe('GitHub')
-      expect(github.attr('class').includes('active')).toBe(true)
+      const getStarted = $(
+        '[data-testid=product-picker][data-current-product-path="/get-started"] summary'
+      )
+      expect(getStarted.length).toBe(1)
+      expect(getStarted.text().trim()).toBe('Get started')
 
-      const ghe = $(`#homepages a[href="/en/enterprise-server@${latest}/admin"]`)
-      expect(ghe.length).toBe(1)
-      expect(ghe.text().trim()).toBe('Enterprise administrators')
-      expect(ghe.attr('class').includes('active')).toBe(false)
+      const ghec = $(`[data-testid=product-picker] a[href="/en/enterprise-cloud@latest/admin"]`)
+      expect(ghec.length).toBe(1)
+      expect(ghec.text().trim()).toBe('Enterprise administrators')
     })
 
     test("point to homepages in the current page's language", async () => {
-      const $ = await getDOM(
-        '/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests'
-      )
-      expect($('#homepages a.active[href="/ja/github"]').length).toBe(1)
-      expect($(`#homepages a[href="/ja/enterprise-server@${latest}/admin"]`).length).toBe(1)
+      const $ = await getDOM('/ja/github/site-policy/github-terms-of-service')
+      const $breadcrumbRefs = $('[data-testid=breadcrumbs] a')
+      expect($breadcrumbRefs[0].attribs.href.startsWith('/ja')).toBe(true)
+      const $sidebarRefs = $('[data-testid=sidebar] a')
+      expect($sidebarRefs[0].attribs.href.startsWith('/ja')).toBe(true)
     })
 
     test('emphasizes the product that corresponds to the current page', async () => {
       const $ = await getDOM(
-        `/en/enterprise/${oldestSupported}/user/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
+        `/en/enterprise-server@${oldestSupported}/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
       )
-      expect($(`#homepages a.active[href="/en/enterprise-server@${latest}/admin"]`).length).toBe(0)
-      expect($('#homepages a[href="/en/github"]').length).toBe(1)
-      expect($('#homepages a.active[href="/en/github"]').length).toBe(1)
+
+      expect($('[data-testid=product-picker] summary').text()).toBe('Get started')
     })
   })
 })

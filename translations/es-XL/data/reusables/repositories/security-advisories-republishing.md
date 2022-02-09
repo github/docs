@@ -1,1 +1,0 @@
-También puedes utilizar {% data variables.product.prodname_security_advisories %} para volver a publicar los detalles de una vulnerabilidad de seguridad que ya has divulgado en otro lugar si copias y pegas los detalles de la vulnerabilidad en una asesoría de seguridad nueva.

@@ -1,1 +1,0 @@
-1. Haz clic en **Discard Changes (Descartar cambios)** o **Discard Selected Changes (Descartar cambios seleccionados)** para descartar cambios a uno o más archivos, o **Discard All Changes (Descartar todos los cambios)** para descartar cambios a todos los archivos desde la última confirmación.

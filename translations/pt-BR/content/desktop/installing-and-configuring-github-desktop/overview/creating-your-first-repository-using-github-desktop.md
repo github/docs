@@ -1,98 +1,112 @@
 ---
-title: Criar o primeiro repositório usando o GitHub Desktop
-shortTitle: Criar o seu primeiro repositório
-intro: 'Você pode usar o {% data variables.product.prodname_desktop %} para criar e gerenciar um repositório do Git sem usar a linha de comando.'
+title: Creating your first repository using GitHub Desktop
+shortTitle: Creating your first repository
+intro: 'You can use {% data variables.product.prodname_desktop %} to create and manage a Git repository without using the command line.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/creating-your-first-repository-using-github-desktop
   - /desktop/installing-and-configuring-github-desktop/creating-your-first-repository-using-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+## Introduction
+{% data variables.product.prodname_desktop %} extends and simplifies your {% data variables.product.prodname_dotcom_the_website %} workflow, using a visual interface instead of text commands on the command line. By the end of this guide, you'll have used {% data variables.product.prodname_desktop %} to create a repository, make changes to the repository, and publish the changes to {% data variables.product.product_name %}.
 
-### Introdução
-O {% data variables.product.prodname_desktop %} amplia e simplifica o fluxo de trabalho no {% data variables.product.prodname_dotcom_the_website %} com uma interface visual, em vez de comandos de texto na linha de comando. Ao fim da leitura deste guia, você usará o {% data variables.product.prodname_desktop %} para criar um repositório, alterá-lo e publicar as alterações no {% data variables.product.product_name %}.
+After installing {% data variables.product.prodname_desktop %} and signing into {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} you can create and clone a tutorial repository. The tutorial will introduce the basics of working with Git and {% data variables.product.prodname_dotcom %}, including installing a text editor, creating a branch, making a commit, pushing to {% data variables.product.prodname_dotcom_the_website %}, and opening a pull request. The tutorial is available if you do not have any repositories on {% data variables.product.prodname_desktop %} yet.
 
-Depois de instalar o {% data variables.product.prodname_desktop %} e entrar no {% data variables.product.prodname_dotcom %} ou {% data variables.product.prodname_enterprise %}, você pode criar e clonar um repositório de tutorial. O tutorial apresentará os conceitos básicos de trabalho com o Git e o {% data variables.product.prodname_dotcom %}, incluindo a instalação de um editor de texto, criando um branch, fazendo um commit, fazendo push para {% data variables.product.prodname_dotcom_the_website %} e abrindo um pull request. O tutorial está disponível caso você ainda não tenha nenhum repositório no {% data variables.product.prodname_desktop %}.
+We recommend completing the tutorial, but if you want to explore {% data variables.product.prodname_desktop %} by creating a new repository, this guide will walk you through using {% data variables.product.prodname_desktop %} to work on a Git repository.
 
-Recomendamos concluir o tutorial, mas se você desejar explorar o {% data variables.product.prodname_desktop %} criando um novo repositório, este guia irá orientar você a usar o {% data variables.product.prodname_desktop %} para funcionar em um repositório do Git.
+## Part 1: Installing {% data variables.product.prodname_desktop %} and authenticating your account
+You can install {% data variables.product.prodname_desktop %} on any supported operating system. After you install the app, you will need to sign in and authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} before you can create and clone a tutorial repository.
 
-### Parte 1: Instalando {% data variables.product.prodname_desktop %} e autenticando sua conta
-Você pode instalar o {% data variables.product.prodname_desktop %} em qualquer sistema operacional compatível. Depois de instalar o app, você deverá entrar e autenticar sua conta no {% data variables.product.prodname_dotcom %} ou no {% data variables.product.prodname_enterprise %} antes de criar e clonar um repositório de tutorial.
+For more information on installing and authenticating, see "[Setting up {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-up-github-desktop)."
 
-Para obter mais informações sobre instalação e autenticação, consulte "[Configurando o {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-up-github-desktop)".
+## Part 2: Creating a new repository
+If you do not have any repositories associated with {% data variables.product.prodname_desktop %}, you will see a "Let's get started!" view, where you can choose to create and clone a tutorial repository, clone an existing repository from the Internet, create a new repository, or add an existing repository from your hard drive.
+  ![The Let's get started! screen](/assets/images/help/desktop/lets-get-started.png)
 
-### Parte 2: Criando um novo repositório
-Se você não tiver nenhum repositório associado ao {% data variables.product.prodname_desktop %}, você verá a frase "Vamos começar!", em que você pode optar por criar e clonar um repositório de tutorial, clonar um repositório da Internet existente, criar um novo repositório ou adicionar um repositório existente a partir do seu disco rígido. ![Vamos começar! screen](/assets/images/help/desktop/lets-get-started.png)
+### Creating and cloning a tutorial repository
+We recommend that you create and clone a tutorial repository as your first project to practice using {% data variables.product.prodname_desktop %}.
 
-#### Criar e clonar um repositório de tutorial
-Recomendamos que você crie e clone um repositório de tutorial como seu primeiro projeto a ser praticado usando o {% data variables.product.prodname_desktop %}.
+1. Click **Create a tutorial repository and clone it**.
+  ![Create and clone a tutorial repository button](/assets/images/help/desktop/getting-started-guide/create-and-clone-a-tutorial-repository.png)
+2. Follow the prompts in the tutorial to install a text editor, create a branch, edit a file, make a commit, publish to {% data variables.product.prodname_dotcom %}, and open a pull request.
 
-1. Clique em **Create a tutorial repository and clone it** (Criar um repositório de tutorial e cloná-lo). ![Botão Create and clone a tutorial repository (Criar e clonar um repositório de tutorial)](/assets/images/help/desktop/getting-started-guide/create-and-clone-a-tutorial-repository.png)
-2. Siga as instruções no tutorial para instalar um editor de texto, criar um branch, editar um arquivo, fazer um commit, publicar em {% data variables.product.prodname_dotcom %} e abrir um pull request.
+### Creating a new repository
+If you do not wish to create and clone a tutorial repository, you can create a new repository.
 
-#### Criar um repositório
-Se você não desejar criar e clonar um repositório de tutorial, é possível criar um novo repositório.
+1. Click **Create a New Repository on your Hard Drive...**.
+  ![Create a new repository](/assets/images/help/desktop/getting-started-guide/creating-a-repository.png)
+2. Fill in the fields and select your preferred options.
+  ![Create a repository options](/assets/images/help/desktop/getting-started-guide/create-a-new-repository-options.png)
+   - "Name" defines the name of your repository both locally and on {% data variables.product.product_name %}.
+   - "Description" is an optional field that you can use to provide more information about the purpose of your repository.
+   - "Local path" sets the location of your repository on your computer. By default, {% data variables.product.prodname_desktop %} creates a _GitHub_ folder inside your _Documents_ folder to store your repositories, but you can choose any location on your computer. Your new repository will be a folder inside the chosen location. For example, if you name your repository `Tutorial`, a folder named _Tutorial_ is created inside the folder you selected for your local path. {% data variables.product.prodname_desktop %} remembers your chosen location the next time you create or clone a new repository.
+   - **Initialize this repository with a README** creates an initial commit with a _README.md_ file. READMEs helps people understand the purpose of your project, so we recommend selecting this and filling it out with helpful information. When someone visits your repository on {% data variables.product.product_name %}, the README is the first thing they'll see as they learn about your project. For more information, see "[About READMEs](/articles/about-readmes)."
+   - The **Git ignore** drop-down menu lets you add a custom file to ignore specific files in your local repository that you don't want to store in version control. If there's a specific language or framework that you'll be using, you can select an option from the available list. If you're just getting started, feel free to skip this selection. For more information, see "[Ignoring files](/github/getting-started-with-github/ignoring-files)."
+   - The **License** drop-down menu lets you add an open-source license to a _LICENSE_ file in your repository. You don't need to worry about adding a license right away. For more information about available open-source licenses and how to add them to your repository, see "[Licensing a repository](/articles/licensing-a-repository)."
+3. Click **Create repository**.
 
-1. Clique em **Create a New Repository on your hard drive** (Criar um repositório no disco rígido). ![Criar um repositório](/assets/images/help/desktop/getting-started-guide/creating-a-repository.png)
-2. Preencha os campos e selecione as suas opções preferidas. ![Opções de criar um repositório](/assets/images/help/desktop/getting-started-guide/create-a-new-repository-options.png)
-   - "Name" (Nome) define o nome do repositório no local e no {% data variables.product.product_name %}.
-   - "Description" (Descrição) é um campo opcional com mais informações sobre o propósito do repositório.
-   - "Local path" (Caminho local) define o local do repositório no computador. Por padrão, o {% data variables.product.prodname_desktop %} cria uma pasta _GitHub_ dentro da pasta _Documents_ (Documentos) para armazenar seus repositórios, mas é possível escolher qualquer local no computador. O novo repositório será uma pasta dentro do local escolhido. Por exemplo, se você nomear o repositório como `Tutorial`, será criada uma pasta de nome _Tutorial_ dentro da pasta no caminho selecionado. O {% data variables.product.prodname_desktop %} registra o local escolhido para as próximas vezes que você criar ou clonar repositórios.
-   - A opção **Initialize this repository with a README** (Inicializar este repositório com um README) cria o commit com um arquivo _README.md_. Arquivos README ajudam as pessoas a entenderem o objetivo do seu projeto. Portanto, é recomendável usar esse item e adicionar informações úteis a ele. Quando alguém acessar seu repositório no {% data variables.product.product_name %}, a primeira informação exibida será o README. Para obter mais informações, consulte "[Sobre README](/articles/about-readmes)".
-   - O menu suspenso **Git ignore** (Git para ignorar) permite incluir um arquivo personalizado para ignorar determinados arquivos no repositório local, isto é, informações que você não quer armazenar no controle de versão. Se houver uma linguagem ou framework específico para uso, você poderá selecionar uma opção na lista disponível. Se você estiver começando agora, fique à vontade para ignorar essa opção. Para obter mais informações, consulte "[Ignorar arquivos](/github/getting-started-with-github/ignoring-files)".
-   - O menu suspenso **License** (Licença) permite adicionar uma licença de código aberto a um arquivo _LICENSE_ no repositório. Não se preocupe em adicionar uma licença de imediato. Para obter mais informações sobre as licenças de código aberto disponíveis e sobre como adicioná-las ao repositório, consulte "[Criar a licença de um repositório](/articles/licensing-a-repository)."
-3. Clique em **Create Repository** (Criar repositório).
+## Part 3: Exploring {% data variables.product.prodname_desktop %}
+In the file menu at the top of the screen, you can access settings and actions that you can perform in {% data variables.product.prodname_desktop %}. Most actions also have keyboard shortcuts to help you work more efficiently. For a full list of keyboard shortcuts, see "[Keyboard shortcuts](/desktop/getting-started-with-github-desktop/keyboard-shortcuts)."
 
-### Parte 3: Explorando o {% data variables.product.prodname_desktop %}
-No menu de arquivos na parte superior da tela, você pode acessar as configurações e ações que pode executar no {% data variables.product.prodname_desktop %}. A maioria das ações tem atalhos de teclado para aumentar a eficiência do seu trabalho. Para obter uma lista completa de atalhos de teclado, consulte "[Atalhos de teclado](/desktop/getting-started-with-github-desktop/keyboard-shortcuts)".
+### The {% data variables.product.prodname_desktop %} menu bar
+At the top of the {% data variables.product.prodname_desktop %} app, you will see a bar that shows the current state of your repository.
+  - **Current repository** shows the name of the repository you're working on. You can click **Current repository** to switch to a different repository in {% data variables.product.prodname_desktop %}.
+  - **Current branch** shows the name of the branch you're working on. You can click **Current branch** to view all the branches in your repository, switch to a different branch, or create a new branch. Once you create pull requests in your repository, you can also view these by clicking on **Current branch**.
+  - **Publish repository** appears because you haven't published your repository to {% data variables.product.product_name %} yet, which you'll do later in the next step. This section of the bar will change based on the status of your current branch and repository. Different context dependent actions will be available that let you exchange data between your local and remote repositories.
 
-#### A barra de menu do {% data variables.product.prodname_desktop %}
-Na parte superior do aplicativo {% data variables.product.prodname_desktop %}, você verá uma barra que mostra o estado atual do seu repositório.
-  - **Current repository** (Repositório atual) mostra o nome do repositório em que você está trabalhando. Você pode clicar em **Current repository** (Repositório atual) para alternar entre repositórios no {% data variables.product.prodname_desktop %}.
-  - **Current branch** (Branch atual) mostra o nome do branch em que você está trabalhando. Você pode clicar em **Current branch** (Branch atual) para exibir todos os branches do repositório, alternar entre branches ou criar um branch. Depois de criar pull requests no repositório, você também poderá exibi-las clicando em **Current branch** (Branch atual).
-  - A opção **Publish repository** (Publicar repositório) aparece porque você ainda não publicou o repositório no {% data variables.product.product_name %}. A publicação será feita depois, em outra etapa. Esta seção da barra mudará com base no status de seu branch atual e repositório. Diferentes ações dependentes de contextos estarão disponíveis para o intercâmbio de dados entre repositórios locais e remotos.
+  ![Explore GitHub Desktop](/assets/images/help/desktop/getting-started-guide/explore-github-desktop.png)
 
-  ![Explorar o GitHub Desktop](/assets/images/help/desktop/getting-started-guide/explore-github-desktop.png)
+### Changes and History
+In the left sidebar, you'll find the **Changes** and **History** views.
+  ![The Changes and History tabs](/assets/images/help/desktop/changes-and-history.png)
 
-#### Alterações e histórico
-Na barra lateral à esquerda, você verá **Changes** (Alterações) e **History** (Histórico). ![Abas Alterações e Histórico](/assets/images/help/desktop/changes-and-history.png)
+  - The **Changes** view shows changes you've made to files in your current branch but haven't committed to your local repository. At the bottom, there is a box with "Summary" and "Description" text boxes and a **Commit to BRANCH** button. This is where you'll commit new changes. The **Commit to BRANCH** button is dynamic and will display which branch you're committing your changes to.
+  ![Commit area](/assets/images/help/desktop/getting-started-guide/commit-area.png)
 
-  - A opção **Changes** (Alterações) mostra as mudanças que você fez nos arquivos do branch atual, mas que ainda estão sem commit no repositório local. Na parte inferior, há uma caixa com caixas de texto "Resumo" e "Descrição" e um botão **Commit para BRANCH**. É nessa área que você fará o commit das novas alterações. O botão **Commit para BRANCH** é dinâmico e irá exibir em qual branch você está fazendo o commit das suas alterações. ![Área do commit](/assets/images/help/desktop/getting-started-guide/commit-area.png)
+  - The **History** view shows the previous commits on the current branch of your repository. You should see an "Initial commit" that was created by {% data variables.product.prodname_desktop %} when you created your repository. To the right of the commit, depending on the options you selected while creating your repository, you may see _.gitattributes_, _.gitignore_, _LICENSE_, or _README_ files. You can click each file to see a diff for that file, which is the changes made to the file in that commit. The diff only shows the parts of the file that have changed, not the entire contents of the file.
+  ![History view](/assets/images/help/desktop/getting-started-guide/history-view.png)
 
-  - A opção **History** (Histórico) mostra os commits anteriores no branch atual do repositório. Provavelmente você verá um "Initial commit" (Commit inicial) criado pelo {% data variables.product.prodname_desktop %} quando você criou o repositório. À direita do commit, dependendo das opções escolhidas durante a criação do repositório, você poderá ver arquivos _.gitattributes_, _.gitignore_, _LICENÇA_ ou _README_. Ao clicar em cada arquivo você verá o diff, que consiste no registro das alterações feitas no arquivo do commit em questão. O diff não mostra todo o conteúdo do arquivo, mas somente as partes que foram alteradas. ![Exibição de histórico](/assets/images/help/desktop/getting-started-guide/history-view.png)
+## Part 4: Publishing your repository to {% data variables.product.product_name %}
+When you create a new repository, it only exists on your computer and you are the only one who can access the repository. You can publish your repository to {% data variables.product.product_name %} to keep it synchronized across multiple computers and allow other people to access it. To publish your repository, push your local changes to {% data variables.product.product_name %}.
 
-### Parte 4: Publicando seu repositório no {% data variables.product.product_name %}
-Ao criar um novo repositório, ele existe apenas no seu computador e você é o único que pode acessar o repositório. Você pode publicar seu repositório no {% data variables.product.product_name %} para mantê-lo sincronizado em vários computadores e permitir que outras pessoas o acessem. Para publicar seu repositório, faça push de suas alterações locais no {% data variables.product.product_name %}.
+1. Click **Publish repository** in the menu bar.
+    ![Publish repository](/assets/images/help/desktop/getting-started-guide/publish-repository.png)
+    - {% data variables.product.prodname_desktop %} automatically fills the "Name" and "Description" fields with the information you entered when you created the repository.
+    - **Keep this code private** lets you control who can view your project. If you leave this option unselected, other users on {% data variables.product.product_name %} will be able to view your code. If you select this option, your code will not be publicly available.
+    - The **Organization** drop-down menu, if present, lets you publish your repository to a specific organization that you belong to on {% data variables.product.product_name %}.
 
-1. Clique em **Publicar repositório** na barra de menu. ![Publicar repositório](/assets/images/help/desktop/getting-started-guide/publish-repository.png)
-    - O {% data variables.product.prodname_desktop %} preenche automaticamente os campos "Nome" e "Descrição" com as informações inseridas quando você criou o repositório.
-    - A opção de **Manter este código privado** permite que você controle quem pode visualizar o seu projeto. Se você deixar esta opção desmarcada, outros usuários em {% data variables.product.product_name %} poderão visualizar o seu código. Se você selecionar esta opção, o seu código não ficará disponível publicamente.
-    - Se estiver presente, o menu suspenso da **Organização** permite que você publique o seu repositório em uma organização específica à qual você pertence no {% data variables.product.product_name %}.
+    ![Publish repository steps](/assets/images/help/desktop/getting-started-guide/publish-repository-steps.png)
+  2. Click the **Publish Repository** button.
+  3. You can access the repository on {% data variables.product.prodname_dotcom_the_website %} from within {% data variables.product.prodname_desktop %}. In the file menu, click **Repository**, then click **View on GitHub**. This will take you directly to the repository in your default browser.
 
-    ![Etapas para publicar repositório](/assets/images/help/desktop/getting-started-guide/publish-repository-steps.png)
-  2. Clique no botão **Publish Repository** (Publicar repositório).
-  3. É possível acessar o repositório no {% data variables.product.prodname_dotcom %} pelo {% data variables.product.prodname_desktop %}. No menu do arquivo, clique em **Repository** (Repositório) e em **View on GitHub** (Exibir no GitHub). Fazer isso levará você diretamente para o repositório no seu navegador padrão.
+## Part 5: Making, committing, and pushing changes
+Now that you've created and published your repository, you're ready to make changes to your project and start crafting your first commit to your repository.
 
-### Parte 5: Fazer commit e carregar as alterações
-Agora que você criou e publicou seu repositório, você está pronto para fazer alterações no seu projeto e começar a criar seu primeiro commit no seu repositório.
+1. To launch your external editor from within {% data variables.product.prodname_desktop %}, click **Repository**, then click **Open in <em>EDITOR</em>**. For more information, see "[Configuring a default editor](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)."
+  ![Open in editor](/assets/images/help/desktop/getting-started-guide/open-in-editor.png)
 
-1. Para abrir o editor externo dentro de {% data variables.product.prodname_desktop %}, clique em **Repositório** e, em seguida, clique em **Abrir no <em>EDITOR</em>**. Para obter mais informações, consulte "[Configurar um editor padrão](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)". ![Abrir no editor](/assets/images/help/desktop/getting-started-guide/open-in-editor.png)
+2. Make some changes to the _README.md_ file that you previously created. You can add information that describes your project, like what it does and why it is useful. When you are satisfied with your changes, save them in your text editor.
+3. In {% data variables.product.prodname_desktop %}, navigate to the **Changes** view. In the file list, you should see your _README.md_. The checkmark to the left of the _README.md_ file indicates that the changes you've made to the file will be part of the commit you make. In the future, you might make changes to multiple files but only want to commit the changes you've made to some of the files. If you click the checkmark next to a file, that file will not be included in the commit.
+  ![Viewing changes](/assets/images/help/desktop/getting-started-guide/viewing-changes.png)
 
-2. Faça algumas alterações no arquivo _README.md_ que você criou anteriormente. Você pode adicionar informações que descrevem o seu projeto, como o que ele faz e por que ele é útil. Quando estiver satisfeito com suas alterações, salve-as no editor de texto.
-3. Em {% data variables.product.prodname_desktop %}, acesse a vista **Alterações**. Na lista de arquivos, você verá o _README.md_ alterado. A marca de verificação à esquerda do arquivo _README.md_ indica que as alterações feitas no arquivo serão parte do commit que você fez. Talvez você queira fazer alterações em vários arquivos no futuro, mas sem fazer o commit das alterações de todos eles. Se você clicar na marca de seleção ao lado de um arquivo, esse arquivo não será incluído no commit. ![Exibir alterações](/assets/images/help/desktop/getting-started-guide/viewing-changes.png)
+4. At the bottom of the **Changes** list, enter a commit message. To the right of your profile picture, type a short description of the commit. Since we're changing the _README.md_ file, "Add information about purpose of project" would be a good commit summary. Below the summary, you'll see a "Description" text field where you can type a longer description of the changes in the commit, which is helpful when looking back at the history of a project and understanding why changes were made. Since you're making a basic update of a _README.md_ file, you can skip the description.
+  ![Commit message](/assets/images/help/desktop/getting-started-guide/commit-message.png)
+5. Click **Commit to BRANCH NAME**. The commit button shows your current branch so you can be sure to commit to the branch you want.
+  ![Commit to branch](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
+6. To push your changes to the remote repository on {% data variables.product.product_name %}, click **Push origin**.
+  ![Push origin](/assets/images/help/desktop/getting-started-guide/push-to-origin.png)
+  - The **Push origin** button is the same one that you clicked to publish your repository to {% data variables.product.product_name %}. This button changes contextually based on where you are at in the Git workflow. It should now say `Push origin` with a `1` next to it, indicating that there is one commit that has not been pushed up to {% data variables.product.product_name %}.
+  - The "origin" in **Push origin** means that you are pushing changes to the remote called `origin`, which in this case is your project's repository on {% data variables.product.prodname_dotcom_the_website %}. Until you push any new commits to {% data variables.product.product_name %}, there will be differences between your project's repository on your computer and your project's repository on {% data variables.product.prodname_dotcom_the_website %}. This allows you to work locally and only push your changes to {% data variables.product.prodname_dotcom_the_website %} when you're ready.
+7. In the window to the right of the **Changes** view, you'll see suggestions for actions you can do next. To open the repository on {% data variables.product.product_name %} in your browser, click **View on {% data variables.product.product_name %}**.
+  ![Available actions](/assets/images/help/desktop/available-actions.png)
+8. In your browser, click **2 commits**. You'll see a list of the commits in this repository on {% data variables.product.product_name %}. The first commit should be the commit you just made in {% data variables.product.prodname_desktop %}.
+  ![Click two commits](/assets/images/help/desktop/getting-started-guide/click-two-commits.png)
 
-4. Na parte inferior da lista **Changes** (Alterações), adicione uma mensagem ao commit. À direita da sua foto de perfil, digite uma breve descrição do commit. Já que estamos alterando o arquivo _README.md_, algo como "Adicionar informações sobre o propósito do projeto" seria um bom resumo. Abaixo do resumo, o campo de texto "Descrição" permite digitar uma descrição mais longa das alterações feitas no commit. Essa descrição pode ser útil para analisar o histórico de um projeto e entender o motivo das alterações. Como estamos fazendo uma atualização básica do arquivo _README.md_, fique à vontade para ignorar a descrição. ![Mensagem do commit](/assets/images/help/desktop/getting-started-guide/commit-message.png)
-5. Clique em **Fazer commit do NOME DO BRANCH**. O botão do commit mostra o seu branch atual. Dessa forma, você pode ter certeza de que deseja fazer o commit no branch desejado. ![Fazer commit de um branch](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
-6. Para fazer push das alterações no repositório remote no {% data variables.product.product_name %}, clique em **Push origin** (Fazer push da origem). ![Fazer push de origem](/assets/images/help/desktop/getting-started-guide/push-to-origin.png)
-  - O botão **Subir origem** é o mesmo que você clicou para publicar o seu repositório no {% data variables.product.product_name %}. Este botão muda contextualmente de acordo com o local em que você está no fluxo de trabalho do Git. Agora, ele deve mostrar `Fazer push da origem` com um número `1` ao lado, indicando que ainda não foi feito o push de um commit para o {% data variables.product.product_name %}.
-  - O termo "origem" na opção **Fazer push da origem** indica que estamos fazendo push das alterações para o repositório remoto denominado `origem` que, neste caso, é o repositório do seu projeto no {% data variables.product.prodname_dotcom_the_website %}. Até você fazer o push de qualquer commit para o {% data variables.product.product_name %}, haverá diferenças entre o repositório do seu projeto no computador e o repositório do seu projeto no {% data variables.product.prodname_dotcom_the_website %}. Assim, você pode trabalhar no local e deixar para fazer push das suas alterações no {% data variables.product.prodname_dotcom_the_website %} quando estiver tudo pronto.
-7. Na janela à direita da vista de **Alterações**, você verá sugestões de ações que podem ser feitas a seguir. Para abrir o repositório no {% data variables.product.product_name %} no seu navegador, clique em **Visualizar no {% data variables.product.product_name %}**. ![Ações disponíveis](/assets/images/help/desktop/available-actions.png)
-8. No navegador, clique em **2 commits**. Você verá uma lista dos commits neste repositório no {% data variables.product.product_name %}. O primeiro commit deve ser o que você acabou de fazer no {% data variables.product.prodname_desktop %}. ![Clicar em dois commits](/assets/images/help/desktop/getting-started-guide/click-two-commits.png)
+## Conclusion
+You've now created a repository, published the repository to {% data variables.product.product_name %}, made a commit, and pushed your changes to {% data variables.product.product_name %}. You can follow this same workflow when contributing to other projects that you create or collaborate on.
 
-### Conclusão
-Agora você criou um repositório, publicou o repositório no {% data variables.product.product_name %}, fez um commit e fez push das suas alterações no {% data variables.product.product_name %}. Você pode seguir esse mesmo fluxo de trabalho ao contribuir para outros projetos os quais você cria ou nos quais você colabora.
-
-### Leia mais
-- "[Primeiros passos com o Git](/github/getting-started-with-github/getting-started-with-git)"
-- "[Aprender sobre {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
-- "[Começar com {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"
+## Further reading
+- "[Getting started with Git](/github/getting-started-with-github/getting-started-with-git)"
+- "[Learning about {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
+- "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"

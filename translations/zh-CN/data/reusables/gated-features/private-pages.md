@@ -1,1 +1,1 @@
-{% data variables.product.prodname_pages %} 站点的访问控制可在 {% data variables.product.prodname_ghe_cloud %} 的私有仓库中使用。
+Access control for {% data variables.product.prodname_pages %} sites is available in private repositories with {% data variables.product.prodname_ghe_cloud %}.{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}

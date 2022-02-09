@@ -4,10 +4,10 @@ intro: スポンサーシップを、より高い層にアップグレードで�
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-a-sponsorship
   - /articles/upgrading-a-sponsorship
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-a-sponsorship
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/upgrading-a-sponsorship
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Sponsors
@@ -16,11 +16,11 @@ topics:
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### スポンサーシップのアップグレードについて
+## スポンサーシップのアップグレードについて
 
 スポンサーシップ層をアップグレードした場合、その変更は直ちに有効になります。 {% data reusables.sponsors.prorated-sponsorship %}
 
-### スポンサーシップをアップグレードする
+## スポンサーシップをアップグレードする
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}

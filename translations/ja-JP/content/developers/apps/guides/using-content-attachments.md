@@ -5,16 +5,14 @@ redirect_from:
   - /apps/using-content-attachments
   - /developers/apps/using-content-attachments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: <3.4
 topics:
   - GitHub Apps
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
-### 添付コンテンツについて
+## 添付コンテンツについて
 
 GitHub Appは、`content_reference`イベントをトリガーするドメインを登録できます。 Issueまたはプルリクエストの、ボディまたはコメントに、登録されたドメインにリンクするURLが含まれている場合、アプリケーションは[`content_reference` webhook](/webhooks/event-payloads/#content_reference)を受け取ります。 添付コンテンツを使用して、Issueまたはプルリクエストに追加したURLについてのコンテキストやデータを視覚的に追加できます。 URLは、`http://`または`https://`から始まる、完全修飾URLである必要があります。 Markdownリンクの一部であるURLは無視され、`content_reference`イベントをトリガーしません。
 
@@ -29,7 +27,7 @@ GitHub Appは、`content_reference`イベントをトリガーするドメイン
 
 GitHub App の権限やイベントのサブスクリプションを設定するために必要なステップに関する詳しい情報については、「<[GitHub App を作成する](/apps/building-github-apps/creating-a-github-app/)」または「[GitHub App の権限を編集する](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
 
-### 添付コンテンツフローを実装する
+## 添付コンテンツフローを実装する
 
 添付コンテンツのフローは、IssueもしくはPull Request中のURL、`content_reference` webhookイベント、追加情報でIssueもしくはPull Requestを更新するために呼ぶ必要があるREST APIエンドポイント間の関係を示します。
 
@@ -60,23 +58,23 @@ GitHub App の権限やイベントのサブスクリプションを設定する
 }
 ```
 
-**Step 4.** The app uses the `content_reference` `id` and `repository` `full_name` fields to [Create a content attachment](/rest/reference/apps#create-a-content-attachment) using the REST API. [GitHub Appのインストール](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)として認証を受けるために、`installation` `id`も必要になります。
+**ステップ4。**アプリケーションはREST APIを使って[添付コンテンツを作成する](/rest/reference/apps#create-a-content-attachment)ために`content_reference` `id`と`repository` `full_name`フィールドを使います。 [GitHub Appのインストール](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)として認証を受けるために、`installation` `id`も必要になります。
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 
 `body`パラメータにはMarkdownが含まれていることがあります。
 
-    ```shell
-    curl -X POST \
-      https://api.github.com/repos/Codertocat/Hello-World/content_references/17/attachments \
-      -H 'Accept: application/vnd.github.corsair-preview+json' \
-      -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
-      -d '{
-        "title": "[A-1234] Error found in core/models.py file",
-        "body": "You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n self.save()"
-    }'
-    ```
+```shell
+curl -X POST \
+  {% data variables.product.api_url_code %}/repos/Codertocat/Hello-World/content_references/17/attachments \
+  -H 'Accept: application/vnd.github.corsair-preview+json' \
+  -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
+  -d '{
+    "title": "[A-1234] Error found in core/models.py file",
+    "body": "You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\n self.save()"
+}'
+```
 
 インストールトークンの作成に関する詳しい情報については「[GitHub Appとして認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
 
@@ -84,7 +82,7 @@ GitHub App の権限やイベントのサブスクリプションを設定する
 
 ![Issueのリファレンスに添付されたコンテンツ](/assets/images/github-apps/content_reference_attachment.png)
 
-### GraphQLでの添付コンテンツの利用
+## GraphQLでの添付コンテンツの利用
 [`content_reference` webhook](/webhooks/event-payloads/#content_reference)イベント中で`node_id`を提供しているので、GraphQL APIの`createContentAttachment`ミューテーションを参照できます。
 
 {% data reusables.pre-release-program.corsair-preview %}
@@ -112,7 +110,7 @@ mutation {
 cURLの例:
 
 ```shell
-curl -X "POST" "https://api.github.com/graphql" \
+curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
      -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
      -H 'Accept: application/vnd.github.corsair-preview+json' \
      -H 'Content-Type: application/json; charset=utf-8' \
@@ -121,9 +119,9 @@ curl -X "POST" "https://api.github.com/graphql" \
 }'
 ```
 
-`node_id`の詳しい情報については「[グローバルノードIDの利用](/graphql/guides/using-global-node-ids)」を参照してください。
+`node_id`の詳しい情報については「[グローバルノードIDの利用]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)」を参照してください。
 
-### ProbotとGitHub Appマニフェストの利用例
+## ProbotとGitHub Appマニフェストの利用例
 
 {% data variables.product.prodname_unfurls %} APIを使用できるGitHub Appを手早くセットアップするには、[Probot](https://probot.github.io/)が利用できます。 ProbotがどのようにGitHub Appのマニフェストを使用するかを学ぶには、「[マニフェストからのGitHub Appの作成](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。
 
@@ -135,10 +133,10 @@ Probotアプリケーションを作成するには、以下のステップに�
    ``` yml
     default_events:
       - content_reference
-    # The set of permissions needed by the GitHub App. このオブジェクトのフォーマットは、
+    # GitHub Appが必要とする権限セット。 このオブジェクトのフォーマットは、
     # キーの権限名（たとえばissues）と値のためのアクセスの
     # 種類（たとえばwrite）を使います。
-    # Valid values are `read`, `write`, and `none`
+    # 取り得る値は `read`、`write`、`none`
     default_permissions:
       content_references: write
 

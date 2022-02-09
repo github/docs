@@ -5,20 +5,22 @@ redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: 使用 GraphQL 建立调用
 ---
 
-### 使用 GraphQL 进行身份验证
+## 使用 GraphQL 进行身份验证
 
 要与 GraphQL 服务器通信，需要具有正确作用域的 OAuth 令牌。
 
 按照“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”中的步骤创建令牌。 您需要的作用域取决于您尝试请求的数据类型。 例如，选择 **User（用户）**作用域以请求用户数据。 如需访问仓库信息，请选择适当的 **Repository（仓库）**作用域。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 要匹配 [GraphQL Explorer](/graphql/guides/using-the-explorer) 的行为，需请求以下作用域：
 
@@ -30,7 +32,7 @@ topics:
 
 
 ```
-user{% if currentVersion != "github-ae@latest" %}
+user{% ifversion not ghae %}
 public_repo{% endif %}
 repo
 repo_deployment
@@ -43,7 +45,7 @@ read:gpg_key
 
 如果资源需要特定作用域，API 会通知您。
 
-### GraphQL 端点
+## GraphQL 端点
 
 REST API 有多个端点；GraphQL API 只有一个端点：
 
@@ -51,7 +53,7 @@ REST API 有多个端点；GraphQL API 只有一个端点：
 
 无论执行什么操作，端点都保持不变。
 
-### 与 GraphQL 通信
+## 与 GraphQL 通信
 
 由于 GraphQL 操作由多行 JSON 组成，因此 GitHub 建议使用 [Explorer](/graphql/guides/using-the-explorer) 进行 GraphQL 调用。 也可以使用 cURL 或任何其他采用 HTTP 的库。
 
@@ -73,7 +75,7 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
 
 {% endtip %}
 
-#### 关于查询和突变操作
+### 关于查询和突变操作
 
 GitHub 的 GraphQL API 中允许的两种操作类型为_查询_和_突变_。 比较 GraphQL 与 REST，查询操作就像 `GET` 请求，而突变操作则像 `POST`/`PATCH`/`DELETE`。 [突变名称](/graphql/reference/mutations)确定执行哪些修改。
 
@@ -81,7 +83,7 @@ GitHub 的 GraphQL API 中允许的两种操作类型为_查询_和_突变_。 �
 
 查询和突变形式相似，但有一些重要差异。
 
-#### 关于查询
+### 关于查询
 
 GraphQL 查询仅返回您指定的数据。 要建立查询，必须指定[字段内的字段](/graphql/guides/introduction-to-graphql#field)（也称为_嵌套的子字段_），直到仅返回[标量](/graphql/reference/scalars)。
 
@@ -93,7 +95,7 @@ GraphQL 查询仅返回您指定的数据。 要建立查询，必须指定[字�
 
 有关真实示例，请参阅“[查询示例](#example-query)”。
 
-#### 关于突变
+### 关于突变
 
 要建立突变，必须指定三个参数：
 
@@ -115,7 +117,7 @@ GraphQL 查询仅返回您指定的数据。 要建立查询，必须指定[字�
 
 有关真实示例，请参阅“[突变示例](#example-mutation)”。
 
-### 使用变量
+## 使用变量
 
 [变量](https://graphql.github.io/learn/queries/#variables)可使查询更加动态和强大，并且可以在传递突变输入对象时降低复杂性。
 
@@ -175,7 +177,7 @@ variables {
 
 将变量用作参数可支持您动态更新 `variables` 对象中的值，而无需更改查询。
 
-### 查询示例
+## 查询示例
 
 我们来演练一个较为复杂的查询，并将此信息放在上下文中。
 
@@ -249,9 +251,9 @@ query {
 
   `labels` 字段的类型为 [`LabelConnection`](/graphql/reference/objects#labelconnection)。 与 `issues` 对象一样，`labels` 也是一种连接，因此我们必须将其边缘传送至连接的节点：`label` 对象。 在此节点上，我们可以指定要返回的 `label` 对象字段，在本例中为 `name`。
 
-您可能会注意到，在 Octobert 的 {% if currentVersion != "github-ae@latest" %}公共{% endif %} `Hello-World` 仓库上运行此查询不会返回许多标签。 尝试在您自己的其中一个使用标签的仓库中运行，很可能会看到不同的结果。
+您可能会注意到，在 Octobert 的 {% ifversion not ghae %}公共{% endif %} `Hello-World` 仓库上运行此查询不会返回许多标签。 尝试在您自己的其中一个使用标签的仓库中运行，很可能会看到不同的结果。
 
-### 突变示例
+## 突变示例
 
 突变通常需要只有先执行查询才能找到的信息。 本示例显示两个操作：
 
@@ -405,11 +407,11 @@ variables {
 
 {% endnote %}
 
-### 延伸阅读
+## 延伸阅读
 
 建立 GraphQL 调用时，您可以执行_更多_操作。 下面是接下来要阅读的一些内容：
 
-* [分页](https://graphql.github.io/learn/pagination/)
-* [分段](https://graphql.github.io/learn/queries/#fragments)
-* [行内分段](https://graphql.github.io/learn/queries/#inline-fragments)
-* [指令](https://graphql.github.io/learn/queries/#directives)
+* [分页](https://graphql.org/learn/pagination/)
+* [分段](https://graphql.org/learn/queries/#fragments)
+* [行内分段](https://graphql.org/learn/queries/#inline-fragments)
+* [指令](https://graphql.org/learn/queries/#directives)

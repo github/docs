@@ -1,20 +1,22 @@
 ---
 title: 混乱を生むコメントを管理する
-intro: 'Issue、プルリクエスト、 およびコミットに対するコメントを{% if currentVersion == "free-pro-team@latest" %}非表示、編集{% else %}編集{% endif %}、削除できます。'
+intro: 'Issue、プルリクエスト、 およびコミットに対するコメントを{% ifversion fpt or ghec %}非表示、編集{% else %}編集{% endif %}、削除できます。'
 redirect_from:
-  - /articles/editing-a-comment/
-  - /articles/deleting-a-comment/
+  - /articles/editing-a-comment
+  - /articles/deleting-a-comment
   - /articles/managing-disruptive-comments
   - /github/building-a-strong-community/managing-disruptive-comments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: コメントの管理
 ---
 
-### コメントを非表示にする
+## コメントを非表示にする
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを非表示にすることができます。
 
@@ -25,13 +27,13 @@ topics:
 1. 非表示にするコメントに移動します。
 2. コメントの右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックしてから、[**Hide**] をクリックします。 ![編集、非表示、削除のオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
 3. [Choose a reason] ドロップダウン メニューで、コメントを非表示にする理由をクリックします。 次に、[**Hide comment**] をクリックします。
-  {% if currentVersion == "free-pro-team@latest" %}
+  {% ifversion fpt or ghec %}
   ![[Choose reason for hiding comment] ドロップダウンメニュー](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
   {% else %}
   ![[Choose reason for hiding comment] ドロップダウンメニュー](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
   {% endif %}
 
-### コメントを再表示する
+## コメントを再表示する
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを再表示することができます。
 
@@ -39,11 +41,11 @@ topics:
 2. コメントの右上隅にある [**{% octicon "fold" aria-label="The fold icon" %}Show comment**] をクリックします。 ![コメント テキストの表示](/assets/images/help/repository/hidden-comment-show.png)
 3. 展開したコメントの右側にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}をクリックしてから、[**Unhide**] をクリックします。 ![編集、再表示、削除のオプションが表示されている水平の kebab アイコンとコメント モデレーションメニュー](/assets/images/help/repository/comment-menu-hidden.png)
 
-### コメントを編集する
+## コメントを編集する
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、およびコミットに対するコメントを編集することができます。
 
-会話に関係がない、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %}または GitHub の[コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反している場合は、コメントを編集して内容を削除するのが妥当です。
+会話に関係がない、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反している場合は、コメントを編集して内容を削除するのが妥当です。
 
 コメントを編集する際には、削除した内容があった元の場所がわかるように記録し、オプションで削除の理由を示します。
 
@@ -59,11 +61,11 @@ topics:
 4. コメントの下部に、コメントを編集したことを示すメモを入力し、オプションで編集した理由も入力します。 ![内容を削除したというメモを追加したコメント ウィンドウ](/assets/images/help/issues/note-content-redacted-comment.png)
 5. [**Update comment**] をクリックします。
 
-### コメントを削除する
+## コメントを削除する
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを削除することができます。 Organization オーナー、チームメンテナ、コメント作成者は、チームのページのコメントを削除することもできます。
 
-コメントの削除は、モデレーターとしての最終手段です。 コメント全体が会話にとって建設的な内容ではない場合や、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %}または GitHub の[コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反している場合は、コメントを削除するのが妥当です。
+コメントの削除は、モデレーターとしての最終手段です。 コメント全体が会話にとって建設的な内容ではない場合や、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反している場合は、コメントを削除するのが妥当です。
 
 コメントを削除すると、リポジトリに対する読み取りアクセスを持つユーザなら誰でも見ることのできるタイムラインイベントが作成されます。 ただし、コメントを削除したユーザの名前は、リポジトリへの書き込みアクセスを持つユーザにしか見えません。 書き込みアクセスを持たないユーザから見ると、タイムラインイベントは匿名化されています。
 

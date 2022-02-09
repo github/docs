@@ -3,22 +3,31 @@ header:
   github_docs: GitHub Docs
   contact: 联系我们
   notices:
-    ghae_silent_launch: GitHub AE 目前是有限发行版。请<a href="https://enterprise.github.com/contact">联系我们的销售团队</a>了解更多信息。
+    ghae_silent_launch: GitHub AE 目前是有限发行版。请<a href="https://enterprise.github.com/contact">联系我们的销售团队</a>以了解更多信息。
     release_candidate: '# 版本名称是通过 includes/header-notification.html 在以下文本之前呈现：目前可用作发行版候选。更多信息请参阅“<a href="/admin/overview/about-upgrades-to-new-releases">关于升级到新版本</a>”。'
     localization_complete: 我们经常发布文档更新，此页面的翻译可能仍在进行中。有关最新信息，请访问<a id="to-english-doc" href="/en">英文文档</a>。如果此页面上的翻译有问题，请<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">告诉我们</a>。
     localization_in_progress: 你好，探索者！ 此页面正在积极开发或仍在翻译中。有关最新和最准确的信息，请访问我们的<a id="to-english-doc" href="/en">英文文档</a>。
-    early_access: '📣请<b>不要公开分享</b>此 URL。此页包含有关早期访问功能的内容。'
+    early_access: '📣请<b>不要公开分享</b>此 URL，该页面包含有关早期访问功能的内容。'
     release_notes_use_latest: 请使用最新版本获取最新的安全性、性能和错误修复。
     #GHES release notes
-    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
-    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
-    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_patch_only: '📣 这不是 Enterprise Server 最新的<a href="#{{ latestPatch }}">补丁版本</a>。'
+    ghes_release_notes_upgrade_release_only: '📣 这不是 Enterprise Server 的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。'
+    ghes_release_notes_upgrade_patch_and_release: '📣 这不是此版本系列的<a href="#{{ latestPatch }}">最新修补版</a>，也不是 Enterprise Server 的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。'
+picker:
+  language_picker_default_text: Choose a language
+  product_picker_default_text: All products
+  version_picker_default_text: Choose a version
 release_notes:
-  banner_text_current: 这些更改将在未来一周内推出。
-  banner_text_past: 这些更改将在 周内部署到企业
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: 需要帮助？
-  placeholder: 搜索主题、产品...
+  placeholder: 搜索主题、产品......
+  loading: 正在加载
+  no_results: 未找到结果
+  search_results_for: Search results for
+  no_content: No content
+  matches_displayed: Matches displayed
+  search_error: An error occurred trying to perform the search.
 homepage:
   explore_by_product: 按产品浏览
   version_picker: 版本
@@ -27,10 +36,12 @@ toc:
   popular: 热门
   guides: 指南
   whats_new: 新增内容
+  videos: 视频
 pages:
-  article_version: '文章版本：'
+  article_version: '文章版本'
   miniToc: 本文内容
   contributor_callout: 这篇文章的参与者和维护者是
+  all_enterprise_releases: 所有企业版本
 errors:
   oops: 哎呀！
   something_went_wrong: 看来出现了错误。
@@ -44,14 +55,13 @@ survey:
   able_to_find: 此文档对您有帮助吗？
   yes: true
   no: false
-  yes_feedback: 我们在不断改进文档，希望听到您的改进建议。
-  no_feedback: 我们在不断改进文档，希望听到您的改进建议。
   comment_yes_label: 让我们知道哪方面做得好
   comment_no_label: 告诉我们如何改进
   optional: 可选
   required: 必选
   email_placeholder: email@example.com
-  email_label: 如果有更多问题，我们能联系您吗？
+  email_label: If we can contact you with more questions, please enter your email address
+  email_validation: Please enter a valid email address
   send: 发送​​
   feedback: 谢谢！我们收到了您的反馈。
   not_support: 如果您需要回复，请联系客服。
@@ -60,7 +70,7 @@ contribution_cta:
   title: 帮助我们创建出色的文档！
   body: 所有 GitHub 文档都是开源的。看到错误或不清楚的内容了吗？提交拉取请求。
   button: 做出贡献
-  or: 或,
+  or: 或者，
   to_guidelines: 了解如何参与。
 products:
   graphql:
@@ -133,6 +143,8 @@ product_landing:
   guides: 指南
   code_examples: 代码示例
   search_code_examples: 搜索代码示例
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: 显示更多
   explore_people_and_projects: 探索人员和项目
   sorry: 抱歉，找不到结果
@@ -148,7 +160,7 @@ product_landing:
   upgrade_from: 升级自
   browse_all_docs: 浏览所有文档
   explore_release_notes: 浏览发行说明
-product_sublanding:
+product_guides:
   start: 开始
   start_path: 开始路径
   learning_paths: '{{ productMap[currentProduct].name }} 学习路径'
@@ -157,10 +169,15 @@ product_sublanding:
   more_guides: 更多指南
   load_more: 加载更多指南
   all_guides: '所有 {{ productMap[currentProduct].name }} 指南'
+  filter_instructions: 使用这些控件过滤指南列表
   filters:
     type: 类型
     topic: 主题
     all: 所有
+  guides_found:
+    multiple: '找到 {n} 个指南'
+    one: 找到 1 个指南
+    none: 找不到指南
   guide_types:
     overview: 概览
     quick_start: 快速入门

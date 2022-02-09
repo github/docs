@@ -1,1 +1,0 @@
-You can set a specific spending limit or, for some accounts, allow unlimited spending. Das Ausgabenlimit gilt für deine kombinierten Überschreitungen für {% data variables.product.prodname_registry %} und {% data variables.product.prodname_actions %}.

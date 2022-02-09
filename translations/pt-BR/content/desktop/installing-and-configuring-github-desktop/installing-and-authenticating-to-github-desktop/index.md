@@ -4,7 +4,7 @@ intro: Instale o GitHub Desktop e conecte suas contas do GitHub ou do GitHub Ent
 redirect_from:
   - /desktop/getting-started-with-github-desktop/installing-and-authenticating-to-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /setting-up-github-desktop
   - /installing-github-desktop
@@ -12,5 +12,6 @@ children:
   - /about-connections-to-github
   - /updating-github-desktop
   - /uninstalling-github-desktop
+shortTitle: Instalar & autenticar
 ---
 

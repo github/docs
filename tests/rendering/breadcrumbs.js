@@ -3,75 +3,96 @@ import { jest } from '@jest/globals'
 
 const describeInternalOnly =
   process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
-
+// Breadcrumbs were moved to the Header and in the Menu for mobile, so there are now double the Breadcrumbs
 describe('breadcrumbs', () => {
   jest.setTimeout(300 * 1000)
 
   describe('rendering', () => {
     test('top-level product pages have breadcrumbs', async () => {
       const $ = await getDOM('/github')
-      expect($('[data-testid=breadcrumbs]')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs]')).toHaveLength(2)
     })
 
     test('article pages have breadcrumbs with product, category, maptopic, and article', async () => {
       const $ = await getDOM(
-        '/github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port'
+        '/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
-      expect($breadcrumbs[1].attribs.title).toBe('category: Authentication')
-      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Troubleshooting SSH')
-      expect($breadcrumbs[3].attribs.title).toBe('article: Use SSH over HTTPS port')
+      expect($breadcrumbs).toHaveLength(8)
+      expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
+      expect($breadcrumbs[1].attribs.title).toBe('User accounts')
+      expect($breadcrumbs[2].attribs.title).toBe('Manage email preferences')
+      expect($breadcrumbs[3].attribs.title).toBe('Add an email address')
     })
 
     test('maptopic pages include their own grayed-out breadcrumb', async () => {
       const $ = await getDOM(
-        '/github/authenticating-to-github/keeping-your-account-and-data-secure'
+        '/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbs).toHaveLength(3)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
-      expect($breadcrumbs[1].attribs.title).toBe('category: Authentication')
-      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Account security')
-      expect($breadcrumbs[2].attribs.class.includes('color-text-tertiary')).toBe(true)
+      expect($breadcrumbs).toHaveLength(6)
+      expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
+      expect($breadcrumbs[1].attribs.title).toBe('User accounts')
+      expect($breadcrumbs[2].attribs.title).toBe('Manage email preferences')
+      expect($breadcrumbs[2].attribs.class.includes('color-fg-muted')).toBe(true)
     })
 
     test('works for enterprise user pages', async () => {
       const $ = await getDOM(
-        '/en/enterprise-server/github/authenticating-to-github/troubleshooting-ssh/recovering-your-ssh-key-passphrase'
+        '/en/enterprise-server/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
+      expect($breadcrumbs).toHaveLength(8)
+      expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
+    })
+
+    test('works for ghec billing page', async () => {
+      const $ = await getDOM(
+        '/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise'
+      )
+      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
+      expect($breadcrumbs).toHaveLength(6)
+      expect($breadcrumbs[0].attribs.title).toBe('Billing and payments')
+    })
+
+    test('works for pages that have overlapping product names', async () => {
+      const $ = await getDOM(
+        // article path has overlap with `/en/github`
+        '/en/github-cli/github-cli/about-github-cli'
+      )
+      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
+      expect($breadcrumbs).toHaveLength(6)
+      expect($breadcrumbs[0].attribs.title).toBe('GitHub CLI')
+      expect($breadcrumbs[1].attribs.title).toBe('GitHub CLI')
+      expect($breadcrumbs[2].attribs.title).toBe('About GitHub CLI')
     })
 
     test('parses Liquid variables inside titles', async () => {
-      const $ = await getDOM('/en/enterprise/admin/enterprise-support')
+      const $ = await getDOM('/en/education/manage-coursework-with-github-classroom')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs).toHaveLength(2)
-      expect($breadcrumbs[1].attribs.title).toBe('category: Working with support')
+      expect($breadcrumbs).toHaveLength(4)
+      expect($breadcrumbs[1].attribs.title).toBe('GitHub Classroom')
     })
 
     test('English breadcrumbs link to English pages', async () => {
-      const $ = await getDOM('/en/github/importing-your-projects-to-github')
+      const $ = await getDOM('/en/get-started/learning-about-github')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs[0].attribs.href).toBe('/en/github')
+      expect($breadcrumbs[0].attribs.href).toBe('/en/get-started')
     })
 
     test('localized breadcrumbs link to localize pages', async () => {
-      const $ = await getDOM('/ja/github/importing-your-projects-to-github')
+      const $ = await getDOM('/ja/get-started/learning-about-github')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs[0].attribs.href).toBe('/ja/github')
+      expect($breadcrumbs[0].attribs.href).toBe('/ja/get-started')
     })
   })
 
   describeInternalOnly('early access rendering', () => {
     test('top-level product pages have breadcrumbs', async () => {
       const $ = await getDOM('/early-access/github/articles/using-gist-playground')
-      expect($('[data-testid=breadcrumbs]')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs]')).toHaveLength(2)
     })
 
     test('early access article pages have breadcrumbs with product, category, and article', async () => {
@@ -81,15 +102,15 @@ describe('breadcrumbs', () => {
       const $breadcrumbTitles = $('[data-testid=breadcrumbs] [data-testid=breadcrumb-title]')
       const $breadcrumbLinks = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbTitles).toHaveLength(2)
-      expect($breadcrumbLinks).toHaveLength(2)
+      expect($breadcrumbTitles).toHaveLength(4)
+      expect($breadcrumbLinks).toHaveLength(4)
       expect($breadcrumbTitles[0].children[0].data).toBe('Early Access documentation')
       expect($breadcrumbTitles[1].children[0].data).toBe('GitHub')
       expect($breadcrumbLinks[0].attribs.title).toBe(
-        'category: Enforcing best practices with GitHub Policies'
+        'Enforcing best practices with GitHub Policies'
       )
-      expect($breadcrumbLinks[1].attribs.title).toBe('article: About GitHub Policies')
-      expect($breadcrumbLinks[1].attribs.class.includes('color-text-tertiary')).toBe(true)
+      expect($breadcrumbLinks[1].attribs.title).toBe('About GitHub Policies')
+      expect($breadcrumbLinks[1].attribs.class.includes('color-fg-muted')).toBe(true)
     })
   })
 
@@ -107,17 +128,24 @@ describe('breadcrumbs', () => {
     })
 
     test('works on category index pages', async () => {
-      const breadcrumbs = await getJSON('/en/github/authenticating-to-github?json=breadcrumbs')
+      const breadcrumbs = await getJSON(
+        '/en/issues/tracking-your-work-with-issues/quickstart?json=breadcrumbs'
+      )
       const expected = [
         {
           documentType: 'product',
-          href: '/en/github',
-          title: 'GitHub',
+          href: '/en/issues',
+          title: 'GitHub Issues',
         },
         {
           documentType: 'category',
-          href: '/en/github/authenticating-to-github',
-          title: 'Authentication',
+          href: '/en/issues/tracking-your-work-with-issues',
+          title: 'Issues',
+        },
+        {
+          documentType: 'article',
+          href: '/en/issues/tracking-your-work-with-issues/quickstart',
+          title: 'Quickstart for GitHub Issues',
         },
       ]
       expect(breadcrumbs).toEqual(expected)
@@ -125,23 +153,23 @@ describe('breadcrumbs', () => {
 
     test('works on maptopic pages', async () => {
       const breadcrumbs = await getJSON(
-        '/en/github/authenticating-to-github/keeping-your-account-and-data-secure?json=breadcrumbs'
+        '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings?json=breadcrumbs'
       )
       const expected = [
         {
           documentType: 'product',
-          href: '/en/github',
-          title: 'GitHub',
+          href: '/en/account-and-profile',
+          title: 'Account and profile',
         },
         {
           documentType: 'category',
-          href: '/en/github/authenticating-to-github',
-          title: 'Authentication',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
+          title: 'User accounts',
         },
         {
           documentType: 'mapTopic',
-          href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure',
-          title: 'Account security',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
+          title: 'User account settings',
         },
       ]
       expect(breadcrumbs).toEqual(expected)
@@ -149,28 +177,28 @@ describe('breadcrumbs', () => {
 
     test('works on articles that DO have maptopics ', async () => {
       const breadcrumbs = await getJSON(
-        '/en/github/authenticating-to-github/creating-a-strong-password?json=breadcrumbs'
+        '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard?json=breadcrumbs'
       )
       const expected = [
         {
           documentType: 'product',
-          href: '/en/github',
-          title: 'GitHub',
+          href: '/en/account-and-profile',
+          title: 'Account and profile',
         },
         {
           documentType: 'category',
-          href: '/en/github/authenticating-to-github',
-          title: 'Authentication',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
+          title: 'User accounts',
         },
         {
           documentType: 'mapTopic',
-          href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure',
-          title: 'Account security',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
+          title: 'User account settings',
         },
         {
           documentType: 'article',
-          href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password',
-          title: 'Create a strong password',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard',
+          title: 'Your personal dashboard',
         },
       ]
       expect(breadcrumbs).toEqual(expected)

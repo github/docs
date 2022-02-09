@@ -1,12 +1,14 @@
 ---
 title: Resources in the REST API
-intro: 'Learn how to navigate the resources provided by the {% data variables.product.prodname_dotcom %} API.'
+intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
 redirect_from:
-  - /rest/initialize-the-repo/
+  - /rest/initialize-the-repo
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+miniTocMaxHeadingLevel: 3
 topics:
   - API
 ---
@@ -21,15 +23,15 @@ We encourage you to [explicitly request this version via the `Accept` header](/r
 
     Accept: application/vnd.github.v3+json
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-For information about GitHub's GraphQL API, see the [v4 documentation](/graphql). For information about migrating to GraphQL, see "[Migrating from REST](/graphql/guides/migrating-from-rest-to-graphql)."
+For information about GitHub's GraphQL API, see the [v4 documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). For information about migrating to GraphQL, see "[Migrating from REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)."
 
 {% endif %}
 
 ## Schema
 
-{% ifversion fpt %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
+{% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
 sent and received as JSON.
 
 ```shell
@@ -41,9 +43,9 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Content-Type: application/json; charset=utf-8
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% ifversion ghes %}
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4987
+> x-ratelimit-reset: 1350085394{% ifversion ghes %}
 > X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif ghae %}
 > X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
@@ -53,7 +55,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 Blank fields are included as `null` instead of being omitted.
 
-All timestamps return in ISO 8601 format:
+All timestamps return in UTC time, ISO 8601 format:
 
     YYYY-MM-DDTHH:MM:SSZ
 
@@ -113,7 +115,7 @@ Note: GitHub recommends sending OAuth tokens using the Authorization header.
 
 Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ### OAuth2 key/secret
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -122,12 +124,14 @@ Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens c
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth application to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth application's client secret to your users.
+Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth App's client secret to your users.
 
-You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[Enabling private mode](/enterprise/admin/installation/enabling-private-mode)".
+{% ifversion ghes %}
+You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[Enabling private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
+{% endif %}
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
 
@@ -152,7 +156,7 @@ the API will temporarily reject all authentication attempts for that user
 (including ones with valid credentials) with `403 Forbidden`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae %}
+$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
 -u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% ifversion ghes %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/2 403
 > {
@@ -187,13 +191,13 @@ $ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.prod
 You can issue a `GET` request to the root endpoint to get all the endpoint categories that the REST API supports:
 
 ```shell
-$ curl {% ifversion fpt or ghae %}
+$ curl {% ifversion fpt or ghae or ghec %}
 -u <em>username</em>:<em>token</em> {% endif %}{% ifversion ghes %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
 ## GraphQL global node IDs
 
-See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+See the guide on "[Using Global Node IDs]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ## Client errors
 
@@ -353,21 +357,53 @@ Name | Description
 
 ## Rate limiting
 
-For API requests using Basic Authentication or OAuth, you can make up to 5,000 requests per hour. Authenticated requests are associated with the authenticated user, regardless of whether [Basic Authentication](#basic-authentication) or [an OAuth token](#oauth2-token-sent-in-a-header) was used. This means that all OAuth applications authorized by a user share the same quota of 5,000 requests per hour when they authenticate with different tokens owned by the same user.
+Different types of API requests to {% data variables.product.product_location %} are subject to different rate limits. 
 
-{% ifversion fpt %}
-
-For users that belong to a {% data variables.product.prodname_ghe_cloud %} account, requests made using an OAuth token to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account have an increased limit of 15,000 requests per hour.
-
-{% endif %}
-
-When using the built-in `GITHUB_TOKEN` in GitHub Actions, the rate limit is 1,000 requests per hour per repository. For organizations that belong to a GitHub Enterprise Cloud account, this limit is 15,000 requests per hour per repository.
-
-For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the user making requests.
+Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
 
 {% data reusables.enterprise.rate_limit %}
 
-Note that [the Search API has custom rate limit rules](/rest/reference/search#rate-limit).
+{% data reusables.rest-api.always-check-your-limit %}
+
+### Requests from user accounts
+
+Direct API requests that you authenticate with a personal access token are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
+
+{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
+
+{% data reusables.apps.user-to-server-rate-limits %}
+
+{% ifversion fpt or ghec %}
+
+{% data reusables.apps.user-to-server-rate-limits-ghec %}
+
+{% ifversion fpt or ghec or ghes %}
+
+For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the person making requests.
+
+{% endif %}
+
+{% endif %}
+
+### Requests from GitHub Apps
+
+Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)." 
+
+### Requests from GitHub Actions
+
+You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+
+When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.product.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
+
+### Checking your rate limit status
+
+The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
+
+#### Rate Limit API
+
+You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
+
+#### Rate limit HTTP headers
 
 The returned HTTP headers of any API request show your current rate limit status:
 
@@ -375,16 +411,16 @@ The returned HTTP headers of any API request show your current rate limit status
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> X-RateLimit-Limit: 60
-> X-RateLimit-Remaining: 56
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 60
+> x-ratelimit-remaining: 56
+> x-ratelimit-reset: 1372700873
 ```
 
 Header Name | Description
 -----------|-----------|
-`X-RateLimit-Limit` | The maximum number of requests you're permitted to make per hour.
-`X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window.
-`X-RateLimit-Reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
+`x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
+`x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
+`x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
 
 If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.
 
@@ -398,9 +434,9 @@ If you exceed the rate limit, an error response returns:
 ```shell
 > HTTP/2 403
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
-> X-RateLimit-Limit: 60
-> X-RateLimit-Remaining: 0
-> X-RateLimit-Reset: 1377013266
+> x-ratelimit-limit: 60
+> x-ratelimit-remaining: 0
+> x-ratelimit-reset: 1377013266
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
@@ -408,19 +444,17 @@ If you exceed the rate limit, an error response returns:
 > }
 ```
 
-You can [check your rate limit status](/rest/reference/rate-limit) without incurring an API hit.
+### Increasing the unauthenticated rate limit for OAuth Apps
 
-### Increasing the unauthenticated rate limit for OAuth applications
-
-If your OAuth application needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
+If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4966
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4966
+> x-ratelimit-reset: 1372700873
 ```
 
 {% note %}
@@ -452,7 +486,7 @@ If your application triggers this rate limit, you'll receive an informative resp
 > }
 ```
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## User agent required
 
@@ -488,7 +522,7 @@ of these headers to make subsequent requests to those resources using the
 `If-None-Match` and `If-Modified-Since` headers, respectively. If the resource
 has not changed, the server will return a `304 Not Modified`.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -507,9 +541,9 @@ $ curl -I {% data variables.product.api_url_pre %}/user
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
 > Vary: Accept, Authorization, Cookie
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4996
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4996
+> x-ratelimit-reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
 > HTTP/2 304
@@ -517,18 +551,18 @@ $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
 > Vary: Accept, Authorization, Cookie
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4996
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4996
+> x-ratelimit-reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
 > HTTP/2 304
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
 > Vary: Accept, Authorization, Cookie
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4996
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4996
+> x-ratelimit-reset: 1372700873
 ```
 
 ## Cross origin resource sharing
@@ -546,7 +580,7 @@ Here's a sample request sent from a browser hitting
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
 HTTP/2 302
 Access-Control-Allow-Origin: *
-Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
 
 This is what the CORS preflight request looks like:
@@ -557,7 +591,7 @@ HTTP/2 204
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
 Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE
-Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 Access-Control-Max-Age: 86400
 ```
 
@@ -575,9 +609,9 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 > /**/foo({
 >   "meta": {
 >     "status": 200,
->     "X-RateLimit-Limit": "5000",
->     "X-RateLimit-Remaining": "4966",
->     "X-RateLimit-Reset": "1372700873",
+>     "x-ratelimit-limit": "5000",
+>     "x-ratelimit-remaining": "4966",
+>     "x-ratelimit-reset": "1372700873",
 >     "Link": [ // pagination headers and other links
 >       ["{% data variables.product.api_url_pre %}?page=2", {"rel": "next"}]
 >     ]
@@ -644,12 +678,14 @@ A link that looks like this:
 
 ## Timezones
 
-Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for API calls.
+Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for such API calls.
 
 * [Explicitly providing an ISO 8601 timestamp with timezone information](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
 * [Using the `Time-Zone` header](#using-the-time-zone-header)
 * [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
 * [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
+
+Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
 
 ### Explicitly providing an ISO 8601 timestamp with timezone information
 
@@ -676,3 +712,4 @@ If no `Time-Zone` header is specified and you make an authenticated call to the 
 If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
 
 [pagination-guide]: /guides/traversing-with-pagination
+

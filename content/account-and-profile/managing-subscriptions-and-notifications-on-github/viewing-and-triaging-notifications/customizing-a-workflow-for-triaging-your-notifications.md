@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 redirect_from:
@@ -44,7 +45,7 @@ To follow-up on notifications, you might consider the question "What was I block
 
 For example, you may decide to follow up in this order:
   - Issues and pull requests you're assigned to. Immediately close any issues or pull requests you can and add updates. As needed, save notifications to review later.
-  - Review notifications in the saved inbox, especially unread updates. If the thread is no longer relevant, uncheck {% octicon "bookmark" aria-label="The bookmark icon" %} to remove the notification from the saved inbox and unsave it.
+  - Review notifications in the saved inbox, especially unread updates. If the thread is no longer relevant, deselect {% octicon "bookmark" aria-label="The bookmark icon" %} to remove the notification from the saved inbox and unsave it.
 
 ## Managing lower-priority notifications
 

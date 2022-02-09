@@ -5,17 +5,21 @@ redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
   - /admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: '*'
+type: tutorial
 topics:
+  - Actions
   - Enterprise
+  - Networking
+  - Storage
+shortTitle: Caché de herramientas para los ejecutores sin conexión
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### Acerca de las acciones de configuración incluídas y el caché de la herramienta del ejecutor
+## Acerca de las acciones de configuración incluídas y el caché de la herramienta del ejecutor
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
@@ -31,13 +35,13 @@ Puedes poblar el caché de la herramienta del ejecutor si ejecutas un flujo de t
 
 {% endnote %}
 
-### Prerrequisitos
+## Prerrequisitos
 
 * Determina qué ambientes de desarrollo necesitarán tus ejecutores auto-hospedados. El siguiente ejemplo demuestra cómo poblar el caché de la herramienta para la acción `setup-node`, utilizando las versiones 10 y 12 de Node.js.
 * Accede a un repositorio en {% data variables.product.prodname_dotcom_the_website %} que puedas utilizar para ejecutar un flujo de trabajo.
 * Accede al sistema de archivos de tu ejecutor auto-hospedado para poblar la carpeta del caché de la herramienta.
 
-### Poblar el caché de la herramienta para un ejecutor auto-hospedado
+## Poblar el caché de la herramienta para un ejecutor auto-hospedado
 
 1. En {% data variables.product.prodname_dotcom_the_website %}, navega a un repositorio que puedas utilizar para ejecutar un flujo de trabajo de {% data variables.product.prodname_actions %}.
 1. Crea un archivo de flujo de trabajo nuevo en la carpeta `.github/workflows` del repositorio, el cual cargue un artefacto que contenga el caché de la herramienta del ejecutor hospedado en {% data variables.product.prodname_dotcom %}.
@@ -57,11 +61,11 @@ Puedes poblar el caché de la herramienta del ejecutor si ejecutas un flujo de t
              mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
              mkdir -p "${{ runner.tool_cache }}"
          - name: Setup Node 10
-           uses: actions/setup-node@v1
+           uses: actions/setup-node@v2
            with:
              node-version: 10.x
          - name: Setup Node 12
-           uses: actions/setup-node@v1
+           uses: actions/setup-node@v2
            with:
              node-version: 12.x
          - name: Archive tool cache

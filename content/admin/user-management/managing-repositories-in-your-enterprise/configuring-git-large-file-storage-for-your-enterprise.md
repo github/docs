@@ -2,15 +2,15 @@
 title: Configuring Git Large File Storage for your enterprise
 intro: '{% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %}'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise/
+  - /enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise
   - /enterprise/admin/installation/configuring-git-large-file-storage-on-github-enterprise-server
   - /enterprise/admin/installation/configuring-git-large-file-storage
   - /enterprise/admin/installation/configuring-git-large-file-storage-to-use-a-third-party-server
   - /enterprise/admin/installation/migrating-to-a-different-git-large-file-storage-server
-  - /enterprise/admin/articles/configuring-git-large-file-storage-for-a-repository/
-  - /enterprise/admin/articles/configuring-git-large-file-storage-for-every-repository-owned-by-a-user-account-or-organization/
-  - /enterprise/admin/articles/configuring-git-large-file-storage-for-your-appliance/
-  - /enterprise/admin/guides/installation/migrating-to-different-large-file-storage-server/
+  - /enterprise/admin/articles/configuring-git-large-file-storage-for-a-repository
+  - /enterprise/admin/articles/configuring-git-large-file-storage-for-every-repository-owned-by-a-user-account-or-organization
+  - /enterprise/admin/articles/configuring-git-large-file-storage-for-your-appliance
+  - /enterprise/admin/guides/installation/migrating-to-different-large-file-storage-server
   - /enterprise/admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/configuring-git-large-file-storage-for-your-enterprise
 versions:

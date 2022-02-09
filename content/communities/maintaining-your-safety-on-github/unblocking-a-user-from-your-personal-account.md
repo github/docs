@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/unblocking-a-user-from-your-personal-account
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Unblock from your account

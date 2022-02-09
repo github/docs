@@ -1,17 +1,21 @@
 ---
 title: Reabrir un tablero de proyecto cerrado
-intro: Puedes reabrir un tablero de proyecto cerrado y reiniciar cualquier automatización de flujo de trabajo que se haya configurado para el tablero de proyecto.
+intro: Puedes volver a abrir un tablero de proyecto cerrado y reiniciar cualquier automatización de flujo de trabajo que se haya configurado para el tablero de proyecto.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
   - /articles/reopening-a-closed-project-board
   - /github/managing-your-work-on-github/reopening-a-closed-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Reabir el tablero de proyecto
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Cuando cierras un tablero de proyecto, por defecto, se detiene cualquier automatización de flujo de trabajo que se haya configurado para el tablero de proyecto. Para obtener más información, consulta "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)".
 
@@ -23,6 +27,6 @@ Cuando reabres un tablero de proyecto, tienes la opción de *sync* (sincronizar)
     - Para reabrir tu tablero de proyecto y sincronizar la automatización, haz clic en **Reopen and sync project** (Reabrir y sincronizar proyecto). ![Selecciona el botón "Reopen and resync project" (Reabrir y resincronizar proyecto)](/assets/images/help/projects/reopen-and-sync-project.png)
     - Para reabrir tu tablero de proyecto sin sincronizar la automatización, utilizando el menú desplegable, haz clic en **Reopen only** (Solo reabrir). Luego, haz clic en **Reopen only** (Solo reabrir). ![Menú desplegable para reabrir tablero de proyecto cerrado](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
-### Leer más
+## Leer más
 
 - "[Configurar la automatización para los tableros de proyecto](/articles/configuring-automation-for-project-boards)"

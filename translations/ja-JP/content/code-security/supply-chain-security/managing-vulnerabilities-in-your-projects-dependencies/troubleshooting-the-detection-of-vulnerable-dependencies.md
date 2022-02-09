@@ -1,13 +1,15 @@
 ---
-title: 脆弱性のある依存関係の検出のトラブルシューティング
-intro: '{% data variables.product.product_name %} によって報告された依存関係の情報が期待したものと異なる場合、いくつかの考慮するポイントと、様々な確認項目があります。'
-shortTitle: トラブルシューティングの検出
+title: Troubleshooting the detection of vulnerable dependencies
+intro: 'If the dependency information reported by {% data variables.product.product_name %} is not what you expected, there are a number of points to consider, and various things you can check.'
+shortTitle: Troubleshoot detection
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies
   - /code-security/supply-chain-security/troubleshooting-the-detection-of-vulnerable-dependencies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '*'
+  ghae: issue-4864
+  ghec: '*'
 type: how_to
 topics:
   - Dependabot
@@ -23,98 +25,100 @@ topics:
   - Repositories
 ---
 
-{% data variables.product.product_name %} によって報告された依存関係の検出結果は、他のツールから返される結果とは異なる場合があります。 これには理由があり、{% data variables.product.prodname_dotcom %} がプロジェクトの依存関係をどのように決定するかを理解しておくと便利です。
+{% data reusables.dependabot.beta-security-and-version-updates %}
 
-### 一部の依存関係がないように見えるのはなぜですか？
+The results of dependency detection reported by {% data variables.product.product_name %} may be different from the results returned by other tools. There are good reasons for this and it's helpful to understand how {% data variables.product.prodname_dotcom %} determines dependencies for your project.
 
-{% data variables.product.prodname_dotcom %} は、他のツールとは異なる方法で依存関係データを生成および表示します。 したがって、依存関係を特定するために別のツールを使用している場合は、ほぼ確実に異なる結果が表示されます。 次のことを考慮してください。
+## Why do some dependencies seem to be missing?
 
-*   {% data variables.product.prodname_advisory_database %} は、{% data variables.product.prodname_dotcom %} が脆弱性のある依存関係を識別するために使用するデータソースの 1 つです。 これは、{% data variables.product.prodname_dotcom %} の一般的なパッケージエコシステムの脆弱性情報がキュレーションされた無料のデータベースです。 これには、{% data variables.product.prodname_security_advisories %} から {% data variables.product.prodname_dotcom %} に直接報告されたデータと、公式フィードおよびコミュニティソースの両方が含まれます。 このデータは {% data variables.product.prodname_dotcom %} によってレビューおよびキュレーションされ、虚偽または実行不可能な情報が開発コミュニティと共有されないようにします。 {% data reusables.security-advisory.link-browsing-advisory-db %}
-*   依存関係グラフは、ユーザのリポジトリ内のすべての既知のパッケージマニフェストファイルを解析します。 たとえば、npm の場合、_package-lock.json_ ファイルを解析します。 リポジトリのすべての依存関係とパブリック依存関係のグラフを作成します。 これは、依存関係グラフを有効にし、誰かがデフォルトブランチにプッシュしたときに発生します。また、サポートされているマニフェスト形式に変更を加えるコミットが含まれています。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
-*   {% data variables.product.prodname_dependabot %} は、マニフェストファイルを含むデフォルトブランチへのプッシュをスキャンします。 新しい脆弱性レコードが追加されると、既存のすべてのリポジトリがスキャンされ、脆弱性のあるリポジトリごとにアラートが生成されます。 {% data variables.product.prodname_dependabot_alerts %} は、脆弱性ごとに 1 つのアラートを作成するのではなく、リポジトリレベルで集約されます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
-*   {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot_security_updates %} are triggered when you receive an alert about a vulnerable dependency in your repository. 可能な場合、{% data variables.product.prodname_dependabot %} はリポジトリ内でプルリクエストを作成して、脆弱性を回避するために必要な最小限の安全なバージョンに脆弱性のある依存関係をアップグレードします。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」および「[{% data variables.product.prodname_dependabot %} エラーのトラブルシューティング](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)」を参照してください。
+{% data variables.product.prodname_dotcom %} generates and displays dependency data differently than other tools. Consequently, if you've been using another tool to identify dependencies you will almost certainly see different results. Consider the following:
 
-    {% endif %}{% data variables.product.prodname_dependabot %} doesn't scan repositories for vulnerable dependencies on a schedule, but rather when something changes. For example, a scan is triggered when a new dependency is added ({% data variables.product.prodname_dotcom %} checks for this on every push), or when a new vulnerability is added to the advisory database{% if currentVersion ver_gt "enterprise-server@2.22" %} and synchronized to {% data variables.product.prodname_ghe_server %}{% endif %}. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)」を参照してください。
+*   {% data variables.product.prodname_advisory_database %} is one of the data sources that {% data variables.product.prodname_dotcom %} uses to identify vulnerable dependencies. It's a free, curated database of vulnerability information for common package ecosystems on {% data variables.product.prodname_dotcom %}. It includes both data reported directly to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_security_advisories %}, as well as official feeds and community sources. This data is reviewed and curated by {% data variables.product.prodname_dotcom %} to ensure that false or unactionable information is not shared with the development community. {% data reusables.security-advisory.link-browsing-advisory-db %}
+*   The dependency graph parses all known package manifest files in a user’s repository. For example, for npm it will parse the _package-lock.json_ file. It constructs a graph of all of the repository’s dependencies and public dependents. This happens when you enable the dependency graph and when anyone pushes to the default branch, and it includes commits that makes changes to a supported manifest format. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+*   {% data variables.product.prodname_dependabot %} scans any push, to the default branch, that contains a manifest file. When a new vulnerability record is added, it scans all existing repositories and generates an alert for each vulnerable repository. {% data variables.product.prodname_dependabot_alerts %} are aggregated at the repository level, rather than creating one alert per vulnerability. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+*   {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot_security_updates %} are triggered when you receive an alert about a vulnerable dependency in your repository. Where possible, {% data variables.product.prodname_dependabot %} creates a pull request in your repository to upgrade the vulnerable dependency to the minimum possible secure version needed to avoid the vulnerability. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)."
+  
+    {% endif %}{% data variables.product.prodname_dependabot %} doesn't scan repositories for vulnerable dependencies on a schedule, but rather when something changes. For example, a scan is triggered when a new dependency is added ({% data variables.product.prodname_dotcom %} checks for this on every push), or when a new vulnerability is added to the advisory database{% ifversion ghes or ghae-issue-4864 %} and synchronized to {% data variables.product.product_location %}{% endif %}. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)."
 
-### 一部のエコシステムの脆弱性アラートが表示されないのはなぜですか？
+## Why don't I get vulnerability alerts for some ecosystems?
 
-{% data variables.product.prodname_dotcom %} では、脆弱性アラートのサポートを、高品質で実用的なデータを提供できる一連のエコシステムに限定しています。 Curated vulnerabilities in the {% data variables.product.prodname_advisory_database %}, the dependency graph, {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot %} security updates, {% endif %}and {% data variables.product.prodname_dependabot %} alerts are provided for several ecosystems, including Java’s Maven, JavaScript’s npm and Yarn, .NET’s NuGet, Python’s pip, Ruby's RubyGems, and PHP’s Composer. 今後も、より多くのエコシステムのサポートを追加していきます。 サポートされているパッケージエコシステムの概要については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)」を参照してください。
+{% data variables.product.prodname_dotcom %} limits its support for vulnerability alerts to a set of ecosystems where we can provide high-quality, actionable data. Curated vulnerabilities in the {% data variables.product.prodname_advisory_database %}, the dependency graph, {% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot %} security updates, {% endif %}and  {% data variables.product.prodname_dependabot_alerts %} are provided for several ecosystems, including Java’s Maven, JavaScript’s npm and Yarn, .NET’s NuGet, Python’s pip, Ruby's RubyGems, and PHP’s Composer. We'll continue to add support for more ecosystems over time. For an overview of the package ecosystems that we support, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
 
-It's worth noting that {% data variables.product.prodname_dotcom %} Security Advisories may exist for other ecosystems. セキュリティアドバイザリの情報は、特定のリポジトリのメンテナによって提供されます。 このデータは、サポートされているエコシステムの情報と同じ方法でキュレーションされていません。 {% if currentVersion == "free-pro-team@latest" %}For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."{% endif %}
+It's worth noting that {% data variables.product.prodname_dotcom %} Security Advisories may exist for other ecosystems. The information in a security advisory is provided by the maintainers of a particular repository. This data is not curated in the same way as information for the supported ecosystems. {% ifversion fpt or ghec %}For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."{% endif %}
 
-**チェック**: 未捕捉の脆弱性は、サポートされていないエコシステムに適用されますか？
+**Check**: Does the uncaught vulnerability apply to an unsupported ecosystem?
 
-### 依存関係グラフは、マニフェストとロックファイルの依存関係のみを検索しますか？
+## Does the dependency graph only find dependencies in manifests and lockfiles?
 
-依存関係グラフには、環境で明示的に宣言されている依存関係に関する情報が含まれています。 つまり、マニフェストまたはロックファイルで指定されている依存関係です。 依存関係グラフには、通常、マニフェストファイル内の依存関係の依存関係を調べることにより、ロックファイルで指定されていない場合でも、推移的な依存関係も含まれます。
+The dependency graph includes information on dependencies that are explicitly declared in your environment. That is, dependencies that are specified in a manifest or a lockfile. The dependency graph generally also includes transitive dependencies, even when they aren't specified in a lockfile, by looking at the dependencies of the dependencies in a manifest file.
 
-{% data variables.product.prodname_dependabot_alerts %} は、推移的な依存関係を含め、更新する必要のある依存関係についてアドバイスします。この場合、バージョンはマニフェストまたはロックファイルから判別できます。 {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot_security_updates %} only suggest a change where {% data variables.product.prodname_dependabot %} can directly "fix" the dependency, that is, when these are:
-* マニフェストまたはロックファイルで明示的に宣言されている直接依存関係
+{% data variables.product.prodname_dependabot_alerts %} advise you about dependencies you should update, including transitive dependencies, where the version can be determined from a manifest or a lockfile. {% ifversion fpt or ghec or ghes > 3.2 %}{% data variables.product.prodname_dependabot_security_updates %} only suggest a change where {% data variables.product.prodname_dependabot %} can directly "fix" the dependency, that is, when these are:
+* Direct dependencies explicitly declared in a manifest or lockfile
 * Transitive dependencies declared in a lockfile{% endif %}
 
-依存関係グラフには、「寛容な」依存関係は含まれていません。 「寛容な」依存関係は、パッケージマネージャーのマニフェストまたはロックファイルで参照されるのではなく、別のソースからコピーされ、リポジトリに直接またはアーカイブ内でチェックインされる個々のファイル（ZIP ファイルや JAR ファイルなど）です。
+The dependency graph doesn't include "loose" dependencies. "Loose" dependencies are individual files that are copied from another source and checked into the repository directly or within an archive (such as a ZIP or JAR file), rather than being referenced by in a package manager’s manifest or lockfile. 
 
-**チェック**: リポジトリのマニフェストまたはロックファイル内で指定されていないコンポーネントに対する未捕捉の脆弱性はありますか？
+**Check**: Is the uncaught vulnerability for a component that's not specified in the repository's manifest or lockfile?
 
-### 依存関係グラフは、変数を使用して指定された依存関係を検出しますか？
+## Does the dependency graph detect dependencies specified using variables?
 
-依存関係グラフは、マニフェストが {% data variables.product.prodname_dotcom %} にプッシュされるときにマニフェストを分析します。 したがって、依存関係グラフはプロジェクトのビルド環境にアクセスできないため、マニフェスト内で使用される変数を解決できません。 マニフェスト内で変数を使用して名前、またはより一般的には依存関係のバージョンを指定する場合、その依存関係は依存関係グラフに含まれません。
+The dependency graph analyzes manifests as they’re pushed to {% data variables.product.prodname_dotcom %}. The dependency graph doesn't, therefore, have access to the build environment of the project, so it can't resolve variables used within manifests. If you use variables within a manifest to specify the name, or more commonly the version of a dependency, then that dependency will not be included in the dependency graph.
 
-**チェック**: 見つからない依存関係は、名前またはバージョンに変数を使用してマニフェストで宣言されていますか？
+**Check**: Is the missing dependency declared in the manifest by using a variable for its name or version?
 
-### 依存関係グラフのデータに影響する制限はありますか？
+## Are there limits which affect the dependency graph data?
 
-はい、依存関係グラフの制限には 2 つのカテゴリがあります。
+Yes, the dependency graph has two categories of limits:
 
-1. **処理制限**
+1. **Processing limits**
 
-    これらは {% data variables.product.prodname_dotcom %} 内に表示される依存関係グラフに影響を与え、{% data variables.product.prodname_dependabot_alerts %} が作成されないようにします。
+    These affect the dependency graph displayed within {% data variables.product.prodname_dotcom %} and also prevent {% data variables.product.prodname_dependabot_alerts %} being created.
 
-    サイズが 0.5 MB を超えるマニフェストは、Enterprise アカウントに対してのみ処理されます。 他のアカウントの場合、0.5 MB を超えるマニフェストは無視され、{% data variables.product.prodname_dependabot_alerts %} は作成されません。
+    Manifests over 0.5 MB in size are only processed for enterprise accounts. For other accounts, manifests over 0.5 MB are ignored and will not create {% data variables.product.prodname_dependabot_alerts %}.
 
-    デフォルト設定では、{% data variables.product.prodname_dotcom %} はリポジトリごとに 20 個を超えるマニフェストを処理しません。 {% data variables.product.prodname_dependabot_alerts %} は、この制限を超えるマニフェストに対しては作成されません。 制限を増やす必要がある場合は、{% data variables.contact.contact_support %} にお問い合わせください。
+    By default, {% data variables.product.prodname_dotcom %} will not process more than 20 manifests per repository. {% data variables.product.prodname_dependabot_alerts %} are not created for manifests beyond this limit. If you need to increase the limit, contact {% data variables.contact.contact_support %}. 
 
-2. **表示制限**
+2. **Visualization limits**
 
-    これらは、{% data variables.product.prodname_dotcom %} 内の依存関係グラフに表示される内容に影響します。 ただし、作成された {% data variables.product.prodname_dependabot_alerts %} には影響しません。
+    These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_alerts %} that are created.
 
-    リポジトリの依存関係グラフの依存関係ビューには、100 個のマニフェストのみが表示されます。 通常、これは上記の処理制限よりも大幅に高いので十分です。 処理制限が100 個を超える状況でも、{% data variables.product.prodname_dotcom %} 内に表示されていないマニフェストに対して {% data variables.product.prodname_dependabot_alerts %} が作成されます。
+    The Dependencies view of the dependency graph for a repository only displays 100 manifests. Typically this is adequate as it is significantly higher than the processing limit described above. In situations where the processing limit is over 100, {% data variables.product.prodname_dependabot_alerts %} are still created for any manifests that are not shown within {% data variables.product.prodname_dotcom %}.
 
-**チェック**: 0.5 MB を超えるマニフェストファイル、または多数のマニフェストがあるリポジトリに見つからない依存関係はありませんか？
+**Check**: Is the missing dependency in a manifest file that's over 0.5 MB, or in a repository with a large number of manifests?
 
-### {% data variables.product.prodname_dependabot %} は、何年も前から知られている脆弱性に対してアラートを生成しますか？
+## Does {% data variables.product.prodname_dependabot %} generate alerts for vulnerabilities that have been known for many years?
 
-{% data variables.product.prodname_advisory_database %} は 2019 年 11 月にリリースされ、2017 年からサポートされているエコシステムの脆弱性情報を含めるために当初にバックフィルされました。 データベースに CVE を追加するときは、新しい CVE のキュレーションと、新しいバージョンのソフトウェアに影響を与える CVE を優先します。
+The {% data variables.product.prodname_advisory_database %} was launched in November 2019, and initially back-filled to include vulnerability information for the supported ecosystems, starting from 2017. When adding CVEs to the database, we prioritize curating newer CVEs, and CVEs affecting newer versions of software.
 
-古い脆弱性に関するいくつかの情報は、特にこれらの CVE が特に広範囲に及ぶ場合に利用可能ですが、一部の古い脆弱性は {% data variables.product.prodname_advisory_database %} に含まれていません。 データベースに含める必要のある特定の古い脆弱性がある場合は、{% data variables.contact.contact_support %} にお問い合わせください。
+Some information on older vulnerabilities is available, especially where these CVEs are particularly widespread, however some old vulnerabilities are not included in the {% data variables.product.prodname_advisory_database %}. If there's a specific old vulnerability that you need to be included in the database, contact {% data variables.contact.contact_support %}. 
 
-**チェック**: 未捕捉の脆弱性の公開日は、National Vulnerability Database で 2017 年より前ですか？
+**Check**: Does the uncaught vulnerability have a publish date earlier than 2017 in the National Vulnerability Database?
 
-### {% data variables.product.prodname_advisory_database %} が公開された脆弱性データのサブセットを使用するのはなぜですか？
+## Why does {% data variables.product.prodname_advisory_database %} use a subset of published vulnerability data?
 
-一部のサードパーティツールは、人間によるチェックまたはフィルタが行われていない未キュレートの CVE データを使用しています。 これは、タグ付けや重要度のエラー、またはその他の品質に問題のある CVE により、わずらわしく有用性の低いアラートが頻出するということです。
+Some third-party tools use uncurated CVE data that isn't checked or filtered by a human. This means that CVEs with tagging or severity errors, or other quality issues, will cause more frequent, more noisy, and less useful alerts.
 
-{% data variables.product.prodname_dependabot %} は {% data variables.product.prodname_advisory_database %} で厳選されたデータを使用するため、アラートの数は少なくなる可能性があります。ただし、受信するアラートは正確で関連性があるものです。
+Since {% data variables.product.prodname_dependabot %} uses curated data in the {% data variables.product.prodname_advisory_database %}, the volume of alerts may be lower, but the alerts you do receive will be accurate and relevant.
 
-{% if currentVersion == "free-pro-team@latest" %}
-### 依存関係の脆弱性ごとに個別のアラートが生成されますか？
+{% ifversion fpt or ghec %}
+## Does each dependency vulnerability generate a separate alert?
 
-依存関係に複数の脆弱性がある場合、脆弱性ごとに 1 つのアラートではなく、その依存関係に対して 1 つの集約アラートのみが生成されます。
+When a dependency has multiple vulnerabilities, only one aggregated alert is generated for that dependency, instead of one alert per vulnerability.
 
-{% data variables.product.prodname_dependabot_alerts %} の {% data variables.product.prodname_dotcom %} の数は、アラートの数、つまり脆弱性の数ではなく、脆弱性のある依存関係の合計数を示します。
+The {% data variables.product.prodname_dependabot_alerts %} count in {% data variables.product.prodname_dotcom %} shows a total for the number of alerts, that is, the number of dependencies with vulnerabilities, not the number of vulnerabilities.
 
-![{% data variables.product.prodname_dependabot_alerts %} ビュー](/assets/images/help/repository/dependabot-alerts-view.png)
+![{% data variables.product.prodname_dependabot_alerts %} view](/assets/images/help/repository/dependabot-alerts-view.png)
 
-クリックしてアラートの詳細を表示すると、アラートに含まれている脆弱性の数を確認できます。
+When you click to display the alert details, you can see how many vulnerabilities are included in the alert.
 
-![{% data variables.product.prodname_dependabot %} アラートに対する複数の脆弱性](/assets/images/help/repository/dependabot-vulnerabilities-number.png)
+![Multiple vulnerabilities for a {% data variables.product.prodname_dependabot %} alert](/assets/images/help/repository/dependabot-vulnerabilities-number.png)
 
-**チェック**: 表示されている合計に不一致がある場合は、アラート番号と脆弱性番号を比較していないかどうか確認してください。
+**Check**: If there is a discrepancy in the totals you are seeing, check that you are not comparing alert numbers with vulnerability numbers.
 {% endif %}
 
-### 参考リンク
+## Further reading
 
-- 「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」
-- [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)
-- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"{% if currentVersion == "free-pro-team@latest" %}
+- "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
+- "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
+- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"{% ifversion fpt or ghec or ghes > 3.2 %}
 - "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}

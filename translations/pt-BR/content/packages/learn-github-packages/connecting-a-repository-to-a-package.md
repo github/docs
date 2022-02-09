@@ -6,24 +6,26 @@ redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
   - /packages/guides/connecting-a-repository-to-a-container-image
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Conectar um repositório
 ---
 
 Ao conectar um repositório a um pacote, a página inicial do pacote mostrará informações e links do repositório, como o LEIAME.
 
-### Conectar um repositório a um pacote de propriedade do usuário em {% data variables.product.prodname_dotcom %}
+## Conectar um repositório a um pacote de propriedade do usuário em {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Conectar um repositório a um pacote de propriedade da organização em {% data variables.product.prodname_dotcom %}
+## Conectar um repositório a um pacote de propriedade da organização em {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Conectar um repositório a uma imagem de contêiner usando a linha de comando
+## Conectar um repositório a uma imagem de contêiner usando a linha de comando
 
 1. No seu arquivo Docker, adicione esta linha, substituindo `PROPRIETÁRIO` e `REPO` pelas suas informações:
 

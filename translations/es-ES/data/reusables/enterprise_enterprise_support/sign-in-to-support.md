@@ -1,1 +1,1 @@
-1. Visita https://enterprise.github.com/support e inicia sesión en (si se solicita que lo hagas).
+1. Si un ingeniero de soporte te dio un enlace de carga para tu paquete de soporte, utiliza este enlace. De lo contrario, visita https://support.github.com/ e inicia sesión (en caso de que se te solicite hacerlo) en una cuenta empresarial que tenga derechos de soporte.

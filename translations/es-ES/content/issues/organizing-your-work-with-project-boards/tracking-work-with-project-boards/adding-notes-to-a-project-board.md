@@ -3,16 +3,20 @@ title: Agregar notas a tu tablero de proyecto
 intro: Puedes agregar notas a tu tablero de proyecto para que funcionen como recordatorios de tareas o para agregar información relacionada con el tablero de proyecto.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
-  - /articles/adding-notes-to-a-project/
+  - /articles/adding-notes-to-a-project
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Agregar notas al tablero
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -27,7 +31,7 @@ Cuando agregas una URL para una propuesta, solicitud de extracción u otro table
 
 ![Tarjetas de tableros de proyecto mostrando una vista previa de una propuesta y otro tablero de proyecto](/assets/images/help/projects/note-with-summary-card.png)
 
-### Agregar notas a tu tablero de proyecto
+## Agregar notas a tu tablero de proyecto
 
 1. Desplázate hasta el tablero de proyecto donde quieres agregar notas.
 2. En la columna en la que deseas agregar una nota, haz clic en {% octicon "plus" aria-label="The plus icon" %}. ![Icono de adición en el encabezado de la columna](/assets/images/help/projects/add-note-button.png)
@@ -39,7 +43,7 @@ Cuando agregas una URL para una propuesta, solicitud de extracción u otro table
 
   {% endtip %}
 
-### Convertir una nota en una propuesta
+## Convertir una nota en una propuesta
 
 Si has creado una nota y consideras que no es suficiente para tus necesidades, puedes convertirla en una propuesta.
 
@@ -59,14 +63,14 @@ Cuando conviertes una nota en una propuesta, la propuesta se crea automáticamen
 6. Haz clic en **Convert to issue** (Convertir en propuesta).
 7. La nota se convertirá automáticamente en una propuesta. En el tablero de proyecto, la nueva tarjeta de propuesta estará en la misma ubicación que la nota anterior.
 
-### Editar o eliminar una nota
+## Editar o eliminar una nota
 
 1. Desplázate hasta la nota que deseas editar o eliminar.
 {% data reusables.project-management.project-note-more-options %}
 3. Para editar los contenidos de la nota, haz clic en **Edit note** (Editar nota). ![Botón para editar notas](/assets/images/help/projects/edit-note.png)
 4. Para eliminar los contenidos de las notas, haz clic en **Delete note** (Eliminar nota). ![Botón para eliminar notas](/assets/images/help/projects/delete-note.png)
 
-### Leer más
+## Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Crear un tablero de proyecto](/articles/creating-a-project-board)"

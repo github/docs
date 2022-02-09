@@ -1,8 +1,8 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes %}
 
 {% note %}
 
-**ノート:** この機能を使う前には、サイト管理者が{% data variables.product.product_location %}の{% data variables.product.prodname_secret_scanning %}を有効化していなければなりません。 詳しい情報については「[アプライアンスのための{% data variables.product.prodname_secret_scanning %}の設定](/enterprise/admin/configuration/configuring-secret-scanning-for-your-appliance)」を参照してください。
+**Note:** Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for {% data variables.product.product_location %} before you can use this feature. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your appliance](/enterprise/admin/configuration/configuring-secret-scanning-for-your-appliance)."
 
 {% endnote %}
 

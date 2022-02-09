@@ -1,0 +1,1 @@
+Ao configurar as configurações de editor para {% data variables.product.prodname_vscode %}, há três escopos disponíveis: _Workspace_, _Remote [Codespaces]_, e _User_. Se uma configuração for definida em vários escopos, as configurações do _Workspace_ têm prioridade e, em seguida _Remote [Codespaces]_, depois _User_.

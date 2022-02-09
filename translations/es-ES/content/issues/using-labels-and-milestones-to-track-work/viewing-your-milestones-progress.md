@@ -7,11 +7,13 @@ redirect_from:
   - /articles/viewing-your-milestones-progress
   - /github/managing-your-work-on-github/viewing-your-milestones-progress
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Visualizar el progreso a un hito
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -23,7 +25,7 @@ topics:
 
 Para administrar mejor tu proyecto, puedes priorizar propuestas o solicitudes de extracción dentro de un hito. Para obtener más información, consulta "[Acerca de los hitos](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)."
 
-### Leer más
+## Leer más
 
 * "[Asociar hitos con propuestas y solicitudes de extracción](/articles/associating-milestones-with-issues-and-pull-requests)"
 * "[Filtrar propuestas y solicitudes de extracción por hitos](/articles/filtering-issues-and-pull-requests-by-milestone)"

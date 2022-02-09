@@ -4,10 +4,10 @@ intro: スポンサーシップを低い層にダウングレードしたり、�
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-a-sponsorship
   - /articles/downgrading-a-sponsorship
-  - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-a-sponsorship
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/downgrading-a-sponsorship
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Cancellation
@@ -17,11 +17,11 @@ topics:
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### スポンサーシップのダウングレードについて
+## スポンサーシップのダウングレードについて
 
 スポンサーシップをダウングレードまたはキャンセルした場合、その変更は次回の請求日から有効になります。 {% data reusables.sponsors.no-refunds %}
 
-### スポンサーシップをダウングレードする
+## スポンサーシップをダウングレードする
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
@@ -29,7 +29,7 @@ topics:
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### スポンサーシップをキャンセルする
+## スポンサーシップをキャンセルする
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}

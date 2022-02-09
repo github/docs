@@ -3,8 +3,12 @@ title: Enabling GitHub Packages with AWS
 intro: 'Set up {% data variables.product.prodname_registry %} with AWS as your external storage.'
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Packages
+  - Packages
 shortTitle: Enable Packages with AWS
 ---
 
@@ -36,19 +40,8 @@ Ensure your AWS access key ID and secret have the following permissions:
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-{% ifversion ghes = 2.22 %}
-1. Under "AWS Service URL", type the S3 endpoint URL for your bucket's region.
-  ![AWS Service URL field](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
-1. Under "AWS S3 Bucket", type the name of the S3 bucket you want to use to store package artifacts.
-  ![AWS S3 Bucket field](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
-1. Under "AWS S3 Access Key", type your access key for S3.
-  ![AWS S3 Access Key field](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
-1. Under "AWS S3 Secret Key", type your secret key for S3.
-  ![AWS S3 Secret Key field](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
-1. Under "AWS S3 Region", type your region for S3.
-  ![AWS S3 Region field](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
-{% endif %}
-{% ifversion ghes > 2.22 %}
+
+{% ifversion ghes %}
 1. Under "Packages Storage", select **Amazon S3** and enter your storage bucket's details:
     - **AWS Service URL:** The service URL for your bucket. For example, if your S3 bucket was created in the `us-west-2 region`, this value should be `https://s3.us-west-2.amazonaws.com`.
 

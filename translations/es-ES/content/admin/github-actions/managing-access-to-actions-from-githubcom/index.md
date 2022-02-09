@@ -4,8 +4,8 @@ intro: 'En tu empresa, puedes controlar qué acciones de {% data variables.produ
 redirect_from:
   - /enterprise/admin/github-actions/managing-access-to-actions-from-githubcom
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -14,5 +14,6 @@ children:
   - /manually-syncing-actions-from-githubcom
   - /using-the-latest-version-of-the-official-bundled-actions
   - /setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
+shortTitle: Administrar el acceso a las acciones
 ---
 

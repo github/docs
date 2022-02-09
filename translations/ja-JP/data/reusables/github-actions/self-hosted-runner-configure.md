@@ -1,6 +1,4 @@
-1. 使用するセルフホストランナーマシンのオペレーティングシステムとアーキテクチャを選択してください。 ![セルフホストランナーのオペレーティングシステムの選択](/assets/images/help/settings/actions-runner-architecture-os.png)
-
-
+1. Select the operating system image and architecture of your self-hosted runner machine.
 1. ランナーアプリケーションをダウンロードして、使用するセルフホストランナーのマシンにインストールする方法が表示されます。
 
    セルフホストランナーのマシンでシェルを開き、表示順に従ってシェルコマンドを実行してください。

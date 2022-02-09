@@ -3,13 +3,14 @@ title: Adding notes to a project board
 intro: You can add notes to a project board to serve as task reminders or to add information related to the project board.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-notes-to-a-project-board
-  - /articles/adding-notes-to-a-project/
+  - /articles/adding-notes-to-a-project
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Add notes to board

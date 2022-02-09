@@ -2,8 +2,8 @@
 title: Command-line utilities
 intro: '{% data variables.product.prodname_ghe_server %} includes a variety of utilities to help resolve particular problems or perform specific tasks.'
 redirect_from:
-  - /enterprise/admin/articles/viewing-all-services/
-  - /enterprise/admin/articles/command-line-utilities/
+  - /enterprise/admin/articles/viewing-all-services
+  - /enterprise/admin/articles/command-line-utilities
   - /enterprise/admin/installation/command-line-utilities
   - /enterprise/admin/configuration/command-line-utilities
   - /admin/configuration/command-line-utilities
@@ -350,18 +350,6 @@ stop/waiting
   - ghe-replica-mode
 ```
 
-{% tip %}
-
-The service names returned from this command can be used with [`systemctl`](https://www.freedesktop.org/software/systemd/man/systemctl.html) commands to stop, start, or restart these services manually, if needed. For example:
-
-```shell
-$ sudo systemctl restart github-resqued
-```
-
-Stopping services will cause downtime on your installation, so we recommend you contact {% data variables.contact.contact_ent_support %} before stopping or restarting any service.
-
-{% endtip %}
-
 ### ghe-set-password
 
 With `ghe-set-password`, you can set a new password to authenticate into the [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console).
@@ -505,7 +493,7 @@ ghe-webhook-logs
 ```
 
 To show all failed hook deliveries in the past day:
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
 ```
@@ -518,7 +506,7 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em>
 ```
@@ -636,6 +624,31 @@ A `top`-like interface for current Git operations.
 ghe-btop [ <port number> | --help | --usage ]
 ```
 
+#### ghe-governor
+
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_gcf %}.
+
+```bash
+ghe-governor <subcommand> <column> [options]
+```
+
+```
+ghe-governor -h
+Usage: ghe-governor [-h] <subcommand> args
+
+OPTIONS:
+  -h | --help        Show this message.
+
+Valid subcommands are:
+  aggregate              Find the top (n) groups of queries for a grouping function and metric
+  health                 Summarize all recent activity on one or more servers
+  top                    Find the top (n) queries for a given metric
+  dump                   Dump individual operations
+  test-quotas            Check quota information
+
+Try ghe-governor <subcommand> --help for more information on the arguments each subcommand takes.
+```
+
 ### ghe-repo
 
 This utility allows you to change to a repository's directory and open an interactive shell as the `git` user. You can perform manual inspection or maintenance of a repository via commands like `git-*` or `git-nw-*`.
@@ -652,6 +665,32 @@ You can add the optional `--prune` argument to remove unreachable Git objects th
 
 ```shell
 ghe-repo-gc <em>username</em>/<em>reponame</em>
+```
+
+## {% data variables.product.prodname_actions %}
+
+### ghe-actions-check
+
+This utility checks that all services for {% data variables.product.prodname_actions %} are healthy. For more information, see  "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)" and "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)."
+
+```shell
+ghe-actions-check
+```
+
+### ghe-actions-precheck
+
+This utility tests the blob storage configuration for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}. You can use the utility to verify your storage configuration before you enable {% data variables.product.prodname_actions %} for your instance.
+
+For more information about the configuration of {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
+
+```shell
+ghe-actions-precheck -p [<em>provider</em>] -cs ["<em>connectionstring</em>"]
+```
+
+If your storage system is configured correctly, you'll see the following output.
+
+```
+All Storage tests passed
 ```
 
 ## Import and export
@@ -807,7 +846,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 
 ### ghe-license-usage
 
-This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} ](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)."
+This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 By default, the list of users in the resulting JSON file is encrypted. Use the `-h` flag for more options.
 
@@ -823,7 +862,7 @@ This utility will enforce the default organization membership visibility setting
 ghe-org-membership-update --visibility=<em>SETTING</em>
 ```
 
-### ghe-user-csv
+### `ghe-user-csv`
 
 This utility exports a list of all the users in the installation into CSV format. The CSV file includes the email address, which type of user they are (e.g., admin, user), how many repositories they have, how many SSH keys, how many organization memberships, last logged IP address, etc. Use the `-h` flag for more options.
 

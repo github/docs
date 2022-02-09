@@ -4,10 +4,10 @@ intro: 'Con el precio por usuario, las organizaciones pagan en función del tama
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-per-user-pricing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Licensing
@@ -20,24 +20,24 @@ Las organizaciones que usan una suscripción paga antes del 11 de mayo de 2016 p
 
 Para obtener más información sobre los productos con precio por usuario, consulta "[Productos de {% data variables.product.prodname_dotcom %}](/articles/githubs-products)".
 
-### ¿Cuántas licencias necesito para mi organización?
+## ¿Cuántas licencias necesito para mi organización?
 
-Los propietarios y miembros de las organizaciones deberán contar con una licencia individual por persona. Si has enviado una invitación pendiente para un miembro prospecto de una organización, ésta tomará una licencia. {% data reusables.organizations.org-invite-expiration %}
+Los propietarios y miembros de las organizaciones deberán contar con una licencia individual por persona. Si has enviado una invitación pendiente para un miembro prospecto de una organización, ésta tomará una licencia. {% data reusables.organizations.org-invite-scim %}
 
 Los colaboradores externos y cuentas bot contarán en el total de las licencias pagadas de tu organización si se les da acceso a un repositorio privado.
 
-### ¿Cómo puedo añadir o bajar de categoría a las licencias pagadas de mi organización?
+## ¿Cómo puedo añadir o bajar de categoría a las licencias pagadas de mi organización?
 
 Puedes añadir licencias pagadas a tu organización en cualquier momento. Si pagas por más licencias de las que utilizas, también puedes eliminar las licencias pagadas de tu organización. Para obtener más información, consulta "[Actualizar tu suscripción de {% data variables.product.prodname_dotcom %}](/articles/upgrading-your-github-subscription)" y "[Bajar de categoría tu suscripción de {% data variables.product.prodname_dotcom %}](/articles/downgrading-your-github-subscription)".
 
 Si tienes consultas acerca de la suscripción de tu organización, comunícate con {% data variables.contact.contact_support %}.
 
-### Si mantengo mi organización en un plan por repositorio, ¿puedo actualizar o bajar de categoría a un plan de repositorio diferente?
+## Si mantengo mi organización en un plan por repositorio, ¿puedo actualizar o bajar de categoría a un plan de repositorio diferente?
 
 Puedes actualizar o bajar de categoría entre planes pagos heredados en los parámetros de facturación de tu organización. Cuando te actualizas a un plan con más repositorios privados, inmediatamente moveremos tu cuenta a tu nuevo plan y te facturaremos la diferencia en el precio, prorrateado por la cantidad de días que quedan en tu ciclo de facturación.
 
 Cuando bajas de categoría a un plan pago heredado con menos repositorios privados, tu nuevo plan entrará en vigencia en tu próxima fecha de facturación. Si tienes más repositorios privados de los que permite tu nuevo plan, tus repositorios privados se bloquearán cuando tu nuevo plan entre en vigencia. Para reducir la cantidad de repositorios privados, puedes hacer que algunos de tus repositorios privados sean públicos o puedes clonar tus repositorios privados localmente y eliminar las copias en {% data variables.product.prodname_dotcom %}.
 
-### Leer más
+## Leer más
 
 - "[¿Cómo afecta subir o bajar de categoría al proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"

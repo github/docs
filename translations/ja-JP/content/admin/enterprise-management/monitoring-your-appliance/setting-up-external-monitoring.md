@@ -6,20 +6,21 @@ redirect_from:
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
   - /admin/enterprise-management/setting-up-external-monitoring
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Set up external monitoring
 ---
 
-### SNMPについて
+## SNMPについて
 
 Simple Network Management Protocol (SNMP) は、ネットワークデバイスやサーバのモニタリングの方法として広くサポートされています。 SNMPはデフォルトでは無効化されていますが、{% data variables.product.prodname_enterprise %}モニタリングダッシュボードを通じて設定できます。 UDPポート161は、オープンでネットワーク管理ステーションから到達可能でなければなりません。 詳細は「[SNMPを使用したモニタリング](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)」を参照してください。
 
-### collectdについて
+## collectdについて
 
 collectdはオープンソースの統計収集及びレポーティングデーモンで、RRDファイルの書き込みサポートが組み込まれています。 CPUの利用状況、メモリ及びディスクの消費、ネットワークインターフェースのトラフィックとエラー、システムの負荷に関する統計を外部のcollectdサーバに転送でき、そこで利用可能な幅広いツールやプラグインを使ってグラフ、分析、アラートを設定できます。 `collectd` 転送を設定するには、「[collectdの設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-collectd/)」を参照してください。
 

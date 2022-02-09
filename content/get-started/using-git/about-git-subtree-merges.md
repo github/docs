@@ -1,8 +1,8 @@
 ---
 title: About Git subtree merges
 redirect_from:
-  - /articles/working-with-subtree-merge/
-  - /subtree-merge/
+  - /articles/working-with-subtree-merge
+  - /subtree-merge
   - /articles/about-git-subtree-merges
   - /github/using-git/about-git-subtree-merges
   - /github/getting-started-with-github/about-git-subtree-merges
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 ## About subtree merges
 
@@ -51,7 +52,7 @@ The best way to explain subtree merges is to show by example. We will:
 
 1. Add a new remote URL pointing to the separate project that we're interested in.
   ```shell
-  $ git remote add -f spoon-knife git@github.com:octocat/Spoon-Knife.git
+  $ git remote add -f spoon-knife https://github.com/octocat/Spoon-Knife.git
   > Updating spoon-knife
   > warning: no common commits
   > remote: Counting objects: 1732, done.
@@ -59,7 +60,7 @@ The best way to explain subtree merges is to show by example. We will:
   > remote: Total 1732 (delta 1086), reused 1558 (delta 967)
   > Receiving objects: 100% (1732/1732), 528.19 KiB | 621 KiB/s, done.
   > Resolving deltas: 100% (1086/1086), done.
-  > From git://github.com/octocat/Spoon-Knife
+  > From https://github.com/octocat/Spoon-Knife
   >  * [new branch]      main     -> Spoon-Knife/main
   ```
 2. Merge the `Spoon-Knife` project into the local Git project. This doesn't change any of your files locally, but it does prepare Git for the next step.

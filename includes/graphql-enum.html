@@ -1,9 +1,10 @@
 <div>
   <div>
     <h2 id="{{ item.id }}">
-      <a href="#{{ item.id }}">{{item.name}}</a>
+      <a href="#{{ item.id }}" class="doctocat-link">{% include doctocat-link-icon %}</a>
+      {{- item.name -}}
     </h2>
-  {{ item.description }}
+    {{ item.description }}
   </div>
 
   <div>
@@ -13,8 +14,7 @@
   <h4>{% data ui.products.graphql.reference.values %}</h4>
   {% for value in item.values %}
   <p><strong>{{ value.name }}</strong></p>
-  <p>{{ value.description }}</p>
+  {{ value.description }}
   {% endfor %}
   </div>
-  <hr>
 </div>

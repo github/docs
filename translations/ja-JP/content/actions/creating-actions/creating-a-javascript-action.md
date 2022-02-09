@@ -1,27 +1,27 @@
 ---
 title: JavaScript アクションを作成する
 intro: このガイドでは、アクションツールキットを使って JavaScript アクションをビルドする方法について学びます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/building-actions/creating-a-javascript-action
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
   - JavaScript
+shortTitle: JavaScript action
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### はじめに
+## はじめに
 
 このガイドでは、パッケージ化されたJavaScriptのアクションを作成して使うために必要な、基本的コンポーネントについて学びます。 アクションのパッケージ化に必要なコンポーネントのガイドに焦点を当てるため、アクションのコードの機能は最小限に留めます。 このアクションは、ログに "Hello World" を出力するものです。また、カスタム名を指定した場合は、"Hello [who-to-greet]" を出力します。
 
@@ -33,13 +33,13 @@ topics:
 
 {% data reusables.github-actions.context-injection-warning %}
 
-### 必要な環境
+## 必要な環境
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
-1. Node.js 12.x をダウンロードして、インストールします。npm も Node.js 12.x に含まれています。
+1. Download and install Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, which includes npm.
 
-  https://nodejs.org/en/download/current/
+  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
 1. Create a new public repository on {% data variables.product.product_location %} and call it "hello-world-javascript-action". 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
@@ -47,21 +47,21 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 
 1. ターミナルから、ディレクトリを新しいリポジトリに変更します。
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-javascript-action
   ```
 
 1. From your terminal, initialize the directory with npm to generate a `package.json` file.
 
-  ```shell
+  ```shell{:copy}
   npm init -y
   ```
 
-### アクションのメタデータファイルの作成
+## アクションのメタデータファイルの作成
 
 Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
 
-```yaml
+```yaml{:copy}
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
@@ -73,13 +73,13 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 
 このファイルは、`who-to-greet` 入力と `time` 出力を定義しています。 また、アクションのランナーに対して、この JavaScript アクションの実行を開始する方法を伝えています。
 
-### アクションツールキットのパッケージの追加
+## アクションツールキットのパッケージの追加
 
 アクションのツールキットは、Node.js パッケージのコレクションで、より一貫性を保ちつつ、JavaScript を素早く作成するためのものです。
 
@@ -91,14 +91,14 @@ runs:
 
 ターミナルで、アクションツールキットの `core` および `github` パッケージをインストールします。
 
-```shell
+```shell{:copy}
 npm install @actions/core
 npm install @actions/github
 ```
 
 これで、`node_modules` ディレクトリと先ほどインストールしたモジュール、`package-lock.json` ファイルとインストールしたモジュールの依存関係、およびインストールした各モジュールのバージョンが表示されるはずです。
 
-### アクションのコードの記述
+## アクションのコードの記述
 
 このアクションは、ツールキットを使って、アクションのメタデータファイルに必要な `who-to-greet` 入力変数を取得し、ログのデバッグメッセージに "Hello [who-to-greet]" を出力します。 次に、スクリプトは現在の時刻を取得し、それをジョブ内で後に実行するアクションが利用できる出力変数に設定します。
 
@@ -107,7 +107,7 @@ GitHub Actions は、webhook イベント、Git ref、ワークフロー、ア�
 以下のコードで、`index.js` と名付けた新しいファイルを追加してください。
 
 {% raw %}
-```javascript
+```javascript{:copy}
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -128,8 +128,7 @@ try {
 
 上記の `index.js` の例でエラーがスローされた場合、`core.setFailed(error.message);` はアクションツールキット [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージを使用してメッセージをログに記録し、失敗の終了コードを設定します。 詳しい情報については「[アクションの終了コードの設定](/actions/creating-actions/setting-exit-codes-for-actions)」を参照してください。
 
-
-### READMEの作成
+## READMEの作成
 
 アクションの使用方法を説明するために、README ファイルを作成できます。 README はアクションの公開を計画している時に非常に役立ちます。また、アクションの使い方をあなたやチームが覚えておく方法としても優れています。
 
@@ -147,17 +146,17 @@ try {
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
 
-## 入力
+## Inputs
 
-### `who-to-greet`
+## `who-to-greet`
 
-**必須** 挨拶する相手の名前。 デフォルトは `"World"`。
+**Required** The name of the person to greet. デフォルトは `"World"`。
 
-## 出力
+## Outputs
 
-### `time`
+## `time`
 
-挨拶した時間。
+The time we greeted you.
 
 ## 使用例
 
@@ -166,7 +165,7 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-### アクションの GitHub へのコミットとタグ、プッシュ
+## アクションの GitHub へのコミットとタグ、プッシュ
 
 {% data variables.product.product_name %} が、動作時にワークフロー内で実行される各アクションをダウンロードし、コードの完全なパッケージとして実行すると、ランナーマシンを操作するための`run` などのワークフローコマンドが使えるようになります。 つまり、JavaScript コードを実行するために必要なあらゆる依存関係を含める必要があります。 アクションのリポジトリに、ツールキットの `core` および `github` パッケージをチェックインする必要があります。
 
@@ -174,8 +173,7 @@ with:
 
 アクションのリリースにはバージョンタグを加えることもベストプラクティスです。 アクションのバージョン管理の詳細については、「[アクションについて](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)」を参照してください。
 
-
-```shell
+```shell{:copy}
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1.1
@@ -202,20 +200,20 @@ git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-### ワークフローでアクションをテストする
+## ワークフローでアクションをテストする
 
 これで、ワークフローでアクションをテストできるようになりました。 プライベートリポジトリにあるアクションは、同じリポジトリのワークフローでしか使用できません。 パブリックアクションは、どのリポジトリのワークフローでも使用できます。
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-#### パブリックアクションを使用する例
+### パブリックアクションを使用する例
 
 This example demonstrates how your new public action can be run from within an external repository.
 
 Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -236,13 +234,13 @@ jobs:
 
 When this workflow is triggered, the runner will download the `hello-world-javascript-action` action from your public repository and then execute it.
 
-#### プライベートアクションを使用する例
+### プライベートアクションを使用する例
 
 ワークフローコードを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -265,11 +263,11 @@ jobs:
 ```
 {% endraw %}
 
-リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}[**Jobs**] または視覚化グラフで、[**A job to say hello**] をクリックします。 {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
+リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
+{% elsif ghes %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run.png)

@@ -1,62 +1,83 @@
 ---
-title: GitHub PagesサイトのJekyllビルドエラーについて
-intro: 'ローカルで、または{% data variables.product.product_name %}上で{% data variables.product.prodname_pages %}サイトをビルド中にJekyllでエラーが発生した場合には、詳細情報を伴うエラーメッセージが示されます。'
+title: About Jekyll build errors for GitHub Pages sites
+intro: 'If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you''ll receive an error message with more information.'
 redirect_from:
-  - /articles/viewing-jekyll-build-error-messages/
-  - /articles/generic-jekyll-build-failures/
+  - /articles/viewing-jekyll-build-error-messages
+  - /articles/generic-jekyll-build-failures
   - /articles/about-jekyll-build-errors-for-github-pages-sites
   - /github/working-with-github-pages/about-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Jekyll build errors for Pages
 ---
 
-### Jekyllのビルドエラーについて
+## About Jekyll build errors
 
-サイトの公開元に変更をプッシュした後、{% data variables.product.prodname_pages %} がサイトのビルドを試行しない場合があります。{% if currentVersion == "free-pro-team@latest" %}
-- 変更をプッシュしたユーザーがメールアドレスを検証していない。 詳しい情報については、「[メールアドレスの検証](/articles/verifying-your-email-address)」を参照してください。{% endif %}
-- デプロイキーでプッシュしている。 サイトのリポジトリへのプッシュを自動化する場合は、かわりにマシンユーザーを設定できます。 詳しい情報については、「[デプロイキーを管理する](/developers/overview/managing-deploy-keys#machine-users)」を参照してください。
-- 公開元をビルドするようにCIサービスを設定していない。 たとえば、Travis CI は `gh-pages` ブランチを、セーフリストに追加しない限りビルドしません。 詳細は、Travis CIまたはCIサービスのドキュメンテーションで、「[ビルドのカスタマイズ](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)」を参照してください。
+Sometimes, {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% ifversion fpt or ghec %}
+- The person who pushed the changes hasn't verified their email address. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
+- You're pushing with a deploy key. If you want to automate pushes to your site's repository, you can set up a machine user instead. For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys#machine-users)."
+- You're using a CI service that isn't configured to build your publishing source. For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. For more information, see "[Customizing the build](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" on Travis CI, or your CI service's documentation.
 
 {% note %}
 
-**メモ:** サイトに対する変更は、その変更を{% data variables.product.product_name %}にプッシュしてから公開されるまでに、最大20分かかることがあります。
+**Note:** It can take up to 20 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
 
 {% endnote %}
 
-Jekyllがサイトのビルドを試行せず、エラーが発生した場合は、ビルドエラーメッセージが表示されます。 Jekyll ビルドエラーメッセージには主に 2 つのタイプがあります。
-- 「Page build warning」メッセージは、ビルドは成功したものの、今後問題が生じないようにするために変更を行なう必要がある可能性が存在することを意味します。
-- 「Page build failed」メッセージは、ビルドが完了できなかったことを意味します。 Jekyll が失敗の理由を検出できた場合、説明を含むエラーメッセージが表示されます。
+If Jekyll does attempt to build your site and encounters an error, you will receive a build error message. There are two main types of Jekyll build error messages.
+- A "Page build warning" message means your build completed successfully, but you may need to make changes to prevent future problems.
+- A "Page build failed" message means your build failed to complete. If Jekyll is able to detect a reason for the failure, you'll see a descriptive error message.
 
-ビルドエラーのトラブルシューティングに関する詳しい情報については、「[{% data variables.product.prodname_pages %} サイトの Jekyll ビルドエラーのトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)」を参照してください。
+For more information about troubleshooting build errors, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)."
 
-### Jekyll ビルドエラーメッセージを表示する
+{% ifversion fpt %} 
+## Viewing Jekyll build error messages with {% data variables.product.prodname_actions %}
 
-サイトのテストをローカルで行なうことをお勧めします。それにより、ビルドエラーメッセージをコマンドラインで表示でき、変更を {% data variables.product.product_name %} にプッシュする前に、あらゆるビルドエラーに対処できます。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
+By default, your {% data variables.product.prodname_pages %} site is built and deployed with a {% data variables.product.prodname_actions %} workflow run unless you've configured your {% data variables.product.prodname_pages %} site to use a different CI tool. To find potential build errors, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."  For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+{% note %}
 
-{% data variables.product.product_name %} サイトの公開元を更新するためプルリクエストを作成すると、そのプルリクエストの [**Checks**] タブでビルドエラーメッセージが表示されます。 詳しい情報については[ステータスチェックについて](/articles/about-status-checks)を参照してください。
+{% data reusables.pages.pages-builds-with-github-actions-public-beta %}
 
-{% data variables.product.product_name %} の公開元に変更をプッシュする際、{% data variables.product.prodname_pages %} はサイトのビルドを試みます。 ビルドが失敗すると、プライマリメールアドレスにメールが送信されます。 また、ビルドの警告についてのメールも送信されます。 {% data reusables.pages.build-failure-email-server %}
+{% endnote %}
+{% endif %}
 
-{% data variables.product.product_name %} 上のビルドの失敗については、サイトのリポジトリの、[**Settings**] タブに表示されます。(ただし、ビルドの警告については表示されません。)
+## Viewing your repository's build failures on {% data variables.product.product_name %}
 
-各コミット後にエラーメッセージを表示するように、[Travis CI](https://travis-ci.org/) などのサードパーティサービスを設定できます。
+You can see build failures (but not build warnings) for your site on {% data variables.product.product_name %} in the **Settings** tab of your site's repository.
 
-1. 公開元のルートに、以下の内容で _Gemfile_ と呼ばれるファイルをまだ追加していない場合は、追加します。
+## Viewing Jekyll build error messages locally
+
+We recommend testing your site locally, which allows you to see build error messages on the command line, and addressing any build failures before pushing changes to {% data variables.product.product_name %}. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
+
+## Viewing Jekyll build error messages in your pull request
+
+When you create a pull request to update your publishing source on {% data variables.product.product_name %}, you can see build error messages on the **Checks** tab of the pull request. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
+
+## Viewing Jekyll build errors by email
+
+When you push changes to your publishing source on {% data variables.product.product_name %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. You'll also receive emails for build warnings. {% data reusables.pages.build-failure-email-server %}
+
+## Viewing Jekyll build error messages in your pull request with a third-party CI service
+
+You can configure a third-party service, such as [Travis CI](https://travis-ci.org/), to display error messages after each commit.
+
+1. If you haven't already, add a file called _Gemfile_ in the root of your publishing source, with the following content:
   ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
-2. 選択したテストサービス用にサイトのリポジトリを設定します。 例えば、[Travis CI](https://travis-ci.org/) を利用するには、以下の内容の _.travis.yml_ ファイルを、公開元のルートに追加します。
+2. Configure your site's repository for the testing service of your choice. For example, to use [Travis CI](https://travis-ci.org/), add a file named _.travis.yml_ in the root of your publishing source, with the following content:
   ```yaml
   language: ruby
   rvm:
     - 2.3
   script: "bundle exec jekyll build"
   ```
-3. サードパーティのテストサービス内で、リポジトリを有効にする必要があるかもしれません。 詳しい情報については、お使いのテストサービスのドキュメンテーションを参照してください。
+3. You may need to activate your repository with the third-party testing service. For more information, see your testing service's documentation.

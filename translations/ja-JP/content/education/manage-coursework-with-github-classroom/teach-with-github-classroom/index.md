@@ -2,7 +2,7 @@
 title: GitHub Classroomで教える
 intro: クラスルームと課題の設定方法を学びましょう。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configure-default-settings-for-assignment-repositories
   - /education/manage-coursework-with-github-classroom/probot-settings
@@ -15,5 +15,6 @@ children:
   - /leave-feedback-with-pull-requests
   - /use-autograding
   - /connect-a-learning-management-system-to-github-classroom
+shortTitle: Teach
 ---
 

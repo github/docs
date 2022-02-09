@@ -3,7 +3,7 @@ title: GitHubのGPL協力へのコミットメント
 redirect_from:
   - /articles/github-gpl-cooperation-commitment
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -13,7 +13,7 @@ topics:
 
 この声明は、企業向け[テンプレート](https://github.com/gplcc/gplcc/blob/master/Company/GPL%20Cooperation%20Commitment-Company-Template.md)に基づいて作成しました。 他の企業、個人、およびプロジェクトがこのコミットメントを適用する方法については、[「GPL協力へのコミットメント」のサイト](https://gplcc.github.io/gplcc/)をご覧ください。
 
-### 当社のコミットメント
+## 当社のコミットメント
 
 GitHubは、「対象ライセンス」の終了に起因する法的手続または法的請求 (「防御行為」を除く) の提起または追及をする前に、「対象ライセンス」に違反していると主張された個人または団体 (以下「あなた」) に対し、GPLバージョン３より採用されたライセンス違反の是正およびライセンスの回復に関する以下の条項を拡張適用することに尽力します。 ここで、以下の条項における「本許諾書」とは、あなたが違反をしていると主張された「対象ライセンス」を意味します。
 

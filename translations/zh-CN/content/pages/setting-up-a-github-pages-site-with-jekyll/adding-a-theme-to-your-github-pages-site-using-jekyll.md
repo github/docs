@@ -2,24 +2,26 @@
 title: 使用 Jekyll 向 GitHub Pages 站点添加主题
 intro: 您可以通过添加和自定义主题来个性化 Jekyll 站点。
 redirect_from:
-  - /articles/customizing-css-and-html-in-your-jekyll-theme/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site/
+  - /articles/customizing-css-and-html-in-your-jekyll-theme
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site
   - /articles/adding-a-theme-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: 将主题添加到 Pages 站点
 ---
 
 拥有仓库写入权限的人员可以使用 Jekyll 将主题添加到 {% data variables.product.prodname_pages %} 网站。
 
 {% data reusables.pages.test-locally %}
 
-### 添加主题
+## 添加主题
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -33,7 +35,7 @@ topics:
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### 自定义主题的 CSS
+## 自定义主题的 CSS
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -51,7 +53,7 @@ topics:
   ```
 3. 在 `@import` 行的后面直接添加您喜欢的任何自定义 CSS 或 Sass（包括导入）。
 
-### 自定义主题的 HTML 布局
+## 自定义主题的 HTML 布局
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -66,6 +68,6 @@ topics:
 7. 粘贴之前复制的默认布局内容。
 8. 根据需要自定义布局。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[创建新文件](/articles/creating-new-files)"

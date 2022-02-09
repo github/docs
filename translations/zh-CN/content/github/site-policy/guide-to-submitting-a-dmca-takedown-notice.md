@@ -1,11 +1,11 @@
 ---
 title: 提交 DMCA 删除通知的指南
 redirect_from:
-  - /dmca-notice-how-to/
-  - /articles/dmca-notice-how-to/
+  - /dmca-notice-how-to
+  - /articles/dmca-notice-how-to
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -17,7 +17,7 @@ topics:
 
 与所有法律事务一样，就您的具体问题或情况咨询专业人员始终是最好的方式。 我们强烈建议您在采取任何可能影响您权利的行动之前这样做。 本指南不是法律意见，也不应作为法律意见。
 
-### 开始前
+## 开始前
 
 ***说实话。***DMCA 要求您对版权投诉中陈述的事实宣誓，捏造事实会*受到伪证处罚*。 在宣誓声明中故意说谎是一种联邦罪行 。 （*请参阅* [美国 法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） （*请参阅* [美国法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） 提交虚假信息还可能导致民事责任，也就是说，可能被诉经济赔偿。 DMCA 本身就针对任何故意捏造材料或活动侵权事实的人[规定了赔偿条款](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations)。
 
@@ -49,7 +49,7 @@ topics:
 
 ***GitHub 不是法官。***除了确定通知是否符合 DMCA 的最低要求外，GitHub 在此过程中几乎不行使酌处权。 当事方（及其律师）应负责评估其投诉的合理性，并注意，此类通知受伪证处罚条款约束。
 
-### 您的投诉必须...
+## 您的投诉必须...
 
 1. **包括以下声明：“我已阅读并理解 GitHub 的《提交 DMCA 通知指南》。”**如果您的投诉未包括此声明，但其他内容完整，我们不会拒绝处理。 但我们知道您尚未阅读这些指南后，可能会要求您先完成这一步。
 
@@ -70,14 +70,14 @@ topics:
 
 9. **提供您的手写或电子签名。**
 
-### 有关反规避技术措施的投诉
+## 有关反规避技术措施的投诉
 
 版权法还禁止规避用于有效控制受版权保护作品之访问权限的技术措施。 如果您认为 GitHub 上托管的内容违反了此禁令，请通过我们的 {% data variables.contact.contact_dmca %} 向我们发送报告。 规避索赔必须包括以下关于技术措施以及被告项目规避这些措施的方式的详细信息。 具体而言，给 GitHub 的通知必须包括详细的说明，描述：
 1. 技术措施是什么；
 2. 它们如何有效控制对受版权保护材料的访问；以及
 3. 被告项目是如何设计来规避他们以前描述的技术保护措施的。
 
-### 如果提交投诉
+## 如果提交投诉
 
 得到回复的最快方式是在我们的 {% data variables.contact.contact_dmca %} 上输入您的信息并回答所有问题。
 

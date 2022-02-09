@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Issues
@@ -19,7 +20,7 @@ This guide demonstrates how to use {% data variables.product.prodname_github_iss
 
 ## Prerequisites
 
-To create an issue, you need a repository. You can use an existing repository that you have write access to, or you can create a new repository. The repository must have issues enabled. For more information about creating a repository, see "[Creating a new repository](/articles/creating-a-new-repository)." For more information about enabling issues if they are disabled in your repository, see "[Disabling issues](/github/administering-a-repository/managing-repository-settings/disabling-issues)."
+To create an issue, you need a repository. You can use an existing repository that you have write access to, or you can create a new repository. {% data reusables.enterprise-accounts.emu-permission-repo %} The repository must have issues enabled. For more information about creating a repository, see "[Creating a new repository](/articles/creating-a-new-repository)." For more information about enabling issues if they are disabled in your repository, see "[Disabling issues](/github/administering-a-repository/managing-repository-settings/disabling-issues)."
 
 ## Opening a blank issue
 
@@ -28,7 +29,7 @@ First, create an issue. There are multiple ways to create an issue; you can choo
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.repositories.new_issue %}
-1. In this example, we will start with a blank issue. Your repository may use issue templates{% ifversion fpt %} and issue forms{% endif %} to encourage contributors to provide specific information. If your repository uses issue templates, {% ifversion fpt or ghes %}click **Open a blank issue**{% else %}click **Open a regular issue.**{% endif %}.
+1. In this example, we will start with a blank issue. Your repository may use issue templates{% ifversion fpt or ghec %} and issue forms{% endif %} to encourage contributors to provide specific information. If your repository uses issue templates, {% ifversion fpt or ghes or ghec %}click **Open a blank issue**{% else %}click **Open a regular issue.**{% endif %}.
 
 ![blank issue](/assets/images/help/issues/blank-issue.png)
 
@@ -70,7 +71,7 @@ To communicate responsibility, you can assign the issue to a member of your orga
 
 ## Adding the issue to a project
 
-You can add the issue to an existing project. {% ifversion fpt %}If you are using projects (beta), you can also populate metadata for the project. {% endif %} For more information about projects, see {% ifversion fpt %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" and {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)".
+You can add the issue to an existing project. {% ifversion fpt or ghec %}If you are using projects (beta), you can also populate metadata for the project. {% endif %} For more information about projects, see {% ifversion fpt or ghec %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" and {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)".
 
 ![issue with projects](/assets/images/help/issues/issue-project.png)
 
@@ -96,5 +97,5 @@ You can use issues for a wide range of purposes. For example:
 Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
 
 - To learn more about issues, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."
-- To learn more about how projects can help you with planning and tracking, see {% ifversion fpt %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" or {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)".
-- To learn more about using issue templates{% ifversion fpt %} and issue forms{% endif %} to encourage contributors to provide specific information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+- To learn more about how projects can help you with planning and tracking, see {% ifversion fpt or ghec %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" or {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)".
+- To learn more about using issue templates{% ifversion fpt or ghec %} and issue forms{% endif %} to encourage contributors to provide specific information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."

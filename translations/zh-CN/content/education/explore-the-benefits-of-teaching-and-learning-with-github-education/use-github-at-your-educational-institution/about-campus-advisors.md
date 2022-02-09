@@ -1,23 +1,22 @@
 ---
-title: 关于 Campus Advisors
-intro: '作为讲师或辅导员，可在您的学校通过 Campus Advisors 培训和支持学习使用 {% data variables.product.prodname_dotcom %}。'
+title: About Campus Advisors
+intro: 'As an instructor or mentor, learn to use {% data variables.product.prodname_dotcom %} at your school with Campus Advisors training and support.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-campus-advisors
   - /github/teaching-and-learning-with-github-education/about-campus-advisors
   - /articles/about-campus-advisors
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
-
-教授、教师和辅导员可使用 Campus Advisors 在线培训掌握 Git 和 {% data variables.product.prodname_dotcom %}，通过 {% data variables.product.prodname_dotcom %} 学习最佳教学方法。  更多信息请参阅 "[Campus Advisors](https://education.github.com/teachers/advisors)"。
+Professors, teachers and mentors can use the Campus Advisors online training to master Git and {% data variables.product.prodname_dotcom %} and learn best practices for teaching students with {% data variables.product.prodname_dotcom %}.  For more information, see "[Campus Advisors](https://education.github.com/teachers/advisors)."
 
 {% note %}
 
-**注：**作为讲师，无法为学生创建 {% data variables.product.prodname_dotcom %} 帐户。 学生必须创建自己的 {% data variables.product.prodname_dotcom %} 帐户。
+**Note:** As an instructor, you can't create accounts on {% data variables.product.product_location %} for your students. Students must create their own accounts on {% data variables.product.product_location %}.
 
 {% endnote %}
 
-教师可以使用 {% data variables.product.prodname_education %} 管理软件开发课程。 {% data variables.product.prodname_classroom %} 可用于发布代码、提供反馈，以及使用 {% data variables.product.product_name %} 管理课程。 更多信息请参阅“[使用 {% data variables.product.prodname_classroom %} 管理课程](/education/manage-coursework-with-github-classroom)”。
+Teachers can manage a course on software development with {% data variables.product.prodname_education %}. {% data variables.product.prodname_classroom %} allows you to distribute code, provide feedback, and manage coursework using {% data variables.product.product_name %}. For more information, see "[Manage coursework with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom)."
 
-如果您是学生或教师并且您的学校未作为 {% data variables.product.prodname_campus_program %} 学校与 {% data variables.product.prodname_dotcom %} 合作，您也可以个人申请使用 {% data variables.product.prodname_dotcom %} 的折扣。 更多信息请参阅“[使用 {% data variables.product.prodname_dotcom %} 做家庭作业](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)”或“[在课堂上和研究中使用 {% data variables.product.prodname_dotcom %}](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research/)”。
+If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_campus_program %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. For more information, see "[Use {% data variables.product.prodname_dotcom %} for your schoolwork](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)" or "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research/)."

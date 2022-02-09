@@ -1,1 +1,0 @@
-People with admin permissions to {% data variables.product.prodname_insights %} can manage which metrics are displayed. For more information, see "[Managing available metrics and reports](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)."

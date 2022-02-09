@@ -14,18 +14,19 @@ export const SidebarNav = () => {
 
   return (
     <div
-      className="d-none d-lg-block color-bg-tertiary position-sticky top-0 overflow-y-auto flex-shrink-0 pb-5"
-      style={{ width: 286, height: '100vh' }}
+      className="d-none d-lg-block bg-primary position-sticky top-0 overflow-y-auto flex-shrink-0 pb-5 border-right"
+      style={{ width: 326, height: '100vh' }}
+      role="banner"
     >
       <div
-        className="d-flex flex-items-center p-4 position-sticky top-0 color-bg-tertiary"
+        tabIndex={-1}
+        className="d-flex flex-items-center p-4 position-sticky top-0 color-bg-default"
         style={{ zIndex: 3 }}
         id="github-logo"
-        role="banner"
       >
         <Link
           href={`/${router.locale}`}
-          className="color-text-primary"
+          className="color-fg-default"
           aria-hidden="true"
           tabIndex={-1}
         >
@@ -33,7 +34,7 @@ export const SidebarNav = () => {
         </Link>
         <Link
           href={`/${router.locale}`}
-          className="f4 font-weight-semibold color-text-primary no-underline no-wrap pl-2 flex-auto"
+          className="f4 text-semibold color-fg-default no-underline no-wrap pl-2 flex-auto"
         >
           {t('github_docs')}
         </Link>

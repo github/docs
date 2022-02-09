@@ -1,6 +1,7 @@
 ---
 title: Organizationのためのドメインの検証あるいは承認
 intro: 'Organizationのアイデンティティを確認するために、{% data variables.product.company_short %}でドメインの所有権を検証できます。 Organization　のメンバーに{% data variables.product.company_short %}がメール通知を送信できるドメインを承認することもできます。'
+product: '{% data reusables.gated-features.verify-and-approve-domain %}'
 redirect_from:
   - /articles/verifying-your-organization-s-domain
   - /articles/verifying-your-organizations-domain
@@ -8,27 +9,31 @@ redirect_from:
   - /organizations/managing-organization-settings/verifying-your-organizations-domain
 permissions: Organization owners can verify or approve a domain for an organization.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.2'
+  fpt: '*'
+  ghes: '>=3.2'
+  ghec: '*'
 type: how_to
 topics:
   - Enterprise
   - Notifications
   - Organizations
   - Policy
+shortTitle: Verify or approve a domain
 ---
 
-### ドメイン検証について
+## ドメイン検証について
 
-Organization のドメインの所有権を検証したあと、「検証済み」バッジが Organization のプロフィールに表示されます。 Organization が {% data variables.product.prodname_ghe_cloud %} 上にあり、企業向け利用規約に同意した場合、Organization のオーナーは、検証済みドメインにある各メンバーのメールアドレスを見て、Organization メンバーの身元を検証できるようになります。 詳細は「[Organization のプロフィールページについて](/articles/about-your-organization-s-profile/)」および「[企業利用規約にアップグレードする](/articles/upgrading-to-the-corporate-terms-of-service)」を参照してください。
+Organization のドメインの所有権を検証したあと、「検証済み」バッジが Organization のプロフィールに表示されます。 {% ifversion fpt or ghec %}If your organization is on {% data variables.product.prodname_ghe_cloud %} and has agreed to the Corporate Terms of Service, organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain. For more information, see "[About your organization's profile page](/articles/about-your-organization-s-profile/)" and "<a href="/articles/upgrading-to-the-corporate-terms-of-service" class="dotcom-only">Upgrading to the Corporate Terms of Service</a>."{% endif %}
 
-Enterprise アカウントがオーナーの Organization の場合、Organization による検証済みのドメインに加えて、Enterprise アカウントで検証されたドメインの「検証済み」バッジが Organization のプロフィールに表示されます。 Organizationのオーナーは、Enterpriseのオーナーが検証もしくは承認したドメインをすべて見ることができ、OrganizationオーナーがEnterpriseオーナーでもある場合は、それらのドメインを編集できます。 詳しい情報については「[Enterpriseアカウントのためのドメインの検証あるいは承認](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)」を参照してください。
+{% ifversion fpt or ghec %}If your organization is owned by an enterprise account, a{% elsif ghes %}A{% endif %} "Verified" badge will display on your organization's profile for any domains verified for the enterprise account, in addition to any domains verified for the organization. Organization owners can view any domains that an enterprise owner has verified or approved, and edit the domains if the organization owner is also an enterprise owner. {% ifversion fpt or ghec %}For more information, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
 
 {% data reusables.organizations.verified-domains-details %}
 
-{% data variables.product.prodname_ghe_cloud %} では、Organization のドメインの所有権を検証したあと、その Organization へのメール通知を制限することができます。 詳しい情報については「[Organizationのメール通知の制限](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)」を参照してください。
+{% ifversion fpt or ghec %}On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. 詳しい情報については「[Organizationのメール通知の制限](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)」を参照してください。 {% ifversion fpt %}{% data reusables.enterprise.link-to-ghec-trial %}{% endif %}{% endif %}
 
-### ドメインの承認について
+{% ifversion fpt or ghec %}You can also verify custom domains used for {% data variables.product.prodname_pages %} to prevent domain takeovers when a custom domain remains configured but your {% data variables.product.prodname_pages %} site is either disabled or no longer uses the domain. For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."{% endif %}
+
+## ドメインの承認について
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
@@ -38,9 +43,9 @@ Organizationのためのドメインを承認したあと、Organization内の�
 
 Enterpriseオーナーは、承認済みドメイン内の通知をどのOrganizationメンバーあるいはメールアドレスが受け取るのかを、見ることはできません。
 
-Enterpriseオーナーは、Enterpriseが所有するOrganizationのための追加ドメインを承認することもできます。 詳しい情報については「[Enterpriseアカウントのためのドメインの検証あるいは承認](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)」を参照してください。
+Enterpriseオーナーは、Enterpriseが所有するOrganizationのための追加ドメインを承認することもできます。 {% ifversion fpt or ghec %}For more information, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
 
-### Organizationのためのドメインの検証
+## Organizationのためのドメインの検証
 
 ドメインを検証するには、ドメインをホストしているサービスでドメインレコードを変更するためのアクセス権が必要です。
 
@@ -58,9 +63,9 @@ Enterpriseオーナーは、Enterpriseが所有するOrganizationのための追
 {% data reusables.organizations.continue-verifying-domain %}
 11. 必要に応じて、Organization のプロフィールページに「検証済み」バッジが表示されたら、ドメインホスティングサービスの DNS レコードから TXT エントリを削除できます。 ![検証済みバッジ](/assets/images/help/organizations/verified-badge.png)
 
-### Organizationのためのドメインの承認
+## Organizationのためのドメインの承認
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% ifversion fpt or ghes > 3.1 or ghec %}
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
@@ -74,7 +79,7 @@ Enterpriseオーナーは、Enterpriseが所有するOrganizationのための追
 {% data reusables.organizations.domains-approve-it-instead %}
 {% data reusables.organizations.domains-approve-domain %}
 
-### 検証済みあるいは承認済みのドメインの削除
+## 検証済みあるいは承認済みのドメインの削除
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -8,7 +8,8 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Programa del Campus de GitHub
 ---
 
 El {% data variables.product.prodname_campus_program %} es un paquete de acceso premium a {% data variables.product.prodname_dotcom %} para instituciones enfocadas en la enseñanza que otorgan certificados, diplomas y nombramientos. El {% data variables.product.prodname_campus_program %} incluye:
@@ -21,7 +22,7 @@ El {% data variables.product.prodname_campus_program %} es un paquete de acceso 
 
 Para administrar la forma en la que los educadores utilizan GitHub, consulta las [Historias de los educadores de GitHub](https://education.github.com/stories).
 
-### Términos y condiciones de {% data variables.product.prodname_campus_program %}
+## Términos y condiciones de {% data variables.product.prodname_campus_program %}
 
 - La licencia es gratuita por un año y se renovará automáticamente de forma gratuita cada 2 años. Puedes seguir con la licencia gratuita siempre y cuando sigas operando dentro de las condiciones del acuerdo. Cualquier escuela que acepte las [condiciones del programa](https://education.github.com/schools/terms) puede unirse.
 
@@ -29,12 +30,12 @@ Para administrar la forma en la que los educadores utilizan GitHub, consulta las
 
 - Debes ofrecer {% data variables.product.prodname_dotcom %} para todos tus departamentos técnicos y académicos y el logo de tu escuela se compartirá con el sitio de educación de Github como un socio del {% data variables.product.prodname_campus_program %}.
 
-- Las organizaciones nuevas en tu empresa se agregan automáticamente a tu cuenta empresarial. Para agregar organizaciones que existían antes de que tu escuela se uniera al {% data variables.product.prodname_campus_program %}, por favor, contacta al [Soporte de GitHub Education](https://support.github.com/contact/education). Para obtener más información sobre cómo administrar tu empresa, consulta la sección "[Configurar y administrar tu empresa](/github/setting-up-and-managing-your-enterprise)". Las organizaciones nuevas en tu empresa se agregan automáticamente a tu cuenta empresarial. Para agregar organizaciones que existían antes de que tu escuela se uniera al {% data variables.product.prodname_campus_program %}, por favor, contacta al Soporte de GitHub Education.
+- Las organizaciones nuevas en tu empresa se agregan automáticamente a tu cuenta empresarial. Para agregar organizaciones que existían antes de que tu escuela se uniera al {% data variables.product.prodname_campus_program %}, por favor, contacta al [Soporte de GitHub Education](https://support.github.com/contact/education). Para obtener más información sobre cómo administrar tu empresa, consulta la [documentación para administradores empresariales](/admin). Las organizaciones nuevas en tu empresa se agregan automáticamente a tu cuenta empresarial. Para agregar organizaciones que existían antes de que tu escuela se uniera al {% data variables.product.prodname_campus_program %}, por favor, contacta al Soporte de GitHub Education.
 
 
 Para leer más sobre las prácticas de seguridad de {% data variables.product.prodname_dotcom %}, consulta la sección "[Prácticas de privacidad globales"](/github/site-policy/global-privacy-practices)
 
-### Eligibilidad de solicitud al {% data variables.product.prodname_campus_program %}
+## Eligibilidad de solicitud al {% data variables.product.prodname_campus_program %}
 
 - A menudo, un CTO/CIO del campus, Decano, Jefe de Departamento u Oficial de Tecnología firma las condiciones del programa en nombre del campus.
 

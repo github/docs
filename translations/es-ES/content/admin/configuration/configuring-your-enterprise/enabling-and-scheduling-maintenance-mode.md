@@ -2,26 +2,27 @@
 title: Habilitar y programar el modo de mantenimiento
 intro: 'Algunos procedimientos de mantenimiento estándar, como la actualización {% data variables.product.product_location %} o la restauración de copias de seguridad, exigen que la instancia esté sin conexión para el uso normal.'
 redirect_from:
-  - /enterprise/admin/maintenance-mode/
-  - /enterprise/admin/categories/maintenance-mode/
-  - /enterprise/admin/articles/maintenance-mode/
-  - /enterprise/admin/articles/enabling-maintenance-mode/
-  - /enterprise/admin/articles/disabling-maintenance-mode/
-  - /enterprise/admin/guides/installation/maintenance-mode/
+  - /enterprise/admin/maintenance-mode
+  - /enterprise/admin/categories/maintenance-mode
+  - /enterprise/admin/articles/maintenance-mode
+  - /enterprise/admin/articles/enabling-maintenance-mode
+  - /enterprise/admin/articles/disabling-maintenance-mode
+  - /enterprise/admin/guides/installation/maintenance-mode
   - /enterprise/admin/installation/enabling-and-scheduling-maintenance-mode
   - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Maintenance
   - Upgrades
+shortTitle: Configurar el modo de mantenimiento
 ---
 
-### Acerca del modo de mantenimiento
+## Acerca del modo de mantenimiento
 
 Algunos tipos de operaciones exigen que desconectes tu {% data variables.product.product_location %} y la pongas en modo de mantenimiento:
 - Actualizar a una versión nueva de tu {% data variables.product.prodname_ghe_server %}
@@ -34,11 +35,11 @@ Recomendamos que programe una ventana de mantenimiento para, al menos, los sigui
 
 ![Mensaje emergente para el usuario final acerca del mantenimiento programado](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
 
-Cuando la instancia está en modo de mantenimiento, se rechazan todos los accesos HTTP y Git. Las operaciones de extracción, clonación y subida de Git también se rechazan con un mensaje de error que indica que temporalmente el sitio no se encuentra disponible. Al visitar el sitio desde un navegador aparece una página de mantenimiento.
+Cuando la instancia está en modo de mantenimiento, se rechazan todos los accesos HTTP y Git. Las operaciones de extracción, clonación y subida de Git también se rechazan con un mensaje de error que indica que temporalmente el sitio no se encuentra disponible. No se ejecutarán los jobs de las Github Actions. Al visitar el sitio desde un navegador aparece una página de mantenimiento.
 
 ![La pantalla de presentación del modo de mantenimiento](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-### Habilitar el modo de mantenimiento de inmediato o programar una ventana de mantenimiento para más tarde
+## Habilitar el modo de mantenimiento de inmediato o programar una ventana de mantenimiento para más tarde
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -49,11 +50,11 @@ Cuando la instancia está en modo de mantenimiento, se rechazan todos los acceso
 4. Selecciona **Habilitar el modo de mantenimiento**. ![Casilla de verificación para habilitar o programar el modo de mantenimiento](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Programar el modo de mantenimiento con {% data variables.product.prodname_enterprise_api %}
+## Programar el modo de mantenimiento con {% data variables.product.prodname_enterprise_api %}
 
 Puedes programar el mantenimiento para horarios o días diferentes con {% data variables.product.prodname_enterprise_api %}. Para obtener más información, consulta la sección "[Consola de Administración](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)".
 
-### Habilitar o inhabilitar el modo de mantenimientos para todos los nodos de una agrupación
+## Habilitar o inhabilitar el modo de mantenimientos para todos los nodos de una agrupación
 
 Con la herramienta `ghe-cluster-maintenance`, puedes configurar o anular la configuración del modo de mantenimiento para cada nodo de una agrupación.
 

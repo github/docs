@@ -9,7 +9,7 @@
 <tbody>
 <tr>
 <td>
-Windows Server 2022<sup>[beta]</sup>
+Windows Server 2022
 </td>
 <td>
 <code>windows-2022</code>
@@ -30,12 +30,13 @@ Windows Server 2019
 </tr>
 <tr>
 <td>
-Windows Server 2016
+Windows Server 2016<sup>[deprecated]</sup>
 </td>
 <td>
 <code>windows-2016</code>
 </td>
 <td>
+Migrate to Windows 2019 or Windows 2022. For more information, see  <A href="https://github.blog/changelog/2021-10-19-github-actions-the-windows-2016-runner-image-will-be-removed-from-github-hosted-runners-on-march-15-2022/">the blog post</A>.
 </td>
 </tr>
 <tr>
@@ -60,24 +61,13 @@ Ubuntu 18.04
 </tr>
 <tr>
 <td>
-Ubuntu 16.04<sup>[deprecated]</sup>
-</td>
-<td>
-<code>ubuntu-16.04</code>
-</td>
-<td>
-Deprecated and limited to existing customers only. Migrate to Ubuntu 20.04. For more information, see  <A href="https://github.blog/changelog/2021-04-29-github-actions-ubuntu-16-04-lts-virtual-environment-will-be-removed-on-september-20-2021">the blog post</A>.
-</td>
-</tr>
-<tr>
-<td>
 macOS Big Sur 11
 </td>
 <td>
-<code>macos-11</code>
+<code>macos-latest</code> or <code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> label currently uses the macOS 10.15 runner image.
+The <code>macos-latest</code> label currently uses the macOS 11 runner image.
 </td>
 </tr>
 <tr>
@@ -85,7 +75,7 @@ The <code>macos-latest</code> label currently uses the macOS 10.15 runner image.
 macOS Catalina 10.15
 </td>
 <td>
-<code>macos-latest</code> or <code>macos-10.15</code>
+<code>macos-10.15</code>
 </td>
 <td>
 </td>
@@ -93,8 +83,14 @@ macOS Catalina 10.15
 </tbody>
 </table>
 
+{% note %}
+
+**Note:** The `-latest` virtual environments are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+
+{% endnote %}
+
 {% warning %}
 
-<b>Note:</b> Beta Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support. 
+<b>Note:</b> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support. 
 
 {% endwarning %}

@@ -1,1 +1,0 @@
-1. Opcionalmente, para filtrar todas las métricas de la página, debajo de éstas, utiliza los menús desplegables "Equipos", "Repos" o de rango de fechas. ![Menús desplegables de los filtros](/assets/images/help/insights/filter-drop-downs.png)

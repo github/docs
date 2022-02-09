@@ -1,6 +1,6 @@
 ---
 title: Working with non-code files
-intro: "{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats."
+intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -29,6 +29,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Working with non-code files
@@ -46,7 +47,7 @@ shortTitle: Working with non-code files
 
 ### Viewing images
 
-You can directly browse and view images in your {% data variables.product.product_name %} repository:
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
 
 ![inline image](/assets/images/help/images/view.png)
 
@@ -115,7 +116,7 @@ To display your 3D file elsewhere on the internet, modify this template and plac
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-For example, if your model's URL is [github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
+For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>
@@ -135,7 +136,7 @@ GitHub supports rendering tabular data in the form of *.csv* (comma-separated) a
 
 ![Rendered CSV sample](/assets/images/help/repository/rendered_csv.png)
 
-When viewed, any _.csv_ or _.tsv_ file committed to a {% data variables.product.product_name %} repository automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
 
 You can link to a particular row by clicking the row number, or select multiple rows by holding down the shift key. Just copy the URL and send it to a friend.
 
@@ -189,6 +190,14 @@ Prose rendering is supported for rendered documents supported by [github/markup]
 You can click {% octicon "file" aria-label="The paper icon" %} to see the changes made to the document as part of a commit.
 
 ![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
+
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
+
+### Disabling Markdown rendering
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
 
 ### Visualizing attribute changes
 

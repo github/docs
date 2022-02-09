@@ -2,20 +2,22 @@
 title: Crear un pie de página o barra lateral para tu wiki
 intro: Puedes agregar una barra lateral o un pie de página personalizados a tu wiki para dar a los lectores más información contextual.
 redirect_from:
-  - /articles/creating-a-footer/
-  - /articles/creating-a-sidebar/
+  - /articles/creating-a-footer
+  - /articles/creating-a-sidebar
   - /articles/creating-a-footer-or-sidebar-for-your-wiki
   - /github/building-a-strong-community/creating-a-footer-or-sidebar-for-your-wiki
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Crear una nota al pie o barra lateral
 ---
 
-### Crear una carpeta
+## Crear una carpeta
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -24,7 +26,7 @@ topics:
 5. Ingresa un mensaje de confirmación que describa el pie de página que agregaste. ![Mensaje de confirmación de la wiki](/assets/images/help/wiki/wiki_commit_message.png)
 6. Para confirmar tus cambios en la wiki, haz clic en **Guardar página**.
 
-### Crear una barra lateral
+## Crear una barra lateral
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -33,6 +35,6 @@ topics:
 5. Ingresa un mensaje de confirmación que describa la barra lateral que agregaste. ![Mensaje de confirmación de la wiki](/assets/images/help/wiki/wiki_commit_message.png)
 6. Para confirmar tus cambios en la wiki, haz clic en **Guardar página**.
 
-### Crear un pie de página o barra lateral de manera local
+## Crear un pie de página o barra lateral de manera local
 
 Si creas un archivo con el nombre `_Footer.<extension>` or `_Sidebar.<extension>`, los usaremos para completar el pie de página y la barra lateral de tu wiki, respectivamente. Al igual que cualquier otra página wiki, la extensión que elijas para estos archivos determina cómo los representaremos.

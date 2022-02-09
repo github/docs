@@ -1,1 +1,1 @@
-{% data reusables.gated-features.actions-shared %} 環境、環境保護ルール、環境シークレットはすべての製品のパブリックリポジトリ、{% data variables.product.prodname_enterprise %}のプライベートリポジトリで利用できます。 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.gated-features.more-info %}{% endif %}
+Environments, environment protection rules, and environment secrets are available in **public** repositories for all products. For access to environments in **private** repositories, you must use {% data variables.product.prodname_enterprise %}. {% data reusables.gated-features.more-info %}

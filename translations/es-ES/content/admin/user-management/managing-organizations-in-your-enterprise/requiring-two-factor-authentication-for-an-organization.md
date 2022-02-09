@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - 2FA
@@ -13,6 +13,7 @@ topics:
   - Organizations
   - Policies
   - Security
+shortTitle: Requerir 2FA
 ---
 
 Cuando utilizas LDAP o la autenticación integrada, la autenticación bifactorial será compatible en {% data variables.product.product_location %}. Los administradores de la organización le pueden solicitar a los miembros que tengan la autenticación de dos factores activada.
@@ -21,7 +22,7 @@ Cuando utilizas LDAP o la autenticación integrada, la autenticación bifactoria
 
 Para obtener más información, consulta "[Acerca de la autenticación de dos factores](/github/authenticating-to-github/about-two-factor-authentication)".
 
-### Requisitos para aplicar la autenticación de dos factores
+## Requisitos para aplicar la autenticación de dos factores
 
 Antes de poder solicitarle a los miembros de la organización y a los colaboradores externos que usen 2FA, debes [activar la autenticación de dos factores](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa/) para tu cuenta personal propia.
 
@@ -43,7 +44,7 @@ Antes de solicitar el uso de la autenticación de dos factores, te recomendamos 
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}
 
-### Ver las personas que se eliminaron de tu organización
+## Ver las personas que se eliminaron de tu organización
 
 Para ver las personas que fueron automáticamente eliminadas de tu organización por no cumplir cuando solicitaste la autenticación de dos factores, puedes [buscar el registro de auditoría](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/) usando el campo de búsqueda `reason:two_factor_requirement_non_compliance`.
 
@@ -58,11 +59,11 @@ Para ver las personas que fueron automáticamente eliminadas de tu organización
     - `org:octo-org AND reason:two_factor_requirement_non_compliance`
 5. Da clic en **Buscar**.
 
-### Ayudar a que los miembros y colaboradores externos eliminados se vuelvan a unir a tu organización
+## Ayudar a que los miembros y colaboradores externos eliminados se vuelvan a unir a tu organización
 
 Si algún miembro o colaborador externo se eliminó de la organización cuando habilitaste el uso requerido de autenticación de dos factores, recibirá un correo electrónico que le notifique que ha sido eliminado. Debe entonces habilitar la 2FA para su cuenta personal y contactarse con un propietario de la organización para solicitar acceso a tu organización.
 
-### Leer más
+## Leer más
 
 - "[Ver si los usuarios de tu organización tienen la 2FA activada](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)"
 - "[Asegurar tu cuenta con autenticación de dos factores (2FA)](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa)"

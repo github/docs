@@ -30,5 +30,8 @@ We are concerned about Internet censorship, and believe that transparency on a s
 ## What does it mean if we post a notice in our gov-takedowns repository?
 It means that we received the notice on the indicated date. It does *not* mean that the content was unlawful or wrong. It does *not* mean that the user identified in the notice has done anything wrong. We don't make or imply any judgment about the merit of the claims they make. We post these notices and requests only for informational purposes.
 
+## Government takedowns based on violations of GitHub's Terms of Service
+In some cases, GitHub receives reports from government officials of violations of GitHub's Terms of Service. We process those violations as we would process a Terms-of-Service violation reported by anyone else. However, we notify the affected users that the report came from a government and, as with any other case, allow them the opportunity to appeal.
+
 ## Transparency reporting
-In addition to posting government takedown notices in our gov-takedowns repository, we report on them in our transparency report. We also track and report in our transparency report on government takedowns based on violations of GitHub's Terms of Service. We process those violations as we would process a Terms of Service violation reported by anyone else.
+In addition to posting government takedown notices in our `github/gov-takedowns` repository, we report on them in our transparency report. We also track and report in our transparency report on government takedowns based on violations of GitHub's Terms of Service.

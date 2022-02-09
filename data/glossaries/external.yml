@@ -7,9 +7,6 @@
     A token that is used in place of a password when performing Git operations
     over HTTPS with Git on the command line or the API. Also called a personal
     access token.
-- term: account recovery token
-  description: >-
-    The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - term: API preview
   description: >-
     A way to try out new APIs and changes to existing API methods before they
@@ -214,7 +211,7 @@
 - term: email notifications
   description: Notifications sent to a user's email address.
 - term: enterprise account
-  description: Enterprise accounts allow you to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations. {% data reusables.gated-features.enterprise-accounts %}
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
 - term: Explorer
   description: >-
     An instance of GraphiQL, which is a "graphical interactive in-browser GraphQL
@@ -402,7 +399,7 @@
   description: >-
     {% ifversion fpt or ghes > 3.1 or ghae %}
     The default development branch. Whenever you create a Git repository,
-    a branch named `main` is created, and becomes the active branch. 
+    a branch named `main` is created, and becomes the active branch.
     In most cases, this contains the local development, though that is purely by
     convention and is not required.{% else %}Name often chosen as an alternative to `master`
     for the default branch of a repository.{% endif %}
@@ -595,13 +592,6 @@
   description: >-
     To reapply a series of changes from a branch to a different base, and reset
     the HEAD of that branch to the result.
-- term: Recover Accounts Elsewhere
-  description: >-
-    Allows users to add an extra security factor to their GitHub account in case they
-    lose access to their two-factor authentication method or recovery codes.
-    Users can associate their GitHub account with their Facebook account by
-    storing an authentication credential in the form of an account recovery token
-    for their GitHub account with Facebook.
 - term: recovery code
   description: A code that helps you regain access to your GitHub account.
 - term: release
@@ -630,6 +620,10 @@
     (including documentation), and stores each file's revision history.
     Repositories can have multiple collaborators and can be either public or
     private.
+- term: repository cache
+  description: >-
+    A read-only mirror of repositories for your GitHub Enterprise server instance, located near
+    distributed teams and CI clients.
 - term: repository graph
   description: A visual representation of your repository's data.
 - term: repository maintainer

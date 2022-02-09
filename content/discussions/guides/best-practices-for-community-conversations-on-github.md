@@ -4,6 +4,7 @@ shortTitle: Best practices for community conversations
 intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to an issue when you are ready to scope out the work.'
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 
@@ -26,7 +27,7 @@ You can use {% data variables.product.prodname_discussions %} to discuss big pic
 - You want to collect feedback from a wider community about a project
 - You want to keep bug fixes, feature requests, and general conversations separate
 
-Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see "[About issues](/articles/about-issues)." Pull requests allow you to comment directly on proposed changes. For more information, see "[About pull requests](/articles/about-pull-requests)" and "[Commenting on a pull request](/articles/commenting-on-a-pull-request)."
+Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see "[About issues](/articles/about-issues)." Pull requests allow you to comment directly on proposed changes. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)" and "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)."
 
 {% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
 

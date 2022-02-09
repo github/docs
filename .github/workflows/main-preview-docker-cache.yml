@@ -1,0 +1,82 @@
+name: Build and Push Main Preview Env Docker Cache
+
+# **What it does**: Builds and pushes the `main` Docker cache image
+# **Why we have it**: It allows PRs using the registry cache to pull a pre-built image, which should speed up the build
+# **Who does it impact**: All contributors.
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to take priority over
+# previously queued runs and interrupt currently executing runs
+concurrency:
+  group: '${{ github.workflow }}'
+  cancel-in-progress: true
+
+jobs:
+  build-and-push-nonprod-cache:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ENABLE_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
+      NONPROD_REGISTRY_USERNAME: ghdocs
+      NONPROD_REGISTRY_NAME: ghdocs
+      DOCKER_IMAGE_CACHE_REF: ${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
+
+    steps:
+      - name: 'Az CLI login'
+        uses: azure/login@66d2e78565ab7af265d2b627085bc34c73ce6abb
+        with:
+          creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
+
+      - name: 'Docker login'
+        uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
+        with:
+          login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
+          username: ${{ env.NONPROD_REGISTRY_USERNAME }}
+          password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
+
+      - name: Check out repo
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        with:
+          # To prevent issues with cloning early access content later
+          persist-credentials: 'false'
+          lfs: 'true'
+
+      - name: Check out LFS objects
+        run: git lfs checkout
+
+      - if: ${{ env.ENABLE_EARLY_ACCESS }}
+        name: Clone docs-early-access
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: main
+
+      - if: ${{ env.ENABLE_EARLY_ACCESS }}
+        name: Merge docs-early-access repo's folders
+        run: .github/actions-scripts/merge-early-access.sh
+
+      # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
+      - name: 'Prune for preview env'
+        run: .github/actions-scripts/prune-for-preview-env.sh
+
+      - name: 'Build and push image'
+        uses: docker/build-push-action@7f9d37fa544684fb73bfe4835ed7214c255ce02b
+        with:
+          context: .
+          push: true
+          target: preview
+          tags: ${{ env.DOCKER_IMAGE_CACHE_REF }}
+          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
+          cache-to: type=registry,mode=max,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}

@@ -5,15 +5,17 @@ redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: コラボレータの削除
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 {% warning %}
 
@@ -28,7 +30,7 @@ topics:
 
 コラボレーターが削除される一方でプライベートリポジトリのフォークが削除されると、その個人はリポジトリのローカルクローンをそのまま保持します。
 
-### 外部コラボレーターを Organization のすべてのリポジトリから削除する
+## 外部コラボレーターを Organization のすべてのリポジトリから削除する
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -38,7 +40,7 @@ topics:
 6. 外部コラボレーターのリストの上のドロップダウンメニューで [**Remove from all repositories**] をクリックします。 ![外部コラボレーターを削除するオプションのあるドロップダウンメニュー ](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
 7. Organization から削除される外部コラボレーターをレビューしてから、[**Remove outside collaborators**] をクリックします。 ![削除される外部コラボレーターのリストおよび [Remove outside collaborators] ボタン](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
 
-### 外部コラボレーターを Organization の特定のリポジトリから削除する
+## 外部コラボレーターを Organization の特定のリポジトリから削除する
 
 外部コラボレーターを Organization の特定のリポジトリからのみ削除する場合、特定のリポジトリごとにアクセスを削除していきます。
 
@@ -51,7 +53,7 @@ topics:
 7. 外部コラボレーターのリポジトリへのアクセスを完全に削除するため、右上隅の [**Remove access to this repository**] をクリックします。 ![[Remove access to this repository] ボタン](/assets/images/help/organizations/remove-access-to-this-repository.png)
 8. 確定するため、[**Remove access**] をクリックします。 ![リポジトリから削除する外部コラボレータの確定](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
 
-### 参考リンク
+## 参考リンク
 
 - [外部コラボレーターを Organization のリポジトリに追加する](/articles/adding-outside-collaborators-to-repositories-in-your-organization)
 - [Organizatin のメンバーを外部のコラボレータに変換する](/articles/converting-an-organization-member-to-an-outside-collaborator)

@@ -1,1 +1,1 @@
-{% data variables.product.prodname_actions %}を有効化すると、ワークフローはリポジトリ内と、その他の任意のパブリックリポジトリ内のアクションを実行できるようになります。
+When you enable {% data variables.product.prodname_actions %}, workflows are able to run actions located within your repository and any other{% ifversion fpt %} public{% elsif ghec or ghes %} public or internal{% elsif ghae %} internal{% endif %} repository.

@@ -2,16 +2,17 @@
 title: コントリビューションデータの再構築
 intro: 既存のコミットをユーザアカウントにリンクするために、コントリビューションデータの再構築が必要になることがあります。
 redirect_from:
-  - /enterprise/admin/articles/rebuilding-contributions-data/
+  - /enterprise/admin/articles/rebuilding-contributions-data
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Repositories
   - User account
+shortTitle: Rebuild contributions
 ---
 
 コミットは、{% data variables.product.prodname_enterprise %}にプッシュされるたびに、プッシュのメールアドレスとユーザのメールアドレスが同じ場合は、ユーザアカウントに関連付けられます。 しかし、ユーザが新規メールアドレスの登録や新規アカウントの作成をした場合、既存のコミットは、遡及的には関連付けられ*ません*。

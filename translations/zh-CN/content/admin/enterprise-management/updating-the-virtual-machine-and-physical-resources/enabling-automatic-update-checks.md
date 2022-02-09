@@ -6,11 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
   - /admin/enterprise-management/enabling-automatic-update-checks
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: 启用自动更新检查
 ---
 
 在 {% data variables.product.product_location %} 的升级包自动下载后，您将收到一条消息，通知您可以升级 {% data variables.product.prodname_ghe_server %}。 升级包会下载到 {% data variables.product.product_location %} 上的 `/var/lib/ghe-updates` 目录中。 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)”。
