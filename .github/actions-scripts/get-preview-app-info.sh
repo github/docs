@@ -12,8 +12,8 @@
 [[ -z $GITHUB_ENV ]] && { echo "Missing GITHUB_ENV. Exiting."; exit 1; }
 [[ -z $APP_NAME_SEED ]] && { echo "Missing APP_NAME_SEED. Exiting."; exit 1; }
 
-RESOURCE_GROUP="docs-nonprod"
-echo "RESOURCE_GROUP=${RESOURCE_GROUP}" >> $GITHUB_ENV
+PREVIEW_ENV_LOCATION="eastus"
+echo "PREVIEW_ENV_LOCATION=${PREVIEW_ENV_LOCATION}" >> $GITHUB_ENV
 
 REPO_NAME="${GITHUB_REPOSITORY#*\/}"
 echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
@@ -30,7 +30,7 @@ APP_SHA=$(echo -n "${APP_NAME_SEED}-${APP_NAME_BASE}" | sha1sum | cut -c1-6)
 APP_NAME="${APP_NAME_BASE}-${APP_SHA}"
 echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
 
-APP_URL="https://${APP_NAME}.eastus.azurecontainer.io"
+APP_URL="https://${APP_NAME}.${PREVIEW_ENV_LOCATION}.azurecontainer.io"
 echo "APP_URL=${APP_URL}" >> $GITHUB_ENV
 
 IMAGE_REPO="${GITHUB_REPOSITORY}/pr-${PR_NUMBER}"

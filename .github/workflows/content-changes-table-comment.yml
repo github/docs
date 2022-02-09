@@ -53,7 +53,7 @@ jobs:
 
       - name: Get preview app info
         env:
-          APP_NAME_SEED: ${{ secrets.APP_NAME_SEED }}
+          APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
         run: .github/actions-scripts/get-preview-app-info.sh
 
       - name: Setup Node

@@ -36,7 +36,7 @@ for (const file of articleFiles) {
   const sourceUrl = file.blob_url
   const fileName = file.filename.slice(pathPrefix.length)
   const fileUrl = fileName.slice(0, fileName.lastIndexOf('.'))
-  const previewLink = `https://${APP_URL}/${fileUrl}`
+  const previewLink = `${APP_URL}/${fileUrl}`
   const productionLink = `https://docs.github.com/${fileUrl}`
   let markdownLine = ''
 
