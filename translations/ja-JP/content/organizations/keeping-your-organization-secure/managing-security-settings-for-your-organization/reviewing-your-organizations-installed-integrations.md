@@ -19,9 +19,9 @@ shortTitle: インストールされたインテグレーションのレビュ�
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. In the "Integrations" section of the sidebar, click **{% octicon "apps" aria-label="The apps icon" %} {% data variables.product.prodname_github_apps %}**.
-{% elsif ghae or ghes < 3.4 %}
+{% else %}
 1. In the left sidebar, click **Installed {% data variables.product.prodname_github_apps %}**. ![Installed {% data variables.product.prodname_github_apps %} tab in the organization settings sidebar](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 {% endif %}
 2. レビューする {% data variables.product.prodname_github_app %}の横にある [**Configure**] をクリックします。 ![[Configure] ボタン](/assets/images/help/organizations/configure-installed-integration-button.png)
