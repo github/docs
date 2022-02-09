@@ -60,6 +60,11 @@ describe('search middleware', () => {
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.text)
     expect(Array.isArray(results)).toBeTruthy()
+
+    // Check that it can be cached at the CDN
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
   })
 
   test('limit search', async () => {
