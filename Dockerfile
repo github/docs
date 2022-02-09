@@ -59,12 +59,12 @@ COPY next-env.d.ts ./next-env.d.ts
 RUN npm run build
 
 # --------------------------------------------------------------------------------
-# MAIN IMAGE
+# PREVIEW IMAGE - no translations
 # --------------------------------------------------------------------------------
 
-FROM base as production
+FROM base as preview
 
-# Copy just our prod dependencies
+# Copy just prod dependencies
 COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules $APP_HOME/node_modules
 
 # Copy our front-end code
@@ -76,17 +76,15 @@ ENV NODE_ENV production
 # Whether to hide iframes, add warnings to external links
 ENV AIRGAP false
 
-# By default we typically don't want to run in clustered mode
-ENV WEB_CONCURRENCY 1
-
-# This makes sure server.mjs always picks up the preferred port
+# Preferred port for server.mjs
 ENV PORT 4000
+
+ENV ENABLED_LANGUAGES "en"
 
 # Copy only what's needed to run the server
 COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node includes ./includes
-COPY --chown=node:node translations ./translations
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node middleware ./middleware
@@ -99,13 +97,10 @@ EXPOSE $PORT
 
 CMD ["node", "server.mjs"]
 
-
 # --------------------------------------------------------------------------------
-# MAIN IMAGE WITH EARLY ACCESS
+# PRODUCTION IMAGE - includes all translations
 # --------------------------------------------------------------------------------
+FROM preview as production
 
-FROM production as production_early_access
-
-COPY --chown=node:node content/early-access ./content/early-access
-
-CMD ["node", "server.mjs"]
+# Copy in all translations
+COPY --chown=node:node translations ./translations

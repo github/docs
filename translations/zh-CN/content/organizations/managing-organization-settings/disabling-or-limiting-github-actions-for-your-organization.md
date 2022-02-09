@@ -78,6 +78,10 @@ shortTitle: 禁用或限制操作
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+{% ifversion ghec or ghae or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 ### 为组织配置私有复刻策略
 
 {% data reusables.profile.access_org %}

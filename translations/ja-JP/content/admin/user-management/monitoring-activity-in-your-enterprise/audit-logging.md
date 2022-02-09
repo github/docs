@@ -26,7 +26,7 @@ Git プッシュ操作はすべてログに記録されます。 詳しい情報
 {% ifversion ghes %}
 ## システムイベント
 
-すべてのプッシュとプルを含む監査されたすべてのシステムイベントは、`/var/log/github/audit.log` に記録されます。 ログは 24 時間ごとに自動的に交換され、7 日間保持されます。
+All audited system events are logged to `/var/log/github/audit.log`. ログは 24 時間ごとに自動的に交換され、7 日間保持されます。
 
 Support Bundle にはシステムログが含まれています。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Support にデータを提供する](/admin/enterprise-support/providing-data-to-github-support)」を参照してください。
 

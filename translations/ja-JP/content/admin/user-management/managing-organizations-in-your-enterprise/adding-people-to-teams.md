@@ -9,6 +9,7 @@ redirect_from:
 intro: 'Team が作成されると、Organization の管理者はユーザを {% data variables.product.product_location %} から Team に追加し、どのリポジトリにアクセスできるようにするかを決定できます。'
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -30,8 +31,12 @@ topics:
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
+{% ifversion ghes %}
+
 ## TeamのLDAPグループへのマッピング（たとえばLDAP Syncをユーザ認証に使って）
 
 {% data reusables.enterprise_management_console.badge_indicator %}
 
 LDAPグループに同期されているTeamに新しいメンバーを追加するには、そのユーザをLDAPグループのメンバーとして追加するか、LDAPの管理者に連絡してください。
+
+{% endif %}

@@ -85,7 +85,7 @@ export const DefaultLayout = (props: Props) => {
         Skip to main content
       </a>
       <SidebarNav />
-      <div className="flex-column flex-1">
+      <div className="flex-column flex-1 overflow-auto">
         <Header />
         <main id="main-content">
           <DeprecationBanner />

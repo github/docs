@@ -30,14 +30,15 @@ jobs:
       - name: Make a branch, commit, push, and pull request
         run: |
           echo "If there's no changes, exit"
-          if [[ `git status --porcelain` ]]
+          if [[ !  `git status --porcelain` ]]
           then
-          else
+            echo "No changes found"
             exit 0
           fi
 
           echo "Make a new branch"
-          git checkout -b "optimize-images-$(date +'%Y%m%d%H%M%S')"
+          BRANCH="optimize-images-$(date +'%Y%m%d%H%M%S')"
+          git checkout -b $BRANCH
 
           echo "Make a commit"
           git config user.name github-actions
@@ -46,9 +47,9 @@ jobs:
           git commit --message="Optimize images"
 
           echo "Push up changes"
-          git push
+          git push --set-upstream origin $BRANCH
 
           echo "Open a pull request"
-          gh pr create --title "Optimize images" --body "Optimize images"
+          gh pr create --title "Optimize images" --body "Optimize images" --reviewer "@github/docs-engineering"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

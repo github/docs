@@ -84,7 +84,7 @@ remote: error: Changes have been requested.
 
 必需状态检查确保在协作者可以对受保护分支进行更改前，所有必需的 CI 测试都已通过。 更多信息请参阅“[配置受保护分支](/articles/configuring-protected-branches/)”和“[启用必需状态检查](/articles/enabling-required-status-checks)”。 更多信息请参阅“[关于状态检查](/github/collaborating-with-issues-and-pull-requests/about-status-checks)”。
 
-必须配置仓库使用状态 API 后才可启用必需状态检查。 更多信息请参阅 REST 文档中的“[仓库](/rest/reference/repos#statuses)”。
+必须配置仓库使用状态 API 后才可启用必需状态检查。 更多信息请参阅 REST 文档中的“[仓库](/rest/reference/commits#commit-statuses)”。
 
 启用必需状态检查后，必须通过所有必需状态检查，协作者才能将更改合并到受保护分支。 所有必需状态检查通过后，必须将任何提交推送到另一个分支，然后合并或直接推送到受保护分支。
 

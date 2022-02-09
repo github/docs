@@ -3,6 +3,8 @@ title: GitHub APIについて
 intro: '{% data variables.product.prodname_dotcom %}の体験を拡張し、カスタマイズするために、{% data variables.product.prodname_dotcom %}のAPIについて学んでください。'
 redirect_from:
   - /v3/versions
+  - /articles/getting-started-with-the-api
+  - /github/extending-github/getting-started-with-the-api
 versions:
   fpt: '*'
   ghes: '*'

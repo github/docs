@@ -28,9 +28,13 @@ permissions: People with admin access to a repository can manage access to the r
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% data reusables.repositories.click-collaborators-teams %}
+{% elsif ghes < 3.4 or ghae %}
 {% data reusables.repositories.navigate-to-manage-access %}
+{% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
-5. In the search field, start typing the name of the person to invite, then click a name in the list of matches. ![用于输入要邀请加入仓库的团队或人员名称的搜索字段](/assets/images/help/repository/manage-access-invite-search-field.png)
+1. In the search field, start typing the name of the person to invite, then click a name in the list of matches. ![用于输入要邀请加入仓库的团队或人员名称的搜索字段](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Under "Choose a role", select the repository role to assign the person, then click **Add NAME to REPOSITORY**. ![为团队或人员选择权限](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
 ## 管理个人对组织仓库的访问
