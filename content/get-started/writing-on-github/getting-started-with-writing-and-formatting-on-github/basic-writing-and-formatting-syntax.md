@@ -26,7 +26,7 @@ To create a heading, add one to six <kbd>#</kbd> symbols before your heading tex
 
 When you use of two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section. 
 
-![Headings Table of Contents](https://i2.wp.com/user-images.githubusercontent.com/7900087/113821370-df915480-9730-11eb-8aed-bdc50e2212d5.gif?ssl=1)
+![Screenshot highlighting the table of contents icon](/assets/images/help/repository/table-of-contents.png)
 
 
 ## Styling text
