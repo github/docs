@@ -21,7 +21,7 @@ topics:
 
 **Note:** When working with pull requests, keep the following in mind:
 * If you're working in the [shared repository model](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models), we recommend that you use a topic branch for your pull request. While you can send pull requests from any branch or commit, with a topic branch you can push follow-up commits if you need to update your proposed changes.
-* Be very careful when using force pushing changes to a pull request. Force pushing can corrupt your pull request. Rabase your pull request branch based on the default branch. By doing this, you keep the history clear and sane. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
+* Be very careful when force pushing commits to a pull request. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
 
 {% endnote %}
 
