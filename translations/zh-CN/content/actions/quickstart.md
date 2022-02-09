@@ -27,7 +27,7 @@ shortTitle: 快速入门
 ## 创建第一个工作流程
 
 1. 如果 `.github/workflows` 目录不存在，请在 {% data variables.product.prodname_dotcom %} 的仓库中创建此目录。
-2. 在 `.github/workflow` 目录中，创建一个名为 `github-actions-demo.yml` 的文件。 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
+2. 在 `.github/workflows` 目录中，创建一个名为 `github-actions-demo.yml` 的文件。 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
 3. 将以下 YAML 内容复制到 `github-actions-demo.yml` 文件中：
     {% raw %}
     ```yaml{:copy}
