@@ -73,7 +73,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
 
-      - if: ${{ env.IS_PUBLIC_BUILD }}
+      - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
         uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
         with:
@@ -81,7 +81,7 @@ jobs:
           persist-credentials: 'false'
           lfs: 'true'
 
-      - if: ${{ env.IS_INTERNAL_BUILD }}
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Check out PR code
         uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
         with:
@@ -103,7 +103,7 @@ jobs:
           # Image tag is unique to each workflow run so that it always triggers a new deployment
           echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${IMAGE_REPO}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
 
-      - if: ${{ env.IS_INTERNAL_BUILD }}
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Determine which docs-early-access branch to clone
         id: 'check-early-access'
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
@@ -133,7 +133,7 @@ jobs:
               return 'main'
             }
 
-      - if: ${{ env.IS_INTERNAL_BUILD }}
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Clone docs-early-access
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
@@ -142,11 +142,11 @@ jobs:
           path: docs-early-access
           ref: ${{ steps.check-early-access.outputs.result }}
 
-      - if: ${{ env.IS_INTERNAL_BUILD }}
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Merge docs-early-access repo's folders
         run: .github/actions-scripts/merge-early-access.sh
 
-      - if: ${{ env.IS_PUBLIC_BUILD }}
+      - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out user code to temp directory
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
@@ -154,7 +154,7 @@ jobs:
           ref: ${{ env.COMMIT_REF }}
 
       # Move acceptable user changes into our main branch checkout
-      - if: ${{ env.IS_PUBLIC_BUILD }}
+      - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Move acceptable user changes
         run: |
           rsync -rptovR ./user-code/content/./**/*.md ./content
