@@ -21,7 +21,6 @@
     "ajv-formats": "^2.1.1",
     "cheerio": "^1.0.0-rc.10",
     "classnames": "^2.3.1",
-    "compression": "^1.7.4",
     "connect-datadog": "0.0.9",
     "connect-slashes": "^1.4.0",
     "cookie-parser": "^1.4.6",
