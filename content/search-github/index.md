@@ -19,7 +19,7 @@ featuredLinks:
     - /search-github/searching-on-github/searching-topics
     - /search-github/searching-on-github/searching-for-packages
 changelog:
-  label: 'code-search'
+  label: 'search'
 layout: product-landing
 redirect_from:
   - /categories/78/articles
