@@ -10,7 +10,6 @@
   ],
   "dependencies": {
     "@github/failbot": "0.8.0",
-    "@hapi/accept": "^5.0.2",
     "@primer/components": "^33.1.0",
     "@primer/css": "^19.1.1",
     "@primer/octicons": "^16.3.0",
