@@ -198,6 +198,8 @@ jobs:
             dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
             dockerRegistryUsername="${{ secrets.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
+            storageAccountName="${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}"
+            storageAccountKey="${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}"
           # this shows warnings in the github actions console, because the flag is passed through a validation run,
           # but it *is* functional during the actual execution
           additionalArguments: --no-wait
