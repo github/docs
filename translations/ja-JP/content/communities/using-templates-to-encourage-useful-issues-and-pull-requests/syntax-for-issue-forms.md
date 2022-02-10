@@ -40,7 +40,7 @@ body:
 | `説明`        | A description for the issue form template, which appears in the template chooser interface. | 必須 | 文字列型                            |
 | `body`      | Definition of the input types in the form.                                                  | 必須 | 配列                              |
 | `assignees` | People who will be automatically assigned to issues created with this template.             | 任意 | Array or comma-delimited string |
-| `labels`    | Labels that will automatically be added to issues created with this template.               | 任意 | 文字列型                            |
+| `labels`    | Labels that will automatically be added to issues created with this template.               | 任意 | Array or comma-delimited string |
 | `title`     | A default title that will be pre-populated in the issue submission form.                    | 任意 | 文字列型                            |
 
 For the available `body` input types and their syntaxes, see "[Syntax for {% data variables.product.prodname_dotcom %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
@@ -165,3 +165,4 @@ body:
 ## 参考リンク
 
 - [YAML](https://yaml.org/)
+- [Common validation errors when creating issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)

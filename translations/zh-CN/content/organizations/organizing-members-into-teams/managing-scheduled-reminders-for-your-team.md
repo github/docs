@@ -27,7 +27,6 @@ shortTitle: 预定提醒
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![预定提醒按钮](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.add-reminder %}
 {% data reusables.reminders.authorize-slack %}
 {% data reusables.reminders.slack-channel %}
@@ -51,7 +50,6 @@ shortTitle: 预定提醒
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![预定提醒按钮](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.edit-existing %}
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
@@ -62,7 +60,6 @@ shortTitle: 预定提醒
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![预定提醒按钮](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.delete %}
 
 ## 延伸阅读

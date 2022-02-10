@@ -45,7 +45,7 @@ Pull Requestには以下のリンク関係が含まれる可能性がありま�
 | `review_comments` | Pull Requestの [レビューコメント](/rest/reference/pulls#comments) の API ロケーション。                                            |
 | `review_comment`  | Pull Requestのリポジトリで、[レビューコメント](/rest/reference/pulls#comments)の API ロケーションを構築するための[URL テンプレート](/rest#hypermedia)。 |
 | `commits`         | Pull Requestの [コミット](#list-commits-on-a-pull-request) の API ロケーション。                                               |
-| `statuses`        | Pull Requestの[コミットステータス](/rest/reference/repos#statuses)、すなわち`head` ブランチのステータスの API ロケーション。                       |
+| `statuses`        | Pull Requestの[コミットステータス](/rest/reference/commits#commit-statuses)、すなわち`head` ブランチのステータスの API ロケーション。              |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

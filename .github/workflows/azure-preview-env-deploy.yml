@@ -40,11 +40,13 @@ jobs:
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
-      url: ${{ steps.deploy.outputs.defaultHostName }}
+      # The environment variable is computer later in this job in
+      # the "Get preview app info" step.
+      # That script sets environment variables which is used by Actions
+      # to link a PR to a list of environments later.
+      url: ${{ env.APP_URL }}
     env:
       PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER }}
-      NONPROD_REGISTRY_USERNAME: ghdocs
-      APP_LOCATION: eastus
       ENABLE_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
 
     steps:
@@ -57,7 +59,7 @@ jobs:
         uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
-          username: ${{ env.NONPROD_REGISTRY_USERNAME }}
+          username: ${{ secrets.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
@@ -75,6 +77,8 @@ jobs:
         run: git lfs checkout
 
       - name: Get preview app info
+        env:
+          APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
         run: .github/actions-scripts/get-preview-app-info.sh
 
       - name: 'Set env vars'
@@ -144,7 +148,7 @@ jobs:
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any existing deployments for this PR'
         run: |
-          az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ env.RESOURCE_GROUP }} || true
+          az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }} || true
 
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
@@ -152,15 +156,16 @@ jobs:
         id: deploy
         uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
         with:
-          resourceGroupName: ${{ env.RESOURCE_GROUP }}
+          resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
           template: ./azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
-          parameters: appName="${{ env.APP_NAME_SHORT }}"
-            location="${{ env.APP_LOCATION }}"
-            linuxFxVersion="DOCKER|${{ env.DOCKER_IMAGE }}"
-            dockerRegistryUrl="https://${{ secrets.NONPROD_REGISTRY_SERVER }}"
-            dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
+          parameters: appName="${{ env.APP_NAME }}"
+            location="${{ env.PREVIEW_ENV_LOCATION }}"
+            containerImage="${{ env.DOCKER_IMAGE }}"
+            dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
+            dockerRegistryUsername="${{ secrets.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
-
-      - run: echo ${{ steps.deploy.outputs.defaultHostName }}
+          # this shows warnings in the github actions console, because the flag is passed through a validation run,
+          # but it *is* functional during the actual execution
+          additionalArguments: --no-wait
