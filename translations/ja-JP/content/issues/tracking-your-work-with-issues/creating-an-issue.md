@@ -100,7 +100,7 @@ IssueもしくはPull Requestのコメントから、新しいIssueをオープ�
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. 右のサイドバーで、{% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion（ディスカッションからIssueを作成）**をクリックします。 ![Button to create issue from discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
+1. 右のサイドバーで、{% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion（ディスカッションからIssueを作成）**をクリックします。 ![ディスカッションからIssueを作成するボタン](/assets/images/help/discussions/create-issue-from-discussion.jpg)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
@@ -144,10 +144,10 @@ Issueをオープンするのにクエリパラメータを利用できます。
 | `template`  | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` は、ボディにテンプレートを付けて Issue を作成します。 `template`クエリパラメータは、ルート内の`ISSUE_TEMPLATE`サブディレクトリ、リポジトリ内の`docs/`あるいは`.github/`ディレクトリに保存されたテンプレートで動作します。 詳しい情報については「[有益なIssueとPull Requestを促進するためのテンプレートの利用](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」を参照してください。 |
 
 {% if code-scanning-task-lists %}
-## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
+## {% data variables.product.prodname_code_scanning %}アラートからのIssueの作成
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}
-If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
+作業の追跡と優先順位付けにIssueを使っているなら、{% data variables.product.prodname_code_scanning %}アラートの追跡にIssueを使えます。
 {% data reusables.code-scanning.alert-tracking-link %}
 
 {% endif %}

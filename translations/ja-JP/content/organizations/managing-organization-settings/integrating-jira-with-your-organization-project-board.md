@@ -10,12 +10,12 @@ versions:
 shortTitle: Jiraの統合
 ---
 
-{% ifversion ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion ghes > 3.4 or ghae-issue-5658 %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the left sidebar, select **{% octicon "code" aria-label="The code icon" %} Developer settings**, then click **OAuth Apps**. ![左サイドバーの [OAuth applications] タブ](/assets/images/help/organizations/org-oauth-applications-ghe.png)
 1. [**New OAuth App**] をクリックします。
-{% elsif ghes < 3.4 or ghae %}
+{% else %}
 {% data reusables.user_settings.access_settings %}
 1. 左サイドバーの [**Organization settings**] で、Organization の名前をクリックします。 ![サイドバーの Organization 名](/assets/images/help/settings/organization-settings-from-sidebar.png)
 1. 左サイドバーの **[Developer settings]** で、[**OAuth applications**] をクリックします。 ![左サイドバーの [OAuth applications] タブ](/assets/images/help/organizations/org-oauth-applications-ghe.png)
