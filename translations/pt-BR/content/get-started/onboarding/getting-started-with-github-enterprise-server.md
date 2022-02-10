@@ -1,126 +1,126 @@
 ---
-title: Getting started with GitHub Enterprise Server
-intro: 'Get started with setting up and managing {% data variables.product.product_location %}.'
+title: Introdução ao GitHub Enterprise Server
+intro: 'Comece a configurar e gerenciar {% data variables.product.product_location %}.'
 versions:
   ghes: '*'
 ---
 
-This guide will walk you through setting up, configuring and managing {% data variables.product.product_location %} as an enterprise administrator.
+Este guia irá ajudar você a configurar e gerenciar {% data variables.product.product_location %} como administrador da empresa.
 
-{% data variables.product.company_short %} provides two ways to deploy {% data variables.product.prodname_enterprise %}.
+{% data variables.product.company_short %} oferece duas maneiras de implantar {% data variables.product.prodname_enterprise %}.
 
 - **{% data variables.product.prodname_ghe_cloud %}**
 - **{% data variables.product.prodname_ghe_server %}**
 
-{% data variables.product.company_short %} hosts {% data variables.product.prodname_ghe_cloud %}. You can deploy and host {% data variables.product.prodname_ghe_server %} in your own datacenter or a supported cloud provider.
+{% data variables.product.company_short %} hospeda {% data variables.product.prodname_ghe_cloud %}. Você pode implantar e hospedar {% data variables.product.prodname_ghe_server %} no seu próprio centro de dados ou em um provedor da nuvem compatível.
 
-For an overview of how {% data variables.product.product_name %} works, see "[System overview](/admin/overview/system-overview)."
+Para obter uma visão geral de como {% data variables.product.product_name %} funciona, consulte "[Visão geral do sistema](/admin/overview/system-overview)".
 
-## Part 1: Installing {% data variables.product.product_name %}
-To get started with {% data variables.product.product_name %}, you will need to create your enterprise account, install the instance, use the Management Console for initial setup, configure your instance, and manage billing. 
-### 1. Creating your enterprise account
-Before you install {% data variables.product.product_name %}, you can create an enterprise account on {% data variables.product.prodname_dotcom_the_website %} by contacting [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact). An enterprise account on {% data variables.product.prodname_dotcom_the_website %} is useful for billing and for shared features with {% data variables.product.prodname_dotcom_the_website %} via {% data variables.product.prodname_github_connect %}.  For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
-### 2. Installing {% data variables.product.product_name %}
-To get started with {% data variables.product.product_name %}, you will need to install the appliance on a virtualization platform of your choice. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+## Parte 1: Instalar {% data variables.product.product_name %}
+Para começar com {% data variables.product.product_name %}, você deverá criar a conta corporativa, instalar a instância, usar o Console de Gerenciamento para configuração inicial, configurar a sua instância e gerenciar a cobrança.
+### 1. Criando a sua conta corporativa
+Antes de instalar {% data variables.product.product_name %}, você pode criar uma conta corporativa em {% data variables.product.prodname_dotcom_the_website %} entrando em contato com a [](https://enterprise.github.com/contact) equipe de vendas de {% data variables.product.prodname_dotcom %}. Uma conta corporativa em {% data variables.product.prodname_dotcom_the_website %} é útil para a cobrança e para recursos compartilhados com o {% data variables.product.prodname_dotcom_the_website %} via {% data variables.product.prodname_github_connect %}.  Para obter mais informações, consulte "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)".
+### 2. Instalar o {% data variables.product.product_name %}
+Para começar com {% data variables.product.product_name %}, você deverá instalar o dispositivo em uma plataforma de virtualização de sua escolha. Para obter mais informações, consulte "[Configurar instância do {% data variables.product.prodname_ghe_server %}](/admin/installation/setting-up-a-github-enterprise-server-instance)".
 
-### 3. Using the Management Console
-You will use the Management Console to walk through the initial setup process when first launching {% data variables.product.product_location %}. You can also use the  Management Console to manage instance settings such as the license, domain, authentication, and TLS. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+### 3. Usando o Console de Gerenciamento
+Você usará o Console de Gerenciamento para apresentar o processo de configuração inicial ao iniciar {% data variables.product.product_location %}. Você também pode usar o Console de Gerenciamento para gerenciar configurações de instância, como licença, domínio, autenticação e TLS. Para obter mais informações, consulte "[Acessando o console de gerenciamento](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
 
-### 4. Configuring {% data variables.product.product_location %}
-In addition to the Management Console, you can use the site admin dashboard and the administrative shell (SSH) to manage {% data variables.product.product_location %}. For example, you can configure applications and rate limits, view reports, use command-line utilities. For more information, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
+### 4. Configurar o {% data variables.product.product_location %};
+Além do console de gerenciamento, você pode usar o painel de administração do site e o shell administrativo (SSH) para gerenciar {% data variables.product.product_location %}. Por exemplo, você pode configurar aplicativos e limites de taxa, ver relatórios, usar utilitários de linha de comando. Para obter mais informações, consulte "[Configurando sua empresa](/admin/configuration/configuring-your-enterprise)".
 
-You can use the default network settings used by {% data variables.product.product_name %} via the dynamic host configuration protocol (DHCP), or you can also configure the network settings using the virtual machine console. You can also configure a proxy server or firewall rules. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
+Você pode usar as configurações de rede padrão usadas por {% data variables.product.product_name %} por meio do protocolo de configuração do host dinâmico (DHCP) ou você também pode definir as configurações de rede usando o console de máquina virtual. Você também pode configurar um servidor proxy ou regras de firewall. Para obter mais informações, consulte "[Definindo as configurações de rede](/admin/configuration/configuring-network-settings)".
 
-### 5. Configuring high availability
-You can configure {% data variables.product.product_location %} for high availability to minimize the impact of hardware failures and network outages. For more information, see "[Configuring high availability](/admin/enterprise-management/configuring-high-availability)."
+### 5. Configurar alta disponibilidade
+Você pode configurar {% data variables.product.product_location %} para alta disponibilidade a fim de minimizar o impacto de falhas de hardware e falhas de rede. Para obter mais informações, consulte "[Configurando alta disponibilidade](/admin/enterprise-management/configuring-high-availability)".
 
-### 6. Setting up a staging instance
-You can set up a staging instance to test modifications, plan for disaster recovery, and try out updates before applying them to {% data variables.product.product_location %}.  For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+### 6. Configurar uma instância de preparo
+Você pode configurar uma instância de preparo para testar modificações, planejar a recuperação de desastres e testar atualizações antes de aplicá-las a {% data variables.product.product_location %}.  Para obter mais informações, consulte "[Configurar instância de preparo](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)".
 
-### 7. Designating backups and disaster recovery
-To protect your production data, you can configure automated backups of {% data variables.product.product_location %} with {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+### 7. Designando backups e recuperação de desastres
+Para proteger seus dados de produção, você pode configurar backups automatizados de {% data variables.product.product_location %} com {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte "[Configurar backups no appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)".
 
-### 8. Managing billing for your enterprise
-Billing for all the organizations and {% data variables.product.product_name %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom %}.com services. Enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+### 8. Gerenciar a cobrança para a sua empresa
+A cobrança para todas as organizações e instâncias de {% data variables.product.product_name %} conectadas à sua conta corporativa é agregada em uma única taxa de cobrança para todos os seus serviços pagos de {% data variables.product.prodname_dotcom %}.com. Proprietários corporativos e gerentes de cobrança podem acessar e gerenciar as configurações de cobrança relativas a contas corporativas. Para obter mais informações, consulte "[Gerenciando a cobrança da sua empresa](/admin/overview/managing-billing-for-your-enterprise)".
 
-## Part 2: Organizing and managing your team
-As an enterprise owner or administrator, you can manage settings on user, repository, team and organization levels. You can manage members of your enterprise, create and manage organizations, set policies for repository management, and create and manage teams.
+## Parte 2: Organização e gerenciamento da sua equipe
+Como proprietário corporativo ou administrador, você pode gerenciar configurações em níveis de usuário, repositório, equipe e organização. É possível gerenciar os integrantes da sua empresa, criar e gerenciar organizações, definir políticas para a gestão do repositório e criar e gerenciar as equipes.
 
-### 1. Managing members of {% data variables.product.product_location %}
+### 1. Gerenciando integrantes de {% data variables.product.product_location %}
 {% data reusables.getting-started.managing-enterprise-members %}
 
-### 2. Creating organizations
+### 2. Criar organizações
 {% data reusables.getting-started.creating-organizations %}
 
-### 3. Adding members to organizations
+### 3. Adicionando integrantes a organizações
 {% data reusables.getting-started.adding-members-to-organizations %}
 
-### 4. Creating teams
+### 4. Criar equipes
 {% data reusables.getting-started.creating-teams %}
 
-### 5. Setting organization and repository permission levels
+### 5. Definindo níveis de permissões para a organização e para o repositório
 {% data reusables.getting-started.setting-org-and-repo-permissions %}
 
-### 6. Enforcing repository management policies
+### 6. Aplicando políticas de gerenciamento do repositório
 {% data reusables.getting-started.enforcing-repo-management-policies %}
 
-## Part 3: Building securely
-To increase the security of {% data variables.product.product_location %}, you can configure authentication for enterprise members, use tools and audit logging to stay in compliance, configure security and analysis features for your organizations, and optionally enable {% data variables.product.prodname_GH_advanced_security %}.
-### 1. Authenticating enterprise members
-You can use {% data variables.product.product_name %}'s built-in authentication method, or you can choose between an established authentication provider, such as CAS, LDAP, or SAML, to integrate your existing accounts and centrally manage user access to {% data variables.product.product_location %}. For more information, see "[Authenticating users for {% data variables.product.product_location %}](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)."
+## Parte 3: Criando com segurança
+Para aumentar a segurança de {% data variables.product.product_location %}, você pode configurar a autenticação para integrantes da empresa, usar ferramentas e registro de auditoria para manter a conformidade, configurar recursos de segurança e análise para as suas organizações e, opcionalmente, habilitar {% data variables.product.prodname_GH_advanced_security %}.
+### 1. Efetuando a autenticação dos integrantes da empresa
+Você pode usar o método de autenticação interno do {% data variables.product.product_name %} ou você pode escolher entre um provedor de autenticação estabelecido como o CAS, LDAP, ou SAML, para integrar suas contas existentes e gerenciar centralmente o acesso do usuário a {% data variables.product.product_location %}. Para obter mais informações, consulte "[Autenticando usuários para {% data variables.product.product_location %}](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)".
 
-You can also require two-factor authentication for each of your organizations. For more information, see "[Requiring two factor authentication for an organization](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)."
+Você também pode exigir autenticação de dois fatores para cada uma de suas organizações. Para obter mais informações, consulte "[Exigindo a autenticação de dois fatores para uma organização](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)".
 
-### 2. Staying in compliance
-You can implement required status checks and commit verifications to enforce your organization's compliance standards and automate compliance workflows. You can also use the audit log for your organization to review actions performed by your team. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[Audit logging](/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)."
+### 2. Manter a conformidade
+Você pode implementar verificações de status necessárias e realizar verificações de commit para fazer cumprir os padrões de conformidade da sua organização e automatizar os fluxos de trabalho de conformidade. Você também pode usar o log de auditoria para sua organização revisar as ações executadas pela sua equipe. Para obter mais informações, consulte "[Aplicando a política com hooks pre-receive](/admin/policies/enforcing-policy-with-pre-receive-hooks)" e "[Log de auditoria](/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)".
 
 {% ifversion ghes %}
-### 3. Configuring security features for your organizations
+### 3. Configurar as funcionalidades de segurança para as suas organizações
 {% data reusables.getting-started.configuring-security-features %}
 {% endif %}
 
 {% ifversion ghes %}
-### 4. Enabling {% data variables.product.prodname_GH_advanced_security %} features
-You can upgrade your {% data variables.product.product_name %} license to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see "[{% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+### 4. Habilitando funcionalidades de {% data variables.product.prodname_GH_advanced_security %}
+Você pode atualizar sua licença do {% data variables.product.product_name %} para incluir {% data variables.product.prodname_GH_advanced_security %}. Isso fornece funcionalidades extras que ajudam os usuários a encontrar e corrigir problemas de segurança no seu código como, por exemplo, digitalização de código e segredo. Para obter mais informações, consulte "[{% data variables.product.prodname_GH_advanced_security %} para a sua empresa "](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)".
 {% endif %}
 
-## Part 4: Customizing and automating your enterprise's work on {% data variables.product.prodname_dotcom %}
-You can customize and automate work in organizations in your enterprise with {% data variables.product.prodname_dotcom %} and {% data variables.product.prodname_oauth_apps %}, {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} , and {% data variables.product.prodname_pages %}.
+## Parte 4: Personalizando e automatizando o trabalho da sua empresa em {% data variables.product.prodname_dotcom %}
+Você pode personalizar e automatizar o trabalho em organizações na sua empresa com a API de {% data variables.product.prodname_dotcom %} e {% data variables.product.prodname_oauth_apps %}, {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} e {% data variables.product.prodname_pages %}.
 
-### 1. Building {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
-You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, such as {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, for use in organizations in your enterprise to complement and extend your workflows. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)."
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 1. Criando {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}
+Você pode criar integrações com a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} como, por exemplo, {% data variables.product.prodname_github_apps %} ou {% data variables.product.prodname_oauth_apps %}, para uso em organizações da empresa para complementar e ampliar seus fluxos de trabalho. Para obter mais informações, consulte "[Sobre os aplicativos](/developers/apps/getting-started-with-apps/about-apps)".
+### 2. Usando a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}
 {% data reusables.getting-started.api %}
 
 {% ifversion ghes %}
-### 3. Building {% data variables.product.prodname_actions %}
+### 3. Criando {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-For more information on enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+Para obter mais informações sobre como ativar e configurar {% data variables.product.prodname_actions %} em {% data variables.product.product_name %}, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)".
 
-### 4. Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. Publicando e gerenciando {% data variables.product.prodname_registry %}
 {% data reusables.getting-started.packages %}
 
-For more information on enabling and configuring {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+Para obter mais informações sobre como habilitar e configurar {% data variables.product.prodname_registry %} para {% data variables.product.product_location %}, consulte "[Primeiros passos com {% data variables.product.prodname_registry %} para a sua empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)".
 {% endif %}
 
-### 5. Using {% data variables.product.prodname_pages %}
+### 5. Usar {% data variables.product.prodname_pages %}
 {% data reusables.getting-started.github-pages-enterprise %}
 
-## Part 5: Connecting with other {% data variables.product.prodname_dotcom %} resources
-You can use {% data variables.product.prodname_github_connect %} to share resources.
+## Parte 5: Conectando com outros recursos de {% data variables.product.prodname_dotcom %}
+Você pode usar {% data variables.product.prodname_github_connect %} para compartilhar recursos.
 
-If you are the owner of both a {% data variables.product.product_name %} instance and a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account, you can enable {% data variables.product.prodname_github_connect %}. {% data variables.product.prodname_github_connect %} allows you to share specific workflows and features between {% data variables.product.product_location %} and {% data variables.product.prodname_ghe_cloud %}, such as unified search and contributions. For more information, see "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud)."
+Se você for o proprietário de uma instância de {% data variables.product.product_name %} e uma organização ou conta corporativa de {% data variables.product.prodname_ghe_cloud %}, você poderá habilitar {% data variables.product.prodname_github_connect %}. {% data variables.product.prodname_github_connect %} permite que você compartilhe fluxos de trabalho específicos e recursos entre {% data variables.product.product_location %} e {% data variables.product.prodname_ghe_cloud %}, como pesquisa unificada e contribuições. Para obter mais informações, consulte "[Conectar o {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud)".
 
-## Part 6: Using {% data variables.product.prodname_dotcom %}'s learning and support resources
-Your enterprise members can learn more about Git and {% data variables.product.prodname_dotcom %} with our learning resources, and you can get the support you need when setting up and managing {% data variables.product.product_location %} with {% data variables.product.prodname_dotcom %} Enterprise Support.
+## Parte 6: Usando o aprendizado de {% data variables.product.prodname_dotcom %} e o suporte recursos
+Os membros da sua empresa podem aprender mais sobre o Git e {% data variables.product.prodname_dotcom %} com os nossos recursos de aprendizagem. e você pode obter o suporte de que precisa ao configurar e gerenciar {% data variables.product.product_location %} com o suporte do enterprise de {% data variables.product.prodname_dotcom %}.
 
-### 1. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
+### 1. Lendo sobre {% data variables.product.product_name %} em {% data variables.product.prodname_docs %}
 
-You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_server %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+Você pode ler a documentação que reflete as funcionalidades disponíveis com {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
-### 2. Learning with {% data variables.product.prodname_learning %}
+### 2. Aprendendo com {% data variables.product.prodname_learning %}
 {% data reusables.getting-started.learning-lab-enterprise %}
 
-### 3. Working with {% data variables.product.prodname_dotcom %} Enterprise Support
+### 3. Trabalhando com o Suporte do Enterprise de {% data variables.product.prodname_dotcom %}
 {% data reusables.getting-started.contact-support-enterprise %}

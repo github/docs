@@ -1,6 +1,6 @@
 ---
-title: Canceling a workflow
-intro: 'You can cancel a workflow run that is in progress. When you cancel a workflow run, {% data variables.product.prodname_dotcom %} cancels all jobs and steps that are a part of that workflow.'
+title: Cancelar un flujo de trabajo
+intro: 'Puedes cancelar una ejecución de flujo de trabajo que esté en curso. Cuando cancelas una ejecución de flujo de trabajo, {% data variables.product.prodname_dotcom %} cancela todsos los jobs y pasos que son parte de ésta.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,26 +13,25 @@ versions:
 
 {% data reusables.repositories.permissions-statement-write %}
 
-## Canceling a workflow run
+## Cancelar una ejecución de flujo de trabajo
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-1. From the list of workflow runs, click the name of the `queued` or `in progress` run that you want to cancel.
-![Name of workflow run](/assets/images/help/repository/in-progress-run.png)
-1. In the upper-right corner of the workflow, click **Cancel workflow**.
+1. Desde la lista de ejecuciones de flujo de trabajo, da clic en el nombre de la ejecución en estado de `queued` o `in progress` que quieras cancelar. ![Nombre de la ejecución de flujo de trabajo](/assets/images/help/repository/in-progress-run.png)
+1. En la esquina superior derecha del flujo de trabajo, da clic en **Cancelar flujo de trabajo**.
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
- ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite-updated.png)
+ ![Botón de cancelar el conjunto de verificaciones](/assets/images/help/repository/cancel-check-suite-updated.png)
 {% else %}
- ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite.png)
+ ![Botón de cancelar el conjunto de verificaciones](/assets/images/help/repository/cancel-check-suite.png)
 {% endif %}
 
-## Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
+## Pasos que toma {% data variables.product.prodname_dotcom %} para cancelar una ejecución de flujo de trabajo
 
-When canceling workflow run, you may be running other software that uses resources that are related to the workflow run. To help you free up resources related to the workflow run, it may help to understand the steps {% data variables.product.prodname_dotcom %} performs to cancel a workflow run.
+Cuando cancelas una ejecución de flujo de trabajo, tal vez estés ejecutando otro software que utiliza recursos que se relacionan con ésta. Para ayudarte a liberar los recursos relacionados con dicha ejecución de flujo de trabajo, podría ser útil entender los pasos que realiza {% data variables.product.prodname_dotcom %} para cancelar una ejecución de flujo de trabajo.
 
-1. To cancel the workflow run, the server re-evaluates `if` conditions for all currently running jobs. If the condition evaluates to `true`, the job will not get canceled. For example, the condition `if: always()` would evaluate to true and the job continues to run. When there is no condition, that is the equivalent of the condition `if: success()`, which only runs if the previous step finished successfully.
-2. For jobs that need to be canceled, the server sends a cancellation message to all the runner machines with jobs that need to be canceled.
-3. For jobs that continue to run, the server re-evaluates `if` conditions for the unfinished steps. If the condition evaluates to `true`, the step continues to run.
-4. For steps that need to be canceled, the runner machine sends `SIGINT/Ctrl-C` to the step's entry process (`node` for javascript action, `docker` for container action, and `bash/cmd/pwd` when using `run` in a step). If the process doesn't exit within 7500 ms, the runner will send `SIGTERM/Ctrl-Break` to the process, then wait for 2500 ms for the process to exit. If the process is still running, the runner kills the process tree.
-5. After the 5 minutes cancellation timeout period, the server will force terminate all jobs and steps that don't finish running or fail to complete the cancellation process.
+1. Para cancelar una ejecución de flujo de trabajo, el servidor vuelve a evaluar las condiciones `if` para todos los jobs que se ejecutan actualmente. Si la condición se evalúa como `true`, el job no se cancelará. Por ejemplo, la condición `if: always()` se evaluaría como "true" y el job continuaría ejecutándose. Cuando no hay condición, esto es equivalente a una condición `if: success()`, la cual solo se ejecutará si el paso anterior finalizó con éxito.
+2. Para los jobs que necesitan cancelarse, el servidor envía un mensaje de cancelación a todas las máquinas ejecutoras con jobs que necesitan cancelarse.
+3. Para los jobs que siguen ejecutándose, el servidor vuelve a evaluar las condiciones `if` para los pasos sin finalizar. Si la condición se evalúa como `true`, el paso seguirá ejecutándose.
+4. Para los pasos que necesitan cancelarse, la máquina ejecutora manda un `SIGINT/Ctrl-C` al proceso de entrada del paso (`node` para una acción de javascript, `docker` para una acción de contenedor, y `bash/cmd/pwd` cuando se utiliza `run` en un paso). Si el proceso no sale en 7500 ms, el ejecutor mandará un `SIGTERM/Ctrl-Break` al proceso y luego esperará por 2500 ms para que el proceso salga. Si el proceso aún está ejecutándose, el ejecutor finalizará abruptamente el árbol de proceso.
+5. Después de los 5 minutos del periodo de expiración de plazo de cancelación, el servidor forzará la terminación de todos los jobs y pasos que no hayan finalizado la ejecución o que hayan fallado en completar el proceso de cancelación.

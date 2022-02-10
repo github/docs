@@ -159,7 +159,7 @@ Action                | Description
 Action                        | Description
 ----------------------------- | -----------------------------------------------
 `staff.disable_repo`          | A site admin disabled access to a repository and all of its forks.
-`staff.enable_repo`           | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghes > 3.2 %}
+`staff.enable_repo`           | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghae or ghes > 3.2 %}
 `staff.exit_fake_login`       | A site admin ended an impersonation session on {% data variables.product.product_name %}.
 `staff.fake_login`            | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
 `staff.repo_unlock`           | A site admin unlocked (temporarily gained full access to) one of a user's private repositories.

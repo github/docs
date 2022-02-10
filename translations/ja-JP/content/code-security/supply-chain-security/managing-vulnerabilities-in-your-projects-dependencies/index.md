@@ -1,5 +1,5 @@
 ---
-title: Managing vulnerabilities in your project's dependencies
+title: プロジェクトの依存関係にある脆弱性を管理する
 intro: 'You can track your repository''s dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies.'
 redirect_from:
   - /articles/updating-your-project-s-dependencies
@@ -30,6 +30,6 @@ children:
   - /viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
-shortTitle: Fix vulnerable dependencies
+shortTitle: 脆弱性のある依存関係の修復
 ---
 

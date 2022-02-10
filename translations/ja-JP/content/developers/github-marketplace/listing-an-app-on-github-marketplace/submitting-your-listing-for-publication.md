@@ -19,7 +19,7 @@ shortTitle: リストのサブミット
 
   ![Marketplaceのリストのドラフトの概要オプション](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-2. [**Request publish**] をクリックして、完成したアプリケーションのリストをサブミットします。
+2. To submit your completed app listing, click **Request publish**.
 
   ![下に提出ボタンの付いた、[Publish your app to Marketplace] チェックリスト](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
 

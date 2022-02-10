@@ -1,6 +1,6 @@
 ---
-title: Enabling GitHub Actions for GitHub Enterprise Server
-intro: 'Learn how to configure storage and enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}.'
+title: Habilitar GitHub Actions para o GitHub Enterprise Server
+intro: 'Aprenda como configurar o armazenamento e habilitar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}.'
 versions:
   ghes: '*'
 topics:
@@ -10,6 +10,6 @@ children:
   - /enabling-github-actions-with-amazon-s3-storage
   - /enabling-github-actions-with-minio-gateway-for-nas-storage
   - /setting-up-dependabot-updates
-shortTitle: Enable GitHub Actions
+shortTitle: Habilitar GitHub Actions
 ---
 

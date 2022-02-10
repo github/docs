@@ -1,6 +1,6 @@
 ---
-title: Building and testing Java with Maven
-intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Maven.
+title: Construir y probar Java con Maven
+intro: Puedes crear un flujo de trabajo de integración continua (CI) en acciones de GitHub para construir y probar tu proyecto Java con Maven.
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-maven
   - /actions/guides/building-and-testing-java-with-maven
@@ -14,39 +14,39 @@ topics:
   - CI
   - Java
   - Maven
-shortTitle: Build & test Java with Maven
+shortTitle: Crear & probar en Java con Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## Introducción
 
-This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Maven software project management tool. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to cache files and upload artifacts from a workflow run.
+Esta guía te muestra cómo crear un flujo de trabajo que realiza la integración continua (CI) para tu proyecto Java utilizando la herramienta de gestión de proyectos de software Maven. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. Puedes extender tu flujo de trabajo de CI para almacenar en caché los archivos y cargar artefactos desde una ejecución de flujo de trabajo.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Maven. For a list of software and the pre-installed versions for JDK and Maven, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+Los ejecutores alojados en {% data variables.product.prodname_dotcom %} tienen una caché de herramientas con un software preinstalado, que incluye kits de desarrollo de Java (JDK) y Maven. Para encontrar una lista de software y de las versiones pre-instaladas de JDK y de Maven, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 {% endif %}
 
-## Prerequisites
+## Prerrequisitos
 
-You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+Deberías estar familiarizado con YAML y la sintaxis para las {% data variables.product.prodname_actions %}. Para obtener más información, consulta:
+- "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+- "[Aprende sobre las {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
 
-We recommend that you have a basic understanding of Java and the Maven framework. For more information, see the [Maven Getting Started Guide](http://maven.apache.org/guides/getting-started/index.html) in the Maven documentation.
+Te recomendamos que tengas una comprensión básica de Java y del marco de Maven. Para obtener más información, consulta el [Guía de introducción a Maven](http://maven.apache.org/guides/getting-started/index.html) en la documentación de Maven.
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Starting with a Maven workflow template
+## Utilizar el flujo de trabajo inicial de Maven
 
-{% data variables.product.prodname_dotcom %} provides a Maven workflow template that will work for most Maven-based Java projects. For more information, see the [Maven workflow template](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de Maven que funcionará para la mayoría de los proyectos Java basados en Maven. Para obtener más información, consulta el [Fluje de trabajo inicial de Maven](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
-To get started quickly, you can choose the preconfigured Maven template when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
+Para iniciar rápidamente, puedes elegir el flujo de trabajo inicial de Maven preconfigurado cuando crees un flujo de trabajo nuevo. Para obtener más información, consulta la "[guía rápida de {% data variables.product.prodname_actions %}](/actions/quickstart)".
 
-You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
+También puedes agregar este flujo de trabajo de forma manual al crear un archivo nuevo en el directorio de tu repositorio `.github/workflows`.
 
 {% raw %}
 ```yaml{:copy}
@@ -70,25 +70,25 @@ jobs:
 ```
 {% endraw %}
 
-This workflow performs the following steps:
+Este flujo de trabajo realiza los siguientes pasos:
 
-1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
-3. The "Build with Maven" step runs the Maven `package` target in non-interactive mode to ensure that your code builds, tests pass, and a package can be created.
+1. El paso `checkout (comprobación)` descarga una copia de tu repositorio en el ejecutor.
+2. El paso `setup-java` configura el JDK de Java 11 por Adoptium.
+3. El paso "Build with Maven" (Construir con Maven) ejecuta el `paquete` destino de Maven en modo no interactivo para garantizar que tu código se compile, se superen las pruebas y se pueda crear un paquete.
 
-The default workflow templates are excellent starting points when creating your build and test workflow, and you can customize the template to suit your project’s needs.
+Los flujos de trabajo iniciales predeterminados son un punto de partida excelente para crear tu flujo de trabajo de prueba y de compilación y puedes personalizarlos de acuerdo con las necesidades de tu proyecto.
 
 {% data reusables.github-actions.example-github-runner %}
 
 {% data reusables.github-actions.java-jvm-architecture %}
 
-## Building and testing your code
+## Construir y probar tu código
 
-You can use the same commands that you use locally to build and test your code.
+Puedes usar los mismos comandos que usas de forma local para construir y probar tu código.
 
-The starter workflow will run the `package` target by default. In the default Maven configuration, this command will download dependencies, build classes, run tests, and package classes into their distributable format, for example, a JAR file.
+El flujo de trabajo de inicio ejecutará el `paquete` destino por defecto. En la configuración predeterminada de Maven, este comando descargará dependencias, construirá clases, ejecutar pruebas y las clases de paquetes en su formato distribuible, por ejemplo, un archivo JAR.
 
-If you use different commands to build your project, or you want to use a different target, you can specify those. For example, you may want to run the `verify` target that's configured in a _pom-ci.xml_ file.
+Si usas diferentes comandos para compilar tu proyecto, o si quieres usar un destino diferente, puedes especificarlos. Por ejemplo, es posible que desees ejecutar el objetivo `verify (verificar)` que está configurado en un archivo _pom-ci.xml_.
 
 {% raw %}
 ```yaml{:copy}
@@ -103,9 +103,9 @@ steps:
 ```
 {% endraw %}
 
-## Caching dependencies
+## Almacenar dependencias en caché
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. After a successful run, your local Maven repository will be stored on GitHub Actions infrastructure. In future workflow runs, the cache will be restored so that dependencies don't need to be downloaded from remote Maven repositories. You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration. 
+Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes guardar tus dependencias en el caché para acelerar tus ejecuciones de flujo de trabajo. Después de una ejecución exitosa, tu repositorio Maven local se almacenará en la infraestructura de acciones de GitHub. En las ejecuciones de flujo de trabajo futuras, el caché se restaurará para que las dependencias no necesiten descargarse desde los repositorios remotos de Maven. Puedes guardar las dependencias en caché utilizando simplemente la [acción `setup-java`](https://github.com/marketplace/actions/setup-java-jdk) o puedes utilizar la [Acción `cache`](https://github.com/actions/cache) para tener una configuración personalizada y más avanzada.
 
 {% raw %}
 ```yaml{:copy}
@@ -122,13 +122,13 @@ steps:
 ```
 {% endraw %}
 
-This workflow will save the contents of your local Maven repository, located in the `.m2` directory of the runner's home directory. The cache key will be the hashed contents of _pom.xml_, so changes to _pom.xml_ will invalidate the cache.
+Este flujo de trabajo guardará los contenidos de tu repositorio local de Maven, ubicado en el directorio `.m2` del directorio de inicio del ejecutor. La clave de caché será el contenido con hash de _pom.xml_, por lo que los cambios en _pom.xml_ invalidará el caché.
 
-## Packaging workflow data as artifacts
+## Empaquetar datos de flujo de trabajo como artefactos
 
-After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+Una vez que tu compilación haya tenido éxito y tus pruebas hayan pasado, es posible que desees cargar los paquetes Java resultantes como un artefacto de construcción. Esto almacenará los paquetes construidos como parte de la ejecución del flujo de trabajo y te permitirá descargarlos. Los artefactos pueden ayudarte a probar y depurar solicitudes de extracción en tu entorno local antes de que se fusionen. Para obtener más información, consulta "[Conservar datos de flujo de trabajo mediante artefactos](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-Maven will usually create output files like JARs, EARs, or WARs in the `target` directory. To upload those as artifacts, you can copy them into a new directory that contains artifacts to upload. For example, you can create a directory called `staging`. Then you can upload the contents of that directory using the `upload-artifact` action.
+Por lo general, Maven creará archivos de salida como tarros, orejas o guerras en el `Objetivo` Directorio. Para cargarlos como artefactos, puedes copiarlos en un nuevo directorio que contenga artefactos para cargar. Por ejemplo, puedes crear un directorio llamado `staging` (preparación). Luego puedes cargar los contenidos de ese directorio usando la acción `upload-artifact (cargar artefacto)`.
 
 {% raw %}
 ```yaml{:copy}

@@ -1,4 +1,4 @@
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion ghes > 3.0 or ghec %}
 {% note %}
 **注意：**如果启用
 

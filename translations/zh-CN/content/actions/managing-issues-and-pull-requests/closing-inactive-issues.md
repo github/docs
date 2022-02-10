@@ -1,6 +1,6 @@
 ---
-title: Closing inactive issues
-intro: 'You can use {% data variables.product.prodname_actions %} to comment on or close issues that have been inactive for a certain period of time.'
+title: 关闭不活跃的议题
+intro: '您可以使用 {% data variables.product.prodname_actions %} 评论或关闭在一定时间内未活动的议题。'
 redirect_from:
   - /actions/guides/closing-inactive-issues
 versions:
@@ -17,17 +17,17 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## 简介
 
-This tutorial demonstrates how to use the [`actions/stale` action](https://github.com/marketplace/actions/close-stale-issues) to comment on and close issues that have been inactive for a certain period of time. For example, you can comment if an issue has been inactive for 30 days to prompt participants to take action. Then, if no additional activity occurs after 14 days, you can close the issue.
+本教程演示了如何使用 [`actions/stale` 操作](https://github.com/marketplace/actions/close-stale-issues)来评论和关闭已经停用一段时间的议题。 例如，如果某个议题 30 天内未活动，您可以添加评论以促使参与者采取行动。 然后，如果 14 天后没有其他活动发生，您可以关闭此议题。
 
-In the tutorial, you will first make a workflow file that uses the [`actions/stale` action](https://github.com/marketplace/actions/close-stale-issues). Then, you will customize the workflow to suit your needs.
+在教程中，您将先创建一个使用 [`actions/stale` 操作](https://github.com/marketplace/actions/close-stale-issues)的工作流程文件。 然后，您将自定义工作流以适应您的需要。
 
-## Creating the workflow
+## 创建工作流程
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
-3. Copy the following YAML contents into your workflow file.
+3. 将以下 YAML 内容复制到工作流程文件中。
 
     ```yaml{:copy}
     name: Close inactive issues
@@ -54,26 +54,26 @@ In the tutorial, you will first make a workflow file that uses the [`actions/sta
               repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
-4. Customize the parameters in your workflow file:
-   - Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every day at 1:30 UTC. For more information about scheduled workflows, see "[Scheduled events](/actions/reference/events-that-trigger-workflows#scheduled-events)."
-   - Change the value for `days-before-issue-stale` to the number of days without activity before the `actions/stale` action labels an issue. If you never want this action to label issues, set this value to `-1`.
-   - Change the value for `days-before-issue-close` to the number of days without activity before the `actions/stale` action closes an issue. If you never want this action to close issues, set this value to `-1`.
-   - Change the value for `stale-issue-label` to the label that you want to apply to issues that have been inactive for the amount of time specified by `days-before-issue-stale`.
-   - Change the value for `stale-issue-message` to the comment that you want to add to issues that are labeled by the `actions/stale` action.
-   - Change the value for `close-issue-message` to the comment that you want to add to issues that are closed by the `actions/stale` action.
+4. 自定义工工作流程文件中的参数：
+   - 更改 `on.schedule` 的值以指示您希望此工作流程何时运行。 在上面的示例中，工作流将于每天 1:30 UTC 运行。 有关计划工作流程的更多信息，请参阅“[计划的活动](/actions/reference/events-that-trigger-workflows#scheduled-events)”。
+   - 将 `days-before-issue-stale` 的值更改为在 `actions/stale` 操作标记议题之前无活动的天数。 如果您不希望此操作标记议题，将此值设置为 `-1`。
+   - 将 `days-before-issue-close` 的值更改为在 `actions/stale` 操作关闭议题之前无活动的天数。 如果您不希望此操作关闭议题，将此值设置为 `-1`。
+   - 将 `stale-issue-label` 的值更改为您想要应用到 `days-before-issue-stale` 指定的时间内未活动的议题的标签。
+   - 将 `stale-issue-message` 的值更改为您想要添加到 `actions/stale` 操作标记的议题的评论。
+   - 将 `close-issue-message` 的值更改为您想要添加到 `actions/stale` 操作关闭的议题的评论。
 5. {% data reusables.actions.commit-workflow %}
 
-## Expected results
+## 预期结果
 
-Based on the `schedule` parameter (for example, every day at 1:30 UTC), your workflow will find issues that have been inactive for the specified period of time and will add the specified comment and label. Additionally, your workflow will close any previously labeled issues if no additional activity has occurred for the specified period of time.
+根据 `schedule` 参数（例如，每天 1:30 UTC），您的工作流程将发现在指定时间段内处于非活动状态的议题，并将添加指定的评论和标签。 此外，如果在指定时间段内未发生其他活动，您的工作流程将关闭任何以前标记的议题。
 
 {% data reusables.actions.schedule-delay %}
 
-You can view the history of your workflow runs to see this workflow run periodically. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+您可以查看工作流程运行的历史记录，以便定期查看此工作流程运行。 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
 
-This workflow will only label and/or close 30 issues at a time in order to avoid exceeding a rate limit. You can configure this with the `operations-per-run` setting. For more information, see the [`actions/stale` action documentation](https://github.com/marketplace/actions/close-stale-issues).
+为了避免超过速率限制，此工作流程将一次只标记和/或关闭 30 个议题。 您可以使用 `operations-per-run` 设置配置此项。 更多信息请参阅 [`actions/stale` 操作文档](https://github.com/marketplace/actions/close-stale-issues)。
 
-## Next steps
+## 后续步骤
 
-- To learn more about additional things you can do with the `actions/stale` action, like closing inactive pull requests, ignoring issues with certain labels or milestones, or only checking issues with certain labels, see the [`actions/stale` action documentation](https://github.com/marketplace/actions/close-stale-issues).
-- [Search GitHub](https://github.com/search?q=%22uses%3A+actions%2Fstale%22&type=code) for examples of workflows using this action.
+- 要详细了解可以使用 `actions/stale` 操作执行的其他事务，如关闭非活动的拉取请求、忽略包含某些标签或里程碑的议题，或只检查包含特定标签的议题，请参阅 [`actions/stale` 操作文档](https://github.com/marketplace/actions/close-stale-issues)。
+- [搜索 GitHub](https://github.com/search?q=%22uses%3A+actions%2Fstale%22&type=code) 以查看使用此操作的工作流程示例。

@@ -1,6 +1,6 @@
 ---
-title: Converting an Owners team to improved organization permissions
-intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. The "Owner" is now an administrative role given to individual members of your organization. Members of your legacy Owners team are automatically given owner privileges.'
+title: Migrar uma equipe de proprietários para permissões de organização aprimoradas
+intro: 'Se sua organização foi criada depois de setembro de 2015, tem permissões de organização aprimoradas por padrão. Organizações criadas antes de setembro de 2015 podem precisar migrar proprietários e equipes de administradores antigos para o modelo de permissões aprimoradas. O "proprietário" é agora uma função administrativa fornecida a integrantes individuais da sua organização. Os integrantes da equipe de proprietários legada recebem automaticamente privilégios de proprietário.'
 redirect_from:
   - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program
   - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions
@@ -13,19 +13,19 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Convert Owners team
+shortTitle: Converter equipe de proprietários
 ---
 
-You have a few options to convert your legacy Owners team:
+Você tem algumas opções para converter sua equipe de proprietários legada:
 
-- Give the team a new name that denotes the members have a special status in the organization.
-- Delete the team after ensuring all members have been added to teams that grant necessary access to the organization's repositories.
+- Dê à organização um novo nome que denote que os integrantes têm um status especial na organização.
+- Exclua a equipe após garantir que todos os integrantes foram adicionados às equipes que concedem acesso necessário aos repositórios da organização.
 
-## Give the Owners team a new name
+## Dar à equipe de proprietários um novo nome
 
 {% tip %}
 
-   **Note:** Because "admin" is a term for organization members with specific [access to certain repositories](/articles/repository-permission-levels-for-an-organization) in the organization, we recommend you avoid that term in any team name you decide on.
+   **Observação:** como "administrador" é um termo para integrantes da organização com [acesso específico a determinados repositórios](/articles/repository-permission-levels-for-an-organization) na organização, é recomendável evitar esse termo em nomes de equipe sobre os quais você decide.
 
 {% endtip %}
 
@@ -33,19 +33,17 @@ You have a few options to convert your legacy Owners team:
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
-5. In the team name field, choose a new name for the Owners team. For example:
-    - If very few members of your organization were members of the Owners team, you might name the team "Core".
-    - If all members of your organization were members of the Owners team so that they could [@mention teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), you might name the team "Employees".
-  ![The team name field, with the Owners team renamed to Core](/assets/images/help/teams/owners-team-new-name.png)
-6. Under the team description, click **Save and continue**.
-![The Save and continue button](/assets/images/help/teams/owners-team-save-and-continue.png)
-7. Optionally, [make the team *public*](/articles/changing-team-visibility).
+5. No campo de nome da equipe, escolha um novo nome para a equipe de proprietários. Por exemplo:
+    - Se apenas alguns integrantes da organização forem integrantes da equipe de proprietários, você poderá dar à equipe o nome de "Principal".
+    - Se todos os integrantes da organização forem integrantes da equipe de proprietários, de modo que eles podem [@mencionar equipes](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), você pode dar à equipe o nome de "Funcionários". ![O campo de nome da equipe, com a equipe de proprietários renomeada para Principal](/assets/images/help/teams/owners-team-new-name.png)
+6. Abaixo da descrição da equipe, clique em **Save and continue** (Salvar e continuar). ![O botão Save and continue (Salvar e continuar)](/assets/images/help/teams/owners-team-save-and-continue.png)
+7. Como opção, [torne a equipe *pública*](/articles/changing-team-visibility).
 
-## Delete the legacy Owners team
+## Excluir a equipe de proprietários legada
 
 {% warning %}
 
-**Warning:** If there are members of your Owners team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
+**Aviso:** se houver integrantes da equipe de proprietários que não sejam integrantes de outras equipes, excluir a equipe removerá esses integrantes da organização. Antes de excluir a equipe, certifique-se de que os integrantes já sejam integrantes diretos da organização ou que tenham acesso de colaborador aos repositórios necessários.
 
 {% endwarning %}
 
@@ -53,5 +51,4 @@ You have a few options to convert your legacy Owners team:
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
-5. At the bottom of the page, review the warning and click **Delete the Owners team**.
-  ![Link for deleting the Owners team](/assets/images/help/teams/owners-team-delete.png)
+5. Na parte inferior da página, revise o aviso e clique em **Delete the Owners team** (Excluir a equipe de proprietários). ![Link para excluir a equipe de proprietários](/assets/images/help/teams/owners-team-delete.png)

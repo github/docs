@@ -1,6 +1,6 @@
 ---
-title: Authentication
-intro: 'Keep your account and data secure with features like {% ifversion not ghae %}two-factor authentication, {% endif %}SSH{% ifversion not ghae %},{% endif %} and commit signature verification.'
+title: Autenticação
+intro: 'Mantenha sua conta e dados seguros com as funcionalidades como {% ifversion not ghae %}autenticação de dois fatores, {% endif %}SSH{% ifversion not ghae %},{% endif %} e verificação de assinatura de commit.'
 redirect_from:
   - /categories/56/articles
   - /categories/ssh

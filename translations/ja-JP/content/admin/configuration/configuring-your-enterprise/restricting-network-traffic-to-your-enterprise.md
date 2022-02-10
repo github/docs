@@ -1,7 +1,7 @@
 ---
-title: Restricting network traffic to your enterprise
-shortTitle: Restricting network traffic
-intro: You can use an IP allow list to restrict access to your enterprise to connections from specified IP addresses.
+title: Enterprise へのネットワークトラフィックを制限する
+shortTitle: ネットワークトラフィックを制限する
+intro: IP 許可リストを使用して、Enterprise へのアクセスを指定された IP アドレスからの接続に制限できます。
 versions:
   ghae: '*'
 type: how_to
@@ -14,21 +14,22 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
 ---
-## About IP allow lists
 
-By default, authorized users can access your enterprise from any IP address. Enterprise owners can restrict access to assets owned by organizations in an enterprise account by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+## IP 許可リストについて
+
+デフォルトでは、許可されたユーザは任意の IP アドレスから Enterprise にアクセスできます。 Enterprise のオーナーは、特定の IP アドレスに対する許可リストを設定することで、Enterprise アカウントの Organization が所有するアセットへのアクセスを制限できます。 {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
-You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
+許可 IP アドレスを、Organization ごとに設定することもできます。 詳細は「[ Organization に対する許可 IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
 
-By default, Azure network security group (NSG) rules leave all inbound traffic open on ports 22, 80, 443, and 25. Enterprise owners can contact {% data variables.contact.github_support %} to configure access restrictions for your instance.
+既定では、Azure ネットワークセキュリティグループ (NSG) ルールで、ポート 22、80、443、および 25 ですべてのインバウンドトラフィックが開いたままになります。 Enterprise オーナーは {% data variables.contact.github_support %} に問い合わせて、インスタンスのアクセス制限を設定できます。
 
-For instance-level restrictions using Azure NSGs, contact {% data variables.contact.github_support %} with the IP addresses that should be allowed to access your enterprise instance. Specify address ranges using the standard CIDR (Classless Inter-Domain Routing) format. {% data variables.contact.github_support %} will configure the appropriate firewall rules for your enterprise to restrict network access over HTTP, SSH, HTTPS, and SMTP. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+Azure NSG を使用したインスタンスレベルの制限については、Enterprise インスタンスへのアクセスを許可する必要がある IP アドレスを {% data variables.contact.github_support %} に問い合わせてください。 標準の CIDR (Classless Inter-Domain Routing) 形式を使用してアドレス範囲を指定します。 {% data variables.contact.github_support %} は、HTTP、SSH、HTTPS、SMTP を介したネットワークアクセスを制限するために、Enterprise に適切なファイアウォールルールを設定します。 詳しい情報については、「[{% data variables.contact.github_support %} からの支援を受ける](/admin/enterprise-support/receiving-help-from-github-support)」を参照してください。
 
-## Adding an allowed IP address
+## 許可 IP アドレスを追加する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -37,20 +38,19 @@ For instance-level restrictions using Azure NSGs, contact {% data variables.cont
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
 
-## Allowing access by {% data variables.product.prodname_github_apps %}
+## {% data variables.product.prodname_github_apps %}によるアクセスの許可
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-## Enabling allowed IP addresses
+## 許可 IP アドレスを有効化する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Under "IP allow list", select **Enable IP allow list**.
-  ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-4. Click **Save**.
+1. [IP allow list] で、「**Enable IP allow list**」を選択します。 ![IP アドレスを許可するチェックボックス](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+4. [**Save**] をクリックします。
 
-## Editing an allowed IP address
+## 許可 IP アドレスを編集する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -58,9 +58,9 @@ For instance-level restrictions using Azure NSGs, contact {% data variables.cont
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+8. [**Update**] をクリックします。
 
-## Deleting an allowed IP address
+## 許可 IP アドレスを削除する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -68,6 +68,6 @@ For instance-level restrictions using Azure NSGs, contact {% data variables.cont
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-## Using {% data variables.product.prodname_actions %} with an IP allow list
+## IP許可リストで {% data variables.product.prodname_actions %} を使用する
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}

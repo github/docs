@@ -46,8 +46,6 @@ There are three reasons why an alert may have no pull request link:
 
 If an error blocked {% data variables.product.prodname_dependabot %} from creating a pull request, you can display details of the error by clicking the alert.
 
-![{% data variables.product.prodname_dependabot %} alert showing the error that blocked the creation of a pull request](/assets/images/help/dependabot/dependabot-security-update-error.png)
-
 ## Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}
 
 When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem, it posts the error icon on the manifest file. The manifest files that are managed by {% data variables.product.prodname_dependabot %} are listed on the {% data variables.product.prodname_dependabot %} tab. To access this tab, on the **Insights** tab for the repository click **Dependency graph**, and then click the **{% data variables.product.prodname_dependabot %}** tab.

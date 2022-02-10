@@ -1,11 +1,11 @@
 ---
-title: Be social
+title: ソーシャル機能
 redirect_from:
   - /be-social
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
-intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they''re connecting with from your personal dashboard.'
+intro: '{% data variables.product.prodname_dotcom %} 上で、人々、リポジトリ、Organization と関わることができます。 個人ダッシュボードから、他の人々がどんな作業をしていて、何とつながっているのかを見てください。'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
@@ -19,25 +19,26 @@ topics:
   - Notifications
   - Accounts
 ---
-To learn about accessing your personal dashboard, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
-## Following people
+個人ダッシュボードへのアクセスについて学ぶには、「[個人ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。
 
-When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+## 人をフォローする
 
-Click **Follow** on a person's profile page to follow them.
+{% data variables.product.prodname_dotcom %} 上で人をフォローすれば、その人のアクティビティについてパーソナルダッシュボードで通知を受けられます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
 
-![Follow user button](/assets/images/help/profile/follow-user-button.png)
+人をフォローするには、その人のプロフィールページで [**Follow**] をクリックします。
 
-## Watching a repository
+![ユーザのフォローボタン](/assets/images/help/profile/follow-user-button.png)
 
-You can watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+## リポジトリを Watch する
 
-Click **Watch** at the top of a repository to watch it.
+リポジトリを Watch して、新しいプルリクエストと Issue に関する通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人ダッシュボード上で変更を見ることができます。 詳しい情報については、{% ifversion fpt or ghae or ghes or ghec %}「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}「[リポジトリを Watch および Watch 解除する](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}」を参照してください。
 
-![Watch repository button](/assets/images/help/repository/repo-actions-watch.png)
+リポジトリを Watch するには、リポジトリの上部で [**Watch**] をクリックします。
 
-## Joining the conversation
+![リポジトリの Watch ボタン](/assets/images/help/repository/repo-actions-watch.png)
+
+## 会話に参加する
 
 {% data reusables.support.ask-and-answer-forum %}
 
@@ -45,34 +46,33 @@ Click **Watch** at the top of a repository to watch it.
 
 {% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
 
-## Doing even more
+## さらなる活動
 
-### Creating pull requests
+### プルリクエストを作成する
 
- You may want to contribute to another person's project, whether to add features or to fix bugs. After making changes, let the original author know by sending a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+ 機能を追加したり、バグを修正したりして、他者のプロジェクトにコントリビュートしたいこともあるでしょう。 変更を行ったら、プルリクエストを送信してオリジナルの作者に知らせましょう。 詳しい情報については[プルリクエストについて](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)を参照してください。
 
- ![Pull request button](/assets/images/help/repository/repo-actions-pullrequest.png)
+ ![プルリクエストボタン](/assets/images/help/repository/repo-actions-pullrequest.png)
 
-### Using issues
+### Issue を使用する
 
-When collaborating on a repository, use issues to track ideas, enhancements, tasks, or bugs. For more information, see '[About issues](/articles/about-issues/)."
+リポジトリでコラボレーションする際に、Issue を使ってアイデア、拡張、タスク、バグを追跡してください。 詳細は「[Issues について](/articles/about-issues/)」を参照してください。
 
-![Issues button](/assets/images/help/repository/repo-tabs-issues.png)
+![Issue ボタン](/assets/images/help/repository/repo-tabs-issues.png)
 
-### Participating in organizations
+### Organization への参加
 
-Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can establish teams with special permissions, have a public organization profile, and keep track of activity within the organization. For more information, see "[About organizations](/articles/about-organizations/)."
+Organizationは、企業やオープンソースプロジェクトが多くのプロジェクトにわたって一度にコラボレーションできる共有アカウントです。 オーナーや管理者は、特殊な権限を持つ Team を作ることができ、パブリックな Organization のプロフィールを持つことができ、Organization 内でのアクティビティを追跡することができます。 詳細は「[Organization について](/articles/about-organizations/)」を参照してください。
 
-![Switch account context dropdown](/assets/images/help/overview/dashboard-contextswitcher.png)
+![アカウントのコンテキストの切り替えのドロップダウン](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-### Exploring other projects on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %} 上の他のプロジェクトを調べる
 
-Discover interesting projects using {% data variables.explore.explore_github %}, [Explore repositories](https://github.com/explore), and the {% data variables.explore.trending_page %}. Star interesting projects and come back to them later. Visit your {% data variables.explore.your_stars_page %} to see all your starred projects.  For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard/)." 
+{% data variables.explore.explore_github %}、[リポジトリを調べる](https://github.com/explore)、そして {% data variables.explore.trending_page %} を使って、興味深いプロジェクトを見つけてください。 興味深いプロジェクトに Star を付け、後から戻っていってください。 {% data variables.explore.your_stars_page %} にアクセスすれば、Star を付けたすべてのプロジェクトを見ることができます。  詳細は「[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard/)」を参照してください。
 
-## Celebrate
+## おめでとうございます
 
-You're now connected to the {% data variables.product.product_name %} community. What do you want to do next?
-![Star a project](/assets/images/help/stars/star-a-project.png)
+これで、{% data variables.product.product_name %} コミュニティにつながりました。 次に何をしたいですか? ![プロジェクトに Star を付ける](/assets/images/help/stars/star-a-project.png)
 
 
 - To synchronize your {% data variables.product.product_name %} projects with your computer, you can set up Git. For more information see "[Set up Git](/articles/set-up-git)."

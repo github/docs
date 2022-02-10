@@ -1,6 +1,6 @@
 ---
-title: Initiating a failover to your replica appliance
-intro: 'You can failover to a {% data variables.product.prodname_ghe_server %} replica appliance using the command line for maintenance and testing, or if the primary appliance fails.'
+title: Iniciar una tolerancia de fallos a tu aparato de réplica
+intro: 'Puedes tener tolerancia de fallos en un aparato de réplica {% data variables.product.prodname_ghe_server %} por medio de la línea de comando para mantenimiento y pruebas, o si falla el aparato principal.'
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
@@ -12,47 +12,48 @@ topics:
   - Enterprise
   - High availability
   - Infrastructure
-shortTitle: Initiate failover to appliance
+shortTitle: Iniciar la recuperación de fallos para el aplicativo
 ---
-The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 2-10 minutes.
+
+El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para impulsar la réplica y redireccionar el tráfico de forma manual. El tiempo promedio varía entre 2 y 10 minutos.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. To allow replication to finish before you switch appliances, put the primary appliance into maintenance mode:
-    - To use the management console, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)"
-    - You can also use the `ghe-maintenance -s` command.
+1. Para permitir que la replicación finalice antes de cambiar aparatos, pon el aparato principal en modo mantenimiento:
+    - Para usar el administrador de consola, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)"
+    - También puedes usar el comando `ghe-maintenance -s`.
       ```shell
       $ ghe-maintenance -s
       ```
-2.  When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds. 
+2.  Cuando la cantidad de operaciones activas de Git, consultas de MySQL y jobs de Resque lleguen a cero, espera 30 segundos.
 
     {% note %}
 
-    **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
-    
+    **Nota:** Nomad siempre tendrá jobs en ejecución, incluso si está en modo de mantenimiento, así que puedes ignorar estos jobs de forma segura.
+
     {% endnote %}
 
-3. To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
+3. Para verificar que todos los canales de replicación informan `OK`, utiliza el comando `ghe-repl-status -vv`.
   ```shell
   $ ghe-repl-status -vv
   ```
-4. To stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance node if it’s reachable.
+4. Para frenar la replicación e impulsar el aparato de réplica a un estado primario, utiliza el comando `ghe-repl-promote`. Esto también pondrá de forma automática al nodo primario en nodo mantenimiento si es accesible.
   ```shell
   $ ghe-repl-promote
   ```
-5. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
-6. Notify users that they can resume normal operations.
-7. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[About high availability configuration](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)."
-8. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
-    - On the former appliances, get their UUID via `cat /data/user/common/uuid`.
+5. Actualiza el registro de DNS para que apunte a la dirección IP de la réplica. El tráfico es direccionado a la réplica después de que transcurra el período TTL. Si estás utilizando un balanceador de carga, asegúrate de que esté configurado para enviar el tráfico a la réplica.
+6. Notifica a los usuarios que pueden retomar las operaciones normales.
+7. Si se desea, configura una replicación desde el aparato principal nuevo al aparato existente y el principal anterior. Para obtener más información, consulta "[Acerca de la configuración de alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)."
+8. Los aplicativos en los que no pretendas configurar la replicación que eran parte de la configuración de disponibilidad alta antes de la recuperación del fallo deberán eliminarse de dicha configuración de disponibilidad alta a través de UUID.
+    - Para los aplicativos anteriores, obtén su UUID a través de `cat /data/user/common/uuid`.
       ```shell
       $ cat /data/user/common/uuid
       ```
-    - On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace *`UUID`* with a UUID you retrieved in the previous step.
+    - En el primario nuevo, elimina las UUID utilizando `ghe-repl-teardown`. Por favor, reemplaza *`UUID`* con aquella UUID que recuperaste en el paso anterior.
       ```shell
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-## Further reading
+## Leer más
 
-- "[Utilities for replication management](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
+- "[Utilidades para la gestión de replicaciones](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

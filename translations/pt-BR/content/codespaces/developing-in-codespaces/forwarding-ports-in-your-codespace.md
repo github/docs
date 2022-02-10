@@ -29,8 +29,6 @@ Você também pode encaminhar uma porta manualmente, etiquetar portas encaminhad
 
 Você pode encaminhar manualmente uma porta que não foi encaminhada automaticamente.
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
@@ -73,7 +71,7 @@ Por padrão, {% data variables.product.prodname_codespaces %} encaminha portas u
 Para encaminhar uma porta use o subcomando `gh codespace ports forward`. Substitua `codespace-port:local-port` pelas portas remotas e locais que você deseja conectar. Depois de entrar no comando, escolha entre a lista de codespaces exibidos.
 
 ```shell
-gh codespace ports forward <em>codespace-port</em>:<em>local-port</em> 
+gh codespace ports forward <em>codespace-port</em>:<em>local-port</em>
 ```
 
 Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_ports_forward).
@@ -91,8 +89,6 @@ Para ver os detalhes das portas encaminhadas, digite `gh codespace ports` e, em 
 {% endnote %}
 
 Se você quiser compartilhar uma porta encaminhada com outras pessoas, você pode tornar a porta privada da sua organização ou tornar a porta pública. Após tornar uma porta privada para a sua organização, qualquer pessoa na organização com a URL da porta poderá ver o aplicativo em execução. Após você tornar uma porta pública, qualquer pessoa que conheça a URL e o número da porta poderá ver o aplicativo em execução sem precisar efetuar a autenticação.
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -119,7 +115,7 @@ Para alterar a visibilidade de uma porta encaminhada, use a visibilidade do subc
 Substitua `codespace-port` pelo número da porta encaminhada. Substitua `configuração` por `privado`, `org` ou `público`. Depois de entrar no comando, escolha entre a lista de codespaces exibidos.
 
 ```shell
-gh codespace ports visibility <em>codespace-port</em>:<em>setting</em> 
+gh codespace ports visibility <em>codespace-port</em>:<em>setting</em>
 ```
 
 Você pode definir a visibilidade de várias portas com um comando. Por exemplo:

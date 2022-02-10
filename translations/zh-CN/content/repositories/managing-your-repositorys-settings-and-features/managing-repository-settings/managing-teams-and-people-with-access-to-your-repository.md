@@ -28,7 +28,7 @@ For more information about repository roles, see "[Permission levels for a user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 4. 在“Manage access（管理访问权限）”下的搜索字段中，开始输入您要查找的团队或人员的名称。 ![用于过滤具有访问权限的团队或人员列表的搜索字段](/assets/images/help/repository/manage-access-filter.png)
 
 ## 更改团队或人员的权限
@@ -42,7 +42,7 @@ For more information about repository roles, see "[Permission levels for a user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. 在搜索字段中，开始输入要邀请的团队或人员的名称，然后单击匹配列表中的名称。 ![用于输入要邀请加入仓库的团队或人员名称的搜索字段](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Under "Choose a role", select the repository role to grant to the team or person, then click **Add NAME to REPOSITORY**. ![为团队或人员选择权限](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
@@ -51,7 +51,7 @@ For more information about repository roles, see "[Permission levels for a user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 4. 在“Manage access（管理访问权限）”下，找到要删除其访问权限的团队或人员，然后单击 {% octicon "trash" aria-label="The trash icon" %}。 ![用于删除访问权限的回收站图标](/assets/images/help/repository/manage-access-remove.png)
 
 ## 延伸阅读

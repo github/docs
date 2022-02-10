@@ -1,5 +1,5 @@
 ---
-title: Actions
+title: アクション
 intro: 'With the Actions API, you can manage and control {% data variables.product.prodname_actions %} for an organization or repository.'
 redirect_from:
   - /v3/actions
@@ -14,15 +14,15 @@ miniTocMaxHeadingLevel: 3
 ---
 
 
-The {% data variables.product.prodname_actions %} API enables you to manage {% data variables.product.prodname_actions %} using the REST API. {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} require the permissions mentioned in each endpoint. For more information, see "[{% data variables.product.prodname_actions %} Documentation](/actions)."
+{% data variables.product.prodname_actions %} API では、REST API を使用して {% data variables.product.prodname_actions %} を管理できます。 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} require the permissions mentioned in each endpoint. 詳しい情報については、「[{% data variables.product.prodname_actions %} のドキュメント](/actions)」を参照してください。
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Artifacts
+## 成果物
 
-The Artifacts API allows you to download, delete, and retrieve information about workflow artifacts. {% data reusables.actions.about-artifacts %} For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+成果物 API では、ワークフローの成果物に関する情報をダウンロード、削除、および取得できます。 {% data reusables.actions.about-artifacts %} 詳しい情報については、「[成果物を利用してワークフローのデータを永続化する](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 
@@ -31,58 +31,58 @@ The Artifacts API allows you to download, delete, and retrieve information about
 {% endfor %}
 
 {% ifversion fpt or ghes > 2.22 or ghae or ghec %}
-## Permissions
+## 権限
 
 The Permissions API allows you to set permissions for what organizations and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions are allowed to run.{% ifversion fpt or ghec or ghes %} For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)."{% endif %}
 
-You can also set permissions for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin#github-actions)" REST API.
+Enterprise の権限を設定することもできます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)」REST API を参照してください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'permissions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 {% endif %}
 
-## Secrets
+## シークレット
 
-The Secrets API lets you create, update, delete, and retrieve information about encrypted secrets. {% data reusables.actions.about-secrets %} For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+シークレット API では、暗号化されたシークレットに関する情報を作成、更新、削除、および取得できます。 {% data reusables.actions.about-secrets %} 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `secrets` permission to use this API. Authenticated users must have collaborator access to a repository to create, update, or read secrets.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `secrets` permission to use this API. 認証されたユーザは、シークレットを作成、更新、または読み取るために、リポジトリへのコラボレータアクセス権を持っている必要があります。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'secrets' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Self-hosted runners
+## セルフホストランナー
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
-The Self-hosted Runners API allows you to register, view, and delete self-hosted runners. {% data reusables.actions.about-self-hosted-runners %} For more information, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+セルフホストランナー API では、自分のホストランナーの登録、表示、削除ができます。 {% data reusables.actions.about-self-hosted-runners %} 詳しい情報については「[自分のランナーのホスト](/actions/hosting-your-own-runners)」を参照してください。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to the repository or organization to use this API.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. 認証されたユーザがこの API を使用するには、リポジトリまたは Organization への管理者アクセス権が必要です。
 
-You can manage self-hosted runners for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin#github-actions)" REST API.
+Enterprise のセルフホストランナーを管理できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)」REST API を参照してください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runners' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Self-hosted runner groups
+## セルフホストランナーグループ
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
-The Self-hosted Runners Groups API allows you manage groups of self-hosted runners. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+セルフホストランナーグループ API を使用すると、セルフホストランナーのグループを管理できます。 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to the repository or organization to use this API.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. 認証されたユーザがこの API を使用するには、リポジトリまたは Organization への管理者アクセス権が必要です。
 
-You can manage self-hosted runner groups for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin##github-actions)" REST API.
+Enterprise のセルフホストランナーグループを管理できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin##github-actions)」REST API を参照してください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runner-groups' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Workflows
+## ワークフロー
 
-The Workflows API allows you to view workflows for a repository. {% data reusables.actions.about-workflows %} For more information, see "[Automating your workflow with GitHub Actions](/actions/automating-your-workflow-with-github-actions)."
+ワークフロー API を使用すると、リポジトリのワークフローを表示できます。 {% data reusables.actions.about-workflows %}詳しい情報については、「[GitHub Actions でワークフローを自動化する](/actions/automating-your-workflow-with-github-actions)」を参照してください。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 
@@ -90,9 +90,9 @@ The Workflows API allows you to view workflows for a repository. {% data reusabl
   {% if operation.subcategory == 'workflows' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Workflow jobs
+## ワークフロージョブ
 
-The Workflow Jobs API allows you to view logs and workflow jobs. {% data reusables.actions.about-workflow-jobs %} For more information, see "[Workflow syntax for GitHub Actions](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
+ワークフロージョブ API では、ログとワークフロージョブを表示できます。 {% data reusables.actions.about-workflow-jobs %}詳しい情報については、「[GitHub Actions のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)」を参照してください。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 
@@ -100,9 +100,9 @@ The Workflow Jobs API allows you to view logs and workflow jobs. {% data reusabl
   {% if operation.subcategory == 'workflow-jobs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Workflow runs
+## ワークフロー実行
 
-The Workflow Runs API allows you to view, re-run, cancel, and view logs for workflow runs. {% data reusables.actions.about-workflow-runs %} For more information, see "[Managing a workflow run](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)."
+ワークフロー実行 API では、ワークフロー実行のログを表示、再実行、キャンセル、表示できます。 {% data reusables.actions.about-workflow-runs %}詳しい情報については、「[ワークフロー実行を管理する](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)」を参照してください。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 

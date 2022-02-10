@@ -1,6 +1,6 @@
 ---
-title: Adding information to your receipts
-intro: 'You can add extra information to your {% data variables.product.product_name %} receipts, such as tax or accounting information required by your company or country.'
+title: 添加信息到收据
+intro: '您可以添加 {% data variables.product.product_name %} 额外信息到收据，如公司或国家要求的纳税或会计信息。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/adding-information-to-your-receipts
   - /articles/can-i-add-my-credit-card-number-to-my-receipts
@@ -21,28 +21,29 @@ topics:
   - Organizations
   - Receipts
   - User account
-shortTitle: Add to your receipts
+shortTitle: 添加到收据中
 ---
-Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for [other paid features and products](/articles/about-billing-on-github).
+
+收据包括 {% data variables.product.prodname_dotcom %} 订阅以及[其他付费功能和产品](/articles/about-billing-on-github)的订阅。
 
 {% warning %}
 
-**Warning**: For security reasons, we strongly recommend against including any confidential or financial information (such as credit card numbers) on your receipts.
+**警告**：为安全起见，强烈建议不要在收据中包含任何机密或财务信息（如信用卡号）。
 
 {% endwarning %}
 
-## Adding information to your personal account's receipts
+## 添加信息到个人帐户的收据
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
-## Adding information to your organization's receipts
+## 添加信息到组织的收据
 
 {% note %}
 
-**Note**: {% data reusables.dotcom_billing.org-billing-perms %}
+**注**：{% data reusables.dotcom_billing.org-billing-perms %}
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
-title: Canceling a GitHub Marketplace app
-intro: 'You can cancel and remove a {% data variables.product.prodname_marketplace %} app from your account at any time.'
+title: 取消 GitHub Marketplace 应用程序
+intro: '您可以随时从您的帐户取消和删除 {% data variables.product.prodname_marketplace %} 应用程序。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/canceling-a-github-marketplace-app
   - /articles/canceling-an-app-for-your-personal-account
@@ -17,29 +17,30 @@ topics:
   - Organizations
   - Trials
   - User account
-shortTitle: Cancel a Marketplace app
+shortTitle: 取消 Marketplace app
 ---
-When you cancel an app, your subscription remains active until the end of your current billing cycle. The cancellation takes effect on your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
 
-When you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. If you don't cancel your free trial within the trial period, the payment method on file for your account will be charged for the plan you chose at the end of the trial period. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
+取消订阅后，您的订阅在当前结算周期结束之前将保持有效。 取消在下一个结算日期生效。 更多信息请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
+
+当您取消付费计划中的免费试用时，您的订阅将立即被取消，您将失去对该应用程序的访问权限。 如果您在试用期内未取消免费试用，则您将在试用期结束时，通过您的帐户中备案的付款方式为您选择的计划付费。 更多信息请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-## Canceling an app for your personal account
+## 取消个人帐户的应用程序
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-## Canceling a free trial for an app for your personal account
+## 取消个人帐户的应用程序免费试用
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-## Canceling an app for your organization
+## 取消组织的应用程序
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -50,7 +51,7 @@ When you cancel a free trial on a paid plan, your subscription is immediately ca
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-## Canceling a free trial for an app for your organization
+## 取消组织的应用程序免费试用
 
 {% data reusables.marketplace.marketplace-org-perms %}
 

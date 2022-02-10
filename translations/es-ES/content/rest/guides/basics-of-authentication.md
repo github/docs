@@ -1,6 +1,6 @@
 ---
-title: Basics of authentication
-intro: Learn about the different ways to authenticate with some examples.
+title: Información básica sobre la autenticación
+intro: Aprende acerca de las formas diferentes de autenticarse con algunos ejemplos.
 redirect_from:
   - /guides/basics-of-authentication
   - /v3/guides/basics-of-authentication
@@ -15,36 +15,27 @@ topics:
 ---
 
 
-In this section, we're going to focus on the basics of authentication. Specifically,
-we're going to create a Ruby server (using [Sinatra][Sinatra]) that implements
-the [web flow][webflow] of an application in several different ways.
+En esta sección, vamos a enfocarnos en lo básico de la autenticación. Específicamente, vamos a crear un servidor en Ruby (utilizando [Sintatra][Sinatra]) que implemente el [flujo web][webflow] de una aplicación en varias formas diferentes.
 
 {% tip %}
 
-You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
+Puedes descargar todo el código fuente de este proyecto [del repo platform-samples](https://github.com/github/platform-samples/tree/master/api/).
 
 {% endtip %}
 
-## Registering your app
+## Registrar tu app
 
-First, you'll need to [register your application][new oauth app]. Every
-registered OAuth application is assigned a unique Client ID and Client Secret.
-The Client Secret should not be shared! That includes checking the string
-into your repository.
+Primero, necesitas [registrar tu aplicación][new oauth app]. A cada aplicación de OAuth que se registra se le asigna una ID de Cliente única y un Secreto de Cliente. ¡El Secreto de Cliente no puede compartirse! Eso incluye el verificar la secuencia en tu repositorio.
 
-You can fill out every piece of information however you like, except the
-**Authorization callback URL**. This is easily the most important piece to setting
-up your application. It's the callback URL that {% data variables.product.product_name %} returns the user to after
-successful authentication.
+Puedes llenar toda la información como más te guste, con excepción de la **URL de rellamado para la autorización**. Esta es fácilmente la parte más importante para configurar tu aplicación. Es la URL de rellamado a la cual {% data variables.product.product_name %} devuelve al usuario después de una autenticación exitosa.
 
-Since we're running a regular Sinatra server, the location of the local instance
-is set to `http://localhost:4567`. Let's fill in the callback URL as `http://localhost:4567/callback`.
+Ya que estamos ejecutando un servidor común de Sinatra, la ubicación de la instancia local se configura como `http://localhost:4567`. Vamos a llenar la URL de rellamado como `http://localhost:4567/callback`.
 
-## Accepting user authorization
+## Aceptar la autorización del usuario
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
-Now, let's start filling out our simple server. Create a file called _server.rb_ and paste this into it:
+Ahora, vamos a comenzar a llenar nuestro servidor común. Crea un archivo que se llame _server.rb_ y pégale esto:
 
 ``` ruby
 require 'sinatra'
@@ -59,12 +50,12 @@ get '/' do
 end
 ```
 
-Your client ID and client secret keys come from [your application's configuration
-page][app settings].{% ifversion fpt or ghec %} You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
-[environment variables][about env vars]--which is exactly what we've done here.
+Tu ID de cliente y tus llaves secretas de cliente vienen de [la página de configuración de tu aplicación][app settings].
+{% ifversion fpt or ghec %} **Nunca,_ jamás_** deberías almacenar estos valores en
+{% data variables.product.product_name %} ni en algún otro lugar público, para el caso.{% endif %} Te recomendamos almacenarlos como
+[variables de ambiente][about env vars]--que es exactamente lo que hemos hecho aquí.
 
-Next, in _views/index.erb_, paste this content:
+Posteriormente, pega este contenido en _views/index.erb_:
 
 ``` erb
 <html>
@@ -76,35 +67,28 @@ Next, in _views/index.erb_, paste this content:
     </p>
     <p>
       We're going to now talk to the GitHub API. Ready?
-      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">Click here</a> to begin!</a>
+      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">¡Haz clic aquí</a> para comenzar!
     </p>
     <p>
-      If that link doesn't work, remember to provide your own <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">Client ID</a>!
+      Si ese enlace no funciona, recuerda proporcionar tu propia <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">ID de cliente</a>!
     </p>
   </body>
 </html>
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra guide].)
+(Si no estás familiarizado con la forma en que funciona Sinatra, te recomendamos [leer la guía de Sinatra][Sinatra guide].)
 
-Also, notice that the URL uses the `scope` query parameter to define the
-[scopes][oauth scopes] requested by the application. For our application, we're
-requesting `user:email` scope for reading private email addresses.
+También, ten en cuenta que la URL utiliza el parámetro de consulta `scope` para definir los [alcances][oauth scopes] que solicita la aplicación. Para nuestra aplicación, estamos solicitando el alcance `user:email` para leer las direcciones de correo electrónico privadas.
 
-Navigate your browser to `http://localhost:4567`. After clicking on the link, you
-should be taken to {% data variables.product.product_name %}, and presented with a dialog that looks something like this:
-![GitHub's OAuth Prompt](/assets/images/oauth_prompt.png)
+Navega en tu buscador hacia `http://localhost:4567`. Después de dar clic en el enlace, se te llevará a {% data variables.product.product_name %} y se te mostrará un diálogo que se ve más o menos así: ![Diálogo de OAuth de GitHub](/assets/images/oauth_prompt.png)
 
-If you trust yourself, click **Authorize App**. Wuh-oh! Sinatra spits out a
-`404` error. What gives?!
+Si confías en ti mismo, da clic en **Autorizar App**. ¡Oh-oh! Sinatra te arroja un error `404`. ¡¿Qué pasa?!
 
-Well, remember when we specified a Callback URL to be `callback`? We didn't provide
-a route for it, so {% data variables.product.product_name %} doesn't know where to drop the user after they authorize
-the app. Let's fix that now!
+Bueno, ¡¿recuerdas cuando especificamos la URL de rellamado como `callback`? No proporcionamos una ruta para ésta, así que {% data variables.product.product_name %} no sabe dónde dejar al usuario después de autorizar la app. ¡Arreglémoslo ahora!
 
-### Providing a callback
+### Proporcionar un rellamado
 
-In _server.rb_, add a route to specify what the callback should do:
+En _server.rb_, agrega una ruta para especificar lo que debe hacer la rellamada:
 
 ``` ruby
 get '/callback' do
@@ -123,18 +107,13 @@ get '/callback' do
 end
 ```
 
-After a successful app authentication, {% data variables.product.product_name %} provides a temporary `code` value.
-You'll need to `POST` this code back to {% data variables.product.product_name %} in exchange for an `access_token`.
-To simplify our GET and POST HTTP requests, we're using the [rest-client][REST Client].
-Note that you'll probably never access the API through REST. For a more serious
-application, you should probably use [a library written in the language of your choice][libraries].
+Después de que la app se autentica exitosamente, {% data variables.product.product_name %} proporciona un valor temporal de `code`. Necesitas hacer `POST` para este código en {% data variables.product.product_name %} para intercambiarlo por un `access_token`. Para simplificar nuestras solicitudes HTTP de GET y de POST, utilizamos el [rest-client][REST Client]. Nota que probablemente jamás accedas a la API a través de REST. Para aplicarlo con más seriedad, probablemente debas usar [una biblioteca escrita en tu lenguaje preferido][libraries].
 
-### Checking granted scopes
+### Verificar los alcances otorgados
 
-Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
+Los usuarios pueden editar los alcances que solicitaste cambiando directamente la URL. Esto puee otorgar a tu aplicación menos accesos de los que solicitaste originalmente. Antes de hacer cualquier solicitud con el token, verifica los alcances que el usuario le otorgó a éste. Para obtener más información acerca de los alcances solicitados y otorgados, consulta la sección "[Alcances para las Apps de OAuth](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)".
 
-The scopes that were granted are returned as a part of the response from
-exchanging a token.
+Los alcances que otorgamos se devuelven como parte de la respuesta de intercambiar un token.
 
 ``` ruby
 get '/callback' do
@@ -148,34 +127,17 @@ get '/callback' do
 end
 ```
 
-In our application, we're using `scopes.include?` to check if we were granted
-the `user:email` scope needed for fetching the authenticated user's private
-email addresses. Had the application asked for other scopes, we would have
-checked for those as well.
+En nuestra aplicación, estamos utilizando `scopes.include?` para verificar si se nos otorgó el alcance de `user:email` que necesitamos para recuperar las direcciones de correo electrónico. Si la aplicación hubiera preguntado por otros alcances, habríamos verificado esas también.
 
-Also, since there's a hierarchical relationship between scopes, you should
-check that you were granted the lowest level of required scopes. For example,
-if the application had asked for `user` scope, it might have been granted only
-`user:email` scope. In that case, the application wouldn't have been granted
-what it asked for, but the granted scopes would have still been sufficient.
+También, ya que hay una relación jerárquica entre alcances, debes verificar que se te haya otorgado el nuvel más bajo de los alcances que se requieren. Por ejemplo, si la aplicación hubiera pedido el alcance `user`, puede que se le haya otorgado únicamente el alcance `user:email`. En ese caso, a la applicación no se le hubiera otorgado lo que pidió, pero los alcances que obtuvo hubieran seguido siendo suficientes.
 
-Checking for scopes only before making requests is not enough since it's possible
-that users will change the scopes in between your check and the actual request.
-In case that happens, API calls you expected to succeed might fail with a `404`
-or `401` status, or return a different subset of information.
+No es suficiente verificar los alcances solo antes de hacer las solicitudes, ya que es posible que los usuarios cambien los alcances entre tus solicitudes de verificación y las solicitudes reales. En caso de que esto suceda, las llamadas a la API que esperas tengan éxito podrían fallar con un estado `404` o `401`, o bien, podrían devolver un subconjunto de información diferente.
 
-To help you gracefully handle these situations, all API responses for requests
-made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
-This header contains the list of scopes of the token that was used to make the
-request. In addition to that, the OAuth Applications API provides an endpoint to {% ifversion fpt or ghes or ghec %}
-[check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}.
-Use this information to detect changes in token scopes, and inform your users of
-changes in available application functionality.
+Para ayudarte a manejar estas situaciones fácilmente, todas las respuestas de la API a las solicitudes que se hagan con tokens válidos también contienen un [encabezado de `X-OAuth-Scopes`][oauth scopes]. Este encabezado contiene la lista de alcances del token que se utilizó para realizar la solicitud. Adicionalmente a esto, la API de Aplicaciones de OAuth proporciona una terminal para {% ifversion fpt or ghes or ghec %} [verificar la validez de un token](/rest/reference/apps#check-a-token){% else %}[verificar la validez de un token](/rest/reference/apps#check-an-authorization){% endif %}. Utiliza esta información para detectar los cambios en los alcances de los tokens, y para informar a tus usuarios sobre los cambios disponibles en la funcionalidad de la aplicación.
 
-### Making authenticated requests
+### Realizar solicitudes autenticadas
 
-At last, with this access token, you'll be able to make authenticated requests as
-the logged in user:
+Por fin, con este token de acceso, podrás hacer solicitudes autenticadas como el usuario que inició sesión:
 
 ``` ruby
 # fetch user information
@@ -192,7 +154,7 @@ end
 erb :basic, :locals => auth_result
 ```
 
-We can do whatever we want with our results. In this case, we'll just dump them straight into _basic.erb_:
+Podemos hacer lo que queramos con nuestros resultados. En este caso, solo las vaciaremos directamente en _basic.erb_:
 
 ``` erb
 <p>Hello, <%= login %>!</p>
@@ -211,29 +173,19 @@ We can do whatever we want with our results. In this case, we'll just dump them 
 </p>
 ```
 
-## Implementing "persistent" authentication
+## Implementar la autenticación "persistente"
 
-It'd be a pretty bad model if we required users to log into the app every single
-time they needed to access the web page. For example, try navigating directly to
-`http://localhost:4567/basic`. You'll get an error.
+Estaríamos hablando de un pésimo modelo si requerimos que los usuarios inicien sesión en la app cada vez que necesiten acceder a la página web. Por ejemplo, intenta navegar directamente a `http://localhost:4567/basic`. Obtendrás un error.
 
-What if we could circumvent the entire
-"click here" process, and just _remember_ that, as long as the user's logged into
-{% data variables.product.product_name %}, they should be able to access this application? Hold on to your hat,
-because _that's exactly what we're going to do_.
+¿Qué pasaría si pudiéramos evitar todo el proceso de "da clic aquí", y solo lo _recordáramos_, mientras que los usuarios sigan en sesión dentro de
+{% data variables.product.product_name %}, y pudieran acceder a esta aplicación? Agárrate,
+porque _eso es exactamente lo que vamos a hacer_.
 
-Our little server above is rather simple. In order to wedge in some intelligent
-authentication, we're going to switch over to using sessions for storing tokens.
-This will make authentication transparent to the user.
+Nuestro pequeño servidor que mostramos antes es muy simple. Para poder insertar algún tipo de autenticación inteligente, vamos a optar por utilizar sesiones para almacenar los tokens. Esto hará que la autenticación sea transparente para el usuario.
 
-Also, since we're persisting scopes within the session, we'll need to
-handle cases when the user updates the scopes after we checked them, or revokes
-the token. To do that, we'll use a `rescue` block and check that the first API
-call succeeded, which verifies that the token is still valid. After that, we'll
-check the `X-OAuth-Scopes` response header to verify that the user hasn't revoked
-the `user:email` scope.
+También, ya que estamos haciendo persistir a los alcances dentro de la sesión, necesitaremos gestionar los casos cuando el usuario actualice los alcances después de que los verifiquemos, o cuando revoque el token. Para lograrlo, utilizaremos un bloque de `rescue` y verificaremos que la primera llamada a la API sea exitosa, lo cual verificará que el token sea válido. Después de esto, verificaremos el encabezado de respuesta de `X-OAuth-Scopes` para verificar que el usuario no haya revocado el alcance `user:email`.
 
-Create a file called _advanced_server.rb_, and paste these lines into it:
+Crea un archivo que se llame _advanced_server.rb_, y pega estas líneas en él:
 
 ``` ruby
 require 'sinatra'
@@ -313,15 +265,11 @@ get '/callback' do
 end
 ```
 
-Much of the code should look familiar. For example, we're still using `RestClient.get`
-to call out to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and we're still passing our results to be rendered
-in an ERB template (this time, it's called `advanced.erb`).
+La mayoría de este código debería serte familiar. Por ejemplo, seguimos utilizando `RestClient.get` para llamar a la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} y aún estamos pasando nuestros resultados para que se interpreten en una plantilla ERB (esta vez, se llama `advanced.erb`).
 
-Also, we now have the `authenticated?` method which checks if the user is already
-authenticated. If not, the `authenticate!` method is called, which performs the
-OAuth flow and updates the session with the granted token and scopes.
+También, ahora tenemos el método `authenticated?`, el cual verifica si el usuario ya se autenticó. Si no, se llamará al método `authenticate!`, el cual lleva a cabo el flujo de OAuth y actualiza la sesión con el token que se otorgó y con los alcances.
 
-Next, create a file in _views_ called _advanced.erb_, and paste this markup into it:
+Después, crea un archivo en _views_, el cual se llame _advanced.erb_ y pega este markup dentro de él:
 
 ``` erb
 <html>
@@ -346,18 +294,11 @@ Next, create a file in _views_ called _advanced.erb_, and paste this markup into
 </html>
 ```
 
-From the command line, call `ruby advanced_server.rb`, which starts up your
-server on port `4567` -- the same port we used when we had a simple Sinatra app.
-When you navigate to `http://localhost:4567`, the app calls `authenticate!`
-which redirects you to `/callback`. `/callback` then sends us back to `/`,
-and since we've been authenticated, renders _advanced.erb_.
+Desde la líne de comandos, llama a `ruby advanced_server.rb`, lo cual inicia tu servidor en el puerto `4567` -- el mismo puerto que utilizamos cuando tuvimos una app de Sinatra sencilla. Cuando navegas a `http://localhost:4567`, la app llama a `authenticate!`, lo cual te redirige a `/callback`. Entonces, `/callback` nos regresa a `/` y, ya que estuvimos autenticados, interpreta a _advanced.erb_.
 
-We could completely simplify this roundtrip routing by simply changing our callback
-URL in {% data variables.product.product_name %} to `/`. But, since both _server.rb_ and _advanced.rb_ are relying on
-the same callback URL, we've got to do a little bit of wonkiness to make it work.
+Podríamos simplificar completamente esta ruta redonda si solo cambiamos nuestra URL de rellamado en {% data variables.product.product_name %} a `/`. Pero, ya que tanto _server.rb_ como _advanced.rb_ dependen de la misma URL de rellamado, necesitamos hacer un poco más de ajustes para que funcione.
 
-Also, if we had never authorized this application to access our {% data variables.product.product_name %} data,
-we would've seen the same confirmation dialog from earlier pop-up and warn us.
+También, si nunca hubiéramos autorizado esta aplicación para acceder a nuestros datos de {% data variables.product.product_name %}, habríamos visto el mismo diálogo de confirmación del pop-up anterior para advertirnos.
 
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [Sinatra]: http://www.sinatrarb.com/
@@ -366,6 +307,6 @@ we would've seen the same confirmation dialog from earlier pop-up and warn us.
 [REST Client]: https://github.com/archiloque/rest-client
 [libraries]: /libraries/
 [oauth scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/basics-of-authentication
+[oauth scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [new oauth app]: https://github.com/settings/applications/new
 [app settings]: https://github.com/settings/developers

@@ -34,9 +34,16 @@ Your project can track draft issues, issues, and pull requests.
 Draft issues are useful to quickly capture ideas.
 
 1. Place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
-2. Type your idea, then press **Enter**.
+1. Type your idea, then press **Enter**.
+1. To add body text, click on the title of the draft issue. In the markdown input box that appears, enter the text for the draft issue body, then click **Save**.
 
-You can convert draft issues into issues. For more information, see [Converting draft issues to issues](#converting-draft-issues-to-issues).
+Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[Converting draft issues to issues](#converting-draft-issues-to-issues)."
+
+{% note %}
+
+**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
+
+{% endnote %}
 
 ### Issues and pull requests
 
@@ -48,7 +55,7 @@ You can convert draft issues into issues. For more information, see [Converting 
 #### Searching for an issue or pull request
 
 1. Place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
-2. Enter `#`.
+2. Enter <kbd>#</kbd>.
 3. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
 4. Select the issue or pull request. You can type part of the title to narrow down your options.
 
@@ -68,7 +75,7 @@ In table layout:
 1. Click the {% octicon "triangle-down" aria-label="the item menu" %} on the draft issue that you want to convert.
 2. Select **Convert to issue**.
 3. Select the repository that you want to add the issue to.
-4. Alternatively, edit the `assignee`, `labels`, `milestone`, or `repository` fields of the draft issue that you want to convert.
+4. Alternatively, edit the `labels`, `milestone`, or `repository` fields of the draft issue that you want to convert.
 
 In board layout:
 
@@ -81,11 +88,11 @@ In board layout:
 You can archive an item to keep the context about the item in the project but remove it from the project views. You can delete an item to remove it from the project entirely.
 
 1. Select the item(s) to archive or delete. To select multiple items, do one of the following:
-     - `cmd + click` (Mac) or `ctrl + click` (Windows/Linux) each item.
-     - Select an item then `shift + arrow-up` or `shift + arrow-down` to select additional items above or below the initially selected item.
-     - Select an item then `shift + click` another item to select all items between the two items.
-     - Enter `cmd + a` (Mac) or `ctrl + a` (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
-2. To archive all selected items, enter `e`. To delete all selected items, enter `del`. Alternatively, select the {% octicon "triangle-down" aria-label="the item menu" %} (in table layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout), then select the desired action.
+     - <kbd>Command</kbd>+Click (Mac) or <kbd>Ctrl</kbd>+Click (Windows/Linux) each item.
+     - Select an item then <kbd>Shift</kbd>+<kbd>↑</kbd> or <kbd>Shift</kbd>+<kbd>↓</kbd> to select additional items above or below the initially selected item.
+     - Select an item then <kbd>Shift</kbd>+Click another item to select all items between the two items.
+     - Enter <kbd>Command</kbd>+<kbd>A</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
+2. To archive all selected items, enter <kbd>E</kbd>. To delete all selected items, enter <kbd>Del</kbd>. Alternatively, select the {% octicon "triangle-down" aria-label="the item menu" %} (in table layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout), then select the desired action.
 
 You can restore archived items but not deleted items. For more information, see [Restoring archived items](#restoring-archived-items).
 
@@ -99,7 +106,7 @@ As field values change, they are automatically synced so that your project and t
 
 ### Showing existing fields
 
-Your project tracks up-to-date information about  issues and pull requests, including any changes to the title, assignees, labels, milestones, and repository. When your project initializes, "title" and "assignees" are displayed; the other fields are hidden. You can change the visibility of these fields in your project.
+Your project tracks up-to-date information about issues and pull requests, including any changes to the title, assignees, labels, milestones, repository, reviewers, and linked pull requests. When your project initializes, "title" and "assignees" are displayed; the other fields are hidden. You can change the visibility of these fields in your project.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Start typing "show".
@@ -150,3 +157,16 @@ You can view your project as a table or board, group items by field, filter item
 You can enable or disable the built-in workflows for your project.
 
 {% data reusables.projects.enable-basic-workflow %}
+
+## Adding your project to a repository
+
+You can list relevant projects in a repository. You can only list projects that are owned by the same user or organization that owns the repository.
+
+In order for repository members to see a project listed in a repository, they must have visibility for the project. For more information, see "[Managing the visibility of your projects (beta)](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)" and "[Managing access to projects (beta)](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)."
+
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your repository.
+1. Click {% octicon "table" aria-label="the project icon" %} **Projects**.
+1. Click **Projects (Beta)** in the side bar.
+1. Click **Add project**.
+1. In the search bar that appears, search for projects that are owned by the same user or organization that owns the repository.
+1. Click on a project to list it in your repository.

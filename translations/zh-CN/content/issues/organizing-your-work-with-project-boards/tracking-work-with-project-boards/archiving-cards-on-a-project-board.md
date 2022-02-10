@@ -21,7 +21,7 @@ shortTitle: 存档内置卡
 
 ## 存档项目板上的卡
 
-1. 在项目板中，找到要存档的卡，然后单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![用于编辑项目板卡的选项列表](/assets/images/help/projects/select-archiving-options-project-board-card.png)
+1. In a project board, find the card you want to archive, then click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![用于编辑项目板卡的选项列表](/assets/images/help/projects/select-archiving-options-project-board-card.png)
 2. 单击 **Archive（存档）**。 ![从菜单中选择存档选项](/assets/images/help/projects/archive-project-board-card.png)
 
 ## 从侧栏恢复项目板中的卡

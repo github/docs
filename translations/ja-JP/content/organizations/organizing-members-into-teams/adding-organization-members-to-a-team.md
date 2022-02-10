@@ -1,6 +1,6 @@
 ---
-title: Adding organization members to a team
-intro: 'People with owner or team maintainer permissions can add organization members to teams. People with owner permissions can also {% ifversion fpt or ghec %}invite non-members to join{% else %}add non-members to{% endif %} a team and the organization.'
+title: Team への Organization メンバーの追加
+intro: 'オーナーあるいはチームメンテナ権限を持っている人は、Organization のメンバーを Team に加えることができます。 オーナー権限を持っている人は、{% ifversion fpt or ghec %}メンバーではない人を Team および Organization に参加するよう招待{% else %}メンバーではない人を Team および Organization に追加{% endif %}することもできます。'
 redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program
   - /articles/adding-organization-members-to-a-team
@@ -13,7 +13,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Add members to a team
+shortTitle: Teamへのメンバーの追加
 ---
 
 {% data reusables.organizations.team-synchronization %}
@@ -22,14 +22,13 @@ shortTitle: Add members to a team
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
-6. Above the list of team members, click **Add a member**.
-![Add member button](/assets/images/help/teams/add-member-button.png)
+6. Team メンバーのリストの上部で、[**Add a member**] をクリックします。 ![[Add member] ボタン](/assets/images/help/teams/add-member-button.png)
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
 {% ifversion fpt or ghec %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
-## Further reading
+## 参考リンク
 
-- "[About teams](/articles/about-teams)"
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
+- [Team について](/articles/about-teams)
+- [OrganizationのリポジトリへのTeamのアクセスの管理](/articles/managing-team-access-to-an-organization-repository)

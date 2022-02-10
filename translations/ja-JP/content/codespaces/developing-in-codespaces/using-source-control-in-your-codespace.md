@@ -1,6 +1,6 @@
 ---
-title: Using source control in your codespace
-intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
+title: Codespace でソースコントロールを使用する
+intro: Codespace 内のファイルに変更を加えた後、変更をすばやくコミットして、更新をリモートリポジトリにプッシュできます。
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -10,73 +10,68 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: Source control
+shortTitle: ソースコントロール
 ---
 
  
 
-## About source control in {% data variables.product.prodname_codespaces %}
+## {% data variables.product.prodname_codespaces %} のソースコントロールについて
 
-You can perform all the Git actions you need directly within your codespace. For example, you can fetch changes from the remote repository, switch branches, create a new branch, commit and push changes, and create a pull request. You can use the integrated terminal within your codespace to enter Git commands, or you can click icons and menu options to complete all the most common Git tasks. This guide explains how to use the graphical user interface for source control.
+必要なすべての Git アクションを codespace 内で直接実行できます。 たとえば、リモートリポジトリから変更をフェッチしたり、ブランチを切り替えたり、新しいブランチを作成したり、変更をコミットしてプッシュしたり、プルリクエストを作成したりすることができます。 Codespace 内の統合ターミナルを使用して Git コマンドを入力するか、アイコンとメニューオプションをクリックして最も一般的な Git タスクをすべて完了することができます。 このガイドでは、ソースコントロールにグラフィカルユーザインターフェースを使用する方法について説明します。
 
-Source control in {% data variables.product.prodname_github_codespaces %} uses the same workflow as {% data variables.product.prodname_vscode %}. For more information, see the {% data variables.product.prodname_vscode %} documentation "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)."
+{% data variables.product.prodname_github_codespaces %} 内のソースコントロールは、{% data variables.product.prodname_vscode %} と同じワークフローを使用します。 詳しい情報については、{% data variables.product.prodname_vscode %} のドキュメント「[VS Code でバージョン管理を使用する](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)」を参照してください。
 
-A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
+{% data variables.product.prodname_github_codespaces %} を使用してファイルを更新するための一般的なワークフローは次のとおりです。
 
-* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
-* In your codespace, create a new branch to work on.
-* Make your changes and save them.
-* Commit the change.
-* Raise a pull request.
+* {% data variables.product.prodname_dotcom %} のリポジトリのデフォルトブランチから、codespace を作成します。 「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace)」を参照してください。
+* Codespace で、作業する新しいブランチを作成します。
+* 変更を加えて保存します。
+* 変更をコミットします。
+* プルリクエストを発行します。
 
-## Creating or switching branches
+## ブランチの作成または切り替え
 
 {% data reusables.codespaces.create-or-switch-branch %}
 
 {% tip %}
 
-**Tip**: If someone has changed a file on the remote repository, in the branch you switched to, you will not see those changes until you pull the changes into your codespace. 
+**ヒント**: リモートリポジトリのファイルを変更すると、変更を codespace にプルするまで切り替えたブランチに変更が表示されません。
 
 {% endtip %}
 
-## Pulling changes from the remote repository
+## リモートリポジトリから変更をプルする
 
-You can pull changes from the remote repository into your codespace at any time. 
+リモートリポジトリからいつでも codespace に変更をプルできます。
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. At the top of the side bar, click the ellipsis (**...**).
-![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button.png)
-1. In the drop-down menu, click **Pull**.
+1. サイドバーの上部にある省略記号(**...**) をクリックします。 ![[View] および [More Actions] の省略記号ボタン](/assets/images/help/codespaces/source-control-ellipsis-button.png)
+1. ドロップダウンメニューで、[**Pull**] をクリックします。
 
 If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
 
-## Setting your codespace to automatically fetch new changes 
+## 新しい変更を自動的にフェッチするように codespace を設定する
 
-You can set your codespace to automatically fetch details of any new commits that have been made to the remote repository. This allows you to see whether your local copy of the repository is out of date, in which case you may choose to pull in the new changes. 
+リモートリポジトリに対して行われた新しいコミットの詳細を自動的にフェッチするように codespace を設定できます。 これにより、リポジトリのローカルコピーが古くなっているかどうかを確認できます。古くなっている場合は、新しい変更をプルすることができます。
 
-If the fetch operation detects new changes on the remote repository, you'll see the number of new commits in the status bar. You can then pull the changes into your local copy.
+フェッチ操作でリモートリポジトリの新しい変更が検出されると、ステータスバーに新しいコミットの数が表示されます。 その後、変更をローカルコピーにプルできます。
 
-1. Click the **Manage** button at the bottom of the Activity Bar.
-![Manage button](/assets/images/help/codespaces/manage-button.png)
-1. In the menu, slick **Settings**.
-1. On the Settings page, search for: `autofetch`.
-![Search for autofetch](/assets/images/help/codespaces/autofetch-search.png)
-1. To fetch details of updates for all remotes registered for the current repository, set **Git: Autofetch** to `all`.
-![Enable Git autofetch](/assets/images/help/codespaces/autofetch-all.png)
-1. If you want to change the number of seconds between each automatic fetch, edit the value of **Git: Autofetch Period**.
+1. アクティビティバーの下部にある [**Manage**] ボタンをクリックします。 ![ボタンを管理する](/assets/images/help/codespaces/manage-button.png)
+1. メニューで [**Settings**] をクリックします。
+1. [Settings] ページで `autofetch` を検索します。 ![自動フェッチを検索する](/assets/images/help/codespaces/autofetch-search.png)
+1. 現在のリポジトリに登録されているすべてのリモートの更新の詳細をフェッチするには、**Git: Autofetch** を `all` に設定します。 ![Git 自動フェッチを有効にする](/assets/images/help/codespaces/autofetch-all.png)
+1. 各自動フェッチ間の秒数を変更する場合は、**Git: Autofetch Period** の値を編集します。
 
-## Committing your changes 
+## 変更をコミットする
 
-{% data reusables.codespaces.source-control-commit-changes %} 
+{% data reusables.codespaces.source-control-commit-changes %}
 
-## Raising a pull request
+## プルリクエストを発行する
 
-{% data reusables.codespaces.source-control-pull-request %} 
+{% data reusables.codespaces.source-control-pull-request %}
 
-## Pushing changes to your remote repository
+## リモートリポジトリに変更をプッシュする
 
-You can push the changes you've made. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
+行なった変更はプッシュできます。 それにより、変更がリモートリポジトリの上流ブランチに適用されます。 プルリクエストの作成準備が整っていない場合、または {% data variables.product.prodname_dotcom %} でプルリクエストを作成する場合は、この操作を行うことをお勧めします。
 
-1. At the top of the side bar, click the ellipsis (**...**).
-![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
-1. In the drop-down menu, click **Push**.
+1. サイドバーの上部にある省略記号(**...**) をクリックします。 ![[View] および [More Actions] の省略記号ボタン](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
+1. ドロップダウンメニューで、[**Push**] をクリックします。

@@ -1,6 +1,6 @@
 ---
-title: Setting your default region for Codespaces
-intro: 'You can set your default region in the {% data variables.product.prodname_github_codespaces %} profile settings page to personalize where your data is held.'
+title: Definindo sua região padrão para os codespaces
+intro: 'Você pode definir sua região padrão na página de configurações do perfil de {% data variables.product.prodname_github_codespaces %} para personalizar o local onde seus dados são mantidos.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -9,15 +9,14 @@ redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces
 topics:
   - Codespaces
-shortTitle: Set the default region
+shortTitle: Definir a região padrão
 ---
 
-You can manually select the region that your codespaces will be created in, allowing you to meet stringent security and compliance requirements. By default, your region is set automatically, based on your location.
+Você pode selecionar manualmente a região em que os seus codespaces serão criados, permitindo que você atenda aos requisitos rigorosos de segurança e conformidade. Por padrão, a sua região é definida automaticamente com base na sua localização.
 
-## Setting your default region
+## Definindo sua região padrão
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
-1. Under "Region", select the setting you want.
-2. If you chose "Set manually", select your region in the drop-down list.
-   ![Selecting your region](/assets/images/help/codespaces/select-default-region.png)
+1. Em "Região", selecione a configuração desejada.
+2. Se você escolheu "Definir manualmente", selecione sua região na lista suspensa. ![Selecionando sua região](/assets/images/help/codespaces/select-default-region.png)

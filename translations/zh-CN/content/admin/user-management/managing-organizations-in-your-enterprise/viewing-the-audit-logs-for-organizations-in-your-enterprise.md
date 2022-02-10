@@ -1,7 +1,6 @@
 ---
 title: Viewing the audit logs for organizations in your enterprise
-intro: Enterprise owners can view aggregated actions from all of the organizations owned by an enterprise account in its audit log.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
+intro: 企业所有者可以在其审核日志中查看企业帐户拥有的所有组织的汇总操作。
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
   - /articles/viewing-the-audit-logs-for-organizations-in-your-business-account
@@ -16,18 +15,19 @@ topics:
   - Enterprise
   - Logging
   - Organizations
-shortTitle: View organization audit logs
+shortTitle: 查看组织审核日志
 ---
-Each audit log entry shows applicable information about an event, such as:
 
-- The organization an action was performed in
-- The user who performed the action
-- Which repository an action was performed in
-- The action that was performed
-- Which country the action took place in
-- The date and time the action occurred
+每个审核日志条目都显示有关事件的适用信息，例如：
 
-You can search the audit log for specific events and export audit log data. For more information on searching the audit log and on specific organization events, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
+- 可在其中执行操作的组织
+- 执行操作的用户
+- 执行操作的仓库
+- 执行的操作内容
+- 发生操作的国家/地区
+- 操作发生的日期和时间
+
+您可以在审核日志中搜索特定事件并导出审核日志数据。 有关搜索审核日志和特定组织事件的更多信息，请参阅“[审查组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)”。
 
 You can also stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system. For more information, see "[Streaming the audit logs for organizations in your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)."
 

@@ -1,5 +1,5 @@
 ---
-title: Network ports
+title: ネットワークポート
 redirect_from:
   - /enterprise/admin/articles/configuring-firewalls
   - /enterprise/admin/articles/firewall
@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
-intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
+intro: オープンするネットワークポートは、管理者、エンドユーザ、メールサポートへ公開する必要があるネットワークサービスに応じて選択してください。
 versions:
   ghes: '*'
 type: reference
@@ -18,36 +18,37 @@ topics:
   - Networking
   - Security
 ---
-## Administrative ports
 
-Some administrative ports are required to configure {% data variables.product.product_location %} and run certain features. Administrative ports are not required for basic application use by end users.
+## 管理ポート
 
-| Port | Service | Description |
-|---|---|---|
-| 8443 | HTTPS | Secure web-based {% data variables.enterprise.management_console %}. Required for basic installation and configuration. |
-| 8080 | HTTP | Plain-text web-based {% data variables.enterprise.management_console %}. Not required unless SSL is disabled manually. |
-| 122 | SSH | Shell access for {% data variables.product.product_location %}. Required to be open to incoming connections between all nodes in a high availability configuration. The default SSH port (22) is dedicated to Git and SSH application network traffic. |
-| 1194/UDP | VPN | Secure replication network tunnel in high availability configuration. Required to be open for communication between all nodes in the configuration.|
-| 123/UDP| NTP | Required for time protocol operation. |
-| 161/UDP | SNMP | Required for network monitoring protocol operation. |
+{% data variables.product.product_location %}を設定し、一部の機能を実行するためにはいくつかの管理ポートが必要です。 管理ポートは、エンドユーザが基本的なアプリケーションを利用するためには必要ありません。
 
-## Application ports for end users
+| ポート      | サービス  | 説明                                                                                                                                                                                                                     |
+| -------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 8443     | HTTPS | 安全な Web ベースの {% data variables.enterprise.management_console %}。 基本的なインストールと設定に必要です。                                                                                                                                   |
+| 8080     | HTTP  | プレーンテキストの Web ベースの {% data variables.enterprise.management_console %}。 SSL を手動で無効にしない限り必要ありません。                                                                                                                        |
+| 122      | SSH   | {% data variables.product.product_location %} 用のシェルアクセス。 Required to be open to incoming connections between all nodes in a high availability configuration. デフォルトの SSHポート (22) は Git と SSH のアプリケーションネットワークトラフィック専用です。 |
+| 1194/UDP | VPN   | High Availability設定でのセキュアなレプリケーションネットワークトンネル。 Required to be open for communication between all nodes in the configuration.                                                                                            |
+| 123/UDP  | NTP   | timeプロトコルの処理に必要。                                                                                                                                                                                                       |
+| 161/UDP  | SNMP  | ネットワークモニタリングプロトコルの処理に必要。                                                                                                                                                                                               |
 
-Application ports provide web application and Git access for end users.
+## エンドユーザーのためのアプリケーションポート
 
-| Port | Service | Description |
-|---|---|---|
-| 443 | HTTPS | Access to the web application and Git over HTTPS. |
-| 80 | HTTP | Access to the web application. All requests are redirected to the HTTPS port when SSL is enabled. |
-| 22 | SSH | Access to Git over SSH. Supports clone, fetch, and push operations to public and private repositories. |
-| 9418 | Git | Git protocol port supports clone and fetch operations to public repositories with unencrypted network communication. {% data reusables.enterprise_installation.when-9418-necessary %} |
+アプリケーションのポートは、エンドユーザーにWebアプリケーションとGitへのアクセスを提供します。
+
+| ポート  | サービス  | 説明                                                                                                                                 |
+| ---- | ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| 443  | HTTPS | WebアプリケーションとGit over HTTPSのアクセス。                                                                                                   |
+| 80   | HTTP  | Web アプリケーションへのアクセス。 SSL が有効な場合にすべての要求は HTTPS ポートにリダイレクトされます。                                                                       |
+| 22   | SSH   | Git over SSH へのアクセス。 パブリックとプライベートリポジトリへの clone、fetch、push 操作をサポートします。                                                              |
+| 9418 | Git   | Gitプロトコルのポート。暗号化されないネットワーク通信でのパブリックなリポジトリへのclone及びfetch操作をサポートする。 {% data reusables.enterprise_installation.when-9418-necessary %}
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-## Email ports
+## メールのポート
 
-Email ports must be accessible directly or via relay for inbound email support for end users.
+メールのポートは直接あるいはエンドユーザ用のインバウンドメールサポートのリレーを経由してアクセスできなければなりません。
 
-| Port | Service | Description |
-|---|---|---|
-| 25 | SMTP | Support for SMTP with encryption (STARTTLS). |
+| ポート | サービス | 説明                         |
+| --- | ---- | -------------------------- |
+| 25  | SMTP | 暗号化ありのSMTP（STARTTLS）のサポート。 |

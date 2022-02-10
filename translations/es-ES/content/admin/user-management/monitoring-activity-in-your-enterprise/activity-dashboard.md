@@ -2,7 +2,7 @@
 title: Tablero de actividades
 intro: El tablero de actividades te proporciona un resumen de toda la actividad en tu empresa.
 redirect_from:
-  - /enterprise/admin/articles/activity-dashboard/
+  - /enterprise/admin/articles/activity-dashboard
   - /enterprise/admin/installation/activity-dashboard
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard

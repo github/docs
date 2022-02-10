@@ -177,13 +177,13 @@
 - 
   term: 默认分支
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为 {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}，并且通常是默认分支。
 - 
-  term: dependents graph
+  term: 从属者图
   description: >-
     一种显示依赖于公共仓库的包、项目和仓库的仓库图。
 - 
-  term: dependency graph
+  term: 依赖关系图
   description: >-
     一种显示仓库所依赖的包和项目的仓库图。
 - 
@@ -210,7 +210,7 @@
   description: 发送到用户电子邮件地址的通知。
 - 
   term: 企业帐户
-  description: 企业帐户允许您集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单。{% data reusables.gated-features.enterprise-accounts %}
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -248,7 +248,7 @@
 - 
   term: gist
   description: >-
-    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
+    Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% ifversion ghae %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% ifversion ghae %}任何企业成员{% else %}任何人{% endif %}。
 - 
   term: Git
   description: >-
@@ -373,7 +373,7 @@
   description: >-
     用户无法访问的个人帐户。当用户将其付费帐户降级到免费帐户或者其付费计划过期时，帐户将被锁定。
 - 
-  term: management console
+  term: 管理控制台
   description: >-
     GitHub Enterprise 界面中包含管理功能的部分。
 - 
@@ -381,7 +381,7 @@
   description: >-
     Markdown 是一种非常简单的语义文件格式，与 .doc、.rtf 和 .txt 等格式不太相似。通过 Markdown，没有 web 发布背景知识的人也能编写文字（包含链接、列表、项目符号等）并将其像网站一样展示。GitHub 支持 Markdown，并使用特定形式的 Markdown，称为 GitHub Flavored Markdown。请参阅 [GitHub Flavored Markdown 规范](https://github.github.com/gfm/) 或 [在 GitHub 上编写和设置格式入门](/articles/getting-started-with-writing-and-formatting-on-github)。
 - 
-  term: markup
+  term: 标记
   description: 一种用于标注和格式化文档的系统。
 - 
   term: main
@@ -392,7 +392,7 @@
   description: >-
     许多 Git 仓库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。{% ifversion fpt or ghes > 3.1 or ghae %} 例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。{% endif %}
 - 
-  term: members graph
+  term: 成员图
   description: 显示仓库所有分叉的仓库图。
 - 
   term: 提及
@@ -418,7 +418,7 @@
   description: >-
     父团队的子团队。您可有多个子（或嵌套的）团队。
 - 
-  term: network graph
+  term: 网络图
   description: >-
     显示整个仓库网络的分支历史记录的仓库图，其中包括根仓库的分支以及包含网络独有提交的分叉的分支。
 - 
@@ -539,10 +539,10 @@
   description: >-
     拉取请求中协作者批准更改或在拉取请求合并之前申请进一步更改的评论。
 - 
-  term: pulse graph
+  term: 脉冲图
   description: 提供仓库活动概要的仓库图。
 - 
-  term: punch graph
+  term: 打卡图
   description: >-
     根据周日期和时间显示仓库更新频率的仓库图
 - 

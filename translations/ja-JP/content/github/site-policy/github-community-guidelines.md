@@ -1,5 +1,5 @@
 ---
-title: GitHub Community Guidelines
+title: GitHubコミュニティガイドライン
 redirect_from:
   - /community-guidelines
   - /articles/github-community-guidelines
@@ -10,110 +10,99 @@ topics:
   - Legal
 ---
 
-Millions of developers host millions of projects on GitHub — both open and closed source — and we're honored to play a part in enabling collaboration across the community every day. Together, we all have an exciting opportunity and responsibility to make this a community we can be proud of.
+GitHub では、何百万人もの開発者が何百万ものプロジェクト（オープンソースとクローズドソースの両方）をホストしています。私たちは、コミュニティの日々のコラボレーションに貢献できることを光栄に思います。 私たちには、誇りに思うことができるコミュニティを実現するための素晴らしいチャンスがあると同時に、責任も背負っています。
 
-GitHub users worldwide bring wildly different perspectives, ideas, and experiences, and range from people who created their first "Hello World" project last week to the most well-known software developers in the world. We are committed to making GitHub a welcoming environment for all the different voices and perspectives in our community, while maintaining a space where people are free to express themselves.
+世界中の GitHub ユーザたちの持つ視点、アイデア、経験は十人十色。数日前に初めて「Hello World」プロジェクトを作った人から、世界で最も有名なソフトウェア開発者まで、さまざまなユーザがいます。 私たちは、GitHub をコミュニティ内のさまざまな意見や視点に対応した快適な環境にし、人々が自由に自分を表現できるスペースになるよう取り組んでいます。
 
-We rely on our community members to communicate expectations, [moderate](#what-if-something-or-someone-offends-you) their projects, and {% data variables.contact.report_abuse %} or {% data variables.contact.report_content %}. By outlining what we expect to see within our community, we hope to help you understand how best to collaborate on GitHub, and what type of actions or content may violate our [Terms of Service](#legal-notices), which include our [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies). We will investigate any abuse reports and may moderate public content on our site that we determine to be in violation of our Terms of Service.
+期待の伝達やプロジェクトの[モデレート](#what-if-something-or-someone-offends-you)、虐待的な行動やコンテンツの{% data variables.contact.report_abuse %}報告{% data variables.contact.report_content %}は、コミュニティメンバーにかかっています。 GitHub でコラボレーションする最適な方法や、どんな行為やコンテンツが当社の[利用規定](/github/site-policy/github-acceptable-use-policies)を含む[利用規約](#legal-notices)に違反する恐れがあるのかを皆様に理解していただくために、ここではコミュニティ内では何が期待されるのかを説明いたします。 当社は不正行為の報告を調査し、利用規約に違反していると判断したサイトの公開コンテンツをモデレートする場合があります。
 
-## Building a strong community
+## 強いコミュニティを作る
 
-The primary purpose of the GitHub community is to collaborate on software projects.
-We want people to work better together. Although we maintain the site, this is a community we build *together*, and we need your help to make it the best it can be.
+GitHub コミュニティの主な目的は、ソフトウェアプロジェクトの共同作業です。 私たちの望みは、そんな皆様の共同作業がより良くなることです。 当社はサイトを管理していますが、これは私たちが*共に*構築するコミュニティです。それを最高のものにするためには、皆様のサポートが必要です。
 
-* **Be welcoming and open-minded** - Other collaborators may not have the same experience level or background as you, but that doesn't mean they don't have good ideas to contribute. We encourage you to be welcoming to new collaborators and those just getting started.
+* **広い心で受け入れる** - 他のコラボレータとあなたとでは、経験値やバックグラウンドが異なるかもしれませんが、だからといって相手がコントリビューションにつながる良いアイデアを持っていないということにはなりません。 新たなコラボレータや、かけだしのユーザーは歓迎してあげましょう。
 
-* **Respect each other.**  Nothing sabotages healthy conversation like rudeness. Be civil and professional, and don’t post anything that a reasonable person would consider offensive, abusive, or hate speech. Don’t harass or grief anyone. Treat each other with dignity and consideration in all interactions.
+* **お互いを尊重し合うこと。**無礼な態度ほど、健全な会話を妨げるものはありません。 礼儀正しく、大人の態度を保ちましょう。一般的に攻撃的、虐待的、ヘイトスピーチとみなされるような内容を投稿しないでください。 嫌がらせや、人が悲しむような行為は禁止されています。 あらゆるやり取りにおいて、お互いに品位と配慮をもって接しましょう。
 
-  You may wish to respond to something by disagreeing with it. That’s fine. But remember to criticize ideas, not people. Avoid name-calling, ad hominem attacks, responding to a post’s tone instead of its actual content, and knee-jerk contradiction. Instead, provide reasoned counter-arguments that improve the conversation.
+  意見に反対したいこともあるでしょう。 それは全くかまいません。 ただし、批判すべきはアイデアであって、人ではありません。 悪口、個人攻撃、投稿の内容ではなく口調に対する応答、脊髄反射的な反論を行うのではなく、 会話の質を高めるような、理論的な反論を行いましょう。
 
-* **Communicate with empathy** - Disagreements or differences of opinion are a fact of life. Being part of a community means interacting with people from a variety of backgrounds and perspectives, many of which may not be your own. If you disagree with someone, try to understand and share their feelings before you address them. This will promote a respectful and friendly atmosphere where people feel comfortable asking questions, participating in discussions, and making contributions.
+* **共感をもってコミュニケーションを行う** - 意見の不一致や相違はよくあることです。 コミュニティの一員であることは、あなたとは違った背景や視点を持つさまざまな人と交流するということです。 誰かと意見が合わない場合は、それを直に伝える前に、その人を理解し、相手の立場に立ってみるようにしましょう。 こうすることで、質問や議論への参加、コントリビューションなどがしやすい、敬意と親密さに満ちた雰囲気が作られます。
 
-* **Be clear and stay on topic** - People use GitHub to get work done and to be more productive. Off-topic comments are a distraction (sometimes welcome, but usually not) from getting work done and being productive. Staying on topic helps produce positive and productive discussions.
+* **明確に伝え、トピックから逸脱しない** - GitHub は、仕事を進めたり生産性を高めたりするために使われるものです。 トピックから逸脱したコメントは、生産的に働いて仕事を終わらせるという目的から気をそらしてしまいます（たまにはいいかもしれませんが、普段は慎みましょう）。 トピックに集中することで、ポジティブで生産的な議論が生まれます。
 
-   Additionally, communicating with strangers on the Internet can be awkward. It's hard to convey or read tone, and sarcasm is frequently misunderstood. Try to use clear language, and think about how it will be received by the other person.
+   また、インターネット上で見知らぬ人とやりとりする場合は、注意深さが求められます。 口調を伝えたり読み取ったりすることは難しく、皮肉な言葉が誤解されることも少なくありません。 明確な言葉を用い、相手がそれをどのように受け取るかを考えるようにしましょう。
 
-## What if something or someone offends you?
+## 嫌な思いをしたら
 
-We rely on the community to let us know when an issue needs to be addressed. We do not actively monitor the site for offensive content. If you run into something or someone on the site that you find objectionable, here are some tools GitHub provides to help you take action immediately:
+対応が必要な問題が当社の耳に入るかどうかは、コミュニティにかかっています。 私たちが攻撃的なコンテンツについてサイトを積極的に監視することはありません。 サイトで不快な思いをした場合は、GitHub が提供するいくつかのツールを使用することですぐに行動を取ることができます。
 
-* **Communicate expectations** - If you participate in a community that has not set their own, community-specific guidelines, encourage them to do so either in the README or [CONTRIBUTING file](/articles/setting-guidelines-for-repository-contributors/), or in [a dedicated code of conduct](/articles/adding-a-code-of-conduct-to-your-project/), by submitting a pull request.
+* ** 期待を伝える** - コミュニティ固有の独自のガイドラインを設定していないコミュニティに参加する場合は、プルリクエストを送信して、README ファイルまたは [CONTRIBUTING](/articles/setting-guidelines-for-repository-contributors/) ファイル、または[専用の行動規範](/articles/adding-a-code-of-conduct-to-your-project/)のいずれかで参加することを推奨します。
 
-* **Moderate Comments** - If you have [write-access privileges](/articles/repository-permission-levels-for-an-organization/) for a repository, you can edit, delete, or hide anyone's comments on commits, pull requests, and issues. Anyone with read access to a repository can view a comment's edit history. Comment authors and people with write access to a repository can delete sensitive information from a comment's edit history. For more information, see "[Tracking changes in a comment](/articles/tracking-changes-in-a-comment)" and "[Managing disruptive comments](/articles/managing-disruptive-comments)."
+* **コメントをモデレートする** - リポジトリの[書き込みアクセス権限](/articles/repository-permission-levels-for-an-organization/)がある場合、コミット、プルリクエスト、および Issue に関するコメントを編集、削除、または非表示にすることができます。 リポジトリの読み取りアクセスがあれば、誰でもコミットの編集履歴を見ることができます。 コメントの作者とリポジトリの書き込みアクセスがある人は、コメントの編集履歴から機密情報を削除できます。 詳細については、「[コメントの変更を追跡する](/articles/tracking-changes-in-a-comment)」および「[混乱を生むコメントを管理する](/articles/managing-disruptive-comments)」を参照してください。
 
-* **Lock Conversations**  - If a discussion in an issue or pull request gets out of control, you can [lock the conversation](/articles/locking-conversations/).
+* **会話をロックする**  - Issue やプルリクエストのディスカッションが制御不能になった場合は、[会話をロック](/articles/locking-conversations/)できます。
 
-* **Block Users**  - If you encounter a user who continues to demonstrate poor behavior, you can [block the user from your personal account](/articles/blocking-a-user-from-your-personal-account/) or [block the user from your organization](/articles/blocking-a-user-from-your-organization/).
+* **ユーザーをブロックする**  - 繰り返し不適切な行動を取るユーザに遭遇した場合は、[ユーザを個人アカウントからブロック](/articles/blocking-a-user-from-your-personal-account/)したり、[ユーザを Organization からブロック](/articles/blocking-a-user-from-your-organization/)できます。
 
-Of course, you can always contact us to {% data variables.contact.report_abuse %} if you need more help dealing with a situation.
+もちろん、状況に対処するためにさらなるサポートが必要な場合は、いつでも{% data variables.contact.report_abuse %}するため連絡できます。
 
-## What is not allowed?
+## 禁止事項
 
-We are committed to maintaining a community where users are free to express themselves and challenge one another's ideas, both technical and otherwise. Such discussions, however, are unlikely to foster fruitful dialog when ideas are silenced because community members are being shouted down or are afraid to speak up. That means you should be respectful and civil at all times, and refrain from attacking others on the basis of who they are. We do not tolerate behavior that crosses the line into the following:
+私たちは、ユーザが自由に自己表現し、それが技術的な内容であろうがそうでなかろうが、お互いのアイデアについて意見を交換できるコミュニティを維持できるように取り組んでいます。 しかし、コミュニティのメンバーが怒鳴られたり、発言するのが怖いためにアイデアが出てこない場合、このようなディスカッションから実りある対話が生まれることは少ないでしょう。 このため、常に敬意を払い、礼儀正しく振る舞うべきで、相手が何者かであるかを根拠にして他人を攻撃することは控えるべきです。 当社は、一線を越えた次のような行為を許容しません。
 
-- #### Threats of violence 
-   You may not threaten violence towards others or use the site to organize, promote, or incite acts of real-world violence or terrorism. Think carefully about the words you use, the images you post, and even the software you write, and how they may be interpreted by others. Even if you mean something as a joke, it might not be received that way. If you think that someone else *might* interpret the content you post as a threat, or as promoting violence or terrorism, stop. Don't post it on GitHub. In extraordinary cases, we may report threats of violence to law enforcement if we think there may be a genuine risk of physical harm or a threat to public safety.
+- #### 暴力による脅し。 他人を脅したり、サイトを利用して現実世界の暴力やテロ行為を組織、促進、または扇動することはできません。 言葉を発する場合や画像を投稿する場合はもちろん、ソフトウェアを作成する場合でさえも、それが他人からどのように解釈される可能性があるかを慎重に考えてください。 あなたが冗談のつもりでも、そのように受け取られないかもしれません。 自分が投稿したコンテンツが脅しである、または暴力やテロを助長していると他の誰かが解釈する*かもしれない*と思われる場合は、 それをGitHubに投稿するのを止めましょう。 場合によっては、当社が身体的危害のリスクや公共の安全に対する脅威だと判断し、暴力の脅威として法執行機関に報告する場合があります。
 
-- #### Hate speech and discrimination 
-   While it is not forbidden to broach topics such as age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation, we do not tolerate speech that attacks a person or group of people on the basis of who they are. Just realize that when approached in an aggressive or insulting manner, these (and other) sensitive topics can make others feel unwelcome, or perhaps even unsafe. While there's always the potential for misunderstandings, we expect our community members to remain respectful and civil when discussing sensitive topics.
+- #### 差別的発言と差別。 年齢、体の大きさ、障害、民族性、性自認、性表現、経験の度合い、国籍、容姿、人種、宗教、性同一性、性的指向などのトピックを持ち出すこと自体は禁止されていませんが、相手が何者かであるかを根拠にして個人またはグループを攻撃する発言を当社は許容しません。 攻撃的または侮辱的なアプローチでこうしたデリケートなトピックを扱った場合、他の人を不快に感じさせたり、場合によっては危険にさえ感じさせたりすることがあることを認識してください。 誤解が生まれる可能性を完全に排除することはできませんが、デリケートなトピックを議論するときは、常に敬意を払い、礼儀正しく振る舞うことがコミュニティメンバーに期待されます。
 
-- #### Bullying and harassment 
-   We do not tolerate bullying or harassment. This means any habitual badgering or intimidation targeted at a specific person or group of people. In general, if your actions are unwanted and you continue to engage in them, there's a good chance you are headed into bullying or harassment territory.
+- #### いじめと嫌がらせ。 私たちは、いじめや嫌がらせを容認しません。 これは、特定の個人またはグループを標的とする常習的な煽りや脅迫のことです。 一般的に、迷惑な行動を続けた場合、いじめや嫌がらせになる恐れが高くなります。
 
-- #### Disrupting the experience of other users 
-   Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on. Behaviors such as repeatedly posting off-topic comments, opening empty or meaningless issues or pull requests, or using any other platform feature in a way that continually disrupts the experience of other users are not allowed. While we encourage maintainers to moderate their own projects on an individual basis, GitHub staff may take further restrictive action against accounts that are engaging in these types of behaviors.
+- #### 他のユーザのエクスペリエンスを妨げること。 コミュニティの一員であることには、あなたの振る舞いが他の人に与える影響を認識し、人々およびプラットフォームと有意義で生産的なやり取りを行うということでもあります。 話題から逸れたコメントを繰り返し投稿したり、空や無意味な Issue、プルリクエストをオープンしたり、プラットフォームのその他の機能を、他のユーザのエクスペリエンスを継続的に妨げたりするような振る舞いは許されません。 メンテナには自己のプロジェクトを個別に管理していただく一方、GitHubのスタッフは、こうした振る舞いに関与するアカウントに対して、さらに踏み込んだ制限を行うことができます。
 
-- #### Impersonation
-   You may not impersonate another person by copying their avatar, posting content under their email address, using a similar username or otherwise posing as someone else. Impersonation is a form of harassment.
+- #### Impersonation You may not impersonate another person by copying their avatar, posting content under their email address, using a similar username or otherwise posing as someone else. なりすましは嫌がらせの一つです。
 
-- #### Doxxing and invasion of privacy 
-   Don't post other people's personal information, such as personal, private email addresses, phone numbers, physical addresses, credit card numbers, Social Security/National Identity numbers, or passwords. Depending on the context, such as in the case of intimidation or harassment, we may consider other information, such as photos or videos that were taken or distributed without the subject's consent, to be an invasion of privacy, especially when such material presents a safety risk to the subject.
+- #### 晒しとプライバシーの侵害。 プライベート用のメールアドレス、電話番号、住所、クレジットカード番号、社会保障番号、国民識別番号、パスワードなど、他の人の個人情報は投稿しないでください。 脅迫や嫌がらせに該当するなど状況次第では、当社は対象の同意なしに撮影または配信された写真やビデオなどの他の情報をプライバシーの侵害とみなす場合があります。その情報が対象の安全リスクになる場合は特にです。
 
-- #### Sexually obscene content
-   Don’t post content that is pornographic. This does not mean that all nudity, or all code and content related to sexuality, is prohibited. We recognize that sexuality is a part of life and non-pornographic sexual content may be a part of your project, or may be presented for educational or artistic purposes. We do not allow obscene sexual content or content that may involve the exploitation or sexualization of minors.
+- #### わいせつなコンテンツ。 ポルノに該当するコンテンツは投稿しないでください。 これは、すべてのヌード、または性に関するすべてのコードやコンテンツが禁止されていることを意味するものではありません。 セクシュアリティは生活の一部であり、ポルノ以外の性的コンテンツがプロジェクトの一部になったり、教育的または芸術的な目的で提示され得るものであることを当社は認識しています。 ただし、わいせつな性的コンテンツや未成年者の搾取や性的関与を含むコンテンツは許可されません。
 
-- #### Gratuitously violent content
-   Don’t post violent images, text, or other content without reasonable context or warnings. While it's often okay to include violent content in video games, news reports, and descriptions of historical events, we do not allow violent content that is posted indiscriminately, or that is posted in a way that makes it difficult for other users to avoid (such as a profile avatar or an issue comment). A clear warning or disclaimer in other contexts helps users make an educated decision as to whether or not they want to engage with such content.
+- #### 脈絡のない暴力的コンテンツ。 合理的な文脈がない場合、また警告なしに暴力的な画像やテキストなどのコンテンツを投稿しないでください。 ビデオゲーム、ニュースレポート、過去の出来事の説明に暴力的なコンテンツを含めることは多くの場合問題ありませんが、無差別に投稿された暴力的コンテンツや、他のユーザにとって回避が困難な方法（例えば、プロフィールアバターや Issue のコメントとして）で投稿された暴力的コンテンツは許可されません。 他のコンテキスト内に明確な警告や断りがあれば、ユーザはそのようなコンテンツに関与したいかどうかについて知識に基づいて判断を下すことができるでしょう。
 
-- #### Misinformation and disinformation
-   You may not post content that presents a distorted view of reality, whether it is inaccurate or false (misinformation) or is intentionally deceptive (disinformation) where such content is likely to result in harm to the public or to interfere with fair and equal opportunities for all to participate in public life. For example, we do not allow content that may put the well-being of groups of people at risk or limit their ability to take part in a free and open society. We encourage active participation in the expression of ideas, perspectives, and experiences and may not be in a position to dispute personal accounts or observations. We generally allow parody and satire that is in line with our Acceptable Use Polices, and we consider context to be important in how information is received and understood; therefore, it may be appropriate to clarify your intentions via disclaimers or other means, as well as the source(s) of your information.
+- #### 誤情報および偽の情報。 公衆に害を及ぼしかねない、またはすべての人が公の生活に参加するための公正で平等な機会を阻害する可能性があるような、現実をゆがめた内容の投稿は、不正確や誤り (誤情報) であれ、意図的な嘘 (偽の情報) であれ行ってはなりません。 たとえば、人々の幸福を脅かしたり、自由で開かれた社会への参加を制限したりするコンテンツは許容できません。 当社はアイデア、視点、経験を表現することにおいて積極的な参加を促しており、個人アカウントや意見に反論するような立場にはないでしょう。 当社は一般的に、利用規定に沿ったパロディや風刺を許容します。また、情報がどのように受け止められ、理解されるかにおいては、文脈が重要だと考えています。ですから、お断りやその他の手段、および情報源を示すことにより、あなたの意図を明確にすることが適切な場合もあるでしょう。
 
-- #### Active malware or exploits
-  Being part of a community includes not taking advantage of other members of the community. We do not allow anyone to use our platform in direct support of unlawful attacks that cause technical harms, such as using GitHub as a means to deliver malicious executables or as attack infrastructure, for example by organizing denial of service attacks or managing command and control servers. Technical harms means overconsumption of resources, physical damage, downtime, denial of service, or data loss, with no implicit or explicit dual-use purpose prior to the abuse occurring.
+- #### アクティブなマルウェアやエクスプロイト。 コミュニティの一員になる以上、コミュニティの他のメンバーにつけ込むような行為を行ってはいけません。 悪意のある実行可能ファイルを配信する手段としてや、サービス拒否攻撃を組織したりコマンドアンドコントロールサーバーを管理したりといった攻撃インフラとして GitHub を使用するなど、当社のプラットフォームを使用して、技術的な危害を及ぼす非合法な攻撃を直接支援することは許可しません。 技術的な危害とは、悪用が生じる前に黙示的または明示的なデュアルユースの目的が存在しない、リソースの過剰な消費、物理的損傷、ダウンタイム、サービス拒否、データ損失のことを意味します。
 
-  Note that GitHub allows dual-use content and supports the posting of content that is used for research into vulnerabilities, malware, or exploits, as the publication and distribution of such content has educational value and provides a net benefit to the security community. We assume positive intention and use of these projects to promote and drive improvements across the ecosystem. 
+  ただし、GitHub はデュアルユースのコンテンツを許容し、脆弱性、マルウェア、またはエクスプロイトの研究に用いられるコンテンツの投稿を支持しています。こうしたコンテンツの公開や配布には教育的価値があり、セキュリティコミュニティに総合的に見て利益をもたらします。 当社はこうしたプロジェクトに肯定的な意図があり、エコシステム全体の促進と改善を促すために利用されることを想定しています。
 
-  In rare cases of very widespread abuse of dual-use content, we may restrict access to that specific instance of the content to disrupt an ongoing unlawful attack or malware campaign that is leveraging the GitHub platform as an exploit or malware CDN. In most of these instances, restriction takes the form of putting the content behind authentication, but may, as an option of last resort, involve disabling access or full removal where this is not possible (e.g. when posted as a gist). We will also contact the project owners about restrictions put in place where possible. 
+  デュアルユースのコンテンツが広範に乱用されている場合、当社は GitHub platform as an エクスプロイトやマルウェアの CDN として GitHub プラットフォームを活用している、現在進行中の非合法な攻撃やマルウェアキャンペーンを妨げるため、コンテンツの特定のインスタンスへの制限することが稀にあります。 ほとんどのインスタンスでは、コンテンツに認証を要求するという形で制限しますが、最後の手段として、アクセスの無効化や、それが不可能な場合 (Gist として投稿されている場合) はインスタンスの完全な削除を行う場合もあります。 また、可能な場合は導入した制限についてプロジェクトのオーナーに連絡します。
 
-  Restrictions are temporary where feasible, and do not serve the purpose of purging or restricting any specific dual-use content, or copies of that content, from the platform in perpetuity. While we aim to make these rare cases of restriction a collaborative process with project owners, if you do feel your content was unduly restricted, we have an [appeals process](#appeal-and-reinstatement) in place.
+  制限は可能な限り一時的なものとし、プラットフォームから特定のデュアルユースコンテンツやそのコピーを永久的に取り除いたり、制限したりする目的で行うものではありません。 こうした稀な制限を、当社はプロジェクトのオーナーとの共同作業とすることを目指していますが、コンテンツが過度に制限されていると感じる場合は、[異議申し立てプロセス](#appeal-and-reinstatement)をご用意しています。
 
-  To facilitate a path to abuse resolution with project maintainers themselves, prior to escalation to GitHub abuse reports, we recommend, but do not require, that repository owners take the following steps when posting potentially harmful security research content:
+  プロジェクトメンテナ自身による不正利用の解決を促進するため、GitHub に不正利用を報告する前に、リポジトリのオーナーが潜在的に有害なセキュリティ研究コンテンツを投稿する際に、リポジトリのオーナーが次のステップを実行するよう推奨します。(強制ではありません。)
 
-    * Clearly identify and describe any potentially harmful content in a disclaimer in the project’s README.md file or source code comments.
-    * Provide a preferred contact method for any 3rd party abuse inquiries through a SECURITY.md file in the repository (e.g. "Please create an issue on this repository for any questions or concerns"). Such a contact method allows 3rd parties to reach out to project maintainers directly and potentially resolve concerns without the need to file abuse reports.
+    * プロジェクトの README ファイルの免責事項やソースコードのコメントに、潜在的に有害なコンテンツを明示し説明する。
+    * リポジトリの SECURITY.md ファイルに、第三者が悪用について問い合わせる方法を記載する (例:「疑問や懸念事項については、このリポジトリに Issue を作成してください」)。 こうした連絡方法により、第三者はプロジェクトのメンテナに直接連絡でき、不正利用の報告を提出することなく問題を解決できる可能性があります。
 
-  *GitHub considers the npm registry to be a platform used primarily for installation and run-time use of code, and not for research.*
+  *GitHub は、npm レジストリについて、研究用ではなく主にコードのインストールと実行時に使用するプラットフォームとしています。*
 
 
-## What happens if someone breaks the rules?
+## 誰かがルールに違反した場合は
 
-There are a variety of actions that we may take when a user reports inappropriate behavior or content. It usually depends on the exact circumstances of a particular case. We recognize that sometimes people may say or do inappropriate things for any number of reasons. Perhaps they did not realize how their words would be perceived. Or maybe they just let their emotions get the best of them. Of course, sometimes, there are folks who just want to spam or cause trouble.
+ユーザから不適切な行動やコンテンツの報告があった場合に当社が講じる措置はさまざまです。 これは、事態の正確な状況次第で決まるのが普通です。 人はさまざまな理由で不適切な発言や行動をしてしまうことがあるというのが、当社の認識です。 自分の言葉がどのように受け取られるのかをわかっていなかったという場合もあるでしょう。 または、つい感情的になってしまったという場合もあるでしょう。 もちろん、単にスパムをばらまいたり、トラブルを引き起こすことを目的とする人がいることも事実です。
 
-Each case requires a different approach, and we try to tailor our response to meet the needs of the situation that has been reported. We'll review each abuse report on a case-by-case basis. In each case, we will have a diverse team investigate the content and surrounding facts and respond as appropriate, using these guidelines to guide our decision.
+ケースバイケースで異なるアプローチが必要なため、当社は報告を受けた状況に合った対応を行うように心がけています。 このため、不正行為に関する報告は個別に確認しています。 いずれの場合も、多様性に富んだチームがコンテンツとそれに関する事情を調査し、必要に応じて対応し、このガイドラインに基づいて決定を下します。
 
-Actions we may take in response to an abuse report include but are not limited to:
+不正行為の報告を受けた際に当社が講じる措置には以下が含まれますが、これらに限定されません。
 
-* Content Removal
-* Content Blocking
-* Account Suspension
-* Account Termination
+* コンテンツの削除
+* コンテンツのブロック
+* アカウントの一時停止
+* アカウントの解約
 
-## Appeal and Reinstatement
+## 意義申し立てと復帰
 
-In some cases there may be a basis to reverse an action, for example, based on additional information a user provided, or where a user has addressed the violation and agreed to abide by our Acceptable Use Policies moving forward. If you wish to appeal an enforcement action, please contact [support](https://support.github.com/contact?tags=docs-policy).
+たとえば、ユーザが提供する追加情報を理由として、あるいはユーザが違反に対応し、今後は利用規定に従うことに同意した場合など、措置を覆す理由が存在する場合もあります。 強制措置に意義を申し立てたい場合は、[サポート](https://support.github.com/contact?tags=docs-policy)にお問い合わせください。
 
-## Legal Notices
+## 法的通知
 
-We dedicate these Community Guidelines to the public domain for anyone to use, reuse, adapt, or whatever, under the terms of [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+本コミュニティガイドラインは、[CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) の条件に基づいて、誰でも使用、再利用、改作、その他あらゆることが可能になるようにパブリックドメインになっています。
 
-These are only guidelines; they do not modify our [Terms of Service](/articles/github-terms-of-service/) and are not intended to be a complete list. GitHub retains full discretion under the [Terms of Service](/articles/github-terms-of-service/#c-acceptable-use) to remove any content or terminate any accounts for activity that violates our Terms on Acceptable Use. These guidelines describe when we will exercise that discretion.
+これはあくまでもガイドラインであり、[利用規約](/articles/github-terms-of-service/)を変更するものや、完全なリストであることを意図したものではありません。 GitHub は、[利用規約](/articles/github-terms-of-service/#c-acceptable-use)に基づいて、利用規定に違反するコンテンツを削除するか、または利用規定に違反する活動のアカウントを解約することができる、完全な裁量を保持します。 本ガイドラインでは、かかる裁量を行使する場合について説明しています。

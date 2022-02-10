@@ -1,6 +1,6 @@
 ---
-title: Managing users in your enterprise
-intro: You can audit user activity and manage user settings.
+title: Enterprise のユーザを管理する
+intro: ユーザアクティビティを監査し、ユーザ設定を管理できます。
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise
   - /enterprise/admin/guides/user-management/enabling-avatars-and-identicons
@@ -35,3 +35,4 @@ children:
   - /rebuilding-contributions-data
 shortTitle: Manage users
 ---
+

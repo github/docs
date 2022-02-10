@@ -23,8 +23,6 @@ You can review changes in a pull request one file at a time. While reviewing the
 
 ## Starting a review
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}

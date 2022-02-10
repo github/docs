@@ -28,39 +28,43 @@ export const Breadcrumbs = () => {
       className={cx('f5 breadcrumbs', styles.breadcrumbs)}
       aria-label="Breadcrumb"
     >
-      {Object.values(breadcrumbs).map((breadcrumb, i, arr) => {
-        if (!breadcrumb) {
-          return null
-        }
-        const title = `${breadcrumb.title}`
-        return [
-          !breadcrumb.href ? (
-            <span data-testid="breadcrumb-title" key={title} title={title} className="px-2">
-              {breadcrumb.title}
-            </span>
-          ) : (
-            <Link
-              key={title}
-              data-testid="breadcrumb-link"
-              href={breadcrumb.href}
-              title={title}
-              className={cx(
-                'pr-3',
-                // Always show first and last, show middle on XL size
-                i === 0 || i === arr.length - 1 ? 'd-inline-block' : 'd-none d-xl-inline-block',
-                pathWithLocale === breadcrumb.href && 'color-fg-muted'
-              )}
-            >
-              {breadcrumb.title}
-              {i !== arr.length - 1 ? (
-                <span className="color-fg-muted pl-3" key={`${i}-slash`}>
-                  /
+      <ul>
+        {Object.values(breadcrumbs)
+          .filter(Boolean)
+          .map((breadcrumb, i, arr) => {
+            const title = `${breadcrumb.title}`
+            return [
+              !breadcrumb.href ? (
+                <span data-testid="breadcrumb-title" key={title} title={title} className="px-2">
+                  {breadcrumb.title}
                 </span>
-              ) : null}
-            </Link>
-          ),
-        ]
-      })}
+              ) : (
+                <li className="d-inline-block" key={title}>
+                  <Link
+                    data-testid="breadcrumb-link"
+                    href={breadcrumb.href}
+                    title={title}
+                    className={cx(
+                      'pr-3',
+                      // Always show first and last, show middle on XL size
+                      i === 0 || i === arr.length - 1
+                        ? 'd-inline-block'
+                        : 'd-none d-xl-inline-block',
+                      pathWithLocale === breadcrumb.href && 'color-fg-muted'
+                    )}
+                  >
+                    {breadcrumb.title}
+                    {i !== arr.length - 1 ? (
+                      <span className="color-fg-muted pl-3" key={`${i}-slash`}>
+                        /
+                      </span>
+                    ) : null}
+                  </Link>
+                </li>
+              ),
+            ]
+          })}
+      </ul>
     </nav>
   )
 }

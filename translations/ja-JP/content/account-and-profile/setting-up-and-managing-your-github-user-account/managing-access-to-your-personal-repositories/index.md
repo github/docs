@@ -1,6 +1,6 @@
 ---
-title: Managing access to your personal repositories
-intro: You can give people collaborator access to repositories owned by your personal account.
+title: 個人リポジトリに対するアクセスを管理する
+intro: 自分の個人アカウントで所有しているリポジトリに対するコラボレーター アクセス権を、ユーザに付与できます。
 redirect_from:
   - /categories/101/articles
   - /categories/managing-repository-collaborators

@@ -17,7 +17,7 @@ shortTitle: Use merge queue
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-The merge queue creates temporary preparatory branches to validate pull requests against the latest version of the base branch. To ensure that {% data variables.product.prodname_dotcom %} validates these preparatory branches, you may need to update your CI configuration to trigger builds on branch names starting with `gh/readonly/queue/{base_branch}`. 
+The merge queue creates temporary preparatory branches to validate pull requests against the latest version of the base branch. To ensure that {% data variables.product.prodname_dotcom %} validates these preparatory branches, you may need to update your CI configuration to trigger builds on branch names starting with `gh-readonly-queue/{base_branch}`. 
 
 For example, with {% data variables.product.prodname_actions %}, adding the following trigger to a workflow will cause the workflow to run when any push is made to a merge queue preparatory branch that targets `main`.
 
@@ -25,7 +25,8 @@ For example, with {% data variables.product.prodname_actions %}, adding the foll
 on:
   push:
     branches:
-    - gh/readonly/queue/main/**
+    - main
+    - gh-readonly-queue/main/**
 ```
 
 {% data reusables.pull_requests.merge-queue-merging-method %}

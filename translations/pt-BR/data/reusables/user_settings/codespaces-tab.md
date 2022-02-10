@@ -1,1 +1,1 @@
-1. Na barra lateral esquerda, clique em **Codespaces**. ![Aba de codespaces na barra lateral de configurações do usuário](/assets/images/help/settings/codespaces-tab.png)
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces**.

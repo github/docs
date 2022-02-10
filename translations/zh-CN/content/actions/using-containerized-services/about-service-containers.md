@@ -1,6 +1,6 @@
 ---
-title: About service containers
-intro: 'You can use service containers to connect databases, web services, memory caches, and other tools to your workflow.'
+title: 关于服务容器
+intro: 您可以使用服务容器将数据库、网络服务、内存缓存及其他工具连接到您的工作流程。
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
   - /actions/configuring-and-managing-workflows/about-service-containers
@@ -19,37 +19,37 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About service containers
+## 关于服务容器
 
-Service containers are Docker containers that provide a simple and portable way for you to host services that you might need to test or operate your application in a workflow. For example, your workflow might need to run integration tests that require access to a database and memory cache.
+服务容器是 Docker 容器，以简便、可携带的方式托管您可能需要在工作流程中测试或操作应用程序的服务。 例如，您的工作流程可能必须运行需要访问数据库和内存缓存的集成测试。
 
-You can configure service containers for each job in a workflow. {% data variables.product.prodname_dotcom %} creates a fresh Docker container for each service configured in the workflow, and destroys the service container when the job completes. Steps in a job can communicate with all service containers that are part of the same job.
+您可以为工作流程中的每个作业配置服务容器。 {% data variables.product.prodname_dotcom %} 为工作流中配置的每个服务创建一个新的 Docker 容器，并在作业完成后销毁该服务容器。 作业中的步骤可与属于同一作业的所有服务容器通信。
 
 {% data reusables.github-actions.docker-container-os-support %}
 
-## Communicating with service containers
+## 与服务容器通信
 
-You can configure jobs in a workflow to run directly on a runner machine or in a Docker container. Communication between a job and its service containers is different depending on whether a job runs directly on the runner machine or in a container.
+您可以在工作流程中配置作业直接在运行器机器或 Docker 容器上运行。 作业与其服务容器之间的通信根据作业是直接在运行器上运行还是在容器中运行而有所不同。
 
-### Running jobs in a container
+### 在容器中运行作业
 
-When you run jobs in a container, {% data variables.product.prodname_dotcom %} connects service containers to the job using Docker's user-defined bridge networks. For more information, see "[Use bridge networks](https://docs.docker.com/network/bridge/)" in the Docker documentation.
+在容器中运行作业时，{% data variables.product.prodname_dotcom %} 使用 Docker 的用户定义桥接网络将服务容器连接到作业。 更多信息请参阅 Docker 文档中的“[使用桥接网络](https://docs.docker.com/network/bridge/)”。
 
-Running the job and services in a container simplifies network access. You can access a service container using the label you configure in the workflow. The hostname of the service container is automatically mapped to the label name. For example, if you create a service container with the label `redis`, the hostname of the service container is `redis`.
+在容器中运行作业和服务可简化网络访问。 您可以使用工作流程中配置的标签访问服务容器。 服务容器的主机名自动映射到标签名称。 例如，如果您创建带有标签 `redis` 的服务容器 ，则该服务容器的主机名是 `redis`。
 
-You don't need to configure any ports for service containers. By default, all containers that are part of the same Docker network expose all ports to each other, and no ports are exposed outside of the Docker network.
+您无需为服务容器配置任何端口。 默认情况下，属于同一 Docker 网络的所有容器会相互显示所有端口，但在 Docker 网络外部不会显示任何端口。
 
-### Running jobs on the runner machine
+### 在运行器机器上运行作业
 
-When running jobs directly on the runner machine, you can access service containers using `localhost:<port>` or `127.0.0.1:<port>`. {% data variables.product.prodname_dotcom %} configures the container network to enable communication from the service container to the Docker host.
+直接在运行器机器上运行作业时，您可以使用 `localhost:<port>` 或 `127.0.0.1:<port>` 访问服务容器。 {% data variables.product.prodname_dotcom %} 配置容器网络以启用从服务容器到 Docker 主机的通信。
 
-When a job runs directly on a runner machine, the service running in the Docker container does not expose its ports to the job on the runner by default. You need to map ports on the service container to the Docker host. For more information, see "[Mapping Docker host and service container ports](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
+当作业直接在运行器机器上运行时， Docker 容器中运行的服务默认情况下不会向运行器上的作业显示其端口。 您需要将服务容器上的端口映射到 Docker 主机。 更多信息请参阅“[映射 Docker 主机和服务容器端口](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)”。
 
-## Creating service containers
+## 创建服务容器
 
-You can use the `services` keyword to create service containers that are part of a job in your workflow. For more information, see [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
+您可以使用 `services` 关键字创建服务容器作为工作流程中作业的一部分。 更多信息请参阅 [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices)。
 
-This example creates a service called `redis` in a job called `container-job`. The Docker host in this example is the `node:10.18-jessie` container.
+本例在作业 `container-job` 中创建一个名为 `redis` 的服务。 本例中的 Docker 主机是 `node:10.18-jessie` 容器。
 
 {% raw %}
 ```yaml{:copy}
@@ -73,25 +73,25 @@ jobs:
 ```
 {% endraw %}
 
-## Mapping Docker host and service container ports
+## 映射 Docker 主机和服务容器端口
 
-If your job runs in a Docker container, you do not need to map ports on the host or the service container. If your job runs directly on the runner machine, you'll need to map any required service container ports to ports on the host runner machine.
+如果作业在 Docker 容器中运行，则不需要映射主机或服务容器上的端口。 如果作业直接在运行器机器上运行，则需要将任何必需的服务容器端口映射到主机运行器机器上的端口。
 
-You can map service containers ports to the Docker host using the `ports` keyword. For more information, see [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
+您可以使用 `ports` 关键字将服务容器端口映射到 Docker 主机。 更多信息请参阅 [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices)。
 
-| Value of `ports` |	Description |
-|------------------|--------------|
-| `8080:80` |	Maps TCP port 80 in the container to port 8080 on the Docker host. |
-| `8080:80/udp` |	Maps UDP port 80 in the container to port 8080 on the Docker host. |
-| `8080/udp`	| Map a randomly chosen UDP port in the container to UDP port 8080 on the Docker host. |
+| `ports` 的值    | 描述                                           |
+| ------------- | -------------------------------------------- |
+| `8080:80`     | 将容器中的 TCP 端口 80 映射到 Docker 主机上的端口 8080。      |
+| `8080:80/udp` | 将容器中的 UDP 端口 80 映射到 Docker 主机上的端口 8080。      |
+| `8080/udp`    | 将容器中随机选择的 UDP 端口映射到 Docker 主机上的 UDP 端口 8080。 |
 
-When you map ports using the `ports` keyword, {% data variables.product.prodname_dotcom %} uses the `--publish` command to publish the container’s ports to the Docker host. For more information, see "[Docker container networking](https://docs.docker.com/config/containers/container-networking/)" in the Docker documentation.
+使用 `ports` 关键字映射端口时，{% data variables.product.prodname_dotcom %} 使用 `--publish` 命令将容器的端口发布到 Docker 主机。 更多信息请参阅 Docker 文档中的“[Docker 容器网络](https://docs.docker.com/config/containers/container-networking/)”。
 
-When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#job-context)."
+指定 Docker 主机端口但不指定容器端口时，容器端口将随机分配给空闲端口。 {% data variables.product.prodname_dotcom %} 在服务容器上下文中设置分配的容器端口。 例如，对于 `redis` 服务容器，如果您配置了 Docker 主机端口 5432，则您可以使用 `job.services.redis.ports[5432]` 上下文访问对应的容器端口。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#job-context)”。
 
-### Example mapping Redis ports
+### 映射 Redis 端口的示例
 
-This example maps the service container `redis` port 6379 to the Docker host port 6379.
+此示例映射服务容器 `redis` 端口 6379 到 Docker 主机端口 6379。
 
 {% raw %}
 ```yaml{:copy}
@@ -117,7 +117,7 @@ jobs:
 ```
 {% endraw %}
 
-## Further reading
+## 延伸阅读
 
-- "[Creating Redis service containers](/actions/automating-your-workflow-with-github-actions/creating-redis-service-containers)"
-- "[Creating PostgreSQL service containers](/actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers)"
+- "[创建 Redis 服务容器](/actions/automating-your-workflow-with-github-actions/creating-redis-service-containers)"
+- "[创建 PostgreSQL 服务容器](/actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers)"

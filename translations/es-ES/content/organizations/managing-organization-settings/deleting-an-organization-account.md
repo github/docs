@@ -1,6 +1,6 @@
 ---
-title: Deleting an organization account
-intro: 'When you delete an organization, all repositories, forks of private repositories, wikis, issues, pull requests, and Project or Organization Pages are deleted as well. {% ifversion fpt or ghec %}Your billing will end, and after 90 days the organization name becomes available for use on a new user or organization account.{% endif %}'
+title: Eliminar una cuenta de una organización
+intro: 'Cuando eliminas una organización, se eliminan también todos los repositorios, bifurcaciones de repositorios privados, wikis, propuestas, solicitudes de extracción y páginas del proyecto y de la organización. {% ifversion fpt or ghec %}Tu facturación terminará y, después de 90 días, el nombre de la organización estará disponible para que una cuenta de organización o de usuario nueva lo utilice.{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
   - /github/setting-up-and-managing-organizations-and-teams/deleting-an-organization-account
@@ -12,25 +12,24 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Delete organization account
+shortTitle: Borrar una cuenta organizacional
 ---
 
 {% ifversion fpt or ghec %}
 {% tip %}
 
-**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) instead of deleting the organization and its content.
+**Sugerencia**: Si deseas cancelar tu suscripción paga, puedes [bajar la categoría de tu organización a {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) en lugar de eliminar la organización y su contenido.
 
 {% endtip %}
 
 {% endif %}
 
-## 1. Back up your organization content
+## 1. Haz una copia de respaldo del contenido de tu organización
 
-Once you delete an organization, GitHub **cannot restore your content**. Therefore, before you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
+Una vez que eliminas una organización, GitHub **no puede restaurar su contenido**. Por lo tanto, antes de que borres tu organización, asegúrate de que tengas una copia de todos los repositorios, wikis, propuestas y tableros de proyecto de la cuenta.
 
-## 2. Delete the organization
+## 2. Elimina la organización
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. Near the bottom of the organization's settings page, click **Delete this Organization**.
-   ![Delete this organization button](/assets/images/help/settings/settings-organization-delete.png)
+4. Junto a la parte inferior de la página de configuración de la organización, haz clic en **Eliminar esta organización**. ![Botón Eliminar esta organización](/assets/images/help/settings/settings-organization-delete.png)

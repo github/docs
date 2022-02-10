@@ -1,7 +1,7 @@
 ---
 title: Introducing GitHub Actions to your enterprise
 shortTitle: Introduce Actions
-intro: "You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise."
+intro: 'You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -14,7 +14,7 @@ topics:
 
 ## About {% data variables.product.prodname_actions %} for enterprises
 
-{% data reusables.actions.about-actions %} With {% data variables.product.prodname_actions %}, your enterprise can automate, customize, and execute your software development workflows like testing and deployments. For more information about the basics of {% data variables.product.prodname_actions %}, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
+{% data reusables.actions.about-actions %} With {% data variables.product.prodname_actions %}, your enterprise can automate, customize, and execute your software development workflows like testing and deployments. For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
 ![Diagram of jobs running on self-hosted runners](/assets/images/help/images/actions-enterprise-overview.png)
 
@@ -32,15 +32,15 @@ Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions
 
 ![Screenshot of {% data variables.product.prodname_actions %} policies](/assets/images/help/organizations/enterprise-actions-policy.png)
 
-{% ifversion ghec or ghae-issue-4757-and-5856 %}
+{% ifversion ghec or ghae-issue-4757 %}
 Consider combining OpenID Connect (OIDC) with reusable workflows to enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows. For more information, see "[Using OpenID Connect with reusable workflows](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."
 {% endif %}
 
 You can access information about activity related to {% data variables.product.prodname_actions %} in the audit logs for your enterprise. If your business needs require retaining audit logs for longer than six months, plan how you'll export and store this data outside of {% data variables.product.prodname_dotcom %}. For more information, see {% ifversion ghec %}"[Streaming the audit logs for organizations in your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)."{% else %}"[Searching the audit log](/admin/user-management/monitoring-activity-in-your-enterprise/searching-the-audit-log)."{% endif %}
 
-![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
+![監査ログのエントリ](/assets/images/help/repository/audit-log-entries.png)
 
-## Security
+## セキュリティ
 
 You should plan your approach to security hardening for {% data variables.product.prodname_actions %}.
 
@@ -66,7 +66,9 @@ There is significant risk in sourcing actions from third-party repositories on {
 
 ## Innersourcing
 
-Think about how your enterprise can use features of {% data variables.product.prodname_actions %} to innersource workflows. Innersourcing is a way to incorporate the benefits of open source methodologies into your internal software development cycle. For more information, see [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/) in {% data variables.product.company_short %} Resources.
+Think about how your enterprise can use features of {% data variables.product.prodname_actions %} to innersource automation. Innersourcing is a way to incorporate the benefits of open source methodologies into your internal software development cycle. For more information, see [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/) in {% data variables.product.company_short %} Resources.
+
+{% data reusables.actions.internal-actions-summary %}
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-4757 %}
 With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
@@ -74,13 +76,15 @@ With reusable workflows, your team can call one workflow from another workflow, 
 
 To provide a starting place for developers building new workflows, you can use starter workflows. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
 
+{% if not internal-actions %}
 Whenever your workflow developers want to use an action that's stored in a private repository, they must configure the workflow to clone the repository first. To reduce the number of repositories that must be cloned, consider grouping commonly used actions in a single repository. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action)."
+{% endif %}
 
 ## Managing resources
 
 You should plan for how you'll manage the resources required to use {% data variables.product.prodname_actions %}.
 
-### Runners
+### ランナー
 
 {% data variables.product.prodname_actions %} workflows require runners.{% ifversion ghec %} You can choose to use {% data variables.product.prodname_dotcom %}-hosted runners or self-hosted runners. {% data variables.product.prodname_dotcom %}-hosted runners are convenient because they are managed by {% data variables.product.company_short %}, who handles maintenance and upgrades for you. However, you may want to consider self-hosted runners if you need to run a workflow that will access resources behind your firewall or you want more control over the resources, configuration, or geographic location of your runner machines. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)" and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."{% else %} You will need to host your own runners by installing the {% data variables.product.prodname_actions %} self-hosted runner application on your own machines. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."{% endif %}
 
@@ -94,7 +98,7 @@ You should consider using autoscaling to automatically increase or decrease the 
 
 Finally, you should consider security hardening for self-hosted runners. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 
-### Storage
+### ストレージ
 
 {% data reusables.actions.about-artifacts %} For more information, see "[Storing workflow data as artifacts](/actions/advanced-guides/storing-workflow-data-as-artifacts)."
 
@@ -113,7 +117,7 @@ You must configure external blob storage for these artifacts. Decide which suppo
 If you want to retain logs and artifacts longer than the upper limit you can configure in {% data variables.product.product_name %}, you'll have to plan how to export and store the data.
 
 {% ifversion ghec %}
-Some storage is included in your subscription, but additional storage will affect your bill. You should plan for this cost. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+Some storage is included in your subscription, but additional storage will affect your bill. You should plan for this cost. 詳しい情報については、「[{% data variables.product.prodname_actions %}の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
 {% endif %}
 
 ## Tracking usage

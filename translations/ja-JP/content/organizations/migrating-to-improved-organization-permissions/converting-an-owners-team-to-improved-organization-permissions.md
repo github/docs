@@ -1,6 +1,6 @@
 ---
-title: Converting an Owners team to improved organization permissions
-intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. The "Owner" is now an administrative role given to individual members of your organization. Members of your legacy Owners team are automatically given owner privileges.'
+title: オーナー Team を改善された Organization の権限に移行する
+intro: 2015 年 9 月以降に作成された Organization の場合、Organization の権限モデルはデフォルトで改善されています。 2015 年 9 月より前に作成された Organization は、古いオーナーおよび管理者 Team から、改善された権限モデルに移行する必要があるかもしれません。 「オーナー」は、Organization の各メンバーに与えられる管理者ロールとなりました。 レガシーのオーナー Team のメンバーには、オーナー権限が自動的に与えられます。
 redirect_from:
   - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program
   - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions
@@ -13,19 +13,19 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Convert Owners team
+shortTitle: オーナーTeamの変換
 ---
 
-You have a few options to convert your legacy Owners team:
+レガシーのオーナー Team を変換する方法はいくつかあります:
 
-- Give the team a new name that denotes the members have a special status in the organization.
-- Delete the team after ensuring all members have been added to teams that grant necessary access to the organization's repositories.
+- Team に、メンバーが Organization 内で特別なステータスを持っていることを示す名前を付ける。
+- すべてのメンバーが、Organization のリポジトリにアクセスできる必要な権限を持つ Team に追加されていることを確認してから、元の Team を削除する。
 
-## Give the Owners team a new name
+## オーナー Team に新しい名前を付ける
 
 {% tip %}
 
-   **Note:** Because "admin" is a term for organization members with specific [access to certain repositories](/articles/repository-permission-levels-for-an-organization) in the organization, we recommend you avoid that term in any team name you decide on.
+   **メモ:** Organization のメンバーにとって "admin" は、Organization の特定の[リポジトリに対する特定のアクセス](/articles/repository-permission-levels-for-an-organization) を示します。ですから、これを Team 名として使うことは避けるようおすすめします。
 
 {% endtip %}
 
@@ -33,19 +33,17 @@ You have a few options to convert your legacy Owners team:
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
-5. In the team name field, choose a new name for the Owners team. For example:
-    - If very few members of your organization were members of the Owners team, you might name the team "Core".
-    - If all members of your organization were members of the Owners team so that they could [@mention teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), you might name the team "Employees".
-  ![The team name field, with the Owners team renamed to Core](/assets/images/help/teams/owners-team-new-name.png)
-6. Under the team description, click **Save and continue**.
-![The Save and continue button](/assets/images/help/teams/owners-team-save-and-continue.png)
-7. Optionally, [make the team *public*](/articles/changing-team-visibility).
+5. Team 名のフィールドで、オーナー Team の新しい名前を選びます。 例:
+    - Organization において、オーナー Team のメンバーがとても少ない場合には、"Core" といったチーム名がいいかもしれません。
+    - Organization のすべてのメンバーがオーナー Team のメンバーでもあり、[Team に @mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) できる場合は、"Employees" といったチーム名がいいかもしれません。 ![オーナー Team の名前を "Core" にした、Team 名フィールド](/assets/images/help/teams/owners-team-new-name.png)
+6. Team の説明の下にある、[**Save and continue**] をクリックします。 ![[Save and continue] ボタン](/assets/images/help/teams/owners-team-save-and-continue.png)
+7. また、代わりに [Team を*パブリック*にする](/articles/changing-team-visibility)こともできます。
 
-## Delete the legacy Owners team
+## レガシーのオーナー Team の削除
 
 {% warning %}
 
-**Warning:** If there are members of your Owners team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
+**警告:** オーナー Team のメンバーが、他の Team のメンバーではない場合、そのメンバーは Team を削除すると Organization から削除されます。 Team を削除する前に、メンバーを Organization の直接メンバーにするか、必要なリポジトリに対するコラボレーターアクセスを持たせてください。
 
 {% endwarning %}
 
@@ -53,5 +51,4 @@ You have a few options to convert your legacy Owners team:
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
-5. At the bottom of the page, review the warning and click **Delete the Owners team**.
-  ![Link for deleting the Owners team](/assets/images/help/teams/owners-team-delete.png)
+5. ページの下部にある警告を確認し、[**Delete the Owners team**] をクリックします。 ![オーナー Team を削除するリンク](/assets/images/help/teams/owners-team-delete.png)

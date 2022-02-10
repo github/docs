@@ -25,11 +25,14 @@ Your profile picture helps identify you across {% data variables.product.product
 
 When you sign up for an account, {% data variables.product.product_name %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
 
-{% tip %}
+{% note %}
 
-**Tip**: Your profile picture should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
+**Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
 
-{% endtip %}
+* {% endif %}Your profile picture should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
+{% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
+
+{% endnote %}
 
 ### Setting a profile picture
 

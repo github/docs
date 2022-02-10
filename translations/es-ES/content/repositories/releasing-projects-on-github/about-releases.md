@@ -19,9 +19,9 @@ topics:
 ---
 ## About releases
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
 ![An overview of releases](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% elsif ghes > 3.3 or ghae-issue-4972 %}
+{% elsif ghae-issue-4972 %}
 ![An overview of releases](/assets/images/help/releases/releases-overview-with-contributors.png)
 {% else %}
 ![An overview of releases](/assets/images/help/releases/releases-overview.png)
@@ -35,7 +35,7 @@ You can receive notifications when new releases are published in a repository wi
 
 Anyone with read access to a repository can view and compare releases, but only people with write permissions to a repository can manage releases. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)."
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
 
 You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
 

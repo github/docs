@@ -1,8 +1,8 @@
 ---
-title: Searching a repository's releases
-intro: 'You can use keywords, tags, and other qualifiers to search for particular releases in a repository.'
+title: Pesquisando versões de um repositório
+intro: 'É possível usar palavras-chave, tags e outros qualificadores para procurar determinadas versões em um repositório.'
 permissions: Anyone with read access to a repository can search that repository's releases.
-shortTitle: Searching releases
+shortTitle: Pesquisando as versões
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,19 +12,19 @@ topics:
   - Repositories
 ---
 
-## Searching for releases in a repository
+## Procurando as versões em um repositório
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-1. To search the repository's releases, in the search field at the top of the Releases page, type your query and press **Enter**. ![Releases search field](/assets/images/help/releases/search-releases.png)
+1. Para pesquisar as versões do repositório, no campo de pesquisa na parte superior da página de Versões, digite a sua consulta e pressione **Enter**. ![Versões no campo de pesquisa](/assets/images/help/releases/search-releases.png)
 
-## Search syntax for searching releases in a repository
+## Pesquisar sintaxe para versões em um repositório
 
-You can provide text in your search query which will be matched against the title, body, and tag of the repository's releases. You can also combine the following qualifiers to target specific releases.
+Você pode fornecer o texto na sua consulta de pesquisa que será comparado com o título, texto e tag das versões do repositório. Você também pode combinar os seguintes qualificadores em versões específicas de destino.
 
-| Qualifier                 | Exemplo                                                                                                                                                                                                                                                                        |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `draft:true`              | **draft:true** will only match draft releases.                                                                                                                                                                                                                                 |
-| `draft:false`             | **draft:false** will only match published releases.                                                                                                                                                                                                                            |
-| <code>tag:<em>TAG</em></code> | **tag:v1** matches a release with the v1 tag and any minor or patch versions within v1, such as v1.0, v1.2, and v1.2.5.                                                                                                                                                        |
-| <code>created:<em>DATE</em></code> | **created:2021** will match releases created during 2021. You can also provide date ranges. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)". |
+| Qualifier                 | Exemplo                                                                                                                                                                                                                                                                                         |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `draft:true`              | **draft:true** irá corresponder apenas ao rascunho das versões.                                                                                                                                                                                                                                 |
+| `draft:false`             | **draft:false** irá corresponder apenas às versões publicadas.                                                                                                                                                                                                                                  |
+| <code>tag:<em>TAG</em></code> | **tag: v1** corresponde a uma versão com a etiqueta v1 e a todas as versões menores ou patches em v1, como v1.0, v1.2 e v1.2.5.                                                                                                                                                                 |
+| <code>created:<em>DATE</em></code> | **created:2021** irá corresponder às versões criadas em 2021. Você também pode fornecer intervalos de datas. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)". |

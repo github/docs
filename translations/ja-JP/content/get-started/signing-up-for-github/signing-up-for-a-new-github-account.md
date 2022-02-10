@@ -1,7 +1,7 @@
 ---
-title: Signing up for a new GitHub account
-shortTitle: Sign up for a new GitHub account
-intro: '{% data variables.product.company_short %} offers user accounts for individuals and organizations for teams of people working together.'
+title: 新しい GitHub アカウントへのサインアップ
+shortTitle: 新しい GitHub アカウントへのサインアップ
+intro: '{% data variables.product.company_short %} は、人々が協力して作業するチームのために個人および Organization のユーザアカウントを提供します。'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
   - /github/getting-started-with-github/signing-up-for-a-new-github-account
@@ -17,15 +17,15 @@ topics:
 
 You can create a personal account, which serves as your identity on {% data variables.product.prodname_dotcom_the_website %}, or an organization, which allows multiple personal accounts to collaborate across multiple projects. For more information about account types, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
-When you create a personal account or organization, you must select a billing plan for the account. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
+When you create a personal account or organization, you must select a billing plan for the account. 詳細は「[{% data variables.product.company_short %} の製品](/get-started/learning-about-github/githubs-products)」を参照してください。
 
 ## Signing up for a new account
 
 {% data reusables.accounts.create-account %}
-1. Follow the prompts to create your personal account or organization.
+1. プロンプトに従って、個人アカウントまたは Organization を作成してください。
 
-## Next steps
+## 次のステップ
 
-- "[Verify your email address](/articles/verifying-your-email-address)"
+- 「[メールアドレスを検証する](/articles/verifying-your-email-address)」
 - "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
-- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository
+- `github/roadmap` リポジトリの [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})

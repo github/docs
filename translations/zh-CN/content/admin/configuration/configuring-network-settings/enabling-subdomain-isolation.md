@@ -1,6 +1,6 @@
 ---
-title: Enabling subdomain isolation
-intro: 'You can set up subdomain isolation to securely separate user-supplied content from other portions of your {% data variables.product.prodname_ghe_server %} appliance.'
+title: 启用子域隔离
+intro: '您可以设置子域隔离，将用户提供的内容与 {% data variables.product.prodname_ghe_server %} 设备的其他部分安全地隔离。'
 redirect_from:
   - /enterprise/admin/guides/installation/about-subdomain-isolation
   - /enterprise/admin/installation/enabling-subdomain-isolation
@@ -15,51 +15,51 @@ topics:
   - Infrastructure
   - Networking
   - Security
-shortTitle: Enable subdomain isolation
+shortTitle: 启用子域隔离
 ---
-## About subdomain isolation
 
-Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.product.product_location %}.
+## 关于子域隔离
 
-When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains. After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
+子域隔离可以减少跨站脚本和其他相关漏洞。 更多信息请参阅 Wikipedia 上的“[跨站脚本](http://en.wikipedia.org/wiki/Cross-site_scripting)”。 我们强烈建议在 {% data variables.product.product_location %} 上启用子域隔离。
 
-| Path without subdomain isolation  | Path with subdomain isolation   |
-| --- | --- |
-| `http(s)://HOSTNAME/assets/`      | `http(s)://assets.HOSTNAME/`      |
-| `http(s)://HOSTNAME/avatars/`     | `http(s)://avatars.HOSTNAME/`     |
-| `http(s)://HOSTNAME/codeload/`    | `http(s)://codeload.HOSTNAME/`    |
-| `http(s)://HOSTNAME/gist/`        | `http(s)://gist.HOSTNAME/`        |
-| `http(s)://HOSTNAME/media/`       | `http(s)://media.HOSTNAME/`       |
-| `http(s)://HOSTNAME/pages/`       | `http(s)://pages.HOSTNAME/`       |
-| `http(s)://HOSTNAME/raw/`         | `http(s)://raw.HOSTNAME/`         |
-| `http(s)://HOSTNAME/render/`      | `http(s)://render.HOSTNAME/`      |
-| `http(s)://HOSTNAME/reply/`       | `http(s)://reply.HOSTNAME/`       |
-| `http(s)://HOSTNAME/uploads/`     | `http(s)://uploads.HOSTNAME/`     | {% ifversion ghes %}
-| `https://HOSTNAME/_registry/docker/` | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
-| `https://HOSTNAME/_registry/npm/` | `https://npm.HOSTNAME/`
-| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`
-| `https://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/`
-| `https://HOSTNAME/_registry/nuget/` | `https://nuget.HOSTNAME/`{% endif %}
+启用子域隔离后，{% data variables.product.prodname_ghe_server %} 会以子域替代多个路径。 启用子域隔离后，尝试访问某些用户提供内容的以前路径（如 `http(s)://HOSTNAME/raw/`）可能会返回 `404` 错误。
 
-## Prerequisites
+| 未使用子域隔离的路径                             | 使用子域隔离的路径                                                   |
+| -------------------------------------- | ----------------------------------------------------------- |
+| `http(s)://HOSTNAME/assets/`           | `http(s)://assets.HOSTNAME/`                                |
+| `http(s)://HOSTNAME/avatars/`          | `http(s)://avatars.HOSTNAME/`                               |
+| `http(s)://HOSTNAME/codeload/`         | `http(s)://codeload.HOSTNAME/`                              |
+| `http(s)://HOSTNAME/gist/`             | `http(s)://gist.HOSTNAME/`                                  |
+| `http(s)://HOSTNAME/media/`            | `http(s)://media.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/pages/`            | `http(s)://pages.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/raw/`              | `http(s)://raw.HOSTNAME/`                                   |
+| `http(s)://HOSTNAME/render/`           | `http(s)://render.HOSTNAME/`                                |
+| `http(s)://HOSTNAME/reply/`            | `http(s)://reply.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/uploads/`          | `http(s)://uploads.HOSTNAME/`                               |{% ifversion ghes %}
+| `https://HOSTNAME/_registry/docker/`   | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
+| `https://HOSTNAME/_registry/npm/`      | `https://npm.HOSTNAME/`                                     |
+| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`                                |
+| `https://HOSTNAME/_registry/maven/`    | `https://maven.HOSTNAME/`                                   |
+| `https://HOSTNAME/_registry/nuget/`    | `https://nuget.HOSTNAME/`{% endif %}
+
+## 基本要求
 
 {% data reusables.enterprise_installation.disable-github-pages-warning %}
 
-Before you enable subdomain isolation, you must configure your network settings for your new domain.
+启用子域隔离之前，您必须为新域配置网络设置。
 
-- Specify a valid domain name as your hostname, instead of an IP address. For more information, see "[Configuring a hostname](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-a-hostname)."
+- 指定有效域名作为主机名，而不是指定 IP 地址。 更多信息请参阅“[配置主机名](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-a-hostname)。”
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-- Set up a wildcard Domain Name System (DNS) record or individual DNS records for the subdomains listed above. We recommend creating an A record for `*.HOSTNAME` that points to your server's IP address so you don't have to create multiple records for each subdomain.
-- Get a wildcard Transport Layer Security (TLS) certificate for `*.HOSTNAME` with a Subject Alternative Name (SAN) for both `HOSTNAME` and the wildcard domain `*.HOSTNAME`. For example, if your hostname is `github.octoinc.com`, get a certificate with the Common Name value set to `*.github.octoinc.com` and a SAN value set to both `github.octoinc.com` and `*.github.octoinc.com`.
-- Enable TLS on your appliance. For more information, see "[Configuring TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls/)."
+- 为上文列出的子域设置通配符域名系统 (DNS) 记录或单独的 DNS 记录。 建议为指向您的服务器 IP 地址的 `*.HOSTNAME` 创建一条 A 记录，从而无需为各个子域创建多条记录。
+- 为 `*.HOSTNAME` 获取一个使用者可选名称 (SAN) 同时适用于 `HOSTNAME` 和通配符域 `*.HOSTNAME` 的通配符传输层安全 (TLS) 证书。 例如，如果您的主机名为 `github.octoinc.com`，则获取一个通用名值设为 `*.github.octoinc.com`、SAN 值同时设为 `github.octoinc.com` 和 `*.github.octoinc.com` 的证书。
+- 在设备上启用 TLS。 更多信息请参阅“[配置 TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls/)”。
 
-## Enabling subdomain isolation
+## 启用子域隔离
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.hostname-menu-item %}
-4. Select **Subdomain isolation (recommended)**.
-  ![Checkbox to enable subdomain isolation](/assets/images/enterprise/management-console/subdomain-isolation.png)
+4. 选择 **Subdomain isolation (recommended)**。 ![启用子域隔离的复选框](/assets/images/enterprise/management-console/subdomain-isolation.png)
 {% data reusables.enterprise_management_console.save-settings %}

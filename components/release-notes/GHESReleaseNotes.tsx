@@ -1,11 +1,6 @@
 import { SyntheticEvent, useState } from 'react'
 import cx from 'classnames'
-import {
-  ChevronDownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  LinkExternalIcon,
-} from '@primer/octicons-react'
+import { ChevronDownIcon, LinkExternalIcon } from '@primer/octicons-react'
 import { useMainContext } from 'components/context/MainContext'
 import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
@@ -24,45 +19,14 @@ export function GHESReleaseNotes({ context }: Props) {
   const router = useRouter()
   const { currentProduct } = useMainContext()
   const [focusedPatch, setFocusedPatch] = useState('')
-  const {
-    prevRelease,
-    nextRelease,
-    latestPatch,
-    latestRelease,
-    currentVersion,
-    releaseNotes,
-    releases,
-    message,
-  } = context
+  const { latestPatch, latestRelease, currentVersion, releaseNotes, releases, message } = context
   return (
     <div className="d-flex">
       <article className="min-width-0 flex-1">
-        <div className="d-flex flex-items-center flex-justify-between color-bg-default text-bold px-5 py-2">
-          {prevRelease ? (
-            <Link
-              className="btn btn-outline"
-              href={`/${router.locale}/${currentVersion.plan}@${prevRelease}/${currentProduct?.id}/release-notes`}
-            >
-              <ChevronLeftIcon /> {prevRelease}
-            </Link>
-          ) : (
-            <div />
-          )}
-
+        <div className="d-flex flex-items-center flex-justify-center color-bg-default text-bold px-5 py-2">
           <h1 className="f4 py-3 m-0">
             {currentVersion.planTitle} {currentVersion.currentRelease} release notes
           </h1>
-
-          {nextRelease ? (
-            <Link
-              className="btn btn-outline"
-              href={`/${router.locale}/${currentVersion.plan}@${nextRelease}/${currentProduct?.id}/release-notes`}
-            >
-              {nextRelease} <ChevronRightIcon />
-            </Link>
-          ) : (
-            <div />
-          )}
         </div>
         <MarkdownContent data-search="article-content">
           {releaseNotes.map((patch) => {

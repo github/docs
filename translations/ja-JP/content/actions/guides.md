@@ -1,6 +1,6 @@
 ---
 title: Guides for GitHub Actions
-intro: 'These guides for {% data variables.product.prodname_actions %} include specific use cases and examples to help you configure workflows.'
+intro: '{% data variables.product.prodname_actions %} のこれらのガイドには、ワークフローの設定に役立つ特定の使用例とサンプルが含まれています。'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:

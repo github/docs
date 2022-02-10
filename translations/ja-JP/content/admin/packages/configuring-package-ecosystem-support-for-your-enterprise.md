@@ -1,6 +1,6 @@
 ---
-title: Configuring package ecosystem support for your enterprise
-intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet. Learn about other configuration requirements to support specific package ecosystems.'
+title: Enterprise 向けのパッケージエコシステムサポートを設定する
+intro: 'Docker、RubyGems、npm、Apache Maven、Gradle、NuGet など、Enterprise の個々のパッケージエコシステムをグローバルに有効または無効にすることで、Enterprise の {% data variables.product.prodname_registry %} を設定できます。 特定のパッケージエコシステムをサポートするための他の設定要件について学びます。'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
@@ -15,38 +15,39 @@ shortTitle: Configure package ecosystems
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-## Enabling or disabling individual package ecosystems
+## 個々のパッケージエコシステムの有効化または無効化
 
-To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
+新しいパッケージがアップロードされないようにするには、以前に有効にしたエコシステムを**読み取り専用**に設定し、既存のパッケージをダウンロードできるようにします。
 
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
-1. Under "Ecosystem Toggles", for each package type, select **Enabled**, **Read-Only**, or **Disabled**.{% ifversion ghes > 3.1 %}
-  ![Ecosystem toggles](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
-  ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
+1. [Ecosystem Toggles] の下で、パッケージの種類ごとに [**Enabled**]、[**Read-Only**]、または [**Disabled**] を選択します。
+{% ifversion ghes > 3.1 %}
+  ![エコシステムの切り替え](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
+![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes = 3.0 or ghes > 3.0 %}
-## Connecting to the official npm registry
+## 公式 npm レジストリに接続する
 
-If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
+Enterprise で npm パッケージを有効にしていて、公式の npm レジストリと {% data variables.product.prodname_registry %} npm レジストリへのアクセスを許可する場合は、追加の設定を実行する必要があります。
 
-{% data variables.product.prodname_registry %} uses a transparent proxy for network traffic that connects to the official npm registry at `registry.npmjs.com`. The proxy is enabled by default and cannot be disabled.
+{% data variables.product.prodname_registry %} は、`registry.npmjs.com` の公式 npm レジストリに接続するネットワークトラフィックに透過プロキシを使用します。 プロキシはデフォルトで有効になっており、無効にすることはできません。
 
-To allow network connections to the npm registry, you will need to configure network ACLs that allow {% data variables.product.prodname_ghe_server %} to send HTTPS traffic to `registry.npmjs.com`  over port 443:
+npm レジストリへのネットワーク接続を許可するには、{% data variables.product.prodname_ghe_server %} がポート 443 を介して `registry.npmjs.com` に HTTPS トラフィックを送信できるようにするネットワーク ACL を設定する必要があります。
 
-| Source | Destination | Port | Type |
-|---|---|---|---|
+| 資料                                                 | 宛先                   | ポート     | 種類    |
+| -------------------------------------------------- | -------------------- | ------- | ----- |
 | {% data variables.product.prodname_ghe_server %} | `registry.npmjs.com` | TCP/443 | HTTPS |
 
-Note that connections to `registry.npmjs.com` traverse through the Cloudflare network, and subsequently do not connect to a single static IP address; instead, a connection is made to an IP address within the CIDR ranges listed here: https://www.cloudflare.com/ips/.
+`registry.npmjs.com` への接続は、Cloudflare ネットワークを通過した後、単一の静的 IP アドレスに接続しませんので、ご注意ください。代わりに、https://www.cloudflare.com/ips/ にリストされている CIDR 範囲内の IP アドレスに接続されます。
 
 If you wish to enable npm upstream sources, select `Enabled` for `npm upstreaming`.
 
 {% endif %}
 
-## Next steps
+## 次のステップ
 
-As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+次のステップとして、パッケージのホスト URL の TLS 証明書を更新またはアップロードする必要があるかどうかを確認することをお勧めします。 詳しい情報については、「[Enterprise 向けの GitHub Packages を使ってみる](/admin/packages/getting-started-with-github-packages-for-your-enterprise)」を参照してください。

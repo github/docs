@@ -1,5 +1,5 @@
 ---
-title: About Git rebase
+title: Gitリベースについて
 redirect_from:
   - /rebase
   - articles/interactive-rebase/
@@ -7,68 +7,69 @@ redirect_from:
   - /github/using-git/about-git-rebase
   - /github/getting-started-with-github/about-git-rebase
   - /github/getting-started-with-github/using-git/about-git-rebase
-intro: 'The `git rebase` command allows you to easily change a series of commits, modifying the history of your repository. You can reorder, edit, or squash commits together.'
+intro: '`git rebase` コマンドを使えば、一連のコミットを容易に修正し、リポジトリの履歴を変更できます。 コミットの順序を変更したり、編集したり、まとめて squash できます。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
-Typically, you would use `git rebase` to:
 
-* Edit previous commit messages
-* Combine multiple commits into one
-* Delete or revert commits that are no longer necessary
+通常、`git rebase`は以下の目的で使われます。
+
+* 以前のコミットメッセージの編集
+* 複数のコミットを1つにまとめる
+* 不要になったコミットの削除もしくは打ち消し
 
 {% warning %}
 
-**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.product.product_location %}, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+**警告**：コミット履歴を変更すると、リポジトリを使う他の人々にとっては難しいことになり得るので、リポジトリにプッシュ済みのコミットをリベースするのは悪いプラクティスと考えられています。 {% data variables.product.product_location %}で安全にリベースする方法を学ぶには[プルリクエストのマージについて](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)を参照してください。
 
 {% endwarning %}
 
-## Rebasing commits against a branch
+## ブランチに対するコミットのリベース
 
-To rebase all the commits between another branch and the current branch state, you can enter the following command in your shell (either the command prompt for Windows, or the terminal for Mac and Linux):
+他のブランチと現在のブランチの状態との間のすべてのコミットをリベースするには、シェル（Windowsのコマンドプロンプト、あるいはMacやLinuxのターミナル）で以下のコマンドを入力してください。
 
 ```shell
 $ git rebase --interactive <em>other_branch_name</em>
 ```
 
-## Rebasing commits against a point in time
+## ある時点に対するコミットのリベース
 
-To rebase the last few commits in your current branch, you can enter the following command in your shell:
+現在のブランチの最後のいくつかのコミットをリベースするには、シェルに以下のコマンドを入力してください。
 
 ```shell
 $ git rebase --interactive HEAD~7
 ```
 
-## Commands available while rebasing
+## リベースに利用できるコマンド
 
-There are six commands available while rebasing:
+リベースの際に利用できるコマンドは6つあります。
 
 <dl>
 <dt><code>pick</code></dt>
-<dd><code>pick</code> simply means that the commit is included. Rearranging the order of the <code>pick</code> commands changes the order of the commits when the rebase is underway. If you choose not to include a commit, you should delete the entire line. </dd>
+<dd><code>pick</code>は単にそのコミットが含まれるということを意味します。 <code>pick</code>コマンドの順序を入れ替えると、リベースが進んでいるときにコミットの順序が変更されます。 コミットを含めないのであれば、行全体を削除してください。 </dd>
 
 <dt><code>reword</code></dt>
-<dd>The <code>reword</code> command is similar to <code>pick</code>, but after you use it, the rebase process will pause and give you a chance to alter the commit message. Any changes made by the commit are not affected. </dd>
+<dd><code>reword</code>コマンドは<code>pick</code>に似ていますが、このコマンドを使った後、リベースの処理は一時的に止まり、コミットメッセージを変更する機会を与えてくれます。 コミットによる変更は影響されません。 </dd>
 
 <dt><code>edit</code></dt>
-<dd>If you choose to <code>edit</code> a commit, you'll be given the chance to amend the commit, meaning that you can add or change the commit entirely. You can also make more commits before you continue the rebase. This allows you to split a large commit into smaller ones, or, remove erroneous changes made in a commit. </dd>
+<dd>コミットを<code>edit</code>すると、コミットを修正することができます。すなわち、コミットに対して追加をしたり、完全に変更したりすることができます。 また、リベースを続ける前にさらにコミットをすることもできます。 こうすることで大きなコミットを小さなコミット群に分割したり、コミット中の間違った変更を取り除いたりすることができます。 </dd>
 
 <dt><code>squash</code></dt>
-<dd>This command lets you combine two or more commits into a single commit. A commit is squashed into the commit above it. Git gives you the chance to write a new commit message describing both changes.</dd>
+<dd>このコマンドを使うと、2 つ以上のコミットを結合して 1 つのコミットにできます。 コミットはその上にあるコミットに squash されます。 Git は、どちらの変更についても記述する新しいコミットメッセージを書かせてくれます。</dd>
 
 <dt><code>fixup</code></dt>
-<dd>This is similar to <code>squash</code>, but the commit to be merged has its message discarded. The commit is simply merged into the commit above it, and the earlier commit's message is used to describe both changes.</dd>
+<dd>これは<code>squash</code>に似ていますが、マージされるコミットのメッセージは破棄されます。 コミットはその上位のコミットに単純にマージされ、選考するコミットのメッセージがどちらの変更の記述としても使われます。</dd>
 
 <dt><code>exec</code></dt>
-<dd>This lets you run arbitrary shell commands against a commit.</dd>
+<dd>このコマンドは、コミットに対して任意のシェルコマンドを実行させてくれます。</dd>
 </dl>
 
-## An example of using `git rebase`
+## `git rebase`の利用例
 
-No matter which command you use, Git will launch [your default text editor](/github/getting-started-with-github/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
+どのコマンドを使うにしても、Gitは[デフォルトのテキストエディタ](/github/getting-started-with-github/associating-text-editors-with-git)を起動し、選択した範囲のコミットの詳細を記述したファイルをオープンします。 このファイルは以下のようになります。
 
 ```
 pick 1fc6c95 Patch A
@@ -89,23 +90,22 @@ pick 7b36971 something to move before patch B
 #  f, fixup = like "squash", but discard this commit's log message
 #  x, exec = run command (the rest of the line) using shell
 #
-# If you remove a line here THAT COMMIT WILL BE LOST.
 # However, if you remove everything, the rebase will be aborted.
 #
 ```
 
-Breaking this information, from top to bottom, we see that:
+この情報を上から下へ見ていくと、以下のことが分かります。
 
-- Seven commits are listed, which indicates that there were seven changes between our starting point and our current branch state.
-- The commits you chose to rebase are sorted in the order of the oldest changes (at the top) to the newest changes (at the bottom).
-- Each line lists a command (by default, `pick`), the commit SHA, and the commit message. The entire `git rebase` procedure centers around your manipulation of these three columns. The changes you make are *rebased* onto your repository.
-- After the commits, Git tells you the range of commits we're working with (`41a72e6..7b36971`).
-- Finally, Git gives some help by telling you the commands that are available to you when rebasing commits.
+- 7つのコミットがリストされており、出発点から現在のブランチの状態までに7つの変更があったことが示されています。
+- リベースすることにしたコミットは、古い変更（先頭）から新しい変更（末尾）の順に並べられています。
+- 各行にはコマンド（デフォルトでは`pick`）、コミットのSHA、そしてコミットメッセージがリストされています。 `git rebase`の全体の手続きは、これらの3つの列の操作を軸として展開されます。 行った変更は、リポジトリに*リベース*されます。
+- コミット後に、Gitは作業しているコミットの範囲（`41a72e6..7b36971`）を示します。
+- 最後に、Gitはコミットをリベースする際に利用できるコメントを示すことで多少のヘルプを提供しています。
 
-## Further reading
+## 参考リンク
 
-- "[Using Git rebase](/articles/using-git-rebase)"
-- [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
-- [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
-- "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[Syncing your branch](/desktop/contributing-to-projects/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation
+- [Git rebaseの利用](/articles/using-git-rebase)
+- [_Pro Git_の"Git Branching"の章](https://git-scm.com/book/en/Git-Branching-Rebasing)
+- [_Pro Git_の"Interactive Rebasing"の章](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
+- [リベースでのコミットのsquash](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)
+- {% data variables.product.prodname_desktop %} ドキュメンテーションの「[ブランチを同期する](/desktop/contributing-to-projects/syncing-your-branch)」

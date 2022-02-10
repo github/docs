@@ -1,6 +1,6 @@
 ---
-title: Adding a workflow status badge
-intro: You can display a status badge in your repository to indicate the status of your workflows.
+title: 添加工作流程状态徽章
+intro: 您可以在您的仓库中显示状态徽章，以指示您的工作流程状态。
 redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
 versions:
@@ -8,7 +8,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Add a status badge
+shortTitle: 添加状态徽章
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -16,31 +16,31 @@ shortTitle: Add a status badge
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-You reference the workflow by the name of your workflow file.
+您使用工作流程文件的名称来引用工作流程。
 
 ```markdown
 ![example workflow]({% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 ```
-## Using the workflow file name
+## 使用工作流程文件名称
 
-This Markdown example adds a status badge for a workflow with the file path `.github/workflows/main.yml`. The `OWNER` of the repository is the `github` organization and the `REPOSITORY` name is `docs`.
+此 Markdown 示例为文件路径为 `.github/workflows/main.yml` 的工作流程添加状态徽章。 仓库的 `OWNER` 为 `github` 组织，`REPOSITORY` 名称为 `docs`。
 
 ```markdown
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 ```
 
-## Using the `branch` parameter
+## 使用 `branch` 参数
 
-This Markdown example adds a status badge for a branch with the name `feature-1`.
+此 Markdown 示例为名为 `feature-1` 的分支添加状态徽章。
 
 ```markdown
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
 ```
 
-## Using the `event` parameter
+## 使用 `event` 参数
 
-This Markdown example adds a badge that displays the status of workflow runs triggered by the `pull_request` event.
+This Markdown example adds a badge that displays the status of workflow runs triggered by the `push` event, which will show the status of the build for the current state of that branch.
 
 ```markdown
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
+![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
 ```

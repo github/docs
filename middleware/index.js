@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 import express from 'express'
 import instrument from '../lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
@@ -13,10 +16,7 @@ import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
 import compression from 'compression'
-import {
-  setDefaultFastlySurrogateKey,
-  setManualFastlySurrogateKey,
-} from './set-fastly-surrogate-key.js'
+import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import catchBadAcceptLanguage from './catch-bad-accept-language.js'
 import reqUtils from './req-utils.js'
@@ -29,7 +29,6 @@ import detectLanguage from './detect-language.js'
 import context from './context.js'
 import shortVersions from './contextualizers/short-versions.js'
 import redirectsExternal from './redirects/external.js'
-import helpToDocs from './redirects/help-to-docs.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
 import handleRedirects from './redirects/handle-redirects.js'
 import findPage from './find-page.js'
@@ -62,6 +61,9 @@ import learningTrack from './learning-track.js'
 import next from './next.js'
 import renderPage from './render-page.js'
 import assetPreprocessing from './asset-preprocessing.js'
+import archivedAssetRedirects from './archived-asset-redirects.js'
+import favicon from './favicon.js'
+import setStaticAssetCaching from './static-asset-caching.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -74,6 +76,10 @@ const asyncMiddleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
 
+// The IP address that Fastly regards as the true client making the request w/ fallback to req.ip
+morgan.token('client-ip', (req) => req.headers['Fastly-Client-IP'] || req.ip)
+const productionLogFormat = `:client-ip - ":method :url" :status - :response-time ms`
+
 export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
@@ -83,7 +89,7 @@ export default function (app) {
   // Enabled in development and azure deployed environments
   // Not enabled in Heroku because the Heroku router + papertrail already logs the request information
   app.use(
-    morgan(isAzureDeployment ? 'combined' : 'dev', {
+    morgan(isAzureDeployment ? productionLogFormat : 'dev', {
       skip: (req, res) => !(isDevelopment || isAzureDeployment),
     })
   )
@@ -107,12 +113,26 @@ export default function (app) {
       instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
     )
   )
+
+  app.use(favicon)
+
+  // Any static URL that contains some sort of checksum that makes it
+  // unique gets the "manual" surrogate key. If it's checksummed,
+  // it's bound to change when it needs to change. Otherwise,
+  // we want to make sure it doesn't need to be purged just because
+  // there's a production deploy.
+  // Note, for `/assets/cb-*...` requests,
+  // this needs to come before `assetPreprocessing` because
+  // the `assetPreprocessing` middleware will rewrite `req.url` if
+  // it applies.
+  app.use(setStaticAssetCaching)
+
+  // Must come before any other middleware for assets
+  app.use(archivedAssetRedirects)
+
   // This must come before the express.static('assets') middleware.
   app.use(assetPreprocessing)
-  // By specifying '/assets/cb-' and not just '/assets/' we
-  // avoid possibly legacy enterprise assets URLs and asset image URLs
-  // that don't have the cache-busting piece in it.
-  app.use('/assets/cb-', setManualFastlySurrogateKey)
+
   app.use(
     '/assets/',
     express.static('assets', {
@@ -121,6 +141,11 @@ export default function (app) {
       // Can be aggressive because images inside the content get unique
       // URLs with a cache busting prefix.
       maxAge: '7 days',
+      immutable: process.env.NODE_ENV !== 'development',
+      // This means, that if you request a file that starts with /assets/
+      // any file doesn't exist, don't bother (NextJS) rendering a
+      // pretty HTML error page.
+      fallthrough: false,
     })
   )
   app.use(
@@ -129,8 +154,32 @@ export default function (app) {
       index: false,
       etag: false,
       maxAge: '7 days', // A bit longer since releases are more sparse
+      // See note about about use of 'fallthrough'
+      fallthrough: false,
     })
   )
+
+  // In development, let NextJS on-the-fly serve the static assets.
+  // But in production, don't let NextJS handle any static assets
+  // because they are costly to generate (the 404 HTML page)
+  // and it also means that a CSRF cookie has to be generated.
+  if (process.env.NODE_ENV !== 'development') {
+    const assetDir = path.join('.next', 'static')
+    if (!fs.existsSync(assetDir))
+      throw new Error(`${assetDir} directory has not been generated. Run 'npm run build' first.`)
+
+    app.use(
+      '/_next/static/',
+      express.static(assetDir, {
+        index: false,
+        etag: false,
+        maxAge: '365 days',
+        immutable: true,
+        // See note about about use of 'fallthrough'
+        fallthrough: false,
+      })
+    )
+  }
 
   // *** Early exits ***
   // Don't use the proxy's IP, use the requester's for rate limiting
@@ -138,7 +187,7 @@ export default function (app) {
   app.set('trust proxy', 1)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
-  app.use(instrument(handleNextDataPath, './handle-next-data-path'))
+  app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
   // *** Security ***
   app.use(cors)
@@ -173,7 +222,6 @@ export default function (app) {
   // I ordered these by use frequency
   app.use(connectSlashes(false))
   app.use(instrument(redirectsExternal, './redirects/external'))
-  app.use(instrument(helpToDocs, './redirects/help-to-docs'))
   app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
 
@@ -212,7 +260,7 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
   app.use(instrument(graphQL, './contextualizers/graphql'))
-  app.use(instrument(rest, './contextualizers/rest'))
+  app.use(asyncMiddleware(instrument(rest, './contextualizers/rest')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))

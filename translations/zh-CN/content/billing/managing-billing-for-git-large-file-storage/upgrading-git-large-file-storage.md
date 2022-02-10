@@ -1,6 +1,6 @@
 ---
-title: Upgrading Git Large File Storage
-intro: 'You can purchase additional data packs to increase your monthly bandwidth quota and total storage capacity for {% data variables.large_files.product_name_short %}.'
+title: 升级 Git Large File Storage
+intro: '您可以购买额外的数据包以增加 {% data variables.large_files.product_name_short %} 的每月带宽配额和总存储容量。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
   - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account
@@ -16,9 +16,10 @@ topics:
   - Organizations
   - Upgrades
   - User account
-shortTitle: Upgrade Git LFS storage
+shortTitle: 升级 Git LFS 存储
 ---
-## Purchasing additional storage and bandwidth for a personal account
+
+## 为个人帐户购买额外的存储空间和带宽
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -26,7 +27,7 @@ shortTitle: Upgrade Git LFS storage
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-## Purchasing additional storage and bandwidth for an organization
+## 为组织购买额外的存储空间和带宽
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -35,9 +36,9 @@ shortTitle: Upgrade Git LFS storage
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-## Further reading
+## 延伸阅读
 
-- "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
-- "[About storage and bandwidth usage](/articles/about-storage-and-bandwidth-usage)"
-- "[Viewing your {% data variables.large_files.product_name_long %} usage](/articles/viewing-your-git-large-file-storage-usage)"
-- "[Versioning large files](/articles/versioning-large-files)"
+- "[关于 {% data variables.large_files.product_name_long %} 的计费](/articles/about-billing-for-git-large-file-storage)"
+- "[关于存储空间和带宽的使用](/articles/about-storage-and-bandwidth-usage)"
+- "[查看您的 {% data variables.large_files.product_name_long %} 使用情况](/articles/viewing-your-git-large-file-storage-usage)"
+- “[大文件版本管理](/articles/versioning-large-files)”

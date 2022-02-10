@@ -1,6 +1,6 @@
 ---
-title: About pull requests
-intro: 'Pull requests let you tell others about changes you''ve pushed to a branch in a repository on {% data variables.product.product_name %}. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.'
+title: 关于拉取请求
+intro: '拉取请求可让您在 {% data variables.product.product_name %} 上向他人告知您已经推送到仓库中分支的更改。 在拉取请求打开后，您可以与协作者讨论并审查潜在更改，在更改合并到基本分支之前添加跟进提交。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
   - /articles/using-pull-requests
@@ -15,29 +15,30 @@ versions:
 topics:
   - Pull requests
 ---
-## About pull requests
+
+## 关于拉取请求
 
 {% note %}
 
-**Note:** When working with pull requests, keep the following in mind:
-* If you're working in the [shared repository model](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models), we recommend that you use a topic branch for your pull request. While you can send pull requests from any branch or commit, with a topic branch you can push follow-up commits if you need to update your proposed changes.
-* When pushing commits to a pull request, don't force push. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
+**注：**在处理拉取请求时，请记住：
+* 如果操作的是[共享仓库型号](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)，建议对拉取请求使用主题分支。 从任何分支或提交都可发送拉取请求，但如果需要更新提议的更改，则可使用主题分支推送跟进提交。
+* 在推送提交到拉取请求时，请勿强制推送。 Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
 
 {% endnote %}
 
 You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
 
-After initializing a pull request, you'll see a review page that shows a high-level overview of the changes between your branch (the compare branch) and the repository's base branch. You can add a summary of the proposed changes, review the changes made by commits, add labels, milestones, and assignees, and @mention individual contributors or teams. For more information, see "[Creating a pull request](/articles/creating-a-pull-request)."
+在初始化拉取请求后，您会看到一个审查页面，其中简要概述您的分支（整个分支）与仓库基本分支之间的更改。 您可以添加提议的更改摘要，审查提交所做的更改，添加标签、里程碑和受理人，以及 @提及个人贡献者或团队。 更多信息请参阅“[创建拉取请求](/articles/creating-a-pull-request)”。
 
-Once you've created a pull request, you can push commits from your topic branch to add them to your existing pull request. These commits will appear in chronological order within your pull request and the changes will be visible in the "Files changed" tab.
+在创建拉取请求后，您可以从主题分支推送提交，以将它们添加到现有的拉取请求。 这些提交将以时间顺序显示在您的拉取请求中，在 "Files changed"（更改的文件）选项卡中可以看到更改。
 
-Other contributors can review your proposed changes, add review comments, contribute to the pull request discussion, and even add commits to the pull request.
+其他贡献者可以审查您提议的更改，添加审查注释，参与拉取请求讨论，甚至对拉取请求添加评论。
 
 {% ifversion fpt or ghec %}
-You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. For more information, see "[Viewing deployment activity for a repository](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)."
+您可以在“Conversation（对话）”选项卡上查看有关分支当前部署状态和以前部署活动的信息。 更多信息请参阅“[查看仓库的部署活动](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)”。
 {% endif %}
 
-After you're happy with the proposed changes, you can merge the pull request. If you're working in a shared repository model, you create a pull request and you, or someone else, will merge your changes from your feature branch into the base branch you specify in your pull request. For more information, see "[Merging a pull request](/articles/merging-a-pull-request)."
+对提议的更改感到满意后，您可以合并拉取请求。 如果您在使用共享仓库模型，可以创建一个拉取请求，然后您或其他人将您的功能分支中的更改合并到您在拉取请求中指定的基础分支。 更多信息请参阅“[合并拉取请求](/articles/merging-a-pull-request)”。
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
@@ -45,32 +46,32 @@ After you're happy with the proposed changes, you can merge the pull request. If
 
 {% tip %}
 
-**Tips:**
-- To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. For more shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts)."
-- You can squash commits when merging a pull request to gain a more streamlined view of changes. For more information, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+**提示：**
+- To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>Option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. 有关更多快捷方式，请参阅“[键盘快捷键](/articles/keyboard-shortcuts)”。
+- 在合并拉取请求时可以压缩提交，以获取更简化的更改视图。 更多信息请参阅“[关于拉取请求合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)”。
 
 {% endtip %}
 
-You can visit your dashboard to quickly find links to recently updated pull requests you're working on or subscribed to. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+您可以访问仪表板，快速找到操作或订阅的最近更新的拉取请求链接。 更多信息请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
 
-## Draft pull requests
+## 草稿拉取请求
 
 {% data reusables.gated-features.draft-prs %}
 
-When you create a pull request, you can choose to create a pull request that is ready for review or a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review draft pull requests. For more information about creating a draft pull request, see "[Creating a pull request](/articles/creating-a-pull-request)" and "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
+在创建拉取请求时，可以选择创建可直接审查的拉取请求，或草稿拉取请求。 草稿拉取请求不能合并，也不会自动向代码所有者申请审查草稿拉取请求。 有关创建草稿拉取请求的更多信息，请参阅“[创建拉取请求](/articles/creating-a-pull-request)”和“[从复刻创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)”。
 
-{% data reusables.pull_requests.mark-ready-review %} You can convert a pull request to a draft at any time. For more information, see "[Changing the stage of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)."
+{% data reusables.pull_requests.mark-ready-review %} 您可以随时将拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)”。
 
-## Differences between commits on compare and pull request pages
+## 比较页和拉取请求页上的提交之间的差异
 
-The compare and pull request pages use different methods to calculate the diff for changed files:
+比较页和拉取请求页使用不同的方法来计算已更改文件的差异：
 
-- Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
-- Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
+- 比较页显示头部引用的提示与头部及基础引用当前的共同上层节点（即合并基础）之间的差异。
+- 拉请求页面显示在创建拉取请求时头部引用头与头部和基础的共同上层节点之间的差异。 因此，用于比较的合并基础可能不同。
 
-## Further reading
+## 延伸阅读
 
-- "[Pull request](/articles/github-glossary/#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
+- {% data variables.product.prodname_dotcom %} 词汇中的“[拉取请求](/articles/github-glossary/#pull-request)”
 - "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
-- "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"
-- "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)"
+- "[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"
+- "[关闭拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)"

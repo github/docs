@@ -27,80 +27,80 @@ shortTitle: Large files
 ## About size limits on {% data variables.product.product_name %}
 
 {% ifversion fpt or ghec %}
-{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes. To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.
+{% data variables.product.product_name %} 尝试为所有 Git 仓库提供丰富的存储空间，尽管文件和仓库大小存在硬性限制。 为确保用户的性能和可靠性，我们积极监控整个仓库运行状况的信号。 仓库运行状况是各种交互因素共同作用的结果，包括大小、提交频率、内容和结构。
 
 ### File size limits
 {% endif %}
 
-{% data variables.product.product_name %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see "[Removing files from a repository's history](#removing-files-from-a-repositorys-history)."
+{% data variables.product.product_name %} limits the size of files allowed in repositories. 如果尝试添加或更新大于 {% data variables.large_files.warning_size %} 的文件，您将从 Git 收到警告。 更改仍将成功推送到仓库，但您可以考虑删除提交，以尽量减少对性能的影响。 更多信息请参阅“[从仓库的历史记录中删除文件](#removing-files-from-a-repositorys-history)”。
 
 {% note %}
 
-**Note:** If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
+**注：**如果您通过浏览器将文件添加到仓库，该文件不得大于 {% data variables.large_files.max_github_browser_size %}。 更多信息请参阅“[添加文件到仓库](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)”。
 
 {% endnote %}
 
-{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.product.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}默认情况下， {% endif %}{% data variables.product.product_name %} 阻止超过 {% data variables.large_files.max_github_size %} 的推送。 {% ifversion ghes %}但站点管理员可为您的 {% data variables.product.product_location %} 配置不同的限制。  For more information, see "[Setting Git push limits](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)."{% endif %}
 
 To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[About {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %} instead of tracking the files. For more information, see "[Distributing large binaries](#distributing-large-binaries)."
+If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %} instead of tracking the files. 更多信息请参阅“[分发大型二进制文件](#distributing-large-binaries)”。
 
-Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using [Dropbox](https://www.dropbox.com/).
+Git is not designed to handle large SQL files. 要与其他开发者共享大型数据库，建议使用 [Dropbox](https://www.dropbox.com/)。
 
 {% ifversion fpt or ghec %}
 ### Repository size limits
 
-We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. Smaller repositories are faster to clone and easier to work with and maintain. If your repository excessively impacts our infrastructure, you might receive an email from {% data variables.contact.github_support %} asking you to take corrective action. We try to be flexible, especially with large projects that have many collaborators, and will work with you to find a resolution whenever possible. You can prevent your repository from impacting our infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [`github/git-sizer`](https://github.com/github/git-sizer) repository.
+建议仓库保持较小，理想情况下小于 1 GB，强烈建议小于 5 GB。 较小的仓库克隆速度更快，使用和维护更容易。 如果您的仓库过度影响我们的基础架构，您可能会收到来自 {% data variables.contact.github_support %} 的电子邮件，要求您采取纠正措施。 我们力求灵活，特别是对于拥有很多协作者的大型项目，并且尽可能与您一起找到解决方案。 您可以有效地管理仓库的大小和整体运行状况，以免您的仓库影响我们的基础架构。 在 [`github/git-sizer`](https://github.com/github/git-sizer) 仓库中可以找到用于仓库分析的建议和工具。
 
-External dependencies can cause Git repositories to become very large. To avoid filling a repository with external dependencies, we recommend you use a package manager. Popular package managers for common languages include [Bundler](http://bundler.io/), [Node's Package Manager](http://npmjs.org/), and [Maven](http://maven.apache.org/). These package managers support using Git repositories directly, so you don't need pre-packaged sources.
+外部依赖项可能导致 Git 仓库变得非常大。 为避免外部依赖项填满仓库，建议您使用包管理器。 常用语言的热门包管理器包括 [Bundler](http://bundler.io/)、[Node's Package Manager](http://npmjs.org/) 和 [Maven](http://maven.apache.org/)。 这些包管理器支持直接使用 Git 仓库，因此不需要预打包的来源。
 
-Git is not designed to serve as a backup tool. However, there are many solutions specifically designed for performing backups, such as [Arq](https://www.arqbackup.com/), [Carbonite](http://www.carbonite.com/), and [CrashPlan](https://www.crashplan.com/en-us/).
+Git 未设计为用作备份工具。 但有许多专门设计用于执行备份的解决方案例如 [Arq](https://www.arqbackup.com/)、[Carbonite](http://www.carbonite.com/) 和 [CrashPlan](https://www.crashplan.com/en-us/)。
 {% endif %}
 
-## Removing files from a repository's history
+## 从仓库的历史记录中删除文件
 
 {% warning %}
 
-**Warning**: These procedures will permanently remove files from the repository on your computer and {% data variables.product.product_location %}. If the file is important, make a local backup copy in a directory outside of the repository.
+**警告**：这些步骤将从您的计算机和 {% data variables.product.product_location %} 上的仓库中永久删除文件。 如果文件很重要，请在仓库外部的目录中创建本地备份副本。
 
 {% endwarning %}
 
-### Removing a file added in the most recent unpushed commit
+### 删除在最近未推送的提交中添加的文件
 
-If the file was added with your most recent commit, and you have not pushed to {% data variables.product.product_location %}, you can delete the file and amend the commit:
+如果文件使用最近的提交添加，而您尚未推送到 {% data variables.product.product_location %}，您可以删除文件并修改提交：
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
-3. To remove the file, enter `git rm --cached`:
+3. 要删除文件，请输入 `git rm --cached`：
   ```shell
   $ git rm --cached <em>giant_file</em>
   # Stage our giant file for removal, but leave it on disk
   ```
-4. Commit this change using `--amend -CHEAD`:
+4. 使用 `--amend -CHEAD` 提交此更改：
   ```shell
   $ git commit --amend -CHEAD
   # Amend the previous commit with your change
   # Simply making a new commit won't work, as you need
   # to remove the file from the unpushed history as well
   ```
-5. Push your commits to {% data variables.product.product_location %}:
+5. 将提交推送到 {% data variables.product.product_location %}：
   ```shell
   $ git push
   # Push our rewritten, smaller commit
   ```
 
-### Removing a file that was added in an earlier commit
+### 删除之前提交中添加的文件
 
-If you added a file in an earlier commit, you need to remove it from the repository's history. To remove files from the repository's history, you can use the BFG Repo-Cleaner or the `git filter-branch` command. For more information see "[Removing sensitive data from a repository](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)."
+如果在之前的提交中添加了文件，则需要将其从仓库历史记录中删除。 要从仓库历史记录中删除文件，可以使用 BFG Repo-Cleaner 或 `git filter-branch` 命令。 更多信息请参阅“[从仓库中删除敏感数据](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)”。
 
-## Distributing large binaries
+## 分发大型二进制文件
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[About releases](/github/administering-a-repository/about-releases)."
+如果需要在仓库内分发大型文件，您可以在 {% data variables.product.product_location %} 上创建发行版。 发行版允许您打包软件、发行说明和指向二进制文件的链接，以供其他人使用。 更多信息请参阅“[关于发行版](/github/administering-a-repository/about-releases)”。
 
 {% ifversion fpt or ghec %}
 
-We don't limit the total size of the binary files in the release or the bandwidth used to deliver them. However, each individual file must be smaller than {% data variables.large_files.max_lfs_size %}.
+我们不限制二进制发行版文件的总大小，也不限制用于传递它们的带宽。 但每个文件必须小于 {% data variables.large_files.max_lfs_size %}。
 
 {% endif %}
 

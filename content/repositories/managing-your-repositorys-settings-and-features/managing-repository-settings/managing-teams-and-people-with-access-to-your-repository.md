@@ -28,7 +28,7 @@ For more information about repository roles, see "[Permission levels for a user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 4. Under "Manage access", in the search field, start typing the name of the team or person you'd like to find.
   ![Search field for filtering list of teams or people with access](/assets/images/help/repository/manage-access-filter.png)
 
@@ -44,7 +44,7 @@ For more information about repository roles, see "[Permission levels for a user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. In the search field, start typing the name of the team or person to invite, then click a name in the list of matches.
   ![Search field for typing the name of a team or person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
@@ -55,7 +55,7 @@ For more information about repository roles, see "[Permission levels for a user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.repositories.click-collaborators-teams %}
 4. Under "Manage access", find the team or person whose access you'd like to remove, then click {% octicon "trash" aria-label="The trash icon" %}.
   ![trash icon for removing access](/assets/images/help/repository/manage-access-remove.png)
 

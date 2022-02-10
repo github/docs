@@ -1,5 +1,5 @@
 ---
-title: Caching your GitHub credentials in Git
+title: 在 Git 中缓存 GitHub 凭据
 redirect_from:
   - /firewalls-and-proxies
   - /articles/caching-your-github-password-in-git
@@ -13,12 +13,12 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Caching credentials
+shortTitle: 缓存凭据
 ---
 
 {% tip %}
 
-**Tip:** If you clone {% data variables.product.product_name %} repositories using SSH, then you  can authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[Generating an SSH Key](/articles/generating-an-ssh-key)."
+**Tip:** If you clone {% data variables.product.product_name %} repositories using SSH, then you  can authenticate using an SSH key instead of using other credentials. 有关设置 SSH 连接的信息，请参阅“[生成 SSH 密钥](/articles/generating-an-ssh-key)”。
 
 {% endtip %}
 
@@ -53,7 +53,7 @@ For more information about authenticating with {% data variables.product.prodnam
 
 {% data reusables.gcm-core.next-time-you-clone %}
 
-Once you've authenticated successfully, your credentials are stored in the macOS keychain and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.
+验证成功后，您的凭据存储在 macOS 密钥链中，每次克隆 HTTPS URL 时都会使用。 Git will not require you to type your credentials in the command line again unless you change your credentials.
 
 {% endmac %}
 
@@ -77,7 +77,7 @@ Once you've authenticated successfully, your credentials are stored in the Windo
 
 {% warning %}
 
-**Warning:** If you cached incorrect or outdated credentials in Credential Manager for Windows, Git will fail to access {% data variables.product.product_name %}. To reset your cached credentials so that Git prompts you to enter your credentials, access the Credential Manager in the Windows Control Panel under User Accounts > Credential Manager. Look for the {% data variables.product.product_name %} entry and delete it. 
+**Warning:** If you cached incorrect or outdated credentials in Credential Manager for Windows, Git will fail to access {% data variables.product.product_name %}. To reset your cached credentials so that Git prompts you to enter your credentials, access the Credential Manager in the Windows Control Panel under User Accounts > Credential Manager. Look for the {% data variables.product.product_name %} entry and delete it.
 
 {% endwarning %}
 
@@ -97,7 +97,7 @@ For Linux, install Git and GCM, then configure Git to use GCM.
 
 Once you've authenticated successfully, your credentials are stored on your system and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.
 
-For more options for storing your credentials on Linux, see [Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) in Pro Git.
+有关在 Linux 上存储凭据的更多选项，请参阅 Pro Git 中的[凭据存储](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) 。
 
 {% endlinux %}
 

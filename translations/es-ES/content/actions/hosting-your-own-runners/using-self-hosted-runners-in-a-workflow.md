@@ -1,6 +1,6 @@
 ---
-title: Using self-hosted runners in a workflow
-intro: 'To use self-hosted runners in a workflow, you can use labels to specify the runner type for a job.'
+title: Usar ejecutores autoalojados en un flujo de trabajo
+intro: 'Para usar los ejecutores autoalojados en un flujo de trabajo, puedes usar etiquetas para especificar el tipo de ejecutores para un trabajo.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
@@ -10,77 +10,82 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-shortTitle: Use runners in a workflow
+shortTitle: Utilizar ejecutores en un flujo de trabajo
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-For information on creating custom and default labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+Para obtener más información sobre cómo crear etiquetas personalizadas y predeterminadas, consulta la sección "[Utilizar etiquetas con ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
-## Using self-hosted runners in a workflow
+## Usar ejecutores autoalojados en un flujo de trabajo
 
-Labels allow you to send workflow jobs to specific types of self-hosted runners, based on their shared characteristics. For example, if your job requires a particular hardware component or software package, you can assign a custom label to a runner and then configure your job to only execute on runners with that label.
+Las etiquetas te permiten enviar jobs de flujo de trabajo a tipos específicos de ejecutores auto-hospedados, de acuerdo con sus características compartidas. Por ejemplo, si tu job requiere una componente de hardware o paquete de software específico, puedes asignar una etiqueta personalizada a un ejecutor y después configurar tu job para que solo se ejecute en los ejecutores con esta etiqueta.
 
 {% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Para obtener más información, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
-## Using default labels to route jobs
+## Utilizar etiquetas predeterminadas para enrutar jobs
 
-A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
+Un ejecutor auto-hospedado recibe ciertas etiquetas automáticamente cuando se agrega a {% data variables.product.prodname_actions %}. Estas se utilizan para indicar su sistema operativo y plataforma de hardware:
 
-* `self-hosted`: Default label applied to all self-hosted runners.
-* `linux`, `windows`, or `macOS`: Applied depending on operating system.
-* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
+* `autoalojado`: Etiqueta por defecto aplicada a todos los ejecutores autoalojados.
+* `linux`, `windows`, o `macOS`: Se aplican dependiendo del sistema operativo.
+* `x64`, `ARM`, or `ARM64`: Se aplican dependiendo de la arquitectura del hardware.
 
-You can use your workflow's YAML to send jobs to a combination of these labels. In this example, a self-hosted runner that matches all three labels will be eligible to run the job:
+Puedes utilizar el YAML de tu flujo de trabajo para mandar jobs a las diferentes combinaciones de estas etiquetas. En este ejemplo, un ejecutor auto-hospedado que empate con las tres etiquetas será elegible para ejecutar el job:
 
 ```yaml
 runs-on: [self-hosted, linux, ARM64]
 ```
 
-- `self-hosted` - Run this job on a self-hosted runner.
-- `linux` - Only use a Linux-based runner.
-- `ARM64` - Only use a runner based on ARM64 hardware.
+- `self-hosted` - Ejecuta este job en un ejecutor auto-hospedado.
+- `linux` - Utiliza únicamente un ejecutor basado en Linux.
+- `ARM64` - Utiliza únicamente un ejecutor basado en hardware ARM64.
 
-The default labels are fixed and cannot be changed or removed. Consider using custom labels if you need more control over job routing.
+Las etiquetas predeterminadas son fijas y no se pueden cambiar ni eliminar. Considera utilizar etiquetas personalizadas si necesitas más control sobre el enrutamiento de los jobs.
 
-## Using custom labels to route jobs
+## Utilizar etiquetas personalizadas para enrutar jobs
 
-You can create custom labels and assign them to your self-hosted runners at any time. Custom labels let you send jobs to particular types of self-hosted runners, based on how they're labeled. 
+Puedes crear etiquetas personalizadas y asignarlas a tus ejecutores auto-hospedados en cualquier momento. Las etiquetas personalizadas te permiten enviar jobs a tipos particulares de ejecutores auto-hospedados, basándose en cómo se etiquetan.
 
-For example, if you have a job that requires a specific type of graphics hardware, you can create a custom label called `gpu` and assign it to the runners that have the hardware installed. A self-hosted runner that matches all the assigned labels will then be eligible to run the job. 
+Por ejemplo, si tienes un job que requiere un tipo específico de hardware de gráficos, puedes crear una etiqueta personalizada llamada `gpu` y asignarla a los ejecutores que tengan instalado este hardware. Un ejecutor auto-hospedado que empate con las etiquetas asignadas será entonces elegible para ejecutar el job.
 
-This example shows a job that combines default and custom labels:
+Este ejemplo muestra un job que combina etiquetas predeterminadas y personalizadas:
 
 ```yaml
 runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-- `self-hosted` - Run this job on a self-hosted runner.
-- `linux` - Only use a Linux-based runner.
-- `x64` - Only use a runner based on x64 hardware.
-- `gpu` - This custom label has been manually assigned to self-hosted runners with the GPU hardware installed. 
+- `self-hosted` - Ejecuta este job en un ejecutor auto-hospedado.
+- `linux` - Utiliza únicamente un ejecutor basado en Linux.
+- `x64` - Utiliza únicamente un ejecutor basado en hardware x64.
+- `gpu` - Esta etiqueta personalizada se asignó manualmente a los ejecutores auto-hospedados con hardware de GPU instalado.
 
-These labels operate cumulatively, so a self-hosted runner’s labels must match all four to be eligible to process the job.
+Estas etiquetas operan acumulativamente, así que las etiquetas de un ejecutor auto-hospedado deberán empatar con los cuatro criterios para poder ser elegibles para procesar el job.
 
-## Routing precedence for self-hosted runners
+## Precedencia de enrutamiento para los ejecutores auto-hospedados
 
-When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
+Cuando enrutas un job hacia un ejecutor auto-hospedado, {% data variables.product.prodname_dotcom %} busca un ejecutor que coincida con las etiquetas `runs-on` del job:
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-- {% data variables.product.prodname_dotcom %} first searches for an online and idle runner at the repository level, then at the organization level, {% ifversion fpt or ghec %} and if the organization is part of an enterprise,{% endif %} then at the enterprise level.
-- If {% data variables.product.prodname_dotcom %} finds an online and idle runner at a certain level that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
-  - If the runner doesn't pick up the assigned job within 60 seconds, the job is queued at all levels and waits for a matching runner from any level to come online and pick up the job.
-- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner at any level, the job is queued to all levels and waits for a matching runner from any level to come online and pick up the job.
-- If the job remains queued for more than 24 hours, the job will fail.
+{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
+- Si {% data variables.product.prodname_dotcom %} encuentra un ejecutor inactivo en línea que empate con las etiquetas de `runs-on` del job, este se asignará y enviará al ejecutor.
+  - Si ele ejecutor no recoge el job asignado en 60 segundos, este volverá a ponerse en cola para que el ejecutor nuevo pueda aceptarlo.
+- Si {% data variables.product.prodname_dotcom %} no encuentra un ejecutor en línea y uno inactivo que empato con sus etiquetas de `runs-on`, entonces dicho job permanecerá en cola hasta que un ejecutor se conecte.
+- Si el job permanece en cola por más de 24 horas, este fallará.
+{% elsif ghes = 3.3 %}
+- {% data variables.product.prodname_dotcom %} primero busca un ejecutor a nivel de repositorio y luego a nivel organizacional, posteriormente, lo hace a nivel empresarial.
+- Si {% data variables.product.prodname_dotcom %} encuentra un ejecutor inactivo en algún nivel que empate con las etiquetas de `runs-on` del job, dicho job se asignará entonces y se enviará al ejecutor.
+  - Si el ejecutor no toma el job asignado dentro de 60 segundos, dicho job se pondrá en cola en todos los niveles y esperará que un ejecutor de cualquier nivel que empate se ponga en línea y lo tome.
+- Si {% data variables.product.prodname_dotcom %} no encuentra un ejecutor inactivo y en línea en cualquier nivel, el job se pondrá en cola para todos los niveles y esperará que un ejecutor de cualquier nivel que empate se muestre en línea y lo tome.
+- Si el job permanece en cola por más de 24 horas, este fallará.
 {% else %}
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
-2. The job is then sent to the first matching runner that is online and idle.
-   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
-   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
-   - If there are no matching runners at any level, the job will fail.
-   - If the job remains queued for more than 24 hours, the job will fail.
+1. {% data variables.product.prodname_dotcom %} primero busca un ejecutor a nivel de repositorio y luego a nivel organizacional, posteriormente, lo hace a nivel empresarial.
+2. El job se envía entonces a el ejecutor que coincida primero y que se encuentre en línea e inactivo.
+   - Si los ejecutores en línea coincidentes están ocupados, el job se pondrá en cola con la cantidad máxima de ejecutores coincidentes en línea.
+   - Si todos los ejecutores coincidentes están desconectados, el job se pondrá en cola a nivel de la cantidad máxima de ejecutores coincidentes desconectados.
+   - Si no hay ejecutores coincidentes en ningún nivel, el job fallará.
+   - Si el job permanece en cola por más de 24 horas, este fallará.
 {% endif %}
