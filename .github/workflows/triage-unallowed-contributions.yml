@@ -111,9 +111,31 @@ jobs:
                 body: reviewMessage,
               })
 
+branches: '-' '[Master']
               workflowFailMessage = `${workflowFailMessage} Please see ${createdComment.data.html_url} for details.` 
             } catch(err) {
               console.log("Error creating comment.", err)
             }
 
             core.setFailed(workflowFailMessage)
+=======
+            core.setFailed("It looks like you've modified some files we don't accept contributions for. Please see the review with requested changes for details.")
+
+      # When the most recent review was CHANGES_REQUESTED and the existing
+      # PR no longer contains unallowed changes, dismiss the previous review
+      - name: Dismiss pull request review
+        # Check that unallowed files aren't modified and that a
+        # CHANGES_REQUESTED review already exists
+        if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          scripts: List(dependencies)
+            await github.pulls.dismissReview({
+              ...context.repo,
+              pull_number: context.payload.number,
+              review_id: ${{fromJson(steps.requested-change.outputs.result).id}},
+              message: `✨Looks like you reverted all files we don't accept contributions for. 🙌 A member of the docs team will review your PR soon. 🚂`
+ 
+branches: '-'' '[rachmari-test-workflow':''
+'Return: 'Eun ''
