@@ -15,7 +15,6 @@ import csp from './csp.js'
 import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
-import compression from 'compression'
 import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
 import catchBadAcceptLanguage from './catch-bad-accept-language.js'
@@ -208,7 +207,6 @@ export default function (app) {
 
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
-  app.use(compression())
   app.use(catchBadAcceptLanguage)
 
   // *** Config and context for redirects ***
