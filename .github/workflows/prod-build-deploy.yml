@@ -97,7 +97,7 @@ jobs:
 
       - name: Create a Heroku build source
         id: build-source
-        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
         with:
@@ -152,7 +152,7 @@ jobs:
         run: .github/actions-scripts/prod-deploy.js
 
       - name: Mark the deployment as inactive if timed out
-        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         if: ${{ steps.deploy.outcome == 'cancelled' }}
         env:
           DEPLOYMENT_ID: ${{ steps.deploy.outputs.deploymentId }}
@@ -182,12 +182,12 @@ jobs:
             })
             console.log('⏲️ Deployment status: error - The deployment timed out...')
 
-      - name: Purge Fastly edge cache
-        env:
-          FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
-          FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
-          FASTLY_SURROGATE_KEY: 'every-deployment'
-        run: .github/actions-scripts/purge-fastly-edge-cache.js
+      # - name: Purge Fastly edge cache
+      #   env:
+      #     FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
+      #     FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
+      #     FASTLY_SURROGATE_KEY: 'every-deployment'
+      #   run: .github/actions-scripts/purge-fastly-edge-cache.js
 
       - name: Send Slack notification if workflow failed
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340

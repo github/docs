@@ -29,6 +29,19 @@ export const Survey = () => {
     setState(ViewState.START)
   }, [asPath])
 
+  useEffect(() => {
+    // After the form is submitted we need to manually set the focus since we
+    // remove the form inputs after submit.  The privacy policy link is the
+    // next focusable element in the footer so we focus that.
+    if (state === ViewState.END) {
+      document
+        .querySelector<HTMLAnchorElement>(
+          'footer a[href="/github/site-policy/github-privacy-statement"]'
+        )
+        ?.focus()
+    }
+  }, [state])
+
   function vote(state: ViewState) {
     return () => {
       trackEvent(getFormData())
@@ -176,7 +189,7 @@ export const Survey = () => {
       )}
 
       {state === ViewState.END && (
-        <p className="color-fg-muted f6" data-testid="survey-end">{t`feedback`}</p>
+        <p role="status" className="color-fg-muted f6" data-testid="survey-end">{t`feedback`}</p>
       )}
 
       <Link

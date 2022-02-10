@@ -9,6 +9,7 @@ redirect_from:
 intro: 'Una vez que se ha creado un equipo, los administradores de la organización pueden agregar usuarios desde {% data variables.product.product_location %} al equipo y determinar a qué repositorios tienen acceso.'
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -30,8 +31,12 @@ Cada equipo tiene sus propios premisos de acceso definidos de manera individual 
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
+{% ifversion ghes %}
+
 ## Asignar equipos a los grupos LDAP (para instancias que usan la sincronización LDAP para la autenticación de usuario)
 
 {% data reusables.enterprise_management_console.badge_indicator %}
 
 Para agregar un nuevo miembro a un equipo sincronizado con un grupo LDAP, agrega el usuario como un miembro del grupo LDAP o comunícate con el administrador LDAP.
+
+{% endif %}

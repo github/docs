@@ -34,11 +34,11 @@ SSHエージェントのフォワーディング、OAuthトークンでのHTTPS�
 #### セットアップ
 
 1. エージェントのフォワーディングをローカルでオンにしてください。 詳しい情報については[SSHエージェントフォワーディングのガイド][ssh-agent-forwarding]を参照してください。
-2. エージェントフォワーディングを使用するように、デプロイスクリプトを設定してください。 たとえばbashのスクリプトでは、以下のようにしてエージェントのフォワーディングを有効化することになるでしょう。 `ssh -A serverA 'bash -s' < deploy.sh`
+2. エージェントフォワーディングを使用するように、デプロイスクリプトを設定してください。 For example, on a bash script, enabling agent forwarding would look something like this: `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## OAuthトークンを使ったHTTPSでのクローニング
 
-SSHキーを使いたくないなら、[OAuthトークンでHTTPS][git-automation]を利用できます。
+If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
 #### 長所
 
@@ -57,7 +57,7 @@ SSHキーを使いたくないなら、[OAuthトークンでHTTPS][git-automatio
 
 #### セットアップ
 
-[トークンでのGit自動化ガイド][git-automation]を参照してください。
+See [our guide on creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## デプロイキー
 
@@ -78,7 +78,7 @@ SSHキーを使いたくないなら、[OAuthトークンでHTTPS][git-automatio
 
 #### セットアップ
 
-1. サーバー上で[`ssh-keygen`の手順を実行][generating-ssh-keys]し、生成された公開／秘密RSAキーのペアを保存した場所を覚えておいてください。
+1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair key pair.
 2. {% data variables.product.product_name %}の任意のページの右上で、プロフィールの写真をクリックし、続いて**Your profile（あなたのプロフィール）**をクリックしてください。 ![プロフィールへのアクセス](/assets/images/profile-page.png)
 3. プロフィールページで**Repositories（リポジトリ）**をクリックし、続いてリポジトリの名前をクリックしてください。 ![リポジトリのリンク](/assets/images/repos.png)
 4. リポジトリで**Settings（設定）**をクリックしてください。 ![リポジトリの設定](/assets/images/repo-settings.png)
@@ -182,10 +182,8 @@ GitHub Appは{% data variables.product.product_name %}でも主役級の存在�
 
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
+[generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
-[git-automation]: /articles/git-automation-with-oauth-tokens
-[git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
-

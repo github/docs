@@ -21,7 +21,9 @@ on:
     paths:
       - 'lib/rest/static/**'
       - 'script/rest/**/*.js'
+      - 'script/rest/**/*.json'
       - 'package*.json'
+      - 'lib/redirects/static/**/*.json'
 
 permissions:
   contents: read

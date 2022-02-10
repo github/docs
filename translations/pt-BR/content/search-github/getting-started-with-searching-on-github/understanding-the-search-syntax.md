@@ -73,9 +73,10 @@ Usando a sintaxe `NOT`, é possível excluir resultados contendo uma determinada
 
 Outra maneira de restringir os resultados da pesquisa é excluir determinados subconjuntos. Adicione um prefixo a qualquer qualificador de pesquisa com um `-` para excluir todos os resultados correspondentes a esse qualificador.
 
-| Consulta                   | Exemplo                                                                                                                                                                                                                 |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>-<em>QUALIFIER</em></code> | **[mentions:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization. |
+| Consulta                   | Exemplo                                                                                                                                                                                                                                         |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>-<em>QUALIFIER</em></code> | **[`cats stars:>10 -language:javascript`](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** matches repositories with the word "cats" that have more than 10 stars but are not written in JavaScript. |
+|                            | **[`mentions:defunkt -org:github`](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization                        |
 
 ## Usar aspas para consultas com espaço em branco
 

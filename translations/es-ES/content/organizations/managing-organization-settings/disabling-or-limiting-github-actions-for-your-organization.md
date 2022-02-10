@@ -78,6 +78,10 @@ Puedes configurar este comportamiento de una organización utilizando los siguie
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+{% ifversion ghec or ghae or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 ### Configurar la política de bifurcaciones privadas para una organización
 
 {% data reusables.profile.access_org %}

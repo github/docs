@@ -34,6 +34,8 @@ Se você reutilizar um fluxo de trabalho de um repositório diferente, todas as 
 
 Quando um fluxo de trabalho reutilizável é acionado por um fluxo de trabalho de chamadas, o contexto `github` está sempre associado ao fluxo de trabalho de chamada. O fluxo de trabalho chamado tem acesso automaticamente a `github.token` e `secrets.GITHUB_TOKEN`. Para obter mais informações sobre o contexto do github ``, consulte "[Contexto e sintaxe de expressão para o GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
+You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+
 ### Fluxos de trabalho e fluxos de trabalho iniciais reutilizáveis
 
 Starter workflows allow everyone in your organization who has permission to create workflows to do so more quickly and easily. Quando as pessoas criam um novo fluxo de trabalho, eles podem escolher um fluxo de trabalho inicial e uma parte ou todo o trabalho de escrita do fluxo de trabalho será feito para essas pessoas. Dentro de um fluxo de trabalho inicial, você também pode fazer referência a fluxos de trabalho reutilizáveis para facilitar a utilização de código de fluxo de trabalho gerenciado centralmente. Se você usar uma tag ou nome de branch ao fazer referência ao fluxo de trabalho reutilizável, você poderá garantir que todos que reutilizarem esse fluxo de trabalho sempre usarão o mesmo código YAML. No entanto, se você fizer referência a um fluxo de trabalho reutilizável por uma tag ou branch, certifique-se de que você poderá confiar nessa versão do fluxo de trabalho. Para obter mais informações, consulte "[Fortalecimento da segurança para {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)".
@@ -110,7 +112,7 @@ Você pode definir entradas e segredos, que podem ser passados do fluxo de traba
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: ./.github/actions/my-action@v1
+         - uses: ./.github/actions/my-action
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -151,7 +153,7 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/my-action@v1
+      - uses: ./.github/actions/my-action
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}
@@ -164,7 +166,7 @@ Você chama um fluxo de trabalho reutilizável usando a chave `usa`. Ao contrár
 
 [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-You reference reusable workflow files using {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}one of the following syntaxes:{% else %}the syntax:{% endif %}
+Você faz referência aos arquivos reutilizáveis do fluxo de trabalho usando {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}uma das seguintes sintaxes:{% else %}a sintaxe:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 

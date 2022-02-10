@@ -97,4 +97,4 @@ Você também pode ver todos os {% data variables.product.prodname_dependabot_al
 
 - "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)"
 - "[Exibir e atualizar dependências vulneráveis no repositório](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% endif %}
-{% ifversion fpt or ghec %}- "[Privacy on {% data variables.product.prodname_dotcom %}](/get-started/privacy-on-github)"{% endif %}
+{% ifversion fpt or ghec %}- "[Privacidade em {% data variables.product.prodname_dotcom %}](/get-started/privacy-on-github)"{% endif %}

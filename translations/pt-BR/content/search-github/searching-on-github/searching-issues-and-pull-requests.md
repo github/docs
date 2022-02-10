@@ -103,9 +103,9 @@ O qualificador `assignee` encontra problemas e pull requests que foram atribuíd
 
 O qualificador `mentions` encontra problemas que mencionam um usuário específico. Para obter mais informações, consulte "[Mencionar pessoas e equipes](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)".
 
-| Qualifier                 | Exemplo                                                                                                                                                               |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) corresponde problemas com a palavra "resque" que mencionam @defunkt. |
+| Qualifier                 | Exemplo                                                                                                                                                         |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>mentions:<em>USERNAME</em></code> | [**`resque mentions:defunkt`**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt. |
 
 ## Pesquisar por menção da equipe
 
@@ -113,7 +113,7 @@ Para organizações e equipes das quais você faz parte, você pode usar o quali
 
 | Qualifier                 | Exemplo                                                                                                       |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** corresponde problemas em que a equipe `@jekyll/owners` é mencionada.                   |
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **`team:jekyll/owners`** matches issues where the `@jekyll/owners` team is mentioned.                         |
 |                           | **team:myorg/ops is:open is:pr** corresponde pull requests abertos em que a equipe `@myorg/ops` é mencionada. |
 
 ## Pesquisar por autor do comentário
@@ -176,7 +176,7 @@ Você pode usar o qualificador `project` para encontrar problemas associados a u
 
 ## Pesquisar por status do commit
 
-Você pode filtrar pull requests com base no status dos commits. This is especially useful if you are using [the Status API](/rest/reference/repos#statuses) or a CI service.
+Você pode filtrar pull requests com base no status dos commits. This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
 
 | Qualifier        | Exemplo                                                                                                                                                                                                                                       |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -293,17 +293,17 @@ Esse qualificador usa a data como parâmetro. {% data reusables.time_date.date_f
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                                                                            |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>merged:<em>YYYY-MM-DD</em></code> | [**language:javascript merge:<2011-01-01**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) corresponde a pull requests em repositórios do JavaScript que foram mesclados antes de 2011.                                    |
+| <code>merged:<em>YYYY-MM-DD</em></code> | [**`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.                                            |
 |                            | [**ast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) corresponde a pull requests no Ruby com a palavra "fast" no título que foram mesclados após maio de 2014. |
 
 ## Pesquisar somente pull request com merge ou sem merge
 
 Você pode filtrar as pull requests com ou sem merge usando o qualificador `is`.
 
-| Qualifier     | Exemplo                                                                                                                                                                     |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:merged`   | [**bugfix is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) identifica as pull requests com merge que têm a palavra "bugfix". |
-| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) identifica problemas e pull requests fechados com a palavra "error".          |
+| Qualifier     | Exemplo                                                                                                                                                            |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) matches merged pull requests with the word "bug."           |
+| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) identifica problemas e pull requests fechados com a palavra "error". |
 
 ## Pesquisar com base no fato de o repositório estar arquivado
 

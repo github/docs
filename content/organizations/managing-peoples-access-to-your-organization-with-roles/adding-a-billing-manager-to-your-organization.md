@@ -65,3 +65,7 @@ The invited person will receive an invitation email asking them to become a bill
   ![Invite billing manager](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Type the username or email address of the person you want to add and click **Send invitation**.
   ![Invite billing manager page](/assets/images/help/billing/billing_manager_invite.png)
+
+## Further reading
+
+- "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

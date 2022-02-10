@@ -14,9 +14,9 @@ redirect_from:
 shortTitle: Solução de problemas do GitHub Actions
 ---
 
-## Checking the health of {% data variables.product.prodname_actions %}
+## Verificando a saúde de {% data variables.product.prodname_actions %}
 
-You can check the health of {% data variables.product.prodname_actions %} on {% data variables.product.product_location %} with the `ghe-actions-check` command-line utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+Você pode verificar a saúde de {% data variables.product.prodname_actions %} em {% data variables.product.product_location %} com o utilitário da linha de comando `ghe-actions-check`. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" e "[Acessando o shell administrativo (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)".
 
 ## Configurar executores auto-hospedados ao usar um certificado autoassinado por {% data variables.product.prodname_ghe_server %}
 
@@ -52,9 +52,11 @@ Se você usa ações do contêiner do Docker ou contêineres de serviço nos seu
 
 Se estas configurações não estiverem definidas corretamente, você poderá receber erros como `Recurso movido inesperadamente para https://<IP_ADDRESS>` ao definir ou mudar a configuração de {% data variables.product.prodname_actions %}.
 
-## Os executores que não se conectam a {% data variables.product.prodname_ghe_server %} depois de mudar o hostname
+## Runners not connecting to {% data variables.product.prodname_ghe_server %} with a new hostname
 
-Se você alterar o nome do host de {% data variables.product.product_location %}, os executores auto-hospedados não poderão conectar-se ao host antigo e não executarão nenhum trabalho.
+{% data reusables.enterprise_installation.changing-hostname-not-supported %}
+
+If you deploy {% data variables.product.prodname_ghe_server %} in your environment with a new hostname and the old hostname no longer resolves to your instance, self-hosted runners will be unable to connect to the old hostname, and will not execute any jobs.
 
 Você precisará atualizar a configuração dos seus executores auto-hospedados para usar o novo nome de host para {% data variables.product.product_location %}. Cada executor auto-hospedado exigirá um dos seguintes procedimentos:
 

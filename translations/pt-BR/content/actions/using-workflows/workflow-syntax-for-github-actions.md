@@ -149,7 +149,7 @@ jobs:
 
     steps:
       - name: Pass the received secret to an action
-        uses: ./.github/actions/my-action@v1
+        uses: ./.github/actions/my-action
         with:
           token: ${{ secrets.access-token }}
 ```
@@ -171,42 +171,7 @@ Um booleano que especifica se o segredo deve ser fornecido.
 
 ## `on.workflow_dispatch.inputs`
 
-Ao usar o evento `workflow_dispatch`, você pode, opcionalmente, especificar as entradas que são passadas para o fluxo de trabalho.
-
-O fluxo de trabalho acionado recebe as entradas no contexto `github.event.inputs`. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts#github-context)".
-
-### Exemplo
-```yaml
-on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-        type: choice
-        options:
-        - info
-        - warning
-        - debug {% endif %}
-      tags:
-        description: 'Test scenario tags'
-        required: false {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-        type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true {% endif %}
-
-jobs:
-  print-tag:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Print the input tag to STDOUT
-        run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
-```
-
+{% data reusables.github-actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissões`
@@ -865,7 +830,7 @@ services:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
-      password: ${{ secrets.ghcr_token }}
+      password: ${{ secrets.github_token }}
   myservice2:
     image: dockerhub_org/myservice2
     credentials:
@@ -914,7 +879,7 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
-O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use one of the following syntaxes:{% endif %}
+O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use uma das seguintes sintaxes:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
@@ -1008,7 +973,7 @@ Par aobte rmais informações sobre branch, tag e sintaxe de filtro do caminho, 
 | `'**'`                                                  | Corresponde a todos os nomes de branches e tags. Esse é o comportamento padrão quando você não usa um filtro de `branches` ou `tags`.                                               | `all/the/branches`<br/><br/>`every/tag`                                                                   |
 | `'*feature'`                                            | O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas.                                                                                 | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
 | `v2*`                                                   | Corresponde aos nomes de branches e tags que iniciam com `v2`.                                                                                                                      | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                                   | Corresponde a todas as tags de versão de branch semântica com a versão principal 1 ou 2                                                                                             | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
+| `v[12].[0-9]+.[0-9]+`                                   | Corresponde a todas as tags de versão de branch semântica com a versão principal 1 ou 2.                                                                                            | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 ### Padrões para corresponder a caminhos de arquivos
 

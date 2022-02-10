@@ -262,3 +262,8 @@ To understand how billing works for {% data variables.product.prodname_actions %
 ## Contacting support
 
 {% data reusables.github-actions.contacting-support %}
+
+## Further reading
+
+{% ifversion ghec or ghes or ghae %}
+- "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}

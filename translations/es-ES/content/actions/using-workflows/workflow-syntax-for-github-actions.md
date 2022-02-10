@@ -149,7 +149,7 @@ jobs:
 
     steps:
       - name: Pass the received secret to an action
-        uses: ./.github/actions/my-action@v1
+        uses: ./.github/actions/my-action
         with:
           token: ${{ secrets.access-token }}
 ```
@@ -171,42 +171,7 @@ A boolean specifying whether the secret must be supplied.
 
 ## `on.workflow_dispatch.inputs`
 
-When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
-
-The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
-
-### Example
-```yaml
-on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-        type: choice
-        options:
-        - info
-        - warning
-        - debug {% endif %}
-      tags:
-        description: 'Test scenario tags'
-        required: false {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-        type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true {% endif %}
-
-jobs:
-  print-tag:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Print the input tag to STDOUT
-        run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
-```
-
+{% data reusables.github-actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissions`
@@ -1008,7 +973,7 @@ For more information about branch, tag, and path filter syntax, see "[`on.<push>
 | `'**'` | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter. | `all/the/branches`<br/><br/>`every/tag` |
 | `'*feature'` | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature` |
 | `v2*` | Matches branch and tag names that start with `v2`. | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9` |
-| `v[12].[0-9]+.[0-9]+` | Matches all semantic versioning branches and tags with major version 1 or 2 | `v1.10.1`<br/><br/>`v2.0.0` |
+| `v[12].[0-9]+.[0-9]+` | Matches all semantic versioning branches and tags with major version 1 or 2. | `v1.10.1`<br/><br/>`v2.0.0` |
 
 ### Patterns to match file paths
 

@@ -917,8 +917,6 @@ on:
 ```yaml
 on:
   push:
-    types:
-      - opened
     branches:    
       - 'releases/**'
     paths:
@@ -960,8 +958,6 @@ on:
 ```yaml
 on:
   push:
-    types:
-      - opened
     branches:    
       - 'releases/**'
     paths:
@@ -998,7 +994,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`release`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Last commit in the tagged release | Tag of release |
+| [`release`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Last commit in the tagged release | Tag ref of release `refs/tags/<tag_name>` |
 
 {% note %}
 
@@ -1187,7 +1183,7 @@ on:
 | ------------------ | ------------ | ------------ | ------------------|
 | Same as the caller workflow | n/a | Same as the caller workflow | Same as the caller workflow |
 
-`workflow_call` is used to indicate that a workflow can be called by another workflow. When a workflow is triggered with the `workflow_call` event, the event playload in the called workflow is the same event payload from the calling workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+`workflow_call` is used to indicate that a workflow can be called by another workflow. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 
 The example below only runs the workflow when it's called from another workflow:
 

@@ -238,7 +238,7 @@ jobs:
 
 ## Fazer linting do seu código
 
-O exemplo a seguir instala `rubocop` e o utiliza para fazer lint de todos os arquivos. Para obter mais informações, consulte [Rubocop](https://github.com/rubocop-hq/rubocop). Pode [configurar o Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir as regras específicas de linting.
+O exemplo a seguir instala `rubocop` e o utiliza para fazer lint de todos os arquivos. Para obter mais informações, consulte [RuboCop](https://github.com/rubocop-hq/rubocop). Pode [configurar o Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir as regras específicas de linting.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}

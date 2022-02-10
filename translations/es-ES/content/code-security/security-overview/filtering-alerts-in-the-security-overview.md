@@ -5,6 +5,7 @@ permissions: Organization owners and security managers can access the security o
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
+  ghae: issue-4554
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -99,7 +100,7 @@ Disponible en el resumen a nivel organizacional.
 | ------------------------- | ------------------------------------------------------------ |
 | <code>topic:<em>TOPIC-NAME</em></code> | Muestra los repositorios que se clasifican con *TOPIC-NAME*. |
 
-{% ifversion ghec or ghes > 3.4 %}
+{% if security-overview-views %}
 
 ## Filter by severity
 
@@ -121,16 +122,16 @@ Available in the code scanning alert views. All code scanning alerts have one of
 
 Disponible en las vistas de alerta del escaneo de secretos.
 
-| Qualifier                                                                                                                                                                                  | Descripción                                                                                                                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `secret-type:SERVICE_PROVIDER`                                                                                                                                                             | Displays alerts for the specified secret and provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners) |
-| `secret-type:CUSTOM-PATTERN`                                                                                                                                                               | Displays alerts for secrets matching the specified custom pattern.                                                                                                                                                 |
-| {% ifversion not fpt %}For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %} |                                                                                                                                                                                                                    |
+| Qualifier                                                                                                                                                                                  | Descripción                                                                                                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret-type:SERVICE_PROVIDER`                                                                                                                                                             | Displays alerts for the specified secret and provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)." |
+| `secret-type:CUSTOM-PATTERN`                                                                                                                                                               | Displays alerts for secrets matching the specified custom pattern.                                                                                                                                                   |
+| {% ifversion not fpt %}For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %} |                                                                                                                                                                                                                      |
 
 ## Filter by provider
 
 Disponible en las vistas de alerta del escaneo de secretos.
 
-| Qualifier                | Descripción                                                                                                                                                                                                                   |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners) |
+| Qualifier                | Descripción                                                                                                                                                                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)." |

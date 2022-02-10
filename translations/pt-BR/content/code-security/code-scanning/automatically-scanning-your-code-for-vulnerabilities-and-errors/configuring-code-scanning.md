@@ -24,7 +24,7 @@ topics:
   - Python
 shortTitle: Configure code scanning
 ---
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
@@ -89,7 +89,7 @@ If you scan pull requests, then the results appear as alerts in a pull request c
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### Defining the severities causing pull request check failure
 
-By default, only alerts with the severity level of `Error`{% ifversion fpt or ghes > 3.1  or ghae or ghec %} or security severity level of `Critical` or `High`{% endif %} will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities{% ifversion fpt or ghes > 3.1  or ghae or ghec %} and of security severities{% endif %} that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details)."
+By default, only alerts with the severity level of `Error`{% ifversion fpt or ghes > 3.1  or ghae or ghec %} or security severity level of `Critical` or `High`{% endif %} will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities{% ifversion fpt or ghes > 3.1  or ghae or ghec %} and of security severities{% endif %} that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -351,7 +351,7 @@ To add one or more queries, add a `with: queries:` entry within the `uses: githu
 
 You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
 
-{% data reusables.code-scanning.codeql-query-suites %}
+{% data reusables.code-scanning.codeql-query-suites-explanation %}
 
 {% if codeql-packs %}
 ### Working with custom configuration files

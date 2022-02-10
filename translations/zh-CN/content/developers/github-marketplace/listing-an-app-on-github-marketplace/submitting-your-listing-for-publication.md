@@ -19,7 +19,7 @@ shortTitle: 提交您的列表
 
   ![Marketplace 上架信息草稿的选项概述](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-2. 要提交已完成的应用程序上架信息，请单击 **Request publish（请求发布）**。
+2. To submit your completed app listing, click **Request publish**.
 
   !["将应用程序发布到 Marketplace"检查列表，底部有提交按钮](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
 

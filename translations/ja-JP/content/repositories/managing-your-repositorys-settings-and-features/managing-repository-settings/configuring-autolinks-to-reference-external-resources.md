@@ -22,8 +22,12 @@ Anyone with admin permissions to a repository can configure autolink references 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. 左のサイドバーで、[**Autolink references**] をクリックします。 ![左サイドバーの [Autolink references] タブ](/assets/images/help/repository/autolink-references-tab.png)
-4. [**Add autolink reference**] をクリックします。 ![自動リンクの参照情報を入力するボタン](/assets/images/help/repository/add-autolink-reference-details.png)
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-label="The cross-reference icon" %} Autolink references**.
+{% else %}
+1. 左のサイドバーで、[**Autolink references**] をクリックします。 ![左サイドバーの [Autolink references] タブ](/assets/images/help/repository/autolink-references-tab.png)
+{% endif %}
+1. [**Add autolink reference**] をクリックします。 ![自動リンクの参照情報を入力するボタン](/assets/images/help/repository/add-autolink-reference-details.png)
 5. [Reference prefix] に、コラボレータ が外部リソースへの自動リンクを生成する際に使用する短くわかりやすいプレフィックスを入力します。 ![外部システムの略語を入力するフィールド](/assets/images/help/repository/add-reference-prefix-field.png)
 6. [Target URL] に、リンク先の外部システムへのリンクを入力します。 参照番号の変数は`<num>`のままにしてください。 ![外部システムへのURLを入力するフィールド](/assets/images/help/repository/add-target-url-field.png)
 7. [**Add autolink reference**] をクリックします。 ![自動リンクの参照を追加するボタン](/assets/images/help/repository/add-autolink-reference.png)

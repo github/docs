@@ -30,5 +30,8 @@ topics:
 ## gov-takedowns リポジトリに通知を投稿することの意味
 リポジトリに通知を投稿することは、そこに示されたデータについての通知を当社が受け取ったことを意味します。 これは、コンテンツが違法であるとか誤っているということを意味*しません*。 また、通知に示されたユーザが何か誤った行為を行ったということも意味*しません*。 当社は、削除を要請する当局による主張の正しさについて、いかなる判断をも下さず、またそれを暗示することもしません。 当社はこれらの通知や要請を、情報提供のみを目的として投稿しています。
 
+## Government takedowns based on violations of GitHub's Terms of Service
+In some cases, GitHub receives reports from government officials of violations of GitHub's Terms of Service. We process those violations as we would process a Terms-of-Service violation reported by anyone else. However, we notify the affected users that the report came from a government and, as with any other case, allow them the opportunity to appeal.
+
 ## 透明性レポート
-行政機関による削除要請の通知を gov-takedowns に投稿することに加え、当社はそれらを透明性レポートにおいて報告しています。 また、当社は GitHub 利用規約の侵害に基づいた行政機関による削除要請を、透明性レポートにおいて追跡・報告しています。 当社は、利用規約の侵害について、他の人々からの利用規約侵害についての報告と同様に対処します。
+In addition to posting government takedown notices in our `github/gov-takedowns` repository, we report on them in our transparency report. また、当社は GitHub 利用規約の侵害に基づいた行政機関による削除要請を、透明性レポートにおいて追跡・報告しています。

@@ -16,193 +16,9 @@ versions:
 shortTitle: Eventos que desencadenan flujos de trabajo
 ---
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## About events that trigger workflows
 
-## Acerca de los activadores de los flujos de trabajo
-
-Los activadores de los flujos de trabajo son eventos que ocasionan que se ejecute un flujo de trabajo. Estos eventos pueden ser:
-
-- Eventos que ocurren en el repositorio de tu flujo de trabajo
-- Eventos que ocurren fuera de {% data variables.product.product_name %} y activan un evento de `repository_dispatch` en {% data variables.product.product_name %}
-- Tiempos programados
-- Manual
-
-Por ejemplo, puedes configurar tu flujo de trabajo para que se ejecute cuando se realiza una subida a la rama predeterminada de tu repositorio, cuando se crea un lanzamiento o cuando se abre una propuesta.
-
-Los activadores de los flujos de trabajo se definen con la clave `on`. Para obtener más información, consulta la sección "[Sintaxis del flujo de trabajo para las {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)".
-
-Los siguientes pasos se producen para activar una ejecución de flujo de trabajo:
-
-1. Un eventto ocurre en tu repositorio. El evento tiene un SHA de confirmación asociado y una ref de Git.
-1. {% data variables.product.product_name %} busca el directorio `.github/workflows` en tu repositorio para el caso de los archivos de flujo de trabajo que están presentes en el SHA de confirmación asociado o Git Ref del evento.
-
-1. Un flujo de trabajo se activará para cualquier flujo de trabajo que tenga valores de `on:` que empaten con el evento que s eactivó. Algunos eventos también requieren que el flujo de trabajo esté presente en la rama predeterminada del repositorio para poder ejecutarse.
-
-  Cada ejecución de flujo de trabajo utiliza la versión de este que esté presente en el SHA de confirmación asociado o Git Ref del evento. Cuando se ejecuta un flujo de trabajo, {% data variables.product.product_name %} establece las variables de entorno `GITHUB_SHA` (confirmar SHA) y `GITHUB_REF` (referencia de Git) en el entorno del ejecutor. Para obtener más información, consulta "[Usar variables de entorno](/actions/automating-your-workflow-with-github-actions/using-environment-variables)".
-
-### Activar un flujo de trabajo desde otro
-
-{% data reusables.github-actions.actions-do-not-trigger-workflows %} Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
-
-Si no quieres activar un flujo de trabajo dentro una ejecución de flujo de trabajo, puedes utilizar un token de acceso personal en vez de un `GITHUB_TOKEN` para activar los eventos que requieren tu token. Necesitaras crear un token de acceso personal y almacenarlo como un secreto. Para minimizar tus costos de uso de {% data variables.product.prodname_actions %}, asegúrate de no crear ejecuciones de flujo de trabajo recurrentes o involuntarias. Para obtener más información acerca de cómo crear un token de acceso personal, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)". Para obtener más información sobre cómo almacenr un token de acceso personal como secreto, consulta la sección "[Crear y almacenar secretos cifrados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
-
-Por ejemplo, el siguiente flujo de trabajo utiliza un token de acceso personal (almacenado como secreto y llamado `MY_TOKEN`) para agregar una etiqueta a una propuesta de cambios a través del cli.{% data variables.product.prodname_cli %}. Cualquier flujo de trabajo que se ejecute cuando una etiqueta se agrega se ejecutará una vez mediante este espejo.
-
-```yaml
-on:
-  issues:
-    types:
-      - opened
-
-jobs:
-  label_issue:
-    runs-on: ubuntu-latest
-    steps:
-      - env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.MY_TOKEN }}{% endraw %}
-          ISSUE_URL: {% raw %}${{ github.event.issue.html_url }}{% endraw %}
-        run: |
-          gh issue edit $ISSUE_URL --add-label "triage"
-```
-
-Por el contrario, el siguiente flujo de trabajo utiliza un `GITHUB_TOKEN` para agregar una etiqueta a una propuesta. No activará ningún flujo de trabajo que se ejecute cuando se agregue una etiqueta.
-
-```yaml
-on:
-  issues:
-    types:
-      - opened
-
-jobs:
-  label_issue:
-    runs-on: ubuntu-latest
-    steps:
-      - env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-          ISSUE_URL: {% raw %}${{ github.event.issue.html_url }}{% endraw %}
-        run: |
-          gh issue edit $ISSUE_URL --add-label "triage"
-```
-
-## Utilizar eventos para activar flujos de trabajo
-
-Utiliza la clave `on` para especificar qué eventos activan tu flujo de trabajo. Para obtener más información acerca de los eventos, consulta los "[Eventos disponibles](#available-events)" más adelante.
-
-{% data reusables.github-actions.actions-on-examples %}
-
-## Utilizar la información de los eventos
-
-La información acerca del evento que activó una ejecución de flujo de trabajo se encuentra disponible en el contexto `github.event`. Las propiedades en el contexto `github.event` dependen del tipo de evento que activó el flujo de trabajo. Por ejemplo, un flujo de trabajo que se activa cuando se etiqueta una propuesta tendrá la información sobre la propuesta y etiqueta.
-
-### Ver todas las propiedades de un evento
-
-Referencia la documentación de evento de webhook para las propiedades comunes y cargas útiles de ejemplo. Para obtener más información, consulta la sección "[eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)".
-
-También puedes imprimir todo el contexto `github.event` para ver qué propiedades están disponibles para el evento que activó tu flujo de trabajo:
-
-```yaml
-jobs:
-  print_context:
-    runs-on: ubuntu-latest
-    steps:
-      - env:
-          EVENT_CONTEXT: {% raw %}${{ toJSON(github.event) }}{% endraw %}
-        run: |
-          echo $EVENT_CONTEXT
-```
-
-### Acceder y utilizar las propiedades de evento
-
-Puedes utilizar el contexto `github.event` en tu flujo de trabajo. Por ejemplo, el siguiente flujo de trabajo se ejecuta cuando se abre una solicitud de cambios que cambia a `package*.json`, `.github/CODEOWNERS` o `.github/workflows/**`. Si el autor de la solicitud de cambios (`github.event.pull_request.user.login`) no es `octobot` o `dependabot[bot]`, entonces el flujo de trabajo utilizará el {% data variables.product.prodname_cli %} para etiquetar y comentar en la solicitud de cambios (`github.event.pull_request.number`).
-
-```yaml
-on:
-  pull_request:
-    types:
-      - opened
-    paths:
-      - '.github/workflows/**'
-      - '.github/CODEOWNERS'
-      - 'package*.json'
-
-jobs:
-  triage:
-    if: >-
-      github.event.pull_request.user.login != 'octobot' &&
-      github.event.pull_request.user.login != 'dependabot[bot]'
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Comment about changes we can't accept"
-        env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-          PR: {% raw %}${{ github.event.pull_request.html_url }}{% endraw %}
-        run: |
-          gh pr edit $PR --add-label 'invalid'
-          gh pr comment $PR --body 'It looks like you edited `package*.json`, `.github/CODEOWNERS`, or `.github/workflows/**`. No permitimos contribuciones a estos archivos. Por favor, revisa nuestros [lineamientos de contribución](https://github.com/octo-org/octo-repo/blob/main/CONTRIBUTING.md) para ver qué tipo de contribuciones se aceptan.'
-```
-
-Para obtener más información sobre los contextos, consulta la sección "[Contextos](/actions/learn-github-actions/contexts)". Para obtener más información sobre las cargas útiles de los eventos, consulta la sección "[Eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)".
-
-## Controlar aún más la forma en la que se ejecutará tu flujo de trabajo
-
-Si quieres un control más granular que el que proporcionan los eventos, tipos de actividad de eventos o filtros de evento, puedes utilizar condicionales{% ifversion fpt or ghae or ghes > 3.1 or ghec %} y ambientes{% endif %} para controlar si se ejecutarán los jobs o pasos individuales en tu flujo de trabajo.
-
-### Utilziar condicionales
-
-Puedes utilizar condicionales para controlar aún más si se ejecutarán los jobs o pasos de tu flujo de trabajo. Por ejemplo, si quieres que el flujo de trabajo se ejecute cuando se agrega una etiqueta específica a una propuesta, puedes activar el tipo de actividad de evento `issues labeled` y utilizar una condicional para verificar qué etiqueta activó el flujo de trabajo. El siguiente flujo de trabajo se ejecutará cuando se agregue cualquier etiqueta a una propuesta en su repositorio, pero el job `run_if_label_matches` solo se ejecutará si la etiqueta se nombra `bug`.
-
-```yaml
-on:
-  issues:
-    types:
-      - labeled
-
-jobs:
-  run_if_label_matches:
-    if: github.event.label.name == 'bug'
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'The label was bug'
-```
-
-Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
-
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
-### Utilizar ambientes para activar jobs de flujos de trabajo manualmente
-
-Si quieres activar manualmente un job específico en un flujo de trabajo, puedes utilizar un ambiente que requiera aprobación de un equipo o usuario específico. Primero, configura un ambiente con revisores requeridos. Para obtener más información, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/targeting-different-environments/using-environments-for-deployment)". Luego, referencia el nombre del ambiente en un job de tu flujo de trabajo utilizando la clave `environment:`. No se ejecutará ningún job que referencie el ambiente hasta que por lo menos un revisor lo apruebe.
-
-Por ejemplo, el siguiente fluljo de trabajo se ejecutará siempre que haya una subida a la rama principal (main). El job `build` siempre se ejecutará. El job `publish` solo se ejecutará después de que el job `build` se complete con éxito (debido a `needs: [build]`) y después de que pasen todas las reglas (incluyendo a los revisores requeridos) para el ambiente llamado `production` (debido a `environment: production`).
-
-```yaml
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: build
-        echo 'building'
-
-  publish:
-    needs: [build]
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: publish
-        echo 'publishing'
-```
-
-{% note %}
-
-{% data reusables.gated-features.environments %}
-
-{% endnote %}
-{% endif %}
+Los activadores de los flujos de trabajo son eventos que ocasionan que se ejecute un flujo de trabajo. For more information about how to use workflow triggers, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)."
 
 ## Eventos disponibles
 
@@ -715,7 +531,7 @@ on:
 
 Ejecuta tu flujo de trabajo cuando se crea o modifica una columna en un tablero de proyecto. Para ver la actividad relacionada con las tarjetas o tableros de proyecto, utiliza el evento [`project`](#project) o [`project_card`](#project_card) en su lugar. Para obtener más información acerca de los tableros de proyecto, consulta la sección "[Acerca de los tableros de proyecto](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)". Para obtener más información sobre las API de columna de proyecto, consulta la sección "[ProjectColumn](/graphql/reference/objects#projectcolumn)" en la documentación de la API de GraphQL o "[Columnas de proyecto](/rest/reference/projects#columns)" en la documentación de la API de REST.
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando una columna de proyecto ha sido `creado` o `eliminado`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando una columna de proyecto ha sido `created` o `deleted`.
 
 ```yaml
 on:
@@ -889,7 +705,7 @@ Para ejecutar tu flujo de trabajo cuando se crea, edita o borra un comentario en
 
 Ejecuta tu flujo de trabajo cuando se emite, edita o descarta una revisión de una solicitud de cambios. Una revisión de solicitud de cambios es un grupo de comentarios de dicha revisión junto con un comentario del cuerpo y un estado. Para encontrar actividad relacionada con los comentarios o comentarios de revisión de una solicitud de cambios, utiliza los eventos [`pull_request_review_comment`](#pull_request_review_comment) o [`issue_comment`](#issue_comment) en su lugar. Para obtener más información acerca de las API de revisión de solicitudes de cambio, consulta la sección "[PullRequestReview](/graphql/reference/objects#pullrequest)" en la documentación de la API de GraphQL o "[Revisiones de solicitudes de cambio](/rest/reference/pulls#reviews)" en la documentación de la API de REST.
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando una revisión de solicitud de extracción ha sido `edited` (editada) o `dismissed` (descartada).
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando una revisión de solicitud de extracción ha sido `editada` o `descartada`.
 
 ```yaml
 on:
@@ -930,7 +746,7 @@ jobs:
 
 Ejecuta tu flujo de trabajo cuando se modifica un comentario de una revisión de solicitud de cambios. Un comentario de revisión de una solicitud de cambios es un comentario en el diff de dicha solicitud. Para encontrar actividad relacionada con las revisiones o comentarios de las solicitudes de cambio, utiliza los eventos [`pull_request_review`](#pull_request_review) o [`issue_comment`](#issue_comment) en su lugar. Para obtener más información acerca de las API de comentarios de las revisiones de solicitudes de cambio, consulta la sección "[PullRequestReviewComment](/graphql/reference/objects#pullrequestreviewcomment)" en la documentación de la API de GraphQL o "[Comentarios de revisión](/rest/reference/pulls#comments)" en la documentación de la API de REST.
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando un comentario de revisión de solicitud de extracción ha sido `created` o `deleted`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando un comentario de revisión de solicitud de extracción ha sido `creado` o `eliminado`.
 
 ```yaml
 on:
@@ -1061,7 +877,7 @@ on:
 
 {% note %}
 
-**Nota:** La carga disponible del webhook para las acciones de GitHub no incluye los atributos `added`, `removed` y `modified` en el objeto `commit`. Puedes recuperar el objeto de confirmación completo utilizando la API. Para obtener información, consulta la sección "[Confirmación](/graphql/reference/objects#commit)" en la documentación de la API de GraphQL o "[Obtén una confirmación](/rest/reference/commits#get-a-commit)" en la documentación de la API de REST.
+**Nota:** La carga disponible del webhook para las Acciones de GitHub no incluye los atributos `añadidos`, `eliminados`, y `modificados` en el objeto de `confirmación`. Puedes recuperar el objeto de confirmación completo utilizando la API. Para obtener información, consulta la sección "[Confirmación](/graphql/reference/objects#commit)" en la documentación de la API de GraphQL o "[Obtén una confirmación](/rest/reference/commits#get-a-commit)" en la documentación de la API de REST.
 
 {% endnote %}
 
@@ -1204,7 +1020,7 @@ on:
 
 Ejecuta tu flujo de trabajo cuando ocurre una actividad de lanzamiento en tu repositorio. Para obtener más información sobre las API de lanzamiento, consulta la sección de "[Lanzamiento](/graphql/reference/objects#release)" en la documentación de la API de GraphQL o "[Lanzamientos](/rest/reference/repos#releases)" en la documentación de la API de REST.
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando un lanzamiento ha sido `publish`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando un lanzamiento ha sido `publicado`.
 
 ```yaml
 on:
@@ -1300,7 +1116,7 @@ Puedes usar estos operadores en cualquiera de los cinco campos:
 
 {% endnote %}
 
-Puedes usar [contrab guru](https://crontab.guru/) para generar tu sintaxis de cron y confirmar a qué hora se ejecutará. Para que puedas comenzar, hay también una lista de [ejemplos de crontab guru](https://crontab.guru/examples.html).
+Puedes usar [contrab guru](https://crontab.guru/) para ayudar a generar tu sintaxis de cron y confirmar a qué hora se ejecutará. Para que puedas comenzar, hay también una lista de [ejemplos de crontab guru](https://crontab.guru/examples.html).
 
 Las notificaciones para los flujos de trabajo programados se envían al usuario que modificó por última vez la sintaxis de cron en el archivo de flujo de trabajo. Para obtener más información, consulta la sección "[Notificaciones para las ejecuciones de flujo de trabajo](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)".
 
@@ -1314,7 +1130,7 @@ Las notificaciones para los flujos de trabajo programados se envían al usuario 
 
 Ejecuta tu flujo de trabajo cuando cambia el estado de una confirmación de Git. Por ejemplo, las confirmaciones pueden marcarse como `error`, `failure`, `pending` o `success`. Si quieres proporcionar más detalles sobre el cambio de estado, puede que quieras utilizar el evento [`check_run`](#check_run). Para obtener más información sobre las API de estado de confirmación, consulta la sección "[Estado](/graphql/reference/objects#statue)" en la documentación de la API de GraphQL o "[Estados](/rest/reference/commits#commit-statuses)" en la documentación de la API de REST.
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando se produzca el evento `status`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando se produzca el evento de `estado`.
 
 ```yaml
 on:
@@ -1371,7 +1187,7 @@ on:
 | ------------------------------------------ | ------------------ | ------------------------------------------ | ------------------------------------------ |
 | El mismo que el flujo de trabajo que llama | n/a                | El mismo que el flujo de trabajo que llama | El mismo que el flujo de trabajo que llama |
 
-`workflow_call` se utiliza para indicar que un flujo de trabajo puede llamar a otro. Cuando se activa un flujo de trabajo con el evento `workflow_call`, la carga útil del evento en el flujo de trabajo llamado es la misma del flujo de trabajo llamante. Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
+`workflow_call` se utiliza para indicar que un flujo de trabajo puede llamar a otro. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 
 El siguiente ejemplo solo ejecuta el flujo de trabajo cuando se le llama desde otro flujo de trabajo:
 

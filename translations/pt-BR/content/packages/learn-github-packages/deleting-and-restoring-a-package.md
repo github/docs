@@ -176,7 +176,7 @@ Você pode restaurar um pacote ou versão excluído, se:
 - Você restaurar o pacote dentro de 30 dias após a exclusão.
 - O mesmo namespace e versão do pacote ainda estiverem disponíveis e não forem reutilizados para um novo pacote.
 
-Por exemplo, se você tem um pacote de rubygem excluído denominado `octo-package` que teve o escopo definido como repositório `octo-repo-owner/octo-repo`, você só poderá restaurar o pacote se o namespace do pacote `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` ainda estiver disponível, e 30 dias ainda não passaram.
+For example, if you have a deleted RubyGems package named `octo-package` that was scoped to the repo `octo-repo-owner/octo-repo`, then you can only restore the package if the package namespace `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` is still available, and 30 days have not yet passed.
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:

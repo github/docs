@@ -229,7 +229,7 @@ jobs:
 
 ## Publicar nos registros do pacote
 
-You can configure your workflow to publish your .NET package to a package registry when your CI tests pass. Você pode usar segredos do repositório para armazenar quaisquer tokens ou credenciais necessárias para publicar seu binário. O exemplo a seguir cria e publica um pacote em {% data variables.product.prodname_registry %} usando `dotnet core cli`.
+É possível configurar o seu fluxo de trabalho para publicar o pacote .NET em um pacote de registro quando o CI teste é aprovado. Você pode usar segredos do repositório para armazenar quaisquer tokens ou credenciais necessárias para publicar seu binário. O exemplo a seguir cria e publica um pacote em {% data variables.product.prodname_registry %} usando `dotnet core cli`.
 
 ```yaml
 name: Upload dotnet package

@@ -127,6 +127,13 @@ You can use activity types and filters to further control when your workflow wil
 
 {% data reusables.github-actions.workflow-dispatch-inputs %}
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+## Defining inputs, outputs, and secrets for reusable workflows
+
+You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+
+{% endif %}
+
 ## Using event information
 
 Information about the event that triggered a workflow run is available in the `github.event` context. The properties in the `github.event` context depend on the type of event that triggered the workflow. For example, a workflow triggered when an issue is labeled would have information about the issue and label.

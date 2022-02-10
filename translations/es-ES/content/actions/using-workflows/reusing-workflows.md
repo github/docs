@@ -34,6 +34,8 @@ Si utilizas un flujo de trabajo desde un repositorio diferente, cualquier acció
 
 Cuando un flujo de trabajo llamante activa uno reutilizable, el contexto `github` siempre se asocia con el flujo llamante. Se otorga acceso automáticamente al flujo de trabajo llamado para `github.token` y `secrets.GITHUB_TOKEN`. Para obtener más información sobre el contexto `github`, consulta la sección "[Sintaxis de contexto y expresión para GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
+You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+
 ### Flujos de trabajo reutilizables e iniciales
 
 Los flujos de trabajo iniciales permiten que toda persona en tu organización que tenga permiso para crear flujos de trabajo lo haga de forma más fácil y rápida. Cuando las personas crean un flujo de trabajo nuevo, pueden elegir un flujo de trabajo inicial y parte o todo el trabajo de escribir dicho flujo de trabajo se hará automáticamente. Dentro de un flujo de trabajo inicial, también puedes referenciar los flujos de trabajo reutilizables para hacer más fácil que las personas se beneficien de reutilizar el código de flujo de trabajo que se administra centralmente. Si utilizas un nombre de rama o etiqueta cuando referencias el flujo de trabajo reutilizable, puedes garantizar que todo aquél que reutilice ese flujo de trabajo siempre estará utilizando el mismo código de YAML. Sin embargo, si referencias un flujo de trabajo reutilizable mediante una etiqueta o rama, asegúrate de que puedas confiar en esa versión del flujo de trabajo. Para obtener más información, consulta la sección "[Fortalecimiento de seguridad para las {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)".
@@ -110,7 +112,7 @@ Puedes definir entradas y secretos, las cuales pueden pasarse desde el flujo de 
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: ./.github/actions/my-action@v1
+         - uses: ./.github/actions/my-action
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -151,7 +153,7 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/my-action@v1
+      - uses: ./.github/actions/my-action
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}

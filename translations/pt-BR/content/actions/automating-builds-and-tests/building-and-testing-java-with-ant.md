@@ -88,7 +88,7 @@ Você pode usar os mesmos comandos usados localmente para criar e testar seu có
 
 O fluxo de trabalho inicial executará o alvo-padrão especificado no arquivo _build.xml_.  Seu alvo-padrão será comumente definido para criar classes, executar testes e classes de pacote em seu formato distribuível como, por exemplo, um arquivo JAR.
 
-Se você usa comandos diferentes para criar seu projeto ou se você quer executar um alvo diferente, você poderá especificá-los. For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
+Se você usa comandos diferentes para criar seu projeto ou se você quer executar um alvo diferente, você poderá especificá-los. Por exemplo, você deverá executar o `jar` configurado no seu arquivo `_build-ci.xml_`.
 
 {% raw %}
 ```yaml{:copy}

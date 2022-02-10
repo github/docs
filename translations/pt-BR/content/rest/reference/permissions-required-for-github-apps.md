@@ -175,6 +175,9 @@ _Pesquisar_
 {% ifversion fpt -%}
 - [`GET /repos/:owner/:repo/pages/health`](/rest/reference/pages#get-a-dns-health-check-for-github-pages) (:write)
 {% endif -%}
+{% ifversion ghes > 3.3 -%}
+- [`GET /repos/:owner/:repo/replicas/caches`](/rest/reference/repos#list-repository-cache-replication-status) (:read)
+{% endif -%}
 - [`PUT /repos/:owner/:repo/topics`](/rest/reference/repos#replace-all-repository-topics) (:write)
 - [`POST /repos/:owner/:repo/transfer`](/rest/reference/repos#transfer-a-repository) (:write)
 {% ifversion fpt -%}
@@ -917,6 +920,9 @@ _Equipes_
 - [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data) (:write)
 {% ifversion fpt or ghes > 3.0 or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
+{% endif -%}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}
+- [`GET /orgs/:org/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-by-organization) (:read)
 {% endif -%}
 
 {% ifversion fpt or ghes or ghec %}

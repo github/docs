@@ -121,6 +121,7 @@ translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learni
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/learn-with-github-classroom/view-autograding-results.md,broken liquid tags
+translations/zh-CN/content/get-started/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,broken liquid tags
 translations/zh-CN/content/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain.md,broken liquid tags
 translations/zh-CN/content/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line.md,broken liquid tags
 translations/zh-CN/content/get-started/learning-about-github/about-github-advanced-security.md,broken liquid tags
@@ -131,9 +132,7 @@ translations/zh-CN/content/get-started/quickstart/github-flow.md,broken liquid t
 translations/zh-CN/content/get-started/using-git/dealing-with-non-fast-forward-errors.md,broken liquid tags
 translations/zh-CN/content/get-started/using-github/github-mobile.md,broken liquid tags
 translations/zh-CN/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
-translations/zh-CN/content/github/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,broken liquid tags
 translations/zh-CN/content/issues/using-labels-and-milestones-to-track-work/managing-labels.md,broken liquid tags
-translations/zh-CN/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,Listed in localization-support#489
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,broken liquid tags
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization.md,Listed in localization-support#489
 translations/zh-CN/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags

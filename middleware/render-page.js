@@ -7,37 +7,6 @@ import statsd from '../lib/statsd.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
 
-function cacheOnReq(fn) {
-  const cache = new Map()
-
-  return async function (req) {
-    const path = req.pagePath || req.path
-
-    // Is the request for the GraphQL Explorer page?
-    const isGraphQLExplorer =
-      req.context.currentPathWithoutLanguage === '/graphql/overview/explorer'
-
-    // Serve from the cache if possible
-    const isCacheable =
-      // Skip for HTTP methods other than GET
-      req.method === 'GET' &&
-      // Skip for JSON debugging info requests
-      !('json' in req.query) &&
-      // Skip for the GraphQL Explorer page
-      !isGraphQLExplorer
-
-    if (isCacheable && cache.has(path)) {
-      return cache.get(path)
-    }
-    const result = await fn(req)
-
-    if (result && isCacheable) {
-      cache.set(path, result)
-    }
-    return result
-  }
-}
-
 async function buildRenderedPage(req) {
   const { context } = req
   const { page } = context
@@ -77,8 +46,6 @@ async function buildMiniTocItems(req) {
   return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
 }
 
-const wrapRenderedPage = cacheOnReq(buildRenderedPage)
-
 export default async function renderPage(req, res, next) {
   const { context } = req
   const { page } = context
@@ -114,7 +81,7 @@ export default async function renderPage(req, res, next) {
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
 
-  req.context.renderedPage = await wrapRenderedPage(req)
+  req.context.renderedPage = await buildRenderedPage(req)
   req.context.miniTocItems = await buildMiniTocItems(req)
 
   // Stop processing if the connection was already dropped

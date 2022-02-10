@@ -26,4 +26,4 @@ shortTitle: Manage auto merge
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. [Merge button] の下にある [**Allow auto-merge**] を選択または選択解除します。 ![自動マージを許可または禁止するチェックボックス](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
+1. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or deselect **Allow auto-merge**. ![自動マージを許可または禁止するチェックボックス](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)

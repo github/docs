@@ -5,6 +5,7 @@ permissions: Organization owners and security managers can access the security o
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
+  ghae: issue-5503
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -25,15 +26,15 @@ shortTitle: View the security overview
 {% data reusables.organizations.security-overview %}
 1. Para ver la información agregada sobre los tipos de alerta, haz clic en **Mostrar más**. ![Botón de mostrar más](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-
-{% ifversion ghec or ghes > 3.4 %}
+{% if security-overview-views %}
+1. Alternatively and optionally, use the sidebar on the left to filter information per security feature. On each page, you can use filters that are specific to each feature to fine-tune your search. ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
 ## Viewing alerts across your organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 1. In the security sidebar, select the subset of alerts you want to view. ![View alert subset](/assets/images/help/organizations/view-alert-subset.png)
-2. Opcionalmente, filtra la lista de alertas. Each view has its own selection of available filters. Puedes hacer clic en varios filtros de los menús desplegables de filtros para especificar tu búsqueda. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)." ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
+2. Opcionalmente, filtra la lista de alertas. Cada vista tiene su propia selección de filtros disponibles. Puedes hacer clic en varios filtros de los menús desplegables de filtros para especificar tu búsqueda. También puedes teclear calificadores de búsqueda en el campo de búsqueda. Para obtener más información sobre los calificadores disponibles, consulta la sección "[Filtrar las alertas en el resumen de seguridad](/code-security/security-overview/filtering-alerts-in-the-security-overview)". ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
 
 ## Viewing alerts for a repository
 

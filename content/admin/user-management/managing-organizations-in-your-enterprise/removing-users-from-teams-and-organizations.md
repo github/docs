@@ -6,6 +6,7 @@ redirect_from:
   - /admin/user-management/removing-users-from-teams-and-organizations
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -24,6 +25,8 @@ Only owners or team admins can remove organization members. When a user is remov
 
 ## Removing a team member
 
+{% ifversion ghes %}
+
 {% warning %}
 
 **Note:** {% data reusables.enterprise_management_console.badge_indicator %}
@@ -31,6 +34,8 @@ Only owners or team admins can remove organization members. When a user is remov
 To remove an existing member of a team synced to an LDAP group, contact your LDAP administrator.
 
 {% endwarning %}
+
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
