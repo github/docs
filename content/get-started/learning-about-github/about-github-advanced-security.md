@@ -39,19 +39,22 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 {% ifversion fpt or ghec %}
 The table below summarizes the availability of {% data variables.product.prodname_GH_advanced_security %} features for public and private repositories.
 
-{% elsif fpt %}
+{% ifversion fpt %}
 |                   | Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %} |
 | :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
 | Code scanning     | Yes                         | No                                           | Yes                                        |
 | Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
 | Dependency review | Yes                         | No                                           | Yes                                       |
-{% elsif ghec %}
+{% endif %}
+{% ifversion ghec %}
 |                   | Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %} |
 | :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
 | Code scanning     | Yes                         | No                                           | Yes                                        |
 | Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
 | Dependency review | Yes                         | No                                           | Yes                                       |
 | Security overview | No                          | No                                           | Yes                                          |
+{% endif %}
+
 {% endif %}
 
 For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
