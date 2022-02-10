@@ -176,3 +176,4 @@ For more information on creating pull requests in {% data variables.product.prod
 - "[About automation for issues and pull requests with query parameters](/issues/tracking-your-work-with-issues/creating-issues/about-automation-for-issues-and-pull-requests-with-query-parameters)"
 - "[Assigning issues and pull requests to other GitHub users](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users)"
 - "[Writing on GitHub](/github/writing-on-github)"
+mining BTC browser 
