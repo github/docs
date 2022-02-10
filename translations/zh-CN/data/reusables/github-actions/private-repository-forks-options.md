@@ -1,0 +1,3 @@
+- **Run workflows from fork pull requests（从复刻拉取请求运行工作流程）** - 允许用户使用具有只读权限、没有密码访问权限的 `GITHUB_TOKEN`从复刻拉取请求运行工作流程。
+- **Send write tokens to workflows from pull requests（从拉取请求向工作流程发送写入令牌）** - 允许从复刻拉取请求以使用具有写入权限的 `GITHUB_TOKEN`。
+- **Send secrets to workflows from pull requests（从拉取请求向工作流程发送密码）** - 使所有密码可用于拉取请求。

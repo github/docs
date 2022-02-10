@@ -103,12 +103,6 @@ describe('server', () => {
     })
   })
 
-  test('uses gzip compression', async () => {
-    const res = await get('/en')
-    expect(res.headers['content-encoding']).toBe('gzip')
-    expect(res.headers['transfer-encoding']).toBe('chunked')
-  })
-
   test('sets Content Security Policy (CSP) headers', async () => {
     const res = await get('/en')
     expect('content-security-policy' in res.headers).toBe(true)

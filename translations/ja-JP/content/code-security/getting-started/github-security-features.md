@@ -83,6 +83,12 @@ Automatically detect tokens or credentials that have been checked into a reposit
 Pull Requestをマージする前に、依存関係に対する変更の影響を詳細に示し、脆弱なバージョンがあればその詳細を確認できます。 詳しい情報については「[依存関係のレビュー](/code-security/supply-chain-security/about-dependency-review)」を参照してください。
 {% endif %}
 
+{% ifversion ghec or ghes > 3.1 %}
+### セキュリティの概要
+
+Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+{% endif %}
+
 ## 参考リンク
 - "[{% data variables.product.prodname_dotcom %}の製品](/github/getting-started-with-github/githubs-products)"
 - 「[{% data variables.product.prodname_dotcom %}言語サポート](/github/getting-started-with-github/github-language-support)」

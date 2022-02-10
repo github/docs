@@ -157,7 +157,7 @@ end
 
 このコードは[create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run)メソッドを使用して、[Create a check run](/rest/reference/checks#create-a-check-run)エンドポイントを呼び出します。
 
-チェック実行を作成するために必要なのは、`name` と `head_sha` の 2 つの入力パラメータのみです。 このクイックスタートでは、後で [Rubocop](https://rubocop.readthedocs.io/en/latest/) を使用して CI テストを実装します。そのため、ここでは「Octo Rubocop」という名前を使っていますが、チェック実行には任意の名前を選ぶことができます。
+チェック実行を作成するために必要なのは、`name` と `head_sha` の 2 つの入力パラメータのみです。 We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
 
 ここでは基本的な機能を実行するため必要なパラメータのみを指定していますが、チェック実行について必要な情報を収集するため、後でチェック実行を更新することになります。 デフォルトでは、GitHub は `status` を `queued` に設定します。
 

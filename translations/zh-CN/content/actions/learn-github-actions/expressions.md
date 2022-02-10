@@ -50,12 +50,12 @@ env:
 
 作为表达式的一部分，您可以使用 `boolean`、`null`、`number` 或 `string` 数据类型。
 
-| 数据类型     | 文字值                                                                                                                                                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `布尔值`    | `true` 或 `false`                                                                                                                                                                                                              |
-| `null`   | `null`                                                                                                                                                                                                                        |
-| `number` | JSON 支持的任何数字格式。                                                                                                                                                                                                               |
-| `字符串`    | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
+| 数据类型     | 文字值                                                                                                                                                                                                                                                                                                                                   |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `布尔值`    | `true` 或 `false`                                                                                                                                                                                                                                                                                                                      |
+| `null`   | `null`                                                                                                                                                                                                                                                                                                                                |
+| `number` | JSON 支持的任何数字格式。                                                                                                                                                                                                                                                                                                                       |
+| `字符串`    | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
 #### 示例
 
@@ -268,9 +268,15 @@ jobs:
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ## 状态检查函数
 
 您可以使用以下状态检查函数作为 `if` 条件中的表达式。 除非您包含其中一个函数，否则 `success()` 的默认状态检查将会应用。 For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+{% else %}
+## Check Functions
+您可以使用以下状态检查函数作为 `if` 条件中的表达式。 除非您包含其中一个函数，否则 `success()` 的默认状态检查将会应用。 For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% endif %}
 
 ### success
 
@@ -318,6 +324,7 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ### Evaluate Status Explicitly
 
 Instead of using one of the methods above, you can evaluate the status of the job or composite action that is executing the step directly:
@@ -343,6 +350,7 @@ steps:
 ```
 
 This is the same as using `if: failure()` in a composite action step.
+{% endif %}
 
 ## 对象过滤器
 
