@@ -36,20 +36,19 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 - **Security overview** - Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 
-{% ifversion fpt %}
-The table below summarizes the availability of GitHub Advanced Security features on public and private repositories.
+{% ifversion fpt or ghec%}
+The table below summarizes the availability of {% data variables.product.prodname_GH_advanced_security %} features for public and private repositories.
 
-|                   | Public repository           | Private repository without Advanced Security | Private repository with Advanced Security |
+{% elsif fpt %}
+
+|                   | Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %} |
 | :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
 | Code scanning     | Yes                         | No                                           | Yes                                        |
 | Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
 | Dependency review | Yes                         | No                                           | Yes                                       |
-{% endif %}
+{% elsif ghec %}
 
-{% ifversion ghec %}
-The table below summarizes the availability of GitHub Advanced Security features on public and private repositories.
-
-|                   | Public repository           | Private repository without Advanced Security | Private repository with Advanced Security |
+|                   | Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %} |
 | :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
 | Code scanning     | Yes                         | No                                           | Yes                                        |
 | Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
@@ -60,12 +59,9 @@ The table below summarizes the availability of GitHub Advanced Security features
 For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
 {% ifversion fpt %}
-{% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable these features for private and internal repositories. They also have access to an organization-level security overview. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).
+{% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghec %}, except for the security overview{% endif %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable these features for private and internal repositories. They also have access to an organization-level security overview. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).
 {% endif %}
 
-{% ifversion ghec %}
-{% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}, except for the security overview. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable these features for private and internal repositories. They also have access to an organization-level security overview.
-{% endif %}
 
 {% ifversion ghes or ghec %}
 ## Deploying GitHub Advanced Security in your enterprise
