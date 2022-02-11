@@ -48,7 +48,7 @@ Por padrão, a página de verificação de código de alertas é filtrada para m
 1. Opcionalmente, se o alerta destacar um problema com o fluxo de dados, clique em **Mostrar caminhos** para exibir o caminho da fonte de dados até o destino onde é usado. ![O link "Exibir caminhos" em um alerta](/assets/images/help/repository/code-scanning-show-paths.png)
 1. Alertas da análise de {% data variables.product.prodname_codeql %} incluem uma descrição do problema. Clique em **Mostrar mais** para obter orientação sobre como corrigir seu código. ![Detalhes para um alerta](/assets/images/help/repository/code-scanning-alert-details.png)
 
-For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)."
+Para obter mais informações, consulte "[Sobre alertas de {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)".
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% note %}
@@ -77,7 +77,7 @@ Se você inserir vários filtros, a visualização mostrará alertas que corresp
 
 {% ifversion fpt or ghes > 3.3 or ghec %}
 
-Você pode prefixar o filtro `tag` com `-` para excluir resultados com essa tag. For example, `-tag:style` only shows alerts that do not have the `style` tag{% if codeql-ml-queries %} and `-tag:experimental` will omit all experimental alerts. For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% else %}.{% endif %}
+Você pode prefixar o filtro `tag` com `-` para excluir resultados com essa tag. Por exemplo, `-tag:style` mostra apenas alertas que não têm a tag `estilo`{% if codeql-ml-queries %} e `-tag:experimental` omitirá todos os alertas experimentais. Para obter mais informações, consulte "[Sobre alertas de{% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% else %}.{% endif %}
 
 {% endif %}
 
@@ -120,7 +120,7 @@ Você pode pesquisar na lista de alertas. Isso é útil se houver um grande núm
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+{% if code-scanning-task-lists %}
 ## Rastreando alertas de {% data variables.product.prodname_code_scanning %} em problemas
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}

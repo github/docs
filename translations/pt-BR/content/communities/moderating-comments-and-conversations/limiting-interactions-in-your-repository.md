@@ -28,7 +28,7 @@ Você também pode habilitar limitações de atividade em todos os repositórios
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Access" section of the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Interaction limits**.
+1. Na seção "Acesso" da barra lateral, selecione **Opções de moderação de {% octicon "comment-discussion" aria-label="The comment-discussion icon" %}** e, em seguida, clique em **Limites de interação**.
 {% data reusables.community.set-interaction-limit %}
   ![Opções Temporary interaction limit (Restrições de interação temporárias)](/assets/images/help/repository/temporary-interaction-limits-options.png)
 

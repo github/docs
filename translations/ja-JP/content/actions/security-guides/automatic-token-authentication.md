@@ -85,11 +85,14 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | actions       | read/write  | none | read |
 | checks        | read/write  | none | read |
 | contents      | read/write  | read | read |
-| deployments   | read/write  | none | read |
-| id-token      | read/write  | none | read |
+| deployments   | read/write  | none | read |{% ifversion fpt or ghec %}
+| id-token      | read/write  | none | read |{% endif %}
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |
 | packages      | read/write  | none | read |
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6187 %}
+| pages         | read/write  | none | read |
+{%- endif %}
 | pull-requests | read/write  | none | read |
 | repository-projects | read/write | none | read |
 | security-events     | read/write | none | read |

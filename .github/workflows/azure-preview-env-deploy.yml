@@ -1,12 +1,13 @@
 name: Azure - Deploy Preview Environment
 
-# **What it does**: Build and deploy to an Azure preview environment
-# **Why we have it**: It's our preview environment deploy mechanism, only applicable to docs-internal
+# **What it does**: Build and deploy an Azure preview environment for this PR
+# **Why we have it**: It's our preview environment deploy mechanism, to docs-internal and docs public repo
 # **Who does it impact**: All contributors.
 
-# This whole workflow is only guaranteed to be secure in the *private
-# repo* and because we repo-sync these files over the to the public one,
-# IT'S IMPORTANT THAT THIS WORKFLOW IS ONLY ENABLED IN docs-internal!
+# !!!
+# ! This worflow has access to secrets, runs in the public repository, and clones untrusted user code.
+# ! Modify with extreme caution
+# !!!
 
 on:
   # The advantage of 'pull_request' over 'pull_request_target' is that we
@@ -15,11 +16,15 @@ on:
   # From a security point of view, its arguably safer this way because
   # unlike 'pull_request_target', these only have secrets if the pull
   # request creator has permission to access secrets.
-  pull_request:
+  pull_request_target:
   workflow_dispatch:
     inputs:
       PR_NUMBER:
         description: 'PR Number'
+        type: string
+        required: true
+      COMMIT_REF:
+        description: 'The commit SHA to build'
         type: string
         required: true
 
@@ -34,18 +39,23 @@ concurrency:
 
 jobs:
   build-and-deploy-azure-preview:
-    if: ${{ github.repository == 'github/docs-internal' }}
     name: Build and deploy Azure preview environment
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
-      url: ${{ steps.deploy.outputs.defaultHostName }}
+      # The environment variable is computer later in this job in
+      # the "Get preview app info" step.
+      # That script sets environment variables which is used by Actions
+      # to link a PR to a list of environments later.
+      url: ${{ env.APP_URL }}
     env:
       PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER }}
-      NONPROD_REGISTRY_USERNAME: ghdocs
-      APP_LOCATION: eastus
-      ENABLE_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
+      COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      IS_INTERNAL_BUILD: ${{ github.repository == 'github/docs-internal' }}
+      # This may also run in forked repositories, not just 'github/docs'
+      IS_PUBLIC_BUILD: ${{ github.repository != 'github/docs-internal' }}
 
     steps:
       - name: 'Az CLI login'
@@ -57,16 +67,25 @@ jobs:
         uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
-          username: ${{ env.NONPROD_REGISTRY_USERNAME }}
+          username: ${{ secrets.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
 
-      - name: Check out repo
+      - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
+        name: Check out main branch
         uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: 'main'
+          persist-credentials: 'false'
+          lfs: 'true'
+
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
+        name: Check out PR code
+        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        with:
+          ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
           lfs: 'true'
@@ -75,19 +94,21 @@ jobs:
         run: git lfs checkout
 
       - name: Get preview app info
+        env:
+          APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
         run: .github/actions-scripts/get-preview-app-info.sh
 
       - name: 'Set env vars'
         run: |
           # Image tag is unique to each workflow run so that it always triggers a new deployment
-          echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${IMAGE_REPO}:${{ github.event.pull_request.head.sha }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
+          echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${IMAGE_REPO}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
 
-      - if: ${{ env.ENABLE_EARLY_ACCESS }}
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Determine which docs-early-access branch to clone
         id: 'check-early-access'
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          BRANCH_NAME: ${{ env.BRANCH_NAME }}
         with:
           github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           result-encoding: string
@@ -112,7 +133,7 @@ jobs:
               return 'main'
             }
 
-      - if: ${{ env.ENABLE_EARLY_ACCESS }}
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Clone docs-early-access
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
@@ -121,9 +142,26 @@ jobs:
           path: docs-early-access
           ref: ${{ steps.check-early-access.outputs.result }}
 
-      - if: ${{ env.ENABLE_EARLY_ACCESS }}
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Merge docs-early-access repo's folders
         run: .github/actions-scripts/merge-early-access.sh
+
+      - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
+        name: Check out user code to temp directory
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        with:
+          path: ./user-code
+          ref: ${{ env.COMMIT_REF }}
+
+      # Move acceptable user changes into our main branch checkout
+      - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
+        name: Move acceptable user changes
+        run: |
+          # Make sure recursive path expansion is enabled
+          shopt -s globstar
+          rsync -rptovR ./user-code/content/./**/*.md ./content
+          rsync -rptovR ./user-code/assets/./**/*.png ./assets
+          rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
 
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'
@@ -144,7 +182,7 @@ jobs:
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any existing deployments for this PR'
         run: |
-          az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ env.RESOURCE_GROUP }} || true
+          az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }} || true
 
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
@@ -152,15 +190,18 @@ jobs:
         id: deploy
         uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
         with:
-          resourceGroupName: ${{ env.RESOURCE_GROUP }}
+          resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
           template: ./azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
-          parameters: appName="${{ env.APP_NAME_SHORT }}"
-            location="${{ env.APP_LOCATION }}"
-            linuxFxVersion="DOCKER|${{ env.DOCKER_IMAGE }}"
-            dockerRegistryUrl="https://${{ secrets.NONPROD_REGISTRY_SERVER }}"
-            dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
+          parameters: appName="${{ env.APP_NAME }}"
+            location="${{ env.PREVIEW_ENV_LOCATION }}"
+            containerImage="${{ env.DOCKER_IMAGE }}"
+            dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
+            dockerRegistryUsername="${{ secrets.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
-
-      - run: echo ${{ steps.deploy.outputs.defaultHostName }}
+            storageAccountName="${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}"
+            storageAccountKey="${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}"
+          # this shows warnings in the github actions console, because the flag is passed through a validation run,
+          # but it *is* functional during the actual execution
+          additionalArguments: --no-wait

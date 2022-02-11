@@ -1,6 +1,6 @@
 ---
 title: プロジェクト（ベータ）の自動化
-intro: 'You can use built-in workflows or the API and {% data variables.product.prodname_actions %} to manage your projects.'
+intro: '組み込みのワークフロー、あるいはAPIと{% data variables.product.prodname_actions %}を使ってプロジェクトを管理できます。'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -17,13 +17,13 @@ topics:
 
 ## はじめに
 
-You can add automation to help manage your project. Projects (beta) includes built-in workflows that you can configure through the UI. Additionally, you can write custom workflows with the GraphQL API and {% data variables.product.prodname_actions %}.
+プロジェクトの管理に役立つ自動化を追加できます。 プロジェクト（ベータ）には、UIを通じて設定できる組み込みのワークフローが含まれています。 加えて、GraphQL APIと{% data variables.product.prodname_actions %}でカスタムのワークフローを書くことができます。
 
-## Built-in workflows
+## 組み込みのワークフロー
 
 {% data reusables.projects.about-workflows %}
 
-You can enable or disable the built-in workflows for your project.
+プロジェクトでは、組み込みのワークフローを有効化あるいは無効化できます。
 
 {% data reusables.projects.enable-basic-workflow %}
 

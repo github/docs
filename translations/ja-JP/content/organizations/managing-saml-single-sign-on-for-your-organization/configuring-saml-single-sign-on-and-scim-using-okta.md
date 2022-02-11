@@ -31,24 +31,11 @@ Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for
 
 ## Okta で {% data variables.product.prodname_ghe_cloud %} アプリケーションを追加する
 
-{% data reusables.saml.okta-sign-into-your-account %}
-1. Navigate to the [Github Enterprise Cloud - Organization](https://www.okta.com/integrations/github-enterprise-cloud-organization) application in the Okta Integration Network and click **Add Integration**.
-1. オプションで、[Application label] の右にアプリケーションのわかりやすい名前を入力します。
-1. In the **GitHub Organization** field, type the name of your organization on {% data variables.product.product_location %}. たとえば、Organization の URL が https://github.com/octo-org の場合、Organization 名は `octo-org` となります。
-1. [**Done**] をクリックします。
-
-## SAML SSO の有効化とテスト
-
-{% data reusables.saml.okta-sign-into-your-account %}
-{% data reusables.saml.okta-dashboard-click-applications %}
-{% data reusables.saml.okta-applications-click-ghec-application-label %}
-{% data reusables.saml.assign-yourself-to-okta %}
 {% data reusables.saml.okta-sign-on-tab %}
 {% data reusables.saml.okta-view-setup-instructions %}
 1. SAML 2.0 の設定方法に関するガイドから、サインオン URL、発行者 URL、公開の証明書を使用して、{% data variables.product.prodname_dotcom %} での SAML SSO を有効化してテストします。 詳細は「[Organization での SAML シングルサインオンの有効化とテスト](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization)」を参照してください。
 
 ## Okta で SCIM を使ってアクセスのプロビジョニングを設定する
-
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
 {% data reusables.saml.okta-provisioning-tab %}

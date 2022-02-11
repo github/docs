@@ -47,6 +47,8 @@ DockerアクションはデフォルトのDockerユーザ（root）で実行さ�
 
 Dockerの`ENTRYPOINT`命令には、_shell_形式と_exec_形式があります。 Dockerの`ENTRYPOINT`のドキュメンテーションは、`ENTRYPOINT`の_exec_形式を使うことを勧めています。 _exec_および_shell_形式に関する詳しい情報については、Dockerのドキュメンテーション中の[ENTRYPOINTのリファレンス](https://docs.docker.com/engine/reference/builder/#entrypoint)を参照してください。
 
+You should not use `WORKDIR` to specify your entrypoint in your Dockerfile. Instead, you should use an absolute path. For more information, see [WORKDIR](#workdir).
+
 _exec_形式の`ENTRYPOINT`命令を使うようにコンテナを設定した場合、アクションのメタデータファイル中に設定された`args`はコマンドシェル内では実行されません。 アクションの`args`に環境変数が含まれている場合、その変数は置換されません。 たとえば、以下の_exec_形式は`$GITHUB_SHA`に保存された値を出力せず、代わりに`"$GITHUB_SHA"`を出力します。
 
 ```dockerfile

@@ -178,7 +178,7 @@ topics:
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. 在左侧边栏中，单击 **LDAP users**。 ![LDAP users 选项卡](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
-4. 要搜索用户，请输入完整或部分用户名，然后单击 **Search**。 现有用户将显示在搜索结果中。 如果用户不存在，请单击 **Create** 以配置新用户帐户。 ![LDAP 搜索](/assets/images/enterprise/site-admin-settings/ldap-users-search.png)
+4. 要搜索用户，请输入完整或部分用户名，然后单击 **Search**。 现有用户将显示在搜索结果中。 如果用户不存在，请单击 **Create** 以配置新用户帐户。 ![LDAP 搜索](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
 
 ## 更新 LDAP 帐户
 

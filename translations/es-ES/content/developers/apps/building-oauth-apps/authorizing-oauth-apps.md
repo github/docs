@@ -293,10 +293,10 @@ El parámetro `redirect_uri` es opcional. Si se deja fuera, GitHub redireccionar
 
 El parámetro opcional `redirect_uri` también puede utilizarse para las URL de localhost. Si la aplicación especifica una URL y puerto de localhost, entonces, después de autorizar la aplicación, los usuarios se redireccionarán al puerto y URL proporcionados. La `redirect_uri` no necesita empatar con el puerto especificado en la url de rellamado para la app.
 
-Para la URL de rellamado de `http://localhost/path`, puedes utilizar esta `redirect_uri`:
+For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
 
 ```
-http://localhost:1234/path
+http://127.0.0.1:1234/path
 ```
 
 ## Crear tokens múltiples para Apps de OAuth
