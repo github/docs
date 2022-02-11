@@ -78,7 +78,7 @@ You can also read the current version by calling the [meta endpoint](/rest/refer
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 %}
 ## Billing
 
 {% for operation in currentRestOperations %}

@@ -17,7 +17,7 @@ topics:
 
 复刻仓库类似于复制仓库，主要有两点差异：
 
-* 您可以使用拉取请求将更改从用户拥有的复刻提交到原始仓库，也称为*上游*仓库。
+* You can use a pull request to suggest changes from your user-owned fork to the original repository in its GitHub instance, also known as the *upstream* repository.
 * 您可以通过同步复刻与上游仓库，将更改从上游仓库提交到本地复刻。
 
 {% data reusables.repositories.you-can-fork %}

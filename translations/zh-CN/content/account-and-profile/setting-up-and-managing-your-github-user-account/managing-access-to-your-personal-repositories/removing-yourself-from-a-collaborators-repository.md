@@ -21,7 +21,7 @@ shortTitle: 删除自己
 ---
 
 {% data reusables.user_settings.access_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 2. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-label="The repo icon" %} Repositories**.
 {% else %}
 2. 在左侧边栏中，单击 **Repositories（仓库）**。 ![仓库选项卡](/assets/images/help/settings/settings-sidebar-repositories.png)
