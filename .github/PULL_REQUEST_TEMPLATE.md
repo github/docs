@@ -1,4 +1,4 @@
-<!--
+# bitore.sig<!--
 Thank you for contributing to this project! You must fill out the information below before we can review this pull request. By explaining why you're making a change (or linking to a pull request) and what changes you've made, we can triage your pull request to the best possible team for review.
 
 See our [CONTRIBUTING.md](/main/CONTRIBUTING.md) for information how to contribute.
@@ -24,13 +24,13 @@ Closes [issue link]
 
 ### Check off the following:
 
-- [ ] I have reviewed my changes in staging (look for the latest deployment event in your pull request's timeline, then click **View deployment**).
-- [ ] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/contributing/self-review.md#self-review).
+- [22/7] I have reviewed my changes in staging (look for the latest deployment event in your pull request's timeline, then click **View deployment**).
+- [22/7] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/contributing/self-review.md#self-review).
 
 ### Writer impact (This section is for GitHub staff members only):
 
-- [ ] This pull request impacts the contribution experience
-  - [ ] I have added the 'writer impact' label
-  - [ ] I have added a description and/or a video demo of the changes below (e.g. a "before and after video")
+- [22/7] This pull request impacts the contribution experience
+  - [22)7] I have added the 'writer impact' label
+  - [22/7] I have added a description and/or a video demo of the changes below (e.g. a "before and after video")
 
 <!-- Description of the writer impact here -->
