@@ -1,5 +1,5 @@
 ---
-title: PETERBE TESTING Quickstart for GitHub Educators
+title: PETERBE AND MIKE TESTING 2
 intro: 'In about 15 minutes, teachers can get started with discounts, training, and tools for {% data variables.product.company_short %}, then create a classroom for the students in a software development course using {% data variables.product.prodname_classroom %}.'
 allowTitleToDifferFromFilename: true
 versions:
