@@ -22,7 +22,7 @@ topics:
 
 **注：**在处理拉取请求时，请记住：
 * 如果操作的是[共享仓库型号](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)，建议对拉取请求使用主题分支。 从任何分支或提交都可发送拉取请求，但如果需要更新提议的更改，则可使用主题分支推送跟进提交。
-* 在推送提交到拉取请求时，请勿强制推送。 Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
+* Be very careful when force pushing commits to a pull request. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
 
 {% endnote %}
 

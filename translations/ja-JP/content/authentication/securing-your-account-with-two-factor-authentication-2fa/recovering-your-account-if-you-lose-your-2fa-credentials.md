@@ -64,7 +64,7 @@ If you know your password for {% data variables.product.product_location %} but 
 
 {% note %}
 
-**注釈**: セキュリティ上の理由から、ワンタイムパスワードで認証してアカウントへのアクセスを回復するには、1〜3 営業日かかる場合があります。 {% data variables.product.company_short %} will not review additional requests submitted during this time.
+**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
 
 {% endnote %}
 
@@ -101,6 +101,6 @@ If you know your password for {% data variables.product.product_location %} but 
     - If you've previously set up a personal access token and would like to use the personal access token for verification, click **Personal access token**.
 
    ![Screenshot of buttons for alternative verification](/assets/images/help/2fa/alt-verifications.png)
-1. {% data variables.contact.github_support %}のメンバーがリクエストをレビューし、1〜3 営業日以内にメールでお知らせします。 リクエストが承認されると、アカウントリカバリプロセスを完了するためのリンクが送信されます。 リクエストが拒否された場合、追加の質問がある場合のサポートへの問い合わせ方法がメールに記載されます。
+1. A member of {% data variables.contact.github_support %} will review your request and email you within three business days. リクエストが承認されると、アカウントリカバリプロセスを完了するためのリンクが送信されます。 リクエストが拒否された場合、追加の質問がある場合のサポートへの問い合わせ方法がメールに記載されます。
 
 {% endif %}

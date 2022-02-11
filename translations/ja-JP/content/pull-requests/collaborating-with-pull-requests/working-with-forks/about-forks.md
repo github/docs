@@ -17,7 +17,7 @@ topics:
 
 リポジトリのフォークはリポジトリのコピーと似ていますが、次の 2 つの大きな違いがあります。
 
-* プルリクエストを使ってユーザが所有するフォークからの変更をオリジナルのリポジトリ（*上流*のリポジトリとも呼ばれます）に提案できます。
+* You can use a pull request to suggest changes from your user-owned fork to the original repository in its GitHub instance, also known as the *upstream* repository.
 * 上流のリポジトリと自分のフォークを同期させることで、上流のリポジトリからの変更を自分のローカルフォークへ持ち込めます。
 
 {% data reusables.repositories.you-can-fork %}

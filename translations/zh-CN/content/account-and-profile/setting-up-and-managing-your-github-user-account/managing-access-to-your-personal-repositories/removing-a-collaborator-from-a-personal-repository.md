@@ -30,7 +30,7 @@ shortTitle: 删除协作者
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 {% data reusables.repositories.click-collaborators-teams %}
 4. 在要要删除的协作者的右侧，单击 {% octicon "trash" aria-label="The trash icon" %}。 ![用于删除协作者的按钮](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
