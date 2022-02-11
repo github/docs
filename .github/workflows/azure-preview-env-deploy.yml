@@ -150,8 +150,9 @@ jobs:
         name: Check out user code to temp directory
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
-          path: ./user-code
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
           ref: ${{ env.COMMIT_REF }}
+          path: ./user-code
 
       # Move acceptable user changes into our main branch checkout
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
