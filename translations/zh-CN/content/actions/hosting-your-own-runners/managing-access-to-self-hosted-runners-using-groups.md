@@ -46,7 +46,7 @@ Self-hosted runner groups are used to control access to self-hosted runners. 组
 
 创建组时，必须选择用于定义哪些仓库有权访问运行器组的策略。
 
-{% ifversion ghec %}
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-groups %}
@@ -61,12 +61,11 @@ Self-hosted runner groups are used to control access to self-hosted runners. 组
 
    {% endwarning %}
 {% data reusables.github-actions.self-hosted-runner-create-group %}
-{% endif %}
-{% ifversion ghae or ghes %}
+{% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. 在“Self-hosted runners（自托管运行器）”部分，单击 **Add new（新增）**，然后单击 **New group（新组）**。
+1. Under {% ifversion ghes > 3.1 or ghae %}"Runners"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %}, click **Add new**, and then **New group**.
 
     ![添加运行器组](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. 输入运行程序组的名称，并分配仓库访问策略。
@@ -95,7 +94,7 @@ Self-hosted runner groups are used to control access to self-hosted runners. 组
 
 创建组时，必须选择用于定义哪些组织有权访问运行器组的策略。
 
-{% ifversion ghec %}
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
@@ -113,8 +112,7 @@ Self-hosted runner groups are used to control access to self-hosted runners. 组
 
    {% endwarning %}
 {% data reusables.github-actions.self-hosted-runner-create-group %}
-{% endif %}
-{% ifversion ghae or ghes %}
+{% elsif ghae or ghes < 3.4 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
@@ -144,7 +142,7 @@ Self-hosted runner groups are used to control access to self-hosted runners. 组
 ## 更改自托管运行器组的访问策略
 
 您可以更新运行器组的访问策略，或重命名运行器组。
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-groups-selection %}
 1. 修改访问选项或更改运行器组名称。
@@ -158,8 +156,7 @@ Self-hosted runner groups are used to control access to self-hosted runners. 组
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
    {% endwarning %}
-{% endif %}
-{% ifversion ghae or ghes %}
+{% elsif ghae or ghes < 3.4 %}
 {% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
 
@@ -181,17 +178,18 @@ Self-hosted runner groups are used to control access to self-hosted runners. 组
 ## 将自托管的运行器移动到组
 
 如果您在注册过程中没有指定运行器组，新的自托管运行器将自动分配到默认组，然后可以移到另一个组。
-{% ifversion ghec or ghes > 3.1 or ghae %}
+
 {% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. 在“Runners（运行器）”列表中，单击您要配置的运行器。
 2. 选择运行器组下拉菜单。
 3. 在“Move runner to group（将运行器移动到组）”中，选择运行器的目的地组。
-{% endif %}
-{% ifversion ghes < 3.2 or ghae %}
-1. 在设置页面的“Self-hosted runners（自托管运行器）：部分，找到要移动的运行器的当前组，并展开组成员列表。 ![查看运行器组成员](/assets/images/help/settings/actions-org-runner-group-members.png)
+{% elsif ghae or ghes < 3.4 %}
+1. In the {% ifversion ghes > 3.1 or ghae %}"Runner groups"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![查看运行器组成员](/assets/images/help/settings/actions-org-runner-group-members.png)
 2. 选中自托管运行器旁边的复选框，然后单击 **Move to group（移动到组）**以查看可用的目的地。 ![运行器组成员移动](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 3. 要移动运行器，请单击目标组。 ![运行器组成员移动](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
+
 ## 删除自托管运行器组
 
 自托管运行器在其组被删除时将自动返回到默认组。
@@ -201,8 +199,7 @@ Self-hosted runner groups are used to control access to self-hosted runners. 组
 1. 在组列表中，在要删除的组右侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。
 2. 要删除组，请单击 **Remove group（删除组）**。
 3. 查看确认提示，然后单击 **Remove this runner group（删除此运行器组）**。
-{% endif %}
-{% ifversion ghes < 3.2 or ghae %}
+{% elsif ghes < 3.2 %}
 1. 在设置页面的“Self-hosted runners（自托管运行器）”部分，找到要删除的组，然后单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 按钮。 ![查看运行器组设置](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. 要删除组，请单击 **Remove group（删除组）**。 ![查看运行器组设置](/assets/images/help/settings/actions-org-runner-group-remove.png)

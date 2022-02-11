@@ -36,7 +36,7 @@ Você pode criar uma política de segurança padrão que será exibida em qualqu
 {% ifversion fpt or ghes > 2.22 or ghae-issue-4864 or ghec %}
 ## Gerenciar {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependências
 
-{% ifversion fpt or ghec %}Por padrão, {% data variables.product.prodname_dotcom %} detecta vulnerabilidades nos repositórios públicos, gera {% data variables.product.prodname_dependabot_alerts %} e um gráfico de dependência. Você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependência de todos os repositórios privados da sua organização.
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and displays the dependency graph. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all public repositories owned by your organization. Você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependência de todos os repositórios privados da sua organização.
 
 1. Clique na sua foto de perfil e clique em **Organizações**.
 2. Clique em **Configurações** ao lado da sua organização.

@@ -22,7 +22,7 @@ Você pode querer usar um tema escuro para reduzir o consumo de energia em certo
 
 {% note %}
 
-**Nota:** Os temas para daltônicos e os temas com alto contraste de luz estão atualmente em beta público. Para obter mais informações sobre como habilitar funcionalidades no beta público, consulte "[Explorando versões de acesso antecipado com visualização de funcionalidades](/get-started/using-github/exploring-early-access-releases-with-feature-preview)".
+**Observação:** Os temas coloridos estão atualmente em beta público. Para obter mais informações sobre como habilitar funcionalidades no beta público, consulte "[Explorando versões de acesso antecipado com visualização de funcionalidades](/get-started/using-github/exploring-early-access-releases-with-feature-preview)".
 
 {% endnote %}
 
