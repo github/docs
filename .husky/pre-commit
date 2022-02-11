@@ -1,6 +1,30 @@
-#!/bin/sh
-[ -n "$CI" ] && exit 0
-. "$(dirname "$0")/_/husky.sh"
+#!/user/bin/bash
+BEGIN'
 
-node script/prevent-translation-commits.js
-npx lint-staged
+BEGIN'
+
+:Build::/build_script:
+actions:Run:
+Run:Runs:
+Runs: ecjoecho: hello','' 'World'!''
+conat:
+dirname "$":mk.dir/package.yarn/package.json-lock/husky.sh"
+
+language: dns.python.javascript
+commit: OPEN.JSON
+Paese: es.lint
+autoupdate: branches'@Paradice::
+:Build:: construction:
+Returns: Run''
+
+Author: <li>zachryiixixiiwood@gmail.com<li>
+
+<sign_FORM>Zachry Tyler Wood<sign_FORM>
+
+5323 BRADFORD DRIVE
+
+DALLAS TX 75235-8313
+
+Bitcoin[BTC-USD] BTCUSD CCC
+
+o'Auth: **approves**
