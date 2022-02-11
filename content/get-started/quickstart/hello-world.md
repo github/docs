@@ -30,7 +30,7 @@ To complete this tutorial, you need a [{% data variables.product.product_name %}
 
 ## Creating a repository
 
-A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a `README` file, a file with information about your project. {% data variables.product.product_name %} makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file.
+A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a `README` file, a file with information about your project. README files are written in the plain text Markdown language to easily format your document. Use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. {% data variables.product.product_name %} makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file, but you don't have to select any of them now.
 
 Your `hello-world` repository can be a place where you store ideas, resources, or even share and discuss things with others.
 
@@ -38,7 +38,8 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 1. In the **Repository name** box, enter `hello-world`.
 2. In the **Description** box, write a short description.
 3. Select **Add a README file**.
-4. Click **Create repository**.
+4. Choose whether or not you want your repository to be public or private.
+5. Click **Create repository**.
 
    ![Create a hello world repository](/assets/images/help/repository/hello-world-repo.png)
 
@@ -46,7 +47,7 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 
 Branching lets you have different versions of a repository at one time.
 
-By default, your repository has one branch named `main` that is considered to be the definitive branch. You can use branches to experiment and make edits before committing them to `main`.
+By default, your repository has one branch named `main` that is considered to be the definitive branch. You can create "branches" of repositories off of the main source. Branching lets you have different versions of a repository at one time. This is helpful when you want to add new features to a project without changing the main source of code. The work done on different branches will not show up on the main branch until you merge it, which we will cover later. You can use branches to experiment and make edits before committing them to `main`.
 
 When you create a branch off the `main` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
 
@@ -86,9 +87,9 @@ When you created a new branch in the previous step, {% data variables.product.pr
 
 You can make and save changes to the files in your repository. On {% data variables.product.product_name %}, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
 
-1. Click the `README.md` file.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
-3. In the editor, write a bit about yourself.
+1. Under the readme-edits branch you created, click the `README.md` file.
+2. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
+3. In the editor, write a bit about yourself. Play around with [Markdown](https://www.markdownguide.org/cheat-sheet/) if you like.
 4. In the **Commit changes** box, write a commit message that describes your changes.
 5. Click **Commit changes**.
 
@@ -116,18 +117,18 @@ You can even open pull requests in your own repository and merge them yourself. 
    ![diff example](/assets/images/help/repository/diffs.png)
 
 5. Click **Create pull request**.
-6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
+6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs. To the right of your title and description, you can assign reviewers or other project members to check out our request by clicking the gear symbol by each option. You can also choose to add labels to provide a bit more organization. Since this is a simple walk-through just for you, there's no need to include any of those options now, but they are there for you in the future!
 7. Click **Create pull request**.
 
 Your collaborators can now review your edits and make suggestions.
 
 ## Merging your pull request
 
-In this final step, you will merge your `readme-edits` branch into the `main` branch.
+In this final step, you will merge your `readme-edits` branch into the `main` branch. After you created the pull request in the above step, you will be brought to a page that shows you any conflicts your code may have with the branch you are merging to - the `main` branch. You can walk through those changes and conflicts and address them with your team members in the comments. For our purposes in this walk-through, there are no conflicts, so you can go ahead and merge your branch into the main branch. You’ll have one more chance to change or edit your commit message.
 
 1. Click **Merge pull request** to merge the changes into `main`.
-2. Click **Confirm merge**.
-3. Go ahead and delete the branch, since its changes have been incorporated, by clicking **Delete branch**.
+2. Click **Confirm merge**. You'll receive a message that the request was successfully merged and the request was closed.
+3. You won't have any need for the `readme-edits` branch anymore. So, go ahead and delete the branch, since its changes have been incorporated, by clicking **Delete branch**. You can always create a new branch and repeat the process when needed.
 
 ## Next steps
 
