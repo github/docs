@@ -88,15 +88,10 @@ describe('server', () => {
       const productTitles = productItems.map((el) => $(el).text().trim())
       const productHrefs = productItems.map((el) => $(el).attr('href'))
 
-      const firstSidebarTitle = sidebarTitles.shift()
-      const firstSidebarHref = sidebarHrefs.shift()
-
       const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
 
       const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
 
-      expect(firstSidebarTitle).toBe('All products')
-      expect(firstSidebarHref).toBe('/en')
       expect(
         titlesInProductsButNotSidebar.length,
         `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`
@@ -106,12 +101,6 @@ describe('server', () => {
         `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`
       ).toBe(0)
     })
-  })
-
-  test('uses gzip compression', async () => {
-    const res = await get('/en')
-    expect(res.headers['content-encoding']).toBe('gzip')
-    expect(res.headers['transfer-encoding']).toBe('chunked')
   })
 
   test('sets Content Security Policy (CSP) headers', async () => {
@@ -675,6 +664,24 @@ describe('server', () => {
       )
     })
 
+    // This test exists because in a previous life, our NextJS used to
+    // 500 if the 'Accept-Language' header was malformed.
+    // We *used* have a custom middleware to cope with this and force a
+    // fallback redirect.
+    // See internal issue 19909
+    test('redirects /en if Accept-Language header is malformed', async () => {
+      const res = await get('/', {
+        headers: {
+          'accept-language': 'ldfir;',
+        },
+      })
+
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en')
+      expect(res.headers['cache-control']).toBe('private, no-store')
+      expect(res.headers['set-cookie']).toBeUndefined()
+    })
+
     test('redirects / to /en when unsupported language preference is specified', async () => {
       const res = await get('/', {
         headers: {
@@ -728,8 +735,8 @@ describe('server', () => {
   describe('categories and map topics', () => {
     test('adds links to categories on the dotcom homepage', async () => {
       const $ = await getDOM('/en/github')
-      expect($('a[href="/en/github/customizing-your-github-workflow"]').length).toBe(1)
-      expect($('a[href="#customizing-your-github-workflow"]').length).toBe(0)
+      expect($('a[href="/en/github/copilot"]').length).toBe(1)
+      expect($('a[href="#copilot"]').length).toBe(0)
     })
 
     test('adds links to map topics on a category homepage', async () => {
@@ -1039,7 +1046,16 @@ describe('static routes', () => {
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    expect(res.headers['surrogate-key']).toBeTruthy()
+    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
+  })
+
+  it('no manual surrogate key for /assets requests without caching-busting prefix', async () => {
+    const res = await get('/assets/images/site/be-social.gif')
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
   })
 
   it('serves schema files from the /data/graphql directory at /public', async () => {

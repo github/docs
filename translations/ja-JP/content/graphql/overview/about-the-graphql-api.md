@@ -12,7 +12,7 @@ topics:
 
 ## 概要
 
-以下は、GraphQL API v4を使い始めるためのクイックリンクです。
+Here are some quick links to get you up and running with the GraphQL API:
 
 * [認証](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
 * [ルートエンドポイント](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
@@ -36,9 +36,9 @@ topics:
 
 ## GitHubがGraphQLを使う理由
 
-GitHubは、インテグレーターにとって大きな柔軟性を提供してくれることから、API v4にGraphQLを選択しました。 ほしいデータ_だけ_を正確に定義できるのは、REST API v3エンドポイントよりも強力な利点です。 GraphQLを使えば、指定したデータをフェッチするための複数のRESTのリクエストを_単一の呼び出し_で置き換えられます。
+GitHub chose GraphQL because it offers significantly more flexibility for our integrators. The ability to define precisely the data you want&mdash;and _only_ the data you want&mdash;is a powerful advantage over traditional REST API endpoints. GraphQLを使えば、指定したデータをフェッチするための複数のRESTのリクエストを_単一の呼び出し_で置き換えられます。
 
-GitHubがGraphQLに移行した理由の詳細については、オリジナルの[アナウンスのblogポスト](https://githubengineering.com/the-github-graphql-api/)を参照してください。
+For more details about why GitHub invested in GraphQL, see the original [announcement blog post](https://github.blog/2016-09-14-the-github-graphql-api/).
 
 ## GraphQLのスキーマ参照について
 

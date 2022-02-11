@@ -449,8 +449,8 @@ While most of your API インタラクションのほとんどは、サーバー
 {% ifversion fpt or ghec %}
 #### Organization Team Sync
 
-* [Teamのidpグループの一覧表示](/rest/reference/teams#list-idp-groups-for-a-team)
-* [idpグループの接続の作成あるいは更新](/rest/reference/teams#create-or-update-idp-group-connections)
+* [List IdP groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
+* [Create or update IdP group connections](/rest/reference/teams#create-or-update-idp-group-connections)
 * [OrganizationのIdpグループの一覧表示](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 

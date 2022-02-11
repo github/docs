@@ -50,12 +50,12 @@ env:
 
 式の一部として、`boolean`、`null`、`number`、または`string`のデータ型を使用できます。
 
-| データ型      | リテラル値                                                                                                                                                                                                                         |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `boolean` | `true` または `false`                                                                                                                                                                                                            |
-| `null`    | `null`                                                                                                                                                                                                                        |
-| `number`  | JSONでサポートされている任意の数値書式。                                                                                                                                                                                                        |
-| `string`  | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
+| データ型      | リテラル値                                                                                                                                                                                                                                                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `boolean` | `true` または `false`                                                                                                                                                                                                                                                                                                                    |
+| `null`    | `null`                                                                                                                                                                                                                                                                                                                                |
+| `number`  | JSONでサポートされている任意の数値書式。                                                                                                                                                                                                                                                                                                                |
+| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
 #### サンプル
 
@@ -268,9 +268,15 @@ jobs:
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ## ステータスチェック関数
 
 `if` 条件では、次のステータスチェック関数を式として使用できます。 A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+{% else %}
+## Check Functions
+`if` 条件では、次のステータスチェック関数を式として使用できます。 A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% endif %}
 
 ### success
 
@@ -318,6 +324,7 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ### Evaluate Status Explicitly
 
 Instead of using one of the methods above, you can evaluate the status of the job or composite action that is executing the step directly:
@@ -343,6 +350,7 @@ steps:
 ```
 
 This is the same as using `if: failure()` in a composite action step.
+{% endif %}
 
 ## オブジェクトフィルタ
 

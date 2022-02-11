@@ -46,7 +46,7 @@ To follow-up on notifications, you might consider the question "What was I block
 
 例如，您可以决定按照以下顺序采取后续行动：
   - 分配给您的议题和拉取请求。 立即关闭您可以关闭的任何议题或拉取请求，并添加更新。 需要时，保存通知供以后查看。
-  - 查看已保存的收件箱中的通知，尤其是未读更新。 如果帖子不再相关，请取消选中 {% octicon "bookmark" aria-label="The bookmark icon" %} 以从保存的收件箱中删除通知并取消保存它。
+  - 查看已保存的收件箱中的通知，尤其是未读更新。 If the thread is no longer relevant, deselect {% octicon "bookmark" aria-label="The bookmark icon" %} to remove the notification from the saved inbox and unsave it.
 
 ## 管理低优先级通知
 

@@ -217,6 +217,10 @@ Por exemplo:
 curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://AzureADTokenExchange"
 ```
 
+### Adicionando configurações de permissões
+
+{% data reusables.actions.oidc-permissions-token %}
+
 ## Atualizando seus fluxos de trabalho para o OIDC
 
 Agora você pode atualizar seus fluxos de trabalho do YAML para usar tokens de acesso do OIDC em vez de segredos. Os provedores de nuvem populares publicaram suas ações de login oficiais que facilitam o seu início de sessão com o OIDC. Para obter mais informações sobre a atualização dos seus fluxos de trabalho, consulte os guias específicos da nuvem listados abaixo em "[Habilitando o OpenID Connect para o seu provedor de nuvem](#enabling-openid-connect-for-your-cloud-provider)".

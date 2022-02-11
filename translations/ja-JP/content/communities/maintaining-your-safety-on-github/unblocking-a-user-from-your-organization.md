@@ -33,7 +33,7 @@ Organization からユーザのブロックを解除すると、そのユーザ�
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}
+{% data reusables.organizations.moderation-settings %}, then click **Blocked users**.
 5. [Blocked users] の下で、ブロックを解除したいユーザの横にある [**Unblock**] をクリックします。 ![ユーザブロックの解除ボタン](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## 参考リンク

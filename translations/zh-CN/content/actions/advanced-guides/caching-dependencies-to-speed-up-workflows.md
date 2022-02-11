@@ -88,7 +88,7 @@ If you are caching the package managers listed below, consider using the respect
 ### `cache` 操作的输入参数
 
 - `key`：**必要** 保存缓存时创建的键，以及用于搜索缓存的键。 可以是变量、上下文值、静态字符串和函数的任何组合。 密钥最大长度为 512 个字符，密钥长度超过最大长度将导致操作失败。
-- `path`：**必要** 运行器上缓存或还原的文件路径。 路径可以是绝对路径或相对于工作目录的路径。
+- `path`：**必要** 运行器上缓存或还原的文件路径。 The path can be an absolute path or relative to the workspace directory.
   - 路径可以是目录或单个文件，并且支持 glob 模式。
   - 使用 `cache` 操作的 `v2`，可以指定单个路径，也可以在单独的行上添加多个路径。 例如：
     ```

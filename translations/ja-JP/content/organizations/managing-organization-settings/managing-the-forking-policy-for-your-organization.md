@@ -23,6 +23,7 @@ Organization レベルでプライベート{% ifversion ghes or ghec or ghae %} 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
+{% data reusables.profile.org_member_privileges %}
 1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
 
    {%- ifversion fpt %}

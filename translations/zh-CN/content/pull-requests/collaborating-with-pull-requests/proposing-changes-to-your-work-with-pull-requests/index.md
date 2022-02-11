@@ -22,6 +22,7 @@ children:
   - /using-query-parameters-to-create-a-pull-request
   - /changing-the-stage-of-a-pull-request
   - /requesting-a-pull-request-review
+  - /keeping-your-pull-request-in-sync-with-the-base-branch
   - /changing-the-base-branch-of-a-pull-request
   - /committing-changes-to-a-pull-request-branch-created-from-a-fork
 shortTitle: 提议更改
