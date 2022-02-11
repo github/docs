@@ -195,6 +195,8 @@ Use o comando `git remote rm` para remover uma URL remota do seu repositório.
 O comando `git remote rm` tem um argumento:
 * O nome de um remote, como `destination`
 
+Removing the remote URL from your repository only unlinks the local and remote repositories. It does not delete the remote repository.
+
 ## Exemplo
 
 Estes exemplos supõem que você está [clonando usando HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), que é o método recomendado.
@@ -217,7 +219,7 @@ $ git remote -v
 
 {% warning %}
 
-**Observação**: o comando `git remote rm` não exclui o repositório do remote no servidor.  Ele simplesmente remove o remote e suas referências do repositório local.
+**Note**: `git remote rm` does not delete the remote repository from the server.  Ele simplesmente remove o remote e suas referências do repositório local.
 
 {% endwarning %}
 

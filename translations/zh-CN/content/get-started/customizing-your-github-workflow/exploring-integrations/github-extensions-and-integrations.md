@@ -46,10 +46,10 @@ shortTitle: 扩展和集成
 
 ### Slack 与 {% data variables.product.product_name %} 集成
 
-您可以订阅仓库或组织，并获得有关议题、拉取请求、提交、发布、部署审查和部署状态的实时更新。 您还可以执行关闭或打开议题等活动，并在不离开 Slack 的情况下提供丰富的议题和拉取请求参考。
+You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. 您还可以执行关闭或打开议题等活动，并在不离开 Slack 的情况下提供丰富的议题和拉取请求参考。
 
 The {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). 更多信息请访问 Marketplace 中的 [Slack 集成应用程序](https://github.com/marketplace/slack-github)。
 
 ### Microsoft Teams 与 {% data variables.product.product_name %} 集成
 
-您可以订阅仓库或组织，并获得有关议题、拉取请求、提交、部署审查和部署状态的实时更新。 您也可以执行一些活动，如关闭或打开议题、评论您的议题和拉取请求，以及提供丰富的议题和拉取请求引用而不离开 Microsoft Teams。 更多信息请访问 Microsoft AppSource 中的 [Microsoft Teams 集成应用程序](https://appsource.microsoft.com/en-us/product/office/WA200002077)。
+You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. 您也可以执行一些活动，如关闭或打开议题、评论您的议题和拉取请求，以及提供丰富的议题和拉取请求引用而不离开 Microsoft Teams。 更多信息请访问 Microsoft AppSource 中的 [Microsoft Teams 集成应用程序](https://appsource.microsoft.com/en-us/product/office/WA200002077)。
