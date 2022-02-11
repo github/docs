@@ -6,7 +6,7 @@ name: Ready for docs-content review
 
 on:
   pull_request_target:
-    types: [labeled]
+    types: [labeled, review_requested]
 
 permissions:
   contents: read
