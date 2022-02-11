@@ -240,7 +240,7 @@ When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
 echo "::add-mask::Mona The Octocat"
 ```
 
-```bash
+```pwsh
 Write-Output "::add-mask::Mona The Octocat"
 ```
 
