@@ -9,13 +9,13 @@ versions:
   ghae: '*'
 shortTitle: Integrate Jira
 ---
-{% ifversion ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion ghes > 3.4 or ghae-issue-5658 %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the left sidebar, select **{% octicon "code" aria-label="The code icon" %} Developer settings**, then click **OAuth Apps**.
   ![OAuth applications tab in the left sidebar](/assets/images/help/organizations/org-oauth-applications-ghe.png)
 1. Click **New OAuth App**.
-{% elsif ghes < 3.4 or ghae %}
+{% else %}
 {% data reusables.user_settings.access_settings %}
 1. In the left sidebar under **Organization settings**, click the name of your organization.
 ![Sidebar organization name](/assets/images/help/settings/organization-settings-from-sidebar.png)

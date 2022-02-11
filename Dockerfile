@@ -23,7 +23,7 @@ FROM base as all_deps
 
 COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm ci --no-optional
+RUN npm ci --no-optional --registry https://registry.npmjs.org/
 
 # For Next.js v12+
 # This the appropriate necessary extra for node:16-alpine

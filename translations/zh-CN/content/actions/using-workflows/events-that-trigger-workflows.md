@@ -917,8 +917,6 @@ on:
 ```yaml
 on:
   push:
-    types:
-      - opened
     branches:    
       - 'releases/**'
     paths:
@@ -960,8 +958,6 @@ on:
 ```yaml
 on:
   push:
-    types:
-      - opened
     branches:    
       - 'releases/**'
     paths:
@@ -996,9 +992,9 @@ on:
 
 ### `发行版`
 
-| Web 挂钩事件有效负载                                                                           | 活动类型                                                                                                                                                            | `GITHUB_SHA` | `GITHUB_REF` |
-| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------ |
-| [`发行版`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | 标记的发行版中的最新提交 | 发行版标记        |
+| Web 挂钩事件有效负载                                                                           | 活动类型                                                                                                                                                            | `GITHUB_SHA` | `GITHUB_REF`                                    |
+| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----------------------------------------------- |
+| [`发行版`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | 标记的发行版中的最新提交 | Tag ref of release `refs/tags/<tag_name>` |
 
 {% note %}
 

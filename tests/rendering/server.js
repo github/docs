@@ -103,12 +103,6 @@ describe('server', () => {
     })
   })
 
-  test('uses gzip compression', async () => {
-    const res = await get('/en')
-    expect(res.headers['content-encoding']).toBe('gzip')
-    expect(res.headers['transfer-encoding']).toBe('chunked')
-  })
-
   test('sets Content Security Policy (CSP) headers', async () => {
     const res = await get('/en')
     expect('content-security-policy' in res.headers).toBe(true)
@@ -668,6 +662,24 @@ describe('server', () => {
           expect(res.headers['set-cookie']).toBeUndefined()
         })
       )
+    })
+
+    // This test exists because in a previous life, our NextJS used to
+    // 500 if the 'Accept-Language' header was malformed.
+    // We *used* have a custom middleware to cope with this and force a
+    // fallback redirect.
+    // See internal issue 19909
+    test('redirects /en if Accept-Language header is malformed', async () => {
+      const res = await get('/', {
+        headers: {
+          'accept-language': 'ldfir;',
+        },
+      })
+
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en')
+      expect(res.headers['cache-control']).toBe('private, no-store')
+      expect(res.headers['set-cookie']).toBeUndefined()
     })
 
     test('redirects / to /en when unsupported language preference is specified', async () => {
