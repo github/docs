@@ -48,17 +48,12 @@ jobs:
     env:
       PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
-      - name: 'Az CLI login'
-        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
-        with:
-          creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
-
       - name: check out repo content
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Get preview app info
         env:
-          FULL_APP_INFO: 1
+          APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
         run: .github/actions-scripts/get-preview-app-info.sh
 
       - name: Setup Node

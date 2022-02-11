@@ -63,3 +63,7 @@ Organization のオーナーの Team のメンバーは、人に*支払いマネ
 {% data reusables.organizations.billing-settings %}
 1. [Billing management] で、[Billing managers] の右の [**Add**] をクリックします。 ![支払いマネージャーの招待](/assets/images/help/billing/settings_billing_managers_list.png)
 6. 追加したい人のユーザ名あるいはメールアドレスを入力し、[**Send Invitation**] をクリックします。 ![支払いマネージャーの招待ページ](/assets/images/help/billing/billing_manager_invite.png)
+
+## 参考リンク
+
+- "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

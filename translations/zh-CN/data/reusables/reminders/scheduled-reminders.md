@@ -1,1 +1,1 @@
-1. 在左侧边栏中，单击 **Scheduled reminders（预定提醒）**。
+1. In the "Integrations" section of the sidebar, click **{% octicon "clock" aria-label="The clock icon" %} Scheduled reminders**.

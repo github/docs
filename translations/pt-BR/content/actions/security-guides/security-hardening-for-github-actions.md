@@ -202,6 +202,10 @@ Os mesmos princípios descritos acima para o uso de ações de terceiros também
 {% data reusables.actions.outside-collaborators-internal-actions %} Para obter mais informações, consulte "[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".
 {% endif %}
 
+## Using OpenSSF Scorecards to secure workflows
+
+[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
+
 ## Possível impacto de um executor comprometido
 
 Essas seções consideram alguns das etapas que um invasor pode dar se for capaz de executar comandos maliciosos em um executor de {% data variables.product.prodname_actions %}.

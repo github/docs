@@ -23,6 +23,7 @@ shortTitle: 管理复刻策略
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
+{% data reusables.profile.org_member_privileges %}
 1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
 
    {%- ifversion fpt %}

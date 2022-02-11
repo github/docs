@@ -46,8 +46,6 @@ topics:
 
 エラーによって {% data variables.product.prodname_dependabot %} によるプルリクエストの作成がブロックされた場合は、アラートをクリックしてエラーの詳細を表示できます。
 
-![プルリクエストの作成をブロックしたエラーを示す {% data variables.product.prodname_dependabot %} アラート](/assets/images/help/dependabot/dependabot-security-update-error.png)
-
 ## {% data variables.product.prodname_dependabot_version_updates %} でエラーを調査する
 
 {% data variables.product.prodname_dependabot %} がエコシステムの依存関係を更新するためのプルリクエストの作成をブロックされると、マニフェストファイルにエラーアイコンを投稿します。 {% data variables.product.prodname_dependabot %} によって管理されるマニフェストファイルは、[{% data variables.product.prodname_dependabot %}] タブに一覧表示されます。 このタブにアクセスするには、リポジトリの [**Insights**] タブで [**Dependency graph**] をクリックし、[**{% data variables.product.prodname_dependabot %}**] タブをクリックします。

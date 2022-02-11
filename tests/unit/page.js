@@ -113,6 +113,32 @@ describe('Page class', () => {
       ).toBeGreaterThan(0)
     })
 
+    // Much of this test is based on making sure we don't
+    // repeat the bug introduced in issue 1545.
+    test('rewrites links correctly for unsupported enterprise-server links', async () => {
+      const page = await Page.init({
+        relativePath: 'page-with-deprecated-enterprise-links.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+      const context = {
+        page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
+        currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
+        currentPath: '/en/page-with-deprecated-enterprise-links',
+        currentLanguage: 'en',
+      }
+      const rendered = await page.render(context)
+      // That page only contains exactly 2 links. And we can know
+      // exactly what we expect each one to be.
+      const $ = cheerio.load(rendered)
+      const first = $('a[href]').first()
+      expect(first.text()).toBe('Version 2.22')
+      expect(first.attr('href')).toBe('/en/enterprise-server@2.22')
+      const last = $('a[href]').last()
+      expect(last.text()).toBe('Version 3.2')
+      expect(last.attr('href')).toBe('/en/enterprise-server@3.2')
+    })
+
     test('rewrites links on prerendered GraphQL page include the current language prefix and version', async () => {
       const graphqlVersion =
         allVersions[`enterprise-server@${enterpriseServerReleases.latest}`].miscVersionName

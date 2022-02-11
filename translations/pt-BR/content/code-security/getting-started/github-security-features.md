@@ -83,6 +83,12 @@ Detectar automaticamente tokens ou credenciais que foram verificados em um repos
 Mostre o impacto completo das alterações nas dependências e veja detalhes de qualquer versão vulnerável antes de fazer merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 {% endif %}
 
+{% ifversion ghec or ghes > 3.1 %}
+### Visão geral da segurança
+
+Review the security configuration and alerts for your organization and identify the repositories at greatest risk. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
+{% endif %}
+
 ## Leia mais
 - "[Produtos do {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)"
 - "[Suporte à linguagem de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/github-language-support)"

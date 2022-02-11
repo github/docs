@@ -30,20 +30,20 @@ shortTitle: 删除自托管的运行器
 要从用户仓库删除自托管的运行器，您必须是仓库所有者。 对于组织仓库，您必须是组织所有者或拥有该仓库管理员的权限。 建议您也访问自托管的运行器机器。 有关如何使用 REST API 删除自托管运行器的信息，请参阅“[自托管运行器](/rest/reference/actions#self-hosted-runners)”。
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.settings-sidebar-actions %}
 {% data reusables.github-actions.settings-sidebar-actions-runners-updated %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner-updated %}
-{% endif %}
-{% ifversion ghae or ghes %}
+{% elsif ghae or ghes < 3.4 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 {% endif %}
+
 ## 从组织中删除运行器
 
 {% note %}
@@ -57,19 +57,20 @@ shortTitle: 删除自托管的运行器
 要从组织删除自托管的运行器，您必须是组织所有者。 建议您也访问自托管的运行器机器。 有关如何使用 REST API 删除自托管运行器的信息，请参阅“[自托管运行器](/rest/reference/actions#self-hosted-runners)”。
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghec %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions %}
 {% data reusables.github-actions.settings-sidebar-actions-runners-updated %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner-updated %}
-{% else %}
+{% elsif ghes < 3.4 or ghae %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
 {% endif %}
+
 ## 从企业中删除运行器
 
 {% ifversion fpt %}
@@ -85,19 +86,17 @@ shortTitle: 删除自托管的运行器
 
 {% endnote %}
 
-{% data reusables.github-actions.self-hosted-runner-reusing %}
+To remove a self-hosted runner from an enterprise, you must be an enterprise owner. 建议您也访问自托管的运行器机器。 For information about how to remove a self-hosted runner with the REST API, see the [Enterprise Administration GitHub Actions APIs](/rest/reference/enterprise-admin#github-actions).
 
-{% ifversion ghec %}
-要从企业帐户删除自托管运行器，您必须是组织所有者。 建议您也访问自托管的运行器机器。 有关如何使用 REST API 添加自托管运行器的信息，请参阅[企业管理 GitHub Actions API](/rest/reference/enterprise-admin#github-actions)。
+{% data reusables.github-actions.self-hosted-runner-reusing %}
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner-updated %}
-{% elsif ghae or ghes %}
-要在
-{% data variables.product.product_location %} 的企业级删除自托管运行器，您必须是企业所有者。 建议您也访问自托管的运行器机器。
+{% elsif ghae or ghes < 3.4 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}

@@ -132,7 +132,7 @@ end
 
 所有这些通信都会流回我们的聊天室。 使用此示例并不需要构建自己的 CI 设置。 您始终可以依赖 [GitHub 集成][integrations]。
 
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/reference/commits#commit-statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

@@ -99,14 +99,6 @@ This script is run automatically when you run the server locally. It checks whet
 
 This script turns a Google Sheets CSV spreadsheet into a YAML file.
 
----
-
-
-### [`deploy.js`](deploy.js)
-
-This script enables us to execute both staging and production deployments from our local machine (in case GitHub Actions is unavailable). :rocket:
-
-:warning: Deploy to production only with maximum caution!
 
 ---
 

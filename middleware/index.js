@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 import express from 'express'
 import instrument from '../lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
@@ -12,10 +15,8 @@ import csp from './csp.js'
 import cookieParser from './cookie-parser.js'
 import csrf from './csrf.js'
 import handleCsrfErrors from './handle-csrf-errors.js'
-import compression from 'compression'
 import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import setFastlyCacheHeaders from './set-fastly-cache-headers.js'
-import catchBadAcceptLanguage from './catch-bad-accept-language.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
 import connectSlashes from 'connect-slashes'
@@ -138,6 +139,11 @@ export default function (app) {
       // Can be aggressive because images inside the content get unique
       // URLs with a cache busting prefix.
       maxAge: '7 days',
+      immutable: process.env.NODE_ENV !== 'development',
+      // This means, that if you request a file that starts with /assets/
+      // any file doesn't exist, don't bother (NextJS) rendering a
+      // pretty HTML error page.
+      fallthrough: false,
     })
   )
   app.use(
@@ -146,8 +152,32 @@ export default function (app) {
       index: false,
       etag: false,
       maxAge: '7 days', // A bit longer since releases are more sparse
+      // See note about about use of 'fallthrough'
+      fallthrough: false,
     })
   )
+
+  // In development, let NextJS on-the-fly serve the static assets.
+  // But in production, don't let NextJS handle any static assets
+  // because they are costly to generate (the 404 HTML page)
+  // and it also means that a CSRF cookie has to be generated.
+  if (process.env.NODE_ENV !== 'development') {
+    const assetDir = path.join('.next', 'static')
+    if (!fs.existsSync(assetDir))
+      throw new Error(`${assetDir} directory has not been generated. Run 'npm run build' first.`)
+
+    app.use(
+      '/_next/static/',
+      express.static(assetDir, {
+        index: false,
+        etag: false,
+        maxAge: '365 days',
+        immutable: true,
+        // See note about about use of 'fallthrough'
+        fallthrough: false,
+      })
+    )
+  }
 
   // *** Early exits ***
   // Don't use the proxy's IP, use the requester's for rate limiting
@@ -176,8 +206,6 @@ export default function (app) {
 
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
-  app.use(compression())
-  app.use(catchBadAcceptLanguage)
 
   // *** Config and context for redirects ***
   app.use(reqUtils) // Must come before record-redirect and events
