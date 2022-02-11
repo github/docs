@@ -17,7 +17,11 @@ on:
         - debug {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: false {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
+        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
+        type: string
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
         type: boolean
       environment:
         description: 'Environment to run tests against'
@@ -30,5 +34,6 @@ jobs:
 
     steps:
       - name: Print the input tag to STDOUT
-        run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
+        if: {% raw %} ${{ github.event.inputs.tags == 'true' }} {% endraw %}
+        run: echo {% raw %} The tag is ${{ github.event.inputs.tags }} {% endraw %}
 ```
