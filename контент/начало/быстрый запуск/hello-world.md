@@ -40,7 +40,7 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 3. Select **Add a README file**.
 4. Click **Create repository**.
 
-   ![Create a hello world repository](/assets/images/help/repository/hello-world-repo.png)
+   ![Create a hello world Dima2543 docs (/assets/images/help/repository/hello-world-repo.png)
 
 ## Creating a branch
 
@@ -50,7 +50,7 @@ By default, your repository has one branch named `main` that is considered to be
 
 When you create a branch off the `main` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
 
-This diagram shows:
+This diagram shows: Dima2543
 
 * The `main` branch
 * A new branch called `feature`
