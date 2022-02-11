@@ -1,5 +1,5 @@
 ---
-title: Quickstart for GitHub Educators
+title: PETERBE TESTING Quickstart for GitHub Educators
 intro: 'In about 15 minutes, teachers can get started with discounts, training, and tools for {% data variables.product.company_short %}, then create a classroom for the students in a software development course using {% data variables.product.prodname_classroom %}.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -8,6 +8,9 @@ shortTitle: Quickstart
 ---
 
 ## Introduction
+
+**Peterbe here testing something with Mike**
+
 
 Educators who teach a course on software development can use discounts, partnerships, training, and tools from {% data variables.product.prodname_education %} to effectively teach relevant skills to students.
 
@@ -62,13 +65,13 @@ With your user account and organization account, you're ready to get started wit
   !["Authorize {% data variables.product.prodname_classroom %}" button for user account](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
 1. Review the information. To authorize {% data variables.product.prodname_classroom %} to access your organization account on {% data variables.product.prodname_dotcom %}, click **Grant**.
   !["Grant" button for organization](/assets/images/help/classroom/setup-click-grant.png)
-  
+
   {% tip %}
-  
+
   **Tip**: If you see a **Request** button instead of a **Grant** button, you are a member of the organization, not an owner. An owner must approve your request for {% data variables.product.prodname_classroom %}. You must be an organization owner to create and manage classrooms and assignments in {% data variables.product.prodname_classroom %}. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps#oauth-apps-and-organizations)."
-  
+
   {% endtip %}
-  
+
 1. Click **Authorize github**.
   ![Click "Authorize" button for organization](/assets/images/help/classroom/setup-click-authorize-github.png)
 
