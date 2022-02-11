@@ -16,7 +16,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Use Dependabot with Actions
+shortTitle: Use o Dependabot com ações
 ---
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
@@ -31,14 +31,14 @@ shortTitle: Use Dependabot with Actions
 {% data variables.product.prodname_dependabot %} consegue acionar fluxos de trabalho de {% data variables.product.prodname_actions %} nos seus pull requests e comentários. No entanto, certos eventos são tratados de maneira diferente.
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
-For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status` events, the following restrictions apply:
+Para fluxos de trabalho iniciados por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) que usam eventos de `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status`, aplicam-se as restrições a seguir:
 {% endif %}
 
 - {% ifversion ghes = 3.3 %}`GITHUB_TOKEN` tem permissões somente leitura, a menos que seu administrador tenha removido as restrições.{% else %}`GITHUB_TOKEN` tem permissões somente leitura por padrão.{% endif %}
 - {% ifversion ghes = 3.3 %}Os segredos são inacessíveis, a menos que o seu administrador tenha removido restrições.{% else %}Os segredos são preenchidos a partir dos segredos de {% data variables.product.prodname_dependabot %}. Os segredos de {% data variables.product.prodname_actions %} não estão disponíveis.{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
-For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) using the `pull_request_target` event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`), the `GITHUB_TOKEN` will be read-only and secrets are not available.
+Para fluxos de trabalho iniciados por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) que usam eventos de `pull_request_target`, se a referência da base do pull request foi criada por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`), the `GITHUB_TOKEN` será somente leitura e os segredos não estarão disponíveis.
 {% endif %}
 
 Para obter mais informações, consulte ["Manter seus GitHub Actions e fluxos de trabalho seguro: Evitando solicitações de pwn"](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
@@ -68,13 +68,13 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
+Para obter mais informações, consulte "[Modificar as permissões para o GITHUB_TOKEN](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)".
 
 ### Acessar segredos
 
-Quando um evento de {% data variables.product.prodname_dependabot %} aciona um fluxo de trabalho, os únicos segredos disponíveis para o fluxo de trabalho são segredos de {% data variables.product.prodname_dependabot %}. Os segredos de {% data variables.product.prodname_actions %} não estão disponíveis. Consequentemente, você deve armazenar todos os segredos que são usados por um fluxo de trabalho acionado por eventos {% data variables.product.prodname_dependabot %} como segredos de {% data variables.product.prodname_dependabot %}. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)".
+Quando um evento de {% data variables.product.prodname_dependabot %} aciona um fluxo de trabalho, os únicos segredos disponíveis para o fluxo de trabalho são segredos de {% data variables.product.prodname_dependabot %}. Os segredos de {% data variables.product.prodname_actions %} não estão disponíveis. Consequentemente, você deve armazenar todos os segredos que são usados por um fluxo de trabalho acionado por eventos {% data variables.product.prodname_dependabot %} como segredos de {% data variables.product.prodname_dependabot %}. Para obter mais informações, consulte "[Gerenciar segredos criptografados para o Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot). ".
 
-Os segredos de {% data variables.product.prodname_dependabot %} são adicionados ao contexto `segredos` e referenciados usando exatamente a mesma sintaxe que os segredos para {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow)."
+Os segredos de {% data variables.product.prodname_dependabot %} são adicionados ao contexto `segredos` e referenciados usando exatamente a mesma sintaxe que os segredos para {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow)".
 
 Se você tiver um fluxo de trabalho que será acionado por {% data variables.product.prodname_dependabot %} e também por outros atores, a solução mais simples é armazenar o token com as permissões necessárias em uma ação e em um segredo {% data variables.product.prodname_dependabot %} com nomes idênticos. Em seguida, o fluxo de trabalho pode incluir uma única chamada para esses segredos. Se o segredo de {% data variables.product.prodname_dependabot %} tiver um nome diferente, use condições para especificar os segredos corretos para diferentes atores. Para exemplos que usam condições, consulte "[automações comuns](#common-dependabot-automations)" abaixo.
 

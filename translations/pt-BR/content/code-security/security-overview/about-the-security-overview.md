@@ -28,7 +28,7 @@ shortTitle: Sobre a visão geral de segurança
 
 Você pode usar a visão geral de segurança para uma visão de alto nível do status de segurança da sua organização ou para identificar repositórios problemáticos que exigem intervenção.
 
-- A nível da organização, a visão geral de segurança exibe informações de segurança agregadas e específicas para repositórios pertencentes à sua organização. You can also filter information per security feature.
+- A nível da organização, a visão geral de segurança exibe informações de segurança agregadas e específicas para repositórios pertencentes à sua organização. Você também pode filtrar as informações por recurso de segurança.
 - No nível da equipe, a visão geral de segurança exibe informações de segurança específicas para repositórios para os quais a equipe tem privilégios de administrador. Para obter mais informações, consulte "[Gerenciando o acesso da equipe ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
 - No nível do repositório, a visão geral de segurança mostra quais recursos de segurança são habilitados para o repositório e oferece a opção de configurar todos os recursos de segurança disponíveis que não estejam em uso atualmente.
 

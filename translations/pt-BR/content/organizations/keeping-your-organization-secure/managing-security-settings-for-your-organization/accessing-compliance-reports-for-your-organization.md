@@ -8,10 +8,10 @@ topics:
   - Organizations
   - Teams
 permissions: Organization owners can access compliance reports for the organization.
-shortTitle: Access compliance reports
+shortTitle: Acessar relatórios de conformidade
 ---
 
-## About {% data variables.product.company_short %}'s compliance reports
+## Sobre os relatórios de conformidade de {% data variables.product.company_short %}
 
 You can access {% data variables.product.company_short %}'s compliance reports in your organization settings.
 
