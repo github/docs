@@ -76,7 +76,7 @@ shortTitle: GitHub Actions 的计费
 
 ### 样品分钟数成本计算
 
-For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
+For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 5,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
 
 - 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
   - 3,000 Linux minutes at $0.008 USD per minute = $24 USD.

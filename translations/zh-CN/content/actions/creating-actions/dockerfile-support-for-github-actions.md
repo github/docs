@@ -47,7 +47,7 @@ Docker 操作必须由默认 Docker 用户 (root) 运行。 不要在 `Dockerfil
 
 Docker `ENTRYPOINT` 指令有 _shell_ 形式和 _exec_ 形式。 Docker `ENTRYPOINT` 文档建议使用 _exec_ 形式的 `ENTRYPOINT` 指令。 有关 _exec_ 和 _shell_ 形式的更多信息，请参阅 Docker 文档中的 [ENTRYPOINT 参考](https://docs.docker.com/engine/reference/builder/#entrypoint)。
 
-You should not use `WORKDIR` to specify your entrypoint in your Dockerfile. Instead, you should use an absolute path. For more information, see [WORKDIR](#workdir).
+您不应使用 `WORKDIR` 在 Dockerfile 中指定入口点。 而应使用绝对路径。 更多信息请参阅 [WORKDIR](#workdir)。
 
 如果您配置容器使用 _exec_ 形式的 `ENTRYPOINT` 指令，在操作元数据文件中配置的 `args` 不会在命令 shell 中运行。 如果操作的 `args` 包含环境变量，不会替换该变量。 例如，使用以下 _exec_ 格式将不会打印存储在 `$GITHUB_SHA` 中的值， 但会打印 `"$GITHUB_SHA"`。
 

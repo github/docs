@@ -64,7 +64,7 @@ If you know your password for {% data variables.product.product_location %} but 
 
 {% note %}
 
-**Observação**: Por razões de segurança, recuperar o acesso à sua conta efetuando a autenticação com uma senha única pode levar de 1 a 3 dias úteis. {% data variables.product.company_short %} will not review additional requests submitted during this time.
+**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
 
 {% endnote %}
 
@@ -101,6 +101,6 @@ Você pode usar as suas credenciais de autenticação de dois fatores ou os cód
     - Se você já configurou um token de acesso pessoal anteriormente e gostaria de usar o token de acesso pessoal para verificação, clique em **Token de acesso pessoal**.
 
    ![Screenshot of buttons for alternative verification](/assets/images/help/2fa/alt-verifications.png)
-1. Um integrante do {% data variables.contact.github_support %} irá rever a sua solicitação e o seu endereço de e-mail de 1 a 3 dias úteis. Se a sua solicitação for aprovada, você receberá um link para concluir o processo de recuperação de conta. Se sua solicitação for negada, o e-mail incluirá uma forma de entrar em contato com o suporte para esclarecer outras dúvidas.
+1. A member of {% data variables.contact.github_support %} will review your request and email you within three business days. Se a sua solicitação for aprovada, você receberá um link para concluir o processo de recuperação de conta. Se sua solicitação for negada, o e-mail incluirá uma forma de entrar em contato com o suporte para esclarecer outras dúvidas.
 
 {% endif %}

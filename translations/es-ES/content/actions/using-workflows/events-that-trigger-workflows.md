@@ -917,8 +917,6 @@ on:
 ```yaml
 on:
   push:
-    types:
-      - opened
     branches:    
       - 'releases/**'
     paths:
@@ -960,8 +958,6 @@ on:
 ```yaml
 on:
   push:
-    types:
-      - opened
     branches:    
       - 'releases/**'
     paths:
@@ -996,9 +992,9 @@ on:
 
 ### `lanzamiento`
 
-| Carga del evento Webhook                                                                       | Tipos de actividad                                                                                                                                              | `GITHUB_SHA`                                     | `GITHUB_REF`            |
-| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------- |
-| [`lanzamiento`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Última confirmación en el lanzamiento etiquetado | Etiqueta de lanzamiento |
+| Carga del evento Webhook                                                                       | Tipos de actividad                                                                                                                                              | `GITHUB_SHA`                                     | `GITHUB_REF`                                    |
+| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------- |
+| [`lanzamiento`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Última confirmación en el lanzamiento etiquetado | Tag ref of release `refs/tags/<tag_name>` |
 
 {% note %}
 

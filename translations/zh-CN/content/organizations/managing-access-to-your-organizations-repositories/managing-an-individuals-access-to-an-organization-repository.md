@@ -28,9 +28,9 @@ permissions: People with admin access to a repository can manage access to the r
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 {% data reusables.repositories.click-collaborators-teams %}
-{% elsif ghes < 3.4 or ghae %}
+{% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
