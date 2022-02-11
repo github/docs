@@ -1,5 +1,5 @@
 ---
-title: Basic writing and formatting syntax
+title: Check IT OUT MIKE!!!
 intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
 redirect_from:
   - /articles/basic-writing-and-formatting-syntax
@@ -26,7 +26,7 @@ To create a heading, add one to six <kbd>#</kbd> symbols before your heading tex
 
 ## Styling text
 
-You can indicate emphasis with bold, italic, or strikethrough text in comment fields and `.md` files.  
+You can indicate emphasis with bold, italic, or strikethrough text in comment fields and `.md` files.
 
 | Style | Syntax | Keyboard shortcut | Example | Output |
 | --- | --- | --- | --- | --- |
@@ -197,7 +197,7 @@ In this example, you could add a nested list item under the list item `100. Firs
      - First nested list item
 ```
 
-![List with a nested list item](/assets/images/help/writing/nested-list-example-3.png)   
+![List with a nested list item](/assets/images/help/writing/nested-list-example-3.png)
 
 You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
@@ -207,7 +207,7 @@ You can create multiple levels of nested lists using the same method. For exampl
        - Second nested list item
 ```
 
-![List with two levels of nested items](/assets/images/help/writing/nested-list-example-2.png)    
+![List with two levels of nested items](/assets/images/help/writing/nested-list-example-2.png)
 
 For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
 
@@ -286,15 +286,15 @@ You can add footnotes to your content by using this bracket syntax:
 ```
 Here is a simple footnote[^1].
 
-A footnote can also have multiple lines[^2].  
+A footnote can also have multiple lines[^2].
 
 You can also use words, to fit your writing style more closely[^note].
 
 [^1]: My reference.
-[^2]: Every new line should be prefixed with 2 spaces.  
+[^2]: Every new line should be prefixed with 2 spaces.
   This allows you to have a footnote with multiple lines.
 [^note]:
-    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.
     This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 

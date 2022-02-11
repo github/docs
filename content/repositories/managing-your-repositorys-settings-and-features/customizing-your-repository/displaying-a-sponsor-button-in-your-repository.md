@@ -1,5 +1,5 @@
 ---
-title: Displaying a sponsor button in your repository
+title: PETER AND MIKE TESTING
 intro: You can add a sponsor button in your repository to increase the visibility of funding options for your open source project.
 redirect_from:
   - /github/building-a-strong-community/displaying-a-sponsor-button-in-your-repository
