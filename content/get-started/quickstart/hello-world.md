@@ -60,7 +60,7 @@ This diagram shows:
 
 Have you ever saved different versions of a file? Something like:
 
-* `story.txt`
+* `story.txt`, story.text.doc
 * `story-joe-edit.txt`
 * `story-joe-edit-reviewed.txt`
 
