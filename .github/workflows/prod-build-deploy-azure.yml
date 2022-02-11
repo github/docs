@@ -30,6 +30,7 @@ jobs:
       url: 'https://docs.github.com'
     env:
       DOCKER_IMAGE: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:${{ github.sha }}
+      DOCKER_IMAGE_CACHE_REF: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:main-production
 
     steps:
       - name: 'Az CLI login'
@@ -64,32 +65,37 @@ jobs:
           node-version: 16.13.x
           cache: npm
 
-      - name: Clone early access
-        run: npm install dotenv && node script/early-access/clone-for-build.js
-        env:
-          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: main
+      - name: Clone docs-early-access
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: main
+
+      - name: Merge docs-early-access repo's folders
+        run: .github/actions-scripts/merge-early-access.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@1814d3dfb36d6f84174e61f4a4b05bd84089a4b9
+        uses: docker/build-push-action@7f9d37fa544684fb73bfe4835ed7214c255ce02b
         with:
           context: .
           push: true
-          target: 'production_early_access'
-          tags: ${{ env.DOCKER_IMAGE }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          target: production
+          tags: ${{ env.DOCKER_IMAGE }}, ${{ env.DOCKER_IMAGE_CACHE_REF }}
+          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
+          cache-to: type=registry,mode=max,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
 
       - name: 'Update docker-compose.prod.yaml template file'
         run: |
           sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.prod.tmpl.yaml > docker-compose.prod.yaml
 
-      - name: 'Apply updated docker-compose.prod.yaml config to preview slot'
+      - name: 'Apply updated docker-compose.prod.yaml config to staging slot'
         run: |
-          az webapp config container set --multicontainer-config-type COMPOSE --multicontainer-config-file docker-compose.prod.yaml --slot preview -n ghdocs-prod -g docs-prod
+          az webapp config container set --multicontainer-config-type COMPOSE --multicontainer-config-file docker-compose.prod.yaml --slot staging -n ghdocs-prod -g docs-prod
 
-      # Watch preview slot instances to see when all the instances are ready
-      - name: Check that preview slot is ready
+      # Watch staging slot instances to see when all the instances are ready
+      - name: Check that staging slot is ready
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           CHECK_INTERVAL: 10000
@@ -109,7 +115,7 @@ jobs:
             let hasStopped = false
             const waitDuration = parseInt(process.env.CHECK_INTERVAL, 10) || 10000
             async function doCheck() {
-              const states = getStatesForSlot('preview')
+              const states = getStatesForSlot('staging')
               console.log(`Instance states:`, states)
 
               // We must wait until at-least 1 instance has STOPPED to know we're looking at the "next" deployment and not the "previous" one
@@ -130,10 +136,10 @@ jobs:
 
             doCheck()
 
-      # TODO - make a request to verify the preview app version aligns with *this* github action workflow commit sha
-      - name: 'Swap preview slot to production'
+      # TODO - make a request to verify the staging app version aligns with *this* github action workflow commit sha
+      - name: 'Swap staging slot to production'
         run: |
-          az webapp deployment slot swap --slot preview --target-slot production -n ghdocs-prod -g docs-prod
+          az webapp deployment slot swap --slot staging --target-slot production -n ghdocs-prod -g docs-prod
 
       - name: Purge Fastly edge cache
         env:

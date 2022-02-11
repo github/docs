@@ -1,6 +1,6 @@
 ---
 title: Administrar proyectos utilizando Jira
-intro: 'Puedes integrar Jura con {% data variables.product.prodname_enterprise %} para la administración de proyectos.'
+intro: 'Puedes integrar Jura con {% data variables.product.product_name %} para la administración de proyectos.'
 redirect_from:
   - /enterprise/admin/guides/installation/project-management-using-jira
   - /enterprise/admin/articles/project-management-using-jira
@@ -10,6 +10,7 @@ redirect_from:
   - /admin/user-management/managing-projects-using-jira
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise

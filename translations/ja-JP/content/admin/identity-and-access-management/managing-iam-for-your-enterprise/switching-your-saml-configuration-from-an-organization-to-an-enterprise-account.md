@@ -15,8 +15,6 @@ redirect_from:
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
 ---
 
-{% data reusables.enterprise-accounts.emu-saml-note %}
-
 ## Enterprise アカウントの SAML シングルサインオンについて
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %}
