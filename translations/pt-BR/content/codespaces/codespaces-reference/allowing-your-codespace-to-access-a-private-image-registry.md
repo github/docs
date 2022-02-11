@@ -12,7 +12,7 @@ shortTitle: Registro de imagem privada
 
 ## Sobre registros de imagens privadas e {% data variables.product.prodname_codespaces %}
 
-Um registro é um espaço seguro para armazenar, gerenciar e buscar imagens privadas de contêineres. You may use one to store one or more images. Existem muitos exemplos de registros, como {% data variables.product.prodname_dotcom %} registro do contêiner, registro de contêiner do Azure ou DockerHub.
+Um registro é um espaço seguro para armazenar, gerenciar e buscar imagens privadas de contêineres. Você pode usar uma para armazenar uma ou mais imagens. Existem muitos exemplos de registros, como {% data variables.product.prodname_dotcom %} registro do contêiner, registro de contêiner do Azure ou DockerHub.
 
 O registro do contêiner de {% data variables.product.prodname_dotcom %} pode ser configurado para puxar imagens container sem precisar fornecer qualquer credencial para {% data variables.product.prodname_codespaces %}. Para outros registros de imagem, você deve criar segredos em {% data variables.product.prodname_dotcom %} para armazenar os detalhes de acesso, o que permitirá que {% data variables.product.prodname_codespaces %} acesse imagens armazenadas nesse registro.
 

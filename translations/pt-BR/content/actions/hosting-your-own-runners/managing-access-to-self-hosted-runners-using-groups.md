@@ -65,7 +65,7 @@ Ao criar um grupo, você deverá escolher uma política que defina quais reposit
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. Under {% ifversion ghes > 3.1 or ghae %}"Runners"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %}, click **Add new**, and then **New group**.
+1. Em {% ifversion ghes > 3.1 or ghae %}"Executores"{% elsif ghes < 3.2 %}"Executores auto-hospedados"{% endif %}, clique em **Adicionar novo** e, em seguida, **Novo grupo**.
 
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Insira um nome para o seu grupo de executor e atribua uma política para acesso ao repositório.
@@ -185,7 +185,7 @@ Se você não especificar o grupo de um executor durante o processo de registro,
 2. Selecione o menu suspenso do grupo do executor.
 3. Em "Transferir executor para o grupo", escolha um grupo de destino para o executor.
 {% elsif ghae or ghes < 3.4 %}
-1. In the {% ifversion ghes > 3.1 or ghae %}"Runner groups"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![Visualizar integrantes do grupo de executores](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. Na seção {% ifversion ghes > 3.1 or ghae %}"Grupos de executores"{% elsif ghes < 3.2 %}"Executores auto-hospedados"{% endif %} da página de configurações, localize o grupo atual do executor que deseja mover e expandir a lista de integrantes do grupo. ![Visualizar integrantes do grupo de executores](/assets/images/help/settings/actions-org-runner-group-members.png)
 2. Marque a caixa de seleção ao lado do executor auto-hospedado e, em seguida, clique em **Mover para o grupo** para ver os destinos disponíveis. ![Mover um membro do grupo de executores](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 3. Para mover o executor, clique no grupo de destino. ![Mover um membro do grupo de executores](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
