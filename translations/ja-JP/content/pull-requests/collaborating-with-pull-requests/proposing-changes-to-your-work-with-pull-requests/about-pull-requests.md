@@ -22,7 +22,7 @@ topics:
 
 **メモ:** プルリクエストを使う際には以下のことを念頭に置いてください:
 * [共有リポジトリモデル](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)で作業をしている場合、プルリクエストにはトピックブランチを使うことをおすすめします。 ブランチあるいはコミットからプルリクエストを送ることもできますが、トピックブランチを使えば提案した変更を更新する必要がある場合、フォローアップのコミットをプッシュできます。
-* プルリクエストにコミットをプッシュする場合、フォースプッシュはしないでください。 Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
+* Be very careful when force pushing commits to a pull request. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
 
 {% endnote %}
 

@@ -1,6 +1,4 @@
-# This Dockerfile can be used for docker-based deployments to platforms
-# like Now or Moda, but it is currently _not_ used by our Heroku deployments
-# It uses two multi-stage builds: `install` and the main build to keep the image size down.
+# This Dockerfile is used for docker-based deployments to Azure for both preview environments and production
 
 # --------------------------------------------------------------------------------
 # BASE IMAGE

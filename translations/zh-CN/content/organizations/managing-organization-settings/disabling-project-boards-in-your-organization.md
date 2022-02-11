@@ -24,7 +24,7 @@ shortTitle: 禁用项目板
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
 {% endif %}
 1. 决定是否禁用组织范围的项目板，禁用组织中的仓库项目板，或两者均禁用。 然后，在“项目”（项目）下：

@@ -10,7 +10,6 @@ on:
       - '.github/actions-scripts/**'
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
-      - 'app.json'
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'Dockerfile*'
@@ -20,7 +19,6 @@ on:
       - 'lib/webhooks/**'
       - 'lib/search/indexes/**'
       - 'package*.json'
-      - 'Procfile'
       - 'script/**'
       - 'translations/**'
 
@@ -58,7 +56,6 @@ jobs:
               - '.github/actions-scripts/**'
               - '.github/workflows/**'
               - '.github/CODEOWNERS'
-              - 'app.json'
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'Dockerfile*'
@@ -68,7 +65,6 @@ jobs:
               - 'lib/webhooks/**'
               - 'lib/search/indexes/**'
               - 'package*.json'
-              - 'Procfile'
               - 'scripts/**'
               - 'translations/**'
 
@@ -83,7 +79,6 @@ jobs:
               '.github/actions-scripts/**',
               '.github/workflows/**',
               '.github/CODEOWNERS',
-              'app.json',
               'assets/fonts/**',
               'data/graphql/**',
               'Dockerfile*',
@@ -93,7 +88,6 @@ jobs:
               'lib/webhooks/**',
               'lib/search/indexes/**',
               'package*.json',
-              'Procfile',
               'scripts/**',
               'translations/**',
             ]
@@ -111,7 +105,7 @@ jobs:
                 body: reviewMessage,
               })
 
-              workflowFailMessage = `${workflowFailMessage} Please see ${createdComment.data.html_url} for details.` 
+              workflowFailMessage = `${workflowFailMessage} Please see ${createdComment.data.html_url} for details.`
             } catch(err) {
               console.log("Error creating comment.", err)
             }
