@@ -158,6 +158,8 @@ jobs:
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Move acceptable user changes
         run: |
+          # Make sure recursive path expansion is enabled
+          shopt -s globstar
           rsync -rptovR ./user-code/content/./**/*.md ./content
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
