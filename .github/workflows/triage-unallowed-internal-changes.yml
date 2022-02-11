@@ -1,7 +1,7 @@
 name: Check for unallowed internal changes
 
-# **What it does**: If someone changes app.json or search indexes, we fail the check.
-# **Why we have it**: app.json should rarely be edited, so we'll require an admin merge if the file really needs to be changed. The search indexes are synced every 4 hours, so changes should not need to be made.
+# **What it does**: If someone changes search indexes, we fail the check.
+# **Why we have it**: The search indexes are synced every 4 hours, so changes should not need to be made.
 # **Who does it impact**: Docs engineering and content writers.
 
 on:
@@ -44,19 +44,8 @@ jobs:
 
           # Returns list of changed files matching each filter
           filters: |
-            notAllowed:
-              - 'app.json'
             notAllowedSearchSyncLabel:
               - 'lib/search/indexes/**'
-  notAllowed:
-    needs: check-internal-changes
-    if: ${{ needs.check-internal-changes.outputs.notAllowed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fail if unallowed changes were made
-        run: |
-          echo "Please admin merge if you really need to update app.json!"
-          exit 1
   notAllowedSearchSyncLabel:
     needs: check-internal-changes
     if: ${{ needs.check-internal-changes.outputs.notAllowedSearchSyncLabel == 'true' }}

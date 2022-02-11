@@ -314,7 +314,9 @@ Durante la ejecución de un flujo de trabajo, el ejecutor genera archivos tempor
 
 {% warning %}
 
-**Advertencia:** en Windows, el PowerShell tradicional (`shell: powershell`) no utiliza el cifrado UTF-8 predeterminado. Asegúrate que escribes los archivos utilizando la codificación correcta. Por ejemplo, necesitas configurar la codificación UTF-8 cuando configuras la ruta:
+**Advertencia:** en Windows, el PowerShell tradicional (`shell: powershell`) no utiliza el cifrado UTF-8 predeterminado.
+
+When using `shell: powershell`, you must specify UTF-8 encoding. Por ejemplo:
 
 ```yaml
 jobs:
@@ -325,22 +327,7 @@ jobs:
         run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-O cambia a PowerShell Core, el cual tiene predeterminado el UTF-8:
-
-```yaml
-jobs:
-  modern-pwsh-example:
-    uses: windows-2019
-    steps:
-      - shell: pwsh
-        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
-```
-
-Puedes obtener más detalles sobre el UTF-8 y PowerShell Core en esta genial [respuesta de Stack Overflow](https://stackoverflow.com/a/40098904/162694):
-
-> ### Lectura opcional: La perspectiva multiplataforma: PowerShell _Core_:
-> 
-> [PowerShell ahora es multiplataforma](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/)a través de su edición **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)**, cuyo cifrado ***se predetermina sensiblemente em ***BOM-less UTF-8****** en línea con las plataformas similares a las de Unix.
+Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UTF-8.
 
 {% endwarning %}
 

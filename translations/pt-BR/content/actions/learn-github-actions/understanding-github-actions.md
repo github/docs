@@ -259,4 +259,4 @@ Para entender como a cobrança funciona para {% data variables.product.prodname_
 ## Leia mais
 
 {% ifversion ghec or ghes or ghae %}
-- "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}
+- "[Sobre {% data variables.product.prodname_actions %} para as empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}

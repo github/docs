@@ -19,7 +19,7 @@ topics:
 
 O OpenID Connect (OIDC) permite aos seus fluxos de trabalho de {% data variables.product.prodname_actions %} efetuar a autenticação com um HashiCorp Vault para recuperar segredos.
 
-This guide gives an overview of how to configure HashiCorp Vault to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and demonstrates how to use this configuration in the [hashicorp/vault-action](https://github.com/hashicorp/vault-action) action to retrieve secrets from HashiCorp Vault.
+Este guia fornece uma visão geral sobre como configurar o cofre HashiCorp para confiar no OIDC de {% data variables.product.prodname_dotcom %} como uma identidade federada e mostra como usar essa configuração na ação [hashicorp/vault-action](https://github.com/hashicorp/vault-action) para recuperar segredos do cofre HashiCorp.
 
 ## Pré-requisitos
 

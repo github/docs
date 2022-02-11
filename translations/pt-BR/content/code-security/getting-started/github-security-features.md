@@ -86,7 +86,7 @@ Mostre o impacto completo das alterações nas dependências e veja detalhes de 
 {% ifversion ghec or ghes > 3.1 %}
 ### Visão geral da segurança
 
-Review the security configuration and alerts for your organization and identify the repositories at greatest risk. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
+Revise a configuração de segurança e os alertas para sua organização e identifique os repositórios com maior risco. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
 {% endif %}
 
 ## Leia mais
