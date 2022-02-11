@@ -26,8 +26,12 @@ Actions can communicate with the runner machine to set environment variables, ou
 
 Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see ["Environment files".](#environment-files)
 
-``` bash
+```bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+```
+
+```pwsh
+Write-Output "::workflow-command parameter1={data},parameter2={data}::{command value}"
 ```
 
 {% note %}
@@ -59,6 +63,16 @@ You can use the `set-output` command in your workflow to set the same value:
         id: random-color-generator
       - name: Get color
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```
+{% endraw %}
+
+{% raw %}
+``` yaml
+      - name: Set selected color
+        run: Write-Output "::set-output name=SELECTED_COLOR::green"
+        id: random-color-generator
+      - name: Get color
+        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
 {% endraw %}
 
@@ -95,8 +109,12 @@ Optionally, you can also declare output parameters in an action's metadata file.
 
 ### Example
 
-``` bash
+```bash
 echo "::set-output name=action_fruit::strawberry"
+```
+
+```pwsh
+Write-Output "::set-output name=action_fruit::strawberry"
 ```
 
 ## Setting a debug message
@@ -109,8 +127,12 @@ Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_
 
 ### Example
 
-``` bash
+```bash
 echo "::debug::Set the Octocat variable"
+```
+
+```pwsh
+Write-Output "::debug::Set the Octocat variable"
 ```
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
@@ -127,8 +149,12 @@ Creates a notice message and prints the message to the log. {% data reusables.ac
 
 ### Example
 
-``` bash
+```bash
 echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
+
+```pwsh
+Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
 {% endif %}
@@ -145,8 +171,12 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 
 ### Example
 
-``` bash
+```bash
 echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
+
+```pwsh
+Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
 ## Setting an error message
@@ -161,8 +191,12 @@ Creates an error message and prints the message to the log. {% data reusables.ac
 
 ### Example
 
-``` bash
+```bash
 echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
+
+```pwsh
+Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
 ## Grouping log lines
@@ -177,6 +211,12 @@ Creates an expandable group in the log. To create a group, use the `group` comma
 ### Example
 
 ```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+```pwsh
 echo "::group::My title"
 echo "Inside group"
 echo "::endgroup::"
@@ -200,6 +240,10 @@ When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
 echo "::add-mask::Mona The Octocat"
 ```
 
+```bash
+Write-Output "::add-mask::Mona The Octocat"
+```
+
 ### Example masking an environment variable
 
 When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
@@ -207,6 +251,11 @@ When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the l
 ```bash
 MY_NAME="Mona The Octocat"
 echo "::add-mask::$MY_NAME"
+```
+
+```pwsh
+$env:MY_NAME="Mona The Octocat"
+Write-Output "::add-mask::$env:MY_NAME"
 ```
 
 ## Stopping and starting workflow commands
@@ -245,6 +294,22 @@ jobs:
           echo '::warning:: this is a warning again'
 ```
 
+```yaml
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: disable workflow commands
+        run: |
+          Write-Output '::warning:: this is a warning'
+          # PowerShell lacks a simple function to create a hash from a string unfortunately.
+          $stopMarker = New-Guid
+          Write-Output "::stop-commands::$stopMarker"
+          Write-Output '::warning:: this will NOT be a warning'
+          Write-Output "::$stopMarker::"
+          Write-Output '::warning:: this is a warning again'
+```
+
 {% endraw %}
 
 ## Echoing command outputs
@@ -276,6 +341,20 @@ jobs:
           echo '::set-output name=action_echo::enabled'
           echo '::echo::off'
           echo '::set-output name=action_echo::disabled'
+```
+
+```yaml
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toggle workflow command echoing
+        run: |
+          write-output "::set-output name=action_echo::disabled"
+          write-output "::echo::on"
+          write-output "::set-output name=action_echo::enabled"
+          write-output "::echo::off"
+          write-output "::set-output name=action_echo::disabled"
 ```
 
 The step above prints the following lines to the log:
@@ -323,10 +402,19 @@ jobs:
     uses: windows-2019
     steps:
       - shell: powershell
-        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        run: "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
 Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UTF-8.
+
+```yaml
+jobs:
+  legacy-powershell-example:
+    uses: windows-2019
+    steps:
+      - shell: pwsh
+        run: "mypath" >> $env:GITHUB_PATH
+```
 
 {% endwarning %}
 
@@ -334,6 +422,14 @@ Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UT
 
 ``` bash
 echo "{environment_variable_name}={value}" >> $GITHUB_ENV
+```
+
+``` pwsh
+"{environment_variable_name}={value}" >> $env:GITHUB_ENV
+```
+
+``` powershell
+"{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 ```
 
 You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables)."
@@ -351,6 +447,20 @@ steps:
     id: step_two
     run: |
       echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
+
+{% raw %}
+```
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+      "action_state=yellow" >> $env:GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+      Write-Output "${{ env.action_state }}" # This will output 'yellow'
 ```
 {% endraw %}
 
@@ -377,10 +487,25 @@ steps:
       echo 'EOF' >> $GITHUB_ENV
 ```
 
+```yaml
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+      "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
+      (Invoke-WebRequest -Uri "google.com").Content >> $env:GITHUB_ENV
+      "EOF" >> $env:GITHUB_ENV
+    shell: pwsh
+```
+
 ## Adding a system path
 
 ``` bash
 echo "{path}" >> $GITHUB_PATH
+```
+
+``` pwsh
+"{path}" >> $env:GITHUB_PATH
 ```
 
 Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
@@ -391,4 +516,9 @@ This example demonstrates how to add the user `$HOME/.local/bin` directory to `P
 
 ``` bash
 echo "$HOME/.local/bin" >> $GITHUB_PATH
+```
+
+This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
+``` pwsh
+"$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH
 ```
