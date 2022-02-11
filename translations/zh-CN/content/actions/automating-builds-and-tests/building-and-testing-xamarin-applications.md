@@ -1,6 +1,6 @@
 ---
-title: Building and testing Xamarin applications
-intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Xamarin application.
+title: 构建和测试 Xamarin 应用程序
+intro: 您可以在 GitHub Actions 中创建持续集成 (CI) 工作流程，以构建和测试 Xamarin 应用程序。
 redirect_from:
   - /actions/guides/building-and-testing-xamarin-applications
 versions:
@@ -16,34 +16,34 @@ topics:
   - Xamarin.Android
   - Android
   - iOS
-shortTitle: Build & test Xamarin apps
+shortTitle: 构建和测试 Xamarin 应用程序
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## 简介
 
-This guide shows you how to create a workflow that performs continuous integration (CI) for your Xamarin project. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy.
+本指南介绍如何为 Xamarin 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。
 
-For a full list of available Xamarin SDK versions on the {% data variables.product.prodname_actions %}-hosted macOS runners, see the documentation:
+在 {% data variables.product.prodname_actions %} 托管的 macOS 运行器上有可用的 Xamarin SDK 版本的完整列表，请参阅文档：
 
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
 * [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
 
 {% data reusables.github-actions.macos-runner-preview %}
 
-## Prerequisites
+## 基本要求
 
-We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
+建议基本了解 Xamarin、.NET Core SDK、YAML、工作流程配置选项以及如何创建工作流程文件。 更多信息请参阅：
 
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
-- "[Getting started with .NET](https://dotnet.microsoft.com/learn)"
-- "[Learn Xamarin](https://dotnet.microsoft.com/learn/xamarin)"
+- "[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+- "[开始使用 .NET](https://dotnet.microsoft.com/learn)"
+- "[了解 Xamarin](https://dotnet.microsoft.com/learn/xamarin)"
 
-## Building Xamarin.iOS apps
+## 构建 Xamarin.iOS 应用程序
 
-The example below demonstrates how to change the default Xamarin SDK versions and build a Xamarin.iOS application.
+下面的示例演示如何更改默认 Xamarin SDK 版本并构建 Xamarin.iOS 应用程序。
 
 {% raw %}
 ```yaml
@@ -61,7 +61,7 @@ jobs:
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10
-    
+
     - name: Set default Xcode 12.3
       run: |
         XCODE_ROOT=/Applications/Xcode_12.3.0.app
@@ -81,9 +81,9 @@ jobs:
 ```
 {% endraw %}
 
-## Building Xamarin.Android apps
+## 构建 Xamarin.Android 应用程序
 
-The example below demonstrates how to change default Xamarin SDK versions and build a Xamarin.Android application.
+下面的示例演示如何更改默认 Xamarin SDK 版本并构建 Xamarin.Android 应用程序。
 
 {% raw %}
 ```yaml
@@ -115,8 +115,8 @@ jobs:
 ```
 {% endraw %}
 
-## Specifying a .NET version
+## 指定 .NET 版本
 
-To use a preinstalled version of the .NET Core SDK on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `setup-dotnet` action. This action finds a specific version of .NET from the tools cache on each runner, and adds the necessary binaries to `PATH`. These changes will persist for the remainder of the job.
- 
-The `setup-dotnet` action is the recommended way of using .NET with {% data variables.product.prodname_actions %}, because it ensures consistent behavior across different runners and different versions of .NET. If you are using a self-hosted runner, you must install .NET and add it to `PATH`. For more information, see the [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk) action.
+要在 {% data variables.product.prodname_dotcom %} 托管的运行器上使用预安装的 .NET Core SDK 版本，请使用 `setup-dotnet` 操作。 此操作从每个运行器上的工具缓存中查找特定版本的 .NET，并将必要的二进制文件添加到 `PATH`。 这些更改将持续用于作业的其余部分。
+
+`setup-dotnet` 操作是 .NET 与 {% data variables.product.prodname_actions %} 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 .NET 行为一致。 如果使用自托管运行器，则必须安装 .NET 并将其添加到 `PATH`。 更多信息请参阅 [`setup-dotnet`](https://github.com/marketplace/actions/setup-net-core-sdk) 操作。

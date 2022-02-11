@@ -177,13 +177,13 @@
 - 
   term: デフォルトブランチ
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常{% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}と呼ばれ、多くの場合デフォルトブランチです。
 - 
-  term: dependents graph
+  term: 依存グラフ
   description: >-
     パブリックリポジトリに依存するパッケージ、プロジェクト、リポジトリを表示するリポジトリグラフ。
 - 
-  term: dependency graph
+  term: 依存関係グラフ
   description: >-
     リポジトリが依存するパッケージおよびプロジェクトを表示するリポジトリグラフ。
 - 
@@ -210,7 +210,7 @@
   description: ユーザのメールアドレスに送信される通知。
 - 
   term: Enterpriseアカウント
-  description: Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。 {% data reusables.gated-features.enterprise-accounts %}
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -248,7 +248,7 @@
 - 
   term: gist
   description: >-
-    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
+    Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% ifversion ghae %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% ifversion ghae %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
 - 
   term: Git
   description: >-
@@ -373,7 +373,7 @@
   description: >-
     ユーザがアクセスできない個人アカウント。ユーザが有料アカウントを無料のものにダウングレードした場合、または有料プランの支払いが期限を過ぎた場合、アカウントはロックされます。
 - 
-  term: management console
+  term: management Console
   description: >-
     GitHub Enterprise インターフェース内で、管理機能を含むセクション。
 - 
@@ -381,7 +381,7 @@
   description: >-
     Markdown は非常にシンプルでセマンティックファイル形式であり、.doc、.rtf 、.txtと大差ありません。Markdown はウェブパブリッシングの素養がない人でも簡単に文章（リンク、リスト、箇条書きなど）を書いたりウェブサイトのように表示したりできます。GitHub では Markdown をサポートしており、GitHub Flavored Markdown という特定の形式の Markdown を使用します。[GitHub Flavored Markdown の仕様](https://github.github.com/gfm/)または [GitHub で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)を参照。
 - 
-  term: markup
+  term: マークアップ
   description: ドキュメントのアノテーションおよびフォーマットのためのシステム。
 - 
   term: main
@@ -392,7 +392,7 @@
   description: >-
     多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% ifversion fpt or ghes > 3.1 or ghae %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
 - 
-  term: members graph
+  term: メンバーグラフ
   description: リポジトリのすべてのフォークを表示するリポジトリグラフ。
 - 
   term: メンション
@@ -418,7 +418,7 @@
   description: >-
     親チームの子チーム。子（または入れ子）チームは複数持つことができます。
 - 
-  term: network graph
+  term: ネットワークグラフ
   description: >-
     リポジトリネットワーク全体のブランチ履歴を表示するリポジトリグラフ。ルートリポジトリのブランチと、ネットワークに固有のコミットを含むフォークのブランチが含まれます。
 - 
@@ -539,10 +539,10 @@
   description: >-
     プルリクエストについてのコラボレータからのコメントで、変更を受け入れたり、プルリクエストがマージされる前にさらなる変更をリクエストしたりするもの。
 - 
-  term: pulse graph
+  term: パルスグラフ
   description: リポジトリのアクティビティの概要を示すリポジトリグラフ。
 - 
-  term: punch graph
+  term: パンチグラフ
   description: >-
     リポジトリへのアップデートの頻度を曜日または 1 日内の時間に基づいて表示するリポジトリグラフ。
 - 

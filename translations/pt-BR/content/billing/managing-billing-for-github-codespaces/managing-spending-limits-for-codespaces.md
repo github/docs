@@ -57,3 +57,8 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 As notificações de e-mail são enviadas para os proprietários de contas e gerentes de cobrança quando os gastos chegam a 50%, 75% e 90% do limite de gastos da sua conta.
 
 Você pode desabilitar essas notificações a qualquer momento, acessando a parte inferior da página **limite de gastos**.
+
+## Leia mais
+
+- "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+- "[Gerenciando a cobrança para codespaces na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

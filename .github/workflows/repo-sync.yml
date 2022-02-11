@@ -102,7 +102,7 @@ jobs:
 
       # Set up npm and run npm ci to run husky to get githooks for LFS
       - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -113,7 +113,6 @@ jobs:
         uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          CI: true
         with:
           source_repo: ${{ secrets.SOURCE_REPO }} # https://${access_token}@github.com/github/the-other-repo.git
           source_branch: main

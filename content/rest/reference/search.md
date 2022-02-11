@@ -23,13 +23,13 @@ Unless another sort option is provided as a query parameter, results are sorted 
 
 ### Rate limit
 
+{% data reusables.enterprise.rate_limit %}
+
 The Search API has a custom rate limit. For requests using [Basic
 Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client
 ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to
 30 requests per minute. For unauthenticated requests, the rate limit allows you
 to make up to 10 requests per minute.
-
-{% data reusables.enterprise.rate_limit %}
 
 See the [rate limit documentation](/rest/reference/rate-limit) for details on
 determining your current rate limit status.

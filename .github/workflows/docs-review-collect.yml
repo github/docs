@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Setup Node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: 16.13.x
           cache: npm
@@ -40,6 +40,3 @@ jobs:
           ORGANIZATION: 'github'
           REPO: 'github'
           REVIEWER: 'docs-reviewers'
-          # This is an educated guess of how many PRs are opened in a day on the github/github repo
-          # If we are missing PRs, either increase this number or increase the frequency at which this script is run
-          NUM_PRS: 100

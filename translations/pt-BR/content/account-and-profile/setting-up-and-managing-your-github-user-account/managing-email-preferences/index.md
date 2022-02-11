@@ -1,6 +1,6 @@
 ---
-title: Managing email preferences
-intro: 'You can add or change the email addresses associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. You can also manage emails you receive from {% data variables.product.product_name %}.'
+title: Gerenciar preferências de e-mail
+intro: 'Você pode adicionar ou alterar os endereços de e-mail associados à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Também é possível gerenciar os e-mails que você recebe do {% data variables.product.product_name %}.'
 redirect_from:
   - /categories/managing-email-preferences
   - /articles/managing-email-preferences
@@ -22,6 +22,6 @@ children:
   - /remembering-your-github-username-or-email
   - /types-of-emails-github-sends
   - /managing-marketing-emails-from-github
-shortTitle: Manage email preferences
+shortTitle: Gerenciar preferências de e-mail
 ---
 

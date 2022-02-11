@@ -30,5 +30,8 @@ GitHub 有时会收到政府要求，要求我们删除在其地方管辖区被�
 ## 如果我们在 gov-takedown 仓库中发布通知，它意味着什么？
 这意味着我们在指定日期收到了通知， 但*不*意味着内容是非法或错误的， 也*不*意味着通知中所指的用户犯了任何错误。 我们并不对政府请求的正误做出或暗示任何判断。 我们发布这些通知和请求只是提供信息。
 
+## Government takedowns based on violations of GitHub's Terms of Service
+In some cases, GitHub receives reports from government officials of violations of GitHub's Terms of Service. We process those violations as we would process a Terms-of-Service violation reported by anyone else. However, we notify the affected users that the report came from a government and, as with any other case, allow them the opportunity to appeal.
+
 ## 透明度报告
-除了在我们的 gov-takedowns 仓库中发布政府删除通知外，我们的透明度报告中也会报告这些通知。 我们还会在透明度报告中跟踪并报告基于违反 GitHub 服务条款的政府删除。 我们处理这些违规就像处理任何其他人报告的服务条款违规一样。
+In addition to posting government takedown notices in our `github/gov-takedowns` repository, we report on them in our transparency report. 我们还会在透明度报告中跟踪并报告基于违反 GitHub 服务条款的政府删除。

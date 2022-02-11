@@ -1,101 +1,92 @@
 ---
-title: Use autograding
-intro: You can automatically provide feedback on code submissions from your students by configuring tests to run in the assignment repository.
+title: 使用自动分级
+intro: 您可以通过配置测试在作业仓库中运行，来自动提供对您学生提交的代码的反馈。
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
   - /education/manage-coursework-with-github-classroom/use-autograding
 ---
-## About autograding
+
+## 关于自动分级
 
 {% data reusables.classroom.about-autograding %}
 
-After a student accepts an assignment, on every push to the assignment repository, {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding.
+学生接受作业后，每次推送到作业仓库时，{% data variables.product.prodname_actions %} 都会在包含学生最新代码的 Linux 环境中运行自动分级测试的命令。 {% data variables.product.prodname_classroom %} 为 {% data variables.product.prodname_actions %} 创建必要的工作流程。 您不需要使用 {% data variables.product.prodname_actions %} 的经验便可使用自动分级。
 
-You can use a testing framework, run a custom command, write input/output tests, or combine different testing methods. The Linux environment for autograding contains many popular software tools. For more information, see the details for the latest version of Ubuntu in "[Specifications for  {% data variables.product.company_short %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+您可以使用测试框架、运行自定义命令、编写输入/输出测试或组合不同的测试方法。 用于自动分级的 Linux 环境包含许多流行的软件工具。 更多信息请参阅 [{% data variables.product.company_short %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners#supported-software)中最新版 Ubuntu 的详细信息。
 
-You can see an overview of which students are passing autograding tests by navigating to the assignment in {% data variables.product.prodname_classroom %}. A green checkmark means that all tests are passing for the student, and a red X means that some or all tests are failing for the student. If you award points for one or more tests, then a bubble shows the score for the tests out of the maximum possible score for the assignment.
+您可以通过导航 {% data variables.product.prodname_classroom %} 中的作业来查看哪些学生通过了自动分级测试的概况。 绿色复选标记表示学生的所有测试都已通过，红色 X 表示学生的部分或所有测试都未通过。 如果您为一个或多个测试评分，则气泡会显示测试的分数以及作业可得最高分数。
 
-![Overview for an assignment with autograding results](/assets/images/help/classroom/autograding-hero.png)
+![包含自动评分结果的作业概述](/assets/images/help/classroom/assignment-individual-hero.png)
 
-## Grading methods
+## 评分方法
 
-There are two grading methods: input/output tests and run command tests.
+有两种评分方法：输入/输出测试和运行命令测试。
 
-### Input/output test
+### 输入/输出测试
 
-An input/output test optionally runs a setup command, then provides standard input to a test command. {% data variables.product.prodname_classroom %} evaluates the test command's output against an expected result.
+输入/输出测试可以选择性运行设置命令，然后向测试命令提供标准输入。 {% data variables.product.prodname_classroom %} 根据预期结果评估测试命令的输出。
 
-| Setting | Description |
-| :- | :- |
-| **Test name** | The name of the test, to identify the test in logs |
-| **Setup command** | _Optional_. A command to run before tests, such as compilation or installation |
-| **Run command** | The command to run the test and generate standard output for evaluation |
-| **Inputs** | Standard input for run command |
-| **Expected output** | The output that you want to see as standard output from the run command |
-| **Comparison** | The type of comparison between the run command's output and the expected output<br/><br/><ul><li>**Included**: Passes when the expected output appears<br/>anywhere in the standard output from the run command</li><li>**Exact**: Passes when the expected output is completely identical<br/>to the standard output from the run command</li><li>**Regex**: Passes if the regular expression in expected<br/>output matches against the standard output from the run command</li></ul> |
-| **Timeout** | In minutes, how long a test should run before resulting in failure |
-| **Points** | _Optional_. The number of points the test is worth toward a total score |
+| 设置       | 描述                                                                 |
+|:-------- |:------------------------------------------------------------------ |
+| **测试名称** | 测试的名称，用于识别日志中的测试                                                   |
+| **设置命令** | _可选_。 在测试之前运行的命令，如编译或安装                                            |
+| **运行命令** | 运行测试并生成用于评估的标准输出的命令                                                |
+| **输入**   | 运行命令的标准输入                                                          |
+| **预期输出** | 您要视为运行命令的标准输出的输出                                                   |
+| **比较**   | 运行命令的输出和预期输出之间的比较类型<br/><br/><ul><li>**包括**：当预期输出在<br/>命令的标准输出的任意位置出现时传递</li><li>**精确**：当预期输出与运行命令的<br/>标准输出完全相同时传递</li><li>**Regex**：当预期输出中的正则表达式与<br/>运行命令的标准输出匹配时传递</li></ul> |
+| **超时**   | 测试在导致失败之前应运行多长时间（分钟）                                               |
+| **分数**   | _可选_。 测试从总分中获得的分数                                                  |
 
-### Run command test
+### 运行命令测试
 
-A run command test runs a setup command, then runs a test command. {% data variables.product.prodname_classroom %} checks the exit status of the test command. An exit code of `0` results in success, and any other exit code results in failure.
+运行命令测试运行设置命令，然后运行测试命令。 {% data variables.product.prodname_classroom %} 检查测试命令的退出状态。 `0` 的退出代码导致成功，任何其他退出代码导致失败。
 
-{% data variables.product.prodname_classroom %} provides presets for language-specific run command tests for a variety of programming languages. For example, the **Run node** test prefills the setup command with `npm install` and the test command with `npm test`.
+{% data variables.product.prodname_classroom %} 为各种编程语言提供语言特定的运行命令测试预设。 例如，**运行节点**测试使用 `npm install` 预填设置命令，使用 `npm test` 预填测试命令。
 
-| Setting | Description |
-| :- | :- |
-| **Test name** | The name of the test, to identify the test in logs |
-| **Setup command** | _Optional_. A command to run before tests, such as compilation or installation |
-| **Run command** | The command to run the test and generate an exit code for evaluation |
-| **Timeout** | In minutes, how long a test should run before resulting in failure |
-| **Points** | _Optional_. The number of points the test is worth toward a total score |
+| 设置       | 描述                      |
+|:-------- |:----------------------- |
+| **测试名称** | 测试的名称，用于识别日志中的测试        |
+| **设置命令** | _可选_。 在测试之前运行的命令，如编译或安装 |
+| **运行命令** | 运行测试并生成用于评估的退出代码的命令     |
+| **超时**   | 测试在导致失败之前应运行多长时间（分钟）    |
+| **分数**   | _可选_。 测试从总分中获得的分数       |
 
-## Configuring autograding tests for an assignment
+## 配置作业的自动评分测试
 
-You can add autograding tests during the creation of a new assignment. {% data reusables.classroom.for-more-information-about-assignment-creation %}
+您可以在创建新作业时添加自动评分测试。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-You can add, edit, or delete autograding tests for an existing assignment. If you change the autograding tests for an existing assignment, existing assignment repositories will not be affected. A student or team must accept the assignment and create a new assignment repository to use the new tests.
+您可以添加、编辑或删除现有作业的自动评分测试。 All changes made via the Classroom UI will be pushed to the existing student repositories, so use caution when editing your tests.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.assignments-click-pencil %}
-1. In the left sidebar, click **Grading and feedback**.
-  !["Grading and feedback" to the left of assignment's basics](/assets/images/help/classroom/assignments-click-grading-and-feedback.png)
-1. Add, edit, or delete an autograding test.
-    - To add a test, under "Add autograding tests", select the **Add test** drop-down menu, then click the grading method you want to use.
-       ![Using the "Add test" drop-down menu to click a grading method](/assets/images/help/classroom/autograding-click-grading-method.png)
-       Configure the test, then click **Save test case**.
-       !["Save test case" button for an autograding test](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
-    - To edit a test, to the right of the test name, click {% octicon "pencil" aria-label="The pencil icon" %}.
-        ![Pencil icon for editing an autograding test](/assets/images/help/classroom/autograding-click-pencil.png)
-       Configure the test, then click **Save test case**.
-       !["Save test case" button for an autograding test](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
-    - To delete a test, to the right of the test name, click {% octicon "trash" aria-label="The trash icon" %}.
-        ![Trash icon for deleting an autograding test](/assets/images/help/classroom/autograding-click-trash.png)
-1. At the bottom of the page, click **Update assignment**.
-  !["Update assignment" button at the bottom of the page](/assets/images/help/classroom/assignments-click-update-assignment.png)
+1. 在左侧边栏中，单击 **Grading and feedback（评分并反馈）**。 ![作业基本知识左侧的"评分并反馈"](/assets/images/help/classroom/assignments-click-grading-and-feedback.png)
+1. 添加、编辑或删除自动评分测试。
+    - 要添加测试，在“Add autograding tests（添加自动评分测试）”下，选择 **Add test（添加测试）**下拉菜单，然后单击您想要使用的评分方法。 ![Using the "Add test" drop-down menu to click a grading method](/assets/images/help/classroom/autograding-click-grading-method.png) 配置测试，然后单击“**Save test case（保存测试用例）**”。 ![用于自动评分测试的"保存测试用例"按钮](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
+    - 要编辑测试，请点击测试名称右侧的 {% octicon "pencil" aria-label="The pencil icon" %}。 ![Pencil icon for editing an autograding test](/assets/images/help/classroom/autograding-click-pencil.png) 配置测试，然后单击“**Save test case（保存测试用例）**”。 ![用于自动评分测试的"保存测试用例"按钮](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
+    - 要删除测试，请点击测试名称右侧的 {% octicon "trash" aria-label="The trash icon" %}。  ![用于删除自动评分测试的垃圾桶图标](/assets/images/help/classroom/autograding-click-trash.png)
+1. 在页面底部，单击 **Update assignment（更新作业）**。 ![页面底部的"更新作业"按钮](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-## Viewing and downloading results from autograding tests
+## 查看和下载自动分级测试的结果
 
-### Download autograding results
+### 下载自动评分结果
 
-You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+您也可以通过“Download（下载）”按钮下载学生自动评分的 CSV。 这将生成并下载一个包含学生仓库链接、其 {% data variables.product.prodname_dotcom %} 处理、名册标识、提交时间戳和自动评分的CSV。
 
-!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+![选择"下载" 按钮会显示"下载成绩突出显示" 和另一个选项"下载仓库"](/assets/images/help/classroom/download-grades.png)
 
-### View individual logs
+### 查看单个日志
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
-1. To the right of a submission, click **View test**.
-  !["View test" button for an assignment submission](/assets/images/help/classroom/assignments-click-view-test.png)
-1. Review the test output. For more information, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs)."
+1. 在提交的右侧，请单击 **View test（查看测试）**。 ![用于作业提交的"查看测试"按钮](/assets/images/help/classroom/assignments-click-view-test.png)
+1. 查看测试输出。 更多信息请参阅“[使用工作流程运行日志](/actions/managing-workflow-runs/using-workflow-run-logs)”。
 
-## Further reading
+## 延伸阅读
 
-- [{% data variables.product.prodname_actions %} documentation](/actions)
+- [{% data variables.product.prodname_actions %} 文档](/actions)

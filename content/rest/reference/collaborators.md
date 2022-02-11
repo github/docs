@@ -12,10 +12,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Collaborators
-
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'collaborators' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
 ## Invitations

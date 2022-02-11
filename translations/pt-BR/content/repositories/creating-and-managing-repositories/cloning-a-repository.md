@@ -25,8 +25,6 @@ Clonar um repositório extrai uma cópia completa de todos os dados do repositó
 
 ## Clonar um repositório
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -68,7 +66,7 @@ Para obter mais informações, consulte "[Clonar um repositório do {% data vari
 
 ## Clonar um repositório vazio
 
-Um repositório vazio não contém arquivos. Muitas vezes, isso é feito se você não inicializar o repositório com um README ao criá-lo.
+Um repositório vazio não contém arquivos. Muitas vezes, isso é feito se você não inicializar o repositório com um LEIAME ao criá-lo.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Para clonar seu repositório usando a linha de comando usando HTTPS, em "Configuração rápida", clique no {% octicon "clippy" aria-label="The clipboard icon" %}. Para clonar o repositório usando uma chave SSH, incluindo um certificado emitido pela autoridade de certificação SSH da sua organização, clique em **SSH** e, em seguida, clique em {% octicon "clippy" aria-label="The clipboard icon" %}. ![Botão da URL para clonar o repositório vazio](/assets/images/help/repository/empty-https-url-clone-button.png)

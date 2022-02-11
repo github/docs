@@ -1,6 +1,6 @@
 ---
-title: Viewing all of your issues and pull requests
-intro: 'The Issues and Pull Request dashboards list the open issues and pull requests you''ve created. You can use them to update items that have gone stale, close them, or keep track of where you''ve been mentioned across all repositories—including those you''re not subscribed to.'
+title: Ver todas tus propuestas y solicitudes de extracción
+intro: 'Los tableros de propuestas y solicitudes de extracción enumeran las propuestas y solicitudes de extracción abiertas que has creado. Puedes utilizarlos para actualizar los elementos que se han puesto en espera, que has cerrado o que mantienes un registro de dónde has sido mencionado a lo largo de todos los repositorios (incluidos aquellos en los que no estás suscrito).'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/viewing-all-of-your-issues-and-pull-requests
   - /articles/viewing-all-of-your-issues-and-pull-requests
@@ -14,16 +14,15 @@ versions:
 topics:
   - Pull requests
   - Issues
-shortTitle: View all your issues & PRs
+shortTitle: Ver todas tus propuestas & solicitudes de cambio
 type: how_to
 ---
-Your issues and pull request dashboards are available at the top of any page. On each dashboard, you can filter the list to find issues or pull requests you created, that are assigned to you, or in which you're mentioned. You can also find pull requests that you've been asked to review.
 
-1. At the top of any page, click **Pull requests** or **Issues**.
-  ![The global pull requests and issues dashboards](/assets/images/help/overview/issues_and_pr_dashboard.png)
-2. Optionally, choose a filter or [use the search bar to filter for more specific results](/articles/using-search-to-filter-issues-and-pull-requests).
-  ![List of pull requests with the "Created" filter selected](/assets/images/help/overview/pr_dashboard_created.png)
+Tus tableros de propuestas y solicitudes de extracción están disponibles en la parte superior de cualquier página. En cada tablero, puedes filtrar la lista para encontrar propuestas y solicitudes de extracción que creaste, que están asignadas a ti o en las cuales estás mencionado. También puedes encontrar solicitudes de extracción que te han pedido que revises.
 
-## Further reading
+1. En la partes superior de cualquier página, haz clic en **Pull requests (Solicitudes de extracción)** o **Issues (Propuestas)**. ![Tableros de solicitudes de extracción o propuestas globales](/assets/images/help/overview/issues_and_pr_dashboard.png)
+2. Como alternativa, elige un filtro o [utiliza la barra de búsqueda para filtrar resultados más específicos](/articles/using-search-to-filter-issues-and-pull-requests). ![Lista de solicitudes de extracción con el filtro "Created" (Creado) seleccionado](/assets/images/help/overview/pr_dashboard_created.png)
 
-- {% ifversion fpt or ghes or ghae or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+## Leer más
+
+- {% ifversion fpt or ghes or ghae or ghec %}"[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listar los repositorios que estás observando](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

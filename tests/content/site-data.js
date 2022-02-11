@@ -77,10 +77,7 @@ describe('siteData module (English)', () => {
   })
 
   test('includes markdown files as data', async () => {
-    const reusable = get(
-      data,
-      'en.site.data.reusables.enterprise_enterprise_support.submit-support-ticket-first-section'
-    )
+    const reusable = get(data, 'en.site.data.reusables.support.submit-a-ticket')
     expect(typeof reusable).toBe('string')
     expect(reusable.includes('1. ')).toBe(true)
   })

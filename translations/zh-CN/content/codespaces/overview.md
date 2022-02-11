@@ -1,6 +1,6 @@
 ---
 title: GitHub Codespaces overview
-shortTitle: Overview
+shortTitle: 概览
 product: '{% data reusables.gated-features.codespaces %}'
 intro: 'This guide introduces {% data variables.product.prodname_codespaces %} and provides details on how it works and how to use it.'
 allowTitleToDifferFromFilename: true
@@ -36,7 +36,7 @@ If you don't do any custom configuration, {% data variables.product.prodname_cod
 
 You can also personalize aspects of your codespace environment by using a public [dotfiles](https://dotfiles.github.io/tutorials/) repository and [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync). Personalization can include shell preferences, additional tools, editor settings, and VS Code extensions. For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)".
 
-## About billing for {% data variables.product.prodname_codespaces %}
+## 关于 {% data variables.product.prodname_codespaces %} 的计费
 
 For information on pricing, storage, and usage for {% data variables.product.prodname_codespaces %}, see "[Managing billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
 

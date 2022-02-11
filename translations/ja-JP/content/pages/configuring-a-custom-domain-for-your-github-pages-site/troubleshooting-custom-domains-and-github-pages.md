@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting custom domains and GitHub Pages
-intro: 'You can check for common errors to resolve issues with custom domains or HTTPS for your {% data variables.product.prodname_pages %} site.'
+title: カスタムドメインとGitHub Pages のトラブルシューティング
+intro: '{% data variables.product.prodname_pages %} サイトのカスタムドメインまたは HTTPS について、よくあるエラーを確認して Issue を解決することができます。'
 redirect_from:
   - /articles/my-custom-domain-isn-t-working
   - /articles/custom-domain-isn-t-working
@@ -13,58 +13,58 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Troubleshoot a custom domain
+shortTitle: カスタムドメインのトラブルシューティング
 ---
 
-## _CNAME_ errors
+## _CNAME_ エラー
 
-Custom domains are stored in a _CNAME_ file in the root of your publishing source. You can add or update this file through your repository settings or manually. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+カスタムドメインは、公開ソースのルートにある _CNAME_ ファイルに保存されます。 このファイルは、リポジトリ設定を通じて、あるいは手動で追加または更新することができます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 
-For your site to render at the correct domain, make sure your _CNAME_ file still exists in the repository. For example, many static site generators force push to your repository, which can overwrite the _CNAME_ file that was added to your repository when you configured your custom domain. If you build your site locally and push generated files to {% data variables.product.product_name %}, make sure to pull the commit that added the _CNAME_ file to your local repository first, so the file will be included in the build.
+サイトが正しいドメインをレンダリングするには、_CNAME_ ファイルがまだリポジトリに存在していることを確認します。 たとえば、静的サイトジェネレータの多くはリポジトリへのプッシュを強制するので、カスタムドメインの設定時にリポジトリに追加された _CNAME_ ファイルを上書きすることができます。 ローカルでサイトをビルドし、生成されたファイルを {% data variables.product.product_name %} にプッシュする場合は、_CNAME_ ファイルをローカルリポジトリに追加したコミットを先にプルして、そのファイルがビルドに含まれるようにする必要があります。
 
-Then, make sure the _CNAME_ file is formatted correctly.
+次に、_CNAME_ のフォーマットが正しいことも確認します。
 
-- The _CNAME_ filename must be all uppercase.
-- The _CNAME_ file can contain only one domain. To point multiple domains to your site, you must set up a redirect through your DNS provider.
-- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
-- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. For example, if another repository's _CNAME_ file contains `example.com`, you cannot use `example.com` in the _CNAME_ file for your repository.
+- _CNAME_ ファイル名は、すべて大文字である必要があります。
+- _CNAME_ ファイルにはドメインを 1 つだけ含めることができます。 複数のドメインをサイトにポイントするには、DNSプロバイダ経由のリダイレクトを設定する必要があります。
+- _CNAME_ ファイルにはドメイン名のみが含まれている必要があります。 たとえば、`www.example.com`、`blog.example.com`、`example.com` などです。
+- ドメイン名は、すべての {% data variables.product.prodname_pages %} サイトで一意である必要があります。 たとえば、別のリポジトリの _CNAME_ ファイルに `example.com` が含まれている場合、自分のリポジトリの _CNAME_ ファイルに `example.com` を使用することはできません。
 
-## DNS misconfiguration
+## DNS の設定ミス
 
-If you have trouble pointing the default domain for your site to your custom domain, contact your DNS provider.
+デフォルトドメインをカスタムドメインにポイントすることに問題がある場合は、DNS プロバイダに連絡してください。
 
 You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
 
 - A CLI tool such as `dig`. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 - An online DNS lookup tool.
 
-## Custom domain names that are unsupported
+## サポートされていないカスタムドメイン名
 
-If your custom domain is unsupported, you may need to change your domain to a supported domain. You can also contact your DNS provider to see if they offer forwarding services for domain names.
+カスタムドメインがサポートされていない場合、使用しているドメインをサポートされているドメインに変更しなければならないかもしれません。 DNSプロバイダに問い合わせて、ドメイン名の転送サービスを提供しているかどうかを確認することもできます。
 
-Make sure your site does not:
-- Use more than one apex domain. For example, both `example.com` and `anotherexample.com`.
-- Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
-- Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
+サイトが以下に当てはまっていないを確認してください。
+- 複数の Apex ドメインを使用している。 たとえば、`example.com` と`anotherexample.com` の両方など。
+- 複数の `www` サブドメインを使用している。 たとえば、`www.example.com` と`www.anotherexample.com` の両方など。
+- Apex ドメインとカスタムサブドメインの両方を使用している。 たとえば、`example.com` と`docs.example.com` の両方など。
 
-  The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
+  例外は`www`サブドメインです。 正しく設定されていれば、`www`サブドメインは自動的にApexドメインにリダイレクトされます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)」を参照してください。
 
 {% data reusables.pages.wildcard-dns-warning %}
 
-For a list of supported custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)."
+サポートされているカスタムサブドメインのリストは、「[カスタムドメインと {% data variables.product.prodname_pages %} について](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)」を参照してください。
 
-## HTTPS errors
+## HTTPS エラー
 
-{% data variables.product.prodname_pages %} sites using custom domains that are correctly configured with `CNAME`, `ALIAS`, `ANAME`, or `A` DNS records can be accessed over HTTPS. For more information, see "[Securing your {% data variables.product.prodname_pages %} site with HTTPS](/articles/securing-your-github-pages-site-with-https)."
+`CNAME`、`ALIAS`、`ANAME` や `A` DNS レコードで適切に設定されたカスタムドメインを使っている {% data variables.product.prodname_pages %} サイトは、HTTPS でアクセスできます。 詳しい情報については[HTTPSで{% data variables.product.prodname_pages %}サイトをセキュアにする](/articles/securing-your-github-pages-site-with-https)を参照してください。
 
-It can take up to an hour for your site to become available over HTTPS after you configure your custom domain. After you update existing DNS settings, you may need to remove and re-add your custom domain to your site's repository to trigger the process of enabling HTTPS. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+カスタムドメインを設定した後、サイトが HTTPS 経由で利用可能になるには最長 1 時間かかります。 既存の DNS 設定をアップデートした後、HTTPS を有効化するプロセスを開始するには、カスタムドメインを削除してサイトのリポジトリに再追加しなければならない可能性があります。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 
-If you're using Certification Authority Authorization (CAA) records, at least one CAA record must exist with the value `letsencrypt.org` for your site to be accessible over HTTPS. For more information, see "[Certificate Authority Authorization (CAA)](https://letsencrypt.org/docs/caa/)" in the Let's Encrypt documentation.
+Certification Authority Authorization (CAA) レコードの使用を選択した場合、HTTPS 経由でサイトにアクセスするには、値が `letsencrypt.org` の CAA レコードが少なくとも 1 つ存在している必要があります。 詳しい情報については、Let's Encrypt ドキュメンテーションの「[Certificate Authority Authorization (CAA)](https://letsencrypt.org/docs/caa/)」を参照してください。
 
-## URL formatting on Linux
+## Linux での URL フォーマット
 
-If the URL for your site contains a username or organization name that begins or ends with a dash, or contains consecutive dashes, people browsing with Linux will receive a server error when they attempt to visit your site. To fix this, change your {% data variables.product.product_name %} username to remove non-alphanumeric characters. For more information, see "[Changing your {% data variables.product.prodname_dotcom %} username](/articles/changing-your-github-username/)."
+サイトのURLに、先頭か最後がダッシュのユーザ名もしくは Organization 名が含まれていたり、連続するダッシュが含まれていたりすると、Linux でブラウズするユーザがそのサイトにアクセスしようとするとサーバーエラーを受け取ることになります。 これを修正するには、{% data variables.product.product_name %}のユーザ名から非英数字を取り除くよう変更してください。 詳細は「[{% data variables.product.prodname_dotcom %} ユーザ名を変更する](/articles/changing-your-github-username/)」を参照してください。
 
-## Browser cache
+## ブラウザのキャッシュ
 
-If you've recently changed or removed your custom domain and can't access the new URL in your browser, you may need to clear your browser's cache to reach the new URL. For more information on clearing your cache, see your browser's documentation.
+最近カスタムドメインを変更または削除し、ブラウザで新しい URL にアクセスできない場合は、ブラウザのキャッシュを削除してから新しい URL にアクセスすることが必要になる場合があります。 キャッシュの削除についての詳しい情報については、ブラウザのドキュメントを参照してください。

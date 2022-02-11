@@ -3,8 +3,8 @@ title: Subir de categoría Git Large File Storage
 intro: 'Puedes comprar más paquetes de datos para aumentar tu cuota de banda ancha mensual y la capacidad de almacenamiento total para {% data variables.large_files.product_name_short %}.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
-  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account/
-  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization/
+  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account
+  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization
   - /articles/upgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
 versions:

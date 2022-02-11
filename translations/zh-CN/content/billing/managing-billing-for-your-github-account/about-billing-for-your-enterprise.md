@@ -1,7 +1,6 @@
 ---
 title: About billing for your enterprise
 intro: 您可以查看企业的帐单信息。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /admin/overview/managing-billing-for-your-enterprise
   - /enterprise/admin/installation/managing-billing-for-github-enterprise

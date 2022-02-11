@@ -1,7 +1,7 @@
 ---
-title: Organizations and teams
-shortTitle: Organizations
-intro: Collaborate across many projects while managing access to projects and data and customizing settings for your organization.
+title: 组织和团队
+shortTitle: 组织
+intro: 跨多个项目协作，同时管理对项目和数据的访问，并为组织自定义设置。
 redirect_from:
   - /articles/about-improved-organization-permissions
   - /categories/setting-up-and-managing-organizations-and-teams

@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions Documentation
+title: Documentação do GitHub Actions
 shortTitle: GitHub Actions
-intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
+intro: 'Automatize, personalize e execute seus fluxos de trabalho de desenvolvimento do software diretamente no seu repositório com o {% data variables.product.prodname_actions %}. Você pode descobrir, criar e compartilhar ações para realizar qualquer trabalho que desejar, incluindo CI/CD, bem como combinar ações em um fluxo de trabalho completamente personalizado.'
 introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
@@ -13,7 +13,7 @@ featuredLinks:
     - /actions/guides/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
-    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/learn-github-actions/using-starter-workflows
     - /actions/guides/publishing-nodejs-packages
     - /actions/guides/building-and-testing-powershell
   popular:
@@ -24,10 +24,14 @@ featuredLinks:
     - /actions/learn-github-actions/expressions
     - /actions/learn-github-actions/environment-variables
     - /actions/security-guides/encrypted-secrets
-changelog:
-  label: actions
-  prefix: 'GitHub Actions: '
-examples_source: data/product-examples/actions/code-examples.yml
+  videos:
+    - title: 'Inside GitHub: How we use GitHub Actions – Brian Douglas'
+      href: 'https://www.youtube-nocookie.com/embed/MW0V5Q9WJu4'
+    - title: Advanced GitHub Actions – Jennifer Schelkopf
+      href: 'https://www.youtube-nocookie.com/embed/wWOH44Lscoc'
+    - title: GitHub Actions in action – Karan MV
+      href: 'https://www.youtube-nocookie.com/embed/4SWO0Pc76CU'
+  videosHeading: GitHub Universe 2021 videos
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions
@@ -46,6 +50,8 @@ versions:
 children:
   - /quickstart
   - /learn-github-actions
+  - /using-workflows
+  - /using-jobs
   - /managing-workflow-runs
   - /automating-builds-and-tests
   - /deployment

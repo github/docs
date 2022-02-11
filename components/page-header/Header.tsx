@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { MarkGithubIcon, ThreeBarsIcon, XIcon } from '@primer/octicons-react'
+import { useVersion } from 'components/hooks/useVersion'
 
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
@@ -17,11 +18,15 @@ import styles from './Header.module.scss'
 export const Header = () => {
   const router = useRouter()
   const { relativePath, error } = useMainContext()
+  const { currentVersion } = useVersion()
   const { t } = useTranslation(['header', 'homepage'])
   const [isMenuOpen, setIsMenuOpen] = useState(
     router.pathname !== '/' && router.query.query && true
   )
   const [scroll, setScroll] = useState(false)
+
+  const signupCTAVisible =
+    currentVersion === 'free-pro-team@latest' || currentVersion === 'enterprise-cloud@latest'
 
   useEffect(() => {
     function onScroll() {
@@ -31,6 +36,16 @@ export const Header = () => {
     return () => {
       window.removeEventListener('scroll', onScroll)
     }
+  }, [])
+
+  useEffect(() => {
+    const close = (e: { key: string }) => {
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', close)
+    return () => window.removeEventListener('keydown', close)
   }, [])
 
   return (
@@ -58,25 +73,37 @@ export const Header = () => {
           >
             <Breadcrumbs />
           </div>
-
-          <div className="mr-2">
-            <VersionPicker />
-          </div>
-
-          <LanguagePicker />
-
-          {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
-          {relativePath !== 'index.md' && error !== '404' && (
-            <div className="d-inline-block ml-3">
-              <Search iconSize={16} isHeaderSearch={true} />
+          <div className="d-flex flex-items-center">
+            <div className="mr-2">
+              <VersionPicker />
             </div>
-          )}
+
+            <LanguagePicker />
+
+            {signupCTAVisible && (
+              <a
+                href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
+                target="_blank"
+                rel="noopener"
+                className="ml-3 btn color-fg-muted"
+              >
+                {t`sign_up_cta`}
+              </a>
+            )}
+
+            {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
+            {relativePath !== 'index.md' && error !== '404' && (
+              <div className="d-inline-block ml-3">
+                <Search iconSize={16} isHeaderSearch={true} />
+              </div>
+            )}
+          </div>
         </div>
 
         {/* mobile header */}
         <div className="d-lg-none" data-testid="mobile-header">
           <div className="d-flex flex-justify-between">
-            <div className="d-flex flex-items-center" id="github-logo-mobile" role="banner">
+            <div className="d-flex flex-items-center" id="github-logo-mobile">
               <Link aria-hidden="true" tabIndex={-1} href={`/${router.locale}`}>
                 <MarkGithubIcon size={32} className="color-fg-default" />
               </Link>
@@ -89,7 +116,7 @@ export const Header = () => {
               </Link>
             </div>
 
-            <div>
+            <nav>
               <button
                 className="btn"
                 data-testid="mobile-menu-button"
@@ -99,7 +126,7 @@ export const Header = () => {
               >
                 {isMenuOpen ? <XIcon size="small" /> : <ThreeBarsIcon size="small" />}
               </button>
-            </div>
+            </nav>
           </div>
 
           {/* mobile menu contents */}
@@ -118,10 +145,20 @@ export const Header = () => {
 
               <div className="border-top my-2" />
               <LanguagePicker variant="inline" />
+              {signupCTAVisible && (
+                <a
+                  href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
+                  target="_blank"
+                  rel="noopener"
+                  className="mt-3 py-2 btn color-fg-muted d-block"
+                >
+                  {t`sign_up_cta`}
+                </a>
+              )}
 
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
               {relativePath !== 'index.md' && error !== '404' && (
-                <div className="my-2 pt-3">
+                <div className="my-2 pt-2">
                   <Search iconSize={16} isMobileSearch={true} />
                 </div>
               )}

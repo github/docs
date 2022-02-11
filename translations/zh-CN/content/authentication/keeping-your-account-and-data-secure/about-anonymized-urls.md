@@ -1,6 +1,6 @@
 ---
-title: About anonymized URLs
-intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
+title: 关于匿名化 URL
+intro: '如果将图像或视频上传到 {% data variables.product.product_name %}，图像或视频 URL 将会修改，这样便无法跟踪您的信息。'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls
   - /articles/about-anonymized-image-urls
@@ -14,15 +14,16 @@ topics:
   - Identity
   - Access management
 ---
-To host your images, {% data variables.product.product_name %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image. 
 
-Videos also get anonymized URLs with the same format as image URLs, but are not processed through Camo. This is because {% data variables.product.prodname_dotcom %} does not support externally hosted videos, so the anonymized URL is a link to the uploaded video hosted by {% data variables.product.prodname_dotcom %}.
+为托管您的图像，{% data variables.product.product_name %} 使用 [开源项目 Camo](https://github.com/atmos/camo)。 Camo 为每个文件生成匿名 URL 代理，以隐藏您的浏览器详细信息和来自其他用户的相关信息。 URL 以 `https:///<subdomain>.githubusercontent.com/` 开头，并且根据您如何上传映像而有不同的子域。
 
-Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive media files private, restrict them to a private network or a server that requires authentication instead of using Camo.
+视频还可以使用与图像 URL 相同的格式获得匿名化 URL，但不会通过 Camo 进行处理。 这是因为 {% data variables.product.prodname_dotcom %} 不支持外部托管的视频，所以匿名 URL 是由 {% data variables.product.prodname_dotcom %} 托管的已上传视频的链接。
 
-## Troubleshooting issues with Camo
+直接或间接收到您的匿名化 URL 的任何人都可查看您的图像或视频。 为对敏感图像文件保密，将它们限于私人网络或需要身份验证的服务器，而不使用 Camo。
 
-In rare circumstances, images that are processed through Camo might not appear on {% data variables.product.prodname_dotcom %}. Here are some steps you can take to determine where the problem lies.
+## Camo 问题故障排除
+
+在偶尔的情况下，通过 Camo 处理的图像可能不会出现在 {% data variables.product.prodname_dotcom %} 上。 下面是可用于确定问题位置的一些步骤。
 
 {% windows %}
 
@@ -34,12 +35,12 @@ Windows users will either need to use the Git PowerShell (which is installed alo
 
 {% endwindows %}
 
-### An image is not showing up
+### 图像不显示
 
-If an image is showing up in your browser but not on {% data variables.product.prodname_dotcom %}, you can try requesting it locally.
+如果图像显示于浏览器中，但未显示在 {% data variables.product.prodname_dotcom %} 上，您可以尝试本地请求该图像。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Request the image headers using `curl`.
+1. 使用 `curl` 请求图像标头。
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -49,20 +50,20 @@ If an image is showing up in your browser but not on {% data variables.product.p
   > Server: Google Frontend
   > Content-Length: 6507
   ```
-3. Check the value of `Content-Type`. In this case, it's `image/x-png`.
-4. Check that content type against [the list of types supported by Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
+3. 检查 `Content-Type` 的值。 本例中为 `image/x-png`。
+4. 根据 [Camo 支持的类型列表](https://github.com/atmos/camo/blob/master/mime-types.json)检查内容类型。
 
-If your content type is not supported by Camo, you can try several actions:
-  * If you own the server that's hosting the image, modify it so that it returns a correct content type for images.
-  * If you're using an external service for hosting images, contact support for that service.
-  * Make a pull request to Camo to add your content type to the list.
+如果您的内容类型不受 Camo 支持，可尝试以下几项操作：
+  * 如果您拥有托管该图像的服务器，请修改它以让其返回正确内容类型的图像。
+  * 如果使用外部服务托管图像，请联系该服务的支持。
+  * 建立对 Camo 的拉取请求以将内容类型添加到列表。
 
-### An image that changed recently is not updating
+### 最近更改的图像不更新
 
-If you changed an image recently and it's showing up in your browser but not {% data variables.product.prodname_dotcom %}, you can try resetting the cache of the image.
+如果最近更改了图像并且它显示在浏览器中，但未显示在 {% data variables.product.prodname_dotcom %} 上，可尝试重置图像缓存。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Request the image headers using `curl`.
+1. 使用 `curl` 请求图像标头。
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -72,29 +73,29 @@ If you changed an image recently and it's showing up in your browser but not {% 
   > Server: Jetty(8.y.z-SNAPSHOT)
   ```
 
-Check the value of `Cache-Control`. In this example, there's no `Cache-Control`. In that case:
-  * If you own the server that's hosting the image, modify it so that it returns a `Cache-Control` of `no-cache` for images.
-  * If you're using an external service for hosting images, contact support for that service.
+检查 `Cache-Control` 的值。 本例中没有 `Cache-Control`。 在这种情况下：
+  * 如果您拥有托管该图像的服务器，请修改它以让其返回图像的 `no-cache` 的 `Cache-Control`。
+  * 如果使用外部服务托管图像，请联系该服务的支持。
 
- If `Cache-Control` *is* set to `no-cache`, contact {% data variables.contact.contact_support %} or search the {% data variables.contact.community_support_forum %}.
+ 如果 `Cache-Control` *设置*为 `no-cache`，请联系 {% data variables.contact.contact_support %} 或搜索 {% data variables.contact.community_support_forum %}。
 
-### Removing an image from Camo's cache
+### 从 Camo 的缓存中删除图像
 
-Purging the cache forces every {% data variables.product.prodname_dotcom %} user to re-request the image, so you should use it very sparingly and only in the event that the above steps did not work.
+清除缓存会强制每个 {% data variables.product.prodname_dotcom %} 用户重新请求图像，因此应非常谨慎地使用此操作，仅在上述步骤无效时才使用。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Purge the image using `curl -X PURGE` on the Camo URL.
+1. 使用 `curl -X PURGE` 在 Camo URL 上清除图像。
   ```shell
   $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
   > {"status": "ok", "id": "216-8675309-1008701"}
   ```
 
-### Viewing images on private networks
+### 在私人网络上查看图像
 
-If an image is being served from a private network or from a server that requires authentication, it can't be viewed by {% data variables.product.prodname_dotcom %}. In fact, it can't be viewed by any user without asking them to log into the server.
+如果图像从私人网络或需要身份验证的服务器提供，则无法通过 {% data variables.product.prodname_dotcom %} 查看。 事实上，未登录服务器的任何用户都无法查看。
 
-To fix this, please move the image to a service that is publicly available.
+要解决此问题，请将图像移至公共的服务。
 
-## Further reading
+## 延伸阅读
 
-- "[Proxying user images](https://github.com/blog/1766-proxying-user-images)" on {% data variables.product.prodname_blog %}
+- {% data variables.product.prodname_blog %} 上的"[代理用户图像](https://github.com/blog/1766-proxying-user-images)"

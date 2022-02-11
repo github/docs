@@ -21,9 +21,13 @@ If you use Zendesk to track user-reported tickets, for example, you can referenc
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. In the left sidebar, click **Autolink references**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-label="The cross-reference icon" %} Autolink references**.
+{% else %}
+1. In the left sidebar, click **Autolink references**.
 ![Autolink references tab in the left sidebar](/assets/images/help/repository/autolink-references-tab.png)
-4. Click **Add autolink reference**.
+{% endif %}
+1. Click **Add autolink reference**.
 ![Button to fill out autolink reference information](/assets/images/help/repository/add-autolink-reference-details.png)
 5. Under "Reference prefix", type a short, meaningful prefix you want collaborators to use to generate autolinks for the external resource.
 ![Field to type abbreviation for external system](/assets/images/help/repository/add-reference-prefix-field.png)

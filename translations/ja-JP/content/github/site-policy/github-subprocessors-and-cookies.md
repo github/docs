@@ -1,5 +1,5 @@
 ---
-title: GitHub Subprocessors and Cookies
+title: GitHubのサブプロセッサとCookie
 redirect_from:
   - /subprocessors
   - /github-subprocessors
@@ -13,68 +13,68 @@ topics:
   - Legal
 ---
 
-Effective date: **April 2, 2021**
+発効日：**2021年4月2日**
 
-GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
+GitHubは、お客様のデータを当社が利用する方法、お客様のデータを当社が収集する方法、およびお客様のデータを共有する対象について、高い透明性を提供します。 この目的のため、[当社のサブプロセッサ](#github-subprocessors)および[クッキー](#cookies-on-github)の使用方法ついて説明するページをご用意しました。
 
-## GitHub Subprocessors
+## GitHubのサブプロセッサ
 
-When we share your information with third party subprocessors, such as our vendors and service providers, we remain responsible for it. We work very hard to maintain your trust when we bring on new vendors, and we require all vendors to enter into data protection agreements with us that restrict their processing of Users' Personal Information (as defined in the [Privacy Statement](/articles/github-privacy-statement/)).
+当社がお客様の情報を、ベンダーやサービスプロバイダなどのサードパーティーのサブプロセッサと共有する場合、それについては当社が責任を負います。 新たなベンダーとのやり取りを行う際に、当社はお客様の信頼を維持するため努力し、全てのベンダーに対して、 ユーザの個人情報 ([プライバシーについての声明](/articles/github-privacy-statement/)の定義による) に関する取り扱いを制限する、データ保護契約を締結するよう要求しています。
 
-| Name of Subprocessor | Description of Processing | Location of Processing | Corporate Location
-|:---|:---|:---|:---|
-| Automattic | Blogging service | United States | United States |
-| AWS Amazon | Data hosting | United States | United States |
-| Braintree (PayPal) | Subscription credit card payment processor | United States | United States |
-| Clearbit | Marketing data enrichment service | United States | United States |
-| Discourse | Community forum software provider | United States | United States |
-| Eloqua | Marketing campaign automation | United States | United States |
-| Google Apps | Internal company infrastructure | United States | United States |
-| MailChimp | Customer ticketing mail services provider | United States | United States |
-| Mailgun | Transactional mail services provider | United States | United States |
-| Microsoft | Microsoft Services | United States | United States |
-| Nexmo | SMS notification provider | United States | United States |
-| Salesforce.com | Customer relations management | United States | United States |
-| Sentry.io | Application monitoring provider | United States | United States |
-| Stripe | Payment provider | United States | United States |
-| Twilio & Twilio Sendgrid | SMS notification provider & transactional mail service provider | United States | United States |
-| Zendesk | Customer support ticketing system | United States | United States |
-| Zuora | Corporate billing system | United States | United States |
+| サブプロセッサ名                 | 処理の内容                             | 処理の場所 | 会社所在地 |
+|:------------------------ |:--------------------------------- |:----- |:----- |
+| Automattic               | ブログサービス                           | 米国    | 米国    |
+| AWS Amazon               | データのホスティング                        | 米国    | 米国    |
+| Braintree (PayPal)       | プランのクレジットカード決済処理業者                | 米国    | 米国    |
+| Clearbit                 | マーケティングデータのエンリッチメントサービス           | 米国    | 米国    |
+| Discourse                | コミュニティフォーラムのソフトウェアプロバイダ           | 米国    | 米国    |
+| Eloqua                   | マーケティングキャンペーンの自動化                 | 米国    | 米国    |
+| Google Apps              | 社内インフラストラクチャ                      | 米国    | 米国    |
+| MailChimp                | 顧客チケットメールサービスプロバイダ                | 米国    | 米国    |
+| Mailgun                  | トランザクションメールサービスプロバイダ              | 米国    | 米国    |
+| Microsoft                | マイクロソフトサービス                       | 米国    | 米国    |
+| Nexmo                    | SMS通知プロバイダ                        | 米国    | 米国    |
+| Salesforce.com           | 顧客関係管理                            | 米国    | 米国    |
+| Sentry.io                | アプリケーション監視プロバイダ                   | 米国    | 米国    |
+| Stripe                   | 決済プロバイダ                           | 米国    | 米国    |
+| Twilio & Twilio Sendgrid | SMS通知プロバイダおよびトランザクションメールサービスプロバイダ | 米国    | 米国    |
+| Zendesk                  | カスタマーサポートのチケットシステム                | 米国    | 米国    |
+| Zuora                    | 企業課金システム                          | 米国    | 米国    |
 
-When we bring on a new subprocessor who handles our Users' Personal Information, or remove a subprocessor, or we change how we use a subprocessor, we will update this page. If you have questions or concerns about a new subprocessor, we'd be happy to help. Please contact us via {% data variables.contact.contact_privacy %}.
+当社ユーザの個人情報を取り扱う新たなサブプロセッサとやり取りを始める際、サブプロセッサと解約する際、およびサブプロセッサの利用方法を変更する際は、このページを更新します。 新たなサブプロセッサについての質問や懸念がある場合は、 {% data variables.contact.contact_privacy %}からお気軽にお問い合わせください。
 
-## Cookies on GitHub
+## GitHubのCookie
 
-GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them. 
- 
-Since the number and names of cookies may change, the table below may be updated from time to time.
+ウェブサイトを提供および保護し、ウェブサイトの利用状況を分析して優れたユーザエクスペリエンスを提供するために、GitHubはクッキーを使用します。 クッキーに関する詳細な情報や、その使用方法と理由について知りたい場合は、当社の[プライバシーについての声明](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking)を参照してください。
 
-| Service Provider | Cookie Name | Description | Expiration* |
-|:---|:---|:---|:---|
-| GitHub | `app_manifest_token` | This cookie is used during the App Manifest flow to maintain the state of the flow during the redirect to fetch a user session. | five minutes |
-| GitHub | `color_mode` | This cookie is used to indicate the user selected theme preference. | session | 
-| GitHub | `_device_id` | This cookie is used to track recognized devices for security purposes. | one year |
-| GitHub | `dotcom_user` | This cookie is used to signal to us that the user is already logged in. | one year |
-| GitHub | `_gh_ent` | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form. | two weeks | 
-| GitHub | `_gh_sess` | This cookie is used for temporary application and framework state between pages like what step the user is on in a multiple step form. | session |
-| GitHub | `gist_oauth_csrf` | This cookie is set by Gist to ensure the user that started the oauth flow is the same user that completes it. | deleted when oauth state is validated |
-| GitHub | `gist_user_session` | This cookie is used by Gist when running on a separate host. | two weeks |
-| GitHub | `has_recent_activity` | This cookie is used to prevent showing the security interstitial to users that have visited the app recently. | one hour | 
-| GitHub | `__Host-gist_user_session_same_site` | This cookie is set to ensure that browsers that support SameSite cookies can check to see if a request originates from GitHub. | two weeks | 
-| GitHub | `__Host-user_session_same_site` | This cookie is set to ensure that browsers that support SameSite cookies can check to see if a request originates from GitHub. | two weeks | 
-| GitHub | `logged_in` | This cookie is used to signal to us that the user is already logged in. | one year | 
-| GitHub | `marketplace_repository_ids` | This cookie is used for the marketplace installation flow. | one hour |
-| GitHub | `marketplace_suggested_target_id` | This cookie is used for the marketplace installation flow. | one hour |
-| GitHub | `_octo` | This cookie is used for session management including caching of dynamic content, conditional feature access, support request metadata, and first party analytics. | one year | 
-| GitHub | `org_transform_notice` | This cookie is used to provide notice during organization transforms. | one hour |
-| GitHub | `private_mode_user_session` |  This cookie is used for Enterprise authentication requests. | two weeks |
-| GitHub | `saml_csrf_token` | This cookie is set by SAML auth path method to associate a token with the client. | until user closes browser or completes authentication request |
-| GitHub | `saml_csrf_token_legacy` | This cookie is set by SAML auth path method to associate a token with the client. | until user closes browser or completes authentication request |
-| GitHub | `saml_return_to` | This cookie is set by the SAML auth path method to maintain state during the SAML authentication loop. | until user closes browser or completes authentication request |
-| GitHub | `saml_return_to_legacy` | This cookie is set by the SAML auth path method to maintain state during the SAML authentication loop. | until user closes browser or completes authentication request |
-| GitHub | `tz` | This cookie allows us to customize timestamps to your time zone. | session | 
-| GitHub | `user_session` | This cookie is used to log you in. | two weeks |
+クッキーの数や名前は変わることがあるため、以下の表も適時更新されることがあります。
 
-_*_ The **expiration** dates for the cookies listed below generally apply on a rolling basis.
+| サービスプロバイダ | クッキーの名前                              | 説明                                                                                  | 有効期限*                        |
+|:--------- |:------------------------------------ |:----------------------------------------------------------------------------------- |:---------------------------- |
+| GitHub    | `app_manifest_token`                 | このクッキーは、リダイレクト中のユーザセッションをフェッチし、フローの状態を維持するため、App Manifestフロー中に使用されます。               | 5分間                          |
+| GitHub    | `color_mode`                         | このクッキーは、ユーザが選択したテーマ設定を示すために使用されます。                                                  | セッション                        |
+| GitHub    | `_device_id`                         | このクッキーは、セキュリティ上の目的により、認識されたデバイスを追跡するために使用されます。                                      | 1年間                          |
+| GitHub    | `dotcom_user`                        | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                         | 1年間                          |
+| GitHub    | `_gh_ent`                            | このクッキーは、お客様が複数のステップのうちどのステップにあるのかなど、一時アプリケーションおよびフレームワークにおけるページ間での状態を記録するために使用されます。 | 2週間                          |
+| GitHub    | `_gh_sess`                           | このクッキーは、ユーザが複数のステップのうちどのステップにあるのかなど、一時アプリケーションおよびフレームワークにおけるページ間での状態を記録するために使用されます。 | セッション                        |
+| GitHub    | `gist_oauth_csrf`                    | このクッキーは、OAuthフローを開始したユーザが、それを完了したユーザと同一であることを保証するために、Gistによって設定されます。                | OAuth state の検証後に削除          |
+| GitHub    | `gist_user_session`                  | このクッキーは、別のホストで実行されている場合にGistによって使用されます。                                             | 2週間                          |
+| GitHub    | `has_recent_activity`                | このクッキーは、アプリケーションに最近アクセスしたユーザにセキュリティインタースティシャルを表示させないために使用されます。                      | 1時間                          |
+| GitHub    | `__Host-gist_user_session_same_site` | このクッキーは、SameSiteクッキーをサポートするブラウザが、リクエストがGitHubから発信されているかどうかを確認できるように設定されます。          | 2週間                          |
+| GitHub    | `__Host-user_session_same_site`      | このクッキーは、SameSiteクッキーをサポートするブラウザが、リクエストがGitHubから発信されているかどうかを確認できるように設定されます。          | 2週間                          |
+| GitHub    | `logged_in`                          | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                         | 1年間                          |
+| GitHub    | `marketplace_repository_ids`         | このクッキーは、Marketplaceのインストールフローに使用されます。                                               | 1時間                          |
+| GitHub    | `marketplace_suggested_target_id`    | このクッキーは、Marketplaceのインストールフローに使用されます。                                               | 1時間                          |
+| GitHub    | `_octo`                              | このクッキーは、動的コンテンツのキャッシング、条件付き機能へのアクセス、サポートリクエストのメタデータ、ファーストパーティ分析などのセッション管理に使用されます。   | 1年間                          |
+| GitHub    | `org_transform_notice`               | このクッキーは、Organizationの変換時に通知を行うために使用されます。                                            | 1時間                          |
+| GitHub    | `private_mode_user_session`          | このクッキーは、Enterprise認証リクエストに使用されます。                                                   | 2週間                          |
+| GitHub    | `saml_csrf_token`                    | このクッキーは、トークンをクライアントに関連付けるために、SAML認証パスメソッドによって設定されます。                                | ユーザがブラウザを閉じるか、認証リクエストを完了するまで |
+| GitHub    | `saml_csrf_token_legacy`             | このクッキーは、トークンをクライアントに関連付けるために、SAML認証パスメソッドによって設定されます。                                | ユーザがブラウザを閉じるか、認証リクエストを完了するまで |
+| GitHub    | `saml_return_to`                     | このクッキーは、SAML認証ループ時に、状態を維持するためSAML認証パスメソッドによって設定されます。                                | ユーザがブラウザを閉じるか、認証リクエストを完了するまで |
+| GitHub    | `saml_return_to_legacy`              | このクッキーは、SAML認証ループ時に、状態を維持するためSAML認証パスメソッドによって設定されます。                                | ユーザがブラウザを閉じるか、認証リクエストを完了するまで |
+| GitHub    | `tz`                                 | このクッキーを使用すると、タイムゾーンに合わせてタイムスタンプをカスタマイズできます。                                         | セッション                        |
+| GitHub    | `user_session`                       | このクッキーはログインに使用されます。                                                                 | 2週間                          |
 
-(!) Please note while we limit our use of third party cookies to those necessary to provide external functionality when rendering external content, certain pages on our website may set other third party cookies. For example, we may embed content, such as videos, from another site that sets a cookie. While we try to minimize these third party cookies, we can’t always control what cookies this third party content sets.
+_*_ 以下に挙げるクッキーの**有効期限**日は通常、随時適用されます。
+
+(!) 当社は第三者によるクッキーの使用を、外部コンテンツをレンダリングする際に必要な外部機能を提供するために必要なものに限って使用していますが、当社の特定のページにおいては第三者によるその他のクッキーが設置される場合があります。 たとえば、クッキーを設定するサイトから、動画などのコンテンツを埋め込むことがあります。 第三者のクッキーは最小限に保つよう努めていますが、当社は第三者のコンテンツが設定するクッキーを常に管理できるわけではありません。

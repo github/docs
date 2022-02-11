@@ -4,6 +4,7 @@ intro: 'Você pode representar usuários e executar ações em seu nome para sol
 permissions: Enterprise owners can impersonate users within their enterprise.
 versions:
   ghes: '>3.2'
+  ghae: '*'
 type: how_to
 topics:
   - Administrator

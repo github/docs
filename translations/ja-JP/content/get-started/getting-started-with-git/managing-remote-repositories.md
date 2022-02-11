@@ -1,6 +1,6 @@
 ---
-title: Managing remote repositories
-intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {% data variables.product.product_name %}.'
+title: リモートリポジトリを管理する
+intro: 'お手元のコンピューター上にあるローカルリポジトリと、{% data variables.product.product_name %} にホストされているリポジトリを使用する方法を学びます。'
 redirect_from:
   - /categories/18/articles
   - /remotes
@@ -25,22 +25,23 @@ versions:
   ghec: '*'
 shortTitle: Manage remote repositories
 ---
+
 ## Adding a remote repository
 
 To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
 
-The `git remote add` command takes two arguments:
-* A remote name, for example, `origin`
-* A remote URL, for example, `https://{% data variables.command_line.backticks %}/user/repo.git`
+`git remote add` コマンドは 2 つの引数を取ります:
+* リモート名。たとえば `origin`
+* リモート URL。たとえば `https://{% data variables.command_line.backticks %}/user/repo.git`
 
-For example:
+例:
 
 ```shell
 $ git remote add origin https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
-# Set a new remote
+# 新しいリモートの設定
 
 $ git remote -v
-# Verify new remote
+# 新しいリモートの検証
 > origin  https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git (fetch)
 > origin  https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git (push)
 ```
@@ -57,7 +58,7 @@ $ git remote add origin https://{% data variables.command_line.codeblock %}/octo
 ```
 
 To fix this, you can:
-* Use a different name for the new remote.
+* 新しいリモートに別の名前を使う.
 * Rename the existing remote repository before you add the new remote. For more information, see "[Renaming a remote repository](#renaming-a-remote-repository)" below.
 * Delete the existing remote repository before you add the new remote. For more information, see "[Removing a remote repository](#removing-a-remote-repository)" below.
 
@@ -71,34 +72,34 @@ The `git remote set-url` command changes an existing remote repository URL.
 
 {% endtip %}
 
-The `git remote set-url` command takes two arguments:
+`git remote set-url`コマンドは 2 つの引数を取ります:
 
-* An existing remote name. For example, `origin` or `upstream` are two common choices.
-* A new URL for the remote. For example:
-  * If you're updating to use HTTPS, your URL might look like:
+* 既存のリモート名。 `origin` や `upstream` がよく使われます。
+* リモートの新しい URL。 例:
+  * HTTPS を使うよう更新する場合、URL は以下のようになります:
 ```shell
 https://{% data variables.command_line.backticks %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
-  * If you're updating to use SSH, your URL might look like:
+  * SSH を使うよう更新する場合、URL は以下のようになります:
 ```shell
 git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
 
-### Switching remote URLs from SSH to HTTPS
+### リモート URL の SSH から HTTPS への切り替え
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. List your existing remotes in order to get the name of the remote you want to change.
+2. ワーキングディレクトリをローカルプロジェクトに変更します。
+3. 変更したいリモートの名前を取得するため、既存のリモート一覧を表示します。
   ```shell
   $ git remote -v
   > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (fetch)
   > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
-4. Change your remote's URL from SSH to HTTPS with the `git remote set-url` command.
+4. `git remote set-url` コマンドでリモートの URL を SSH から HTTPS に変更します。
   ```shell
   $ git remote set-url origin https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
   ```
-5. Verify that the remote URL has changed.
+5. リモート URL が変更されたことを検証します。
   ```shell
   $ git remote -v
   # Verify new remote URL
@@ -106,25 +107,25 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password. {% data reusables.user_settings.password-authentication-deprecation %}
+次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
 
-You can [use a credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
+[認証情報ヘルパーを使用](/github/getting-started-with-github/caching-your-github-credentials-in-git)すると、Git が GitHub と通信するたびに、GitHub のユーザ名と個人アクセストークンを記憶します。
 
-### Switching remote URLs from HTTPS to SSH
+### リモート URL の HTTPS から SSH への切り替え
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. List your existing remotes in order to get the name of the remote you want to change.
+2. ワーキングディレクトリをローカルプロジェクトに変更します。
+3. 変更したいリモートの名前を取得するため、既存のリモート一覧を表示します。
   ```shell
   $ git remote -v
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (fetch)
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
-4. Change your remote's URL from HTTPS to SSH with the `git remote set-url` command.
+4. `git remote set-url` コマンドでリモートの URL を HTTPS から SSH に変更します。
   ```shell
   $ git remote set-url origin git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
   ```
-5. Verify that the remote URL has changed.
+5. リモート URL が変更されたことを検証します。
   ```shell
   $ git remote -v
   # Verify new remote URL
@@ -134,104 +135,103 @@ You can [use a credential helper](/github/getting-started-with-github/caching-yo
 
 ### Troubleshooting: No such remote '[name]'
 
-This error means that the remote you tried to change doesn't exist:
+このエラーは、変更しようとしたリモートが存在しないことを意味します。
 
 ```shell
 $ git remote set-url sofake https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
 > fatal: No such remote 'sofake'
 ```
 
-Check that you've correctly typed the remote name.
+リモート名を正しく入力したか確認してください。
 
 ## Renaming a remote repository
 
 Use the `git remote rename` command to rename an existing remote.
 
-The `git remote rename` command takes two arguments:
-* An existing remote name, for example, `origin`
-* A new name for the remote, for example, `destination`
+`git remote rename` コマンドは、次の 2 つの引数を取ります:
+* 既存のリモート名（`origin` など）
+* リモートの新しい名前 (`destination` など)
 
-## Example
+## サンプル
 
-These examples assume you're [cloning using HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), which is recommended.
+次の例は (推奨されるとおり) [HTTPS を使用してクローンを作成](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)したと想定しています。
 
 ```shell
 $ git remote -v
-# View existing remotes
-> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+# 既存のリモートを表示
+> origin https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (fetch)
+> origin https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (push)
 
 $ git remote rename origin destination
-# Change remote name from 'origin' to 'destination'
+# リモート名を「origin」から「destination」に変更
 
 $ git remote -v
-# Verify remote's new name
-> destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+# リモートの新しい名前を確認
+> destination https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (fetch)
+> destination https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (push)
 ```
 
 ### Troubleshooting: Could not rename config section 'remote.[old name]' to 'remote.[new name]'
 
 This error means that the old remote name you typed doesn't exist.
 
-You can check which remotes currently exist with the `git remote -v` command:
+現在どのリモートが存在するかは、次のように `git remote -v` コマンドでチェックできます:
 
 ```shell
 $ git remote -v
-# View existing remotes
-> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+# 既存のリモートを表示
+> origin  https://{% data variables.command_line.codeblock %}/<em>コードオーナー</em>/<em>リポジトリ</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>コードオーナー</em>/<em>リポジトリ</em>.git (push)
 ```
 
 ### Troubleshooting: Remote [new name] already exists
 
-This error means that the remote name you want to use already exists. To solve this, either use a different remote name, or rename the original remote.
+このエラーは、使用しようとしたリモート名がすでに存在する、という意味です。 To solve this, either use a different remote name, or rename the original remote.
 
-## Removing a remote repository 
+## Removing a remote repository
 
 Use the `git remote rm` command to remove a remote URL from your repository.
 
-The `git remote rm` command takes one argument:
-* A remote name, for example, `destination`
+`git remote rm` コマンドは 1 つの引数を取ります:
+* リモート名 (`destination` など)
 
-## Example
+## サンプル
 
-These examples assume you're [cloning using HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), which is recommended.
+次の例は (推奨されるとおり) [HTTPS を使用してクローンを作成](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)したと想定しています。
 
 ```shell
 $ git remote -v
-# View current remotes
-> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (fetch)
-> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (push)
-> destination  https://{% data variables.command_line.codeblock %}/<em>FORKER/REPOSITORY</em>.git (fetch)
-> destination  https://{% data variables.command_line.codeblock %}/<em>FORKER/REPOSITORY</em>.git (push)
+# 現在のリモートの表示
+> origin  https://{% data variables.command_line.codeblock %}/<em>オーナー/リポジトリ</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>オーナー/リポジトリ</em>.git (push)
+> destination  https://{% data variables.command_line.codeblock %}/<em>フォーカー/リポジトリ</em>.git (fetch)
+> destination  https://{% data variables.command_line.codeblock %}/<em>フォーカー/リポジトリ</em>.git (push)
 
 $ git remote rm destination
-# Remove remote
+# リモートの削除
 $ git remote -v
-# Verify it's gone
-> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (fetch)
-> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (push)
+# 削除されていることの検証
+> origin  https://{% data variables.command_line.codeblock %}/<em>オーナー/リポジトリ</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>オーナー/リポジトリ</em>.git (push)
 ```
 
 {% warning %}
 
-**Note**: `git remote rm` does not delete the remote repository from the server.  It simply
-removes the remote and its references from your local repository.
+**メモ**: `git remote rm` はリモートリポジトリをサーバから削除するわけではありません。  リモートとその参照をローカルリポジトリから削除するだけです。
 
 {% endwarning %}
 
 ### Troubleshooting: Could not remove config section 'remote.[name]'
 
-This error means that the remote you tried to delete doesn't exist:
+このエラーは、削除しようとしたリモートが存在しないことを意味します。
 
 ```shell
 $ git remote rm sofake
 > error: Could not remove config section 'remote.sofake'
 ```
 
-Check that you've correctly typed the remote name.
+リモート名を正しく入力したか確認してください。
 
-## Further reading
+## 参考リンク
 
-- "[Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
+- [書籍 _Pro Git_ のリモートでの作業](https://git-scm.com/book/ja/v2/Git-の基本-リモートでの作業)

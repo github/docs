@@ -1,6 +1,6 @@
 ---
-title: Collaborating with pull requests
-intro: 'Track and discuss changes in issues, then propose and review changes in pull requests.'
+title: 协作处理拉取请求
+intro: 跟踪和讨论议题更改，然后提出和审查拉取请求中的更改。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests
   - /categories/63/articles
@@ -26,3 +26,4 @@ children:
   - /incorporating-changes-from-a-pull-request
 shortTitle: Collaborate with pull requests
 ---
+

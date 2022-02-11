@@ -1,6 +1,6 @@
 ---
-title: Transferring an issue to another repository
-intro: 'To move an issue to a better fitting repository, you can transfer open issues to other repositories.'
+title: Transferir um problema para outro repositório
+intro: 'Para mover um problema para um repositório mais adequado, você pode transferir problemas abertos para outros repositórios.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/transferring-an-issue-to-another-repository
   - /articles/transferring-an-issue-to-another-repository
@@ -13,31 +13,27 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Transfer an issue
+shortTitle: Transferir um problema
 ---
-To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes or ghec %}You can't transfer an issue from a private repository to a public repository.{% endif %}
+Para transferir um problema aberto para outro repositório, é preciso ter acesso de gravação no repositório em que o problema está e no repositório para onde você está transferindo o problema. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
-When you transfer an issue, comments and assignees are retained. The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[About project boards](/articles/about-project-boards)."
+Você somente pode transferir problemas entre repositórios pertencentes à mesma conta de usuário ou organização. {% ifversion fpt or ghes or ghec %}Você não pode transferir um problema de um repositório privado para um repositório público.{% endif %}
 
-People or teams who are mentioned in the issue will receive a notification letting them know that the issue has been transferred to a new repository. The original URL redirects to the new issue's URL. People who don't have read permissions in the new repository will see a banner letting them know that the issue has been transferred to a new repository that they can't access.
+Quando você transfere um problema, os comentários e responsáveis são mantidos. As etiquetas e os marcos do problema não são retidos. Esse problema permanecerá em qualquer quadro de projeto pertencente ao usuário ou à organização e será removido dos quadros de projeto de todos os repositórios. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
 
-## Transferring an open issue to another repository
+As pessoas ou equipes mencionadas no problema receberão uma notificação informando que o problema foi transferido para um novo repositório. O URL original redirecionará para o novo URL do problema. As pessoas que não tenham permissões de leitura no novo repositório verão um banner informando que o problema foi transferido para um novo repositório ao qual elas não têm acesso.
 
-{% include tool-switcher %}
+## Transferir um problema aberto para outro repositório
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue you'd like to transfer.
-4. In the right sidebar, click **Transfer issue**.
-![Button to transfer issue](/assets/images/help/repository/transfer-issue.png)
-5. Use the **Choose a repository** drop-down menu, and select the repository you want to transfer the issue to.
-![Choose a repository selection](/assets/images/help/repository/choose-a-repository.png)
-6. Click **Transfer issue**.
-![Transfer issue button](/assets/images/help/repository/transfer-issue-button.png)
+3. Na lista de problemas, clique no problema que deseja transferir.
+4. Na barra lateral direita, clique em **Transfer issue** (Transferir problema). ![Botão para transferir problema](/assets/images/help/repository/transfer-issue.png)
+5. Use o menu **Choose a repository** (Escolher um repositório) e selecione o repositório para o qual deseja transferir o problema. ![Seleção em Choose a repository (Escolher um repositório)](/assets/images/help/repository/choose-a-repository.png)
+6. Clique em **Transfer issue** (Transferir problema). ![Botão Transfer issue (Transferir problema)](/assets/images/help/repository/transfer-issue-button.png)
 
 {% endwebui %}
 
@@ -45,7 +41,7 @@ People or teams who are mentioned in the issue will receive a notification letti
 
 {% data reusables.cli.cli-learn-more %}
 
-To transfer an issue, use the `gh issue transfer` subcommand. Replace the `issue` parameter with the number or URL of the issue. Replace the `{% ifversion ghes %}hostname/{% endif %}owner/repo` parameter with the {% ifversion ghes %}URL{% else %}name{% endif %} of the repository that you want to transfer the issue to, such as `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`.
+Para transferir um problema, use o subcomando `gh issue transfer`. Substitua o parâmetro `problema` pelo número ou URL do problema. Substitua o parâmetro `{% ifversion ghes %}nome do host/{% endif %}proprietário/repositório` pelo {% ifversion ghes %}URL{% else %}nome{% endif %} do repositório para o qual você deseja transferir o problema como, por exemplo, `{% ifversion ghes %}https://ghe. o/{% endif %}octocat/octo-repo`.
 
 ```shell
 gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}owner/repo</em>
@@ -53,8 +49,8 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 {% endcli %}
 
-## Further reading
+## Leia mais
 
-- "[About issues](/articles/about-issues)"
-- "[Reviewing your security log](/articles/reviewing-your-security-log)"
-- "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)"
+- "[Sobre problemas](/articles/about-issues)"
+- "[Revisar o log de segurança](/articles/reviewing-your-security-log)"
+- "[Revisar o log de auditoria da organização](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)"

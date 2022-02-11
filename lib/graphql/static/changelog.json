@@ -4,6 +4,105 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `AbortQueuedMigrationsInput` was added",
+          "Type `AbortQueuedMigrationsPayload` was added",
+          "Type `ActorType` was added",
+          "Type `CreateMigrationSourceInput` was added",
+          "Type `CreateMigrationSourcePayload` was added",
+          "Type `GrantEnterpriseOrganizationsMigratorRoleInput` was added",
+          "Type `GrantEnterpriseOrganizationsMigratorRolePayload` was added",
+          "Type `GrantMigratorRoleInput` was added",
+          "Type `GrantMigratorRolePayload` was added",
+          "Type `Import` was added",
+          "Type `Migration` was added",
+          "Type `MigrationSource` was added",
+          "Type `MigrationSourceType` was added",
+          "Type `MigrationState` was added",
+          "Type `RepositoryMigration` was added",
+          "Type `RepositoryMigrationConnection` was added",
+          "Type `RepositoryMigrationEdge` was added",
+          "Type `RepositoryMigrationOrder` was added",
+          "Type `RepositoryMigrationOrderDirection` was added",
+          "Type `RepositoryMigrationOrderField` was added",
+          "Type `RevokeEnterpriseOrganizationsMigratorRoleInput` was added",
+          "Type `RevokeEnterpriseOrganizationsMigratorRolePayload` was added",
+          "Type `RevokeMigratorRoleInput` was added",
+          "Type `RevokeMigratorRolePayload` was added",
+          "Type `StartRepositoryMigrationInput` was added",
+          "Type `StartRepositoryMigrationPayload` was added",
+          "Type `UpdateEnterpriseOwnerOrganizationRoleInput` was added",
+          "Type `UpdateEnterpriseOwnerOrganizationRolePayload` was added",
+          "Argument `login: String` added to field `EnterpriseIdentityProvider.externalIdentities`",
+          "Argument `userName: String` added to field `EnterpriseIdentityProvider.externalIdentities`",
+          "Field `projectNextItems` was added to object type `Issue`",
+          "Field `abortQueuedMigrations` was added to object type `Mutation`",
+          "Field `createMigrationSource` was added to object type `Mutation`",
+          "Field `grantEnterpriseOrganizationsMigratorRole` was added to object type `Mutation`",
+          "Field `grantMigratorRole` was added to object type `Mutation`",
+          "Field `revokeEnterpriseOrganizationsMigratorRole` was added to object type `Mutation`",
+          "Field `revokeMigratorRole` was added to object type `Mutation`",
+          "Field `startRepositoryMigration` was added to object type `Mutation`",
+          "Field `updateEnterpriseOwnerOrganizationRole` was added to object type `Mutation`",
+          "Argument `login: String` added to field `OIDCProvider.externalIdentities`",
+          "Argument `userName: String` added to field `OIDCProvider.externalIdentities`",
+          "Field `repositoryMigrations` was added to object type `Organization`",
+          "Argument `login: String` added to field `OrganizationIdentityProvider.externalIdentities`",
+          "Argument `userName: String` added to field `OrganizationIdentityProvider.externalIdentities`",
+          "Field `public` was added to object type `ProjectNext`",
+          "Field `shortDescription` was added to object type `ProjectNext`",
+          "Field `isArchived` was added to object type `ProjectNextItem`",
+          "Field `projectNextItems` was added to object type `PullRequest`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-02-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `OrgEnterpriseOwnerOrder` was added",
+          "Type `OrgEnterpriseOwnerOrderField` was added",
+          "Type `OrganizationEnterpriseOwnerConnection` was added",
+          "Type `OrganizationEnterpriseOwnerEdge` was added",
+          "Enum value 'LFX_CROWDFUNDING` was added to enum `FundingPlatform'",
+          "Field `enterpriseOwners` was added to object type `Organization`",
+          "Enum value 'ADDED_TO_MERGE_QUEUE_EVENT` was added to enum `PullRequestTimelineItemsItemType'",
+          "Enum value 'REMOVED_FROM_MERGE_QUEUE_EVENT` was added to enum `PullRequestTimelineItemsItemType'"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-01-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `BypassForcePushAllowance` was added",
+          "Type `BypassForcePushAllowanceConnection` was added",
+          "Type `BypassForcePushAllowanceEdge` was added",
+          "Field `bypassForcePushAllowances` was added to object type `BranchProtectionRule`",
+          "Input field `bypassForcePushActorIds` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `Push.pusher` changed type from `User!` to `Actor!`",
+          "Input field `bypassForcePushActorIds` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-01-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `ProjectNextOrderField` was added",
           "Type `RoleInOrganization` was added",
           "Type `UpdateOrganizationAllowPrivateRepositoryForkingSettingInput` was added",

@@ -51,6 +51,12 @@ topics:
 
 {% data reusables.repositories.task-list-markdown %}
 
+{% tip %}
+
+**参考:** クローズされたIssueや、リンクされたPull Requestを持つIssue内では、タスクリストのアイテムを作成することはできません。
+
+{% endtip %}
+
 ## タスクの順序変更
 
 タスクリスト内のアイテムは、タスクのチェックボックスの左をクリックし、新しい場所へドラッグして落とすことによって、順序を変更できます。 同じコメント中のリスト間でタスクを並び替えることができますが、別々のコメント間でタスクを並び替えることはできません。
@@ -70,5 +76,5 @@ topics:
 
 ## 参考リンク
 
-* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
-* "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
+* 「[基本的な執筆とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)」{% if code-scanning-task-lists %}
+* 「タスクリストを使ったIssue内の[{% data variables.product.prodname_code_scanning %} アラートの追跡](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)」{% endif %}

@@ -1,7 +1,6 @@
 ---
 title: Conectar uma assinatura do Azure à sua empresa
 intro: 'Você pode usar o Contrato da Microsoft Enterprise para habilitar e pagar por {% data variables.product.prodname_actions %} e pelo uso de {% data variables.product.prodname_registry %}, além dos valores incluídos para a sua empresa.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise

@@ -1,6 +1,6 @@
 ---
-title: Managing team access to an organization repository
-intro: 'You can give a team access to a repository, remove a team''s access to a repository, or change a team''s permission level for a repository.'
+title: 管理团队对组织仓库的访问
+intro: 您可以向团队授予仓库访问权限，删除团队的仓库访问权限，或者更改团队对仓库的权限级别。
 redirect_from:
   - /articles/managing-team-access-to-an-organization-repository-early-access-program
   - /articles/managing-team-access-to-an-organization-repository
@@ -13,35 +13,32 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Manage team access
+shortTitle: 管理团队访问
 ---
 
-People with admin access to a repository can manage team access to the repository. Team maintainers can remove a team's access to a repository.
+对仓库具有管理员权限的人员可以管理团队对仓库的访问权限。 团队维护员可以删除团队对仓库的访问权限。
 
 {% warning %}
 
-**Warnings:**
-- You can change a team's permission level if the team has direct access to a repository. If the team's access to the repository is inherited from a parent team, you must change the parent team's access to the repository.
-- If you add or remove repository access for a parent team, each of that parent's child teams will also receive or lose access to the repository. For more information, see "[About teams](/articles/about-teams)."
+**警告：**
+- 如果团队能够直接访问仓库，您可以更改其权限级别。 如果团队对仓库的访问权限继承自父团队，则您必须更改团队对仓库的访问权限。
+- 如果您添加或删除父团队的仓库访问权限，则其每个子团队也会获得或失去相应的仓库访问权限。 更多信息请参阅“[关于团队](/articles/about-teams)”。
 
 {% endwarning %}
 
-## Giving a team access to a repository
+## 授予团队对仓库的访问权限
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
-5. Above the list of repositories, click **Add repository**.
-  ![The Add repository button](/assets/images/help/organizations/add-repositories-button.png)
-6. Type the name of a repository, then click **Add repository to team**.
-  ![Repository search field](/assets/images/help/organizations/team-repositories-add.png)
-7. Optionally, to the right of the repository name, use the drop-down menu and choose a different permission level for the team.
-  ![Repository access level dropdown](/assets/images/help/organizations/team-repositories-change-permission-level.png)
+5. 在仓库列表上方，单击 **Add repository（添加仓库）**。 ![添加仓库按钮](/assets/images/help/organizations/add-repositories-button.png)
+6. 输入仓库的名称，然后单击 **Add repository to team（添加仓库到团队）**。 ![仓库搜索字段](/assets/images/help/organizations/team-repositories-add.png)
+7. 也可选择在仓库名称右侧使用下拉菜单，为团队选择不同的权限级别。 ![仓库访问权限下拉菜单](/assets/images/help/organizations/team-repositories-change-permission-level.png)
 
-## Removing a team's access to a repository
+## 删除团队对仓库的访问权限
 
-You can remove a team's access to a repository if the team has direct access to a repository. If a team's access to the repository is inherited from a parent team, you must remove the repository from the parent team in order to remove the repository from child teams.
+如果团队能够直接访问仓库，您可以更改其对仓库的访问权限。 如果团队对仓库的访问权限继承自父团队，则必须删除父团队对仓库的访问权限才可删除其子团队的相应权限。
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
@@ -49,13 +46,10 @@ You can remove a team's access to a repository if the team has direct access to 
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
-5. Select the repository or repositories you'd like to remove from the team.
-  ![List of team repositories with the checkboxes for some repositories selected](/assets/images/help/teams/select-team-repositories-bulk.png)
-6. Above the list of repositories, use the drop-down menu, and click **Remove from team**.
-  ![Drop-down menu with the option to remove a repository from a team](/assets/images/help/teams/remove-team-repo-dropdown.png)
-7. Review the repository or repositories that will be removed from the team, then click **Remove repositories**.
-  ![Modal box with a list of repositories that the team will no longer have access to](/assets/images/help/teams/confirm-remove-team-repos.png)
+5. 选择要从团队删除的仓库。 ![某些仓库的勾选框已选中的团队仓库列表](/assets/images/help/teams/select-team-repositories-bulk.png)
+6. 在仓库列表上方，使用下拉菜单，然后单击 **Remove from team（从团队删除）**。 ![包含从团队删除仓库的选项的下拉菜单](/assets/images/help/teams/remove-team-repo-dropdown.png)
+7. 检查要从团队删除的仓库，然后单击 **Remove repositories（删除仓库）**。 ![包含团队无法再访问的仓库列表的模态框](/assets/images/help/teams/confirm-remove-team-repos.png)
 
-## Further reading
+## 延伸阅读
 
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

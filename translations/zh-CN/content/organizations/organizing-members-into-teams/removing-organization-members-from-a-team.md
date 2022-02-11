@@ -1,6 +1,6 @@
 ---
-title: Removing organization members from a team
-intro: 'People with *owner* or *team maintainer* permissions can remove team members from a team. This may be necessary if a person no longer needs access to a repository the team grants, or if a person is no longer focused on a team''s projects.'
+title: 从团队中删除组织成员
+intro: 具有*所有者*或*团队维护员*权限的人员可以从团队中删除团队成员。 如果人员不再需要团队授予的仓库访问权限，或者人员不再关注团队的项目，则可能有必要这样做。
 redirect_from:
   - /articles/removing-organization-members-from-a-team-early-access-program
   - /articles/removing-organization-members-from-a-team
@@ -13,15 +13,13 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Remove members
+shortTitle: 删除成员
 ---
 
-{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}  
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
-4. Select the person or people you'd like to remove.
-  ![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)
-5. Above the list of team members, use the drop-down menu and click **Remove from team**.
-  ![Drop-down menu with option to change role](/assets/images/help/teams/bulk-edit-drop-down.png)
+4. 选择您想要删除的一个或多个人员。 ![组织成员旁的复选框](/assets/images/help/teams/team-member-check-box.png)
+5. 在团队成员列表上方，使用下拉菜单，然后单击 **Remove from team（从团队中删除）**。 ![包含更改角色选项的下拉菜单](/assets/images/help/teams/bulk-edit-drop-down.png)

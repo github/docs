@@ -1,6 +1,6 @@
 ---
-title: Setting your billing email
-intro: 'Your account''s billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication.'
+title: 支払い請求先メールアドレスを設定する
+intro: 'お客様の支払い請求先メールアドレスに、{% data variables.product.product_name %} が領収書およびその他の請求関連の連絡を送ります。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-your-billing-email
   - /articles/setting-your-personal-account-s-billing-email
@@ -16,58 +16,51 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: Billing email
+shortTitle: 支払いメール
 ---
-## Setting your personal account's billing email
 
-Your personal account's primary email is where {% data variables.product.product_name %} sends receipts and other billing-related communication.
+## 個人アカウントの支払い請求先メールアドレスを設定する
 
-Your primary email address is the first email listed in your account email settings.
-We also use your primary email address as our billing email address.
+お客様の個人アカウントのプライマリメールアドレスに、{% data variables.product.product_name %} が領収書およびその他の請求関連の連絡を送ります。
 
-If you'd like to change your billing email, see "[Changing your primary email address](/articles/changing-your-primary-email-address)."
+プライマリメールアドレスは、アカウントのメール設定に入力した最初のメールアドレスです。 また、プライマリメールアドレスを支払い請求先メールアドレスとして使えます。
 
-## Setting your organization's billing email
+支払い請求先メールアドレスを変更したい場合は「[プライマリメールアドレスを変更する](/articles/changing-your-primary-email-address)」を参照してください。
 
-Your organization's billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication. The email address does not need to be unique to the organization account.
+## Organization の支払い請求先メールアドレスを設定する
 
-{% data reusables.dotcom_billing.org-billing-perms %}
-
-{% data reusables.organizations.billing-settings %}
-1. Under "Billing management", to the right of the billing email address, click **Edit**.
-  ![Current billing emails](/assets/images/help/billing/billing-change-email.png)
-2. Type a valid email address, then click **Update**.
-  ![Change billing email address modal](/assets/images/help/billing/billing-change-email-modal.png)
-
-## Managing additional recipients for your organization's billing email
-
-If you have users that want to receive billing reports, you can add their email addresses as billing email recipients. This feature is only available to organizations that are not managed by an enterprise.
+お客様の Organization の請求先メールアドレスに、{% data variables.product.product_name %} が領収書およびその他の請求関連の連絡を送ります。 このメールアドレスは、Organization アカウント専用である必要はありません。
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-### Adding a recipient for billing notifications
+{% data reusables.organizations.billing-settings %}
+1. [Billing management] で、支払メールアドレスの右の[**Edit**]をクリックします。 ![現在の支払メール](/assets/images/help/billing/billing-change-email.png)
+2. 有効なメールアドレスを入力し、[**Update**]をクリックします。 ![支払メールアドレスの変更モーダル](/assets/images/help/billing/billing-change-email-modal.png)
+
+## Organization の支払い請求先メールアドレスに受信者を追加して管理する
+
+支払い請求レポートを受信する必要のあるユーザが複数いる場合は、支払い請求先メールの受信者としてそのユーザのメールアドレスを追加できます。 この機能を利用できるのは、企業が管理していない Organization だけです。
+
+{% data reusables.dotcom_billing.org-billing-perms %}
+
+### 支払い通知の受信者を追加する
 
 {% data reusables.organizations.billing-settings %}
-1. Under "Billing management", to the right of "Email recipients", click **Add**.
-  ![Add recipient](/assets/images/help/billing/billing-add-email-recipient.png)
-1. Type the email address of the recipient, then click **Add**.
-  ![Add recipient modal](/assets/images/help/billing/billing-add-email-recipient-modal.png)
+1. [Billing management] で、[Email recipients] の右の [**Add**] をクリックします。 ![受信者を追加](/assets/images/help/billing/billing-add-email-recipient.png)
+1. 受信者のメールアドレスを入力し、[**Add**] をクリックします。 ![受信者追加のモーダル](/assets/images/help/billing/billing-add-email-recipient-modal.png)
 
-### Changing the primary recipient for billing notifications
+### 支払い通知の第 1 受信者を変更する
 
-One address must always be designated as the primary recipient. The address with this designation can't be removed until a new primary recipient is selected.
+第1受信者として必ずアドレスを 1 つは指定する必要があります。 第 1 受信者に指定したアドレスは、別の第 1 受信者を選定するまで、削除できません。
 
 {% data reusables.organizations.billing-settings %}
-1. Under "Billing management", find the email address you want to set as the primary recipient.
-1. To the right of the email address, use the "Edit" drop-down menu, and click **Mark as primary**.
-  ![Mark primary recipient](/assets/images/help/billing/billing-change-primary-email-recipient.png)
+1. [Billing management] で、第 1 受信者に設定したいメールアドレスを探します。
+1. 見つかったメールアドレスの右にある [Edit] ドロップダウンメニューで、[**Mark as primary**] をクリックします。 ![第 1 受信者としてマーク](/assets/images/help/billing/billing-change-primary-email-recipient.png)
 
-### Removing a recipient from billing notifications
+### 支払い通知の受信者を削除する
 
 {% data reusables.organizations.billing-settings %}
-1. Under "Email recipients", find the email address you want to remove.
-1. For the user's entry in the list, click **Edit**.
-  ![Edit recipient](/assets/images/help/billing/billing-edit-email-recipient.png)
-1. To the right of the email address, use the "Edit" drop-down menu, and click **Remove**.
-  ![Remove recipient](/assets/images/help/billing/billing-remove-email-recipient.png)
-1. Review the confirmation prompt, then click **Remove**.
+1. [Email recipients] で、削除したいメールアドレスを探します。
+1. そのユーザのエントリで [**Edit**] をクリックします。 ![受信者を編集する](/assets/images/help/billing/billing-edit-email-recipient.png)
+1. メールアドレスの右の[Edit]ドロップダウンメニューを使い、[**Remove**]をクリックします。 ![受信者を削除する](/assets/images/help/billing/billing-remove-email-recipient.png)
+1. 確認ダイアログを確かめてから、[**Remove**] をクリックします。

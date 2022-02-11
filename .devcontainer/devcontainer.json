@@ -1,5 +1,6 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+// -
 {
 	"name": "docs.github.com",
 	"build": {
@@ -20,7 +21,6 @@
 		"sissel.shopify-liquid",
 		"davidanson.vscode-markdownlint",
 		"bierner.markdown-preview-github-styles",
-		"yzhang.markdown-all-in-one",
 		"streetsidesoftware.code-spell-checker",
 		"hubwriter.open-reusable"
 	],
@@ -32,12 +32,6 @@
 	"postCreateCommand": "npm ci && npm run build",
 		 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node",
-	
-	// Test restricting low-spec machines
-	"hostRequirements": {
-		"cpus": 8,
-		"memory": "8gb",
-		"storage": "32gb" 
-	}
+	"remoteUser": "node"
+
 }

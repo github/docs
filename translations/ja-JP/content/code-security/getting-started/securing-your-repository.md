@@ -24,7 +24,7 @@ This guide shows you how to configure security features for a repository. You mu
 
 Your security needs are unique to your repository, so you may not need to enable every feature for your repository. For more information, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
-Some security features are only available {% ifversion fpt or ghec %}for public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
+{% data reusables.advanced-security.security-feature-availability %}
 
 ## Managing access to your repository
 
@@ -51,7 +51,7 @@ For more information, see "[Adding a security policy to your repository](/code-s
 ## Managing the dependency graph
 
 {% ifversion fpt or ghec %}
-Once you have [enabled the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), it is automatically generated for all public repositories, and you can choose to enable it for private repositories.
+The dependency graph is automatically generated for all public repositories, and you can choose to enable it for private repositories. It interprets manifest and lock files in a repository to identify dependencies.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %} Settings**.
 2. Click **Security & analysis**.
@@ -67,8 +67,9 @@ For more information, see "[Exploring the dependencies of a repository](/code-se
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Managing {% data variables.product.prodname_dependabot_alerts %}
 
-{% ifversion fpt or ghec %}By default, {% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and generates {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.prodname_dependabot_alerts %} can also be enabled for private repositories.
+{% data variables.product.prodname_dependabot_alerts %} are generated when {% data variables.product.prodname_dotcom %} identifies a dependency in the dependency graph with a vulnerability. {% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for any repository.{% endif %}
 
+{% ifversion fpt or ghec %}
 1. Click your profile photo, then click **Settings**.
 2. Click **Security & analysis**.
 3. Click **Enable all** next to {% data variables.product.prodname_dependabot_alerts %}.
@@ -84,10 +85,16 @@ For more information, see "[About alerts for vulnerable dependencies](/code-secu
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ## Managing dependency review
 
-Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. 
-{%- ifversion fpt %}Dependency review is available in all public repositories. For private and internal repositories you require a license for {% data variables.product.prodname_advanced_security %}. To enable dependency review for a repository, enable the dependency graph and enable {% data variables.product.prodname_advanced_security %}. 
-{%- elsif ghes or ghae %}Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and you enable {% data variables.product.prodname_advanced_security %} for the repository (see below).{% endif %}
-For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+
+Dependency review is a {% data variables.product.prodname_GH_advanced_security %} feature. {% ifversion fpt or ghec %}Dependency review is already enabled for all public repositories. {% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable dependency review for private and internal repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-repository#managing-dependency-review). {% endif %}{% endif %}{% ifversion ghec or ghes or ghae %}To enable dependency review for a {% ifversion ghec %}private or internal {% endif %}repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_advanced_security %}. 
+
+1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
+2. Click **Security & analysis**.
+3. {% ifversion ghec %}If dependency graph is not already enabled, click **Enable**.{% elsif ghes or ghae %}Check that dependency graph is configured for your enterprise.{% endif %}
+4. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.
+
+{% endif %}
 
 {% endif %}
 
@@ -113,19 +120,19 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 
 ## Configuring {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_code_scanning_capc %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations with {% else %} for organization-owned repositories if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license.
-
 You can set up {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.product.prodname_codeql_workflow %} or third-party tool. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
-## Configuring {% data variables.product.prodname_secret_scanning %}
-{% data variables.product.prodname_secret_scanning_caps %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations with {% else %} for organization-owned repositories if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license.
+{% data variables.product.prodname_code_scanning_capc %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations that are part of an enterprise with a license for {% else %}for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}.
 
-{% data variables.product.prodname_secret_scanning_caps %} may be enabled for your repository by default depending upon your organization's settings.
+## Configuring {% data variables.product.prodname_secret_scanning %}
+
+{% data variables.product.prodname_secret_scanning_caps %} is {% ifversion fpt or ghec %}enabled for all public repositories and is available for private repositories owned by organizations that are part of an enterprise with a license for {% else %}available for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-repository#configuring-secret-scanning).{% else %}{% data variables.product.prodname_secret_scanning_caps %} may already be enabled for your repository, depending upon your organization's settings.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
 2. Click **Security & analysis**.
 3. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.
 4. Next to {% data variables.product.prodname_secret_scanning_caps %}, click **Enable**. 
+{% endif %}
 
 ## Next steps
 You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes or ghec %} "[Viewing and updating vulnerable dependencies in your repository](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),"{% endif %} {% ifversion fpt or ghec or ghes > 3.2 %}"[Managing pull requests for dependency updates](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Managing {% data variables.product.prodname_code_scanning %} for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," and "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."

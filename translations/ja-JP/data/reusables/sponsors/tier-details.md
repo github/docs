@@ -3,9 +3,10 @@ You can create up to 10 one-time sponsorship tiers and 10 monthly tiers for spon
 各層の謝礼をカスタマイズできます。 たとえば、層の謝礼には以下のようなものがあるでしょう:
 - 新バージョンへの早期アクセス
 - README内にロゴもしくは名前
-- プライベートリポジトリへのアクセス
 - 週次のニュースレターの更新
 - スポンサーが喜ぶその他の謝礼
+
+{% data reusables.sponsors.sponsors-only-repos %} For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)."
 
 You can include a welcome message with information about accessing or receiving rewards, which will be visible after payment and in the welcome email.
 

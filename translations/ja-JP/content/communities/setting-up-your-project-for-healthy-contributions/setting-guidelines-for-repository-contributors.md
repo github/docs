@@ -1,6 +1,6 @@
 ---
-title: Setting guidelines for repository contributors
-intro: You can create guidelines to communicate how people should contribute to your project.
+title: リポジトリコントリビューターのためのガイドラインを定める
+intro: プロジェクトに人々がどのようにコントリビュートするべきかを伝えるガイドラインを作成できます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,57 +12,57 @@ redirect_from:
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
   - Community
-shortTitle: Contributor guidelines
+shortTitle: コントリビューターのガイドライン
 ---
-## About contributing guidelines
-To help your project contributors do good work, you can add a file with contribution guidelines to your project repository's root, `docs`, or `.github` folder. When someone opens a pull request or creates an issue, they will see a link to that file. The link to the contributing guidelines also appears on your repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute). 
+
+## コントリビューションガイドラインについて
+プロジェクトコントリビューターにうまく作業してもらうために、プロジェクトリポジトリのルート、`docs` または `.github` フォルダに、コントリビューションガイドラインについてのファイルを追加できます。 プルリクエストをオープンした場合や Issue を作成した場合、そのファイルへのリンクが表示されます。 コントリビューションガイドラインへのリンクは、リポジトリの `contribute` ページにも表示されます。 `contribute`ページの例については[github/docs/contribute](https://github.com/github/docs/contribute)を参照してください。
 
 ![contributing-guidelines](/assets/images/help/pull_requests/contributing-guidelines.png)
 
-For the repository owner, contribution guidelines are a way to communicate how people should contribute.
+リポジトリのオーナーにとって、コントリビューションガイドラインとは、人々がどのようにコントリビュートするべきかを伝える方法です。
 
-For contributors, the guidelines help them verify that they're submitting well-formed pull requests and opening useful issues.
+コントリビューターにとって、このガイドラインは、上手に構築されたプルリクエストの提出をしたり、有益な Issue をオープンすることの確認に役立ちます。
 
-For both owners and contributors, contribution guidelines save time and hassle caused by improperly created pull requests or issues that have to be rejected and re-submitted.
+オーナーおよびコントリビューターの双方にとって、コントリビューションガイドラインは、プルリクエストや Issue のリジェクトや再提出の手間を未然に軽減するための有効な手段です。
 
 {% ifversion fpt or ghes or ghec %}
 
-You can create default contribution guidelines for your organization{% ifversion fpt or ghes or ghec %} or user account{% endif %}. For more information, see "[Creating a default community health file](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Organization {% ifversion fpt or ghes or ghec %}またはユーザアカウント{% endif %}用のデフォルトのコントリビューションガイドラインを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% endif %}
 
 {% tip %}
 
-**Tip:** Repository maintainers can set specific guidelines for issues by creating an issue or pull request template for the repository. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
+**ヒント:** リポジトリメンテナは、リポジトリの Issue やプルリクエストのテンプレートを作成することで、Issue についての特定のガイドラインを定めることができます。 詳しい情報については[Issue およびPull Requestのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
 
 {% endtip %}
 
-## Adding a *CONTRIBUTING* file
+## *CONTRIBUTING* ファイルの追加
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. Decide whether to store your contributing guidelines in your repository's root, `docs`, or `.github` directory. Then, in the filename field, type the name and extension for the file. Contributing guidelines filenames are not case sensitive. Files are rendered in rich text format if the file extension is in a supported format. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)."
-  ![New file name](/assets/images/help/repository/new-file-name.png)
-    - To make your contributing guidelines visible in the repository's root directory, type *CONTRIBUTING*.
-    - To make your contributing guidelines visible in the repository's `docs` directory, type *docs/* to create the new directory, then *CONTRIBUTING*.
-    - If a repository contains more than one *CONTRIBUTING* file, then the file shown in links is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
-4. In the new file, add contribution guidelines. These could include:
-    - Steps for creating good issues or pull requests.
-    - Links to external documentation, mailing lists, or a code of conduct.
-    - Community and behavioral expectations.
+3. コントリビューションガイドラインを、リポジトリの root、`docs`、または `.github` ディレクトリに保管するかどうかを決めます。 そして、ファイル名のフィールドに、ファイルの名前および拡張子を入力します。 コントリビューションガイドラインのファイル名では大文字と小文字は区別されません。 サポートされているファイル拡張子の場合、ファイルはリッチテキスト形式でレンダリングされます。 For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)." ![新しいファイルの名前](/assets/images/help/repository/new-file-name.png)
+    - リポジトリのルートディレクトリでコントリビューションガイドラインを表示するには、*CONTRIBUTING* と入力します。
+    - リポジトリの `docs` ディレクトリにコントリビューションガイドラインを表示するには、*docs/* と入力して新しいディレクトリを作成し、次に *CONTRIBUTING* と入力します。
+    - リポジトリに複数の *CONTRIBUTING* ファイルが含まれている場合、リンクに表示されるファイルは、`.github` ディレクトリ、リポジトリのルートディレクトリ、最後に `docs` ディレクトリの順に選択されます。
+4. 新しいファイルに、コントリビューションガイドラインを追加します。 このガイドラインには、次のことを含めましょう:
+    - 有意義な Issue やプルリクエストの作成手順
+    - - 外部ドキュメント、メーリングリストや行動規範へのリンク
+    - - コミュニティや行動への期待
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-## Examples of contribution guidelines
+## コントリビューションガイドラインの例
 
-If you're stumped, here are some good examples of contribution guidelines:
+最初は悩むかもしれませんが、以下のコントリビューションガイドラインの例を役立ててください:
 
-- The Atom editor [contribution guidelines](https://github.com/atom/atom/blob/master/CONTRIBUTING.md).
-- The Ruby on Rails [contribution guidelines](https://github.com/rails/rails/blob/master/CONTRIBUTING.md).
-- The Open Government [contribution guidelines](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
+- Atom エディタ [コントリビューションガイドライン](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)。
+- Ruby on Rails [コントリビューションガイドライン](https://github.com/rails/rails/blob/master/CONTRIBUTING.md).
+- オープンガバメント [コントリビューションガイドライン](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
-## Further reading
-- The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% ifversion fpt or ghec %}
+## 参考リンク
+- オープンソースガイドのセクション「[オープンソースプロジェクトを始める](https://opensource.guide/starting-a-project/)」{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes or ghec %}
-- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}
+- 「[リポジトリへのライセンスの追加](/articles/adding-a-license-to-a-repository)」{% endif %}

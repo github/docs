@@ -1,101 +1,92 @@
 ---
-title: Use autograding
-intro: You can automatically provide feedback on code submissions from your students by configuring tests to run in the assignment repository.
+title: Utiliza las calificaciones automáticas
+intro: Puedes proporcionar retroalimentación automáticamente en las emisiones de código de tus alumnos si configuras las pruebas para que se ejecuten en el repositorio de tareas.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
   - /education/manage-coursework-with-github-classroom/use-autograding
 ---
-## About autograding
+
+## Acerca de las calificaciones automáticas
 
 {% data reusables.classroom.about-autograding %}
 
-After a student accepts an assignment, on every push to the assignment repository, {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding.
+Después de que un alumno acepte una tarea, en cada subida al repositorio de la misma, {% data variables.product.prodname_actions %} ejecuta comandos para tu prueba de calificaciones automáticas en un ambiente Linux que contiene el código más nuevo del alumno. {% data variables.product.prodname_classroom %} crea los flujos de trabajo necesarios para {% data variables.product.prodname_actions %}. No necesitas tener experiencia con las {% data variables.product.prodname_actions %} para utilizar las calificaciones automáticas.
 
-You can use a testing framework, run a custom command, write input/output tests, or combine different testing methods. The Linux environment for autograding contains many popular software tools. For more information, see the details for the latest version of Ubuntu in "[Specifications for  {% data variables.product.company_short %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+Puedes utiizar un marco de trabajo de prueba, ejecutar un comando personalizado, escribir pruebas de entrada/salida, o combinar varios métodos de pruebas. El ambiente de Linux para las calificaciones automáticas contienen muchas herramientas de software populares. Para obtener más información, consulta los detalles de la última versión de Ubuntu en "[Especificaciones para los ejecutores hospedados en {% data variables.product.company_short %}](/actions/reference/specifications-for-github-hosted-runners#supported-software)".
 
-You can see an overview of which students are passing autograding tests by navigating to the assignment in {% data variables.product.prodname_classroom %}. A green checkmark means that all tests are passing for the student, and a red X means that some or all tests are failing for the student. If you award points for one or more tests, then a bubble shows the score for the tests out of the maximum possible score for the assignment.
+Puedes ver un resumen de qué estudiantes están pasando las pruebas con calificación automática si navegas a la tarea en {% data variables.product.prodname_classroom %}. Una marca verde significa que el alumno está pasando todas las pruebas, la X roja significa que el alumno falló en algunas o todas las pruebas. Si otorgas puntos para una o más pruebas, entonces una burbuja mostrará la puntuación de éstas con base en la puntuación máxima posible para la tarea.
 
-![Overview for an assignment with autograding results](/assets/images/help/classroom/autograding-hero.png)
+![Resumen de una tarea con resultados de calificación automática](/assets/images/help/classroom/assignment-individual-hero.png)
 
-## Grading methods
+## Métodos para calificar
 
-There are two grading methods: input/output tests and run command tests.
+Hay dos métodos para calificar: pruebas de entrada/salida y pruebas de ejecución de comandos.
 
-### Input/output test
+### Prueba de entrada/salida
 
-An input/output test optionally runs a setup command, then provides standard input to a test command. {% data variables.product.prodname_classroom %} evaluates the test command's output against an expected result.
+Una prueba de entrada/salida ejecuta un comando de configuración opcionalmente y proporciona una entrada estándar de un comando de prueba. {% data variables.product.prodname_classroom %} evalúa la salida del comando de prueba contra un resultado esperado.
 
-| Setting | Description |
-| :- | :- |
-| **Test name** | The name of the test, to identify the test in logs |
-| **Setup command** | _Optional_. A command to run before tests, such as compilation or installation |
-| **Run command** | The command to run the test and generate standard output for evaluation |
-| **Inputs** | Standard input for run command |
-| **Expected output** | The output that you want to see as standard output from the run command |
-| **Comparison** | The type of comparison between the run command's output and the expected output<br/><br/><ul><li>**Included**: Passes when the expected output appears<br/>anywhere in the standard output from the run command</li><li>**Exact**: Passes when the expected output is completely identical<br/>to the standard output from the run command</li><li>**Regex**: Passes if the regular expression in expected<br/>output matches against the standard output from the run command</li></ul> |
-| **Timeout** | In minutes, how long a test should run before resulting in failure |
-| **Points** | _Optional_. The number of points the test is worth toward a total score |
+| Parámetro                    | Descripción                                                                                                                            |
+|:---------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nombre de la prueba**      | El nombre de la prueba para identificarla en las bitácoras                                                                             |
+| **Comando de configuración** | _Opcional_. Un comando a ejecutar antes de las pruebas, tal como una compilación o instalación                                         |
+| **Comando de ejecución**     | El comando para ejecutar la prueba y generar una salida estándar para su evaluación                                                    |
+| **Inputs**                   | Entrada estándar para el comando de ejecución                                                                                          |
+| **Salida esperada**          | La salida que quieres ver como estándar para el comando de ejecución                                                                   |
+| **Comparación**              | El tipo de comparación entre el la salida del comando de ejecución y la salida esperada<br/><br/><ul><li>**Included**: Pasa cuando la salida esperada aparece<br/>en cualquier parte dentro de la salida estándar del comando de ejecución</li><li>**Exact**: Pasa cuando la salida esperada es completamente idéntica<br/>a la salida estándar del comando de ejecución</li><li>**Regex**: Pasa si la expresión regular en la salida<br/>esperada coincide con la salida estándar del comando de ejecución</li></ul> |
+| **Tiempo excedido**          | En minutos, lo que tarda una prueba en ejecutarse antes de que resulte en un fallo                                                     |
+| **Puntos**                   | _Opcional_. La cantidad de puntos que vale la prueba contra una puntuación total                                                       |
 
-### Run command test
+### Prueba de comando de ejecución
 
-A run command test runs a setup command, then runs a test command. {% data variables.product.prodname_classroom %} checks the exit status of the test command. An exit code of `0` results in success, and any other exit code results in failure.
+Una prueba de comando de ejecución ejecuta un comando de configuración y luego un comando de prueba. {% data variables.product.prodname_classroom %} verifica el estado de salida del comando de prueba. Un código de salida de `0` resultará en éxito y cualquier otro código de salida resultara en un fallo.
 
-{% data variables.product.prodname_classroom %} provides presets for language-specific run command tests for a variety of programming languages. For example, the **Run node** test prefills the setup command with `npm install` and the test command with `npm test`.
+{% data variables.product.prodname_classroom %} proporciona preajustes para un las pruebas de comandos de ejecución específicas de lenguaje para varios lenguajes de programación. Por ejemplo, la prueba de **ejecutar nodo** llena previamente el comando de configuración con `npm install` y el comando de prueba con `npm test`.
 
-| Setting | Description |
-| :- | :- |
-| **Test name** | The name of the test, to identify the test in logs |
-| **Setup command** | _Optional_. A command to run before tests, such as compilation or installation |
-| **Run command** | The command to run the test and generate an exit code for evaluation |
-| **Timeout** | In minutes, how long a test should run before resulting in failure |
-| **Points** | _Optional_. The number of points the test is worth toward a total score |
+| Parámetro                    | Descripción                                                                                    |
+|:---------------------------- |:---------------------------------------------------------------------------------------------- |
+| **Nombre de la prueba**      | El nombre de la prueba para identificarla en las bitácoras                                     |
+| **Comando de configuración** | _Opcional_. Un comando a ejecutar antes de las pruebas, tal como una compilación o instalación |
+| **Comando de ejecución**     | El comando para ejecutar la prueba y generar un código de salida para evaluación               |
+| **Tiempo excedido**          | En minutos, lo que tarda una prueba en ejecutarse antes de que resulte en un fallo             |
+| **Puntos**                   | _Opcional_. La cantidad de puntos que vale la prueba contra una puntuación total               |
 
-## Configuring autograding tests for an assignment
+## Configurar las pruebas de calificación automática para una tarea
 
-You can add autograding tests during the creation of a new assignment. {% data reusables.classroom.for-more-information-about-assignment-creation %}
+Puedes agregar pruebas de calificación automática durante la creación de una tarea nueva. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-You can add, edit, or delete autograding tests for an existing assignment. If you change the autograding tests for an existing assignment, existing assignment repositories will not be affected. A student or team must accept the assignment and create a new assignment repository to use the new tests.
+Puedes agregar, editar o borrar las pruebas de calificación automática para una tarea existente. Todos los cambios que se hagan a través de la IU del aula se subirán a los repositorios existentes de los alumnos, así que edita tus pruebas con cuidado.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.assignments-click-pencil %}
-1. In the left sidebar, click **Grading and feedback**.
-  !["Grading and feedback" to the left of assignment's basics](/assets/images/help/classroom/assignments-click-grading-and-feedback.png)
-1. Add, edit, or delete an autograding test.
-    - To add a test, under "Add autograding tests", select the **Add test** drop-down menu, then click the grading method you want to use.
-       ![Using the "Add test" drop-down menu to click a grading method](/assets/images/help/classroom/autograding-click-grading-method.png)
-       Configure the test, then click **Save test case**.
-       !["Save test case" button for an autograding test](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
-    - To edit a test, to the right of the test name, click {% octicon "pencil" aria-label="The pencil icon" %}.
-        ![Pencil icon for editing an autograding test](/assets/images/help/classroom/autograding-click-pencil.png)
-       Configure the test, then click **Save test case**.
-       !["Save test case" button for an autograding test](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
-    - To delete a test, to the right of the test name, click {% octicon "trash" aria-label="The trash icon" %}.
-        ![Trash icon for deleting an autograding test](/assets/images/help/classroom/autograding-click-trash.png)
-1. At the bottom of the page, click **Update assignment**.
-  !["Update assignment" button at the bottom of the page](/assets/images/help/classroom/assignments-click-update-assignment.png)
+1. En la barra lateral, da clic en **Calificaciones y retroalimentación**. !["Calificaciones y retroalimentación" a la izquierda de los puntos básicos de la tarea](/assets/images/help/classroom/assignments-click-grading-and-feedback.png)
+1. Agrega, edita o borra una prueba de calificación automática.
+    - Para agregar una prueba, debajo de "Agregar pruebas de calificación automática", selecciona el menú desplegable **Agregar prueba** y luego da clic en el método de calificación que quieras utilizar. ![Using the "Add test" drop-down menu to click a grading method](/assets/images/help/classroom/autograding-click-grading-method.png) Configura la prueba y luego da clic en **Guardar caso de prueba**. ![Botón de "Guardar caso de prueba" para una prueba de calificación automática](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
+    - Para editar una prueba, a la derecha del nombre de ésta, da clic en {% octicon "pencil" aria-label="The pencil icon" %}. ![Pencil icon for editing an autograding test](/assets/images/help/classroom/autograding-click-pencil.png) Configura la prueba y luego da clic en **Guardar caso de prueba**. ![Botón de "Guardar caso de prueba" para una prueba de calificación automática](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
+    - Para borrar una prueba, a la derecha del nombre de ésta, da clic en {% octicon "trash" aria-label="The trash icon" %}. ![Icono de cesta de basura para borrar una prueba de calificación automática](/assets/images/help/classroom/autograding-click-trash.png)
+1. En la parte inferior de la página, da clic en **Actualizar tarea**. ![Botón de "Actualizar tarea" en la parte inferior de la página](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-## Viewing and downloading results from autograding tests
+## Ver y descargar los resultados de las pruebas de autoevaluación
 
-### Download autograding results
+### Descargar los resultados de autoevaluación
 
-You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+También puedes descargar un CSV de las puntuaciones de autoevaluación de tus alumnos a través del botón "Descargar". Esto generará un CSV de descarga que contiene un enlace al repositorio del alumno, a su manejador de {% data variables.product.prodname_dotcom %}, identificador de lista, marca de tiempo de emisión y puntuación de autoevaluación.
 
-!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+![Botón de "Descargar" seleccionado mostrando "Descargar las calificaciones resaltadas" y una opción adicional para "Descargar repositorios"](/assets/images/help/classroom/download-grades.png)
 
-### View individual logs
+### Ver bitácoras individuales
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
-1. To the right of a submission, click **View test**.
-  !["View test" button for an assignment submission](/assets/images/help/classroom/assignments-click-view-test.png)
-1. Review the test output. For more information, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs)."
+1. A la derecha de una emisión, da clic en **Ver prueba**. ![Botón de "Ver tarea" para una emisión de una tarea](/assets/images/help/classroom/assignments-click-view-test.png)
+1. Revisa la salida de la prueba. Para obtener más información, consulta la sección "[Utilizar bitácoras de ejecución de flujos de trabajo](/actions/managing-workflow-runs/using-workflow-run-logs)".
 
-## Further reading
+## Leer más
 
-- [{% data variables.product.prodname_actions %} documentation](/actions)
+- [Documentación de {% data variables.product.prodname_actions %}](/actions)

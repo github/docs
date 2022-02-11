@@ -1,6 +1,6 @@
 ---
-title: Publishing Java packages with Gradle
-intro: You can use Gradle to publish Java packages to a registry as part of your continuous integration (CI) workflow.
+title: Publicar paquetes Java con Gradle
+intro: Puedes usar Gradle para publicar paquetes Java en un registro como parte de tu flujo de trabajo de integración continua (CI).
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-gradle
   - /actions/guides/publishing-java-packages-with-gradle
@@ -15,40 +15,40 @@ topics:
   - Publishing
   - Java
   - Gradle
-shortTitle: Java packages with Gradle
+shortTitle: Paquetes de Java con Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## Introducción
 
 {% data reusables.github-actions.publishing-java-packages-intro %}
 
-## Prerequisites
+## Prerrequisitos
 
-We recommend that you have a basic understanding of workflow files and configuration options. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+Te recomendamos que tengas una comprensión básica de los archivos de flujo de trabajo y las opciones de configuración. Para obtener más información, consulta la sección "[Aprende sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-For more information about creating a CI workflow for your Java project with Gradle, see "[Building and testing Java with Gradle](/actions/language-and-framework-guides/building-and-testing-java-with-gradle)."
+Para obtener más información acerca de la creación de un flujo de trabajo de CI para tu proyecto Java con Gradle, consulta "[Construir y probar Java con Gradle](/actions/language-and-framework-guides/building-and-testing-java-with-gradle)".
 
-You may also find it helpful to have a basic understanding of the following:
+También puede ser útil tener un entendimiento básico de lo siguiente:
 
-- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
-- "[Environment variables](/actions/reference/environment-variables)"
-- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
-- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
+- "[Trabajar con el registro de npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+- "[Variables de ambiente](/actions/reference/environment-variables)"
+- "[Secretos cifrados](/actions/reference/encrypted-secrets)"
+- "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow)"
 
-## About package configuration
+## Acerca de la configuración del paquete
 
-The `groupId` and `artifactId` fields in the `MavenPublication` section of the _build.gradle_ file create a unique identifier for your package that registries use to link your package to a registry.  This is similar to the `groupId` and `artifactId` fields of the Maven _pom.xml_ file.  For more information, see the "[Maven Publish Plugin](https://docs.gradle.org/current/userguide/publishing_maven.html)" in the Gradle documentation.
+Los campos `groupId` y `artifactId` en la sección `MavenPublication` del archivo _build.gradle_ crean un identificador único para tu paquete que los registros usan para vincular tu paquete a un registro.  Esto es similar a los campos `groupId` y `artifactId` del archivo _pom.xml_ de Maven.  Para obtener más información, consulta "[Maven Publish Plugin](https://docs.gradle.org/current/userguide/publishing_maven.html)" en la documentación de Gradle.
 
-The _build.gradle_ file also contains configuration for the distribution management repositories that Gradle will publish packages to. Each repository must have a name, a deployment URL, and credentials for authentication.
+El archivo _build.gradle_ también contiene la configuración de los repositorios de administración de distribución en los que Gradle publicará los paquetes. Cada repositorio debe tener un nombre, una URL de implementación y credenciales para la autenticación.
 
-## Publishing packages to the Maven Central Repository
+## Publicar paquetes en el repositorio central de Maven
 
-Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to the Maven Central Repository if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
+Cada vez que creas un lanzamiento nuevo, puedes desencadenar un flujo de trabajo para publicar tu paquete. El flujo de trabajo en el ejemplo a continuación se ejecuta cuando el evento `lanzamiento` desencadena con tipo `creado`. El flujo de trabajo publica el paquete en el repositorio central de Maven si se pasan las pruebas de CI. Para obtener más información acerca del evento `release`, consulta "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows#release)".
 
-You can define a new Maven repository in the publishing block of your _build.gradle_ file that points to your package repository.  For example, if you were deploying to the Maven Central Repository through the OSSRH hosting project, your _build.gradle_ could specify a repository with the name `"OSSRH"`.
+Puedes definir un nuevo repositorio de Maven en el bloque de publicación de tu archivo _build.gradle_ que apunta al repositorio de tu paquete.  Por ejemplo, si estás desplegando en el repositorio central de Maven a través del proyecto de alojamiento OSSRH, tu _build.gradle_ podría especificar un repositorio con el nombre `"OSSRH"`.
 
 {% raw %}
 ```groovy{:copy}
@@ -74,7 +74,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by running the `gradle publish` command. In the deploy step, you’ll need to set environment variables for the username and password or token that you use to authenticate to the Maven repository. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+Con esta configuración, puedes crear un flujo de trabajo que publique tu paquete en el repositorio central de Maven al ejecutar el comando `gradle publish`. En el paso de implementación, necesitarás establecer variables de entorno para el nombre de usuario y la contraseña o token que usas para autenticar en el repositorio de Maven. Para obtener más información, consulta "[Crear y usar secretos cifrados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -96,26 +96,28 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: publish
         env:
           MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
           MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the `gradle publish` command to publish to the `OSSRH` Maven repository. The `MAVEN_USERNAME` environment variable will be set with the contents of your `OSSRH_USERNAME` secret, and the `MAVEN_PASSWORD` environment variable will be set with the contents of your `OSSRH_TOKEN` secret.
+1. Ejecuta la acción [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) con el argumento `publish` para publicar en el repositorio `OSSRH` de Maven. La variable de entorno `MAVEN_USERNAME` se establecerá con los contenidos de tu `OSSRH_USERNAME` secreto, y la variable de entorno `MAVEN_PASSWORD` se establecerá con los contenidos de tu `OSSRH_TOKEN` secreto.
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-## Publishing packages to {% data variables.product.prodname_registry %}
+## Sube paquetes al {% data variables.product.prodname_registry %}
 
-Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass. For more information on the `release` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#release)."
+Cada vez que creas un lanzamiento nuevo, puedes desencadenar un flujo de trabajo para publicar tu paquete. El flujo de trabajo en el ejemplo a continuación se ejecuta cuando el evento `lanzamiento` desencadena con tipo `creado`. El flujo de trabajo publica el paquete en el {% data variables.product.prodname_registry %} si se superan las pruebas de CI. Para obtener más información acerca del evento `release`, consulta "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows#release)".
 
-You can define a new Maven repository in the publishing block of your _build.gradle_ that points to {% data variables.product.prodname_registry %}.  In that repository configuration, you can also take advantage of environment variables set in your CI workflow run.  You can use the `GITHUB_ACTOR` environment variable as a username, and you can set the `GITHUB_TOKEN` environment variable with your `GITHUB_TOKEN` secret.
+Puedes definir un nuevo repositorio de Maven en el bloque de publicación de tu _build.gradle_ que apunte a {% data variables.product.prodname_registry %}.  En esa configuración de repositorio, también puedes aprovechar las variables de entorno establecidas en tu ejecución de flujo de trabajo de CI.  Puedes usar la variable de entorno `GITHUB_ACTOR` como nombre de usuario y puedes establecer la variable de entorno `GITHUB_TOKEN` con tu `GITHUB_TOKEN` secreto.
 
 {% data reusables.github-actions.github-token-permissions %}
 
-For example, if your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _build.gradle_ would look similar to the below example.
+Por ejemplo, si tu organización se llama "octocat" y tu repositorio se llama "hello-world", entonces la configuración {% data variables.product.prodname_registry %} en _build.gradle_ tendría un aspecto similar al ejemplo a continuación.
 
 {% raw %}
 ```groovy{:copy}
@@ -141,7 +143,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by running the `gradle publish` command.
+Con esta configuración, puedes crear un flujo de trabajo que publique tu paquete en el {% data variables.product.prodname_registry %} ejecutando el comando `gradle publish`.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -165,25 +167,27 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: publish
         env:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the `gradle publish` command to publish to {% data variables.product.prodname_registry %}. The `GITHUB_TOKEN` environment variable will be set with the content of the `GITHUB_TOKEN` secret. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+1. Ejecuta la acción [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) con el argumento `publish` para publicar al {% data variables.product.prodname_registry %}. La variable de entorno `GITHUB_TOKEN` se establecerá con el contenido del `GITHUB_TOKEN` secreto. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}La clave de `permissions` especifica el acceso que permitirá el secreto del `GITHUB_TOKEN`.{% endif %}
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-## Publishing packages to the Maven Central Repository and {% data variables.product.prodname_registry %}
+## Publicar paquetes en el repositorio central de Maven y {% data variables.product.prodname_registry %}
 
-You can publish your packages to both the Maven Central Repository and {% data variables.product.prodname_registry %} by configuring each in your _build.gradle_ file.
+Puedes publicar tus paquetes en el repositorio central de Maven y {% data variables.product.prodname_registry %} al configurar cada uno de ellos en tu archivo _build.gradle_.
 
-Ensure your _build.gradle_ file includes a repository for both your {% data variables.product.prodname_dotcom %} repository and your Maven Central Repository provider.
+Asegúrate de que tu archivo _build.gradle_ incluya un repositorio para tu repositorio {% data variables.product.prodname_dotcom %} y para tu proveedor de repositorios centrales de Maven.
 
-For example, if you deploy to the Central Repository through the OSSRH hosting project, you might want to specify it in a distribution management repository with the `name` set to `OSSRH`. If you deploy to {% data variables.product.prodname_registry %}, you might want to specify it in a distribution management repository with the `name` set to `GitHubPackages`.
+Por ejemplo, si implementas el repositorio central a través del proyecto de alojamiento OSSRH, es posible que desees especificarlo en un repositorio de administración de distribución con el `name` establecido en `OSSRH`. Si implementas para {% data variables.product.prodname_registry %}, es posible que desees especificarlo en un repositorio de administración de distribución con el `name` establecido en `GitHubPackages`.
 
-If your organization is named "octocat" and your repository is named "hello-world", then the configuration in _build.gradle_ would look similar to the below example.
+Si tu organización se nombra como "octocat" y tu repositorio como "hello-world", entonces la configuración en _build.gradle_ se vería similar al siguiente ejmplo.
 
 {% raw %}
 ```groovy{:copy}
@@ -217,7 +221,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to both the Maven Central Repository and {% data variables.product.prodname_registry %} by running the `gradle publish` command.
+Con esta configuración, puedes crear un flujo de trabajo que publique tu paquete en el repositorio central de Maven y {% data variables.product.prodname_registry %} al ejecutar el comando `gradle publish`.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -242,7 +246,9 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Publish package
-        run: gradle publish
+        uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+        with:
+          arguments: publish
         env: {% raw %}
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -250,6 +256,6 @@ jobs:
 ```
 
 {% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the `gradle publish` command to publish to the `OSSRH` Maven repository and {% data variables.product.prodname_registry %}. The `MAVEN_USERNAME` environment variable will be set with the contents of your `OSSRH_USERNAME` secret, and the `MAVEN_PASSWORD` environment variable will be set with the contents of your `OSSRH_TOKEN` secret. The `GITHUB_TOKEN` environment variable will be set with the content of the `GITHUB_TOKEN` secret. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+1. Ejecuta la acción [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) con el argumento `publish` para publicar en el repositorio `OSSRH` de Maven y en el {% data variables.product.prodname_registry %}. La variable de entorno `MAVEN_USERNAME` se establecerá con los contenidos de tu `OSSRH_USERNAME` secreto, y la variable de entorno `MAVEN_PASSWORD` se establecerá con los contenidos de tu `OSSRH_TOKEN` secreto. La variable de entorno `GITHUB_TOKEN` se establecerá con el contenido del `GITHUB_TOKEN` secreto. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}La clave de `permissions` especifica el acceso que permitirá el secreto del `GITHUB_TOKEN`.{% endif %}
 
-   For more information about using secrets in your workflow, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+   Para obtener más información acerca del uso de secretos en tu flujo de trabajo, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".

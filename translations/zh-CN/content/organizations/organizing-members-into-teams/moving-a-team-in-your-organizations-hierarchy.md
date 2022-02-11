@@ -1,6 +1,6 @@
 ---
-title: Moving a team in your organization’s hierarchy
-intro: 'Team maintainers and organization owners can nest a team under a parent team, or change or remove a nested team''s parent.'
+title: 在组织的层次结构中移动团队
+intro: 团队维护员和组织所有者可以在父团队下嵌套团队，或者更改或删除已嵌套团队的父团队。
 redirect_from:
   - /articles/changing-a-team-s-parent
   - /articles/moving-a-team-in-your-organization-s-hierarchy
@@ -14,34 +14,31 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Move a team
+shortTitle: 移动团队
 ---
 
-Organization owners can change the parent of any team. Team maintainers can change a team's parent if they are maintainers in both the child team and the parent team. Team maintainers without maintainer permissions in the child team can request to add a parent or child team. For more information, see "[Requesting to add or change a parent team](/articles/requesting-to-add-or-change-a-parent-team)" and "[Requesting to add a child team](/articles/requesting-to-add-a-child-team)."
+组织所有者可以更改任何团队的父团队。 团队维护员如果同时是子团队和父团队的维护员，则可更改团队的父团队。 没有子团队维护员权限的团队维护员可以申请添加父团队或子团队。 更多信息请参阅“[申请添加或更改父团队](/articles/requesting-to-add-or-change-a-parent-team)”和“[申请添加子团队](/articles/requesting-to-add-a-child-team)”。
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
 {% tip %}
 
-**Tips:**
-- You cannot change a team's parent to a secret team. For more information, see "[About teams](/articles/about-teams)."
-- You cannot nest a parent team beneath one of its child teams.
+**提示：**
+- 不能将团队的父团队更改为机密团队。 更多信息请参阅“[关于团队](/articles/about-teams)”。
+- 不能将父团队嵌套在其子团队下面。
 
 {% endtip %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
-4. In the list of teams, click the name of the team whose parent you'd like to change.
-  ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)
+4. 在团队列表中，单击您要更改其父团队的团队名称。 ![组织的团队列表](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}
-6. Use the drop-down menu to choose a parent team, or to remove an existing parent, select **Clear selected value**.
-  ![Drop-down menu listing the organization's teams](/assets/images/help/teams/choose-parent-team.png)
-7. Click **Update**.
+6. 使用下拉菜单选择父团队，要删除现有团队，则选择 **Clear selected value（清除所选值）**。 ![列出组织团队的下拉菜单](/assets/images/help/teams/choose-parent-team.png)
+7. 单击 **Update（更新）**。
 {% data reusables.repositories.changed-repository-access-permissions %}
-9. Click **Confirm new parent team**.
-  ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
+9. 单击 **Confirm new parent team（确认新的父团队）**。 ![包含仓库访问权限更改相关信息的模态框](/assets/images/help/teams/confirm-new-parent-team.png)
 
-## Further reading
+## 延伸阅读
 
-- "[About teams](/articles/about-teams)"
+- "[关于团队](/articles/about-teams)"

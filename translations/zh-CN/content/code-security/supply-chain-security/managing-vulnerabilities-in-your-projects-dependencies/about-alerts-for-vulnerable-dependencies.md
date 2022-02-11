@@ -32,7 +32,7 @@ When your code depends on a package that has a security vulnerability, this vuln
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-{% data variables.product.prodname_dependabot %} detects vulnerable dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
+{% data variables.product.prodname_dependabot %} performs a scan to detect vulnerable dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
 
 {% ifversion fpt or ghec %}
 - A new vulnerability is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[Browsing security vulnerabilities in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)" and "[About {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)."{% else %}
@@ -64,7 +64,7 @@ You can also enable or disable {% data variables.product.prodname_dependabot_ale
 
 For information about access requirements for actions related to {% data variables.product.prodname_dependabot_alerts %}, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#access-requirements-for-security-features)."
 
-{% data variables.product.product_name %} starts generating the dependency graph immediately and generates alerts for any vulnerable dependencies as soon as they are identified. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. For more information, see "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)."
+{% data variables.product.product_name %} starts generating the dependency graph immediately and generates alerts for any vulnerable dependencies as soon as they are identified. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. For more information, see "[Managing data use settings for your private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)."
 {% endif %}
 
 When {% data variables.product.product_name %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot %} alert and display it {% ifversion fpt or ghec or ghes > 3.0 %} on the Security tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes > 3.0 %}a link to the affected file in the project, and {% endif %}information about a fixed version. {% data variables.product.product_name %} may also notify the maintainers of affected repositories about the new alert according to their notification preferences. For more information, see "[Configuring notifications for vulnerable dependencies](/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies)."
@@ -96,4 +96,4 @@ You can also see all the {% data variables.product.prodname_dependabot_alerts %}
 
 - "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)"
 - "[Viewing and updating vulnerable dependencies in your repository](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% endif %}
-{% ifversion fpt or ghec %}- "[Understanding how {% data variables.product.prodname_dotcom %} uses and protects your data](/categories/understanding-how-github-uses-and-protects-your-data)"{% endif %}
+{% ifversion fpt or ghec %}- "[Privacy on {% data variables.product.prodname_dotcom %}](/get-started/privacy-on-github)"{% endif %}

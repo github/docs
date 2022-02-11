@@ -1,6 +1,6 @@
 ---
-title: Downloading your organization's SAML single sign-on recovery codes
-intro: 'Organization administrators should download their organization''s SAML single sign-on recovery codes to ensure that they can access {% data variables.product.product_name %} even if the identity provider for the organization is unavailable.'
+title: Organization の SAML シングルサインオンのリカバリコードをダウンロードする
+intro: 'Organization のアイデンティティプロバイダを利用できない場合でも変わりなく {% data variables.product.product_name %} にアクセスできるよう、Organization の管理者は Organization 用に SAML シングルサインオンのリカバリコードをダウンロードする必要があります。'
 redirect_from:
   - /articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes
   - /articles/downloading-your-organizations-saml-single-sign-on-recovery-codes
@@ -10,28 +10,26 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Download SAML recovery codes
+shortTitle: SAMLリカバリコードのダウンロード
 ---
 
-Recovery codes should not be shared or distributed. We recommend saving them with a password manager such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+リカバリコードは共有や配布しないでください。 We recommend saving them with a password manager such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-5. Under "SAML single sign-on", in the note about recovery codes, click **Save your recovery codes**.
-![Link to view and save your recovery codes](/assets/images/help/saml/saml_recovery_codes.png)
-6. Save your recovery codes by clicking **Download**, **Print**, or **Copy**.
-![Buttons to download, print, or copy your recovery codes](/assets/images/help/saml/saml_recovery_code_options.png)
+5. [SAML single sign-on] の下にあるリカバリコードに関する注意書きの [**Save your recovery codes**] をクリックします。 ![リカバリコードを表示し保存するリンク](/assets/images/help/saml/saml_recovery_codes.png)
+6. [**Download**]、[**Print**]、または [**Copy**] をクリックしてリカバリコードを保存します。 ![リカバリコードをダウンロード、印刷、コピーするボタン](/assets/images/help/saml/saml_recovery_code_options.png)
 
   {% note %}
 
-  **Note:** Your recovery codes will help get you back into {% data variables.product.product_name %} if your IdP is unavailable. If you generate new recovery codes the recovery codes displayed on the "Single sign-on recovery codes" page are automatically updated.
+  **メモ:** リカバリコードがあれば IdP を使用できないときに {% data variables.product.product_name %}に戻れます。 新しいリカバリコードを生成すると、「シングルサインオンのリカバリコード」ページに表示されているリカバリコードは自動的に更新されます。
 
   {% endnote %}
 
-7. Once you use a recovery code to regain access to {% data variables.product.product_name %}, it cannot be reused. Access to {% data variables.product.product_name %} will only be available for 24 hours before you'll be asked to sign in using single sign-on.
+7. リカバリコードを {% data variables.product.product_name %}へのアクセス回復のために一度使用すると、再利用はできません。 {% data variables.product.product_name %} へのアクセスは、シングルサインオンを使用してサインインするか聞かれるまでの 24 時間だけ有効です。
 
-## Further reading
+## 参考リンク
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Accessing your organization if your identity provider is unavailable](/articles/accessing-your-organization-if-your-identity-provider-is-unavailable)"
+- [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)
+- 「[アイデンティティプロバイダが利用できない場合の Organization へのアクセス](/articles/accessing-your-organization-if-your-identity-provider-is-unavailable)」

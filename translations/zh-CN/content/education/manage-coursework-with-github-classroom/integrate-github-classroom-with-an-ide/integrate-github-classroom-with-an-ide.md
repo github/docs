@@ -1,31 +1,32 @@
 ---
-title: Integrate GitHub Classroom with an IDE
-shortTitle: Integrate with an IDE
+title: 集成 GitHub Classroom 与 IDE
+shortTitle: 与 IDE 集成
 intro: 'You can preconfigure a supported integrated development environment (IDE) for assignments you create in {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can integrate {% data variables.product.prodname_classroom %} with an IDE. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can integrate {% data variables.product.prodname_classroom %} with an IDE. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/online-ide-integrations
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-online-ide
 ---
+
 ## About integration with an IDE
 
-{% data reusables.classroom.about-online-ides %} 
+{% data reusables.classroom.about-online-ides %}
 
-After a student accepts an assignment with an IDE, the README file in the student's assignment repository will contain a button to open the assignment in the IDE. The student can begin working immediately, and no additional configuration is necessary.
+After a student accepts an assignment with an IDE, the README file in the student's assignment repository will contain a button to open the assignment in the IDE. 学生可以立即开始工作，无需进行其他配置。
 
 ## Supported IDEs
 
-{% data variables.product.prodname_classroom %} supports the following IDEs. You can learn more about the student experience for each IDE.
+{% data variables.product.prodname_classroom %} supports the following IDEs. 您可以详细了解每个 IDE 的学生体验。
 
-| IDE | More information |
-| :- | :- |
-| Microsoft MakeCode Arcade | "[About using MakeCode Arcade with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| Visual Studio Code | [{% data variables.product.prodname_classroom %} extension](http://aka.ms/classroom-vscode-ext) in the Visual Studio Marketplace |
+| IDE                       | 更多信息                                                                                                                                                                               |
+|:------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Microsoft MakeCode Arcade | "[关于结合使用 MakeCode Arcade 与 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
+| Visual Studio Code        | [{% data variables.product.prodname_classroom %} extension](http://aka.ms/classroom-vscode-ext) in the Visual Studio Marketplace                                                   |
 
-We know cloud IDE integrations are important to your classroom and are working to bring more options. 
+We know cloud IDE integrations are important to your classroom and are working to bring more options.
 
 ## Configuring an IDE for an assignment
 
@@ -35,8 +36,8 @@ You can choose the IDE you'd like to use for an assignment when you create an as
 
 The first time you configure an assignment with an IDE, you must authorize the OAuth app for the IDE for your organization.
 
-For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps)."
+对于所有仓库，授予应用程序**读取**元数据、管理和代码的权限，以及**写入**问管理和代码的权限。 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/authorizing-oauth-apps)”。
 
-## Further reading
+## 延伸阅读
 
-- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[关于 README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

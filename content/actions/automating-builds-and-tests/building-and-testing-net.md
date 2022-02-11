@@ -28,13 +28,14 @@ You should already be familiar with YAML syntax and how it's used with {% data v
 
 We recommend that you have a basic understanding of the .NET Core SDK. For more information, see [Getting started with .NET](https://dotnet.microsoft.com/learn).
 
-## Starting with the .NET workflow template
+## Using the .NET starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a .NET workflow template that should work for most .NET projects, and this guide includes examples that show you how to customize this template. For more information, see the [.NET workflow template](https://github.com/actions/setup-dotnet).
+{% data variables.product.prodname_dotcom %} provides a .NET starter workflow that should work for most .NET projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [.NET starter workflow](https://github.com/actions/setup-dotnet).
 
-To get started quickly, add the template to the `.github/workflows` directory of your repository.
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
+
 ```yaml
 name: dotnet package
 
@@ -61,6 +62,7 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 ```
+
 {% endraw %}
 
 ## Specifying a .NET version
@@ -227,7 +229,7 @@ jobs:
 
 ## Publishing to package registries
 
-You can configure your workflow to publish your Dotnet package to a package registry when your CI tests pass. You can use repository secrets to store any tokens or credentials needed to publish your binary. The following example creates and publishes a package to {% data variables.product.prodname_registry %} using `dotnet core cli`.
+You can configure your workflow to publish your .NET package to a package registry when your CI tests pass. You can use repository secrets to store any tokens or credentials needed to publish your binary. The following example creates and publishes a package to {% data variables.product.prodname_registry %} using `dotnet core cli`.
 
 ```yaml
 name: Upload dotnet package

@@ -18,7 +18,20 @@ shortTitle: 恢复成员
 
 ## 关于成员恢复
 
-如果您[从组织中删除用户](/articles/removing-a-member-from-your-organization){% ifversion ghae %} 或{% else %}、{% endif %}[将组织成员转换为外部协作者](/articles/converting-an-organization-member-to-an-outside-collaborator){% ifversion not ghae %} 或者由于您[要求成员和外部协作者启用双重身份验证 (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %} 而从组织中删除用户，则用户的访问权限和设置将保存三个月。 如果您在该时间范围内将用户{% ifversion fpt or ghec %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。
+If a user is removed from your organization in one of the following ways, the user's access privileges and settings are saved for three months.
+
+- You manually removed the user from your organization. For more information, see "[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."{% ifversion not ghae %}
+- The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
+- The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[Enforcing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+- You converted an organization member to an outside collaborator. For more information, see "[Converting an organization member to an outside collaborator](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
+
+如果您在该时间范围内将用户{% ifversion fpt or ghec %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。
+
+{% note %}
+
+**Note:** {% data reusables.saml.removed-users-can-rejoin %} You do not need to invite these users to rejoin. Instead, the user can sign into their personal account, navigate to the organization, and click the banner to authenticate via SAML single sign-on.
+
+{% endnote %}
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 

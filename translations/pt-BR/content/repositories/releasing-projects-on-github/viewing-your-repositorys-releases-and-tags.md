@@ -1,6 +1,6 @@
 ---
-title: Viewing your repository's releases and tags
-intro: You can view the chronological history of your repository by release name or tag version number.
+title: Visualizando versões e tags do seu repositório
+intro: Você pode visualizar o histórico cronológico do seu repositório pelo número da versão da versão ou da tag.
 redirect_from:
   - /articles/working-with-tags
   - /articles/viewing-your-repositorys-tags
@@ -14,29 +14,29 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: View releases & tags
+shortTitle: Visualizar versões & tags
 ---
+
 {% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
-**Tip**: You can also view a release using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {% data variables.product.prodname_cli %} documentation.
+**Dica**: Você também pode ver uma versão usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`vista da versão `](https://cli.github.com/manual/gh_release_view)" na documentação do {% data variables.product.prodname_cli %}.
 
 {% endtip %}
 {% endif %}
 
-## Viewing releases
+## Visualizar versões
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-2. At the top of the Releases page, click **Releases**.
+2. Na parte superior da página Versões, clique em **Releases** (Versões).
 
-## Viewing tags
+## Visualizar tags
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-2. At the top of the Releases page, click **Tags**.
-![Tags page](/assets/images/help/releases/tags-list.png)
+2. Na parte superior da página Versões, clique em **Tags**. ![Página de tags](/assets/images/help/releases/tags-list.png)
 
-## Further reading
+## Leia mais
 
-- "[Signing tags](/articles/signing-tags)"
+- "[Assinar tags](/articles/signing-tags)"

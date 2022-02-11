@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { ArticleGuide, useProductGuidesContext } from 'components/context/ProductGuidesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -15,6 +15,9 @@ export const ArticleCards = () => {
   const [typeFilter, setTypeFilter] = useState<ItemInput | undefined>()
   const [topicFilter, setTopicFilter] = useState<ItemInput | undefined>()
   const [filteredResults, setFilteredResults] = useState<Array<ArticleGuide>>([])
+  const typesRef = useRef<HTMLDivElement>(null)
+  const topicsRef = useRef<HTMLDivElement>(null)
+  const articleCardRef = useRef<HTMLUListElement>(null)
 
   useEffect(() => {
     setNumVisible(PAGE_SIZE)
@@ -26,6 +29,21 @@ export const ArticleCards = () => {
       })
     )
   }, [typeFilter, topicFilter])
+
+  const clickDropdown = (e: React.RefObject<HTMLDivElement>) => {
+    if (e === typesRef && typesRef.current) typesRef.current.focus()
+    if (e === topicsRef && topicsRef.current) topicsRef.current.focus()
+  }
+
+  const loadMore = () => {
+    if (articleCardRef.current) {
+      const childListLength = articleCardRef.current.childElementCount
+      // Leading semi-colon due to prettier to prevent possible ASI failures
+      // Need to explicitly type assert as HTMLDivElement as focus property missing from dom type definitions for Element.
+      ;(articleCardRef.current.childNodes.item(childListLength - 1) as HTMLDivElement).focus()
+    }
+    setNumVisible(numVisible + PAGE_SIZE)
+  }
 
   const isUserFiltering = typeFilter !== undefined || topicFilter !== undefined
 
@@ -48,11 +66,18 @@ export const ArticleCards = () => {
       <label htmlFor="guide-filter-form">{t('filter_instructions')}</label>
       <form name="guide-filter-form" className="mt-2 mb-5 d-flex d-flex">
         <div data-testid="card-filter-types">
-          <label htmlFor="type" className="text-uppercase f6 color-fg-muted d-block">
+          <div
+            onClick={() => clickDropdown(typesRef)}
+            onKeyDown={() => clickDropdown(typesRef)}
+            role="button"
+            tabIndex={-1}
+            className="text-uppercase f6 color-fg-muted d-block"
+          >
             {t('filters.type')}
-          </label>
+          </div>
           <DropdownMenu
-            aria-label="guide types"
+            anchorRef={typesRef}
+            aria-label="types"
             data-testid="types-dropdown"
             placeholder={t('filters.all')}
             items={types}
@@ -62,11 +87,18 @@ export const ArticleCards = () => {
         </div>
 
         <div data-testid="card-filter-topics" className="mx-4">
-          <label htmlFor="topic" className="text-uppercase f6 color-fg-muted d-block">
+          <div
+            onClick={() => clickDropdown(topicsRef)}
+            onKeyDown={() => clickDropdown(topicsRef)}
+            role="button"
+            tabIndex={-1}
+            className="text-uppercase f6 color-fg-muted d-block"
+          >
             {t('filters.topic')}
-          </label>
+          </div>
           <DropdownMenu
-            aria-label="guide topics"
+            anchorRef={topicsRef}
+            aria-label="topics"
             data-testid="topics-dropdown"
             placeholder={t('filters.all')}
             items={topics}
@@ -84,16 +116,23 @@ export const ArticleCards = () => {
           : t('guides_found.multiple').replace('{n}', guides.length)}
       </div>
 
-      <div className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
+      <ul ref={articleCardRef} className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
         {guides.slice(0, numVisible).map((card) => {
-          return <ArticleCard key={card.href} card={card} typeLabel={guideTypes[card.type]} />
+          return (
+            <ArticleCard
+              tabIndex={-1}
+              key={card.href}
+              card={card}
+              typeLabel={guideTypes[card.type]}
+            />
+          )
         })}
-      </div>
+      </ul>
 
       {guides.length > numVisible && (
         <button
           className="col-12 mt-5 text-center text-bold color-fg-accent btn-link"
-          onClick={() => setNumVisible(numVisible + PAGE_SIZE)}
+          onClick={loadMore}
         >
           {t('load_more')}
         </button>

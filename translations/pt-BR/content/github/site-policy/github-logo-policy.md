@@ -1,5 +1,5 @@
 ---
-title: GitHub Logo Policy
+title: Política de logo do GitHub
 redirect_from:
   - /articles/i-m-developing-a-third-party-github-app-what-do-i-need-to-know
   - /articles/using-an-octocat-to-link-to-github-or-your-github-profile
@@ -11,6 +11,6 @@ topics:
   - Legal
 ---
 
-You can add {% data variables.product.prodname_dotcom %} logos to your website or third-party application in some scenarios. For more information and specific guidelines on logo usage, see the [{% data variables.product.prodname_dotcom %} Logos and Usage page](https://github.com/logos).
+Você pode adicionar as logos {% data variables.product.prodname_dotcom %} em seu website ou em aplicativos de terceiros em alguns casos. Para mais informações e diretrizes específicas sobre o uso da logomarca, visite a [{% data variables.product.prodname_dotcom %} página de Logos e Usos](https://github.com/logos).
 
-You can also use an octocat as your personal avatar or on your website to link to your {% data variables.product.prodname_dotcom %} account, but not for your company or a product you're building. {% data variables.product.prodname_dotcom %} has an extensive collection of octocats in the [Octodex](https://octodex.github.com/). For more information on using the octocats from the Octodex, see the [Octodex FAQ](https://octodex.github.com/faq/).
+Você também pode usar um octocat como seu avatar pessoal ou em seu website para linkar para sua {% data variables.product.prodname_dotcom %} conta, mas não para sua empresa ou para um produto que você esteja criando. {% data variables.product.prodname_dotcom %} possui uma vasta coleção de octocats no [Octodex](https://octodex.github.com/). Para mais informações de como usar os octocats do Octodex, veja as [Perguntas Frequentes Octodex](https://octodex.github.com/faq/).

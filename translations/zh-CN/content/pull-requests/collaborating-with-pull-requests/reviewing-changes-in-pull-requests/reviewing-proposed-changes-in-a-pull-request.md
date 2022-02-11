@@ -1,6 +1,6 @@
 ---
-title: Reviewing proposed changes in a pull request
-intro: 'In a pull request, you can review and discuss commits, changed files, and the differences (or "diff") between the files in the base and compare branches.'
+title: 审查拉取请求中的建议更改
+intro: 在拉取请求中，您可以审查和讨论提交、更改的文件以及基本和比较分支中文件之间的区别（或“差异”）。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
   - /articles/reviewing-proposed-changes-in-a-pull-request
@@ -13,17 +13,16 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Review proposed changes
+shortTitle: 审核建议的更改
 ---
-## About reviewing pull requests
 
-You can review changes in a pull request one file at a time. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. This collapses the file, helping you identify the files you still need to review. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
+## 关于审查拉取请求
+
+您可以在拉取请求中每次审查一个文件的更改。 在拉取请求中审查文件时，可以对特定更改留下单个注释。 在完成审查每个文件后，您可以将该文件标记为已查看。 这会折叠文件，帮助您识别还需要审查的文件。 拉取请求标题中的进度条显示您查看过的文件数。 在按需要审查文件后， 您可以提交包含摘要评论的审查来批准拉取请求或请求额外更改。
 
 {% data reusables.search.requested_reviews_search_tip %}
 
-## Starting a review
-
-{% include tool-switcher %}
+## 开始审查
 
 {% webui %}
 
@@ -41,13 +40,13 @@ You can review changes in a pull request one file at a time. While reviewing the
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
-1. When you're done, click **Start a review**. If you have already started a review, you can click **Add review comment**.
+1. 完成后，单击 **Start a review（开始审查）**。 如果已开始审查，您可以单击 **Add review comment（添加审查注释）**。
 
-   ![Start a review button](/assets/images/help/pull_requests/start-a-review-button.png)
+   ![开始审查按钮](/assets/images/help/pull_requests/start-a-review-button.png)
 
-Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, scroll down to the end of the timeline on the Conversation tab, then click **Cancel review**.
+提交审查之前，您的行注释为_待处理_状态并且仅对您可见。 您可以在提交审查之前随时编辑待处理的注释。 要取消待处理的审查（包括所有其待处理的注释），请在 Conversation（对话）选项卡中向下滚动到时间表的末尾，然后单击 **Cancel review（取消审查）**。
 
-![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
+![取消审查按钮](/assets/images/help/pull_requests/cancel-review-button.png)
 {% endwebui %}
 
 {% ifversion fpt or ghec %}
@@ -58,55 +57,55 @@ You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overv
 
 {% data reusables.codespaces.review-pr %}
 
-For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+有关在 {% data variables.product.prodname_codespaces %} 中审查拉取请求的更多信息，请参阅“[对拉取请求使用代码空间](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)”。
 
 {% endcodespaces %}
 {% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghec %}
-## Reviewing dependency changes
+## 查看依赖项更改
 
 {% data reusables.dependency-review.beta %}
 
-If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)."
+如果拉取请求包含对依赖项的更改，您可以使用清单或锁定文件的依赖项审阅来查看更改的内容，并检查更改是否引入安全漏洞。 更多信息请参阅“[审查拉取请求中的依赖项更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)”。
 
 {% data reusables.repositories.changed-files %}
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+1. 在清单或锁定文件标头的右侧，单击 **{% octicon "file" aria-label="The rich diff icon" %}** 多差异按钮以显示依赖项审查。
 
-   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![多差异按钮](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
 {% data reusables.repositories.return-to-source-diff %}
 {% endif %}
 
-## Marking a file as viewed
+## 将文件标记为已查看
 
-After you finish reviewing a file, you can mark the file as viewed, and the file will collapse. If the file changes after you view the file, it will be unmarked as viewed.
+在完成审查文件后，您可以将文件标记为已查看，该文件将会收起。 如果查看过的文件有更改，将会取消已查看的标记。
 
 {% data reusables.repositories.changed-files %}
-2. On the right of the header of the file you've finished reviewing, select **Viewed**.
+2. 在完成审查的文件的标头右侧，选择**已查看**。
 
-   ![Viewed checkbox](/assets/images/help/pull_requests/viewed-checkbox.png)
+   ![已查看复选框](/assets/images/help/pull_requests/viewed-checkbox.png)
 
-## Submitting your review
+## 提交审查
 
-After you've finished reviewing all the files you want in the pull request, submit your review.
+完成审查拉取请求中需要查看的所有文件后，提交您的审查。
 
 {% data reusables.repositories.changed-files %}
 {% data reusables.repositories.review-changes %}
 {% data reusables.repositories.review-summary-comment %}
-4. Select the type of review you'd like to leave:
+4. 选择您想要留下的审查类型：
 
-   ![Radio buttons with review options](/assets/images/help/pull_requests/pull-request-review-statuses.png)
+   ![具有审查选项的单选按钮](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
-    - Select **Comment** to leave general feedback without explicitly approving the changes or requesting additional changes.
-    - Select **Approve** to submit your feedback and approve merging the changes proposed in the pull request.
-    - Select **Request changes** to submit feedback that must be addressed before the pull request can be merged.
+    - 选择 **Comment（注释）**留下一般反馈而不明确批准更改或请求其他更改。
+    - 选择 **Approve（批准）**提交反馈并批准合并拉取请求中提议的更改。
+    - 选择 **Request changes（请求更改）**提交在拉取请求合并之前必须解决的反馈。
 {% data reusables.repositories.submit-review %}
 
 {% data reusables.repositories.request-changes-tips %}
 
-## Further reading
+## 延伸阅读
 
-- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
-- "[Filtering pull requests by review status](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"
+- "[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[按审查状态过滤拉取请求](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

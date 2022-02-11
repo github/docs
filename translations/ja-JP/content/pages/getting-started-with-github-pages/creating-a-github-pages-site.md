@@ -1,6 +1,6 @@
 ---
-title: Creating a GitHub Pages site
-intro: 'You can create a {% data variables.product.prodname_pages %} site in a new or existing repository.'
+title: GitHub Pages サイトを作成する
+intro: '新規または既存のリポジトリ内に、{% data variables.product.prodname_pages %} サイトを作成できます。'
 redirect_from:
   - /articles/creating-pages-manually
   - /articles/creating-project-pages-manually
@@ -16,12 +16,12 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Create a GitHub Pages site
+shortTitle: GitHub Pagesのサイトの作成
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
-## Creating a repository for your site
+## サイト用にリポジトリを作成する
 
 {% data reusables.pages.new-or-existing-repo %}
 
@@ -32,7 +32,7 @@ shortTitle: Create a GitHub Pages site
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
-## Creating your site
+## サイトを作成する
 
 {% data reusables.pages.must-have-repo-first %}
 
@@ -40,8 +40,8 @@ shortTitle: Create a GitHub Pages site
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.decide-publishing-source %}
-3. If your chosen publishing source already exists, navigate to the publishing source. If your chosen publishing source doesn't exist, create the publishing source.
-4. In the root of the publishing source, create a new file called `index.md` that contains the content you want to display on the main page of your site.
+3. 選択した公開元が既に存在する場合、公開元に移動します。 選択した公開元がまだ存在しない場合は、公開元を作成します。
+4. 公開元のルートに、サイトのメインページに表示したいコンテンツを含んだ、`index.md` という名前の新しいファイルを作成します。
 
   {% tip %}
 
@@ -57,16 +57,16 @@ shortTitle: Create a GitHub Pages site
 
 {% data reusables.pages.admin-must-push %}
 
-## Next steps
+## 次のステップ
 
-You can add more pages to your site by creating more new files. Each file will be available on your site in the same directory structure as your publishing source. For example, if the publishing source for your project site is the `gh-pages` branch, and you create a new file called `/about/contact-us.md` on the `gh-pages` branch, the file will be available at {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html`.
+新しいファイルを追加で作成することにより、ページを追加できます。 各ファイルは、公開元と同じディレクトリ構造で、サイト上に表示されます。 たとえば、プロジェクトサイトの公開元が `gh-pages` ブランチで、新しいファイル `/about/contact-us.md` を `gh-pages` ブランチに作成した場合、ファイルは {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html` で表示されます。
 
-You can also add a theme to customize your site’s look and feel. For more information, see {% ifversion fpt or ghec %}"[Adding a theme to your {% data variables.product.prodname_pages %} site with the theme chooser](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}"[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}."
+また、サイトの見た目をカスタマイズするため、テーマを追加できます。 詳しい情報については、{% ifversion fpt or ghec %}「[テーマ選択画面で {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}「[Jekyll テーマ選択画面で {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}」を参照してください。
 
-To customize your site even more, you can use Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %}. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll)."
+サイトを更にカスタマイズするには、Jekyll を使用できます。Jekyll は、{% data variables.product.prodname_pages %} に組み込まれている静的サイトジェネレータです。 詳しい情報については、「[{% data variables.product.prodname_pages %} と Jekyll](/articles/about-github-pages-and-jekyll)」を参照してください。
 
-## Further reading
+## 参考リンク
 
-- "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
-- "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"
-- "[Creating new files](/articles/creating-new-files)"
+- [{% data variables.product.prodname_pages %} サイトの Jekyll ビルドエラーに関するトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)
+- [リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository)
+- [新しいファイルの作成](/articles/creating-new-files)

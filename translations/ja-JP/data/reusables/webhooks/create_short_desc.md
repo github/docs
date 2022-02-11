@@ -1,1 +1,1 @@
-Gitブランチもしくはタグが作成されました。 詳しい情報については「[Gitデータ](/rest/reference/git)」 REST APIを参照してください。
+Gitブランチもしくはタグが作成されました。 For more information, see the "[Git database](/rest/reference/git#create-a-reference)" REST API.

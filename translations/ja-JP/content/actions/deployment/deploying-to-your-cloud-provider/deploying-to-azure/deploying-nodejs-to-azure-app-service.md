@@ -22,7 +22,7 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 
-## Introduction
+## はじめに
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy a Node.js project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
@@ -36,13 +36,13 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% endif %}
 
-## Prerequisites
+## 必要な環境
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+{% data variables.product.prodname_actions %}ワークフローを作成する前に、まず以下のセットアップのステップを完了しておかなければなりません。
 
 {% data reusables.actions.create-azure-app-plan %}
 
-2. Create a web app.
+2. Webアプリケーションの作成
 
    For example, you can use the Azure CLI to create an Azure App Service web app with a Node.js runtime:
 
@@ -54,7 +54,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --runtime "NODE|14-lts"
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   上のコマンドで、パラメータは自分の値で置き換えてください。`MY_WEBAPP_NAME`はWebアプリケーションの新しい名前です。
 
 {% data reusables.actions.create-azure-publish-profile %}
 
@@ -62,13 +62,13 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 {% endif %}
 
-## Creating the workflow
+## ワークフローの作成
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+必要な環境を整えたら、ワークフローの作成に進むことができます。
 
 The following example workflow demonstrates how to build, test, and deploy the Node.js project to Azure App Service when there is a push to the `main` branch.
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If the path to your project is not the repository root, change `AZURE_WEBAPP_PACKAGE_PATH`  to your project path. If you use a version of Node.js other than `10.x`, change `NODE_VERSION` to the version that you use.
+ワークフローの`env`キー中の`AZURE_WEBAPP_NAME`を、作成したWebアプリケーションの名前に設定してください。 If the path to your project is not the repository root, change `AZURE_WEBAPP_PACKAGE_PATH`  to your project path. If you use a version of Node.js other than `10.x`, change `NODE_VERSION` to the version that you use.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -130,12 +130,11 @@ jobs:
         package: {% raw %}${{ env.AZURE_WEBAPP_PACKAGE_PATH }}{% endraw %}
 ```
 
-## Additional resources
+## 追加リソース
 
-The following resources may also be useful:
+以下のリソースも役に立つでしょう。
 
 * For the original starter workflow, see [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the 
-[actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* Webアプリケーションのデプロイに使われたアクションは、公式のAzure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy)アクションです。
+* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
 * The "[Create a Node.js web app in Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" quickstart in the Azure web app documentation demonstrates using VS Code with the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).

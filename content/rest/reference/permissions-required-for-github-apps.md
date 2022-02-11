@@ -175,6 +175,9 @@ _Search_
 {% ifversion fpt -%}
 - [`GET /repos/:owner/:repo/pages/health`](/rest/reference/pages#get-a-dns-health-check-for-github-pages) (:write)
 {% endif -%}
+{% ifversion ghes > 3.3 -%}
+- [`GET /repos/:owner/:repo/replicas/caches`](/rest/reference/repos#list-repository-cache-replication-status) (:read)
+{% endif -%}
 - [`PUT /repos/:owner/:repo/topics`](/rest/reference/repos#replace-all-repository-topics) (:write)
 - [`POST /repos/:owner/:repo/transfer`](/rest/reference/repos#transfer-a-repository) (:write)
 {% ifversion fpt -%}
@@ -872,6 +875,24 @@ _Teams_
 - [`DELETE /orgs/:org/actions/secrets/:secret_name`](/rest/reference/actions#delete-an-organization-secret) (:write)
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.3%}
+### Permission on "dependabot_secrets"
+- [`GET /repos/:owner/:repo/dependabot/secrets/public-key`](/rest/reference/dependabot#get-a-repository-public-key) (:read)
+- [`GET /repos/:owner/:repo/dependabot/secrets`](/rest/reference/dependabot#list-repository-secrets) (:read)
+- [`GET /repos/:owner/:repo/dependabot/secrets/:secret_name`](/rest/reference/dependabot#get-a-repository-secret) (:read)
+- [`PUT /repos/:owner/:repo/dependabot/secrets/:secret_name`](/rest/reference/dependabot#create-or-update-a-repository-secret) (:write)
+- [`DELETE /repos/:owner/:repo/dependabot/secrets/:secret_name`](/rest/reference/dependabot#delete-a-repository-secret) (:write)
+- [`GET /orgs/:org/dependabot/secrets/public-key`](/rest/reference/dependabot#get-an-organization-public-key) (:read)
+- [`GET /orgs/:org/dependabot/secrets`](/rest/reference/dependabot#list-organization-secrets) (:read)
+- [`GET /orgs/:org/dependabot/secrets/:secret_name`](/rest/reference/dependabot#get-an-organization-secret) (:read)
+- [`PUT /orgs/:org/dependabot/secrets/:secret_name`](/rest/reference/dependabot#create-or-update-an-organization-secret) (:write)
+- [`GET /orgs/:org/dependabot/secrets/:secret_name/repositories`](/rest/reference/dependabot#list-selected-repositories-for-an-organization-secret) (:read)
+- [`PUT /orgs/:org/dependabot/secrets/:secret_name/repositories`](/rest/reference/dependabot#set-selected-repositories-for-an-organization-secret) (:write)
+- [`PUT /orgs/:org/dependabot/secrets/:secret_name/repositories/:repository_id`](/rest/reference/dependabot#add-selected-repository-to-an-organization-secret) (:write)
+- [`DELETE /orgs/:org/dependabot/secrets/:secret_name/repositories/:repository_id`](/rest/reference/dependabot#remove-selected-repository-from-an-organization-secret) (:write)
+- [`DELETE /orgs/:org/dependabot/secrets/:secret_name`](/rest/reference/dependabot#delete-an-organization-secret) (:write)
+{% endif %}
+
 {% ifversion fpt or ghes > 3.0 or ghec %}
 ### Permission on "secret scanning alerts"
 
@@ -899,6 +920,9 @@ _Teams_
 - [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data) (:write)
 {% ifversion fpt or ghes > 3.0 or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
+{% endif -%}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}
+- [`GET /orgs/:org/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-by-organization) (:read)
 {% endif -%}
 
 {% ifversion fpt or ghes or ghec %}

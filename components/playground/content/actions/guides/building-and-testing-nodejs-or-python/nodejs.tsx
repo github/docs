@@ -24,11 +24,11 @@ const article: PlaygroundArticleT = {
         id: '0',
       },
       type: 'default',
-      title: 'Starting with the Node.js workflow template',
+      title: 'Using the Node.js starter workflow',
       content: dedent`
-        GitHub provides a Node.js workflow template that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the template. For more information, see the [Node.js workflow template](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
+        GitHub provides a Node.js starter workflow that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the starter workflow. For more information, see the [Node.js starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-        To get started quickly, add the template to the \`.github/workflows\` directory of your repository. The example workflow assumes that the default branch for your repository is \`main\`.
+        To get started quickly, add the starter workflow to the \`.github/workflows\` directory of your repository. The example workflow assumes that the default branch for your repository is \`main\`.
       `,
     },
     {
@@ -39,7 +39,7 @@ const article: PlaygroundArticleT = {
       type: 'default',
       title: 'Running on a different operating system',
       content: dedent`
-        The starter workflow template configures jobs to run on Linux, using the GitHub-hosted \`ubuntu-latest\` runners. You can change the \`runs-on\` key to run your jobs on a different operating system. For example, you can use the GitHub-hosted Windows runners.
+        The starter workflow configures jobs to run on Linux, using the GitHub-hosted \`ubuntu-latest\` runners. You can change the \`runs-on\` key to run your jobs on a different operating system. For example, you can use the GitHub-hosted Windows runners.
 
         \`\`\`yaml
         runs-on: windows-latest
@@ -66,7 +66,7 @@ const article: PlaygroundArticleT = {
 
         The \`setup-node\` action takes a Node.js version as an input and configures that version on the runner. The \`setup-node\` action finds a specific version of Node.js from the tools cache on each runner and adds the necessary binaries to \`PATH\`, which persists for the rest of the job. Using the \`setup-node\` action is the recommended way of using Node.js with GitHub Actions because it ensures consistent behavior across different runners and different versions of Node.js. If you are using a self-hosted runner, you must install Node.js and add it to \`PATH\`.
 
-        The template includes a matrix strategy that builds and tests your code with four Node.js versions: 10.x, 12.x, 14.x, and 15.x. The 'x' is a wildcard character that matches the latest minor and patch release available for a version. Each version of Node.js specified in the \`node-version\` array creates a job that runs the same steps.
+        The starter workflow includes a matrix strategy that builds and tests your code with four Node.js versions: 10.x, 12.x, 14.x, and 15.x. The 'x' is a wildcard character that matches the latest minor and patch release available for a version. Each version of Node.js specified in the \`node-version\` array creates a job that runs the same steps.
 
         Each job can access the value defined in the matrix \`node-version\` array using the \`matrix\` context. The \`setup-node\` action uses the context as the \`node-version\` input. The \`setup-node\` action configures each job with a different Node.js version before building and testing code. For more information about matrix strategies and contexts, see "[Workflow syntax for GitHub Actions](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions)."
       `,

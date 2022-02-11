@@ -40,11 +40,11 @@ We recommend that you have a basic understanding of Java and the Maven framework
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Starting with a Maven workflow template
+## Using the Maven starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Maven workflow template that will work for most Maven-based Java projects. For more information, see the [Maven workflow template](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data variables.product.prodname_dotcom %} provides a Maven starter workflow that will work for most Maven-based Java projects. For more information, see the [Maven starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
-To get started quickly, you can choose the preconfigured Maven template when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
+To get started quickly, you can choose the preconfigured Maven starter workflow when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
 
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
@@ -76,7 +76,7 @@ This workflow performs the following steps:
 2. The `setup-java` step configures the Java 11 JDK by Adoptium.
 3. The "Build with Maven" step runs the Maven `package` target in non-interactive mode to ensure that your code builds, tests pass, and a package can be created.
 
-The default workflow templates are excellent starting points when creating your build and test workflow, and you can customize the template to suit your project’s needs.
+The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
 {% data reusables.github-actions.example-github-runner %}
 

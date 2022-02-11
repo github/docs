@@ -156,7 +156,7 @@ end
 
 This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the [create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run).
 
-To create a check run, only two input parameters are required: `name` and `head_sha`. We will use [Rubocop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo Rubocop" is used here, but you can choose any name you'd like for the check run.
+To create a check run, only two input parameters are required: `name` and `head_sha`. We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
 
 You're only supplying the required parameters now to get the basic functionality working, but you'll update the check run later as you collect more information about the check run. By default, GitHub sets the `status` to `queued`.
 

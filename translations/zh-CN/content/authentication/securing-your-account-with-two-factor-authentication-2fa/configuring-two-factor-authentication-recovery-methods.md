@@ -1,6 +1,6 @@
 ---
-title: Configuring two-factor authentication recovery methods
-intro: You can set up a variety of recovery methods to access your account if you lose your two-factor authentication credentials.
+title: 配置双重身份验证恢复方法
+intro: 您可以设置多种恢复方法，以便在丢失双重身份验证凭据的情况下访问您的帐户。
 redirect_from:
   - /articles/downloading-your-two-factor-authentication-recovery-codes
   - /articles/setting-a-fallback-authentication-number
@@ -16,75 +16,71 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: Configure 2FA recovery
+shortTitle: 配置 2FA 恢复
 ---
-In addition to securely storing your two-factor authentication recovery codes, we strongly recommend configuring one or more additional recovery methods.
 
-## Downloading your two-factor authentication recovery codes
+除了安全存储双重身份验证恢复代码之外，我们强烈建议您配置一种或多种其他恢复方法。
 
-{% data reusables.two_fa.about-recovery-codes %} You can also download your recovery codes at any point after enabling two-factor authentication.
+## 下载双重身份验证恢复代码
 
-To keep your account secure, don't share or distribute your recovery codes. We recommend saving them with a secure password manager, such as:
+{% data reusables.two_fa.about-recovery-codes %} 也可以在启用双重身份验证后随时下载恢复代码。
+
+为确保您的帐户安全，请勿分享或分发您的恢复代码。 我们建议使用安全密码管理器保存它们，例如：
 - [1Password](https://1password.com/)
 - [LastPass](https://lastpass.com/)
 
-If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.
+如果您生成新的恢复代码或禁用并重新启用 2FA，则安全设置中的恢复代码会自动更新。
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
-4. Save your recovery codes in a safe place. Your recovery codes can help you get back into your account if you lose access.
-    - To save your recovery codes on your device, click **Download**.
-    - To save a hard copy of your recovery codes, click **Print**.
-    - To copy your recovery codes for storage in a password manager, click **Copy**.
-  ![List of recovery codes with option to download, print, or copy the codes](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
+4. 将恢复代码保存在安全的位置。 在失去访问权限时，恢复代码可帮助您恢复帐户登录。
+    - 要在设备上保存恢复代码，请单击 **Download（下载）**。
+    - 要保存恢复代码的硬拷贝，请单击 **Print（打印）**。
+    - 要复制恢复代码以存储在密码管理器中，请单击**复制**。 ![可选择下载、打印或复制代码的恢复代码列表](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
 
-## Generating a new set of recovery codes
+## 生成一组新的恢复代码
 
-Once you use a recovery code to regain access to your account, it cannot be reused. If you've used all 16 recovery codes, you can generate another list of codes. Generating a new set of recovery codes will invalidate any codes you previously generated.
+使用某个恢复代码恢复帐户访问后，该代码无法再用。 用完全部 16 个恢复代码后，可以生成另一个代码列表。 生成一组新的恢复代码将导致此前生成的任何代码失效。
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
-3. To create another batch of recovery codes, click **Generate new recovery codes**.
-	![Generate new recovery codes button](/assets/images/help/2fa/generate-new-recovery-codes.png)
+3. 要创建另一批恢复代码，请单击 **Generate new recovery codes（生成新的恢复代码）**。 ![生成新恢复代码按钮](/assets/images/help/2fa/generate-new-recovery-codes.png)
 
-## Configuring a security key as an additional two-factor authentication method
+## 将安全密钥配置为附加双重身份验证方法
 
-You can set up a security key as a secondary two-factor authentication method, and use the security key to regain access to your account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+您可以将安全密钥设置为辅助双重身份验证方法，以便使用安全密钥恢复帐户访问。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)”。
 
 {% ifversion fpt or ghec %}
 
-## Setting a fallback authentication number
+## 设置后备身份验证号码
 
-You can provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
+您可以提供后备设备的号码作为第二号码。 在无法访问主设备和恢复代码时，可通过备用短信号码恢复帐户登录。
 
-You can use a fallback number regardless of whether you've configured authentication via text message or TOTP mobile application.
+无论您配置的身份验证方法是通过短信还是通过 TOTP 移动应用程序，都可以使用后备号码。
 
 {% warning %}
 
-**Warning:** Using a fallback number is a last resort. We recommend configuring additional recovery methods if you set a fallback authentication number.
-- Bad actors may attack cell phone carriers, so SMS authentication is risky.
-- SMS messages are only supported for certain countries outside the US; for the list, see "[Countries where SMS authentication is supported](/articles/countries-where-sms-authentication-is-supported)".
+**警告：**使用后备号码是最后的选择。 如果您设置了后备身份验证号码，我们建议您配置其他恢复方法。
+- 不法之徒可能会攻击手机运营商，因此 SMS 身份验证存在风险。
+- 只有美国以外的某些国家/地区支持短信验证；有关支持列表详情，请参阅“[支持 SMS 身份验证的国家/地区](/articles/countries-where-sms-authentication-is-supported)”。
 
 {% endwarning %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-3. Next to "Fallback SMS number", click **Add**.
-![Add fallback SMS number button](/assets/images/help/2fa/add-fallback-sms-number-button.png)
-4. Under "Fallback SMS number", click **Add fallback SMS number**.
-![Add fallback SMS number text](/assets/images/help/2fa/add_fallback_sms_number_text.png)
-5. Select your country code and type your mobile phone number, including the area code. When your information is correct, click **Set fallback**.
-	![Set fallback SMS number](/assets/images/help/2fa/2fa-fallback-number.png)
+3. 在“Fallback SMS number（后备 SMS 号码）”旁边，单击 **Add（添加）**。 ![添加后备 SMS 号码按钮](/assets/images/help/2fa/add-fallback-sms-number-button.png)
+4. 在“Fallback SMS number（后备 SMS 号码）”下，单击 **Add fallback SMS number（添加后备 SMS 号码）**。 ![添加后备 SMS 号码文本](/assets/images/help/2fa/add_fallback_sms_number_text.png)
+5. 选择您的国家/地区代码并键入您的手机号码，包括区号。 确认信息无误后，单击 **Set fallback（设置后备号码）**。 ![设置后备 SMS 号码](/assets/images/help/2fa/2fa-fallback-number.png)
 
-After setup, the backup device will receive a confirmation SMS.
+设置完成后，备用设备将收到确认短信。
 
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
-- "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/articles/accessing-github-using-two-factor-authentication)"
-- "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
+- "[关于双重身份验证](/articles/about-two-factor-authentication)"
+- "[配置双重身份验证](/articles/configuring-two-factor-authentication)"
+- “[使用双重身份验证访问 {% data variables.product.prodname_dotcom %}](/articles/accessing-github-using-two-factor-authentication)”。
+- "[丢失双重身份验证凭据时恢复帐户](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"

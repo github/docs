@@ -1,42 +1,43 @@
 ---
-title: Integrate GitHub Classroom with an IDE
-shortTitle: Integrate with an IDE
-intro: 'You can preconfigure a supported integrated development environment (IDE) for assignments you create in {% data variables.product.prodname_classroom %}.'
+title: Integrar a GitHub Classroom con un IDE
+shortTitle: Integrar con un IDE
+intro: 'Puedes preconfigurar un ambiente de desarrollo integrado (IDE) compatible para las tareas que crees en {% data variables.product.prodname_classroom %}.'
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can integrate {% data variables.product.prodname_classroom %} with an IDE. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can integrate {% data variables.product.prodname_classroom %} with an IDE. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/online-ide-integrations
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-online-ide
 ---
-## About integration with an IDE
 
-{% data reusables.classroom.about-online-ides %} 
+## Acerca de la integración con un IDE
 
-After a student accepts an assignment with an IDE, the README file in the student's assignment repository will contain a button to open the assignment in the IDE. The student can begin working immediately, and no additional configuration is necessary.
+{% data reusables.classroom.about-online-ides %}
 
-## Supported IDEs
+Después de que un alumno acepta una tarea con un IDE, el archivo README en su repositorio de tareas contendrá un botón para abrir dicha tarea en el IDE. El alumno puede comenzar a trabajar de inmediato y no se requiere alguna configuración adicional.
 
-{% data variables.product.prodname_classroom %} supports the following IDEs. You can learn more about the student experience for each IDE.
+## IDE compatibles
 
-| IDE | More information |
-| :- | :- |
-| Microsoft MakeCode Arcade | "[About using MakeCode Arcade with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| Visual Studio Code | [{% data variables.product.prodname_classroom %} extension](http://aka.ms/classroom-vscode-ext) in the Visual Studio Marketplace |
+{% data variables.product.prodname_classroom %} es compatible con los siguientes IDE. Puedes aprender más sobre la experiencia del alumno para cada IDE.
 
-We know cloud IDE integrations are important to your classroom and are working to bring more options. 
+| IDE                       | Más información                                                                                                                                                                                  |
+|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Microsoft MakeCode Arcade | "[Acerca de utilizar MakeCode Arcade con {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
+| Visual Studio Code        | La [extensión de {% data variables.product.prodname_classroom %}](http://aka.ms/classroom-vscode-ext) en el Mercado de Visual Studio                                                             |
 
-## Configuring an IDE for an assignment
+Sabemos que las integraciones con IDE en la nube son importantes para tu aula y estamos trabajando para traerte más opciones.
 
-You can choose the IDE you'd like to use for an assignment when you create an assignment. To learn how to create a new assignment that uses an IDE, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+## Configurar un IDE para una tarea
 
-## Authorizing the OAuth app for an IDE
+Puedes elegir el IDE que te gustaría utilizar para una tarea cuando la crees. Para aprender cómo crear una tarea nueva que utilice un IDE, consulta la sección "[Crear una tarea individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" o "[Crear una tarea de grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
 
-The first time you configure an assignment with an IDE, you must authorize the OAuth app for the IDE for your organization.
+## Autorizar la App de OAuth para un IDE
 
-For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps)."
+La primera vez que configuras una tarea con un IDE, deberás autorizar la App de OAuth para este en tu organización.
 
-## Further reading
+En todos tus repositorios, otorga acceso de **lectura** a la app para metadatos, administración y código, y acceso de **escritura** para administración y código. Para obtener más información, consulta la sección "[Autorizar las Apps de OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
 
-- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+## Leer más
+
+- "[Acerca de los archivos README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

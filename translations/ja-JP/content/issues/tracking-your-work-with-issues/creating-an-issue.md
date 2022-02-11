@@ -45,17 +45,17 @@ Issue は、バグ、拡張、その他リクエストの追跡に使用でき�
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-## Creating an issue with {% data variables.product.prodname_cli %}
+## {% data variables.product.prodname_cli %}でのIssueの作成
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} {% data variables.product.prodname_cli %}について学ぶには、「[{% data variables.product.prodname_cli %}について](/github-cli/github-cli/about-github-cli)」を参照してください。
 
-To create an issue, use the `gh issue create` subcommand. To skip the interactive prompts, include the `--body` and the `--title` flags.
+Issueを作成するには、`gh issue create`サブコマンドを使ってください。 対話的なプロンプトをスキップするには、`--body`及び`--title`フラグを含めてください。
 
 ```shell
 gh issue create --title "My new issue" --body "Here are more details."
 ```
 
-You can also specify assignees, labels, milestones, and projects.
+アサインされる人、ラベル、マイルストーン、プロジェクトを指定することもできます。
 
 ```shell
 gh issue create --title "My new issue" --body "Here are more details." --assignee @me,monalisa --label "bug,help wanted" --project onboarding --milestone "learning codebase"
@@ -83,7 +83,7 @@ IssueもしくはPull Requestのコメントから、新しいIssueをオープ�
 {% data reusables.repositories.navigate-to-repo %}
 1. Issue で参照したいコードを探します。
     - ファイルのコードに関する Issue を開くには、そのファイルに移動します。
-    - プルリクエストのコードに関する Issue を開くには、そのプルリクエストに移動し、{% octicon "diff" aria-label="The file diff icon" %}[**Files changed**] をクリックします。 次に、コメントに含めたいコードを持っているファイルを探し、[**View**] をクリックします。
+    - プルリクエストのコードに関する Issue を開くには、そのプルリクエストに移動し、{% octicon "diff" aria-label="The file diff icon" %}[**Files changed**] をクリックします。 そして、コメントに含めたいコードを持つファイルを探し、** View（ビュー）**をクリックしてください。
 {% data reusables.repositories.choose-line-or-range %}
 4. コード範囲の左で、{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} をクリックします。 ドロップダウンメニューで、[**Reference in new issue**] をクリックします。 ![選択した行から新しいIssueを開くオプションのある三点メニュー](/assets/images/help/repository/open-new-issue-specific-line.png)
 {% data reusables.repositories.type-issue-title-and-description %}
@@ -92,15 +92,15 @@ IssueもしくはPull Requestのコメントから、新しいIssueをオープ�
 
 {% ifversion fpt or ghec %}
 
-## Creating an issue from discussion
+## ディスカッションからのIssueの作成
 
-People with triage permission to a repository can create an issue from a discussion.
+リポジトリへのTriage権限を持つユーザは、ディスカッションからIssueを作成できます。
 
-When you create an issue from a discussion, the contents of the discussion post will be automatically included in the issue body, and any labels will be retained. Creating an issue from a discussion does not convert the discussion to an issue or delete the existing discussion. For more information about {% data variables.product.prodname_discussions %}, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+ディスカッションからIssueを作成する場合、ディスカッションの投稿の内容は自動的にIssueの本文に含められ、ラベルがあればそのまま残されます。 ディスカッションからIssueを作成しても、そのディスカッションがIssueに変換されたり、既存のディスカッションが削除されたりすることはありません。 {% data variables.product.prodname_discussions %}に関する詳しい情報については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion**. ![Button to create issue from discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
+1. 右のサイドバーで、{% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion（ディスカッションからIssueを作成）**をクリックします。 ![ディスカッションからIssueを作成するボタン](/assets/images/help/discussions/create-issue-from-discussion.jpg)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
@@ -129,9 +129,9 @@ Issueをオープンするのにクエリパラメータを利用できます。
 
 {% endtip %}
 
-クエリパラメータを使うには、同等のアクションを行うための適切な権限を持っていなければなりません。 たとえばクエリパラメータの`labels`を使うには、Issueにラベルを追加する権限を持っていなければなりません。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+クエリパラメータを使うには、同等のアクションを行うための適切な権限を持っていなければなりません。 たとえばクエリパラメータの`labels`を使うには、Issueにラベルを追加する権限を持っていなければなりません。 詳しい情報については「[Organizationのためのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
-If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
+クエリパラメータを使うのに不正なURLを作成したり、適切な権限を持っていなかったりした場合には、そのURLに対して`404 Not Found`エラーページが返されます。 サーバーの限度を超えるURLを作成すると、そのURLは`414 URI Too Long`エラーページを返します。
 
 | クエリパラメータ    | サンプル                                                                                                                                                                                                                                                                                                                                                           |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -143,11 +143,11 @@ If you create an invalid URL using query parameters, or if you don’t have the 
 | `projects`  | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` は、"Bug fix" というタイトルを付けて Issue を作成し、それを Organization のプロジェクトボード 1 に追加します。                                                                                                                                                                                              |
 | `template`  | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` は、ボディにテンプレートを付けて Issue を作成します。 `template`クエリパラメータは、ルート内の`ISSUE_TEMPLATE`サブディレクトリ、リポジトリ内の`docs/`あるいは`.github/`ディレクトリに保存されたテンプレートで動作します。 詳しい情報については「[有益なIssueとPull Requestを促進するためのテンプレートの利用](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」を参照してください。 |
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
-## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
+{% if code-scanning-task-lists %}
+## {% data variables.product.prodname_code_scanning %}アラートからのIssueの作成
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}
-If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
+作業の追跡と優先順位付けにIssueを使っているなら、{% data variables.product.prodname_code_scanning %}アラートの追跡にIssueを使えます。
 {% data reusables.code-scanning.alert-tracking-link %}
 
 {% endif %}

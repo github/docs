@@ -1,7 +1,7 @@
 ---
-title: Overview of GitHub Advanced Security deployment
-intro: 'Help your company successfully prepare to adopt {% data variables.product.prodname_GH_advanced_security %} (GHAS) by reviewing and understanding these best practices, rollout examples, and our enterprise-tested phased approach.'
-product: '{% data variables.product.prodname_GH_advanced_security %} is a set of security features designed to make enterprise code more secure. It is available for {% data variables.product.prodname_ghe_server %} 3.0 or higher, {% data variables.product.prodname_ghe_cloud %}, and open source repositories. To learn more about the features, included in {% data variables.product.prodname_GH_advanced_security %}, see "[About GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)."'
+title: Visão geral da implantação de Segurança Avançada do GitHub
+intro: 'Ajude sua empresa a se preparar para adotar {% data variables.product.prodname_GH_advanced_security %} (GHAS) de forma bem-sucedida revisando e entendendo as práticas recomendadas, exemplos de implementação e a nossa abordagem em fases testada pela empresa.'
+product: '{% data variables.product.prodname_GH_advanced_security %} é um conjunto de funcionalidades de segurança projetado para tornar o código corporativo mais seguro. Está disponível para {% data variables.product.prodname_ghe_server %} 3.0 ou superior, {% data variables.product.prodname_ghe_cloud %} e para repositórios de código aberto. Para saber mais sobre as funcionalidades, incluído em {% data variables.product.prodname_GH_advanced_security %}, consulte "[Sobre o GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)."'
 miniTocMaxHeadingLevel: 3
 versions:
   ghes: '*'
@@ -14,193 +14,191 @@ topics:
   - Security
 ---
 
-{% data variables.product.prodname_GH_advanced_security %} (GHAS) helps teams build more secure code faster using integrated tooling such as CodeQL, the world’s most advanced semantic code analysis engine. GHAS is a suite of tools that requires active participation from developers across your enterprise. To realize the best return on your investment, you must learn how to use, apply, and maintain GHAS to truly protect your code.
+{% data variables.product.prodname_GH_advanced_security %} (GHAS) ajuda equipes a criar mais rapidamente um código mais seguro, usando ferramentas integradas, como CodeQL, o mecanismo de análise de código semântico mais avançado do mundo. O GHAS é um conjunto de ferramentas que requer a participação ativa de desenvolvedores na sua empresa. Para obter o melhor retorno do seu investimento, você deverá aprender a usar, aplicar e manter o GHAS para proteger realmente seu código.
 
-One of the biggest challenges in tackling new software for an company can be the rollout and implementation process, as well as bringing about the cultural change to drive the organizational buy-in needed to make the rollout successful.
+Um dos maiores desafios em lidar com novos softwares para uma empresa pode ser o processo de implementação, bem como promover a mudança cultural para impulsionar a aquisição organizacional necessária para que a implementação seja bem sucedida.
 
-To help your company better understand and prepare for this process with GHAS, this overview is aimed at:
-  - Giving you an overview of what a GHAS rollout might look like for your
-  company.
-  - Helping you prepare your company for a rollout.
-  - Sharing key best practices to help increase your company’s rollout
-  success.
+Para ajudar sua empresa a entender melhor e preparar-se para esse processo com o GHAS, essa visão geral destina-se a:
+  - Dar a você uma visão geral da aparência da implantação do GHAS para sua empresa.
+  - Ajudando você a preparar sua empresa para uma implementação.
+  - Compartilhe as práticas recomendadas fundamentais para ajudar a aumentar o sucesso da implementação da sua empresa.
 
-To understand the security features available through {% data variables.product.prodname_GH_advanced_security %}, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
+Para entender as funcionalidades de segurança disponíveis por meio de {% data variables.product.prodname_GH_advanced_security %}, consulte "[funcionalidades de segurança de {% data variables.product.prodname_dotcom %}](/code-security/getting-started/github-security-features)".
 
-## Recommended phased approach for GHAS rollouts
+## Abordagem faseada recomendada para implementações do GHAS
 
-We’ve created a phased approach to GHAS rollouts developed from industry and GitHub best practices. You can utilize this approach for your rollout, either in partnership with {% data variables.product.prodname_professional_services %} or independently.
+Criamos uma abordagem faseada para implementações do GHAS desenvolvidas com base nas práticas recomendadas do setor e do GitHub. Você pode utilizar essa abordagem para a sua implementação, em parceria com {% data variables.product.prodname_professional_services %} ou de forma independente.
 
-While the phased approach is recommended, adjustments can be made based on the needs of your company. We also suggest creating and adhering to a timeline for your rollout and implementation. As you begin your planning, we can work together to identify the ideal approach and timeline that works best for your company.
+Embora a abordagem faseada seja recomendada, os ajustes podem ser feitos com base nas necessidades da sua empresa. Sugerimos também a criação e o cumprimento de um calendário para a sua implementação. À medida que você começa o seu planejamento, podemos trabalhar juntos para identificar a abordagem ideal e a linha do tempo que funciona melhor para sua empresa.
 
-![Diagram showing the three phases of GitHub Advanced Security rollout and deployment, including Phase 0: Planning & Kickoff, Phase 1: Pilot projects, Phase 2: Org Buy-in and Rollout for early adopters, and Phase 3: Full org rollout & change management](/assets/images/enterprise/security/advanced-security-phased-approach-diagram.png)
+![Diagrama que mostra as três fases da implementação do GitHub Advanced Security, incluindo a Fase 0: Planejamento & introdução, Fase 1: Projetos piloto, Fase 2: Adesão e implementação corporativas para os primeiros a aderirem e Fase 3: Implementação completa & Gestão de mudanças](/assets/images/enterprise/security/advanced-security-phased-approach-diagram.png)
 
 
-Based on our experience helping customers with a successful deployment of {% data variables.product.prodname_GH_advanced_security %}, we expect most customers will want to follow these phases. Depending on the needs of your company, you may need to modify this approach and alter or remove some phases or steps.
+Com base na nossa experiência ajudando clientes com uma implantação bem-sucedida de {% data variables.product.prodname_GH_advanced_security %}, esperamos que a maioria dos clientes queira seguir essas fases. Dependendo das necessidades da sua empresa, talvez seja necessário modificar esta abordagem e alterar ou remover algumas fases ou etapas.
 
-For a detailed guide on implementing each of these phases, see "[Deploying {% data variables.product.prodname_GH_advanced_security %} in your enterprise](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)." The next section gives you a high-level summary of each of these phases.
+Para um guia detalhado sobre a implementação de cada uma dessas etapas, consulte "[Implantando {% data variables.product.prodname_GH_advanced_security %} na sua empresa](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)". A próxima seção fornece um resumo de alto nível de cada uma destas fases.
 
-###  {% octicon "milestone" aria-label="The milestone icon" %} Phase 0: Planning & kickoff
+### {% octicon "milestone" aria-label="The milestone icon" %} Fase 0: Planejamento & início
 
-During this phase, the overall goal is to plan and prepare for your rollout, ensuring that you have your people, processes, and technologies in place and ready for your rollout. You should also consider what success criteria will be used to measure GHAS adoption and usage across your teams.
+Durante essa fase, o objetivo geral é planejar e preparar-se para a sua implantação, garantindo que você tenha seu pessoal, processos e tecnologias prontos para sua implementação. Você também deve considerar quais critérios de sucesso serão usados para medir a adoção e o uso do GHAS nas suas equipes.
 
-### {% octicon "milestone" aria-label="The milestone icon" %}  Phase 1: Pilot project(s)
+### {% octicon "milestone" aria-label="The milestone icon" %}  Fase 1: Projeto(s) piloto
 
-To begin implementing GHAS, we recommend beginning with a few high-impact projects/teams with which to pilot an initial rollout. This will allow an initial group within your company to get familiar with GHAS, learn how to enable and configure GHAS, and build a solid foundation on GHAS before rolling out to the remainder of your company.
+Para começar a implementar o GHAS, recomendamos começar com alguns projetos/equipes de alto impacto com que pilotar uma primeira implantação. Isto permitirá que um grupo inicial da sua empresa se familiarize com o GHAS, aprenda a habilitar e configurar o GHAS e construa uma base sólida no GHAS antes de fazer a implementação no restante da sua empresa.
 
-### {% octicon "milestone" aria-label="The milestone icon" %}  Phase 2: Organizational buy-in & rollout preparation
+### {% octicon "milestone" aria-label="The milestone icon" %}  Fase 2: Adesão organizacional & preparação para implementação
 
-Phase 2 is a recap of previous phases and preparing for a larger rollout across the remainder of the company. In this phase, organizational buy-in can refer to your company’s decision to move forward after the pilot project(s) or the company’s use and adoption of GHAS over time (this is most common). If your company decides to adopt GHAS over time, then phase 2 can continue into phase 3 and beyond.
+A fase 2 é um resumo das fases anteriores e a preparação para uma implantação maior do restante da empresa. Nesta fase, a adesão organizacional pode referir-se à decisão da sua empresa de avançar depois do(s) projeto(s) piloto ou o uso e adoção da empresa GHAS ao longo do tempo (isto é mais comum). Se sua empresa decidir adotar o GHAS ao longo do tempo, a fase 2 poderá continuar na fase 3 e assim por diante.
 
-### {% octicon "milestone" aria-label="The milestone icon" %}  Phase 3: Full organizational rollout & change management
+### {% octicon "milestone" aria-label="The milestone icon" %}  Fase 3: Execução completa da organização & gestão de mudanças
 
-Once your company is in alignment, you can begin rolling GHAS out to the remainder of the company based on your rollout plan. During this phase, it’s crucial to ensure that a plan has been made for any organizational changes that may need to be made during your rollout of GHAS and ensuring teams understand the need, value, and impact of the change on current workflows.
+Uma vez que sua empresa está alinhada, você pode começar a implementar o GHAS para o restante da empresa com base no seu plano de implementação. Durante esta fase, é fundamental garantir que um plano foi feito para quaisquer mudanças organizacionais que possam ser feitas durante sua implementação do GHAS e garantir que as equipes entendam a necessidade, valor e impacto da mudança nos fluxos de trabalho atuais.
 
-## Best practices for a successful GHAS rollout
+## Práticas recomendadas para uma implantação bem-sucedida do GHAS
 
-We’ve found that companies that have completed successful GHAS rollouts have several similar characteristics that help drive their success. To help your company increase the success of your GHAS rollout, review these best practices.
+Descobrimos que as empresas que concluíram com sucesso as implementações do GHAS têm várias características semelhantes que ajudam a impulsionar seu sucesso. Para ajudar sua empresa a promover o sucesso da implementação do seu GHAS, revise essas práticas recomendadas.
 
-### {% octicon "checklist" aria-label="The checklist icon" %} Set clear goals for your company’s rollout
+### {% octicon "checklist" aria-label="The checklist icon" %} Estabeleça objetivos claros para a implantação da sua empresa
 
-Setting goals may seem obvious, but we do see some companies that begin GHAS rollouts with no clear goals in mind. It’s more difficult for these companies to gain the true organizational buy-in that’s needed to complete the rollout process and realize the value of GHAS within their company.
+O estabelecimento de objetivos pode parecer óbvio, mas vemos que algumas empresas que iniciam o GHAS não têm em mente objetivos claros. É mais difícil para essas empresas obter a adesão organizacional verdadeira necessária para concluir o processo de implantação e perceber o valor da GHAS dentro da sua empresa.
 
-As you begin planning for your rollout and implementation, begin outlining goals for GHAS within your company and ensure these are communicated to your team. Your goals can be highly detailed or something simple, as long as there is a starting point and alignment. This will help build a foundation for the direction of your company’s rollout and can help you build a plan to get there. If you need assistance with your goals, {% data variables.product.prodname_professional_services %} can help with recommendations based on our experience with your company and prior engagements with other customers.
+À medida que você começa a planejar para sua implementação, comece a definir os objetivos para o GHAS dentro da sua empresa e certifique-se de que sejam comunicados à sua equipe. Os seus objetivos podem ser altamente detalhados ou simples, desde que haja um ponto de partida e um alinhamento. Isso ajudará a construir uma base para a direção da implantação da sua empresa e poderá ajudar você a construir um plano para chegar lá. Se precisar de ajuda com as suas metas, {% data variables.product.prodname_professional_services %} pode ajudar com as recomendações baseadas na nossa experiência com a sua empresa e compromissos anteriores com outros clientes.
 
-Here are some high-level examples of what your goals for rolling out GHAS might look like:
-  - **Reducing the number of vulnerabilities:** This may be in general, or because your  company was recently impacted by a significant vulnerability that you believe could  have been prevented by a tool like GHAS.
-  - **Identifying high-risk repositories:** Some companies may simply want to target repositories that contain the most risk, ready to begin remediating vulnerabilities and reducing risk.
-  -  **Increasing remediation rates:** This can be accomplished by driving developer adoption of findings and ensuring these vulnerabilities are remediated in a timely manner, preventing  the accumulation of security debt.  
-  - **Meeting compliance requirements:** This can be as simple as creating new compliance  requirements or something more specific. We find many healthcare companies use GHAS to prevent the exposure of PHI (Personal Health Information).
-  - **Preventing secrets leakage:** This is often a goal of companies that have had (or want to  prevent) critical information leaked such as software keys, customer or financial data, etc.
-  - **Dependency management:** This is often a goal for companies that may have fallen  victim due to hacks from unpatched dependencies, or those seeking to prevent these  types of attacks by updating vulnerable dependencies.  
+Aqui estão alguns exemplos de alto nível de como seus objetivos para implementar GHAS podem parecer:
+  - **Reduzindo o número de vulnerabilidades:** Isso pode ser geral ou porque sua empresa foi recentemente afetada por uma vulnerabilidade significativa que você acredita que poderia ter sido prevenida por uma ferramenta como o GHAS.
+  - **Identificando repositórios de alto risco:** Algumas empresas podem simplesmente querer direcionar repositórios que contenham maior risco, pronto para começar a corrigir vulnerabilidades e reduzir o risco.
+  -  **Aumentando as taxas de remediação:** Isso pode ser feito pela adoção de conclusões do desenvolvedor e por garantir que essas vulnerabilidades sejam corrigidas em tempo hábil. prevenindo a acumulação de dívida de segurança.
+  - **Requisitos de conformidade da reunião:** Isto pode ser tão simples quanto criar novos requisitos de conformidade ou algo mais específico. Encontramos muitas empresas de saúde que utilizam o GHAS para prevenir a exposição do PHI (Informações sobre saúde pessoal).
+  - **Evitar a fuga de segredos:** De modo geral, isso é um objetivo das empresas que tiveram (ou querem evitar) vazamento de informações confidenciais como, por exemplo, chaves de software, dados financeiros, dados do cliente, etc.
+  - **Gerenciamento de dependência:** Este é frequentemente um objetivo para empresas que podem ter sido vítimas devido a hackers de dependências não corrigidas, ou aqueles que procuram prevenir esses tipos de ataques atualizando dependências vulneráveis.
 
-### {% octicon "checklist" aria-label="The checklist icon" %} Establish clear communication and alignment between your teams
+### {% octicon "checklist" aria-label="The checklist icon" %} Estabeleça uma comunicação e alinhamento claros entre suas equipes
 
-Clear communication and alignment are critical to the success of any project, and the rollout of GHAS is no different. We’ve found that companies that have clear communication and alignment between their security and development groups, as well as their executive sponsor (either CISO or VP) from the purchase of GHAS through rollout, often have more success with their rollouts.
+Uma comunicação e um alinhamento claros são essenciais para o sucesso de qualquer projeto, e a implantação do GHAS não é diferente. Descobrimos que as empresas que têm uma comunicação e alinhamento claros entre seus grupos de segurança e desenvolvimento, além do seu patrocinador executivo (CISO ou VP) da compra do GHAS por meio da implantação, muitas vezes têm mais sucesso com a sua implantação.
 
-In addition to ensuring these groups are aligned throughout your GHAS rollout, there are a few specific areas we recommend focusing on.
+Além de garantir que estes grupos estejam alinhados ao longo de toda a implementação do GHAS, recomendamos que nos concentremos em algumas áreas específicas.
 
-#### Rollout planning
+#### Planejamento da implementação
 
-How will you roll out GHAS to your company? There will likely be many ideas and opinions. Here are some questions you should consider answering and aligning on before moving  forward:
-  - What teams will be included in the pilot?
-  - What projects are focused on in the pilot?
-  - How should projects be prioritized for rollout?
-  - How do you plan to measure success in the pilot and beyond?
-  - What is the level of daily change your teams will be taking on? How will that be  communicated?
-  - How will your rollout plans be communicated across the company?
-  - How do you plan to train your teams?
-  - How do you plan to manage scan results initially? (For more information, see the next section on "Processing results")
+Como você implementará o GHAS na sua empresa? Provavelmente, haverá muitas ideias e opiniões. Aqui estão algumas perguntas que você deve considerar responder e alinhar antes de avançar:
+  - Quais equipes serão incluídas no piloto?
+  - Quais projetos estão focados no piloto?
+  - Como os projetos devem ser priorizados na execução?
+  - Como você planeja medir o sucesso no piloto e para além dele?
+  - Qual é o nível de mudança diária que suas equipes irão enfrentar? Como isso será comunicado?
+  - Como seus planos de implementação serão comunicados em toda a empresa?
+  - Como você planeja treinar suas equipes?
+  - Como você planeja gerenciar os resultados de digitalização inicialmente? (Para obter mais informações, consulte a próxima seção sobre "Processando resultados")
 
-#### Processing results
+#### Processando resultados
 
-Before GHAS is rolled out to your teams, there should be clear alignment on how results  should be managed over time. We recommend initially looking at results as more informative  and non-blocking. It’s likely your company has a full CI/CD pipeline, so we recommend this  approach to avoid blocking your company’s process. As you get used to processing these  results, then you can incrementally increase the level of restriction to a point that feels more  accurate for your company.
+Antes de o GHAS ser implementado nas suas equipes, deve haver um claro alinhamento sobre como os resultados devem ser gerenciados ao longo do tempo. Recomendamos que se encarem os resultados como mais informativo e não como bloqueio. É provável que a sua empresa tenha um pipeline de CI/CD completo. Portanto, recomendamos esta abordagem para evitar bloquear o processo da sua empresa. À medida que você se acostuma com o processamento desses resultados, você poderá aumentar gradualmente o nível de restrição para um ponto que você considera mais preciso para sua empresa.
 
-### {% octicon "checklist" aria-label="The checklist icon" %}  Lead your rollout with both your security and development groups
+### {% octicon "checklist" aria-label="The checklist icon" %}  lidere a sua implementação com seus grupos de segurança e desenvolvimento
 
-Many companies lead their GHAS rollout efforts with their security group. Often, development teams aren’t included in the rollout process until the pilot has concluded. However, we’ve found that companies that lead their rollouts with both their security and development teams tend to have more success with their GHAS rollout.
+Muitas empresas lideram seus esforços do GHAS com seu grupo de segurança. Muitas vezes, as equipes de desenvolvimento não são incluídas no processo de implementação até que o piloto seja concluído. No entanto, descobrimos que as empresas que lideram as implementações tanto com as equipes de segurança quanto de desenvolvimento tendem a ter mais sucesso com a implementação do GHAS.
 
-Why? GHAS takes a developer-centered approach to software security by integrating seamlessly into the developer workflow. Not having key representation from your development group early in the process increases the risk of your rollout and creates an uphill path towards organizational buy-in.
+Por que? O GHAS adota uma abordagem centrada no desenvolvedor para a segurança do software, integrando-se perfeitamente ao fluxo de trabalho do desenvolvedor. Não ter uma representação chave do seu grupo de desenvolvimento no início do processo aumenta o risco de sua implantação e cria um caminho rápido para adesões organizacionais.
 
-When development groups are involved earlier (ideally from purchase), security and development groups can achieve alignment early in the process. This helps to remove silos  between the two groups, builds and strengthens their working relationships, and helps shift the  groups away from a common mentality of “throwing things over the wall.” All of these things help support the overall goal to help companies shift and begin  utilizing GHAS to address security concerns earlier in the development process.
+Quando os grupos de desenvolvimento são envolvidos mais cedo (idealmente a partir da compra), os grupos de segurança e desenvolvimento podem alcançar um alinhamento precoce no processo. Isso ajuda a remover silos entre os dois grupos, a construir e a reforçar as suas relações de trabalho, e ajuda a afastar os grupos de uma mentalidade comum de “arremessar as coisas pelo muro”. Todas estas coisas ajudam você a apoiar o objetivo geral de ajudar as empresas a se deslocarem e começarem a utilizar o GHAS para abordar as questões de segurança mais cedo no processo de desenvolvimento.
 
-#### {% octicon "people" aria-label="The people icon" %} Recommended key roles for your rollout team
+#### {% octicon "people" aria-label="The people icon" %} Funções-chave recomendadas para sua equipe de implementação
 
-We recommend a few key roles to have on your team to ensure that your groups are well represented throughout the planning and execution of your rollout and implementation.
+Recomendamos algumas funções essenciais para a sua equipe a fim de garantir que os seus grupos estejam bem representados durante todo o planejamento e execução da sua implementação.
 
-We highly recommend your rollout team include these roles:
-- **Executive Sponsor:** This is often the CISO, CIO, VP of Security, or VP of Engineering.
-- **Technical Security Lead:** The technical security lead provides technical support on behalf of the security team throughout the implementation process.
-- **Technical Development Lead:** The technical development lead provides technical support and will likely lead the implementation effort with the development team.  
+É altamente recomendável que a sua equipe de implementação inclua estas funções:
+- **Patrocinador Executivo:** De modo geral, é CISO, CIO, VP de Segurança ou VP de Engenharia.
+- **Líder de Segurança Técnica:** A liderança de segurança técnica fornece suporte técnico em nome da equipe de segurança durante todo o processo de implementação.
+- **Líder de Desenvolvimento Técnico:** A liderança de desenvolvimento técnico fornece suporte técnico e provavelmente liderará o esforço de implementação com a equipe de desenvolvimento.
 
-We also recommend your rollout team include these roles:
-- **Project Manager:** We’ve found that the earlier a project manager can be introduced into the rollout process the higher the likelihood of success.  
-- **Quality Assurance Engineer:** Including a member of your company’s Quality Assurance team helps ensure process changes are taken into account for the QA team.
+Também recomendamos que a sua equipe de implementação inclua estas funções:
+- **Gerente de Projeto:** Descobrimos que quanto mais cedo um gerente de projeto pode ser introduzido no processo de execução, maior é a probabilidade de sucesso.
+- **Engenheiro de Garantia de Qualidade:** Incluir um integrante da equipe de Garantia de Qualidade da sua empresa ajuda a garantir que as alterações no processo sejam levadas em conta para a equipe de controle de qualidade.
 
-### {% octicon "checklist" aria-label="The checklist icon" %} Understand key GHAS facts to prevent common misconceptions
+### {% octicon "checklist" aria-label="The checklist icon" %} Entenda os principais fatos do GHAS para evitar equívocos comuns
 
-Going into a GHAS implementation, it’s important to understand some key basic facts about what GHAS is and can do, to prevent many common misconceptions companies have going into their GHAS rollouts.
+Realizar uma implementação do GHAS. É importante entender alguns fatos básicos sobre o que o GHAS é e pode fazer, para evitar que muitas concepções incorretas comuns acessem as suas implementações do GHAS.
 
 {% note %}
 
-**Note:** If you’re interested in furthering your GHAS education, {% data variables.product.prodname_professional_services %} provides a variety of options for additional education and training, including topics that your company needs to prepare for GHAS. These offerings may take the form of workshops, demonstrations, and bootcamps. Topics can range from deploying GHAS and basic usage of GHAS to more advanced topics to continue to build your team’s skills. For more information on working with the {% data variables.product.prodname_professional_services_team %} team, see "[{% data variables.product.prodname_professional_services %}](#github-professional-services)."
+**Observação:** Se estiver interessado em promover a sua formação no GHAS, {% data variables.product.prodname_professional_services %} oferece uma série de opções para formação e treinamento adicionais, incluindo tópicos para os quais a sua empresa precisa se preparar para o GHAS. Estas ofertas podem assumir a forma de oficinas, demonstrações e bootcamps. Os tópicos podem variar desde a implementação do GHAS e do uso básico do GHAS a tópicos mais avançados para continuar desenvolvendo as habilidades da sua equipe. Para obter mais informações sobre como trabalhar com a equipe de {% data variables.product.prodname_professional_services_team %}, consulte "[{% data variables.product.prodname_professional_services %}](#github-professional-services)".
 
 {% endnote %}
 
 
-#### Fact 1: GHAS is a suite of security tools that require action to protect your code.
+#### Fato 1: O GHAS é um conjunto de ferramentas de segurança que requerem ação para proteger seu código.
 
-It’s not security software that is installed and forgotten—just having GHAS on its own does not protect your code. GHAS is a suite of tools that increases with value when configured, maintained, used in daily  workflows, and in combination with other tools.
+Não é um software de segurança instalado e esquecido — ter apenas um GHAS não protege seu código. O GHAS é um conjunto de ferramentas que aumentam com valor quando configurados, mantidos, usados em fluxos de trabalho diários e em combinação com outras ferramentas.
 
-#### Fact 2: GHAS will require adjustment out of the box.
+#### Fato 2: O GHAS exigirá um ajuste inovador.
 
-Once GHAS is set up on your repositories, there are additional steps that need to be taken to ensure it works for your company’s needs. Code scanning in particular requires further configuration to fine-tune your results, for example, customizing what is flagged by the scans to adjust what is picked up in future scans. Many customers find that initial scans either pick up no results or results that are not relevant based on the application's threat model and need to be adjusted to their company’s needs.
+Uma vez que o GHAS é definido nos repositórios, há outras etapas que precisam ser realizadas para garantir o funcionamento das necessidades da empresa. A digitalização de código em particular exige uma configuração adicional para ajustar seus resultado como, por exemplo, a personalização do que é sinalizado pelas verificações para ajustar o que é detectado em futuras digitalizações. Muitos clientes descobrem que as digitalizações iniciais ou não obtêm resultados ou obtêm resultados que não são relevantes com base no modelo de ameaça da aplicação e precisam ser ajustados de acordo com as necessidades da empresa.
 
-#### Fact 3: GHAS tools are most effective when used together, but the most effective AppSec programs involve the use of additional tools/activities.
+#### Facto 3: As ferramentas do GHAS são mais efetivas quando usadas em conjunto, mas os programas mais eficientes do AppSec envolvem o uso de ferramentas/atividades adicionais.
 
-GHAS is most effective when all of the tools are used together. When companies integrate GHAS with other tools and activities, such as penetration testing and dynamic scans, it further improves the effectiveness of the AppSec program. We recommend always utilizing multiple layers of protection.
+O GHAS é mais eficaz quando todas as ferramentas são utilizadas em conjunto. Quando as empresas integram o GHAS a outras ferramentas e atividades como, por exemplo, testes de penetração e scanners dinâmicos, ele melhora ainda a eficácia do programa AppSec. Recomendamos sempre a utilização de múltiplas camadas de proteção.
 
-#### Fact 4: Not all companies will use/need custom {% data variables.product.prodname_codeql %} queries, but they can  help you customize/target scan results.
+#### Fato 4: Nem todas as empresas irão usar/precisar de consultas personalizadas de {% data variables.product.prodname_codeql %}, mas elas podem ajudar você a personalizar/apontar para resultados de verificação.
 
-Code scanning is powered by {% data variables.product.prodname_codeql %}—the world’s most powerful code analysis engine. While  many companies are excited at the prospect of being able to write custom queries, for a  large portion of our customers the base query set and additional queries available in the  community are typically more than sufficient. However, many companies may find the need  for custom {% data variables.product.prodname_codeql %} queries to help reduce false positives rates in results or crafting new  queries to target results your company may need.
+A digitalização de código é fornecida por {% data variables.product.prodname_codeql %} — o mecanismo de análise de código mais poderoso do mundo. Embora muitas empresas estejam entusiasmadas com a perspectiva de serem capazes de escrever consultas personalizadas, para uma grande parte dos nossos clientes, o conjunto base de consultas e consultas adicionais disponíveis na comunidade é, de modo geral, mais do que suficiente. No entanto muitas empresas podem ter a necessidade de consultas personalizadas de {% data variables.product.prodname_codeql %} para ajudar a reduzir taxas falso-positivas nos resultados ou criar novas consultas para resultados dos quais a sua empresa pode precisar.
 
-However, if your company is interested in writing custom {% data variables.product.prodname_codeql %} queries, we recommend  you complete your rollout and implementation of GHAS before exploring custom queries.
+No entanto, se a sua empresa estiver interessada em escrever consultas personalizadas de {% data variables.product.prodname_codeql %}, recomendamos que você implemente o GHAS antes de explorar as consultas personalizadas.
 
 {% note %}
 
-**Note:** It’s crucial for your company to have a solid foundation on GHAS before diving deeper into deeper security  practices.
+**Observação:** É essencial para a sua empresa ter uma base sólida no GHAS antes de mergulhar mais fundo em práticas de segurança mais profundas.
 
 {% endnote %}
 
-When your company is ready, our Customer Success team can help you navigate the requirements that need to be met and can help ensure your company has good use  cases for custom queries.  
+Quando sua empresa estiver pronta, a nossa equipe de sucesso do cliente pode ajudar você a cumprir os requisitos que precisam ser cumpridos e pode ajudar a garantir que a sua empresa tenha bons casos de uso para consultas personalizadas.
 
-#### Fact 5: {% data variables.product.prodname_codeql %} scans the whole code base, not just the changes made in a pull request.
+#### Fato 5: {% data variables.product.prodname_codeql %} digitaliza toda a base de código, não apenas as alterações feitas em um pull request.
 
-When code scanning is run from a pull request, the scan will include the full codebase and not just the changes made in the pull request. While this may seem unnecessary at times, this is an important step to ensure the change has been reviewed all against all interactions in the codebase.
+Quando a verificação de código é executada a partir de um pull request, a digitalização incluirá a base de código completa e não apenas as alterações feitas no pull request. Embora isso possa parecer por vezes desnecessário, este é uma etapa importante para garantir que a mudança tenha sido revisada com base em todas as interacções na base de código.
 
-## Examples of successful {% data variables.product.prodname_GH_advanced_security %} rollouts
+## Exemplos de implementações de {% data variables.product.prodname_GH_advanced_security %} bem-sucedidas
 
-Now that you have a better understanding of some of the keys to a successful GHAS rollout  and implementation, here are some examples of how our customers made their rollouts successful. Even if your company is in a different place, {% data variables.product.prodname_dotcom %} can help you with building a customized path that suits the needs of your rollout.
+Agora que você compreende melhor alguns dos pontos principais para uma implementação bem-sucedidas do GHAS, aqui estão alguns exemplos de como os nossos clientes fizeram as suas implementações bem-sucedidas. Mesmo que sua empresa esteja em um lugar diferente, {% data variables.product.prodname_dotcom %} pode ajudar você a construir um caminho personalizado que atenda às necessidades da sua implantação.
 
-### Example rollout for a mid-sized healthcare technology company  
+### Exemplo de implantação para uma empresa de tecnologia de saúde de médio porte.
 
-A mid-sized healthcare technology company based out of San Francisco completed a successful GHAS rollout process. While they may not have  had a large number of repositories that needed to be enabled, this company’s keys to success included having a well-organized and aligned team for the rollout, with a clearly established key contact to work with {% data variables.product.prodname_dotcom %} to troubleshoot any issues during the process. This allowed them to complete their rollout within two months.
+Uma empresa de tecnologia de saúde de médio porte, baseada em São Francisco, concluiu um processo bem-sucedido de implantação do GHAS. Embora eles possam não ter um grande número de repositórios que precisavam ser habilitados, a chave dosucesso dessa empresa incluiu a uma equipe bem organizada e alinhada para a implementação, com um contato-chave claramente definido para trabalhar com {% data variables.product.prodname_dotcom %} para solucionar quaisquer problemas durante o processo. Isso lhes permitiu concluir a sua implementação em de dois meses.
 
-In addition, having an engaged development team allowed the company to have teams using code scanning at the pull request level following the completion of their rollout.
+Além disso a existência de uma equipe de desenvolvimento engajada permitiu que a empresa tivesse equipes que utilizassem a verificação de código no nível de pull request após a conclusão da sua implementação.
 
-### Example rollout for a mid-sized data platform company
+### Exemplo de implantação para uma empresa de plataforma de dados de média dimensão
 
-A global data platform company has had great success with GHAS to  date. They’ve completed their initial implementation and are currently progressing through the rollout process. This company is mature in their security posture and tooling, and are well-aligned as an company. This allows them to operate very self-sufficiently and has enabled them to move quickly and smoothly through their rollout.
+Uma empresa global de plataformas de dados teve grande sucesso com o GHAS até o momento. Eles concluíram a sua implementação inicial e estão atualmente progredindo por meio do processo de implementação. Esta empresa tem maturidade em suas posições e ferramentas de segurança e está bem alinhada como uma empresa. Isso permite que ela opere de forma muito própria, bem como avançar de forma rápida e tranquila ao longo da sua implementação.
 
-This company's strong alignment, efficient operations, and security tooling maturity allowed them to implement GHAS quickly and build a good foundation for {% data variables.product.prodname_codeql %}. Since their implementation, they can now automatically enable {% data variables.product.prodname_codeql %} across different repositories.
+O forte alinhamento, operações eficientes e a maturidade das ferramentas de segurança desta empresa possibilitou a implementação rápida do GHAS, bem como criar uma boa base para {% data variables.product.prodname_codeql %}. Desde sua implementação, agora eles podem automaticamente habilitar {% data variables.product.prodname_codeql %} em diferentes repositórios.
 
-In addition to their security and technical maturity, another critical key to this company’s success is having a project owner and single point of contact from their team to drive the project forward. Not only is having this key contact crucial, but they are incredibly resourceful and skilled, and directly contribute to the success of the rollout.
+Além de sua segurança e maturidade técnica, outra chave crucial para o sucesso desta empresa é ter o proprietário de um projeto e um único ponto de contato na sua equipe para impulsionar o projeto. Este contato fundamental não só é crucial, como também é incrivelmente rico e qualificado e contribui diretamente para o sucesso da sua implementação.
 
-## Prerequisites for your company before rolling out GHAS
+## Pré-requisitos para a sua empresa antes de implementar o GHAS
 
-{% data variables.product.prodname_professional_services %} can help to provide additional support to help your company break down and understand these prerequisites and help you get prepared for the GHAS implementation process.
+{% data variables.product.prodname_professional_services %} pode ajudar a fornecer suporte adicional para ajudar a sua empresa a detalhar e entender estes pré-requisitos e ajudar você a preparar-se para o processo de implementação do GHAS.
 
- ### CI/CD systems and process
+ ### Sistemas e processos de CI/CD
 
-If your company has not yet invested in or implemented continuous integration or continuous delivery (CI/CD) systems and processes, we recommend taking this step in conjunction with moving forward with GHAS. This may be a significant shift for your company—we can work with you to provide recommendations and guidance for implementing a CI/CD system, as well as supporting any training that might be needed.
+Se a sua empresa ainda não investiu em sistemas e processos de integração contínua ou de entrega contínua (CI/CD), recomendamos que isso seja feito em conjunto com o GHAS. Isto pode ser uma mudança significativa para sua empresa — podemos trabalhar com você para fornecer recomendações e orientações para a implementação de um sistema CI/CD, além de apoiar qualquer formação que possa ser necessária.
 
-### Requirements to install {% data variables.product.prodname_GH_advanced_security %}
+### Requisitos para instalar {% data variables.product.prodname_GH_advanced_security %}
 
-There are a few different paths that can be taken for your GHAS installation based on what combinations of technologies your company uses. This section outlines a quick breakdown of the different paths your company may need to take.
+Existem alguns caminhos diferentes que podem ser percorridos pela sua instalação do GHAS, com base em quais combinações de tecnologias que sua empresa usa. Essa seção descreve um rápido detalhamento dos diferentes caminhos que a sua empresa pode precisar seguir.
 
 {% ifversion ghes %}
 
 #### {% data variables.product.prodname_ghe_server %}
 
-It’s important that you’re utilizing a version of {% data variables.product.prodname_ghe_server %} (GHES) that will support your company’s needs.
+É importante que você esteja utilizando uma versão de {% data variables.product.prodname_ghe_server %} (GHES) que atenda às necessidades da sua empresa.
 
-If you’re using an earlier version of GHES (prior to 3.0) and would like to upgrade, there are some requirements that you’ll need to meet before moving forward with the upgrade. For more information, see:
-  - "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise-server@2.22/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)"
-  - "[Upgrade requirements](/enterprise-server@2.20/admin/enterprise-management/upgrade-requirements)"
+Caso você esteja usando uma versão anterior do GHES (anterior à vesão 3.0) e gostaria de fazer a atualização, há algumas exigências que você precisa cumprir antes de avançar. Para obter mais informações, consulte:
+  - "[Atualizando {% data variables.product.prodname_ghe_server %}](/enterprise-server@2.22/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)"
+  - "[Requisitos de atualização](/enterprise-server@2.20/admin/enterprise-management/upgrade-requirements)"
 
-If you’re using a third-party CI/CD system and want to use {% data variables.product.prodname_code_scanning %}, make sure you have downloaded the {% data variables.product.prodname_codeql_cli %}. For more information, see "[About CodeQL code scanning in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
+Se você estiver usando um sistema de CI/CD de terceiros e quiser usar {% data variables.product.prodname_code_scanning %}, certifique-se de ter feito o download do {% data variables.product.prodname_codeql_cli %}. Para obter mais informações, consulte "[Sobre a verificação de código CodeQL no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
 
-If you're working with {% data variables.product.prodname_professional_services %} for your GHAS rollout, please be prepared to discuss these items at length in your kickoff meeting.
+Se você estiver trabalhando com {% data variables.product.prodname_professional_services %} para sua implantação GHAS, esteja preparado para discutir esses itens a tempo na sua reunião inicial.
 
 {% endif %}
 
@@ -208,60 +206,60 @@ If you're working with {% data variables.product.prodname_professional_services 
 
 #### {% data variables.product.prodname_ghe_cloud %}
 
-If you’re a {% data variables.product.prodname_ghe_cloud %} (GHEC) customer there are prerequisites that you’ll need to meet depending on what CI/CD you plan to utilize.
+Se você é um cliente de {% data variables.product.prodname_ghe_cloud %} (GHEC), há pré-requisitos que você precisará conhecer dependendo de que CI/CD você planeja utilizar.
 
-Using {% data variables.product.prodname_actions %} for your CI/CD:
-- To ensure {% data variables.product.prodname_code_scanning %} can be integrated and utilized properly, you should have a basic understanding of {% data variables.product.prodname_actions %} before proceeding with your installation.
+Usando {% data variables.product.prodname_actions %} para a sua CI/CD:
+- Para garantir que {% data variables.product.prodname_code_scanning %} possa ser integrado e usadocorretamente, você deve entender os princípios básicos de {% data variables.product.prodname_actions %} antes de prosseguir com a sua instalação.
 
-Using a third-party tool for CI/CD:
-- To integrate the {% data variables.product.prodname_codeql_cli %}, you should have a basic understanding of the CI/CD system, as well as *nix and Windows—in particular how commands are executed and how success/failure is signaled. For more information about how to integrate a third-party tool, see "[Using CodeQL code scanning with your existing CI system ](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system)."
+Usando uma ferramenta de terceiros para CI/CD:
+- Para integrar a {% data variables.product.prodname_codeql_cli %}, você deve entender os princípios básicos do sistema CI/CD, bem como *nix e Windows — em particular, como os comandos são executados e como o sucesso e a falha são sinalizados. Para obter mais informações sobre como integrar uma ferramenta de terceiros, consulte "[Usando a digitalização de código CodeQL com seu o sistema de CI existente ](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system)".
 
 {% endif %}
 
-## Partnering with GitHub for your rollout
+## Parceria com GitHub para a sua implementação
 
-As you prepare for your GHAS implementation, it’s important to  consider what will be required from your company to make this  project successful. Our most successful implementations of GHAS  rely on shared responsibilities between both GitHub and our customers throughout the process with a clearly identified stakeholder from the customer owning the project.
+À medida que você se prepara para sua implementação do GHAS, é importante considerar o que será necessário para sua empresa para fazer este projeto ser bem sucedido. As nossas implementações mais bem-sucedidas do GHAS dependem de responsabilidades compartilhadas entre o GitHub e nossos clientes em todo o processo com uma partes interessadas claramente identificada pelo cliente ao qual pertence o projeto.
 
-#### Success model for customer and GitHub responsibilities
+#### Modelo de sucesso para responsabilidades de cliente e do GitHub
 
-**Customer responsibilities**
-- Completing infrastructure and process prerequisites
-- Managing rollout and implementation, including planning and execution
-- Internal training
-- (Optional) Contributing {% data variables.product.prodname_codeql %} queries to the GitHub Community
+**Responsabilidade dos clientes**
+- Completar infraestrutura e pré-requisitos do processo
+- Gerenciando a implementação, incluindo planejamento e execução
+- Treinamento interno
+- (Opcional) Contribuindo com consultas de {% data variables.product.prodname_codeql %} para a comunidade do GitHub
 
-**GitHub responsibilities**
+**Responsabilidades do GitHub**
 
-- Maintenance and enhancements for features, such as {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% endif %}, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_GH_advanced_security %}
-- Providing, maintaining, and delivering the following services: {% data variables.product.prodname_dotcom %} Docs, {% data variables.product.prodname_dotcom %} Community, {% data variables.product.prodname_dotcom %} Support
+- Manutenção e aprimoramento para funcionalidades, como {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% endif %}, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_GH_advanced_security %}
+- Fornecer, manter e prestar os serviços a seguir: Documentação de {% data variables.product.prodname_dotcom %}, comunidade de {% data variables.product.prodname_dotcom %}, suporte de {% data variables.product.prodname_dotcom %}
 
 {% note %}
 
-**Note:**  {% data variables.product.prodname_professional_services %} can help support many of the customer responsibilities. To learn more, see "[GitHub services and support](#github-services-and-support)."
+**Observação:**  {% data variables.product.prodname_professional_services %} pode ajudar a suportar muitas das responsabilidades do cliente. Para saber mais, consulte "[Serviços e suporte do GitHub](#github-services-and-support)".
 
 {% endnote %}
 
-## {% data variables.product.prodname_dotcom %} services and support
+## Serviços e suporte do {% data variables.product.prodname_dotcom %}
 
-### {% data variables.product.prodname_dotcom %} Support
+### Suporte de {% data variables.product.prodname_dotcom %}
 
-If you run into any issues during your implementation, you can search our deep documentation for solutions or engage with {% data variables.product.prodname_dotcom %} Support, a team of highly technical engineers that can support you as issues arise. For more information, see "[GitHub Enterprise Support](https://enterprise.github.com/support).
+Se você tiver algum problema durante a sua implementação, você poderá pesquisar as soluções na nossa documentação detalhada ou interagir com o suporte de {% data variables.product.prodname_dotcom %}, uma equipe de engenheiros altamente técnicos que podem ajudar vocês à medida que surgem problemas. Para obter mais informações, consulte "[Suporte do GitHub Enterprise](https://enterprise.github.com/support).
 
-In addition, you can also try our [ {% data variables.product.prodname_gcf %}](https://github.community/).
+Além disso, você também pode experimentar nosso [ {% data variables.product.prodname_gcf %}](https://github.community/).
 
-If you purchased a Premium Support plan, you can submit your ticket in the [Premium Support Portal](https://enterprise.github.com/support). If you’re unsure of which Support plan you purchased, you can reach out to your sales representative or review the plan options.
+Se você comprou um plano de Suporte Premium, você poderá enviar seu tíquete no [Portal de Suporte Premium](https://enterprise.github.com/support). Se você não tem certeza de qual plano de suporte comprou, você poderá entrar em contato com seu representante de vendas ou revisar as opções do plano.
 
-For more information the Premium support plan options, see:
-  - "[Premium Support](https://github.com/premium-support)" {% ifversion ghec %}
-  - "[About GitHub Premium Support for {% data variables.product.prodname_ghe_cloud %}](/github/working-with-github-support/about-github-premium-support-for-github-enterprise-cloud)"{% endif %}{% ifversion ghes %}
-  - "[About GitHub Premium Support for {% data variables.product.prodname_ghe_server %}](/admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise-server)"{% endif %}
+Para obter mais informações as opções do plano de suporte Premium, consulte:
+  - "[Suporte Premium](https://github.com/premium-support)" {% ifversion ghec %}
+  - "[Sobre o Suporte Premium do GitHub para {% data variables.product.prodname_ghe_cloud %}](/github/working-with-github-support/about-github-premium-support-for-github-enterprise-cloud)"{% endif %}{% ifversion ghes %}
+  - "[Sobre o Suporte Premium do GitHub para {% data variables.product.prodname_ghe_server %}](/admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise-server)"{% endif %}
 
 ### {% data variables.product.prodname_professional_services %}
 
-Our {% data variables.product.prodname_professional_services_team %} team can partner with you for a successful rollout and implementation of {% data variables.product.prodname_GH_advanced_security %}. We offer a variety of options for the type of guidance and support you expect to need for your implementation. We also have training and bootcamps available to help your company to optimize the value of GHAS.
+Nossa equipe de {% data variables.product.prodname_professional_services_team %} pode fazer parcerias com você para uma implementação bem-sucedida de {% data variables.product.prodname_GH_advanced_security %}. Oferecemos uma série de opções para o tipo de orientação e apoio que você espera precisar para a sua implementação. Também temos treinamento e bootcamps disponíveis para ajudar a sua empresa a otimizar o valor do GHAS.
 
-If you’d like to work with our {% data variables.product.prodname_professional_services_team %} team for your implementation, we recommend you begin thinking about your system design and infrastructure, as well as the number of repositories that you want to set up with GHAS, to begin these conversations. In addition, begin thinking about goals for what you would like to achieve with this rollout.
+Se você quiser trabalhar com nossa equipe de {% data variables.product.prodname_professional_services_team %} para a sua implementação, recomendamos que você comece a pensar no design do seu sistema e na infraestrutura, bem como no número de repositórios que você deseja configurar com o GHAS, para iniciar essas conversas. Além disso, comece a pensar em objetivos para o que você gostaria de alcançar com esta implementação.
 
-Implementation is just one step in a successful security-driven journey where you’ll learn how to use GHAS. Once you’ve completed your implementation, there will be more to learn with the rollout throughout your infrastructure and codebases. Speak with your sales representative for more information about all the {% data variables.product.prodname_professional_services_team %} options available.
+A implementação é apenas um passo em uma jornada bem sucedida orientada à segurança, em que você aprenderá a usar o GHAS. Depois de concluir a implementação, haverá mais para aprender com a implantação em toda a sua infraestrutura e codebases. Fale com o seu representante de vendas para obter mais informações sobre todas as opções de {% data variables.product.prodname_professional_services_team %} disponíveis.
 
-If you initially opted out of additional services, but find that additional support is  needed as you begin your implementation, please reach out to your sales representative to discuss what services options may be needed to support your implementation.
+Se você inicialmente optou por não receber serviços adicionais, mas descobrir que o suporte adicional é necessário quando você inicia a sua implementação, entre em contato com o seu representante de vendas para discutir quais opções de serviços podem ser necessárias para apoiar a sua implementação.

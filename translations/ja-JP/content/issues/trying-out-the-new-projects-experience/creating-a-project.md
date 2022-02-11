@@ -34,9 +34,16 @@ topics:
 ドラフトIssueは、素早くアイデアを捕捉するのに役立ちます。
 
 1. カーソルをプロジェクトの最下行、{% octicon "plus" aria-label="plus icon" %}の隣に持ってきてください。
-2. アイデアを入力し、**Enter**を押してください。
+1. アイデアを入力し、**Enter**を押してください。
+1. To add body text, click on the title of the draft issue. In the markdown input box that appears, enter the text for the draft issue body, then click **Save**.
 
-You can convert draft issues into issues. For more information, see [Converting draft issues to issues](#converting-draft-issues-to-issues).
+Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[Converting draft issues to issues](#converting-draft-issues-to-issues)."
+
+{% note %}
+
+**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
+
+{% endnote %}
 
 ### Issue およびプルリクエスト
 
@@ -48,7 +55,7 @@ You can convert draft issues into issues. For more information, see [Converting 
 #### IssueあるいはPull Requestの検索
 
 1. カーソルをプロジェクトの最下行、{% octicon "plus" aria-label="plus icon" %}の隣に持ってきてください。
-2. `#`を入力してください。
+2. <kbd>#</kbd>を入力してください。
 3. Pull RequestあるいはIssueがあるリポジトリを選択してください。 リポジトリ名の一部を入力して、選択肢を狭めることができます。
 4. IssueあるいはPull Requestを選択してください。 タイトルの一部を入力して、選択肢を狭めることができます。
 
@@ -68,7 +75,7 @@ In table layout:
 1. Click the {% octicon "triangle-down" aria-label="the item menu" %} on the draft issue that you want to convert.
 2. Select **Convert to issue**.
 3. Select the repository that you want to add the issue to.
-4. Alternatively, edit the `assignee`, `labels`, `milestone`, or `repository` fields of the draft issue that you want to convert.
+4. Alternatively, edit the `labels`, `milestone`, or `repository` fields of the draft issue that you want to convert.
 
 In board layout:
 
@@ -81,11 +88,11 @@ In board layout:
 You can archive an item to keep the context about the item in the project but remove it from the project views. You can delete an item to remove it from the project entirely.
 
 1. Select the item(s) to archive or delete. To select multiple items, do one of the following:
-     - `cmd + click` (Mac) or `ctrl + click` (Windows/Linux) each item.
-     - Select an item then `shift + arrow-up` or `shift + arrow-down` to select additional items above or below the intitially selected item.
-     - Select an item then `shift + click` another item to select all items between the two items.
-     - Enter `cmd + a` (Mac) or `ctrl + a` (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
-2. To archive all selected items, enter `e`. To delete all selected items, enter `del`. Alternatively, select the {% octicon "triangle-down" aria-label="the item menu" %} (in table layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout), then select the desired action.
+     - <kbd>Command</kbd>+Click (Mac) or <kbd>Ctrl</kbd>+Click (Windows/Linux) each item.
+     - Select an item then <kbd>Shift</kbd>+<kbd>↑</kbd> or <kbd>Shift</kbd>+<kbd>↓</kbd> to select additional items above or below the initially selected item.
+     - Select an item then <kbd>Shift</kbd>+Click another item to select all items between the two items.
+     - Enter <kbd>Command</kbd>+<kbd>A</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
+2. To archive all selected items, enter <kbd>E</kbd>. To delete all selected items, enter <kbd>Del</kbd>. Alternatively, select the {% octicon "triangle-down" aria-label="the item menu" %} (in table layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout), then select the desired action.
 
 You can restore archived items but not deleted items. For more information, see [Restoring archived items](#restoring-archived-items).
 
@@ -99,7 +106,7 @@ To restore an archived item, navigate to the issue or pull request. In the proje
 
 ### 既存のフィールドの表示
 
-プロジェクトは、タイトル、アサインされた人、ラベル、マイルストーン、リポジトリへのあらゆる変更を含め、IssueやPull Requestに関する最新の情報を追跡します。 プロジェクトが初期化された時点では、"title（タイトル）"と"assignees（アサインされた人）"が表示されます。他のフィールドは非表示になります。 プロジェクト内でのそれらのフィールドの可視性は変更できます。
+Your project tracks up-to-date information about issues and pull requests, including any changes to the title, assignees, labels, milestones, repository, reviewers, and linked pull requests. プロジェクトが初期化された時点では、"title（タイトル）"と"assignees（アサインされた人）"が表示されます。他のフィールドは非表示になります。 プロジェクト内でのそれらのフィールドの可視性は変更できます。
 
 1. {% data reusables.projects.open-command-palette %}
 2. "show"と入力を始めてください。
@@ -148,3 +155,16 @@ You can later edit the drop down options for single select and iteration fields.
 You can enable or disable the built-in workflows for your project.
 
 {% data reusables.projects.enable-basic-workflow %}
+
+## Adding your project to a repository
+
+You can list relevant projects in a repository. You can only list projects that are owned by the same user or organization that owns the repository.
+
+In order for repository members to see a project listed in a repository, they must have visibility for the project. For more information, see "[Managing the visibility of your projects (beta)](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)" and "[Managing access to projects (beta)](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)."
+
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your repository.
+1. {% octicon "table" aria-label="the project icon" %} **Projects（プロジェクト）**をクリックしてください。
+1. Click **Projects (Beta)** in the side bar.
+1. Click **Add project**.
+1. In the search bar that appears, search for projects that are owned by the same user or organization that owns the repository.
+1. Click on a project to list it in your repository.

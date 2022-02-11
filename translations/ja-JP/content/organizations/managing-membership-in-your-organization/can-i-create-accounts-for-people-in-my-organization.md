@@ -1,6 +1,6 @@
 ---
-title: Can I create accounts for people in my organization?
-intro: 'While you can add users to an organization you''ve created, you can''t create personal user accounts on behalf of another person.'
+title: 私の Organization に所属する人のためにアカウントを作成できますか?
+intro: 作成した Organization にユーザを追加することはできますが、個人のアカウントを代理で作成することはできません。
 redirect_from:
   - /articles/can-i-create-accounts-for-those-in-my-organization
   - /articles/can-i-create-accounts-for-people-in-my-organization
@@ -11,7 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Create accounts for people
+shortTitle: 人のアカウントの作成
 ---
 
 ## About user accounts
@@ -24,8 +24,8 @@ Because you access an organization by logging in to a user account, each of your
 You can also consider {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 {% endif %}
 
-## Adding users to your organization
+## Organization へのユーザの追加
 
 1. Provide each person instructions to [create a user account](/articles/signing-up-for-a-new-github-account).
-2. Ask for the username of each person you want to give organization membership to.
-3. [Invite the new personal accounts to join](/articles/inviting-users-to-join-your-organization) your organization. Use [organization roles](/articles/permission-levels-for-an-organization) and [repository permissions](/articles/repository-permission-levels-for-an-organization) to limit the access of each account.
+2. Organization のメンバーシップを与えたい人に、ユーザー名を尋ねます。
+3. Organization に、作成された[新しい個人アカウントを招待](/articles/inviting-users-to-join-your-organization)してください。 各アカウントのアクセスを制限するには、[Organization ロール](/articles/permission-levels-for-an-organization)および[リポジトリの権限](/articles/repository-permission-levels-for-an-organization)を使用します。

@@ -1,6 +1,6 @@
 ---
-title: Migrating from GitLab CI/CD to GitHub Actions
-intro: '{% data variables.product.prodname_actions %} and GitLab CI/CD share several configuration similarities, which makes migrating to {% data variables.product.prodname_actions %} relatively straightforward.'
+title: Migrarse desde la IC/EC de GitLab a GitHub Actions
+intro: '{% data variables.product.prodname_actions %} y la IC/EC de GitLab comparten varias similitudes de configuración, lo cual hace que el migrarse a {% data variables.product.prodname_actions %} sea relativamente simple.'
 redirect_from:
   - /actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions
 versions:
@@ -14,39 +14,39 @@ topics:
   - Migration
   - CI
   - CD
-shortTitle: Migrate from GitLab CI/CD
+shortTitle: Migrarse desde GitLab IC/DC
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## Introducción
 
-GitLab CI/CD and {% data variables.product.prodname_actions %} both allow you to create workflows that automatically build, test, publish, release, and deploy code. GitLab CI/CD and {% data variables.product.prodname_actions %} share some similarities in workflow configuration:
+Tanto la IC/EC de GitLab como las {% data variables.product.prodname_actions %} te permiten crear flujos de trabajo que crean, prueban, publican, lanzan y despliegan código automáticamente. La IC/EC de GitLab y las {% data variables.product.prodname_actions %} comparten algunas similitudes en la configuración de los flujos de trabajo:
 
-- Workflow configuration files are written in YAML and are stored in the code's repository.
-- Workflows include one or more jobs.
-- Jobs include one or more steps or individual commands.
-- Jobs can run on either managed or self-hosted machines.
+- Los archivos de configuración de flujo de trabajo están escritas en YAML y se almacenan en el repositorio del código.
+- Los flujos de trabajo incluyen uno o más jobs.
+- Los jobs incluyen uno o más pasos o comandos individuales.
+- Los jobs pueden ejecutarse ya sea en máquinas administradas o auto-hospedadas.
 
-There are a few differences, and this guide will show you the important differences so that you can migrate your workflow to {% data variables.product.prodname_actions %}.
+Hay unas cuantas diferencias, y esta guía te mostrará las diferencias importantes para que puedas migrar tu flujo de trabajo a {% data variables.product.prodname_actions %}.
 
 ## Jobs
 
-Jobs in GitLab CI/CD are very similar to jobs in {% data variables.product.prodname_actions %}. In both systems, jobs have the following characteristics:
+Los jobs en la IC/EC de GitLab son muy similares a aquellos en {% data variables.product.prodname_actions %}. En ambos sistemas, los jobs tienen las siguientes características:
 
-* Jobs contain a series of steps or scripts that run sequentially.
-* Jobs can run on separate machines or in separate containers.
-* Jobs run in parallel by default, but can be configured to run sequentially.
+* Los jobs contienen una serie de pasos o scripts que se ejecutan secuencialmente.
+* Los jobs pueden ejecutarse en máquinas o contenedores separados.
+* Los jobs se ejecutan en paralelo predeterminadamente, pero pueden configurarse para ejecutarse en secuencia.
 
-You can run a script or a shell command in a job. In GitLab CI/CD, script steps are specified using the `script` key. In {% data variables.product.prodname_actions %}, all scripts are specified using the `run` key.
+Puedes ejecutar un script o un comando de shell en un job. En la IC/EC de GitLab, los pasos de los scripts se especifican utilizando la clave `script`. En {% data variables.product.prodname_actions %}, todos los scripts se especifican utilizando la clave `run`.
 
-Below is an example of the syntax for each system:
+Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 
 <table class="d-block">
 <tr>
 <th>
-GitLab CI/CD
+IC/EC de GitLab
 </th>
 <th>
 {% data variables.product.prodname_actions %}
@@ -78,16 +78,16 @@ jobs:
 </tr>
 </table>
 
-## Runners
+## Ejecutores
 
-Runners are machines on which the jobs run. Both GitLab CI/CD and {% data variables.product.prodname_actions %} offer managed and self-hosted variants of runners. In GitLab CI/CD, `tags` are used to run jobs on different platforms, while in {% data variables.product.prodname_actions %} it is done with the `runs-on` key.
+Los ejecutores son máquinas en donde se ejecutan los jobs. Tanto la IC/EC de GitLab como las {% data variables.product.prodname_actions %} ofrecen variantes administradas y auto-hospedadas de los ejecutores. En la IC/EC de GitLab, se utilizan las `tags` para ejecutar jobs en plataformas diferentes, mientras que en las {% data variables.product.prodname_actions %} todo se realiza con la clave `runs-on`.
 
-Below is an example of the syntax for each system:
+Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 
 <table>
 <tr>
 <th>
-GitLab CI/CD
+IC/EC de GitLab
 </th>
 <th>
 {% data variables.product.prodname_actions %}
@@ -129,18 +129,18 @@ linux_job:
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
 
-## Docker images
+## Imágenes de Docker
 
-Both GitLab CI/CD and {% data variables.product.prodname_actions %} support running jobs in a Docker image. In GitLab CI/CD, Docker images are defined with an `image` key, while in {% data variables.product.prodname_actions %} it is done with the `container` key.
+Tanto la IC/EC de GitLab como las {% data variables.product.prodname_actions %} son compatibles con la ejecución de jobs en una imagen de Docker. En la IC/EC de GitLab, las imágenes de Docker se definen con una clave de `image`, mientras que en las {% data variables.product.prodname_actions %} se hace con la clave `container`.
 
-Below is an example of the syntax for each system:
+Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 
 <table class="d-block">
 <tr>
 <th>
-GitLab CI/CD
+IC/EC de GitLab
 </th>
 <th>
 {% data variables.product.prodname_actions %}
@@ -167,18 +167,18 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)."
+Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)".
 
-## Condition and expression syntax
+## Sintaxis de condiciones y expresiones
 
-GitLab CI/CD uses `rules` to determine if a job will run for a specific condition. {% data variables.product.prodname_actions %} uses the `if` keyword to prevent a job from running unless a condition is met.
+La IC/EC de GitLab utiliza `rules` para determinar si un job se ejecutará para una condición específica. Las {% data variables.product.prodname_actions %} utilizan la palabra clave `if` para prevenir que un job se ejecute a menos de que se cumpla con una condición.
 
-Below is an example of the syntax for each system:
+Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 
 <table class="d-block">
 <tr>
 <th>
-GitLab CI/CD
+IC/EC de GitLab
 </th>
 <th>
 {% data variables.product.prodname_actions %}
@@ -212,18 +212,18 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
-## Dependencies between Jobs
+## Dependencias entre los Jobs
 
-Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to set dependencies for a job. In both systems, jobs run in parallel by default, but job dependencies in {% data variables.product.prodname_actions %} can be specified explicitly with the `needs` key. GitLab CI/CD also has a concept of `stages`, where jobs in a stage run concurrently, but the next stage will start when all the jobs in the previous stage have completed. You can recreate this scenario in {% data variables.product.prodname_actions %} with the `needs` key.
+Tanto la IC/EC de GitLab como las {% data variables.product.prodname_actions %} te permiten configurar dependencias para un job. En ambos sistemas, los jobs se ejecutan en paralelo predeterminadamente, pero las dependencias de éstos en las {% data variables.product.prodname_actions %} se pueden especificar explícitamente con la clave `needs`. La IC/EC de GitLab también tiene un concepto de `stages`, en donde los jobs de una etapa se ejecutan simultáneamente, pero la siguiente etapa comenzaría cuando todos los jobs de la etapa previa se hayan completado. Puedes crecrear este escenario en las {% data variables.product.prodname_actions %} con la palabra clave `needs`.
 
-Below is an example of the syntax for each system. The workflows start with two jobs named `build_a` and `build_b` running in parallel, and when those jobs complete, another job called `test_ab` will run. Finally, when `test_ab` completes, the `deploy_ab` job will run.
+Puedes encontrar un ejemplo de la sintaxis para cada sistema. Los flujos de trabajo comienzan con dos jobs que se llaman `build_a` y `build_b` ejecutándose en paralelo y, cuando estos jobs se completan, se ejecutará otro job llamado `test_ab`. Finalmente, cuando se completa el `test_ab`, se ejecutará el job `deploy_ab`.
 
 <table class="d-block">
 <tr>
 <th>
-GitLab CI/CD
+IC/EC de GitLab
 </th>
 <th>
 {% data variables.product.prodname_actions %}
@@ -291,30 +291,30 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)."
+Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)".
 
-## Scheduling workflows
+## Programar flujos de trabajo
 
-Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to run workflows at a specific interval. In GitLab CI/CD, pipeline schedules are configured with the UI, while in {% data variables.product.prodname_actions %} you can trigger a workflow on a scheduled interval with the "on" key.
+Tanto la IC/EC de GitLab como las {% data variables.product.prodname_actions %} te permiten ejecutar flujos de trabajo en un intervalo específico. En la IC/EC de GitLab, las programaciones de mapa se configuran con la IU, mientras que en las {% data variables.product.prodname_actions %} puedes activar un flujo de trabajo en un intervalo programado con la clave "on".
 
-For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#scheduled-events)."
+Para obtener más información, consulta la sección "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows#scheduled-events)".
 
-## Variables and secrets
+## Variables y secretos
 
-GitLab CI/CD and {% data variables.product.prodname_actions %} support setting environment variables in the pipeline or workflow configuration file, and creating secrets using the GitLab or {% data variables.product.product_name %} UI.
+La IC/EC de GitLab y las {% data variables.product.prodname_actions %} son compatibles con la configuración de variables de ambiente en el mapa o en el archivo de configuración de flujo de trabajo, y con la creación de secretos utilizando la IU de GitLab o de {% data variables.product.product_name %}.
 
-For more information, see "[Environment variables](/actions/reference/environment-variables)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+Para obtener más información, consulta las secciones "[Variables de ambiente](/actions/reference/environment-variables)" y "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 
-## Caching
+## Almacenamiento en caché
 
-GitLab CI/CD and {% data variables.product.prodname_actions %} provide a method in the configuration file to manually cache workflow files.
+La IC/EC de GitLab y las {% data variables.product.prodname_actions %} proporcionan un método en el archivo de configuración para guardar los archivos de flujo de trabajo manualmente en el caché.
 
-Below is an example of the syntax for each system:
+Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 
 <table class="d-block">
 <tr>
 <th>
-GitLab CI/CD
+IC/EC de GitLab
 </th>
 <th>
 {% data variables.product.prodname_actions %}
@@ -359,18 +359,18 @@ jobs:
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable for repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+El almacenamiento en caché de las {% data variables.product.prodname_actions %} solo se aplica a los repositorios que se hospedan en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
 
-## Artifacts
+## Artefactos
 
-Both GitLab CI/CD and {% data variables.product.prodname_actions %} can upload files and directories created by a job as artifacts. In {% data variables.product.prodname_actions %}, artifacts can be used to persist data across multiple jobs.
+Tanto la IC/EC de GitLab como las {% data variables.product.prodname_actions %} pueden cargar como artefactos los archivos y directorios que creen los jobs. En las {% data variables.product.prodname_actions %}, los artefactos pueden utilizarse para persistir los datos a través de varios jobs.
 
-Below is an example of the syntax for each system:
+Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 
 <table>
 <tr>
 <th>
-GitLab CI/CD
+IC/EC de GitLab
 </th>
 <th>
 {% data variables.product.prodname_actions %}
@@ -401,20 +401,20 @@ artifacts:
 </tr>
 </table>
 
-For more information, see "[Storing workflow data as artifacts](/actions/guides/storing-workflow-data-as-artifacts)."
+Para obtener más información, consulta la sección "[Almacenar los datos de los flujos de trabajo como artefactos](/actions/guides/storing-workflow-data-as-artifacts)".
 
-## Databases and service containers
+## Bases de datos y contenedores de servicios
 
-Both systems enable you to include additional containers for databases, caching, or other dependencies.
+Ambos sistemas te permiten incluir contenedores adicionales para bases de datos, almacenamiento en caché, u otras dependencias.
 
-In GitLab CI/CD, a container for the job is specified with the `image` key, while {% data variables.product.prodname_actions %} uses the `container` key. In both systems, additional service containers are specified with the `services` key.
+En la IC/EC de GitLab, un contenedor para el job se especifica con la clave `image` key, mientras que las {% data variables.product.prodname_actions %} utilizan la clave `container`. En ambos sistemas se especifican contenedores de servicio adicionales con la clave `services`.
 
-Below is an example of the syntax for each system:
+Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 
 <table class="d-block">
 <tr>
 <th>
-GitLab CI/CD
+IC/EC de GitLab
 </th>
 <th>
 {% data variables.product.prodname_actions %}
@@ -486,4 +486,4 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[About service containers](/actions/guides/about-service-containers)."
+Para obtener más información, consulta la sección "[Acerca de los contenedores de servicio](/actions/guides/about-service-containers)".

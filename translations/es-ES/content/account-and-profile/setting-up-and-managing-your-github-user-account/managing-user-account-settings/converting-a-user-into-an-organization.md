@@ -1,69 +1,67 @@
 ---
-title: Converting a user into an organization
+title: Convertir un usuario en una organización
 redirect_from:
   - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization
   - /articles/explaining-the-account-transformation-warning
   - /articles/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
-intro: You can convert your user account into an organization. This allows more granular permissions for repositories that belong to the organization.
+intro: Puedes convertir tu cuenta de usuario en una organización. Esto permite que haya más permisos granulares para repositorios que pertenecen a la organización.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
   - Accounts
-shortTitle: User into an organization
+shortTitle: Un usuario en una organización
 ---
+
 {% warning %}
 
-**Warning**: Before converting a user into an organization, keep these points in mind:
+**Advertencia**: Antes de convertir un usuario en una organización, ten en cuenta estos puntos:
 
- - You will **no longer** be able to sign into the converted user account.
- - You will **no longer** be able to create or modify gists owned by the converted user account.
- - An organization **cannot** be converted back to a user.
- - The SSH keys, OAuth tokens, job profile,  reactions, and associated user information, **will not** be transferred to the organization. This is only true for the user account that's being converted, not any of the user account's collaborators.
- - Any commits made with the converted user account **will no longer be linked** to that account. The commits themselves **will** remain intact.
- - Any forks of private repositories made with the converted user account will be deleted.
+ - **Ya no** podrás iniciar sesión con la cuenta de usuario convertida.
+ - **Ya no** podrás crear o modificar gists que pertenecen a la cuenta de usuario convertida.
+ - Una organización **no puede** volver a convertirse en un usuario.
+ - Las llaves SSH, tokens de OAuth, perfiles de trabajo, reacciones, y el resto de la información asociada con el usuario, **no** se transferirán a la organización. Esto es solo true para la cuenta de usuario que se convertirá, no para cualquiera de los colaboradores de la cuenta del usuario.
+ - Todas las confirmaciones realizadas a la cuenta del usuario convertida **ya no se asociarán** con esa cuenta. Las confirmaciones **permanecerán** intactas.
+ - Cualquier bifurcación de un repositorio privado que se haga con la cuenta de usuario convertida, se borrará.
 
 {% endwarning %}
 
-## Keep your personal user account and create a new organization manually
+## Conservar la cuenta de usuario personal y crear una nueva organización manualmente
 
-If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal user account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your user account into an organization.
+Si deseas que tu organización tenga el mismo nombre que estás usando actualmente para tu cuenta personal, o si deseas que la información de la cuenta del usuario personal permanezca intacta, debes crear una organización nueva y trasnferirla a tus repositorios en lugar de convertir tu cuenta de usuario en una organización.
 
-1. To retain your current user account name for your personal use, [change the name of your personal user account](/articles/changing-your-github-username) to something new and wonderful.
-2. [Create a new organization](/articles/creating-a-new-organization-from-scratch) with the original name of your personal user account.
-3. [Transfer your repositories](/articles/transferring-a-repository) to your new organization account.
+1. Para conservar el nombre de la cuenta de usuario para uso personal, [cambia el nombre de tu cuenta de usuario personal](/articles/changing-your-github-username) por uno nuevo y maravilloso.
+2. [Crea una nueva organización](/articles/creating-a-new-organization-from-scratch) con el nombre original de tu cuenta de usuario personal.
+3. [Transfiere tus repositorios](/articles/transferring-a-repository) a tu nueva cuenta de la organización.
 
-## Convert your personal account into an organization automatically
+## Convertir tu cuenta personal en una organización automáticamente
 
-You can also convert your personal user account directly into an organization. Converting your account:
- - Preserves the repositories as they are without the need to transfer them to another account manually
- - Automatically invites collaborators to teams with permissions equivalent to what they had before
- {% ifversion fpt or ghec %}- For user accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
+Puedes convertir tu cuenta de usuario personal directamente en una organización. Convertir tu cuenta:
+ - Preserva los repositorios ya que no tienen la necesidad de ser transferidos a otra cuenta manualmente
+ - Invita automáticamente a que los colaboradores se unan a los equipos con permisos equivalentes a los que tenían antes
+ {% ifversion fpt or ghec %}- Para las cuentas de usuario en {% data variables.product.prodname_pro %}, automáticamente traslada la facturación [al {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) pago sin la necesidad de volver a ingresar la información de pago, ajustar tu ciclo de facturación o duplicar el pago en ningún momento{% endif %}
 
-1. Create a new personal account, which you'll use to sign into GitHub and access the organization and your repositories after you convert.
-2.  [Leave any organizations](/articles/removing-yourself-from-an-organization) the user account you're converting has joined.
+1. Crea una nueva cuenta personal, que usarás para iniciar sesión en GitHub y acceder a la organización y a tus repositorios después de la conversión.
+2.  [Sal de todas las organizaciones](/articles/removing-yourself-from-an-organization) a las que se ha unido la cuenta de usuario que estás convirtiendo.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
-5. Under "Transform account", click **Turn <username> into an organization**.
- 	![Organization conversion button](/assets/images/help/settings/convert-to-organization.png)
-6. In the Account Transformation Warning dialog box, review and confirm the conversion. Note that the information in this box is the same as the warning at the top of this article.
- 	![Conversion warning](/assets/images/help/organizations/organization-account-transformation-warning.png)
-7. On the "Transform your user into an organization" page, under "Choose an organization owner", choose either the secondary personal account you created in the previous section or another user you trust to manage the organization.
- 	![Add organization owner page](/assets/images/help/organizations/organization-add-owner.png)
-8. Choose your new organization's subscription and enter your billing information if prompted.
-9. Click **Create Organization**.
-10. Sign in to the new user account you created in step one, then use the context switcher to access your new organization.
+5. En "Transform account" (Transformar cuenta), haz clic en **Turn <username> into an organization** (Convertir en una organización). ![Botón para convertir la organización](/assets/images/help/settings/convert-to-organization.png)
+6. En el cuadro de diálogo Account Transformation Warning (Advertencia de transformación de la cuenta), revisa y confirma la confirmación. Ten en cuenta que la información en este cuadro es la misma que la advertencia en la parte superior de este artículo. ![Advertencia de conversión](/assets/images/help/organizations/organization-account-transformation-warning.png)
+7. En la página "Transform your user into an organization" (Transformar tu usuario en una organización), debajo de "Choose an organization owner" (Elegir un propietario de la organización), elige la cuenta personal secundaria que creaste en la sección anterior u otro usuario en quien confías para administrar la organización. ![Página Add organization owner (Agregar propietario de la organización)](/assets/images/help/organizations/organization-add-owner.png)
+8. Escoge la nueva suscripción de la organización y escribe tu información de facturación si se te solicita.
+9. Haz clic en **Create Organization** (Crear organización).
+10. Inicia sesión en la nueva cuenta de usuario que creaste en el paso uno, luego usa el cambiador de contexto para acceder a la organización nueva.
 
 {% tip %}
 
-**Tip**: When you convert a user account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as *outside collaborators*. You can then invite *outside collaborators* to become members of your new organization if you wish. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+**Sugerencia**: Cuando conviertas una cuenta de usuario en una organización, agregaremos los colaboradores a los repositorios que le pertenecen a la cuenta de la nueva organización como *colaboradores externos*. Luego puedes invitar a los *colaboradores externos* para que se conviertan en miembros de la organización nueva, si así lo deseas. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)".
 
 {% endtip %}
 
-## Further reading
-- "[Setting up teams](/articles/setting-up-teams)"
-{% ifversion fpt or ghec %}- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"{% endif %}
-- "[Accessing an organization](/articles/accessing-an-organization)"
+## Leer más
+- "[Configurar equipos](/articles/setting-up-teams)"
+{% ifversion fpt or ghec %}- "[Invitar usuarios a unirse a tu organización](/articles/inviting-users-to-join-your-organization)"{% endif %}
+- "[Acceder a una organización](/articles/accessing-an-organization)"

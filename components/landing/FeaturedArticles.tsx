@@ -20,6 +20,7 @@ export const FeaturedArticles = () => {
             <ArticleList
               title={section.label}
               viewAllHref={section.viewAllHref}
+              {...(section.viewAllHref ? { viewAllTitleText: `All ${section.label}` } : {})}
               articles={section.articles}
             />
           </div>
@@ -31,6 +32,7 @@ export const FeaturedArticles = () => {
           <ArticleList
             title={t('whats_new')}
             viewAllHref={changelogUrl}
+            viewAllTitleText={t('all_changelogs')}
             articles={(whatsNewChangelog || []).map((link) => {
               return {
                 title: link.title,

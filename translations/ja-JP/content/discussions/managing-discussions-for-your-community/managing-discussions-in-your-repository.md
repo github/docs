@@ -71,7 +71,7 @@ To manage discussions in a repository, {% data variables.product.prodname_discus
 
 ## ディスカッションを移譲する
 
-ディスカッションを移譲するには、ディスカッションを移譲するリポジトリにディスカッションを作成する権限が必要です。
+ディスカッションを移譲するには、ディスカッションを移譲するリポジトリにディスカッションを作成する権限が必要です。 You can only transfer discussions between repositories owned by the same user or organization account. You can't transfer a discussion from a private repository to a public repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

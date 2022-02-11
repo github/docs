@@ -1,6 +1,6 @@
 ---
-title: Customizing your project (beta) views
-intro: 'Display the information you need by changing the layout, grouping, sorting, and filters in your project.'
+title: Personalizar las vistas de tu proyecto (beta)
+intro: 'Muestra la información que necesitas cambiando el diseño, agrupamiento, forma de ordenar y los filtros de tu proyecto.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,174 +12,196 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## Project command palette
+## Paleta de comandos de proyecto
 
-Use the project command palette to quickly change settings and run commands in your project.
-
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing any part of a command or navigate through the command palette window to find a command. See the next sections for more examples of commands.
-
-## Changing the project layout
-
-You can view your project as a table or as a board.
+Utiliza la paleta de comandos del proyecto para cambiar los ajustes y ejecutar comandos rápidamente en él.
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Switch layout".
-3. Choose the required command. For example, **Switch layout: Table**.
-3. Alternatively, click the drop-down menu next to a view name and click **Table** or **Board**.
+2. Comienza a teclear cualquier parte de un comando o navega a través de la ventana de la paleta de comandos para encontrarlo. Consulta las siguientes secciones para encontrar más ejemplos de comandos.
 
-## Showing and hiding fields
+## Cambiar el diseño del proyecto
 
-You can show or hide a specific field.
-
-In table layout:
+Puedes ver tu proyecto como una tabla o como un tablero.
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing the action you want to take ("show" or "hide") or the name of the field.
-3. Choose the required command. For example, **Show: Milestone**.
-4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} to the right of the table. In the drop-down menu that appears, indicate which fields to show or hide. A {% octicon "check" aria-label="check icon" %} indicates which fields are displayed.
-5. Alternatively, click the drop-down menu next to the field name and click **Hide field**.
+2. Comienza a teclear "Switch layout".
+3. Elige el comando requerido. Por ejemplo, **Switch layout: Table**.
 
-In board layout:
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Tabla** o **Tablero**.
 
-1. Click the drop-down menu next to the view name.
-2. Under **configuration**, click {% octicon "list-unordered" aria-label="the unordered list icon" %}.
-3. In the menu that's displayed, select fields to add them and deselect fields to remove them from the view.
+## Mostrar y ocultar campos
 
-## Reordering fields
+Puedes mostrar u ocultar un campo específico.
 
-You can change the order of fields.
-
-1. Click the field header.
-2. While clicking, drag the field to the required location.
-
-## Reordering rows
-
-In table layout, you can change the order of rows.
-
-1. Click the number at the start of the row.
-2. While clicking, drag the row to the required location.
-
-## Sorting by field values
-
-In table layout, you can sort items by a field value.
+### Mostrar y ocultar los campos en el diseño de tabla
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Sort by" or the name of the field you want to sort by.
-3. Choose the required command. For example, **Sort by: Assignees, asc**.
-4. Alternatively, click the drop-down menu next to the field name that you want to sort by and click **Sort ascending** or **Sort descending**.
+2. Comienza a teclear la acción que quieres tomar ("show" o "hide") o el nombre del campo.
+3. Elige el comando requerido. Por ejemplo, **Mostrar: Hito**.
+
+Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} a la derecha de la tabla. En el menú desplegable que se muestra, indica qué campos mostrar u ocultar. Un {% octicon "check" aria-label="check icon" %} indica qué campos se muestran.
+
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre del campo y luego en **Ocultar campo**.
+
+### Mostrar y ocultar los campos en diseño de tablero
+
+1. Haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de vista.
+2. Debajo de **configuración**, haz clic en {% octicon "list-unordered" aria-label="the unordered list icon" %}.
+3. En el menú que se muestra, selecciona los campos para agregarlos y deselecciona los campos para eliminarlos de la vista.
+
+## Reordenar los campos
+
+Puedes cambiar el orden de los campos.
+
+1. Haz clic en el encabezado del campo.
+2. Haciendo clic, arrastra el campo a la ubicación requerida.
+
+## Reordenar filas
+
+En el diseño de tabla, puedes cambiar el orden de las filas.
+
+1. Haz clic en el número al inicio de la fila.
+2. Haciendo clic, arrastra la fila a la ubicación requerida.
+
+## Clasificar por valor de campo
+
+En el diseño de tabla, puedes organizar los elementos por valor de campo.
+
+1. {% data reusables.projects.open-command-palette %}
+2. Comienza a teclear "Sort by" o el nombre del campo por el cual quieras ordenar.
+3. Elige el comando requerido. Por ejemplo, **Clasificar por: Asignados, asc**.
+
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de campo que quieras organizar y luego en **Ordenar ascendentemente** u **Ordenar descendentemente**.
 
 {% note %}
 
-**Note:** When a table is sorted, you cannot manually reorder rows.
+**Nota:** Cuando se ordena una tabla, no puedes reordenar las filas manualmente.
 
 {% endnote %}
 
-Follow similar steps to remove a sort.
+Sigue pasos similares para eliminar una clasificación.
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Remove sort-by".
-3. Choose **Remove sort-by**.
-4. Alternatively, click the drop-down menu next to the view name and click the menu item that indicates the current sort.
+2. Comienza a teclear "Remove sort-by".
+3. Elige **Eliminar el ordenar por**.
 
-## Grouping by field values
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de vista y luego en el elemento del menú que indique la clasificación actual.
 
-In the table layout, you can group items by a custom field value. When items are grouped, if you drag an item to a new group, the value of that group is applied. For example, if you group by "Status" and then drag an item with a status of `In progress` to the `Done` group, the status of the item will switch to `Done`.
+## Agrupar por valores de campo en el diseño de tabla
+
+En el diseño de tabla, puedes agrupar elementos por un valor de campo personalizado. Cuando los elementos se agrupan, si arrastras un elemento a un grupo nuevo, se aplica el valor de este grupo. Por ejemplo, si agrupas por "Estado" y luego arrastras un elemento con un estado a `In progress` hacia el grupo `Done`, el estado del elemento cambiará a `Done`. De forma similar, cuando agregues un elemento nuevo a un grupo, este elemento se poblará con el valor del grupo.
 
 {% note %}
 
-**Note:** Currently, you cannot group by title, assignees, repository or labels.
+**Nota:** Actualmente, no puedes agrupar por título, etiquetas, revisores o solicitudes de campo enlazadas.
 
 {% endnote %}
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Group by" or the name of the field you want to group by.
-3. Choose the required command. For example, **Group by: Status**.
-4. Alternatively, click the drop-down menu next to the field name that you want to group by and click **Group by values**.
+2. Comienza a teclear "Group by" o el nombre del campo por el cual quieres agrupar.
+3. Elige el comando requerido. Por ejemplo, **Agrupar por: Estado**.
 
-Follow similar steps to remove a grouping.
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de campo por el cual quieras agrupar y luego en **Agrupar por valores**.
 
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Remove group-by".
-3. Choose **Remove group-by**.
-4. Alternatively, click the drop-down menu next to the view name and click the menu item that indicates the current grouping.
-
-## Filtering rows
-
-Click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Start typing the field name and value that you want to filter by. As you type, possible values will appear.
-
-- To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
-- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
-- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
-- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
-- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
-
-Alternatively, use the command palette.
+Sigue pasos similares para eliminar un agrupamiento.
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Filter by" or the name of the field you want to filter by.
-3. Choose the required command. For example, **Filter by Status**.
-4. Enter the value that you want to filter for. For example: "In progress". You can also filter for the absence of specific values (for example, choose "Exclude status" then choose a status) or the absence of all values (for example, "No status").
+2. Comienza a teclear "Remove group-by".
+3. Elige **Eliminar el agrupar por**.
 
-In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
+Como alternativa, haz clic en {% octicon "triangle-down" aria-label="the drop-down icon" %} junto al nombre de vista y luego en el elemento de menú que indica el agrupamiento actual.
 
-## Creating a project view
+## Configurar el campo de columna en el diseño del tablero
 
-Project views allow you to quickly view specific aspects of your project. Each view is displayed on a separate tab in your project. 
-
-For example, you can have:
-- A view that shows all items not yet started (filter on "Status").
-- A view that shows the workload for each team (group by a custom "Team" field).
-- A view that shows the items with the earliest target ship date (sort by a date field).
-
-To add a new view:
+En el diseño de tablero, puedes elegir cualquier campo simple o de iteración para tus columnas. Si arrastras a un elemento a una columna nueva, el valor de dicha columna se aplicará al elemento que arrastraste. Por ejemplo, si utilizas el campo "Estado" para tus columnas de tablero y luego arrastras un elemento con un estado de `In progress` a la columna `Done`, el estado del elemento se cambiará a `Done`.
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "New view" (to create a new view) or "Duplicate view" (to duplicate the current view).
-3. Choose the required command.
-4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} **New view** next to the rightmost view.
-5. Alternatively, click the drop-down menu next to a view name and click **Duplicate view**.
+1. Comienza a teclear "Column field by" o el nombre del campo que quieras utilizar para tus columnas.
+1. Elige el comando requerido. Por ejemplo, **Column field by: Status**.
 
-The new view is automatically saved.
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} juento a la vista de tablero que quieras modificar y haz clic en el **campo de columna** {% octicon "columns" aria-label="the column icon" %}. Posteriormente, selecciona el campo que quieras utilizar para las columnas del tablero.
 
-## Saving changes to a view
+## Filtrar elementos
 
-When you make changes to a view - for example, sorting, reordering, filtering, or grouping the data in a view - a dot is displayed next to the view name to indicate that there are unsaved changes. 
+Haz clic en el {% octicon "filter" aria-label="the filter icon" %} en la parte superior de la tabla para mostrar la barra de "Filtrar por palabra clave o por campo". Comienza a teclear el nombre de campo y valor por el cuál quieras filtrar. Conforme teclees, se mostrarán los posibles valores.
 
-![Unsaved changes indicator](/assets/images/help/projects/unsaved-changes.png)
+- Para filtrar valores múltiples, sepáralos con una coma. Por ejemplo `label:"good first issue",bug` listará las propuestas con una etiqueta de `good first issue` o de `bug`.
+- Para filtrar la ausencia de un valor específico, coloca `-` antes de tu filtro. Por ejemplo, `-label:"bug"` mostrará solo elementos que no tengan la etiqueta `bug`.
+- Para filtrar de acuerdo a la ausencia de todos los valores, ingresa `no:` seguido del nombre del campo. Por ejemplo, `no:assignee` solo mostrará los elementos que no tengan un asignado.
+- Para filtrar por estado, ingresa `is:`. Por ejemplo, `is: issue` o `is:open`.
+- Separa los filtros múltiples con un espacio. Por ejemplo, `status:"In progress" -label:"bug" no:assignee` solo mostrará los elementos que tengan un estado de `In progress`, que no tengan la etiqueta `bug` y que no tengan un asignado.
+- Para filtrar de acuerdo con la iteración actual de un campo de iteración, utiliza `@current`. Por ejemplo, `sprint:@current`.
 
-If you don't want to save the changes, you can ignore this indicator. No one else will see your changes.
+Como alternativa, utiliza la paleta de comandos.
 
-To save the current configuration of the view for all project members:
 1. {% data reusables.projects.open-command-palette %}
-1. Start typing "Save view" or "Save changes to new view".
-1. Choose the required command.
-1. Alternatively, click the drop-down menu next to a view name and click **Save view** or **Save changes to new view**.
+2. Comienza a teclear "Filter by" o el nombre del campo por el cual quieres filtrar.
+3. Elige el comando requerido. Por ejemplo, **Filtrar por estado**.
+4. Ingresa el valor por el cual quieras filtrar. Por ejemplo: "En progreso". También puedes filtrar por el criterio de ausencia de algún valor específico (por ejemplo: elige "Excluir estado" y luego elige un estado) o por la ausencia de todos los valores (Por ejemplo: "Sin estado").
 
-## Reordering saved views
+En el diseño del tablero, puedes hacer clic en los datos del elemento o filtrar los elementos con este valor. Por ejemplo, haz clic en un asignado para mostrar únicamente los elementos de este. Para eliminar el filtro, haz clic en los datos de el elemento nuevamente.
 
-To change the order of the tabs that contain your saved views, click and drag a tab to a new location.
+## Crear una vista de proyecto
 
-The new tab order is automatically saved.
+Las vistas de proyecto te permiten ver los aspectos específicos de tu proyecto rápidamente. Cada vista se muestra en una pestaña por separado en tu proyecto.
 
-## Renaming a saved view
+Por ejemplo, puedes tener:
+- Una vista que muestre todos los elementos que aún no han iniciado (filtrar en "Estado").
+- Una vista que muestre la carga de trabajo para cada equipo (agrupar por un campo personalizado de "Equipo").
+- Una vista que muestre los elementos con la fecha de envío destino más reciente (ordenar por campo de fecha).
 
-To rename a view:
-1. Double click the name in the project tab.
-1. Change the name.
-1. Press Enter, or click outside of the tab.
+Para agregar una vista nueva:
 
-The name change is automatically saved.
-
-## Deleting a saved view
-
-To delete a view:
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Delete view".
-3. Choose the required command.
-4. Alternatively, click the drop-down menu next to a view name and click **Delete view**.
+2. Comienza a teclear "New view" (para crear una vista nueva) o "Duplicate view" (para duplicar la vista actual).
+3. Elige el comando requerido.
 
-## Further reading
+Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} **Vista nueva** junto a la vista que está más hacia la derecha.
 
-- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)"
-- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)"
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Duplicar vista**.
+
+La vista nueva se guarda automáticamente.
+
+## Guardar los cambios en una vista
+
+Cuando haces cambios en una vista, por ejemplo: clasificar, reordenar, filtrar o agrupar los datos en una vista, se muestra un punto junto al nombre de la vista para indicar que hay cambios sin guardar.
+
+![Indicador de cambios sin guardar](/assets/images/help/projects/unsaved-changes.png)
+
+Si no quieres guardar los cambios, puedes ignorar este indicador. Nadie verá tus cambios.
+
+Para guardar la configuración actual de la vista para todos los miembros del proyecto:
+1. {% data reusables.projects.open-command-palette %}
+1. Comienza a teclear "Save view" o "Save changes to new view".
+1. Elige el comando requerido.
+
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Guardar vista** o en **Guardar cambios en una vista nueva**.
+
+## Reordenar las vistas guardadas
+
+Para cambiar el orden de las pestañas que contienen tus vistas guardadas, haz clic y arrastra una pestaña a una ubicación nueva.
+
+El orden de pestañas nuevo se guardará automáticamente.
+
+## Renombrar una vista guardada
+
+Para renombrar una vista:
+1. Haz doble clic en el nombre de la pestaña del proyecto.
+1. Cambia el nombre.
+1. Presiona Enter o haz clic fuera de la pestaña.
+
+El cambio de nombre se guarda automáticamente.
+
+## Borrar una vista guardada
+
+Para borrar una vista:
+1. {% data reusables.projects.open-command-palette %}
+2. Comienza a teclear "Delete view".
+3. Elige el comando requerido.
+
+Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop-down icon" %} junto a un nombre de vista y luego en **Borrar vista**.
+
+## Leer más
+
+- "[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)"
+- "[Crear un proyecto (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)"

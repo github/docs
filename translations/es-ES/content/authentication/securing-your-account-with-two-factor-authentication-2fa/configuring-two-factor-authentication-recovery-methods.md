@@ -1,6 +1,6 @@
 ---
-title: Configuring two-factor authentication recovery methods
-intro: You can set up a variety of recovery methods to access your account if you lose your two-factor authentication credentials.
+title: Configurar la autenticación de dos factores mediante métodos de recuperación
+intro: Puedes configurar diversos métodos de recuperación para acceder a tu cuenta si pierdes tus credenciales de autenticación de dos factores.
 redirect_from:
   - /articles/downloading-your-two-factor-authentication-recovery-codes
   - /articles/setting-a-fallback-authentication-number
@@ -16,75 +16,72 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: Configure 2FA recovery
+shortTitle: Configurar la recuperación de 2FA
 ---
-In addition to securely storing your two-factor authentication recovery codes, we strongly recommend configuring one or more additional recovery methods.
 
-## Downloading your two-factor authentication recovery codes
+Además de almacenar tus códigos de recuperación de autenticación de dos factores de manera segura, recomendamos configurar uno o más métodos de recuperación adicionales.
 
-{% data reusables.two_fa.about-recovery-codes %} You can also download your recovery codes at any point after enabling two-factor authentication.
+## Descargar tus códigos de recuperación de autenticación de dos factores
 
-To keep your account secure, don't share or distribute your recovery codes. We recommend saving them with a secure password manager, such as:
+{% data reusables.two_fa.about-recovery-codes %} También puedes descargar tus códigos de recuperación en cualquier punto luego de habilitar la autenticación de dos factores.
+
+Para mantener la cuenta segura, no compartas ni distribuyas tus códigos de recuperación. Recomendamos guardarlos en un administrador de contraseñas seguro, como:
 - [1Password](https://1password.com/)
 - [LastPass](https://lastpass.com/)
 
-If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.
+Si generas nuevos códigos de recuperación o inhabilitas y vuelves a habilitar 2FA, los códigos de recuperación de tus parámetros de seguridad se actualizarán automáticamente.
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
-4. Save your recovery codes in a safe place. Your recovery codes can help you get back into your account if you lose access.
-    - To save your recovery codes on your device, click **Download**.
-    - To save a hard copy of your recovery codes, click **Print**.
-    - To copy your recovery codes for storage in a password manager, click **Copy**.
-  ![List of recovery codes with option to download, print, or copy the codes](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
+4. Guarda tus códigos de recuperación en un lugar seguro. Tus códigos de recuperación te ayudarán a regresar a tu cuenta si pierdes acceso.
+    - Para guardar tus códigos de recuperación en tu dispositivo, haz clic en **Download** (Descargar).
+    - Para guardar una copia impresa de tus códigos de recuperación, haz clic en **Print** (Imprimir).
+    - Para copiar tus códigos de recuperación a fin de almacenarlo en un administrador de contraseñas, haz clic en **Copy** (Copiar). ![Lista de códigos de recuperación con opción para descargar, imprimir o copiar los códigos](/assets/images/help/2fa/download-print-or-copy-recovery-codes-before-continuing.png)
 
-## Generating a new set of recovery codes
+## Generar un nuevo conjunto de códigos de recuperación
 
-Once you use a recovery code to regain access to your account, it cannot be reused. If you've used all 16 recovery codes, you can generate another list of codes. Generating a new set of recovery codes will invalidate any codes you previously generated.
+Una vez que usas un código de recuperación para recuperar el acceso a tu cuenta, no puedes volver a usarlo. Si has usado los 16 códigos de recuperación, puedes generar otra lista de códigos. La generación de un nuevo conjunto de códigos de recuperación invalidará todos los códigos que generaste previamente.
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
-3. To create another batch of recovery codes, click **Generate new recovery codes**.
-	![Generate new recovery codes button](/assets/images/help/2fa/generate-new-recovery-codes.png)
+3. Para crear otro lote de códigos de recuperación, haz clic en **Generate new recovery codes** (Generar nuevos códigos de recuperación). ![Botón para generar nuevos códigos de recuperación](/assets/images/help/2fa/generate-new-recovery-codes.png)
 
-## Configuring a security key as an additional two-factor authentication method
+## Configurar una clave de seguridad como un método de autenticación de dos factores adicional
 
-You can set up a security key as a secondary two-factor authentication method, and use the security key to regain access to your account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+Puedes configurar una clave de seguridad como un método de autenticación de dos factores secundario, y usar la clave de seguridad para recuperar el acceso a tu cuenta. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)".
 
 {% ifversion fpt or ghec %}
 
-## Setting a fallback authentication number
+## Configurar un número de autenticación de reserva
 
-You can provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
+Puedes brindar un segundo número para un dispositivo de reserva. Si pierdes acceso a tu dispositivo primario y a tus códigos de recuperación, un número de SMS de respaldo puede volver a brindarte acceso a tu cuenta.
 
-You can use a fallback number regardless of whether you've configured authentication via text message or TOTP mobile application.
+Puedes usar un número de reserva independientemente de que hayas configurado la autenticación mediante un mensaje de texto o aplicación móvil TOTP.
 
 {% warning %}
 
-**Warning:** Using a fallback number is a last resort. We recommend configuring additional recovery methods if you set a fallback authentication number.
-- Bad actors may attack cell phone carriers, so SMS authentication is risky.
-- SMS messages are only supported for certain countries outside the US; for the list, see "[Countries where SMS authentication is supported](/articles/countries-where-sms-authentication-is-supported)".
+**Advertencia:** Usar un número de reserva es tu último recurso. Recomendamos configurar métodos de recuperación adicionales si estableces un número de autenticación de reserva.
+- Los malos actores pueden atacar a los proveedores de teléfono celular, de manera que la autenticación SMS es riesgosa.
+- Los mensajes SMS solo son compatibles para determinados países fuera de los EE. UU., para conocer la lista, consulta "[Países donde la autenticación SMS es compatible](/articles/countries-where-sms-authentication-is-supported)".
 
 {% endwarning %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-3. Next to "Fallback SMS number", click **Add**.
-![Add fallback SMS number button](/assets/images/help/2fa/add-fallback-sms-number-button.png)
-4. Under "Fallback SMS number", click **Add fallback SMS number**.
-![Add fallback SMS number text](/assets/images/help/2fa/add_fallback_sms_number_text.png)
-5. Select your country code and type your mobile phone number, including the area code. When your information is correct, click **Set fallback**.
-	![Set fallback SMS number](/assets/images/help/2fa/2fa-fallback-number.png)
+3. Al lado de "Fallback SMS number" (Número de SMS de reserva), haz clic en **Add** (Agregar). ![Botón para agregar número de SMS de reserva](/assets/images/help/2fa/add-fallback-sms-number-button.png)
+4. En "Fallback SMS number" (Número de SMS de reserva), haz clic en **Add fallbacck SMS number (Agregar número de SMS de reserva). ![Agregar texto al número de SMS de reserva](/assets/images/help/2fa/add_fallback_sms_number_text.png)</p></li>
+5
+Selecciona tu código de país y escribe el número de teléfono móvil, incluido el número de área. Cuando la información es correcta, haz clic en **Set fallback** (Establecer reserva). ![Establecer número de SMS de reserva](/assets/images/help/2fa/2fa-fallback-number.png)</ol>
 
-After setup, the backup device will receive a confirmation SMS.
+Después de la configuración, el dispositivo de copia de seguridad recibirá un SMS de confirmación.
 
 {% endif %}
 
-## Further reading
+## Leer más
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
-- "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/articles/accessing-github-using-two-factor-authentication)"
-- "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
+- "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)"
+- [Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)"
+- "[Acceder {% data variables.product.prodname_dotcom %} utilizando autenticación de dos factores](/articles/accessing-github-using-two-factor-authentication)"
+- [Recuperar tu cuenta si pierdes tus credenciales de autenticación de dos factores](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"

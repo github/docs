@@ -6,6 +6,7 @@ redirect_from:
   - /admin/user-management/removing-users-from-teams-and-organizations
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -25,6 +26,8 @@ Somente proprietários ou administradores de equipe podem remover integrantes da
 
 ## Remover um integrante da equipe
 
+{% ifversion ghes %}
+
 {% warning %}
 
 **Observação:** {% data reusables.enterprise_management_console.badge_indicator %}
@@ -32,6 +35,8 @@ Somente proprietários ou administradores de equipe podem remover integrantes da
 Para remover um integrante de uma equipe sincronizada com um grupo LDAP, entre em contato com o administrador LDAP.
 
 {% endwarning %}
+
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

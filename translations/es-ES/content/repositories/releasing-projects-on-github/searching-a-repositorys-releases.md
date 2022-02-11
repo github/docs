@@ -1,8 +1,8 @@
 ---
-title: Searching a repository's releases
-intro: 'You can use keywords, tags, and other qualifiers to search for particular releases in a repository.'
+title: Buscar los lanzamientos de un repositorio
+intro: 'Puedes utilizar palabras clave, etiquetas y otros calificadores para buscar lanzamientos particulares en un repositorio.'
 permissions: Anyone with read access to a repository can search that repository's releases.
-shortTitle: Searching releases
+shortTitle: Buscar lanzamientos
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,11 +12,11 @@ topics:
   - Repositories
 ---
 
-## Searching for releases in a repository
+## Buscar lanzamientos en un repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-1. To search the repository's releases, in the search field at the top of the Releases page, type your query and press **Enter**. ![Releases search field](/assets/images/help/releases/search-releases.png)
+1. Para buscar los lanzamientos del repositorio, en el campo de búsqueda de la parte superior de la página de lanzamientos, teclea tu consulta y presiona **Enter**. ![Campo de búsqueda de lanzamientos](/assets/images/help/releases/search-releases.png)
 
 ## Search syntax for searching releases in a repository
 

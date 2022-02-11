@@ -1,34 +1,19 @@
-## 単一のイベントを使用する例
+### Using a single event
 
-```yaml
-# リポジトリ内の任意のブランチにコードがプッシュされたときにトリガーされる
-on: push
-```
+{% data reusables.github-actions.on-single-example %}
 
-## イベントのリストを使用する例
+### Using multiple events
 
-```yaml
-# プッシュもしくはPull Requestイベントでワークフローをトリガーする
-on: [push, pull_request]
-```
+{% data reusables.github-actions.on-multiple-example %}
 
-## アクティビティの種類もしくは設定を伴う複数のイベントを使用する例
+### Using activity types
 
-イベントに対してアクティビティの種類もしくは設定を指定する必要がある場合、それぞれのイベントを個別に設定しなければなりません。 設定を持たないイベントも含め、すべてのイベントにはコロン (`:`)を追加しなければなりません。
+{% data reusables.github-actions.actions-activity-types %}
 
-```yaml
-on:
-  # プッシュもしくはPull Requestでワークフローをトリガーする
-  # ただしメインブランチの場合のみ
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  # page_buildとリリース作成イベントでもトリガーする
-  page_build:
-  release:
-    types: # この設定は上記のpage_buildイベントには影響しない
-      - created
-```
+### Using filters
+
+{% data reusables.github-actions.actions-filters %}
+
+### Using activity types and filters with multiple events
+
+{% data reusables.github-actions.actions-multiple-types %}

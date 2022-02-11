@@ -12,18 +12,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Deploy keys
-
-{% data reusables.repositories.deploy-keys %}
-
-Deploy keys can either be setup using the following API endpoints, or by using GitHub. To learn how to set deploy keys up in GitHub, see "[Managing deploy keys](/developers/overview/managing-deploy-keys)."
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'keys' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## Deployments
-
 Deployments are requests to deploy a specific ref (branch, SHA, tag). GitHub dispatches a [`deployment` event](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) that external services can listen for and act on when new deployments are created. Deployments enable developers and organizations to build loosely coupled tooling around deployments, without having to worry about the implementation details of delivering different types of applications (e.g., web, native).
 
 Deployment statuses allow external services to mark deployments with an `error`, `failure`, `pending`, `in_progress`, `queued`, or `success` state that systems listening to [`deployment_status` events](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status) can consume.
@@ -66,7 +54,6 @@ Keep in mind that GitHub is never actually accessing your servers. It's up to yo
 
 Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% ifversion not ghae %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
 
-
 ### Inactive deployments
 
 When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
@@ -74,7 +61,23 @@ When you set the state of a deployment to `success`, then all prior non-transien
 You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
+{% endfor %}
+
+## Deployment statuses
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+## Deploy keys
+
+{% data reusables.repositories.deploy-keys %}
+
+Deploy keys can either be setup using the following API endpoints, or by using GitHub. To learn how to set deploy keys up in GitHub, see "[Managing deploy keys](/developers/overview/managing-deploy-keys)."
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'keys' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}

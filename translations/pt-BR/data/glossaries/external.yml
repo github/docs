@@ -179,11 +179,11 @@
   description: >-
     O branch base para os novos pull requests e commits de código em um repositório. Cada repositório tem pelo menos um branch, que o Git cria quando você inicializa o repositório. Geralmente, o primeiro branch é denominado {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, e, muitas vezes, é o branch padrão.
 - 
-  term: dependents graph
+  term: gráfico de dependentes
   description: >-
     Gráfico que mostra os pacotes, projetos e repositórios que dependem de um repositório público.
 - 
-  term: dependency graph
+  term: gráfico de dependências
   description: >-
     Gráfico que mostra os pacotes e projetos dos quais o repositório depende.
 - 
@@ -210,7 +210,7 @@
   description: Notificações enviadas para o endereço de e-mail de um usuário.
 - 
   term: enterprise account
-  description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorador
   description: >-
@@ -248,7 +248,7 @@
 - 
   term: gist
   description: >-
-    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
+    Um gist é um arquivo compartilhável que você pode editar, clonar e bifurcar no GitHub. Você pode criar um gist {% ifversion ghae %}interno{% else %}público{% endif %} ou secreto, embora os gists secretos estejam disponíveis para {% ifversion ghae %}qualquer membro corporativo{% else %}qualquer pessoa{% endif %} com a URL.
 - 
   term: Git
   description: >-
@@ -373,7 +373,7 @@
   description: >-
     Conta pessoal que não pode ser acessada pelo usuário. As contas ficam bloqueadas após o downgrade da modalidade paga para a grátis ou após o vencimento do plano da conta paga.
 - 
-  term: management console
+  term: console de gerenciamento
   description: >-
     Seção na interface do GitHub Enterprise que contém recursos administrativos.
 - 
@@ -392,7 +392,7 @@
   description: >-
     O branch padrão em muitos repositórios Git. Por padrão, quando você cria um novo repositório Git na linha de comando, um branch denominado `master` será criado. Muitas ferramentas agora usam um nome alternativo para o branch padrão.{% ifversion fpt or ghes > 3.1 or ghae %} Por exemplo, quando você cria um novo repositório no GitHub, o branch padrão é denominado `main`.{% endif %}
 - 
-  term: members graph
+  term: gráfico de integrantes
   description: Gráfico que exibe todas as bifurcações de um repositório.
 - 
   term: menção
@@ -418,7 +418,7 @@
   description: >-
     Equipe secundária de uma equipe principal. É possível ter várias equipes secundárias (ou aninhadas).
 - 
-  term: network graph
+  term: gráfico de rede
   description: >-
     Gráfico que exibe o histórico de branches de toda a rede do repositório, incluindo branches do repositório raiz e branches de bifurcações que contêm commits exclusivos da rede.
 - 
@@ -539,10 +539,10 @@
   description: >-
     Comentários de colaboradores sobre uma pull request que aprovem as alterações ou solicitem outras alterações antes do merge da pull request.
 - 
-  term: pulse graph
+  term: gráfico Pulse
   description: Gráfico que mostra uma visão geral da atividade de um repositório.
 - 
-  term: punch graph
+  term: gráfico Punch
   description: >-
     Gráfico que mostra a frequência de atualizações em um repositório conforme o dia da semana e a hora do dia.
 - 

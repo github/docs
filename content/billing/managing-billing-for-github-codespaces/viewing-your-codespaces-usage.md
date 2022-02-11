@@ -19,6 +19,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}
+{% data reusables.dotcom_billing.codespaces-report-download %}
 
 ## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
 

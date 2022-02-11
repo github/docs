@@ -116,7 +116,7 @@ jobs:
           git commit -m "Add crowdin translations" || echo "Nothing to commit"
 
       - name: 'Setup node'
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
           node-version: '16'
 
@@ -166,26 +166,27 @@ jobs:
           script/i18n/report-reset-files.js --report-type=csv --language=${{ matrix.language }} --log-file=/tmp/batch.log > $csvFile
           git add -f $csvFile && git commit -m "Check in ${{ matrix.language }} CSV report" || echo "Nothing to commit"
 
+      - name: Write the reported files that were reset to /tmp/pr-body.txt
+        run: script/i18n/report-reset-files.js --report-type=pull-request-body --language=${{ matrix.language }} --log-file=/tmp/batch.log > /tmp/pr-body.txt
+
+      - name: Push filtered translations
+        run: git push origin ${{ steps.set-branch.outputs.BRANCH_NAME }}
+
       - name: Close existing stale batches
         uses: lee-dohm/close-matching-issues@e9e43aad2fa6f06a058cedfd8fb975fd93b56d8f
         with:
           token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           query: 'type:pr label:translation-batch-${{ matrix.language }}'
 
-      - name: Create Pull Request
+      - name: Create translation batch pull request
         env:
           GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
-        # We'll try to create the pull request based on the changes we pushed up in the branch.
-        # If there are actually no differences between the branch and `main`, we'll delete it.
-        run: |
-          script/i18n/report-reset-files.js --report-type=pull-request-body --language=${{ matrix.language }} --log-file=/tmp/batch.log > /tmp/pr-body.txt
-          git push origin ${{ steps.set-branch.outputs.BRANCH_NAME }}
-          gh pr create --title "New translation batch for ${{ matrix.language }}" \
-            --base=main \
-            --head=${{ steps.set-branch.outputs.BRANCH_NAME }} \
-            --label "translation-batch-${{ matrix.language }}" \
-            --label "translation-batch" \
-            --body-file /tmp/pr-body.txt || git push origin :${{ steps.set-branch.outputs.BRANCH_NAME }}
+          TITLE: 'New translation batch for ${{ matrix.language }}'
+          BASE: 'main'
+          HEAD: ${{ steps.set-branch.outputs.BRANCH_NAME }}
+          LANGUAGE: ${{ matrix.language }}
+          BODY_FILE: '/tmp/pr-body.txt'
+        run: .github/actions-scripts/create-translation-batch-pr.js
 
       - name: Approve PR
         if: github.ref_name == 'main'
