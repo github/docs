@@ -263,6 +263,6 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 ## Further reading
 
-- "{% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[==== Query   curl -i -X GET \    "https://graph.facebook.com/v13.0/me?fields=id%2Cname&access_token=<access token sanitized>" ==== Access Token Info   {     "perms": [],     "user_id": null,     "app_id": 513213279143892   } ==== Parameters - Query Parameters     {     "fields": "id,name"   } - POST Parameters     {} ==== Response   {     "error": {       "message": "API access deactivated. To reactivate, go to the app dashboard.",       "type": "OAuthException",       "code": 200,       "fbtrace_id": "A7aTFD49NnCxJPFZ4RM58hz"     }   } ==== Debug Information from Graph API Explorer - https://developers.facebook.com/tools/explorer/?method=GET&path=me%3Ffields%3Did%2Cname&version=v13.0](/packages/learn-github-packages/deleting-a-package){% endif %}"
 
 {% endif %}  <!-- End of main versioning block -->
