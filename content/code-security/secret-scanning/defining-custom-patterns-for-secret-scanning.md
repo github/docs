@@ -67,14 +67,7 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5499 %}
-1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
-1. When the dry run finishes, you'll see a sample of results (up to 1000) from the repository. Review the results and identify any false positive results.
-   ![Screenshot showing results from dry run](/assets/images/help/repository/secret-scanning-publish-pattern.png)
-1. Edit the new custom pattern to fix any problems with the results, then click **Save and dry run** to test your changes.
-{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}
-{% endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 
 After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
@@ -123,7 +116,6 @@ Before defining a custom pattern, you must ensure that you enable {% data variab
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in {% ifversion fpt or ghec %}private{% endif %} repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
@@ -147,7 +139,6 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. Under "Secret scanning custom patterns", click {% ifversion ghes = 3.2 %}**New custom pattern**{% else %}**New pattern**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in {% ifversion fpt or ghec %}private{% endif %} repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
