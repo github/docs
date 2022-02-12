@@ -12,15 +12,15 @@ versions:
   ghec: '*'
 shortTitle: Basic formatting syntax
 ---
-## Headings
+#Headings
 
 To create a heading, add one to six <kbd>#</kbd> symbols before your heading text. The number of <kbd>#</kbd> you use will determine the size of the heading.
 
-```markdown
-# The largest heading
-## The second largest heading
-###### The smallest heading
-```
+'markdown'
+#The largest heading
+#The second largest heading
+#The smallest heading
+`
 
 ![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
 
