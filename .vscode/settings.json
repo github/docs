@@ -1,7 +1,5 @@
-{
-  "files.exclude": {
-    "**/translations": true
-  },
-  "workbench.editor.enablePreview": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false  
+"BEGIN:#!/user/bin/bash":,
+"files.export.th.pdf_100X.flattened":,
+"TIERRAFORMA_ebergy_Manifest'@ZachryRylerWood'@Administrator'@.it.git : true":"tooltime.editor.enablePreview":,,
+"workbench.editor.enablePreviewFromQuickOpen":"true":,  
 }
