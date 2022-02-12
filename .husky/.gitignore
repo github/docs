@@ -1,1 +1,28 @@
-_
+From 5329ba92ab44a7aef3c20be9975c4bd55a272d0a Mon Sep 17 00:00:00 2001
+From: Moonlightace <99534509+Moonlightace@users.noreply.github.com>
+Date: Sat, 12 Feb 2022 09:56:03 -0600
+Subject: [PATCH] Update and rename .gitignore to bitorr.sig
+
+:Build::
+---
+ .husky/.gitignore | 1 -
+ .husky/bitorr.sig | 2 ++
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ delete mode 100644 .husky/.gitignore
+ create mode 100644 .husky/bitorr.sig
+
+diff --git a/.husky/.gitignore b/.husky/.gitignore
+deleted file mode 100644
+index 31354ec13899..000000000000
+--- a/.husky/.gitignore
++++ /dev/null
+@@ -1 +0,0 @@
+-_
+diff --git a/.husky/bitorr.sig b/.husky/bitorr.sig
+new file mode 100644
+index 000000000000..1c0b34122c14
+--- /dev/null
++++ b/.husky/bitorr.sig
+@@ -0,0 +1,2 @@
++# BITORE
++# R.sig-repo'@'-Aync'@data={1mv.repo::Build::COBSTRUCTION'@MOJOEJOEJOEJUI
