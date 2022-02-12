@@ -346,7 +346,7 @@ steps:
 
 Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
 
-The example assumes there is a secret named `SECRET_IS_SET`.
+If a secret has not been set, the return value of an expression referencing the secret (such as `${{ secrets.SECRET_IS_SET }}` in the example) will be an empty string.
 
 {% raw %}
 ```yaml
@@ -357,16 +357,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SECRET_IS_SET: ${{ secrets.SECRET_IS_SET }}
-      SECRET_IS_NOT_SET: ${{ secrets.SECRET_IS_NOT_SET }}
     steps:
-      - if: ${{ env.SECRET_IS_SET }}
-        run: echo 'This secret has a value set.'
-      - if: ${{ env.SECRET_IS_NOT_SET }}
-        run: echo 'This step should be skipped.'
+      - if: ${{ env.SECRET_IS_SET != '' }}
+        run: echo 'This step will only run if the secret has a value set.'
+      - if: ${{ env.SECRET_IS_SET == '' }}
+        run: echo 'This step will only run if the secret does not have a value set.'
 ```
 {% endraw %}
-
-If a secret has not been set, the return value of an expression referencing the secret (such as `${{ secrets.SECRET_IS_NOT_SET }}` in the example) will be an empty string.
 
 For more information, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)" and "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
