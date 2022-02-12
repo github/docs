@@ -346,7 +346,7 @@ steps:
 
 Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
 
-If a secret has not been set, the return value of an expression referencing the secret (such as `${{ secrets.SECRET_IS_SET }}` in the example) will be an empty string.
+If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SECRET_IS_SET }}`{% endraw %} in the example) will be an empty string.
 
 {% raw %}
 ```yaml
