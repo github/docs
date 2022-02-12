@@ -2,7 +2,7 @@
 
 ## Our Pledge
 
-We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
+We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of ethnicity, religion, race, age, body size, visible or invisible disability, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance or sexual identity and orientation.
 
 We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
 
@@ -24,6 +24,8 @@ Examples of unacceptable behavior include:
 * Publishing others' private information, such as a physical or email address, without their explicit permission
 * Contacting individual members, contributors, or leaders privately, outside designated community mechanisms, without their explicit permission
 * Other conduct which could reasonably be considered inappropriate in a professional setting
+* Bringing in topics, which is no way relevent
+* Publishing information, which could be propritory or not for everyones use
 
 ## Enforcement Responsibilities
 
