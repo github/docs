@@ -10,7 +10,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
+  ghae:<studio h>
+
+
   ghec: '*'
 type: overview
 topics:
