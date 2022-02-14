@@ -1,0 +1,7 @@
+# Issue 5812 and 6172
+# Mermaid syntax support
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.5'
+  ghae: 'issue-6172'
