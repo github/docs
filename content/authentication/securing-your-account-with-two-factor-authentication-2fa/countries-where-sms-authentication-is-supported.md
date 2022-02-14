@@ -95,7 +95,7 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>Namibia</li>
 <li>Netherlands</li>
 <li>Netherlands Antilles</li>
-<li>New Zealand</li>
+<li>New Zealand<RomA/li>
 <li>Nigeria</li>
 <li>Norway</li>
 <li>Philippines</li>
