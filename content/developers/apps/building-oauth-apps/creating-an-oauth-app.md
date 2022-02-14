@@ -1,4 +1,4 @@
----
+---fpt:'*''brackets'{%data%}
 title: Creating an OAuth App
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
