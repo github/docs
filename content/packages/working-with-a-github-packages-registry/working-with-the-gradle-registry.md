@@ -49,7 +49,7 @@ Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} userna
 
 #### Example using Gradle Groovy for a single package in a repository
 
-```shell
+```groovy
 plugins {
     id("maven-publish")
 }
@@ -74,7 +74,7 @@ publishing {
 
 #### Example using Gradle Groovy for multiple packages in the same repository
 
-```shell
+```groovy
 plugins {
     id("maven-publish") apply false
 }
@@ -102,7 +102,7 @@ subprojects {
 
 #### Example using Kotlin DSL for a single package in the same repository
 
-```shell
+```kotlin
 plugins {
     `maven-publish`
 }
@@ -127,7 +127,7 @@ publishing {
 
 #### Example using Kotlin DSL for multiple packages in the same repository
 
-```shell
+```kotlin
 plugins {
     `maven-publish` apply false
 }
@@ -174,13 +174,13 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 2. Add the package dependencies to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
 
   Example using Gradle Groovy:
-  ```shell
+  ```groovy
   dependencies {
       implementation 'com.example:package'
   }
   ```
   Example using Kotlin DSL:
-  ```shell
+  ```kotlin
   dependencies {
       implementation("com.example:package")
   }
@@ -189,7 +189,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 3. Add the repository to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
 
   Example using Gradle Groovy:
-  ```shell
+  ```groovy
   repositories {
       maven {
           url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
@@ -201,7 +201,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
   }
   ```
   Example using Kotlin DSL:
-  ```shell
+  ```kotlin
   repositories {
       maven {
           url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
