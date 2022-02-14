@@ -90,22 +90,22 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 | Go modules | Go | `go.mod` | `go.mod` |
 {%- endif %}
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  | | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`| | Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`{% if github-actions-in-dependency-graph %}<sup>[2]</sup>{% else %}<sup>[1]</sup>{% endif %}
-{%- ifversion fpt or ghes > 3.3 %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4752 %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |{% endif %} | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` | | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% if github-actions-in-dependency-graph %}
-[1] Please note that {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions)."
+[1] Observe que os fluxos de trabalho de {% data variables.product.prodname_actions %} devem estar localizados no diretório `.github/workflows/` de um repositório para serem reconhecidos como manifestos. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions)".
 
-[2] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+[2] Se você listar suas dependências do Python nas no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.
 
 {% else %}
-[1] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+[1] Se você listar suas dependências do Python no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.
 {% endif %}
 
 {% if github-actions-in-dependency-graph %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_actions %} workflow dependencies are displayed in the dependency graph for informational purposes. Dependabot alerts are not currently supported for {% data variables.product.prodname_actions %} workflows.
+**Observação:** As dependências do fluxo de trabalho de {% data variables.product.prodname_actions %} são exibidas no gráfico de dependências para fins informativos. Os alertas de dependência não são atualmente compatíveis com os fluxos de trabalho de {% data variables.product.prodname_actions %}.
 
 {% endnote %}
 {% endif %}

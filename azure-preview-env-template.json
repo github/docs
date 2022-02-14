@@ -32,6 +32,12 @@
     },
     "dockerRegistryPassword": {
       "type": "SecureString"
+    },
+    "storageAccountName": {
+      "type": "String"
+    },
+    "storageAccountKey": {
+      "type": "SecureString"
     }
   },
   "resources": [
@@ -109,12 +115,8 @@
               },
               "volumeMounts": [
                 {
-                  "name": "data",
+                  "name": "caddy-data",
                   "mountPath": "/data"
-                },
-                {
-                  "name": "config",
-                  "mountPath": "/config"
                 }
               ]
             }
@@ -122,12 +124,12 @@
         ],
         "volumes": [
           {
-            "name": "data",
-            "emptyDir": {}
-          },
-          {
-            "name": "config",
-            "emptyDir": {}
+            "name": "caddy-data",
+            "azureFile": {
+                "shareName": "caddy",
+                "storageAccountName": "[parameters('storageAccountName')]",
+                "storageAccountKey": "[parameters('storageAccountKey')]"
+            }
           }
         ],
         "imageRegistryCredentials": [

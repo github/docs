@@ -35,9 +35,9 @@ describe('robots.txt', () => {
       })
   })
 
-  it('disallows indexing of herokuapp.com domains', async () => {
+  it('disallows indexing of azurecontainer.io domains', async () => {
     const req = {
-      hostname: 'docs-internal-12345--my-branch.herokuapp.com',
+      hostname: 'docs-internal-preview-12345-asdfz.azurecontainer.io',
       path: '/robots.txt',
     }
     const res = new MockExpressResponse()

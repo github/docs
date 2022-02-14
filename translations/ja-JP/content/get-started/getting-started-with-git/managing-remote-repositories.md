@@ -195,6 +195,8 @@ Use the `git remote rm` command to remove a remote URL from your repository.
 `git remote rm` コマンドは 1 つの引数を取ります:
 * リモート名 (`destination` など)
 
+Removing the remote URL from your repository only unlinks the local and remote repositories. It does not delete the remote repository.
+
 ## サンプル
 
 次の例は (推奨されるとおり) [HTTPS を使用してクローンを作成](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)したと想定しています。
@@ -217,7 +219,7 @@ $ git remote -v
 
 {% warning %}
 
-**メモ**: `git remote rm` はリモートリポジトリをサーバから削除するわけではありません。  リモートとその参照をローカルリポジトリから削除するだけです。
+**Note**: `git remote rm` does not delete the remote repository from the server.  リモートとその参照をローカルリポジトリから削除するだけです。
 
 {% endwarning %}
 

@@ -80,16 +80,17 @@ jobs:
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 下表显示默认情况下授予 `GITHUB_TOKEN` 的权限。 People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
-| 作用域      | 默认访问<br>（允许） | 默认访问<br>（限制） | 复刻的仓库的最大访问权限<br> |
-| -------- | ------------------ | ------------------ | ---------------------- |
-| 操作       | 读/写                | 无                  | 读取                     |
-| 检查       | 读/写                | 无                  | 读取                     |
-| 内容       | 读/写                | 读取                 | 读取                     |
-| 部署       | 读/写                | 无                  | 读取                     |
-| id-token | 读/写                | 无                  | 读取                     |
-| 议题       | 读/写                | 无                  | 读取                     |
-| 元数据      | 读取                 | 读取                 | 读取                     |
-| 包        | 读/写                | 无                  | 读取                     |
+| 作用域      | 默认访问<br>（允许） | 默认访问<br>（限制） | 复刻的仓库的最大访问权限<br>            |
+| -------- | ------------------ | ------------------ | --------------------------------- |
+| 操作       | 读/写                | 无                  | 读取                                |
+| 检查       | 读/写                | 无                  | 读取                                |
+| 内容       | 读/写                | 读取                 | 读取                                |
+| 部署       | 读/写                | 无                  | read |{% ifversion fpt or ghec %}
+| id-token | 读/写                | 无                  | read 
+{% endif %}
+| 议题       | 读/写                | 无                  | 读取                                |
+| 元数据      | 读取                 | 读取                 | 读取                                |
+| 包        | 读/写                | 无                  | 读取                                |
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6187 %}
 | pages         | read/write  | none | read |
 {%- endif %}

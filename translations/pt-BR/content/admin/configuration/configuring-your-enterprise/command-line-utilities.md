@@ -700,7 +700,7 @@ Todos os testes de armazenamento aprovados
 
 O `ghe-migrator` é uma ferramenta de alta fidelidade que ajuda a fazer migrações de uma instância do GitHub para outra. Você pode consolidar suas instâncias ou mover a organização, os usuários, as equipes e os repositórios do GitHub.com para o {% data variables.product.prodname_enterprise %}.
 
-Para obter mais informações, consulte nosso guia sobre [como migrar dados de usuário, organização e repositório](/enterprise/admin/guides/migrations/).
+Para obter mais informações, consulte nossos guias sobre [migração de dados para a sua empresa](/enterprise/admin/user-management/migrating-data-to-and-from-your-enterprise/).
 
 ### git-import-detect
 
