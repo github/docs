@@ -1,4 +1,4 @@
----
+-/ji'{%data%}title:name=name_/set-up-git
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
