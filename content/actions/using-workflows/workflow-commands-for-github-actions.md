@@ -333,7 +333,7 @@ You can also enable command echoing globally by turning on step debug logging us
 
 ### Example: Toggling command echoing
 
-```yaml{:copy}
+```bash{:copy}
 jobs:
   workflow-command-job:
     runs-on: ubuntu-latest
@@ -347,10 +347,10 @@ jobs:
           echo '::set-output name=action_echo::disabled'
 ```
 
-```yaml{:copy}
+```PowerShell{:copy}
 jobs:
   workflow-command-job:
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     steps:
       - name: toggle workflow command echoing
         run: |
@@ -361,7 +361,7 @@ jobs:
           write-output "::set-output name=action_echo::disabled"
 ```
 
-The step above prints the following lines to the log:
+The example above prints the following lines to the log:
 
 ```yaml{:copy}
 ::set-output name=action_echo::enabled
