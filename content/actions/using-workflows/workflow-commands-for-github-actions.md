@@ -215,15 +215,26 @@ Creates an expandable group in the log. To create a group, use the `group` comma
 ### Example: Grouping log lines
 
 ```bash{:copy}
-echo "::group::My title"
-echo "Inside group"
-echo "::endgroup::"
+jobs:
+  bash-example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Group of log lines
+        run: |
+             echo "::group::My title"
+             echo "Inside group"
+             echo "::endgroup::"
 ```
 
 ```PowerShell{:copy}
-Write-Output "::group::My title"
-Write-Output "Inside group"
-Write-Output "::endgroup::"
+jobs:
+  powershell-example:
+    runs-on: windows-latest
+    steps:
+      - name: Group of log lines
+        run: Write-Output "::group::My title"
+             Write-Output "Inside group"
+             Write-Output "::endgroup::"
 ```
 
 ![Foldable group in workflow run log](/assets/images/actions-log-group.png)
@@ -253,13 +264,25 @@ Write-Output "::add-mask::Mona The Octocat"
 When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
 
 ```bash{:copy}
-MY_NAME="Mona The Octocat"
-echo "::add-mask::$MY_NAME"
+jobs:
+  bash-example:
+    runs-on: ubuntu-latest
+    env:
+      MY_NAME: "Mona The Octocat"
+    steps:
+      - name: bash-version
+        run: echo "::add-mask::$MY_NAME"
 ```
 
 ```PowerShell{:copy}
-$env:MY_NAME="Mona The Octocat"
-Write-Output "::add-mask::$env:MY_NAME"
+jobs:
+  powershell-example:
+    runs-on: windows-latest
+    env:
+      MY_NAME: "Mona The Octocat"
+    steps:
+      - name: powershell-version
+        run: Write-Output "::add-mask::$env:MY_NAME"
 ```
 
 ## Stopping and starting workflow commands
@@ -306,7 +329,6 @@ jobs:
       - name: disable workflow commands
         run: |
           Write-Output '::warning:: this is a warning'
-          # PowerShell lacks a simple function to create a hash from a string unfortunately.
           $stopMarker = New-Guid
           Write-Output "::stop-commands::$stopMarker"
           Write-Output '::warning:: this will NOT be a warning'
@@ -350,7 +372,7 @@ jobs:
 ```PowerShell{:copy}
 jobs:
   workflow-command-job:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
       - name: toggle workflow command echoing
         run: |
@@ -403,7 +425,7 @@ When using `shell: powershell`, you must specify UTF-8 encoding. For example:
 ```PowerShell{:copy}
 jobs:
   legacy-powershell-example:
-    uses: windows-2019
+    uses: windows-latest
     steps:
       - shell: powershell
         run: "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
@@ -414,7 +436,7 @@ Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UT
 ```PowerShell{:copy}
 jobs:
   legacy-powershell-example:
-    uses: windows-2019
+    uses: windows-latest
     steps:
       - shell: pwsh
         run: "mypath" >> $env:GITHUB_PATH
