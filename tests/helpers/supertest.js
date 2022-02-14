@@ -34,10 +34,16 @@ export const head = (helpers.head = async function (route, opts = { followRedire
 
 export const post = (helpers.post = (route) => request('post', route))
 
-export const getDOM = (helpers.getDOM = async function (route, headers, allow500s = false) {
+export const getDOM = (helpers.getDOM = async function (
+  route,
+  { headers, allow500s, allow404 } = { headers: undefined, allow500s: false, allow404: false }
+) {
   const res = await helpers.get(route, { followRedirects: true, headers })
   if (!allow500s && res.status >= 500) {
     throw new Error(`Server error (${res.status}) on ${route}`)
+  }
+  if (!allow404 && res.status === 404) {
+    throw new Error(`Page not found on ${route}`)
   }
   const $ = cheerio.load(res.text || '', { xmlMode: true })
   $.res = Object.assign({}, res)
@@ -50,6 +56,9 @@ export const getJSON = (helpers.getJSON = async function (route) {
   const res = await helpers.get(route, { followRedirects: true })
   if (res.status >= 500) {
     throw new Error(`Server error (${res.status}) on ${route}`)
+  }
+  if (res.status >= 400) {
+    console.warn(`${res.status} on ${route} and the response might not be JSON`)
   }
   return JSON.parse(res.text)
 })
