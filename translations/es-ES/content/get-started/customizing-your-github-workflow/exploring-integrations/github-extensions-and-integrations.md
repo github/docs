@@ -46,10 +46,10 @@ Puedes integrar tu cuenta organizacional o personal en {% data variables.product
 
 ### Integración con Slack y con {% data variables.product.product_name %}
 
-Puedes suscribirte a tus repositorios u organizaciones y obtener actualizaciones en tiempo real sobre propuestas, solicitudes de cambio, confirmaciones, lanzamientos, revisiones y estados de despliegues. También puedes llevar a cabo actividades como cerrar o abrir propuestas y proporcionar referencias enriquecidas para las propuestas y solicitudes de cambios sin salir de Slack.
+You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. También puedes llevar a cabo actividades como cerrar o abrir propuestas y proporcionar referencias enriquecidas para las propuestas y solicitudes de cambios sin salir de Slack.
 
 The {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). Para obtener más información, visita la [App de integración de Slack](https://github.com/marketplace/slack-github) en Marketplace.
 
 ### Microsoft Teams y su integración con {% data variables.product.product_name %}
 
-Puedes suscribirte a tus repositorios u organizaciones y obtener actualizaciones en tiempo real sobre propuestas, solicitudes de cambios, confirmaciones, revisiones y estados de despliegues. También puedes llevar a cabo actividades como cerrar o abrir propuestas, comentar en tus propuestas o solicitudes de cambios y proporcionar referencias enriquecidas para las propuestas y solicitudes de cambios sin salir de Microsoft Teams. Para obtener más información, visita la [App de integración de Microsoft Teams](https://appsource.microsoft.com/en-us/product/office/WA200002077) en Microsoft AppsSource.
+You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. También puedes llevar a cabo actividades como cerrar o abrir propuestas, comentar en tus propuestas o solicitudes de cambios y proporcionar referencias enriquecidas para las propuestas y solicitudes de cambios sin salir de Microsoft Teams. Para obtener más información, visita la [App de integración de Microsoft Teams](https://appsource.microsoft.com/en-us/product/office/WA200002077) en Microsoft AppsSource.

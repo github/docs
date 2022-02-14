@@ -59,21 +59,21 @@ Pull Requestの説明またはコミットメッセージで、サポートさ�
 
 {% ifversion fpt or ghes or ghae or ghec %}手動でリンクを解除できるのは、手動でリンクされたPull Requestだけです。 キーワードを使用してリンクしたIssueのリンクを解除するには、Pull Requestの説明を編集してそのキーワードを削除する必要があります。{% endif %}
 
-クローズするキーワードは、コミットメッセージでも使用できます。 デフォルトブランチにコミットをマージするとIssueはクローズされますが、そのコミットを含むプルリクエストは、リンクされたプルリクエストとしてリストされません。
+クローズするキーワードは、コミットメッセージでも使用できます。 デフォルトブランチにコミットをマージするとIssueはクローズされますが、そのコミットを含むPull Requestは、リンクされたPull Requestとしてリストされません。
 
 
 {% ifversion fpt or ghes or ghae or ghec %}
-## 手動でプルリクエストをIssueにリンクする
+## 手動でPull RequestをIssueにリンクする
 
-リポジトリへの書き込み権限があるユーザなら誰でも、手動でプルリクエストをIssueにリンクできます。
+リポジトリへの書き込み権限があるユーザなら誰でも、手動でPull RequestをIssueにリンクできます。
 
-手動で1つのプルリクエストごとに最大10個のIssueをリンクできます。 Issueとプルリクエストは同じリポジトリになければなりません。
+手動で1つのPull Requestごとに最大10個のIssueをリンクできます。 IssueとPull Requestは同じリポジトリになければなりません。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-3. プルリクエストのリストで、Issueにリンクしたいプルリクエストをクリックします。
+3. Pull Requestのリストで、IssueにリンクしたいPull Requestをクリックします。
 4. 右のサイドバーで、[**Linked issues**] をクリックします。 ![右サイドバーの [Linked issues]](/assets/images/help/pull_requests/linked-issues.png)
-5. プルリクエストにリンクするIssueをクリックします。 ![Issueをリンクするドロップダウン](/assets/images/help/pull_requests/link-issue-drop-down.png)
+5. Pull RequestにリンクするIssueをクリックします。 ![Issueをリンクするドロップダウン](/assets/images/help/pull_requests/link-issue-drop-down.png)
 {% endif %}
 
 ## 参考リンク

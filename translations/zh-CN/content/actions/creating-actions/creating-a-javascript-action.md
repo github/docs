@@ -37,7 +37,7 @@ shortTitle: JavaScript 操作
 
 在开始之前，您需要下载 Node.js 并创建公共 {% data variables.product.prodname_dotcom %} 仓库。
 
-1. Download and install Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, which includes npm.
+1. 下载并安装 Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}，其中包含 npm。
 
   {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 

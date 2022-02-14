@@ -152,7 +152,7 @@ You can later edit the drop down options for single select and iteration fields.
 
 {% data reusables.projects.about-workflows %}
 
-You can enable or disable the built-in workflows for your project.
+プロジェクトでは、組み込みのワークフローを有効化あるいは無効化できます。
 
 {% data reusables.projects.enable-basic-workflow %}
 

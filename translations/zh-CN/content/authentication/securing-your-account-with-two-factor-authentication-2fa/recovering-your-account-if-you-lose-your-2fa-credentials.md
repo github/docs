@@ -64,7 +64,7 @@ If you know your password for {% data variables.product.product_location %} but 
 
 {% note %}
 
-**注**：出于安全原因，使用一次性密码验证来重新获得帐户访问权限可能需要 1-3 个工作日。 {% data variables.product.company_short %} will not review additional requests submitted during this time.
+**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
 
 {% endnote %}
 
@@ -101,6 +101,6 @@ If you know your password for {% data variables.product.product_location %} but 
     - 如果您之前已经设置个人访问令牌，并且想使用个人访问令牌进行验证，请单击 **Personal access token（个人访问令牌）**。
 
    ![Screenshot of buttons for alternative verification](/assets/images/help/2fa/alt-verifications.png)
-1. {% data variables.contact.github_support %} 的成员将在 1-3 个工作日内审查您的请求并给您发送电子邮件。 如果您的请求获得批准，您将收到一个完成帐户恢复过程的链接。 如果您的请求被拒绝，电子邮件将说明就任何其他问题联系支持的方式。
+1. A member of {% data variables.contact.github_support %} will review your request and email you within three business days. 如果您的请求获得批准，您将收到一个完成帐户恢复过程的链接。 如果您的请求被拒绝，电子邮件将说明就任何其他问题联系支持的方式。
 
 {% endif %}
