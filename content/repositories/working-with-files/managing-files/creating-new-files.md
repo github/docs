@@ -1,5 +1,5 @@
 ---
-title: Creating new files
+title: Creating new file
 intro: 'You can create new files directly on {% data variables.product.product_name %} in any repository you have write access to.'
 redirect_from:
   - /articles/creating-new-files
