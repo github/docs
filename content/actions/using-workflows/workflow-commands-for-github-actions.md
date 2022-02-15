@@ -418,28 +418,28 @@ During the execution of a workflow, the runner generates temporary files that ca
 
 {% note %}
 
-**Note:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default.
-
-When using `shell: powershell`, you must specify UTF-8 encoding. For example:
+**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. For example:
 
 ```PowerShell{:copy}
 jobs:
   legacy-powershell-example:
-    uses: windows-latest
+    runs-on: windows-latest
     steps:
       - shell: powershell
-        run: "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        run: |
+          echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UTF-8.
+PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
 
 ```PowerShell{:copy}
 jobs:
-  legacy-powershell-example:
-    uses: windows-latest
+  powershell-core-example:
+    runs-on: windows-latest
     steps:
       - shell: pwsh
-        run: "mypath" >> $env:GITHUB_PATH
+        run: |
+          echo "mypath" >> $env:GITHUB_PATH
 ```
 
 {% endnote %}
@@ -502,16 +502,9 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 #### Example
 
-In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
-```yaml
-steps:
-  - name: Set the value
-    id: step_one
-    run: |
-      echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-      curl https://httpbin.org/json >> $GITHUB_ENV
-      echo 'EOF' >> $GITHUB_ENV
-```
+This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+
+The following example demonstrates how to do this in PowerShell Core (version 6 and above):
 
 ```yaml{:copy}
 steps:
@@ -519,11 +512,22 @@ steps:
     id: step_one
     run: |
       "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
-      (Invoke-WebRequest -Uri "google.com").Content >> $env:GITHUB_ENV
+      (Invoke-WebRequest -Uri "https://example.lab").Content >> $env:GITHUB_ENV
       "EOF" >> $env:GITHUB_ENV
     shell: pwsh
 ```
 
+The following example demonstrates how to do this in PowerShell (version 5.1 and below):
+
+```yaml
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+      echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+      curl https://example.lab >> $GITHUB_ENV
+      echo 'EOF' >> $GITHUB_ENV
+```
 ## Adding a system path
 
 Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
