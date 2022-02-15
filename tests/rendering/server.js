@@ -103,12 +103,6 @@ describe('server', () => {
     })
   })
 
-  test('uses gzip compression', async () => {
-    const res = await get('/en')
-    expect(res.headers['content-encoding']).toBe('gzip')
-    expect(res.headers['transfer-encoding']).toBe('chunked')
-  })
-
   test('sets Content Security Policy (CSP) headers', async () => {
     const res = await get('/en')
     expect('content-security-policy' in res.headers).toBe(true)
@@ -150,7 +144,7 @@ describe('server', () => {
   })
 
   test('renders a 404 page', async () => {
-    const $ = await getDOM('/not-a-real-page')
+    const $ = await getDOM('/not-a-real-page', { allow404: true })
     expect($('h1').text()).toBe('Ooops!')
     expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
     expect(
@@ -168,17 +162,17 @@ describe('server', () => {
 
   // see issue 12427
   test('renders a 404 for leading slashes', async () => {
-    let $ = await getDOM('//foo.com/enterprise')
+    let $ = await getDOM('//foo.com/enterprise', { allow404: true })
     expect($('h1').text()).toBe('Ooops!')
     expect($.res.statusCode).toBe(404)
 
-    $ = await getDOM('///foo.com/enterprise')
+    $ = await getDOM('///foo.com/enterprise', { allow404: true })
     expect($('h1').text()).toBe('Ooops!')
     expect($.res.statusCode).toBe(404)
   })
 
   test('renders a 500 page when errors are thrown', async () => {
-    const $ = await getDOM('/_500', undefined, true)
+    const $ = await getDOM('/_500', { allow500s: true })
     expect($('h1').text()).toBe('Ooops!')
     expect($.text().includes('It looks like something went wrong.')).toBe(true)
     expect(
@@ -584,8 +578,10 @@ describe('server', () => {
 
     test('is not displayed if ghec article has only one version', async () => {
       const $ = await getDOM(
-        '/en/enterprise-cloud@latest/admin/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users'
+        '/en/enterprise-cloud@latest/admin/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users',
+        { allow404: true }
       )
+      expect($.res.statusCode).toBe(404)
       expect($('.article-versions').length).toBe(0)
     })
   })
@@ -668,6 +664,24 @@ describe('server', () => {
           expect(res.headers['set-cookie']).toBeUndefined()
         })
       )
+    })
+
+    // This test exists because in a previous life, our NextJS used to
+    // 500 if the 'Accept-Language' header was malformed.
+    // We *used* have a custom middleware to cope with this and force a
+    // fallback redirect.
+    // See internal issue 19909
+    test('redirects /en if Accept-Language header is malformed', async () => {
+      const res = await get('/', {
+        headers: {
+          'accept-language': 'ldfir;',
+        },
+      })
+
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en')
+      expect(res.headers['cache-control']).toBe('private, no-store')
+      expect(res.headers['set-cookie']).toBeUndefined()
     })
 
     test('redirects / to /en when unsupported language preference is specified', async () => {

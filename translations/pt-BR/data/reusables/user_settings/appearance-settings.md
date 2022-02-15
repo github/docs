@@ -1,5 +1,5 @@
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
-1. In the left sidebar, click **{% octicon "paintbrush" aria-label="The paintbrush icon" %} Appearance**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. Na barra lateral esquerda, clique em **Aparência de {% octicon "paintbrush" aria-label="The paintbrush icon" %}**.
 {% else %}
 1. Na barra lateral de configurações do usuário, clique em **Aparência**.
 

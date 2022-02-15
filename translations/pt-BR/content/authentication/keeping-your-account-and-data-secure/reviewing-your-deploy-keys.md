@@ -18,8 +18,8 @@ shortTitle: Chaves de implantação
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
-3. In the "Security" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Deploy keys**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+3. Na seção "Segurança" na barra lateral, clique em **{% octicon "key" aria-label="The key icon" %} Implantar chaves**.
 {% else %}
 3. Na barra lateral esquerda, clique em **Deploy keys** (Chaves de implantação). ![Configuração das chaves de implantação](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
 {% endif %}

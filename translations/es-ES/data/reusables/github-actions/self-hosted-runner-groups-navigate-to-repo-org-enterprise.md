@@ -12,6 +12,6 @@
      2. En la barra lateral izquierda, da clic en **Resumen empresarial**.
      3. En la barra lateral de la empresa, haz clic en {% octicon "law" aria-label="The law icon" %} **Políticas**.{% endif %}
 2. Navega a los ajustes de los "Grupos de ejecutores":
-   * **En una organización**: Haz clic en **Acciones** en la barra lateral izquierda{% ifversion fpt or ghec %} y luego en **Grupos de ejecutores** debajo de ella{% endif %}.{% ifversion ghec or ghes or ghae %}
-   * {% ifversion ghec %}**Si estás utilizand una cuenta empresarial**:{% elsif ghes or ghae %}**Si estás utilizando un ejecutor a nivel empresarial**:{% endif %} Haz clic en **Acciones** debajo de "{% octicon "law" aria-label="The law icon" %} Políticas"{% ifversion ghec %}, y luego en la pestaña de **Grupos de ejecutores** {% endif %}.{% endif %}
+   * **In an organization**: Click **Actions** in the left sidebar, then click {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}**Runner groups**{% elsif ghae or ghes < 3.4 %}**Runners**{% endif %} below it.{% ifversion ghec or ghes or ghae %}
+   * {% ifversion ghec %}**If using an enterprise account**:{% elsif ghes or ghae %}**If using an enterprise-level runner**:{% endif %} Click **Actions** under "{% octicon "law" aria-label="The law icon" %} Policies", then click the {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}**Runners groups**{% elsif ghae or ghes < 3.4 %}**Runners**{% endif %} tab.{% endif %}
 {% endif %}

@@ -23,7 +23,7 @@ describe('footer', () => {
     })
 
     test('leads to dotcom support on 404 pages', async () => {
-      const $ = await getDOM('/en/delicious-snacks/donuts.php')
+      const $ = await getDOM('/delicious-snacks/donuts.php', { allow404: true })
       expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
     })
   })

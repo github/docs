@@ -37,7 +37,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658%}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658%}
 {% data reusables.repositories.click-collaborators-teams %}
 1. Click **Invite a collaborator**.
   !["Invite a collaborator" button](/assets/images/help/repository/invite-a-collaborator-button.png)

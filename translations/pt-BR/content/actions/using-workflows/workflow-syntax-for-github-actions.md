@@ -757,6 +757,8 @@ strategy:
 
 ## `jobs.<job_id>.container`
 
+{% data reusables.github-actions.docker-container-os-support %}
+
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
 ### `jobs.<job_id>.container.image`
@@ -830,7 +832,7 @@ services:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
-      password: ${{ secrets.ghcr_token }}
+      password: ${{ secrets.github_token }}
   myservice2:
     image: dockerhub_org/myservice2
     credentials:
@@ -973,7 +975,7 @@ Par aobte rmais informações sobre branch, tag e sintaxe de filtro do caminho, 
 | `'**'`                                                  | Corresponde a todos os nomes de branches e tags. Esse é o comportamento padrão quando você não usa um filtro de `branches` ou `tags`.                                               | `all/the/branches`<br/><br/>`every/tag`                                                                   |
 | `'*feature'`                                            | O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas.                                                                                 | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
 | `v2*`                                                   | Corresponde aos nomes de branches e tags que iniciam com `v2`.                                                                                                                      | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                                   | Corresponde a todas as tags de versão de branch semântica com a versão principal 1 ou 2                                                                                             | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
+| `v[12].[0-9]+.[0-9]+`                                   | Corresponde a todas as tags de versão de branch semântica com a versão principal 1 ou 2.                                                                                            | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 ### Padrões para corresponder a caminhos de arquivos
 

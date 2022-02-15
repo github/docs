@@ -27,7 +27,9 @@ shortTitle: 設定オプション
 
 {% data variables.product.prodname_dependabot %} の設定ファイルである *dependabot.yml* では YAML 構文を使用します。 YAMLについて詳しくなく、学んでいきたい場合は、「[Learn YAML in five minutes (5分で学ぶYAML)](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)」をお読みください。
 
-このファイルは、リポジトリの `.github` ディレクトリに保存する必要があります。 *dependabot.yml* ファイルを追加または更新すると、即座にバージョン更新を確認します。 セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのためのプルリクエストをトリガーするときにも使用されます。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+このファイルは、リポジトリの `.github` ディレクトリに保存する必要があります。 *dependabot.yml* ファイルを追加または更新すると、即座にバージョン更新を確認します。 For more information and an example, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)."
+
+セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのためのプルリクエストをトリガーするときにも使用されます。  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
 *dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 必要に応じて、最上位に `registries` キーを含めることができます。 ファイルは、`version: 2` で始まる必要があります。
 
@@ -75,7 +77,7 @@ shortTitle: 設定オプション
 
 脆弱性のあるパッケージマニフェストのセキュリティアップデートは、デフォルトブランチでのみ発生します。 設定オプションが同じブランチに設定され（`target-branch` を使用しない場合は true）、脆弱性のあるマニフェストの `package-ecosystem` と `directory` を指定している場合、セキュリティアップデートのプルリクエストで関連オプションが使用されます。
 
-一般に、セキュリティアップデートでは、メタデータの追加や動作の変更など、プルリクエストに影響する設定オプションが使用されます。 For more information about security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+一般に、セキュリティアップデートでは、メタデータの追加や動作の変更など、プルリクエストに影響する設定オプションが使用されます。 セキュリティアップデートに関する詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)」を参照してください。
 
 {% endnote %}
 
@@ -168,7 +170,7 @@ updates:
 
 {% note %}
 
-**注釈**: `schedule` は、{% data variables.product.prodname_dependabot %} が新規更新を試行するタイミングを設定します。 ただし、プルリクエストを受け取るタイミングはこれだけではありません。 更新は、 `dependabot.yml` ファイルへの変更、更新失敗後のマニフェストファイルへの変更、または {% data variables.product.prodname_dependabot_security_updates %} に基づいてトリガーされることがあります。 For more information, see "[Frequency of {% data variables.product.prodname_dependabot %} pull requests](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+**注釈**: `schedule` は、{% data variables.product.prodname_dependabot %} が新規更新を試行するタイミングを設定します。 ただし、プルリクエストを受け取るタイミングはこれだけではありません。 更新は、 `dependabot.yml` ファイルへの変更、更新失敗後のマニフェストファイルへの変更、または {% data variables.product.prodname_dependabot_security_updates %} に基づいてトリガーされることがあります。 詳しい情報については、「[{% data variables.product.prodname_dependabot %} プルリクエストの頻度](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)」および「[{% data variables.product.prodname_dependabot_security_updates %} について](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」を参照してください。
 
 {% endnote %}
 
@@ -305,7 +307,7 @@ updates:
 
 リポジトリが`ignore`の設定を保存したかは、リポジトリで`"@dependabot ignore" in:comments`を検索すれば調べられます。 この方法で無視された依存関係の無視を解除したいなら、Pull Requestを再度オープンしてください。
 
-For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+`@dependabot ignore` コマンドに関する詳細については、「[依存関係の更新に関するプルリクエストを管理する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」をご覧ください。
 
 #### 無視する依存関係とバージョンを指定する
 
@@ -488,9 +490,9 @@ updates:
 
 ### `registries`
 
-バージョン更新の実行時に {% data variables.product.prodname_dependabot %} がプライベートパッケージレジストリにアクセスできるようにするには、関係する `updates` 設定に `registries` 設定を含める必要があります。 `registries` を `"*"` に設定することで、定義されたリポジトリをすべて使用できるようにすることができます。 また、更新が使用できるレジストリをリストすることもできます。 これを行うには、_dependabot.yml_ ファイルの最上位の `registries` セクションで定義されているレジストリの名前を使用します。
+バージョン更新の実行時に {% data variables.product.prodname_dependabot %} がプライベートパッケージレジストリにアクセスできるようにするには、関係する `updates` 設定に `registries` 設定を含める必要があります。 `registries` を `"*"` に設定することで、定義されたリポジトリをすべて使用できるようにすることができます。 また、更新が使用できるレジストリをリストすることもできます。 これを行うには、_dependabot.yml_ ファイルの最上位の `registries` セクションで定義されているレジストリの名前を使用します。 For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
 
-{% data variables.product.prodname_dependabot %} が `bundler`、`mix`、および `pip` パッケージマネージャーを使用してプライベートレジストリの依存関係を更新できるようにするため、外部コードの実行を許可できます。 詳しい情報については、[`insecure-external-code-execution`](#insecure-external-code-execution) を参照してください。
+{% data variables.product.prodname_dependabot %} が `bundler`、`mix`、および `pip` パッケージマネージャーを使用してプライベートレジストリの依存関係を更新できるようにするため、外部コードの実行を許可できます。 For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
 
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 

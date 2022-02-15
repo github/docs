@@ -103,17 +103,17 @@ Since {% data variables.product.prodname_dependabot %} uses curated data in the 
 {% ifversion fpt or ghec %}
 ## Does each dependency vulnerability generate a separate alert?
 
-When a dependency has multiple vulnerabilities, only one aggregated alert is generated for that dependency, instead of one alert per vulnerability.
+When a dependency has multiple vulnerabilities, an alert is generated for each vulnerability at the level of advisory plus manifest.
 
-The {% data variables.product.prodname_dependabot_alerts %} count in {% data variables.product.prodname_dotcom %} shows a total for the number of alerts, that is, the number of dependencies with vulnerabilities, not the number of vulnerabilities.
+![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} tab showing two alerts from the same package with different manifests.](/assets/images/help/repository/dependabot-alerts-view.png)
 
-![{% data variables.product.prodname_dependabot_alerts %} view](/assets/images/help/repository/dependabot-alerts-view.png)
+Legacy {% data variables.product.prodname_dependabot_alerts %} were grouped into a single aggregated alert with all the vulnerabilities for the same dependency. If you navigate to a link to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to the {% data variables.product.prodname_dependabot_alerts %} tab filtered to display vulnerabilities for that dependent package and manifest.
 
-When you click to display the alert details, you can see how many vulnerabilities are included in the alert.
+![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} tab showing the filtered alerts from navigating to a legacy {% data variables.product.prodname_dependabot %} alert.](/assets/images/help/repository/legacy-dependabot-alerts-view.png)
 
-![Multiple vulnerabilities for a {% data variables.product.prodname_dependabot %} alert](/assets/images/help/repository/dependabot-vulnerabilities-number.png)
+The {% data variables.product.prodname_dependabot_alerts %} count in {% data variables.product.prodname_dotcom %} shows a total for the number of alerts, which is the number of vulnerabilities, not the number of dependencies.
 
-**Check**: If there is a discrepancy in the totals you are seeing, check that you are not comparing alert numbers with vulnerability numbers.
+**Check**: If there is a discrepancy in the totals you are seeing, check that you are not comparing alert numbers with dependency numbers. Also check that you are viewing all alerts and not a subset of filtered alerts.
 {% endif %}
 
 ## Further reading

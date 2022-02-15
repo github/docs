@@ -390,7 +390,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 
 `304`ステータスは、直近のリクエストからリソースが変更されておらず、レスポンスには本文が含まれないことを示しています。 As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
 
-ヤッター！ Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
+Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
 
 * Basic & OAuth認証
 * リポジトリおよびIssueのフェッチと作成

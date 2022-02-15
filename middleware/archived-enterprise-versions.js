@@ -13,7 +13,17 @@ import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-k
 import got from 'got'
 import { readCompressedJsonFileFallback } from '../lib/read-json-file.js'
 import { cacheControlFactory } from './cache-control.js'
-import { pathLanguagePrefixed } from '../lib/languages.js'
+import { pathLanguagePrefixed, languagePrefixPathRegex } from '../lib/languages.js'
+
+function splitByLanguage(uri) {
+  let language = null
+  let withoutLanguage = uri
+  if (languagePrefixPathRegex.test(uri)) {
+    language = uri.match(languagePrefixPathRegex)[1]
+    withoutLanguage = uri.replace(languagePrefixPathRegex, '/')
+  }
+  return [language, withoutLanguage]
+}
 
 function readJsonFileLazily(xpath) {
   const cache = new Map()
@@ -135,10 +145,21 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
     versionSatisfiesRange(requestedVersion, `<=${lastVersionWithoutArchivedRedirectsFile}`)
   ) {
+    const [language, withoutLanguagePath] = splitByLanguage(req.path)
+
     // `archivedRedirects` is a callable because it's a lazy function
     // and memoized so calling it is cheap.
-    const redirect = archivedRedirects()[req.path]
-    if (redirect && redirect !== req.path) {
+
+    const newPath = archivedRedirects()[withoutLanguagePath]
+    // Some entries in the lookup exists purely for the sake of injecting
+    // language.
+    // E.g. '/enterprise/2.15/user'
+    // URLs like this only need to redirect the original `req.path`
+    // didn't already have a language
+    if (newPath !== undefined && (newPath || !language)) {
+      // Construct the new URL by combining the new language and the
+      // new destination.
+      const redirect = `/${language || 'en'}${newPath || withoutLanguagePath}`
       cacheAggressively(res)
       return res.redirect(redirectCode, redirect)
     }

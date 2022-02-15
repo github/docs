@@ -22,12 +22,10 @@ shortTitle: 安全日志
 安全日志列出了过去 90 天内执行的所有操作。
 
 {% data reusables.user_settings.access_settings %}
-{% ifversion fpt or ghae or ghes or ghec %}
-2. 在用户设置侧边栏中，单击 **Security log（安全日志）**。 ![安全日志选项卡](/assets/images/help/settings/audit-log-tab.png)
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-label="The log icon" %} Security log**.
 {% else %}
-{% data reusables.user_settings.security %}
-3. 在“Security history（安全历史记录）”下，将显示您的日志。 ![安全日志](/assets/images/help/settings/user_security_log.png)
-4. 单击条目以查看有关该事件的更多信息。 ![安全日志](/assets/images/help/settings/user_security_history_action.png)
+1. 在用户设置侧边栏中，单击 **Security log（安全日志）**。 ![安全日志选项卡](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
 {% ifversion fpt or ghae or ghes or ghec %}

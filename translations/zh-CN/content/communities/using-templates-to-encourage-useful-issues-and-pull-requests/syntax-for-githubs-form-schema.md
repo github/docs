@@ -241,7 +241,7 @@ body:
 
 | 键         | 描述                               | 必选 | 类型  | 默认值                                             | 有效值                                             |
 | --------- | -------------------------------- | -- | --- | ----------------------------------------------- | ----------------------------------------------- |
-| `标签`      | 预期用户输入的简短描述，以表单形式显示。             | 可选 | 字符串 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| `标签`      | 预期用户输入的简短描述，以表单形式显示。             | 必选 | 字符串 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 | `说明`      | 复选框集的描述，以表单形式显示。 支持 Markdown 格式。 | 可选 | 字符串 | 空字符串                                            | {% octicon "dash" aria-label="The dash icon" %}
 | `options` | 用户可以选择的复选框阵列。 有关语法，请参阅下文。        | 必选 | 数组  | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 

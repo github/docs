@@ -7,7 +7,7 @@ redirect_from:
   - /articles/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
-product: '{% ifversion fpt %}{% data reusables.gated-features.user-repo-collaborators %}{% endif %}'
+product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -38,8 +38,8 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 1. コラボレーターとして招待する人のユーザ名を確認してください。{% ifversion fpt or ghec %}まだユーザ名がない場合は、{% data variables.product.prodname_dotcom %}にサインアップできます。詳細は「[新しい {% data variables.product.prodname_dotcom %}アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)」を参照してください。{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658%}
+{% data reusables.repositories.click-collaborators-teams %}
 1. [**Invite a collaborator**] をクリックします。 ![[Invite a collaborator] ボタン](/assets/images/help/repository/invite-a-collaborator-button.png)
 2. 検索フィールドで、招待する人の名前を入力し、一致するリストの名前をクリックします。 ![リポジトリに招待する人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field-user.png)
 3. [**Add NAME to REPOSITORY**] をクリックします。 ![コラボレーターを追加するボタン](/assets/images/help/repository/add-collaborator-user-repo.png)
