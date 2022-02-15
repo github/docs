@@ -36,9 +36,9 @@ A linguagem de consulta de dados do [GraphQL](https://graphql.github.io/) é:
 
 ## Por que o GitHub está usando GraphQL
 
-GitHub chose GraphQL because it offers significantly more flexibility for our integrators. The ability to define precisely the data you want&mdash;and _only_ the data you want&mdash;is a powerful advantage over traditional REST API endpoints. O GraphQL permite que você substitua várias solicitações de REST por _uma única chamada_ para buscar os dados que você especificar.
+O GitHub escolheu o GraphQL porque oferece muito mais flexibilidade para nossos integradores. A capacidade de definir precisamente os dados que você deseja&mdash;e apenas os dados que deseja&mdash;é uma vantagem poderosa sobre os endpoints tradicionais da API REST. O GraphL permite que você solicite várias solicitações de REST por uma chamada para buscar os dados que você especificar.
 
-For more details about why GitHub invested in GraphQL, see the original [announcement blog post](https://github.blog/2016-09-14-the-github-graphql-api/).
+Para obter mais detalhes sobre por que o GitHub investiu no GraphQL, consulte a postagem do [blog de anúncio original](https://github.blog/2016-09-14-the-github-graphql-api/).
 
 ## Sobre a referência do esquema do GraphQL
 
