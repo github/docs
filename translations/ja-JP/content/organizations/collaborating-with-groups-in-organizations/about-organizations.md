@@ -14,7 +14,7 @@ topics:
   - Teams
 ---
 
-{% data reusables.organizations.about-organizations %} For more information about account types, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+{% data reusables.organizations.about-organizations %} アカウントの種類に関する詳しい情報については「[{% data variables.product.prodname_dotcom %}アカウントの種類](/get-started/learning-about-github/types-of-github-accounts)」を参照してください。
 
 {% data reusables.organizations.organizations_include %}
 
@@ -23,12 +23,12 @@ topics:
 ## Organization と Enterprise アカウント
 
 {% ifversion fpt %}
-Enterprise accounts are a feature of {% data variables.product.prodname_ghe_cloud %} that allow owners to centrally manage policy and billing for multiple organizations. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/about-organizations).
+Enterpriseアカウントは、オーナーが複数のOrganizationのポリシーと支払いを集中管理できるようにする{% data variables.product.prodname_ghe_cloud %}の機能です。 詳しい情報については[{% data variables.product.prodname_ghe_cloud %}のドキュメンテーション](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/about-organizations)を参照してください。
 {% else %}
-{% ifversion ghec %}For organizations that belong to an enterprise account, billing is managed at the enterprise account level, and billing settings are not available at the organization level.{% endif %} Enterprise owners can set policy for all organizations in the enterprise account or allow organization owners to set the policy at the organization level. Organization のオーナーは、Enterprise アカウントのレベルで Organization に強制された設定を変更することはできません。 Organization のポリシーや設定について質問がある場合は Enterprise アカウントのオーナーに問い合わせてください。
+{% ifversion ghec %}Enterpriseアカウントに属するOrganizationでは、支払いはEnterpriseアカウントのレベルで管理され、支払い設定はOrganizationレベルでは利用できません。{% endif %}EnterpriseオーナーはEnterpriseアカウント内のすべてのOrganizationに対するポリシーを設定するか、OrganizationのオーナーにOrganizationレベルでポリシーを設定できるよう許可することができます。 Organization のオーナーは、Enterprise アカウントのレベルで Organization に強制された設定を変更することはできません。 Organization のポリシーや設定について質問がある場合は Enterprise アカウントのオーナーに問い合わせてください。
 
 {% ifversion ghec %}
-{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
+{% data reusables.enterprise.create-an-enterprise-account %} 詳しい情報については「[Enterpriseアカウントの作成](/admin/overview/creating-an-enterprise-account)」を参照してください。
 
 {% data reusables.enterprise-accounts.invite-organization %}
 {% endif %}
