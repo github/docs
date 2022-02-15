@@ -46,8 +46,6 @@ Há três razões pelas quais um alerta pode não ter link de um pull request:
 
 Se um erro impediu que {% data variables.product.prodname_dependabot %} criasse um pull request, você pode exibir os detalhes do erro clicando no alerta.
 
-![O alerta do {% data variables.product.prodname_dependabot %} que mostra que o erro que bloqueou a criação de um pull request](/assets/images/help/dependabot/dependabot-security-update-error.png)
-
 ## Investigar erros com {% data variables.product.prodname_dependabot_version_updates %}
 
 Quando {% data variables.product.prodname_dependabot %} está impedido de criar um pull request para atualizar uma dependência em um ecossistema, ele posta o ícone de erro no arquivo de manifesto. Os arquivos de manifesto gerenciados por {% data variables.product.prodname_dependabot %} estão listados na aba {% data variables.product.prodname_dependabot %}. Para acessar essa aba, na aba **Insights** para o repositório, clique no **Gráfico de Dependências**, e, em seguida, clique na aba **{% data variables.product.prodname_dependabot %}**.

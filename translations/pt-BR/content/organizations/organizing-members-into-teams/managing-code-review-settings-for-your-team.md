@@ -57,7 +57,7 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" n찾o ser�
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
 {% else %}
 1. Na barra lateral esquerda, clique em **Revis찾o de C처digo** ![Bot찾o revisar c처digo](/assets/images/help/teams/review-button.png)
@@ -71,7 +71,7 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" n찾o ser�
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
 {% else %}
 1. Na barra lateral esquerda, clique em **Revis찾o de C처digo** ![Bot찾o revisar c처digo](/assets/images/help/teams/review-button.png)

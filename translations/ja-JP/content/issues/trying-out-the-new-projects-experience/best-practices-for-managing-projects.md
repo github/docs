@@ -49,7 +49,7 @@ IssueとPull Requestには、コラボレータと容易にコミュニケーシ
 
 You can automate tasks to spend less time on busy work and more time on the project itself. 手動でやることを覚えておく必要が減れば、それだけプロジェクトは耐震の状態に保たれるようになります。
 
-Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done."
+プロジェクト（ベータ）は、組み込みのワークフローを提供します。 たとえば、Issueがクローズされると自動的にステータスを「Done」に設定できます。
 
 Additionally, {% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. For example, to keep track of pull requests awaiting review, you can create a workflow that adds a pull request to a project and sets the status to "needs review"; this process can be automatically triggered when a pull request is marked as "ready for review."
 

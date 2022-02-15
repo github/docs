@@ -3,7 +3,7 @@ title: Managing scheduled reminders for your team
 intro: You can get reminders in Slack when your team has pull requests waiting for review.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
-  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
+  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team
 versions:
   fpt: '*'
   ghec: '*'

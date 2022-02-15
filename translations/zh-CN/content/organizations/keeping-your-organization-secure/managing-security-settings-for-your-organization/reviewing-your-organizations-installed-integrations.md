@@ -19,9 +19,9 @@ shortTitle: 审核已安装的集成
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. In the "Integrations" section of the sidebar, click **{% octicon "apps" aria-label="The apps icon" %} {% data variables.product.prodname_github_apps %}**.
-{% elsif ghae or ghes < 3.4 %}
+{% else %}
 1. 在左侧边栏中，单击 **Installed {% data variables.product.prodname_github_apps %}s（安装的 GitHub 应用程序）**。 ![组织设置边栏中安装的 {% data variables.product.prodname_github_apps %}选项卡](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 {% endif %}
 2. 在您要审查的 {% data variables.product.prodname_github_app %} 旁边，单击 **Configure（配置）**。 ![配置按钮](/assets/images/help/organizations/configure-installed-integration-button.png)

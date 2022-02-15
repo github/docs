@@ -22,7 +22,7 @@ Si usas Zendesk para hacer el seguimiento de los tickets informados por el usuar
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-label="The cross-reference icon" %} Autolink references**.
 {% else %}
 1. En la barra lateral izquierda, haz clic en **Autolink references** (Referencias de enlace automático). ![Pestaña Autolink references (Referencias de enlace automático) en la barra lateral izquierda](/assets/images/help/repository/autolink-references-tab.png)
