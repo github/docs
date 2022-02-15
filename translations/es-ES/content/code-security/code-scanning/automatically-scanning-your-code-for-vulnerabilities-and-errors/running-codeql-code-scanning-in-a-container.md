@@ -25,17 +25,12 @@ topics:
 
 
 {% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.deprecation-codeql-runner %}
 
 ## Acerca del {% data variables.product.prodname_code_scanning %} con una compilación en contenedor
 
 Si estás configurando el {% data variables.product.prodname_code_scanning %} para un lenguaje compilado, y estás compilando el código en un ambiente contenido, el análisis podría fallar con el mensaje de error "No source code was seen during the build". Esto indica que {% data variables.product.prodname_codeql %} no fue capaz de monitorear tu código mientras se compilaba.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-Debes ejecutar a {% data variables.product.prodname_codeql %} dentro del mismo contenedor en el que compilaste tu código. Esto aplica tanto si estás utilizando el {% data variables.product.prodname_codeql_cli %}, el {% data variables.product.prodname_codeql_runner %} o las {% data variables.product.prodname_actions %}. Para obtener más información sobre el {% data variables.product.prodname_codeql_cli %} o el {% data variables.product.prodname_codeql_runner %}, consulta la sección "[Instalar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)" o la sección "[Ejecutar el {% data variables.product.prodname_codeql_runner %} en tu sistema de IC](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)". Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, consulta la sección "[Ejemplo de flujo de trabajo](#example-workflow)".
-{% else %}
-Debes ejecutar a {% data variables.product.prodname_codeql %} dentro del mismo contenedor en el que compilaste tu código. Esto aplica ya sea que estés utilizando el {% data variables.product.prodname_codeql_runner %} o {% data variables.product.prodname_actions %}. Para encontrar más información sobre el {% data variables.product.prodname_codeql_runner %}, consulta la sección "[ejecutar el {% data variables.product.prodname_codeql_runner %} en tu sistema de IC](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)". Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, consulta la sección "[Ejemplo de flujo de trabajo](#example-workflow)".
-{% endif %}
+Debes ejecutar a {% data variables.product.prodname_codeql %} dentro del mismo contenedor en el que compilaste tu código. This applies whether you are using the {% data variables.product.prodname_codeql_cli %}{% if codeql-runner-supported %}, the {% data variables.product.prodname_codeql_runner %},{% endif %} or {% data variables.product.prodname_actions %}. For the {% data variables.product.prodname_codeql_cli %} {% if codeql-runner-supported %}or the {% data variables.product.prodname_codeql_runner %}{% endif %}, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)"{% if codeql-runner-supported %} or "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %} for more information. Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, consulta la sección "[Ejemplo de flujo de trabajo](#example-workflow)".
 
 ## Dependencias
 
@@ -46,6 +41,14 @@ Es posible que tengas alguna dificultad para ejecutar el {% data variables.produ
 * Windows: https://github.com/actions/virtual-environments/tree/main/images/win
 
 ## Ejemplo de flujo de trabajo
+
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container) for information on the latest features.{% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+
+{% endnote %}
+{% endif %}
 
 Este flujo de trabajo de muestra utiliza {% data variables.product.prodname_actions %} para ejecutar un análisis de {% data variables.product.prodname_codeql %} en un ambiente contenido. El valor de `container.image` identifica el contenedor que se debe utilizar. En este ejemplo, se le llama a la imagen `codeql-container`, con una etiqueta de `f0f91db`. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)".
 

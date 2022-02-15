@@ -43,6 +43,14 @@ Os proprietários da empresa, administradores de organização e repositórios p
 
 ## Configurar {% data variables.product.prodname_code_scanning %} usando ações
 
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Observação:** Este artigo descreve as funcionalidades disponíveis com a versão da ação CodeQL e o pacote da CLI do CodeQL associado incluído na versão inicial desta versão de {% data variables.product.product_name %}. Se a sua empresa usar uma versão mais recente da ação CodeQL, consulte o [o artigo de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository) para obter informações sobre as funcionalidades mais recentes. {% ifversion not ghae %} Para obter informações sobre como usar a versão mais recente, consulte "[Configurando a digitalização de código para o seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
+
+{% endnote %}
+{% endif %}
+
 {% ifversion fpt or ghec %}Usando ações para executar {% data variables.product.prodname_code_scanning %} usará minutos. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}

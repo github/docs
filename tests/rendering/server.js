@@ -719,19 +719,6 @@ describe('server', () => {
       expect(res.headers['set-cookie']).toBeUndefined()
       expect(res.headers['cache-control']).toBeUndefined()
     })
-
-    // this oneoff redirect is temporarily disabled because it introduces too much complexity
-    // we can reenable it down the road if needed
-    // Docs Engineering issue: 968
-    test.skip('redirects versioned category page', async () => {
-      const res = await get('/en/github/receiving-notifications-about-activity-on-github')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(
-        '/en/github/managing-subscriptions-and-notifications-on-github'
-      )
-      expect(res.headers['cache-control']).toContain('public')
-      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    })
   })
 
   describe('categories and map topics', () => {

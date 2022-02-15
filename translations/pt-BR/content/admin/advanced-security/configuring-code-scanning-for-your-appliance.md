@@ -70,7 +70,22 @@ Se você configurar a ferramenta de sincronização de ação de {% data variabl
 3. A próxima etapa é configurar o acesso a ações no {% data variables.product.prodname_dotcom_the_website %} usando {% data variables.product.prodname_github_connect %}. Para obter mais informações, consulte "[Habilitar o acesso automático às ações de {% data variables.product.prodname_dotcom_the_website %} usando o {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 4. Adicione um executor auto-hospedado ao seu repositório, organização ou conta corporativa. Para obter mais informações, consulte "[Adicionando executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
 
+
+## Executando a digitalização de código usando o {% data variables.product.prodname_codeql_cli %}
+
+Se você não quiser usar {% data variables.product.prodname_actions %}, você deverá executar {% data variables.product.prodname_code_scanning %} usando o {% data variables.product.prodname_codeql_cli %}.
+
+O {% data variables.product.prodname_codeql_cli %} é uma ferramenta de linha de comando que você usa para analisar bases de código em qualquer máquina, incluindo um sistema de CI/CD de terceiros. Para obter mais informações, consulte "[Instalando a CLI do CodeQL no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
+
+
+{% if codeql-runner-supported %}
+
 ## Executar {% data variables.product.prodname_code_scanning %} usando o {% data variables.product.prodname_codeql_runner %}
+
+{% data reusables.code-scanning.deprecation-codeql-runner %}
+
 Se você não quiser usar {% data variables.product.prodname_actions %}, você poderá executar {% data variables.product.prodname_code_scanning %} usando o {% data variables.product.prodname_codeql_runner %}.
 
 O {% data variables.product.prodname_codeql_runner %} é uma ferramenta de linha de comando que você pode adicionar ao seu sistema CI/CD de terceiros. A ferramenta executa a análise do {% data variables.product.prodname_codeql %} em um checkout de um repositório do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Executar o {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)".
+
+{% endif %}

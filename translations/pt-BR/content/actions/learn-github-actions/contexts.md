@@ -669,7 +669,7 @@ O conteúdo de exemplo a seguir do contexto `needs` mostra informações para do
 
 ### Exemplo de uso do contexto `needs`
 
-This example workflow has three jobs: a `build` job that does a build, a `deploy` job that requires the `build` job, and a `debug` job that requires both the `build` and `deploy` jobs and runs only if there is a failure in the workflow. The `deploy` job also uses the `needs` context to access an output from the `build` job.
+Esse exemplo do fluxo de trabalho tem três trabalhos: um trabalho de `criação` que faz a criação, um trabalho de `implantação` que exige o trabalho de `criação` e um trabalho de `depuração` que exige os trabalhos de `criação` e `implantação` e que é executado apenas se houver uma falha no fluxo de trabalho. O trabalho de `implantação` também usa o contexto `needs` para acessar uma saída do trabalho de `criação`.
 
 {% raw %}
 ```yaml{:copy}
@@ -707,7 +707,7 @@ jobs:
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## Contexto `entradas`
 
-O contexto `entrada` contém propriedades de entrada passada para um fluxo de trabalho reutilizável. The input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow.
+O contexto `entrada` contém propriedades de entrada passada para um fluxo de trabalho reutilizável. Os nomes e tipos de entrada são definidos na configuração do evento de [`workflow_call` ](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) de um fluxo de trabalhoreutilizável, e os valores de entrada são passados de [trabalhos de`.<job_id>.com`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) para um fluxo de trabalho externo que chama o fluxo de trabalho reutilizável.
 
 Não há propriedades padrão no contexto `entradas`, apenas aquelas definidas no arquivo de fluxo de trabalho reutilizável.
 
@@ -731,7 +731,7 @@ O conteúdo de exemplo das `entradas` contexto é de um trabalho em um fluxo de 
 
 ### Exemplo de uso do contexto `entradas`
 
-This example reusable workflow uses the `inputs` context to get the values of the `build_id` and `deploy_target` inputs that were passed to the reusable workflow from the caller workflow.
+Este exemplo de fluxo de trabalho reutilizável usa o contexto `entradas` para obter os valores das entradas `build_id` e `deploy_target` que foram passadas para o fluxo de trabalho reutilizável do fluxo de trabalho de chamadas.
 
 {% raw %}
 ```yaml{:copy}

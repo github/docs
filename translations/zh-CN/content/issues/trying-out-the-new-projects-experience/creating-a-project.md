@@ -25,6 +25,10 @@ topics:
 
 {% data reusables.projects.create-user-project %}
 
+## Updating your project description and README
+
+{% data reusables.projects.project-description %}
+
 ## 为您的项目添加项
 
 您的项目可以跟踪草稿议题、议题和拉取请求。
