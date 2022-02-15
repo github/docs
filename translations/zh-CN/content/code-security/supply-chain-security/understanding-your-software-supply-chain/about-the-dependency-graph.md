@@ -88,7 +88,7 @@ The recommended formats explicitly define which versions are used for all direct
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`{% if github-actions-in-dependency-graph %}<sup>[2]</sup>{% else %}<sup>[1]</sup>{% endif %} |
-{%- ifversion fpt or ghes > 3.3 %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4752 %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |{% endif %}
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |

@@ -45,10 +45,10 @@ You can integrate your personal or organization account on {% data variables.pro
 
 ### Slack and {% data variables.product.product_name %} integration
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, releases, deployment reviews and deployment statuses. You can also perform activities like close or open issues, and provide rich references to issues and pull requests without leaving Slack. 
+You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like close or open issues, and provide rich references to issues and pull requests without leaving Slack. 
 
 The {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, visit the [Slack integration app](https://github.com/marketplace/slack-github) in the marketplace.
 
 ### Microsoft Teams and {% data variables.product.product_name %} integration
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, deployment reviews and deployment statuses. You can also perform activities like close or open issues, comment on your issues and pull requests, and provide rich references to issues and pull requests without leaving Microsoft Teams. For more information, visit the [Microsoft Teams integration app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like close or open issues, comment on your issues and pull requests, and provide rich references to issues and pull requests without leaving Microsoft Teams. For more information, visit the [Microsoft Teams integration app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.

@@ -25,6 +25,10 @@ Projects are a customizable collection of items that stay up-to-date with {% dat
 
 {% data reusables.projects.create-user-project %}
 
+## Updating your project description and README
+
+{% data reusables.projects.project-description %}
+
 ## Adding items to your project
 
 Your project can track draft issues, issues, and pull requests.
