@@ -56,6 +56,7 @@ includeGuides:
   - /code-security/security-advisories/publishing-a-security-advisory
   - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
   - /code-security/security-advisories/withdrawing-a-security-advisory
+  - /code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database
   - /code-security/security-overview/about-the-security-overview
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions

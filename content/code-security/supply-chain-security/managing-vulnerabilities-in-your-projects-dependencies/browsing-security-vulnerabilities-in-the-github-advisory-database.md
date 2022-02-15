@@ -75,6 +75,9 @@ The database is also accessible using the GraphQL API. For more information, see
 
 {% endnote %}
 
+## Editing an advisory in the {% data variables.product.prodname_advisory_database %}
+You can suggest improvements to any advisory in the {% data variables.product.prodname_advisory_database %}.For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database)]."
+
 ## Searching the {% data variables.product.prodname_advisory_database %}
 
 You can search the database, and use qualifiers to narrow your search. For example, you can search for advisories created on a certain date, in a specific ecosystem, or in a particular library.

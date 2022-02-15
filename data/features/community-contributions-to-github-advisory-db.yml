@@ -1,0 +1,5 @@
+# Reference: #5445.
+# Documentation for feature allowing GitHub community to edit security advisories in the GitHub Advisory Database
+versions:
+  fpt: '*'
+  ghec: '*'
