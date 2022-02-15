@@ -143,3 +143,4 @@ Here's what you accomplished in this tutorial:
 Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
 
 For more information about the power of branches and pull requests, see "[GitHub flow](/get-started/quickstart/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).
+Forking projects simply means that a copy of the original code is given to you where u can apply changes and request to pull it so as to make changes in the real/original file.
