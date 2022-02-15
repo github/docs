@@ -1,0 +1,1 @@
+1. Si la persona que estás invitando jamás ha sido un miembro de alguna organización o si le quitaste sus privilegios, escoge un rol de organización para el usuario. ![Opciones para convertir a un usuario en miembro o propietario](/assets/images/help/organizations/choose-new-member-role.png)

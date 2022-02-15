@@ -1,1 +1,1 @@
-Activity related to a repository being starred. {% data reusables.webhooks.action_type_desc %} For more information, see the "[starring](/rest/reference/activity#starring)" REST API.
+Starされるリポジトリに関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については「[Star付け](/rest/reference/activity#starring)」 REST APIを参照してください。

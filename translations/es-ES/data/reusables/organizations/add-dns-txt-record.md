@@ -1,0 +1,1 @@
+1. Sigue las instrucciones dentro de **Add a DNS TXT record (Agregar un registro TXT de DNS)** para crear un registro TXT de DNS con tu servicio de alojamiento de dominio. ![Instrucciones para crear un registro txt de DNS](/assets/images/help/organizations/create-dns-txt-record-instructions.png)

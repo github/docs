@@ -1,0 +1,23 @@
+---
+date: '2020-08-11'
+sections:
+  security_fixes:
+    - '{% octicon "alert" aria-label="The alert icon" %} **Critical:** A remote code execution vulnerability was identified in GitHub Pages that could allow an attacker to execute commands as part building a GitHub Pages site. This issue was due to an outdated and vulnerable dependency used in the Pages build process. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the GitHub Enterprise Server instance.  This vulnerability affected all versions of GitHub Enterprise Server. To mitigate this vulnerability, Kramdown has been updated to address CVE-2020-14001. {% comment %} https://github.com/github/pages/pull/2836, https://github.com/github/pages/pull/2827 {% endcomment %}'
+    - '**High:** An attacker could inject a malicious argument into a Git sub-command when executed on GitHub Enterprise Server. This could allow an attacker to overwrite arbitrary files with partially user-controlled content and potentially execute arbitrary commands on the GitHub Enterprise Server instance. To exploit this vulnerability, an attacker would need permission to access repositories within the GitHub Enterprise Server instance. However, due to other protections in place, we could not identify a way to actively exploit this vulnerability. This vulnerability was reported through the GitHub Security Bug Bounty program. {% comment %} https://github.com/github/github/pull/151097 {% endcomment %}'
+    - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/21811, https://github.com/github/enterprise2/pull/21700 {% endcomment %}'
+  bugs:
+    - 'Consulの設定エラーによって、スタンドアローンインスタンス上で処理されないバックグランドジョブがありました。{% comment %} https://github.com/github/enterprise2/pull/21464 {% endcomment %}'
+    - 'サービスのメモリ割り当ての計算が、サービスに不正確もしくは無制限の割り当てを行い、システムのパフォーマンスを低下させることがありました。{% comment %} https://github.com/github/enterprise2/pull/21716 {% endcomment %}'
+    - 'oVirt KVMシステムの可視化プラットフォームが適切に検出されず、アップグレードの際に問題を生じさせていました。{% comment %} https://github.com/github/enterprise2/pull/21730, https://github.com/github/enterprise2/pull/21669 {% endcomment %}'
+    - "Gitコマンドラインからのパスワードでの不正な認証のエラーメッセージが、適切なトークンもしくはSSHキーを追加するためのURLリンクを展開しませんでした。{% comment %} https://github.com/github/github/pull/149714 {% endcomment %}"
+    - 'GitHub Connectが、非推奨のGitHub.com APIエンドポイントを使用していました。{% comment %} https://github.com/github/github/pull/150828, https://github.com/github/github/pull/150545 {% endcomment %}'
+    - '新しいインスタンスに移行したリポジトリ上で*最近の更新*でIssueをソートできませんでした。{% comment %} https://github.com/github/github/pull/150843, https://github.com/github/github/pull/149330 {% endcomment %}'
+    - '404ページのフッタに、GitHub.comの連絡先とステータスリンクが含まれていました。{% comment %} https://github.com/github/github/pull/151316 {% endcomment %}'
+  known_issues:
+    - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。'

@@ -4,13 +4,18 @@ intro: セルフホストランナーアプリケーションをサービスと�
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+type: tutorial
 defaultPlatform: linux
+shortTitle: Run runner app on startup
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.ae-self-hosted-runners-notice %}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. セルフホストランナー アプリケーションが現在実行中の場合は、そのアプリケーションを停止します。{% endcapture %}
 {% capture service_non_windows_intro_shell %}ランナー マシンで、セルフホストランナー アプリケーションをインストールしたディレクトリでシェルを開きます。 以下のコマンドを使って、セルフホストランナーサービスをインストール及び管理します。{% endcapture %}
@@ -52,7 +57,7 @@ Windowsでは、ランナーサービスは**サービス**アプリケーショ
 
 {% linux %}
 
-### サービスのインストール
+## サービスのインストール
 
 {{ service_first_step }}
 1. 以下のコマンドでサービスをインストールしてください。
@@ -64,7 +69,7 @@ Windowsでは、ランナーサービスは**サービス**アプリケーショ
 {% endlinux %}
 {% mac %}
 
-### サービスのインストール
+## サービスのインストール
 
 {{ service_first_step }}
 1. 以下のコマンドでサービスをインストールしてください。
@@ -74,13 +79,13 @@ Windowsでは、ランナーサービスは**サービス**アプリケーショ
    ```
 {% endmac %}
 
-### サービスの起動
+## サービスの起動
 
 以下のコマンドでサービスを起動してください。
 
 {% linux %}
 ```shell
-./svc.sh install
+sudo ./svc.sh start
 ```
 {% endlinux %}
 {% windows %}
@@ -94,13 +99,13 @@ Start-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-### サービスのステータスチェック
+## サービスのステータスチェック
 
 以下のコマンドでサービスのステータスをチェックしてください。
 
 {% linux %}
 ```shell
-./svc.sh start
+sudo ./svc.sh status
 ```
 {% endlinux %}
 {% windows %}
@@ -116,7 +121,7 @@ Get-Service "{{ service_win_name }}"
 
  セルフホストランナーの状態の表示に関する詳しい情報については、「[セルフホストランナーのモニタリングとトラブルシューティング](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)」を参照してください。
 
-### サービスの停止
+## サービスの停止
 
 以下のコマンドでサービスを停止してください。
 
@@ -136,7 +141,7 @@ Stop-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-### サービスのアンインストール
+## サービスのアンインストール
 
 1. もし実行中であれば、サービスを停止してください。
 1. 以下のコマンドでサービスをアンインストールしてください。
@@ -160,7 +165,7 @@ Stop-Service "{{ service_win_name }}"
 
 {% linux %}
 
-### セルフホストランナーサービスのカスタマイズ
+## セルフホストランナーサービスのカスタマイズ
 
 上記のデフォルトの`systemd`サービス設定を使いたくないなら、カスタマイズされたサービスを作成するか、好みのサービスの仕組みを使うことができます。 リファレンスとして`actions-runner/bin/actions.runner.service.template`にある`serviced`テンプレートの利用を検討してください。 カスタマイズされたサービスを使う場合、セルフホストランナーサービスは常に`runsvc.sh`エントリポイントを使って起動しなければなりません。
 
@@ -168,7 +173,7 @@ Stop-Service "{{ service_win_name }}"
 
 {% mac %}
 
-### セルフホストランナーサービスのカスタマイズ
+## セルフホストランナーサービスのカスタマイズ
 
 上記のデフォルトのlaunchdサービス設定を使いたくないなら、カスタマイズされたサービスを作成するか、好みのサービスの仕組みを使うことができます。 リファレンスとして`actions-runner/bin/actions.runner.plist.template`にある`plist`テンプレートの利用を検討してください。 カスタマイズされたサービスを使う場合、セルフホストランナーサービスは常に`runsvc.sh`エントリポイントを使って起動しなければなりません。
 

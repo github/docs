@@ -4,12 +4,15 @@ redirect_from:
   - /v4/input_object
   - /v4/reference/input_object
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - API
 ---
 
-### Sobre objetos de entrada
+## Sobre objetos de entrada
 
 [Objetos de entrada](https://graphql.github.io/graphql-spec/June2018/#sec-Input-Objects) podem ser descritos como "objetos estruturáveis", pois incluem um conjunto de campos de entrada que definem o objeto.
 
@@ -17,6 +20,5 @@ Por exemplo, [`CommitAuthor`](/graphql/reference/input-objects#commitauthor) tom
 
 Para obter mais informações, consulte "[Sobre mutações](/graphql/guides/forming-calls-with-graphql#about-mutations)".
 
-{% for item in graphql.schemaForCurrentVersion.inputObjects %}
-  {% include graphql-input-object %}
-{% endfor %}
+<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
+<!-- see lib/graphql/static/prerendered-input-objects.json -->

@@ -1,1 +1,0 @@
-{% data variables.product.prodname_registry %} supports `SNAPSHOT` versions of Apache Maven.  To use a repository for downloading this type of artifact, you must enable SNAPSHOTS in your  *~/.m2/settings.xml* file.

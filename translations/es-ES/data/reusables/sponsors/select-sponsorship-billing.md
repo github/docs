@@ -1,0 +1,1 @@
+4. Dentro de "Billing information" (Información de facturación), revisa tus detalles de pago. Opcionalmente, para cambiar los detalles de pago de toda tu cuenta de {% data variables.product.product_location %}, haz clic en **Editar**. Después, sigue las instrucciones para completar el formulario de pago.

@@ -1,11 +1,14 @@
 ---
 title: GitHub 徽标政策
 redirect_from:
-  - /articles/i-m-developing-a-third-party-github-app-what-do-i-need-to-know/
-  - /articles/using-an-octocat-to-link-to-github-or-your-github-profile/
+  - /articles/i-m-developing-a-third-party-github-app-what-do-i-need-to-know
+  - /articles/using-an-octocat-to-link-to-github-or-your-github-profile
   - /articles/github-logo-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 在某些情况下，您可以将 {% data variables.product.prodname_dotcom %} 徽标添加到您的网站或第三方应用程序中。 有关徽标使用的更多信息和具体指南，请参阅 [{% data variables.product.prodname_dotcom %} 徽标和使用页面](https://github.com/logos)。

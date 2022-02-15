@@ -1,0 +1,67 @@
+name: Partner-owned product documentation
+description: Initiate a set of tasks to be completed by a GitHub partner wishing to document how their product works with GitHub.
+labels:
+  - partner
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your interest in contributing to the GitHub documentation.
+
+        This issue template is only for use by GitHub's Technology Partners who wish to contribute documentation explaining how the partner's product works with GitHub, making it straightforward for our shared customers to adopt the product into their workflow.
+
+        As a general guide, we estimate we have bandwidth for prioritizing and reviewing up to 3 partner contributions per quarter.
+
+        Please be sure to complete all items in the checklists that follow, and feel free to comment with any questions. A member of the team will be glad to support you.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: This project has a Code of Conduct that all participants are expected to understand and follow.
+      options:
+        - label: I have read and agree to the GitHub Docs project's [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
+          required: true
+  - type: checkboxes
+    attributes:
+      label: Pre-requisites
+      description: Prior to submitting documentation, please apply to join the GitHub Technology Partner Program [partner.github.com/apply](https://partner.github.com/apply?partnershipType=Technology+Partner). Please feel free to proceed once your application is approved.
+      options:
+        - label: My application to the GitHub Technology Partner Program is approved.
+          required: true
+
+  - type: checkboxes
+    attributes:
+      label: Tasks
+      description: Please be sure to complete each of the following.
+      options:
+        - label: MUST follow our [general contributing guidelines](CONTRIBUTING.md) for voice and markup format.
+          required: true
+        - label: MUST emphasize how the third-party product works with GitHub.
+          required: true
+        - label: MUST be written in Markdown format, using [one of the templates provided](contributing/github-partners/README.md#templates).
+          required: true
+        - label: MUST include the name and URL of the GitHub technology partner responsible for maintenance of the documentation being contributed. This should be added via the `contributor.name` and `contributor.URL` properties in the template's YAML frontmatter.
+          required: true
+        - label: MUST be proposed via a pull request to this repo following [the GitHub Flow](https://guides.github.com/introduction/flow/).
+          required: true
+        - label: MUST be located in the root of [the `content` folder](content). Your filename MUST match the GitHub technology partner name, and use the `.md` file extension.
+          required: true
+
+  - type: checkboxes
+    attributes:
+      label: Pull Request
+      description: Please be sure to complete each of the following.
+      options:
+        - label: MUST reference this issue, e.g. via `closes [this issue number]`.
+          required: true
+        - label: MUST pass the automated CI checks.
+          required: true
+        - label: MUST include links to supporting material demonstrating the functionality being documented (this can be a link to a public GitHub repo, _or_ a video / screencast walkthrough).
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        Once all tasks are completed, please mention `@github/docs-content` for next steps.
+        /cc @github/partner-engineering for :eyes:.

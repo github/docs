@@ -1,33 +1,19 @@
-##### 使用单一事件的示例
+### Using a single event
 
-```yaml
-# Triggered when code is pushed to any branch in a repository
-on: push
-```
+{% data reusables.github-actions.on-single-example %}
 
-##### 使用事件列表的示例
+### Using multiple events
 
-```yaml
-# Triggers the workflow on push or pull request events
-on: [push, pull_request]
-```
+{% data reusables.github-actions.on-multiple-example %}
 
-##### 使用具有活动类型或配置的多个事件示例
+### Using activity types
 
-如果您需要为一个事件指定活动类型或配置，必须分别配置每个事件。 您必须为所有事件附加冒号 (`:</0)，包括没有配置的事件。</p>
+{% data reusables.github-actions.actions-activity-types %}
 
-<pre><code class="yaml">on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  # Also trigger on page_build, as well as release created events
-  page_build:
-  release:
-    types: # This configuration does not affect the page_build event above
-      - created
-`</pre>
+### Using filters
+
+{% data reusables.github-actions.actions-filters %}
+
+### Using activity types and filters with multiple events
+
+{% data reusables.github-actions.actions-multiple-types %}

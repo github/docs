@@ -1,3 +1,3 @@
-{% if currentVersion == "free-pro-team@latest" %}
-ユーザが 2 要素認証を有効化する前に、ユーザの権限と Organization へのアクセスを復帰させるための招待を送信できます。そのユーザは、Organization への再加入の招待を受諾する前に 2 要素認証を有効化しなければなりません。
+{% ifversion fpt or ghec %}
+If a user was removed from your organization because you required members and outside collaborators to enable 2FA, you can send an invitation to reinstate a user's privileges and access to the organization before they have enabled two-factor authentication, but they must enable 2FA before they can accept your invitation to rejoin the organization.
 {% endif %}

@@ -1,0 +1,1 @@
+1. A la derecha de "Categorías", da clic en {% octicon "pencil" aria-label="The pencil icon" %}. ![Icono de lápiz para editar las categorías](/assets/images/help/discussions/click-edit-categories.png)

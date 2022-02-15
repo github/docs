@@ -1,1 +1,1 @@
-If the C/C++, C#, or Java code in your repository has a non-standard build process, `autobuild` may fail. You will need to remove the `autobuild` step from the workflow, and manually add build steps. 
+リポジトリ内の C/C++、C#、またはJava のコードに非標準のビルドプロセスがある場合、 `autobuild` が失敗することがあります。 ワークフローから`autobuild`ステップを取り除き、手動でビルドのステップを追加する必要があるでしょう。 リポジトリのGoのファイルで展開するものを指定したい場合には、ビルドのステップを追加しなければなりません。

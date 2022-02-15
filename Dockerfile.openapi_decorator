@@ -1,0 +1,20 @@
+FROM node:14-alpine
+
+RUN apk add --no-cache git python make g++
+
+WORKDIR /openapi-check
+
+RUN chown node:node /openapi-check -R
+
+USER node
+
+COPY --chown=node:node package.json /openapi-check
+COPY --chown=node:node package-lock.json /openapi-check
+ADD --chown=node:node script /openapi-check/script
+ADD --chown=node:node lib /openapi-check/lib
+ADD --chown=node:node content /openapi-check/content
+ADD --chown=node:node data /openapi-check/data
+
+RUN npm ci -D
+
+ENTRYPOINT ["node", "/openapi-check/script/rest/openapi-check.js"]

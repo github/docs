@@ -1,1 +1,1 @@
-5. Under "Temporary interaction limits", to the right of the type of interaction limit you want to set, use the **Enable** drop-down menu, then click the duration you want for your interaction limit.
+5. 在要设置的交互限制类型右侧的“Temporary interaction limits（临时交互限制）”下，使用 **Enable（启用）**下拉菜单，然后单击交互限制的持续时间。

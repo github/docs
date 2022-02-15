@@ -1,0 +1,1 @@
+Cualquiera con acceso de escritura en un repositorio puede modificar los permisos que se otorgaron al `GITHUB_TOKEN`, agregando o eliminando el acceso conforme se requiera, si editan la clave `permissions` en el archivo de flujo de trabajo. Para obtener más información, consulta los [`permisos`](/actions/reference/workflow-syntax-for-github-actions#permissions). 

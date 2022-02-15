@@ -1,4 +1,4 @@
-##### Protocol TCP port mappings for use without PROXY support
+### Protocol TCP port mappings for use without PROXY support
 
 | Source port | Destination port | Service description |
 | :---: | :---: | :---: |

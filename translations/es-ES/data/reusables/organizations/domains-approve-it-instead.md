@@ -1,0 +1,1 @@
+1. A la derecha de "¿No se puede verificar este dominio?", haz clic en **Aprobarlo en su lugar**. ![Texto de "Aprobar en su lugar" cuando se verifica un dominio](/assets/images/help/organizations/domains-approve-it-instead.png)

@@ -1,0 +1,1 @@
+1. Junto a la app que quieras bajar de categoría, utiliza el menú desplegable de **Editar** y haz clic en **Cambiar plan** o **Cancelar plan**. ![Enlace de editar en la sección de Compras de Marketplace para la configuración de facturación en tu cuenta personal](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

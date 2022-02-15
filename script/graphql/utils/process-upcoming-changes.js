@@ -1,9 +1,10 @@
-const yaml = require('js-yaml')
-const { groupBy } = require('lodash')
-const renderContent = require('../../../lib/render-content')
+#!/usr/bin/env node
+import yaml from 'js-yaml'
+import { groupBy } from 'lodash-es'
+import renderContent from '../../../lib/render-content/index.js'
 
-module.exports = async function processUpcomingChanges (upcomingChangesYml) {
-  const upcomingChanges = yaml.safeLoad(upcomingChangesYml).upcoming_changes
+export default async function processUpcomingChanges(upcomingChangesYml) {
+  const upcomingChanges = yaml.load(upcomingChangesYml).upcoming_changes
 
   for (const change of upcomingChanges) {
     change.date = change.date.slice(0, 10)
@@ -11,5 +12,5 @@ module.exports = async function processUpcomingChanges (upcomingChangesYml) {
     change.description = await renderContent(change.description)
   }
 
-  return groupBy(upcomingChanges, 'date')
+  return groupBy(upcomingChanges.reverse(), 'date')
 }

@@ -1,0 +1,78 @@
+name: Check Broken Docs Links in github/github
+
+# **What it does**: This checks for any broken docs.github.com links in github/github
+# **Why we have it**: Make sure all docs in github/github are up to date
+# **Who does it impact**: Docs engineering, people on GitHub
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 13 * * 1' # run every Monday at 1:20PM UTC
+
+permissions:
+  contents: read
+
+# **IMPORTANT:** Do not change the FREEZE environment variable set here!
+# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
+# during a docs deployment freeze), add an Actions Secret to the repo settings
+# called `FREEZE` with a value of `true`. To re-enable workflow, simply
+# delete that Secret from the repo settings. The environment variable here
+# will duplicate that Secret's value for later evaluation.
+env:
+  FREEZE: ${{ secrets.FREEZE }}
+
+jobs:
+  check_github_github_links:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    env:
+      # need to use a token from a user with access to github/github for this step
+      GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+      FIRST_RESPONDER_PROJECT: Docs content first responder
+      REPORT_AUTHOR: docubot
+      REPORT_LABEL: github github broken link report
+      REPORT_REPOSITORY: github/docs-content
+    steps:
+      - if: ${{ env.FREEZE == 'true' }}
+        run: |
+          echo 'The repo is currently frozen! Exiting this workflow.'
+          exit 1 # prevents further steps from running
+
+      - name: Checkout
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+
+      - name: Setup Node
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        with:
+          node-version: 16.14.x
+          cache: npm
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run broken github/github link check
+        run: |
+          script/check-github-github-links.js > broken_github_github_links.md
+
+      # check-github-github-links.js returns 0 if no links are broken, and 1 if any links
+      # are broken. When an Actions step's exit code is 1, the action run's job status
+      # is failure and the run ends. The following steps create an issue for the
+      # broken link report only if any links are broken, so `if: ${{ failure() }}`
+      # ensures the steps run despite the previous step's failure of the job.
+      #
+      # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
+
+      - if: ${{ failure() && env.FREEZE != 'true' }}
+        name: Get title for issue
+        id: check
+        run: echo "::set-output name=title::$(head -1 broken_github_github_links.md)"
+      - if: ${{ failure() && env.FREEZE != 'true'}}
+        name: Create issue from file
+        id: github-github-broken-link-report
+        uses: peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e
+        with:
+          token: ${{ env.GITHUB_TOKEN }}
+          title: ${{ steps.check.outputs.title }}
+          content-filepath: ./broken_github_github_links.md
+          repository: ${{ env.REPORT_REPOSITORY }}
+          labels: ${{ env.REPORT_LABEL }}

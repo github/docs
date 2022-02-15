@@ -1,0 +1,1 @@
+To open, view, and comment on support tickets associated with an enterprise account or organization owned by an enterprise account, you must have support entitlements for the account. 企业所有者和帐单管理员自动拥有支持权利，企业所有者可以向企业成员添加支持权利。 更多信息请参阅“[管理企业的支持权利](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)”。

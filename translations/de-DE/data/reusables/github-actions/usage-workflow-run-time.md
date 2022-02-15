@@ -1,1 +1,0 @@
-- **Workflow run time** (Workflow-Laufzeit) - Jede Workflow-Ausführung ist auf 72 Stunden begrenzt. Wenn eine Workflow-Ausführung diesen Grenzwert erreicht, wird die Workflow-Ausführung abgebrochen.

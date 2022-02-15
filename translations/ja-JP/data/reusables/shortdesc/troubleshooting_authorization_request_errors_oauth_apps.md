@@ -1,1 +1,1 @@
-When obtaining an OAuth token for a user, some errors may occur during the initial authorization request phase.
+ユーザのOAuthトークンを取得する場合、初期の認可リクエストのフェーズでエラーが生じることがあります。

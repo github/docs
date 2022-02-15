@@ -1,0 +1,1 @@
+Puedes cambiar la rama predeterminada de un repositorio existente. Para obtener màs informaciòn, consulta la secciòn "[Cambiar la rama predeterminada](/github/administering-a-repository/changing-the-default-branch)".

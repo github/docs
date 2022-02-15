@@ -2,23 +2,26 @@
 title: Trabalhar com comentários
 intro: 'Ao usar a API REST, você pode acessar e gerenciar comentários nos seus pull requests, problemas ou commits.'
 redirect_from:
-  - /guides/working-with-comments/
+  - /guides/working-with-comments
   - /v3/guides/working-with-comments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
 ---
 
 
 
 Para qualquer pull request, {% data variables.product.product_name %} fornece três tipos de visualizações de comentários: [comentários no Pull Request][PR comment] como um todo, [comentários em uma linha específica][PR line comment] dentro do Pull Request, e [comentários em um commit específico][commit comment] dentro do Pull Request.
 
-Cada um desses tipos de comentários passa por uma parte diferente da API de {% data variables.product.product_name %}. Neste guia, vamos explorar como você pode acessar e manipular cada um. Para cada exemplo, usaremos [esta amostra de Pull Request feita][sample PR] no repositório de "octocat". Como sempre, as amostras podem ser encontradas no [nosso repositório platform-samples][platform-samples].
+Cada um desses tipos de comentários passa por uma parte diferente da {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. Neste guia, vamos explorar como você pode acessar e manipular cada um. Para cada exemplo, usaremos [esta amostra de Pull Request feita][sample PR] no repositório de "octocat". Como sempre, as amostras podem ser encontradas no [nosso repositório platform-samples][platform-samples].
 
-### Comentários do Pull Request
+## Comentários do Pull Request
 
-To access comments on a Pull Request, you'll go through [the Issues API][issues]. A princípio, isso pode parecer contraintuitivo. Mas depois que você entender que um Pull Request é apenas um problema com o código, faz sentido usar a API de problemas para criar comentários em um Pull Request.
+Para acessar comentários em um Pull Request, você passará [pela API de Problemas][issues]. A princípio, isso pode parecer contraintuitivo. Mas depois que você entender que um Pull Request é apenas um problema com o código, faz sentido usar a API de problemas para criar comentários em um Pull Request.
 
 Nós demonstraremos como buscar comentários de Pull Request criando um script do Ruby usando [Octokit.rb][octokit.rb]. Você também deverá criar um [token de acesso pessoal][personal token].
 
@@ -42,9 +45,9 @@ end
 
 Aqui, estamos especificamente chamando a API de problemas para obter os comentários (`issue_comments`), fornecendo o nome do repositório (`octocat/Spoon-Knife`) e o ID do Pull Request no qual estamos interessados (`1176`). Depois disso, trata-se simplesmente de um assunto de iteração através dos comentários para buscar informações sobre cada um.
 
-### Comentários em uma linha de Pull Request
+## Comentários em uma linha de Pull Request
 
-Na visualização de diferenças, você pode iniciar uma discussão sobre um aspecto específico de uma mudança singular feita dentro do Pull Request. Estes comentários ocorrem nas linhas individuais dentro de um arquivo alterado. The endpoint URL for this discussion comes from [the Pull Request Review API][PR Review API].
+Na visualização de diferenças, você pode iniciar uma discussão sobre um aspecto específico de uma mudança singular feita dentro do Pull Request. Estes comentários ocorrem nas linhas individuais dentro de um arquivo alterado. A URL do ponto de extremidade para esta discussão vem da [API da revisão de pull request][PR Review API].
 
 O código a seguir busca todos os comentários de pull request feitos em arquivos, dado um único número de pull request:
 
@@ -68,9 +71,9 @@ end
 
 Você perceberá que ele é incrivelmente semelhante ao exemplo acima. A diferença entre esta visualização e o comentário de Pull Request é o foco da conversa. Um comentário feito em um Pull Request deve ser reservado para discussão ou ideias sobre a direção geral do código. Um comentário feito como parte de uma revisão de Pull Request deve lidar especificamente com a forma como uma determinada alteração foi implementada em um arquivo.
 
-### Comentários de commit
+## Comentários de commit
 
-O último tipo de comentários ocorre especificamente nos commits individuais. For this reason, they make use of [the commit comment API][commit comment API].
+O último tipo de comentários ocorre especificamente nos commits individuais. Por esta razão, eles usam [a API de comentário de commit][commit comment API].
 
 Para recuperar os comentários em um commit, você deverá usar o SHA1 do commit. Em outras palavras, você não usará nenhum identificador relacionado ao Pull Request. Aqui está um exemplo:
 
@@ -101,4 +104,4 @@ Observe que esta chamada de API recuperará comentários de linha única, bem co
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [PR Review API]: /rest/reference/pulls#comments
-[commit comment API]: /rest/reference/repos#get-a-commit-comment
+[commit comment API]: /rest/reference/commits#get-a-commit-comment

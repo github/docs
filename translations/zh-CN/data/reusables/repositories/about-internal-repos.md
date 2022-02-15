@@ -1,1 +1,1 @@
-You can use internal repositories to practice "innersource" within your enterprise. Members of your enterprise can collaborate using open source methodologies without sharing proprietary information publicly{% if enterpriseServerVersions contains currentVersion %}, even with private mode disabled{% endif %}.
+{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} can use internal repositories to practice "innersource" within your enterprise. 企业的成员可使用开源方法进行协作，而无需公开共享专有信息{% ifversion ghes %}，即使禁用了私有模式{% endif %}。

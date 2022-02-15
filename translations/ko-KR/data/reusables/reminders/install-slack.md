@@ -1,1 +1,0 @@
-If you'd like to install Slack on all of your repositories, select **All repositories**. If you'd like to only install Slack on select repositories, select **Only select repositories**. Then, read the list of permissions you're allowing Slack to access and click **Install**. ![Install Slack button](/assets/images/help/settings/scheduled-reminders-install-slack.png)

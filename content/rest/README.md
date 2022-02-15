@@ -7,4 +7,4 @@ The `/content/rest` directory is where the GitHub REST API docs live!
 
   The content rendered by `include` tags is sourced from the `/lib/rest/static` directory, which is automatically generated from the API source code internally in GitHub, and should not be edited by a human. For more information, see the [`/lib/rest/README.md`](/lib/rest/README.md).
 
-  **As a result, we cannot accept contributions to REST API reference content in this repository.**
+  **We cannot accept changes to content that is rendered by `include` tags. However, you can open an issue describing the changes you would like to see.**

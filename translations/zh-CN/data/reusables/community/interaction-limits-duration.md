@@ -1,1 +1,1 @@
-When you enable an interaction limit, you can choose a duration for the limit: 24 hours, 3 days, 1 week, 1 month, or 6 months.
+启用交互限制时，可以选择限制的持续时间：24 小时、3 天、1 周、1 个月或 6 个月。

@@ -1,3 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" %}
-  1. Settings（設定）サイドバーで、**Third-party access（サードパーティアクセス）**をクリックしてください。 ![左のサイドバーの{% data variables.product.prodname_oauth_app %}アクセスタブ](/assets/images/help/settings/settings-sidebar-third-party-access.png)
-{% endif %}
+1. In the "Integrations" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Third-party access**.

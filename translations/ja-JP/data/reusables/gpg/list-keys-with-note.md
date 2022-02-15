@@ -1,7 +1,7 @@
 
-1. 公開鍵と秘密鍵をどちらも持っているGPGキーのリストを表示するには、 `gpg --list-secret-keys --keyid-format LONG`コマンドを使ってください。 コミットやタグに署名するには秘密鍵が必要です。
+1. 公開鍵と秘密鍵をどちらも持っているGPGキーの長い形式のリストを表示するには、 `gpg --list-secret-keys --keyid-format=long`コマンドを使ってください。 コミットやタグに署名するには秘密鍵が必要です。
   ```shell
-  $ gpg --list-secret-keys --keyid-format LONG
+  $ gpg --list-secret-keys --keyid-format=long
 ```
   {% note %}
 

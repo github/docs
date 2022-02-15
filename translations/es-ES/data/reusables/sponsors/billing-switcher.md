@@ -1,0 +1,1 @@
+1. Opcionalmente, para administrar tu patrocinio en nombre de una organización, en la esquina superior izquierda, utiliza el menú desplegable de **Ajustes personales** y da clic en la organización. ![Menú desplegable para cambiar de cuenta para los ajustes](/assets/images/help/sponsors/billing-account-switcher.png)

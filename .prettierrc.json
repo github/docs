@@ -1,11 +1,19 @@
 {
   "overrides": [
     {
-      "files":[
-        "**/*.{yml,yaml}"
-      ],
+      "files": ["**/*.{yml,yaml}"],
       "options": {
         "singleQuote": true
+      }
+    },
+    {
+      "files": ["**/*.{ts,tsx,js,mjs}"],
+      "options": {
+        "semi": false,
+        "singleQuote": true,
+        "printWidth": 100,
+        "jsxBracketSameLine": false,
+        "arrowParens": "always"
       }
     }
   ]

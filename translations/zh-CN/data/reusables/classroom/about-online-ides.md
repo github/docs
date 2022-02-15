@@ -1,1 +1,1 @@
-You can optionally configure an assignment to use an online integrated development environment (IDE). Online IDEs allow your students to write code, run programs, and collaborate in a browser, without installing Git and a full development toolchain on the student's computer. If you choose an online IDE for an assignment, students can still check out and run code locally on a computer with the necessary software.
+您可以选择性地配置作业来使用集成开发环境 (IDE)。 IDE 允许您的学生编写代码、运行程序和协作， 而无需在学生的计算机上安装 Git 和完整的开发工具链。 如果您为作业选择 IDE，学生仍然可以在本地查看并使用必要软件在计算机上运行代码。

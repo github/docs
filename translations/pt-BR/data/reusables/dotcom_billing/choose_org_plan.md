@@ -1,1 +1,1 @@
-1. Se você está atualizando o {% data variables.product.prodname_free_team %}, selecione um produto em "Upgrading to" (Atualizar para). ![Botão Upgrade (Atualizar)](/assets/images/help/billing/upgrade-to-product.png)
+1. Em "Comparar planos", você pode comparar as funcionalidades de cada plano. Dependendo do seu plano atual e do plano que você escolheu, clique em **Atualizar para a Equipe** ou **Atualizar para a Empresa**. ![Comparar planos e atualizar](/assets/images/help/billing/settings-compare-and-upgrade-plans.png)

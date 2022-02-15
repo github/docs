@@ -1,0 +1,1 @@
+**注：**对站点的更改在推送到 {% data variables.product.product_name %} 后，最长可能需要 10 分钟才会发布。  If you don't see your {% data variables.product.prodname_pages %} site changes reflected in your browser after an hour, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."

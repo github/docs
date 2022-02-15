@@ -1,32 +1,22 @@
-const fs = require('fs')
-const path = require('path')
-const cheerio = require('cheerio')
-const { liquid } = require('../../../lib/render-content')
-const getMiniTocItems = require('../../../lib/get-mini-toc-items')
-const rewriteLocalLinks = require('../../../lib/rewrite-local-links')
+#!/usr/bin/env node
+import fs from 'fs/promises'
+import path from 'path'
+import cheerio from 'cheerio'
+import { liquid } from '../../../lib/render-content/index.js'
+import getMiniTocItems from '../../../lib/get-mini-toc-items.js'
+import rewriteLocalLinks from '../../../lib/rewrite-local-links.js'
 const includes = path.join(process.cwd(), 'includes')
-const objectIncludeFile = fs.readFileSync(path.join(includes, 'graphql-object.html'), 'utf8')
-// TODO need to localize
-const currentLanguage = 'en'
+const objectIncludeFile = await fs.readFile(path.join(includes, 'graphql-object.html'), 'utf8')
 
-module.exports = async function prerenderObjects (schemaJsonPerVersion, version) {
-  const site = await require('../../../lib/site-data')()
-
-  // create a bare minimum context for rendering the graphql-object.html layout
-  const context = {
-    currentLanguage,
-    site: site[currentLanguage].site,
-    graphql: { schemaForCurrentVersion: schemaJsonPerVersion }
-  }
-
+export default async function prerenderObjects(context) {
   const objectsArray = []
 
   // render the graphql-object.html layout for every object
-  for (const object of schemaJsonPerVersion.objects) {
+  for (const object of context.graphql.schemaForCurrentVersion.objects) {
     context.item = object
     const objectHtml = await liquid.parseAndRender(objectIncludeFile, context)
     const $ = cheerio.load(objectHtml, { xmlMode: true })
-    rewriteLocalLinks($, version, currentLanguage)
+    rewriteLocalLinks($, context.currentVersion, context.currentLanguage)
     const htmlWithVersionedLinks = $.html()
     objectsArray.push(htmlWithVersionedLinks)
   }
@@ -35,6 +25,6 @@ module.exports = async function prerenderObjects (schemaJsonPerVersion, version)
 
   return {
     html: objectsHtml,
-    miniToc: getMiniTocItems(objectsHtml)
+    miniToc: getMiniTocItems(objectsHtml),
   }
 }

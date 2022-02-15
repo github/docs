@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** This event will only trigger a workflow run if the workflow file is on the default branch.
+**ノート:** このイベントは、ワークフローファイルがデフォルトブランチにある場合にのみワークフローの実行をトリガーします。
 
 {% endnote %}

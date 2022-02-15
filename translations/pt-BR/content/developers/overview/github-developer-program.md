@@ -4,7 +4,10 @@ intro: 'Se você criar ferramentas que integram-se ao {% data variables.product.
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - API
 ---
 
 Você está criando um aplicativo que se integra ao GitHub? Registre-se no nosso programa de desenvolvedor! As possibilidades são infinitas, e você irá desfrutar do reconhecimento da comunidade. [Registre-se agora](https://github.com/developer/register)
@@ -19,7 +22,7 @@ Crie suas próprias ferramentas que integram-se perfeitamente ao lugar que você
 
 ## Assuma a empresa
 
-[Obtenha licenças de desenvolvedor](http://github.com/contact?form%5Bsubject%5D=Development+licenses) para criar e testar sua o seu aplicativo para {% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_ghe_managed %}.
+Envie um e-mail para <a href="mailto:partnerships@github.com">partnerships@github.com</a> para solicitar licenças de desenvolvedor para criar e testar seu aplicativo para {% data variables.product.prodname_ghe_server %}.
 
 
 ## Você tem uma integração que é compatível com o GitHub?

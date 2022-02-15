@@ -1,4 +1,4 @@
-.algolia-cache
+.search-cache
 .DS_Store
 .env
 /node_modules/
@@ -8,10 +8,16 @@ coverage/
 /assets/images/early-access
 /content/early-access
 /data/early-access
-dist
+.next
+.eslintcache
+*.tsbuildinfo
 
 # blc: broken link checker
 blc_output.log
 blc_output_internal.log
-/dist/
 broken_links.md
+lib/redirects/.redirects-cache.json
+
+# During the preview deploy untrusted user code may be cloned into this directory
+# We ignore it from git to keep things deterministic
+user-code/

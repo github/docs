@@ -1,1 +1,7 @@
-You can optionally choose a template repository as starter code for the assignment. The template repository must belong to your organization or be a public repository on {% data variables.product.product_name %}. 
+Opcionalmente, você pode escolher um repositório de modelo como código inicial para a atividade. Para obter mais informações sobre repositórios de modelos, consulte "[Criar um repositório de modelo](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)".
+
+{% note %}
+
+**Observação:** O repositório de modelo deve pertencer à sua organização ou ser um repositório público em {% data variables.product.product_name %}.
+
+{% endnote %}

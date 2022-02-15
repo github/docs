@@ -1,0 +1,1 @@
+Las propiedades de este evento no utilizan la misma estructura que las [propiedades comunes del objeto del evento para el informe de problemas](#issue-event-object-common-properties). Se devolverán las siguientes propiedades para este evento.

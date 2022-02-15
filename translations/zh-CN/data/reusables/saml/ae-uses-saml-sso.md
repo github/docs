@@ -1,1 +1,1 @@
-{% data variables.product.product_name %} uses SAML SSO for user authentication. You can centrally manage access to {% data variables.product.prodname_ghe_managed %} from an IdP that supports the SAML 2.0 standard.
+{% data variables.product.product_name %} 使用 SAML SSO 进行用户身份验证。 您可以从支持 SAML 2.0 标准的 IdP 集中管理对 {% data variables.product.prodname_ghe_managed %} 的访问。

@@ -1,1 +1,1 @@
-1. Na barra lateral de configurações do usuário, clique em **Usuários bloqueados**. ![Aba de usuários bloqueados](/assets/images/help/settings/settings-sidebar-blocked-users.png)
+1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Blocked users**.

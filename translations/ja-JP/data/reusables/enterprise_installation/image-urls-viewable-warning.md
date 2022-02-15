@@ -1,5 +1,5 @@
 {% warning %}
 
-**Warning:** If you add an image attachment to a pull request or issue comment, anyone can view the anonymized image URL without authentication{% if enterpriseServerVersions contains currentVersion %}, even if the pull request is in a private repository, or if private mode is enabled. To prevent unauthorized access to the images, ensure that you restrict network access to the systems that serve the images, including {% data variables.product.product_location %}{% endif %}.{% if currentVersion == "github-ae@latest" %} To prevent unauthorized access to image URLs on {% data variables.product.product_name %}, consider restricting network traffic to your enterprise. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)."{% endif %}
+**警告:** Pull RequestやIssueのコメントに画像を添付した場合、その匿名の画像URLは認証なしに誰でも見ることができます。{% ifversion ghes %}これは、そのPull Requestがプライベートリポジトリ内にあったり、プライベートモードが有効化されていてもです。 認証なしでの画像へのアクセスを避けるには、{% data variables.product.product_location %}を含む、画像を提供するシステムへのネットワークアクセスを確実に制限してください。{% endif %}{% ifversion ghae %}{% data variables.product.product_name %}上の画像URLへの認証なしのアクセスを避けるには、企業へのネットワークトラフィックを制限することを検討してください。 詳しい情報については「[企業へのネットワークトラフィックの制限](/admin/configuration/restricting-network-traffic-to-your-enterprise)」を参照してください。{% endif %}
 
 {% endwarning %}

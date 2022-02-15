@@ -1,1 +1,1 @@
-Activity related to a repository being imported to GitHub. {% data reusables.webhooks.action_type_desc %} For more information, see the "[source imports](/rest/reference/migrations#source-imports)" REST API.
+GitHubにインポートされるリポジトリに関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については「[ソースのインポート](/rest/reference/migrations#source-imports)」 REST APIを参照してください。

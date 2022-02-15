@@ -1,0 +1,3 @@
+{% ifversion fpt or ghec %}1. En la esquina superior derecha de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, haz clic en tu foto de perfil y luego en **Tu perfil**.
+  ![Foto de perfil](/assets/images/help/profile/top_right_avatar.png){% else %}
+1. En la esquina superior derecha de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, haz clic en tu foto de perfil y luego en **Tu perfil**. ![Profile photo](/assets/images/enterprise/settings/top_right_avatar.png){% endif %}
