@@ -21,7 +21,7 @@ miniTocMaxHeadingLevel: 4
 
 ## Sobre sintaxe YAML para o {% data variables.product.prodname_actions %}
 
-Ações Docker e JavaScript requerem um arquivo de metadados. O nome do arquivo dos metadados deve ser `action.yml` ou `action.yaml`. Os dados no arquivo de metadados definem as entradas, as saídas e o ponto de entrada principal para sua ação.
+Todas as ações exigem um arquivo de metadados. O nome do arquivo dos metadados deve ser `action.yml` ou `action.yaml`. Os dados no arquivo de metadados definem as entradas, saídas e executam a configuração para sua ação.
 
 Arquivos de metadados de ação usam a sintaxe YAML. Se você não souber o que é YAML, consulte "[Aprender a usar YAML em cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
@@ -41,7 +41,7 @@ Arquivos de metadados de ação usam a sintaxe YAML. Se você não souber o que 
 
 **Opcional**: parâmetros de entrada permitem que você especifique os dados que a ação espera usar no momento da execução. O {% data variables.product.prodname_dotcom %} armazena parâmetros como variáveis de ambiente. Identificações de entrada com letras maiúsculas são alteradas para letras minúsculas no momento da execução. Recomenda-se usar identificações de entrada com letras minúsculas.
 
-### Example: Specifying inputs
+### Exemplo: Especificando entradas
 
 Este exemplo configura duas entradas: numOctocats e octocatEyeColor. A entrada numOctocats não é necessária e assumirá o valor '1'. A entrada octocatEyeColor é necessária e não tem valor padrão. Arquivos de fluxo de trabalho que usam essa ação devem usar a palavra-chave `with` (com) para definir um valor de entrada para octocatEyeColor. Para obter mais informações sobre a sintaxe `with` (com), consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)".
 
@@ -84,13 +84,13 @@ Por exemplo, se um fluxo de trabalho definiu as entradas `numOctocats` e `octoca
 
 **Opcional** Se o parâmetro de entrada for usado, esta `string` será registrada como uma mensagem de aviso. Você pode usar este aviso para notificar os usuários de que o valor de entrada está obsoleto e mencionar outras alternativas.
 
-## `outputs` for Docker container and JavaScript actions
+## `sapidas` para o contêiner do Docker e ações do JavaScript
 
 **Opcional** Os parâmetros de saída permitem que você declare os dados definidos por uma ação. As ações executadas posteriormente em um fluxo de trabalho podem usar os dados de saída definidos em ações executadas anteriormente.  Por exemplo, se uma ação executou a adição de duas entradas (x + y = z), a ação poderia usar o resultado da soma (z) como entrada em outras ações.
 
 Se você não declarar uma saída no seu arquivo de metadados de ação, você ainda poderá definir as saídas e usá-las no seu fluxo de trabalho. Para obter mais informações sobre a definição de saídas em uma ação, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
 
-### Example: Declaring outputs for Docker container and JavaScript actions
+### Exemplo: Declarando saídas para o contêiner do Docker e ações do JavaScript
 
 ```yaml
 saídas:
@@ -447,7 +447,7 @@ Se você precisar passar variáveis de ambiente para uma ação, certifique-se d
 
 Para obter mais informações sobre o uso da instrução `CMD` com {% data variables.product.prodname_actions %}, consulte "[Suporte do arquivo Docker para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)".
 
-#### Example: Defining arguments for the Docker container
+#### Exemplo: Definir argumentos para o contêiner do Docker
 
 {% raw %}
 ```yaml
@@ -465,7 +465,7 @@ runs:
 
 Você pode usar uma cor e o ícone da [Pena](https://feathericons.com/) para criar um selo para personalizar e distinguir a sua ação. Os selos são exibidos ao lado do nome da sua ação em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
-### Example: Configuring branding for an action
+### Exemplo: Configurar a marca para uma ação
 
 ```yaml
 branding:

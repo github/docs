@@ -47,7 +47,7 @@ Se você adicionar uma política para toda a organização, você deverá config
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policy**.
+1. Na seção "Código, planejamento e automação" da barra lateral, selecione **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** e, em seguida, clique em **Política**.
 2. Na página "Políticas do codespace", clique em **Criar política**.
 3. Insira um nome para sua nova política.
 4. Clique **Adicionar restrição** e escolha **Tipos de máquina**.

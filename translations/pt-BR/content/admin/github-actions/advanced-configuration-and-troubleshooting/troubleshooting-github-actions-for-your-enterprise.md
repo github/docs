@@ -52,9 +52,11 @@ Se você usa ações do contêiner do Docker ou contêineres de serviço nos seu
 
 Se estas configurações não estiverem definidas corretamente, você poderá receber erros como `Recurso movido inesperadamente para https://<IP_ADDRESS>` ao definir ou mudar a configuração de {% data variables.product.prodname_actions %}.
 
-## Os executores que não se conectam a {% data variables.product.prodname_ghe_server %} depois de mudar o hostname
+## Os executores não se conectam a {% data variables.product.prodname_ghe_server %} com um novo nome de host
 
-Se você alterar o nome do host de {% data variables.product.product_location %}, os executores auto-hospedados não poderão conectar-se ao host antigo e não executarão nenhum trabalho.
+{% data reusables.enterprise_installation.changing-hostname-not-supported %}
+
+Se você implantar {% data variables.product.prodname_ghe_server %} no seu ambiente com um novo nome de host e o antigo nome de host não resolver mais a sua instância, os executores auto-hospedados não conseguirão conectar-se ao nome de host antigo e não executarão nenhum trabalho.
 
 Você precisará atualizar a configuração dos seus executores auto-hospedados para usar o novo nome de host para {% data variables.product.product_location %}. Cada executor auto-hospedado exigirá um dos seguintes procedimentos:
 

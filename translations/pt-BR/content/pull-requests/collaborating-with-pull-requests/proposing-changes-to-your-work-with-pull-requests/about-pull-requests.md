@@ -22,7 +22,7 @@ topics:
 
 **Observação:** ao trabalhar com pull requests, lembre-se do seguinte:
 * Se estiver trabalhando no [modo de repositório compartilhado](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models), é recomendável usar um branch de tópico para sua pull request. Embora você possa enviar pull requests de qualquer branch ou commit, com um branch de tópico, é possível fazer push de commits de acompanhamento caso seja preciso atualizar as alterações propostas.
-* Ao fazer push de commits para uma pull request, não force o push. Faz push forçado das alterações no histórico do repositório e pode corromper o seu pull request. Se outros colaboradores fizerem o branch do projeto antes de um push forçado, este poderá substituir os commits nos quais os colaboradores basearam o seu trabalho.
+* Be very careful when force pushing commits to a pull request. Faz push forçado das alterações no histórico do repositório e pode corromper o seu pull request. Se outros colaboradores fizerem o branch do projeto antes de um push forçado, este poderá substituir os commits nos quais os colaboradores basearam o seu trabalho.
 
 {% endnote %}
 

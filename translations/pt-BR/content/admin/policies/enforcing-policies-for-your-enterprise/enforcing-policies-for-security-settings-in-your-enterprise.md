@@ -146,9 +146,8 @@ A exclusão de uma CA não pode ser desfeita. Se você quiser usar a mesma CA no
 {% data reusables.organizations.delete-ssh-ca %}
 
 {% ifversion ghec or ghae %}
-
 ## Leia mais
 
-- "[Sobre a identidade e gerenciamento de acesso para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"
-
+- "[Sobre a identidade e gerenciamento de acesso da sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
+- "[Relatórios de conformidade para a sua empresa](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
 {% endif %}

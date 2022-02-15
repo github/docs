@@ -24,15 +24,15 @@ When you remove a collaborator from a repository in your organization, the colla
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+## Managing an individual's access to an organization repository
+You can give a person access to a repository or change a person's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+{% else %}
 ## Giving a person access to a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
-{% data reusables.repositories.click-collaborators-teams %}
-{% elsif ghes < 3.4 or ghae %}
 {% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
 1. In the search field, start typing the name of the person to invite, then click a name in the list of matches.
   ![Search field for typing the name of a team or person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
@@ -51,7 +51,7 @@ When you remove a collaborator from a repository in your organization, the colla
 ![Manage access button for a repository](/assets/images/help/organizations/repository-manage-access.png)
 7. Review the person's access to a given repository, such as whether they're a collaborator or have access to the repository via team membership.
 ![Repository access matrix for the user](/assets/images/help/organizations/repository-access-matrix-for-user.png)
-
+{% endif %}
 ## Further reading
 
 {% ifversion fpt or ghec %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}

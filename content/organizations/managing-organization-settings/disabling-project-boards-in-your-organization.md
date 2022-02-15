@@ -23,7 +23,7 @@ When you disable project boards, you will no longer see project board informatio
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
 {% endif %}
 1. Decide whether to disable organization-wide project boards, disable repository project boards in the organization, or both. Then, under "Projects":

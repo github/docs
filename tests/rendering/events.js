@@ -31,6 +31,8 @@ describe('POST /events', () => {
     delete process.env.HYDRO_SECRET
     delete process.env.HYDRO_ENDPOINT
     csrfToken = ''
+
+    nock.cleanAll()
   })
 
   async function checkEvent(data, code) {

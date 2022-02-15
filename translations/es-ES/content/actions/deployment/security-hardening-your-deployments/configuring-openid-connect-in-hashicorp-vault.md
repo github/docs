@@ -54,14 +54,7 @@ This example demonstrates how to use OIDC with the official action to request a 
 
 ### Agregar ajustes de permisos
 
-El flujo de trabajo requerirá una configuración de `permissions` con un valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. Si solo necesitas recuperar un token de OIDC para un solo job, entonces este permiso puede configurarse dentro de dicho job. Por ejemplo:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-Puede que necesites especificar permisos adicionales aquí, dependiendo de los requisitos de tu flujo de trabajo.
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Requesting the access token
 

@@ -18,7 +18,7 @@ topics:
 
 As pessoas com permissões de administrador ou proprietário podem configurar um arquivo CODEOWNERS em um repositório.
 
-As pessoas que você escolhe como proprietários do código devem ter permissões de gravação para o repositório. Quando o proprietário do código é uma equipe, essa equipe deverá ser visível e ter permissões de gravação, ainda que todos os membros individuais da equipe já tenham permissões de gravação diretamente, por meio da associação da organização ou por meio de outra associação à equipe.
+The people you choose as code owners must have read permissions for the repository. Quando o proprietário do código é uma equipe, essa equipe deverá ser visível e ter permissões de gravação, ainda que todos os membros individuais da equipe já tenham permissões de gravação diretamente, por meio da associação da organização ou por meio de outra associação à equipe.
 
 ## Sobre proprietários do código
 
@@ -51,6 +51,8 @@ Para reduzir o tamanho do seu arquivo CODEOWNERS, considere o uso de padrões cu
 Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usadas nos arquivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), com [algumas exceções](#syntax-exceptions). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Os usuários devem ter acessso de `leitura` ao repositório e as equipes devem ter acesso explícito de `gravação`, mesmo que os integrantes da equipe já tenham acesso. Você também pode se referir a um usuário por um endereço de e-mail que foi adicionado à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, por exemplo `user@example.com`.
 
 Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões.
+
+CODEOWNERS paths are case sensitive, because {% data variables.product.prodname_dotcom %} uses a case sensitive file system. Since CODEOWNERS are evaluated by {% data variables.product.prodname_dotcom %}, even systems that are case insensitive (for example, macOS) must use paths and files that are cased correctly in the CODEOWNERS file.
 ### Exemplo de um arquivo CODEOWNERS
 ```
 # Este é um comentário.
@@ -98,11 +100,15 @@ apps/ @octocat
 # subdirectories.
 /docs/ @doctocat
 
-# In this example, @octocat owns any file in the `/apps` 
-# directory in the root of your repository except for the `/apps/github` 
+# In this example, any change inside the `/scripts` directory
+# will require approval from @doctocat or @octocat.
+/scripts/ @doctocat @octocat
+
+# In this example, @octocat owns any file in the `/apps`
+# directory in the root of your repository except for the `/apps/github`
 # subdirectory, as its owners are left empty.
 /apps/ @octocat
-/apps/github 
+/apps/github
 ```
 ### Exceções de sintaxe
 Existem algumas regras de sintaxe para arquivos gitignore que não funcionam em arquivos CODEOWNERS:
@@ -112,21 +118,6 @@ Existem algumas regras de sintaxe para arquivos gitignore que não funcionam em 
 
 ## Proteção de branch e de CODEOWNERS
 Os proprietários do repositório podem adicionar regras de proteção de branch para garantir que o código alterado seja revisado pelos proprietários dos arquivos alterados. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
-
-### Exemplo de um arquivo CODEOWNERS
-```
-# In this example, any change inside the `/apps` directory
-# will require approval from @doctocat.
-/apps/ @doctocat
-
-# In this example, any change inside the `/apps` directory
-# will require approval from @doctocat or @octocat.
-/apps/ @doctocat @octocat
-
-# In this example, any change inside the `/apps` directory
-# will require approval from a member of the @example-org/content team.
-/apps/ @example-org/content-team
-```
 
 
 ## Leia mais

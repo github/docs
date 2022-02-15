@@ -12,15 +12,15 @@ versions:
 shortTitle: GitHub 支持的属性
 ---
 
-## 可执行文件 (svn:executable)
+## Executable files (`svn:executable`)
 
 我们通过在将文件模式添加到 Git 仓库之前直接进行更新来转换 `svn:executable` 属性。
 
-## MIME 类型 (svn:mime-type)
+## MIME types (`svn:mime-type`)
 
 {% data variables.product.product_name %} 内部跟踪文件的 mime 类型和添加它们的提交。
 
-## 忽略未版本化的项目 (svn:ignore)
+## Ignoring unversioned items (`svn:ignore`)
 
 如果您已设置要在 Subversion 中忽略的文件和目录，{% data variables.product.product_name %} 将在内部跟踪它们。 Subversion 客户端忽略的文件与 *.gitignore* 文件中的条目完全不同。
 

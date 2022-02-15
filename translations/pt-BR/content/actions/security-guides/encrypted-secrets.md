@@ -354,3 +354,50 @@ Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você 
           run: cat $HOME/secrets/my_secret.json
   ```
 {% endraw %}
+
+
+## Armazenar Blobs binários de Base64 como segredos
+
+Você pode usar a codificação de Base64 para armazenar pequenos blobs binários como segredos. Em seguida, você pode fazer referência ao segredo no seu fluxo de trabalho e decodificá-lo para usar no executor. Para os limites de tamanho, consulte ["Limites para segredos"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
+
+{% note %}
+
+**Observação**: Observe que o Base64 só converte números binários em texto e não substitui a criptografia real.
+
+{% endnote %}
+
+1. Use `base64` para codificar seu arquivo em uma string de Base64. Por exemplo:
+
+   ```
+   $ base64 -i cert.der -o cert.base64
+   ```
+
+1. Crie um segredo que contenha a string de Base64. Por exemplo:
+
+   ```
+   $ gh secret set CERTIFICATE_BASE64 < cert.base64
+   ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
+   ```
+
+1. Para acessar a string de Base64 do seu executor, transforme segredo em `base64 --decode`.  Por exemplo:
+
+   ```yaml
+   name: Retrieve Base64 secret
+   on:
+     push:
+       branches: [ octo-branch ]
+   jobs:
+     decode-secret:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - name: Retrieve the secret and decode it to a file
+           env:
+             {% raw %}CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}{% endraw %}
+           run: |
+             echo $CERTIFICATE_BASE64 | base64 --decode > cert.der
+         - name: Show certificate information
+           run: |
+             openssl x509 -in cert.der -inform DER -text -noout
+   ```
+

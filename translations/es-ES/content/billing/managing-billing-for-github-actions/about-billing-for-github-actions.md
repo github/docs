@@ -76,7 +76,7 @@ Al final de cada mes, {% data variables.product.prodname_dotcom %} calcula el co
 
 ### Ejemplo de cálculos de costo por minuto
 
-Por ejemplo, si tu organización utiliza {% data variables.product.prodname_team %} y permite gastos ilimitados, utilizar 15,000 minutos podría tener un costo extra de almacenamiento y minutos de $56 USD dependiendo de los sistemas operativos que se utilizan para ejecutar jobs.
+Por ejemplo, si tu organización utiliza {% data variables.product.prodname_team %} y permite gastos ilimitados, utilizar 5,000 minutos podría tener un costo extra de almacenamiento y minutos de $56 USD dependiendo de los sistemas operativos que se utilizan para ejecutar jobs.
 
 - 5,000 minutos (3,000 de Linux y 2,000 de Windows) = $56 USD ($24 USD + $32 USD).
   - 3,000 minutos de Linux a $0.008 USD por minuto = $24 USD.

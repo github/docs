@@ -137,5 +137,5 @@ $ ghe-restore -c 169.154.1.1
 {% endnote %}
 
 Você pode usar estas opções adicionais com o comando `ghe-restore`:
-- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, consulte a seção "Usar comandos de backup e restauração" do [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
+- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, consulte a seção "Usando comandos de backup e restauração" do [LEIAME do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
 - O sinalizador `-s` permite selecionar outro instantâneo de backup.

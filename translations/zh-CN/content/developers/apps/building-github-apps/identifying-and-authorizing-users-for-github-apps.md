@@ -449,8 +449,8 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% ifversion fpt or ghec %}
 #### 组织团队同步
 
-* [列出团队的 idp 组](/rest/reference/teams#list-idp-groups-for-a-team)
-* [创建或更新 idp 组连接](/rest/reference/teams#create-or-update-idp-group-connections)
+* [List IdP groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
+* [Create or update IdP group connections](/rest/reference/teams#create-or-update-idp-group-connections)
 * [列出组织的 IdP 组](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 

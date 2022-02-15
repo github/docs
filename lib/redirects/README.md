@@ -14,16 +14,27 @@ Precompiled redirects account for the majority of the docs site's redirect handl
 
 When [`lib/warm-server.js`](lib/warm-server.js) runs on server start, it creates all pages in the site by instantiating the [`Page` class](lib/page.js) for each content file, then passes the pages to `lib/redirects/precompile.js` to create redirects. The precompile script runs `lib/redirects/permalinks.js`, which:
 
-1. Loops over each page's [permalinks](contributing/permalinks.md) and creates an array of legacy paths for each one (via `lib/redirects/get-old-paths-from-permalink.js`). For example, a permalink that starts with `/en/enterprise-server@2.22` results in an array that includes `/en/enterprise/2.22`, `/enterprise/2.22`, etc.
+1. Includes all legacy redirects from `static/developerjson`
 2. Loops over each page's [frontmatter `redirect_from` entries](content/README.md#redirect_from) and creates an array of legacy paths for each one (using the same handling as for permalinks).
+3. Any other exceptions from the `static/redirect-exceptions.txt` file
 
-The results comprise the `page.redirects` object, where the **keys are legacy paths** and the **values are current permalinks**.
-
-Additionally, a [static JSON file](lib/redirects/static/developer.json) gets `require`d that contains keys with legacy developer.github.com paths (e.g., `/v4/object/app`) and values with new docs.github.com paths (e.g., `/graphql/reference/objects#app`).
+The results comprise the `page.redirects` object, whose keys are always only the path without language.
+Sometimes it contains the specific plan/version (e.g. `/enterprise-server@3.0/v3/integrations` to `enterprise-server@3.0/developers/apps`) and sometimes it's just the plain path
+(e.g. `/articles/viewing-your-repositorys-workflows` to `/actions/monitoring-and-troubleshooting-workflows`)
 
 All of the above are merged into a global redirects object. This object gets added to `req.context` via `middleware/context.js` and is made accessible on every request.
 
-Because the redirects are precompiled via `warm-server`, that means `middleware/redirects/handle-redirects.js` just needs to do a simple lookup of the requested path in the redirects object.
+In the `handle-redirects.js` middleware, the language part of the URL is
+removed, looked up, and if matched to something, redirects with language
+put back in. Demonstrated with pseudo code:
+
+```js
+var fullPath = '/ja/foo'
+var newPath = redirects['/foo']
+if (newPath) {
+  redirect('/ja' + newPath)
+}
+```
 
 ### Archived Enterprise redirects
 

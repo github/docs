@@ -92,7 +92,7 @@ A tabela a seguir mostra quais funções do conjunto de ferramentas estão dispo
 
 Configura um parâmetro de saída da ação.
 
-Opcionalmente, você também pode declarar os parâmetros de saída no arquivo de metadados de uma ação. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
+Opcionalmente, você também pode declarar os parâmetros de saída no arquivo de metadados de uma ação. Para obter mais informações, consulte "[Sintaxe de metadados para o {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)".
 
 ### Exemplo
 
@@ -314,7 +314,9 @@ Durante a execução de um fluxo de trabalho, o executor gera arquivos temporár
 
 {% warning %}
 
-**Aviso:** no Windows, o PowerShell de legado (`shell: powershell`) não usa UTF-8 por padrão. Certifique-se de escrever os arquivos usando a codificação correta. Por exemplo, você deve definir a codificação UTF-8 ao definir o caminho:
+**Aviso:** no Windows, o PowerShell de legado (`shell: powershell`) não usa UTF-8 por padrão.
+
+When using `shell: powershell`, you must specify UTF-8 encoding. Por exemplo:
 
 ```yaml
 jobs:
@@ -325,22 +327,7 @@ jobs:
         run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-Ou mude para PowerShell Core, cujo padrão é UTF-8:
-
-```yaml
-jobs:
-  modern-pwsh-example:
-    uses: windows-2019
-    steps:
-      - shell: pwsh
-        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
-```
-
-Mais detalhes sobre UTF-8 e PowerShell Core encontrados nesta excelente [resposta do Stack Overflow](https://stackoverflow.com/a/40098904/162694):
-
-> ### Leitura opcional: A perspectiva entre plataformas: PowerShell _Core_:
-> 
-> [O PowerShell agora é multiplataforma](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), por meio da sua edição do **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)**, cuja codificação - sensívelmente - *** é igual a ***BOM-less UTF-8******, em linha com plataformas do Unix.
+Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UTF-8.
 
 {% endwarning %}
 
