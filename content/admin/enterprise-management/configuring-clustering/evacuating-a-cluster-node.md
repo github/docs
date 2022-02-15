@@ -33,7 +33,7 @@ For more information about nodes and service tiers for {% data variables.product
 
 If you plan to take a node offline and the node runs a data service role like `git-server`, `pages-server`, or `storage-server`, evacuate each node before taking the node offline.
 
-1. {% data reusables.enterprise_clustering.ssh-to-a-node %}
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
 1. To find the UUID of the node to evacuate, run the following command. Replace `HOSTNAME` with the node's hostname.
 
    ```shell
