@@ -10,7 +10,7 @@ const developerRedirectFixtures = readJsonFile('./tests/fixtures/developer-redir
 jest.useFakeTimers('legacy')
 
 describe('developer redirects', () => {
-  jest.setTimeout(4 * 60 * 1000)
+  jest.setTimeout(10 * 60 * 1000)
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in
