@@ -44,42 +44,42 @@ If you plan to take a node offline and the node runs a data service role like `g
    - **Git**:
 
      ```shell
-     ghe-spokes evac-status git-server-<em>UUID</em>
+     $ ghe-spokes evac-status git-server-<em>UUID</em>
      ```
 
    - **{% data variables.product.prodname_pages %}**:
 
      ```shell
-     echo "select count(*) from pages_replicas where host = 'pages-server-<em>UUID</em>'" | ghe-dbconsole -y
+     $ echo "select count(*) from pages_replicas where host = 'pages-server-<em>UUID</em>'" | ghe-dbconsole -y
      ```
 
    - **Storage**:
 
      ```shell
-     ghe-storage evacuation-status storage-server-<em>UUID</em>
+     $ ghe-storage evacuation-status storage-server-<em>UUID</em>
      ```
 1. After the copy is complete, you can evacuate the node by running any of the following commands, replacing `UUID` with the UUID from step 2.
 
    - **Git**:
 
      ```shell
-     ghe-spokes server evacuate git-server-<em>UUID</em> \'<em>REASON FOR EVACUATION</em>\'
+     $ ghe-spokes server evacuate git-server-<em>UUID</em> \'<em>REASON FOR EVACUATION</em>\'
      ```
 
    - **{% data variables.product.prodname_pages %}**:
 
      ```shell
-     ghe-dpages evacuate pages-server-<em>UUID</em>
+     $ ghe-dpages evacuate pages-server-<em>UUID</em>
      ```
 
    - For **storage**, first take the node offline by running the following command.
 
      ```shell
-     ghe-storage offline storage-server-<em>UUID</em>
+     $ ghe-storage offline storage-server-<em>UUID</em>
      ```
 
      After the storage node is offline, you can evacuate the node by running the following command.
 
      ```shell
-     ghe-storage evacuate storage-server-<em>UUID</em>
+     $ ghe-storage evacuate storage-server-<em>UUID</em>
      ```
