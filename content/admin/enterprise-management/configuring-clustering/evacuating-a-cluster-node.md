@@ -26,7 +26,7 @@ If you're taking a node offline that has any data services (like git, pages, or 
 
     For Git
     ```
-    ghe-spokes evac-status
+    ghe-spokes evac-status git-server-<em>UUID</em>
     ```
     For {% data variables.product.prodname_pages %}
   
@@ -36,7 +36,7 @@ If you're taking a node offline that has any data services (like git, pages, or 
   
     For storage
     ```
-    ghe-storage evacuation-status
+    ghe-storage evacuation-status storage-server-<em>UUID</em>
     ```
 
 3. After the copying is complete, you can evacuate the storage service. Run any of the following commands:
