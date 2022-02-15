@@ -82,7 +82,7 @@ Publishing a security advisory deletes the temporary private fork for the securi
 
 ## Requesting a CVE identification number (Optional)
 
-{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/github/managing-security-vulnerabilities/about-github-security-advisories-for-repositories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/code-security/security-advisories/about-github-security-advisories-for-repositories#cve-identification-numbers)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
