@@ -27,6 +27,18 @@ topics:
 
 If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
 
+## Syncing a fork with GitHub CLI
+
+{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.prodname_dotcom %} from your computer's command line. When you're working from the command line, you can use the {% data variables.product.prodname_cli %} to save time and avoid switching context.
+
+To update the remote fork from its parent (equivalent to "Syncing a fork from the web UI"), use the `gh repo sync` subcommand and supply your fork name as argument.
+
+```shell
+$ gh repo sync owner/cli-fork
+```
+
+If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
+
 ## Syncing a fork from the command line
 
 {% endif %}
