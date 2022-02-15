@@ -3,9 +3,6 @@ import path from 'path'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { get } from '../helpers/supertest.js'
 import readJsonFile from '../../lib/read-json-file.js'
-const restRedirectFixtures = readJsonFile('./tests/fixtures/rest-redirects.json')
-const graphqlRedirectFixtures = readJsonFile('./tests/fixtures/graphql-redirects.json')
-const developerRedirectFixtures = readJsonFile('./tests/fixtures/developer-redirects.json')
 
 jest.useFakeTimers('legacy')
 
@@ -101,58 +98,29 @@ describe('developer redirects', () => {
   })
 
   describe('fixtures', () => {
-    // this fixtures file includes paths like /apps and /webhooks, plus /enterprise paths
-    test('developer redirects', async () => {
+    test.each(['developer', 'rest', 'graphql'])('%s redirects', async (label) => {
+      const FIXTURES = {
+        developer: './tests/fixtures/developer-redirects.json',
+        rest: './tests/fixtures/rest-redirects.json',
+        graphql: './tests/fixtures/graphql-redirects.json',
+      }
+      if (!(label in FIXTURES)) throw new Error('unrecognized label')
+      const fixtures = readJsonFile(FIXTURES[label])
       // Don't use a `Promise.all()` because it's actually slower
       // because of all the eventloop context switching.
-      for (const [oldPath, newPath] of Object.entries(developerRedirectFixtures)) {
+      for (let [oldPath, newPath] of Object.entries(fixtures)) {
+        // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
+        // We make an exception to always redirect versionless paths to the latest version.
+        newPath = newPath.replace(
+          '/enterprise-server/',
+          `/enterprise-server@${enterpriseServerReleases.latest}/`
+        )
         const res = await get(oldPath)
         const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
         expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
           sameFirstPrefix ? 301 : 302
         )
         expect(res.headers.location).toBe(newPath)
-      }
-    })
-
-    // this fixtures file includes /v3 and /enterprise/v3 paths
-    test('rest reference redirects', async () => {
-      // Don't use a `Promise.all()` because it's actually slower
-      // because of all the eventloop context switching.
-      for (let [oldPath, newPath] of Object.entries(restRedirectFixtures)) {
-        // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
-        // We make an exception to always redirect versionless paths to the latest version.
-        newPath = newPath.replace(
-          '/enterprise-server/',
-          `/enterprise-server@${enterpriseServerReleases.latest}/`
-        )
-        const res = await get(oldPath)
-
-        const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
-        expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
-          sameFirstPrefix ? 301 : 302
-        )
-        expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
-      }
-    })
-
-    // this fixtures file includes /v4 and /enterprise/v4 paths
-    test('graphql reference redirects', async () => {
-      // Don't use a `Promise.all()` because it's actually slower
-      // because of all the eventloop context switching.
-      for (let [oldPath, newPath] of Object.entries(graphqlRedirectFixtures)) {
-        // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
-        // We make an exception to always redirect versionless paths to the latest version.
-        newPath = newPath.replace(
-          '/enterprise-server/',
-          `/enterprise-server@${enterpriseServerReleases.latest}/`
-        )
-        const res = await get(oldPath)
-        const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
-        expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
-          sameFirstPrefix ? 301 : 302
-        )
-        expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
       }
     })
   })
