@@ -214,6 +214,10 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
   app.use(asyncMiddleware(instrument(shortVersions, './contextualizers/short-versions'))) // Support version shorthands
 
+  // Must come before handleRedirects.
+  // This middleware might either redirect to serve something.
+  app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
+
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
   app.use(connectSlashes(false))
@@ -237,7 +241,6 @@ export default function (app) {
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 
-  app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
   app.use(instrument(robots, './robots'))
   app.use(
     /(\/.*)?\/early-access$/,
