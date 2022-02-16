@@ -67,10 +67,10 @@ Em seguida, em _views/index.erb_, cole este conteúdo:
     </p>
     <p>
       We're going to now talk to the GitHub API. Pronto?
-      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">Click here</a> to begin!
+      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">Clique aqui</a> para começar!
     </p>
     <p>
-      If that link doesn't work, remember to provide your own <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">Client ID</a>!
+      Se esse link não funcionar, lembre-se de fornecer o seu próprio <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">ID de cliente</a>!
     </p>
   </body>
 </html>

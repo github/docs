@@ -1,6 +1,6 @@
 ---
 title: Proteger sua organização
-intro: 'You can harden security for your organization by managing security settings,{% ifversion not ghae %} requiring two-factor authentication (2FA),{% endif %} and reviewing the activity and integrations within your organization.'
+intro: 'Você pode fortalecer a segurança para sua organização gerenciando as configurações de segurança,{% ifversion not ghae %} exigindo a autenticação de dois fatores (2FA),{% endif %} e revisando a atividade e as integrações dentro da sua organização.'
 redirect_from:
   - /articles/preventing-unauthorized-access-to-organization-information
   - /articles/keeping-your-organization-secure

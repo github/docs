@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `Import` was removed",
+          "Input field `gitArchiveUrl` was added to input object type `StartRepositoryMigrationInput`",
+          "Input field `metadataArchiveUrl` was added to input object type `StartRepositoryMigrationInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-02-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `AbortQueuedMigrationsInput` was added",
           "Type `AbortQueuedMigrationsPayload` was added",
           "Type `ActorType` was added",

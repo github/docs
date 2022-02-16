@@ -6,7 +6,7 @@ Puedes personalizar las recompensas de cada nivel. Por ejemplo, las recompensas 
 - Actualizaciones del boletín semanal
 - Otras recompensas de las cuales disfrutarían tus patrocinadores ✨
 
-{% data reusables.sponsors.sponsors-only-repos %} For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)."
+{% data reusables.sponsors.sponsors-only-repos %} Para obtener más información, consulta la sección "[Agregar un repositorio a un nivel de patrocinio](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)".
 
 Puedes incluir un mensaje de bienvenida con información sobre cómo acceder o recibir recompensas, el cual se podrá ver después de hacer el pago y en el correo electrónico de bienvenida.
 
