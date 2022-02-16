@@ -711,6 +711,8 @@ O contexto `entrada` contém propriedades de entrada passada para um fluxo de tr
 
 Não há propriedades padrão no contexto `entradas`, apenas aquelas definidas no arquivo de fluxo de trabalho reutilizável.
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 
 | Nome da propriedade   | Tipo                               | Descrição                                                                                                                                                                                                                                                                     |

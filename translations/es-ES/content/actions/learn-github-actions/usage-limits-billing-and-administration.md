@@ -73,6 +73,8 @@ Además de los límites de uso, debes asegurarte de usar las {% data variables.p
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Facturación para los flujos de trabajo reutilizables
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 Si vuelves a utilizar un flujo de trabajo la facturación siempre se asociará con aquél del que llama. La asignación de los ejecutores hospedados en {% data variables.product.prodname_dotcom %} siempre se evalúa utilizando únicamente el contexto del llamador. El llamador no puede utilizar ejecutores hospedados en {% data variables.product.prodname_dotcom %} desde el repositorio llamado.
 
 Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".

@@ -34,7 +34,7 @@ O gráfico de dependências mostra as dependências{% ifversion fpt or ghec %} e
 4. Opcionalmente, em "Gráfico de dependência", clique em **Dependentes**. ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
 {% ifversion ghes or ghae-issue-4864 %}
-Os proprietários das empresas podem configurar o gráfico de dependências a nível da empresa. Para obter mais informações, consulte[Habilitando o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
+Os proprietários das empresas podem configurar o gráfico de dependências a nível da empresa. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
 {% endif %}
 
 ### Vista de dependências

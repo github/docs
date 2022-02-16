@@ -42,7 +42,7 @@ topics:
 
 {% note %}
 
-**注釈**: ユーザの `NameID` が IdP で変更された場合、ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインしようとすると、エラーメッセージが表示されます。 {% ifversion ghes %} ユーザのアクセスを復元するには、ユーザアカウントの `NameID` マッピングを更新する必要があります。 詳しい情報については、「[ユーザの SAML `NameID` を更新する](#updating-a-users-saml-nameid)」を参照してください。{% else %} 詳しい情報については、「[エラー: '別のユーザーがすでにアカウントを所有しています'](#error-another-user-already-owns-the-account)」を参照してください。{% endif %}
+**注釈**: ユーザの `NameID` が IdP で変更された場合、ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインしようとすると、エラーメッセージが表示されます。 {% ifversion ghes %}To restore the user's access, you'll need to update the user account's `NameID` mapping. 詳しい情報については、「[ユーザの SAML `NameID` を更新する](#updating-a-users-saml-nameid)」を参照してください。{% else %} 詳しい情報については、「[エラー: '別のユーザーがすでにアカウントを所有しています'](#error-another-user-already-owns-the-account)」を参照してください。{% endif %}
 
 {% endnote %}
 
@@ -61,7 +61,7 @@ topics:
 
 ## SAMLの属性
 
-以下の属性が利用できます。 `administrator`属性以外の属性の名前は[Management Console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/)で変更できます。
+以下の属性が利用できます。 You can change the attribute names in the [management console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/), with the exception of the `administrator` attribute.
 
 | デフォルトの属性名       | 種類 | 説明                                                                                                                          |
 | --------------- | -- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -93,14 +93,14 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
   {% tip %}
 
-  **ノート**：この値は**選択しない**でおくことをおすすめします。 この機能を有効にするのは、SAMLの実装がサービスプロバイダ起点のSSOをサポートしないまれな場合と、{% data variables.contact.enterprise_support %}によって推奨された場合**だけ**にすべきです。
+  **Note**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
 
   {% endtip %}
 
 5. {% data variables.product.product_location %} 上のユーザの管理者権限を SAML プロバイダに決めさせたく**ない**場合、[**Disable administrator demotion/promotion**] を選択します。 ![SAMLの無効化の管理者設定](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. **Single sign-on URL（シングルサインオンURL）**フィールドに、使用するIdpのシングルサインオンのリクエストのためのHTTPあるいはHTTPSエンドポイントを入力してください。 この値はIdpの設定によって決まります。 ホストが内部のネットワークからしか利用できない場合、[{% data variables.product.product_location %}を内部ネームサーバーを利用するように設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/)する必要があるかもしれません。 ![SAML認証](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. または、[**Issuer**] フィールドに、SAML の発行者の名前を入力します。 これは、{% data variables.product.product_location %} へ送信されるメッセージの真正性を検証します。 ![SAML発行者](/assets/images/enterprise/management-console/saml-issuer.png)
-8. [**Signature Method**] および [**Digest Method**] ドロップダウンメニューで、SAML の発行者が {% data variables.product.product_location %} からのリクエストの整合性の検証に使うハッシュアルゴリズムを選択します。 ** Name Identifier Format（Name Identifier形式）**ドロップダウンメニューから形式を指定してください。 ![SAML方式](/assets/images/enterprise/management-console/saml-method.png)
+6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. この値はIdpの設定によって決まります。 If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![SAML認証](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}. ![SAML発行者](/assets/images/enterprise/management-console/saml-issuer.png)
+8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu. ![SAML方式](/assets/images/enterprise/management-console/saml-method.png)
 9. [**Verification certificate**] の下で、[**Choose File**] をクリックし、IdP からの SAML のレスポンスを検証するための証明書を選択してください。 ![SAML認証](/assets/images/enterprise/management-console/saml-verification-cert.png)
 10. 必要に応じてSAMLの属性名はIdPに合わせて修正してください。あるいはデフォルト名をそのまま受け付けてください。 ![SAMLの属性名](/assets/images/enterprise/management-console/saml-attributes.png)
 
@@ -128,7 +128,7 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
 - `<Destination>`要素はルートレスポンスドキュメントで指定されていなければならず、ACS URLに一致する必要があります。ただし、これはルートレスポンスドキュメントに署名がある場合のみです。 アサーションに署名がある場合は無視されます。
 - `<AudienceRestriction>`要素の一部として、`<Audience>`要素は常に指定する必要があります。 It must match the `EntityId` for {% data variables.product.prodname_ghe_server %}. これは、`https://ghe.corp.example.com`というような、{% data variables.product.prodname_ghe_server %}インスタンスへのURLです。
-- レスポンス中での各アサーションは、電子署名で保護されていなければ**なりません**。 これは、個々の`<Assertion>`要素に署名するか、`<Response>`要素を署名するかすることによって行います。
+- Each assertion in the response **must** be protected by a digital signature. これは、個々の`<Assertion>`要素に署名するか、`<Response>`要素を署名するかすることによって行います。
 - `<Subject>`要素の一部として`<NameID>`要素を指定する必要があります。 任意の名前識別子の形式を使用できます。
 - `Recipient` 属性は存在しなければならず、ACS URL に設定されなければなりません。 例:
 

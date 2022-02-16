@@ -224,7 +224,9 @@ export function Search({
               ref={inputRef}
               className={cx(
                 styles.searchInput,
+                iconSize === 24 && styles.searchIconBackground24,
                 iconSize === 24 && 'form-control px-6 f4',
+                iconSize === 16 && styles.searchIconBackground16,
                 iconSize === 16 && 'form-control px-5 f4',
                 variant === 'compact' && 'py-2',
                 variant === 'expanded' && 'py-3',
@@ -233,11 +235,6 @@ export function Search({
                 isHeaderSearch && query && styles.searchInputExpanded,
                 isHeaderSearch && query && 'position-absolute top-0 right-0'
               )}
-              style={{
-                background: `var(--color-canvas-default) url("/assets/images/octicons/search-${iconSize}.svg") no-repeat ${
-                  iconSize === 24 ? '12px' : '6px'
-                }`,
-              }}
               type="search"
               placeholder={t`placeholder`}
               autoComplete="off"

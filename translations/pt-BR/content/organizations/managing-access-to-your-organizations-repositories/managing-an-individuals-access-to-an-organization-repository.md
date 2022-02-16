@@ -24,15 +24,15 @@ Ao remover um colaborador de um repositório de sua organização, o colaborador
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+## Gerenciar o acesso de um indivíduo a um repositório da organização
+You can give a person access to a repository or change a person's level of access to a repository in your repository settings. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository). "
+{% else %}
 ## Concedendo acesso a uma pessoa a um repositório
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-{% data reusables.repositories.click-collaborators-teams %}
-{% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
 1. No campo de busca, comece a digitar o nome da pessoa para convidar e, em seguida, clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma equipe ou pessoa para convidar ao repositório](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Em "Escolher uma função ", selecione a função do repositório para atribuir a pessoa e, em seguida, clique em **Adicionar NOME ao REPOSITÓRIO**. ![Selecionando permissões para a equipe ou pessoa](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
@@ -46,7 +46,7 @@ Ao remover um colaborador de um repositório de sua organização, o colaborador
 5. À direita do nome do colaborador que deseja remover, use o menu suspenso {% octicon "gear" aria-label="The Settings gear" %} e clique em **Manage** (Gerenciar). ![Link para manage access (gerenciar acesso)](/assets/images/help/organizations/member-manage-access.png)
 6. Na página "Manage access" (Gerenciar acesso), ao lado do repositório clique em **Manage access** (Gerenciar acesso). ![Botão Manage access (Gerenciar acesso) em um repositório](/assets/images/help/organizations/repository-manage-access.png)
 7. Revise o acesso da pessoa em determinado repositório, por exemplo, se a pessoa é um colaborador ou tem acesso ao repositório como integrante de equipe. ![Matriz de acesso a repositório para o usuário](/assets/images/help/organizations/repository-access-matrix-for-user.png)
-
+{% endif %}
 ## Leia mais
 
 {% ifversion fpt or ghec %}- "[Restringir interações no repositório](/articles/limiting-interactions-with-your-repository)"{% endif %}
