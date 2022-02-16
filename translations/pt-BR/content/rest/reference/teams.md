@@ -53,9 +53,9 @@ Esta API só está disponível para os integrantes autenticados da organização
 {% endfor %}
 
 {% ifversion ghec or ghae %}
-## External groups
+## Grupos externos
 
-The external groups API allows you to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.
+A API de grupos externos permite que você visualize os grupos de provedores de identidade externos que estão disponíveis para sua organização e gerencie a conexão entre grupos externos e equipes na sua organização.
 
 Para usar esta API, o usuário autenticado deve ser um mantenedor de equipe ou um proprietário da organização associada à equipe.
 
@@ -64,8 +64,8 @@ Para usar esta API, o usuário autenticado deve ser um mantenedor de equipe ou u
 
 **Notas:**
 
-- The external groups API is only available for organizations that are part of a enterprise using {% data variables.product.prodname_emus %}. For more information, see "[About Enterprise Managed Users](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
-- If your organization uses team synchronization, you can use the Team Synchronization API. For more information, see "[Team synchronization API](#team-synchronization)."
+- A API de grupos externos está disponível apenas para organizações que fazem parte de uma empresa que usa {% data variables.product.prodname_emus %}. Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+- Se sua organização usar a sincronização de equipe, você poderá usar a API de sincronização de equipe. Para obter mais informações, consulte "[API de sincronização de equipe](#team-synchronization)".
 
 {% endnote %}
 {% endif %}
@@ -85,7 +85,7 @@ Você pode gerenciar os integrantes da equipe do GitHub através do seu IdP com 
 
 {% note %}
 
-**Observação:** A API de sincronização de equipe não pode ser usada com {% data variables.product.prodname_emus %}. To learn more about managing an {% data variables.product.prodname_emu_org %}, see "[External groups API](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
+**Observação:** A API de sincronização de equipe não pode ser usada com {% data variables.product.prodname_emus %}. Para saber mais sobre como gerenciar um {% data variables.product.prodname_emu_org %}, consulte "[API de grupos externos](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
 
 {% endnote %}
 
