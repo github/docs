@@ -1,4 +1,4 @@
----
+---do this for all my repositories nox
 title: GitHub Private Information Removal Policy
 redirect_from:
   - /articles/github-sensitive-data-removal-policy
