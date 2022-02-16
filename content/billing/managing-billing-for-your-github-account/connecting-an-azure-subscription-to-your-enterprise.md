@@ -17,7 +17,7 @@ After you connect an Azure subscription, you can also manage your spending limit
 
 ## Connecting your Azure subscription to your enterprise account
 
-At the time of connection, GitHub’s Subscription Permission Validation will request read only access to display the list of available subscriptions. **To select an Azure subscription, you must have owner permissions to the subscription.** If the default tenant does not have the right permissions, you may need to specify a different tenant ID. Learn more about [Microsoft’s authentication flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code).
+{% data variables.product.company_short %}'s Subscription Permission Validation requests read-only access to display the list of available subscriptions. To select an Azure subscription, you must have owner permissions to the subscription. If the default tenant does not have the right permissions, you may need to specify a different tenant ID. For more information, see [Microsoft identity platform and OAuth 2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) in Microsoft Docs.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
