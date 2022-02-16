@@ -4,7 +4,8 @@ intro: You can submit improvements to any advisory published in the {% data vari
 redirect_from:
   - /code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database
 versions:
-  feature: 'community-contributions-to-github-advisory-db'
+    fpt: '*'
+    ghec: '*'
 type: how_to
 topics:
   - Security advisories
@@ -27,6 +28,6 @@ Only repository owners and administrators can edit repository-level security adv
    ![Suggest improvements link](/assets/images/help/security/suggest-improvements-to-advisory.png)
 4. In the contribution form, make the desired improvements. You can edit or add any detail.
 5. When you finish editing the advisory, click **Submit improvements**.
-6. Once you submit your improvements, a pull request containing your changes is created in [github/advisory-database](https://github.com/github/advisory-database) for review by the {% data variables.product.prodname_security %} curation team. If the advisory originated from a {% data variables.product.prodname_dotcom %} repository, we will also tag the original publisher for optional commentary. You can view the pull request and get notifications when it is updated or closed.
+6. Once you submit your improvements, a pull request containing your changes will be created in [github/advisory-database](https://github.com/github/advisory-database) for review by the {% data variables.product.prodname_security %} curation team. If the advisory originated from a {% data variables.product.prodname_dotcom %} repository, we will also tag the original publisher for optional commentary. You can view the pull request and get notifications when it is updated or closed.
 
 You can also open a pull request directly on an advisory file in the [github/advisory-database](https://github.com/github/advisory-database) repository. For more information, see the [contribution guidelines](https://github.com/github/advisory-database/blob/main/CONTRIBUTING.md). 
