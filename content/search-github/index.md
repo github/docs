@@ -1,6 +1,6 @@
 ---
 title: Searching for information on GitHub
-intro: Use different types of searches to find the information you want.
+intro: Learn how to use the search functions available on GitHub to find different types of information. 
 introLinks:
   overview: /search-github/getting-started-with-searching-on-github/about-searching-on-github
 featuredLinks:
