@@ -108,9 +108,9 @@ saídas:
 
 ## `outputs` para ações compostas
 
-**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
+As **saídas** `opcionais` usam os mesmos parâmetros que `outputs.<output_id>` e `outputs.<output_id>escription` (consulte "[`saída` para o contêiner do Docker e ações do JavaScript](#outputs-for-docker-container-and-javascript-actions)"), mas também inclui o token do `valor`.
 
-### Example: Declaring outputs for composite actions
+### Exemplo: Declarando saídas para ações compostas
 
 {% raw %}
 ```yaml
@@ -135,13 +135,13 @@ Para obter mais informações sobre como usar a sintaxe de contexto, consulte "[
 
 ## `runs`
 
-**Required** Specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
+**Obrigatório** Especifica se esta é uma ação do JavaScript, uma ação composta, ou uma ação de contêiner do Docker e como a ação é executada.
 
 ## `runs` para ações de JavaScript
 
 **Obrigatório** Configura o caminho para o código da ação e o tempo de execução usado para executar o código.
 
-### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
+### Exemplo: Usando o Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
 runs:
@@ -162,7 +162,7 @@ runs:
 
 ### `runs.pre`
 
-**Opcional** Permite que você execute um script no início de um trabalho antes de a ação `main:` começar. Por exemplo, você pode usar `pre:` para executar um pré-requisito da configuração do script. O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Opcional** Permite que você execute um script no início de um trabalho antes de a ação `main:` começar. Por exemplo, você pode usar `pre:` para executar um pré-requisito da configuração do script. O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo. A ação `pre:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.pre-if`](#runspre-if).
 
 Neste exemplo, a ação `pre:` executa um script denominado `setup.js.`:
 
@@ -365,11 +365,11 @@ runs:
 ```
 {% endif %}
 
-## `runs` for Docker container actions
+## `runs` par ações do contêiner do Docker
 
-**Required** Configures the image used for the Docker container action.
+**Obrigatório** Configura a imagem usada para a ação do contêiner do Docker.
 
-### Example: Using a Dockerfile in your repository
+### Exemplo: Usando um arquivo do Dockerfile no seu repositório
 
 ```yaml
 runs:
@@ -377,7 +377,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-### Example: Using public Docker registry container
+### Exemplo: Usando o contêiner de registro público do Docker
 
 ```yaml
 runs:
@@ -391,7 +391,7 @@ runs:
 
 ### `runs.pre-entrypoint`
 
-**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e qualquer status de que você precisar devem ser acessado na área de trabalho, em `HOME`, ou como uma variável `STATE_`. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e qualquer status de que você precisar devem ser acessado na área de trabalho, em `HOME`, ou como uma variável `STATE_`. A ação `pre-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.pre-if`](#runspre-if).
 
 O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo.
 
@@ -423,7 +423,7 @@ Para obter mais informações sobre como o `entrypoint` é executado, consulte "
 
 ### `post-entrypoint`
 
-**Opcional**Permite que você execute um script de cleanup, uma vez finalizada a ação`runs.entrypoint`. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação. Porque {% data variables.product.prodname_actions %} executa o script dentro de um novo contêiner usando a mesma imagem-base, o estado do momento da execução é diferente do contêiner principal do `entrypoint`. Você pode acessar qualquer estado que precisar na área de trabalho, em `HOME` ou como variável `STATE_`. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
+**Opcional**Permite que você execute um script de cleanup, uma vez finalizada a ação`runs.entrypoint`. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação. Porque {% data variables.product.prodname_actions %} executa o script dentro de um novo contêiner usando a mesma imagem-base, o estado do momento da execução é diferente do contêiner principal do `entrypoint`. Você pode acessar qualquer estado que precisar na área de trabalho, em `HOME` ou como variável `STATE_`. A ação `post-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.post-if`](#runspost-if).
 
 ```yaml
 runs:

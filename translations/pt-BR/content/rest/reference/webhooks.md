@@ -1,6 +1,6 @@
 ---
 title: Webhooks
-intro: The webhooks API allows you to create and manage webhooks for your repositories.
+intro: A API de webhooks permite que você crie e gerencie webhooks para seus repositórios.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -28,13 +28,13 @@ Além da API REST, {% data variables.product.prodname_dotcom %} também pode ser
   {% if operation.subcategory == 'repos' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Repository webhook configuration
+## Configuração de webhook do repositório
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'repo-config' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Repository webhook deliveries
+## Entregas do webhook do repositório
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'repo-deliveries' %}{% include rest_operation %}{% endif %}

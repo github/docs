@@ -1,6 +1,6 @@
 ---
-title: Viewing a file
-intro: You can view raw file content or trace changes to lines in a file and discover how parts of the file evolved over time.
+title: Visualizando um arquivo
+intro: Você pode visualizar o conteúdo do arquivo sem processamento ou rastrear alterações nas linhas em um arquivo e descobrir como as partes do arquivo evoluíram ao longo do tempo.
 redirect_from:
   - /articles/using-git-blame-to-trace-changes-in-a-file
   - /articles/tracing-changes-in-a-file
@@ -15,19 +15,19 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: View files and track file changes
+shortTitle: Ver arquivos e acompanhar as alterações de arquivos
 ---
 
-## Viewing or copying the raw file content
+## Visualizando ou copiando o conteúdo do arquivo sem processamento
 
-With the raw view, you can view or copy the raw content of a file without any styling.
+Com a visualização sem processamento, você pode visualizar ou copiar o conteúdo não processado de um arquivo sem qualquer estilo.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Click the file that you want to view.
-2. In the upper-right corner of the file view, click **Raw**. ![Screenshot of the Raw button in the file header](/assets/images/help/repository/raw-file-button.png)
-3. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="The copy icon" %}**.
+1. Clique no arquivo que você deseja visualizar.
+2. No canto superior direito da visualização de arquivo, clique em **Sem processamento**. ![Captura de tela do botão sem processamento no cabeçalho do arquivo](/assets/images/help/repository/raw-file-button.png)
+3. Opcionalmente, para copiar o conteúdo do arquivo não processado no canto superior direito da visualização do arquivo, clique em **{% octicon "copy" aria-label="The copy icon" %}**.
 
-## Viewing the line-by-line revision history for a file
+## Visualizando o histórico de revisão linha por linha para um arquivo
 
 Com a exibição blame, você pode ver o histórico de revisão linha por linha de um arquivo inteiro ou exibir o histórico de revisão de uma única linha dentro de um arquivo clicando em {% octicon "versions" aria-label="The prior blame icon" %}. Toda vez que você clicar em {% octicon "versions" aria-label="The prior blame icon" %}, verá as informações anteriores de revisão relativas a essa linha, inclusive quem realizou a alteração e quando.
 

@@ -54,11 +54,11 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 {% data reusables.codespaces.exporting-changes %}
 ## Gerenciamento de notificações por e-mail e limite de gastos
 
-Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, 90%, and 100% of your account's spending limit.
+As notificações de e-mail são enviadas para os proprietários de contas e gerentes de cobrança quando os gastos chegam a 50%, 75%, 90% e 100% do limite de gastos da sua conta.
 
 Você pode desabilitar essas notificações a qualquer momento, acessando a parte inferior da página **limite de gastos**.
 
-![Screenshot of the billing email notification settings](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
+![Captura de tela das configurações de notificação de e-mail](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
 
 ## Leia mais
 

@@ -15,5 +15,5 @@
      - En Windows, el script `config` también te pregunta si deseas instalar la aplicación del ejecutor autoalojado como un servicio. Para Linux y macOS, puedes instalar un servicio después de que termines de agregar el ejecutor. Para obtener más información, consulta "[Configurar la aplicación del ejecutor autoalojado como un servicio](/actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service)."
    - Ejecutar la aplicación del ejecutor autoalojado para conectar la máquina a las {% data variables.product.prodname_actions %}.
 {% ifversion fpt or ghec or ghes > 3.2 %}
-     - If you are setting up a cluster of runners, you can install another tool to automatically scale your runners.  Para obtener más información, consulta la sección "[Autoescalar con ejecutores auto-hospedados](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)".
+     - Si estás configurando un clúster de ejecutores, puedes instalar otra herramienta para escalarlos automáticamente.  Para obtener más información, consulta la sección "[Autoescalar con ejecutores auto-hospedados](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)".
 {% endif %}

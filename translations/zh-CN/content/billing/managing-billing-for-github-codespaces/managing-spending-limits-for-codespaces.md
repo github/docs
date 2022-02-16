@@ -54,9 +54,11 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 {% data reusables.codespaces.exporting-changes %}
 ## 管理使用和支出限制电子邮件通知
 
-Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, and 90% of your account's spending limit.
+Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, 90%, and 100% of your account's spending limit.
 
 You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+
+![Screenshot of the billing email notification settings](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
 
 ## 延伸阅读
 

@@ -37,7 +37,7 @@ Se você deseja ver uma visão geral da sua assinatura e uso para {% data variab
 
 ## Exibir assinatura e uso da conta corporativa
 
-You can view the subscription and usage for your enterprise and download a file with license details.
+Você pode visualizar a assinatura e o uso para a sua empresa e fazer o download de um arquivo com detalhes da licença.
 
 {% data reusables.billing.license-statuses %}
 

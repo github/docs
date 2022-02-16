@@ -20,7 +20,7 @@ Para transferir um problema aberto para outro repositório, é preciso ter acess
 
 Você somente pode transferir problemas entre repositórios pertencentes à mesma conta de usuário ou organização. {% ifversion fpt or ghes or ghec %}Você não pode transferir um problema de um repositório privado para um repositório público.{% endif %}
 
-Quando você transfere um problema, os comentários e responsáveis são mantidos. As etiquetas e os marcos do problema não são retidos. Esse problema permanecerá em qualquer quadro de projeto pertencente ao usuário ou à organização e será removido dos quadros de projeto de todos os repositórios. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
+When you transfer an issue, comments, labels and assignees are retained. The issue's milestones are not retained. Esse problema permanecerá em qualquer quadro de projeto pertencente ao usuário ou à organização e será removido dos quadros de projeto de todos os repositórios. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
 
 As pessoas ou equipes mencionadas no problema receberão uma notificação informando que o problema foi transferido para um novo repositório. O URL original redirecionará para o novo URL do problema. As pessoas que não tenham permissões de leitura no novo repositório verão um banner informando que o problema foi transferido para um novo repositório ao qual elas não têm acesso.
 
