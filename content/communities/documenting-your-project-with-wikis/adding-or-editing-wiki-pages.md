@@ -68,3 +68,5 @@ The filename determines the title of your wiki page, and the file extension dete
 Wikis use [our open-source Markup library](https://github.com/github/markup) to convert the markup, and it determines which converter to use by a file's extension. For example, if you name a file *foo.md* or *foo.markdown*, wiki will use the Markdown converter, while a file named *foo.textile* will use the Textile converter.
 
 Don't use the following characters in your wiki page's titles: `\ / : * ? " < > |`. Users on certain operating systems won't be able to work with filenames containing these characters. Be sure to write your content using a markup language that matches the extension, or your content won't render properly.
+
+WARNING: Dont use other file extensions while editing locally. Files with unsupported extensions wont to be rendered in wiki and are not accessed by local wiki links. You can include only supported markup formats in wikis.
