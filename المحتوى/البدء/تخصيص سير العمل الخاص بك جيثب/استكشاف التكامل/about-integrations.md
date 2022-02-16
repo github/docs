@@ -1,3 +1,4 @@
+[Maged+Derar+sayed+Derar.pdf](https://github.com/github/docs/files/8075885/Maged%2BDerar%2Bsayed%2BDerar.pdf)
 ---
 title: About integrations
 intro: 'Integrations are tools and services that connect with {% data variables.product.product_name %} to complement and extend your workflow.'
