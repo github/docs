@@ -130,6 +130,8 @@ Use a chave `on` para especificar quais eventos acionam o seu fluxo de trabalho.
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Definindo entradas, saídas e segredos para fluxos de trabalho reutilizáveis
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 É possível definir entradas e segredos que um fluxo de trabalho reutilizável deve receber de um fluxo de trabalho chamado. Também é possível especificar saídas que um fluxo de trabalho reutilizável disponibilizará para um fluxo de trabalho chamado. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/using-workflows/reusing-workflows)".
 
 {% endif %}

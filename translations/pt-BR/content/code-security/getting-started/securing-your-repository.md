@@ -32,7 +32,7 @@ O primeiro passo para proteger um repositório é configurar quem pode ver e mod
 
 Na página principal do seu repositório, clique em **{% octicon "gear" aria-label="The Settings gear" %}configurações**e, em seguida, desça a barra de rolagem até a "Zona de perigo".
 
-- Para alterar quem pode visualizar seu repositório, clique em **Alterar a visibilidade**. Para obter mais informações, consulte "[Configurar a visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec %}
+- Para alterar quem pode visualizar seu repositório, clique em **Alterar a visibilidade**. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
 - Para alterar quem pode acessar o seu repositório e ajustar as permissões, clique em **Gerenciar acesso**. Para obter mais informações, consulte[Gerenciar equipes e pessoas com acesso ao seu repositório](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)".{% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}

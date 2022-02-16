@@ -2,7 +2,7 @@
 title: Suporte do GitHub
 shortTitle: Suporte do GitHub
 layout: product-landing
-intro: 'GitHub offers different levels of support with each product, including community forum support and limited email support for everyone, full email support for all paid products, and 24/7 email and callback support with a service level agreement (SLA) if your account includes {% data variables.contact.premium_support %}.'
+intro: 'O GitHub oferece diferentes níveis de suporte a cada produto, incluindo suporte ao fórum comunitário e suporte por e-mail limitado para todos, suporte por e-mail completo para todos os produtos pagos e suporte de e-mail e retorno de chamada 24/7 com um acordo de nível de serviço (SLA) se a sua conta incluir {% data variables.contact.premium_support %}.'
 versions:
   fpt: '*'
   ghec: '*'

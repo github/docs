@@ -7,6 +7,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
   - /actions/guides/caching-dependencies-to-speed-up-workflows
+  - /actions/advanced-guides/caching-dependencies-to-speed-up-workflows
 versions:
   fpt: '*'
   ghec: '*'
@@ -88,7 +89,7 @@ Para obter mais informações, consulte [`ações/cache`](https://github.com/act
 ### Parâmetros de entrada para a ação da `cache`
 
 - `key`: **Obrigatório** A chave criada ao salvar uma cache e a chave usada para pesquisar uma cache. Pode ser qualquer combinação de variáveis, valores de contexto, strings estáticas e funções. As chaves têm um tamanho máximo de 512 caracteres e as chaves maiores que o tamanho máximo gerarão uma falha na ação.
-- ``de caminho : **Required** O caminho do arquivo no corredor para cache ou restauração. O caminho pode ser absoluto ou relativo com relação ao diretório de trabalho.
+- `path`: **Required** The file path on the runner to cache or restore. O caminho pode ser absoluto ou relativo com relação ao diretório de trabalho.
   - Os caminhos podem ser diretórios ou arquivos únicos. Os padrões de glob são compatíveis.
   - Com o `v2` da ação `cache`, é possível especificar um único caminho ou é possível adicionar vários caminhos em linhas separadas. Por exemplo:
     ```
@@ -99,7 +100,7 @@ Para obter mais informações, consulte [`ações/cache`](https://github.com/act
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
-  - Com `v1` da ação da `cache`, somente um caminho único é compatível e deve ser um diretório. Você não pode armazenar um único arquivo.
+  - Com `v1` da ação da `cache`, somente um caminho único é compatível e deve ser um diretório. You cannot cache a single file.
 - `chaves de restauração`: **Opcional** Uma lista ordenada de chaves alternativas a serem usadas para encontrar a cache se não ocorrer correspondência para a `chave`.
 
 ### Parâmetros de saída para a ação da `cache`
@@ -232,4 +233,4 @@ Por exemplo, se um pull request contiver um branch de`recurso` (escopo atual) e 
 
 ## Limites de uso e política de eliminação
 
-{% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. Não há limite para o número de caches que você pode armazenar, mas o limite do tamanho total de todas as caches em um repositório é 10 GB. Se você exceder este limite, {% data variables.product.prodname_dotcom %} salvará a sua cache, mas começará a eliminar as caches até que o tamanho total seja inferior a 10 GB.
+{% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 10 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 10 GB.

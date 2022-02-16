@@ -51,7 +51,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-See "[Searching on GitHub](/search-github/searching-on-github)" for a complete list of available qualifiers, their format, and an example of how to use them. Para obter informações sobre como usar operadores para corresponder a quantidades e datas específicas ou para excluir resultados, consulte "[Entender a sintaxe de pesquisa](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)".
+Consulte "[Pesquisar no GitHub](/search-github/searching-on-github)" para obter uma lista completa de qualificadores disponíveis, seu formato e um exemplo de como usá-los. Para obter informações sobre como usar operadores para corresponder a quantidades e datas específicas ou para excluir resultados, consulte "[Entender a sintaxe de pesquisa](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)".
 
 ### Limitações no tamanho da consulta
 
@@ -69,7 +69,7 @@ Atingir um tempo limite não significa necessariamente que os resultados da pesq
 
 ### Erros de acesso ou resultados de pesquisa ausentes
 
-You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. Por exemplo, sua pesquisa irá falhar se sua consulta incluir qualificadores `repo:`, `user:` ou `org:` que solicitam recursos aos quais você não tem acesso ao efetuar login em {% data variables.product.prodname_dotcom %}.
+Você precisa efetuar a autenticação com sucesso e ter acesso aos repositórios nas consultas de pesquisa. Caso contrário, você verá um erro `422 Unprocessable Entry` com uma mensagem "Falha na validação". Por exemplo, sua pesquisa irá falhar se sua consulta incluir qualificadores `repo:`, `user:` ou `org:` que solicitam recursos aos quais você não tem acesso ao efetuar login em {% data variables.product.prodname_dotcom %}.
 
 Quando sua consulta de pesquisa solicitar vários recursos, a resposta só conterá os recursos aos quais você tem acesso e **não** fornecerá uma mensagem de erro listando os recursos que não foram retornados.
 
