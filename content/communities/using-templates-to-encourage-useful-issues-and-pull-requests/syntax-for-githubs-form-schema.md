@@ -1,4 +1,15 @@
----
+body: security policy.
+- type: dropdown
+  id: download
+  attributes:
+    label: How did you download the software?
+    options:
+      - Homebrew
+      - MacPorts
+      - apt-get
+      - Built from source
+  validations:
+    required: true---
 title: Syntax for GitHub's form schema
 intro: 'You can use {% data variables.product.company_short %}''s form schema to configure forms for supported features.'
 versions:
