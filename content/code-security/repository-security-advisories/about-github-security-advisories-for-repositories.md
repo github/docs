@@ -23,19 +23,19 @@ shortTitle: Repository security advisories
 
 ## About {% data variables.product.prodname_security_advisories %}
 
-{% data reusables.security-advisory.disclosing-vulnerabilities %} For more information, see "[About coordinated disclosure of security vulnerabilities](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)."
+{% data reusables.security-advisory.disclosing-vulnerabilities %} For more information, see "[About coordinated disclosure of security vulnerabilities](/code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)."
 
 {% data reusables.security-advisory.security-advisory-overview %}
 
 With {% data variables.product.prodname_security_advisories %}, you can:
 
-1. Create a draft security advisory, and use the draft to privately discuss the impact of the vulnerability on your project. For more information, see "[Creating a repository security advisory](/code-security/security-advisories/creating-a-repository-security-advisory)."
+1. Create a draft security advisory, and use the draft to privately discuss the impact of the vulnerability on your project. For more information, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
 2. Privately collaborate to fix the vulnerability in a temporary private fork.
-3. Publish the security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[Publishing a repository security advisory](/code-security/security-advisories/publishing-a-repository-security-advisory)."
+3. Publish the security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[Publishing a repository security advisory](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)."
 
 {% data reusables.repositories.security-advisories-republishing %}
 
-You can give credit to individuals who contributed to a security advisory. For more information, see "[Editing a repository security advisory](/code-security/security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
+You can give credit to individuals who contributed to a security advisory. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
 
 {% data reusables.repositories.security-guidelines %}
 
@@ -54,7 +54,7 @@ If a security advisory is specifically for npm, we also publish the advisory to 
 When you create a security advisory for a public repository on {% data variables.product.prodname_dotcom %}, you have the option of providing an existing CVE identification number for the security vulnerability. {% data reusables.repositories.request-security-advisory-cve-id %}
 
 Once you've published the security advisory and {% data variables.product.prodname_dotcom %} has assigned a CVE identification number to the vulnerability, {% data variables.product.prodname_dotcom %} publishes the CVE to the MITRE database.
-For more information, see "[Publishing a repository security advisory](/code-security/security-advisories/publishing-a-repository-security-advisory)."
+For more information, see "[Publishing a repository security advisory](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)."
 
 ## {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 

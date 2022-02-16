@@ -35,5 +35,5 @@ People with admin permissions to a security advisory can remove collaborators fr
 
 ## Further reading
 
-- "[Permission levels for repository security advisories](/code-security/security-advisories/permission-levels-for-repository-security-advisories)"
-- "[Adding a collaborator to a repository security advisory](/code-security/security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"
+- "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
+- "[Adding a collaborator to a repository security advisory](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"

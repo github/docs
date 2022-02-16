@@ -1,10 +1,11 @@
 ---
-title: Managing security advisories for vulnerabilities in your project
-shortTitle: Security advisories
+title: Managing repository security advisories for vulnerabilities in your project
+shortTitle: Repository security advisories
 intro: 'Discuss, fix, and disclose security vulnerabilities in your repositories using repository security advisories.'
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
+  - /code-security/security-advisories
 versions:
   fpt: '*'
   ghec: '*'

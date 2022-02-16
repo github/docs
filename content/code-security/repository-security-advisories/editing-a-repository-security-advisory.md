@@ -46,4 +46,4 @@ If you believe you should be credited for a security advisory, please contact th
 
 ## Further reading
 
-- "[Withdrawing a repository security advisory](/code-security/security-advisories/withdrawing-a-repository-security-advisory)"
+- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"

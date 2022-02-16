@@ -38,7 +38,7 @@ Anyone with admin permissions to a repository can create a security advisory.
 ## Next steps
 
 - Comment on the draft security advisory to discuss the vulnerability with your team.
-- Add collaborators to the security advisory. For more information, see "[Adding a collaborator to a repository security advisory](/code-security/security-advisories/adding-a-collaborator-to-a-repository-security-advisory)."
-- Privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
-- Add individuals who should receive credit for contributing to the security advisory. For more information, see "[Editing a repository security advisory](/code-security/security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
-- Publish the security advisory to notify your community of the security vulnerability. For more information, see "[Publishing a repository security advisory](/code-security/security-advisories/publishing-a-repository-security-advisory)."
+- Add collaborators to the security advisory. For more information, see "[Adding a collaborator to a repository security advisory](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)."
+- Privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
+- Add individuals who should receive credit for contributing to the security advisory. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
+- Publish the security advisory to notify your community of the security vulnerability. For more information, see "[Publishing a repository security advisory](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)."
