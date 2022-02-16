@@ -30,8 +30,8 @@ Nos preocupa la censura de Internet y creemos que la transparencia a un nivel es
 ## ¿Qué significa que publiquemos una notificación en nuestro repositorio de retiro del gobierno?
 Significa que recibimos la notificación en la fecha indicada. *No* significa que el contenido es ilegal o sea incorrecto. *No* significa que el usuario identificado en la notificación haya hecho algo incorrecto. No hacemos ni implicamos ningún juicio sobre el mérito de las reclamaciones que hacen. Publicamos estas notificaciones y solicitudes sólo para propósitos informativos.
 
-## Government takedowns based on violations of GitHub's Terms of Service
-In some cases, GitHub receives reports from government officials of violations of GitHub's Terms of Service. We process those violations as we would process a Terms-of-Service violation reported by anyone else. However, we notify the affected users that the report came from a government and, as with any other case, allow them the opportunity to appeal.
+## Retiros de gobierno con base en las violaciones de los Términos de Servicio de GitHub
+En algunos casos, GitHub recibe reportes de funcionarios gubernamentales con respecto a violaciones a estos Términos de Servicio. Procesamos dichas violaciones tal como procesaríamos una violación de los Términos de Servicio que denunciara cualquier otra persona. Sin embargo, notificamos a los usuarios afectados que el reporte vino del gobierno y, tal como ocurriría en cualquier otro caso, les damos oportunidad de apelar.
 
 ## Reportes de transparencia
-In addition to posting government takedown notices in our `github/gov-takedowns` repository, we report on them in our transparency report. También rastreamos e informamos en nuestro reporte de transparencia sobre los retiros del gobierno con base en violaciones de los Términos de Servicio de GitHub.
+Adicionalmente a publicar notificaciones de retiro en nuestro repositorio de `github/gov-takedowns`, también las reportamos en nuestro reporte de transparencia. También rastreamos e informamos en nuestro reporte de transparencia sobre los retiros del gobierno con base en violaciones de los Términos de Servicio de GitHub.

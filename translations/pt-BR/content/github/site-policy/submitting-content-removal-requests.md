@@ -24,4 +24,4 @@ A Política de Marca Registrada do GitHub pode ser utilizada para denunciar cont
 ## [Política de Remoção de Informações Privadas do GitHub](/github/site-policy/github-private-information-removal-policy)
 A Política de Remoção de Informações Privadas do GitHub pode ser usada para relatar dados privados (confidenciais e apresenta um risco de segurança), mas isso não é necessariamente protegido por direitos de autor ou por marcas registradas.
 
-Users in India can contact GitHub's Grievance Officer [here](https://support.github.com/contact/india-grievance-officer).
+Os usuários na Índia podem entrar em contato com o Oficial Grievance GitHub [aqui](https://support.github.com/contact/india-grievance-officer).

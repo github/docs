@@ -116,7 +116,8 @@ This file should be automatically updated, but you can also run `script/update-e
   Use admin permissions to ship the release branch with this failure. Make sure that the merge's commit title does not include anything like `[DO NOT MERGE]`, and remove all the branch's commit details from the merge's commit message except for the co-author list.
 - [ ] Do any required smoke tests listed in the opening post in the megabranch PR.
 - [ ] Once smoke tests have passed, you can [unfreeze the repos](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/freezing.md) and post an announcement in Slack.
-- [ ] After unfreezing, push the search index LFS objects for the public `github/docs` repo. The LFS objects were already being pushed for the internal repo after the `sync-english-index-for-<PLAN@RELEASE>` was added to the megabranch. To push the LFS objects, run the [search sync workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml) with the following inputs:
+- [ ] After unfreezing, push the search index LFS objects for the public `github/docs` repo. The LFS objects were already being pushed for the internal repo after the `sync-english-index-for-<PLAN@RELEASE>` was added to the megabranch. To push the LFS objects, run the [search sync workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). Once you're there, click on `Run workflow` button. A modal will pop up where you can set the following inputs:
+  Branch: The new version megabranch you're working on
   version: `enterprise-server@<RELEASE>`
   language: `en`
 - [ ] After unfreezing, if there were significant or highlighted GraphQL changes in the release, consider manually running the [GraphQL update workflow](https://github.com/github/docs-internal/actions/workflows/update-graphql-files.yml) to update our GraphQL schemas. By default this workflow only runs once every 24 hours.

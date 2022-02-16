@@ -50,6 +50,6 @@ jobs:
           git push --set-upstream origin $BRANCH
 
           echo "Open a pull request"
-          gh pr create --title "Optimize images" --body "Optimize images" --reviewer "@github/docs-engineering"
+          gh pr create --title "Optimize images" --body "Optimize images"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -60,7 +60,7 @@ import next from './next.js'
 import renderPage from './render-page.js'
 import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
-import favicon from './favicon.js'
+import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
@@ -112,7 +112,7 @@ export default function (app) {
     )
   )
 
-  app.use(favicon)
+  app.use(favicons)
 
   // Any static URL that contains some sort of checksum that makes it
   // unique gets the "manual" surrogate key. If it's checksummed,
@@ -214,6 +214,10 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
   app.use(asyncMiddleware(instrument(shortVersions, './contextualizers/short-versions'))) // Support version shorthands
 
+  // Must come before handleRedirects.
+  // This middleware might either redirect to serve something.
+  app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
+
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
   app.use(connectSlashes(false))
@@ -237,7 +241,6 @@ export default function (app) {
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 
-  app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
   app.use(instrument(robots, './robots'))
   app.use(
     /(\/.*)?\/early-access$/,

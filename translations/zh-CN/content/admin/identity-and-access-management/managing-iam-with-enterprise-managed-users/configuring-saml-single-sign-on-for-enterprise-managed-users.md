@@ -25,6 +25,8 @@ With {% data variables.product.prodname_emus %}, your enterprise uses SAML SSO t
 
 After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your identity provider is unavailable. For more information, see "[Saving your recovery codes](#saving-your-recovery-codes)."
 
+{% data reusables.saml.cannot-update-existing-saml-settings %}
+
 ## Configuring SAML single sign-on for {% data variables.product.prodname_emus %}
 
 To configure SAML SSO for your {% data variables.product.prodname_emu_enterprise %}, you must configure an application on your IdP and then configure your enterprise on GitHub.com. After you configure SAML SSO, you can configure user provisioning.

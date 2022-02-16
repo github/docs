@@ -20,7 +20,7 @@ topics:
 
 ## Acerca de {% data variables.product.prodname_secret_scanning %}
 
-If someone checks a secret with a known pattern into a repository, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. Se notifica a los administradores de repositorio sobre cualquier confirmación que contenga un secreto y pueden ver rápidamente todos los secretos en la pestaña de seguridad de éste. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".
+Si alguien verifica un secreto con un patrón conocido en un repositorio, el {% data variables.product.prodname_secret_scanning %} atrapa el secreto conforme ingresa y te permite mitigar el impacto de la fuga. Se notifica a los administradores de repositorio sobre cualquier confirmación que contenga un secreto y pueden ver rápidamente todos los secretos en la pestaña de seguridad de éste. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".
 
 ## Verificar si tu licencia incluye a la {% data variables.product.prodname_GH_advanced_security %}
 
