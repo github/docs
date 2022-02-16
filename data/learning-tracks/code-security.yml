@@ -1,5 +1,5 @@
 # Feature available only on dotcom
-repository_security_advisories:
+security_advisories:
   title: 'Fix and disclose a security vulnerability'
   description: 'Using repository security advisories to privately fix a reported vulnerability and get a CVE.'
   featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'

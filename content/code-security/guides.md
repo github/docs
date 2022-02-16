@@ -9,7 +9,7 @@ versions:
   ghae: '*'
   ghec: '*'
 learningTracks:
-  - repository_security_advisories
+  - security_advisories
   - dependabot_alerts
   - dependabot_security_updates
   - dependency_version_updates
