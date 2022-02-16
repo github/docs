@@ -60,6 +60,9 @@ If you only want to remove an outside collaborator from certain repositories in 
 8. To confirm, click **Remove access**.
 ![Confirm outside collaborator who will be removed from the repository](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+You can also remove an outside collaborator from a repository in the access overview in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)."
+{% endif %}
 ## Further reading
 
 - "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"

@@ -458,6 +458,16 @@ You can use these additional options with the utility:
 ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
 ```
 
+### ghe-ssl-certificate-setup
+
+This utility allows you to update an SSL certificate for {% data variables.product.product_location %}. 
+
+For more information about this command or for additional options, use the `-h` flag.
+
+```shell
+ghe-ssl-certificate-setup
+```
+
 ### ghe-ssl-generate-csr
 
 This utility allows you to generate a private key and certificate signing request (CSR), which you can share with a commercial or private certificate authority to get a valid certificate to use with your instance. For more information, see "[Configuring TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)."

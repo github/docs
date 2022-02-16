@@ -18,7 +18,7 @@ topics:
 
 As pessoas com permissões de administrador ou proprietário podem configurar um arquivo CODEOWNERS em um repositório.
 
-The people you choose as code owners must have read permissions for the repository. Quando o proprietário do código é uma equipe, essa equipe deverá ser visível e ter permissões de gravação, ainda que todos os membros individuais da equipe já tenham permissões de gravação diretamente, por meio da associação da organização ou por meio de outra associação à equipe.
+As pessoas escolhidas como proprietários do código devem ter permissões de leitura para o repositório. Quando o proprietário do código é uma equipe, essa equipe deverá ser visível e ter permissões de gravação, ainda que todos os membros individuais da equipe já tenham permissões de gravação diretamente, por meio da associação da organização ou por meio de outra associação à equipe.
 
 ## Sobre proprietários do código
 
@@ -52,7 +52,7 @@ Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usada
 
 Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões.
 
-CODEOWNERS paths are case sensitive, because {% data variables.product.prodname_dotcom %} uses a case sensitive file system. Since CODEOWNERS are evaluated by {% data variables.product.prodname_dotcom %}, even systems that are case insensitive (for example, macOS) must use paths and files that are cased correctly in the CODEOWNERS file.
+Os caminhos dos CODEOWNERS diferenciam maiúsculas de minúsculas, porque {% data variables.product.prodname_dotcom %} usa um sistema de arquivos que diferencia maiúsculas e minúsculas. Uma vez que os CODEOWNERS são avaliados por {% data variables.product.prodname_dotcom %}, até mesmo sistemas que diferenciam maiúsculas de minúsculas (por exemplo, macOS) devem usar caminhos e arquivos que são tratados corretamente no arquivo dos CODEOWNERS.
 ### Exemplo de um arquivo CODEOWNERS
 ```
 # Este é um comentário.

@@ -38,20 +38,20 @@ Uma licença de {% data variables.product.prodname_GH_advanced_security %} forne
 {% endif %}
 
 {% ifversion fpt or ghec %}
-The table below summarizes the availability of {% data variables.product.prodname_GH_advanced_security %} features for public and private repositories. |{% ifversion fpt %}
-|                        |          Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %}
-|:----------------------:|:------------------------------------:|:------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:|
-|  Varredura de código   |                 Sim                  |                                         Não                                          |                                        Sim                                        |
-|   Varredura secreta    | Yes **(limited functionality only)** |                                         Não                                          |                                        Sim                                        |
-| Revisão de dependência |                 Sim                  |                                         Não                                          |                                        Sim                                        |{% endif %}
+A tabela abaixo resume a disponibilidade de funcionalidades de {% data variables.product.prodname_GH_advanced_security %} para repositórios públicos e privados. |{% ifversion fpt %}
+|                        |           Repositório público            | Repositório privado sem {% data variables.product.prodname_advanced_security %} | Repositório privado com {% data variables.product.prodname_advanced_security %}
+|:----------------------:|:----------------------------------------:|:---------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:|
+|  Varredura de código   |                   Sim                    |                                        Não                                        |                                        Sim                                        |
+|   Varredura secreta    | Sim **(apenas funcionalidade limitada)** |                                        Não                                        |                                        Sim                                        |
+| Revisão de dependência |                   Sim                    |                                        Não                                        |                                        Sim                                        |{% endif %}
 |
 {% ifversion ghec %}
-|                          |          Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %}
-|:------------------------:|:------------------------------------:|:------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:|
-|   Varredura de código    |                 Sim                  |                                         Não                                          |                                        Sim                                        |
-|    Varredura secreta     | Yes **(limited functionality only)** |                                         Não                                          |                                        Sim                                        |
-|  Revisão de dependência  |                 Sim                  |                                         Não                                          |                                        Sim                                        |
-| Visão geral da segurança |                 Não                  |                                         Não                                          |                                        Sim                                        |
+|                          |           Repositório público            | Repositório privado sem {% data variables.product.prodname_advanced_security %} | Repositório privado com {% data variables.product.prodname_advanced_security %}
+|:------------------------:|:----------------------------------------:|:---------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:|
+|   Varredura de código    |                   Sim                    |                                        Não                                        |                                        Sim                                        |
+|    Varredura secreta     | Sim **(apenas funcionalidade limitada)** |                                        Não                                        |                                        Sim                                        |
+|  Revisão de dependência  |                   Sim                    |                                        Não                                        |                                        Sim                                        |
+| Visão geral da segurança |                   Não                    |                                        Não                                        |                                        Sim                                        |
 {% endif %}
 
 {% endif %}
@@ -59,7 +59,7 @@ The table below summarizes the availability of {% data variables.product.prodnam
 Para obter informações sobre funcionalidades de {% data variables.product.prodname_advanced_security %} em desenvolvimento, consulte "[Plano de trabalho de {% data variables.product.prodname_dotcom %}](https://github.com/github/roadmap)". Para uma visão geral de todas as funcionalidades de segurança, consulte "[ funcionalidades de segurança de{% data variables.product.prodname_dotcom %}](/code-security/getting-started/github-security-features)".
 
 {% ifversion fpt or ghec %}
-{% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghec %}, except for the security overview{% endif %}. As organizações que usam {% data variables.product.prodname_ghe_cloud %} com {% data variables.product.prodname_advanced_security %} também podem habilitar essas funcionalidades para repositórios internos e privados. They also have access to an organization-level security overview. {% ifversion fpt %}Para obter mais informações, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).{% endif %}
+As funcionalidades de{% data variables.product.prodname_GH_advanced_security %} estão habilitadas para todos os repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghec %}, exceto para a visão geral de segurança{% endif %}. As organizações que usam {% data variables.product.prodname_ghe_cloud %} com {% data variables.product.prodname_advanced_security %} também podem habilitar essas funcionalidades para repositórios internos e privados. Elas também têm acesso a uma visão geral de segurança no nível da organização. {% ifversion fpt %}Para obter mais informações, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).{% endif %}
 {% endif %}
 
 {% ifversion ghes or ghec %}
