@@ -18,7 +18,7 @@ topics:
 
 管理者あるいはオーナー権限を持つ人は、リポジトリ中に CODEOWNERS ファイルをセットアップできます。
 
-コードオーナーに指定する人は、リポジトリへの書き込み権限を持っていなければなりません。 When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
+The people you choose as code owners must have read permissions for the repository. When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
 ## コードオーナーについて
 
@@ -104,11 +104,11 @@ apps/ @octocat
 # will require approval from @doctocat or @octocat.
 /scripts/ @doctocat @octocat
 
-# In this example, @octocat owns any file in the `/apps` 
-# directory in the root of your repository except for the `/apps/github` 
+# In this example, @octocat owns any file in the `/apps`
+# directory in the root of your repository except for the `/apps/github`
 # subdirectory, as its owners are left empty.
 /apps/ @octocat
-/apps/github 
+/apps/github
 ```
 ### 構文の例外
 gitignore ファイルには、CODEOWNERS ファイルでは動作しないいくつかの構文ルールがあります。

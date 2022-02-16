@@ -22,7 +22,7 @@ Você pode encontrar as informações de implementação do SAML e SCIM para seu
 - [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector) do PingOne
 - [SAML](https://wiki.shibboleth.net/confluence/display/IDP30/Home) do Shibboleth
 
-You can access your organization's service provider metadata at the following URL, replacing ORGANIZATION with your organization's username.
+Você pode acessar os metadados do provedor de serviços da sua organização no URL a seguir, substitundo a ORGANIZAÇÃO pelo nome de usuário da sua organização.
 
 ```
 http(s)://github.com/orgs/ORGANIZATION/saml/metadata.xml

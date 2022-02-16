@@ -11,10 +11,7 @@ redirect_from:
   - /code-security/secure-coding/configuring-codeql-runner-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: codeql-runner-supported
 type: how_to
 topics:
   - Advanced Security

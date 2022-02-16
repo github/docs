@@ -14,7 +14,7 @@ topics:
 shortTitle: Organizationインサイトの表示
 ---
 
-Organization のメンバー全員が Organization のインサイトを表示できます。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Organization のメンバー全員が Organization のインサイトを表示できます。 詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
 
 Organization のメンバーが、コードについてコラボレートや作業をするため {% data variables.product.product_name %} をどう使っているかについて、より深く理解するために、Organization activity insights を使用できます。 dependency insights は、Organization のオープンソース利用について追跡、レポート、および行動するため役立ちます。
 
@@ -38,7 +38,7 @@ Organization activity insights を使えば、Issue やプルリクエストア�
 
 {% note %}
 
-**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).
+**ノート:** 必ず[依存関係グラフ](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)を有効化しておいてください。
 
 {% endnote %}
 
@@ -55,5 +55,5 @@ dependency insights を使えば、あなたの Organization が頼るオープ�
 ## 参考リンク
  - [Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)
  - [リポジトリの依存関係を見る](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)
- - "[Changing the visibility of your organization's dependency insights](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"{% ifversion ghec %}
-- "[Enforcing policies for dependency insights in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)"{% endif %}
+ - 「[Organizationの依存関係インサイトの可視性の変更](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)」{% ifversion ghec %}
+- 「[Enterpriseでの依存関係インサイトのポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)」{% endif %}

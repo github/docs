@@ -56,6 +56,8 @@ The name of your workflow. {% data variables.product.prodname_dotcom %} displays
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call`
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
 
 ### `on.workflow_call.inputs`
@@ -880,6 +882,8 @@ Additional Docker container resource options. For a list of options, see "[`dock
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
+
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 
 The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use one of the following syntaxes:{% endif %}
 

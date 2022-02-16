@@ -34,7 +34,7 @@ Si utilizas un flujo de trabajo desde un repositorio diferente, cualquier acció
 
 Cuando un flujo de trabajo llamante activa uno reutilizable, el contexto `github` siempre se asocia con el flujo llamante. Se otorga acceso automáticamente al flujo de trabajo llamado para `github.token` y `secrets.GITHUB_TOKEN`. Para obtener más información sobre el contexto `github`, consulta la sección "[Sintaxis de contexto y expresión para GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
 
 ### Flujos de trabajo reutilizables e iniciales
 

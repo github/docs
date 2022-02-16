@@ -13,7 +13,7 @@ shortTitle: Integrate Jira
 {% ifversion ghes > 3.4 or ghae-issue-5658 %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, select **{% octicon "code" aria-label="The code icon" %} Developer settings**, then click **OAuth Apps**. ![Aba OAuth applications (aplicativos OAuth) na barra lateral esquerda](/assets/images/help/organizations/org-oauth-applications-ghe.png)
+1. Na barra lateral esquerda, selecione **Configurações do desenvolvedor de {% octicon "code" aria-label="The code icon" %}** e, em seguida, clique em **aplicativos OAuth**. ![Aba OAuth applications (aplicativos OAuth) na barra lateral esquerda](/assets/images/help/organizations/org-oauth-applications-ghe.png)
 1. Clique em **Novo aplicativo OAuth**.
 {% else %}
 {% data reusables.user_settings.access_settings %}
