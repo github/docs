@@ -8,6 +8,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
   - /actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts
   - /actions/guides/storing-workflow-data-as-artifacts
+  - /actions/advanced-guides/storing-workflow-data-as-artifacts
 versions:
   fpt: '*'
   ghes: '*'

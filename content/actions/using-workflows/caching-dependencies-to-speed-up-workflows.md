@@ -7,6 +7,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
   - /actions/guides/caching-dependencies-to-speed-up-workflows
+  - /actions/advanced-guides/caching-dependencies-to-speed-up-workflows
 versions:
   fpt: '*'
   ghec: '*'
