@@ -39,7 +39,7 @@ You can give credit to individuals who contributed to a security advisory. For m
 
 {% data reusables.repositories.security-guidelines %}
 
-If you created a security advisory in your repository, the security advisory will stay in your repository. We publish security advisories for any of the ecosystems supported by the dependency graph to the {% data variables.product.prodname_advisory_database %} on [github.com/advisories](https://github.com/advisories). Anyone can submit a change to an advisory published in the {% data variables.product.prodname_advisory_database %}. For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database)]."
+If you created a security advisory in your repository, the security advisory will stay in your repository. We publish security advisories for any of the ecosystems supported by the dependency graph to the {% data variables.product.prodname_advisory_database %} on [github.com/advisories](https://github.com/advisories). Anyone can submit a change to an advisory published in the {% data variables.product.prodname_advisory_database %}. For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database)."
 
 If a security advisory is specifically for npm, we also publish the advisory to the npm security advisories. For more information, see [npmjs.com/advisories](https://www.npmjs.com/advisories).
 

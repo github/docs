@@ -10,7 +10,7 @@ topics:
   - Dependabot
   - Vulnerabilities
   - CVEs
-shortTitle: Edit advisories in the GitHub Advisory Database
+shortTitle: Edit Advisory Database
 ---
 
 ## About editing advisories in the {% data variables.product.prodname_advisory_database %}
@@ -24,4 +24,4 @@ Only repository owners and administrators can edit repository-level security adv
 3. On the right-hand side of the page, click the **Suggest improvements for this vulnerability** link.
    ![Suggest improvements link](/assets/images/help/security/suggest-improvements-to-advisory.png)
 4. In the contribution form, make the desired improvements. You can edit or add any detail.
-5. Click the **Submit improvements** button when finished.
+5. When you finish editing the advisory, click **Submit improvements**.
