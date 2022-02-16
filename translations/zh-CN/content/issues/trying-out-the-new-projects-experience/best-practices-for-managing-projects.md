@@ -27,6 +27,20 @@ topics:
 
 议题和拉取请求包括内置功能，让您轻松地与协作者沟通。 使用@提及提醒个人或整个团队注意评论。 指派议题协作者负责沟通。 链接到相关的议题或拉取请求以沟通它们是如何连接的。
 
+## Make use of the description and README
+
+Use your project's description and README to share information about the project.
+
+例如：
+
+- Explaining the purpose of the project.
+- Describing the project views and how to use them.
+- Including relevant links and people to contact for more information.
+
+Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers.
+
+For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)."
+
 ## 使用视图
 
 使用项目视图从不同角度查看您的项目。

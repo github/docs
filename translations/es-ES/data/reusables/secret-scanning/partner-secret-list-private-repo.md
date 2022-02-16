@@ -156,7 +156,7 @@ PyPI | Token de la API de PyPI | pypi_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 RubyGems | Llave de la API de RubyGems | rubygems_api_key{% endif %} Samsara | Token de la API de Samsara | samsara_api_token Samsara | Token de Acceso OAuth a Samsara | samsara_oauth_access_token
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae %}
-Segment | Segment Public API Token | segment_public_api_token{% endif %}
+Segment | Token de la API Público de Segment | segment_public_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 SendGrid | Llave de la API de SendGrid | sendgrid_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}

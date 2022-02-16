@@ -54,9 +54,11 @@ Enterprise アカウントの {% data variables.product.prodname_codespaces %} �
 {% data reusables.codespaces.exporting-changes %}
 ## Managing usage and spending limit email notifications
 
-Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, and 90% of your account's spending limit.
+Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, 90%, and 100% of your account's spending limit.
 
 You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+
+![Screenshot of the billing email notification settings](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
 
 ## 参考リンク
 
