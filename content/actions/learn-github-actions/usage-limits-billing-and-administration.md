@@ -73,6 +73,8 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Billing for reusable workflows
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. 
 
 For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."

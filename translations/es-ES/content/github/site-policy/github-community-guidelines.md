@@ -22,7 +22,7 @@ El propósito principal de la comunidad de GitHub es colaborar en proyectos de s
 
 * **Se cordial y de mentalidad abierta** - Otros colaboradores pueden no tener el mismo nivel de experiencia o antecedentes que tú, pero eso no significa que no tengan buenas ideas para aportar. Te invitamos a dar la bienvenida a los nuevos miembros y a los que están empezando a trabajar.
 
-* **Respect each other** - Nothing sabotages healthy conversation like rudeness. Se cortés y profesional y no publiques nada que una persona razonable consideraría ofensivo, abusivo o un discurso de odio. No acoses ni molestes a nadie. Trato mutuo con dignidad y consideración en todas las interacciones.
+* **Respeto mutuo** - Lo que más sabotea a una conversación sana, es la descortesía. Se cortés y profesional y no publiques nada que una persona razonable consideraría ofensivo, abusivo o un discurso de odio. No acoses ni molestes a nadie. Trato mutuo con dignidad y consideración en todas las interacciones.
 
   Es probable que desees responder a algo discrepándolo. Está bien. Pero recuerda criticar las ideas, no a las personas. Evita ataques usando el nombre, ad hominem, respondiendo al tono de un post en lugar de su contenido real y contradicción reactiva. En lugar de ello, proporciona contra-argumentos razonados que mejoran la conversación.
 

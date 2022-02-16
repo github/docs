@@ -4,11 +4,11 @@ sections:
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
     - 'Pages would become unavailable following a MySQL secret rotation until `nginx` was manually restarted.'
-    - 'When setting the maintenance schedule with a ISO 8601 date, the actual scheduled time wouldn''t match due to the timezone not being transformed to UTC.'
+    - 'Cuando se configura la programación de mantenimiento con una fecha ISO 8601, el tiempo programado real no coincide debido a que la zona horaria no se transforma a UTC.'
     - 'Spurious error messages concerning the `cloud-config.service` would be output to the console.'
     - 'The version number would not be correctly updated after a installing a hotpatch using `ghe-cluster-each`.'
     - 'Webhook table cleanup jobs could run simultaneously, causing resource contention and increasing job run time.'
-    - 'When using CAS authentication and the "Reactivate suspended users" option was enabled, suspended users were not automatically reactivated.'
+    - 'Cuando se utilizó la autenticación CAS y se habilitó la autenticación de "Reactivar usuarios suspendidos", dichos usuarios no se reactivaron automáticamente.'
     - 'The ability to limit email-based notifications to users with emails on a verified or approved domain did not work correctly.'
     - 'Several documentation links resulted in a 404 Not Found error.'
   changes:

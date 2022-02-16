@@ -316,7 +316,7 @@ Durante a execução de um fluxo de trabalho, o executor gera arquivos temporár
 
 **Aviso:** no Windows, o PowerShell de legado (`shell: powershell`) não usa UTF-8 por padrão.
 
-When using `shell: powershell`, you must specify UTF-8 encoding. Por exemplo:
+Ao usar `shell: powershell`, você deverá especificar a codificação UTF-8. Por exemplo:
 
 ```yaml
 jobs:
@@ -327,7 +327,7 @@ jobs:
         run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UTF-8.
+Como alternativa, você pode usar PowerShell Core (`shell: pwsh`), cujo padrão é UTF-8.
 
 {% endwarning %}
 
