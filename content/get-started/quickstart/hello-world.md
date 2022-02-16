@@ -63,6 +63,7 @@ Have you ever saved different versions of a file? Something like:
 * `story.txt`
 * `story-joe-edit.txt`
 * `story-joe-edit-reviewed.txt`
+* `make-new-way`
 
 Branches accomplish similar goals in {% data variables.product.product_name %} repositories.
 
@@ -75,6 +76,7 @@ Here at {% data variables.product.product_name %}, our developers, writers, and 
    ![Branch menu](/assets/images/help/branch/branch-selection-dropdown.png)
 4. Type a branch name, `readme-edits`, into the text box.
 5. Click **Create branch: readme-edits from main**.
+6. This Will add new branch on Git-Hub
 
 ![Branch menu](/assets/images/help/repository/new-branch.png)
 
