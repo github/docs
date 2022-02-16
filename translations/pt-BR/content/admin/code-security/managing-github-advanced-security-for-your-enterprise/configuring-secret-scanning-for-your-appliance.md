@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
+  - /admin/advanced-security/configuring-secret-scanning-for-your-appliance
 versions:
   ghes: '*'
 type: how_to
@@ -50,7 +51,7 @@ O conjunto de instruções das SSSE3 é necessário porque o {% data variables.p
 
    Se isso não retornar `0`, SSSE3 não está habilitado no seu VM/KVM. Você precisa consultar a documentação do hardware/hipervisor sobre como habilitar o sinalizador ou disponibilizá-lo para VMs convidados.
 
-## Habilitar {% data variables.product.prodname_secret_scanning %}
+## Habilitar o {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 

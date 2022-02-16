@@ -1,6 +1,8 @@
 ---
-title: Configurando as atualizações de segurança e versão do Dependabot na sua empresa
+title: Managing self-hosted runners for Dependabot updates on your enterprise
 intro: 'Você pode criar executores dedicados para {% data variables.product.product_location %} que {% data variables.product.prodname_dependabot %} usa para criar pull requests a fim de ajudar a proteger e manter as dependências usadas em repositórios da sua empresa.'
+redirect_from:
+  - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,38 +12,31 @@ topics:
   - Security
   - Dependabot
   - Dependencies
-shortTitle: Configurar atualizações do Dependabot
+shortTitle: Dependabot updates
 ---
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
-{% tip %}
+## About self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
 
-**Dica**: Se {% data variables.product.product_location %} usar clustering, você não poderá configurar a segurança de {% data variables.product.prodname_dependabot %} e as atualizações de versão, uma vez que {% data variables.product.prodname_actions %} não é compatível no modo cluster.
+You can help users of {% data variables.product.product_location %} to create and maintain secure code by setting up {% data variables.product.prodname_dependabot %} security and version updates. With {% data variables.product.prodname_dependabot_updates %}, developers can configure repositories so that their dependencies are updated and kept secure automatically. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
-{% endtip %}
+To use {% data variables.product.prodname_dependabot_updates %} on {% data variables.product.product_location %}, you must configure self-hosted runners to create the pull requests that will update dependencies.
 
-## Sobre as atualizações do {% data variables.product.prodname_dependabot %}
+## Pré-requisitos
 
-Ao configurar {% data variables.product.prodname_dependabot %} de segurança e atualizações de versão para {% data variables.product.product_location %}, os usuários podem configurar os repositórios para que suas dependências sejam atualizadas e mantidas seguras automaticamente. Este é um passo importante para ajudar os desenvolvedores a criar e manter o código seguro.
+{% if dependabot-updates-github-connect %}
+Configuring self-hosted runners is only one step in the middle of the process for enabling {% data variables.product.prodname_dependabot_updates %}. There are several steps you must follow before these steps, including configuring {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+{% else %}
+Before you configure self-hosted runners for {% data variables.product.prodname_dependabot_updates %}, you must:
 
-Os usuários podem configurar {% data variables.product.prodname_dependabot %} para criar pull requests e atualizar as suas dependências usando duas funcionalidades.
+- Configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para o GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+- Enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+{% endif %}
 
-- **{% data variables.product.prodname_dependabot_version_updates %}**: Os usuários adicionam um arquivo de configuração de {% data variables.product.prodname_dependabot %} ao repositório para habilitar {% data variables.product.prodname_dependabot %} e criar pull requests quando uma nova versão de uma dependência monitorada for lançada. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)".
-- **{% data variables.product.prodname_dependabot_security_updates %}**: Os usuários alternam uma configuração de repositório para habilitar {% data variables.product.prodname_dependabot %} para criar pull requests quando {% data variables.product.prodname_dotcom %} detecta uma vulnerabilidade em uma das dependências do gráfico de dependências para o repositório. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)" e[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)".
+## Configuring self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
 
-## Pré-requisitos para atualizações de {% data variables.product.prodname_dependabot %}
-
-Ambos os tipos de atualização de {% data variables.product.prodname_dependabot %} têm os seguintes requisitos.
-
-- Configure {% data variables.product.product_location %} para usar {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para o GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
-- Configure um ou mais executores auto-hospedados de {% data variables.product.prodname_actions %} para {% data variables.product.prodname_dependabot %}. Para obter mais informações, consulte "[Configurando executores auto-hospedados para atualizações de {% data variables.product.prodname_dependabot %}](#setting-up-self-hosted-runners-for-dependabot-updates)" abaixo.
-
-Além disso, {% data variables.product.prodname_dependabot_security_updates %} depende do gráfico de dependências, dados de vulnerabilidades de {% data variables.product.prodname_github_connect %} e {% data variables.product.prodname_dependabot_alerts %}. Essas funcionalidades devem ser habilitadas em {% data variables.product.product_location %}. Para obter mais informações, consulte[Habilitando o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
-
-## Configurando executores auto-hospedados para atualizações de {% data variables.product.prodname_dependabot %}
-
-Quando você tiver configurado {% data variables.product.product_location %} para usar {% data variables.product.prodname_actions %}, você deverá adicionar executores auto-hospedados para atualizações de {% data variables.product.prodname_dependabot %}. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para o GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+After you configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %}, you need to add self-hosted runners for {% data variables.product.prodname_dependabot_updates %}.
 
 ### Requisitos do sistema para executores de {% data variables.product.prodname_dependabot %}
 

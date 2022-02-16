@@ -2,6 +2,8 @@
 title: Implantando o GitHub Advanced Security na sua empresa
 intro: 'Aprenda a planejar, preparar e implementar uma abordagem em fases para implantar {% data variables.product.prodname_GH_advanced_security %} (GHAS) na sua empresa.'
 product: '{% data reusables.gated-features.advanced-security %}'
+redirect_from:
+  - /admin/advanced-security/deploying-github-advanced-security-in-your-enterprise
 miniTocMaxHeadingLevel: 3
 versions:
   ghes: '*'

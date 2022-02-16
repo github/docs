@@ -2,6 +2,8 @@
 title: Visão geral da implantação de Segurança Avançada do GitHub
 intro: 'Ajude sua empresa a se preparar para adotar {% data variables.product.prodname_GH_advanced_security %} (GHAS) de forma bem-sucedida revisando e entendendo as práticas recomendadas, exemplos de implementação e a nossa abordagem em fases testada pela empresa.'
 product: '{% data variables.product.prodname_GH_advanced_security %} é um conjunto de funcionalidades de segurança projetado para tornar o código corporativo mais seguro. Está disponível para {% data variables.product.prodname_ghe_server %} 3.0 ou superior, {% data variables.product.prodname_ghe_cloud %} e para repositórios de código aberto. Para saber mais sobre as funcionalidades, incluído em {% data variables.product.prodname_GH_advanced_security %}, consulte "[Sobre o GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)."'
+redirect_from:
+  - /admin/advanced-security/overview-of-github-advanced-security-deployment
 miniTocMaxHeadingLevel: 3
 versions:
   ghes: '*'

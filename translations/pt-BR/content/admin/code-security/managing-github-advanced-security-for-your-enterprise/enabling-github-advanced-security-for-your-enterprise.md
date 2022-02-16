@@ -3,6 +3,8 @@ title: Habilitar o GitHub Advanced Security para a sua empresa
 shortTitle: Habilitar o GitHub Advanced Security
 intro: 'Você pode configurar {% data variables.product.product_name %} para incluir {% data variables.product.prodname_GH_advanced_security %}. Isso fornece funcionalidades extras que ajudam os usuários a encontrar e corrigir problemas de segurança no seu código.'
 product: '{% data reusables.gated-features.ghas %}'
+redirect_from:
+  - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
 versions:
   ghes: '*'
 type: how_to
@@ -21,7 +23,7 @@ topics:
 {% ifversion ghes > 3.0 %}
 Ao habilitar {% data variables.product.prodname_GH_advanced_security %} para a sua empresa, os administradores de repositórios em todas as organizações poderão habilitar as funcionalidades, a menos que você configure uma política para restringir o acesso. Para obter mais informações, consulte "[Aplicar políticas para {% data variables.product.prodname_advanced_security %} na sua empresa](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)".
 {% else %}
-Ao habilitar {% data variables.product.prodname_GH_advanced_security %} para a sua empresa, os administradores de repositórios em todas as organizações podem habilitar as funcionalidades. {% ifversion ghes = 3.0 %}Para obter mais informações, consulte "[Gerenciar as configurações de segurança e análise de sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" e "[Gerenciar as configurações de segurança e análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).{% endif %}
+Ao habilitar {% data variables.product.prodname_GH_advanced_security %} para a sua empresa, os administradores de repositórios em todas as organizações podem habilitar as funcionalidades. {% ifversion ghes = 3.0 %}Para obter mais informações, consulte "[Gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" e "[Gerenciar as configurações de segurança e análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).{% endif %}
 {% endif %}
 
 {% ifversion ghes %}
@@ -54,7 +56,7 @@ Para obter orientação sobre uma implantação em fases da segurança avançada
 
     - {% data variables.product.prodname_code_scanning_capc %}, consulte "[Configurando {% data variables.product.prodname_code_scanning %} para seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
     - {% data variables.product.prodname_secret_scanning_caps %}, consulte "[Configurando {% data variables.product.prodname_secret_scanning %} para seu dispositivo](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
-    - {% data variables.product.prodname_dependabot %}, consulte "[Habilitando o gráfico de dependência e {% data variables.product.prodname_dependabot_alerts %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
+    - {% data variables.product.prodname_dependabot %}, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
 ## Habilitar e desabilitar funcionalidades de {% data variables.product.prodname_GH_advanced_security %}
 
@@ -88,7 +90,7 @@ Por exemplo, você pode habilitar qualquer recurso de {% data variables.product.
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
-    - Para habilitar {% data variables.product.prodname_dependabot %}, digite os comandos a seguir {% ifversion ghes > 3.1 %}{% else %}comandos{% endif %}.
+    - To enable the dependency graph, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
@@ -107,7 +109,7 @@ Por exemplo, você pode habilitar qualquer recurso de {% data variables.product.
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - Para desabilitar {% data variables.product.prodname_dependabot_alerts %}, digite os comandos a seguir {% ifversion ghes > 3.1 %}{% else %}comandos{% endif %}.
+    - To disable the dependency graph, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled false
     ```

@@ -1,7 +1,7 @@
 ---
-title: Viewing and updating support tickets
-intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.support_portal %}.'
-shortTitle: Managing your tickets
+title: Visualizando e atualizando tíquetes de suporte
+intro: 'Você pode visualizar os seus tíquetes de suporte{% ifversion ghes or ghec %}, colaborar com colegas em tíquetes,{% endif %} e responder a {% data variables.contact.github_support %} usando o {% data variables.contact.support_portal %}.'
+shortTitle: Gerenciando seus tíquetes
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,7 +10,7 @@ topics:
   - Support
 ---
 
-## About ticket management
+## Sobre gestão de tíquetes
 
 {% data reusables.support.zendesk-old-tickets %}
 
