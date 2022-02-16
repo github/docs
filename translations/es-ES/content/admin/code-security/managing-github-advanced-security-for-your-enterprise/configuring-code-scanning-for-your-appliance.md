@@ -7,6 +7,7 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/configuration/configuring-code-scanning-for-your-appliance
   - /admin/configuration/configuring-code-scanning-for-your-appliance
+  - /admin/advanced-security/configuring-code-scanning-for-your-appliance
 versions:
   ghes: '*'
 type: how_to

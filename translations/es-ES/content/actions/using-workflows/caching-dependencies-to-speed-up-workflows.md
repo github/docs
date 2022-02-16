@@ -7,6 +7,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
   - /actions/guides/caching-dependencies-to-speed-up-workflows
+  - /actions/advanced-guides/caching-dependencies-to-speed-up-workflows
 versions:
   fpt: '*'
   ghec: '*'
@@ -232,4 +233,4 @@ Por ejemplo, si una solicitud de cambios contiene una rama `feature` (el alcance
 
 ## Límites de uso y política de desalojo
 
-{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todas las cachés en un repositorio está limitado a 10 GB. Si excedes este límite, {% data variables.product.prodname_dotcom %} guardará tu caché, pero comenzará a desalojar las cachés hasta que el tamaño total sea inferior a 10 GB.
+{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 10 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 10 GB.

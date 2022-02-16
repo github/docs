@@ -4,6 +4,7 @@ shortTitle: El CLI de GitHub en los flujos de trabajo
 intro: 'Puedes hacer scripts con el {% data variables.product.prodname_cli %} en los flujos de trabajo de {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /actions/guides/using-github-cli-in-workflows
+  - /actions/advanced-guides/using-github-cli-in-workflows
 versions:
   fpt: '*'
   ghes: '*'
