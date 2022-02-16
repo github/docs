@@ -57,7 +57,6 @@ includeGuides:
   - /code-security/security-advisories/publishing-a-security-advisory
   - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
   - /code-security/security-advisories/withdrawing-a-security-advisory
-  - /code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database
   - /code-security/security-overview/about-the-security-overview
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
@@ -73,6 +72,7 @@ includeGuides:
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-managing-vulnerable-dependencies
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors

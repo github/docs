@@ -23,7 +23,6 @@ children:
   - /collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
   - /publishing-a-repository-security-advisory
   - /editing-a-repository-security-advisory
-  - /editing-security-advisories-in-the-github-advisory-database
   - /withdrawing-a-repository-security-advisory
 ---
 
