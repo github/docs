@@ -293,7 +293,7 @@ O parâmetro `redirect_uri` é opcional. Se ignorado, o GitHub redirecionará os
 
 O parâmetro opcional `redirect_uri` também pode ser usado para URLs do localhhost. Se o aplicativo especificar uma URL do localhost e uma porta, após a autorização, os usuários do aplicativo serão redirecionados para a URL e porta fornecidas. O `redirect_uri` não precisa corresponder à porta especificada na URL de retorno de chamada do aplicativo.
 
-For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
+Para a URL de retorno de chamada `http://127.0.0.1/path`, você poderá usar este `redirect_uri`:
 
 ```
 http://127.0.0.1:1234/path

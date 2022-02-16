@@ -1,6 +1,5 @@
 file,reason
 translations/pt-BR/content/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications.md,broken liquid tags
-translations/pt-BR/content/actions/advanced-guides/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,Listed in localization-support#489
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,broken liquid tags

@@ -78,7 +78,7 @@ Você pode configurar esse comportamento para uma organização seguindo o proce
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-{% ifversion ghec or ghae or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
+{% ifversion ghec or ghae or ghes %}Se uma política estiver desabilitada para uma empresa, ela não poderá ser habilitada para as organizações.{% endif %} Se uma política estiver desabilitada para uma organização, ela não poderá ser habilitada para repositórios. Se uma organização habilitar uma política, a política poderá ser desabilitada para repositórios individuais.
 
 {% data reusables.github-actions.private-repository-forks-options %}
 

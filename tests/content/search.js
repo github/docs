@@ -87,6 +87,8 @@ describe('search middleware', () => {
     sp.set('version', 'NEVERHEARDOF')
     const res = await get('/search?' + sp)
     expect(res.statusCode).toBe(400)
+    const { error } = JSON.parse(res.text)
+    expect(error).toContain('Unrecognized version')
   })
 
   test('invalid search language', async () => {
@@ -95,6 +97,28 @@ describe('search middleware', () => {
     sp.set('language', 'NEVERHEARDOF')
     sp.set('version', 'dotcom')
     const res = await get('/search?' + sp)
+    expect(res.statusCode).toBe(400)
+    const { error } = JSON.parse(res.text)
+    expect(error).toContain('Unrecognized language')
+  })
+
+  test('only certain keywords are supported', async () => {
+    const sp = new URLSearchParams()
+    sp.set('language', 'en')
+    sp.set('version', 'dotcom')
+
+    sp.set('query', 'title: Security')
+    let res = await get('/search?' + sp)
+    expect(res.statusCode).toBe(200)
+
+    // and...
+    sp.set('query', 'topics: actions')
+    res = await get('/search?' + sp)
+    expect(res.statusCode).toBe(200)
+
+    // but...
+    sp.set('query', 'anyword: bla')
+    res = await get('/search?' + sp)
     expect(res.statusCode).toBe(400)
   })
 })

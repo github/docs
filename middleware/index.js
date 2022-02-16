@@ -60,7 +60,7 @@ import next from './next.js'
 import renderPage from './render-page.js'
 import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
-import favicon from './favicon.js'
+import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
@@ -112,7 +112,7 @@ export default function (app) {
     )
   )
 
-  app.use(favicon)
+  app.use(favicons)
 
   // Any static URL that contains some sort of checksum that makes it
   // unique gets the "manual" surrogate key. If it's checksummed,

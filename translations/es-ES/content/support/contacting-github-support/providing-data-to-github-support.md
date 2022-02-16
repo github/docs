@@ -21,6 +21,24 @@ topics:
 
 Los archivos de diagnóstico contienen información sobre los ajustes y de una instancia de {% data variables.product.prodname_ghe_server %} y los paquetes de soporte de ambiente contienen información de diagnóstico y bitácoras de los dos días anteriores y los paquetes de soporte extendido también contienen información de diagnóstico y bitácoras, pero de los siete días anteriores.
 
+## About log file sanitization
+
+Authentication tokens, keys, and secrets are removed from log files in the following log directories contained within a support bundle or diagnostics file:
+
+* `alambic-logs`
+* `babeld-logs`
+* `codeload-logs`
+* `enterprise-manage-logs`
+* `github-logs`
+* `hookshot-logs`
+* `lfs-server-logs`
+* `semiotic-logs`
+* `task-dispatcher-logs`
+* `pages-logs`
+* `registry-logs`
+* `render-logs`
+* `svn-bridge-logs`
+
 ## Crear y compartir archivos de diagnóstico
 
 Diagnostic files are an overview of a {% data variables.product.prodname_ghe_server %} instance's settings and environment that contains:
@@ -158,4 +176,4 @@ Puedes cargar directamente un paquete de soporte a nuestro servidor si:
 
 ## Leer más
 
-- "[Acerca del Soporte de GitHub](/support/learning-about-github-support/about-github-support)"
+- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
