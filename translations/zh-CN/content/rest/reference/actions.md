@@ -1,6 +1,6 @@
 ---
 title: 操作
-intro: 'With the Actions API, you can manage and control {% data variables.product.prodname_actions %} for an organization or repository.'
+intro: '通过 Actions API，您可以管理和控制组织或仓库的 {% data variables.product.prodname_actions %}。'
 redirect_from:
   - /v3/actions
 versions:
@@ -33,7 +33,7 @@ miniTocMaxHeadingLevel: 3
 {% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## 权限
 
-The Permissions API allows you to set permissions for what organizations and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions are allowed to run.{% ifversion fpt or ghec or ghes %} For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)."{% endif %}
+Permissions API 允许您为允许哪些组织和存储库运行 {% data variables.product.prodname_actions %} 以及允许运行哪些操作设置权限。{% ifversion fpt or ghec or ghes %} 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)”。{% endif %}
 
 您还可以为企业设置权限。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)”REST API。
 

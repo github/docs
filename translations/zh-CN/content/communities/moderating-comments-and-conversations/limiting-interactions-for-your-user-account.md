@@ -27,6 +27,6 @@ shortTitle: 限制帐户中的交互
 ## 限制用户帐户的交互
 
 {% data reusables.user_settings.access_settings %}
-1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Interaction limits**.
+1. 在侧边栏的“Access（访问）”部分中，选择 **{% octicon "report" aria-label="The report icon" %} 主持**，然后点击 **Interaction limits（互动限制）**。
 {% data reusables.community.set-interaction-limit %}
   ![临时交互限制选项](/assets/images/help/settings/user-account-temporary-interaction-limits-options.png)
