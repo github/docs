@@ -6,7 +6,7 @@ import { SmallFooter } from 'components/page-footer/SmallFooter'
 import { ScrollButton } from 'components/ui/ScrollButton'
 import { SupportSection } from 'components/page-footer/SupportSection'
 import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
-import { RestRepoBanner } from 'components/page-header/RestRepoBanner'
+import { RestBanner } from 'components/page-header/RestBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useRouter } from 'next/router'
@@ -89,7 +89,7 @@ export const DefaultLayout = (props: Props) => {
         <Header />
         <main id="main-content">
           <DeprecationBanner />
-          <RestRepoBanner />
+          <RestBanner />
 
           {props.children}
         </main>

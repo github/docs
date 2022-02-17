@@ -27,7 +27,7 @@ Nos pontos de extremidade da API de {% data variables.product.prodname_pages %} 
    - `branch`: O branch do repositório utilizado para publicar os [arquivos de origem do site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Por exemplo, _principal_ ou _gh-pages_.
    - `path`: O diretório do repositório a partir do qual o site é publicado. Será `/` ou `/docs`.
 
-{% comment %}An extra blank line is needed here to make sure the operations below don't continue the list above.{% endcomment %}
+{% comment %}É necessária uma linha em branco adicional aqui para garantir que as operações abaixo não deem continuidade à lista acima.{% endcomment %}
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}

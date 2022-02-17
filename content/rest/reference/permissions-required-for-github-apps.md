@@ -348,6 +348,9 @@ _Traffic_
 - [`GET /repos/:owner/:repo/check-suites/:check_suite_id`](/rest/reference/checks#get-a-check-suite) (:read)
 - [`GET /repos/:owner/:repo/check-suites/:check_suite_id/check-runs`](/rest/reference/checks#list-check-runs-in-a-check-suite) (:read)
 - [`POST /repos/:owner/:repo/check-suites/:check_suite_id/rerequest`](/rest/reference/checks#rerequest-a-check-suite) (:write)
+{% if codeowners-errors %}
+- [`GET /repos/:owner/:repo/codeowners/errors`](/rest/reference/repos#list-codeowners-errors) (:read)
+{% endif %}
 - [`GET /repos/:owner/:repo/commits`](/rest/reference/commits#list-commits) (:read)
 - [`GET /repos/:owner/:repo/commits/:sha`](/rest/reference/commits#get-a-commit) (:read)
 - [`GET /repos/:owner/:repo/commits/:sha/check-runs`](/rest/reference/checks#list-check-runs-for-a-git-reference) (:read)

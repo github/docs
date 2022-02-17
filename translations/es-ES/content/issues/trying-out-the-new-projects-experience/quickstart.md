@@ -35,7 +35,7 @@ Primero, crea un proyecto organizacional o de usuario.
 
 {% data reusables.projects.create-user-project %}
 
-## Setting your project description and README
+## Configurar tu descripción de proyecto y README
 
 {% data reusables.projects.project-description %}
 

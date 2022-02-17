@@ -44,7 +44,7 @@ shortTitle: 配置包生态系统
 
 请注意，`registry.npmjs.com` 的连接遍历 Cloudflare 网络，但此后不连接至单个静态 IP 地址；而是连接到此处列出的 CIDR 范围内的 IP 地址：https://www.cloudflare.com/ips/。
 
-If you wish to enable npm upstream sources, select `Enabled` for `npm upstreaming`.
+如果要启用 npm 上游源，请选择“`为 <code>npm 上游`启用</code>”。
 
 {% endif %}
 

@@ -1,6 +1,6 @@
 ---
-title: Organization の Audit log をレビューする
-intro: Audit log により、Organization の管理者は Organization のメンバーによって行われたアクションをすばやくレビューできます。 これには、誰がいつ何のアクションを実行したかなどの詳細が残されます。
+title: Reviewing the audit log for your organization
+intro: 'The audit log allows organization admins to quickly review the actions performed by members of your organization. It includes details such as who performed the action, what the action was, and when it was performed.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-the-audit-log-for-your-organization
@@ -14,96 +14,95 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 監査ログのレビュー
+shortTitle: Review audit log
 ---
 
-## Audit log にアクセスする
+## Accessing the audit log
 
-Audit logは、当月及び過去6ヶ月の間にOrganizationに影響するアクティビティによって生じたイベントをリストします。 Organization の Audit log にアクセスできるのはオーナーのみです。
+The audit log lists events triggered by activities that affect your organization within the current month and previous six months. Only owners can access an organization's audit log.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 
-## Audit log を検索する
+## Searching the audit log
 
 {% data reusables.audit_log.audit-log-search %}
 
-### 実行されたアクションに基づく検索
+### Search based on the action performed
 
-特定のイベントを検索するには、クエリで `action` 修飾子を使用します。 Audit log に一覧表示されるアクションは以下のカテゴリに分類されます。
+To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped within the following categories:
 
-| カテゴリ名                                                                                                                                                                                                                         | 説明                                                                                                                                                                                                                                                                                                              |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
-| [`アカウント`](#account-category-actions)                                                                                                                                                                                          | Organization アカウントに関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                        |
-| [`advisory_credit`](#advisory_credit-category-actions)                                                                                                                                                                        | {% data variables.product.prodname_advisory_database %} のセキュリティアドバイザリのコントリビューターのクレジットに関連するすべてのアクティビティが対象です。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} のセキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。                               |
-| [`支払い`](#billing-category-actions)                                                                                                                                                                                            | Organization の支払いに関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                         |
-| [`business`](#business-category-actions)                                                                                                                                                                                      | Enterpriseのビジネス設定に関連するアクティビティを含みます。                                                                                                                                                                                                                                                                             |
-| [`codespaces`](#codespaces-category-actions)                                                                                                                                                                                  | OrganizationのCodespacesに関連するすべてのアクティビティを含みます。 |{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
-| [`dependabot_alerts`](#dependabot_alerts-category-actions)                                                                                                                                                                    | 既存のリポジトリの{% data variables.product.prodname_dependabot_alerts %}に対するOrganizationレベルの設定アクティビティを含みます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。                                                                       |
-| [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions)                                                                                                                                                | Organizationで新たに作成されたリポジトリ内の{% data variables.product.prodname_dependabot_alerts %}に対するOrganizationレベルの設定アクティビティを含みます。                                                                                                                                                                                        |
-| [`dependabot_security_updates`](#dependabot_security_updates-category-actions)                                                                                                                                                | 既存のリポジトリ内の {% data variables.product.prodname_dependabot_security_updates %} の Organization レベルの設定アクティビティが対象です。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。         |
-| [`dependabot_security_updates_new_repos`](#dependabot_security_updates_new_repos-category-actions)                                                                                                                            | Organizationで新たに作成されたリポジトリに対する{% data variables.product.prodname_dependabot_security_updates %}のOrganizationレベルの設定アクティビティを含みます。{% endif %}{% ifversion fpt or ghec %}
-| [`dependency_graph`](#dependency_graph-category-actions)                                                                                                                                                                      | リポジトリの依存関係グラフの Organization レベルの設定アクティビティが対象です。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。                                                                                                                                                |
-| [`dependency_graph_new_repos`](#dependency_graph_new_repos-category-actions)                                                                                                                                                  | Organization 内に作成された新しいリポジトリの Organization レベルの設定アクティビティが対象です。{% endif %}
-| [`discussion_post`](#discussion_post-category-actions)                                                                                                                                                                        | Team ページに投稿されたディスカッションに関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                    |
-| [`discussion_post_reply`](#discussion_post_reply-category-actions)                                                                                                                                                            | Teamページにポストされたディスカッションへの返信に関連するすべてのアクティビティを含みます。{% ifversion fpt or ghes or ghec %}
-| [`Enterprise`](#enterprise-category-actions)                                                                                                                                                                                  | Enterprise設定に関連するアクティビティを含みます。                                                                                                                                                                                                                                                                                  |{% endif %}
-| [`フック`](#hook-category-actions)                                                                                                                                                                                               | webhookに関連するすべてのアクティビティを含みます。                                                                                                                                                                                                                                                                                   |
-| [`integration_installation_request`](#integration_installation_request-category-actions)                                                                                                                                      | Organization 内で使用するインテグレーションをオーナーが承認するよう求める、 Organization メンバーからのリクエストに関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                    |
-| [`ip_allow_list`](#ip_allow_list)                                                                                                                                                                                             | Organizationに対するIP許可リストの有効化あるいは無効化に関連するアクティビティが含まれます。                                                                                                                                                                                                                                                           |
-| [`ip_allow_list_entry`](#ip_allow_list_entry)                                                                                                                                                                                 | Organizationに対するIP許可リストのエントリの作成、削除、編集に関連するアクティビティが含まれます。                                                                                                                                                                                                                                                        |
-| [`Issue`](#issue-category-actions)                                                                                                                                                                                            | Issue の削除に関連するアクティビティが対象です。                                                                                                                                                                                                                                                                                     |{% ifversion fpt or ghec %}
-| [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions)                                                                                                                                        | {% data variables.product.prodname_marketplace %} Developer Agreement の署名に関連するすべての活動が対象です。                                                                                                                                                                                                                      |
-| [`marketplace_listing`](#marketplace_listing-category-actions)                                                                                                                                                                | {% data variables.product.prodname_marketplace %}.{% endif %}{% ifversion fpt or ghes > 3.0 or ghec %} でのアプリのリストに関連するすべてのアクティビティが対象です。                                                                                                                                                                          |
-| [`members_can_create_pages`](#members_can_create_pages-category-actions)                                                                                                                                                      | Organization 内のリポジトリの {% data variables.product.prodname_pages %} サイトの公開の管理に関連するすべてのアクティビティが対象です。 詳しい情報については「[Organizationの{% data variables.product.prodname_pages %}サイトの公開の管理](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)」を参照してください。 |{% endif %}
-| [`org`](#org-category-actions)                                                                                                                                                                                                | Organizationのメンバーシップに関連するアクティビティを含みます。{% ifversion ghec %}
-| [`org_credential_authorization`](#org_credential_authorization-category-actions)                                                                                                                                              | SAML シングルサインオンで使用する認可クレデンシャルに関連するすべてのアクティビティが対象です。{% endif %}{% ifversion fpt or ghes or ghae or ghec %}
-| [`organization_label`](#organization_label-category-actions)                                                                                                                                                                  | Organization のリポジトリのデフォルトラベルに関連するすべてのアクティビティが対象です。{% endif %}
-| [`oauth_application`](#oauth_application-category-actions)                                                                                                                                                                    | OAuth アプリに関連するすべてのアクティビティが対象です。{% ifversion fpt or ghes > 3.0 or ghec %}
-| [`パッケージ`](#packages-category-actions)                                                                                                                                                                                         | {% data variables.product.prodname_registry %} に関連するすべてのアクティビティが対象です。{% endif %}{% ifversion fpt or ghec %}
-| [`payment_method`](#payment_method-category-actions)                                                                                                                                                                          | Organization の GitHub への支払い方法に関連するすべてのアクティビティが対象です。{% endif %}
-| [`profile_picture`](#profile_picture-category-actions)                                                                                                                                                                        | Organization のプロフィール画像に関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                    |
-| [`project`](#project-category-actions)                                                                                                                                                                                        | プロジェクト ボードに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                     |
-| [`protected_branch`](#protected_branch-category-actions)                                                                                                                                                                      | 保護されたブランチ関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                  |
-| [`repo`](#repo-category-actions)                                                                                                                                                                                              | Organization が所有するリポジトリに関連するアクティビティを含みます。{% ifversion fpt or ghec %}
-| [`repository_advisory`](#repository_advisory-category-actions)                                                                                                                                                                | {% data variables.product.prodname_advisory_database %} のセキュリティアドバイザリに関連するリポジトリレベルのアクティビティが対象です。  詳しい情報については、「[{% data variables.product.prodname_dotcom %} のセキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。                                         |
-| [`repository_content_analysis`](#repository_content_analysis-category-actions)                                                                                                                                                | [プライベート リポジトリに対するデータの使用を有効または無効にする](/articles/about-github-s-use-of-your-data)に関連するすべての活動が対象です。{% endif %}{% ifversion fpt or ghec %}
-| [`repository_dependency_graph`](#repository_dependency_graph-category-actions)                                                                                                                                                | プライベートリポジトリの依存関係グラフの有効化または無効化に関連する                                                                                                                                                                                                                                                                              |
-| {% ifversion fpt or ghec %}リポジトリ{% endif %}レベルのアクティビティが含まれます。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。{% endif %}{% ifversion ghes or ghae or ghec %} |                                                                                                                                                                                                                                                                                                                 |
-| [`repository_secret_scanning`](#repository_secret_scanning-category-actions)                                                                                                                                                  | シークレットスキャンに関連するリポジトリレベルのアクティビティが対象です。 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。                                                                                                                                                                       |{% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-| [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions)                                                                                                                                          | [脆弱性のある依存関係](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)の {% data variables.product.prodname_dependabot_alerts %} に関連するすべてのアクティビティが対象です。{% endif %}{% ifversion fpt or ghec %}
-| [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions)                                                                                                                                        | {% data variables.product.prodname_dependabot_alerts %}に対するリポジトリレベルの設定アクティビティが含まれます。{% endif %}{% ifversion ghec %}
-| [`ロール`](#role-category-actions)                                                                                                                                                                                               | [カスタムのリポジトリロール](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)に関連するすべてのアクティビティが含まれます。{% endif %}{% ifversion ghes or ghae or ghec %}
-| [`secret_scanning`](#secret_scanning-category-actions)                                                                                                                                                                        | 既存のリポジトリ内のシークレットスキャンの Organization レベルの設定アクティビティが対象です。 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。                                                                                                                                                      |
-| [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions)                                                                                                                                                    | Organization で作成された新しいリポジトリ内のシークレットスキャンの Organization レベルの設定アクティビティが対象です。                                                                                                                                                                                                                                       |{% endif %}{% ifversion fpt or ghec %}
-| [`sponsors`](#sponsors-category-actions)                                                                                                                                                                                      | スポンサーボタンに関連するすべてのアクティビティが対象です (「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照){% endif %}
-| [`Team`](#team-category-actions)                                                                                                                                                                                              | Organization内のチームに関連するすべてのアクティビティを含みます。                                                                                                                                                                                                                                                                         |
-| [`team_discussions`](#team_discussions-category-actions)                                                                                                                                                                      | OrganizationのTeamディスカッションの管理に関連するアクティビティが含まれます。{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
-| [`workflows`](#workflows-category-actions)                                                                                                                                                                                    | {% data variables.product.prodname_actions %}ワークフローに関連するアクティビティが含まれます。{% endif %}
+| Category name | Description
+|------------------|-------------------{% ifversion fpt or ghec %}
+| [`account`](#account-category-actions) | Contains all activities related to your organization account.
+| [`advisory_credit`](#advisory_credit-category-actions) | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+| [`billing`](#billing-category-actions) | Contains all activities related to your organization's billing.
+| [`business`](#business-category-actions) | Contains activities related to business settings for an enterprise. |
+| [`codespaces`](#codespaces-category-actions) | Contains all activities related to your organization's codespaces. |{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
+| [`dependabot_alerts`](#dependabot_alerts-category-actions) | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+| [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions) | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.
+| [`dependabot_security_updates`](#dependabot_security_updates-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
+| [`dependabot_security_updates_new_repos`](#dependabot_security_updates_new_repos-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.{% endif %}{% ifversion fpt or ghec %}
+| [`dependency_graph`](#dependency_graph-category-actions) | Contains organization-level configuration activities for dependency graphs for repositories. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+| [`dependency_graph_new_repos`](#dependency_graph_new_repos-category-actions) | Contains organization-level configuration activities for new repositories created in the organization.{% endif %}
+| [`discussion_post`](#discussion_post-category-actions) | Contains all activities related to discussions posted to a team page.
+| [`discussion_post_reply`](#discussion_post_reply-category-actions) | Contains all activities related to replies to discussions posted to a team page.{% ifversion fpt or ghes or ghec %}
+| [`enterprise`](#enterprise-category-actions) | Contains activities related to enterprise settings. | {% endif %}
+| [`hook`](#hook-category-actions) | Contains all activities related to webhooks.
+| [`integration_installation_request`](#integration_installation_request-category-actions) | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |
+| [`ip_allow_list`](#ip_allow_list) | Contains activities related to enabling or disabling the IP allow list for an organization.
+| [`ip_allow_list_entry`](#ip_allow_list_entry) | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.
+| [`issue`](#issue-category-actions) | Contains activities related to deleting an issue. {% ifversion fpt or ghec %}
+| [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
+| [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% ifversion fpt or ghes > 3.0 or ghec %}
+| [`members_can_create_pages`](#members_can_create_pages-category-actions) | Contains all activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
+| [`org`](#org-category-actions) | Contains activities related to organization membership.{% ifversion ghec %}
+| [`org_credential_authorization`](#org_credential_authorization-category-actions) | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% ifversion fpt or ghes or ghae or ghec %}
+| [`organization_label`](#organization_label-category-actions) | Contains all activities related to default labels for repositories in your organization.{% endif %}
+| [`oauth_application`](#oauth_application-category-actions) | Contains all activities related to OAuth Apps.{% ifversion fpt or ghes > 3.0 or ghec %}
+| [`packages`](#packages-category-actions) | Contains all activities related to {% data variables.product.prodname_registry %}.{% endif %}{% ifversion fpt or ghec %}
+| [`payment_method`](#payment_method-category-actions) | Contains all activities related to how your organization pays for GitHub.{% endif %}
+| [`profile_picture`](#profile_picture-category-actions) | Contains all activities related to your organization's profile picture.
+| [`project`](#project-category-actions) | Contains all activities related to project boards.
+| [`protected_branch`](#protected_branch-category-actions) | Contains all activities related to protected branches.
+| [`repo`](#repo-category-actions) | Contains activities related to the repositories owned by your organization.{% ifversion fpt or ghec %}
+| [`repository_advisory`](#repository_advisory-category-actions) | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+| [`repository_content_analysis`](#repository_content_analysis-category-actions) | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).{% endif %}{% ifversion fpt or ghec %}
+| [`repository_dependency_graph`](#repository_dependency_graph-category-actions) | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae or ghec %}
+| [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions) | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% ifversion fpt or ghec %}
+| [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.{% endif %}{% ifversion ghec %}
+| [`role`](#role-category-actions) | Contains all activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).{% endif %}{% ifversion ghes or ghae or ghec %}
+| [`secret_scanning`](#secret_scanning-category-actions) | Contains organization-level configuration activities for secret scanning in existing repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions) | Contains organization-level configuration activities for secret scanning for new repositories created in the organization. {% endif %}{% ifversion fpt or ghec %}
+| [`sponsors`](#sponsors-category-actions) | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}
+| [`team`](#team-category-actions) | Contains all activities related to teams in your organization.
+| [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
+| [`workflows`](#workflows-category-actions) | Contains activities related to {% data variables.product.prodname_actions %} workflows.{% endif %}
 
-次の用語を使用すれば、特定の一連の行動を検索できます。 例:
+You can search for specific sets of actions using these terms. For example:
 
-  * `action:team`はteamカテゴリ内でグループ化されたすべてのイベントを検索します。
-  * `-action:hook` は webhook カテゴリ内のすべてのイベントを除外します。
+  * `action:team` finds all events grouped within the team category.
+  * `-action:hook` excludes all events in the webhook category.
 
-各カテゴリには、フィルタできる一連の関連アクションがあります。 例:
+Each category has a set of associated actions that you can filter on. For example:
 
-  * `action:team.create`はTeamが作成されたすべてのイベントを検索します。
-  * `-action:hook.events_changed` は webhook の変更されたすべてのイベントを除外します。
+  * `action:team.create` finds all events where a team was created.
+  * `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
-### アクション時間に基づく検索
+### Search based on time of action
 
-`created` 修飾子を使用して、行われた日時に基づいて Audit log 内のイベントをフィルタします。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
+Use the `created` qualifier to filter events in the audit log based on when they occurred. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-例:
+For example:
 
-  * `created:2014-07-08` は、2014 年 7 月 8 日に発生したイベントをすべて検索します。
-  * `created:>=2014-07-08` は、2014 年 7 月 8 日かそれ以降に生じたすべてのイベントを検索します。
-  * `created:<=2014-07-08`は、2014 年 7 月 8 日かそれ以前に生じたすべてのイベントを検索します。
-  * `created:2014-07-01..2014-07-31`は、2014 年 7 月に起きたすべてのイベントを検索します。
+  * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+  * `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
+  * `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
+  * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
 
 {% note %}
@@ -112,35 +111,35 @@ Audit logは、当月及び過去6ヶ月の間にOrganizationに影響するア�
 
 {% endnote %}
 
-### 場所に基づく検索
+### Search based on location
 
-修飾子 `country` を使用すれば、発信元の国に基づいて Audit log 内のイベントをフィルタリングできます。 国の 2 文字のショートコードまたはフル ネームを使用できます。 名前に空白がある国は引用符で囲む必要があることに注意してください。 例:
+Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or its full name. Keep in mind that countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
-  * `country:de` は、ドイツで発生したイベントをすべて検索します。
-  * `country:Mexico` はメキシコで発生したすべてのイベントを検索します。
-  * `country:"United States"` はアメリカ合衆国で発生したすべてのイベントを検索します。
+  * `country:de` finds all events that occurred in Germany.
+  * `country:Mexico` finds all events that occurred in Mexico.
+  * `country:"United States"` all finds events that occurred in the United States.
 
 {% ifversion fpt or ghec %}
-## Audit log をエクスポートする
+## Exporting the audit log
 
 {% data reusables.audit_log.export-log %}
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
-## Audit log API を使用する
+## Using the audit log API
 
-GraphQL API{% ifversion fpt or ghec %} または REST API を使用して Audit log を操作できます{% endif %}。
+You can interact with the audit log using the GraphQL API{% ifversion fpt or ghec %} or the REST API{% endif %}.
 
 {% ifversion fpt or ghec %}
 The audit log API requires {% data variables.product.prodname_ghe_cloud %}.{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
-### GraphQL API を使用する
+### Using the GraphQL API
 
 {% endif %}
 
 {% note %}
 
-**注釈**: {% data variables.product.prodname_enterprise %} を使用している Organization が Audit log GraphQL API を利用できます。 {% data reusables.gated-features.more-info-org-products %}
+**Note**: The audit log GraphQL API is available for organizations using {% data variables.product.prodname_enterprise %}. {% data reusables.gated-features.more-info-org-products %}
 
 {% endnote %}
 
@@ -148,20 +147,20 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 {% data reusables.audit_log.audit-log-api-info %}
 
 {% ifversion fpt or ghec %}
-GraphQL API を使用して Git イベントを取得することはできませんので、ご注意ください。 Git イベントを取得するには、代わりに REST API を使用してください。 詳しい情報については、「[`git` category actions](#git-category-actions)」を参照してください。
+Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](#git-category-actions)."
 {% endif %}
 
-GraphQL のレスポンスには、90 日から 120 日までのデータを含めることができます。
+The GraphQL response can include data for up to 90 to 120 days.
 
-たとえば、GraphQL にリクエストして、Organization に新しく追加された Organization メンバー全員を表示できます。 詳細は「[GraphQL API Audit Log]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#auditentry/)」を参照してください。
+For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#auditentry/)."
 
 {% ifversion fpt or ghec %}
 
-### REST API を使用する
+### Using the REST API
 
 {% note %}
 
-**注釈:** Audit log REST API は、{% data variables.product.prodname_ghe_cloud %} のユーザのみが利用できます。
+**Note:** The audit log REST API is available for users of {% data variables.product.prodname_ghe_cloud %} only.
 
 {% endnote %}
 
@@ -170,143 +169,143 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
 
-Audit log REST API の詳細については、「[Organization](/rest/reference/orgs#get-the-audit-log-for-an-organization)」を参照してください。
+For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
 
 {% endif %}
 
-## Audit log のアクション
+## Audit log actions
 
-Audit log にイベントとして記録される最も一般的なアクションの概要です。
+An overview of some of the most common actions that are recorded as events in the audit log.
 
 {% ifversion fpt or ghec %}
-### `account` カテゴリアクション
+### `account` category actions
 
-| アクション                         | 説明                                                                                                                                                     |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `billing_plan_change`         | Organization の[支払いサイクル](/articles/changing-the-duration-of-your-billing-cycle)が変わるときにトリガーされます。                                                         |
-| `plan_change`                 | Organization の[プラン](/articles/about-billing-for-github-accounts)が変わるときにトリガーされます。                                                                       |
-| `pending_plan_change`         | Organization のオーナーまたは支払いマネージャーが[支払い済みサブスクリプションをキャンセルまたはダウングレードする](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process/)ときにトリガーされます。 |
-| `pending_subscription_change` | [{% data variables.product.prodname_marketplace %} の無料トライアルが始まるか期限切れになる](/articles/about-billing-for-github-marketplace/)ときにトリガーされます。                  |
+| Action | Description
+|------------------|-------------------
+| `billing_plan_change` | Triggered when an organization's [billing cycle](/articles/changing-the-duration-of-your-billing-cycle) changes.
+| `plan_change` | Triggered when an organization's [subscription](/articles/about-billing-for-github-accounts) changes.
+| `pending_plan_change` | Triggered when an organization owner or billing manager [cancels or downgrades a paid subscription](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process/).
+| `pending_subscription_change` | Triggered when a [{% data variables.product.prodname_marketplace %} free trial starts or expires](/articles/about-billing-for-github-marketplace/).
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### `advisory_credit` カテゴリアクション
+### `advisory_credit` category actions
 
-| アクション     | 説明                                                                                                                                                       |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `accept`  | ユーザがセキュリティアドバイザリのクレジットを受け入れるとトリガーされます。 詳しい情報については、「[セキュリティアドバイザリを編集する](/github/managing-security-vulnerabilities/editing-a-security-advisory)」を参照してください。 |
-| `create`  | セキュリティアドバイザリの管理者がクレジットセクションにユーザを追加するとトリガーされます。                                                                                                           |
-| `decline` | ユーザがセキュリティアドバイザリのクレジットを拒否するとトリガーされます。                                                                                                                    |
-| `destroy` | セキュリティアドバイザリの管理者がクレジットセクションからユーザを削除するとトリガーされます。                                                                                                          |
+| Action | Description
+|------------------|-------------------
+| `accept` | Triggered when someone accepts credit for a security advisory. For more information, see "[Editing a security advisory](/github/managing-security-vulnerabilities/editing-a-security-advisory)."
+| `create` | Triggered when the administrator of a security advisory adds someone to the credit section.
+| `decline` | Triggered when someone declines credit for a security advisory.
+| `destroy` | Triggered when the administrator of a security advisory removes someone from the credit section.
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### `billing` カテゴリアクション
+### `billing` category actions
 
-| アクション                 | 説明                                                                                                                                 |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `change_billing_type` | Organization が[{% data variables.product.prodname_dotcom %} の支払い方法を変更する](/articles/adding-or-editing-a-payment-method)ときにトリガーされます。 |
-| `change_email`        | Organization の[支払い請求先メール アドレス](/articles/setting-your-billing-email)が変わるときにトリガーされます。                                               |
+| Action | Description
+|------------------|-------------------
+| `change_billing_type` | Triggered when your organization [changes how it pays for {% data variables.product.prodname_dotcom %}](/articles/adding-or-editing-a-payment-method).
+| `change_email` | Triggered when your organization's [billing email address](/articles/setting-your-billing-email) changes.
 {% endif %}
 
-### `business`カテゴリアクション
+### `business` category actions
 
-| アクション                                  | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
-| `set_actions_fork_pr_approvals_policy` | Enterpriseで、パブリックフォークからのワークフローが承認を必要とする設定が変更されたときにトリガーされます。 For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise)."{% endif %}
-| `set_actions_retention_limit`          | {% data variables.product.prodname_actions %}の成果物とログの保持期間がEnterpriseで変更されたときにトリガーされます。 For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)."{% ifversion fpt or ghes or ghec %}
-| `set_fork_pr_workflows_policy`         | プライベートのリポジトリフォークのワークフローのポリシーが変更されたときにトリガーされます。 For more information, see "{% ifversion fpt or ghec%}[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[Enabling workflows for private repository forks](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enforcing-github-actions-policies-for-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}."{% endif %}
+| Action | Description
+|------------------|-------------------{% ifversion fpt or ghec %}
+| `set_actions_fork_pr_approvals_policy` | Triggered when the setting for requiring approvals for workflows from public forks is changed for an enterprise. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise)."{% endif %}
+| `set_actions_retention_limit` | Triggered when the retention period for {% data variables.product.prodname_actions %} artifacts and logs is changed for an enterprise. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)."{% ifversion fpt or ghes or ghec %}
+| `set_fork_pr_workflows_policy` | Triggered when the policy for workflows on  private repository forks is changed. For more information, see "{% ifversion fpt or ghec%}[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[Enabling workflows for private repository forks](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enforcing-github-actions-policies-for-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}."{% endif %}
 
 {% ifversion fpt or ghec %}
-### `codespaces` カテゴリアクション
+### `codespaces` category actions
 
-| アクション                        | 説明                                                                                                                                                                                                                       |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `create`                     | ユーザが[Codespaceを作成](/github/developing-online-with-codespaces/creating-a-codespace)するとトリガーされます。                                                                                                                           |
-| `resume`                     | ユーザがサスペンドされたCodespaceを再開するとトリガーされます。                                                                                                                                                                                     |
-| `delete`                     | ユーザが[Codespaceを削除](/github/developing-online-with-codespaces/deleting-a-codespace)するとトリガーされます。                                                                                                                           |
-| `create_an_org_secret`       | ユーザがOrganizationレベルの[{% data variables.product.prodname_codespaces %}用シークレット](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)を作成するとトリガーされます。 |
-| `update_an_org_secret`       | ユーザがOrganizationレベルの[{% data variables.product.prodname_codespaces %}用シークレット](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)を更新するとトリガーされます。 |
-| `remove_an_org_secret`       | ユーザがOrganizationレベルの[{% data variables.product.prodname_codespaces %}用シークレット](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)を削除するとトリガーされます。 |
-| `manage_access_and_security` | ユーザが[Codespaceがアクセスできるリポジトリ](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)を更新するとトリガーされます。                                                                                       |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a user [creates a codespace](/github/developing-online-with-codespaces/creating-a-codespace).
+| `resume` | Triggered when a user resumes a suspended codespace.
+| `delete` | Triggered when a user [deletes a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).
+| `create_an_org_secret` | Triggered when a user creates an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)
+| `update_an_org_secret` | Triggered when a user updates an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
+| `remove_an_org_secret` | Triggered when a user removes an organization-level [secret for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
+| `manage_access_and_security` | Triggered when a user updates [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
-### `dependabot_alerts` カテゴリアクション
+### `dependabot_alerts` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                         |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories. 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。 |
-| `enable`  | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories.                                                                                                                                                                        |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories.
 
-### `dependabot_alerts_new_repos` カテゴリアクション
+### `dependabot_alerts_new_repos` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                    |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories. 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。 |
-| `enable`  | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories.                                                                                                                                                                        |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories.
 
-### `dependabot_security_updates` カテゴリアクション
+### `dependabot_security_updates` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                                                                                             |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | Organization のオーナーが既存のすべてのリポジトリに対して {% data variables.product.prodname_dependabot_security_updates %} を無効にするとトリガーされます。 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。 |
-| `enable`  | Organization のオーナーが既存のすべてのリポジトリに対して {% data variables.product.prodname_dependabot_security_updates %} を有効にするとトリガーされます。                                                                                                                                                                       |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories.
 
-### `dependabot_security_updates_new_repos` カテゴリアクション
+### `dependabot_security_updates_new_repos` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                                                                                             |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | Organization のオーナーが新規のすべてのリポジトリに対して {% data variables.product.prodname_dependabot_security_updates %} を無効にするとトリガーされます。 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。 |
-| `enable`  | Organization のオーナーが新規のすべてのリポジトリに対して {% data variables.product.prodname_dependabot_security_updates %} を有効にするとトリガーされます。                                                                                                                                                                       |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_security_updates %} for all new repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_security_updates %} for all new repositories.
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### `dependency_graph` カテゴリアクション
+### `dependency_graph` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                               |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | Organization のオーナーが既存のすべてのリポジトリに対して依存関係グラフを無効にするとトリガーされます。 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。 |
-| `enable`  | Organization のオーナーが既存のすべてのリポジトリに対して依存関係グラフを有効にするとトリガーされます。                                                                                                                                                                       |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables the dependency graph for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables the dependency graph for all existing repositories.
 
-### `dependency_graph_new_repos` カテゴリアクション
+### `dependency_graph_new_repos` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                               |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | Organization のオーナーが新規のすべてのリポジトリに対して依存関係グラフを無効にするとトリガーされます。 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。 |
-| `enable`  | Organization のオーナーが新規のすべてのリポジトリに対して依存関係グラフを有効にするとトリガーされます。                                                                                                                                                                       |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables the dependency graph for all new repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+| `enable` | Triggered when an organization owner enables the dependency graph for all new repositories.
 {% endif %}
 
-### `discussion_post` カテゴリアクション
+### `discussion_post` category actions
 
-| アクション     | 説明                                                                                               |
-| --------- | ------------------------------------------------------------------------------------------------ |
-| `update`  | [Team ディスカッションの投稿が編集される](/articles/managing-disruptive-comments/#editing-a-comment)ときにトリガーされます。  |
-| `destroy` | [Team ディスカッションの投稿が削除される](/articles/managing-disruptive-comments/#deleting-a-comment)ときにトリガーされます。 |
+| Action | Description
+|------------------|-------------------
+| `update` | Triggered when [a team discussion post is edited](/articles/managing-disruptive-comments/#editing-a-comment).
+| `destroy` | Triggered when [a team discussion post is deleted](/articles/managing-disruptive-comments/#deleting-a-comment).
 
-### `discussion_post_reply` カテゴリアクション
+### `discussion_post_reply` category actions
 
-| アクション     | 説明                                                                                                   |
-| --------- | ---------------------------------------------------------------------------------------------------- |
-| `update`  | [Team ディスカッションの投稿への返答が編集される](/articles/managing-disruptive-comments/#editing-a-comment)ときにトリガーされます。  |
-| `destroy` | [Team ディスカッションの投稿への返答が削除される](/articles/managing-disruptive-comments/#deleting-a-comment)ときにトリガーされます。 |
+| Action | Description
+|------------------|-------------------
+| `update` | Triggered when [a reply to a team discussion post is edited](/articles/managing-disruptive-comments/#editing-a-comment).
+| `destroy` | Triggered when [a reply to a team discussion post is deleted](/articles/managing-disruptive-comments/#deleting-a-comment).
 
 {% ifversion fpt or ghes or ghec %}
-### `enterprise` カテゴリアクション
+### `enterprise` category actions
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### `environment` カテゴリアクション
+### `environment` category actions
 
-| アクション                   | 説明                                                                                                                   |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `create_actions_secret` | シークレットが環境で作成されたときにトリガーされます。 詳しい情報については、「[環境のシークレット](/actions/reference/environments#environment-secrets)」を参照してください。  |
-| `delete`                | 環境が削除されるとトリガーされます。 詳しい情報については、「[環境を削除する](/actions/reference/environments#deleting-an-environment)」を参照してください。         |
-| `remove_actions_secret` | シークレットが環境で削除されたときにトリガーされます。 詳しい情報については、「[環境のシークレット](/actions/reference/environments#environment-secrets)」を参照してください。  |
-| `update_actions_secret` | 環境内のシークレットが更新されたときにトリガーされます。 詳しい情報については、「[環境のシークレット](/actions/reference/environments#environment-secrets)」を参照してください。 |
+| Action | Description
+|------------------|-------------------
+| `create_actions_secret` | Triggered when a secret is created in an environment. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
+| `delete` | Triggered when an environment is deleted. For more information, see ["Deleting an environment](/actions/reference/environments#deleting-an-environment)."
+| `remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
+| `update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see ["Environment secrets](/actions/reference/environments#environment-secrets)."
 {% endif %}
 
 {% ifversion ghae %}
@@ -324,449 +323,448 @@ Audit log にイベントとして記録される最も一般的なアクショ�
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### `git` カテゴリアクション
+### `git` category actions
 
 {% note %}
 
-**注釈:** Audit log の Git イベントにアクセスするには、Audit log REST API を使用する必要があります。 Audit log REST API は、{% data variables.product.prodname_ghe_cloud %} のユーザのみが利用できます。 詳しい情報については「[Organization](/rest/reference/orgs#get-the-audit-log-for-an-organization)」を参照してください。
+**Note:** To access Git events in the audit log, you must use the audit log REST API. The audit log REST API is available for users of {% data variables.product.prodname_ghe_cloud %} only. For more information, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
 
 {% endnote %}
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
 
-| アクション  | 説明                          |
-| ------ | --------------------------- |
-| `クローン` | リポジトリがクローンされるとトリガーされます。     |
-| `フェッチ` | リポジトリから変更がフェッチされるとトリガーされます。 |
-| `プッシュ` | リポジトリに変更がプッシュされるとトリガーされます。  |
+| Action  | Description
+|---------|----------------------------
+| `clone` | Triggered when a repository is cloned.
+| `fetch` | Triggered when changes are fetched from a repository.
+| `push`  | Triggered when changes are pushed to a repository.
 
 {% endif %}
 
-### `hook` カテゴリアクション
+### `hook` category actions
 
-| アクション            | 説明                                                                              |
-| ---------------- | ------------------------------------------------------------------------------- |
-| `create`         | Organization が所有するリポジトリに[新たなフックが追加された](/articles/creating-webhooks)ときにトリガーされます。 |
-| `config_changed` | 既存のフックに変更された設定がある場合にトリガーされます。                                                   |
-| `destroy`        | 既存のフックがリポジトリから削除されたときにトリガーされます。                                                 |
-| `events_changed` | フックでのイベントが変更された場合にトリガーされます。                                                     |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when [a new hook was added](/articles/creating-webhooks) to a repository owned by your organization.
+| `config_changed` | Triggered when an existing hook has its configuration altered.
+| `destroy` | Triggered when an existing hook was removed from a repository.
+| `events_changed` | Triggered when the events on a hook have been altered.
 
-### `integration_installation_request` カテゴリアクション
+### `integration_installation_request` category actions
 
-| アクション    | 説明                                                                                                                                 |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `create` | Organization のメンバーが、Organization 内で使用するために、Organization のオーナーにインテグレーションをインストールすることを要求するときにトリガーされます。                                |
-| `close`  | Organization 内で使用するためにインテグレーションをインストールする要求が、Organization のオーナーにより承認または拒否されるか、あるいは要求を公開した Organization のメンバーによりキャンセルされるときにトリガーされます。 |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when an organization member requests that an organization owner install an integration for use in the organization.
+| `close` | Triggered when a request to install an integration for use in an organization is either approved or denied by an organization owner, or canceled by the organization member who opened the request.
 
 ### `ip_allow_list` category actions
 
-| アクション                        | 説明                                                                                                              |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `enable`                     | Triggered when an IP allow list was enabled for an organization.                                                |
-| `disable`                    | Triggered when an IP allow list was disabled for an organization.                                               |
-| `enable_for_installed_apps`  | Triggered when an IP allow list was enabled for installed {% data variables.product.prodname_github_apps %}.  |
-| `disable_for_installed_apps` | Triggered when an IP allow list was disabled for installed {% data variables.product.prodname_github_apps %}. |
+| Action | Description
+|------------------|-------------------
+| `enable` | Triggered when an IP allow list was enabled for an organization.
+| `disable` | Triggered when an IP allow list was disabled for an organization.
+| `enable_for_installed_apps` | Triggered when an IP allow list was enabled for installed {% data variables.product.prodname_github_apps %}.
+| `disable_for_installed_apps` | Triggered when an IP allow list was disabled for installed {% data variables.product.prodname_github_apps %}.
 
 ### `ip_allow_list_entry` category actions
 
-| アクション     | 説明                                                              |
-| --------- | --------------------------------------------------------------- |
-| `create`  | Triggered when an IP address was added to an IP allow list.     |
-| `update`  | Triggered when an IP address or its description was changed.    |
-| `destroy` | Triggered when an IP address was deleted from an IP allow list. |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when an IP address was added to an IP allow list.
+| `update` | Triggered when an IP address or its description was changed.
+| `destroy` | Triggered when an IP address was deleted from an IP allow list.
 
-### `issue` カテゴリアクション
+### `issue` category actions
 
-| アクション     | 説明                                                                                     |
-| --------- | -------------------------------------------------------------------------------------- |
-| `destroy` | リポジトリで管理者権限を所有する Organization のオーナーまたは誰かが、Organization が所有するリポジトリから問題を削除するときにトリガーされます。 |
+| Action | Description
+|------------------|-------------------
+| `destroy`        | Triggered when an organization owner or someone with admin permissions in a repository deletes an issue from an organization-owned repository.
 
 {% ifversion fpt or ghec %}
 
-### `marketplace_agreement_signature` カテゴリアクション
+### `marketplace_agreement_signature` category actions
 
-| アクション    | 説明                                                                                      |
-| -------- | --------------------------------------------------------------------------------------- |
-| `create` | {% data variables.product.prodname_marketplace %} Developer Agreement に署名するときにトリガーされます。 |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when you sign the {% data variables.product.prodname_marketplace %} Developer Agreement.
 
-### `marketplace_listing` カテゴリアクション
+### `marketplace_listing` category actions
 
-| アクション     | 説明                                                                                  |
-| --------- | ----------------------------------------------------------------------------------- |
-| `承認`      | 一覧表を {% data variables.product.prodname_marketplace %}に掲載することが承認されるときにトリガーされます。     |
-| `create`  | {% data variables.product.prodname_marketplace %} で自分のアプリケーションの一覧表を作成するときにトリガーされます。 |
-| `delist`  | 一覧表が {% data variables.product.prodname_marketplace %} から削除されるときにトリガーされます。          |
-| `redraft` | 一覧表がドラフト状態に戻されるときにトリガーされます。                                                         |
-| `reject`  | 一覧表が {% data variables.product.prodname_marketplace %} に掲載することを認められないときにトリガーされます。   |
+| Action | Description
+|------------------|-------------------
+| `approve` | Triggered when your listing is approved for inclusion in {% data variables.product.prodname_marketplace %}.
+| `create` | Triggered when you create a listing for your app in {% data variables.product.prodname_marketplace %}.
+| `delist` | Triggered when your listing is removed from {% data variables.product.prodname_marketplace %}.
+| `redraft` | Triggered when your listing is sent back to draft state.
+| `reject` | Triggered when your listing is not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
 
 {% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
 
-### `members_can_create_pages` カテゴリアクション
+### `members_can_create_pages` category actions
 
-詳しい情報については「[Organizationの{% data variables.product.prodname_pages %}サイトの公開の管理](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)」を参照してください。
+For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 
-| アクション     | 説明                                                                                                             |
-|:--------- |:-------------------------------------------------------------------------------------------------------------- |
-| `enable`  | Organizationのオーナーが Organization のリポジトリについて {% data variables.product.prodname_pages %} サイトの公開を有効化するときトリガーされます。 |
-| `disable` | Organizationのオーナーが Organization のリポジトリについて {% data variables.product.prodname_pages %} サイトの公開を無効化するときトリガーされます。 |
+| Action | Description |
+| :- | :- |
+| `enable` | Triggered when an organization owner enables publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. |
+| `disable` | Triggered when an organization owner disables publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. |
 
 {% endif %}
 
-### `org` カテゴリアクション
+### `org` category actions
 
-| アクション                                               | 説明                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `add_member`                                        | Triggered when a user joins an organization.{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-| `advanced_security_policy_selected_member_disabled` | Enterprise のオーナーが、Organization が所有するリポジトリで {% data variables.product.prodname_GH_advanced_security %} 機能を有効化できないようにするとトリガーされます。 {% data reusables.advanced-security.more-information-about-enforcement-policy %}
-| `advanced_security_policy_selected_member_enabled`  | Enterprise のオーナーが、Organization が所有するリポジトリに対して {% data variables.product.prodname_GH_advanced_security %} 機能を有効化できるようにするとトリガーされます。 {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% endif %}{% ifversion fpt or ghec %}
-| `audit_log_export`                                  | Organization の管理者が [Organization の Audit log のエクスポートを作成する](#exporting-the-audit-log)ときにトリガーされます。 エクスポートにクエリが含まれていた場合、ログには使用されたクエリとそのクエリに一致する Audit log エントリの数が一覧表示されます。                                                                                                                                                                                                                                                     |
-| `block_user`                                        | Organization のオーナーが[Organization のリポジトリにユーザーがアクセスするのをブロックする](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)ときにトリガーされます。                                                                                                                                                                                                                                                             |
-| `cancel_invitation`                                 | Organization の招待が取り消されている場合にトリガーされます。                                                                                                                                                                                                                                                                                                                                                                                       |{% endif %}{% ifversion fpt or ghes or ghec %}
-| `create_actions_secret`                             | Organization に対して {% data variables.product.prodname_actions %} シークレットが作成されたときにトリガーされます。 詳しい情報については、「[Organization の暗号化されたシークレットを作成する](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)」を参照してください。{% endif %}                                                                                                                                                                           |{% ifversion fpt or ghec %}
-| `disable_oauth_app_restrictions`                    | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
-| `disable_saml`                                      | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}{% endif %}
-| `disable_member_team_creation_permission`           | Organization のオーナーがオーナーに Team 作成を制限するときにトリガーされます。 詳細は「[Organization のチーム作成権限を設定する](/articles/setting-team-creation-permissions-in-your-organization)」を参照してください。 {% ifversion not ghae %}
-| `disable_two_factor_requirement`                    | Organization のすべてのメンバー{% ifversion fpt or ghec %}、支払いマネージャー、{% endif %}および外部のコラボレータに対してオーナーが 2 要素認証を無効化するときにトリガーされます。{% endif %}{% ifversion fpt or ghec %}
-| `enable_oauth_app_restrictions`                     | Triggered when an owner [enables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/enabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
-| `enable_saml`                                       | Triggered when an organization admin [enables SAML single sign-on](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) for an organization.{% endif %}{% endif %}
-| `enable_member_team_creation_permission`            | メンバーが Team を作成するのを Organizationのオーナーが許可するときにトリガーされます。 詳細は「[Organization のチーム作成権限を設定する](/articles/setting-team-creation-permissions-in-your-organization)」を参照してください。 {% ifversion not ghae %}
-| `enable_two_factor_requirement`                     | Triggered when an owner requires two-factor authentication for all members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}{% ifversion fpt or ghec %}
-| `invite_member`                                     | [新しいユーザーがOrganization に参加するよう招待](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)されたときにトリガーされます。                                                                                                                                                                                                                                                                           |
-| `oauth_app_access_approved`                         | オーナーが [{% data variables.product.prodname_oauth_app %} へのアクセスを許可する](/articles/approving-oauth-apps-for-your-organization/)ときにトリガーされます。                                                                                                                                                                                                                                                                                    |
-| `oauth_app_access_denied`                           | オーナーが Organization への[以前に承認した {% data variables.product.prodname_oauth_app %} のアクセス権を無効にする](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization)ときにトリガーされます。                                                                                                                                                                                                                                |
-| `oauth_app_access_requested`                        | オーナーが Organization への {% data variables.product.prodname_oauth_app %} アクセスを許可することを Organization のメンバーが要求するときにトリガーされます。{% endif %}
-| `register_self_hosted_runner`                       | 新しいセルフホストランナーが登録されたときにトリガーされます。 詳しい情報については、「[Organization へのセルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)」を参照してください。                                                                                                                                                                                                                          |
-| `remove_actions_secret`                             | {% data variables.product.prodname_actions %} シークレットが削除されるとトリガーされます。{% ifversion fpt or ghec %}
-| `remove_billing_manager`                            | [オーナーが Organization から支払いマネージャーを削除する](/articles/removing-a-billing-manager-from-your-organization/)とき、または [Organization で 2 要素認証が義務付けられている](/articles/requiring-two-factor-authentication-in-your-organization)が、支払いマネージャーが 2 要素認証を使用しないか 2 要素認証を無効にしているときにトリガーされます。 
-{% endif %}
-| `remove_member`                                     | [オーナーが Organization からメンバーを削除する](/articles/removing-a-member-from-your-organization/)とき {% ifversion not ghae %}、または[Organization で 2 要素認証が義務付けられている](/articles/requiring-two-factor-authentication-in-your-organization)が、Organization のメンバーが 2 要素認証を使用しないか 2 要素認証を無効化するとき{% endif %}にトリガーされます。 Organization から [Organization のメンバーが自身を削除](/articles/removing-yourself-from-an-organization/)するときにもトリガーされます。               |
-| `remove_outside_collaborator`                       | オーナーが Organization から外部のコラボレータを削除するとき{% ifversion not ghae %}、または[Organization で 2 要素認証が義務付けられている](/articles/requiring-two-factor-authentication-in-your-organization)が、外部のコラボレータが 2 要素認証を使用しないか 2 要素認証を無効化するとき{% endif %}にトリガーされます。                                                                                                                                                                                        |
-| `remove_self_hosted_runner`                         | セルフホストランナーが削除されたときにトリガーされます。 詳しい情報については、「[Organization からランナーを削除する](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)」を参照してください。                                                                                                                                                                                                                                       |{% ifversion ghec %}
-| `revoke_external_identity`                          | Organization のオーナーがメンバーのリンクされたアイデンティティを取り消すときにトリガーされます。 詳細は、「[Organizationへのメンバーの SAML アクセスの表示と管理](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)」を参照してください。                                                                                                                          |
-| `revoke_sso_session`                                | Organization のオーナーがメンバーの SAML セッションを取り消すときにトリガーされます。 詳細は、「[Organizationへのメンバーの SAML アクセスの表示と管理](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)」を参照してください。                                                                                                                             |{% endif %}
-| `runner_group_created`                              | セルフホストランナーグループが作成されたときにトリガーされます。 詳しい情報については、「[Organization のセルフホストランナーグループを作成する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)」を参照してください。                                                                                                                                                                                  |
-| `runner_group_created`                              | セルフホストランナーグループが削除されたときにトリガーされます。 詳しい情報については「[セルフホストランナーグループの削除](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)」を参照してください。                                                                                                                                                                                                                       |
-| `runner_group_updated`                              | セルフホストランナーグループの設定が変更されたときにトリガーされます。 詳しい情報については「[セルフホストランナーグループのアクセスポリシーの変更](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)」を参照してください。                                                                                                                                                                                      |
-| `runner_group_runners_added`                        | セルフホストランナーがグループに追加されたときにトリガーされます。 詳しい情報については、「[セルフホストランナーをグループに移動する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)」を参照してください。                                                                                                                                                                                                               |
-| `runner_group_runner_removed`                       | セルフホストランナーをグループから削除するのにREST APIが使われたときにトリガーされます。 詳しい情報については、「[Organization のグループからセルフホストランナーを削除する](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)」を参照してください。                                                                                                                                                                                                                         |
-| `runner_group_runners_updated`                      | ランナーグループのメンバーリストが更新されたときにトリガーされます。 詳しい情報については、「[Organizationのグループにセルフホストランナーを設定する](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)」を参照してください。{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-| `self_hosted_runner_online`                         | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."                                                                             |
-| `self_hosted_runner_offline`                        | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% endif %}{% ifversion fpt or ghes or ghec %}
-| `self_hosted_runner_updated`                        | ランナーアプリケーションが更新されたときにトリガーされます。 REST API及びUIを使って見ることができます。JSON/CSVエクスポートで見ることはできません。 詳しい情報については、「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)」を参照してください。{% endif %}{% ifversion fpt or ghec %}
-| `set_actions_fork_pr_approvals_policy`              | Organizationで、パブリックフォークからのワークフローが承認を必要とする設定が変更されたときにトリガーされます。 詳しい情報については「[パブリックフォークからのワークフローで承認を必須とする](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#requiring-approval-for-workflows-from-public-forks)」を参照してください。{% endif %}
-| `set_actions_retention_limit`                       | {% data variables.product.prodname_actions %}の成果物とログの保持期間が変更されたときにトリガーされます。 For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)."{% ifversion fpt or ghes or ghec %}
-| `set_fork_pr_workflows_policy`                      | プライベートのリポジトリフォークのワークフローのポリシーが変更されたときにトリガーされます。 詳しい情報については「[プライベートリポジトリフォークからのワークフローの有効化](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks)」を参照してください。{% endif %}{% ifversion fpt or ghec %}
-| `unblock_user`                                      | Organizationのオーナーが[ Organization からのユーザのブロックを解除](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)するときにトリガーされます。{% endif %}{% ifversion fpt or ghes or ghec %}
-| `update_actions_secret`                             | {% data variables.product.prodname_actions %} シークレットが更新されたときにトリガーされます。{% endif %}
-| `update_new_repository_default_branch_setting`      | オーナーが Organization の新しいリポジトリのデフォルトブランチの名前を変更するときにトリガーされます。 詳しい情報については、「[Organization のリポジトリのデフォルブランチ名を管理する](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)」を参照してください。                                                                                                                                                                                |
-| `update_default_repository_permission`              | オーナーが Organization のメンバーのデフォルトリポジトリの権限レベルを変更するときにトリガーされます。                                                                                                                                                                                                                                                                                                                                                                  |
-| `update_member`                                     | オーナーがユーザーのロールをオーナーからメンバーに、またはメンバーからオーナーに変更するときにトリガーされます。                                                                                                                                                                                                                                                                                                                                                                    |
-| `update_member_repository_creation_permission`      | オーナーが Organization のメンバーのリポジトリ作成権限を変更するときにトリガーされます。{% ifversion fpt or ghec %}
-| `update_saml_provider_settings`                     | Organization の SAML プロバイダ設定が更新されるときにトリガーされます。                                                                                                                                                                                                                                                                                                                                                                               |
-| `update_terms_of_service`                           | Organization が標準利用規約と企業向け利用規約を切り替えるときにトリガーされます。 詳細は「[企業利用規約にアップグレードする](/articles/upgrading-to-the-corporate-terms-of-service)」を参照してください。{% endif %}
+| Action | Description
+|------------------|-------------------
+| `add_member` | Triggered when a user joins an organization.{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+| `advanced_security_policy_selected_member_disabled` | Triggered when an enterprise owner prevents {% data variables.product.prodname_GH_advanced_security %} features from being enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
+| `advanced_security_policy_selected_member_enabled` | Triggered when an enterprise owner allows {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% endif %}{% ifversion fpt or ghec %}
+| `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
+| `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
+| `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% ifversion fpt or ghes or ghec %}
+| `create_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is created for an organization. For more information, see "[Creating encrypted secrets for an organization](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."{% endif %} {% ifversion fpt or ghec %}
+| `disable_oauth_app_restrictions` | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
+| `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}{% endif %}
+| `disable_member_team_creation_permission` | Triggered when an organization owner limits team creation to owners. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)." |{% ifversion not ghae %}
+| `disable_two_factor_requirement` | Triggered when an owner disables a two-factor authentication requirement for all members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}{% ifversion fpt or ghec %}
+| `enable_oauth_app_restrictions` | Triggered when an owner [enables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/enabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
+| `enable_saml` | Triggered when an organization admin [enables SAML single sign-on](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) for an organization.{% endif %}{% endif %}
+| `enable_member_team_creation_permission` | Triggered when an organization owner allows members to create teams. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)." |{% ifversion not ghae %}
+| `enable_two_factor_requirement` | Triggered when an owner requires two-factor authentication for all members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}{% ifversion fpt or ghec %}
+| `invite_member` | Triggered when [a new user was invited to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization).
+| `oauth_app_access_approved` | Triggered when an owner [grants organization access to an {% data variables.product.prodname_oauth_app %}](/articles/approving-oauth-apps-for-your-organization/).
+| `oauth_app_access_denied` | Triggered when an owner [disables a previously approved {% data variables.product.prodname_oauth_app %}'s access](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization) to your organization.
+| `oauth_app_access_requested` | Triggered when an organization member requests that an owner grant an {% data variables.product.prodname_oauth_app %} access to your organization.{% endif %}
+| `register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to an organization](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)."
+| `remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.{% ifversion fpt or ghec %}
+| `remove_billing_manager` | Triggered when an [owner removes a billing manager from an organization](/articles/removing-a-billing-manager-from-your-organization/) or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and a billing manager doesn't use 2FA or disables 2FA. |{% endif %}
+| `remove_member` | Triggered when an [owner removes a member from an organization](/articles/removing-a-member-from-your-organization/){% ifversion not ghae %} or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an organization member doesn't use 2FA or disables 2FA{% endif %}. Also triggered when an [organization member removes themselves](/articles/removing-yourself-from-an-organization/) from an organization.|
+| `remove_outside_collaborator` | Triggered when an owner removes an outside collaborator from an organization{% ifversion not ghae %} or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an outside collaborator does not use 2FA or disables 2FA{% endif %}. |
+| `remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from an organization](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)." {% ifversion ghec %}
+| `revoke_external_identity` | Triggered when an organization owner revokes a member's linked identity. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)."
+| `revoke_sso_session` | Triggered when an organization owner revokes a member's SAML session. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)." {% endif %}
+| `runner_group_created` | Triggered when a self-hosted runner group is created. For more information, see "[Creating a self-hosted runner group for an organization](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)."
+| `runner_group_removed` | Triggered when a self-hosted runner group is removed. For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
+| `runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
+| `runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see [Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).
+| `runner_group_runner_removed` |  Triggered when the REST API is used to remove a self-hosted runner from a group. For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
+| `runner_group_runners_updated`|  Triggered when a runner group's list of members is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+| `self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
+| `self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% endif %}{% ifversion fpt or ghes or ghec %}
+| `self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}{% ifversion fpt or ghec %}
+| `set_actions_fork_pr_approvals_policy` | Triggered when the setting for requiring approvals for workflows from public forks is changed for an organization. For more information, see "[Requiring approval for workflows from public forks](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#requiring-approval-for-workflows-from-public-forks)."{% endif %}
+| `set_actions_retention_limit` | Triggered when the retention period for {% data variables.product.prodname_actions %} artifacts and logs is changed. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)."{% ifversion fpt or ghes or ghec %}
+| `set_fork_pr_workflows_policy` | Triggered when the policy for workflows on  private repository forks is changed. For more information, see "[Enabling workflows for private repository forks](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks)."{% endif %}{% ifversion fpt or ghec %}
+| `unblock_user` | Triggered when an organization owner [unblocks a user from an organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization).{% endif %}{% ifversion fpt or ghes or ghec %}
+| `update_actions_secret` |Triggered when a {% data variables.product.prodname_actions %} secret is updated.{% endif %}
+| `update_new_repository_default_branch_setting` | Triggered when an owner changes the name of the default branch for new repositories in the organization. For more information, see "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)."
+| `update_default_repository_permission` | Triggered when an owner changes the default repository permission level for organization members.
+| `update_member` | Triggered when an owner changes a person's role from owner to member or member to owner.
+| `update_member_repository_creation_permission` | Triggered when an owner changes the create repository permission for organization members.{% ifversion fpt or ghec %}
+| `update_saml_provider_settings` | Triggered when an organization's SAML provider settings are updated.
+| `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the Corporate Terms of Service. For more information, see "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."{% endif %}
 
 {% ifversion ghec %}
-### `org_credential_authorization` カテゴリアクション
+### `org_credential_authorization` category actions
 
-| アクション          | 説明                                                                                                                                                                              |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `grant`        | [SAML シングルサインオンに使用するクレデンシャルをメンバーが認可する](/github/authenticating-to-github/authenticating-with-saml-single-sign-on)ときにトリガーされます。                                                    |
-| `deauthorized` | [SAML シングルサインオンに使用するクレデンシャルの認可をメンバーが取り消す](/github/authenticating-to-github/authenticating-with-saml-single-sign-on)ときにトリガーされます。                                                 |
-| `revoke`       | オーナーが[認可された認証情報を取り消す](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)ときにトリガーされます。 |
+| Action | Description
+|------------------|-------------------
+| `grant` | Triggered when a member [authorizes credentials for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on).
+| `deauthorized` | Triggered when a member [deauthorizes credentials for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on).
+| `revoke` | Triggered when an owner [revokes authorized credentials](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization).
 
 {% endif %}
 
 {% ifversion fpt or ghes or ghae or ghec %}
-### `organization_label` カテゴリアクション
+### `organization_label` category actions
 
-| アクション     | 説明                         |
-| --------- | -------------------------- |
-| `create`  | デフォルトラベルが作成されるときにトリガーされます。 |
-| `update`  | デフォルトラベルが編集されるときにトリガーされます。 |
-| `destroy` | デフォルトラベルが削除されるときにトリガーされます。 |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a default label is created.
+| `update` | Triggered when a default label is edited.
+| `destroy` | Triggered when a default label is deleted.
 
 {% endif %}
 
-### `oauth_application` カテゴリアクション
+### `oauth_application` category actions
 
-| アクション           | 説明                                                                                         |
-| --------------- | ------------------------------------------------------------------------------------------ |
-| `create`        | 新たな {% data variables.product.prodname_oauth_app %} が作成されるときにトリガーされます。                   |
-| `destroy`       | 既存の {% data variables.product.prodname_oauth_app %} が削除されるときにトリガーされます。                   |
-| `reset_secret`  | {% data variables.product.prodname_oauth_app %} のクライアント シークレットがリセットされるときにトリガーされます。       |
-| `revoke_tokens` | {% data variables.product.prodname_oauth_app %} のユーザートークンが取り消されるときにトリガーされます。             |
-| `移譲`            | 既存の {% data variables.product.prodname_oauth_app %} が新しい Organization に移譲されるときにトリガーされます。 |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a new {% data variables.product.prodname_oauth_app %} is created.
+| `destroy` | Triggered when an existing {% data variables.product.prodname_oauth_app %} is deleted.
+| `reset_secret` | Triggered when an {% data variables.product.prodname_oauth_app %}'s client secret is reset.
+| `revoke_tokens` | Triggered when an {% data variables.product.prodname_oauth_app %}'s user tokens are revoked.
+| `transfer` |  Triggered when an existing {% data variables.product.prodname_oauth_app %} is transferred to a new organization.
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
-### `packages` カテゴリアクション
+### `packages` category actions
 
-| アクション                       | 説明                                                                                                                                      |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `package_version_published` | パッケージのバージョンが公開されるとトリガーされます。                                                                                                             |
-| `package_version_deleted`   | 特定のパッケージのバージョンが削除されるとトリガーされます。 詳しい情報については、「[パッケージの削除とリストア](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください。 |
-| `package_deleted`           | パッケージ全体が削除されるとトリガーされます。 詳しい情報については、「[パッケージの削除とリストア](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください。        |
-| `package_version_restored`  | 特定のパッケージのバージョンが削除されるとトリガーされます。 詳しい情報については、「[パッケージの削除とリストア](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください。 |
-| `package_restored`          | パッケージ全体がリストアされるとトリガーされます。 詳しい情報については、「[パッケージの削除とリストア](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください。      |
+| Action | Description |
+|--------|-------------|
+| `package_version_published` | Triggered when a package version is published. |
+| `package_version_deleted` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_deleted` | Triggered when an entire package is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_version_restored` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_restored` | Triggered when an entire package is restored. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-### `payment_method` カテゴリアクション
+### `payment_method` category actions
 
-| アクション    | 説明                                                      |
-| -------- | ------------------------------------------------------- |
-| `create` | 新しいクレジット カードや PayPal アカウントなど、新たな支払い方法が追加されるときにトリガーされます。 |
-| `update` | 既存の支払い方法が更新されるときにトリガーされます。                              |
+| Action | Description
+|------------------|-------------------
+| `create` |  Triggered when a new payment method is added, such as a new credit card or PayPal account.
+| `update` | Triggered when an existing payment method is updated.
 
 {% endif %}
 
-### `profile_picture` カテゴリアクション
-| アクション  | 説明                                           |
-| ------ | -------------------------------------------- |
-| update | Organization のプロファイル写真を設定または更新するときにトリガーされます。 |
+### `profile_picture` category actions
+| Action | Description
+|------------------|-------------------
+| update | Triggered when you set or update your organization's profile picture.
 
-### `project` カテゴリアクション
+### `project` category actions
 
-| アクション                    | 説明                                                                                     |
-| ------------------------ | -------------------------------------------------------------------------------------- |
-| `create`                 | プロジェクト ボードが作成されるときにトリガーされます。                                                           |
-| `link`                   | リポジトリがプロジェクト ボードにリンクされるときにトリガーされます。                                                    |
-| `rename`                 | プロジェクトボードの名前が変更されるときにトリガーされます。                                                         |
-| `update`                 | プロジェクト ボードが更新されるときにトリガーされます。                                                           |
-| `delete`                 | プロジェクトボードが削除されるときにトリガーされます。                                                            |
-| `unlink`                 | リポジトリがプロジェクトボードからリンク解除されるときにトリガーされます。                                                  |
-| `update_org_permission`  | Organization のすべてのメンバーに対して、基本レベルの権限が変更または削除されるときにトリガーされます。                             |
-| `update_team_permission` | Team のプロジェクト ボードの権限レベルが変更されるとき、または Team がプロジェクト ボードに追加または削除されるときにトリガーされます。             |
-| `update_user_permission` | Organization のメンバーまたは外部コラボレーターがプロジェクト ボードに追加または削除されるとき、または彼らの権限レベルが変更されている場合にトリガーされます。 |
+| Action | Description
+|--------------------|---------------------
+| `create` | Triggered when a project board is created.
+| `link` | Triggered when a repository is linked to a project board.
+| `rename` | Triggered when a project board is renamed.
+| `update` | Triggered when a project board is updated.
+| `delete` | Triggered when a project board is deleted.
+| `unlink` | Triggered when a repository is unlinked from a project board.
+| `update_org_permission` | Triggered when the base-level permission for all organization members is changed or removed. |
+| `update_team_permission` | Triggered when a team's project board permission level is changed or when a team is added or removed from a project board. |
+| `update_user_permission` | Triggered when an organization member or outside collaborator is added to or removed from a project board or has their permission level changed.|
 
-### `protected_branch` カテゴリアクション
+### `protected_branch` category actions
 
-| アクション                                                 | 説明                                                                                                             |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `create`                                              | ブランチでブランチの保護が有効になるときにトリガーされます。                                                                                 |
-| `destroy`                                             | ブランチでブランチの保護が無効になるときにトリガーされます。                                                                                 |
-| `update_admin_enforced`                               | リポジトリの管理者に対してブランチの保護が実施されるときにトリガーされます。                                                                         |
-| `update_require_code_owner_review`                    | 必須コードオーナーレビューの実施がブランチで更新されるときにトリガーされます。                                                                        |
-| `dismiss_stale_reviews`                               | 古い Pull Request の却下の実施がブランチで更新されるときにトリガーされます。                                                                  |
-| `update_signature_requirement_enforcement_level`      | 必須コミット署名の実施がブランチで更新されるときにトリガーされます。                                                                             |
-| `update_pull_request_reviews_enforcement_level`       | 必須 Pull Request レビューの実施がブランチで更新されるときにトリガーされます。 Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone). |
-| `update_required_status_checks_enforcement_level`     | 必須ステータスチェックの実施がブランチで更新されるときにトリガーされます。                                                                          |
-| `update_strict_required_status_checks_policy`         | マージする前に最新にする必要があるブランチの要件が変更されるときにトリガーされます。                                                                     |
-| `rejected_ref_update`                                 | ブランチ更新の試行が拒否されるときにトリガーされます。                                                                                    |
-| `policy_override`                                     | ブランチ保護の要件がリポジトリ管理者によってオーバーライドされるときにトリガーされます。{% ifversion fpt or ghes or ghae or ghec %}
-| `update_allow_force_pushes_enforcement_level`         | 保護されたブランチについて、フォースプッシュが有効化または無効化されるときにトリガーされます。                                                                |
-| `update_allow_deletions_enforcement_level`            | 保護されたブランチについて、ブランチ削除が有効化または無効化されるときにトリガーされます。                                                                  |
-| `update_linear_history_requirement_enforcement_level` | 保護されたブランチについて、必須の直線状のコミット履歴が有効化または無効化されるときにトリガーされます。                                                           |
+| Action | Description
+|--------------------|---------------------
+| `create ` | Triggered when branch protection is enabled on a branch.
+| `destroy` | Triggered when branch protection is disabled on a branch.
+| `update_admin_enforced ` | Triggered when branch protection is enforced for repository administrators.
+| `update_require_code_owner_review ` | Triggered when enforcement of required Code Owner review is updated on a branch.
+| `dismiss_stale_reviews ` | Triggered when enforcement of dismissing stale pull requests is updated on a branch.
+| `update_signature_requirement_enforcement_level ` | Triggered when enforcement of required commit signing is updated on a branch.
+| `update_pull_request_reviews_enforcement_level ` | Triggered when enforcement of required pull request reviews is updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
+| `update_required_status_checks_enforcement_level ` | Triggered when enforcement of required status checks is updated on a branch.
+| `update_strict_required_status_checks_policy` | Triggered when the requirement for a branch to be up to date before merging is changed.
+| `rejected_ref_update ` | Triggered when a branch update attempt is rejected.
+| `policy_override ` | Triggered when a branch protection requirement is overridden by a repository administrator.{% ifversion fpt or ghes or ghae or ghec %}
+| `update_allow_force_pushes_enforcement_level ` | Triggered when force pushes are enabled or disabled for a protected branch.
+| `update_allow_deletions_enforcement_level ` | Triggered when branch deletion is enabled or disabled for a protected branch.
+| `update_linear_history_requirement_enforcement_level ` | Triggered when required linear commit history is enabled or disabled for a protected branch.
 {% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
-### `pull_request`カテゴリのアクション
+### `pull_request` category actions
 
-| アクション                   | 説明                                                                            |
-| ----------------------- | ----------------------------------------------------------------------------- |
-| `create`                | Pull Requestが作成されたときにトリガーされます。                                                |
-| `close`                 | Pull Requestがマージされずにクローズされたときにトリガーされます。                                       |
-| `reopen`                | 以前クローズされたPull Requestが再オープンされたときにトリガーされます。                                    |
-| `マージ`                   | Pull Requestがマージされたときにトリガーされます。                                               |
-| `indirect_merge`        | Pull Requestのコミットがターゲットブランチにマージされたことで、そのPull Requestがマージされたと考えられるときにトリガーされます。 |
-| `ready_for_review`      | Pull Requestがレビューの準備ができたとしてマークされたときにトリガーされます。                                 |
-| `converted_to_draft`    | Pull Requestがドラフトに変換されたときにトリガーされます。                                           |
-| `create_review_request` | レビューが要求されたときにトリガーされます。                                                        |
-| `remove_review_request` | レビューの要求が削除されたときにトリガーされます。                                                     |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a pull request is created.
+| `close` | Triggered when a pull request is closed without being merged.
+| `reopen` | Triggered when a pull request is reopened after previously being closed.
+| `merge` | Triggered when a pull request is merged.
+| `indirect_merge` | Triggered when a pull request is considered merged because its commits were merged into the target branch.
+| `ready_for_review` | Triggered when a pull request is marked as ready for review.
+| `converted_to_draft` | Triggered when a pull request is converted to a draft.
+| `create_review_request` | Triggered when a review is requested.
+| `remove_review_request` | Triggered when a review request is removed.
 
-### `pull_request_review`カテゴリのアクション
+### `pull_request_review` category actions
 
-| アクション    | 説明                        |
-| -------- | ------------------------- |
-| `サブミット`  | レビューがサブミットされたときにトリガーされます。 |
-| `却下`     | レビューが却下されたときにトリガーされます。    |
-| `delete` | レビューが削除されたときにトリガーされます。    |
+| Action | Description
+|------------------|-------------------
+| `submit` | Triggered when a review is submitted.
+| `dismiss` | Triggered when a review is dismissed.
+| `delete` | Triggered when a review is deleted.
 
-### `pull_request_review_comment`カテゴリのアクション
+### `pull_request_review_comment` category actions
 
-| アクション    | 説明                         |
-| -------- | -------------------------- |
-| `create` | レビューコメントが追加されたときにトリガーされます。 |
-| `update` | レビューコメントが変更されたときにトリガーされます。 |
-| `delete` | レビューコメントが削除されたときにトリガーされます。 |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a review comment is added.
+| `update` | Triggered when a review comment is changed.
+| `delete` | Triggered when a review comment is deleted.
 
 {% endif %}
 
-### `repo` カテゴリアクション
+### `repo` category actions
 
-| アクション                                  | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `access`                               | ユーザが Organization 内のリポジトリの[可視性を変更](/github/administering-a-repository/setting-repository-visibility)するとトリガーされます。                                                                                                                                                                                                                                                                                                                                                                |
-| `actions_enabled`                      | リポジトリに対して {% data variables.product.prodname_actions %} が有効化されたときにトリガーされます。 UI を使用して表示できます。 REST API を使用して Audit log にアクセスする場合、このイベントは対象外です。 詳しい情報については、「[REST API を使用する](#using-the-rest-api)」を参照してください。                                                                                                                                                                                                                                                                       |
-| `add_member`                           | ユーザーが[リポジトリへのコラボレーションアクセスへの招待](/articles/inviting-collaborators-to-a-personal-repository)を受諾するときにトリガーされます。                                                                                                                                                                                                                                                                                                                                                                      |
-| `add_topic`                            | リポジトリ管理者がリポジトリに[トピックを追加](/articles/classifying-your-repository-with-topics)するとトリガーされます。{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-| `advanced_security_disabled`           | リポジトリ管理者がリポジトリの {% data variables.product.prodname_GH_advanced_security %} 機能を無効にするとトリガーされます。 詳しい情報については「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。                                                                                                                                                                                                                                  |
-| `advanced_security_enabled`            | リポジトリ管理者がリポジトリの {% data variables.product.prodname_GH_advanced_security %} 機能を有効にするとトリガーされます。 詳しい情報については、「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。{% endif %}
-| `archived`                             | リポジトリの管理者が[リポジトリをアーカイブする](/articles/about-archiving-repositories)ときにトリガーされます。{% ifversion ghes %}
-| `config.disable_anonymous_git_access`  | 公開リポジトリで[匿名の Git 読み取りアクセスが無効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                                                                                                                                                                                                                                |
-| `config.enable_anonymous_git_access`   | 公開リポジトリで[匿名の Git 読み取りアクセスが有効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                                                                                                                                                                                                                                |
-| `config.lock_anonymous_git_access`     | リポジトリの[匿名の Git 読み取りアクセス設定がロックされる](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。                                                                                                                                                                                                                                                                                                           |
-| `config.unlock_anonymous_git_access`   | リポジトリの[匿名の Git 読み取りアクセス設定がロック解除される](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。{% endif %}
-| `create`                               | [新しいリポジトリが作成された](/articles/creating-a-new-repository)ときにトリガーされます。{% ifversion fpt or ghes or ghec %}
-| `create_actions_secret`                | リポジトリに対して {% data variables.product.prodname_actions %} シークレットが作成されたときにトリガーされます。 詳しい情報については、「[リポジトリの暗号化されたシークレットを作成する](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)」を参照してください。{% endif %}
-| `destroy`                              | [リポジトリが削除される](/articles/deleting-a-repository)ときにトリガーされます。{% ifversion fpt or ghec %}
-| `disable`                              | リポジトリが無効になるときにトリガーされます ([残高不足](/articles/unlocking-a-locked-account)などの場合)。{% endif %}
-| `enable`                               | リポジトリが再び有効になるときにトリガーされます。{% ifversion fpt or ghes or ghec %}
-| `remove_actions_secret`                | {% data variables.product.prodname_actions %} シークレットが削除されたときにトリガーされます。{% endif %}
-| `remove_member`                        | ユーザーが[リポジトリのコラボレーターではなくなる](/articles/removing-a-collaborator-from-a-personal-repository)ときにトリガーされます。                                                                                                                                                                                                                                                                                                                                                                            |
-| `register_self_hosted_runner`          | 新しいセルフホストランナーが登録されたときにトリガーされます。 詳しい情報については、「[リポジトリにセルフホストランナーを追加する](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)」を参照してください。                                                                                                                                                                                                                                                                                        |
-| `remove_self_hosted_runner`            | セルフホストランナーが削除されたときにトリガーされます。 詳しい情報については、「[リポジトリからランナーを削除する](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)」を参照してください。                                                                                                                                                                                                                                                                                                      |
-| `remove_topic`                         | リポジトリの管理者がリポジトリからトピックを削除するときにトリガーされます。                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `rename`                               | [リポジトリの名前が変更された](/articles/renaming-a-repository)ときにトリガーされます。{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-| `self_hosted_runner_online`            | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."                                                                                                                                 |
-| `self_hosted_runner_offline`           | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% endif %}{% ifversion fpt or ghes or ghec %}
-| `self_hosted_runner_updated`           | ランナーアプリケーションが更新されたときにトリガーされます。 REST API及びUIを使って見ることができます。JSON/CSVエクスポートで見ることはできません。 詳しい情報については、「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)」を参照してください。{% endif %}{% ifversion fpt or ghec %}
-| `set_actions_fork_pr_approvals_policy` | パブリックフォークからのワークフローが承認を必要とする設定が変更されたときにトリガーされます。 For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks)."{% endif %}
-| `set_actions_retention_limit`          | {% data variables.product.prodname_actions %}の成果物とログの保持期間が変更されたときにトリガーされます。 For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% ifversion fpt or ghes or ghec %}
-| `set_fork_pr_workflows_policy`         | プライベートのリポジトリフォークのワークフローのポリシーが変更されたときにトリガーされます。 For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
-| `移譲`                                   | [リポジトリが移譲される](/articles/how-to-transfer-a-repository)ときにトリガーされます。                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `transfer_start`                       | リポジトリの移譲が行われようとしているときにトリガーされます。                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `unarchived`                           | リポジトリ管理者がリポジトリをアーカイブ解除するとトリガーされます。{% ifversion fpt or ghes or ghec %}
-| `update_actions_secret`                | {% data variables.product.prodname_actions %} シークレットが更新されたときにトリガーされます。{% endif %}
+| Action | Description
+|------------------|-------------------
+| `access` | Triggered when a user [changes the visibility](/github/administering-a-repository/setting-repository-visibility) of a repository in the organization.
+| `actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not included when you access the audit log using the REST API. For more information, see "[Using the REST API](#using-the-rest-api)."
+| `add_member` | Triggered when a user accepts an [invitation to have collaboration access to a repository](/articles/inviting-collaborators-to-a-personal-repository).
+| `add_topic` | Triggered when a repository admin [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+| `advanced_security_disabled` | Triggered when a repository administrator disables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+| `advanced_security_enabled` | Triggered when a repository administrator enables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).".{% endif %}
+| `archived` | Triggered when a repository admin [archives a repository](/articles/about-archiving-repositories).{% ifversion ghes %}
+| `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
+| `config.enable_anonymous_git_access` | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
+| `config.lock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is locked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).
+| `config.unlock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is unlocked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
+| `create` | Triggered when [a new repository is created](/articles/creating-a-new-repository).{% ifversion fpt or ghes or ghec %}
+| `create_actions_secret` |Triggered when a {% data variables.product.prodname_actions %} secret is created for a repository. For more information, see "[Creating encrypted secrets for a repository](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."{% endif %}
+| `destroy` | Triggered when [a repository is deleted](/articles/deleting-a-repository).{% ifversion fpt or ghec %}
+| `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}
+| `enable` | Triggered when a repository is re-enabled.{% ifversion fpt or ghes or ghec %}
+| `remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.{% endif %}
+| `remove_member` | Triggered when a user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).
+| `register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
+| `remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."
+| `remove_topic` | Triggered when a repository admin removes a topic from a repository.
+| `rename` | Triggered when [a repository is renamed](/articles/renaming-a-repository).{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+| `self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
+| `self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% endif %}{% ifversion fpt or ghes or ghec %}
+| `self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}{% ifversion fpt or ghec %}
+| `set_actions_fork_pr_approvals_policy` | Triggered when the setting for requiring approvals for workflows from public forks is changed. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks)."{% endif %}
+| `set_actions_retention_limit` | Triggered when the retention period for {% data variables.product.prodname_actions %} artifacts and logs is changed. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% ifversion fpt or ghes or ghec %}
+| `set_fork_pr_workflows_policy` | Triggered when the policy for workflows on private repository forks is changed. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
+| `transfer` | Triggered when [a repository is transferred](/articles/how-to-transfer-a-repository).
+| `transfer_start` | Triggered when a repository transfer is about to occur.
+| `unarchived` | Triggered when a repository admin unarchives a repository.{% ifversion fpt or ghes or ghec %}
+| `update_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is updated.{% endif %}
 
 {% ifversion fpt or ghec %}
 
-### `repository_advisory` カテゴリアクション
+### `repository_advisory` category actions
 
-| アクション              | 説明                                                                                                                                                                                                    |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `close`            | ユーザがセキュリティアドバイザリをクローズするとトリガーされます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} のセキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。 |
-| `cve_request`      | ユーザがセキュリティアドバイザリのドラフトのために {% data variables.product.prodname_dotcom %} に CVE (Common Vulnerabilities and Exposures) 番号をリクエストするとトリガーされます。                                                              |
-| `github_broadcast` | {% data variables.product.prodname_dotcom %} が {% data variables.product.prodname_advisory_database %} でセキュリティアドバイザリを公開するとトリガーされます。                                                                 |
-| `github_withdraw`  | {% data variables.product.prodname_dotcom %} が誤って公開されたセキュリティアドバイザリを撤回するとトリガーされます。                                                                                                                     |
-| `オープン`             | ユーザがドラフトのセキュリティアドバイザリをオープンするとトリガーされます。                                                                                                                                                                |
-| `publish`          | ユーザがセキュリティアドバイザリを公開するとトリガーされます。                                                                                                                                                                       |
-| `reopen`           | ユーザがドラフトのセキュリティアドバイザリとして再オープンするとトリガーされます。                                                                                                                                                             |
-| `update`           | ユーザがドラフトまたは公開済みのセキュリティアドバイザリを編集するとトリガーされます。                                                                                                                                                           |
+| Action | Description
+|------------------|-------------------
+| `close` | Triggered when someone closes a security advisory. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+| `cve_request` | Triggered when someone requests a CVE (Common Vulnerabilities and Exposures) number from {% data variables.product.prodname_dotcom %} for a draft security advisory.
+| `github_broadcast` | Triggered when {% data variables.product.prodname_dotcom %} makes a security advisory public in the {% data variables.product.prodname_advisory_database %}.
+| `github_withdraw` | Triggered when {% data variables.product.prodname_dotcom %} withdraws a security advisory that was published in error.
+| `open` | Triggered when someone opens a draft security advisory.
+| `publish` | Triggered when someone publishes a security advisory.
+| `reopen` | Triggered when someone reopens as draft security advisory.
+| `update` | Triggered when someone edits a draft or published security advisory.
 
-### `repository_content_analysis`カテゴリアクション
+### `repository_content_analysis` category actions
 
-| アクション     | 説明                                                                                                                                                                            |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enable`  | Organization のオーナーまたはリポジトリへの管理者アクセス権を所有する人が[プライベート リポジトリに対してデータ使用設定を有効にする](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)ときにトリガーされます。 |
-| `disable` | Organization のオーナーまたはリポジトリへの管理者アクセス権を所有する人が[プライベート リポジトリに対してデータ使用設定を無効にする](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)ときにトリガーされます。 |
+| Action | Description
+|------------------|-------------------
+| `enable` | Triggered when an organization owner or person with admin access to the repository [enables data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
+| `disable` | Triggered when an organization owner or person with admin access to the repository [disables data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
 
 {% endif %}{% ifversion fpt or ghec %}
 
-### `repository_dependency_graph` カテゴリアクション
+### `repository_dependency_graph` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                           |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | リポジトリのオーナーまたはリポジトリへの管理者アクセスを持つユーザが{% ifversion fpt or ghec %}プライベート{% endif %}リポジトリの依存関係グラフを無効にするとトリガーされます。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。 |
-| `enable`  | リポジトリのオーナーまたはリポジトリへの管理者アクセスを持つユーザが{% ifversion fpt or ghec %}プライベート{% endif %}リポジトリの依存関係グラフを有効にするとトリガーされます。                                                                                                                  |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository.
 
 {% endif %}{% ifversion ghec or ghes or ghae %}
-### `repository_secret_scanning` カテゴリアクション
+### `repository_secret_scanning` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                                                                                |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。 |
-| `enable`  | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.                                                                                                      |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.
 
 {% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-### `repository_vulnerability_alert` カテゴリアクション
+### `repository_vulnerability_alert` category actions
 
-| アクション    | 説明                                                                                                                                                                                                                                                                                                                  |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create` | Triggered when {% data variables.product.product_name %} creates a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。 |
-| `却下`     | Triggered when an organization owner or person with admin access to the repository dismisses a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.                                                                                                                                |
-| `解決`     | リポジトリへの書き込みアクセスを持つユーザが変更をプッシュして、プロジェクトの依存関係の脆弱性を更新および解決するとトリガーされます。                                                                                                                                                                                                                                                 |
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when {% data variables.product.product_name %} creates a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+| `dismiss` | Triggered when an organization owner or person with admin access to the repository dismisses a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.
+| `resolve` | Triggered when someone with write access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
 
 {% endif %}{% ifversion fpt or ghec %}
-### `repository_vulnerability_alerts` カテゴリアクション
+### `repository_vulnerability_alerts` category actions
 
-| アクション                    | 説明                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `authorized_users_teams` | Organization のオーナーまたはリポジトリへの管理者権限を持つユーザが、リポジトリ内の脆弱性のある依存関係の {% data variables.product.prodname_dependabot_alerts %} を受け取ることを許可されたユーザまたは Team のリストを更新するとトリガーされます。 詳しい情報については「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)」を参照してください。 |
-| `disable`                | リポジトリのオーナーまたはリポジトリへの管理者アクセスを持つユーザが {% data variables.product.prodname_dependabot_alerts %} を無効にするとトリガーされます。                                                                                                                                                                                                                                        |
-| `enable`                 | リポジトリのオーナーまたはリポジトリへの管理者アクセスを持つユーザが {% data variables.product.prodname_dependabot_alerts %} を有効にするとトリガーされます。                                                                                                                                                                                                                                        |
+| Action | Description
+|------------------|-------------------
+| `authorized_users_teams` | Triggered when an organization owner or a person with admin permissions to the repository updates the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies in the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables {% data variables.product.prodname_dependabot_alerts %}.
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_dependabot_alerts %}.
 
 {% endif %}{% ifversion ghec %}
 ### `role` category actions
-| アクション     | 説明                                                                                                                                                                                                                                                                                              |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create`  | Triggered when an organization owner creates a new custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."     |
-| `destroy` | Triggered when a organization owner deletes a custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."          |
-| `update`  | Triggered when an organization owner edits an existing custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)." |
+| Action | Description
+|------------------|-------------------
+|`create` | Triggered when an organization owner creates a new custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+|`destroy` | Triggered when a organization owner deletes a custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+|`update` | Triggered when an organization owner edits an existing custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 
 {% endif %}
 {% ifversion ghec or ghes or ghae %}
-### `secret_scanning` カテゴリアクション
+### `secret_scanning` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                                                   |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | Triggered when an organization owner disables secret scanning for all existing{% ifversion ghec %}, private or internal{% endif %} repositories. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。 |
-| `enable`  | Triggered when an organization owner enables secret scanning for all existing{% ifversion ghec %}, private or internal{% endif %} repositories.                                                                                                      |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables secret scanning for all existing{% ifversion ghec %}, private or internal{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| `enable` | Triggered when an organization owner enables secret scanning for all existing{% ifversion ghec %}, private or internal{% endif %} repositories.
 
-### `secret_scanning_new_repos` カテゴリアクション
+### `secret_scanning_new_repos` category actions
 
-| アクション     | 説明                                                                                                                                                                                                                                             |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | Triggered when an organization owner disables secret scanning for all new {% ifversion ghec %}private or internal {% endif %}repositories. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。 |
-| `enable`  | Triggered when an organization owner enables secret scanning for all new {% ifversion ghec %}private or internal {% endif %}repositories.                                                                                                      |
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when an organization owner disables secret scanning for all new {% ifversion ghec %}private or internal {% endif %}repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| `enable` | Triggered when an organization owner enables secret scanning for all new {% ifversion ghec %}private or internal {% endif %}repositories.
 {% endif %}
 
 {% ifversion fpt or ghec %}
-### `sponsors` カテゴリアクション
+### `sponsors` category actions
 
-| アクション                                         | 説明                                                                                                                                                                                                                                                                     |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `custom_amount_settings_change`               | カスタム金額を有効または無効にするとき、または提案されたカスタム金額を変更するときにトリガーされます (「[スポンサーシップ層を管理する](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)」を参照)。                                                                                         |
-| `repo_funding_links_file_action`              | リポジトリで FUNDING ファイルを変更したときにトリガーされます (「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照)                                                                                                                                             |
-| `sponsor_sponsorship_cancel`                  | スポンサーシップをキャンセルしたときにトリガーされます (「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照)                                                                                                                                                                           |
-| `sponsor_sponsorship_create`                  | アカウントをスポンサーするとトリガーされます (「[オープンソースコントリビューターに対するスポンサー](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)」を参照)                                                                                                                         |
-| `sponsor_sponsorship_payment_complete`        | アカウントをスポンサーし、支払が処理されるとトリガーされます (「[オープンソースコントリビューターに対するスポンサー](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)」を参照)                                                                                                                 |
-| `sponsor_sponsorship_preference_change`       | スポンサードアカウントからメールで最新情報を受け取るかどうかを変更するとトリガーされます (「[スポンサーシップを管理する](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)」を参照)                                                                                                                           |
-| `sponsor_sponsorship_tier_change`             | スポンサーシップをアップグレードまたはダウングレードしたときにトリガーされます (「[スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)」および「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照)                                                                                                   |
-| `sponsored_developer_approve`                 | {% data variables.product.prodname_sponsors %} アカウントが承認されるとトリガーされます（「[Organization に{% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照）              |
-| `sponsored_developer_create`                  | {% data variables.product.prodname_sponsors %} アカウントが作成されるとトリガーされます（「[Organization に{% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照）              |
-| `sponsored_developer_disable`                 | {% data variables.product.prodname_sponsors %} アカウントが無効になるとトリガーされます                                                                                                                                                                                                    |
-| `sponsored_developer_redraft`                 | {% data variables.product.prodname_sponsors %} アカウントが承認済みの状態からドラフト状態に戻るとトリガーされます                                                                                                                                                                                       |
-| `sponsored_developer_profile_update`          | スポンサード Organization のプロフィールを編集するとトリガーされます（「[{% data variables.product.prodname_sponsors %} のプロフィール詳細を編集する](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)」を参照）                                             |
-| `sponsored_developer_request_approval`        | 承認のために {% data variables.product.prodname_sponsors %} のアプリケーションをサブミットするとトリガーされます（「[Organization に{% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照） |
-| `sponsored_developer_tier_description_update` | スポンサーシップ層の説明を変更したときにトリガーされます (「[スポンサーシップ層を管理する](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)」を参照)                                                                                                                         |
-| `sponsored_developer_update_newsletter_send`  | スポンサーにメールで最新情報を送信するとトリガーされます (「[スポンサーに連絡する](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)」を参照)                                                                                                                                    |
-| `waitlist_invite_sponsored_developer`         | 待ちリストから {% data variables.product.prodname_sponsors %} に参加するよう招待されたときにトリガーされます（「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照）  |
-| `waitlist_join`                               | スポンサード Organization になるために待ちリストに参加するとトリガーされます（「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照）                                   |
+| Action | Description
+|------------------|-------------------
+| `custom_amount_settings_change` | Triggered when you enable or disable custom amounts, or when you change the suggested custom amount (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")
+| `repo_funding_links_file_action` | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
+| `sponsor_sponsorship_cancel` | Triggered when you cancel a sponsorship (see "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
+| `sponsor_sponsorship_create` | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")
+| `sponsor_sponsorship_payment_complete` | Triggered after you sponsor an account and your payment has been processed (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")
+| `sponsor_sponsorship_preference_change` | Triggered when you change whether you receive email updates from a sponsored account (see "[Managing your sponsorship](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)")
+| `sponsor_sponsorship_tier_change` | Triggered when you upgrade or downgrade your sponsorship (see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
+| `sponsored_developer_approve` | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `sponsored_developer_create` | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `sponsored_developer_disable` | Triggered when your {% data variables.product.prodname_sponsors %} account is disabled
+| `sponsored_developer_redraft` | Triggered when your {% data variables.product.prodname_sponsors %} account is returned to draft state from approved state
+| `sponsored_developer_profile_update` | Triggered when you edit your sponsored organization profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)")
+| `sponsored_developer_request_approval` | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)")
+| `sponsored_developer_update_newsletter_send` | Triggered when you send an email update to your sponsors (see "[Contacting your sponsors](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)")
+| `waitlist_invite_sponsored_developer` | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `waitlist_join` | Triggered when you join the waitlist to become a sponsored organization (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)")
 {% endif %}
 
-### `team` カテゴリアクション
+### `team` category actions
 
-| アクション                     | 説明                                                                                                                                                                                                                                                               |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `add_member`              | Organization のメンバーが[Team に追加される](/articles/adding-organization-members-to-a-team)ときにトリガーされます。                                                                                                                                                                    |
-| `add_repository`          | リポジトリの管理が Team に任せられるときにトリガーされます。                                                                                                                                                                                                                                |
-| `change_parent_team`      | 子チームが作成されるとき、または[子チームの親が変更される](/articles/moving-a-team-in-your-organization-s-hierarchy)ときにトリガーされます。                                                                                                                                                             |
-| `change_privacy`          | Team のプライバシー レベルが変更されるときにトリガーされます。                                                                                                                                                                                                                               |
-| `create`                  | 新たな Team が作成されるときにトリガーされます。                                                                                                                                                                                                                                      |
-| `demote_maintainer`       | Triggered when a user was demoted from a team maintainer to a team member. For more information, see "[Assigning the team maintainer role to a team member](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)."  |
-| `destroy`                 | Team が Organization から削除されるときにトリガーされます。                                                                                                                                                                                                                          |
-| `team.promote_maintainer` | Triggered when a user was promoted from a team member to a team maintainer. For more information, see "[Assigning the team maintainer role to a team member](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)." |
-| `remove_member`           | Organization のメンバーが[Team から削除される](/articles/removing-organization-members-from-a-team)ときにトリガーされます。                                                                                                                                                               |
-| `remove_repository`       | リポジトリが Team の管理下でなくなるときにトリガーされます。                                                                                                                                                                                                                                |
+| Action | Description
+|------------------|-------------------
+| `add_member` | Triggered when a member of an organization is [added to a team](/articles/adding-organization-members-to-a-team).
+| `add_repository` | Triggered when a team is given control of a repository.
+| `change_parent_team` | Triggered when a child team is created or [a child team's parent is changed](/articles/moving-a-team-in-your-organization-s-hierarchy).
+| `change_privacy` | Triggered when a team's privacy level is changed.
+| `create` | Triggered when a new team is created.
+| `demote_maintainer` | Triggered when a user was demoted from a team maintainer to a team member. For more information, see "[Assigning the team maintainer role to a team member](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)."
+| `destroy` | Triggered when a team is deleted from the organization.
+| `team.promote_maintainer` | Triggered when a user was promoted from a team member to a team maintainer. For more information, see "[Assigning the team maintainer role to a team member](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)."
+| `remove_member` | Triggered when a member of an organization is [removed from a team](/articles/removing-organization-members-from-a-team).
+| `remove_repository` | Triggered when a repository is no longer under a team's control.
 
-### `team_discussions` カテゴリアクション
+### `team_discussions` category actions
 
-| アクション     | 説明                                                                                                                                                                                     |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disable` | Organization のオーナーが Organization の Team ディスカッションを無効にするときにトリガーされます。 詳しい情報については [Organization の Team ディスカッションの無効化](/articles/disabling-team-discussions-for-your-organization)を参照してください。 |
-| `enable`  | Organization のオーナーが Organization の Team ディスカッションを有効にするときにトリガーされます。                                                                                                                     |
+| Action | Description
+|---|---|
+| `disable` | Triggered when an organization owner disables team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)."
+| `enable` | Triggered when an organization owner enables team discussions for an organization.
 
 {% ifversion fpt or ghec or ghes > 3.1 or ghae %}
-### `workflows` カテゴリアクション
+### `workflows` category actions
 
 {% data reusables.actions.actions-audit-events-workflow %}
 {% endif %}
-## 参考リンク
+## Further reading
 
 - "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5146 %}
 - "[Exporting member information for your organization](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}

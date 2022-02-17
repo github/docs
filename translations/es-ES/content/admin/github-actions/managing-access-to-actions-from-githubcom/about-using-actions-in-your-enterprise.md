@@ -19,7 +19,7 @@ shortTitle: Agregar acciones en tu empresa
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About actions on {% data variables.product.product_name %}
+## Acerca de las acciones en {% data variables.product.product_name %}
 
 Los flujos de trabajo de {% data variables.product.prodname_actions %} pueden utilizar _acciones_, las cuales son tareas individuales que puedes combinar para crear jobs y personalizar tu flujo de trabajo. Puedes crear tus propias acciones, o utilizar y personalizar a quellas que comparte la comunidad de {% data variables.product.prodname_dotcom %}.
 
@@ -42,7 +42,7 @@ Cada acción es un repositorio en la organización `actions` y cada repositorio 
 ## Configurar el acceso a las acciones en {% data variables.product.prodname_dotcom_the_website %}
 
 {% ifversion ghes %}
-Before you can configure access to actions on {% data variables.product.prodname_dotcom_the_website %}, you must configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)".
+Antes de que puedas configurar el acceso a las acciones en {% data variables.product.prodname_dotcom_the_website %}, debes configurar {% data variables.product.product_location %} para que utilice {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)".
 {% endif %}
 
 {% data reusables.actions.access-actions-on-dotcom %}

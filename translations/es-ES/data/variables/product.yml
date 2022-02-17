@@ -143,6 +143,7 @@ prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Las alertas del dependabot'
 prodname_dependabot_security_updates: 'Actualizaciones de seguridad del dependabot'
 prodname_dependabot_version_updates: 'Actualizaciones de versión del dependabot'
+prodname_dependabot_updates: 'Dependabot updates'
 #GitHub Archive Program
 prodname_archive: 'Programa de Archivo de GitHub'
 prodname_arctic_vault: 'Bóveda de Código del Ártico'

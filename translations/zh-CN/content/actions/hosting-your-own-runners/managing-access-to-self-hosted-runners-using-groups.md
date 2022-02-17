@@ -25,10 +25,10 @@ shortTitle: 管理运行器组
 
 {% endnote %}
 
-Self-hosted runner groups are used to control access to self-hosted runners. 组织管理员可以配置访问策略，用以控制组织中的哪些组织可以访问运行器组。
+自托管运行器组用于控制对自托管运行器的访问。 组织管理员可以配置访问策略，用以控制组织中的哪些组织可以访问运行器组。
 如果您使用
 
-{% data variables.product.prodname_ghe_cloud %}, you can create additional runner groups; enterprise admins can configure access policies that control which organizations in an enterprise have access to the runner group; and organization admins can assign additional granular repository access policies to the enterprise runner group. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups).
+{% data variables.product.prodname_ghe_cloud %}，您可以创建额外的运行器组；企业管理员可以配置访问策略，控制企业中哪些组织可以访问运行器组；组织管理员可以为企业运行器组分配额外的细致仓库访问策略。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)。
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
@@ -65,12 +65,12 @@ Self-hosted runner groups are used to control access to self-hosted runners. 组
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. Under {% ifversion ghes > 3.1 or ghae %}"Runners"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %}, click **Add new**, and then **New group**.
+1. 在 {% ifversion ghes > 3.1 or ghae %}“Runners（运行器）”{% elsif ghes < 3.2 %}“Self-hosted runners（自托管运行器）”{% endif %} 下，单击 **Add new（新增）**，然后单击 **New group（新建组）**。
 
     ![添加运行器组](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. 输入运行程序组的名称，并分配仓库访问策略。
 
-   {% ifversion ghes or ghae %} 您可以配置一个运行器组可供一组特定的仓库或组织中所有仓库访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
+   {% ifversion ghes or ghae %} 您可以配置一个运行器组可供一组特定的仓库或组织中所有仓库访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 如果配置企业共享的组织的运行组，则不能覆盖此设置。{% endif %}
 
    {% warning %}
 
@@ -185,7 +185,7 @@ Self-hosted runner groups are used to control access to self-hosted runners. 组
 2. 选择运行器组下拉菜单。
 3. 在“Move runner to group（将运行器移动到组）”中，选择运行器的目的地组。
 {% elsif ghae or ghes < 3.4 %}
-1. In the {% ifversion ghes > 3.1 or ghae %}"Runner groups"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![查看运行器组成员](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. 在设置页面的{% ifversion ghes > 3.1 or ghae %}“Runners groups（运行器组）”{% elsif ghes < 3.2 %}“Self-hosted runners（自托管运行器）”{% endif %} 部分，找到要移动的运行器的当前组，并展开组成员列表。 ![查看运行器组成员](/assets/images/help/settings/actions-org-runner-group-members.png)
 2. 选中自托管运行器旁边的复选框，然后单击 **Move to group（移动到组）**以查看可用的目的地。 ![运行器组成员移动](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 3. 要移动运行器，请单击目标组。 ![运行器组成员移动](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}

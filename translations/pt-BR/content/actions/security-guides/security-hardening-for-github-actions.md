@@ -141,15 +141,6 @@ Neste exemplo, a injeção de script não tem sucesso:
 
 Com esta abordagem, o valor da expressão de {% raw %}`${{ github.event.issue.title }}`{% endraw %} é armazenado na memória e usada como uma variável e não interage com o processo de geração de script. Além disso, considere usar variáveis do shell de citação dupla para evitar [divisão de palavras](https://github.com/koalaman/shellcheck/wiki/SC2086), mas esta é [uma das muitas](https://mywiki.wooledge.org/BashPitfalls) recomendações gerais para escrever scripts de shell e não é específica para {% data variables.product.prodname_actions %}.
 
-### Usar o CodeQL para analisar seu código
-
-Para ajudar você a gerenciar o risco de padrões perigosos o mais cedo possível no ciclo de vida do desenvolvimento, o Laboratório de Segurança de {% data variables.product.prodname_dotcom %} desenvolveu [as consultas do CodeQL](https://github.com/github/codeql/tree/main/javascript/ql/src/experimental/Security/CWE-094) que os proprietários de repositórios podem [integrar](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#running-additional-queries) a seus pipelines CI/CD. Para obter mais informações, consulte "[Sobre a varredura de código](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)".
-
-Atualmente, os scripts atualmente das bibliotecas JavaScript do CodeQL, o que significa que o repositório analisado deve conter pelo menos um arquivo JavaScript e que o CodeQL deve ser [configurado para analisar esta linguagem](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed).
-
-- `ExpressionInjection.ql`: Cobre as injeções de expressão descritas neste artigo e é considerada razoavelmente precisa. No entanto, ele não executa o rastreamento de dados entre as etapas do fluxo de trabalho.
-- `UntrustedCheckout. l`: Os resultados deste script exigem revisão manual para determinar se o código de um pull request é realmente tratado de forma não segura. Para obter mais informações, consulte "[Manter o seu GitHub Actions e fluxos de trabalho seguro: impedindo solicitações pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" no blogue {% data variables.product.prodname_dotcom %} do Laboratório de Segurança.
-
 ### Restringir permissões para tokens
 
 Para ajudar a mitigar o risco de um token exposto, considere restringir as permissões atribuídas. Para obter mais informações, consulte "[Modificar as permissões para o GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)".
