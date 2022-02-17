@@ -29,7 +29,7 @@ Las personas con acceso de administrador a un repositorio pueden administrar el 
 ## Otorgarle a un equipo acceso a un repositorio
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
-You can give a team access to a repository or change a team's level of access to a repository in your repository settings. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)".
+You can give a team access to a repository or change a team's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)."
 {% else %}
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
