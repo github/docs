@@ -5,6 +5,7 @@ translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-r
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,Listed in localization-support#489
+translations/pt-BR/content/admin/configuration/configuring-github-connect/about-github-connect.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-github-connect/managing-github-connect.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
@@ -21,6 +22,7 @@ translations/pt-BR/content/code-security/code-scanning/automatically-scanning-yo
 translations/pt-BR/content/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system.md,broken liquid tags
+translations/pt-BR/content/code-security/getting-started/securing-your-repository.md,broken liquid tags
 translations/pt-BR/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,broken liquid tags
 translations/pt-BR/content/desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop.md,broken liquid tags
 translations/pt-BR/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags
@@ -38,6 +40,8 @@ translations/pt-BR/content/packages/working-with-a-github-packages-registry/work
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry.md,Listed in localization-support#489
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry.md,broken liquid tags
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry.md,broken liquid tags
+translations/pt-BR/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches.md,broken liquid tags
+translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,broken liquid tags
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,parsing error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository.md,broken liquid tags
 translations/pt-BR/content/rest/reference/activity.md,broken liquid tags

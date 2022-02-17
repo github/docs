@@ -65,7 +65,7 @@ topics:
 {% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
 1. 在“{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security（安全性）{% endif %}”下，选择要启用的功能，取消选择要禁用的任何功能。
 {% ifversion ghes > 3.1 %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
-1. 在“{% data variables.product.prodname_advanced_security %}”下，单击 **{% data variables.product.prodname_code_scanning_capc %}**。 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)用于启用 Public Pages 的复选框{% endif %}
+1. 在“{% data variables.product.prodname_advanced_security %}”下，单击 **{% data variables.product.prodname_code_scanning_capc %}**。 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 当 {% data variables.product.product_name %} 完成重启后，您可以设置新启用功能所需的任何额外资源。 更多信息请参阅“[为设备配置 {% data variables.product.prodname_code_scanning %}](/admin/advanced-security/configuring-code-scanning-for-your-appliance)”。

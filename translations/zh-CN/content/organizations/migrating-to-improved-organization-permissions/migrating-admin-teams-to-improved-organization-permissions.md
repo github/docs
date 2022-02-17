@@ -21,7 +21,7 @@ shortTitle: 迁移管理团队
 
 您可以将旧管理员团队迁移到改进的组织权限，以删除此能力。
 
-For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 {% warning %}
 
