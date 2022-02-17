@@ -14,13 +14,13 @@ topics:
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}.
+Você pode usar o [Portal de Suporte do GitHub](https://support.github.com/) para visualizar os tíquetes atuais e anteriores e responder a {% data variables.contact.github_support %}.
 
 {% ifversion ghes or ghec %}
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
 
-## Viewing your support tickets
+## Visualizando seus tíquetes de suporte
 
 {% data reusables.support.view-open-tickets %}
 1. Under the text box, you can read the comment history. The most recent response is at the top. ![Screenshot of support ticket comment history, with the most recent response at the top.](/assets/images/help/support/support-recent-response.png)
@@ -43,4 +43,4 @@ In addition to viewing tickets, you can also add comments to support tickets if 
 
 ## Leia mais
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Sobre o suporte do GitHub](/support/learning-about-github-support/about-github-support)"
