@@ -1,3 +1,4 @@
+[git-master (3).zip](https://github.com/github/docs/files/8091871/git-master.3.zip)
 ---
 title: Setting your commit email address
 intro: 'You can set the email address that is used to author commits on {% data variables.product.product_location %} and on your computer.'
