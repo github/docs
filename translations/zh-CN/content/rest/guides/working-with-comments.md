@@ -73,7 +73,7 @@ end
 
 ## 提交注释
 
-最后一类注释专门针对单个提交。 For this reason, they make use of [the commit comment API][commit comment API].
+最后一类注释专门针对单个提交。 因此，它们使用 [提交注释 API][commit comment API]。
 
 要检索对提交的注释，您需要使用该提交的 SHA1。 换句话说，您不能使用与拉取请求相关的任何标识符。 例如：
 

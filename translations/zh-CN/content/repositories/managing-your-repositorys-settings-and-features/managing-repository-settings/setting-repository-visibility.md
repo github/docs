@@ -101,4 +101,4 @@ Members of an {% data variables.product.prodname_emu_enterprise %} can only set 
 
 
 ## 延伸阅读
-- "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
+- "[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"

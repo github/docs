@@ -38,16 +38,11 @@ To further support your team's collaboration abilities, you can upgrade to {% da
 
 ## Adding outside collaborators to a repository
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+You can give outside collaborators access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)." 
+{% else %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-{% data reusables.repositories.click-collaborators-teams %}
-{% data reusables.organizations.invite-teams-or-people %}
-5. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
-  ![Search field for typing the name of a person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. Under "Choose a role", select the permissions to grant to the person, then click **Add NAME to REPOSITORY**.
-  ![Selecting permissions for the person](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
-{% else %}
 5. In the left sidebar, click **Collaborators & teams**.
   ![Repository settings sidebar with Collaborators & teams highlighted](/assets/images/help/repository/org-repo-settings-collaborators-and-teams.png)
 6. Under "Collaborators", type the name of the person you'd like to give access to the repository, then click **Add collaborator**.
