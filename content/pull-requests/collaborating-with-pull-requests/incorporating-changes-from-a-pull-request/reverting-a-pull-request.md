@@ -16,7 +16,7 @@ topics:
 ---
 ## About reverting a pull request
 
-Reverting a pull request on {% data variables.product.product_name %} creates a new pull request that contains one revert of the merge commit from the original merged pull request. To revert pull requests, you must have [write permissions](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization) in the repository. 
+Reverting a pull request on {% data variables.product.product_name %} creates a new pull request that contains one revert of the merge commit from the original merged pull request. To revert pull requests, you must have [write permissions](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization) in the repository. 
 
 ## Reverting a pull request
 
