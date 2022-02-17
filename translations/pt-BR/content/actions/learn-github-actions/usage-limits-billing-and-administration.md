@@ -73,6 +73,8 @@ Além dos limites de uso, você deve garantir que você usa {% data variables.pr
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Cobrança para fluxos de trabalho reutilizáveis
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 Se você reutilizar um fluxo de trabalho, a cobrança será sempre associada ao fluxo de trabalho de chamadas. A atribuição de executores hospedados em {% data variables.product.prodname_dotcom %}é sempre avaliada usando apenas o contexto do invocador. O invocador não pode usar os executores hospedados em {% data variables.product.prodname_dotcom %} do repositório invocado.
 
 Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".

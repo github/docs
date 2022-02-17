@@ -24,3 +24,9 @@ Puedes utilizar la siguiente sintaxis para definir el acceso de lectura o escrit
 ```yaml
 permissions: read-all|write-all
 ```
+
+You can use the following syntax to disable permissions for all of the available scopes:
+
+```yaml
+permissions: {}
+```

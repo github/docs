@@ -35,6 +35,10 @@ First, create an organization project or a user project.
 
 {% data reusables.projects.create-user-project %}
 
+## Setting your project description and README
+
+{% data reusables.projects.project-description %}
+
 ## 为您的项目添加议题
 
 接下来，在项目中添加一些议题。

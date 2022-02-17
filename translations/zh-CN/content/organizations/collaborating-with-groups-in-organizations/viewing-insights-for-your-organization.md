@@ -14,7 +14,7 @@ topics:
 shortTitle: 查看组织见解
 ---
 
-组织的所有成员均可查看组织洞察。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+组织的所有成员均可查看组织洞察。 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
 您可以使用组织活动洞察来帮助您更好地了解组织成员如何使用 {% data variables.product.product_name %} 进行协作和处理代码。 依赖项洞察可帮助您跟踪、报告和处理组织的开源使用情况。
 

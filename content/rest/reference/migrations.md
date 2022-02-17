@@ -8,6 +8,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.3'
+  ghae: 'issue-6184'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -27,6 +29,7 @@ The Migrations API is only available to authenticated organization owners. For m
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghec %}
 ## Source imports
 
 {% data variables.migrations.source_imports_intro %}
@@ -111,7 +114,7 @@ A more detailed example can be seen in this diagram:
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'source-imports' %}{% include rest_operation %}{% endif %}
 {% endfor %}
-
+{% endif %}
 ## User
 
 The User migrations API is only available to authenticated account owners. For more information, see "[Other authentication methods](/rest/overview/other-authentication-methods)."

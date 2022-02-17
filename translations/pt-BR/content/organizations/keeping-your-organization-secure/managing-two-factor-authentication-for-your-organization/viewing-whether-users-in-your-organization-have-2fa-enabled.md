@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: View 2FA usage
+shortTitle: Visualiar uso de 2FA
 ---
 
 {% note %}

@@ -27,6 +27,20 @@ To track how smaller issues fit into the larger goal, use task lists, milestones
 
 Issues and pull requests include built-in features to let you easily communicate with your collaborators. Use @mentions to alert a person or entire team about a comment. Assign collaborators to issues to communicate responsibility. Link to related issues or pull requests to communicate how they are connected.
 
+## Make use of the description and README
+
+Use your project's description and README to share information about the project.
+
+For example:
+
+- Explaining the purpose of the project.
+- Describing the project views and how to use them.
+- Including relevant links and people to contact for more information.
+
+Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers. 
+
+For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)."
+
 ## Use views
 
 Use project views to look at your project from different angles.

@@ -30,8 +30,8 @@ Estamos preocupados com a censura da internet e acreditamos que a transparência
 ## O que significa se postarmos um aviso em nosso repositório de retiradas governamentais?
 Significa que recebemos o aviso na data indicada. Isso *não* significa que o conteúdo era ilegal ou errado. Isso *não* significa que o usuário identificado no aviso fez qualquer coisa de errado. Não fazemos ou deixamos implícito nenhum juízo de valor sobre o mérito das alegações que eles fazem. Publicamos esses avisos e essas solicitações apenas para fins informativos.
 
-## Government takedowns based on violations of GitHub's Terms of Service
-In some cases, GitHub receives reports from government officials of violations of GitHub's Terms of Service. We process those violations as we would process a Terms-of-Service violation reported by anyone else. However, we notify the affected users that the report came from a government and, as with any other case, allow them the opportunity to appeal.
+## Retiradas do governo com base em violações dos Termos de Serviço do GitHub
+Em alguns casos, o GitHub recebe relatórios de funcionários públicos de violações de Termos de Serviço do GitHub. Processamos essas violações como processaríamos uma violação dos Termos de Serviço relatada por qualquer outra pessoa. No entanto, notificamos os usuários afectados de que o relatório provém de um governo e, como em qualquer outro caso, isso lhes dá a oportunidade de recorrer.
 
 ## Relatório de transparência
-In addition to posting government takedown notices in our `github/gov-takedowns` repository, we report on them in our transparency report. Também acompanhamos e relatamos em nosso relatório de transparência as retiradas governamentais com base em violações dos Termos de Serviço do GitHub.
+Além de postar avisos públicos de retirada nos nossos repositórios de `github/gov-takedowns`, nós os relatamos no nosso relatório de transparência. Também acompanhamos e relatamos em nosso relatório de transparência as retiradas governamentais com base em violações dos Termos de Serviço do GitHub.

@@ -102,6 +102,12 @@ Puedes recopilar y enviar manualmente datos de resolución de problemas a {% dat
 
 Por defecto, el aparato también ofrece acceso a Secure Shell (SSH) para el acceso al repositorio utilizando Git y con fines administrativos. Para obtener más información, consulta "[Acerca de SSH](/enterprise/user/articles/about-ssh)" y "[Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)."
 
+{% ifversion ghes > 3.3 %}
+
+If you configure SAML authentication for {% data variables.product.product_location %}, you can enable encrypted assertions between the instance and your SAML IdP. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
+
+{% endif %}
+
 ### Usuarios y permisos de acceso
 
 El {% data variables.product.prodname_ghe_server %} proporciona tres tipos de cuentas.
