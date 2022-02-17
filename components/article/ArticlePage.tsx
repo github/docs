@@ -107,7 +107,11 @@ export const ArticlePage = () => {
     // In the future there might be more.
     // Hopefully, we can some day delete all of this and no longer
     // be dependent on the URL hash to do the redirect.
-    if (hash && pathname.endsWith('/rest/reference/repos')) {
+    if (
+      hash &&
+      (pathname.endsWith('/rest/reference/repos') ||
+        pathname.endsWith('/rest/reference/enterprise-admin'))
+    ) {
       setLoadClientsideRedirectExceptions(true)
     }
   }, [])
