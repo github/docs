@@ -42,7 +42,7 @@ topics:
 
 {% note %}
 
-**注**：如果在 IdP 上更改某用户的 `NameID`，该用户在尝试登录到您的 {% data variables.product.prodname_ghe_server %} 实例时会看到错误消息。 {% ifversion ghes %}要恢复用户的访问权限，您需要更新用户帐户的 `NameID` 映射。 更多信息请参阅“[更新用户的 SAML `NameID`](#updating-a-users-saml-nameid)”。{% else %} 更多信息请参阅“[错误：另一个用户已拥有该帐户](#error-another-user-already-owns-the-account)”。{% endif %}
+**注**：如果在 IdP 上更改某用户的 `NameID`，该用户在尝试登录到您的 {% data variables.product.prodname_ghe_server %} 实例时会看到错误消息。 {% ifversion ghes %}To restore the user's access, you'll need to update the user account's `NameID` mapping. 更多信息请参阅“[更新用户的 SAML `NameID`](#updating-a-users-saml-nameid)”。{% else %} 更多信息请参阅“[错误：另一个用户已拥有该帐户](#error-another-user-already-owns-the-account)”。{% endif %}
 
 {% endnote %}
 
@@ -61,7 +61,7 @@ topics:
 
 ## SAML 属性
 
-以下属性可用。 您可以在 [Management Console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/) 中更改属性名称，但 `administrator` 属性除外。
+以下属性可用。 You can change the attribute names in the [management console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/), with the exception of the `administrator` attribute.
 
 | 默认属性名称        | 类型 | 描述                                                                                                              |
 | ------------- | -- | --------------------------------------------------------------------------------------------------------------- |
@@ -93,14 +93,14 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
   {% tip %}
 
-  **注**：我们建议保留此值处于**未选择**状态。 您**只**应在罕见的情况下启用此功能，即您的 SAML 实现不支持服务提供程序发起的 SSO，并且 {% data variables.contact.enterprise_support %} 建议执行此操作。
+  **Note**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
 
   {% endtip %}
 
 5. 如果您**不**希望 SAML 提供程序为 {% data variables.product.product_location %} 上的用户确定管理员权限，请选择 **Disable administrator demotion/promotion（禁用管理员降级/升级）**。 ![SAML 禁用管理员配置](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. 在 **Single sign-on URL** 字段中，为单点登录请求输入您的 IdP 上的 HTTP 或 HTTPS 端点。 此值由您的 IdP 配置提供。 如果主机只能在您的内部网络中使用，您需要先[将 {% data variables.product.product_location %} 配置为使用内部域名服务器](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/)。 ![SAML 身份验证](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. （可选）在 **Issuer（签发者）** 字段中，输入您的 SAML 签发者的姓名。 这将验证发送到 {% data variables.product.product_location %} 的消息的真实性。 ![SAML 颁发者](/assets/images/enterprise/management-console/saml-issuer.png)
-8. 在 **Signature Method（签名方法）** 和 **Digest Method（摘要方法）** 下拉菜单中，选择您的 SAML 颁发者用于验证 {% data variables.product.product_location %} 请求完整性的哈希算法。 使用 **Name Identifier Format** 下拉菜单指定格式。 ![SAML 方法](/assets/images/enterprise/management-console/saml-method.png)
+6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. 此值由您的 IdP 配置提供。 If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![SAML 身份验证](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}. ![SAML 颁发者](/assets/images/enterprise/management-console/saml-issuer.png)
+8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu. ![SAML 方法](/assets/images/enterprise/management-console/saml-method.png)
 9. 在 **Verification certificate（验证证书）**下，单击 **Choose File（选择文件）**并选择用于验证 IdP 的 SAML 响应的证书。 ![SAML 身份验证](/assets/images/enterprise/management-console/saml-verification-cert.png)
 10. 如果需要，请修改 SAML 属性名称以匹配您的 IdP，或者接受默认名称。![SAML 属性名称](/assets/images/enterprise/management-console/saml-attributes.png)
 
@@ -128,7 +128,7 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
 - `<Destination>` 元素必须在根响应文档上提供，而且只有在根响应文档签署后才匹配 ACS URL。 如果断言已签名，它将被忽略。
 - `<Audience>` 元素必须始终作为 `<AudienceRestriction>` 元素的一部分提供。 It must match the `EntityId` for {% data variables.product.prodname_ghe_server %}. 这是 {% data variables.product.prodname_ghe_server %} 实例的 URL，如 `https://ghe.corp.example.com`。
-- 响应中的每一个断言都**必须**由数字签名加以保护。 签署各个 `<Assertion>` 元素或签署 `<Response>` 元素可以实现此操作。
+- Each assertion in the response **must** be protected by a digital signature. 签署各个 `<Assertion>` 元素或签署 `<Response>` 元素可以实现此操作。
 - `<NameID>` 元素必须作为 `<Subject>` 元素的一部分提供。 可以使用任意持久名称标识符格式。
 - `Recipient` 属性必须存在并设为 ACS URL。 例如：
 

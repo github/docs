@@ -12,13 +12,7 @@ import path from 'path'
 import program from 'commander'
 import walk from 'walk-sync'
 
-const EXCEPTIONS = new Set([
-  // These files are dynamically referenced in Search.tsx
-  // so they're referred to as `... search-${iconSize}.svg`
-  'assets/images/octicons/search-16.svg',
-  'assets/images/octicons/search-24.svg',
-  'assets/images/site/favicon.ico',
-])
+const EXCEPTIONS = new Set(['assets/images/site/favicon.ico'])
 
 function isExceptionPath(imagePath) {
   // We also check for .DS_Store because any macOS user that has opened

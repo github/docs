@@ -34,7 +34,7 @@ Roles work differently for different types of accounts. For more information abo
 组织成员可以是*所有者*{% ifversion fpt or ghec %}、*帐单管理员*{% endif %}或*成员*角色。 所有者对组织具有完全管理权限{% ifversion fpt or ghec %}，而帐单管理员负责管理帐单设置{% endif %}。 成员是其他每个人的默认角色。 您可以通过团队一次管理多个成员的访问权限。 更多信息请参阅：
 - "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
 - "[组织的项目板权限](/articles/project-board-permissions-for-an-organization)"
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - "[关于团队](/articles/about-teams)"
 
 ## 企业帐户

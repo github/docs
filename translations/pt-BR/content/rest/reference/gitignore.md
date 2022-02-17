@@ -13,7 +13,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-When you create a new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} via the API, you can specify a [.gitignore template](/github/getting-started-with-github/ignoring-files) to apply to the repository upon creation. A API de modlos do .gitignore lista e recupera modelos do repositório de [.gitignore](https://github.com/github/gitignore) de {% data variables.product.product_name %}.
+Ao criar um novo repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} por meio da API, você pode especificar um [.gitignore template](/github/getting-started-with-github/ignoring-files) para que seja aplicado ao repositório após a criação. A API de modlos do .gitignore lista e recupera modelos do repositório de [.gitignore](https://github.com/github/gitignore) de {% data variables.product.product_name %}.
 
 ### Tipos de mídia personalizados para gitignore
 

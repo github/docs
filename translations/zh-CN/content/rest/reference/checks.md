@@ -1,6 +1,6 @@
 ---
 title: 检查
-intro: 'With the Checks API, you can build {% data variables.product.prodname_github_apps %} that run powerful checks against the code changes in a repository.'
+intro: '使用 Checks API，您可以构建 {% data variables.product.prodname_github_apps %} ，针对仓库中的代码更改运行强大的检查。'
 redirect_from:
   - /v3/checks
 versions:

@@ -16,7 +16,7 @@ topics:
 shortTitle: 转移议题
 ---
 
-To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 您只能在同一用户或组织帐户拥有的仓库之间转让议题。 {% ifversion fpt or ghes or ghec %}你不能将议题从私有仓库转移到公共仓库。{% endif %}
 

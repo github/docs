@@ -28,6 +28,9 @@ Pessoas com acesso de administrador a um repositório podem gerenciar o acesso d
 
 ## Conceder a uma equipe acesso a um repositório
 
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+You can give a team access to a repository or change a team's level of access to a repository in your repository settings. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person). "
+{% else %}
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -35,8 +38,17 @@ Pessoas com acesso de administrador a um repositório podem gerenciar o acesso d
 5. Acima da lista de repositórios, clique em **Add repository** (Adicionar repositório). ![Botão Add repository (Adicionar repositório)](/assets/images/help/organizations/add-repositories-button.png)
 6. Digite o nome de um repositório e clique em **Add repository to team** (Adicionar repositório a uma equipe). ![Campo de pesquisa Repository (Repositório)](/assets/images/help/organizations/team-repositories-add.png)
 7. Como opção, use o menu suspenso à direita do nome do repositório e escolha um nível de permissão diferente para a equipe. ![Menu suspenso Repository access level (Nível de acesso ao repositório)](/assets/images/help/organizations/team-repositories-change-permission-level.png)
-
+{% endif %}
 ## Remover acesso de uma equipe a um repositório
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+You can remove a team's access to an organization repository in your repository settings. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person). "
+
+If a team has direct access to a repository, you can remove that team's access to the repository. Se o acesso da equipe ao repositório é herdado de uma equipe principal, você deve remover o repositório da equipe principal para remover o repositório das equipes secundárias.
+
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
+
+{% else %}
 
 Você pode remover o acesso de uma equipe a um repositório se a equipe tiver acesso direto a ele. Se o acesso da equipe ao repositório é herdado de uma equipe principal, você deve remover o repositório da equipe principal para remover o repositório das equipes secundárias.
 
@@ -49,7 +61,7 @@ Você pode remover o acesso de uma equipe a um repositório se a equipe tiver ac
 5. Selecione o repositório ou repositórios que deseja remover da equipe. ![Lista de repositórios de equipes com as caixas de seleção para alguns repositórios selecionadas](/assets/images/help/teams/select-team-repositories-bulk.png)
 6. Acesse o menu suspenso acima da lista de repositórios e clique em **Remove from team** (Remover da equipe). ![Menu suspenso com a opção para Remove a repository from a team (Remover um repositório de uma equipe)](/assets/images/help/teams/remove-team-repo-dropdown.png)
 7. Verifique o repositório ou repositórios que serão removidos da equipe e clique em **Remove repositories** (Remover repositórios). ![Caixa modal com uma lista de repositórios que a equipe não terá mais acesso](/assets/images/help/teams/confirm-remove-team-repos.png)
-
+{% endif %}
 ## Leia mais
 
 - "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

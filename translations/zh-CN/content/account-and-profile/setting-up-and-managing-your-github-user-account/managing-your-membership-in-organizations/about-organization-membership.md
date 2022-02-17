@@ -15,7 +15,7 @@ topics:
 shortTitle: 组织成员资格
 ---
 
-组织所有者可邀请您作为成员、帐单管理员或所有者加入其组织。 组织所有者或者对仓库具有管理员权限的成员可邀请您作为外部协作者，协作处理一个或多个仓库。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+组织所有者可邀请您作为成员、帐单管理员或所有者加入其组织。 组织所有者或者对仓库具有管理员权限的成员可邀请您作为外部协作者，协作处理一个或多个仓库。 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
 您可以在个人资料页面上访问您是其成员的组织。 更多信息请参阅“[访问组织](/articles/accessing-an-organization)”。
 
