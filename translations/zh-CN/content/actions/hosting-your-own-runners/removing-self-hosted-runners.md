@@ -1,6 +1,6 @@
 ---
 title: 删除自托管的运行器
-intro: 'You can permanently remove a self-hosted runner from a repository{% ifversion fpt %} or organization{% elsif ghec or ghes or gahe %}, an organization, or an enterprise{% endif %}.'
+intro: '您可以从仓库{% ifversion fpt %} 或组织{% elsif ghec or ghes or gahe %}、 组织或{% endif %} 企业永久删除自托管运行器。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/removing-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners
@@ -75,7 +75,7 @@ shortTitle: 删除自托管的运行器
 
 {% ifversion fpt %}
 如果您使用
-{% data variables.product.prodname_ghe_cloud %}, you can also remove runners from an enterprise. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-enterprise).
+{% data variables.product.prodname_ghe_cloud %}，您还可以从企业中删除运行器。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-enterprise)。
 {% endif %}
 {% ifversion ghec or ghes or ghae %}
 {% note %}
@@ -86,7 +86,7 @@ shortTitle: 删除自托管的运行器
 
 {% endnote %}
 
-To remove a self-hosted runner from an enterprise, you must be an enterprise owner. 建议您也访问自托管的运行器机器。 For information about how to remove a self-hosted runner with the REST API, see the [Enterprise Administration GitHub Actions APIs](/rest/reference/enterprise-admin#github-actions).
+要从企业帐户删除自托管运行器，您必须是企业所有者。 建议您也访问自托管的运行器机器。 有关如何使用 REST API 删除自托管运行器的信息，请参阅[企业管理 GitHub Actions API](/rest/reference/enterprise-admin#github-actions)。
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}

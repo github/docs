@@ -1,1 +1,1 @@
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces**.
+1. En la sección de "Código, planeación y automatización" de la barra lateral, haz clic en **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces**.

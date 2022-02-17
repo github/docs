@@ -1,6 +1,6 @@
 ---
 title: Packages
-intro: '通过 {% data variables.product.prodname_registry %} API，您可以管理 {% data variables.product.prodname_dotcom %} 仓库和组织的软件包。'
+intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
@@ -10,16 +10,16 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data variables.product.prodname_registry %} API 允许您使用 REST API 管理包。 要了解有关恢复或删除包的更多信息，请参阅“[恢复和删除包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。
+The {% data variables.product.prodname_registry %} API enables you to manage packages using the REST API. To learn more about restoring or deleting packages, see "[Restoring and deleting packages](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 
-要使用此 API ，您必须使用个人访问令牌进行验证。
-  - 要访问包元数据，您的令牌必须包括 `read:packages` 范围。
-  - 要删除包和包版本，您的令牌必须包括 `read:packages` 和 `delete:packages` 范围。
-  - 要恢复包和包版本，您的令牌必须包括 `read:packages` 和 `write:packages` 范围。
+To use this API, you must authenticate using a personal access token. 
+  - To access package metadata, your token must include the `read:packages` scope.
+  - To delete packages and package versions, your token must include the `read:packages` and `delete:packages` scopes.
+  - To restore packages and package versions, your token must include the `read:packages` and `write:packages` scopes.
 
-如果您的 `package_type` 是 `npm`、`maven`、`rubygems` 或 `nuget`，则您的令牌必须还包括 `repo` 范围，因为您的包从 {% data variables.product.prodname_dotcom %} 仓库继承权限。 如果您的包位于 {% data variables.product.prodname_container_registry %}，则 `package_type` 是 `container`，且令牌不需要 `repo` 作用域便可访问或管理此 `package_type`。 `container` 包提供与仓库分开的粒度权限。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的权限](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)”。
+If your `package_type` is `npm`, `maven`, `rubygems`, or `nuget`, then your token must also include the `repo` scope since your package inherits permissions from a {% data variables.product.prodname_dotcom %} repository. If your package is in the {% data variables.product.prodname_container_registry %}, then your `package_type` is `container` and your token does not need the `repo` scope to access or manage this `package_type`. `container` packages offer granular permissions separate from a repository. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)."
 
-如果您想使用 {% data variables.product.prodname_registry %} API 访问已启用 SSO 的组织中的资源，则必须对个人访问令牌启用 SSO。 For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+If you want to use the {% data variables.product.prodname_registry %} API to access resources in an organization with SSO enabled, then you must enable SSO for your personal access token. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

@@ -85,7 +85,7 @@ If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove 
 
 {% endnote %}
 
-To remove a self-hosted runner from an enterprise, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see the [Enterprise Administration GitHub Actions APIs](/rest/reference/enterprise-admin#github-actions).
+To remove a self-hosted runner from an enterprise, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners).
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}

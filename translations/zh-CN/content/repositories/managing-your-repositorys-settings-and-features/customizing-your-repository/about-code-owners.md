@@ -18,7 +18,7 @@ topics:
 
 具有管理员或所有者权限的人员可以在仓库中创建 CODEOWNERS 文件。
 
-您选择作为代码所有者的人员必须具有仓库的写入权限。 When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
+The people you choose as code owners must have read permissions for the repository. When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
 ## 关于代码所有者
 
@@ -104,11 +104,11 @@ apps/ @octocat
 # will require approval from @doctocat or @octocat.
 /scripts/ @doctocat @octocat
 
-# In this example, @octocat owns any file in the `/apps` 
-# directory in the root of your repository except for the `/apps/github` 
+# In this example, @octocat owns any file in the `/apps`
+# directory in the root of your repository except for the `/apps/github`
 # subdirectory, as its owners are left empty.
 /apps/ @octocat
-/apps/github 
+/apps/github
 ```
 ### 语法例外
 gitignore 文件有一些语法规则在 CODEOWNERS 文件中不起作用：

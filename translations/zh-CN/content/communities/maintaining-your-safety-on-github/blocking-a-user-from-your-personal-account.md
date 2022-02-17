@@ -34,8 +34,8 @@ shortTitle: 阻止您的帐户
 - 您在他们仓库协作者的身份被删除
 - 他们与您的赞助关系被取消
 - 任何对被阻止用户的待处理仓库或帐户继承者邀请或来自该用户的邀请都被取消
-- The user is removed as a collaborator from all the Project Boards & Projects (beta) owned by you
-- You are removed as a collaborator from all the Project Boards & Projects (beta) owned by the user
+- 用户作为协作者将从您拥有的所有项目板和项目（测试版）中删除
+- 您作为协作者将从该用户拥有的所有项目板和项目（测试版）中删除
 
 您阻止用户后，他们无法：
 - 向您发送任何通知，包括 [@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)您的用户名
@@ -48,8 +48,8 @@ shortTitle: 阻止您的帐户
 - 在评论中交叉引用您的仓库
 - 复刻、关注、固定您的仓库或对其标星
 - 赞助您
-- Add you as a collaborator on their Project Boards & Projects (beta)
-- Make changes to your public Project Boards & Projects (beta)
+- 将您添加为其项目板和项目（测试版）的协作者
+- 对公共项目板和项目进行更改（测试版）
 
 在您拥有的仓库中，被阻止的用户也不能：
 - 打开议题

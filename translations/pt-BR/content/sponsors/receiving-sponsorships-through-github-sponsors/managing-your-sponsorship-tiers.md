@@ -49,13 +49,13 @@ shortTitle: Gerenciar camadas de pagamento
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}
 
-## Adding a repository to a sponsorship tier
+## Adicionando um repositório a uma camada de patrocínio
 
 {% data reusables.sponsors.sponsors-only-repos %}
 
-### About adding repositories to a sponsorship tier
+### Sobre adicionar repositórios a uma camada de patrocínio
 
-To add a repository to a tier, the repository must be private and owned by an organization, and you must have admin access to the repository.
+Para adicionar um repositório a uma camada, o repositório deve ser privado e pertencente a uma organização, e você deverá ter acesso de administrador ao repositório.
 
 When you add a repository to a tier, {% data variables.product.company_short %} will automatically send repository invitations to new sponsors and remove access when a sponsorship is cancelled.
 

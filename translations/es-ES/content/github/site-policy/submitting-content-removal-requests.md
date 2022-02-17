@@ -24,4 +24,4 @@ La Política de Marcas de GitHub se puede utilizar para informar del contenido q
 ## [Política de Eliminación de Información Privada de GitHub](/github/site-policy/github-private-information-removal-policy)
 La Política de Eliminación de Información Privada de GitHub puede utilizarse para reportar datos que sean privados (confidenciales y que posean un riesgo de seguridad), pero que no se protege necesariamente por derechos de autor o comerciales.
 
-Users in India can contact GitHub's Grievance Officer [here](https://support.github.com/contact/india-grievance-officer).
+Los usuarios de la India pueden contactar al funcionario encargado de las quejas [aquí](https://support.github.com/contact/india-grievance-officer).

@@ -70,7 +70,7 @@ La sincronización de equipos de Okta requiere que ya se hayan configurado el SA
 
 Para evitar los errores potenciales de sincronización de equipos, de recomendamos que confirmes que las entidades de SCIM enlazadas se hayan configurado correctamente para los miembros de la organización que son miembros de tus grupos selectos de Okta antes de habilitar la sincronización de equipos en {% data variables.product.prodname_dotcom %}.
 
-Si un miembro de la organización no tiene una identidad de SCIM enlazada, entonces la sincronización de equipos no funcionará como lo esperas y el usuario podría no agregarse o eliminarse de los equipos de acuerdo con lo esperado. If any of these users are missing a SCIM linked identity, you will need to re-provision them.
+Si un miembro de la organización no tiene una identidad de SCIM enlazada, entonces la sincronización de equipos no funcionará como lo esperas y el usuario podría no agregarse o eliminarse de los equipos de acuerdo con lo esperado. Si cualquiera de estos usuarios no se encuentran en la identidad enlazada de SCIM, necesitarás volver a aprovisionarlos.
 
 Para obtener ayuda para aprovisionar usuarios que no tengan una identidad de SCIM enlazada, consulta la sección "[Solución de problemas para la administración de identidad y acceso](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)".
 

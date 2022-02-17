@@ -127,6 +127,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Manage the default branch name (see "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)") | **X** | | |  |
 | Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | | |  |{% ifversion ghec %}
 | Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" for details) | **X** |  | |  |{% endif %}
+| Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |
 
 {% elsif ghes > 3.2 or ghae-issue-4999 %}
 <!--GHES 3.3+ and eventual GHAE release don't have the extra column for Billing managers, but have security managers-->
@@ -170,7 +171,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Convert organization members to [outside collaborators](#outside-collaborators) | **X** | |  |
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |  |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |
+| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% if pull-request-approval-limit %}
+| Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
 {% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
 
 

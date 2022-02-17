@@ -85,7 +85,7 @@ macOS Catalina 10.15
 
 {% note %}
 
-**Note:** The `-latest` virtual environments are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+**Nota:** Los ambientes virtuales `más recientes` son las últimas imágenes estables que proporciona {% data variables.product.prodname_dotcom %} y puede que no sean las versiones más recientes de los sistemas operativos disponibles desde los proveedores de estos.
 
 {% endnote %}
 

@@ -141,15 +141,6 @@ En este ejemplo, el script que se intenta inyectar no tuvo éxito:
 
 Con este enfoque, el valor de la expresón {% raw %}`${{ github.event.issue.title }}`{% endraw %} se almacena en la memoria y se utiliza como una variable y no interactúa con el proceso de generación del script. Adicionalmente, considera utilizar variables de cita doble del shell para evitar la [separación de palabras](https://github.com/koalaman/shellcheck/wiki/SC2086), pero esta es solo [una de muchas](https://mywiki.wooledge.org/BashPitfalls) recomendaciones generales para escribir scripts del shell y no es específica de {% data variables.product.prodname_actions %}.
 
-### Utilizar CodeQL para analizar tu código
-
-Para ayudarte a admnistrar el riesgo que representan los patrones peligrosos tan pronto como sea posible en el ciclo de vida de desarrollo, el Laboratorio de Seguridad de {% data variables.product.prodname_dotcom %} ha desarrollado [consultas de CodeQL](https://github.com/github/codeql/tree/main/javascript/ql/src/experimental/Security/CWE-094) que los propietarios de los repositorios pueden [integrar](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#running-additional-queries) en sus mapeos de IC/DC. Para obtener más información, consulta la sección "[Acerca del escaneo de código"](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).
-
-Los scripts dependen actualmente de las bibliotecas de JavaScript de CodeQL, lo que significa que el repositorio analizado debe contener por lo menos un archivo de JavaScript y que CodeQL debe [configurarse para analizar este lenguaje](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed).
-
-- `ExpressionInjection.ql`: Cubre las inyecciones de expresiòn que se describen en este artìculo y se le considera como razonablemente preciso. Sin embargo, no realiza un rastreo de flujo de datos entre los pasos de flujo de trabajo.
-- `UntrustedCheckout.ql`: Los resultados de este script necesitan de una revisiòn manual para determinar si el còdigo de una solicitud de cambios se trata realmente de forma no segura. Para obtener màs informaciòn, consulta la secciòn "[Mantener seguras tus GitHub Actions y flujos de trabajo: Prevenir solicitudes de tipo pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" en el blog del Laboratorio de Seguridad de {% data variables.product.prodname_dotcom %}.
-
 ### Restringir los permisos para los tokens
 
 Para ayudarte a mitigar el resigo de un token expuesto, considera restringir los permisos asignados. Para obtener màs informaciòn, consulta la secciòn "[Modificar los permisos para el GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)".

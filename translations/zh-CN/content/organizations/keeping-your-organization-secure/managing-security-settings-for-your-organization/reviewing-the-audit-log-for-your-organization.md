@@ -692,11 +692,11 @@ GraphQL 响应可包含长达 90 至 120 天的数据。
 
 {% endif %}{% ifversion ghec %}
 ### `role` category actions
-| 操作        | 描述                                                                                                                                                                                                                                                                                              |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create`  | Triggered when an organization owner creates a new custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."     |
-| `destroy` | Triggered when a organization owner deletes a custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."          |
-| `update`  | Triggered when an organization owner edits an existing custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)." |
+| 操作        | 描述                                                                                                                                                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `create`  | Triggered when an organization owner creates a new custom repository role. 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。     |
+| `destroy` | Triggered when a organization owner deletes a custom repository role. 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。          |
+| `update`  | Triggered when an organization owner edits an existing custom repository role. 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。 |
 
 {% endif %}
 {% ifversion ghec or ghes or ghae %}
