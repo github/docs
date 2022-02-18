@@ -80,3 +80,7 @@ $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
   ```shell
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
+
+## Updating an SSL certificate
+
+You can generate a new self-signed certificate or update an existing SSL certificate for {% data variables.product.product_location %} with the `ghe-ssl-certificate-setup` command line utility. 更多信息请参阅“[命令行实用程序](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)”。

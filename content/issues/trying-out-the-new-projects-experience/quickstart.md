@@ -35,6 +35,10 @@ First, create an organization project or a user project.
 
 {% data reusables.projects.create-user-project %}
 
+## Setting your project description and README
+
+{% data reusables.projects.project-description %}
+
 ## Adding issues to your project
 
 Next, add a few issues to your project.

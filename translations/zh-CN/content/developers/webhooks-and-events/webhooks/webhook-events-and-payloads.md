@@ -219,7 +219,7 @@ A Git ref has been successfully synced to a cache replica. For more information,
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | 如果 `action` 是 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
+`sender` | `object` | 如果 `action` 是 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 `sender` 对象对所有其他操作是 {% ifversion fpt or ghec %}`github` {% elsif ghes > 3.0 or ghae %}`github-enterprise` {% else %}空 {% endif %}。
 
 ### Web 挂钩有效负载示例
 
@@ -269,7 +269,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you create more than three tags at once.
+**注：**同时创建三个以上的标记时不会收到此事件的 web 挂钩。
 
 {% endnote %}
 
@@ -353,10 +353,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### Web 挂钩有效负载对象
 
-| 键            | 类型                                          | 描述                                                              |
-| ------------ | ------------------------------------------- | --------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| 键            | 类型                                          | 描述                                                  |
+| ------------ | ------------------------------------------- | --------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `action`     | `字符串`                                       | 执行的操作。 可以是 `created`。{% endif %}
-| `deployment` | `对象`                                        | The [deployment](/rest/reference/deployments#list-deployments). |
+| `deployment` | `对象`                                        | [部署](/rest/reference/deployments#list-deployments)。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -378,14 +378,14 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### Web 挂钩有效负载对象
 
-| 键                                  | 类型                                          | 描述                                                                                                  |
-| ---------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| 键                                  | 类型                                          | 描述                                                            |
+| ---------------------------------- | ------------------------------------------- | ------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
 | `action`                           | `字符串`                                       | 执行的操作。 可以是 `created`。{% endif %}
-| `deployment_status`                | `对象`                                        | The [deployment status](/rest/reference/deployments#list-deployment-statuses).                      |
-| `deployment_status["state"]`       | `字符串`                                       | 新状态。 可以是 `pending`、`success`、`failure` 或 `error`。                                                   |
-| `deployment_status["target_url"]`  | `字符串`                                       | 添加到状态的可选链接。                                                                                         |
-| `deployment_status["description"]` | `字符串`                                       | 添加到状态的可选人类可读说明。                                                                                     |
-| `deployment`                       | `对象`                                        | The [deployment](/rest/reference/deployments#list-deployments) that this status is associated with. |
+| `deployment_status`                | `对象`                                        | [部署状态](/rest/reference/deployments#list-deployment-statuses)。 |
+| `deployment_status["state"]`       | `字符串`                                       | 新状态。 可以是 `pending`、`success`、`failure` 或 `error`。             |
+| `deployment_status["target_url"]`  | `字符串`                                       | 添加到状态的可选链接。                                                   |
+| `deployment_status["description"]` | `字符串`                                       | 添加到状态的可选人类可读说明。                                               |
+| `deployment`                       | `对象`                                        | 此状态关联的[部署](/rest/reference/deployments#list-deployments)。     |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -409,9 +409,9 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### Web 挂钩有效负载对象
 
-| 键        | 类型    | 描述                                                                                                                                                                                |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action` | `字符串` | 执行的操作。 Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled`, or `unlabeled`. |
+| 键        | 类型    | 描述                                                                                                                                                                |
+| -------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action` | `字符串` | 执行的操作。 可以是 `created`、`edited`、`deleted`、`pinned`、`unpinned`、`locked`、`unlocked`、`transferred`、`category_changed`、`answered`、`unanswered`、`labeled` 或 `unlabeled`。 |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -457,7 +457,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 可用性
 
-- GitHub Enterprise web 挂钩。 For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
+- GitHub Enterprise web 挂钩。 更多信息请参阅“[全局 web 挂钩](/rest/reference/enterprise-admin#global-webhooks/)”。
 
 ### Web 挂钩有效负载对象
 
@@ -1402,7 +1402,7 @@ The security advisory dataset also powers the GitHub {% data variables.product.p
 当用户被 `created` 或 `deleted` 时。
 
 ### 可用性
-- GitHub Enterprise web 挂钩。 For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
+- GitHub Enterprise web 挂钩。 更多信息请参阅“[全局 web 挂钩](/rest/reference/enterprise-admin#global-webhooks/)”。
 
 ### Web 挂钩有效负载示例
 

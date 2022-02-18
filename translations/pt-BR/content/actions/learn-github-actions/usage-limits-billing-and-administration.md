@@ -73,14 +73,16 @@ Além dos limites de uso, você deve garantir que você usa {% data variables.pr
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Cobrança para fluxos de trabalho reutilizáveis
 
-Se você reutilizar um fluxo de trabalho, a cobrança será sempre associada ao fluxo de trabalho de chamadas. A atribuição de executores hospedados em {% data variables.product.prodname_dotcom %}é sempre avaliada usando apenas o contexto do invocador. O invocador não pode usar os executores hospedados em {% data variables.product.prodname_dotcom %} do repositório invocado.
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
+If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
 
 Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
 
 ## Artefato e política de retenção de registro
 
-É possível configurar o artefato e o período de retenção de registro para o seu repositório, organização ou conta corporativa.
+You can configure the artifact and log retention period for your repository, organization, or enterprise account.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
@@ -101,7 +103,7 @@ Para obter mais informações, consulte:
 
 ## Desabilitar e habilitar fluxos de trabalho
 
-Você pode habilitar e desabilitar os fluxos de trabalho individuais no seu repositório em {% data variables.product.prodname_dotcom %}.
+You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 

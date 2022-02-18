@@ -26,4 +26,4 @@ shortTitle: 管理复刻策略
 ## 延伸阅读
 
 - "[关于复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

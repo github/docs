@@ -3,7 +3,7 @@ title: Gerenciar lembretes agendados para a sua equipe
 intro: Você pode receber lembretes no Slack quando sua equipe tiver pull requests à espera de revisão.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
-  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
+  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team
 versions:
   fpt: '*'
   ghec: '*'

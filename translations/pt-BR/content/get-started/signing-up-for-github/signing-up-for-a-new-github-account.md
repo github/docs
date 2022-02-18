@@ -21,6 +21,7 @@ Ao criar uma conta pessoal ou organização, você deve selecionar um plano de c
 
 ## Inscrevendo-se em uma nova conta
 
+1. If you want to create a new personal account, make sure you are currently signed out of GitHub.
 {% data reusables.accounts.create-account %}
 1. Siga as instruções para criar a conta pessoa ou organização.
 

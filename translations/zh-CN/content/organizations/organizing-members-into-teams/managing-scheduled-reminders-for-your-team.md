@@ -3,7 +3,7 @@ title: 管理团队的预定提醒
 intro: 当您的团队有等待审查的拉取请求时，您可以在 Slack 中收到提醒。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
-  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
+  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team
 versions:
   fpt: '*'
   ghec: '*'

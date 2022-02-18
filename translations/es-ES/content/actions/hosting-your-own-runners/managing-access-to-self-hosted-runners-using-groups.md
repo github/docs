@@ -65,7 +65,7 @@ Cuando creas un grupo, debes elegir una política que defina qué repositorios t
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. Under {% ifversion ghes > 3.1 or ghae %}"Runners"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %}, click **Add new**, and then **New group**.
+1. Debajo de {% ifversion ghes > 3.1 or ghae %}"Ejecutores"{% elsif ghes < 3.2 %}"Ejecutores auto-hospedados"{% endif %}, haz clic en **Agregar nuevo** y luego en **Grupo nuevo**.
 
     ![Agregar un grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Ingresa un nombre para tu grupo de ejecutores y asigna una política para el acceso al repositorio.
@@ -88,7 +88,7 @@ Cuando creas un grupo, debes elegir una política que defina qué repositorios t
 
 ## Crear un grupo de ejecutores auto-hospedados para una empresa
 
-Las empresas pueden agregar sus ejecutores auto-hospedados a grupos para su administración de accesos. Las empresas pueden crear grupos de ejecutores auto-hospedados a los cuales puedan acceder organizaciones específicas en la cuenta empresarial. Los administradores de la organización pueden entonces asignar políticas de acceso adicionales para los repositorios granulares a estos grupos de ejecutores para las empresas. Para obtener más información sobre cómo crear un grupo de ejecutores auto-hospedados con la API de REST, consulta las [API de GitHub Actions para la Administración Empresarial](/rest/reference/enterprise-admin#github-actions).
+Las empresas pueden agregar sus ejecutores auto-hospedados a grupos para su administración de accesos. Las empresas pueden crear grupos de ejecutores auto-hospedados a los cuales puedan acceder organizaciones específicas en la cuenta empresarial. Los administradores de la organización pueden entonces asignar políticas de acceso adicionales para los repositorios granulares a estos grupos de ejecutores para las empresas. For information about how to create a self-hosted runner group with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups).
 
 Los ejecutores auto-hospedados se asignan automáticamente al grupo predeterminado cuando se crean y solo pueden ser mimebros de un grupo a la vez. Puedes asignar el ejecutor a un grupo específico durante el proceso de registro o puedes moverlo después desde el grupo predeterminado a un grupo personalizado.
 
@@ -185,7 +185,7 @@ Si no especificas un grupo de ejecutores durante el proceso de registro, tus eje
 2. Selecciona el menú desplegable del grupo de ejecutores.
 3. En "Mover el ejecutor al grupo", elige un grupo destino para el ejecutor.
 {% elsif ghae or ghes < 3.4 %}
-1. In the {% ifversion ghes > 3.1 or ghae %}"Runner groups"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![Ver los miembros de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. En la sección de {% ifversion ghes > 3.1 or ghae %}"Grupos de ejecutores"{% elsif ghes < 3.2 %}"Ejecutores auto-hospedados"{% endif %} de la página de ajustes, ubica al grupo actual del ejecutor que quieres mover y expande la lista de sus miembros. ![Ver los miembros de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-members.png)
 2. Selecciona la casilla junto al ejecutor auto-hospedado y da clic en **Mover a grupo** para ver los destinos disponibles. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 3. Para mover el ejecutor, da clic en el grupo de destino. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}

@@ -15,7 +15,7 @@ topics:
 
 ## About project access
 
-Admins of organization-level projects can manage access for the entire organization, for teams, and for individual organization members.
+Admins of organization-level projects can manage access for the entire organization, for teams, for individual organization members, and for outside collaborators.
 
 Admins of user-level projects can invite individual collaborators and manage their access.
 
@@ -28,37 +28,37 @@ Project admins can also control the visibility of their project for everyone on 
 The default base role is `write`, meaning that everyone in the organization can see and edit your project. To change project access for everyone in the organization, you can change the base role. Changes to the base role only affect organization members who are not organization owners and who are not granted individual access.
 
 {% data reusables.projects.project-settings %}
-1. Click **Manage access**.
+1. Haz Clic en **Administrar el acceso**.
 2. Under **Base role**, select the default role.
-   - **No access**: Only organization owners and users granted individual access can see the project. Organization owners are also admins for the project.
+   - **No access**: Only organization owners and users granted individual access can see the project. Los propietarios de las organizaciones que también son administradores del proyecto.
    - **Read**: Everyone in the organization can see the project. Los propietarios de las organizaciones que también son administradores del proyecto.
    - **Write**: Everyone in the organization can see and edit the project. Los propietarios de las organizaciones que también son administradores del proyecto.
    - **Admin**: Everyone in the organization is an admin for the project.
 
 ### Managing access for teams and individual members of your organization
 
-You can also add teams, and individual organization members, as collaborators. Para obtener más información, consulta la sección "[Acerca de los equipos](/organizations/organizing-members-into-teams/about-teams)".
+You can also add teams, external collaborators, and individual organization members as collaborators for an organization-level project. Para obtener más información, consulta la sección "[Acerca de los equipos](/organizations/organizing-members-into-teams/about-teams)".
 
-You can only invite an individual user to collaborate on your organization-level project if they are a member of the organization.
+You can only invite an individual user to collaborate on your organization-level project if they are already a member of the organization or an outside collaborator on at least one repository in the organization.
 
 {% data reusables.projects.project-settings %}
 1. Haz Clic en **Administrar el acceso**.
-1. Under **Invite collaborators**, search for the team or organization member that you want to invite.
-1. Select the role for the collaborator.
+2. Under **Invite collaborators**, search for the team or individual user that you want to invite.
+3. Selecciona el rola para el colaborador.
    - **Read**: The team or individual can view the project.
    - **Write**: The team or individual can view and edit the project.
    - **Admin**: The team or individual can view, edit, and add new collaborators to the project.
-1. Click **Invite**.
+4. Haz clic en **Invitar**.
 
 ### Managing access of an existing collaborator on your project
 
 {% data reusables.projects.project-settings %}
 1. Haz Clic en **Administrar el acceso**.
-1. Under **Manage access**, find the collaborator(s) whose permissions you want to modify.
+1. Debajo de **Administrar acceso**, encuentra al(los) colaborador(es) cuyos permisos quieras modificar.
 
    You can use the **Type** and **Role** drop-down menus to filter the access list.
 
-1. Edit the role for the collaborator(s) or click {% octicon "trash" aria-label="the trash icon" %} to remove the collaborator(s).
+1. Edita el rol para el(los) colaborador(es) o haz clic en{% octicon "trash" aria-label="the trash icon" %} para eliminarlo(s).
 
 ## Managing access for user-level projects
 

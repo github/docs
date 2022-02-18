@@ -32,7 +32,7 @@ Por padrão, {% data variables.product.prodname_actions %} não está habilitado
 
 {% data reusables.actions.migrating-enterprise %}
 
-## Revise as considerações de hardware
+## Review hardware requirements
 
 {% ifversion ghes = 3.0 %}
 
@@ -46,7 +46,7 @@ Por padrão, {% data variables.product.prodname_actions %} não está habilitado
 
 {%- ifversion ghes < 3.2 %}
 
-Os recursos da CPU e memória disponíveis para {% data variables.product.product_location %} determinam o rendimento máximo do trabalho para {% data variables.product.prodname_actions %}.
+The CPU and memory resources available to {% data variables.product.product_location %} determine the maximum job throughput for {% data variables.product.prodname_actions %}. {% data reusables.actions.minimum-hardware %}
 
 O teste interno em {% data variables.product.company_short %} demonstrou o rendimento máximo a seguir para instâncias de {% data variables.product.prodname_ghe_server %} com um intervalo de configurações da CPU e memória. Você pode ver diferentes tipos de transferência, dependendo dos níveis gerais de atividade na sua instância.
 
@@ -54,7 +54,7 @@ O teste interno em {% data variables.product.company_short %} demonstrou o rendi
 
 {%- ifversion ghes > 3.1 %}
 
-Os recursos de CPU e memória disponíveis para {% data variables.product.product_location %} determinam o número de trabalhos que podem ser executados simultaneamente sem perda de desempenho.
+The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss. {% data reusables.actions.minimum-hardware %}
 
 O pico de trabalhos simultâneos rodando sem perda de desempenho depende de fatores como duração do trabalho, uso de artefatos, número de repositórios em execução de ações, e quanto outro trabalho sua instância está fazendo não relacionado a ações. Os testes internos no GitHub demonstraram os objetivos de desempenho a seguir para o GitHub Enterprise Server em uma série de configurações de CPU e memória:
 
