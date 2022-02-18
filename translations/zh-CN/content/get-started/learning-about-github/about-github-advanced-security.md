@@ -36,10 +36,31 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 - **Security overview** - Review the security configuration and alerts for an organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 
+{% ifversion fpt or ghec %}
+The table below summarizes the availability of {% data variables.product.prodname_GH_advanced_security %} features for public and private repositories.
+
+{% ifversion fpt %}
+|                   | Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %} |
+| :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
+| Code scanning     | Yes                         | No                                           | Yes                                        |
+| Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
+| Dependency review | Yes                         | No                                           | Yes                                       |
+{% endif %}
+{% ifversion ghec %}
+|                   | Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %} |
+| :-----------------: | :---------------------------: | :--------------------------------------------: | :-----------------------------------------: |
+| Code scanning     | Yes                         | No                                           | Yes                                        |
+| Secret scanning   | Yes **(limited functionality only)** | No                                           | Yes                                       |
+| Dependency review | Yes                         | No                                           | Yes                                       |
+| Security overview | No                          | No                                           | Yes                                          |
+{% endif %}
+
+{% endif %}
+
 For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
 {% ifversion fpt or ghec %}
-{% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable these features for private and internal repositories. They also have access an organization-level security overview. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).{% endif %}
+{% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghec %}, except for the security overview{% endif %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable these features for private and internal repositories. They also have access to an organization-level security overview. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).{% endif %}
 {% endif %}
 
 {% ifversion ghes or ghec %}
@@ -59,9 +80,9 @@ The site administrator must enable {% data variables.product.prodname_advanced_s
 Once your system is set up, you can enable and disable these features at the organization or repository level.
 
 {%- elsif ghec %}
-For public repositories these features are permanently on and can only be disabled if you change the visibility of the project so that the code is no longer public. 
+For public repositories these features are permanently on and can only be disabled if you change the visibility of the project so that the code is no longer public.
 
-For other repositories, once you have a license for your enterprise account, you can enable and disable these features at the organization or repository level. 
+For other repositories, once you have a license for your enterprise account, you can enable and disable these features at the organization or repository level.
 
 {%- elsif ghae %}
 You can enable and disable these features at the organization or repository level.

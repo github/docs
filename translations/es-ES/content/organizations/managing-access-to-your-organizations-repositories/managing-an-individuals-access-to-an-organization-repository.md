@@ -24,15 +24,15 @@ Cuando eliminas a un colaborador de un repositorio en tu organización, el colab
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-## Otorgar a una persona acceso a un repositorio
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+## Administrar el acceso de una persona a un repositorio de una organización
+You can give a person access to a repository or change a person's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+{% else %}
+## Giving a person access to a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
-{% data reusables.repositories.click-collaborators-teams %}
-{% elsif ghes < 3.4 or ghae %}
 {% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
 1. En el campo de búsqueda, comienza a teclear el nombre de la persona que desees invitar y luego haz clic en un nombre de la lista de coincidencias. ![Campo de búsqueda para teclear el nombre del equipo o persona que deseas invitar al repositorio](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Debajo de "Elige un rol", selecciona el rol de repositorio que quieres asignar a la persona y luego haz clic en **Agregar NOMBRE a REPOSITORIO**. ![Seleccionar los permisos para el equipo o persona](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
@@ -46,8 +46,8 @@ Cuando eliminas a un colaborador de un repositorio en tu organización, el colab
 5. A la derecha del nombre de la persona que desearías administrar, utiliza el menú desplegable {% octicon "gear" aria-label="The Settings gear" %}, y haz clic en **Manage (Administrar)**. ![Enlace de acceso al gerente](/assets/images/help/organizations/member-manage-access.png)
 6. En la página "Manage access" (Administrar el acceso), al lado del repositorio, haz clic en **Manage access (Administrar el acceso)**. ![Botón de administración de acceso a un repositorio](/assets/images/help/organizations/repository-manage-access.png)
 7. Revisa el acceso de la persona a un repositorio determinado, como si fuera un colaborador o si tuviera acceso a un repositorio por medio de una membresía de equipo. ![Matriz de acceso a repositorio para el usuario](/assets/images/help/organizations/repository-access-matrix-for-user.png)
-
+{% endif %}
 ## Leer más
 
-{% ifversion fpt or ghec %}- "[Limitar las interacciones con tu repositorio](/articles/limiting-interactions-with-your-repository)"{% endif %}
+{% ifversion fpt or ghec %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
 - "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

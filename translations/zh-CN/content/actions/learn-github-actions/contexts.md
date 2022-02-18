@@ -73,7 +73,7 @@ As part of an expression, you can access context information using one of two sy
 | <code>concurrency</code>  | <code>github, inputs</code>  |                            |
 | <code>env</code>  | <code>github, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.concurrency</code>  | <code>github, needs, strategy, matrix, inputs</code>  |                            |
-| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix, inputs</code>  |                            |
+| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container.credentials</code>  | <code>github, needs, strategy, matrix, env, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |

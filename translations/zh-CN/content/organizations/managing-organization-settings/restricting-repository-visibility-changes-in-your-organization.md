@@ -32,4 +32,4 @@ shortTitle: 设置可见性更改策略
 
 ## 延伸阅读
 
-- "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
+- "[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"

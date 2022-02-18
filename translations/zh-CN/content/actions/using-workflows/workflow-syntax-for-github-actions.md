@@ -757,6 +757,8 @@ strategy:
 
 ## `jobs.<job_id>.container`
 
+{% data reusables.github-actions.docker-container-os-support %}
+
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
 ### `jobs.<job_id>.container.image`

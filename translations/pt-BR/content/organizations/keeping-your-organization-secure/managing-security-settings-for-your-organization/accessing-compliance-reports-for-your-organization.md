@@ -1,6 +1,6 @@
 ---
-title: Accessing compliance reports for your organization
-intro: 'You can access {% data variables.product.company_short %}''s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your organization.'
+title: Acessando relatórios de conformidade para a sua organização
+intro: 'Você pode acessar as denúncias de conformidade de {% data variables.product.company_short %}, como nossos relatórios SOC e auto-avaliação da Cloud Security Alliance CAIQ (CSA CAIQ), para a sua organização.'
 versions:
   ghec: '*'
 type: how_to
@@ -8,24 +8,24 @@ topics:
   - Organizations
   - Teams
 permissions: Organization owners can access compliance reports for the organization.
-shortTitle: Access compliance reports
+shortTitle: Acessar relatórios de conformidade
 ---
 
-## About {% data variables.product.company_short %}'s compliance reports
+## Sobre os relatórios de conformidade de {% data variables.product.company_short %}
 
-You can access {% data variables.product.company_short %}'s compliance reports in your organization settings.
+Você pode acessar os relatórios de conformidade de {% data variables.product.company_short %} nas configurações da organização.
 
 {% data reusables.security.compliance-report-list %}
 
-## Accessing compliance reports for your organization
+## Acessando relatórios de conformidade para a sua organização
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. Under "Compliance reports", to the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
+1. Em "Relatórios de Conformidade", à direita do relatório que você deseja acessar, clique em {% octicon "download" aria-label="The Download icon" %} **Download** ou {% octicon "link-external" aria-label="The external link icon" %} **Visualizar**.
 
    {% data reusables.security.compliance-report-screenshot %}
 
 ## Leia mais
 
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+- "[Relatórios de conformidade para a sua empresa](/admin/overview/accessing-compliance-reports-for-your-enterprise)"

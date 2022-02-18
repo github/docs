@@ -8,7 +8,7 @@ redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '>=3.0'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -23,6 +23,14 @@ topics:
   - SARIF
 ---
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
+
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Note:** This article describes features present in the version of {% data variables.product.prodname_codeql_cli %} available at the time of the release of {% data variables.product.product_name %}. If your enterprise uses a more recent version of {% data variables.product.prodname_codeql_cli %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system) instead.
+
+{% endnote %}
+{% endif %}
 
 ## About generating code scanning results with {% data variables.product.prodname_codeql_cli %}
 
@@ -328,22 +336,6 @@ For more information about the type of diagnostic information available, see "[V
 By default, {% data variables.product.prodname_code_scanning %} expects one SARIF results file per analysis for a repository. Consequently, when you upload a second SARIF results file for a commit, it is treated as a replacement for the original set of data.
 
 If you want to upload more than one set of results to the {% data variables.product.prodname_code_scanning %} API for a commit in a repository, you must identify each set of results as a unique set. For repositories where you create more than one {% data variables.product.prodname_codeql %} database to analyze for each commit, use the `--sarif-category` option to specify a language or other unique category for each SARIF file that you generate for that repository.
-
-### Alternative if your CI system cannot trigger the {% data variables.product.prodname_codeql_cli %}
-
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-
-If your CI system cannot trigger the {% data variables.product.prodname_codeql_cli %} autobuild and you cannot specify a command line for the build, you can use indirect build tracing to create {% data variables.product.prodname_codeql %} databases for compiled languages. For more information, see [Using indirect build tracing](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#using-indirect-build-tracing) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
-
-{% endif %}
-
-{% ifversion ghes < 3.3 %}
-
-{% data reusables.code-scanning.use-codeql-runner-not-cli %}
-
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-
-{% endif %}
 
 {% endif %}
 

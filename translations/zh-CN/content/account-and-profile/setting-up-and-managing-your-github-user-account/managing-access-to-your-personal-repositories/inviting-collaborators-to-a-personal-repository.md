@@ -38,7 +38,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 1. 您邀请成为协作者的人员需提供用户名。{% ifversion fpt or ghec %} 如果他们还没有用户名，他们可以注册 {% data variables.product.prodname_dotcom %} 更多信息请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”。{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658%}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658%}
 {% data reusables.repositories.click-collaborators-teams %}
 1. 单击 **Invite a collaborator（邀请协作者）**。 !["邀请协作者" 按钮](/assets/images/help/repository/invite-a-collaborator-button.png)
 2. 在搜索字段中，开始键入您想邀请的人员的姓名，然后单击匹配列表中的姓名。 ![搜索字段以键入要邀请加入仓库的人员姓名](/assets/images/help/repository/manage-access-invite-search-field-user.png)

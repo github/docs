@@ -57,7 +57,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
 {% else %}
 1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
@@ -71,7 +71,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
 {% else %}
 1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)

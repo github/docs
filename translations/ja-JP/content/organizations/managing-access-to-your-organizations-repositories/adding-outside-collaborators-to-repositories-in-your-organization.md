@@ -40,11 +40,11 @@ To further support your team's collaboration abilities, you can upgrade to {% da
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 {% data reusables.repositories.click-collaborators-teams %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. 検索フィールドで、招待する人の名前を入力し、一致するリストの名前をクリックします。 ![リポジトリに招待する人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. [Choose a role] で、人に付与する権限を選択し、[**Add NAME to REPOSITORY**] をクリックします。 ![人の権限を選択する](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
+6. Under "Choose a role", select the permissions to grant to the person, then click **Add NAME to REPOSITORY**. ![人の権限を選択する](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 {% else %}
 5. 左のサイドバーで、[**Collaborators & teams**] をクリックします。 ![コラボレーターと Team がハイライトされたリポジトリ設定サイドバー](/assets/images/help/repository/org-repo-settings-collaborators-and-teams.png)
 6. "Collaborators" の下で、リポジトリへのアクセスを許可したい人の名前を入力し、[**Add collaborator**] をクリックします。 ![Octocat のユーザ名が検索フィールドに入力されているコラボレーターセクション](/assets/images/help/repository/org-repo-collaborators-find-name.png)

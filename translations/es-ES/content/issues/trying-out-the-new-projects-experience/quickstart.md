@@ -35,6 +35,10 @@ Primero, crea un proyecto organizacional o de usuario.
 
 {% data reusables.projects.create-user-project %}
 
+## Configurar tu descripción de proyecto y README
+
+{% data reusables.projects.project-description %}
+
 ## Agregar propuestas a tu proyecto
 
 A continuación, agrega algunas propuestas a tu proyecto.

@@ -50,12 +50,12 @@ env:
 
 Como parte da expressão, você pode usar os tipos de dados `boolean`, `null`, `number` ou `string`.
 
-| Tipo de dados | Valor do literal                                                                                                                                                                                                                                                                                                                      |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `boolean`     | `true` ou `false`                                                                                                                                                                                                                                                                                                                     |
-| `null`        | `null`                                                                                                                                                                                                                                                                                                                                |
-| `number`      | Qualquer formato de número aceito por JSON.                                                                                                                                                                                                                                                                                           |
-| `string`      | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
+| Tipo de dados | Valor do literal                                                                                                                                                                                                                                                                                                                          |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `boolean`     | `true` ou `false`                                                                                                                                                                                                                                                                                                                         |
+| `null`        | `null`                                                                                                                                                                                                                                                                                                                                    |
+| `number`      | Qualquer formato de número aceito por JSON.                                                                                                                                                                                                                                                                                               |
+| `string`      | Você não precisa anexar strings em `{% raw %}${{{% endraw %}` e `{% raw %}}}{% endraw %}`. No entanto, se o fizer, você deverá usar aspas simples (`'`) em torno da string. Para usar uma aspa simples literal, não use as aspas simples literais e use as aspas simples adicionais (`''`). Colocar aspas duplas (`"`) irá gerar um erro. |
 
 #### Exemplo
 
@@ -274,8 +274,8 @@ Cria um hash para arquivos de `pacote-lock.json` e `Gemfile.lock` no repositóri
 
 Você pode usar as funções de verificação de status a seguir como expressões nas condicionais `if`. Uma verificação de status padrão de `success()` é aplicada, a menos que você inclua uma dessas funções. Para obter mais informações sobre as condicionais `if`, consulte "[Sintaxe fluxo de trabalho para o GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" e "[Sintaxe de metadados para o GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
 {% else %}
-## Check Functions
-Você pode usar as funções de verificação de status a seguir como expressões nas condicionais `if`. Uma verificação de status padrão de `success()` é aplicada, a menos que você inclua uma dessas funções. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+## Funções de verificação
+Você pode usar as funções de verificação de status a seguir como expressões nas condicionais `if`. Uma verificação de status padrão de `success()` é aplicada, a menos que você inclua uma dessas funções. Para obter mais informações sobre as condicionais `se`, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif).
 {% endif %}
 
 ### success

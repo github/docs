@@ -22,8 +22,8 @@ Se você usa o Zendesk para acompanhar tíquetes relatados pelo usuário, por ex
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
-1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-label="The cross-reference icon" %} Autolink references**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. Na seção "Integrações" na barra lateral, clique em **Referências autolink de {% octicon "cross-reference" aria-label="The cross-reference icon" %}**.
 {% else %}
 1. Na barra lateral esquerda, clique em **Autolink references** (Referências de link automático). ![Guia Autolink references (Referências de link automático) na barra lateral esquerda](/assets/images/help/repository/autolink-references-tab.png)
 {% endif %}

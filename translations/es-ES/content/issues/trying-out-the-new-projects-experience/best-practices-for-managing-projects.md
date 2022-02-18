@@ -27,6 +27,20 @@ Para rastrear cómo las propuestas más pequeñas encajan en una meta más grand
 
 Las propuestas y solicitudes de cambio incluyen características integradas que te permiten comunicarte fácilmente con tus colaboradores. Utiliza las @menciones para alertar a una persona o a todo el equipo sobre un comentario. Asigna colaboradores a las propuestas para comunicar las responsabilidades. Enlaza las propuestas o solicitudes de cambio relacionadas para comunicar cómo están conectadas.
 
+## Make use of the description and README
+
+Use your project's description and README to share information about the project.
+
+Por ejemplo:
+
+- Explaining the purpose of the project.
+- Describing the project views and how to use them.
+- Including relevant links and people to contact for more information.
+
+Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers.
+
+For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)."
+
 ## Utiliza las vistas
 
 Utiliza las vistas de proyecto para mirarlo desde diferentes ángulos.
