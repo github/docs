@@ -43,7 +43,7 @@ Pull Requestの説明またはコミットメッセージで、サポートさ�
 * fix
 * fixes
 * fixed
-* 解決
+* resolve
 * resolves
 * resolved
 
