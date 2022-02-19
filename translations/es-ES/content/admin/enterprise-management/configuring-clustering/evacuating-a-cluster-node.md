@@ -53,12 +53,12 @@ If you plan to take a node offline and the node runs a data service role like `g
      $ echo "select count(*) from pages_replicas where host = 'pages-server-<em>UUID</em>'" | ghe-dbconsole -y
      ```
 
-   - **Storage**:
+   - **Almacenamiento**:
 
      ```shell
      $ ghe-storage evacuation-status storage-server-<em>UUID</em>
      ```
-1. After the copy is complete, you can evacuate the node by running any of the following commands, replacing `UUID` with the UUID from step 2.
+1. Después de que la copia se complete, puedes evacuar el nodo ejecutando cualquiera de los siguientes comandos, reemplazando `UUID` con la UUID del paso 2.
 
    - **Git**:
 
@@ -72,13 +72,13 @@ If you plan to take a node offline and the node runs a data service role like `g
      $ ghe-dpages evacuate pages-server-<em>UUID</em>
      ```
 
-   - For **storage**, first take the node offline by running the following command.
+   - Para **almacenamiento**, primero toma el nodo sin conexión ejecutando el siguiente comando.
 
      ```shell
      $ ghe-storage offline storage-server-<em>UUID</em>
      ```
 
-     After the storage node is offline, you can evacuate the node by running the following command.
+     Después de que el nodo de almacenamiento se quede sin conexión, puedes evacuarlo si ejecutas el siguiente comando.
 
      ```shell
      $ ghe-storage evacuate storage-server-<em>UUID</em>
