@@ -24,12 +24,21 @@ Follow the steps in "[Creating a personal access token](/github/authenticating-t
 
 To match the behavior of the [GraphQL Explorer](/graphql/guides/using-the-explorer), request the following scopes:
 
+```
+user{% ifversion not ghae %}
+public_repo{% endif %}
+repo
+repo_deployment
+repo:status
+read:repo_hook
+read:org
+read:public_key
+read:gpg_key
+```
+
 {% else %}
 
 The following scopes are recommended:
-
-{% endif %}
-
 
 ```
 user{% ifversion not ghae %}
@@ -41,6 +50,8 @@ read:org
 read:public_key
 read:gpg_key
 ```
+
+{% endif %}
 
 The API notifies you if a resource requires a specific scope.
 
