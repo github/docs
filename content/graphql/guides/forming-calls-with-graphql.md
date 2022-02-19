@@ -27,8 +27,8 @@ To match the behavior of the [GraphQL Explorer](/graphql/guides/using-the-explor
 ```
 user{% ifversion not ghae %}
 public_repo{% endif %}
-repo
 repo_deployment
+repo  # (The coarse "repo" permission is optional)
 repo:status
 read:repo_hook
 read:org
