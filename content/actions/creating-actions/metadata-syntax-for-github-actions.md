@@ -479,7 +479,7 @@ The background color of the badge. Can be one of: `white`, `yellow`, `blue`, `gr
 
 ### `branding.icon`
 
-The name of the [Feather](https://feathericons.com/) icon to use.
+The name of the [Feather](https://feathericons.com/) icon to use. This is the subset list of Feather icons that are supported.
 <!-- 
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
   This table does not match the latest version the feather library. 
