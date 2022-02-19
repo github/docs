@@ -1,6 +1,6 @@
 ---
-title: Organization のニュースフィードについて
-intro: Organization のニュースフィードを使って、その Organization が所有しているリポジトリ上での最近のアクティビティを知ることができます。
+title: About your organization’s news feed
+intro: You can use your organization's news feed to keep up with recent activity on repositories owned by that organization.
 redirect_from:
   - /articles/news-feed
   - /articles/about-your-organization-s-news-feed
@@ -14,15 +14,17 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Organizationニュースフィード
+shortTitle: Organization news feed
 ---
 
-Organization のニュースフィードは、その Organization が所有しているリポジトリ上での他の人々のアクティビティを知らせます。 Organization のニュースフィードを使って、誰かによる Issue あるいはプルリクエストのオープン、クローズ、マージや、ブランチの作成や削除、タグあるいはリリースの作成、Issue、プルリクエスト、コミットへのコメント、あるいは新しいコミットの {% data variables.product.product_name %}へのプッシュを知ることができます。
+An organization's news feed shows other people's activity on repositories owned by that organization. You can use your organization's news feed to see when someone opens, closes, or merges an issue or pull request, creates or deletes a branch, creates a tag or release, comments on an issue, pull request, or commit, or pushes new commits to {% data variables.product.product_name %}.
 
-## Organization のニュースフィードへのアクセス
+## Accessing your organization's news feed
 
 1. {% data variables.product.signin_link %} to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
-2. 自分の {% data reusables.user_settings.personal_dashboard %}を開きます。
-3. ページの左上隅にあるアカウントコンテキストスイッチャーをクリックします。 ![Enterprise のコンテキストスイッチャーボタン](/assets/images/help/organizations/account_context_switcher.png)
-4. ドロップダウンメニューから Organization を選択します。{% ifversion fpt or ghec %} ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
-![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}
+2. Open your {% data reusables.user_settings.personal_dashboard %}.
+3. Click the account context switcher in the upper-left corner of the page.
+  ![Context switcher button in Enterprise](/assets/images/help/organizations/account_context_switcher.png)
+4. Select an organization from the drop-down menu.{% ifversion fpt or ghec %}
+  ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
+  ![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}

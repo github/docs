@@ -57,7 +57,11 @@ Any team members that have set their status to "Busy" will not be selected for r
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
 1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
+{% endif %}
 1. Select **Only notify requested team members.** ![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
 1. [**Save changes**] をクリックします。
 {% endif %}
@@ -67,7 +71,11 @@ Any team members that have set their status to "Busy" will not be selected for r
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
 1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
+{% endif %}
 1. [**Enable auto assignment**] を選択します。 ![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
 1. [How many team members should be assigned to review?] でドロップダウンメニューを使用し、各プルリクエストに割り当てるレビュー担当者の数を選択します。 ![[Number of reviewers] ドロップダウン](/assets/images/help/teams/review-assignment-number.png)
 1. [Routing algorithm] のドロップダウンメニューで、使用するアルゴリズムを選択します。 詳細は、「[ルーティングアルゴリズム](#routing-algorithms)」を参照してください。 ![[Routing algorithm] ドロップダウン](/assets/images/help/teams/review-assignment-algorithm.png)

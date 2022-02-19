@@ -14,3 +14,6 @@
    - `config`スクリプトを実行してセルフホストランナーアプリケーションを設定し、{% data variables.product.prodname_actions %}に登録します。 `config`スクリプトには、登録先のURLと、リクエストを認証してもらうための自動的に生成された時間限定のあるトークンが必要です。
      - Windowsでは、`config`スクリプトはセルフホストランナーをサービスとしてインストールするかも聞いてきます。 LinuxとmacOSでは、ランナーの追加を終えた後にサービスをインストールできます。 詳しい情報については「[サービスとしてセルフホストランナーを構成する](/actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service)」を参照してください。
    - セルフホストランナーアプリケーションを実行して、マシンを{% data variables.product.prodname_actions %}に接続します。
+{% ifversion fpt or ghec or ghes > 3.2 %}
+     - If you are setting up a cluster of runners, you can install another tool to automatically scale your runners.  For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
+{% endif %}

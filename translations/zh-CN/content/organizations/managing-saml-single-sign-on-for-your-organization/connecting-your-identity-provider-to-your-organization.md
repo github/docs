@@ -22,7 +22,7 @@ shortTitle: 连接 IdP
 - PingOne [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector)
 - Shibboleth [SAML](https://wiki.shibboleth.net/confluence/display/IDP30/Home)
 
-You can access your organization's service provider metadata at the following URL, replacing ORGANIZATION with your organization's username.
+您可以通过以下 URL 访问组织的服务提供商元数据，将 ORGANIZATION 替换为您的组织的用户名。
 
 ```
 http(s)://github.com/orgs/ORGANIZATION/saml/metadata.xml

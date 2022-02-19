@@ -67,6 +67,13 @@ Por exemplo, para código Ruby do realce de sintaxe:
 
 Usamos [Linguist](https://github.com/github/linguist) para executar a detecção de linguagem e selecionar [gramáticas de terceiros](https://github.com/github/linguist/blob/master/vendor/README.md) para realce de sintaxe. Você pode descobrir quais palavras-chave são válidas no [arquivo YAML de linguagem](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
+{% if mermaid %}
+## Criando diagramas
+
+Você pode usar a sintaxe do Mermaid para adicionar diagramas. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
+
+{% endif %}
+
 ## Leia mais
 
 - [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)

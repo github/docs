@@ -34,6 +34,8 @@ If you reuse a workflow from a different repository, any actions in the called w
 
 When a reusable workflow is triggered by a caller workflow, the `github` context is always associated with the caller workflow. The called workflow is automatically granted access to `github.token` and `secrets.GITHUB_TOKEN`. For more information about the `github` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 
+You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. 更多信息请参阅“[关于依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。
+
 ### Reusable workflows and starter workflows
 
 Starter workflows allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a starter workflow and some or all of the work of writing the workflow will be done for them. Within a starter workflow, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code. If you use a tag or branch name when referencing the reusable workflow, you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)."
@@ -110,7 +112,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: ./.github/actions/my-action@v1
+         - uses: ./.github/actions/my-action
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -151,7 +153,7 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/my-action@v1
+      - uses: ./.github/actions/my-action
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}

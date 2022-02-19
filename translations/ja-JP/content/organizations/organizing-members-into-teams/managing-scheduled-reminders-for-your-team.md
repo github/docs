@@ -3,7 +3,7 @@ title: Team のスケジュールされたリマインダーを管理する
 intro: Team に対してレビュー待ちのプルリクエストがあるとき、Slack でリマインダーを受け取ることができます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
-  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
+  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team
 versions:
   fpt: '*'
   ghec: '*'
@@ -27,7 +27,6 @@ shortTitle: スケジュールされたリマインダー
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![[Scheduled reminders] ボタン](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.add-reminder %}
 {% data reusables.reminders.authorize-slack %}
 {% data reusables.reminders.slack-channel %}
@@ -51,7 +50,6 @@ shortTitle: スケジュールされたリマインダー
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![[Scheduled reminders] ボタン](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.edit-existing %}
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
@@ -62,7 +60,6 @@ shortTitle: スケジュールされたリマインダー
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![[Scheduled reminders] ボタン](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.delete %}
 
 ## 参考リンク

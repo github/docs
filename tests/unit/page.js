@@ -1,12 +1,14 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import cheerio from 'cheerio'
+import { describe, expect } from '@jest/globals'
+
 import Page from '../../lib/page.js'
 import readJsonFile from '../../lib/read-json-file.js'
 import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-// import getLinkData from '../../lib/get-link-data.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const prerenderedObjects = readJsonFile('./lib/graphql/static/prerendered-objects.json')
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
@@ -109,6 +111,32 @@ describe('Page class', () => {
           `a[href="/en/${`enterprise-server@${enterpriseServerReleases.latest}`}/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]`
         ).length
       ).toBeGreaterThan(0)
+    })
+
+    // Much of this test is based on making sure we don't
+    // repeat the bug introduced in issue 1545.
+    test('rewrites links correctly for unsupported enterprise-server links', async () => {
+      const page = await Page.init({
+        relativePath: 'page-with-deprecated-enterprise-links.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+      const context = {
+        page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
+        currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
+        currentPath: '/en/page-with-deprecated-enterprise-links',
+        currentLanguage: 'en',
+      }
+      const rendered = await page.render(context)
+      // That page only contains exactly 2 links. And we can know
+      // exactly what we expect each one to be.
+      const $ = cheerio.load(rendered)
+      const first = $('a[href]').first()
+      expect(first.text()).toBe('Version 2.22')
+      expect(first.attr('href')).toBe('/en/enterprise-server@2.22')
+      const last = $('a[href]').last()
+      expect(last.text()).toBe('Version 3.2')
+      expect(last.attr('href')).toBe('/en/enterprise-server@3.2')
     })
 
     test('rewrites links on prerendered GraphQL page include the current language prefix and version', async () => {
@@ -765,5 +793,36 @@ describe('catches errors thrown in Page class', () => {
     await expect(getPage).rejects.toThrowError(
       /`versions` frontmatter.*? product is not available in/
     )
+  })
+
+  describe('versionining optional attributes', () => {
+    test("re-rendering set appropriate 'product', 'permissions', 'learningTracks'", async () => {
+      const page = await Page.init({
+        relativePath: 'page-with-optional-attributes.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+      const context = {
+        page: { version: `enterprise-server@3.2` },
+        currentVersion: `enterprise-server@3.2`,
+        currentProduct: 'snowbird',
+        currentLanguage: 'en',
+        currentPath: '/en/enterprise-server@3.2/optional/attributes',
+        fpt: false, // what the shortVersions contextualizer does
+      }
+
+      await page.render(context)
+      expect(page.product).toBe('')
+      expect(page.permissions).toBe('')
+
+      // Change to FPT
+      context.page.version = nonEnterpriseDefaultVersion
+      context.version = nonEnterpriseDefaultVersion
+      context.currentPath = '/en/optional/attributes'
+      context.fpt = true
+      await page.render(context)
+      expect(page.product).toContain('FPT rulez!')
+      expect(page.permissions).toContain('FPT only!')
+    })
   })
 })

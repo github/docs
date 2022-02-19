@@ -116,7 +116,7 @@ SVG 目前不支持内联脚本或动画。
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-例如，如果您的型号的 URL 是 [github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl)，则嵌入的代码是：
+For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>

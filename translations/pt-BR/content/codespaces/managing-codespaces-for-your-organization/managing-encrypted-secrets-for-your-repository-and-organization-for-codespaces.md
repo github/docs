@@ -41,7 +41,7 @@ Para criar segredos para um repositório da organização, você deve ter acesso
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
+1. Na seção "Segurança" da barra lateral, selecione **Segredos de {% octicon "key-asterisk" aria-label="The key-asterisk icon" %}** e, em seguida, clique em **{% data variables.product.prodname_codespaces %}**.
 2. Na parte superior da página, clique em **Novo segredo de repositório**.
 3. Digite um nome para o seu segredo na caixa de entrada **Nome**.
 4. Insira o valor para o seu segredo.
@@ -55,7 +55,7 @@ Ao criar um segredo em uma organização, você pode usar uma política para lim
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
+1. Na seção "Segurança" da barra lateral, selecione **Segredos de {% octicon "key-asterisk" aria-label="The key-asterisk icon" %}** e, em seguida, clique em **{% data variables.product.prodname_codespaces %}**.
 2. Na parte superior da página, clique em **Novo segredo de organização**.
 3. Digite um nome para o seu segredo na caixa de entrada **Nome**.
 4. Insira o **Valor** para o seu segredo.

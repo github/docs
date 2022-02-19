@@ -32,7 +32,7 @@ shortTitle: 保护您的仓库
 
 从仓库主页点击 **{% octicon "gear" aria-label="The Settings gear" %}设置**，然后向下滚动到“危险区”。
 
-- 要更改谁可以查看您的仓库，请点击 **Change visibility（更改可见性）**。 更多信息请参阅“[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)”。{% ifversion fpt or ghec %}
+- 要更改谁可以查看您的仓库，请点击 **Change visibility（更改可见性）**。 For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec %}
 - 要更改谁可以访问您的仓库并调整权限，请点击 **Manage access（管理访问）**。 更多信息请参阅“[管理有权访问仓库的团队和人员](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)”。{% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
@@ -87,7 +87,7 @@ The dependency graph is automatically generated for all public repositories, and
 
 依赖项审查可让您在合并到仓库之前在拉取请求中显示依赖关系的变化。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)”。
 
-Dependency review is a {% data variables.product.prodname_GH_advanced_security %} feature. {% ifversion fpt or ghec %}Dependency review is already enabled for all public repositories. {% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable dependency review for private and internal repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-repository#managing-dependency-review). {% endif %}{% endif %}{% ifversion ghec or ghes or ghae %}To enable dependency review for a {% ifversion ghec %}private or internal {% endif %}repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_advanced_security %}.
+Dependency review is a {% data variables.product.prodname_GH_advanced_security %} feature. {% ifversion fpt or ghec %}Dependency review is already enabled for all public repositories. {% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable dependency review for private and internal repositories. 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/code-security/getting-started/securing-your-repository#managing-dependency-review)。 {% endif %}{% endif %}{% ifversion ghec or ghes or ghae %}To enable dependency review for a {% ifversion ghec %}private or internal {% endif %}repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_advanced_security %}.
 
 1. 从仓库的主页点击 **{% octicon "gear" aria-label="The Settings gear" %} Settings（设置）**。
 2. 点击 **Security & analysis（安全和分析）**。

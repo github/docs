@@ -54,7 +54,7 @@ If you are caching the package managers listed below, consider using the respect
 
 {% warning %}
 
-**警告**: パブリックリポジトリのキャッシュには、センシティブな情報を保存しないことをおすすめします。 たとえばキャッシュパス内のファイルに保存されたアクセストークンあるいはログインクレデンシャルなどがセンシティブな情報です。 また、`docker login`のようなコマンドラインインターフェース（CLI）プログラムは、アクセスクレデンシャルを設定ファイルに保存することがあります。 読み取りアクセスを持つ人は誰でも、リポジトリにプルリクエストを作成し、キャッシュの内容にアクセスできます。 リポジトリのフォークも、ベースブランチ上にプルリクエストを作成し、ベースブランチ上のキャッシュにアクセスできます。
+**警告**: パブリックリポジトリのキャッシュには、センシティブな情報を保存しないことをおすすめします。 たとえばキャッシュパス内のファイルに保存されたアクセストークンあるいはログインクレデンシャルなどがセンシティブな情報です。 また、`docker login`のようなコマンドラインインターフェース（CLI）プログラムは、アクセスクレデンシャルを設定ファイルに保存することがあります。 読み取りアクセスを持つ人は誰でも、リポジトリにPull Requestを作成し、キャッシュの内容にアクセスできます。 リポジトリのフォークも、ベースブランチ上にPull Requestを作成し、ベースブランチ上のキャッシュにアクセスできます。
 
 {% endwarning %}
 
@@ -88,7 +88,7 @@ Multiple workflows within a repository share cache entries. A cache created for 
 ### `cache` アクションの入力パラメータ
 
 - `key`: **必須** このキーはキャッシュの保存時に作成され、キャッシュの検索に使われます。 変数、コンテキスト値、静的な文字列、関数の任意の組み合わせが使えます。 キーの長さは最大で512文字であり、キーが最大長よりも長いとアクションは失敗します。
-- `path`: **必須** ランナーがキャッシュあるいはリストアをするファイルパス。 このパスは、絶対パスでも、ワーキングディレクトリからの相対パスでもかまいません。
+- `path`: **必須** ランナーがキャッシュあるいはリストアをするファイルパス。 The path can be an absolute path or relative to the workspace directory.
   - パスはディレクトリまたは単一ファイルのいずれかで、glob パターンがサポートされています。
   - `cache` アクションの `v2` では、単一のパスを指定することも、別々の行に複数のパスを追加することもできます。 例:
     ```
@@ -232,4 +232,4 @@ restore-keys: |
 
 ## 利用制限と退去のポリシー
 
-{% data variables.product.prodname_dotcom %}は、7日間以上アクセスされていないキャッシュエントリを削除します。 保存できるキャッシュ数には上限がありませんが、1つのリポジトリ内のすべてのキャッシュの合計サイズは10GBに制限されます。 この制限を超えた場合、{% data variables.product.prodname_dotcom %}はキャッシュを保存しますが、合計サイズが10GB以下になるまでキャッシュを退去させはじめます。
+{% data variables.product.prodname_dotcom %}は、7日間以上アクセスされていないキャッシュエントリを削除します。 There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 10 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 10 GB.

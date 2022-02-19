@@ -76,7 +76,7 @@ No final do mês, {% data variables.product.prodname_dotcom %} calcula o custo d
 
 ### Cálculo de custo de amostra em minutos
 
-Por exemplo, se sua organização usa {% data variables.product.prodname_team %} e permite gastos ilimitados, usando 15.000 minutos, poderia ter um custo total de armazenamento e custo médio de minuto de US$ 56,00, dependendo dos sistemas operacionais usados para executar trabalhos.
+Por exemplo, se sua organização usa {% data variables.product.prodname_team %} e permite gastos ilimitados, usando 5.000 minutos, poderia ter um custo total de armazenamento e custo médio de minuto de US$ 56,00, dependendo dos sistemas operacionais usados para executar trabalhos.
 
 - 5.000 (3.000 Linux e 2.000 Windows) minutos = US$ 56 (US$ 24 + US$ 32).
   - 3.000 minutos de Linux por US$ 0,008 por minuto = US$ 24.

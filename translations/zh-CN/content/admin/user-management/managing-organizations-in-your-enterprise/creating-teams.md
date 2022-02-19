@@ -6,6 +6,7 @@ redirect_from:
   - /admin/user-management/creating-teams
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -31,6 +32,8 @@ A prudent combination of teams is a powerful way to control repository access. F
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
+
+{% ifversion ghes %}
 
 ## Creating teams with LDAP Sync enabled
 
@@ -60,3 +63,5 @@ You must be a site admin and an organization owner to create a team with LDAP sy
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
+
+{% endif %}

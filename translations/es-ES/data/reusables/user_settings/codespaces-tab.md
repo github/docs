@@ -1,1 +1,1 @@
-1. En la barra lateral izquierda, da clic en **Codespaces**. ![Pestaña de Codespaces en la barra lateral de la configuración de usuario](/assets/images/help/settings/codespaces-tab.png)
+1. En la sección de "Código, planeación y automatización" de la barra lateral, haz clic en **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces**.

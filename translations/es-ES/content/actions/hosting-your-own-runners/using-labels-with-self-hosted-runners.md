@@ -19,13 +19,13 @@ Para obtener información sobre cómo utilizar las etiquetas para rutear jobs a 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 ## Crear una etiqueta personalizada
-{% ifversion fpt or ghec %}
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
  1. En la sección de "Etiquetas", haz clic en {% octicon "gear" aria-label="The Gear icon" %}.
  1. En el campo de "Encuentra o crea una etiqueta", teclea el nombre de tu etiqueta nueva y haz clic en **Crear etiqueta nueva**. La etiqueta personalizada se creará y asignará al ejecutor auto-hospedado. Las etiquetas personalizadas pueden eliminarse de los ejecutores auto-hospedados, pero actualmente no pueden eliminarse manualmente. {% data reusables.github-actions.actions-unused-labels %}
-{% endif %}
-{% ifversion ghae or ghes %}
+{% elsif ghae or ghes < 3.4 %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.self-hosted-runner-list %}
 {% data reusables.github-actions.self-hosted-runner-list-group %}
@@ -34,35 +34,38 @@ Para obtener información sobre cómo utilizar las etiquetas para rutear jobs a 
 
 La etiqueta personalizada se creará y asignará al ejecutor auto-hospedado. Las etiquetas personalizadas pueden eliminarse de los ejecutores auto-hospedados, pero actualmente no pueden eliminarse manualmente. {% data reusables.github-actions.actions-unused-labels %}
 {% endif %}
+
 ## Asignar una etiqueta a un ejecutor auto-hospedado
-{% ifversion fpt or ghec %}
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}
   1. Para asignar una etiqueta a tu ejecutor auto-hospedado, en el campo de "Encuentra o crea una etiqueta", haz clic en ella.
-{% endif %}
-{% ifversion ghae or ghes %}
+{% elsif ghae or ghes < 3.4 %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.self-hosted-runner-list %}
 {% data reusables.github-actions.self-hosted-runner-list-group %}
 {% data reusables.github-actions.self-hosted-runner-labels-view-assigned-labels %}
 1. Da clic en la etiqueta para asignarla a tu ejecutor auto-hospedado.
 {% endif %}
+
 ## Eliminar una etiqueta personalizada de un ejecutor auto-hospedado
-{% ifversion fpt or ghec %}
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}
   1. En el campo "Encuentra o crea una etiqueta", las etiquetas asignadas se marcan con el
 icono {% octicon "check" aria-label="The Check icon" %}. Haz clic en una etiqueta marcada para desasignarla de tu ejecutor auto-hospedado.
-{% endif %}
-{% ifversion ghae or ghes %}
+{% elsif ghae or ghes < 3.4 %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.self-hosted-runner-list %}
 {% data reusables.github-actions.self-hosted-runner-list-group %}
 {% data reusables.github-actions.self-hosted-runner-labels-view-assigned-labels %}
 1. Da clic en la etiqueta asignada para eliminarla de tu ejecutor auto-hospedado. {% data reusables.github-actions.actions-unused-labels %}
 {% endif %}
+
 ## Utilizar el script de configuración para crear y asignar etiquetas
 
 Puedes utilizar el script de configuración en el ejecutor auto-hospedado para crear y asignar etiquetas personalizadas. Por ejemplo, este comando asigna una etiqueta llamada `gpu` al ejecutor auto-hospedado.

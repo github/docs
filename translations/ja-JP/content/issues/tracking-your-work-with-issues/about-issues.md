@@ -49,7 +49,7 @@ Issueの最新のコメントの情報を得ておきたい場合には、Issue�
 
 ## Issueとディスカッションの比較
 
-Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} Issueあるいはディスカッションを使う場合のガイダンスについては「[GitHubでのコミュニケーション](/github/getting-started-with-github/quickstart/communicating-on-github)」を参照してください。
+会話の中には、{% data variables.product.prodname_discussions %}に適しているものもあります。 {% data reusables.discussions.you-can-use-discussions %} Issueあるいはディスカッションを使う場合のガイダンスについては「[GitHubでのコミュニケーション](/github/getting-started-with-github/quickstart/communicating-on-github)」を参照してください。
 
 Issue内での会話にディスカッションの方が適している場合は、Issueをディスカッションに変換できます。
 {% endif %}

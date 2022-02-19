@@ -248,7 +248,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 * [列出部署](/rest/reference/deployments#list-deployments)
 * [创建部署](/rest/reference/deployments#create-a-deployment)
-* [Get a deployment](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
+* [获取部署](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
 * [删除部署](/rest/reference/deployments#delete-a-deployment){% endif %}
 
 #### 事件
@@ -449,8 +449,8 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% ifversion fpt or ghec %}
 #### 组织团队同步
 
-* [列出团队的 idp 组](/rest/reference/teams#list-idp-groups-for-a-team)
-* [创建或更新 idp 组连接](/rest/reference/teams#create-or-update-idp-group-connections)
+* [列出团队的 IdP 组](/rest/reference/teams#list-idp-groups-for-a-team)
+* [创建或更新 IdP 组连接](/rest/reference/teams#create-or-update-idp-group-connections)
 * [列出组织的 IdP 组](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 

@@ -20,7 +20,7 @@ Para transferir una propuesta abierta a otro repositorio, debes tener acceso de 
 
 Solo puedes transferir propuestas entre repositorios que son propiedad del mismo usuario o de la misma cuenta de la organización. {% ifversion fpt or ghes or ghec %}No puedes transferir una propuesta desde un repositorio privado hacia un repositorio público.{% endif %}
 
-Cuando transfieres un informe de problemas, se retendrá tanto los comentarios como las personas asignadas. No se retendrán los hitos y etiquetas de la propuesta. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."
+When you transfer an issue, comments, labels and assignees are retained. The issue's milestones are not retained. Esta propuesta se mantendrá en cualquier tablero de proyecto que pertenezca al usuario o que se encuentre en la organización y se eliminará de cualquier tablero de proyecto de los repositorios. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."
 
 Las personas o equipos que se mencionan en la propuesta recibirán una notificación que les haga saber que la propuesta se transfirió a un repositorio nuevo. La URL original se redirige a la URL nueva de la propuesta. Las personas que no tengan permisos de lectura en el repositorio nuevo verán un anuncio que les hará saber que la propuesta se transfirió a un repositorio nuevo al que no pueden acceder.
 

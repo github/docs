@@ -27,6 +27,14 @@ topics:
 {% endnote %}
 {% endif %}
 
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %}
+{% note %}
+
+**Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
 Depois que um repositório é arquivado, não é possível adicionar nem remover colaboradores ou equipes. Os contribuidores com acesso ao repositório podem apenas bifurcar ou marcar com estrela seu projeto.

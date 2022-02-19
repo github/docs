@@ -50,12 +50,12 @@ env:
 
 Como parte de una expresión, puedes usar tipos de datos `boolean`, `null`, `number` o `string`.
 
-| Tipo de datos | Valor literal                                                                                                                                                                                                                 |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `boolean`     | `verdadero` o `falso`                                                                                                                                                                                                         |
-| `null`        | `null`                                                                                                                                                                                                                        |
-| `number`      | Cualquier formato de número compatible con JSON.                                                                                                                                                                              |
-| `secuencia`   | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
+| Tipo de datos | Valor literal                                                                                                                                                                                                                                                                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `boolean`     | `verdadero` o `falso`                                                                                                                                                                                                                                                                                                                 |
+| `null`        | `null`                                                                                                                                                                                                                                                                                                                                |
+| `number`      | Cualquier formato de número compatible con JSON.                                                                                                                                                                                                                                                                                      |
+| `secuencia`   | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
 #### Ejemplo
 

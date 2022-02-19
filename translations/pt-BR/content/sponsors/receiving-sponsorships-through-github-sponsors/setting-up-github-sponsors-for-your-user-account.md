@@ -1,6 +1,6 @@
 ---
 title: Configurando o GitHub Sponsors (Patrocinadores do GitHub) para sua conta de usuário
-intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication for your account on {% data variables.product.product_location %}.'
+intro: 'Você pode se tornar um desenvolvedor patrocinado participando de {% data variables.product.prodname_sponsors %}, completando seu perfil de desenvolvedor patrocinado, criando camadasde patrocínio, enviando seus dados bancários e fiscais e habilitando a autenticação de dois fatores para sua conta em {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
@@ -77,7 +77,7 @@ Se você vive em uma região aceita, você pode seguir essas instruções para e
 
 ## Habilitar a autenticação de dois fatores (2FA, two-factor authentication) na sua conta do {% data variables.product.prodname_dotcom %}
 
-Before you can become a sponsored developer, you must enable 2FA for your account on {% data variables.product.product_location %}. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
+Antes de se tornar um desenvolvedor patrocinado, você deve habilitar a 2FA para sua conta em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
 
 ## Enviar seu aplicativo ao {% data variables.product.prodname_dotcom %} para aprovação
 

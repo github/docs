@@ -20,7 +20,7 @@ shortTitle: Roles in an organization
 ## About roles
 {% data reusables.organizations.about-roles %}
 
-Repository-level roles give organization members, outside collaborators and teams of people varying levels of access to repositories. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Repository-level roles give organization members, outside collaborators and teams of people varying levels of access to repositories. 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 Team-level roles are roles that give permissions to manage a team. You can give any individual member of a team the team maintainer role, which gives the member a number of administrative permissions over a team. For more information, see "[Assigning the team maintainer role to a team member](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)."
 
@@ -227,5 +227,5 @@ If your organization has a security team, you can use the security manager role 
 
 ## 延伸阅读
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - "[组织的项目板权限](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"

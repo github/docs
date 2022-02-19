@@ -1,1 +1,1 @@
-1. En tu barra lateral de ajustes de usuario, haz clic en **Usuarios bloqueados** debajo de **Ajustes de moderación**. ![Pestaña de usuarios bloqueados](/assets/images/help/settings/settings-sidebar-blocked-users.png)
+1. En la sección de "Acceso" de la barra lateral, selecciona **{% octicon "report" aria-label="The report icon" %} Moderación** y luego haz clic en **Usuarios bloqueados**.

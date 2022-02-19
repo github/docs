@@ -87,6 +87,10 @@ You can configure this behavior for a repository using the procedure below. 修�
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 ### 为仓库配置私有复刻策略
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -99,7 +103,7 @@ You can configure this behavior for a repository using the procedure below. 修�
 
 {% data reusables.github-actions.workflow-permissions-intro %}
 
-默认权限也可以在组织设置中配置。 如果在组织设置中选择了更受限制的默认值，则在仓库设置中自动选择相同的选项，并禁用许可的选项。
+The default permissions can also be configured in the organization settings. If the more restricted default has been selected in the organization settings, the same option is auto-selected in your repository settings and the permissive option is disabled.
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
@@ -137,11 +141,11 @@ You can configure whether {% if internal-actions%}actions and {% endif %}workflo
 
 ## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
 
-您可以为仓库中的 {% data variables.product.prodname_actions %} 构件和日志配置保留期。
+You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-您还可以为工作流程创建的特定构件自定义保留期。 更多信息请参阅“[设置构件的保留期](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)”。
+You can also define a custom retention period for a specific artifact created by a workflow. For more information, see "[Setting the retention period for an artifact](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)."
 
 ## 设置仓库的保留期
 

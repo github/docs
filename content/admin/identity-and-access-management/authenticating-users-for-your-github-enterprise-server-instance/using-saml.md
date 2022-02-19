@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/authentication/using-saml
   - /admin/authentication/using-saml
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-saml
-intro: 'SAML is an XML-based standard for authentication and authorization. {% data variables.product.prodname_ghe_server %} can act as a service provider (SP) with your internal SAML identity provider (IdP).'
+intro: You can configure SAML single sign-on (SSO) for {% data variables.product.product_name %}, which allows users to authenticate through a SAML identity provider (IdP) to access your instance.
 versions:
   ghes: '*'
 type: how_to
@@ -18,11 +18,24 @@ topics:
   - Identity
   - SSO
 ---
+
+## About SAML for {% data variables.product.product_name %}
+
+SAML SSO allows people to authenticate and access {% data variables.product.product_location %} through an external system for identity management.
+
+SAML is an XML-based standard for authentication and authorization. When you configure SAML for {% data variables.product.product_location %}, the external system for authentication is called an identity provider (IdP). Your instance acts as a SAML service provider (SP). For more information, see [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) on Wikipedia. 
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
 ## Supported SAML services
 
 {% data reusables.saml.saml-supported-idps %}
+
+{% ifversion ghes > 3.3 %}
+
+If your IdP supports encrypted assertions, you can configure encrypted assertions on {% data variables.product.product_name %} for increased security during the authentication process.
+
+{% endif %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
@@ -54,7 +67,7 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 
 ## SAML metadata
 
-Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
+The service provider metadata for {% data variables.product.product_location %} is available at `http(s)://[hostname]/saml/metadata`.
 
 To configure your identity provider manually, the Assertion Consumer Service (ACS) URL is `http(s)://[hostname]/saml/consume`. It uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
 
@@ -86,32 +99,92 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-3. Select **SAML**.
-![SAML authentication](/assets/images/enterprise/management-console/auth-select-saml.png)
-4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Select SAML built-in authentication checkbox](/assets/images/enterprise/management-console/saml-built-in-authentication.png)
-5. Optionally, to enable unsolicited response SSO, select **IdP initiated SSO**. By default, {% data variables.product.prodname_ghe_server %} will reply to an unsolicited Identity Provider (IdP) initiated request with an `AuthnRequest` back to the IdP.
-![SAML idP SSO](/assets/images/enterprise/management-console/saml-idp-sso.png)
+1. Select **SAML**.
+   
+   ![Screenshot of option to enable SAML authentication in management console](/assets/images/enterprise/management-console/auth-select-saml.png)
+1. {% data reusables.enterprise_user_management.built-in-authentication-option %}
 
-  {% tip %}
+   ![Screenshot of option to enable built-in authentication outside of SAML IdP](/assets/images/enterprise/management-console/saml-built-in-authentication.png)
+1. Optionally, to enable unsolicited response SSO, select **IdP initiated SSO**. By default, {% data variables.product.prodname_ghe_server %} will reply to an unsolicited Identity Provider (IdP) initiated request with an `AuthnRequest` back to the IdP.
 
-  **Note**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
+   ![Screenshot of option to enable IdP-initiated unsolicited response](/assets/images/enterprise/management-console/saml-idp-sso.png)
 
-  {% endtip %}
+   {% tip %}
 
-5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location %}.
-![SAML disable admin configuration](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
-![SAML authentication](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}.
-![SAML issuer](/assets/images/enterprise/management-console/saml-issuer.png)
-8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu.
-![SAML method](/assets/images/enterprise/management-console/saml-method.png)
-9. Under **Verification certificate**, click **Choose File** and choose a certificate to validate SAML responses from the IdP.
-![SAML authentication](/assets/images/enterprise/management-console/saml-verification-cert.png)
-10. Modify the SAML attribute names to match your IdP if needed, or accept the default names.
- ![SAML attribute names](/assets/images/enterprise/management-console/saml-attributes.png)
+   **Note**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
 
-{% ifversion ghes %}
+   {% endtip %}
+
+1. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location %}.
+
+   ![Screenshot of option to enable option to respect the "administrator" attribute from the IdP to enable or disable administrative rights](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+1. Optionally, to allow {% data variables.product.product_location %} to send and receive encrypted assertions to and from your SAML IdP, select **Require encrypted assertions**. For more information, see "[Enabling encrypted assertions](#enabling-encrypted-assertions)."
+
+   ![Screenshot of "Enable encrypted assertions" checkbox within management console's "Authentication" section](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
+
+   {% warning %}
+
+   **Warning**: Incorrectly configuring encrypted assertions can cause all authentication to {% data variables.product.product_location %} to fail.
+
+   - You must ensure that your IdP supports encrypted assertions and that the encryption and key transport methods in the management console match the values configured on your IdP. You must also provide {% data variables.product.product_location %}'s public certificate to your IdP. For more information, see "[Enabling encrypted assertions](#enabling-encrypted-assertions)."
+
+   - Before enabling encrypted assertions, {% data variables.product.company_short %} recommends testing encrypted assertions in a staging environment, and confirming that SAML authentication functions as you expect. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+
+   {% endwarning %}
+1. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
+
+   ![Screenshot of text field for single sign-on URL](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+1. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}.
+
+   ![Screenshot of text field for SAML issuer URL](/assets/images/enterprise/management-console/saml-issuer.png)
+1. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu.
+
+   ![Screenshot of drop-down menus to select signature and digest method](/assets/images/enterprise/management-console/saml-method.png)
+1. Under **Verification certificate**, click **Choose File** and choose a certificate to validate SAML responses from the IdP.
+
+   ![Screenshot of button for uploading validation certificate from IdP](/assets/images/enterprise/management-console/saml-verification-cert.png)
+1. Modify the SAML attribute names to match your IdP if needed, or accept the default names.
+
+   ![Screenshot of fields for entering additional SAML attributes](/assets/images/enterprise/management-console/saml-attributes.png)
+
+{% ifversion ghes > 3.3 %}
+
+## Enabling encrypted assertions
+
+To enable encrypted assertions, your SAML IdP must also support encrypted assertions. You must provide {% data variables.product.product_location %}'s public certificate to your IdP, and configure encryption settings that match your IdP.
+
+{% warning %}
+
+**Warning**: Incorrectly configuring encrypted assertions can cause all authentication to {% data variables.product.product_location %} to fail. {% data variables.product.company_short %} strongly recommends testing your SAML configuration in a staging environment. For more information about staging instances, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+
+{% endwarning %}
+
+1. Configure SAML for {% data variables.product.product_location %}. For more information, see "[Configuring SAML settings](#configuring-saml-settings)."
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. Run the following command to output {% data variables.product.product_location %}'s public certificate.
+
+        openssl pkcs12 -in /data/user/common/saml-sp.p12 -nokeys -passin pass:
+1. In the output, copy the text beginning with `-----BEGIN CERTIFICATE-----` and ending with `-----END CERTIFICATE-----`, and paste the output into a plaintext file.
+1. Sign into your SAML IdP as an administrator.
+1. In the application for {% data variables.product.product_location %}, enable encrypted assertions.
+   - Note the encryption method and key transport method.
+   - Provide the public certificate from step 3.
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.authentication %}
+1. Select **Require encrypted assertions**.
+
+   ![Screenshot of "Enable encrypted assertions" checkbox within management console's "Authentication" section](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
+1. To the right of "Encryption Method", select the encryption method for your IdP from step 5.
+
+   ![Screenshot of "Encryption Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-encryption-method.png)
+1. To the right of "Key Transport Method", select the key transport method for your IdP from step 5.
+
+   ![Screenshot of "Key Transport Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-key-transport-method.png)
+1. Click **Save settings**.
+{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
+
+{% endif %}
 
 ## Updating a user's SAML `NameID`
 
@@ -127,8 +200,6 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
   !["NameID" field in modal dialog with NameID typed](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
 7. Click **Update NameID**.
   !["Update NameID" button under updated NameID value within modal](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
-
-{% endif %}
 
 ## Revoking access to {% data variables.product.product_location %}
 

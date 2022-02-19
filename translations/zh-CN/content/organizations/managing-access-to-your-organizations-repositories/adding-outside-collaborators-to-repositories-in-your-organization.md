@@ -20,10 +20,10 @@ permissions: People with admin access to a repository can add an outside collabo
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
-An organization owner can restrict the ability to invite collaborators. 更多信息请参阅“[设置添加外部协作者的权限](/articles/setting-permissions-for-adding-outside-collaborators)”。.
+组织所有者可以限制邀请协作者的能力。 更多信息请参阅“[设置添加外部协作者的权限](/articles/setting-permissions-for-adding-outside-collaborators)”。.
 
 {% ifversion ghes %}
-Before you can add someone as an outside collaborator on a repository, the person must have a user account on {% data variables.product.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site admin can create a user account for the person. 更多信息请参阅“[使用内置身份验证](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)”。
+要将某人添加为仓库的外部协作者，此人必须在 {% data variables.product.product_location %} 上拥有用户帐户。 如果您的企业使用外部身份验证系统（如 SAML 或 LDAP），则要添加的人员必须通过该系统登录才能创建帐户。 如果此人无权访问身份验证系统，并且为您的企业启用了内置身份验证，则站点管理员可以为该人员创建用户帐户。 更多信息请参阅“[使用内置身份验证](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)”。
 {% endif %}
 
 {% ifversion not ghae %}
@@ -40,8 +40,8 @@ Before you can add someone as an outside collaborator on a repository, the perso
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+{% data reusables.repositories.click-collaborators-teams %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. 在搜索字段中，开始键入您想邀请的人员的姓名，然后单击匹配列表中的姓名。 ![搜索字段以键入要邀请加入仓库的人员姓名](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. 在“Choose a role（选择角色）”下，选择要授予此人的权限，然后单击 **Add NAME to REPOSITORY（将姓名添加到仓库）**。 ![为此人选择权限](/assets/images/help/repository/manage-access-invite-choose-role-add.png)

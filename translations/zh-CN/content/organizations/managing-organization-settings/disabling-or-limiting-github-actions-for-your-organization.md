@@ -78,6 +78,10 @@ shortTitle: 禁用或限制操作
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
+{% ifversion ghec or ghae or ghes %}如果对企业禁用了某个策略，则无法对组织启用该策略。{% endif %} 如果对组织禁用了某个策略，则无法对仓库启用该策略。 如果组织启用了某个策略，则可以对个别仓库禁用该策略。
+
+{% data reusables.github-actions.private-repository-forks-options %}
+
 ### 为组织配置私有复刻策略
 
 {% data reusables.profile.access_org %}

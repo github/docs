@@ -141,15 +141,6 @@ In this example, the attempted script injection is unsuccessful:
 
 With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{% endraw %} expression is stored in memory and used as a variable, and doesn't interact with the script generation process. In addition, consider using double quote shell variables to avoid [word splitting](https://github.com/koalaman/shellcheck/wiki/SC2086), but this is [one of many](https://mywiki.wooledge.org/BashPitfalls) general recommendations for writing shell scripts, and is not specific to {% data variables.product.prodname_actions %}.
 
-### Using CodeQL to analyze your code
-
-To help you manage the risk of dangerous patterns as early as possible in the development lifecycle, the {% data variables.product.prodname_dotcom %} Security Lab has developed [CodeQL queries](https://github.com/github/codeql/tree/main/javascript/ql/src/experimental/Security/CWE-094) that repository owners can [integrate](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#running-additional-queries) into their CI/CD pipelines. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
-
-The scripts currently depend on the CodeQL JavaScript libraries, which means that the analyzed repository must contain at least one JavaScript file and that CodeQL must be [configured to analyze this language](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed).
-
-- `ExpressionInjection.ql`: Covers the expression injections described in this article, and is considered to be reasonably accurate. However, it doesn’t perform data flow tracking between workflow steps.
-- `UntrustedCheckout.ql`: This script's results require manual review to determine whether the code from a pull request is actually treated in an unsafe manner. For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)"  on the {% data variables.product.prodname_dotcom %} Security Lab blog.
-
 ### Restricting permissions for tokens
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[Modifying the permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)."
@@ -201,6 +192,10 @@ The same principles described above for using third-party actions also apply to 
 
 {% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
 {% endif %}
+
+## Using OpenSSF Scorecards to secure workflows
+
+[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
 
 ## Potential impact of a compromised runner
 

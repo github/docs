@@ -16,6 +16,7 @@ topics:
 ---
 
 {% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Visão Geral
@@ -34,7 +35,7 @@ Se você reutilizar um fluxo de trabalho de um repositório diferente, todas as 
 
 Quando um fluxo de trabalho reutilizável é acionado por um fluxo de trabalho de chamadas, o contexto `github` está sempre associado ao fluxo de trabalho de chamada. O fluxo de trabalho chamado tem acesso automaticamente a `github.token` e `secrets.GITHUB_TOKEN`. Para obter mais informações sobre o contexto do github ``, consulte "[Contexto e sintaxe de expressão para o GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+Você pode visualizar os fluxos de trabalho referenciados nos seus fluxos de trabalho de {% data variables.product.prodname_actions %} como dependências no gráfico de dependências do repositório que contém seus fluxos de trabalho. Para obter mais informações, consulte “[Sobre o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”.
 
 ### Fluxos de trabalho e fluxos de trabalho iniciais reutilizáveis
 

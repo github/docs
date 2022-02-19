@@ -25,11 +25,9 @@ shortTitle: Enterprise Cloud trial
 
 You can use organizations for free with {% data variables.product.prodname_free_team %}, which includes limited features. For additional features, such as SAML single sign-on (SSO), access control for {% data variables.product.prodname_pages %}, and included {% data variables.product.prodname_actions %} minutes, you can upgrade to {% data variables.product.prodname_ghe_cloud %}. For a detailed list of the features available with {% data variables.product.prodname_ghe_cloud %}, see our [Pricing](https://github.com/pricing) page.
 
-{% data reusables.saml.saml-accounts %} For more information, see "[About identity and access management with SAML single sign-on](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+You can set up a trial of {% data variables.product.prodname_ghe_cloud %} to evaluate these additional features on a new or existing organization account.
 
-{% data reusables.enterprise-accounts.emu-short-summary %}
-
-{% data variables.product.prodname_emus %} is not part of the free trial of {% data variables.product.prodname_ghe_cloud %}. If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+{% data variables.product.prodname_ghe_server %} のトライアルも利用できます。 詳しい情報については、「[{% data variables.product.prodname_ghe_server %} のトライアルを設定する](/articles/setting-up-a-trial-of-github-enterprise-server)」を参照してください。
 
 {% data reusables.products.which-product-to-use %}
 
@@ -39,7 +37,11 @@ You can set up a 30-day trial to evaluate {% data variables.product.prodname_ghe
 
 トライアルには50シートが含まれています。 {% data variables.product.prodname_ghe_cloud %} を評価するためにより多くのシートが必要な場合は、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。 トライアルの終了時に、別のシート数を選択できます。
 
-{% data variables.product.prodname_ghe_server %} のトライアルも利用できます。 詳しい情報については、「[{% data variables.product.prodname_ghe_server %} のトライアルを設定する](/articles/setting-up-a-trial-of-github-enterprise-server)」を参照してください。
+{% data reusables.saml.saml-accounts %}
+
+For more information, see "[About identity and access management with SAML single sign-on](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+
+{% data variables.product.prodname_emus %} is not part of the free trial of {% data variables.product.prodname_ghe_cloud %}. If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
 ## {% data variables.product.prodname_ghe_cloud %} のトライアルを設定する
 
@@ -60,11 +62,13 @@ Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be 
 
 ## トライアルを終了する
 
-トライアル期間中はいつでも {% data variables.product.prodname_enterprise %} を購入するか、{% data variables.product.prodname_team %} にダウングレードできます。
+You can buy {% data variables.product.prodname_enterprise %} at any time during your trial. Purchasing {% data variables.product.prodname_enterprise %} ends your trial, removing the 50-seat maximum and initiating payment.
 
-トライアル期間の終了までに {% data variables.product.prodname_enterprise %} または {% data variables.product.prodname_team %} を購入しない場合、Organization は {% data variables.product.prodname_free_team %} にダウングレードされ、これらのプライベートリポジトリから公開された {% data variables.product.prodname_pages %} サイトを含む有料の製品にのみ含まれる高度なツールや機能にアクセスできなくなります。 アップグレードする予定がない場合は、高度な機能へのアクセスを失わないように、トライアル期間の終了前にリポジトリを公開してください。 詳細は「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。
+If you don't purchase {% data variables.product.prodname_enterprise %}, when the trial ends, your organization will be downgraded. If you used an existing organization for the trial, the organization will be downgraded to the product you were using before the trial. If you created a new organization for the trial, the organization will be downgraded to {% data variables.product.prodname_free_team %}.
 
-Organization の {% data variables.product.prodname_free_team %} にダウングレードすると、トライアル期間中に設定した SAML 設定も無効になります。 {% data variables.product.prodname_enterprise %} または {% data variables.product.prodname_team %} を購入すると、Organization 内のユーザーが認証できるように SAML 設定が再度有効になります。
+Your organization will lose access to any functionality that is not included in the new product, such as advanced features like {% data variables.product.prodname_pages %} for private repositories. If you don't plan to upgrade, to avoid losing access to advanced features, consider making affected repositories public before your trial ends. 詳細は「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。
+
+Downgrading also disables any SAML settings configured during the trial period. If you later purchase {% data variables.product.prodname_enterprise %}, your SAML settings will be enabled again for users in your organization to authenticate.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

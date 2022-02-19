@@ -195,6 +195,8 @@ $ git remote -v
 `git remote rm` 命令使用一个参数：
 * 远程名称，例如 `destination`
 
+Removing the remote URL from your repository only unlinks the local and remote repositories. It does not delete the remote repository.
+
 ## 示例
 
 以下示例假设您[使用 HTTPS 克隆](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)，即推荐使用的方法。
@@ -217,7 +219,7 @@ $ git remote -v
 
 {% warning %}
 
-**注**：`git remote rm` 不会从服务器中删除远程仓库。  它只是从本地仓库中删除远程及其引用。
+**Note**: `git remote rm` does not delete the remote repository from the server.  它只是从本地仓库中删除远程及其引用。
 
 {% endwarning %}
 

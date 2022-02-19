@@ -1,1 +1,1 @@
-1. En la barra lateral de configuración de usuario, haz clic en **Facturación & planes**. ![Configuración de facturación & planes](/assets/images/help/settings/settings-sidebar-billing-plans.png)
+1. En la sección de "Acceso" de la barra lateral, haz clic en **{% octicon "credit-card" aria-label="The credit-card icon" %} Facturación y planes**.

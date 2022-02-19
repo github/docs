@@ -129,7 +129,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 {% endtip %}
 
-必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有向议题添加标签的权限才可使用 `labels` 查询参数。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有向议题添加标签的权限才可使用 `labels` 查询参数。 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 如果使用查询参数创建无效的 URL，或者没有适当的权限，URL 将返回 `404 未找到`错误页。 如果您创建的 URL 超过服务器限制，URL 将返回 `414 URI 过长`错误页面。
 
@@ -143,7 +143,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 | `projects`  | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` 创建标题为 "Bug fix" 的议题并将其添加到组织的项目板 1。                                                                                                                                                     |
 | `模板`        | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` 使用模板在议题正文中创建议题。 `template` 查询参数支持仓库根目录 `docs/` 或 `.github/` 的 `ISSUE_TEMPLATE` 子目录中存储的模板。 更多信息请参阅“[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)”。 |
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+{% if code-scanning-task-lists %}
 ## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}

@@ -3,7 +3,7 @@ title: Administrar recordatorios programados para tu equipo
 intro: Puedes obtener recordatorios en Slack cuando existan solicitudes de extracción pendientes de revisión por parte de tu equipo.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
-  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
+  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team
 versions:
   fpt: '*'
   ghec: '*'
