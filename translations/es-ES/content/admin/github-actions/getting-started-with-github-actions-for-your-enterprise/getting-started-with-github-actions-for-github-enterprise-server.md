@@ -46,7 +46,7 @@ Este artículo explica cómo los administradores de sitio pueden habilitar {% da
 
 {%- ifversion ghes < 3.2 %}
 
-The CPU and memory resources available to {% data variables.product.product_location %} determine the maximum job throughput for {% data variables.product.prodname_actions %}. {% data reusables.actions.minimum-hardware %}
+Los recursos de CPU y de memoria que están disponibles para {% data variables.product.product_location %} determinan el rendimiento máximo de jobs para {% data variables.product.prodname_actions %}. {% data reusables.actions.minimum-hardware %}
 
 Las pruebas internas de {% data variables.product.company_short %} demostraron el siguiente rendimiento máximo para las instancias de {% data variables.product.prodname_ghe_server %} con un rango de CPU y configuraciones de memoria. Puede que vas rendimientos diferentes dependiendo de los niveles generales de actividad en tu instancia.
 
@@ -54,7 +54,7 @@ Las pruebas internas de {% data variables.product.company_short %} demostraron e
 
 {%- ifversion ghes > 3.1 %}
 
-The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss. {% data reusables.actions.minimum-hardware %}
+Los recursos de memoria y CPU que {% data variables.product.product_location %} tiene disponibles determinan la cantidad de jobs que se pueden ejecutar simultáneamente sin pérdida de rendimiento. {% data reusables.actions.minimum-hardware %}
 
 La cantidad máxima de ejecución simultánea de jobs sin pérdida de rendimiento depende de factores tales como la duración de los jobs, el uso de artefactos, la cantidad de repositorios ejecutando acciones y qué tanto trabajo adicional sin relación a las acciones ejecuta tu instancia. Las pruebas internas en GitHub demostraron los siguientes objetivos de rendimiento para GitHub Enterprise Server en un rango de configuraciones de memoria y CPU:
 
@@ -74,9 +74,17 @@ La simultaneidad máxima se midió utilizando repositorios múltiples, una durac
 
 {%- endif %}
 
-{%- ifversion ghes > 3.2 %}
+{%- ifversion ghes = 3.3 %}
 
-{% data reusables.actions.hardware-requirements-after %}
+{% data reusables.actions.hardware-requirements-3.3 %}
+
+La simultaneidad máxima se midió utilizando repositorios múltiples, una duración de los jobs de aproximadamente 10 minutos y 10 MB de cargas de artefactos. Puedes experimentar rendimientos diferentes dependiendo de los niveles de actividad generales de tu instancia.
+
+{%- endif %}
+
+{%- ifversion ghes = 3.4 %}
+
+{% data reusables.actions.hardware-requirements-3.4 %}
 
 La simultaneidad máxima se midió utilizando repositorios múltiples, una duración de los jobs de aproximadamente 10 minutos y 10 MB de cargas de artefactos. Puedes experimentar rendimientos diferentes dependiendo de los niveles de actividad generales de tu instancia.
 

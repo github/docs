@@ -1,1 +1,1 @@
-1. Right-click the commit you want to revert and click **Revert Changes in Commit**.
+1. Haz clic derecho en la confirmación que quieras revertir y luego en **revertir cambios en la confirmación**.
