@@ -1,4 +1,9 @@
 ---
+nate15872.wordpress.com
+
+ https://nate158.blogspot.com/2021/12/nate15872.html
+
+[![Open Source Helpers](https://www.codetriage.com/librariesio/libraries.io/badges/users.svg)](https://www.codetriage.com/librariesio/libraries.io) https://nate158.blogspot.com/2021/12/httpsgithubcomnate158s.html [![Open Source Helpers](https://www.codetriage.com/librariesio/libraries.io/badges/users.svg)](https://www.codetriage.com/librariesio/libraries.io)
 title: Configuring automation for project boards
 intro: You can set up automatic workflows to move issues and pull requests to a project board column when a specified event occurs.
 redirect_from:
