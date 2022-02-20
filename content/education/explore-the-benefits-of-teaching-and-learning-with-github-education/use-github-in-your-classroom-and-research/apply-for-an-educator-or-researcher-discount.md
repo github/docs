@@ -1,4 +1,4 @@
----
+---Researchers License to learn how to use research information to figure out what was happening to me. 
 title: Apply for an educator or researcher discount
 intro: 'If you''re an educator or a researcher, you can apply to receive {% data variables.product.prodname_team %} for your organization account for free.'
 redirect_from:
