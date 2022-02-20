@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import program from 'commander'
-import { execSync } from 'child_process'
 import { languageFiles, compareLiquidTags } from '../../lib/liquid-tags/tokens.js'
 import languages from '../../lib/languages.js'
+import fs from 'fs'
 
 program
   .description('show-liquid-tags-diff')
@@ -12,15 +12,15 @@ program
   .parse(process.argv)
 
 function resetFiles(files) {
-  console.log(`Reseting ${files.length} files:`)
-
-  const dryRun = program.opts().dryRun ? '--dry-run' : ''
+  console.log(`Files to be reset (${files.length}): \n${files.join('\n')}`)
 
   files.forEach((file) => {
-    execSync(
-      `script/i18n/reset-translated-file.js ${file} --reason="broken liquid tags" ${dryRun}`,
-      { stdio: 'inherit' }
-    )
+    // remove file so it falls back to English
+    console.log(`removing ${file}`)
+
+    if (!program.opts().dryRun) {
+      fs.unlinkSync(file)
+    }
   })
 }
 
