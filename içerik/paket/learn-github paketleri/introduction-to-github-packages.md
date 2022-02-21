@@ -1,3 +1,4 @@
+![28280134_1758718944192234_3826578036298584814_n](https://user-images.githubusercontent.com/99832329/154885462-1236d631-b435-4e19-a3b7-3de5261ab253.jpg)
 ---
 title: Introduction to GitHub Packages
 intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately {% ifversion ghae %} for specified users or internally for your enterprise{% else %}or publicly{% endif %} and use packages as dependencies in your projects.'
