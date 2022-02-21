@@ -21,6 +21,8 @@ shortTitle: Revisar las bitácoras de auditoría
 
 La bitácora de auditoría lista eventos que activan las actividades que afectan tu organización dentro del mes actual y los seis meses anteriores. Solo los propietarios pueden acceder al registro de auditoría de una organización.
 
+{% data reusables.audit_log.only-three-months-displayed %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
@@ -169,6 +171,8 @@ Para garantizar que tu propiedad intelectual está segura y que mantienes el cum
 {% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
+
+By default, only events from the past three months are returned. To include older events, you must specify a timestamp in your query.
 
 Para obtener más información sobre la API de REST del log de auditoría, consulta la sección "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization)".
 

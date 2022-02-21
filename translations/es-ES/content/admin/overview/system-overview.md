@@ -104,7 +104,7 @@ Por defecto, el aparato también ofrece acceso a Secure Shell (SSH) para el acce
 
 {% ifversion ghes > 3.3 %}
 
-If you configure SAML authentication for {% data variables.product.product_location %}, you can enable encrypted assertions between the instance and your SAML IdP. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
+Si configuras la autenticación de SAML para {% data variables.product.product_location %}, puedes habilitar las aserciones cifradas entre la instancia y tu IdP de SAML. Para obtener más información, consulta la sección "[Utilizar SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)".
 
 {% endif %}
 
