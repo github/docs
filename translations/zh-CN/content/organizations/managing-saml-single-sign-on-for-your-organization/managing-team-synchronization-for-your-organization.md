@@ -44,11 +44,11 @@ shortTitle: 管理团队同步
 
 您必须为您的组织和支持的 IdP 启用 SAML 单点登录。 更多信息请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
 
-You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. 更多信息请参阅“[使用 SAML 单点登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
+您必须具有链接的 SAML 身份。 要创建链接身份，您必须至少使用 SAML SSO 和支持的 IdP 向您的组织进行身份验证一次。 更多信息请参阅“[使用 SAML 单点登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
 
-Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
+您的 SAML 设置**必须**包含**颁发者**字段的有效 IdP URL。
 
-![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
+![SAML 颁发者字段](/assets/images/help/saml/saml_issuer.png)
 
 
 
@@ -66,13 +66,13 @@ Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
 
 ### 为 Okta 启用团队同步
 
-Okta team synchronization requires that SAML and SCIM with Okta have already been set up for your organization.
+Okta 团队同步要求已为您的组织设置了具有 Okta 的 SAML 和 SCIM。
 
-To avoid potential team synchronization errors with Okta, we recommend that you confirm that SCIM linked identities are correctly set up for all organization members who are members of your chosen Okta groups, before enabling team synchronization on {% data variables.product.prodname_dotcom %}.
+为避免与 Okta 发生潜在的团队同步错误，我们建议您先确认已为属于所选 Okta 组成员的所有组织成员正确设置了 SCIM 链接身份，然后再在 {% data variables.product.prodname_dotcom %} 上启用团队同步。
 
-If an organization member does not have a linked SCIM identity, then team synchronization will not work as expected and the user may not be added or removed from teams as expected. If any of these users are missing a SCIM linked identity, you will need to re-provision them.
+如果组织成员没有链接的 SCIM 身份，则团队同步将无法按预期工作，并且可能不会按预期在团队中添加或删除用户。 如果这些用户中的任何一个缺少 SCIM 链接身份，则需要重新预配它们。
 
-For help on provisioning users that have missing a missing SCIM linked identity, see "[Troubleshooting identity and access management](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)."
+有关预配缺少 SCIM 链接身份的用户的帮助，请参阅“[身份和访问管理疑难解答](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)”。
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
@@ -81,7 +81,7 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.team-sync-confirm-scim %}
-1. Consider enforcing SAML in your organization to ensure that organization members link their SAML and SCIM identities. 更多信息请参阅“[对组织实施 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)”。
+1. 请考虑在组织中强制实施 SAML，以确保组织成员链接其 SAML 和 SCIM 身份。 更多信息请参阅“[对组织实施 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)”。
 {% data reusables.identity-and-permissions.enable-team-sync-okta %}
 7. 在组织名称下，输入有效的 SSWS 令牌和 Okta 实例的 URL。 ![启用团队同步 Okta 组织表单](/assets/images/help/teams/confirm-team-synchronization-okta-organization.png)
 6. 查看要与组织连接的身份提供程序租户信息，然后单击 **Create（创建）**。 ![启用团队同步创建按钮](/assets/images/help/teams/confirm-team-synchronization-okta.png)

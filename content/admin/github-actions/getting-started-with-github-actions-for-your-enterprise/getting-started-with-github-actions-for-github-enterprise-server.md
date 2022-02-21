@@ -73,9 +73,17 @@ Maximum concurrency was measured using multiple repositories, job duration of ap
 
 {%- endif %}
 
-{%- ifversion ghes > 3.2 %}
+{%- ifversion ghes = 3.3 %}
 
-{% data reusables.actions.hardware-requirements-after %}
+{% data reusables.actions.hardware-requirements-3.3 %}
+
+Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+
+{%- endif %}
+
+{%- ifversion ghes = 3.4 %}
+
+{% data reusables.actions.hardware-requirements-3.4 %}
 
 Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
 

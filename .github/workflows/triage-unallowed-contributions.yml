@@ -21,6 +21,7 @@ on:
       - 'package*.json'
       - 'script/**'
       - 'translations/**'
+      - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
   pull-requests: write
@@ -67,6 +68,7 @@ jobs:
               - 'package*.json'
               - 'scripts/**'
               - 'translations/**'
+              - 'content/actions/deployment/security-hardening-your-deployments/**'
 
       # When there are changes to files we can't accept, leave a comment
       # explaining this to the PR author
@@ -90,6 +92,7 @@ jobs:
               'package*.json',
               'scripts/**',
               'translations/**',
+              'content/actions/deployment/security-hardening-your-deployments/**',
             ]
 
             const badFiles = badFilesArr.join('\n')
