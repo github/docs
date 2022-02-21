@@ -79,11 +79,11 @@ Los administradores de tu cuenta empresarial de {% data variables.product.prodna
 
 ## Precios por usuario
 
-{% data variables.product.company_short %} factura de acuerdo con los servicios que se consumen en {% data variables.product.prodname_dotcom_the_website %}, por cada usuario para los despliegues de {% data variables.product.prodname_ghe_server %} y por cada miembro de las organizaciones de {% data variables.product.prodname_ghe_cloud %}. For more information about per-user pricing, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+{% data variables.product.company_short %} factura de acuerdo con los servicios que se consumen en {% data variables.product.prodname_dotcom_the_website %}, por cada usuario para los despliegues de {% data variables.product.prodname_ghe_server %} y por cada miembro de las organizaciones de {% data variables.product.prodname_ghe_cloud %}. Para obtener más información sobre los precios por usuario, consulta la sección "[Acerca de los precios por usuario](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
 
 {% data reusables.billing.per-user-pricing-reference %}
 
-For more information about roles, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" or "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Para obtener más información sobre los roles, consulta la sección "[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" o "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
 Para obtener más información sobre los colaboradores externos, consulta la sección "[Agregar colaboradores externos a los repositorios de tu organización](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)".
 
