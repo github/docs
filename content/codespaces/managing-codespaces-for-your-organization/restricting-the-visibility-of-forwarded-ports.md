@@ -32,7 +32,7 @@ If there are existing codespaces that no longer conform to a policy you have def
 
 When you create a policy you choose whether it applies to all repositories in your organization, or only to specified repositories. If you set an organization-wide policy then any policies you set for individual repositories must fall within the restriction set at the organization level. Adding policies makes the choice of visibility options more, not less, restrictive.
 
-For example, you could create an organization-wide policy that restricts the visibility options to org only. You can then set a policy for Repository A that restricts it to private only (both public and org are disallowed), which would result in only private port forwarding. Setting a policy for Repository A that allowed both public and org would result in only org visibility, because the organization-wide policy specifies org only.
+For example, you could create an organization-wide policy that restricts the visibility options to organization only. You can then set a policy for Repository A that disallows both public and organization visibility, which would result in only private port forwarding being available for this repository. Setting a policy for Repository A that allowed both public and organization would result in only organization visibility, because the organization-wide policy does not allow public visibility.
 
 If you add an organization-wide policy, you should set it to the most lenient visibility option that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
 
