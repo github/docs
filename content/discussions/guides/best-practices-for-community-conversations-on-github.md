@@ -23,7 +23,7 @@ For more information about opening an issue and cross-referencing a discussion, 
 You can create and participate in discussions, issues, and pull requests, depending on the type of conversation you'd like to have.
 
 You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and spike out a project's specific details before committing it to an issue, which can then be scoped. {% data variables.product.prodname_discussions %} is useful for teams if:
-- You are in the discovery phase of a project and are still learning which director your team wants to go in
+- You are in the discovery phase of a project and are still learning which direction your team wants to go in
 - You want to collect feedback from a wider community about a project
 - You want to keep bug fixes, feature requests, and general conversations separate
 
