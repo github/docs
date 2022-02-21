@@ -1,5 +1,6 @@
 ---
-title: Access permissions on GitHub
+title: Access permissions on GitHub![28280134_1758718944192234_3826578036298584814_n](https://user-images.githubusercontent.com/99832329/154877970-55a41c3d-82ea-44df-99a0-984385dd16e7.jpg)
+
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
   - /articles/what-are-the-different-types-of-team-permissions
