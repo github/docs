@@ -37,7 +37,7 @@ Para obtener más información acerca de los roles de los repositorios, consulta
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% endif %}
-1. Debajo de "Administrar acceso" en el campo de búsqueda, comienza a teclear el nombre del equipo o persona que quieres encontrar. Optionally, use the dropdown menus to filter your search. ![Campo de búsqueda para filtrar la lista de equipos o personas con acceso](/assets/images/help/repository/manage-access-filter.png)
+1. Debajo de "Administrar acceso" en el campo de búsqueda, comienza a teclear el nombre del equipo o persona que quieres encontrar. Opcionalmente, utiliza los menús desplegables para filtrar tu búsqueda. ![Campo de búsqueda para filtrar la lista de equipos o personas con acceso](/assets/images/help/repository/manage-access-filter.png)
 
 ## Cambiar permisos para un equipo o persona
 
