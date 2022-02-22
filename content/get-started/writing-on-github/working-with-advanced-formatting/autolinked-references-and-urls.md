@@ -16,7 +16,7 @@ shortTitle: Auto linked references
 
 {% data variables.product.product_name %} automatically creates links from standard URLs.
 
-`Visit https://github.com`
+`Visit https://githubautolinked-references-and-urls.mdautolinked-references-and-urls.md.com`
 
 ![Rendered autolinked URL](/assets/images/help/writing/url-autolink-rendered.png)
 
@@ -34,10 +34,10 @@ Within conversations on {% data variables.product.product_name %}, references to
 
 | Reference type | Raw reference | Short link |
 | --- | --- | --- |
-| Issue or pull request URL | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)
-| `#` and issue or pull request number | #26 | [#26](https://github.com/jlord/sheetsee.js/issues/26) |
+| Issue or pull request URL | https://githubautolinked-references-and-urls.md.com/jlord/sheetsee.js/issues/26 | [#26](https://github.autolinked-references-and-urls.mdcom/jlord/sheetsee.js/issues/26)
+| `#` and issue or pull request number | #26 | [#26](https://githubautolinked-references-and-urls.md.com/jlord/sheetsee.js/issues/26) |
 | `GH-` and issue or pull request number | GH-26 | [GH-26](https://github.com/jlord/sheetsee.js/issues/26) |
-| `Username/Repository#` and issue or pull request number | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
+| `Username/Repository#` and issue or pull request number | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://githubautolinked-references-and-urls.md.com/jlord/sheetsee.js/issues/26)
 | `Organization_name/Repository#` and issue or pull request number | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
 
 {% ifversion fpt or ghec %}
@@ -50,10 +50,10 @@ References to a commit's SHA hash are automatically converted into shortened lin
 
 | Reference type | Raw reference | Short link |
 | --- | --- | --- |
-| Commit URL | [`https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
+| Commit URL | [`https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e`](https://githubautolinked-references-and-urls.md.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) | [a5c3785](https://githubautolinked-references-and-urls.md.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 | SHA | a5c3785ed8d6a35868bc169f07e40e889087fd2e | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 | User@SHA | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)
-| `Username/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e` | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
+| `Username/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e` | [`jlord/sheetsee.js@a5c3785`](https://githubautolinked-references-and-urls.md.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
 ## Custom autolinks to external resources
 
