@@ -23,7 +23,7 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 
 ## Creating a scheduled reminder for a team
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -46,7 +46,7 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 
 ## Managing a scheduled reminder for a team
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -56,7 +56,7 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 
 ## Deleting a scheduled reminder for a team
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}

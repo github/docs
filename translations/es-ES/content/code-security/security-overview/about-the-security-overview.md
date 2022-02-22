@@ -28,7 +28,7 @@ shortTitle: Acerca del resumen de seguridad
 
 Puedes utilizar el resumen de seguirdad para tener una vista de nivel alto del estado de seguridad de tu organización o para identificar repositorios problemáticos que requieren intervención.
 
-- A nivel organizacional, el resumen de seguridad muestra seguridad agregada y específica del repositorio para aquellos que pertenezcan a tu organización. You can also filter information per security feature.
+- A nivel organizacional, el resumen de seguridad muestra seguridad agregada y específica del repositorio para aquellos que pertenezcan a tu organización. También puedes filtrar la información de acuerdo con la característica de seguridad.
 - A nivel de equipo, el resumen de seguridad muestra la información de seguridad específica del repositorio para aquellos en los que el equipo tenga privilegios de administración. Para obtener más información, consulta la sección "[Administrar el acceso de un equipo a un repositorio organizacional](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
 - En el nivel del repositorio, el resumen de seguridad muestra qué características de seguridad se encuentran habilitadas para este y ofrece la opción de configurar cualquier característica de seguridad disponible que no se esté utilizando actualmente.
 
