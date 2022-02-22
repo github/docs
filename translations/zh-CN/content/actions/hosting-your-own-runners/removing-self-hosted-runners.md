@@ -86,7 +86,7 @@ shortTitle: 删除自托管的运行器
 
 {% endnote %}
 
-要从企业帐户删除自托管运行器，您必须是企业所有者。 建议您也访问自托管的运行器机器。 有关如何使用 REST API 删除自托管运行器的信息，请参阅[企业管理 GitHub Actions API](/rest/reference/enterprise-admin#github-actions)。
+要从企业帐户删除自托管运行器，您必须是企业所有者。 建议您也访问自托管的运行器机器。 有关如何使用 REST API 删除自托管运行器的信息，请参阅 [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners) 中的企业端点。
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}

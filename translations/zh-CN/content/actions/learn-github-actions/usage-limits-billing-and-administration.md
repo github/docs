@@ -73,6 +73,8 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Billing for reusable workflows
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
 
 For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
@@ -80,7 +82,7 @@ For more information see, "[Reusing workflows](/actions/learn-github-actions/reu
 
 ## 构件和日志保留策略
 
-您可以为仓库、组织或企业帐户配置构件和日志保留期。
+You can configure the artifact and log retention period for your repository, organization, or enterprise account.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
@@ -101,7 +103,7 @@ For more information see, "[Reusing workflows](/actions/learn-github-actions/reu
 
 ## 禁用和启用工作流程
 
-您可以在 {% data variables.product.prodname_dotcom %} 上启用和禁用仓库中的个别工作流程。
+You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 

@@ -446,7 +446,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ## ready_for_review
 
-A draft pull request was marked as ready for review.
+草稿拉取请求已标记为可供审阅。
 
 ### 可用性
 

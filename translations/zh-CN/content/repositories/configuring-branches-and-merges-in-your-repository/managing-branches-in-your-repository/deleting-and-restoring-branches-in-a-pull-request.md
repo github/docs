@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Delete & restore branches
+shortTitle: 删除和恢复分支
 ---
 
 ## 删除用于拉取请求的分支

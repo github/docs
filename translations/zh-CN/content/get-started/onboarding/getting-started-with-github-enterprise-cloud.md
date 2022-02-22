@@ -51,9 +51,9 @@ Alternatively, if you have an existing organization account that you would like 
 
 When you choose to use an organization account with {% data variables.product.prodname_ghe_cloud %}, you'll first have access to a [30-day trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_team %} before your trial ends, your organization will be downgraded to {% data variables.product.prodname_free_user %} and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[Finishing your trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
 
-Your organization's billing settings page allows you to manage settings like your payment method and billing cycle, view information about your subscription, and upgrade your storage and {% data variables.product.prodname_actions %} minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)."
+Your organization's billing settings page allows you to manage settings like your payment method and billing cycle, view information about your subscription, and upgrade your storage and {% data variables.product.prodname_actions %} minutes. 有关管理帐单设置的更多信息，请参阅"[管理您的 {% data variables.product.prodname_dotcom %} 计费设置](/billing/managing-your-github-billing-settings)"。
 
-Only organization members with the *owner* or *billing manager* role can access or change billing settings for your organization. A billing manager is a user who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
+只有拥有*所有者*或*帐单管理员*角色的组织成员才能访问或更改组织的帐单设置。 A billing manager is a user who manages the billing settings for your organization and does not use a paid license in your organization's subscription. 有关向组织添加帐单管理员的详细信息，请参阅“[将帐单管理员添加到组织](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)”。
 
 ### Setting up an enterprise account with {% data variables.product.prodname_ghe_cloud %}
  {% note %}
@@ -77,15 +77,15 @@ You can view your current subscription, license usage, invoices, payment history
 
 ### Managing members and teams in your organization
 You can set permissions and member roles, create and manage teams, and give people access to repositories in your organization.
-#### 1. Managing members of your organization
+#### 1. 管理组织成员
 {% data reusables.getting-started.managing-org-members %}
-#### 2. Organization permissions and roles
+#### 2. 组织权限和角色
 {% data reusables.getting-started.org-permissions-and-roles %}
-#### 3. About and creating teams
+#### 3. 关于和创建团队
 {% data reusables.getting-started.about-and-creating-teams %}
-#### 4. Managing team settings
+#### 4. 管理团队设置
 {% data reusables.getting-started.managing-team-settings %}
-#### 5. Giving people and teams access to repositories, project boards and apps
+#### 5. 为人员和团队提供对存储库、项目板和应用程序的访问权限
 {% data reusables.getting-started.giving-access-to-repositories-projects-apps %}
 
 ### Managing members of an enterprise account
@@ -112,12 +112,12 @@ To audit access to enterprise-owned resources or user license usage, you can vie
 
 ### Managing security for a single organization
 You can help keep your organization secure by requiring two-factor authentication, configuring security features, reviewing your organization's audit log and integrations, and enabling SAML single sign-on and team synchronization.
-#### 1. Requiring two-factor authentication
+#### 1. 需要双重身份验证
 {% data reusables.getting-started.requiring-2fa %}
-#### 2. Configuring security features for your organization
+#### 2. 为组织配置安全功能
 {% data reusables.getting-started.configuring-security-features %}
 
-#### 3. Reviewing your organization's audit log and integrations
+#### 3. 查看组织的审核日志和集成
 {% data reusables.getting-started.reviewing-org-audit-log-and-integrations %}
 
 #### 4. Enabling and enforcing SAML single sign-on for your organization
@@ -166,11 +166,11 @@ You can enable and manage team synchronization between an identity provider (IdP
 
 ### Managing settings for a single organization
 To manage and moderate your organization, you can set organization policies, manage permissions for repository changes, and use organization-level community health files.
-#### 1. Managing organization policies
+#### 1. 管理组织策略
 {% data reusables.getting-started.managing-org-policies %}
-#### 2. Managing repository changes
+#### 2. 管理存储库更改
 {% data reusables.getting-started.managing-repo-changes %}
-#### 3. Using organization-level community health files and moderation tools
+#### 3. 使用组织级别的社区健康文件和调解工具
 {% data reusables.getting-started.using-org-community-files-and-moderation-tools %}
 
 ### Managing settings for an enterprise account
@@ -186,15 +186,15 @@ You can also restrict email notifications for your enterprise account so that en
 ## Part 6: Customizing and automating your organization or enterprise's work on {% data variables.product.prodname_dotcom %}
 Members of your organization or enterprise can use tools from the {% data variables.product.prodname_marketplace %}, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and existing {% data variables.product.product_name %} features to customize and automate your work.
 
-### 1. Using {% data variables.product.prodname_marketplace %}
+### 1. 使用 {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. 使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 {% data reusables.getting-started.api %}
-### 3. Building {% data variables.product.prodname_actions %}
+### 3. 构建 {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
-### 4. Publishing and managing {% data variables.product.prodname_registry %}
+### 4. 发布和管理 {% data variables.product.prodname_registry %}
 {% data reusables.getting-started.packages %}
-### 5. Using {% data variables.product.prodname_pages %}
+### 5. 使用 {% data variables.product.prodname_pages %}
 {% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes a website. You can manage the publication of {% data variables.product.prodname_pages %} sites at the organization level. For more information, see  "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" and "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 ## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
 

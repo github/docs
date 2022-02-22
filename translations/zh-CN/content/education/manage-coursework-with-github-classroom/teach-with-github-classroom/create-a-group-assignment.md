@@ -127,15 +127,15 @@ redirect_from:
   <img alt="组分配" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
 
-## Monitoring students' progress
-The assignment overview page displays information about your assignment acceptances and team progress. You may have different summary information based on the configurations of your assignments.
+## 监控学生的进度
+作业概述页显示有关作业接受和团队进度的信息。 根据作业的配置，您可能有不同的摘要信息。
 
-- **Total teams**: The number of teams that have been created.
-- **Rostered students**: The number of students on the Classroom's roster.
-- **Students not on a team**: The number of students on the Classroom roster who have not yet joined a team.
--  **Accepted teams**: The number of teams who have accepted this assignment.
--  **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
--  **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
+- **团队总数**：已创建的团队数。
+- **名册学生**：教室名册上的学生人数。
+- **不在团队的学生**：课堂名册上尚未加入团队的学生人数。
+-  **接受的团队**：已接受此任务的团队数。
+-  **作业提交**：已提交作业的团队数。 在作业截止日期触发提交。
+-  **通过团队**：当前通过此作业的自动评分测试的团队数。
 
 ## 后续步骤
 

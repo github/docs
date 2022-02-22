@@ -29,8 +29,8 @@ You can also review the security log for all activity on your user account. 更�
 
 ## 启用或禁用现有仓库的功能
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security-analysis %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
 3. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable all（全部禁用）**或 **Enable all（全部启用）**。
   {% ifversion ghes > 3.2 %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
 6. Optionally, enable the feature by default for new repositories that you own.
@@ -42,8 +42,8 @@ You can also review the security log for all activity on your user account. 更�
 
 ## 对新仓库启用或禁用功能
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security-analysis %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
 3. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories that you own.
   {% ifversion ghes > 3.2 %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
 
