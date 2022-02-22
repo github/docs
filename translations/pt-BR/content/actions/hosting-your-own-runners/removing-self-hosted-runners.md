@@ -86,7 +86,7 @@ Se você usar
 
 {% endnote %}
 
-Para remover um executor auto-hospedado de uma empresa, você deverá ser um proprietário corporativo. Recomendamos que você também tenha acesso à máquina do executor auto-hospedado. For information about how to remove a self-hosted runner with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners).
+Para remover um executor auto-hospedado de uma empresa, você deverá ser um proprietário corporativo. Recomendamos que você também tenha acesso à máquina do executor auto-hospedado. Para obter informações sobre como remover um executor auto-hospedado com a API REST, consulte os pontos de extremidade corporativos na [API REST de {% data variables.product.prodname_actions %}](/rest/reference/actions#self-hosted-runners).
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}

@@ -20,7 +20,7 @@ topics:
 shortTitle: Remover-se
 ---
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 2. Na seção "código, planejamento e automação" na barra lateral, clique em **Repositórios de {% octicon "repo" aria-label="The repo icon" %}**.
 {% else %}
