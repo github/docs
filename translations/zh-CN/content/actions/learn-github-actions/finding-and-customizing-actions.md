@@ -49,6 +49,16 @@ topics:
 
 您可以将 {% data variables.product.prodname_actions %} 工作流程中引用的操作视为包含工作流程的仓库依赖图中的依赖项。 更多信息请参阅“[关于依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6269 %}
+
+{% note %}
+
+**注意：**为了增强安全性，{% data variables.product.prodname_actions %} 弃用了操作的重定向。 这意味着，当操作存储库的所有者或名称发生更改时，使用该操作并具有先前名称的任何工作流程都将失败。
+
+{% endnote %}
+
+{% endif %}
+
 ### 从 {% data variables.product.prodname_marketplace %} 添加操作
 
 操作的列表页包括操作的版本以及使用操作所需的工作流程语法。 为使工作流程在操作有更新时也保持稳定，您可以在工作流程文件中指定 Git 或 Docker 标记号以引用所用操作的版本。

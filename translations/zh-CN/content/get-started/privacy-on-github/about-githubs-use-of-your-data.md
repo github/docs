@@ -20,7 +20,7 @@ shortTitle: GitHub 对您的数据的使用
 
 {% data reusables.repositories.about-github-archive-program %} 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上存档内容](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)”。
 
-{% data reusables.user_settings.export-data %} 更多信息请参阅“[请求个人帐户数据的存档](/articles/requesting-an-archive-of-your-personal-account-s-data)”。
+{% data reusables.user-settings.export-data %} For more information, see "[Requesting an archive of your personal account's data](/articles/requesting-an-archive-of-your-personal-account-s-data)."
 
 如果您选择使用私人仓库的数据，我们将继续按照[服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service)，将您的私人数据、源代码或商业秘密视为机密和私密。 我们了解的信息只来自汇总的数据。 更多信息请参阅“[管理私有仓库的数据使用设置](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)”。
 

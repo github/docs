@@ -23,7 +23,7 @@ shortTitle: 预定提醒
 
 ## 为团队创建预定提醒
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -46,7 +46,7 @@ shortTitle: 预定提醒
 
 ## 管理团队的预定提醒
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -56,7 +56,7 @@ shortTitle: 预定提醒
 
 ## Deleting a scheduled reminder for a team
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}

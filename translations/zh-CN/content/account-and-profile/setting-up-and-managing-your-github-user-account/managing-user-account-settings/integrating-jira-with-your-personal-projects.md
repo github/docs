@@ -11,8 +11,8 @@ versions:
 shortTitle: 将 Jira 与项目集成
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.oauth_apps %}
 1. 单击 **Register a new application（注册新应用程序）**。
 2. 在 **Application name（应用程序名称）**下输入 "Jira"。
@@ -20,7 +20,7 @@ shortTitle: 将 Jira 与项目集成
 4. 在 **Authorization callback URL（授权回叫 URL）**下，输入 Jira 实例的完整 URL。
 5. 单击 **Register application（注册应用程序）**。 ![注册应用程序按钮](/assets/images/help/oauth/register-application-button.png)
 8. 在 **Developer applications（开发者应用程序）**下，记下 "Client ID"（客户 ID）和 "Client Secret"（客户端密钥）值。 ![客户端 ID 和客户端密码](/assets/images/help/oauth/client-id-and-secret.png)
-{% data reusables.user_settings.jira_help_docs %}
+{% data reusables.user-settings.jira_help_docs %}
 
 ## 延伸阅读
 

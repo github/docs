@@ -19,7 +19,7 @@ shortTitle: 快速入门
 
 ## 入门指南
 
-1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
+1. 在 macOS、Windows 或 Linux 上[安装](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %}。
 1. In the command line, authenticate to {% data variables.product.company_short %}.
 
   ```shell

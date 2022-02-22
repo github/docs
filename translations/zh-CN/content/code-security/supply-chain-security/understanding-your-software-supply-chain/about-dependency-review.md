@@ -46,4 +46,4 @@ redirect_from:
 
 ## 启用依赖项审查
 
-启用依赖关系图时，依赖项审查功能可用。 {% ifversion fpt or ghec %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae %}For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."{% endif %}
+启用依赖关系图时，依赖项审查功能可用。 {% ifversion fpt or ghec %}更多信息请参阅“[启用依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)”。{% endif %}{% ifversion ghes or ghae %}更多信息请参阅“[为企业启用依赖关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)”。{% endif %}

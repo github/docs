@@ -46,7 +46,7 @@ shortTitle: 安全通告
 
 {% data variables.product.prodname_security_advisories %} 基于通用漏洞披露 (CVE) 列表而构建。 在 {% data variables.product.prodname_dotcom %} 上的安全通告表是符合 CVE 描述格式的标准化表格。
 
-{% data variables.product.prodname_dotcom %} 是 CVE 编号颁发机构 (CNA)，被授权分配 CVE 标识号。 更多信息请参阅 CVE 网站上的“[关于 CVE](https://cve.mitre.org/about/index.html)”和“[CVE 编号颁发机构](https://cve.mitre.org/cve/cna.html)”。
+{% data variables.product.prodname_dotcom %} 是 CVE 编号颁发机构 (CNA)，被授权分配 CVE 标识号。 更多信息请参阅 CVE 网站上的“[关于 CVE](https://www.cve.org/About/Overview)”和“[CVE 编号颁发机构](https://www.cve.org/ProgramOrganization/CNAs)”。
 
 在 {% data variables.product.prodname_dotcom %} 上为公共仓库创建安全通告时，您可以选择为安全漏洞提供现有的 CVE 标识号。 {% data reusables.repositories.request-security-advisory-cve-id %}
 
