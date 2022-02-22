@@ -1,7 +1,7 @@
 ---
-title: Managing code security for your enterprise
-shortTitle: Manage code security
-intro: 'You can build security into your developers'' workflow with features that keep secrets and vulnerabilities out of your codebase, and that maintain your software supply chain.'
+title: Gerenciando a segurança do código para sua empresa
+shortTitle: Gerenciar código de segurança
+intro: Você pode criar a segurança no fluxo de trabalho de seus desenvolvedores com funcionalidades que mantêm segredos e vulnerabilidades fora da base de código e isso mantém sua cadeia de suprimentos de software.
 versions:
   ghes: '*'
   ghec: '*'

@@ -1,7 +1,7 @@
 ---
-title: Managing supply chain security for your enterprise
+title: Gerenciando a segurança da cadeia de suprimentos da sua empresa
 shortTitle: Segurança da cadeia de suprimento
-intro: 'You can visualize, maintain, and secure the dependencies in your developers'' software supply chain.'
+intro: 'Você pode visualizar, manter e proteger as dependências na cadeia de suprimento de software de seus desenvolvedores.'
 versions:
   ghes: '*'
   ghae: issue-4864

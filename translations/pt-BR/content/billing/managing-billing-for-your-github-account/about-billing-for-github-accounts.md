@@ -32,7 +32,7 @@ Você pode optar pela cobrança mensal ou anual, além de poder atualizar ou faz
 
 {% data reusables.accounts.accounts-billed-separately %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 {% tip %}
 

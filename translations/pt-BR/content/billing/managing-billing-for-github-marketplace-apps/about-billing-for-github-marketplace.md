@@ -41,7 +41,7 @@ Ao escolher um plano pago com uma versão de avaliação gratuita:
 - Se você tiver outros planos ou assinaturas pagos, assim que a versão de avaliação gratuita de 14 dias chegar ao fim, um valor rateado com base no tempo que resta até a data da próxima cobrança será imediatamente cobrado conforme o método de pagamento registrado.
 - Se você tiver outros planos ou assinaturas pagos, na data da próxima cobrança, seu recibo listará os custos de seu plano pago do {% data variables.product.prodname_dotcom %} e da assinatura do seu app.
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Limites do plano de unidade
 
