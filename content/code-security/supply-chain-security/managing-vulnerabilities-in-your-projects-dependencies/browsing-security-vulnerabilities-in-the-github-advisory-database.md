@@ -116,4 +116,4 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 
 ## Further reading
 
-- MITRE's [definition of "vulnerability"](https://cve.mitre.org/about/terminology.html#vulnerability)
+- MITRE's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
