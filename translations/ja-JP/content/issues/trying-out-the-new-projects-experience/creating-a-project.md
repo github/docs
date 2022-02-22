@@ -25,7 +25,7 @@ topics:
 
 {% data reusables.projects.create-user-project %}
 
-## Updating your project description and README
+## プロジェクトの説明とREADMEの更新
 
 {% data reusables.projects.project-description %}
 

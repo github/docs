@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise administration
-intro: You can use these endpoints to administer your enterprise. Among the tasks you can perform with this API are many relating to GitHub Actions.
+intro: You can use these endpoints to administer your enterprise.
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
@@ -86,14 +86,6 @@ You can also read the current version by calling the [meta endpoint](/rest/refer
 {% endfor %}
 
 {% endif %}
-
-## GitHub Actions
-
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
 
 {% ifversion ghae or ghes %}
 ## Admin stats
