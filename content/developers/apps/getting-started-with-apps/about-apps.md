@@ -97,18 +97,22 @@ graph TD
     B{ACCESS EVERYTHING?}
     C{ACT AS THE APP?}
     D{SIMPLE?}
-    E[GITHUB APP]
-    F[OAUTH APP]
-    G[PERSONAL ACCESS TOKEN]
+    E{ACCESS EVERYTHING?}
 
+    F[GITHUB APP]
+    G[OAUTH APP]
+    H[PERSONAL ACCESS TOKEN]
+    
     A -->|No| C
     A -->|Yes| B    
     B -->|Yes| D
-    C -->|Yes| E
-    B -->|No| E
-    C -->|No| F
-    D -->|No| F
-    D -->|Yes| G
+    C -->|Yes| F
+    B -->|No| F
+    C -->|No| E
+    E -->|Yes| G
+    E -->|No| F
+    D -->|No| G
+    D -->|Yes| H
 ```
 
 Consider these questions about how your integration needs to behave and what it needs to access:
