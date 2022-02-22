@@ -74,9 +74,9 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 
 ### {% data variables.product.prodname_secret_scanning_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. {% ifversion fpt or ghec %}For secrets identified in public repositories, the service is informed that the secret may be compromised.{% endif %}
+Automatically detect tokens or credentials that have been checked into a repository. {% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} finds leaked secrets across all public repositories and informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)."{% endif %}
 {%- ifversion ghec or ghes or ghae %}
-{% ifversion ghec %}For private repositories, you can view {% elsif ghes or ghae %}View {% endif %}any secrets that {% data variables.product.company_short %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised.{% endif %} For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+{% ifversion ghec %}In private repositories, you can view {% elsif ghes or ghae %}You can view {% endif %}any secrets that {% data variables.product.company_short %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised.{% endif %} For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### Dependency review

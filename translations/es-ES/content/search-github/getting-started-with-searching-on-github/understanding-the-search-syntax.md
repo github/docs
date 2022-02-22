@@ -73,10 +73,10 @@ Puedes excluir resultados que contengan una determinada palabra utilizando la si
 
 Otra manera de reducir los resultados de búsqueda es excluir determinados subconjuntos. Puedes usar como prefijo de cualquier calificador de búsqueda un `-` para excluir todos los resultados que coincidan con ese calificador.
 
-| Consulta                   | Ejemplo                                                                                                                                                                                                                                         |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>-<em>CALIFICADOR</em></code> | **[`cats stars:>10 -language:javascript`](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** matches repositories with the word "cats" that have more than 10 stars but are not written in JavaScript. |
-|                            | **[`mentions:defunkt -org:github`](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization                        |
+| Consulta                   | Ejemplo                                                                                                                                                                                                                                                      |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>-<em>CALIFICADOR</em></code> | **[`cats stars:>10 -language:javascript`](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** empata con los repositorios con la palabra "cats" que tengan más de 10 estrellas pero no estén escritos en JavaScript. |
+|                            | **[`mentions:defunkt -org:github`](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** empata con las propuestas que mencionen a @defunkt y que no estén en los repositorios de la organización GitHub                |
 
 ## Utiliza comillas para las consultas con espacios en blanco
 
