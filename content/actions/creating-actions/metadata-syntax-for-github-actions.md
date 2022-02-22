@@ -502,6 +502,12 @@ The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand 
 </tr>
 <tr>
 <td>x-octagon</td>
+<<<<<<< HEAD
+=======
+<td></td>
+<td></td>
+<td></td>
+>>>>>>> b6066b23fbe51bbc463f476f1f85af879028f2de
 </tr>
 </table>
 
