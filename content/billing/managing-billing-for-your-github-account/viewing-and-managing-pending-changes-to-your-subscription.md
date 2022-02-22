@@ -23,8 +23,8 @@ When you cancel a pending change, your subscription will not change on your next
 
 ## Viewing and managing pending changes to your personal account's subscription
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}

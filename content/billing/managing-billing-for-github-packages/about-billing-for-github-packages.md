@@ -66,7 +66,7 @@ At the end of the month, {% data variables.product.prodname_dotcom %} rounds you
 
 Your {% data variables.product.prodname_registry %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## About spending limits
 

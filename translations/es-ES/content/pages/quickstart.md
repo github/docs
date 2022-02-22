@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Pages
-intro: 'You can use {% data variables.product.prodname_pages %} to showcase some open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.'
+title: Guía de inicio rápido para GitHub Pages
+intro: 'Puedes utilizar {% data variables.product.prodname_pages %} para mostrar algunos proyectos de código abierto, hospedar un blog o incluso compartir tu CV. Esta guía te ayudará a iniciar creando tu siguiente sitio web.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,14 +16,14 @@ product: '{% data reusables.gated-features.pages %}'
 
 ## Introducción
 
-{% data variables.product.prodname_pages %} are public webpages hosted and published through {% data variables.product.product_name %}. The quickest way to get up and running is by using the Jekyll Theme Chooser to load a pre-made theme. You can then modify your {% data variables.product.prodname_pages %}' content and style.
+Las {% data variables.product.prodname_pages %} son páginas web públicas que se publican a través de {% data variables.product.product_name %}. La forma más rápida de iniciar es utilizando el Selector de Temas de Jekyll para que cargue un tema preconfigurado. Posteriormente, podrás modificar el estilo y contenido de tus {% data variables.product.prodname_pages %}.
 
-This guide will lead you through creating a user site at `username.github.io`.
+Esta guía te mostrará cómo crear un sitio de usuario en `username.github.io`.
 
-## Creating your website
+## Crear tu sitio web
 
 {% data reusables.repositories.create_new %}
-1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`. ![Repository name field](/assets/images/help/pages/create-repository-name-pages.png)
+1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`. ![Campo de nombre de repositorio](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 1. Click **Choose a theme**. ![Elija un botón del tema](/assets/images/help/pages/choose-theme.png)

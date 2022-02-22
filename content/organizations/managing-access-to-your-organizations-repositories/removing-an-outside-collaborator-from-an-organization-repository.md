@@ -33,7 +33,7 @@ While forks of private repositories are deleted when a collaborator is removed, 
 ## Removing outside collaborators from all repositories in an organization
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. Select the outside collaborator or outside collaborators you'd like to remove from the organization.
@@ -48,7 +48,7 @@ While forks of private repositories are deleted when a collaborator is removed, 
 If you only want to remove an outside collaborator from certain repositories in your organization, you can remove this person's access to one specific repository at a time.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. To the right of the username of the person you want to remove, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.
