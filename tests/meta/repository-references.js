@@ -55,6 +55,7 @@ const PUBLIC_REPOS = new Set([
   'help-docs-archived-enterprise-versions',
   'stack-graphs',
   'codespaces-precache',
+  'advisory-database',
 ])
 
 const ALLOW_DOCS_PATHS = [

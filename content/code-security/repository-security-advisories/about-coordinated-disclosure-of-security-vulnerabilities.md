@@ -1,6 +1,8 @@
 ---
 title: About coordinated disclosure of security vulnerabilities
 intro: Vulnerability disclosure is a coordinated effort between security reporters and repository maintainers.
+redirect_from:
+- /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -63,7 +65,7 @@ The process for reporting and disclosing vulnerabilities for projects on {% data
 
  If you are a maintainer, you can take ownership of the process at the very beginning of the pipeline by setting up a security policy for your repository, or otherwise making security reporting instructions clearly available, for example in your project’s README file. For information about adding a security policy, see "[About security policies](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)." If there is no security policy, it's likely that a vulnerability reporter will try to email you or otherwise privately contact you. Alternatively, someone may open a (public) issue with details of a security issue.
 
- As a maintainer, to disclose a vulnerability in your code, you first create a draft security advisory in the package's repository in {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+ As a maintainer, to disclose a vulnerability in your code, you first create a draft security advisory in the package's repository in {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)."
 
 
- To get started, see "[Creating a security advisory](/github/managing-security-vulnerabilities/creating-a-security-advisory)."
+ To get started, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."

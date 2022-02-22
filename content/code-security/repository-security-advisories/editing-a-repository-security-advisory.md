@@ -1,8 +1,9 @@
 ---
-title: Editing a security advisory
-intro: You can edit the metadata and description for a security advisory if you need to update details or correct errors.
+title: Editing a repository security advisory
+intro: You can edit the metadata and description for a repository security advisory if you need to update details or correct errors.
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
+  - /code-security/security-advisories/editing-a-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,10 +11,12 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Edit advisories
+shortTitle: Edit repository advisories
 ---
 
-People with admin permissions to a security advisory can edit the security advisory.
+People with admin permissions to a repository security advisory can edit the security advisory.
+
+{% data reusables.security-advisory.repository-level-advisory-note %}
 
 ## About credits for security advisories
 
@@ -43,4 +46,4 @@ If you believe you should be credited for a security advisory, please contact th
 
 ## Further reading
 
-- "[Withdrawing a security advisory](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"
+- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
