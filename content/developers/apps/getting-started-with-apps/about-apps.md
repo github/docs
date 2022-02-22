@@ -91,7 +91,25 @@ Keep these ideas in mind when using personal access tokens:
 
 Before you get started creating integrations, you need to determine the best way to access, authenticate, and interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs. The following image offers some questions to ask yourself when deciding whether to use personal access tokens, {% data variables.product.prodname_github_apps %}, or {% data variables.product.prodname_oauth_apps %} for your integration.
 
-![Intro to apps question flow](/assets/images/intro-to-apps-flow.png)
+```mermaid
+graph TD
+    A{ONLY AS ME?}
+    B{ACCESS EVERYTHING?}
+    C{ACT AS THE APP?}
+    D{SIMPLE?}
+    E[GITHUB APP]
+    F[OAUTH APP]
+    G[PERSONAL ACCESS TOKEN]
+
+    A -->|No| C
+    A -->|Yes| B    
+    B -->|Yes| D
+    C -->|Yes| E
+    B -->|No| E
+    C -->|No| F
+    D -->|No| F
+    D -->|Yes| G
+```
 
 Consider these questions about how your integration needs to behave and what it needs to access:
 
