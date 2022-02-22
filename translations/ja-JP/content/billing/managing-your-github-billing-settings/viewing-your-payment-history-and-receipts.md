@@ -22,8 +22,8 @@ shortTitle: 履歴と領収書の表示
 
 ## 個人アカウントの領収書を表示する
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.view-payment-history %}
 {% data reusables.dotcom_billing.download_receipt %}
 

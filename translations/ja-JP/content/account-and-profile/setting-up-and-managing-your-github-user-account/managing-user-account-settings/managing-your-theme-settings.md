@@ -28,8 +28,8 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.appearance-settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.appearance-settings %}
 
 1. Under "Theme mode", select the drop-down menu, then click a theme preference.
 

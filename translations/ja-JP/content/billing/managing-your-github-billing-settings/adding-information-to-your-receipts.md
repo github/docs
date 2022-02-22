@@ -34,9 +34,9 @@ shortTitle: 領収書への追加
 
 ## 個人アカウントの領収書への情報の追加
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
-{% data reusables.user_settings.payment-info-link %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ## Organization の領収書への情報の追加
@@ -49,5 +49,5 @@ shortTitle: 領収書への追加
 
 
 {% data reusables.organizations.billing-settings %}
-{% data reusables.user_settings.payment-info-link %}
+{% data reusables.user-settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}

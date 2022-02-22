@@ -193,9 +193,9 @@ El mismo principio que se describió anteriormente para utilizar acciones de ter
 {% data reusables.actions.outside-collaborators-internal-actions %} Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".
 {% endif %}
 
-## Using OpenSSF Scorecards to secure workflows
+## Utilizar las tarjetas de puntuación para asegurar los flujos de trabajo
 
-[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
+[Las tarjetas de puntuación](https://github.com/ossf/scorecard) son una herramienta de seguridad automatizada que resalta las prácticas riesgosas en la cadena de suministro. Puedes utilizar la [Acción de tarjetas de puntuación](https://github.com/marketplace/actions/ossf-scorecard-action) y el [flujo de trabajo inicial](https://github.com/actions/starter-workflows) para seguir las mejores prácticas de seguridad. Una vez que se configure, la acción de tarjetas de puntuación se ejecutará automáticamente en los cambios de repositorio y alertará a los desarrolladores sobre las prácticas riesgosas en la cadena de suministro utilizando la experiencia de escaneo en el código integrado. El proyecto de tarjetas de puntuación ejecuta varias verificaciones, incluyendo las de ataques de inyección de scripts, permisos de tokens y acciones fijadas.
 
 ## Impacto potencial de un ejecutor puesto en riesgo
 

@@ -711,6 +711,8 @@ The `inputs` context contains input properties passed to a reusable workflow. Th
 
 There are no standard properties in the `inputs` context, only those which are defined in the reusable workflow file.
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)".
 
 | プロパティ名                | 種類                                | 説明                                                                                                                                                                                                                          |

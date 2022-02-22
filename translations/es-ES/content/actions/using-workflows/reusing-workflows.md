@@ -63,7 +63,7 @@ La asignación de ejecutores hospedados en {% data variables.product.prodname_do
 
 {% endif %}
 
-Los flujos de trabajo llamados pueden acceder a los ejecutores auto-hospedados desde el contexto del llamante. Esto significa que el flujo de trabajo llamado puede acceder a los ejecutores auto-hospedados que están:
+Called workflows that are owned by the same user or organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. Esto significa que el flujo de trabajo llamado puede acceder a los ejecutores auto-hospedados que están:
 * En el repositorio del llamador
 * En la organización{% ifversion ghes or ghec or ghae %} o empresa{% endif %}, de la organización del repositorio, siempre y cuando se haya hecho disponible al ejecutor para el repositorio llamante
 

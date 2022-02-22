@@ -46,7 +46,7 @@ Look! You can see my backticks.
 
 ![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## 構文の強調表示
 

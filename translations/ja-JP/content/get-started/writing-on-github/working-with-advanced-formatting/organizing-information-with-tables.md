@@ -40,7 +40,7 @@ shortTitle: Organized data with tables
 
 ![異なるセル幅で表示された表](/assets/images/help/writing/table-varied-columns-rendered.png)
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## 表の内容をフォーマットする
 
