@@ -28,15 +28,15 @@ shortTitle: 取消 Marketplace app
 
 ## 取消个人帐户的应用程序
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
 ## 取消个人帐户的应用程序免费试用
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 

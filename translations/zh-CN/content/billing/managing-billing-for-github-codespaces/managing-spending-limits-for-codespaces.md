@@ -49,7 +49,7 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-## Exporting changes when you have reached your spending limit
+## 在达到支出限制时导出更改
 
 {% data reusables.codespaces.exporting-changes %}
 ## 管理使用和支出限制电子邮件通知
@@ -63,4 +63,4 @@ You can disable these notifications anytime by navigating to the bottom of the *
 ## 延伸阅读
 
 - "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"
+- "[管理组织中代码空间的计费](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

@@ -33,9 +33,7 @@ miniTocMaxHeadingLevel: 3
 {% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## 权限
 
-Permissions API 允许您为允许哪些组织和存储库运行 {% data variables.product.prodname_actions %} 以及允许运行哪些操作设置权限。{% ifversion fpt or ghec or ghes %} 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)”。{% endif %}
-
-您还可以为企业设置权限。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)”REST API。
+Permissions API 允许您为允许哪些企业、组织和存储库运行 {% data variables.product.prodname_actions %} 以及允许运行哪些操作设置权限。{% ifversion fpt or ghec or ghes %} 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)”。{% endif %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'permissions' %}{% include rest_operation %}{% endif %}
@@ -58,9 +56,7 @@ Permissions API 允许您为允许哪些组织和存储库运行 {% data variabl
 
 自托管运行器 API 允许您注册、查看和删除自托管的运行器。 {% data reusables.actions.about-self-hosted-runners %} 更多信息请参阅“[托管您自己的运行器](/actions/hosting-your-own-runners)”。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 必须对仓库具有`管理`权限，或者对组织具有 `organization_self_hosted_runners` 权限。 经过身份验证的用户必须对仓库或组织具有管理员权限才可使用此 API。
-
-您可以管理企业的自托管运行器。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)”REST API。
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 必须对仓库具有`管理`权限，或者对组织具有 `organization_self_hosted_runners` 权限。 经过身份验证的用户必须具有对存储库或组织的管理员访问权限或者企业的 `manage_runners:enterprise` 作用域才能使用此 API。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runners' %}{% include rest_operation %}{% endif %}
@@ -72,9 +68,7 @@ Permissions API 允许您为允许哪些组织和存储库运行 {% data variabl
 
 自托管运行器组 API 允许您管理自托运行器组。 更多信息请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 必须对仓库具有`管理`权限，或者对组织具有 `organization_self_hosted_runners` 权限。 经过身份验证的用户必须对仓库或组织具有管理员权限才可使用此 API。
-
-您可以管理企业的自托管运行器组。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin##github-actions)”REST API。
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 必须对仓库具有`管理`权限，或者对组织具有 `organization_self_hosted_runners` 权限。 经过身份验证的用户必须具有对存储库或组织的管理员访问权限或者企业的 `manage_runners:enterprise` 作用域才能使用此 API。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runner-groups' %}{% include rest_operation %}{% endif %}

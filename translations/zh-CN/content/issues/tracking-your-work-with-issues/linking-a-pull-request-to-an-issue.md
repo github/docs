@@ -47,7 +47,7 @@ shortTitle: 将 PR 链接到议题
 * resolves
 * resolved
 
-If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request will also close the referenced pull request.
+如果使用关键字在另一个拉取请求中引用拉取请求注释，则将链接拉取请求。 合并引用拉取请求也会关闭引用的拉取请求。
 
 关闭关键词的语法取决于议题是否与拉取请求在同一仓库中。
 

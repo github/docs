@@ -65,7 +65,7 @@ The storage used by a repository is the total storage used by {% data variables.
 
 The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Calculating minute and storage spending
 

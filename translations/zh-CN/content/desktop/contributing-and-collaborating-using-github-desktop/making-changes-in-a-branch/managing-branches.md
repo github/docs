@@ -17,7 +17,7 @@ versions:
 
 您还可以从分支历史记录中的上一个提交开始创建分支。 如果您需要返回到仓库的早期视图以调查错误，或在最新版本上创建热补丁，这会很有帮助。
 
-对您的工作满意后，您可以创建拉取请求，以将当前分支中的更改合并到另一个分支。 For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" and "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+对您的工作满意后，您可以创建拉取请求，以将当前分支中的更改合并到另一个分支。 更多信息请参阅“[创建议题或拉取请求](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)”和“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
 
 如果您对仓库具有读取权限，可随时在 {% data variables.product.prodname_desktop %} 中创建分支， 但如果您对仓库具有写入权限，则只能将分支推送到 {% data variables.product.prodname_dotcom %}。
 
@@ -115,6 +115,6 @@ versions:
 
 - "[从 {% data variables.product.prodname_desktop %} 克隆仓库](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
 - {% data variables.product.prodname_dotcom %} 词汇中的“[分支](/articles/github-glossary/#branch)”
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[关于分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - Git 文档中的“[Nutshell 中的分支](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)”
 - “[隐藏更改](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)”
