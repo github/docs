@@ -124,17 +124,17 @@ La autenticación con una clave de seguridad es *secundaria* para la autenticaci
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% ifversion fpt or ghec %}
-## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
+## Configurar la autenticación bifactorial utilizando {% data variables.product.prodname_mobile %}
 
-You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.
+Puedes utilizar {% data variables.product.prodname_mobile %} para la 2FA cuando inicies sesión en tu cuenta de {% data variables.product.prodname_dotcom %} en un buscador web. La 2FA con {% data variables.product.prodname_mobile %} no depende de TOTP y, en su lugar, utiliza cifrado de llave pública para asegurar tu cuenta.
 
-Once you have configured a TOTP application, or SMS, you can also use {% data variables.product.prodname_mobile %} to authenticate. If, in the future, you no longer have access to {% data variables.product.prodname_mobile %}, you will still be able to use security keys or TOTP applications to sign in.
+Una vez que configuraste la aplicación de TOTP o los SMS, también puedes utilizar {% data variables.product.prodname_mobile %} para autenticarte. Si posteriormente ya no tienes acceso a {% data variables.product.prodname_mobile %}, aún podrás utilizar llaves de seguridad o aplicaciones de TOTP para iniciar sesión.
 
-1. You must have already configured 2FA via a TOTP mobile app or via SMS.
-2. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
-3. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+1. Ya debes haber configurado la 2FA a través de una app móvil de TOTP o a través de SMS.
+2. Instala [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+3. Inicia sesión en tu cuenta de {% data variables.product.product_name %} desde {% data variables.product.prodname_mobile %}.
 
-After signing in, you can now use your device for 2FA.
+Después de iniciar sesión, ahora puedes utilizar tu dispositivo para la 2FA.
 {% endif %}
 
 ## Leer más
