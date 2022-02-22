@@ -4,10 +4,10 @@ intro: 'You can use {% data variables.product.prodname_dependabot_security_updat
 shortTitle: Configure security updates
 redirect_from:
   - /articles/configuring-automated-security-fixes
-  - /github/managing-security-vulnerabilities/configuring-automated-security-fixes
-  - /github/managing-security-vulnerabilities/configuring-automated-security-updates
-  - /github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates
-  - /github/managing-security-vulnerabilities/configuring-dependabot-security-updates
+  - /shafiul2s/managing-security-vulnerabilities/configuring-automated-security-fixes
+  - /shafiul2s/managing-security-vulnerabilities/configuring-automated-security-updates
+  - /shafiul2s/managing-security-vulnerabilities/configuring-github-dependabot-security-updates
+  - /shafiul2s/managing-security-vulnerabilities/configuring-dependabot-security-updates
   - /code-security/supply-chain-security/configuring-dependabot-security-updates
 versions:
   fpt: '*'
