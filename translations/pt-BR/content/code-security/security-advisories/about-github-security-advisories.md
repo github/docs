@@ -46,7 +46,7 @@ Se você criou uma consultoria de segurança no seu repositório, o consultório
 
 {% data variables.product.prodname_security_advisories %} baseia-se na base da lista de Vulnerabilidades e Exposições Comuns (CVE). O formulário de consultoria de segurança em {% data variables.product.prodname_dotcom %} é um formulário padronizado que corresponde ao formato de descrição CVE.
 
-{% data variables.product.prodname_dotcom %} é uma Autoridade de Numeração CVE (CNA) e está autorizada a atribuir números de identificação CVE. Para obter mais informações, consulte "[Sobre CVE](https://cve.mitre.org/about/index.html)" e "[Autoridades de Numeração CVE](https://cve.mitre.org/cve/cna.html)" no site da CVE.
+{% data variables.product.prodname_dotcom %} é uma Autoridade de Numeração CVE (CNA) e está autorizada a atribuir números de identificação CVE. Para obter mais informações, consulte "[Sobre CVE](https://www.cve.org/About/Overview)" e "[Autoridades de Numeração CVE](https://www.cve.org/ProgramOrganization/CNAs)" no site da CVE.
 
 Ao criar um aviso de segurança para um repositório público no {% data variables.product.prodname_dotcom %}, você tem a opção de fornecer um número de identificação CVE existente para a vulnerabilidade de segurança. {% data reusables.repositories.request-security-advisory-cve-id %}
 

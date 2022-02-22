@@ -1,5 +1,5 @@
 ---
-title: Managing self-hosted runners for Dependabot updates on your enterprise
+title: Gerenciando executores auto-hospedados para atualizações de Dependabot na sua empresa
 intro: 'Você pode criar executores dedicados para {% data variables.product.product_location %} que {% data variables.product.prodname_dependabot %} usa para criar pull requests a fim de ajudar a proteger e manter as dependências usadas em repositórios da sua empresa.'
 redirect_from:
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates
@@ -12,31 +12,31 @@ topics:
   - Security
   - Dependabot
   - Dependencies
-shortTitle: Dependabot updates
+shortTitle: Atualizações de Dependabot
 ---
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
-## About self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
+## Sobre executores auto-hospedados para {% data variables.product.prodname_dependabot_updates %}
 
-You can help users of {% data variables.product.product_location %} to create and maintain secure code by setting up {% data variables.product.prodname_dependabot %} security and version updates. With {% data variables.product.prodname_dependabot_updates %}, developers can configure repositories so that their dependencies are updated and kept secure automatically. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+Você pode ajudar os usuários de {% data variables.product.product_location %} a criar e manter o código seguro, configurando as atualizações de segurança e versão de {% data variables.product.prodname_dependabot %}. Com {% data variables.product.prodname_dependabot_updates %}, os desenvolvedores podem configurar repositórios para que suas dependências sejam atualizadas e mantidas seguras automaticamente. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
-To use {% data variables.product.prodname_dependabot_updates %} on {% data variables.product.product_location %}, you must configure self-hosted runners to create the pull requests that will update dependencies.
+Para usar {% data variables.product.prodname_dependabot_updates %} em {% data variables.product.product_location %}, você deve configurar runnexecutores ers auto-hospedados para criar os pull requests que atualizarão dependências.
 
 ## Pré-requisitos
 
 {% if dependabot-updates-github-connect %}
-Configuring self-hosted runners is only one step in the middle of the process for enabling {% data variables.product.prodname_dependabot_updates %}. There are several steps you must follow before these steps, including configuring {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+A configuração executores auto-hospedados é apenas um passo no meio do processo para habilitar {% data variables.product.prodname_dependabot_updates %}. Há várias etapas que você deve seguir antes dessas etapas, incluindo a configuração de {% data variables.product.product_location %} para usar {% data variables.product.prodname_actions %} com corredores auto-hospedados. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% else %}
-Before you configure self-hosted runners for {% data variables.product.prodname_dependabot_updates %}, you must:
+Antes de configurar executores auto-hospedados para {% data variables.product.prodname_dependabot_updates %}, você deve:
 
-- Configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para o GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
-- Enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+- Configurar {% data variables.product.product_location %} para usar {% data variables.product.prodname_actions %} com executores auto-hospedados. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para o GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+- Habilite {% data variables.product.prodname_dependabot_alerts %} para sua empresa. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% endif %}
 
-## Configuring self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
+## Configurando executores auto-hospedados para {% data variables.product.prodname_dependabot_updates %}
 
-After you configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %}, you need to add self-hosted runners for {% data variables.product.prodname_dependabot_updates %}.
+Depois de configurar {% data variables.product.product_location %} para usar {% data variables.product.prodname_actions %}, você deverá adicionar executores auto-hospedados para {% data variables.product.prodname_dependabot_updates %}.
 
 ### Requisitos do sistema para executores de {% data variables.product.prodname_dependabot %}
 

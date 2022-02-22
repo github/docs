@@ -40,8 +40,8 @@ Para evitar perder a sua senha no futuro, sugerimos o uso de um gerenciador de s
 {% data reusables.repositories.blocked-passwords %}
 
 1. {% data variables.product.signin_link %} para o {% data variables.product.product_name %}.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 4. Em "Change password" (Alterar senha), insira a senha antiga, digite uma nova senha forte e confirme a nova senha. Consulte "[Criar uma senha forte](/articles/creating-a-strong-password)" para obter ajuda sobre esse assunto.
 5. Clique em **Update password** (Atualizar senha).
 

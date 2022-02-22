@@ -211,7 +211,7 @@ Para revisar quem pode restaurar um pacote em uma organização, consulte "[Perm
 
 Você pode restaurar um pacote excluído por meio das configurações da sua conta de usuário, se o pacote estiver em um de seus repositórios ou escopo para sua conta de usuário. Para obter mais informações, consulte "[Permissões necessárias](#required-permissions-to-delete-or-restore-a-package)".
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. À esquerda, clique em **Pacotes**.
 4. Em "Pacotes excluídos", ao lado do pacote que você deseja restaurar, clique em **Restaurar**. ![Botão de restaurar](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. Para confirmar, digite o nome do pacote e clique em **Eu entendo as consequências, restaure este pacote**. ![Restaurar botão de confirmação do pacote](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
