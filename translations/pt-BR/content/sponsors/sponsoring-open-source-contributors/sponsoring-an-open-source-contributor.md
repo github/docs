@@ -37,7 +37,7 @@ Ao patrocinar uma conta usando um cartão de crédito, a alteração entrará em
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
-You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
+Você pode escolher se deseja mostrar seu patrocínio publicamente. Patrocínios únicos permanecem visíveis por um mês.
 
 Se a conta patrocinada for retirada, a sua camada permanecerá em vigor para você até que você escolha uma camada diferente ou cancele a sua assinatura. Para obter mais informações, consulte "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)" e "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)".
 

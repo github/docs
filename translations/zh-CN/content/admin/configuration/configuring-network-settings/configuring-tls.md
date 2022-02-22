@@ -46,7 +46,7 @@ topics:
 {% data reusables.enterprise_management_console.select-tls-only %}
 4. 在“TLS Protocol support”下，选择您想要允许的协议。 ![包含用于选择 TLS 协议的选项的单选按钮](/assets/images/enterprise/management-console/tls-protocol-support.png)
 5. 在“Certificate”下，单击 **Choose File**，选择要安装的 TLS 证书或证书链（PEM 格式）。 此文件通常采用 *.pem*、*.crt* 或 *.cer* 扩展名。 ![用于查找 TLS 证书文件的按钮](/assets/images/enterprise/management-console/install-tls-certificate.png)
-6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. 此文件通常采用 *.key* 扩展名。 ![用于查找 TLS 密钥文件的按钮](/assets/images/enterprise/management-console/install-tls-key.png)
+6. 在“Unencrypted key（未加密密钥）”下，单击 **Choose File（选择文件）**选择要安装的 RSA 密钥（PEM 格式）。 此文件通常采用 *.key* 扩展名。 ![用于查找 TLS 密钥文件的按钮](/assets/images/enterprise/management-console/install-tls-key.png)
 
   {% warning %}
 

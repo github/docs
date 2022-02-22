@@ -3,7 +3,7 @@ title: Team のスケジュールされたリマインダーを管理する
 intro: Team に対してレビュー待ちのプルリクエストがあるとき、Slack でリマインダーを受け取ることができます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
-  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
+  - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team
 versions:
   fpt: '*'
   ghec: '*'

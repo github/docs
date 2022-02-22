@@ -71,6 +71,7 @@ Pense em como sua empresa pode usar funcionalidades de {% data variables.product
 {% data reusables.actions.internal-actions-summary %}
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-4757 %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 Com fluxos de trabalho reutilizáveis, a sua equipe pode chamar um fluxo de trabalho a partir de outro fluxo de trabalho, evitando duplicação exata. Os fluxos de trabalho reutilizáveis promovem práticas recomendadas, ajudando a sua equipe a usar os fluxos de trabalho bem desenhados e que já foram testados. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
 

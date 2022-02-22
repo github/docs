@@ -49,27 +49,27 @@ shortTitle: 管理付款等级
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}
 
-## Adding a repository to a sponsorship tier
+## 将仓库添加到赞助等级
 
 {% data reusables.sponsors.sponsors-only-repos %}
 
-### About adding repositories to a sponsorship tier
+### 关于将存储库添加到赞助等级
 
-To add a repository to a tier, the repository must be private and owned by an organization, and you must have admin access to the repository.
+要将仓库添加到等级，仓库必须是私有的，并且由组织拥有，同时您必须具有对仓库的管理员访问权限。
 
-When you add a repository to a tier, {% data variables.product.company_short %} will automatically send repository invitations to new sponsors and remove access when a sponsorship is cancelled.
+将仓库添加到等级时，{% data variables.product.company_short %} 将自动向新赞助商发送仓库邀请，并在取消赞助时删除访问权限。
 
-Only personal accounts, not organizations, can be invited to private repositories associated with a sponsorship tier.
+只有个人帐户（而非组织）才能被邀请到与赞助等级关联的私有仓库。
 
-You can also manually add or remove collaborators to the repository, and {% data variables.product.company_short %} will not override these in the sync.
+您还可以在仓库中手动添加或删除协作者，{% data variables.product.company_short %} 不会在同步中覆盖这些协作者。
 
-### About transfers for repositories that are added to sponsorship tiers
+### 关于添加到赞助等级的仓库的转移
 
-If you transfer a repository that has been added to a sponsorship tier, sponsors who have access to the repository through the tier may be affected.
+如果将已添加到赞助等级的存储库转移，则有权通过该等级访问仓库的发起人可能会受到影响。
 
-- If the sponsored profile is for an organization and the repository is transferred to a different organization, current sponsors will be transferred, but new sponsors will not be added. The new owner of the repository can remove existing sponsors.
-- If the sponsored profile is for a personal account, the repository is transferred to an organization, and the personal account has admin access to the new repository, existing sponsors will be transferred, and new sponsors will continue to be added to the repository.
-- If the repository is transferred to a personal account, all sponsors will be removed and new sponsors will not be added to the repository.
+- 如果赞助的配置文件是针对某个组织的，并且仓库被转移到其他组织，则将转移当前的赞助商，但不会添加新的赞助商。 仓库的新所有者可以删除现有赞助商。
+- 如果赞助的个人资料用于个人帐户，仓库转移到组织，并且个人帐户具有对新仓库的管理员访问权限，则将转移现有赞助商，并且将继续将新赞助商添加到仓库。
+- 如果仓库转移到个人帐户，则所有赞助商都将被删除，并且不会将新的赞助商添加到仓库中。
 
 ### Adding a repository a sponsorship tier
 

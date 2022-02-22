@@ -18,6 +18,6 @@
 
 {% endif %}
 
-Para obtener más información, consulta la [obsoletización del ejecutor de CodeQL](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/). For information on migrating to {% data variables.product.prodname_codeql_cli %}, see "[Migrating from the CodeQL runner to CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
+Para obtener más información, consulta la [obsoletización del ejecutor de CodeQL](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/). Para obtener más información sobre cómo migrarse al {% data variables.product.prodname_codeql_cli %}, consulta la sección "[Migrarse desde el ejecutor de CodeQL al CLI de CodeQL](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)".
 
 {% endnote %}

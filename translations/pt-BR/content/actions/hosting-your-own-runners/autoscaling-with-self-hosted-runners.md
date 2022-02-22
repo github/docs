@@ -96,6 +96,6 @@ Para efetuar a autenticação usando um aplicativo de {% data variables.product.
 - Para repositórios, atribua a permissão de `administração`.
 - Para organizações, atribua a permissão `organization_self_hosted_runners`.
 
-Você pode registrar e excluir executores auto-hospedados da empresa usando [a API](/rest/reference/enterprise-admin#github-actions). Para efetuar a autenticação na API, sua implementação de dimensionamento automático pode usar um token de acesso.
+Você pode registrar e excluir executores auto-hospedados da empresa usando [a API](/rest/reference/actions#self-hosted-runners). Para efetuar a autenticação na API, sua implementação de dimensionamento automático pode usar um token de acesso.
 
 Seu token de acesso irá exigir o escopo `manage_runners:enterprise`.

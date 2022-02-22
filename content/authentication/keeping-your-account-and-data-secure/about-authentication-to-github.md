@@ -68,7 +68,7 @@ If you authenticate without {% data variables.product.prodname_cli %}, you must 
 
 ### SSH
 
-You can work with all repositories on {% data variables.product.product_name %} over SSH, although firewalls and proxys might refuse to allow SSH connections.
+You can work with all repositories on {% data variables.product.product_name %} over SSH, although firewalls and proxies might refuse to allow SSH connections.
 
 If you authenticate with {% data variables.product.prodname_cli %}, the CLI will find SSH public keys on your machine and will prompt you to select one for upload. If {% data variables.product.prodname_cli %} does not find a SSH public key for upload, it can generate a new SSH public/private keypair and upload the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Then, you can either authenticate with a personal access token or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 

@@ -14388,10 +14388,17 @@ input IssueFilters {
 
   """
   List issues by given milestone argument. If an string representation of an
-  integer is passed, it should refer to a milestone by its number field. Pass in
+  integer is passed, it should refer to a milestone by its database ID. Pass in
   `null` for issues with no milestone, and `*` for issues that are assigned to any milestone.
   """
   milestone: String
+
+  """
+  List issues by given milestone argument. If an string representation of an
+  integer is passed, it should refer to a milestone by its number field. Pass in
+  `null` for issues with no milestone, and `*` for issues that are assigned to any milestone.
+  """
+  milestoneNumber: String
 
   """
   List issues that have been updated at or after the given date.
@@ -24708,6 +24715,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Ordering options for issues returned from the connection
     """
     orderBy: IssueOrder
+
+    """
+    Return only manually linked Issues
+    """
+    userLinkedOnly: Boolean = false
   ): IssueConnection
 
   """
@@ -31582,6 +31594,16 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   codeOfConduct: CodeOfConduct
 
   """
+  Information extracted from the repository's `CODEOWNERS` file.
+  """
+  codeowners(
+    """
+    The ref name used to return the associated `CODEOWNERS` file.
+    """
+    refName: String
+  ): RepositoryCodeowners
+
+  """
   A list of collaborators associated with the repository.
   """
   collaborators(
@@ -32796,6 +32818,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter by the state of the alert
+    """
+    states: [RepositoryVulnerabilityAlertState!]
   ): RepositoryVulnerabilityAlertConnection
 
   """
@@ -32868,6 +32895,56 @@ interface RepositoryAuditEntryData {
   The HTTP URL for the repository
   """
   repositoryUrl: URI
+}
+
+"""
+Information extracted from a repository's `CODEOWNERS` file.
+"""
+type RepositoryCodeowners {
+  """
+  Any problems that were encountered while parsing the `CODEOWNERS` file.
+  """
+  errors: [RepositoryCodeownersError!]!
+}
+
+"""
+An error in a `CODEOWNERS` file.
+"""
+type RepositoryCodeownersError {
+  """
+  The column number where the error occurs.
+  """
+  column: Int!
+
+  """
+  A short string describing the type of error.
+  """
+  kind: String!
+
+  """
+  The line number where the error occurs.
+  """
+  line: Int!
+
+  """
+  A complete description of the error, combining information from other fields.
+  """
+  message: String!
+
+  """
+  The path to the file when the error occurs.
+  """
+  path: String!
+
+  """
+  The content of the line where the error occurs.
+  """
+  source: String!
+
+  """
+  A suggestion of how to fix the error.
+  """
+  suggestion: String
 }
 
 """
@@ -34030,7 +34107,22 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The user who dismissed the alert
   """
   dismisser: User
+
+  """
+  The reason the alert was marked as fixed.
+  """
+  fixReason: String
+
+  """
+  When was the alert fixed?
+  """
+  fixedAt: DateTime
   id: ID!
+
+  """
+  Identifies the alert number.
+  """
+  number: Int!
 
   """
   The associated repository
@@ -34046,6 +34138,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The associated security vulnerability
   """
   securityVulnerability: SecurityVulnerability
+
+  """
+  Identifies the state of the alert.
+  """
+  state: RepositoryVulnerabilityAlertState!
 
   """
   The vulnerable manifest filename
@@ -34101,6 +34198,26 @@ type RepositoryVulnerabilityAlertEdge {
   The item at the end of the edge.
   """
   node: RepositoryVulnerabilityAlert
+}
+
+"""
+The possible states of an alert
+"""
+enum RepositoryVulnerabilityAlertState {
+  """
+  An alert that has been manually closed by a user.
+  """
+  DISMISSED
+
+  """
+  An alert that has been resolved by a code change.
+  """
+  FIXED
+
+  """
+  An alert that is still open.
+  """
+  OPEN
 }
 
 """

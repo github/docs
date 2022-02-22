@@ -23,7 +23,7 @@ La bitácora de seguridad lista todas las acciones que se llevaron a cabo en los
 
 {% data reusables.user_settings.access_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-label="The log icon" %} Security log**.
+1. En la sección de "Archivos" de la barra lateral, haz clic en **{% octicon "log" aria-label="The log icon" %} Bitácora de seguridad**.
 {% else %}
 1. En la barra lateral de la configuración de usuario, da clic en **Registro de Seguridad**. ![Pestaña de registro de seguridad](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}

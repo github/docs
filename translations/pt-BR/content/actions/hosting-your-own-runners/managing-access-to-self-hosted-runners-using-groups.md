@@ -88,7 +88,7 @@ Ao criar um grupo, você deverá escolher uma política que defina quais reposit
 
 ## Criar um grupo de executor auto-hospedado para uma empresa
 
-As empresas podem adicionar seus executores auto-hospedados a grupos para gerenciamento de acesso. As empresas podem criar grupos de executores auto-hospedados acessíveis a organizações específicas na conta corporativa. Os administradores da organização podem atribuir políticas adicionais granulares de acesso ao repositório para os grupos de executores corporativos. Para obter informações sobre como criar um grupo de executores auto-hospedados com a API REST, consulte as [APIs da administração da empresa do GitHub Actions](/rest/reference/enterprise-admin#github-actions).
+As empresas podem adicionar seus executores auto-hospedados a grupos para gerenciamento de acesso. As empresas podem criar grupos de executores auto-hospedados acessíveis a organizações específicas na conta corporativa. Os administradores da organização podem atribuir políticas adicionais granulares de acesso ao repositório para os grupos de executores corporativos. For information about how to create a self-hosted runner group with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups).
 
 Os executores auto-hospedados são automaticamente atribuídos ao grupo-padrão quando criados e só podem ser membros de um grupo por vez. Você pode atribuir o executor a um grupo específico durante o processo de registro, ou você pode mover o executor do grupo-padrão para um grupo personalizado.
 

@@ -876,7 +876,7 @@ _团队_
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3%}
-### Permission on "dependabot_secrets"
+### 对 "dependabot_secrets" 的权限
 - [`GET /repos/:owner/:repo/dependabot/secrets/public-key`](/rest/reference/dependabot#get-a-repository-public-key) (:read)
 - [`GET /repos/:owner/:repo/dependabot/secrets`](/rest/reference/dependabot#list-repository-secrets) (:read)
 - [`GET /repos/:owner/:repo/dependabot/secrets/:secret_name`](/rest/reference/dependabot#get-a-repository-secret) (:read)

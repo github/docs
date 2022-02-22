@@ -4,6 +4,35 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `RepositoryCodeowners` was added",
+          "Type `RepositoryCodeownersError` was added",
+          "Type `RepositoryVulnerabilityAlertState` was added",
+          "Type `UpdateProjectNextInput` was added",
+          "Type `UpdateProjectNextPayload` was added",
+          "Input field `milestoneNumber` was added to input object type `IssueFilters`",
+          "Field `updateProjectNext` was added to object type `Mutation`",
+          "Field `repositories` was added to object type `ProjectNext`",
+          "Argument `userLinkedOnly: Boolean` added to field `PullRequest.closingIssuesReferences`",
+          "Field `codeowners` was added to object type `Repository`",
+          "Field `projectNext` was added to object type `Repository`",
+          "Field `projectsNext` was added to object type `Repository`",
+          "Argument 'states: [RepositoryVulnerabilityAlertState!]` added to field `Repository.vulnerabilityAlerts'",
+          "Field `fixReason` was added to object type `RepositoryVulnerabilityAlert`",
+          "Field `fixedAt` was added to object type `RepositoryVulnerabilityAlert`",
+          "Field `number` was added to object type `RepositoryVulnerabilityAlert`",
+          "Field `state` was added to object type `RepositoryVulnerabilityAlert`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-02-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `Import` was removed",
           "Input field `gitArchiveUrl` was added to input object type `StartRepositoryMigrationInput`",
           "Input field `metadataArchiveUrl` was added to input object type `StartRepositoryMigrationInput`"

@@ -102,6 +102,12 @@ O {% data variables.product.prodname_dotcom %} desenvolveu o {% data variables.p
 
 Por padrão, o appliance também fornece acesso Secure Shell (SSH) para acesso a repositórios com o Git e para finalidades administrativas. Para obter mais informações, consulte "[Sobre SSH](/enterprise/user/articles/about-ssh)" e "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)".
 
+{% ifversion ghes > 3.3 %}
+
+If you configure SAML authentication for {% data variables.product.product_location %}, you can enable encrypted assertions between the instance and your SAML IdP. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
+
+{% endif %}
+
 ### Usuários e permissões de acesso
 
 O {% data variables.product.prodname_ghe_server %} oferece três tipos de contas.

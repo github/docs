@@ -293,7 +293,7 @@ Accept: application/xml
 
 可选的 `redirect_uri` 参数也可用于本地主机 URL。 如果应用程序指定 URL 和端口，授权后，应用程序用户将被重定向到提供的 URL 和端口。 `redirect_uri` 不需要匹配应用程序回调 url 中指定的端口。
 
-For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
+对于 `http://127.0.0.1/path` 回调 URL，您可以使用此 `redirect_uri`：
 
 ```
 http://127.0.0.1:1234/path
