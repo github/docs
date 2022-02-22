@@ -20,7 +20,7 @@ topics:
 shortTitle: Eliminarte a ti mismo
 ---
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 2. En la sección de "Código, planeación y automatización" de la barra lateral, haz clic en **Repositorios {% octicon "repo" aria-label="The repo icon" %}**.
 {% else %}

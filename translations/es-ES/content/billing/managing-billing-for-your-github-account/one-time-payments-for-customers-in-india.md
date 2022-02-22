@@ -57,8 +57,8 @@ Existing sponsorships will remain in place during this period and maintainers wi
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 3. At the top of the page, click **Pay now**. ![One-time payment pay now button](/assets/images/help/billing/pay-now-button.png)
 4. Review your billing and payment information. If you need to make an edit, click **Edit** next to the relevant section. Otherwise, click **Submit payment**. ![One-time payment summary](/assets/images/help/billing/payment-summary.png)
 5. Optionally, if you clicked **Edit**, make any necessary changes, and then click **Submit payment**. ![One-time payment edit summary](/assets/images/help/billing/payment-summary-edit.png)

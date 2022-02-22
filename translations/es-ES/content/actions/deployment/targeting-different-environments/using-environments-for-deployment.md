@@ -1,7 +1,7 @@
 ---
-title: Using environments for deployment
-shortTitle: Use environments for deployment
-intro: Puedes configurr ambientes con reglas de protección y secretos. A workflow job that references an environment must follow any protection rules for the environment before running or accessing the environment's secrets.
+title: Utilizar ambientes para el despliegue
+shortTitle: Utilizar ambientes para el despliegue
+intro: Puedes configurr ambientes con reglas de protección y secretos. Un job de flujo de trabajo que referencie a un ambiente debe seguir cualquier regla de protección para el ambiente antes de ejecutar o acceder a los secretos de dicho ambiente.
 product: '{% data reusables.gated-features.environments %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -25,9 +25,9 @@ Puedes configurr ambientes con reglas de protección y secretos. Cuando un job d
 {% ifversion fpt %}
 {% note %}
 
-**Note:** You can only configure environments for public repositories. Si conviertes un repositorio de público a privado, cualquier regla de protección o secretos de ambiente que hubieses configurado se ingorarán y no podrás configurar ningún ambiente. Si conviertes tu repositorio en público nuevamente, tendrás acceso a cualquier regla de protección y secreto de ambiente que hubieras configurado previamente.
+**Nota:** Solo puedes configurar ambientes para repositorios públicos. Si conviertes un repositorio de público a privado, cualquier regla de protección o secretos de ambiente que hubieses configurado se ingorarán y no podrás configurar ningún ambiente. Si conviertes tu repositorio en público nuevamente, tendrás acceso a cualquier regla de protección y secreto de ambiente que hubieras configurado previamente.
 
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can configure environments for private repositories. Para obtener más información, consulta la sección [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment). {% data reusables.enterprise.link-to-ghec-trial %}
+Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} pueden configurar ambientes para los repositorios privados. Para obtener más información, consulta la sección [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment). {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
@@ -63,7 +63,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 
 {% note %}
 
-**Nota:** Los flujos de trabajo que se ejecutan en ejecutores auto-hospedados no se ejecutan en un contenedor aislado, incluso si utilizan ambientes. Environment secrets should be treated with the same level of security as repository and organization secrets. Para obtener más información, consulta la sección "[Fortalecimiento de la seguridad para las GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#hardening-for-self-hosted-runners)".
+**Nota:** Los flujos de trabajo que se ejecutan en ejecutores auto-hospedados no se ejecutan en un contenedor aislado, incluso si utilizan ambientes. Los secretos de ambiente deberían tratarse con el mismo nivel de seguridad que los secretos de repositorio y de organización. Para obtener más información, consulta la sección "[Fortalecimiento de la seguridad para las GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#hardening-for-self-hosted-runners)".
 
 {% endnote %}
 
@@ -76,17 +76,17 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 {% data reusables.github-actions.sidebar-environment %}
 {% data reusables.github-actions.new-environment %}
 {% data reusables.github-actions.name-environment %}
-1. Optionally, specify people or teams that must approve workflow jobs that use this environment.
-   1. Select **Required reviewers**.
-   1. Enter up to 6 people or teams. Solo uno de los revisores requeridos necesita aprobar el job para que éste pueda proceder.
-   1. Click **Save protection rules**.
-2. Optionally, specify the amount of time to wait before allowing workflow jobs that use this environment to proceed.
-   1. Select **Wait timer**.
-   1. Enter the number of minutes to wait.
+1. Opcionalmente, personas o equipos específicos deben aprobar los jobs de flujo de trabajo que utilicen este ambiente.
+   1. Selecciona **Revisores requeridos**.
+   1. Ingresa hasta 6 personas o equipos. Solo uno de los revisores requeridos necesita aprobar el job para que éste pueda proceder.
    1. Haz clic en **Guardar reglas de protección**.
-3. Optionally, specify what branches can deploy to this environment. For more information about the possible values, see "[Deployment branches](#deployment-branches)."
-   1. Select the desired option in the **Deployment branches** dropdown.
-   1. If you chose **Selected branches**, enter the branch name patterns that you want to allow.
+2. Opcionalmente, especifica la cantidad de tiempo a esperar antes de permitir los jobs de flujo de trabajo que utilizan este ambiente para proceder.
+   1. Selecciona **Cronómetro de espera**.
+   1. Ingresa la cantidad de minutos a esperar.
+   1. Haz clic en **Guardar reglas de protección**.
+3. Opcionalmente, especifica qué ramas pueden desplegarse en este ambiente. Para obtener más información sobre los valores posibles, consulta la sección "[Ramas de despliegue](#deployment-branches)".
+   1. Selecciona la opción deseada en el menú desplegable de **Ramas de despliegue**.
+   1. Si eliges **Ramas seleccionadas**, ingresa los patrones de nombre de rama que quieras permitir.
 4. Optionally, add environment secrets. These secrets are only available to workflow jobs that use the environment. Additionally, workflow jobs that use this environment can only access these secrets after any configured rules (for example, required reviewers) pass. Para obtener más información sobre los secretos, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
    1. Under **Environment secrets**, click **Add Secret**.
    1. Enter the secret name.

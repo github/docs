@@ -65,7 +65,7 @@ jobs:
 
 ## Especificar la versión de Ruby
 
-La forma más fácil de especificar una versión de Ruby es utilizando la acción `ruby/setup-ruby` que se proporciona en la organización de Ruby en GitHub. Esta acción agrega cualquier versión compatible con Ruby al `PATH` de cada ejecución de un job en un flujo de trabajo. For more information and available Ruby versions, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
+La forma más fácil de especificar una versión de Ruby es utilizando la acción `ruby/setup-ruby` que se proporciona en la organización de Ruby en GitHub. Esta acción agrega cualquier versión compatible con Ruby al `PATH` de cada ejecución de un job en un flujo de trabajo. Para obtener más información y versiones disponibles de Ruby, consulta [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
 
 La forma en la que se recomienda utilizar Ruby con GitHub Actions es mediante la acción `ruby/setup-ruby` de Ruby, ya que esto garantiza el comportamiento consistente a través de los diversos ejecutores y versiones de Ruby.
 
@@ -87,7 +87,7 @@ Como alternativa, puedes ingresar un archivo de `.ruby-version` en la raíz de t
 
 ## Hacer pruebas con varias versiones de Ruby
 
-Puedes agregar una estrategia de matriz para ejecutar tu flujo de trabajo con más de una versión de Ruby. For example, you can test your code against the latest patch releases of versions 3.1, 3.0, and 2.7.
+Puedes agregar una estrategia de matriz para ejecutar tu flujo de trabajo con más de una versión de Ruby. Pro ejemplo, puedes probar tu código contra los últimos lanzamientos de parche de las versiones 3.1, 3.0 y 2.7.
 
 {% raw %}
 ```yaml
@@ -238,7 +238,7 @@ jobs:
 
 ## Limpiar tu código
 
-El siguiente ejemplo instala `rubocop` y lo utiliza para limpiar todos los archivos. For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). Puedes [configurar Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir cuáles serán las reglas de limpieza específicas.
+El siguiente ejemplo instala `rubocop` y lo utiliza para limpiar todos los archivos. Para obtener más información, consulta la sección [RuboCop](https://github.com/rubocop-hq/rubocop). Puedes [configurar Rubocop](https://docs.rubocop.org/rubocop/configuration.html) para decidir cuáles serán las reglas de limpieza específicas.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}

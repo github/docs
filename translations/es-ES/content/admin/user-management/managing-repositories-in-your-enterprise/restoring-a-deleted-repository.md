@@ -28,7 +28,7 @@ Restaurar un repositorio no restaurará los archivos adjuntos de lanzamiento o l
 {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
 1. In the {% octicon "repo" aria-label="The repo icon" %} **Repositories** section, click the {% octicon "trash" aria-label="The trash icon" %} **Deleted repositories** link.
 1. Find the repository you want to restore in the deleted repositories list, then to the right of the repository name click **Restore**.
-1. To confirm you would like to restore the named repository, click **Restore**.
+1. Para confirmar que te gustaría restablecer el repositorio nombrado, haz clic en **Restablecer**.
 
 ## Leer más
 
