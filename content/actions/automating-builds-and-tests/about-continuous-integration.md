@@ -56,5 +56,5 @@ Browse the complete list of CI starter workflow offered by {% data variables.pro
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+- "[Managing account for {% data docs.product.prodname_actions %}]"
 {% endif %}
