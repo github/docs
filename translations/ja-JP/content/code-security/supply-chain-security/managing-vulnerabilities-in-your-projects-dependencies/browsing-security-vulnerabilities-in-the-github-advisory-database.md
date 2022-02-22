@@ -114,4 +114,4 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 
 ## 参考リンク
 
-- MITREの[「脆弱性」の定義](https://cve.mitre.org/about/terminology.html#vulnerability)
+- MITREの[「脆弱性」の定義](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)

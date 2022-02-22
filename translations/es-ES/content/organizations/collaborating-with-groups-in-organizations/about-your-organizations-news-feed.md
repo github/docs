@@ -22,7 +22,7 @@ Las noticias de una organización muestran las actividades de otras personas en 
 ## Acceder a las noticias de tu organización
 
 1. {% data variables.product.signin_link %} a tu cuenta en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
-2. Abre tu {% data reusables.user_settings.personal_dashboard %}.
+2. Abre tu {% data reusables.user-settings.personal_dashboard %}.
 3. Haz clic en el cambiador de contexto de la cuenta en la esquina superior izquierda de la página. ![Botón cambiador de contexto en Enterprise](/assets/images/help/organizations/account_context_switcher.png)
 4. Selecciona una organización del menú desplegable.{% ifversion fpt or ghec %} ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
 ![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}

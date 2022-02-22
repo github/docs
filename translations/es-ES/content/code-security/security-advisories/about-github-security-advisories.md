@@ -50,7 +50,7 @@ Si creaste una asesoría de seguridad en tu repositorio, esta permanecerá en tu
 
 Las {% data variables.product.prodname_security_advisories %} se construyen sobre las bases de la lista de Vulnerabilidades y Exposiciones Comunes (CVE, por sus siglas en inglés). El formato de asesoría de seguridad en {% data variables.product.prodname_dotcom %} es un formato estandarizado que coincide con el formato de descripción de CVE. 
 
-{% data variables.product.prodname_dotcom %} es una Autoridad de Numeración de CVE (CNA, por sus siglas en inglés) y está autorizado para asignar números de identificación de CVE. Para obtener más información, consulta las secciones "[Acerca de CVE](https://cve.mitre.org/about/index.html)" y "[Autoridades de Numeración de CVE](https://cve.mitre.org/cve/cna.html)" en el sitio de CVE.
+{% data variables.product.prodname_dotcom %} es una Autoridad de Numeración de CVE (CNA, por sus siglas en inglés) y está autorizado para asignar números de identificación de CVE. Para obtener más información, consulta las secciones "[Acerca de CVE](https://www.cve.org/About/Overview)" y "[Autoridades de Numeración de CVE](https://www.cve.org/ProgramOrganization/CNAs)" en el sitio de CVE.
 
 Cuando creas una asesoría de seguridad para un repositorio público en {% data variables.product.prodname_dotcom %}, tienes la opción de proporcionar un número de identificación de CVE para la vulnerabilidad de seguridad. {% data reusables.repositories.request-security-advisory-cve-id %}
 
