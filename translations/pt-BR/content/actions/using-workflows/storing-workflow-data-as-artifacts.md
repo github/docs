@@ -41,7 +41,7 @@ Armazenar artefatos consome espaço de armazenamento em {% data variables.produc
 
 {% else %}
 
-Artifacts consume storage space on the external blob storage that is configured for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}.
+Os artefatos consomem espaço de armazenamento no bloco externo que está configurado para {% data variables.product.prodname_actions %} em {% data variables.product.product_location %}.
 
 {% endif %}
 
@@ -133,7 +133,7 @@ O valor `retention-days` não pode exceder o limite de retenção definido pelo 
 
 Durante a execução de um fluxo de trabalho, você pode usar a ação [`download-artifact`](https://github.com/actions/download-artifact)para fazer o download de artefatos previamente carregados na mesma execução de fluxo de trabalho.
 
-Após a conclusão da execução de um fluxo de trabalho, você pode fazer o download ou excluir artefatos em {% data variables.product.prodname_dotcom %} ou usar a API REST. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
+Após a conclusão da execução de um fluxo de trabalho, você pode fazer o download ou excluir artefatos em {% data variables.product.prodname_dotcom %} ou usar a API REST. Para obter mais informações, consulte "[Fazendo o download de artefatos do fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts), "[Removendo artefatos do fluxo de trabalho](/actions/managing-workflow-runs/removing-workflow-artifacts) e "[API REST dos artefatos](/rest/reference/actions#artifacts)".
 
 ### Fazer o download dos artefatos durante a execução de um fluxo de trabalho
 
@@ -163,7 +163,7 @@ Você também pode baixar todos os artefatos em uma execução de fluxo de traba
 
 Se você fizer o download de todos os artefatos da execução de um fluxo de trabalho, será criado um diretório para cada artefato usando seu nome.
 
-For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.product_location %}{% endif %}.
+Para obter mais informações sobre sintaxe, consulte as {% ifversion fpt or ghec %}[ações/baixar/artefato](https://github.com/actions/download-artifact) ação{% else %} `ações/baixar-artefato` ação em {% data variables.product.product_location %}{% endif %}.
 
 ## Transmitir dados entre trabalhos em um fluxo
 
@@ -251,6 +251,6 @@ A execução do fluxo de trabalho arquivará quaisquer artefatos gerados por ele
 
 ## Leia mais
 
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
+- "[Gerenciando a cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

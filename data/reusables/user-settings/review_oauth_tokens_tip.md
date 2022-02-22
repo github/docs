@@ -1,0 +1,1 @@
+We recommend that you regularly review your authorized integrations. Remove any applications and tokens that haven't been used in a while. For more information, see "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)."

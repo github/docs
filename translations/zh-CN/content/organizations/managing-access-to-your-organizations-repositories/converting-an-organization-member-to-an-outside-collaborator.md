@@ -26,7 +26,7 @@ shortTitle: 将成员转换为协作者
 - @提及任何可见团队
 - 成为团队维护员
 
-For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
 建议查看组织成员对仓库的访问权限，以确保其访问权限符合您的预期。 更多信息请参阅“[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)”。
 

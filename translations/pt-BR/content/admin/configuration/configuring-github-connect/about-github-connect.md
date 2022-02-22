@@ -47,6 +47,9 @@ Ao habilitar {% data variables.product.prodname_github_connect %} ou funcionalid
 - O token de autenticação usado pela {% data variables.product.product_location %} para fazer solicitações ao {% data variables.product.prodname_ghe_cloud %}.
 - Se a Segurança de Camada de Transporte (TLS) estiver habilitada e configurada em {% data variables.product.product_location %}{% ifversion ghes %}
 - As funcionalidades de {% data variables.product.prodname_github_connect %} que estão habilitadas em {% data variables.product.product_location %} e a data e hora da habilitação{% endif %}
+- The dormancy threshold for your enterprise
+- The number of dormant users for your enterprise
+- A count of license-consuming seats, which does not include suspended users
 
 {% data variables.product.prodname_github_connect %} sincroniza os dados de conexão acima entre {% data variables.product.product_location %} e {% data variables.product.prodname_ghe_cloud %} semanalmente, a partir do dia e tempo aproximado que {% data variables.product.prodname_github_connect %} foi habilitado.
 

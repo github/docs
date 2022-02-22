@@ -47,7 +47,7 @@ sections:
         - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
 
         # https://github.com/github/docs-content/issues/5801
-        - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features.
+        - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
 
     - heading: Performance Changes
       notes:
@@ -256,7 +256,7 @@ sections:
     - heading: Deprecation of the Codes of Conduct API preview
       notes:
         # https://github.com/github/releases/issues/1708
-        - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-01-deprecating-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
+        - 'The Codes of Conduct API preview, which was accessible with the `scarlet-witch-preview` header, is deprecated and no longer accessible in {% data variables.product.prodname_ghe_server %} 3.4. We instead recommend using the "[Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)" endpoint to retrieve information about a repository''s code of conduct. For more information, see the "[Deprecation Notice: Codes of Conduct API preview](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" in the {% data variables.product.prodname_dotcom %} changelog.'
 
     - heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
       notes:

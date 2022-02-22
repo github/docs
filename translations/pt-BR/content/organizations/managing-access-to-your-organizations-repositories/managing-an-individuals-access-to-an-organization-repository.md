@@ -26,9 +26,9 @@ Ao remover um colaborador de um repositório de sua organização, o colaborador
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
 ## Gerenciar o acesso de um indivíduo a um repositório da organização
-You can give a person access to a repository or change a person's level of access to a repository in your repository settings. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository). "
+You can give a person access to a repository or change a person's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
 {% else %}
-## Concedendo acesso a uma pessoa a um repositório
+## Giving a person access to a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -49,5 +49,5 @@ You can give a person access to a repository or change a person's level of acces
 {% endif %}
 ## Leia mais
 
-{% ifversion fpt or ghec %}- "[Restringir interações no repositório](/articles/limiting-interactions-with-your-repository)"{% endif %}
+{% ifversion fpt or ghec %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
 - "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

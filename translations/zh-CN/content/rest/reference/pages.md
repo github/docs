@@ -27,6 +27,7 @@ miniTocMaxHeadingLevel: 3
    - `branch`：用于发布[站点源文件](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)的仓库分支。 例如，_main_ 或 _gh-pages_。
    - `path`：提供站点发布内容的仓库目录。 可能是 `/` 或 `/docs`。
 
+{% comment %}An extra blank line is needed here to make sure the operations below don't continue the list above.{% endcomment %}
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}

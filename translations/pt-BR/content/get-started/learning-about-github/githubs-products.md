@@ -82,10 +82,12 @@ Além dos recursos disponíveis no {% data variables.product.prodname_free_team 
   - {% data variables.product.prodname_pages %}
   - Wikis
   - Gráficos de informações de repositório: Pulse, contribuidores, tráfego, commits, frequência de códigos, rede e bifurcações
-{% ifversion fpt or ghec %}
+{%- ifversion fpt or ghec %}
 - A opção para habilitar {% data variables.product.prodname_github_codespaces %}
   - Os proprietários da organização podem habilitar {% data variables.product.prodname_github_codespaces %} para a organização definindo um limite de gastos e concedendo permissões de usuário aos integrantes da sua organização. Para obter mais informações, consulte "[Habilitando codespaces para a sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)".
-{% endif %}
+{%- endif %}
+
+{% data variables.product.company_short %} bills for {% data variables.product.prodname_team %} on a per-user basis. For more information, see "[About per-user pricing]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion fpt %}."{% else %}" in the Free, Pro, & Team documentation.{% endif %}
 
 {% data reusables.github-actions.actions-billing %}
 
@@ -109,6 +111,8 @@ O {% data variables.product.prodname_ghe_cloud %} também inclui:
 - Um acordo de nível de serviço para tempo de atividade de 99,9% por mês
 - A opção de configurar sua empresa para {% data variables.product.prodname_emus %}, para que você possa fornecer e gerenciar integrantes com o seu provedor de identidade e restringir as contribuições dos integrantes para apenas a sua empresa. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 - A opção de gerenciar de forma centralizada a política e cobrança para várias organizações {% data variables.product.prodname_dotcom_the_website %} com uma conta corporativa. Para obter mais informações, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
+
+{% data variables.product.company_short %} bills for {% data variables.product.prodname_ghe_cloud %} on a per-user basis. For more information, see "[About per-user pricing]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 Você pode configurar uma versão para avaliar o {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_cloud %}</a>".
 

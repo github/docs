@@ -461,7 +461,7 @@ ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
 
 ### ghe-ssl-certificate-setup
 
-This utility allows you to update an SSL certificate for {% data variables.product.product_location %}.
+Este utilitário permite atualizar um certificado SSL para {% data variables.product.product_location %}.
 
 Para saber mais sobre este comando ou consultar opções adicionais, use o sinalizador `-h`.
 
@@ -489,7 +489,7 @@ $ ghe-storage-extend
 
 ### ghe-version
 
-This utility prints the version, platform, and build of {% data variables.product.product_location %}.
+Este utilitário imprime a versão, a plataforma e a compilação de {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-version

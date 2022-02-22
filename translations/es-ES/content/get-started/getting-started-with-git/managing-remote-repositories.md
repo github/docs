@@ -195,7 +195,7 @@ Utiliza el comando `git remote rm` para eliminar una URL remota de tu repositori
 El comando `git remote rm` toma un argumento:
 * El nombre de un remoto, por ejemplo `destination` (destino)
 
-Removing the remote URL from your repository only unlinks the local and remote repositories. It does not delete the remote repository.
+El eliminar la URL remota de tu repositorio únicamente desenlazará los repositorios remoto y local. It does not delete the remote repository.
 
 ## Ejemplo
 

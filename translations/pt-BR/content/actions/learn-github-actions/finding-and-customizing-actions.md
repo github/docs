@@ -49,6 +49,16 @@ Você pode adicionar uma ação ao seu fluxo de trabalho fazendo referência à 
 
 Você pode visualizar as ações referenciadas em seus fluxos de trabalho de {% data variables.product.prodname_actions %} como dependências no gráfico de dependências do repositório que contém seus fluxos de trabalho. Para obter mais informações, consulte “[Sobre o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”.
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6269 %}
+
+{% note %}
+
+**Note:** To enhance security, {% data variables.product.prodname_actions %} is deprecating redirects for actions. This means that when the owner or name of an action's repository is changed, any workflows using that action with the previous name will fail.
+
+{% endnote %}
+
+{% endif %}
+
 ### Adicionando uma ação de {% data variables.product.prodname_marketplace %}
 
 Uma página de lista de ações incluem a versão da ação e a sintaxe do fluxo de trabalho necessárias para usar a ação. Para manter seu fluxo de trabalho estável mesmo quando atualizações são feitas em uma ação, você pode fazer referência à versão da ação a ser usada especificando o Git ou da tag do Docker no arquivo de fluxo de trabalho.

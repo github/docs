@@ -92,7 +92,7 @@ La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles 
 
 Establece un parámetro de salida de la acción.
 
-Opcionalmente, también puedes declarar parámetros de salida en el archivo de metadatos de una acción. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
+Opcionalmente, también puedes declarar parámetros de salida en el archivo de metadatos de una acción. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)".
 
 ### Ejemplo
 

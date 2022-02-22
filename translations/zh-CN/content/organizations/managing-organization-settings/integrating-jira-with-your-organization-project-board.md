@@ -13,7 +13,7 @@ shortTitle: 集成 Jira
 {% ifversion ghes > 3.4 or ghae-issue-5658 %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, select **{% octicon "code" aria-label="The code icon" %} Developer settings**, then click **OAuth Apps**. ![左侧边栏中的 OAuth 应用程序选项卡](/assets/images/help/organizations/org-oauth-applications-ghe.png)
+1. 在左侧边栏中，选择 **{% octicon "code" aria-label="The code icon" %} 开发者设置**，然后单击 **OAuth Apps（OAuth 应用程序）**。 ![左侧边栏中的 OAuth 应用程序选项卡](/assets/images/help/organizations/org-oauth-applications-ghe.png)
 1. 单击 **New OAuth App（新建 OAuth 应用程序）**。
 {% else %}
 {% data reusables.user_settings.access_settings %}
