@@ -110,17 +110,17 @@ If you configure SAML authentication for {% data variables.product.product_locat
 
 ### Usuários e permissões de acesso
 
-{% data variables.product.prodname_ghe_server %} provides three types of accounts.
+O {% data variables.product.prodname_ghe_server %} oferece três tipos de contas.
 
 - A conta de usuário Linux `admin` tem acesso controlado ao sistema operacional subjacente, com acesso direto ao sistema de arquivos e banco de dados. Um número reduzido de administradores deve ter acesso a essa conta, o que pode ser feito por SSH. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)".
 - As contas de usuários no aplicativo web do appliance têm acesso total aos seus próprios dados e quaisquer dados que outros usuários ou organizações permitirem explicitamente.
 - Administradores de site no aplicativo web do appliance são contas de usuários que podem gerenciar configurações de alto nível dos aplicativos web e do appliance, configurações de contas de usuários e organização e dados de repositório.
 
-For more information about {% data variables.product.prodname_ghe_server %}'s user permissions, see "[Access permissions on GitHub](/enterprise/user/articles/access-permissions-on-github)."
+Para obter mais informações sobre as permissões de usuários do {% data variables.product.prodname_ghe_server %}, consulte "[Permissões de acesso no GitHub](/enterprise/user/articles/access-permissions-on-github)".
 
 ### Autenticação
 
-{% data variables.product.prodname_ghe_server %} provides four authentication methods.
+O {% data variables.product.prodname_ghe_server %} oferece quatro métodos de autenticação.
 
 - A autenticação com chave pública SSH oferece acesso a repositórios usando Git e acesso shell administrativo. Para obter mais informações, consulte "[Sobre SSH](/enterprise/user/articles/about-ssh)" e "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)".
 - A autenticação de nome de usuário e senha com cookies HTTP oferece acesso ao aplicativo web e gerenciamento de sessão, com autenticação de dois fatores (2FA) opcional. Para obter mais informações, consulte "[Usar autenticação integrada](/enterprise/{{ currentVersion }}/admin/user-management/using-built-in-authentication)".
@@ -129,9 +129,9 @@ For more information about {% data variables.product.prodname_ghe_server %}'s us
 
 ### Log de auditoria e acesso
 
-{% data variables.product.prodname_ghe_server %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.prodname_ghe_server %} stores permanently. You can forward both types of logs in real time to multiple destinations via the `syslog-ng` protocol. For more information, see "[Log forwarding](/admin/user-management/log-forwarding)."
+O {% data variables.product.prodname_ghe_server %} armazena logs do sistema operacional tradicional e de aplicativos. O aplicativo também grava logs de auditoria e segurança detalhados, que são armazenados permanentemente pelo {% data variables.product.prodname_ghe_server %}. Os dois tipos de logs podem ser encaminhados em tempo real para destinos múltiplos via protocolo `syslog-ng`. Para obter mais informações, consulte "[Encaminhamento de registro](/admin/user-management/log-forwarding)".
 
-Access and audit logs include information like the following.
+Logs de acesso e auditoria contêm informações como as seguintes.
 
 #### Logs de acesso
 
@@ -148,13 +148,13 @@ Access and audit logs include information like the following.
 
 ## Dependências de código aberto para o {% data variables.product.prodname_ghe_server %}
 
-You can see a complete list of dependencies in your appliance's version of {% data variables.product.prodname_ghe_server %}, as well as each project's license, at `http(s)://HOSTNAME/site/credits`.
+Veja uma lista completa de dependências na sua versão do appliance do {% data variables.product.prodname_ghe_server %}, além das licenças de cada projeto em `http(s)://HOSTNAME/site/credits`.
 
-Tarballs with a full list of dependencies and associated metadata are available on your appliance:
+Os tarballs e uma lista completa de dependências e metadados associados estão disponíveis no seu appliance:
 - Para dependências comuns a todas as plataformas, em `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`
 - Para dependências específicas de uma plataforma, em `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`
 
-Tarballs are also available, with a full list of dependencies and metadata, at `https://enterprise.github.com/releases/<version>/download.html`.
+Os tarballs também estão disponíveis com uma lista completa de dependências e metadados em `https://enterprise.github.com/releases/<version>/download.html`.
 
 ## Leia mais
 

@@ -26,9 +26,9 @@ Cuando eliminas a un colaborador de un repositorio en tu organización, el colab
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
 ## Administrar el acceso de una persona a un repositorio de una organización
-You can give a person access to a repository or change a person's level of access to a repository in your repository settings. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)".
+Puedes otorgarle a alguien acceso a un repositorio o cambiar su nivel de acceso a este en tus ajustes de repositorio. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)".
 {% else %}
-## Otorgar a una persona acceso a un repositorio
+## Otorgar acceso a un repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

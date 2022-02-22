@@ -47,6 +47,9 @@ Cuando habilitas {% data variables.product.prodname_github_connect %} o caracter
 - The authentication token that's used by {% data variables.product.product_location %} to make requests to {% data variables.product.prodname_ghe_cloud %}
 - Si se habilitó la Seguridad de Capa de Transporte (TLS) y se configuró en {% data variables.product.product_location %}{% ifversion ghes %}
 - Las características de {% data variables.product.prodname_github_connect %} que se habilitan en {% data variables.product.product_location %} y la fecha y hora de su habilitación.{% endif %}
+- The dormancy threshold for your enterprise
+- The number of dormant users for your enterprise
+- A count of license-consuming seats, which does not include suspended users
 
 {% data variables.product.prodname_github_connect %} sincroniza los datos de conexión anteriores entre {% data variables.product.product_location %}y {% data variables.product.prodname_ghe_cloud %} semanalmente, desde el día y hora aproximada en que se habilitó {% data variables.product.prodname_github_connect %}.
 

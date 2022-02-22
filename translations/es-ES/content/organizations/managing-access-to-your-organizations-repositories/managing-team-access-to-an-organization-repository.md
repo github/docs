@@ -29,7 +29,7 @@ Las personas con acceso de administrador a un repositorio pueden administrar el 
 ## Otorgarle a un equipo acceso a un repositorio
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
-You can give a team access to a repository or change a team's level of access to a repository in your repository settings. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)".
+Puedes otorgar a un equipo acceso a un repositorio o cambiar el nivel de acceso de dicho equipo a un repositorio en tus ajustes de repositorio. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)".
 {% else %}
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -42,9 +42,9 @@ You can give a team access to a repository or change a team's level of access to
 ## Eliminar el acceso de un equipo a un repositorio
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
-You can remove a team's access to an organization repository in your repository settings. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)".
+Puedes eliminar el acceso de un equipo a un repositorio de una organización en los ajustes de tu repositorio. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)".
 
-If a team has direct access to a repository, you can remove that team's access to the repository. Si el acceso de un equipo al repositorio se hereda de un equipo padre, debes eliminar el repositorio del equipo padre para poder eliminar el repositorio de los equipos hijos.
+Si un equipo tiene acceso directo a un repositorio, puedes eliminar el acceso de dicho equipo a este. Si el acceso de un equipo al repositorio se hereda de un equipo padre, debes eliminar el repositorio del equipo padre para poder eliminar el repositorio de los equipos hijos.
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
