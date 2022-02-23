@@ -7,10 +7,11 @@ describe('remote ip debugging', () => {
   test('basics', async () => {
     const res = await get('/_ip')
     expect(res.statusCode).toBe(200)
-    const kv = res.text.trim().split(/\s/g)
-    expect(kv[0].startsWith('ip=')).toBeTruthy()
-    expect(kv[1].startsWith('x-forwarded-for=')).toBeTruthy()
-    expect(kv[2].startsWith('fastly-client-ip=')).toBeTruthy()
+    expect(res.header['content-type']).toContain('application/json')
+    const kv = JSON.parse(res.text)
+    expect('ip' in kv).toBeTruthy()
+    expect('x-forwarded-for' in kv).toBeTruthy()
+    expect('fastly-client-ip' in kv).toBeTruthy()
   })
 
   test('carrying the x-forwarded-for header', async () => {
@@ -20,6 +21,7 @@ describe('remote ip debugging', () => {
       },
     })
     expect(res.statusCode).toBe(200)
-    expect(res.text.includes('x-forwarded-for=123.123.0.1')).toBeTruthy()
+    const kv = JSON.parse(res.text)
+    expect(kv['x-forwarded-for']).toBe('123.123.0.1')
   })
 })

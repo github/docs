@@ -1,10 +1,11 @@
 ---
-title: Adicionar um colaborador a uma consultora de segurança
+title: Adding a collaborator to a repository security advisory
 intro: É possível adicionar outros usuários ou equipes para colaborar em uma consultoria de segurança com você.
 redirect_from:
   - /articles/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
+  - /code-security/security-advisories/adding-a-collaborator-to-a-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,18 +14,20 @@ topics:
   - Security advisories
   - Vulnerabilities
   - Collaboration
-shortTitle: Adicionar colaborador à consultoria
+shortTitle: Add collaborators
 ---
 
 Todas as pessoas com permissões de administrador para uma consultora de segurança podem adicionar colaboradores à consultora de segurança.
 
+{% data reusables.security-advisory.repository-level-advisory-note %}
+
 ## Adicionar um colaborador a uma consultora de segurança
 
-Os colaboradores têm permissões de gravação para a consultoria de segurança. Para obter mais informações, consulte "[Níveis de permissão para consultoria de segurança](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)".
+Os colaboradores têm permissões de gravação para a consultoria de segurança. For more information, see "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)."
 
 {% note %}
 
-{% data reusables.repositories.security-advisory-collaborators-public-repositories %} Para obter mais informações sobre a remoção de um colaborador em uma consultora de segurança, consulte "[Remover um colaborador de uma consultora de segurança](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)."
+{% data reusables.repositories.security-advisory-collaborators-public-repositories %} For more information about removing a collaborator on a security advisory, see "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."
 
 {% endnote %}
 
@@ -37,6 +40,6 @@ Os colaboradores têm permissões de gravação para a consultoria de segurança
 
 ## Leia mais
 
-- "[Níveis de permissão para consultoria de segurança](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)"
-- "[Colaborar em uma bifurcação privada temporária para resolver uma vulnerabilidade de segurança](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)"
-- "[Remover um colaborador de uma consultoria de segurança](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)"
+- "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
+- "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
+- "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."

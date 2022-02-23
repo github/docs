@@ -50,7 +50,7 @@ export const VersionPicker = ({ variant }: Props) => {
     const currentVersionPathSegment = currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
 
     allLinks.push({
-      text: t('docs_versions'),
+      text: t('about_versions'),
       selected: false,
       item: (
         <Link

@@ -210,7 +210,7 @@
   description: Notificações enviadas para o endereço de e-mail de um usuário.
 - 
   term: enterprise account
-  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
+  description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorador
   description: >-
@@ -594,9 +594,9 @@
   description: >-
     Repositórios são o elemento mais essencial do GitHub e podem ser imaginados como pastas de um projeto. O repositório contém todos os arquivos do projeto (inclusive a documentação) e armazena o histórico de revisão de cada arquivo. Repositórios podem ter vários colaboradores e podem ser públicos ou privados.
 - 
-  term: repository cache
+  term: cache do repositório
   description: >-
-    A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
+    Um espelho somente leitura de repositórios para o seu exemplo de servidor do GitHub Enterprise, localizado perto de equipes distribuídas e clientes de CI.
 - 
   term: gráfico do repositório
   description: Representação visual dos dados do seu repositório.
