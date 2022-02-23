@@ -35,7 +35,7 @@ Para operações com base na web do Git, você pode definir seu endereço de e-m
 
 {% note %}
 
-**Note**: {% data reusables.user-settings.no-verification-disposable-emails %}
+**Observação**: {% data reusables.user-settings.no-verification-disposable-emails %}
 
 {% endnote %}
 

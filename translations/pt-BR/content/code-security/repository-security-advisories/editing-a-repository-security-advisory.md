@@ -1,8 +1,9 @@
 ---
-title: Editar uma consultoria de segurança
-intro: Você pode editar os metadados e a descrição de uma consultoria de segurança se precisar atualizar as informações ou corrigir erros.
+title: Editing a repository security advisory
+intro: You can edit the metadata and description for a repository security advisory if you need to update details or correct errors.
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
+  - /code-security/security-advisories/editing-a-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,10 +11,12 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Editar consultorias
+shortTitle: Edit repository advisories
 ---
 
-As pessoas com permissão de administrador para uma consultora de segurança podem editar a consultora de segurança.
+People with admin permissions to a repository security advisory can edit the security advisory.
+
+{% data reusables.security-advisory.repository-level-advisory-note %}
 
 ## Sobre os créditos para a consultoria de segurança
 
@@ -40,4 +43,4 @@ Se você acredita que deveria ser creditado por uma consultoria de segurança, e
 
 ## Leia mais
 
-- "[Retirar uma consultora de segurança](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"
+- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"

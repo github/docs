@@ -1,10 +1,11 @@
 ---
-title: Publicar uma consultoria de segurança
+title: Publishing a repository security advisory
 intro: Você pode publicar uma consultoria de segurança para alertar a sua comunidade sobre uma vulnerabilidade de segurança no seu projeto.
 redirect_from:
   - /articles/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-security-advisory
+  - /code-security/security-advisories/publishing-a-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,18 +15,20 @@ topics:
   - Vulnerabilities
   - CVEs
   - Repositories
-shortTitle: Publicar consultorias
+shortTitle: Publish repository advisories
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 
 Qualquer pessoa com permissão de administrador para um consultor de segurança pode publicar a consultoria de segurança.
 
+{% data reusables.security-advisory.repository-level-advisory-note %}
+
 ## Pré-requisitos
 
-Antes de publicar uma consultoria de segurança ou solicitar um número de identificação CVE, você deve criar um rascunho da consultoria de segurança e fornecer informações sobre as versões do seu projeto afetadas pela vulnerabilidade de segurança. Para obter mais informações, consulte "[Criar uma consultoria de segurança](/github/managing-security-vulnerabilities/creating-a-security-advisory)".
+Antes de publicar uma consultoria de segurança ou solicitar um número de identificação CVE, você deve criar um rascunho da consultoria de segurança e fornecer informações sobre as versões do seu projeto afetadas pela vulnerabilidade de segurança. For more information, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
 
-Se você criou uma consultoria de segurança, mas ainda não forneceu as informações sobre as versões do seu projeto que a vulnerabilidade de segurança afeta, você pode editar a consultoria de segurança. Para obter mais informações, consulte "[Editar um consultor de segurança](/github/managing-security-vulnerabilities/editing-a-security-advisory)".
+Se você criou uma consultoria de segurança, mas ainda não forneceu as informações sobre as versões do seu projeto que a vulnerabilidade de segurança afeta, você pode editar a consultoria de segurança. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
 
 ## Sobre a publicação de uma consultoria de segurança
 
@@ -33,7 +36,7 @@ Ao publicar uma consultoria de segurança, você notifica a sua comunidade sobre
 
 {% data reusables.repositories.security-advisories-republishing %}
 
-Antes de publicar uma consultoria de segurança, você pode colaborar de forma privada para consertar a vulnerabilidade em uma bifurcação privada temporária. Para obter mais informações, consulte "[Colaborar em uma bifurcação privada temporária para resolver uma vulnerabilidade de segurança](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)".
+Antes de publicar uma consultoria de segurança, você pode colaborar de forma privada para consertar a vulnerabilidade em uma bifurcação privada temporária. For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
 
 {% warning %}
 
@@ -60,7 +63,7 @@ Ao publicar um rascunho de consultoria a partir de um repositório público, tod
 
 Depois de publicar uma consultoria de segurança, sua URL permanecerá a mesma de antes da publicação da consultoria de segurança. Qualquer pessoa com acesso de leitura ao repositório pode ver a consultoria de segurança. Os colaboradores na consultoria de segurança podem continuar a visualizar conversas anteriores, incluindo o fluxo de comentários completo na consultoria de segurança, a menos que alguém com permissões de administração remova o colaborador da consultoria de segurança.
 
-Se você precisar atualizar ou corrigir informações em uma consultoria de segurança que publicou, poderá editar a consultoria de segurança. Para obter mais informações, consulte "[Editar um consultor de segurança](/github/managing-security-vulnerabilities/editing-a-security-advisory)".
+Se você precisar atualizar ou corrigir informações em uma consultoria de segurança que publicou, poderá editar a consultoria de segurança. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
 
 ## Publicar uma consultoria de segurança
 
@@ -78,7 +81,7 @@ A publicação de uma consultor de segurança elimina a bifurcação privada tem
 
 ## Solicitando um número de identificação CVE (Opcional)
 
-{% data reusables.repositories.request-security-advisory-cve-id %} Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers).
+{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories#cve-identification-numbers)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -89,4 +92,4 @@ A publicação de uma consultor de segurança elimina a bifurcação privada tem
 
 ## Leia mais
 
-- "[Retirar uma consultora de segurança](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"
+- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"

@@ -26,7 +26,7 @@ Ao remover um colaborador de um repositório de sua organização, o colaborador
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
 ## Gerenciar o acesso de um indivíduo a um repositório da organização
-You can give a person access to a repository or change a person's level of access to a repository in your repository settings. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository). "
+Você pode dar a uma pessoa acesso a um repositório ou alterar o nível de acesso de uma pessoa a um repositório nas configurações do repositório. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository). "
 {% else %}
 ## Concedendo acesso a uma pessoa a um repositório
 
