@@ -36,6 +36,7 @@ import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-ass
 import events from './events.js'
 import search from './search.js'
 import healthz from './healthz.js'
+import remoteIP from './remote-ip.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
@@ -182,6 +183,10 @@ export default function (app) {
   // *** Early exits ***
   // Don't use the proxy's IP, use the requester's for rate limiting
   // See https://expressjs.com/en/guide/behind-proxies.html
+  // Essentially, setting this means it believe that the IP is the
+  // first of the `X-Forwarded-For` header values.
+  // If it was 0 (or false), the value would be that
+  // of `req.socket.remoteAddress`.
   app.set('trust proxy', 1)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
@@ -237,6 +242,7 @@ export default function (app) {
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
   app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
+  app.get('/_ip', asyncMiddleware(instrument(remoteIP, './remoteIP')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
