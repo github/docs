@@ -1,6 +1,6 @@
 ---
 title: Versões
-intro: 'The releases API allows you to create, modify, and delete releases and release assets.'
+intro: 'A API de versões permite que você crie, modifique e exclua versões e ativos de versões.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -22,7 +22,7 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Release assets
+## Ativos de versões
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'assets' %}{% include rest_operation %}{% endif %}

@@ -73,13 +73,13 @@ Você pode trabalhar com todos os repositórios no {% data variables.product.pro
 
 Se você fizer a autenticação com {% data variables.product.prodname_cli %}, você poderá efetuar a autenticação com um token de acesso pessoal ou por meio do navegador web. Para mais informações sobre a autenticação com {% data variables.product.prodname_cli %}, consulte [`login gh`](https://cli.github.com/manual/gh_auth_login).
 
-Se você efetuar a autenticação sem {% data variables.product.prodname_cli %}, você deverá efetuar a autenticação com um token de acesso pessoal. {% data reusables.user_settings.password-authentication-deprecation %} Sempre que você usar o Git para efetuar a autenticação com {% data variables.product.product_name %}, será solicitado que você insira as suas credenciais para efetuar a autenticação com {% data variables.product.product_name %}, a menos que você faça o armazenamento em cache de um [auxiliar de credenciais](/github/getting-started-with-github/caching-your-github-credentials-in-git).
+Se você efetuar a autenticação sem {% data variables.product.prodname_cli %}, você deverá efetuar a autenticação com um token de acesso pessoal. {% data reusables.user-settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your credentials to authenticate with {% data variables.product.product_name %}, unless you cache them a [credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git).
 
 
 
 ### SSH
 
-Você pode trabalhar com todos os repositórios no {% data variables.product.product_name %} por meio de SSH, embora os firewalls e proxys possam se recusar a permitir conexões de SSH.
+You can work with all repositories on {% data variables.product.product_name %} over SSH, although firewalls and proxies might refuse to allow SSH connections.
 
 Se você efetuar a autenticação com {% data variables.product.prodname_cli %}, a CLI encontrará chaves públicas SSH no seu computador e solicitará que você selecione uma para upload. Se {% data variables.product.prodname_cli %} não encontrar uma chave pública SSH para o upload, ele poderá gerar um novo SSH público/privado e fazer o upload da chave pública para a sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Em seguida, você pode efetuar a autenticação com um token de acesso pessoal ou por meio do navegador web. Para mais informações sobre a autenticação com {% data variables.product.prodname_cli %}, consulte [`login gh`](https://cli.github.com/manual/gh_auth_login).
 

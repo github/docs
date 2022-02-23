@@ -20,8 +20,8 @@ shortTitle: 取消阻止您的帐户
 
 ## 在您的帐户设置中取消阻止用户
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. 在“Blocked users（已阻止的用户）”下您想要取消阻止的用户旁边，单击 **Unblock（取消阻止）**。 ![取消阻止用户按钮](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## 从用户的个人资料页面取消阻止该用户

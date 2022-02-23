@@ -56,6 +56,8 @@ Nome do fluxo de trabalho. O {% data variables.product.prodname_dotcom %} exibe 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call`
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 Use `on.workflow_call` para definir as entradas e saídas para um fluxo de trabalho reutilizável. Você também pode mapear os segredos disponíveis para o fluxo de trabalho chamado. Para obter mais informações sobre fluxos de trabalho reutilizáveis, consulte "[Reutilizando fluxos de trabalho](/actions/using-workflows/reusing-workflows)".
 
 ### `on.workflow_call.inputs`
@@ -257,7 +259,7 @@ env:
 
 ## `jobs.<job_id>.env`
 
-Um `map` (mapa) das variáveis de ambiente que estão disponíveis para todos as etapas do trabalho. Também é possível definir variáveis de ambiente para todo o fluxo de trabalho ou uma etapa individual. Para obter mais informações, consulte [`env`](#env) e [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+Um `mapa` das variáveis de ambiente que estão disponíveis para todos as etapas do trabalho. Também é possível definir variáveis de ambiente para todo o fluxo de trabalho ou uma etapa individual. Para obter mais informações, consulte [`env`](#env) e [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -280,7 +282,7 @@ jobs:
 
 ## `jobs.<job_id>.steps`
 
-Trabalhos contêm sequências de tarefas chamadas `steps`. As etapas podem executar comandos, executar trabalhos de configuração ou executar ações no seu repositório, em repositórios públicos, ou ações publicadas em registros do Docker. Nem todas as etapas executam ações, mas todas as ações são executadas como etapas. Cada etapa é executada em seu próprio processo no ambiente do executor, tendo acesso ao espaço de trabalho e ao sistema de arquivos. Como as etapas são executadas em seus próprios processos, as alterações nas variáveis de ambiente não são preservadas entre as etapas. O {% data variables.product.prodname_dotcom %} fornece etapas integradas para configurar e concluir trabalhos.
+Trabalhos contêm sequências de tarefas chamadas `etapas`. As etapas podem executar comandos, executar trabalhos de configuração ou executar ações no seu repositório, em repositórios públicos, ou ações publicadas em registros do Docker. Nem todas as etapas executam ações, mas todas as ações são executadas como etapas. Cada etapa é executada em seu próprio processo no ambiente do executor, tendo acesso ao espaço de trabalho e ao sistema de arquivos. Como as etapas são executadas em seus próprios processos, as alterações nas variáveis de ambiente não são preservadas entre as etapas. O {% data variables.product.prodname_dotcom %} fornece etapas integradas para configurar e concluir trabalhos.
 
 Você pode executar quantas etapas quiser, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte {% ifversion fpt or ghec or ghes %}"[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e {% endif %}"[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" para limites de uso de executor auto-hospedado.{% elsif ghae %}."{% endif %}
 
@@ -314,7 +316,7 @@ Identificador exclusivo da etapa. Você pode usar `id` para fazer referência à
 
 ### `jobs.<job_id>.steps[*].if`
 
-Você pode usar a condicional `if` (se) para evitar que uma etapa trabalho seja executada a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
+Você pode usar a condicional `if` para evitar que uma etapa trabalho seja executada a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
 
 {% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
@@ -331,7 +333,7 @@ steps:
 
 #### Exemplo: Usando funções de verificação de status
 
-A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#job-status-check-functions)".
+A função `my backup step` somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#job-status-check-functions)".
 
 ```yaml
 steps:
@@ -344,7 +346,7 @@ steps:
 
 ### `jobs.<job_id>.steps[*].name`
 
-Nome da etapa no {% data variables.product.prodname_dotcom %}.
+Nome da sua etapa exibido em {% data variables.product.prodname_dotcom %}.
 
 ### `jobs.<job_id>.steps[*].uses`
 
@@ -355,9 +357,9 @@ Seleciona uma ação para executar como parte de uma etapa no trabalho. A ação
 - Usar a versão principal da ação permite receber correções importantes e patches de segurança sem perder a compatibilidade. Fazer isso também garante o funcionamento contínuo do fluxo de trabalho.
 - Usar o branch-padrão de uma ação pode ser conveniente, mas se alguém lançar uma nova versão principal com uma mudança significativa, seu fluxo de trabalho poderá ter problemas.
 
-Algumas ações requerem entradas que devem ser definidas com a palavra-chave [`with`](#jobsjob_idstepswith) (com). Revise o arquivo README da ação para determinar as entradas obrigatórias.
+Algumas ações exigem entradas que devem ser definidas com a palavra-chave [`com`](#jobsjob_idstepswith). Revise o arquivo README da ação para determinar as entradas obrigatórias.
 
-Ações são arquivos JavaScript ou contêineres Docker. Se a ação em uso for um contêiner do Docker, você deverá executar o trabalho em um ambiente do Linux. Para obter mais detalhes, consulte [`runs-on`](#jobsjob_idruns-on).
+Ações são arquivos do JavaScript ou contêineres Docker. Se a ação em uso for um contêiner do Docker, você deverá executar o trabalho em um ambiente do Linux. Para obter mais detalhes, consulte [`runs-on`](#jobsjob_idruns-on).
 
 #### Exemplo: Usando ações de versão
 
@@ -489,11 +491,11 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].run`
 
-Executa programas de linha de comando usando o shell do sistema operacional. Se você não informar um `name`, o nome da etapa será configurado por padrão como o texto indicado no comando `run`.
+Executa programas de linha de comando usando o shell do sistema operacional. Se você não informar um `nome`, o nome da etapa será configurado por padrão como o texto indicado no comando `executar`.
 
-Por padrão, os comandos run usam shells de não login. Você pode escolher um shell diferente e personalizar o shell usado para executar comandos. Para obter mais informações, consulte [`trabalhos.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
+Por padrão, os comandos run usam shells que nao são de login. Você pode escolher um shell diferente e personalizar o shell usado para executar comandos. Para obter mais informações, consulte [`trabalhos.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
 
-Cada palavra-chave `run` representa um novo processo e shell no ambiente do executor. Ao fornecer comandos de várias linhas, cada linha será executada no mesmo shell. Por exemplo:
+Cada palavra-chave `executar` representa um novo processo e shell no ambiente do executor. Ao fornecer comandos de várias linhas, cada linha será executada no mesmo shell. Por exemplo:
 
 * Um comando de linha única:
 
@@ -511,7 +513,7 @@ Cada palavra-chave `run` representa um novo processo e shell no ambiente do exec
       npm run build
   ```
 
-Com a palavra-chave `working-directory` (diretório de trabalho), é possível especificar o diretório de trabalho de onde o comando será executado.
+Com a palavra-chave `working-directory`, é possível especificar o diretório de trabalho de onde o comando será executado.
 
 ```yaml
 - name: Clean temp directory
@@ -622,7 +624,7 @@ Para palavras-chave de shell integradas, fornecemos os seguintes padrões usados
 
 ### `jobs.<job_id>.steps[*].with`
 
-Um `map` (mapa) dos parâmetros de entrada definidos pela ação. Cada parâmetro de entrada é um par chave/valor. Parâmetros de entrada são definidos como variáveis de ambiente. A variável é precedida por `INPUT_` e convertida em letras maiúsculas.
+Um `mapa` dos parâmetros de entrada definidos pela ação. Cada parâmetro de entrada é um par chave/valor. Parâmetros de entrada são definidos como variáveis de ambiente. A variável é precedida por `INPUT_` e convertida em letras maiúsculas.
 
 #### Exemplo
 
@@ -665,7 +667,7 @@ steps:
 
 ### `jobs.<job_id>.steps[*].with.entrypoint`
 
-Anula o `ENTRYPOINT` Docker no `Dockerfile` ou define-o caso ainda não tenha sido especificado. Diferentemente da instrução Docker `ENTRYPOINT` que tem um formulário shell e exec, a palavra-chave `entrypoint` aceita apena uma única string que define o executável.
+Anula o `ENTRYPOINT` Docker no `Arquivo Docker` ou o define caso ainda não tenha sido especificado. Diferentemente da instrução Docker `ENTRYPOINT` que tem um formulário shell e exec, a palavra-chave `entrypoint` aceita apena uma única string que define o executável.
 
 #### Exemplo
 
@@ -685,7 +687,7 @@ Define variáveis de ambiente para etapas a serem usadas no ambiente do executor
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Ações públicas podem especificar variáveis de ambiente esperadas no arquivo LEIAME. Se você está configurando um segredo em uma variável de ambiente, use o contexto `secrets`. Para obter mais informações, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" e "[Contextos](/actions/learn-github-actions/contexts)".
+Ações públicas podem especificar variáveis de ambiente esperadas no arquivo LEIAME. Se você está configurando um segredo em uma variável de ambiente, use o contexto `segredos`. Para obter mais informações, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" e "[Contextos](/actions/learn-github-actions/contexts)".
 
 #### Exemplo
 
@@ -702,7 +704,7 @@ steps:
 
 ### `jobs.<job_id>.steps[*].continue-on-error`
 
-Impede a falha de um trabalho se uma etapa não funcionar. Defina `true` (verdadeiro) para permitir que um trabalho aconteça quando essa etapa falhar.
+Impede a falha de um trabalho se uma etapa não funcionar. Defina `verdadeiro` para permitir que um trabalho aconteça quando essa etapa falhar.
 
 ### `jobs.<job_id>.steps[*].timeout-minutes`
 
@@ -712,7 +714,7 @@ Número máximo de minutos para executar a etapa antes de interromper o processo
 
 Número máximo de minutos para permitir a execução de um trabalho o antes que o {% data variables.product.prodname_dotcom %} o cancele automaticamente. Padrão: 360
 
-Se o tempo-limite exceder o tempo limite de execução do trabalho para o runner, o trabalho será cancelada quando o tempo limite de execução for atingido. Para obter mais informações sobre o limite de tempo de execução do trabalho, consulte {% ifversion fpt or ghec or ghes %}"[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration#usage-limits)" para executores hospedados em {% data variables.product.prodname_dotcom %} e {% endif %}"[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" para limites de uso de executores auto-hospedados.{% elsif ghae %}."{% endif %}
+Se o tempo-limite exceder o tempo limite de execução do trabalho para o executor, o trabalho será cancelado quando o tempo limite de execução for atingido. Para obter mais informações sobre o limite de tempo de execução do trabalho, consulte {% ifversion fpt or ghec or ghes %}"[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration#usage-limits)" para executores hospedados em {% data variables.product.prodname_dotcom %} e {% endif %}"[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" para limites de uso de executores auto-hospedados.{% elsif ghae %}."{% endif %}
 
 ## `jobs.<job_id>.strategy`
 
@@ -756,6 +758,8 @@ strategy:
 {% endraw %}
 
 ## `jobs.<job_id>.container`
+
+{% data reusables.github-actions.docker-container-os-support %}
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
@@ -830,7 +834,7 @@ services:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
-      password: ${{ secrets.ghcr_token }}
+      password: ${{ secrets.github_token }}
   myservice2:
     image: dockerhub_org/myservice2
     credentials:
@@ -841,7 +845,7 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.env`
 
-Define um `maá` das variáveis de ambiente no contêiner do serviço.
+Define um `mapa` das variáveis de ambiente no contêiner do serviço.
 
 ### `jobs.<job_id>.services.<service_id>.ports`
 
@@ -879,7 +883,9 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
-O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use uma das seguintes sintaxes:{% endif %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
+O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como trabalho. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use uma das seguintes sintaxes:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
@@ -973,7 +979,7 @@ Par aobte rmais informações sobre branch, tag e sintaxe de filtro do caminho, 
 | `'**'`                                                  | Corresponde a todos os nomes de branches e tags. Esse é o comportamento padrão quando você não usa um filtro de `branches` ou `tags`.                                               | `all/the/branches`<br/><br/>`every/tag`                                                                   |
 | `'*feature'`                                            | O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas.                                                                                 | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
 | `v2*`                                                   | Corresponde aos nomes de branches e tags que iniciam com `v2`.                                                                                                                      | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                                   | Corresponde a todas as tags de versão de branch semântica com a versão principal 1 ou 2                                                                                             | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
+| `v[12].[0-9]+.[0-9]+`                                   | Corresponde a todas as tags de versão de branch semântica com a versão principal 1 ou 2.                                                                                            | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 ### Padrões para corresponder a caminhos de arquivos
 

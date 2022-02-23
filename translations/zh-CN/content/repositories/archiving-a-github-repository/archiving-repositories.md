@@ -27,6 +27,14 @@ topics:
 {% endnote %}
 {% endif %}
 
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %}
+{% note %}
+
+**Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. 更多信息请参阅“[关于 {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)”。
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
 在仓库存档后，便无法添加或删除协作者或团队。 具有仓库访问权限的贡献者只能对项目复刻或标星。

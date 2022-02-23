@@ -80,20 +80,21 @@ Para obter informações sobre quais os pontos de extremidade da API de {% data 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 A tabela a seguir mostra as permissões concedidas ao `GITHUB_TOKEN` por padrão. As pessoas com permissões de administrador para uma empresa, organização ou repositório de {% ifversion not ghes %}{% else %}organização ou repositório{% endif %} pode definir as permissões padrão como permissivas ou restritas. Para informações sobre como definir as permissões padrão para o `GITHUB_TOKEN` para a sua empresa, organização ou repositório, consulte "[Aplicando políticas para {% data variables.product.prodname_actions %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise), "[Desabilitando ou limitando {% data variables.product.prodname_actions %} para sua organização](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization), ou "[Gerenciando configurações do {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
-| Escopo              | Acesso padrão<br>(permissivo) | Acesso padrão<br>(restrito) | Acesso máximo<br>por repositórios bifurcados |
-| ------------------- | ----------------------------------- | --------------------------------- | -------------------------------------------------- |
-| ações               | leitura/gravação                    | nenhum                            | leitura                                            |
-| Verificações        | leitura/gravação                    | nenhum                            | leitura                                            |
-| Conteúdo            | leitura/gravação                    | leitura                           | leitura                                            |
-| Implantações        | leitura/gravação                    | nenhum                            | leitura                                            |
-| id-token            | leitura/gravação                    | nenhum                            | leitura                                            |
-| Problemas           | leitura/gravação                    | nenhum                            | leitura                                            |
-| metadados           | leitura                             | leitura                           | leitura                                            |
-| pacotes             | leitura/gravação                    | nenhum                            | leitura                                            |
-| pull-requests       | leitura/gravação                    | nenhum                            | leitura                                            |
-| repository-projects | leitura/gravação                    | nenhum                            | leitura                                            |
-| security-events     | leitura/gravação                    | nenhum                            | leitura                                            |
-| Status              | leitura/gravação                    | nenhum                            | leitura                                            |
+| Escopo       | Acesso padrão<br>(permissivo) | Acesso padrão<br>(restrito) | Acesso máximo<br>por repositórios bifurcados |
+| ------------ | ----------------------------------- | --------------------------------- | -------------------------------------------------- |
+| ações        | leitura/gravação                    | nenhum                            | leitura                                            |
+| Verificações | leitura/gravação                    | nenhum                            | leitura                                            |
+| Conteúdo     | leitura/gravação                    | leitura                           | leitura                                            |
+| Implantações | leitura/gravação                    | nenhum                            | read |{% ifversion fpt or ghec %}
+| id-token     | leitura/gravação                    | nenhum                            | read 
+{% endif %}
+| Problemas    | leitura/gravação                    | nenhum                            | leitura                                            |
+| metadados    | leitura                             | leitura                           | leitura                                            |
+| pacotes      | leitura/gravação                    | nenhum                            | leitura                                            |
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6187 %}
+| pages         | read/write  | none | read |
+{%- endif %}
+| pull-requests | read/write  | none | read | | repository-projects | read/write | none | read | | security-events     | read/write | none | read | | statuses      | read/write  | none | read |
 {% else %}
 | Escopo              | Tipo de acesso   | Acesso pelos repositórios bifurcados |
 | ------------------- | ---------------- | ------------------------------------ |

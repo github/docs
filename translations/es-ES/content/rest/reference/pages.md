@@ -27,6 +27,7 @@ En las terminales de la API de {% data variables.product.prodname_pages %} que d
    - `branch`: La rama del repositorio que se utilizó para publicar los [archivos de código fuente de tu sitio](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Por ejemplo, _main_ o _gh-pages_.
    - `path`: El directorio del repositorio desde el cual publica el sitio. Podría ser `/` o `/docs`.
 
+{% comment %}An extra blank line is needed here to make sure the operations below don't continue the list above.{% endcomment %}
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}

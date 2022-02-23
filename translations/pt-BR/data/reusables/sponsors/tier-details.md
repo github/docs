@@ -3,9 +3,10 @@ You can create up to 10 one-time sponsorship tiers and 10 monthly tiers for spon
 Você pode personalizar as recompensas para cada camada. Por exemplo, as recompensas para uma camada poderiam incluir:
 - Acesso antecipado a novas versões
 - Logotipo ou nome no LEIAME
-- Acesso ao repositório privado
 - Atualizações semanais do boletim informativo
 - Outras recompensas que seus patrocinadores gostariam ✨
+
+{% data reusables.sponsors.sponsors-only-repos %} For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)."
 
 You can include a welcome message with information about accessing or receiving rewards, which will be visible after payment and in the welcome email.
 

@@ -5,6 +5,7 @@ permissions: Organization owners and security managers can access the security o
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
+  ghae: issue-5503
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -25,8 +26,8 @@ shortTitle: Ver visão geral de segurança
 {% data reusables.organizations.security-overview %}
 1. Para visualizar informações agregadas sobre tipos de alertas, clique em **Mostrar mais**. ![Botão mostrar mais](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-{% ifversion ghec or ghes > 3.4 %}
-1. Alternatively and optionally, use the sidebar on the left to filter information per security feature. On each page, you can use filters that are specific to each feature to fine-tune your search. ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+{% if security-overview-views %}
+1. Como alternativa, use a barra lateral à esquerda para filtrar informações por recurso de segurança. Em cada página, é possível usar filtros específicos para cada recurso para ajustar sua pesquisa. ![Captura de tela da página de digitalização específica do código](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
 ## Visualizando alertas em toda a sua organização
 
@@ -47,7 +48,7 @@ shortTitle: Ver visão geral de segurança
 ## Visualizar a visão geral de segurança de uma equipe
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}

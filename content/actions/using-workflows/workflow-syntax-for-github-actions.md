@@ -56,6 +56,8 @@ The name of your workflow. {% data variables.product.prodname_dotcom %} displays
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call`
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
 
 ### `on.workflow_call.inputs`
@@ -757,6 +759,8 @@ strategy:
 
 ## `jobs.<job_id>.container`
 
+{% data reusables.github-actions.docker-container-os-support %}
+
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
 ### `jobs.<job_id>.container.image`
@@ -830,7 +834,7 @@ services:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
-      password: ${{ secrets.ghcr_token }}
+      password: ${{ secrets.github_token }}
   myservice2:
     image: dockerhub_org/myservice2
     credentials:
@@ -878,6 +882,8 @@ Additional Docker container resource options. For a list of options, see "[`dock
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
+
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 
 The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use one of the following syntaxes:{% endif %}
 
@@ -973,7 +979,7 @@ For more information about branch, tag, and path filter syntax, see "[`on.<push>
 | `'**'` | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter. | `all/the/branches`<br/><br/>`every/tag` |
 | `'*feature'` | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature` |
 | `v2*` | Matches branch and tag names that start with `v2`. | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9` |
-| `v[12].[0-9]+.[0-9]+` | Matches all semantic versioning branches and tags with major version 1 or 2 | `v1.10.1`<br/><br/>`v2.0.0` |
+| `v[12].[0-9]+.[0-9]+` | Matches all semantic versioning branches and tags with major version 1 or 2. | `v1.10.1`<br/><br/>`v2.0.0` |
 
 ### Patterns to match file paths
 

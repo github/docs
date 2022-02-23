@@ -12,7 +12,7 @@ shortTitle: Registro de imagen privado
 
 ## Acerca de los registros de imagen y {% data variables.product.prodname_codespaces %} privados
 
-Un registro es un espacio seguro para almacenar, administrar y recuperar imágenes de contenedor privadas. Puedes utilizar uno de ellos para almacenar uno o más devcontainers. Hay muchos ejemplos de registros, tales como el Registro de Contenedores de {% data variables.product.prodname_dotcom %}, Registro de Contenedores de Azure o DockerHub.
+Un registro es un espacio seguro para almacenar, administrar y recuperar imágenes de contenedor privadas. Puedes utilizar uno para almacenar una o más imágenes. Hay muchos ejemplos de registros, tales como el Registro de Contenedores de {% data variables.product.prodname_dotcom %}, Registro de Contenedores de Azure o DockerHub.
 
 El Registro de Contenedores de {% data variables.product.prodname_dotcom %} puede configurarse para extraer imágenes de contenedor sin problemas, sin tener que proporcionar credenciales de autenticación a {% data variables.product.prodname_codespaces %}. Para otros registros de imágenes, debes crear secretos en {% data variables.product.prodname_dotcom %} para almacenar los detalles de acceso, los cuales permitirán que los {% data variables.product.prodname_codespaces %} accedan a las imágenes almacenadas en dicho registro.
 
@@ -87,7 +87,7 @@ Para acceder a AWS Elastic Container Registry (ECR), puedes proporcionar una ID 
 ```
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
 *_CONTAINER_REGISTRY_USER = <AWS_ACCESS_KEY_ID>
-*_container_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
+*_CONTAINER_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
 ```
 
 Debes de asegurarte de que tengas los permisos adecuados de AWS IAM para realizar el cambio de credenciales (por ejemplo: `sts:GetServiceBearerToken`), así como la operación de lectura de ECR (ya sea `AmazonEC2ContainerRegistryFullAccess` o `ReadOnlyAccess`).
@@ -97,7 +97,7 @@ Como alternativa, si no quieres que GitHub realice el cambio de credenciales en 
 ```
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
 *_CONTAINER_REGISTRY_USER = AWS
-*_container_REGISTRY_PASSWORD = <TOKEN>
+*_CONTAINER_REGISTRY_PASSWORD = <TOKEN>
 ```
 
 Ya que estos tokens tienen una vida corta y necesitan actualizarse constantemente, te recomendamos proporcionar una ID de llave de acceso y secreto.

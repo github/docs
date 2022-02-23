@@ -14,7 +14,7 @@ topics:
 
 ## About {% data variables.product.prodname_actions %} for enterprises
 
-{% data reusables.actions.about-actions %} With {% data variables.product.prodname_actions %}, your enterprise can automate, customize, and execute your software development workflows like testing and deployments. For more information about the basics of {% data variables.product.prodname_actions %}, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
+{% data reusables.actions.about-actions %} With {% data variables.product.prodname_actions %}, your enterprise can automate, customize, and execute your software development workflows like testing and deployments. For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
 ![Diagram of jobs running on self-hosted runners](/assets/images/help/images/actions-enterprise-overview.png)
 
@@ -71,6 +71,7 @@ Think about how your enterprise can use features of {% data variables.product.pr
 {% data reusables.actions.internal-actions-summary %}
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-4757 %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 

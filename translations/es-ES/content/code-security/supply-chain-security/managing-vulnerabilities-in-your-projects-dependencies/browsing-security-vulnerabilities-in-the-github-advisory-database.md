@@ -114,4 +114,4 @@ Para cualquier asesoría que revise {% data variables.product.company_short %} e
 
 ## Leer más
 
-- [Definición de MITRE de "vulnerabilidad"](https://cve.mitre.org/about/terminology.html#vulnerability)
+- [Definición de MITRE de "vulnerabilidad"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)

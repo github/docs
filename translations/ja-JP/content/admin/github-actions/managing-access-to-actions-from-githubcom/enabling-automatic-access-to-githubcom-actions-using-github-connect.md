@@ -29,9 +29,11 @@ To use actions from {% data variables.product.prodname_dotcom_the_website %}, yo
 
 ## Enabling automatic access to all {% data variables.product.prodname_dotcom_the_website %} actions
 
-{% data reusables.actions.enterprise-github-connect-warning %}
+Before enabling access to all actions from {% data variables.product.prodname_dotcom_the_website %} for your enterprise, you must{% ifversion ghes %}:
+- Configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+- Enable{% else %} enable{% endif %} {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
-Before enabling access to all actions from {% data variables.product.prodname_dotcom_the_website %} on your enterprise instance, you must connect your enterprise to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Connecting your enterprise to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+{% data reusables.actions.enterprise-github-connect-warning %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {%- ifversion ghes < 3.1 %}

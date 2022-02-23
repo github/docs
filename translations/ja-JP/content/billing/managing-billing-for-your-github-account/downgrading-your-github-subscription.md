@@ -37,8 +37,8 @@ shortTitle: サブスクリプションのダウングレード
 
 ユーザアカウントを{% data variables.product.prodname_pro %}から{% data variables.product.prodname_free_user %}にダウングレードした場合、プライベートリポジトリでの高度なコードレビューツールにはアクセスできなくなります。 {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. "Current plan（現在のプラン）"の下で、**Edit（編集）**ドロップダウンを使い、**Downgrade to Free（Freeへのダウングレード）**をクリックしてください。 ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
 5. 次回の請求日にユーザアカウントがアクセスできなくなる機能に関する情報を読み、[**I understand. Continue with downgrade**] をクリックします。 ![[Continue with downgrade] ボタン](/assets/images/help/billing/continue-with-downgrade.png)
 

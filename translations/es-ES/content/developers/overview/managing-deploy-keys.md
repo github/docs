@@ -34,11 +34,11 @@ En muchos casos, especialmente al inicio de un proyecto, el reenvío del agente 
 #### Configuración
 
 1. Habilita el reenvío de agente localmente. Consulta [nuestra guía sobre el redireccionamiento del agente SSH][ssh-agent-forwarding] para obtener más información.
-2. Configura tus scripts de despliegue para utilizar el reenvío de agente. Por ejemplo, el habilitar el reenvío de agentes en un script de bash se vería más o menos así: `ssh -A serverA 'bash -s' < deploy.sh`
+2. Configura tus scripts de despliegue para utilizar el reenvío de agente. Por ejemplo, en un script de bash, el habilitar el reenvío de agentes se verá más o menos así: `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## Clonado de HTTPS con tokens de OAuth
 
-Si no quieres utilizar llaves SSH, puedes utilizar [HTTPS con tokens de OAuth][git-automation].
+Si no quieres utilizar llaves SSH, puedes utilizar HTTPS con tokens de OAuth.
 
 #### Pros
 
@@ -57,7 +57,7 @@ Si no quieres utilizar llaves SSH, puedes utilizar [HTTPS con tokens de OAuth][g
 
 #### Configuración
 
-Consulta [nuestra guía sobre la automatización de tokens en Git][git-automation].
+Consulta [nuestra guía para crear tokens de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## Llaves de implementación
 
@@ -78,7 +78,7 @@ Consulta [nuestra guía sobre la automatización de tokens en Git][git-automatio
 
 #### Configuración
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair key pair.
+1. [Ejecuta el procedimiento `ssh-keygen`][generating-ssh-keys] en tu servidor y recuerda dónde guardaste l par de llaves pública y privada de RSA generado.
 2. En la esquina superior derecha de cualquier página de {% data variables.product.product_name %}, da clic en tu foto de perfil y luego da clic en **Tu perfil**. ![Navegación al perfil](/assets/images/profile-page.png)
 3. En tu página de perfil, da clic en **Repositorios** y luego en el nombre de tu repositorio. ![Enlace de los repositorios](/assets/images/repos.png)
 4. Desde tu repositorio, da clic en **Configuración**. ![Configuración del repositorio](/assets/images/repo-settings.png)
@@ -184,9 +184,6 @@ Esto significa que no puedes automatizar la creación de las cuentas. Pero si qu
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
-[git-automation]: /articles/git-automation-with-oauth-tokens
-[git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
-

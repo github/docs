@@ -6,7 +6,7 @@ import { SmallFooter } from 'components/page-footer/SmallFooter'
 import { ScrollButton } from 'components/ui/ScrollButton'
 import { SupportSection } from 'components/page-footer/SupportSection'
 import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
-import { RestRepoBanner } from 'components/page-header/RestRepoBanner'
+import { RestBanner } from 'components/page-header/RestBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useRouter } from 'next/router'
@@ -85,11 +85,16 @@ export const DefaultLayout = (props: Props) => {
         Skip to main content
       </a>
       <SidebarNav />
-      <div className="flex-column flex-1">
+      {/* Need to set an explicit height for sticky elements since we also
+          set overflow to auto */}
+      <div
+        className="flex-column flex-1 overflow-auto print-overflow-visible"
+        style={{ height: '100vh' }}
+      >
         <Header />
         <main id="main-content">
           <DeprecationBanner />
-          <RestRepoBanner />
+          <RestBanner />
 
           {props.children}
         </main>

@@ -22,14 +22,14 @@ shortTitle: 管理主题设置
 
 {% note %}
 
-**Note:** The colorblind themes and light high contrast theme are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
+**Note:** The colorblind themes are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
 
 {% endnote %}
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.appearance-settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.appearance-settings %}
 
 1. Under "Theme mode", select the drop-down menu, then click a theme preference.
 

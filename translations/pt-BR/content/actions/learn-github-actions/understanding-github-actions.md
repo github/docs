@@ -255,3 +255,8 @@ Para entender como a cobrança funciona para {% data variables.product.prodname_
 ## Entrar em contato com o suporte
 
 {% data reusables.github-actions.contacting-support %}
+
+## Leia mais
+
+{% ifversion ghec or ghes or ghae %}
+- "[Sobre {% data variables.product.prodname_actions %} para as empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}

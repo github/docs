@@ -38,11 +38,12 @@ toc:
   guides: Guias
   whats_new: O que há de novo
   videos: Vídeos
+  all_changelogs: All changelog posts
 pages:
   article_version: 'Versão do artigo'
   miniToc: Neste artigo
   contributor_callout: This article is contributed and maintained by
-  all_enterprise_releases: All Enterprise releases
+  all_enterprise_releases: All Enterprise Server releases
 errors:
   oops: Ops!
   something_went_wrong: Parece que algo deu errado.
@@ -160,7 +161,10 @@ product_landing:
   release_notes_for: Release notes for
   upgrade_from: Upgrade from
   browse_all_docs: Browse all docs
+  browse_all: Browse all
+  docs: documentação
   explore_release_notes: Explore release notes
+  view: Visualizar Tudo
 product_guides:
   start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'

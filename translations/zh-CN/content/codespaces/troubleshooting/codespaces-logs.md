@@ -102,4 +102,4 @@ These logs are useful only if you want to debug problems with using {% data vari
 
 1. In the browser window for the codespace you want to debug, open the developer tools window.
 1. Display the "Console" tab and click **errors** in the left side bar to show only the errors.
-1. In the log area on the right, right-click and select **Save as** to save a copy of the errors to your local machine. ![Save errors](/assets/images/help/codespaces/browser-console-log-save.png)
+1. In the log area on the right, right-click and select **Save as** to save a copy of the errors to your local machine. ![保存错误](/assets/images/help/codespaces/browser-console-log-save.png)

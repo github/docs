@@ -5,6 +5,7 @@ permissions: Organization owners and security managers can access the security o
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   fpt: '*'
+  ghae: issue-5503
   ghes: '>3.1'
   ghec: '*'
 type: how_to
@@ -25,8 +26,8 @@ shortTitle: View the security overview
 {% data reusables.organizations.security-overview %}
 1. 要查看有关警报类型的汇总信息，请单击 **Show more（显示更多）**。 ![显示更多按钮](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-
-{% ifversion ghec or ghes > 3.4 %}
+{% if security-overview-views %}
+1. Alternatively and optionally, use the sidebar on the left to filter information per security feature. On each page, you can use filters that are specific to each feature to fine-tune your search. ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
 ## Viewing alerts across your organization
 
@@ -47,7 +48,7 @@ shortTitle: View the security overview
 ## 查看团队的安全概述
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}

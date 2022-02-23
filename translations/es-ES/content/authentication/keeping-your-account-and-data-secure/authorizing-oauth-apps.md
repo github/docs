@@ -36,7 +36,7 @@ Las {% data variables.product.prodname_oauth_apps %} pueden tener acceso de *lec
 
 {% tip %}
 
-**Sugerencia:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**Sugerencia:** {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 

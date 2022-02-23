@@ -141,15 +141,6 @@ with:
 
 使用此方法， {% raw %}`${{ github.event.issue.title }}`{% endraw %} 表达式的值存储在内存中用作变量，并且不与脚本生成过程交互。 此外，考虑使用双引号 shell 变量来避免 [单词拆分](https://github.com/koalaman/shellcheck/wiki/SC2086)，但这是是写入shell 脚本[的许多一般性建议之一](https://mywiki.wooledge.org/BashPitfalls)，不是专门针对 {% data variables.product.prodname_actions %} 的。
 
-### 使用 CodeQL 分析您的代码
-
-为了帮助您在开发生命周期中尽早管理危险模式的风险， {% data variables.product.prodname_dotcom %} 安全实验室开发了仓库所有者可以[集成](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#running-additional-queries)到其 CI/CD 管道中的 [CodeQL 查询](https://github.com/github/codeql/tree/main/javascript/ql/src/experimental/Security/CWE-094)。 更多信息请参阅“[关于代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
-
-脚本目前依赖于 CodeQL JavaScript 库，这意味着分析的仓库必须包含至少一个 JavaScript 文件，并且 CodeQL 必须[配置为分析此语言](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed)。
-
-- `ExpressionInjection.ql`：涵盖本文所述的表达式注入，被认为是相当准确的。 但是，它不执行工作流程步骤之间的数据流跟踪。
-- `UntrustedCheckout.ql`：此脚本的结果需要手动检查，以确定从拉取请求的代码是否实际以不安全的方式处理。 更多信息请参阅 {% data variables.product.prodname_dotcom %} 安全实验室博客上的“[保持 GitHub Actions 和工作流程安全：阻止 pwn 请求](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)”。
-
 ### 限制令牌权限
 
 为了帮助降低暴露令牌的风险，请考虑限制分配的权限。 更多信息请参阅“[修改 GITHUB_TOKEN 的权限](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)”。
@@ -201,6 +192,10 @@ The same principles described above for using third-party actions also apply to 
 
 {% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
 {% endif %}
+
+## Using OpenSSF Scorecards to secure workflows
+
+[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
 
 ## 受损运行器的潜在影响
 

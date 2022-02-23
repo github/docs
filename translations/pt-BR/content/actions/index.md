@@ -32,7 +32,6 @@ featuredLinks:
     - title: GitHub Actions in action – Karan MV
       href: 'https://www.youtube-nocookie.com/embed/4SWO0Pc76CU'
   videosHeading: GitHub Universe 2021 videos
-examples_source: data/product-examples/actions/code-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions
@@ -64,7 +63,6 @@ children:
   - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /security-guides
-  - /advanced-guides
   - /creating-actions
   - /guides
 ---

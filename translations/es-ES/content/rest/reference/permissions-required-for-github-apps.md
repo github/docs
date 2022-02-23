@@ -348,6 +348,9 @@ _Tráfico_
 - [`GET /repos/:owner/:repo/check-suites/:check_suite_id`](/rest/reference/checks#get-a-check-suite) (:read)
 - [`GET /repos/:owner/:repo/check-suites/:check_suite_id/check-runs`](/rest/reference/checks#list-check-runs-in-a-check-suite) (:read)
 - [`POST /repos/:owner/:repo/check-suites/:check_suite_id/rerequest`](/rest/reference/checks#rerequest-a-check-suite) (:write)
+{% if codeowners-errors %}
+- [`GET /repos/:owner/:repo/codeowners/errors`](/rest/reference/repos#list-codeowners-errors) (:read)
+{% endif %}
 - [`GET /repos/:owner/:repo/commits`](/rest/reference/commits#list-commits) (:read)
 - [`GET /repos/:owner/:repo/commits/:sha`](/rest/reference/commits#get-a-commit) (:read)
 - [`GET /repos/:owner/:repo/commits/:sha/check-runs`](/rest/reference/checks#list-check-runs-for-a-git-reference) (:read)
@@ -377,8 +380,8 @@ _Ramas_
 _Comentarios sobre confirmación de cambios_
 - [`PATCH /repos/:owner/:repo/comments/:comment_id`](/rest/reference/commits#update-a-commit-comment) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id`](/rest/reference/commits#delete-a-commit-comment) (:write)
-- [`POST /repos/:owner/:repo/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-a-commit-comment) (:read)
-- [`POST /repos/:owner/:repo/commits/:sha/comments`](/rest/reference/commits#create-a-commit-comment) (:read)
+- [`POST /repos/:owner/:repo/comments/:comment_id/reactions`](/rest/reference/reactions#create-reaction-for-a-commit-comment) (:write)
+- [`POST /repos/:owner/:repo/commits/:sha/comments`](/rest/reference/commits#create-a-commit-comment) (:write)
 
 _Git_
 - [`POST /repos/:owner/:repo/git/blobs`](/rest/reference/git#create-a-blob) (:write)
@@ -920,6 +923,9 @@ _Equipos_
 - [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data) (:write)
 {% ifversion fpt or ghes > 3.0 or ghae -%}
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
+{% endif -%}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5435 -%}
+- [`GET /orgs/:org/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-by-organization) (:read)
 {% endif -%}
 
 {% ifversion fpt or ghes or ghec %}

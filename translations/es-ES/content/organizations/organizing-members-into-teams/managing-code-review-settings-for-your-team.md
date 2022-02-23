@@ -54,11 +54,15 @@ Any team members that have set their status to "Busy" will not be selected for r
 ## Configuring team notifications
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
 1. In the left sidebar, click **Code review**
 ![Code review button](/assets/images/help/teams/review-button.png)
+{% endif %}
 1. Select **Only notify requested team members.**
 ![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
 1. Click **Save changes**.
@@ -66,11 +70,15 @@ Any team members that have set their status to "Busy" will not be selected for r
 
 ## Configuring auto assignment
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% else %}
 1. In the left sidebar, click **Code review**
 ![Code review button](/assets/images/help/teams/review-button.png)
+{% endif %}
 1. Select **Enable auto assignment**.
 ![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
 1. Under "How many team members should be assigned to review?", use the drop-down menu and choose a number of reviewers to be assigned to each pull request.
@@ -91,7 +99,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 
 ## Disabling auto assignment
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 1. Select **Enable auto assignment** to remove the checkmark.

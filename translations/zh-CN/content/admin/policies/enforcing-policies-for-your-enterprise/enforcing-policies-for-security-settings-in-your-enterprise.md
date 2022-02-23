@@ -10,7 +10,7 @@ redirect_from:
   - /github/articles/managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
-  - github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   ghec: '*'
   ghes: '*'
@@ -146,9 +146,8 @@ You can use a SSH certificate authorities (CA) to allow members of any organizat
 {% data reusables.organizations.delete-ssh-ca %}
 
 {% ifversion ghec or ghae %}
-
 ## 延伸阅读
 
-- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"
-
+- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
+- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
 {% endif %}

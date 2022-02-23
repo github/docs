@@ -38,8 +38,8 @@ shortTitle: 删除用户帐户
 
 ## 删除用户帐户
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. 在帐户设置页面底部，“Delete account（删除帐户）”下，单击 **Delete your account（删除帐户）**。 然后即可删除用户帐户。
     - 如果您是组织中的唯一所有者，则必须将所有权转让给其他人或删除您的组织。
     - 如果组织中有其他组织所有者，则必须将自己从组织中删除。 ![帐户删除按钮](/assets/images/help/settings/settings-account-delete.png)

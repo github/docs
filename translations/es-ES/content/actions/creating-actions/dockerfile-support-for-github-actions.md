@@ -47,6 +47,8 @@ Si defines el `entrypoint` en un archivo de metadatos de una acción, este inval
 
 La instrucción `ENTRYPOINT` de Docker tiene una forma de _shell_ y una de _exec_. La documentación de `ENTRYPOINT` de Docker recomienda utilizar la forma de _exec_ de la instrucción `ENTRYPOINT`. Para obtener más información acerca de las formas _exec_ y _shell_, consulta la sección [ENTRYPOINT reference](https://docs.docker.com/engine/reference/builder/#entrypoint) en la documentación de Docker.
 
+No deberías utilizar `WORKDIR` para especificar el punto de entrada en tu Dockerfile. En vez de esto, deberías utilizar una ruta absoluta. Para obtener más información, consulta la sección [WORKDIR](#workdir).
+
 Si configuras tu contenedor para que utilice la forma _exec_ de la instrucción `ENTRYPOINT`, entonces el `args` configurado en el archivo de metadatos de la acción no se ejecutará en un shell de comandos. Si el `args` de la accion contiene una variable de ambiente, ésta no se sustituirá. Por ejemplo, utilizar el siguiente formato _exec_ no imprimirá los valores almacenados en `$GITHUB_SHA`, si no que imprimirá `"$GITHUB_SHA"`.
 
 ```dockerfile

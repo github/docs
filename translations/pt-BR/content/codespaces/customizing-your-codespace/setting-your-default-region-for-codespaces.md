@@ -16,7 +16,7 @@ Você pode selecionar manualmente a região em que os seus codespaces serão cri
 
 ## Definindo sua região padrão
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
 1. Em "Região", selecione a configuração desejada.
 2. Se você escolheu "Definir manualmente", selecione sua região na lista suspensa. ![Selecionando sua região](/assets/images/help/codespaces/select-default-region.png)

@@ -10,7 +10,7 @@ redirect_from:
   - /github/articles/managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
-  - github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   ghec: '*'
   ghes: '*'
@@ -73,7 +73,7 @@ Enterprise owners can restrict access to assets owned by organizations in an ent
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
 You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
 
@@ -149,9 +149,8 @@ Deleting a CA cannot be undone. If you want to use the same CA in the future, yo
 {% data reusables.organizations.delete-ssh-ca %}
 
 {% ifversion ghec or ghae %}
-
 ## Further reading
 
-- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"
-
+- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
+- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
 {% endif %}

@@ -1,5 +1,5 @@
 ---
-title: Configuring OpenID Connect in Google Cloud Platform
+title: Configurar OpenID Connect en Google Cloud Platform
 shortTitle: Configurar OpenID Connect en Google Cloud Platform
 intro: Use OpenID Connect within your workflows to authenticate with Google Cloud Platform.
 miniTocMaxHeadingLevel: 3
@@ -43,22 +43,15 @@ Orientación adicional para configurar el proveedor de identidad:
 
 ## Actualizar tu flujo de trabajo de {% data variables.product.prodname_actions %}
 
-To update your workflows for OIDC, you will need to make two changes to your YAML:
+Para actualizar tus flujos de trabajo para ODIC, necesitarás hacer dos cambios a tu YAML:
 1. Agregar ajustes de permisos para el token.
 2. Use the [`google-github-actions/auth`](https://github.com/google-github-actions/auth) action to exchange the OIDC token (JWT) for a cloud access token.
 
 ### Agregar ajustes de permisos
 
-El flujo de trabajo requerirá una configuración de `permissions` con un valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. Si solo necesitas recuperar un token de OIDC para un solo job, entonces este permiso puede configurarse dentro de dicho job. Por ejemplo:
+ {% data reusables.actions.oidc-permissions-token %}
 
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-Puede que necesites especificar permisos adicionales aquí, dependiendo de los requisitos de tu flujo de trabajo.
-
-### Requesting the access token
+### Solicitar el token de acceso
 
 The `google-github-actions/auth` action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from GCP. For more information, see the GCP [documentation](https://github.com/google-github-actions/auth).
 

@@ -101,4 +101,4 @@ For information about improving repository security, see "[Securing your reposit
 
 
 ## 参考リンク
-- "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
+- 「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」

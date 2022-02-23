@@ -18,15 +18,22 @@ shortTitle: Cobrança do fluxo de trabalho & limites
 
 ## Sobre a cobrança do {% data variables.product.prodname_actions %}
 
+{% data reusables.repositories.about-github-actions %} Para obter mais informações, consulte "[Entendendo {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" e "[Sobre {% data variables.product.prodname_actions %} para empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
+
 {% ifversion fpt or ghec %}
 {% data reusables.github-actions.actions-billing %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 {% else %}
-O uso do GitHub Actions é gratuito para {% data variables.product.prodname_ghe_server %} que usam executores auto-hospedados.
+O uso do GitHub Actions é grátis para instâncias de {% data variables.product.prodname_ghe_server %} que usam executores auto-hospedados. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
+
+
+{% ifversion fpt or ghec %}
 
 ## Disponibilidade
 
 {% data variables.product.prodname_actions %} está disponível em todos os produtos de {% data variables.product.prodname_dotcom %}, mas {% data variables.product.prodname_actions %} não está disponível para repositórios privados pertencentes a contas usando planos legados por repositório. {% data reusables.gated-features.more-info %}
+
+{% endif %}
 
 ## Limites de uso
 
@@ -66,7 +73,9 @@ Além dos limites de uso, você deve garantir que você usa {% data variables.pr
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Cobrança para fluxos de trabalho reutilizáveis
 
-Se você reutilizar um fluxo de trabalho, a cobrança será sempre associada ao fluxo de trabalho de chamadas. A atribuição de executores hospedados em {% data variables.product.prodname_dotcom %}é sempre avaliada usando apenas o contexto do invocador. O invocador não pode usar os executores hospedados em {% data variables.product.prodname_dotcom %} do repositório invocado.
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
+Se você reutilizar um fluxo de trabalho, a cobrança será sempre associada ao fluxo de trabalho de chamadas. A atribuição de executores hospedados em {% data variables.product.prodname_dotcom %} é sempre avaliada usando apenas o contexto do invocador. O invocador não pode usar os executores hospedados em {% data variables.product.prodname_dotcom %} do repositório chamado.
 
 Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}

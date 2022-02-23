@@ -25,21 +25,26 @@ Para criar um título, adicione de um a seis símbolos <kbd>#</kbd> antes do tex
 
 ![Títulos H1, H2 e H6 renderizados](/assets/images/help/writing/headings-rendered.png)
 
+Ao usar dois ou mais cabeçalhos, o GitHub gera automaticamente uma tabela de conteúdo que você pode acessar clicando em {% octicon "list-unordered" aria-label="The unordered list icon" %} dentro do cabeçalho do arquivo. Cada título do cabeçalho está listado na tabela de conteúdo e você pode clicar em um título para acessar a seção selecionada.
+
+![Captura de tela que destaca o ícone da tabela de conteúdo](/assets/images/help/repository/headings_toc.png)
+
+
 ## Estilizar texto
 
 Você pode indicar ênfase com texto em negrito, itálico ou riscado em campos de comentários e arquivos de `.md`.
 
 | Estilo                     | Sintaxe             | Atalho                                                                                | Exemplo                                      | Resultado                                  |
 | -------------------------- | ------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------ |
-| Negrito                    | `** **` ou `__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Esse texto está em negrito**`             | **Esse texto está em negrito**             |
-| Itálico                    | `* *` ou `_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Esse texto está em itálico*`               | *Esse texto está em itálico*               |
+| Negrito                    | `** **` ou `__ __`  | <kbd>Command</kbd>+<kbd>B</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**Esse texto está em negrito**`             | **Esse texto está em negrito**             |
+| Itálico                    | `* *` ou `_ _`      | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*Esse texto está em itálico*`               | *Esse texto está em itálico*               |
 | Tachado                    | `~~ ~~`             |                                                                                       | `~~Esse texto estava errado~~`               | ~~Esse texto estava errado~~               |
 | Negrito e itálico aninhado | `** **` e `_ _`     |                                                                                       | `**Esse texto é _extremamente_ importante**` | **Esse texto é _extremamente_ importante** |
 | Todo em negrito e itálico  | `*** ***`           |                                                                                       | `***Todo esse texto é importante***`         | ***Todo esse texto é importante***         |
 
 ## Citar texto
 
-You can quote text with a <kbd>></kbd>.
+Você pode citar um texto com <kbd>></kbd>.
 
 ```markdown
 Texto que não é uma citação
@@ -51,7 +56,7 @@ Texto que não é uma citação
 
 {% tip %}
 
-**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. É possível citar um comentário inteiro clicando em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **Quote reply** (Resposta à citação). Para obter mais informações sobre atalhos de teclado, consulte "[Atalhos de teclado](/articles/keyboard-shortcuts/)".
+**Dica:** Ao exibir uma conversa, você pode citar textos automaticamente em um comentário destacando o texto e digitando <kbd>R</kbd>. É possível citar um comentário inteiro clicando em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **Quote reply** (Resposta à citação). Para obter mais informações sobre atalhos de teclado, consulte "[Atalhos de teclado](/articles/keyboard-shortcuts/)".
 
 {% endtip %}
 
@@ -80,7 +85,7 @@ git commit
 
 Para obter mais informações, consulte "[Criar e destacar blocos de código](/articles/creating-and-highlighting-code-blocks)".
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## Links
 

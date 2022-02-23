@@ -23,20 +23,14 @@ topics:
   - Java
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.deprecation-codeql-runner %}
 
 ## 关于使用容器化构建的 {% data variables.product.prodname_code_scanning %}
 
 如果为编译语言设置 {% data variables.product.prodname_code_scanning %}，并且在容器化环境中构建代码，则分析可能会失败，并返回错误消息“No source code was seen during the build（在构建过程中没有看到源代码）”。 这表明 {% data variables.product.prodname_codeql %} 在代码编译过程中无法监视代码。
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-您必须在构建代码的容器中运行 {% data variables.product.prodname_codeql %}。 无论您使用的是 {% data variables.product.prodname_codeql_cli %}、{% data variables.product.prodname_codeql_runner %} 还是 {% data variables.product.prodname_actions %}，这都适用。 对于 {% data variables.product.prodname_codeql_cli %} 或 {% data variables.product.prodname_codeql_runner %}，请参阅“[在 CI 系统中安装 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)”或“[在 CI 系统中运行 {% data variables.product.prodname_codeql_runner %}](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)”以了解更多信息。 如果您使用 {% data variables.product.prodname_actions %}，请配置工作流程以在同一容器中运行所有操作。 更多信息请参阅“[示例工作流程](#example-workflow)”。
-{% else %}
-您必须在构建代码的容器中运行 {% data variables.product.prodname_codeql %}。 无论您使用的是 {% data variables.product.prodname_codeql_runner %} 还是 {% data variables.product.prodname_actions %}，这都适用。 对于 {% data variables.product.prodname_codeql_runner %}，请参阅“[在 CI 系统中运行 {% data variables.product.prodname_codeql_runner %}](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)”以了解更多信息。 如果您使用 {% data variables.product.prodname_actions %}，请配置工作流程以在同一容器中运行所有操作。 更多信息请参阅“[示例工作流程](#example-workflow)”。
-{% endif %}
+您必须在构建代码的容器中运行 {% data variables.product.prodname_codeql %}。 This applies whether you are using the {% data variables.product.prodname_codeql_cli %}{% if codeql-runner-supported %}, the {% data variables.product.prodname_codeql_runner %},{% endif %} or {% data variables.product.prodname_actions %}. For the {% data variables.product.prodname_codeql_cli %} {% if codeql-runner-supported %}or the {% data variables.product.prodname_codeql_runner %}{% endif %}, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)"{% if codeql-runner-supported %} or "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %} for more information. 如果您使用 {% data variables.product.prodname_actions %}，请配置工作流程以在同一容器中运行所有操作。 更多信息请参阅“[示例工作流程](#example-workflow)”。
 
 ## 依赖项
 
@@ -47,6 +41,14 @@ topics:
 * Windows: https://github.com/actions/virtual-environments/tree/main/images/win
 
 ## 示例工作流程
+
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container) for information on the latest features.{% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+
+{% endnote %}
+{% endif %}
 
 此示例工作流程在容器化环境中使用 {% data variables.product.prodname_actions %} 运行 {% data variables.product.prodname_codeql %} 分析。 `container.image` 的值标识要要使用的容器。 在此示例中，映像名称为 `codeql-container`，标记为 `f0f91db`。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)”。
 

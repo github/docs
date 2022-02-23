@@ -255,3 +255,8 @@ Para entender cómo funciona la facturación de las {% data variables.product.pr
 ## Contactar con soporte técnico
 
 {% data reusables.github-actions.contacting-support %}
+
+## Leer más
+
+{% ifversion ghec or ghes or ghae %}
+- "[Acerca de {% data variables.product.prodname_actions %} para empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}

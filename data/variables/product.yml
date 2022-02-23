@@ -179,6 +179,7 @@ prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot alerts'
 prodname_dependabot_security_updates: 'Dependabot security updates'
 prodname_dependabot_version_updates: 'Dependabot version updates'
+prodname_dependabot_updates: 'Dependabot updates'
 
 # GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'

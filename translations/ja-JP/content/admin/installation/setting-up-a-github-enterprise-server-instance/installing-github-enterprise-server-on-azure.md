@@ -40,12 +40,12 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. 最新の {% data variables.product.prodname_ghe_server %} アプライアンスイメージを見つけます。 `vm image list` コマンドの詳細については、Microsoft のドキュメントの「[az vm image list](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)」を参照してください。
+1. 最新の {% data variables.product.prodname_ghe_server %} アプライアンスイメージを見つけます。 For more information about the `vm image list` command, see "[`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" in the Microsoft documentation.
   ```shell
   $ az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
   ```
 
-2. 見つけたアプライアンスイメージを使用して新しい VM を作成します。 詳しい情報については、Microsoftドキュメンテーションの「[az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)」を参照してください。
+2. 見つけたアプライアンスイメージを使用して新しい VM を作成します。 For more information, see "[`az vm create`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)" in the Microsoft documentation.
 
   VM の名前、リソースグループ、VM のサイズ、優先する Azure リージョンの名前、前の手順でリストしたアプライアンスイメージ VM の名前、およびプレミアムストレージ用のストレージ SKU についてのオプションを渡します。 リソースグループに関する詳しい情報については、Microsoft ドキュメンテーションの「[Resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)」を参照してください。
 
@@ -53,7 +53,7 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
   $ az vm create -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --size <em>VM_SIZE</em> -l <em>REGION</em> --image <em>APPLIANCE_IMAGE_NAME</em> --storage-sku Premium_LRS
   ```
 
-3. 必要なポートを開くように VM でセキュリティを設定します。 詳しい情報については、Microsoft ドキュメンテーションの「[az vm open-port](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)」を参照してください。 どのポートを開く必要があるかを判断するための各ポートの説明については、以下の表を参照してください。
+3. 必要なポートを開くように VM でセキュリティを設定します。 For more information, see "[`az vm open-port`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)" in the Microsoft documentation. どのポートを開く必要があるかを判断するための各ポートの説明については、以下の表を参照してください。
 
   ```shell
   $ az vm open-port -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --port <em>PORT_NUMBER</em>
@@ -63,7 +63,7 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. Create and attach a new managed data disk to the VM, and configure the size based on your license count. All Azure managed disks created since June 10, 2017 are encrypted at rest by default with Storage Service Encryption (SSE). For more information about the `az vm disk attach` command, see "[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
+4. 暗号化されていない新しいデータディスクを作成してVMにアタッチし、ユーザライセンス数に応じてサイズを設定してください。 For more information, see "[`az vm disk attach`](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
 
   VM の名前 (`ghe-acme-corp` など)、リソースグループ、プレミアムストレージ SKU、ディスクのサイズ (`100` など)、および作成する VHD の名前についてのオプションを渡します。
 
@@ -79,7 +79,7 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
 
 ## {% data variables.product.prodname_ghe_server %} 仮想マシンを設定する
 
-1. VM を設定する前に、VMがReadyRole ステータスになるのを待つ必要があります。 VM のステータスを `vm list` コマンドで確認します。 詳しい情報については、Microsoft ドキュメンテーションの「[az vm list](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)」を参照してください。
+1. VM を設定する前に、VMがReadyRole ステータスになるのを待つ必要があります。 VM のステータスを `vm list` コマンドで確認します。 For more information, see "[`az vm list`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" in the Microsoft documentation.
   ```shell
   $ az vm list -d -g <em>RESOURCE_GROUP</em> -o table
   > Name    ResourceGroup    PowerState    PublicIps     Fqdns    Location    Zones

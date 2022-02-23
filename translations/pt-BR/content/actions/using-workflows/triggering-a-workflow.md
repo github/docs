@@ -128,9 +128,11 @@ Use a chave `on` para especificar quais eventos acionam o seu fluxo de trabalho.
 {% data reusables.github-actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
-## Defining inputs, outputs, and secrets for reusable workflows
+## Definindo entradas, saídas e segredos para fluxos de trabalho reutilizáveis
 
-You can define inputs and secrets that a reusable workflow should receive from a calling workflow. You can also specify outputs that a reusable workflow will make available to a calling workflow. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
+É possível definir entradas e segredos que um fluxo de trabalho reutilizável deve receber de um fluxo de trabalho chamado. Também é possível especificar saídas que um fluxo de trabalho reutilizável disponibilizará para um fluxo de trabalho chamado. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/using-workflows/reusing-workflows)".
 
 {% endif %}
 
@@ -140,7 +142,7 @@ As informações sobre o evento que desencadeou uma execução de fluxo de traba
 
 ### Visualizando todas as propriedades de um evento
 
-Referência à documentação de evento de webhook para propriedades comuns e cargas de exemplo. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+Referência à documentação de evento de webhook para propriedades comuns e cargas de exemplo. Para obter mais informações, consulte "[Eventos e cargas de Webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads)".
 
 Você também pode imprimir o contexto inteiro de `github.event` para ver quais propriedades estão disponíveis para o evento que acionou o seu fluxo de trabalho:
 

@@ -61,7 +61,7 @@ Organization のオーナーは、Organization 内のリポジトリのための
 
 ## ラベルの作成
 
-Anyone with write access to a repository can create a label.
+リポジトリへの書き込みアクセス権を持つユーザは、ラベルを作成できます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -74,14 +74,14 @@ Anyone with write access to a repository can create a label.
 
 ## ラベルの適用
 
-Anyone with triage access to a repository can apply and dismiss labels.
+リポジトリへのtriageアクセス権を持つユーザは、ラベルを適用及び解除できます。
 
 1. {% ifversion fpt or ghec %}Issue、Pull Request、ディスカッション{% else %}IssueあるいはPull Request{% endif %}にアクセスしてください。
 1. 右のサイドバーで、"Labels（ラベル）"の右の{% octicon "gear" aria-label="The gear icon" %}をクリックし、続いてラベルをクリックしてください !["ラベル" ドロップダウンメニュー](/assets/images/help/issues/labels-drop-down.png)
 
 ## ラベルの編集
 
-Anyone with write access to a repository can edit existing labels.
+リポジトリへの書き込みアクセス権を持つユーザは、既存のラベルを編集できます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -94,7 +94,7 @@ Anyone with write access to a repository can edit existing labels.
 
 ## ラベルの削除
 
-Anyone with write access to a repository can delete existing labels.
+リポジトリへの書き込みアクセス権を持つユーザは、既存のラベルを削除できます。
 
 ラベルを削除すると、Issue とプルリクエストからラベルが削除されます。
 
@@ -104,6 +104,6 @@ Anyone with write access to a repository can delete existing labels.
 {% data reusables.project-management.delete-label %}
 
 ## 参考リンク
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
+- 「[IssueやPull Requestのフィルタリングと検索](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)」{% ifversion fpt or ghes or ghec %}
 - 「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」{% endif %}{% ifversion fpt or ghec %}
 - 「[ラベルを使用してプロジェクトに役立つコントリビューションを促す](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)」{% endif %}

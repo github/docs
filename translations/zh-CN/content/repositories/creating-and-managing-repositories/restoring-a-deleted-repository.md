@@ -30,11 +30,11 @@ shortTitle: 恢复已删除的仓库
 
 ## 恢复用户帐户所拥有的已删除仓库
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.repo-tab %}
-{% data reusables.user_settings.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.repo-tab %}
+{% data reusables.user-settings.deleted-repos %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## 恢复组织所拥有的已删除仓库
 
@@ -42,8 +42,8 @@ shortTitle: 恢复已删除的仓库
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## 延伸阅读
 

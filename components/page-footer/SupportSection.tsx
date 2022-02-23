@@ -8,11 +8,12 @@ import { useVersion } from 'components/hooks/useVersion'
 
 export const SupportSection = () => {
   const { currentVersion } = useVersion()
-  const { enterpriseServerReleases } = useMainContext()
+  const { relativePath, enterpriseServerReleases } = useMainContext()
 
   const isDeprecated =
     enterpriseServerReleases.isOldestReleaseDeprecated &&
     currentVersion.includes(enterpriseServerReleases.oldestSupported)
+  const isEarlyAccess = relativePath?.includes('early-access/')
 
   return (
     <section className="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
@@ -22,7 +23,7 @@ export const SupportSection = () => {
             <Survey />
           </div>
         )}
-        {!isDeprecated && (
+        {!isDeprecated && !isEarlyAccess && (
           <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left pr-4 offset-xl-1">
             <Contribution />
           </div>

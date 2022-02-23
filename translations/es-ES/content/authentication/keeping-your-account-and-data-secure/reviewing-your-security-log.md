@@ -21,13 +21,11 @@ shortTitle: Registro de seguridad
 
 La bitácora de seguridad lista todas las acciones que se llevaron a cabo en los últimos 90 días.
 
-{% data reusables.user_settings.access_settings %}
-{% ifversion fpt or ghae or ghes or ghec %}
-2. En la barra lateral de la configuración de usuario, da clic en **Registro de Seguridad**. ![Pestaña de registro de seguridad](/assets/images/help/settings/audit-log-tab.png)
+{% data reusables.user-settings.access_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. En la sección de "Archivos" de la barra lateral, haz clic en **{% octicon "log" aria-label="The log icon" %} Bitácora de seguridad**.
 {% else %}
-{% data reusables.user_settings.security %}
-3. En "Security history" (Historial de seguridad) se muestra tu registro. ![Registro de seguridad](/assets/images/help/settings/user_security_log.png)
-4. Haz clic en la entrada para ver más información acerca del evento. ![Registro de seguridad](/assets/images/help/settings/user_security_history_action.png)
+1. En la barra lateral de la configuración de usuario, da clic en **Registro de Seguridad**. ![Pestaña de registro de seguridad](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
 {% ifversion fpt or ghae or ghes or ghec %}

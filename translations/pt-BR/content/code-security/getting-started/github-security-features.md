@@ -73,14 +73,20 @@ Detectar automaticamente vulnerabilidades de segurança e erros de codificação
 
 ### {% data variables.product.prodname_secret_scanning_caps %}
 
-Detectar automaticamente tokens ou credenciais que foram verificados em um repositório. {% ifversion fpt or ghec %}Para segredos identificados em repositórios públicos, informa-se ao serviço que o segredo pode ser comprometido.{% endif %}
+Detectar automaticamente tokens ou credenciais que foram verificados em um repositório. {% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} finds leaked secrets across all public repositories and informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)."{% endif %}
 {%- ifversion ghec or ghes or ghae %}
-{% ifversion ghec %}Para repositórios privados, você pode ver{% elsif ghes or ghae %}Visualizar {% endif %}qualquer segredo que {% data variables.product.company_short %} encontrou no seu código. Você deve tratar os tokens ou credenciais que foram verificados no repositório como comprometidos.{% endif %} Para obter mais informações, consulte "[Sobre a digitalização de segredo](/github/administering-a-repository/about-secret-scanning)".
+{% ifversion ghec %}In private repositories, you can view {% elsif ghes or ghae %}You can view {% endif %}any secrets that {% data variables.product.company_short %} has found in your code. Você deve tratar os tokens ou credenciais que foram verificados no repositório como comprometidos.{% endif %} Para obter mais informações, consulte "[Sobre a digitalização de segredo](/github/administering-a-repository/about-secret-scanning)".
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### Revisão de dependência
 
 Mostre o impacto completo das alterações nas dependências e veja detalhes de qualquer versão vulnerável antes de fazer merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
+{% endif %}
+
+{% ifversion ghec or ghes > 3.1 %}
+### Visão geral da segurança
+
+Revise a configuração de segurança e os alertas para sua organização e identifique os repositórios com maior risco. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
 {% endif %}
 
 ## Leia mais

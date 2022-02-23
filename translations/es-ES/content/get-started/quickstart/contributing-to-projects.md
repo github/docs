@@ -1,6 +1,6 @@
 ---
 title: Contribuir a proyectos
-intro: Learn how to contribute to a project through forking.
+intro: Aprende la forma de contribuir en un proyecto mediante la bifurcación.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
@@ -14,25 +14,25 @@ topics:
   - Open Source
 ---
 
-## About forking
+## Acerca de las bifurcaciones
 
-After using GitHub by yourself for a while, you may find yourself wanting to contribute to someone else’s project. Or maybe you’d like to use someone’s project as the starting point for your own. This process is known as forking.
+Después de utilizar GitHub tú mismo por un tiempo, puede que quieras contribuir con el proyecto de alguien más. O tal vez te gustaría utilizar el proyecto de alguien más como punto inicial de uno propio. A este proceso se le conoce como bifurcación.
 
-Creating a "fork" is producing a personal copy of someone else's project. Forks act as a sort of bridge between the original repository and your personal copy. You can submit pull requests to help make other people's projects better by offering your changes up to the original project. Forking is at the core of social coding at GitHub. Para obtener más información, consulta[Bifurcar un repositorio](/get-started/quickstart/fork-a-repo)."
+Crear una "bifurcación" es producir una copia personal del proyecto de alguien más. Las bifurcaciones son un tipo de puente entre el repositorio original y tu copia personal. Puedes emitir solicitudes de cambios para ayudar a mejorar los proyectos de otras personas al ofrecerles tus cambios para el proyecto original. La bifurcación es el núcleo del desarrollo de código social en GitHub. Para obtener más información, consulta[Bifurcar un repositorio](/get-started/quickstart/fork-a-repo)."
 
 ## Bifurcar un repositorio
 
 Este tutorial utiliza [el proyecto Spoon-Knife](https://github.com/octocat/Spoon-Knife), un repositorio de prueba que se hospeda en {% data variables.product.prodname_dotcom_the_website %} y te permite probar el flujo de trabajo de la bifurcación y solicitud de cambios.
 
-1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
-2. Click **Fork**. ![Botón Bifurcar](/assets/images/help/repository/fork_button.jpg)
-1. {% data variables.product.product_name %} will take you to your copy (your fork) of the Spoon-Knife repository.
+1. Navega al proyecto `Spoon-Knife` en https://github.com/octocat/Spoon-Knife.
+2. Haz clic en **Bifurcar**. ![Botón Bifurcar](/assets/images/help/repository/fork_button.jpg)
+1. {% data variables.product.product_name %} te llevará a tu copia (tu bifurcación) del repositorio Spoon-Knife.
 
-## Cloning a fork
+## Clonar una bifurcación
 
-You've successfully forked the Spoon-Knife repository, but so far, it only exists on {% data variables.product.product_name %}. To be able to work on the project, you will need to clone it to your computer.
+Bifucrcaste el repositorio Spoon-Knife exitosamente pero, hasta ahora, solo existe en {% data variables.product.product_name %}. Para poder trabajar en el proyecto, necesitarás clonarlo en tu computadora.
 
-You can clone your fork with the command line, {% data variables.product.prodname_cli %}, or {% data variables.product.prodname_desktop %}.
+Puedes clonar tu bifurcación con la línea de comandos, el {% data variables.product.prodname_cli %} o {% data variables.product.prodname_desktop %}.
 
 {% webui %}
 
@@ -79,9 +79,9 @@ gh repo fork <em>repository</em> --clone=true
 
 {% enddesktop %}
 
-## Making and pushing changes
+## Hacer y subir cambios
 
-Go ahead and make a few changes to the project using your favorite text editor, like [Atom](https://atom.io). You could, for example, change the text in `index.html` to add your GitHub username.
+Puedes proceder y hacer algunos cambios al proyecto utilizando tu editor de texto favorito, como [Atom](https://atom.io). You could, for example, change the text in `index.html` to add your GitHub username.
 
 When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
 

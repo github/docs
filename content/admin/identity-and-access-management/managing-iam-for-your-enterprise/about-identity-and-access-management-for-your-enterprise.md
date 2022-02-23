@@ -26,6 +26,8 @@ redirect_from:
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
 
+{% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
+
 After you enable SAML SSO, depending on the IdP you use, you may be able to enable additional identity and access management features. {% data reusables.scim.enterprise-account-scim %}
 
 If you use Azure AD as your IDP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[Managing team synchronization for organizations in your enterprise account](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
@@ -46,7 +48,7 @@ IdP | SAML | Team synchronization |
 --- | :--: | :-------: |
 Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %}  | |
 Azure Active Directory (Azure AD) | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %} |
-Okta | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %} |
+Okta | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
 OneLogin | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
 PingOne | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
 Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |

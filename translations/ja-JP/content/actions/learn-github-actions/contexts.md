@@ -73,7 +73,7 @@ The following table indicates where each context and special function can be use
 | <code>concurrency</code>  | <code>github, inputs</code>  |                            |
 | <code>env</code>  | <code>github, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.concurrency</code>  | <code>github, needs, strategy, matrix, inputs</code>  |                            |
-| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix, inputs</code>  |                            |
+| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container.credentials</code>  | <code>github, needs, strategy, matrix, env, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
@@ -393,7 +393,7 @@ The `steps` context contains information about the steps in the current job that
 | プロパティ名                                              | 種類       | 説明                                                                                                                                                                                                                                                                                 |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `steps`                                             | `オブジェクト` | このコンテキストは、ジョブのステップごとに異なります。 このコンテキストには、ジョブのあらゆるステップからアクセスできます。 This object contains all the properties listed below.                                                                                                                                                               |
-| `steps.<step_id>.outputs`                     | `オブジェクト` | ステップに定義された出力のセット。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/articles/metadata-syntax-for-github-actions#outputs)」を参照してください。                                                                                                                            |
+| `steps.<step_id>.outputs`                     | `オブジェクト` | ステップに定義された出力のセット。 For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."                                                               |
 | `steps.<step_id>.conclusion`                  | `string` | [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error)が適用された後に完了したステップの結果。 `success`、`failure`、`cancelled`、`skipped`のいずれかの値をとります。 `continue-on-error`のステップが失敗すると、`outcome`は`failure`になりますが、最終的な`conclusion`は`success`になります。 |
 | `steps.<step_id>.outcome`                     | `string` | [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error)が適用される前の完了したステップの結果。 `success`、`failure`、`cancelled`、`skipped`のいずれかの値をとります。 `continue-on-error`のステップが失敗すると、`outcome`は`failure`になりますが、最終的な`conclusion`は`success`になります。 |
 | `steps.<step_id>.outputs.<output_name>` | `string` | 特定の出力の値。                                                                                                                                                                                                                                                                           |
@@ -710,6 +710,8 @@ jobs:
 The `inputs` context contains input properties passed to a reusable workflow. The input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow.
 
 There are no standard properties in the `inputs` context, only those which are defined in the reusable workflow file.
+
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 
 For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)".
 

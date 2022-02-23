@@ -9,8 +9,6 @@ translations/es-ES/content/account-and-profile/setting-up-and-managing-your-gith
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings.md,Listed in localization-support#489
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts.md,Listed in localization-support#489
 translations/es-ES/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository.md,Listed in localization-support#489
-translations/es-ES/content/actions/advanced-guides/storing-workflow-data-as-artifacts.md,Listed in localization-support#489
-translations/es-ES/content/actions/advanced-guides/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/es-ES/content/actions/automating-builds-and-tests/about-continuous-integration.md,broken liquid tags
 translations/es-ES/content/actions/automating-builds-and-tests/building-and-testing-powershell.md,Listed in localization-support#489
 translations/es-ES/content/actions/automating-builds-and-tests/building-and-testing-python.md,Listed in localization-support#489
@@ -39,9 +37,7 @@ translations/es-ES/content/actions/security-guides/automatic-token-authenticatio
 translations/es-ES/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,Listed in localization-support#489
 translations/es-ES/content/actions/using-github-hosted-runners/customizing-github-hosted-runners.md,Listed in localization-support#489
 translations/es-ES/content/actions/using-workflows/workflow-syntax-for-github-actions.md,broken liquid tags
-translations/es-ES/content/admin/advanced-security/configuring-code-scanning-for-your-appliance.md,broken liquid tags
-translations/es-ES/content/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise.md,Listed in localization-support#489
-translations/es-ES/content/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise.md,Listed in localization-support#489
+translations/es-ES/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
@@ -57,7 +53,6 @@ translations/es-ES/content/admin/enterprise-management/updating-the-virtual-mach
 translations/es-ES/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,Listed in localization-support#489
 translations/es-ES/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,Listed in localization-support#489
 translations/es-ES/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/index.md,Listed in localization-support#489
-translations/es-ES/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates.md,Listed in localization-support#489
 translations/es-ES/content/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect.md,Listed in localization-support#489
 translations/es-ES/content/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom.md,Listed in localization-support#489
 translations/es-ES/content/admin/github-actions/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions.md,Listed in localization-support#489
@@ -93,6 +88,7 @@ translations/es-ES/content/billing/managing-billing-for-github-advanced-security
 translations/es-ES/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,Listed in localization-support#489
 translations/es-ES/content/billing/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts.md,broken liquid tags
 translations/es-ES/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
+translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,Listed in localization-support#489
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,broken liquid tags
@@ -100,7 +96,6 @@ translations/es-ES/content/code-security/code-scanning/automatically-scanning-yo
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/index.md,Listed in localization-support#489
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/index.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,Listed in localization-support#489
-translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,Listed in localization-support#489
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,Listed in localization-support#489
@@ -180,6 +175,7 @@ translations/es-ES/content/education/manage-coursework-with-github-classroom/tea
 translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment.md,Listed in localization-support#489
 translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment.md,Listed in localization-support#489
 translations/es-ES/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests.md,Listed in localization-support#489
+translations/es-ES/content/get-started/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,broken liquid tags
 translations/es-ES/content/get-started/onboarding/getting-started-with-github-enterprise-cloud.md,Listed in localization-support#489
 translations/es-ES/content/get-started/onboarding/getting-started-with-github-enterprise-cloud.md,broken liquid tags
 translations/es-ES/content/get-started/quickstart/be-social.md,Listed in localization-support#489
@@ -196,7 +192,6 @@ translations/es-ES/content/get-started/using-github/github-command-palette.md,Li
 translations/es-ES/content/get-started/using-github/keyboard-shortcuts.md,Listed in localization-support#489
 translations/es-ES/content/github-cli/github-cli/github-cli-reference.md,Listed in localization-support#489
 translations/es-ES/content/github/copilot/index.md,Listed in localization-support#489
-translations/es-ES/content/github/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,broken liquid tags
 translations/es-ES/content/github/index.md,Listed in localization-support#489
 translations/es-ES/content/github/site-policy/coordinated-disclosure-of-security-vulnerabilities.md,Listed in localization-support#489
 translations/es-ES/content/github/site-policy/github-bug-bounty-program-legal-safe-harbor.md,Listed in localization-support#489
@@ -209,8 +204,6 @@ translations/es-ES/content/issues/tracking-your-work-with-issues/creating-an-iss
 translations/es-ES/content/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests.md,Listed in localization-support#489
 translations/es-ES/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,Listed in localization-support#489
 translations/es-ES/content/organizations/collaborating-with-groups-in-organizations/about-organizations.md,Listed in localization-support#489
-translations/es-ES/content/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization.md,Listed in localization-support#489
-translations/es-ES/content/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization.md,Listed in localization-support#489
 translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization.md,Listed in localization-support#489
 translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator.md,broken liquid tags
 translations/es-ES/content/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization.md,Listed in localization-support#489

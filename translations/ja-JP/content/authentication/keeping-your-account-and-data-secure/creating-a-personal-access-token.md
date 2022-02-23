@@ -8,6 +8,7 @@ redirect_from:
   - /github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
   - /github/authenticating-to-github/creating-a-personal-access-token
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
+  - /github/extending-github/git-automation-with-oauth-tokens
 versions:
   fpt: '*'
   ghes: '*'
@@ -29,17 +30,17 @@ shortTitle: Create a PAT
 
 {% ifversion fpt or ghec %}PAT を使用して、SAML SSO を使用する Organization が所有するリソースにアクセスする場合は、PAT を認証する必要があります。 For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)" and "[Authorizing a personal access token for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
-{% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user-settings.removes-personal-access-tokens %}{% endif %}
 
 A token with no assigned scopes can only access public information. トークンを使用してコマンドラインからリポジトリにアクセスするには、[`repo`] を選択します。 For more information, see "[Available scopes](/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
 
 ## トークンの作成
 
 {% ifversion fpt or ghec %}1. まだ検証していない場合は[メールアドレスを検証](/github/getting-started-with-github/verifying-your-email-address)します。{% endif %}
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-{% data reusables.user_settings.personal_access_tokens %}
-{% data reusables.user_settings.generate_new_token %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.personal_access_tokens %}
+{% data reusables.user-settings.generate_new_token %}
 5. トークンにわかりやすい名前を付けます。 ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
 6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker. ![Token expiration field](/assets/images/help/settings/token_expiration.png){% endif %}
 7. このトークンに付与するスコープ、すなわち権限を選択します。 トークンを使用してコマンドラインからリポジトリにアクセスするには、[**repo**] を選択します。

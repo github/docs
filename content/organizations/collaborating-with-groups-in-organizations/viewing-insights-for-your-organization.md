@@ -29,7 +29,7 @@ You can use organization activity insights to help you better understand how mem
 With organization activity insights you can view weekly, monthly, and yearly data visualizations of your entire organization or specific repositories, including issue and pull request activity, top languages used, and cumulative information about where your organization members spend their time.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 3. Under your organization name, click {% octicon "graph" aria-label="The bar graph icon" %} **Insights**.
   ![Click the organization insights tab](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. Optionally, in the upper-right corner of the page, choose to view data for the last **1 week**, **1 month**, or **1 year**.
@@ -48,7 +48,7 @@ With organization activity insights you can view weekly, monthly, and yearly dat
 With dependency insights you can view vulnerabilities, licenses, and other important information for the open source projects your organization depends on.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 3. Under your organization name, click {% octicon "graph" aria-label="The bar graph icon" %} **Insights**.
   ![Insights tab in the main organization navigation bar](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. To view dependencies for this organization, click **Dependencies**.

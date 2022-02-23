@@ -5,7 +5,7 @@
 <ul class="list-style-none pl-0">
 <li class="border-top mt-2">
 <p class="mt-2"><code>{{ arg.name }}</code> (<code><a href="/{{ currentLanguage }}{{ arg.type.href }}">{{ arg.type.name }}</a></code>)</p>
-<p>{{ arg.description }}</p>
+{{ arg.description }}
 {% if arg.defaultValue or arg.defaultValue == false %}<p>The default value is <code>{{ arg.defaultValue }}</code>.</p>{% endif %}
 </li>
 </ul>

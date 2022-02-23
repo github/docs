@@ -27,10 +27,17 @@ topics:
   - Java
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
+
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Nota:** Este artículo describe las características disponibles con la versión de la acción de CodeQL y el paquete asociado del CLI de CodeQL que se incluye en el lanzamiento inicial de esta versión de {% data variables.product.product_name %}. Si tu empresa utiliza una versión más reciente de la acción de CodeQL, consulta el [ artículo de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) para obtener más información sobre las últimas características. {% ifversion not ghae %} Para obtener más información sobre cómo utilizar la última versión, consulta la sección "[Configurar el escaneo de código para tu aplicativo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
+
+{% endnote %}
+{% endif %}
 
 ## Producir bitácoras detalladas para la depuración
 
@@ -139,7 +146,7 @@ Si tu análisis de {% data variables.product.prodname_codeql %} escanea menos l�
 Reemplaza el paso `autobuild` con los mismos comandos de compilación que utilizarías en producción. Esto garantiza que {% data variables.product.prodname_codeql %} sepa exactamente cómo compilar todos los archivos de código fuente que quieras escanear. Para obtener más información, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
 ### Inspecciona la copia de los archivos de código fuente en la base de datos de {% data variables.product.prodname_codeql %}
-Podrías entender por qué algunos archivos de código fuente no se ha analizado si inspeccionas la copia del código fuente que se incluye utilizando la base de datos de {% data variables.product.prodname_codeql %}. To obtain the database from your Actions workflow, modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
+Podrías entender por qué algunos archivos de código fuente no se ha analizado si inspeccionas la copia del código fuente que se incluye utilizando la base de datos de {% data variables.product.prodname_codeql %}. Para obtener la base de datos de tu flujo de trabajo de Acciones, modifica el paso `init` de tu flujo de trabajo de {% data variables.product.prodname_codeql %} y configura `debug: true`.
 
 ```yaml
 - name: Initialize CodeQL
@@ -191,6 +198,19 @@ Si divides tu análisis en varios flujos de trabajo como se describió anteriorm
 
 Si tu análisis aún es muy lento como para ejecutarse durante eventos de `push` o de `pull_request`, entonces tal vez quieras activar el análisis únicamente en el evento de `schedule`. Para obtener más información, consulta la sección "[Eventos](/actions/learn-github-actions/introduction-to-github-actions#events)".
 
+### Verificar qué suites de consultas ejecuta el flujo de trabajo
+
+Predeterminadamente, existen tres suites de consultas principales disponibles para cada lenguaje. Si optimizaste la compilación de la base de datos de CodeQL y el proceso aún es demasiado largo, podrías reducir la cantidad de consultas que ejecutas. La suite de consultas predeterminada se ejecuta automáticamente; esta contiene las consultas de seguridad más rápidas con las tasas más bajas de resultados falsos positivos.
+
+Podrías estar ejecutando consultas o suites de consultas adicionales además de aquellas predeterminadas. Verifica si el flujo de trabajo define una consulta o suite de consultas adicionales a ejecutar utilizando el elemento `queries`. Puedes probar el inhabilitar la consulta o suite de consultas adicionales. Para obtener más información, consulta "[Configurar {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)".
+
+{% if codeql-ml-queries %}
+{% note %}
+
+**Nota:** Si ejecutas la suite de consultas `security-extended` o `security-and-quality` para JavaScript, entonces algunas consultas utilizarán tecnología experimental. Para obtener más información, consulta la sección "[Acerca de las alertas del escaneo de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)".
+{% endnote %}
+{% endif %}
+
 {% ifversion fpt or ghec %}
 ## Los resultados difieren de acuerdo con la plataforma de análisis
 
@@ -206,7 +226,7 @@ Si la ejecución de un flujo de trabajo para {% data variables.product.prodname_
 
 ## Error: "Out of disk" o "Out of memory"
 
-En proyectos muy grandes, el {% data variables.product.prodname_codeql %} podría quedarse sin memoria o sin espacio de almacenamiento en el ejecutor.
+En proyectos muy grandes, {% data variables.product.prodname_codeql %} podría quedarse sin memoria o espacio de disco en el ejecutor.
 {% ifversion fpt or ghec %}Si te encuentras con este problema en un ejecutor de {% data variables.product.prodname_actions %}, contacta a {% data variables.contact.contact_support %} para que podamos investigar el problema.
 {% else %}Si llegas a tener este problema, intenta incrementar la memoria en el ejecutor.{% endif %}
 

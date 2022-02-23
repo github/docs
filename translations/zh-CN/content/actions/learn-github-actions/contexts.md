@@ -73,7 +73,7 @@ As part of an expression, you can access context information using one of two sy
 | <code>concurrency</code>  | <code>github, inputs</code>  |                            |
 | <code>env</code>  | <code>github, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.concurrency</code>  | <code>github, needs, strategy, matrix, inputs</code>  |                            |
-| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix, inputs</code>  |                            |
+| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container.credentials</code>  | <code>github, needs, strategy, matrix, env, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
@@ -393,7 +393,7 @@ The `steps` context contains information about the steps in the current job that
 | 属性名称                                                | 类型    | 描述                                                                                                                                                                                                                                                                 |
 | --------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `steps`                                             | `对象`  | 此上下文针对作业中的每个步骤而改变。 您可以从作业中的任何步骤访问此上下文。 This object contains all the properties listed below.                                                                                                                                                                       |
-| `steps.<step_id>.outputs`                     | `对象`  | 为步骤定义的输出集。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions#outputs)”。                                                                                                                                  |
+| `steps.<step_id>.outputs`                     | `对象`  | 为步骤定义的输出集。 For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."                                                      |
 | `steps.<step_id>.conclusion`                  | `字符串` | 在 [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) 应用之后完成的步骤的结果。 可能的值包括 `success`、`failure`、`cancelled` 或 `skipped`。 当 `continue-on-error` 步骤失败时，`outcome` 为 `failure`，但最终的 `conclusion` 为 `success`。 |
 | `steps.<step_id>.outcome`                     | `字符串` | 在 [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) 应用之前完成的步骤的结果。 可能的值包括 `success`、`failure`、`cancelled` 或 `skipped`。 当 `continue-on-error` 步骤失败时，`outcome` 为 `failure`，但最终的 `conclusion` 为 `success`。 |
 | `steps.<step_id>.outputs.<output_name>` | `字符串` | 特定输出的值。                                                                                                                                                                                                                                                            |
@@ -710,6 +710,8 @@ jobs:
 The `inputs` context contains input properties passed to a reusable workflow. The input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow.
 
 There are no standard properties in the `inputs` context, only those which are defined in the reusable workflow file.
+
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 
 For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)".
 

@@ -32,14 +32,14 @@ From least access to most access, the roles for an organization repository are:
 {% ifversion fpt %}
 If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can create custom repository roles. For more information, see "[Managing custom repository roles for an organization](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 {% elsif ghec %}
-You can create custom repository roles. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+You can create custom repository roles. 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
 {% endif %}
 
 组织所有者可以在访问组织的任何仓库时设置适用于组织所有成员的基本权限。 更多信息请参阅“[设置组织的基本权限](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)”。
 
 组织所有者还可以选择进一步限制对整个组织中某些设置和操作的权限。 有关特定设置选项的更多信息，请参阅“[管理组织设置](/articles/managing-organization-settings)”。
 
-In addition to managing organization-level settings, organization owners have admin access to every repository owned by the organization. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+In addition to managing organization-level settings, organization owners have admin access to every repository owned by the organization. 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
 {% warning %}
 
