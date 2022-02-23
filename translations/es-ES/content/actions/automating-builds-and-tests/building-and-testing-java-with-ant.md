@@ -88,7 +88,7 @@ Puedes usar los mismos comandos que usas de forma local para construir y probar 
 
 El flujo de trabajo de inicio ejecutará el destino predeterminado especificado en tu archivo _build.xml_.  Normalmente, tu objetivo predeterminado se configurará para crear clases, ejecutar pruebas y empaquetar clases en su formato distribuible, por ejemplo, un archivo JAR.
 
-Si usas diferentes comandos para construir tu proyecto, o si deseas ejecutar un objetivo diferente, puedes especificarlos. For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
+Si usas diferentes comandos para construir tu proyecto, o si deseas ejecutar un objetivo diferente, puedes especificarlos. Por ejemplo, es posible que desees ejecutar el destino `jar` que está configurado en tu archivo `-ci.xml_`.
 
 {% raw %}
 ```yaml{:copy}

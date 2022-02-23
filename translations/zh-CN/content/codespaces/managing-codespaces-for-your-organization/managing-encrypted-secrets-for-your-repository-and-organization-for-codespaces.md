@@ -41,7 +41,7 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
+1. 在侧边栏的“Security（安全性）”部分中，选择 **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} 机密** 然后单击 **{% data variables.product.prodname_codespaces %}**。
 2. 在页面顶部，单击 **New repository secret（新仓库密钥）**。
 3. 在 **Name（名称）**输入框中键入密码的名称。
 4. 输入密码的值。
@@ -55,7 +55,7 @@ topics:
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
+1. 在侧边栏的“Security（安全性）”部分中，选择 **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} 机密** 然后单击 **{% data variables.product.prodname_codespaces %}**。
 2. 在页面顶部，单击 **New organization secret（新组织密钥）**。
 3. 在 **Name（名称）**输入框中键入密码的名称。
 4. 输入密码的 **Value（值）**。
@@ -74,4 +74,4 @@ topics:
 
 ## 延伸阅读
 
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
+- "[管理代码空间的加密机密](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"

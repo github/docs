@@ -20,8 +20,8 @@ shortTitle: View your usage
 
 Anyone can view {% data variables.product.prodname_registry %} usage for their own user account.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}

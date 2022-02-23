@@ -32,7 +32,7 @@ Por padrão, {% data variables.product.prodname_actions %} não está habilitado
 
 {% data reusables.actions.migrating-enterprise %}
 
-## Review hardware requirements
+## Revisar os requisitos de hardware
 
 {% ifversion ghes = 3.0 %}
 

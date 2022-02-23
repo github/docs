@@ -73,6 +73,8 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Billing for reusable workflows
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
 
 For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
@@ -80,7 +82,7 @@ For more information see, "[Reusing workflows](/actions/learn-github-actions/reu
 
 ## 成果物とログの保持ポリシー
 
-リポジトリ、Organization、または Enterprise アカウントの成果物とログの保持期間を設定できます。
+You can configure the artifact and log retention period for your repository, organization, or enterprise account.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
@@ -101,7 +103,7 @@ For more information see, "[Reusing workflows](/actions/learn-github-actions/reu
 
 ## ワークフローの無効化と有効化
 
-{% data variables.product.prodname_dotcom %} のリポジトリで個々のワークフローを有効化または無効化できます。
+You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 

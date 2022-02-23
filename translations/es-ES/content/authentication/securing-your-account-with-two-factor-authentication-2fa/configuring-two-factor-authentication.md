@@ -50,8 +50,8 @@ Una aplicación de contraseña única basada en el tiempo (TOTP) genera automát
 {% endtip %}
 
 1. Descargar una app TOTP.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 {%- ifversion fpt or ghes > 3.1 %}
 5. Debajo de "Autenticación bifactorial", selecciona **Configurar utilizando una app** y haz clic en **Continuar**.
@@ -88,8 +88,8 @@ Antes de usar este método, asegúrate de que puedes recibir mensajes de texto. 
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 4. Debajo de la "Autenticación bifactorial", selecciona **Configurar utilizando SMS** y haz clic en **Continuar**.
 5. Debajo de "Verificación de autenticación", selecciona el código de tu país y teclea tu número de teléfono móvil, incluyendo el código de área. Cuando la información es correcta, haz clic en **Send authentication code** (Enviar código de autenticación).
@@ -114,8 +114,8 @@ La autenticación con una clave de seguridad es *secundaria* para la autenticaci
 
 1. Ya debes tener configurado 2FA mediante una app móvil TOTP{% ifversion fpt or ghec %} o mediante SMS{% endif %}.
 2. Asegúrate de que tengas una llave de seguridad compatible con WebAuthn insertada en tu computadora.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 5. Al lado de "Security keys" (Claves de seguridad), haz clic en **Add** (Agregar). ![Agrega la opción de las claves de seguridad](/assets/images/help/2fa/add-security-keys-option.png)
 6. En "Security keys" (Claves de seguridad), haz clic en **Register new security key** (Registrar clave de seguridad nueva). ![Registrar una nueva clave de seguridad](/assets/images/help/2fa/security-key-register.png)
 7. Escribe un sobrenombre para la clave de seguridad, luego haz clic en **Add** (Agregar). ![Porporcionar un sobrenombre para una clave de seguridad](/assets/images/help/2fa/security-key-nickname.png)

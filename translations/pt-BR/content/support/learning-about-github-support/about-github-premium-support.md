@@ -54,7 +54,8 @@ Há dois {% data variables.contact.premium_support %} planos: Premium e Premium 
   {% note %}
 
   **Notas:**
-  - As verificações agendadas são limitadas a uma organização por trimestre. Você pode adicionar verificações programadas para organizações adicionais a qualquer momento por uma taxa adicional [entrando em contato com nossa equipe de gerenciamento de conta](https://enterprise.github.com/contact) ou ligando para [+1 (877) 448-4820](tel:+1-877-448-4820).
+  - As verificações agendadas são limitadas a uma organização por trimestre. You can add scheduled checks for additional organizations at any time for an additional fee by [contacting our account management team](https://enterprise.github.com/contact) or calling [+1 (877) 448-4820](tel:+1-877-448-4820).{% ifversion ghes %}
+  - You can generate a Health Check at any time by uploading a support bundle. For more information, see "[Generating a Health Check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)."{% endif %}
   - Para o {% data variables.product.premium_plus_support_plan %}, 50% dos serviços gerenciados não utilizados vão para o próximo mês e expiram no final do trimestre.
   - Os proprietários das empresas e os gerentes de cobrança têm automaticamente direito a suporte. Os proprietários das empresas podem adicionar direitos de suporte aos integrantes de organizações pertencentes à sua conta corporativa. Para obter mais informações, consulte "[Gerenciar direitos de suporte para a sua empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)".
 

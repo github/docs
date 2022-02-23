@@ -48,7 +48,7 @@ shortTitle: Ver visão geral de segurança
 ## Visualizar a visão geral de segurança de uma equipe
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}

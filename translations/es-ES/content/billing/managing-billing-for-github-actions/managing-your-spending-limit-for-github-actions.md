@@ -37,8 +37,8 @@ Ya que no has habilitado los excedentes, tu siguiente intento de crear un artefa
 
 Cualquiera puede administrar el límite de gastos de {% data variables.product.prodname_actions %} para su propia cuenta de usuario.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

@@ -30,8 +30,8 @@ You can enable a fixed-width font in every comment field on {% data variables.pr
 
 ![Screenshot showing the {% data variables.product.product_name %} comment field with fixed-width fonts enabled](/assets/images/help/writing/fixed-width-example.png)
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.appearance-settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.appearance-settings %}
 1. Under "Markdown editor font preference", select **Use a fixed-width (monospace) font when editing Markdown**.
   ![Screenshot showing the {% data variables.product.product_name %} comment field with fixed width fonts enabled](/assets/images/help/writing/enable-fixed-width.png)
 

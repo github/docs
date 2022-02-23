@@ -27,8 +27,8 @@ To remove yourself from your organization:
  - As an organization member or owner, see "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization/)."
  - As an outside collaborator, ask an organization owner or repository administrator to remove you from the organization's repositories. For more information, see "[Viewing people's roles in an organization](/articles/viewing-people-s-roles-in-an-organization)" and "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository/)."
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. Click **Disable**.
   ![Disable two-factor authentication button](/assets/images/help/2fa/disable-two-factor-authentication.png)
 

@@ -145,7 +145,7 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 {% data reusables.getting-started.customizing-and-automating %}
 
 {% ifversion fpt or ghec %}
-### 1. Using {% data variables.product.prodname_marketplace %}
+### 1. 使用 {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
 {% endif %}
 ### {% ifversion fpt or ghec %}2.{% else %}1.{% endif %} Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
@@ -172,11 +172,11 @@ A large part of building securely is maintaining your project's dependencies to 
 For more information, see "[Securing your software supply chain](/code-security/supply-chain-security)."
 {% endif %}
 
-## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
+## 第 6 部分：参与 {% data variables.product.prodname_dotcom %} 的社区
 
 {% data reusables.getting-started.participating-in-community %}
 
-### 1. Contributing to open source projects
+### 1. 为开源项目做贡献
 {% data reusables.getting-started.open-source-projects %}
 
 ### 2. Interacting with {% data variables.product.prodname_gcf %}

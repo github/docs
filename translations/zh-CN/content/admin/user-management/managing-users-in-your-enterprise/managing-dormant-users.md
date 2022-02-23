@@ -54,14 +54,14 @@ topics:
 
 {% warning %}
 
-**Note:** During the private beta, ongoing improvements to the report download feature may limit its availability.
+**注意：** 在私人测试期间，对报告下载功能的持续改进可能会限制其可用性。
 
 {% endwarning %}
 
-## Downloading the dormant users report from your enterprise account
+## 从企业帐户下载休眠用户报告
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. To download your Dormant Users (beta) report as a CSV file, under "Other", click {% octicon "download" aria-label="The Download icon" %} **Download**. ![Download button under "Other" on the Compliance page](/assets/images/help/business-accounts/dormant-users-download-button.png)
+1. 要将休眠用户（测试版）报告下载为 CSV 文件，请在“Other（其他）”下点击 {% octicon "download" aria-label="The Download icon" %} **Download（下载）**。 ![Compliance（合规）页面上"Other（其他）"下的 Download（下载）按钮](/assets/images/help/business-accounts/dormant-users-download-button.png)
 
 {% endif %}

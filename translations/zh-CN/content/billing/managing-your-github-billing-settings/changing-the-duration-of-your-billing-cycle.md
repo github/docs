@@ -23,8 +23,8 @@ shortTitle: 结算周期
 
 ## 更改个人帐户结算周期的时长
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 

@@ -42,8 +42,8 @@ Ao atualizar a assinatura de uma conta, a atualização altera as funcionalidade
 
 Você pode atualizar sua conta pessoal de {% data variables.product.prodname_free_user %} para {% data variables.product.prodname_pro %} para ter ferramentas avançadas de revisão de código em repositórios privados pertencentes à sua conta de usuário. A atualização de sua conta pessoal não afeta nenhuma organização que você possa gerenciar ou repositórios pertencentes a essas organizações. {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. Ao lado de "Plano atual", clique em **Atualizar**. ![Botão Upgrade (Atualizar)](/assets/images/help/billing/settings_billing_user_upgrade.png)
 2. Em "Pro" na página "Comparar planos", clique em **Fazer atualização para Pro**.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}

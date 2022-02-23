@@ -54,7 +54,7 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" não ser�
 ## Configurando notificações da equipe
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
@@ -68,7 +68,7 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" não ser�
 
 ## Configurando atribuição automática
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
@@ -92,7 +92,7 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" não ser�
 
 ## Desabilitando a atribuição automática
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 1. Selecione **Habilitar atribuição automática** para remover a marca. ![Botão da atribuição da revisão de código](/assets/images/help/teams/review-assignment-enable.png)

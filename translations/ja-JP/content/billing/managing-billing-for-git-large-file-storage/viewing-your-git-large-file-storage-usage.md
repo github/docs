@@ -22,8 +22,8 @@ shortTitle: Git LFSの使用状況の表示
 
 ## 個人アカウントのストレージと帯域幅の使用状況を表示する
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
 ## Organization のストレージと帯域幅の使用状況を表示する

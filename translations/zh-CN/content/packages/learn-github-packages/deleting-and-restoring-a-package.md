@@ -211,7 +211,7 @@ HOSTNAME/graphql
 
 如果包在您的一个仓库中或范围限于您的用户帐，则您可以通过用户帐户设置恢复已删除的包。 更多信息请参阅“[必需权限](#required-permissions-to-delete-or-restore-a-package)”。
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. 在左侧，单击 **Packages（包）**。
 4. 在“Deleted Packages（已删除的包）”下要恢复的包旁边，单击 **Restore（恢复）**。 ![恢复按钮](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. 要确认，请输入包名称，然后单击**I understand the consequences, restore this package（我明白后果，恢复此包）**。 ![恢复包确认按钮](/assets/images/help/package-registry/type-package-name-and-restore-button.png)

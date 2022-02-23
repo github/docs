@@ -34,7 +34,7 @@ Roles work differently for different types of accounts. For more information abo
 Organization のメンバーは、*owner (オーナー)*{% ifversion fpt or ghec %}、*billing manager (支払いマネージャー)*、{% endif %}あるいは*member (メンバー)* ロールを持つことができます。 オーナーは、Organization に対する完全な管理者アクセスを持ち{% ifversion fpt or ghec %}、支払いマネージャーは支払いの設定を管理でき{% endif %}ます。 メンバーは、その他の人のデフォルトのロールです。 Team を使って、複数のメンバーのアクセス権限を一度に管理できます。 詳しい情報については、以下を参照してください。
 - "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
 - [Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- 「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」
 - [Team について](/articles/about-teams)
 
 ## Enterprise アカウント

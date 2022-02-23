@@ -46,7 +46,7 @@ shortTitle: セキュリティアドバイザリ
 
 {% data variables.product.prodname_security_advisories %} は、共通脆弱性識別子(CVE) リストに基づいています。 {% data variables.product.prodname_dotcom %}上のセキュリティアドバイザリフォームは、CVEの記述フォーマットにマッチする標準化されたフォームです。
 
-{% data variables.product.prodname_dotcom %} は CVE Numbering Authority (CNA) であり、CVE 識別番号を割り当てる権限があります。 詳細については、CVE Web サイトの「[CVE について](https://cve.mitre.org/about/index.html)」および「[CVE Numbering Authorities](https://cve.mitre.org/cve/cna.html)」を参照してください。
+{% data variables.product.prodname_dotcom %} は CVE Numbering Authority (CNA) であり、CVE 識別番号を割り当てる権限があります。 詳細については、CVE Web サイトの「[CVE について](https://www.cve.org/About/Overview)」および「[CVE Numbering Authorities](https://www.cve.org/ProgramOrganization/CNAs)」を参照してください。
 
 {% data variables.product.prodname_dotcom %} でパブリックリポジトリのセキュリティアドバイザリを作成する場合、セキュリティの脆弱性に対する既存の CVE 識別番号を提供するオプションがあります。 {% data reusables.repositories.request-security-advisory-cve-id %}
 
