@@ -171,3 +171,7 @@ For more information about the available settings for `devcontainer.json`, see [
    - To diagnose the error by reviewing the creation logs, click **View creation log**.
    - To fix the errors identified in the logs, update your `devcontainer.json` file.
    - To apply the changes, rebuild your container. 
+
+## Further reading
+
+- "[Prebuilding your codespaces](/codespaces/prebuilding-your-codespaces)"
