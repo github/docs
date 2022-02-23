@@ -16,7 +16,8 @@ export default rateLimit({
   max: 100,
 
   handler: (request, response, next, options) => {
-    const tags = [`url:${request.url}`, `ip:${request.ip}`]
+    const ip = request.headers['x-forwarded-for'] || request.ip
+    const tags = [`url:${request.url}`, `ip:${ip}`]
     statsd.increment('rate_limit', 1, tags)
     // NOTE! At the time of writing, the actual rate limiting is disabled!
     // At least we can start recording how often this happens in Datadog.
