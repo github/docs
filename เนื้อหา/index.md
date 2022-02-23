@@ -1,3 +1,5 @@
+[supported_devices.csv](https://github.com/github/docs/files/8121467/supported_devices.csv)
+[supported_devices.csv](https://github.com/github/docs/files/8121473/supported_devices.csv)
 ---
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
