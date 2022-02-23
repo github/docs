@@ -89,6 +89,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 
    The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 1. Save and close the Gemfile.
+1. Optionally run `bundle config --local path vendor/bundle` so that a local folder is made for installing the gems.
 1. From the command line, run `bundle install`.
 1. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[Splitting a subfolder out into a new repository](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)."
    ```yml
