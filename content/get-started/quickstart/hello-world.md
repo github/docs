@@ -89,7 +89,7 @@ You can make and save changes to the files in your repository. On {% data variab
 
 1. Under the `readme-edits` branch you created, click the _README.md_ file.
 2. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
-3. In the editor, write a bit about yourself. Play around with [Markdown](https://www.markdownguide.org/cheat-sheet/) if you like.
+3. In the editor, write a bit about yourself. Try using different Markdown elements.
 4. In the **Commit changes** box, write a commit message that describes your changes.
 5. Click **Commit changes**.
 
@@ -117,18 +117,23 @@ You can even open pull requests in your own repository and merge them yourself. 
    ![diff example](/assets/images/help/repository/diffs.png)
 
 5. Click **Create pull request**.
-6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs. To the right of your title and description, you can assign reviewers or other project members to check out our request by clicking the gear symbol by each option. You can also choose to add labels to provide a bit more organization. Since this is a simple walk-through just for you, there's no need to include any of those options now, but they are there for you in the future!
+6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
+7. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**. **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. For more information, see "[About pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 7. Click **Create pull request**.
 
 Your collaborators can now review your edits and make suggestions.
 
 ## Merging your pull request
 
-In this final step, you will merge your `readme-edits` branch into the `main` branch. After you created the pull request in the above step, you will be brought to a page that shows you any conflicts your code may have with the branch you are merging to - the `main` branch. You can walk through those changes and conflicts and address them with your team members in the comments. For our purposes in this walk-through, there are no conflicts, so you can go ahead and merge your branch into the main branch. You’ll have one more chance to change or edit your commit message.
+In this final step, you will merge your `readme-edits` branch into the `main` branch.  After you merge your pull request, the changes on your `readme-edits` branch will be incorporated into `main`.
+
+Sometimes, a pull request may introduce changes to code that conflict with the existing code on `main`. If there are any conflicts, {% data variables.product.product_name %} will alert you about the conflicting code and prevent merging until the conflicts are resolved. You can make a commit that resolves the conflicts or use comments in the pull request to discuss the conflicts with your team members.
+
+In this walk-through, you should not have any conflicts, so you are ready to merge your branch into the main branch.
 
 1. Click **Merge pull request** to merge the changes into `main`.
-2. Click **Confirm merge**. You'll receive a message that the request was successfully merged and the request was closed.
-3. You won't have any need for the `readme-edits` branch anymore. So, go ahead and delete the branch, since its changes have been incorporated, by clicking **Delete branch**. You can always create a new branch and repeat the process when needed.
+2. Click **Confirm merge**. You will receive a message that the request was successfully merged and the request was closed.
+3. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
 
 ## Next steps
 
