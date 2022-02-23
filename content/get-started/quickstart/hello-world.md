@@ -30,7 +30,7 @@ To complete this tutorial, you need a [{% data variables.product.product_name %}
 
 ## Creating a repository
 
-A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a `README` file, a file with information about your project. README files are written in the plain text Markdown language to easily format your document. Use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. {% data variables.product.product_name %} makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file, but you don't have to select any of them now.
+A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a _README_ file, a file with information about your project. _README_ files are written in the plain text Markdown language. You can use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. {% data variables.product.product_name %} lets you add a _README_ file at the same time you create your new repository. {% data variables.product.product_name %} also offers other common options such as a license file, but you do not have to select any of them now.
 
 Your `hello-world` repository can be a place where you store ideas, resources, or even share and discuss things with others.
 
