@@ -24,14 +24,16 @@ You can also create a commit on behalf of an organization. For more information,
 
 Rebasing allows you to change a series of commits and can modify the order of the commits in your timeline. For more information, see "[About git rebase](/github/getting-started-with-github/about-git-rebase)."
 
-## About commit branches and tag labels
+### About commit branches and tag labels
 
 You can see what branch a commit is in by looking at the labels beneath the commit on the commit page.
 
-1. Navigate to the commit by clicking the commit message link.
-2. Second step here.
+1. Navigate to the commit page by clicking the commit message link.
+![Commit message link](/assets/images/help/commits/commit-message-link.png)
+2. To see what branch the commit is on, check the indicator below the commit message.
+![Commit branch indicator](/assets/images/help/commits/commit-branch-indicator.png)
 
-If your commit is not on the default branch (`main`), an indicator will show the branches which contain the commit. If the commit is part of an unmerged pull request, it will show a link.
+If your commit is not on the default branch (`main`), an indicator will show the branches which contain the commit. If the commit is part of an unmerged pull request, you can click the link to go to the pull request.
 
 Once the commit is on the default branch, any tags that contain the commit will be shown and the default branch will be the only branch listed.
 
