@@ -21,8 +21,7 @@ export default rateLimit({
   legacyHeaders: false,
 
   handler: (request, response, next, options) => {
-    const ip = request.headers['x-forwarded-for'] || request.ip
-    const tags = [`url:${request.url}`, `ip:${ip}`]
+    const tags = [`url:${request.url}`, `ip:${request.ip}`]
     statsd.increment('middleware.rate_limit', 1, tags)
     // This is temporary until we fully understand fully that the
     // rate limiter really is working in production.
