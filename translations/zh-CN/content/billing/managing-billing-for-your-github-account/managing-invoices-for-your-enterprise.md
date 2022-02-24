@@ -1,7 +1,7 @@
 ---
-title: Managing invoices for your enterprise
-shortTitle: Manage invoices
-intro: 'You can view, pay, or download a current invoice for your enterprise, and you can view your payment history.'
+title: 管理企业的发票
+shortTitle: 管理发票
+intro: 您可以查看、支付或下载企业的当前发票，也可以查看付款历史记录。
 versions:
   ghec: '*'
 type: how_to
@@ -10,11 +10,11 @@ topics:
   - Licensing
 ---
 
-## About invoices for your enterprise
+## 关于企业的发票
 
-{% data reusables.billing.about-invoices-for-enterprises %} For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+{% data reusables.billing.about-invoices-for-enterprises %} 更多信息请参阅“[关于企业的计费](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)”。
 
-For more information about viewing the subscription and usage for your enterprise account, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+有关查看企业帐户的订阅和使用情况的详细信息，请参阅“[查看企业帐户的订阅和使用情况](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)”。
 
 {% data reusables.billing.ghes-with-no-enterprise-account %}
 
@@ -23,7 +23,7 @@ For more information about viewing the subscription and usage for your enterpris
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-4. Under "Current Invoice", click **View invoice**. ![查看发票链接](/assets/images/help/business-accounts/view-invoice-link.png)
+4. 在“Current Invoice（当前发票）”下，点击 **View invoice（查看发票）**。 ![查看发票链接](/assets/images/help/business-accounts/view-invoice-link.png)
 
 ## 支付当前发票
 

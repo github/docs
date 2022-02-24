@@ -23,7 +23,7 @@ shortTitle: Límites & facturación de los flujos de trabajo
 {% ifversion fpt or ghec %}
 {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Acerca de la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+El uso de GitHub Actions es gratuito para las instancias de {% data variables.product.prodname_ghe_server %} que utilizan ejecutores auto-hospedados. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
 
 
@@ -75,14 +75,14 @@ Además de los límites de uso, debes asegurarte de usar las {% data variables.p
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
+Si reutilizas un flujo de trabajo, la facturación siempre se asociará con el flujo de trabajo llamante. La asignación de los ejecutores hospedados en {% data variables.product.prodname_dotcom %} siempre se evalúa utilizando únicamente el contexto del llamador. El llamador no puede utilizar ejecutores hospedados en {% data variables.product.prodname_dotcom %} desde el repositorio llamado.
 
 Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
 
 ## Polìtica de retenciòn de artefactos y bitàcoras
 
-You can configure the artifact and log retention period for your repository, organization, or enterprise account.
+Puedes configurar el periodo de retenciòn de artefactos y bitàcoras para tu repositorio, organizaciòn o cuenta empresarial.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
@@ -103,7 +103,7 @@ Para obtener más información, consulta:
 
 ## Inhabilitar y habilitar flujos de trabajo
 
-You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
+Puedes habilitar e inhabilitar flujos de trabajo independientes en tu repositorio de {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 

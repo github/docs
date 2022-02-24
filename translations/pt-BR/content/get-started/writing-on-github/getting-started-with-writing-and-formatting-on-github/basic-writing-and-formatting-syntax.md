@@ -62,7 +62,7 @@ Texto que não é uma citação
 
 ## Citar código
 
-Você pode chamar código ou um comando em uma frase com aspas simples. The text within the backticks will not be formatted.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
+Você pode chamar código ou um comando em uma frase com aspas simples. O texto entre aspas simples não será formatado.{% ifversion fpt or ghae or ghes > 3.1 or ghec %} Além disso, você pode pressionar o atalho no teclado <kbd>Command</kbd>+<kbd>E</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) para inserir as aspas simples para bloqueio de código dentro de uma linha do markdown.{% endif %}
 
 ```markdown
 Use 'git status' para listar todos os arquivos novos ou modificados que ainda não receberam commit.
@@ -85,11 +85,11 @@ git commit
 
 Para obter mais informações, consulte "[Criar e destacar blocos de código](/articles/creating-and-highlighting-code-blocks)".
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## Links
 
-Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Você também pode usar o atalho de teclado <kbd>Command</kbd>+<kbd>K</kbd> para criar um link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Quando você tiver selecionado texto, você poderá colar um URL da sua área de transferência para criar automaticamente um link a partir da seleção.{% endif %}
 
 `Este site foi construído usando [GitHub Pages](https://pages.github.com/).`
 
@@ -111,7 +111,7 @@ Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` 
 
 ## Imagens
 
-You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ ]`. Em seguida, coloque o link da imagem entre parênteses `()`.
+Você pode exibir uma imagem adicionando <kbd>!</kbd> e por o texto alternativo em`[ ]`. Em seguida, coloque o link da imagem entre parênteses `()`.
 
 `![Isso é uma imagem](https://myoctocat.com/assets/images/base-octocat.svg)`
 
@@ -221,7 +221,7 @@ Para obter mais exemplos, consulte a [Especificação de markdown em estilo GitH
 
 {% data reusables.repositories.task-list-markdown %}
 
-If a task list item description begins with a parenthesis, you'll need to escape it with <kbd>\\</kbd>:
+Se a descrição do item da lista de tarefas começar com parênteses, você deverá ignorar com <kbd>\\</kbd>:
 
 `- [ ] \(Optional) Abrir um problema de acompanhamento`
 
@@ -325,7 +325,7 @@ Você pode dizer a {% data variables.product.product_name %} para ocultar o cont
 
 ## Ignorar formatação markdown
 
-You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using <kbd>\\</kbd> before the Markdown character.
+Você pode dizer a {% data variables.product.product_name %} para ignorar (ou sair) a formatação do Markdown usando <kbd>\\</kbd> antes do caractere do Markdown.
 
 `Vamos renomear \*our-new-project\* para \*our-old-project\*.`
 

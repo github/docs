@@ -32,7 +32,7 @@ People with admin access to a repository can manage team access to the repositor
 You can give a team access to a repository or change a team's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)." 
 {% else %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Above the list of repositories, click **Add repository**.
@@ -58,7 +58,7 @@ You can remove a team's access to a repository if the team has direct access to 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Select the repository or repositories you'd like to remove from the team.

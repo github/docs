@@ -24,6 +24,8 @@ topics:
 
 {% data reusables.actions.workflow-organization-templates %}
 
+{% data reusables.actions.starter-workflow-categories %}
+
 ## Creating a starter workflow
 
 Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.

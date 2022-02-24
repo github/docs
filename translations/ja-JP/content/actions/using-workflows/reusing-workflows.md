@@ -16,6 +16,7 @@ topics:
 ---
 
 {% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## 概要
@@ -62,7 +63,7 @@ The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is
 
 {% endif %}
 
-Called workflows can access self-hosted runners from caller's context. This means that a called workflow can access self-hosted runners that are:
+Called workflows that are owned by the same user or organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. This means that a called workflow can access self-hosted runners that are:
 * In the caller repository
 * In the caller repository's organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %}, provided that the runner has been made available to the caller repository
 

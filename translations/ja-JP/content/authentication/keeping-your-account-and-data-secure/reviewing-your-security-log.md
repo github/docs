@@ -21,7 +21,7 @@ shortTitle: セキュリティ ログ
 
 The security log lists all actions performed within the last 90 days.
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-label="The log icon" %} Security log**.
 {% else %}

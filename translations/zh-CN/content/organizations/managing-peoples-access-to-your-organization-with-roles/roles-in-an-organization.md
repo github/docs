@@ -130,6 +130,7 @@ If your organization has a security team, you can use the security manager role 
 | 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                | **X** |       |       |    |{% ifversion ghec %}
 | 启用团队同步（详情请参阅“[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)”）                                                                                                   | **X** |       |       |        
 {% endif %}
+| Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)")                                      | **X** |       |       |                             |
 
 {% elsif ghes > 3.2 or ghae-issue-4999 %}
 <!--GHES 3.3+ and eventual GHAE release don't have the extra column for Billing managers, but have security managers-->
@@ -176,7 +177,9 @@ If your organization has a security team, you can use the security manager role 
 | 将组织成员转换为[外部协作者](#outside-collaborators)                                                                                                                                                                                                             | **X** |       |                                              |
 | [查看对组织仓库具有访问权限的人员](/articles/viewing-people-with-access-to-your-repository)                                                                                                                                                                         | **X** |       |                                              |
 | [导出具有组织仓库访问权限人员的列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                             | **X** |       |                                              |
-| 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                | **X** |       |                                              |
+| 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                | **X** |       |    |{% if pull-request-approval-limit %}
+| Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)")                                      | **X** |       |               |  
+{% endif %}
 {% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
 
 

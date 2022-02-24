@@ -127,7 +127,7 @@ children:
   - /enterprise-management
   - /github-actions
   - /packages
-  - /advanced-security
+  - /code-security
   - /guides
   - /release-notes
   - /all-releases

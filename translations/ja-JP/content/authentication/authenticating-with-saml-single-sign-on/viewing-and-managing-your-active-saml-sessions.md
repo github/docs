@@ -12,8 +12,8 @@ topics:
 shortTitle: Active SAML sessions
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. [Sessions] で、アクティブな SAML セッションを確認できます。 ![アクティブな SAML セッションのリスト](/assets/images/help/settings/saml-active-sessions.png)
 4. セッションの詳細を表示するには、[**See more**] をクリックします。 ![SAML セッションの詳細を開くボタン](/assets/images/help/settings/saml-expand-session-details.png)
 5. セッションを取り消すには、[**Revoke SAML**] をクリックします。 ![SAML セッションを削除するボタン](/assets/images/help/settings/saml-revoke-session.png)

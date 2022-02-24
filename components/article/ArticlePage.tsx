@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
-import { ActionList, Heading } from '@primer/components'
+import { ActionList, Heading } from '@primer/react'
 
 import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'

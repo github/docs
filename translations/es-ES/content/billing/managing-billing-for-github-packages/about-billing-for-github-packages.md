@@ -67,7 +67,7 @@ Al final del mes, {% data variables.product.prodname_dotcom %} redondea tu almac
 
 Tu uso de {% data variables.product.prodname_registry %} comparte la fecha de facturación, método de pago y recibo existente en tu cuenta. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Acerca de los límites de gasto
 

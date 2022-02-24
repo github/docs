@@ -25,7 +25,7 @@ Los proyectos son una colección personalizable de elementos que se mantienen ac
 
 {% data reusables.projects.create-user-project %}
 
-## Updating your project description and README
+## Actualizar la descripción y el README de tu proyecto
 
 {% data reusables.projects.project-description %}
 

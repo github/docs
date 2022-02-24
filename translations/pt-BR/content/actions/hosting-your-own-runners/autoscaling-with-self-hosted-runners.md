@@ -32,7 +32,7 @@ Cada solução tem certas especificações que podem ser importantes para consid
 | Tempo de execução                          | Kubernetes                                                                                    | VMs do Linux e do Windows                                                            |
 | Nuvens compatíveis                         | Azure, Amazon Web Services, Google Cloud Platform, nos locais                                 | Amazon Web Services                                                                  |
 | Onde os executores podem ser dimensionados | Níveis de empresa, organização e repositório. Por etiqueta do executor e grupo de executores. | Níveis de organização e repositório. Por etiqueta do executor e grupo de executores. |
-| Como os executores podem ser dimensionados | Webhook events, Scheduled, Pull-based                                                         | Webhook events, Scheduled (org-level runners only)                                   |
+| Como os executores podem ser dimensionados | Eventos de webhook, Programados, Baseados em extrações                                        | Eventos de Webhook, Programados (únicamente executores a nível de organização)       |
 
 ## Usaar executores efêmeros para dimensionamento automático
 

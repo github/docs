@@ -33,7 +33,7 @@ A API de Artefatos permite que você faça o download, exclua e recupere informa
 {% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Permissões
 
-The Permissions API allows you to set permissions for what enterprises, organizations, and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions are allowed to run.{% ifversion fpt or ghec or ghes %} For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)."{% endif %}
+A API de Permissões permite que você defina permissões para quais empresas, organizações e repositórios podem executar {% data variables.product.prodname_actions %}, e quais ações podem ser executadas.{% ifversion fpt or ghec or ghes %} Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)".{% endif %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'permissions' %}{% include rest_operation %}{% endif %}
@@ -56,7 +56,7 @@ A API Segredos permite criar, atualizar, excluir e recuperar informações sobre
 
 A API de executores auto-hospedados permite que você registre, visualize e exclua executores auto-hospedados. {% data reusables.actions.about-self-hosted-runners %} Para obter mais informações, consulte "[Hospedando seus próprios executores](/actions/hosting-your-own-runners)".
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises to use this API.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} deve ter a permissão de administração `` para repositórios ou a permissão `organization_self_hosted_runners` para as organizações. Os usuários autenticados devem ter acesso de administrador a repositórios ou organizações ou ao escopo `manage_runners:corporativo` para que as empresas usem esta API.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runners' %}{% include rest_operation %}{% endif %}
@@ -68,7 +68,7 @@ A API de executores auto-hospedados permite que você registre, visualize e excl
 
 A API dos Grupos de Runners auto-hospedados permite que você gerencie grupos de runners auto-hospedados. Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} deve ter a permissão de administração `` para repositórios ou a permissão `organization_self_hosted_runners` para as organizações. Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises to use this API.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} deve ter a permissão de administração `` para repositórios ou a permissão `organization_self_hosted_runners` para as organizações. Os usuários autenticados devem ter acesso de administrador a repositórios ou organizações ou ao escopo `manage_runners:corporativo` para que as empresas usem esta API.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runner-groups' %}{% include rest_operation %}{% endif %}

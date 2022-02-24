@@ -160,7 +160,7 @@ Any person or integration with write permissions to a repository can set the sta
 
 ### 允许强制推送
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
 默认情况下，{% data variables.product.product_name %} 阻止对所有受保护分支的强制推送。 When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
 
 1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.

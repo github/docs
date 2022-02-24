@@ -29,8 +29,8 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 ## 既存のリポジトリに対して機能を有効または無効にする
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security-analysis %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
 3. [Configure security and analysis features] で、機能の右側にある [**Disable all**] または [**Enable**] をクリックします。
   {% ifversion ghes > 3.2 %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
 6. Optionally, enable the feature by default for new repositories that you own.
@@ -42,8 +42,8 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 ## 既存のリポジトリに対して機能を有効または無効にする
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security-analysis %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
 3. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories that you own.
   {% ifversion ghes > 3.2 %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
 

@@ -271,7 +271,8 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Git Refs
 
-* [Create a reference](/rest/reference/git#create-a-reference)* [Get a reference](/rest/reference/git#get-a-reference)
+* [Create a reference](/rest/reference/git#create-a-reference)
+* [Get a reference](/rest/reference/git#get-a-reference)
 * [List matching references](/rest/reference/git#list-matching-references)
 * [Update a reference](/rest/reference/git#update-a-reference)
 * [Delete a reference](/rest/reference/git#delete-a-reference)
