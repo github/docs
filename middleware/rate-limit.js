@@ -23,9 +23,6 @@ export default rateLimit({
   handler: (request, response, next, options) => {
     const tags = [`url:${request.url}`, `ip:${request.ip}`]
     statsd.increment('middleware.rate_limit', 1, tags)
-    // This is temporary until we fully understand fully that the
-    // rate limiter really is working in production.
-    response.setHeader('x-soft-rate-limit', JSON.stringify(options.store.hits))
     // NOTE! At the time of writing, the actual rate limiting is disabled!
     // At least we can start recording how often this happens in Datadog.
     // The following line is commented out and replaced with `next()`

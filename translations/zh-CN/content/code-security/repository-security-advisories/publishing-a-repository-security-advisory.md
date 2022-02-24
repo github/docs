@@ -1,10 +1,11 @@
 ---
-title: 发布安全通告
+title: Publishing a repository security advisory
 intro: 您可以发布安全通告，向社区提醒项目中的安全漏洞。
 redirect_from:
   - /articles/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-security-advisory
+  - /code-security/security-advisories/publishing-a-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,18 +15,20 @@ topics:
   - Vulnerabilities
   - CVEs
   - Repositories
-shortTitle: 发布咨询意见
+shortTitle: Publish repository advisories
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 
 对安全通告具有管理员权限的任何人都可发布安全通告。
 
+{% data reusables.security-advisory.repository-level-advisory-note %}
+
 ## 基本要求
 
-在发布安全通告或申请 CVE 标识号之前，必须创建安全通告草稿，并提供受安全漏洞影响的项目版本的相关信息。 更多信息请参阅“[创建安全通告](/github/managing-security-vulnerabilities/creating-a-security-advisory)”。
+在发布安全通告或申请 CVE 标识号之前，必须创建安全通告草稿，并提供受安全漏洞影响的项目版本的相关信息。 For more information, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
 
-如果您已创建安全通告，但尚未提供有关安全漏洞影响的项目版本的详细信息，则可以编辑安全通告。 更多信息请参阅“[编辑安全通告](/github/managing-security-vulnerabilities/editing-a-security-advisory)”。
+如果您已创建安全通告，但尚未提供有关安全漏洞影响的项目版本的详细信息，则可以编辑安全通告。 For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
 
 ## 关于发布安全通告
 
@@ -33,7 +36,7 @@ shortTitle: 发布咨询意见
 
 {% data reusables.repositories.security-advisories-republishing %}
 
-在发布安全通告之前，您可以私下协作在临时私有复刻中修复漏洞。 更多信息请参阅“[在临时私有复刻中协作以解决安全漏洞](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)”。
+在发布安全通告之前，您可以私下协作在临时私有复刻中修复漏洞。 For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
 
 {% warning %}
 
@@ -60,7 +63,7 @@ shortTitle: 发布咨询意见
 
 发布安全通告后，安全通告的 URL 将与发布安全通告之前保持相同。 对仓库具有读取权限的任何人都能看到安全通告。 安全通告的协作者可以继续查看安全通告中过去的对话，包括完整的评论流，除非有管理员权限的人从安全通告删除该协作者。
 
-如果需要更新或更正已发布的安全通告中的信息，可以编辑安全通告。 更多信息请参阅“[编辑安全通告](/github/managing-security-vulnerabilities/editing-a-security-advisory)”。
+如果需要更新或更正已发布的安全通告中的信息，可以编辑安全通告。 For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
 
 ## 发布安全通告
 
@@ -78,7 +81,7 @@ shortTitle: 发布咨询意见
 
 ## 申请 CVE 识别号（可选）
 
-{% data reusables.repositories.request-security-advisory-cve-id %} 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)”。
+{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories#cve-identification-numbers)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -89,4 +92,4 @@ shortTitle: 发布咨询意见
 
 ## 延伸阅读
 
-- "[撤销安全通告](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"
+- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"

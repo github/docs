@@ -1,6 +1,6 @@
 ---
 title: 管理文件
-intro: 'You can create, edit, move, and delete files in a repository, directly on {% data variables.product.product_name %} or on the command line.'
+intro: '您可以直接在 {% data variables.product.product_name %} 或命令行上创建、编辑、移动和删除存储库中的文件。'
 redirect_from:
   - /articles/managing-files-on-github
   - /github/managing-files-in-a-repository/managing-files-on-github

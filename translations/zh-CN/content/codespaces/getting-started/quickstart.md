@@ -58,7 +58,7 @@ Once your codespace is created, your repository will be automatically cloned int
   {% octicon "light-bulb" aria-label="The lightbulb icon" %}  If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
   ![Port Forwarding Panel](/assets/images/help/codespaces/quickstart-forward-port.png)
 
-## Committing and pushing your changes
+## 提交和推送更改
 
 Now that you've made a few changes, you can use the integrated terminal or the source view to commit and push the changes back to the remote.
 
@@ -95,5 +95,5 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 
 ## 延伸阅读
 
-- [Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [Managing billing for {% data variables.product.prodname_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
+- [为组织启用 {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
+- [管理组织中的 {% data variables.product.prodname_codespaces %} 帐单](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
