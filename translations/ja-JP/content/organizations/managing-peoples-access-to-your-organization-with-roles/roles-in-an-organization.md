@@ -22,7 +22,7 @@ shortTitle: Roles in an organization
 
 Repository-level roles give organization members, outside collaborators and teams of people varying levels of access to repositories. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-Team-level roles are roles that give permissions to manage a team. You can give any individual member of a team the team maintainer role, which gives the member a number of administrative permissions over a team. For more information, see "[Assigning the team maintainer role to a team member](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)."
+Team-level roles are roles that give permissions to manage a team. You can give any individual member of a team the team maintainer role, which gives the member a number of administrative permissions over a team. 詳しい情報については「[Teamメンバーへのチームメンテナロールの割り当て](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)」を参照してください。
 
 Organization-level roles are sets of permissions that can be assigned to individuals or teams to manage an organization and the organization's repositories, teams, and settings. For more information about all the roles available at the organization level, see "[About organization roles](#about-organization-roles)."
 
@@ -130,6 +130,7 @@ Some of the features listed below are limited to organizations using {% data var
 | デフォルトラベルの管理 (「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」を参照)                                                                                                                                                    | **X** |       |           |    |{% ifversion ghec %}
 | Team の同期を有効化する (「[Organization の Team 同期を管理する](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)」を参照)                                                                                                             | **X** |       |           |        
 {% endif %}
+| Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)")                                                                         | **X** |       |           |                             |
 
 {% elsif ghes > 3.2 or ghae-issue-4999 %}
 <!--GHES 3.3+ and eventual GHAE release don't have the extra column for Billing managers, but have security managers-->
@@ -176,7 +177,9 @@ Some of the features listed below are limited to organizations using {% data var
 | Organization メンバーの[外部コラボレーター](#outside-collaborators)への変換                                                                                                                                                                                                                              | **X** |       |                                              |
 | [Organization リポジトリへのアクセス権がある人を表示する](/articles/viewing-people-with-access-to-your-repository)                                                                                                                                                                                          | **X** |       |                                              |
 | [Organization リポジトリへのアクセス権がある人のリストをエクスポートする](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                                       | **X** |       |                                              |
-| デフォルトラベルの管理 (「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」を参照)                                                                                                                                                    | **X** |       |                                              |
+| デフォルトラベルの管理 (「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」を参照)                                                                                                                                                    | **X** |       |    |{% if pull-request-approval-limit %}
+| Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)")                                                                         | **X** |       |               |  
+{% endif %}
 {% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
 
 
@@ -227,5 +230,5 @@ Some of the features listed below are limited to organizations using {% data var
 
 ## 参考リンク
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- 「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」
 - [Organization のプロジェクトボード権限](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)

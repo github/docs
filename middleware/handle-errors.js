@@ -41,21 +41,9 @@ export default async function handleError(error, req, res, next) {
     // By default, Fastly will cache 404 responses unless otherwise
     // told not to.
     // See https://docs.fastly.com/en/guides/how-caching-and-cdns-work#http-status-codes-cached-by-default
-    // Most of the time, that's a good thing! Especially, if bombarded
-    // for some static asset that we don't have.
-    // E.g. `ab -n 10000 https://docs.github.com/assets/doesnotexist.png`
-    // But due to potential timing issue related to how the servers start,
-    // what might happen is that a new insteance comes up that
-    // contains `<script src="/_next/static/foo.1234.css">` in the HTML.
-    // The browser then proceeds to request /_next/static/foo.1234.css
-    // but this time it could be unluckily routed to a different instance
-    // that hasn't yet been upgraded, so they get a 404. And the CDN will
-    // notice this and cache it.
-    // Setting a tiny cache gets us a good compromise. It protects us
-    // against most stamping herds on 404s (thank you CDN!) but it also
-    // clears itself if you get that unlucky timing issue with rolling
-    // instances in a new deployment.
-    // For more background see issue 1553.
+    // Let's cache our 404'ing assets conservatively.
+    // The Cache-Control is short, and let's use the default surrogate
+    // key just in case it was a mistake.
     cacheControl(res)
     // Undo the cookie setting that CSRF sets.
     res.removeHeader('set-cookie')

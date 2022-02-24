@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
-import { ActionList, Heading } from '@primer/components'
+import { ActionList, Heading } from '@primer/react'
 
 import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
@@ -107,7 +107,11 @@ export const ArticlePage = () => {
     // In the future there might be more.
     // Hopefully, we can some day delete all of this and no longer
     // be dependent on the URL hash to do the redirect.
-    if (hash && pathname.endsWith('/rest/reference/repos')) {
+    if (
+      hash &&
+      (pathname.endsWith('/rest/reference/repos') ||
+        pathname.endsWith('/rest/reference/enterprise-admin'))
+    ) {
       setLoadClientsideRedirectExceptions(true)
     }
   }, [])

@@ -8,6 +8,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.3'
+  ghae: issue-6184
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -27,6 +29,7 @@ miniTocMaxHeadingLevel: 3
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghec %}
 ## ソースのインポート
 
 {% data variables.migrations.source_imports_intro %}
@@ -111,7 +114,7 @@ miniTocMaxHeadingLevel: 3
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'source-imports' %}{% include rest_operation %}{% endif %}
 {% endfor %}
-
+{% endif %}
 ## ユーザ
 
 ユーザ移行 API を使用できるのは、認証済みのアカウントオーナーのみです。 詳細は、「[その他の認証方式](/rest/overview/other-authentication-methods)」を参照してください。

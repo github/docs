@@ -248,7 +248,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 * [列出部署](/rest/reference/deployments#list-deployments)
 * [创建部署](/rest/reference/deployments#create-a-deployment)
-* [Get a deployment](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
+* [获取部署](/rest/reference/deployments#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
 * [删除部署](/rest/reference/deployments#delete-a-deployment){% endif %}
 
 #### 事件
@@ -272,7 +272,8 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### Git 引用
 
-* [创建引用](/rest/reference/git#create-a-reference)* [获取引用](/rest/reference/git#get-a-reference)
+* [Create a reference](/rest/reference/git#create-a-reference)
+* [Get a reference](/rest/reference/git#get-a-reference)
 * [列出匹配的引用](/rest/reference/git#list-matching-references)
 * [更新引用](/rest/reference/git#update-a-reference)
 * [删除引用](/rest/reference/git#delete-a-reference)
@@ -449,8 +450,8 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% ifversion fpt or ghec %}
 #### 组织团队同步
 
-* [List IdP groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
-* [Create or update IdP group connections](/rest/reference/teams#create-or-update-idp-group-connections)
+* [列出团队的 IdP 组](/rest/reference/teams#list-idp-groups-for-a-team)
+* [创建或更新 IdP 组连接](/rest/reference/teams#create-or-update-idp-group-connections)
 * [列出组织的 IdP 组](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 

@@ -7,7 +7,6 @@ translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-gith
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
 translations/ja-JP/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository.md,broken liquid tags
-translations/ja-JP/content/actions/advanced-guides/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/ja-JP/content/actions/creating-actions/about-custom-actions.md,broken liquid tags
 translations/ja-JP/content/actions/creating-actions/publishing-actions-in-github-marketplace.md,broken liquid tags
 translations/ja-JP/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,broken liquid tags
@@ -21,8 +20,9 @@ translations/ja-JP/content/actions/quickstart.md,broken liquid tags
 translations/ja-JP/content/actions/security-guides/automatic-token-authentication.md,parsing error
 translations/ja-JP/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,broken liquid tags
 translations/ja-JP/content/actions/using-workflows/advanced-workflow-features.md,broken liquid tags
-translations/ja-JP/content/admin/advanced-security/configuring-code-scanning-for-your-appliance.md,broken liquid tags
-translations/ja-JP/content/admin/advanced-security/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
+translations/ja-JP/content/actions/using-workflows/storing-workflow-data-as-artifacts.md,broken liquid tags
+translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
+translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/accessing-the-management-console.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance.md,broken liquid tags
@@ -149,7 +149,10 @@ translations/ja-JP/content/get-started/using-github/github-mobile.md,broken liqu
 translations/ja-JP/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
 translations/ja-JP/content/issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project.md,broken liquid tags
 translations/ja-JP/content/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository.md,broken liquid tags
+translations/ja-JP/content/organizations/collaborating-with-groups-in-organizations/about-your-organizations-news-feed.md,broken liquid tags
 translations/ja-JP/content/organizations/collaborating-with-your-team/about-team-discussions.md,Listed in localization-support#489
+translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization.md,broken liquid tags
+translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
 translations/ja-JP/content/packages/learn-github-packages/deleting-a-package.md,broken liquid tags
@@ -197,6 +200,7 @@ translations/ja-JP/data/release-notes/enterprise-server/3-1/13.yml,broken liquid
 translations/ja-JP/data/release-notes/enterprise-server/3-1/14.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/15.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/16.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-1/17.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/2.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/3.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/4.yml,broken liquid tags

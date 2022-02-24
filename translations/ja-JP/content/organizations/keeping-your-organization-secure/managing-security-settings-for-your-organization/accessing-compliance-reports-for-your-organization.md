@@ -1,6 +1,6 @@
 ---
-title: Accessing compliance reports for your organization
-intro: 'You can access {% data variables.product.company_short %}''s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your organization.'
+title: Organizationのコンプライアンスレポートへのアクセス
+intro: '自分のOrganizationに関するSOCレポートやCloud Security Alliance CAIQセルフアセスメント（CSA CAIQ）などの、{% data variables.product.company_short %}のコンプライアンスレポートにアクセスできます。'
 versions:
   ghec: '*'
 type: how_to
@@ -8,24 +8,24 @@ topics:
   - Organizations
   - Teams
 permissions: Organization owners can access compliance reports for the organization.
-shortTitle: Access compliance reports
+shortTitle: コンプライアンスレポートへのアクセス
 ---
 
-## About {% data variables.product.company_short %}'s compliance reports
+## {% data variables.product.company_short %}のコンプライアンスレポートについて
 
-You can access {% data variables.product.company_short %}'s compliance reports in your organization settings.
+Organizationの設定から、{% data variables.product.company_short %}のコンプライアンスレポートにアクセスできます。
 
 {% data reusables.security.compliance-report-list %}
 
-## Accessing compliance reports for your organization
+## Organizationのコンプライアンスレポートへのアクセス
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. Under "Compliance reports", to the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
+1. "Compliance reports（コンプライアンスレポート）"の下で、アクセスしたいレポートの右の{% octicon "download" aria-label="The Download icon" %} **Download（ダウンロード）**もしくは{% octicon "link-external" aria-label="The external link icon" %} **View（表示）**をクリックしてください。
 
    {% data reusables.security.compliance-report-screenshot %}
 
 ## 参考リンク
 
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+- 「[Enterpriseのコンプライアンスレポートへのアクセス](/admin/overview/accessing-compliance-reports-for-your-enterprise)」

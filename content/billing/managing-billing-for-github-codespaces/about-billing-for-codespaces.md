@@ -40,6 +40,12 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 
 {% data reusables.dotcom_billing.pricing_cal %}
 
+### Billing for {% data variables.product.prodname_codespaces %} prebuilds
+
+{% data reusables.codespaces.prebuilds-beta-note %}
+
+{% data reusables.codespaces.billing-for-prebuilds %} 
+
 ## Setting a spending limit
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} 

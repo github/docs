@@ -28,8 +28,8 @@ First, you'll need to create a free user account on {% data variables.product.pr
 
 After you create your user account, create a free organization account. You'll use this organization account to create and manage classrooms {% data variables.product.prodname_classroom %}.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 4. Follow the prompts to create a free organization.
 

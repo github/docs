@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { useState, useEffect, SyntheticEvent } from 'react'
 import { ChevronDownIcon } from '@primer/octicons-react'
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 
 import { Link } from 'components/Link'
 import { ProductTreeNode, useMainContext } from 'components/context/MainContext'

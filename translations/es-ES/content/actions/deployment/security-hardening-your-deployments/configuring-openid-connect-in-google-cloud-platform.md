@@ -43,7 +43,7 @@ Orientación adicional para configurar el proveedor de identidad:
 
 ## Actualizar tu flujo de trabajo de {% data variables.product.prodname_actions %}
 
-To update your workflows for OIDC, you will need to make two changes to your YAML:
+Para actualizar tus flujos de trabajo para ODIC, necesitarás hacer dos cambios a tu YAML:
 1. Agregar ajustes de permisos para el token.
 2. Use the [`google-github-actions/auth`](https://github.com/google-github-actions/auth) action to exchange the OIDC token (JWT) for a cloud access token.
 
@@ -51,7 +51,7 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
  {% data reusables.actions.oidc-permissions-token %}
 
-### Requesting the access token
+### Solicitar el token de acceso
 
 The `google-github-actions/auth` action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from GCP. For more information, see the GCP [documentation](https://github.com/google-github-actions/auth).
 

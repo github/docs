@@ -50,8 +50,8 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 {% endtip %}
 
 1. TOTP アプリをダウンロードします。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 {%- ifversion fpt or ghes > 3.1 %}
 5. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.
@@ -88,8 +88,8 @@ TOTP モバイルアプリを使って認証できない場合は、SMS メッ�
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 4. Under "Two-factor authentication", select **Set up using SMS** and click **Continue**.
 5. Under "Authentication verification", select your country code and type your mobile phone number, including the area code. 入力した情報が正しいことを確認してから、[**Send authentication code**] をクリックします。
@@ -114,8 +114,8 @@ TOTP モバイルアプリを使って認証できない場合は、SMS メッ�
 
 1. TOTP モバイルアプリ{% ifversion fpt or ghec %}または SMS{% endif %} 経由で、あらかじめ 2 要素認証を設定しておく必要があります。
 2. コンピュータに WebAuthn 準拠のセキュリティキーが挿入されていることを確認してください。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 5. [Security keys] の隣にある [**Add**] をクリックします。 ![セキュリティキーの追加オプション](/assets/images/help/2fa/add-security-keys-option.png)
 6. [Security keys] で、[**Register new security key**] をクリックします。 ![新しいセキュリティキーを登録する](/assets/images/help/2fa/security-key-register.png)
 7. セキュリティキーのニックネームを入力して、[**Add**] をクリックします。 ![セキュリティキーにニックネームを付ける](/assets/images/help/2fa/security-key-nickname.png)

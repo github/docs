@@ -781,20 +781,6 @@ describe('catches errors thrown in Page class', () => {
     expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
   })
 
-  test('non-English page with a version in frontmatter that its parent product is not available in', async () => {
-    async function getPage() {
-      return await Page.init({
-        relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
-        basePath: path.join(__dirname, '../fixtures/products'),
-        languageCode: 'es',
-      })
-    }
-
-    await expect(getPage).rejects.toThrowError(
-      /`versions` frontmatter.*? product is not available in/
-    )
-  })
-
   describe('versionining optional attributes', () => {
     test("re-rendering set appropriate 'product', 'permissions', 'learningTracks'", async () => {
       const page = await Page.init({

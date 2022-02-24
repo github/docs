@@ -27,6 +27,14 @@ topics:
 {% endnote %}
 {% endif %}
 
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %}
+{% note %}
+
+**Nota:** Los clientes que utilizan {% data variables.product.prodname_GH_advanced_security %} pueden habilitar el {% data variables.product.prodname_secret_scanning %} en los repositorios archivados. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)".
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
 Una vez que se archiva un repositorio, no puedes agregar ni eliminar colaboradores ni equipos. Solo los colaboradores con acceso al repositorio pueden bifurcar o iniciar tu proyecto.

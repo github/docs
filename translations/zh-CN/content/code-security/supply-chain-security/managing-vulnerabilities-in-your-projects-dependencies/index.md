@@ -1,5 +1,5 @@
 ---
-title: 管理项目依赖项中的漏洞
+title: Managing vulnerabilities in your project's dependencies
 intro: 'You can track your repository''s dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies.'
 redirect_from:
   - /articles/updating-your-project-s-dependencies
@@ -30,6 +30,6 @@ children:
   - /viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
-shortTitle: 修复有漏洞的依赖项
+shortTitle: Fix vulnerable dependencies
 ---
 

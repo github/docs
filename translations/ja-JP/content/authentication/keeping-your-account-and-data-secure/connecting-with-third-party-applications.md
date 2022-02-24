@@ -55,7 +55,7 @@ shortTitle: Third-party applications
 
 {% tip %}
 
-**ヒント:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**ヒント:** {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 

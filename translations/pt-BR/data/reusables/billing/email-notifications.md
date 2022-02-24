@@ -2,4 +2,4 @@ Email notifications are sent to account owners and billing managers when spendin
 
 Você pode desabilitar essas notificações a qualquer momento, acessando a parte inferior da página **limite de gastos**.
 
-![Screenshot of the billing email notification settings](/assets/images/help/billing/actions-packages-spending-limit-notifications.png)
+![Captura de tela das configurações de notificação de e-mail](/assets/images/help/billing/actions-packages-spending-limit-notifications.png)

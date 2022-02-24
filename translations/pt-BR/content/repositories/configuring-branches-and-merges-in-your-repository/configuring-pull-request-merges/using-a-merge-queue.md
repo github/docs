@@ -17,7 +17,7 @@ shortTitle: Usar fila de merge
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-A fila de merge cria branches preparatórios temporários para validar pull requests com a versão mais recente do branch base. To ensure that {% data variables.product.prodname_dotcom %} validates these preparatory branches, you may need to update your CI configuration to trigger builds on branch names starting with `gh-readonly-queue/{base_branch}`.
+A fila de merge cria branches preparatórios temporários para validar pull requests com a versão mais recente do branch base. Para garantir que {% data variables.product.prodname_dotcom %} irá validar esses branches preparatórios, é possível você precise atualizar sua configuração de CI para acionar compilações em nomes de branch que começam com `gh-readonly-queue/{base_branch}`.
 
 Por exemplo, com {% data variables.product.prodname_actions %}, adicionar a opção a seguir no fluxo de trabalho fará com que o fluxo de trabalho seja executado quando qualquer push for feito em um branch preparatório da fila de merge que tem o `principal` como destino.
 
