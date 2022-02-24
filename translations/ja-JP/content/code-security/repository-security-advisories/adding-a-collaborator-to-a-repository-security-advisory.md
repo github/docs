@@ -1,10 +1,11 @@
 ---
-title: セキュリティアドバイザリにコラボレータを追加する
+title: Adding a collaborator to a repository security advisory
 intro: あなたと協力するセキュリティアドバイザリとして、ユーザや Team を追加できます。
 redirect_from:
   - /articles/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
+  - /code-security/security-advisories/adding-a-collaborator-to-a-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,18 +14,20 @@ topics:
   - Security advisories
   - Vulnerabilities
   - Collaboration
-shortTitle: アドバイザリにコラボレータを追加する
+shortTitle: Add collaborators
 ---
 
 セキュリティアドバイザリの管理者権限を持つユーザは、セキュリティアドバイザリにコラボレータを追加できます。
 
+{% data reusables.security-advisory.repository-level-advisory-note %}
+
 ## セキュリティアドバイザリにコラボレータを追加する
 
-コラボレータは、セキュリティアドバイザリへの書き込み権限を持ちます。 詳しい情報については、「[セキュリティアドバイザリの権限レベル](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)」を参照してください。
+コラボレータは、セキュリティアドバイザリへの書き込み権限を持ちます。 For more information, see "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)."
 
 {% note %}
 
-{% data reusables.repositories.security-advisory-collaborators-public-repositories %} セキュリティアドバイザリでのコラボレータの削除の詳細については、「[セキュリティアドバイザリからコラボレータを削除する](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)」を参照してください。
+{% data reusables.repositories.security-advisory-collaborators-public-repositories %} For more information about removing a collaborator on a security advisory, see "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."
 
 {% endnote %}
 
@@ -37,6 +40,6 @@ shortTitle: アドバイザリにコラボレータを追加する
 
 ## 参考リンク
 
-- 「[セキュリティアドバイザリの権限レベル](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)」
-- 「[一時的なプライベートフォークで、セキュリティ脆弱性を解決するためにコラボレートする](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)」
-- 「[セキュリティアドバイザリからコラボレータを削除する](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)」
+- "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
+- "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
+- "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."

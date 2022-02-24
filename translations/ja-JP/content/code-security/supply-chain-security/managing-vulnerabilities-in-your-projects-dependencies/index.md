@@ -23,6 +23,7 @@ topics:
 children:
   - /about-managing-vulnerable-dependencies
   - /browsing-security-vulnerabilities-in-the-github-advisory-database
+  - /editing-security-advisories-in-the-github-advisory-database
   - /about-alerts-for-vulnerable-dependencies
   - /configuring-notifications-for-vulnerable-dependencies
   - /about-dependabot-security-updates

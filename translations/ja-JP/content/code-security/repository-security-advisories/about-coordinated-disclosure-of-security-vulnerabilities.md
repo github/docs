@@ -1,6 +1,8 @@
 ---
 title: セキュリティ脆弱性の調整された開示について
 intro: 脆弱性の開示は、セキュリティの報告者とリポジトリメンテナの調整された取り組みです。
+redirect_from:
+  - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -63,7 +65,7 @@ shortTitle: 協調開示
 
  あなたがメンテナなら、リポジトリのセキュリティポリシーを設定するか、たとえばプロジェクトのREADMEファイルでセキュリティの報告方法を明確にしておくことによって、このパイプラインの開始時点からプロセスの所有権を取ることができます。 セキュリティポリシーの追加に関する情報については「[セキュリティポリシーについて](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)」を参照してください。 セキュリティポリシーがない場合、セキュリティの報告者はおそらくあなたにメールするか、非公開であなたに連絡しようとするでしょう。 あるいは、誰かがセキュリティの問題の詳細を含む（パブリックな）Issueをオープンするかもしれません。
 
- メンテナとしてコード中の脆弱性を開示するために、まずは{% data variables.product.prodname_dotcom %}でパッケージのリポジトリにドラフトのセキュリティアドバイザリを作成します。 {% data reusables.security-advisory.security-advisory-overview %} 詳しい情報については、「[{% data variables.product.prodname_security_advisories %} について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
+ メンテナとしてコード中の脆弱性を開示するために、まずは{% data variables.product.prodname_dotcom %}でパッケージのリポジトリにドラフトのセキュリティアドバイザリを作成します。 {% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)."
 
 
- 作成方法については、「[セキュリティアドバイザリを作成する](/github/managing-security-vulnerabilities/creating-a-security-advisory)」を参照してください。
+ To get started, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
