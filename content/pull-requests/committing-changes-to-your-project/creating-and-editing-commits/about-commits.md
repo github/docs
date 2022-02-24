@@ -30,12 +30,14 @@ You can see what branch a commit is in by looking at the labels beneath the comm
 
 1. Navigate to the commit page by clicking the commit message link.
 ![Commit message link](/assets/images/help/commits/commit-message-link.png)
-2. To see what branch the commit is on, check the indicator below the commit message.
+2. To see what branch the commit is on, check the label below the commit message.
 ![Commit branch indicator](/assets/images/help/commits/commit-branch-indicator.png)
 
-If your commit is not on the default branch (`main`), an indicator will show the branches which contain the commit. If the commit is part of an unmerged pull request, you can click the link to go to the pull request.
+If your commit is not on the default branch (`main`), the label will show the branches which contain the commit. If the commit is part of an unmerged pull request, you can click the link to go to the pull request.
 
 Once the commit is on the default branch, any tags that contain the commit will be shown and the default branch will be the only branch listed.
+
+![Commit tag label](/assets/images/help/commits/commit-tag-label.png)
 
 ## Further reading
 - "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)" on {% data variables.product.prodname_desktop %}
