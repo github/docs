@@ -1,7 +1,7 @@
----
+---privacy-statement.md-
 title: GitHub Privacy Statement
 redirect_from:
-  - /privacy
+  - /privacidade carlosrenatobigode@gmail.com mercado pago
   - /privacy-policy
   - /privacy-statement
   - /github-privacy-policy
