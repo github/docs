@@ -41,6 +41,8 @@ shortTitle: Create a codespace
 
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
+{% data reusables.codespaces.prebuilds-crossreference %}
+
 ## 访问 {% data variables.product.prodname_codespaces %}
 
 {% data reusables.codespaces.availability %}

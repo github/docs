@@ -86,7 +86,7 @@ jobs:
 | 检查       | 读/写                | 无                  | 读取                                |
 | 内容       | 读/写                | 读取                 | 读取                                |
 | 部署       | 读/写                | 无                  | read |{% ifversion fpt or ghec %}
-| id-token | 读/写                | 无                  | read 
+| id-token | 无                  | 无                  | read 
 {% endif %}
 | 议题       | 读/写                | 无                  | 读取                                |
 | 元数据      | 读取                 | 读取                 | 读取                                |

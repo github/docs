@@ -1,19 +1,19 @@
 ---
-title: About using Visual Studio Code with GitHub Classroom
-shortTitle: About using Visual Studio Code
-intro: 'You can configure Visual Studio Code as the preferred editor for assignments in {% data variables.product.prodname_classroom %}.'
+title: 关于将 Visual Studio Code 与 GitHub Classroom 配合使用
+shortTitle: 关于使用 Visual Studio Code
+intro: '您可以将 Visual Studio Code 配置为 {% data variables.product.prodname_classroom %} 中任务的首选编辑器。'
 versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/about-using-vs-code-with-github-classroom
 ---
 
-## About Visual Studio Code
+## 关于 Visual Studio Code
 
-Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. With the [GitHub Classroom extension for Visual Studio Code](https://aka.ms/classroom-vscode-ext), students can easily browse, edit, submit, collaborate, and test their Classroom Assignments. For more information about IDEs and {% data variables.product.prodname_classroom %}, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+Visual Studio Code 是一个轻量级但功能强大的源代码编辑器，可在桌面上运行，适用于 Windows、macOS 和 Linux。 借助 [Visual Studio Code 的 GitHub Classroom 扩展](https://aka.ms/classroom-vscode-ext)，学生可以轻松浏览、编辑、提交、协作和测试他们的课堂作业。 有关 IDE 和 {% data variables.product.prodname_classroom %} 的更多信息，请参阅“[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)”。
 
-### Your student's editor of choice
-The GitHub Classroom integration with Visual Studio Code provides students with an extension pack which contains:
+### 您学生的首选编辑器
+GitHub Classroom 与 Visual Studio Code 的集成为学生提供了一个扩展包，其中包含：
 
 1. [GitHub Classroom Extension](https://aka.ms/classroom-vscode-ext) with custom abstractions that make it easy for students to navigate getting started.
 2. [Visual Studio Live Share Extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) integrating into a student view for easy access to teaching assistants and classmates for help and collaboration.

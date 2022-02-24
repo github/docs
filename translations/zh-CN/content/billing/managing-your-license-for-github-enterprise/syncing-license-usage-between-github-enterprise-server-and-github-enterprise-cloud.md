@@ -22,19 +22,23 @@ For more information about licenses and usage for {% data variables.product.prod
 
 ## Automatically syncing license usage
 
-您可以使用 {% data variables.product.prodname_github_connect %} 在 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 之间自动同步用户许可数量和使用情况。 For more information, see "[Enabling automatic user license sync for your enterprise]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}."{% endif %}
+You can use {% data variables.product.prodname_github_connect %} to automatically sync user license count and usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Enabling automatic user license sync for your enterprise]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}."{% endif %}
 
 ## Manually syncing license usage
 
-您可以从 {% data variables.product.prodname_ghe_server %} 下载 JSON 文件并将文件上传到 {% data variables.product.prodname_ghe_cloud %}，在两个部署之间手动同步用户许可使用情况。
+You can download a JSON file from {% data variables.product.prodname_ghe_server %} and upload the file to {% data variables.product.prodname_ghe_cloud %} to manually sync user license usage between the two deployments.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-5. 在“Quick links”下，要下载包含 {% data variables.product.prodname_ghe_server %} 上当前许可使用情况的文件，请单击 **Export license usage**。 ![Export license usage 链接](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
+5. Under "Quick links", to download a file containing your current license usage on {% data variables.product.prodname_ghe_server %}, click **Export license usage**.
+  ![Export license usage link](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-8. 在左侧边栏中，单击 **Enterprise licensing（企业许可）**。 ![企业帐户设置侧边栏中的"Enterprise licensing（企业许可）"选项卡](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+8. In the left sidebar, click **Enterprise licensing**.
+  !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 {% data reusables.enterprise-accounts.license-tab %}
-10. 在“Enterprise Server Instances（Enterprise Server 实例）”下，单击 **Add server usage（添加服务器使用情况）**。 ![Upload GitHub Enterprise Servers usage 链接](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
-11. 上传从 {% data variables.product.prodname_ghe_server %} 下载的 JSON 文件。 ![拖放或选择要上传的文件](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+10. Under "Enterprise Server Instances", click **Add server usage**.
+  ![Upload GitHub Enterprise Servers usage link](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
+11. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}.
+  ![Drag and drop or select a file to upload](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
