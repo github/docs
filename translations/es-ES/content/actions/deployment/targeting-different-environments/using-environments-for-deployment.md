@@ -87,19 +87,19 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 3. Opcionalmente, especifica qué ramas pueden desplegarse en este ambiente. Para obtener más información sobre los valores posibles, consulta la sección "[Ramas de despliegue](#deployment-branches)".
    1. Selecciona la opción deseada en el menú desplegable de **Ramas de despliegue**.
    1. Si eliges **Ramas seleccionadas**, ingresa los patrones de nombre de rama que quieras permitir.
-4. Optionally, add environment secrets. These secrets are only available to workflow jobs that use the environment. Additionally, workflow jobs that use this environment can only access these secrets after any configured rules (for example, required reviewers) pass. Para obtener más información sobre los secretos, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
-   1. Under **Environment secrets**, click **Add Secret**.
-   1. Enter the secret name.
-   1. Enter the secret value.
+4. Opcionalmente, agrega secretos de ambiente. Estos secretos solo están disponibles para los jobs de flujos de trabajo que utilicen el ambiente. Adicionalmente, los jobs de flujo de trabajo que utilicen este ambiente solo pueden acceder a estos secretos después de que pase cualquier regla configurada (por ejemplo, los revisores requeridos). Para obtener más información sobre los secretos, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
+   1. Debajo de **Secretos de ambiente**, haz clic en **Agregar secreto**.
+   1. Ingresa el nombre del secreto.
+   1. Ingresa el valor del secreto.
    1. Haz clic en **Agregar secreto** (Agregar secreto).
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes crear y configurar ambientes a través de la API de REST. Para obtener más información, consulta las secciones de "[Ambientes](/rest/reference/repos#environments)" y "[Secretos](/rest/reference/actions#secrets)".{% endif %}
 
 El ejecutar un flujo de trabajo que referencie un ambiente que no existe creará un ambiente con el nombre referenciado. El ambiente recién creado no tendrá configurada ninguna regla de protección o secreto. Cualquiera que pueda editar flujos de trabajo en el repositorio podrá crear ambientes a través de un archivo de flujo de trabajo, pero solo los administradoresd e repositorio pueden configurar el ambiente.
 
-## Using an environment
+## Utilizar un ambiente
 
-Cad job en un flujo de trabajo puede referenciar un solo ambiente. Cualquier regla de protección que se configure para el ambiente debe pasar antes de que un job que referencia al ambiente se envíe a un ejecutor. The job can access the environment's secrets only after the job is sent to a runner.
+Cad job en un flujo de trabajo puede referenciar un solo ambiente. Cualquier regla de protección que se configure para el ambiente debe pasar antes de que un job que referencia al ambiente se envíe a un ejecutor. El job puede acceder a los secretos de ambiente únicamente después de que se envía a un ejecutor.
 
 Cuando un flujo de trabajo referencia un ambiente, éste aparecerá en los despliegues del repositorio. Para obtener más información acerca de visualizar los despliegues actuales y previos, consulta la sección "[Visualizar el historial de despliegues](/developers/overview/viewing-deployment-history)".
 
@@ -119,12 +119,12 @@ El borrar un ambiente borrará todos los secretos y reglas de protección asocia
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes borrar los ambientes a través de la API de REST Para obtener más información, consulta la sección "[Ambientes](/rest/reference/repos#environments)".{% endif %}
 
-## How environments relate to deployments
+## Cómo se relacionan los ambientes con los desplilegues
 
 {% data reusables.actions.environment-deployment-event %}
 
-You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. Para obtener más información, consulta las secciones "[Repositorios](/rest/reference/repos#deployments)" (API de REST), "[Objetos]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#deployment)"(API de GraphQL) o "[Cargas útiles y eventos de Webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)".
+Puedes acceder a estos objetos a través de la API de REST o la API de GraphQL. También puedes suscribirte a estos eventos de webhook. Para obtener más información, consulta las secciones "[Repositorios](/rest/reference/repos#deployments)" (API de REST), "[Objetos]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#deployment)"(API de GraphQL) o "[Cargas útiles y eventos de Webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)".
 
 ## Pasos siguientes
 
-{% data variables.product.prodname_actions %} provides several features for managing your deployments. For more information, see "[Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)."
+{% data variables.product.prodname_actions %} proporciona varias características para administrar tus despliegues. For more information, see "[Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)."
