@@ -1,4 +1,4 @@
----
+---https://github.com/github/docs/pull/15786#issue-1148716259
 title: Troubleshooting required status checks
 intro: You can check for common errors and resolve issues with required status checks.
 product: '{% data reusables.gated-features.protected-branches %}'
@@ -91,7 +91,7 @@ name: ci
 on:
   pull_request:
     paths-ignore:
-      - 'scripts/**'
+      - 'scripts/**'boolean
       - 'middleware/**'
 jobs:
   build:
