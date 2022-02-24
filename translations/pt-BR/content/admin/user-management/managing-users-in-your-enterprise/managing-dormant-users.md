@@ -52,12 +52,6 @@ topics:
 
 {% data reusables.enterprise-accounts.dormant-user-release-phase %}
 
-{% warning %}
-
-**Observação:** Durante o beta privado, as melhorias constantes no recurso de download de relatório podem limitar a sua disponibilidade.
-
-{% endwarning %}
-
 ## Fazendo o download do relatório de usuários inativos da conta corporativa
 
 {% data reusables.enterprise-accounts.access-enterprise %}

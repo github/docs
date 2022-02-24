@@ -479,7 +479,7 @@ Cor de fundo do selo. Pode ser: `branco`, `amarelo`, `azul`, `verde`, `laranja`,
 
 ### `branding.icon`
 
-The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand icons are omitted as well as the following:
+O nome do ícone de [Pena](https://feathericons.com/) da v4.28.0 a ser utilizado. Os ícones da marca são omitidos, assim como os itens seguintes:
 
 <table>
 <tr>
@@ -508,7 +508,7 @@ The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand 
 </tr>
 </table>
 
-Here is an exhaustive list of all currently supported icons:
+Aqui está uma lista taxativa de todos os ícones atualmente compatíveis:
 
 
 <!-- 
