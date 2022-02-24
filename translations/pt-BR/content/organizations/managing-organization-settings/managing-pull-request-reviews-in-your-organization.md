@@ -1,27 +1,27 @@
 ---
-title: Managing pull request reviews in your organization
-intro: You can limit which users can approve or request changes to a pull requests in your organization.
+title: Gerenciando revisões de pull request na sua organização
+intro: Você pode limitar os usuários que podem aprovar ou solicitar alterações em um pull request na sua organização.
 versions:
   feature: pull-request-approval-limit
 permissions: Organization owners can limit which users can submit reviews that approve or request changes to a pull request.
 topics:
   - Organizations
   - Pull requests
-shortTitle: Manage pull request reviews
+shortTitle: Gerenciar revisões de pull request
 ---
 
-## About code review limits
+## Sobre limites de revisão de código
 
-By default, in public repositories, any user can submit reviews that approve or request changes to a pull request.
+Por padrão, em repositórios públicos, qualquer usuário pode enviar análises que aprovem ou solicitem alterações em um pull request.
 
-You can limit who is able to approve or request changes to pull requests in public repositories owned by your organization. After you enable code review limits, anyone can comment on pull requests in your public repositories, but only people with explicit access to a repository can approve a pull request or request changes.
+É possível limitar quem pode aprovar ou solicitar alterações em pull requests em repositórios públicos pertencentes à sua organização. Depois que você habilitar os limites de revisão de código, qualquer pessoa poderá comentar em pull requests nos seus repositórios públicos, mas somente pessoas com acesso explícito a um repositório poderão aprovar um pull request ou solicitar alterações.
 
-You can also enable code review limits for individual repositories. If you enable or limits for your organization, you will override any limits for individual repositories owned by the organization. For more information, see "[Managing pull request reviews in your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-pull-request-reviews-in-your-repository)."
+Você também pode habilitar os limites de revisão de código para repositórios individuais. Se você habilitar os limites para a organização, você substituirá todos os limites para repositórios individuais pertencentes à organização. Para obter mais informações, consulte "[Gerenciando revisões de pull request no seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-pull-request-reviews-in-your-repository)".
 
-## Enabling code review limits
+## Habilitando limites de revisão de código
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.moderation-settings %}
-1. Under "{% octicon "report" aria-label="The report icon" %} Moderation", click **Code review limits**. ![Screenshot of sidebar item for code review limits for organizations](/assets/images/help/organizations/code-review-limits-organizations.png)
-1. Review the information on screen. Click **Limit review on all repositories** to limit reviews to those with explicit access, or click **Remove review limits from all repositories** to remove the limits from every public repository in your organization. ![Screenshot of code review limits settings for organizations](/assets/images/help/organizations/code-review-limits-organizations-settings.png)
+1. Em "Moderação de {% octicon "report" aria-label="The report icon" %}", clique em **Limites de revisão de código**. ![Captura de tela do item na barra lateral para limites de revisão de código para organizações](/assets/images/help/organizations/code-review-limits-organizations.png)
+1. Revise as informações na tela. Clique em **Limitar revisão em todos os repositórios** para limitar análises para aqueles com acesso explícito ou clique em **Remover limites de revisão de todos os repositórios** para remover os limites de cada repositório público na sua organização. ![Captura de tela de revisão de código de configurações de limites para organizações](/assets/images/help/organizations/code-review-limits-organizations-settings.png)

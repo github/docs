@@ -74,8 +74,8 @@ After changing your username, links to your previous profile page, such as `http
 
 ## Changing your username
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. In the "Change username" section, click **Change username**.
    ![Change Username button](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
 4. Read the warnings about changing your username. If you still want to change your username, click **I understand, let's change my username**.

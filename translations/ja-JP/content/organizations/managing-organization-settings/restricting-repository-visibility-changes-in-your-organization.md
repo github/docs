@@ -32,4 +32,4 @@ shortTitle: 可視性の変更ポリシーの設定
 
 ## 参考リンク
 
-- "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
+- 「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」

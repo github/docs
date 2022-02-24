@@ -40,8 +40,8 @@ shortTitle: 更新访问凭据
 {% data reusables.repositories.blocked-passwords %}
 
 1. {% data variables.product.signin_link %}到 {% data variables.product.product_name %}。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 4. 在“Change password（更改密码）”下，输入旧密码、强新密码并确认新密码。 有关创建强密码的帮助，请参阅“[创建强密码](/articles/creating-a-strong-password)”
 5. 单击 **Update password（更新密码）**。
 

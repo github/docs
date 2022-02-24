@@ -21,6 +21,8 @@ shortTitle: Review audit log
 
 The audit log lists events triggered by activities that affect your organization within the current month and previous six months. Only owners can access an organization's audit log.
 
+{% data reusables.audit_log.only-three-months-displayed %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
@@ -107,7 +109,7 @@ For example:
 
 {% note %}
 
-**ノート**: Audit logには、当月と過去6ヶ月の毎日のデータが含まれます。
+**Note**: The audit log contains data for the current month and every day of the previous six months.
 
 {% endnote %}
 
@@ -168,6 +170,8 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 {% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
+
+By default, only events from the past three months are returned. To include older events, you must specify a timestamp in your query.
 
 For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
 

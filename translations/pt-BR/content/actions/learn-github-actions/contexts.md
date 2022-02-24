@@ -713,7 +713,7 @@ Não há propriedades padrão no contexto `entradas`, apenas aquelas definidas n
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)".
+Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 
 | Nome da propriedade   | Tipo                               | Descrição                                                                                                                                                                                                                                                                     |
 | --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -722,7 +722,7 @@ For more information, see "[Reusing workflows](/actions/learn-github-actions/reu
 
 ### Exemplo de conteúdo do contexto `entradas`
 
-The following example contents of the `inputs` context is from a job in a reusable workflow that has defined the `build_id` and `deploy_target` inputs.
+O conteúdo de exemplo das `entradas` contexto é de um trabalho em um fluxo de trabalho reutilizável que definiu as entradas de `build_id` e `deploy_target`.
 
 ```yaml
 {
@@ -733,7 +733,7 @@ The following example contents of the `inputs` context is from a job in a reusab
 
 ### Exemplo de uso do contexto `entradas`
 
-This example reusable workflow uses the `inputs` context to get the values of the `build_id` and `deploy_target` inputs that were passed to the reusable workflow from the caller workflow.
+Este exemplo de fluxo de trabalho reutilizável usa o contexto `entradas` para obter os valores das entradas `build_id` e `deploy_target` que foram passadas para o fluxo de trabalho reutilizável do fluxo de trabalho de chamadas.
 
 {% raw %}
 ```yaml{:copy}

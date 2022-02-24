@@ -77,7 +77,7 @@ SCIMを使用して{% data variables.product.product_name %} のユーザプロ�
 IdP グループを {% data variables.product.product_name %} Team に接続すると、グループ内のすべてのユーザが自動的に Team に追加されます。 {% ifversion ghae %}親 Organization のメンバーになっていないユーザも Organization に追加されます。{% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion ghec %}
@@ -90,7 +90,7 @@ IdP グループを {% data variables.product.product_name %} Team に接続す�
 {% data variables.product.prodname_dotcom %} Team から IdP グループを切断すると、その IdP グループを介して {% data variables.product.prodname_dotcom %} Team に割り当てられている Team メンバーは Team から削除されます。 {% ifversion ghae %} その Team 接続のためだけに親 Organization のメンバーであったユーザも、Organization から削除されます。{% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion ghec %}

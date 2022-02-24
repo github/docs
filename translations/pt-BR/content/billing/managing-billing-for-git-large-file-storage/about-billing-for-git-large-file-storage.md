@@ -21,7 +21,7 @@ shortTitle: Sobre a cobrança do LFS do Git
 
 {% data reusables.large_files.owner_quota_only %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Comprar armazenamento e largura de banda adicionais
 

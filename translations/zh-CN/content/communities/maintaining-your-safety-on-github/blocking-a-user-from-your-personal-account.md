@@ -59,8 +59,8 @@ shortTitle: 阻止您的帐户
 
 ## 在您的帐户设置中阻止用户
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. 在“Block a user（阻止用户）”下，键入您要阻止的用户的用户名，然后单击 **Block user（阻止用户）**。 ![用户名字段和阻止按钮](/assets/images/help/settings/user-settings-block-user.png)
 4. （可选）要在您访问被阻止用户参与的仓库时显示警告，请选择 **Warn me when a blocked user is a prior contributor to a repository（在访问被阻止用户先前参与的仓库时警告我）**。 ![关于被阻止用户的警告选项](/assets/images/help/settings/warn-block-user.png)
 

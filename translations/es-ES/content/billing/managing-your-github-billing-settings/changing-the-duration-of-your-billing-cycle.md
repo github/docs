@@ -23,8 +23,8 @@ Al cambiar la duración de tu ciclo de facturación, tu suscripción a {% data v
 
 ## Cambiar la duración del ciclo de facturación de tu cuenta personal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 

@@ -41,12 +41,12 @@ Pessoas com permissões de gravação em um repositório podem habilitar o merge
 1. Se você escolheu os métodos de merge ou combinação por squash, digite uma mensagem de commit e a descrição e escolha o endereço de e-mail que você deseja criar o commimt de merge.![Campos para inserir mensagem de commit e descrição e escolher o e-mail do autor do commit](/assets/images/help/pull_requests/pull-request-information-fields.png)
   {% note %}
 
-  **Note:** The email dropdown menu is not available if you have email privacy enabled or if you only have one verified and visible email associated with your {% data variables.product.company_short %} account.
+  **Observação:** O menu suspenso de e-mail não está disponível se você tiver a privacidade do e-mail habilitada ou se você tiver apenas um e-mail verificado e visível associado à sua conta do {% data variables.product.company_short %}.
 
   {% endnote %}
   {% endif %}
   {% ifversion ghes > 3.0 or ghae or ghec %}
-1. If you chose the merge or squash and merge methods, type a commit message and description. ![Fields to enter commit message and description](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
+1. Se você escolheu os métodos de merge ou combinação por squash e merge, digite uma mensagem de commit e descrição. ![Campos para inserir a mensagem e a descrição do commit](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
   {% endif %}
 1. Clique em **Confirmar merge automático**.
 

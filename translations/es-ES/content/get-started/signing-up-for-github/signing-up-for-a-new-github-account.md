@@ -21,7 +21,7 @@ Cuando creas una cuenta personal o de organización, debes seleccionar un plan d
 
 ## Registrarse para una cuenta nueva
 
-1. If you want to create a new personal account, make sure you are currently signed out of GitHub.
+1. Si quieres crear una cuenta personal nueva, asegúrate de haber cerrado sesión en GitHub.
 {% data reusables.accounts.create-account %}
 1. Sigue las indicaciones para crear tu cuenta personal o de organización.
 

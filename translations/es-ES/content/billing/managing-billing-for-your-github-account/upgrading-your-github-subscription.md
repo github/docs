@@ -42,8 +42,8 @@ Cuando mejoras las suscripción de una cuenta, esta mejora cambia las caracterí
 
 Puedes mejorar tu cuenta personal desde {% data variables.product.prodname_free_user %} a {% data variables.product.prodname_pro %} para obtener herramientas avanzadas de revisión de código en repositorios privados que pertenezcan a tu cuenta de usuario. El mejorar tu cuenta personal no afecta a las organizaciones que pudieras administrar ni a los repositorios que pertenezcan a dichas organizaciones. {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. Junto a "Plan actual", haz clic en **Mejorar**. ![Botón para actualizar](/assets/images/help/billing/settings_billing_user_upgrade.png)
 2. Debajo de "Pro" en la página de "Comparar planes", haz clic en **Actualizar a Pro**.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}

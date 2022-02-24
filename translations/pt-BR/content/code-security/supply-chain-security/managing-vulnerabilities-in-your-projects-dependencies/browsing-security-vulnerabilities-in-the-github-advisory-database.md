@@ -75,6 +75,9 @@ O banco de dados também pode ser acessado usando a API do GraphQL. Para obter m
 
 {% endnote %}
 
+## Editing an advisory in the {% data variables.product.prodname_advisory_database %}
+You can suggest improvements to any advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)."
+
 ## Pesquisar em {% data variables.product.prodname_advisory_database %}
 
 Você pode procurar no banco de dados e usar qualificadores para limitar sua busca. Por exemplo, você pode procurar consultorias criadas em uma determinada data, em um ecossistema específico ou em uma biblioteca em particular.
@@ -114,4 +117,4 @@ Para qualquer consultoria revisada por {% data variables.product.company_short %
 
 ## Leia mais
 
-- [Definição de "vulnerabilidade"](https://cve.mitre.org/about/terminology.html#vulnerability) da MITRE
+- [Definição de "vulnerabilidade"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability) da MITRE

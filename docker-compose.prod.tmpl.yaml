@@ -7,6 +7,7 @@ services:
       - '4000:4000'
     environment:
       NODE_ENV: ${NODE_ENV}
+      NODE_OPTIONS: ${NODE_OPTIONS}
       DD_API_KEY: ${DD_API_KEY}
       COOKIE_SECRET: ${COOKIE_SECRET}
       HYDRO_ENDPOINT: ${HYDRO_ENDPOINT}

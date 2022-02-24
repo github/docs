@@ -22,8 +22,8 @@ shortTitle: 查看 Actions 使用情况
 
 任何人都可以查看自己用户帐户的 {% data variables.product.prodname_actions %} 使用情况。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
