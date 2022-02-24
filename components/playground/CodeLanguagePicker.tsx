@@ -1,4 +1,4 @@
-import { SelectMenu, Button, Dropdown } from '@primer/components'
+import { SelectMenu, Button, Dropdown } from '@primer/react'
 import { Link } from 'components/Link'
 import { useRouter } from 'next/router'
 import { usePlaygroundContext } from 'components/context/PlaygroundContext'
