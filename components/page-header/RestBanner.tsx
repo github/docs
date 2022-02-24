@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flash } from '@primer/components'
+import { Flash } from '@primer/react'
 import { useRouter } from 'next/router'
 import { Link } from 'components/Link'
 
