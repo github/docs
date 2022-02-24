@@ -76,7 +76,7 @@ const asyncMiddleware = (fn) => (req, res, next) => {
 }
 
 // The IP address that Fastly regards as the true client making the request w/ fallback to req.ip
-morgan.token('client-ip', (req) => req.headers['Fastly-Client-IP'] || req.ip)
+morgan.token('client-ip', (req) => req.headers['fastly-client-ip'] || req.ip)
 const productionLogFormat = `:client-ip - ":method :url" :status - :response-time ms`
 
 export default function (app) {
