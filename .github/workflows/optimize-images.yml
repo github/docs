@@ -41,7 +41,7 @@ jobs:
           git checkout $GITHUB_HEAD_REF
 
           echo "List the files that changed"
-          git diff --name-only $GITHUB_HEAD_REF $GITHUB_BASE_REF
+          git diff --name-only --diff-filter=d $GITHUB_BASE_REF $GITHUB_HEAD_REF
 
           echo "Run optipng on pngs in from the diff"
           git diff --name-only -z $GITHUB_HEAD_REF $GITHUB_BASE_REF -- '*.png' | xargs -0 optipng -nx
