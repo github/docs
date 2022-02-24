@@ -61,8 +61,8 @@ This diagram shows:
 Have you ever saved different versions of a file? Something like:
 
 * `story.txt`
-* `story-joe-edit.txt`
-* `story-joe-edit-reviewed.txt`
+* `story-edit.txt`
+* `story-edit-reviewed.txt`
 
 Branches accomplish similar goals in {% data variables.product.product_name %} repositories.
 
