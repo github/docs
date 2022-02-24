@@ -6,6 +6,7 @@ redirect_from:
   - /github/committing-changes-to-your-project/why-are-my-commits-in-the-wrong-order
   - /github/committing-changes-to-your-project/about-commits
   - /github/committing-changes-to-your-project/creating-and-editing-commits/about-commits
+  - /pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/commit-branch-and-tag-labels
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,6 +23,17 @@ You can add a co-author on any commits you collaborate on. For more information,
 You can also create a commit on behalf of an organization. For more information, see "[Creating a commit on behalf of an organization](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)."{% endif %}
 
 Rebasing allows you to change a series of commits and can modify the order of the commits in your timeline. For more information, see "[About git rebase](/github/getting-started-with-github/about-git-rebase)."
+
+## About commit branches and tag labels
+
+You can see what branch a commit is in by looking at the labels beneath the commit on the commit page.
+
+1. Navigate to the commit by clicking the commit message link.
+2. Second step here.
+
+If your commit is not on the default branch (`main`), an indicator will show the branches which contain the commit. If the commit is part of an unmerged pull request, it will show a link.
+
+Once the commit is on the default branch, any tags that contain the commit will be shown and the default branch will be the only branch listed.
 
 ## Further reading
 - "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)" on {% data variables.product.prodname_desktop %}
