@@ -44,7 +44,7 @@ jobs:
           git diff --name-only --diff-filter=d $GITHUB_BASE_REF $GITHUB_HEAD_REF
 
           echo "Run optipng on pngs in from the diff"
-          git diff --name-only -z $GITHUB_HEAD_REF $GITHUB_BASE_REF -- '*.png' | xargs -0 optipng -nx
+          git diff --name-only -z --diff-filter=d $GITHUB_BASE_REF $GITHUB_HEAD_REF -- '*.png' | xargs -0 optipng -nx
 
       - name: Make a commit and a push
         run: |
