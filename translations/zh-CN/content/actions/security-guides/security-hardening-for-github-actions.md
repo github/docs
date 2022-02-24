@@ -141,6 +141,16 @@ with:
 
 使用此方法， {% raw %}`${{ github.event.issue.title }}`{% endraw %} 表达式的值存储在内存中用作变量，并且不与脚本生成过程交互。 此外，考虑使用双引号 shell 变量来避免 [单词拆分](https://github.com/koalaman/shellcheck/wiki/SC2086)，但这是是写入shell 脚本[的许多一般性建议之一](https://mywiki.wooledge.org/BashPitfalls)，不是专门针对 {% data variables.product.prodname_actions %} 的。
 
+{% ifversion fpt or ghec %}
+### Using starter workflows for code scanning
+
+{% data reusables.advanced-security.starter-workflows-beta %}
+{% data variables.product.prodname_code_scanning_capc %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides starter workflows for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.product.prodname_codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party starter workflows available.
+
+For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[Setting up {% data variables.product.prodname_code_scanning %} using starter workflows](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."
+
+{% endif %}
+
 ### 限制令牌权限
 
 为了帮助降低暴露令牌的风险，请考虑限制分配的权限。 更多信息请参阅“[修改 GITHUB_TOKEN 的权限](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)”。
