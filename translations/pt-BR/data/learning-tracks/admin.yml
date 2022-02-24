@@ -98,8 +98,8 @@ configure_github_advanced_security:
     - /admin/advanced-security/configuring-secret-scanning-for-your-appliance
     - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
 get_started_with_your_enterprise_account:
-  title: 'Get started with your enterprise account'
-  description: 'Get started with your enterprise account to centrally manage multiple organizations on {% data variables.product.product_name %}.'
+  title: 'Comece a usar a sua conta corporativa'
+  description: 'Comece com sua conta corporativa para gerenciar centralmente várias organizações em {% data variables.product.product_name %}.'
   versions:
     ghes: '*'
     ghec: '*'

@@ -38,8 +38,8 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 
 ## Paso 2: Crea la organización.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 3. Dentro de "Choose a plan" (Elegir un plan), haz clic en **Choose (Elegir) {% data variables.product.prodname_free_team %}**. Actualizarás la organización en el próximo paso.
 {% data reusables.organizations.organization-name %}
@@ -71,7 +71,7 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 ## Paso 5: Invita a tu cliente a unirse a la organización.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 5. Escribe el nombre de usuario de {% data variables.product.prodname_dotcom %} de tu cliente y presiona **Enter**. ![Campo para escribir el nombre de usuario de tu cliente](/assets/images/help/organizations/org-invite-modal.png)
@@ -81,7 +81,7 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 ## Paso 6: Transfiere la propiedad de la organización a tu cliente.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Verifica que tu cliente se encuentre en la lista de miembros de la organización y tenga el rol de *propietario* asignado.
 5. A la derecha de tu nombre de usuario, usa el menú desplegable {% octicon "gear" aria-label="The Settings gear" %} y haz clic en **Administrar**. ![Enlace de acceso al gerente](/assets/images/help/organizations/member-manage-access.png)

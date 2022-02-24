@@ -21,7 +21,7 @@ shortTitle: Registro de seguridad
 
 La bitácora de seguridad lista todas las acciones que se llevaron a cabo en los últimos 90 días.
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. En la sección de "Archivos" de la barra lateral, haz clic en **{% octicon "log" aria-label="The log icon" %} Bitácora de seguridad**.
 {% else %}

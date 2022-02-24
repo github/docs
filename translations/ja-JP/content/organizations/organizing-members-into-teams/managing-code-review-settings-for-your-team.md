@@ -54,7 +54,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 ## Configuring team notifications
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
@@ -68,7 +68,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 
 ## Configuring auto assignment
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
@@ -92,7 +92,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 
 ## Disabling auto assignment
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 1. [**Enable auto assignment**] を選択してチェックマークを外します。 ![[Code review assignment] ボタン](/assets/images/help/teams/review-assignment-enable.png)

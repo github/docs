@@ -25,9 +25,9 @@ shortTitle: GitHub Advanced Security
 
 Una licencia de {% data variables.product.prodname_GH_advanced_security %} proporciona las siguientes características adicionales:
 
-- **{% data variables.product.prodname_code_scanning_capc %}** - Busca vulnerabilidades de seguridad potenciales y errores dentro de tu código. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)".
+- **{% data variables.product.prodname_code_scanning_capc %}** - Busca vulnerabilidades de seguridad potenciales y errores dentro de tu código. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)".
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han dado de alta en el repositorio. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)".
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han dado de alta en el repositorio. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".
 
 {% ifversion fpt or ghes > 3.1 or ghec or ghae-issue-4864 %}
 - **Revisión de dependencias** - Muestra todo el impacto de los cambios a las dependencias y vee los detalles de las versiones vulnerables antes de que fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
@@ -38,20 +38,20 @@ Una licencia de {% data variables.product.prodname_GH_advanced_security %} propo
 {% endif %}
 
 {% ifversion fpt or ghec %}
-The table below summarizes the availability of {% data variables.product.prodname_GH_advanced_security %} features for public and private repositories. |{% ifversion fpt %}
-|                          |          Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %}
-|:------------------------:|:------------------------------------:|:------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:|
-|    Escaneo de código     |                  Sí                  |                                          No                                          |                                        Sí                                         |
-|   Escaneo de secretos    | Yes **(limited functionality only)** |                                          No                                          |                                        Sí                                         |
-| Revisión de dependencias |                  Sí                  |                                          No                                          |                                        Sí                                         |{% endif %}
+La siguiente tabla resume la disponibilidad de las características de la {% data variables.product.prodname_GH_advanced_security %} para los repositorios públicos y privados. |{% ifversion fpt %}
+|                          |         Repositorio público          | Repositorio privado sin {% data variables.product.prodname_advanced_security %} | Repositorio privado con {% data variables.product.prodname_advanced_security %}
+|:------------------------:|:------------------------------------:|:---------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:|
+|    Escaneo de código     |                  Sí                  |                                        No                                         |                                        Sí                                         |
+|   Escaneo de secretos    | Sí **(solo funcionalidad limitada)** |                                        No                                         |                                        Sí                                         |
+| Revisión de dependencias |                  Sí                  |                                        No                                         |                                        Sí                                         |{% endif %}
 |
 {% ifversion ghec %}
-|                          |          Public repository           | Private repository without {% data variables.product.prodname_advanced_security %} | Private repository with {% data variables.product.prodname_advanced_security %}
-|:------------------------:|:------------------------------------:|:------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:|
-|    Escaneo de código     |                  Sí                  |                                          No                                          |                                        Sí                                         |
-|   Escaneo de secretos    | Yes **(limited functionality only)** |                                          No                                          |                                        Sí                                         |
-| Revisión de dependencias |                  Sí                  |                                          No                                          |                                        Sí                                         |
-|   Resumen de seguridad   |                  No                  |                                          No                                          |                                        Sí                                         |
+|                          |         Repositorio público          | Repositorio privado sin {% data variables.product.prodname_advanced_security %} | Repositorio privado con {% data variables.product.prodname_advanced_security %}
+|:------------------------:|:------------------------------------:|:---------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:|
+|    Escaneo de código     |                  Sí                  |                                        No                                         |                                        Sí                                         |
+|   Escaneo de secretos    | Sí **(solo funcionalidad limitada)** |                                        No                                         |                                        Sí                                         |
+| Revisión de dependencias |                  Sí                  |                                        No                                         |                                        Sí                                         |
+|   Resumen de seguridad   |                  No                  |                                        No                                         |                                        Sí                                         |
 {% endif %}
 
 {% endif %}
@@ -59,7 +59,7 @@ The table below summarizes the availability of {% data variables.product.prodnam
 Para obtener más información sobre las características de {% data variables.product.prodname_advanced_security %} que se encuentran en desarrollo, consulta la sección "[Plan de trabajo de {% data variables.product.prodname_dotcom %}](https://github.com/github/roadmap)". Para obtener un resumen de todas las características de seguridad, consulta la sección "[Características de seguridad de {% data variables.product.prodname_dotcom %}](/code-security/getting-started/github-security-features)".
 
 {% ifversion fpt or ghec %}
-{% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghec %}, except for the security overview{% endif %}. Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} con la {% data variables.product.prodname_advanced_security %} pueden habilitar estas características adicionalmente para repositorios privados e internos. They also have access to an organization-level security overview. {% ifversion fpt %}Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).{% endif %}
+Las características de la {% data variables.product.prodname_GH_advanced_security %} se habilitan para todos los repositorios en {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghec %}, con excepción del resumen de seguridad{% endif %}. Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} con la {% data variables.product.prodname_advanced_security %} pueden habilitar estas características adicionalmente para repositorios privados e internos. También tienen acceso a un resumen de seguridad a nivel organziacional. {% ifversion fpt %}Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).{% endif %}
 {% endif %}
 
 {% ifversion ghes or ghec %}
@@ -91,6 +91,16 @@ Para obtener más información, consulta las secciones "[Administrar la configur
 {% ifversion ghec or ghes > 3.0 %}
 Si tienes una cuenta empresarial, el uso de la licencia para toda la empresa se muestra en tu página de licencia empresarial. Para obtener más información, consulta la sección "[Visualizar tu uso de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage)".
 {% endif %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+## Acerca de los flujos de trabajo iniciales para {% data variables.product.prodname_advanced_security %}
+
+{% data reusables.advanced-security.starter-workflows-beta %}
+{% data reusables.advanced-security.starter-workflow-overview %}
+
+Para obtener más información sobre los flujos de trabajo iniciales, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} utilizando flujos de trabajo iniciales](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)" y "[Utilizar los flujos de trabajo iniciales](/actions/using-workflows/using-starter-workflows)".
 
 {% endif %}
 
