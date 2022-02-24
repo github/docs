@@ -16,7 +16,7 @@ shortTitle: Create a PR template
 
 For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
 
-You can create a *PULL_REQUEST_TEMPLATE/* subdirectory in any of the supported folders to contain multiple pull request templates, and use the `template` query parameter to specify the template that will fill the pull request body. For more information, see "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)."
+You can create a *PULL_REQUEST_TEMPLATE/* subdirectory in any of the supported folders to contain multiple pull request templates, and use the `template` query parameter to specify the template that will fill the pull request body. For more information, see "[About automation for issues and pull requests with query parameters](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-url-query)."
 
 {% ifversion fpt or ghes or ghec %}
 
