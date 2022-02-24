@@ -35,7 +35,7 @@ shortTitle: 设置提交电子邮件地址
 
 {% note %}
 
-**Note**: {% data reusables.user-settings.no-verification-disposable-emails %}
+**注**：{% data reusables.user-settings.no-verification-disposable-emails %}
 
 {% endnote %}
 
