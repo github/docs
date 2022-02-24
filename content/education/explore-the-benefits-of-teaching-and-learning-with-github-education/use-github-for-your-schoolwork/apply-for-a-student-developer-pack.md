@@ -49,7 +49,7 @@ Once your {% data variables.product.prodname_student_pack %} access expires, you
 
 To reapply, simply return to https://education.github.com then click on your profile picture and select "Reverify your academic affiliation."
 
-![scshot](https://user-images.githubusercontent.com/17846616/155141640-57aa383a-24ce-40f1-bbc9-2cc272df1883.jpg)
+![image (1)](https://user-images.githubusercontent.com/17846616/155487643-0ba8ec78-ee0d-4ab0-9d47-126e0f261066.png)
 
 For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
 
