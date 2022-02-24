@@ -1,10 +1,11 @@
 ---
-title: セキュリティアドバイザリを作成する
+title: Creating a repository security advisory
 intro: セキュリティアドバイザリのドラフトを作成して、オープンソースプロジェクトのセキュリティ脆弱性について非公開で議論して修正することができます。
 redirect_from:
   - /articles/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
+  - /code-security/security-advisories/creating-a-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,7 +13,7 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: アドバイザリの作成
+shortTitle: Create repository advisories
 ---
 
 リポジトリに対する管理者権限があるユーザなら誰でも、セキュリティアドバイザリを作成できます。
@@ -35,7 +36,7 @@ shortTitle: アドバイザリの作成
 ## 次のステップ
 
 - セキュリティアドバイザリのドラフトにコメントして、チームと脆弱性について話し合います。
-- セキュリティアドバイザリにコラボレータを追加します。 詳しい情報については、「[セキュリティアドバイザリにコラボレータを追加する](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory)」を参照してください。
-- 一時的なプライベートフォークで、脆弱性を修正するため非公式でコラボレートします。 詳細は「[一時的なプライベートフォークで、セキュリティ脆弱性を解決するためにコラボレートする](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)」を参照してください。
-- セキュリティアドバイザリへの貢献に対してクレジットを受け取る必要がある個人を追加します。 詳しい情報については、「[セキュリティアドバイザリを編集する](/github/managing-security-vulnerabilities/editing-a-security-advisory#about-credits-for-security-advisories)」を参照してください。
-- コミュニティにセキュリティの脆弱性を知らせるため、セキュリティアドバイザリを公開します。 詳しい情報については、「[セキュリティアドバイザリを公開する](/github/managing-security-vulnerabilities/publishing-a-security-advisory)」を参照してください。
+- セキュリティアドバイザリにコラボレータを追加します。 For more information, see "[Adding a collaborator to a repository security advisory](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)."
+- 一時的なプライベートフォークで、脆弱性を修正するため非公式でコラボレートします。 For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
+- セキュリティアドバイザリへの貢献に対してクレジットを受け取る必要がある個人を追加します。 For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
+- コミュニティにセキュリティの脆弱性を知らせるため、セキュリティアドバイザリを公開します。 For more information, see "[Publishing a repository security advisory](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)."

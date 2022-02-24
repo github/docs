@@ -1,8 +1,9 @@
 ---
-title: セキュリティアドバイザリを編集する
-intro: 詳細を更新したりエラーを修正したりする必要がある場合は、セキュリティアドバイザリのメタデータと説明を編集できます。
+title: Editing a repository security advisory
+intro: You can edit the metadata and description for a repository security advisory if you need to update details or correct errors.
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
+  - /code-security/security-advisories/editing-a-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,10 +11,12 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: アドバイザリの編集
+shortTitle: Edit repository advisories
 ---
 
-セキュリティアドバイザリの管理者権限を持つユーザは、セキュリティアドバイザリを編集できます。
+People with admin permissions to a repository security advisory can edit the security advisory.
+
+{% data reusables.security-advisory.repository-level-advisory-note %}
 
 ## セキュリティアドバイザリのクレジットについて
 
@@ -40,4 +43,4 @@ shortTitle: アドバイザリの編集
 
 ## 参考リンク
 
-- 「[セキュリティアドバイザリを撤回する](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)」
+- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
