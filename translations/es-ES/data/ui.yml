@@ -44,6 +44,7 @@ pages:
   miniToc: En este artículo
   contributor_callout: En este artículo contribuye y lo mantiene
   all_enterprise_releases: Todos los lanzamientos de Enterprise Server
+  about_versions: Acerca de las versiones
 errors:
   oops: '¡Ups!'
   something_went_wrong: Parece que algo salió mal.

@@ -1,8 +1,9 @@
 ---
-title: Editar una asesoría de seguridad
-intro: Puedes editar los metadatos y la descripción de una asesoría de seguridad si necesitas actualizar los detalles o corregir los errores en la misma.
+title: Editing a repository security advisory
+intro: You can edit the metadata and description for a repository security advisory if you need to update details or correct errors.
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
+  - /code-security/security-advisories/editing-a-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,10 +11,12 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Editar las asesorías
+shortTitle: Edit repository advisories
 ---
 
-Las personas con permisos de administrador en una asesoría de seguridad pueden editarla.
+People with admin permissions to a repository security advisory can edit the security advisory.
+
+{% data reusables.security-advisory.repository-level-advisory-note %}
 
 ## Acerca de los créditos para las asesorías de seguridad
 
@@ -40,4 +43,4 @@ Si crees que se te debería dar crédito por alguna asesoría de seguridad, por 
 
 ## Leer más
 
-- "[retirar una asesoría de seguridad](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"
+- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"

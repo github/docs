@@ -25,9 +25,9 @@ shortTitle: GitHub Advanced Security
 
 Una licencia de {% data variables.product.prodname_GH_advanced_security %} proporciona las siguientes características adicionales:
 
-- **{% data variables.product.prodname_code_scanning_capc %}** - Busca vulnerabilidades de seguridad potenciales y errores dentro de tu código. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)".
+- **{% data variables.product.prodname_code_scanning_capc %}** - Busca vulnerabilidades de seguridad potenciales y errores dentro de tu código. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)".
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han dado de alta en el repositorio. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)".
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han dado de alta en el repositorio. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".
 
 {% ifversion fpt or ghes > 3.1 or ghec or ghae-issue-4864 %}
 - **Revisión de dependencias** - Muestra todo el impacto de los cambios a las dependencias y vee los detalles de las versiones vulnerables antes de que fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
@@ -91,6 +91,16 @@ Para obtener más información, consulta las secciones "[Administrar la configur
 {% ifversion ghec or ghes > 3.0 %}
 Si tienes una cuenta empresarial, el uso de la licencia para toda la empresa se muestra en tu página de licencia empresarial. Para obtener más información, consulta la sección "[Visualizar tu uso de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage)".
 {% endif %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+## Acerca de los flujos de trabajo iniciales para {% data variables.product.prodname_advanced_security %}
+
+{% data reusables.advanced-security.starter-workflows-beta %}
+{% data reusables.advanced-security.starter-workflow-overview %}
+
+Para obtener más información sobre los flujos de trabajo iniciales, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} utilizando flujos de trabajo iniciales](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)" y "[Utilizar los flujos de trabajo iniciales](/actions/using-workflows/using-starter-workflows)".
 
 {% endif %}
 
