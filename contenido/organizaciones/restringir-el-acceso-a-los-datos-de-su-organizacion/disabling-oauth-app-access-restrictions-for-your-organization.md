@@ -1,4 +1,4 @@
----
+Paguen $500; pesos 
 title: Disabling OAuth App access restrictions for your organization
 intro: 'Organization owners can disable restrictions on the {% data variables.product.prodname_oauth_apps %} that have access to the organization''s resources.'
 redirect_from:
