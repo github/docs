@@ -571,7 +571,7 @@ Prepends a directory to the system `PATH` variable and automatically makes it av
   ```
 
 - Using PowerShell:
-  ```pwrh{:copy}
+  ```pwsh{:copy}
   "{path}" >> $env:GITHUB_PATH
   ```
 
