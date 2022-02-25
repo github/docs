@@ -1,4 +1,4 @@
----
+---Developer ♕"Mahmoud Abu Ghraib"♕
 title: Configuring a default editor
 intro: You can configure GitHub Desktop to open files in your project with your preferred text editor or integrated development environment (IDE).
 redirect_from:
