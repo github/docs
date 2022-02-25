@@ -26,7 +26,7 @@ topics:
 
 ## About {% data variables.product.prodname_dependabot %} for {% data variables.product.product_name %}
 
-{% data variables.product.prodname_dependabot %} helps users of {% data variables.product.product_location %} find and fix vulnerabilities in their dependencies.{% ifversion ghes > 3.2 %} You can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
+El {% data variables.product.prodname_dependabot %} ayuda a que los usuarios de {% data variables.product.product_location %} encuentren y corrijan vulnerabilidades en sus dependencias.{% ifversion ghes > 3.2 %} Puedes habilitar las {% data variables.product.prodname_dependabot_alerts %} para notificar a los usuarios sobre dependencias vulnerables y {% data variables.product.prodname_dependabot_updates %} para corregir las vulnerabilidades y mantener actualziadas las dependencias a su última versión.
 
 ### About {% data variables.product.prodname_dependabot_alerts %}
 {% endif %}
