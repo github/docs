@@ -1,4 +1,4 @@
----
+F---
 title: Finding ways to contribute to open source on GitHub
 intro: 'You can find ways to contribute to open source projects on {% data variables.product.product_location %} that are relevant to you.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
