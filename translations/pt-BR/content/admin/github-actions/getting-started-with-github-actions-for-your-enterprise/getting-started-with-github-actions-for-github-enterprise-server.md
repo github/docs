@@ -32,7 +32,7 @@ Por padrão, {% data variables.product.prodname_actions %} não está habilitado
 
 {% data reusables.actions.migrating-enterprise %}
 
-## Review hardware requirements
+## Revisar os requisitos de hardware
 
 {% ifversion ghes = 3.0 %}
 
@@ -74,9 +74,17 @@ A simultaneidade máxima foi medida usando vários repositórios, a duração do
 
 {%- endif %}
 
-{%- ifversion ghes > 3.2 %}
+{%- ifversion ghes = 3.3 %}
 
-{% data reusables.actions.hardware-requirements-after %}
+{% data reusables.actions.hardware-requirements-3.3 %}
+
+A simultaneidade máxima foi medida usando vários repositórios, a duração do trabalho de aproximadamente 10 minutos e o upload de artefato de 10 MB. Você pode ter um desempenho diferente dependendo dos níveis gerais de atividade na sua instância.
+
+{%- endif %}
+
+{%- ifversion ghes = 3.4 %}
+
+{% data reusables.actions.hardware-requirements-3.4 %}
 
 A simultaneidade máxima foi medida usando vários repositórios, a duração do trabalho de aproximadamente 10 minutos e o upload de artefato de 10 MB. Você pode ter um desempenho diferente dependendo dos níveis gerais de atividade na sua instância.
 

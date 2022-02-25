@@ -7,7 +7,7 @@ versions:
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
-shortTitle: Disaster recovery
+shortTitle: 灾难恢复
 ---
 
 我们努力确保您始终能够使用 {% data variables.product.prodname_codespaces %}。 但是，超出我们控制范围的力量有时会以导致计划外服务中断的方式影响服务。
@@ -22,21 +22,21 @@ shortTitle: Disaster recovery
 
 {% endnote %}
 
-## Option 1: Create a new codespace in another region
+## 选项 1：在另一个区域中创建新的代码空间
 
-In the case of a regional outage, we suggest you recreate your codespace in an unaffected region to continue working. 此新代码将包含您上次推送到 {% data variables.product.prodname_dotcom %} 后的所有更改。 For information on manually setting another region, see "[Setting your default region for Codespaces](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)."
+如果发生区域性断电，我们建议您在未受影响的区域中重新创建代码空间以继续工作。 此新代码将包含您上次推送到 {% data variables.product.prodname_dotcom %} 后的所有更改。 有关手动设置其他区域的信息，请参阅“[为 Codespaces 设置默认区域](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)”。
 
-You can optimize recovery time by configuring a `devcontainer.json` in the project's repository, which allows you to define the tools, runtimes, frameworks, editor settings, extensions, and other configuration necessary to restore the development environment automatically. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
+您可以通过在项目仓库中配置 `devcontainer.json` 来优化恢复时间，允许您定义工具、运行时间、框架、编辑器设置、扩展以及其他自动恢复开发环境所需的配置。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 
 ## 选项 2：等待恢复
 
 在这种情况下，不需要您采取任何行动。 要知道，我们正在努力恢复服务可用性。
 
-You can check the current service status on the [Status Dashboard](https://www.githubstatus.com/).
+您可以在[状态仪表板](https://www.githubstatus.com/)上查看当前服务状态。
 
 ## 选项 3：本地克隆仓库或在浏览器中编辑
 
-虽然 {% data variables.product.prodname_codespaces %} 具有预配置的开发者环境的优点，但您的源代码应该始终可以通过 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库访问。 如果发生 {% data variables.product.prodname_codespaces %} 中断，您仍然可以本地克隆存储库或在 {% data variables.product.company_short %} 浏览器编辑器中编辑文件。 For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+虽然 {% data variables.product.prodname_codespaces %} 具有预配置的开发者环境的优点，但您的源代码应该始终可以通过 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库访问。 如果发生 {% data variables.product.prodname_codespaces %} 中断，您仍然可以本地克隆存储库或在 {% data variables.product.company_short %} 浏览器编辑器中编辑文件。 更多信息请参阅“[编辑文件](/repositories/working-with-files/managing-files/editing-files)”。
 
 虽然此选项没有为您配置开发环境， 但它允许您在等待服务中断解决时根据需要更改源代码。
 

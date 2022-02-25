@@ -479,10 +479,40 @@ Cor de fundo do selo. Pode ser: `branco`, `amarelo`, `azul`, `verde`, `laranja`,
 
 ### `branding.icon`
 
-Nome do ícone [Feather](https://feathericons.com/) (pena) para usar. <!-- 
+O nome do ícone de [Pena](https://feathericons.com/) da v4.28.0 a ser utilizado. Os ícones da marca são omitidos, assim como os itens seguintes:
+
+<table>
+<tr>
+<td>coffee</td>
+<td>colunas</td>
+<td>divide-circle</td>
+<td>divide-square</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>frown</td>
+<td>hexagon</td>
+<td>Chave</td>
+</tr>
+<tr>
+<td>meh</td>
+<td>mouse-pointer</td>
+<td>smile</td>
+<td>ferramenta</td>
+</tr>
+<tr>
+<td>x-octagon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+Aqui está uma lista taxativa de todos os ícones atualmente compatíveis:
+
+
+<!-- 
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
-  This table does not match the latest version the feather library. 
-  (Brand icons are omitted, and our supported list is not necessarily up-to-date with the latest version of the feather icon library.)
   To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
 -->
 

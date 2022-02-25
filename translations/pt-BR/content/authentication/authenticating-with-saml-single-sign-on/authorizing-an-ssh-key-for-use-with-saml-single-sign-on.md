@@ -23,8 +23,8 @@ Você pode autorizar uma chave SSH existente ou criar uma e autorizá-la. For mo
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. Ao lado da chave SSH que deseja autorizar, clique em **Enable SSO** (Habilitar SSO) ou **Disable SSO** (Desabilitar SSO). ![Botão de autorização do token SSO](/assets/images/help/settings/ssh-sso-button.png)
 4. Encontre a organização para a qual deseja autorizar a chave SSH.
 5. Clique em **Autorizar**. ![Botão de autorização do token](/assets/images/help/settings/ssh-sso-authorize.png)

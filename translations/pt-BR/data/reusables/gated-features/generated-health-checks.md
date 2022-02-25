@@ -1,0 +1,1 @@
+Generating a Health Check is available with {% data variables.contact.premium_support %}. Para obter mais informações, consulte "[Sobre o {% data variables.contact.premium_support %}](/support/learning-about-github-support/about-github-premium-support)".

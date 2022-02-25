@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
-import { UnderlineNav } from '@primer/components'
+import { UnderlineNav } from '@primer/react'
 import { sendEvent, EventType } from 'components/lib/events'
 import { preserveAnchorNodePosition } from 'scroll-anchoring'
 

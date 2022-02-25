@@ -24,7 +24,7 @@ shortTitle: スケジュールされたリマインダーの管理
 
 ## ユーザアカウントのスケジュールされたリマインダーを作成する
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. リマインダーをスケジュールしたい Organization の隣で [**Edit**] をクリックします。 ![[Scheduled reminders edit] ボタン](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.add-reminder %}
@@ -38,14 +38,14 @@ shortTitle: スケジュールされたリマインダーの管理
 {% data reusables.reminders.create-reminder %}
 
 ## ユーザアカウントのスケジュールされたリマインダーを管理する
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. スケジュールされたリマインダーを編集したい Organization の隣で [**Edit**] をクリックします。 ![[Scheduled reminders edit] ボタン](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
 ## ユーザアカウントのスケジュールされたリマインダーを削除する
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. リマインダーを削除したい Organization の隣で [**Edit**] をクリックします。 ![[Scheduled reminders edit] ボタン](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.delete %}

@@ -141,14 +141,15 @@ with:
 
 使用此方法， {% raw %}`${{ github.event.issue.title }}`{% endraw %} 表达式的值存储在内存中用作变量，并且不与脚本生成过程交互。 此外，考虑使用双引号 shell 变量来避免 [单词拆分](https://github.com/koalaman/shellcheck/wiki/SC2086)，但这是是写入shell 脚本[的许多一般性建议之一](https://mywiki.wooledge.org/BashPitfalls)，不是专门针对 {% data variables.product.prodname_actions %} 的。
 
-### 使用 CodeQL 分析您的代码
+{% ifversion fpt or ghec %}
+### Using starter workflows for code scanning
 
-为了帮助您在开发生命周期中尽早管理危险模式的风险， {% data variables.product.prodname_dotcom %} 安全实验室开发了仓库所有者可以[集成](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#running-additional-queries)到其 CI/CD 管道中的 [CodeQL 查询](https://github.com/github/codeql/tree/main/javascript/ql/src/experimental/Security/CWE-094)。 更多信息请参阅“[关于代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
+{% data reusables.advanced-security.starter-workflows-beta %}
+{% data variables.product.prodname_code_scanning_capc %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides starter workflows for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.product.prodname_codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party starter workflows available.
 
-脚本目前依赖于 CodeQL JavaScript 库，这意味着分析的仓库必须包含至少一个 JavaScript 文件，并且 CodeQL 必须[配置为分析此语言](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed)。
+For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[Setting up {% data variables.product.prodname_code_scanning %} using starter workflows](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."
 
-- `ExpressionInjection.ql`：涵盖本文所述的表达式注入，被认为是相当准确的。 但是，它不执行工作流程步骤之间的数据流跟踪。
-- `UntrustedCheckout.ql`：此脚本的结果需要手动检查，以确定从拉取请求的代码是否实际以不安全的方式处理。 更多信息请参阅 {% data variables.product.prodname_dotcom %} 安全实验室博客上的“[保持 GitHub Actions 和工作流程安全：阻止 pwn 请求](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)”。
+{% endif %}
 
 ### 限制令牌权限
 

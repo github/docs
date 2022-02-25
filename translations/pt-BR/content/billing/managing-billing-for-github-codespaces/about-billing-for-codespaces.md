@@ -40,6 +40,12 @@ Se você comprou {% data variables.product.prodname_enterprise %} por meio de um
 
 {% data reusables.dotcom_billing.pricing_cal %}
 
+### Billing for {% data variables.product.prodname_codespaces %} prebuilds
+
+{% data reusables.codespaces.prebuilds-beta-note %}
+
+{% data reusables.codespaces.billing-for-prebuilds %}
+
 ## Definindo um limite de gastos
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}

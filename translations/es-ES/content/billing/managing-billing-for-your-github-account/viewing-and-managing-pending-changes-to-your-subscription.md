@@ -24,8 +24,8 @@ Cuando cancelas un cambio pendiente, tu suscripción no cambiará en tu próxima
 
 ## Ver y administrar cambios pendientes en tu suscripción de cuenta personal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}

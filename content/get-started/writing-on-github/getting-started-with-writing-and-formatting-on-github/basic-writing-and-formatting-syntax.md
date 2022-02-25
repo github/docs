@@ -84,7 +84,7 @@ git commit
 
 For more information, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## Links
 

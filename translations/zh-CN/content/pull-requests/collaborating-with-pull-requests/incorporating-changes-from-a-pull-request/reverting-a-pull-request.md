@@ -17,7 +17,7 @@ topics:
 
 ## 关于还原拉取请求
 
-在 {% data variables.product.product_name %} 上还原拉取请求会创建一个新拉取请求。其中包含原始合并拉取请求中一个还原的合并提交。
+在 {% data variables.product.product_name %} 上还原拉取请求会创建一个新拉取请求。其中包含原始合并拉取请求中一个还原的合并提交。 To revert pull requests, you must have [write permissions](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization) in the repository.
 
 ## 还原拉取请求
 
@@ -34,5 +34,5 @@ topics:
 
 {% data reusables.repositories.sidebar-pr %}
 2. 在“Pull Requests（拉取请求）”列表中，单击要还原的拉取请求。
-3. 在拉取请求底部附近，单击 **Revert（还原）**。 ![还原拉取请求链接](/assets/images/help/pull_requests/revert-pull-request-link.png)
+3. 在拉取请求底部附近，单击 **Revert（还原）**。 If the **Revert** option isn't displayed, you'll need to ask the repository administrator for write permissions. ![还原拉取请求链接](/assets/images/help/pull_requests/revert-pull-request-link.png)
 4. 合并产生的拉取请求。 更多信息请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。
