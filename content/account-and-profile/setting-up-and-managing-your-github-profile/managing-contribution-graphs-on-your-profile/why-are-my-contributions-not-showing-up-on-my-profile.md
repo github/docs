@@ -41,6 +41,14 @@ In addition, **at least one** of the following must be true:
 - You have opened a pull request or issue in the repository.
 - You have starred the repository.
 
+{% note %}
+
+**Note:** If commits are made to an organization that uses SSO, when you view your profile in a state where you are logged in to GitHub, but not SSO authenticated, you will not see your contributions on your profile even if you have private contributions enabled.
+
+However, if you are logged out of GitHub entirely, you should see all your contributions correctly.
+
+{% endnote %}
+
 ## Common reasons that contributions are not counted
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
