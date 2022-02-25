@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The security manager role is in public beta and subject to change. This feature is not available for organizations using legacy per-repository billing plans.
+**Nota:** El rol de administrador de seguridad se encuentra en beta público y está sujeto a cambios. Esta característica no se encuentra disponible para las organizaciones que utilicen planes de facturación por repositorio.
 
 {% endnote %}

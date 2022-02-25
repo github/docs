@@ -23,7 +23,7 @@ shortTitle: 所有权连续性
 
 继承者不能登录到您的帐户。
 
-指定的继承者在提交死亡证明并等待 7 天或者提交讣告并等待 21 天后，便可管理您的公共仓库。 For more information, see "[{% data variables.product.company_short %} Deceased User Policy](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)."
+指定的继承者在提交死亡证明并等待 7 天或者提交讣告并等待 21 天后，便可管理您的公共仓库。 更多信息请参阅“[{% data variables.product.company_short %} 已故用户政策](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)”。
 
 要请求作为继承者管理仓库，请联系 [GitHub 支持](https://support.github.com/contact?tags=docs-accounts)。
 

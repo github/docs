@@ -1,6 +1,6 @@
 ---
-title: Managing security managers in your organization
-intro: You can give your security team the least access they need to your organization by assigning a team to the security manager role.
+title: Organizationでのセキュリティ管理者の管理
+intro: セキュリティ管理者のロールを割り当てることで、セキュリティチームにOrganizationに対する必要最小限のアクセスを付与できます。
 versions:
   fpt: '*'
   ghes: '>=3.3'
@@ -8,7 +8,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Security manager role
+shortTitle: セキュリティ管理者のロール
 permissions: Organization owners can assign the security manager role.
 ---
 
@@ -16,12 +16,12 @@ permissions: Organization owners can assign the security manager role.
 
 {% data reusables.organizations.about-security-managers %}
 
-## Permissions for the security manager role
+## セキュリティ管理者のロールの権限
 
-Members of a team with the security manager role have only the permissions required to effectively manage security for the organization.
+セキュリティ管理者のロールを持つチームのメンバーは、Organizationのセキュリティを効率的に管理するのに必要な権限だけを持ちます。
 
-- Read access on all repositories in the organization, in addition to any existing repository access
-- Write access on all security alerts in the organization {% ifversion not fpt %}
+- 既存のすべてのリポジトリへのアクセスに加えて、Organization内のすべてのリポジトリへの読み取りアクセス
+- Organization内のすべてのセキュリティアラートに対する書き込みアクセス{% ifversion not fpt %}
 - Access to the organization's security overview {% endif %}
 - The ability to configure security settings at the organization level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
 - The ability to configure security settings at the repository level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
