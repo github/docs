@@ -48,9 +48,9 @@ When creating a group, you must choose a policy that defines which repositories 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runner-groups %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups %}
 1. In the "Runner groups" section, click **New runner group**.
- {% data reusables.github-actions.runner-group-assign-policy-repo %}
+ {% data reusables.actions.runner-group-assign-policy-repo %}
 
    {% warning %}
 
@@ -59,11 +59,11 @@ When creating a group, you must choose a policy that defines which repositories 
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
-{% data reusables.github-actions.self-hosted-runner-create-group %}
+{% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runners %}
+{% data reusables.actions.settings-sidebar-actions-runners %}
 1. Under {% ifversion ghes > 3.1 or ghae %}"Runners"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %}, click **Add new**, and then **New group**.
 
     ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
@@ -99,7 +99,7 @@ When creating a group, you must choose a policy that defines which organizations
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runner-groups-tab %}
 1. Click **New runner group**.
- {% data reusables.github-actions.runner-group-assign-policy-org %}
+ {% data reusables.actions.runner-group-assign-policy-org %}
 
    {% warning %}
 
@@ -110,7 +110,7 @@ When creating a group, you must choose a policy that defines which organizations
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
-{% data reusables.github-actions.self-hosted-runner-create-group %}
+{% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -142,8 +142,8 @@ When creating a group, you must choose a policy that defines which organizations
 
 You can update the access policy of a runner group, or rename a runner group.
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
-{% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.github-actions.settings-sidebar-actions-runner-groups-selection %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. Modify the access options, or change the runner group name.
 
    {% warning %}
@@ -156,7 +156,7 @@ You can update the access policy of a runner group, or rename a runner group.
 
    {% endwarning %}
 {% elsif ghae or ghes < 3.4 %}
-{% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
+{% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
@@ -178,7 +178,7 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 
 If you don't specify a runner group during the registration process, your new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
 
-{% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. In the "Runners" list, click the runner that you want to configure.
 2. Select the Runner group dropdown menu.
@@ -197,7 +197,7 @@ If you don't specify a runner group during the registration process, your new se
 Self-hosted runners are automatically returned to the default group when their group is removed.
 
 {% ifversion ghes > 3.1 or ghae or ghec %}
-{% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. In the list of groups, to the right of the group you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 2. To remove the group, click **Remove group**.
 3. Review the confirmation prompts, and click **Remove this runner group**.

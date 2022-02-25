@@ -119,7 +119,7 @@ You can also configure allowed IP addresses for an individual organization. For 
 
 ### Using {% data variables.product.prodname_actions %} with an IP allow list
 
-{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}
 
 {% endif %}
 
