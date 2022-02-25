@@ -14,7 +14,7 @@ topics:
   - SSH
 shortTitle: Permission denied (publickey)
 ---
-## Should the `sudo` command be used with Git?
+## (Linux) Should the `sudo` command be used with Git?
 
 You should not be using the `sudo` command with Git. If you have a *very good reason* you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/articles/generating-an-ssh-key) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
 
