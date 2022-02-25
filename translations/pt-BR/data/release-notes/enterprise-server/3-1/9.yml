@@ -4,8 +4,8 @@ sections:
   security_fixes:
     - 'Os pacotes foram atualizados para as últimas versões de segurança. {% comment %} https://github.com/github/enterprise2/pull/27035, https://github.com/github/enterprise2/pull/27010 {% endcomment %}'
   bugs:
-    - 'Custom pre-receive hooks could have failed due to too restrictive virtual memory or CPU time limits. {% comment %} https://github.com/github/enterprise2/pull/26972, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
-    - 'Attempting to wipe all existing configuration settings with `ghe-cleanup-settings` failed to restart the Management Console service. {% comment %} https://github.com/github/enterprise2/pull/26987, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
+    - 'É possível que os hooks pre-receive personalizados tenham falhado devido a limites de tempo de memória virtual ou CPU muito restritivos. {% comment %} https://github.com/github/enterprise2/pull/26972, https://github.com/github/enterprise2/pull/26955 {% endcomment %}'
+    - 'A tentativa de limpar todas as configurações existentes com `ghe-cleanup-settings` falhou ao reiniciar o serviço do Console de Gerenciamento. {% comment %} https://github.com/github/enterprise2/pull/26987, https://github.com/github/enterprise2/pull/26901 {% endcomment %}'
     - 'During replication teardown via `ghe-repl-teardown` Memcached failed to be restarted. {% comment %} https://github.com/github/enterprise2/pull/26993, https://github.com/github/enterprise2/pull/26983 {% endcomment %}'
     - 'During periods of high load, users would receive HTTP 503 status codes when upstream services failed internal healthchecks. {% comment %} https://github.com/github/enterprise2/pull/27082, https://github.com/github/enterprise2/pull/26999 {% endcomment %}'
     - 'With Actions configured, MSSQL replication would fail after restoring from a GitHub Enterprise Backup Utilities snapshot. {% comment %} https://github.com/github/enterprise2/pull/27097, https://github.com/github/enterprise2/pull/26254 {% endcomment %}'

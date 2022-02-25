@@ -36,7 +36,7 @@ Você decide como gerar alertas de {% data variables.product.prodname_code_scann
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Note:** If you want to use the CodeQL analysis, note that this article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. Se a sua empresa usar uma versão mais recente da ação CodeQL, consulte o [o artigo de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository) para obter informações sobre as funcionalidades mais recentes. {% ifversion not ghae %} Para obter informações sobre como usar a versão mais recente, consulte "[Configurando a digitalização de código para o seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
+**Observação:** Se você desejar usar a análise de CodeQL, este artigo descreve as funcionalidades disponíveis com a versão da ação CodeQL e o pacote da CLI do CodeQL associado incluído na versão inicial desta versão de {% data variables.product.product_name %}. Se a sua empresa usar uma versão mais recente da ação CodeQL, consulte o [o artigo de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository) para obter informações sobre as funcionalidades mais recentes. {% ifversion not ghae %} Para obter informações sobre como usar a versão mais recente, consulte "[Configurando a digitalização de código para o seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
 
 {% endnote %}
 {% endif %}
@@ -50,7 +50,7 @@ Os proprietários da empresa, administradores de organização e repositórios p
 {% endif %}
 
 {% ifversion fpt or ghec %}
-## Setting up {% data variables.product.prodname_code_scanning %} using starter workflows
+## Configurar {% data variables.product.prodname_code_scanning %} usando fluxos de trabalho iniciais
 
 {% data reusables.advanced-security.starter-workflows-beta %}
 
@@ -62,19 +62,19 @@ Os proprietários da empresa, administradores de organização e repositórios p
 {% endnote %}
 {% endif %}
 
-{% data reusables.advanced-security.starter-workflow-overview %} {% data variables.product.prodname_code_scanning_capc %} starter workflows are only available for your repository if {% data variables.product.prodname_code_scanning %} is enabled.
+{% data reusables.advanced-security.starter-workflow-overview %} Os fluxos de trabalho iniciais de {% data variables.product.prodname_code_scanning_capc %} estão disponíveis apenas para o seu repositório se {% data variables.product.prodname_code_scanning %} estiver habilitado.
 
 {% data reusables.code-scanning.billing %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. If the repository has already at least one workflow set up and running, click **New workflow** and go to step 5. If there are currently no workflows configured for the repository, go to the next step. ![Screenshot of the New workflow button](/assets/images/help/security/actions-new-workflow-button.png)
-1. Scroll down to the "Security" category and click **Configure** under the workflow you want to configure, or click **View all** to see all available security workflows. ![Screenshot of the Actions workflows security section](/assets/images/help/security/actions-workflows-security-section.png)
-1. On the right pane of the workflow page, click **Documentation** and follow the on-screen instructions to tailor the workflow to your needs. ![Screenshot of the Documentation tab for starter workflows](/assets/images/help/security/actions-workflows-documentation.png) For more information, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows#using-starter-workflows)" and "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)."
+1. Se o repositório já tiver pelo menos um fluxo de trabalho configurado e em execução, clique em **Novo fluxo de trabalho** e vá para a etapa 5. Se, atualmente, não houver fluxos de trabalho configurados para o repositório, vá para a próxima etapa. ![Captura de tela do botão novo fluxo de trabalho](/assets/images/help/security/actions-new-workflow-button.png)
+1. Role para baixo até a categoria "Segurança" e clique em **Configurar** no fluxo de trabalho que você deseja configurar, ou clique em **Visualizar todos** para ver todos os fluxos de trabalho de segurança disponíveis. ![Captura de tela da seção de segurança de fluxos de trabalho](/assets/images/help/security/actions-workflows-security-section.png)
+1. No painel direito da página do fluxo de trabalho, clique em **Documentação** e siga as instruções na tela para adaptar o fluxo de trabalho às suas necessidades. ![Screenshot of the Documentation tab for starter workflows](/assets/images/help/security/actions-workflows-documentation.png) Para obter mais informações, consulte "[Usndo fluxos de trabalho iniciais](/actions/using-workflows/using-starter-workflows#using-starter-workflows)" e "[Configurando {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)."
 
 {% endif %}
 
-## Setting up {% data variables.product.prodname_code_scanning %} manually
+## Configurando {% data variables.product.prodname_code_scanning %} manualmente
 
 {% data reusables.code-scanning.billing %}
 {% data reusables.repositories.navigate-to-repo %}

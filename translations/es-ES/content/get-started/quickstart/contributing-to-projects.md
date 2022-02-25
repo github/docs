@@ -81,9 +81,9 @@ gh repo fork <em>repository</em> --clone=true
 
 ## Hacer y subir cambios
 
-Puedes proceder y hacer algunos cambios al proyecto utilizando tu editor de texto favorito, como [Atom](https://atom.io). You could, for example, change the text in `index.html` to add your GitHub username.
+Puedes proceder y hacer algunos cambios al proyecto utilizando tu editor de texto favorito, como [Atom](https://atom.io). Podrías, por ejemplo, cambiar el texto en `index.html` para agregar tu nombre de usuario de GitHub.
 
-When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
+Cuando estés listo para enviar tus cambios, pruébalos y confírmalos. `git add .` le dice a Git que quieres incluir todos tus cambios en la siguiente confirmación. `git commit` toma una captura de estos cambios.
 
 {% webui %}
 
@@ -109,9 +109,9 @@ Para obtener más información sobre cómo probar y confirmar los cambios en {% 
 
 {% enddesktop %}
 
-When you stage and commit files, you essentially tell Git, "Okay, take a snapshot of my changes!" You can continue to make more changes, and take more commit snapshots.
+Cuando pruebas y confirmas archivos, esencialmente le dices a Git "¡Ok, toma una captura de mis cambios!" Puedes seguir haciendo más cambios y tomando más capturas de las confirmaciones.
 
-Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.product_name %}, push your changes to the remote.
+Ahora mismo, tus cambios solo existen localmente. Cuando estés listo para subir tus cambios a {% data variables.product.product_name %}, sube tus cambios al remoto.
 
 {% webui %}
 
@@ -135,20 +135,20 @@ Para obtener más información sobre cómo subir cambios a {% data variables.pro
 
 {% enddesktop %}
 
-## Making a pull request
+## Hacer una solicitud de cambios
 
-At last, you're ready to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
+¡Por fin, estás listo para proponer cambios en el proyecto principal! Este es el paso final para producir una bifurcación del proyecto de alguien más y, probablemente, el más importante. Si hiciste un cambio que piensas que beneficiará a la comunidad integralmente, debes considerar en retribuir con esta contribución.
 
-To do so, head on over to the repository on {% data variables.product.product_name %} where your project lives. For this example, it would be at `https://www.github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
+Para hacerlo, dirígete al repositorio de {% data variables.product.product_name %} en donde vive tu proyecto. Para este ejemplo, esto sería en `https://www.github.com/<your_username>/Spoon-Knife`. Verás un letrero que indica que tu rama está una confirmación por delante de `octocat:main`. Haz clic en **Contribuir** y luego en **Abrir solicitud de cambios**.
 
-{% data variables.product.product_name %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. Haz clic en **Create Pull Request** (Crear solicitud de extracción).
+{% data variables.product.product_name %} te llevará a una página que mostrará las diferencias entre tu bifurcación y el repositorio de `octocat/Spoon-Knife`. Haz clic en **Create Pull Request** (Crear solicitud de extracción).
 
-{% data variables.product.product_name %} will bring you to a page where you can enter a title and a description of your changes. It's important to provide as much useful information and a rationale for why you're making this pull request in the first place. The project owner needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click **Create pull request**.
+{% data variables.product.product_name %} te llevará a una página en donde podrás ingresar un título y una descripción de tus cambios. Es importante que proporciones tanta información útil y racional para explicar el porqué de la solicitud de cambios en primer lugar. El propietario del proyecto necesita poder determinar si tu cambio es tan útil para todos como tú piensas que lo es. Finalmente, haz clic en **Crear una solicitud de cambios**.
 
-## Managing feedback
+## Adminsitrar la retroalimentación
 
-Pull Requests are an area for discussion. In this case, the Octocat is very busy, and probably won't merge your changes. For other projects, don't be offended if the project owner rejects your pull request, or asks for more information on why it's been made. It may even be that the project owner chooses not to merge your pull request, and that's totally okay. Your copy will exist in infamy on the Internet. And who knows--maybe someone you've never met will find your changes much more valuable than the original project.
+Las solicitudes de cambios son un área de debate. En este caso, el Octocat está muy ocupado y, probablemente, no fusionará tus cambios. Para el caso de otros proyectos, no te ofendas si el dueño del proyecto rechaza tu solicitud de cambios o pide más información sobre por qué se hizo. Incluso, podría suceder que el propietario del proyecto elija no fusionar tu solicitud de cambios, y esto está totalmente bien. Tu copia existirá en la infamia del internet. Y, quién sabe... Tal vez alguien que jamás hayas conocido pensará que tus cambios son mucho más valiosos que el proyecto original.
 
-## Finding projects
+## Encontrar proyectos
 
-You've successfully forked and contributed back to a repository. ¡Ve y contribuye más!{% ifversion fpt %} Para obtener más información, consulta la sección "[Encontrar formas de contribuir con el código abierto en GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}
+Bifurcaste y retribuiste al proyecto de un repositorio con éxito. ¡Ve y contribuye más!{% ifversion fpt %} Para obtener más información, consulta la sección "[Encontrar formas de contribuir con el código abierto en GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}

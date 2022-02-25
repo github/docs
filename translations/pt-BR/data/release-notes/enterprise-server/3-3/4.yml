@@ -7,7 +7,7 @@ sections:
   bugs:
     - GitHub Packages storage settings could not be validated and saved in the Management Console when Azure Blob Storage was used.
     - The mssql.backup.cadence configuration option failed ghe-config-check with an invalid characterset warning.
-    - Fixes SystemStackError (stack too deep) when getting more than 2<sup>^16</sup> keys from memcached.
+    - Corrige SystemStackError (stack muito profundo) ao obter mais de 2<sup>^16</sup> chaves de memcached.
     - A number of select menus across the site rendered incorrectly and were not functional.
   changes:
     - Dependency Graph can now be enabled without vulnerability data, allowing customers to see what dependencies are in use and at what versions. Enabling Dependency Graph without enabling GitHub Connect will *not* provide vulnerability information.

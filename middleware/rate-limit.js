@@ -13,7 +13,7 @@ export default rateLimit({
   // by the current number of instances.
   // We have see DDoS attempts against prod that hits the `/` endpoint
   // (and not following the redirect to `/en`) at roughly 200k per minute.
-  max: 100,
+  max: process.env.NODE_ENV === 'test' ? 1000 : 100,
 
   // Return rate limit info in the `RateLimit-*` headers
   standardHeaders: true,
@@ -21,16 +21,8 @@ export default rateLimit({
   legacyHeaders: false,
 
   handler: (request, response, next, options) => {
-    const ip = request.headers['x-forwarded-for'] || request.ip
-    const tags = [`url:${request.url}`, `ip:${ip}`]
+    const tags = [`url:${request.url}`, `ip:${request.ip}`]
     statsd.increment('middleware.rate_limit', 1, tags)
-    // This is temporary until we fully understand fully that the
-    // rate limiter really is working in production.
-    response.setHeader('x-soft-rate-limit', JSON.stringify(options.store.hits))
-    // NOTE! At the time of writing, the actual rate limiting is disabled!
-    // At least we can start recording how often this happens in Datadog.
-    // The following line is commented out and replaced with `next()`
-    // response.status(options.statusCode).send(options.message)
-    next()
+    response.status(options.statusCode).send(options.message)
   },
 })

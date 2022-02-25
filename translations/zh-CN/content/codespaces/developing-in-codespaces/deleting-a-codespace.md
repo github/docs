@@ -61,4 +61,4 @@ gh codespace delete
 {% endcli %}
 
 ## 延伸阅读
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- [代码空间生命周期](/codespaces/developing-in-codespaces/codespaces-lifecycle)

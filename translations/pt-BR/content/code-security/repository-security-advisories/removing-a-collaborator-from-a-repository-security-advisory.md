@@ -1,6 +1,6 @@
 ---
-title: Removing a collaborator from a repository security advisory
-intro: 'When you remove a collaborator from a repository security advisory, they lose read and write access to the security advisory''s discussion and metadata.'
+title: Removendo um colaborador de uma consultoria de segurança de repositório
+intro: 'Ao remover um colaborador de uma consultoria de segurança do repositório, ele perderá acesso de leitura e gravação às discussões e metadados da consultoria de segurança.'
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
   - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
@@ -32,5 +32,5 @@ As pessoas com permissões de administrador para uma consultoria de segurança p
 
 ## Leia mais
 
-- "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
-- "[Adding a collaborator to a repository security advisory](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"
+- "[Níveis de permissão para consultoria de segurança do repositório](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
+- "[Adicionar um colaborador a uma consultoria de segurança do repositório](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"

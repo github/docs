@@ -1,6 +1,6 @@
 ---
-title: Withdrawing a repository security advisory
-intro: You can withdraw a repository security advisory that you've published.
+title: Retirando uma consultoria de segurança do repositório
+intro: Você pode retirar uma consultoria de segurança do repositório que você publicou.
 redirect_from:
   - /github/managing-security-vulnerabilities/withdrawing-a-security-advisory
   - /code-security/security-advisories/withdrawing-a-security-advisory
@@ -11,7 +11,7 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Withdraw repository advisories
+shortTitle: Retirar consultorias do repositório
 ---
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
@@ -20,4 +20,4 @@ Se você publicar uma consultoria de segurança por engano, poderá retirar a co
 
 ## Leia mais
 
-- "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)"
+- "[Editando uma consultoria de segurança de repositório](/code-security/repository-security-advisories/editing-a-repository-security-advisory)"
