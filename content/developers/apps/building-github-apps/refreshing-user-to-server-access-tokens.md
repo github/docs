@@ -51,7 +51,7 @@ Name | Type | Description
   "token_type": "bearer"
 }
 ```
-## Configuring expiring user tokens for an existing GitHub App
+## .Configuring expiring user tokens for an existing GitHub App
 
 You can enable or disable expiring user-to-server authorization tokens from your {% data variables.product.prodname_github_app %} settings.
 
