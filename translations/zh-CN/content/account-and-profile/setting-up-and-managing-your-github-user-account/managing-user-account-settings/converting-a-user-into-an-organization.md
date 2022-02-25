@@ -46,8 +46,8 @@ shortTitle: 用户到组织
 
 1. 创建新的个人帐户，转换后您将用它来登录 GitHub 以及访问组织和仓库。
 2.  [离开](/articles/removing-yourself-from-an-organization)要转换的用户帐户此前加入的任何组织。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 5. 在“Transform account（转换帐户）”下，单击 **Turn <username> into an organization（将 <username> 转换为组织）**。 ![组织转换按钮](/assets/images/help/settings/convert-to-organization.png)
 6. 在 Account Transformation Warning（帐户转换警告）对话框中，查看并确认转换。 请注意，此框中的信息与本文顶部的警告信息相同。 ![转换警告](/assets/images/help/organizations/organization-account-transformation-warning.png)
 7. 在“Transform your user into an organization（将用户转换为组织）”页面的“Choose an organization owner（选择组织所有者）”下，选择您在前面创建的备用个人帐户或您信任的其他用户来管理组织。 ![添加组织所有者页面](/assets/images/help/organizations/organization-add-owner.png)

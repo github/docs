@@ -17,3 +17,8 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.section-using-concurrency-jobs %}
 
+{% if github-runner-dashboard %}
+## 监控组织或企业中的当前作业
+
+{% data reusables.github-actions.github-hosted-runners-check-concurrency %}
+{% endif %}

@@ -722,7 +722,7 @@ Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/acti
 
 ### Exemplo de conteúdo do contexto `entradas`
 
-O conteúdo de exemplo das `entradas` contexto é de um trabalho em um fluxo de trabalho reutilizável que definiu as entradas de entrada do arquivo `build_id` e `deploy_target`.
+O conteúdo de exemplo das `entradas` contexto é de um trabalho em um fluxo de trabalho reutilizável que definiu as entradas de `build_id` e `deploy_target`.
 
 ```yaml
 {

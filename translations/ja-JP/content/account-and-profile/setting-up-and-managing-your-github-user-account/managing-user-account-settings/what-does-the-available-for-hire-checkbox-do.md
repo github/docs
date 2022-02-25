@@ -23,5 +23,5 @@ Deprecation note: GitHub Jobs is now deprecated. The last date to post a job was
 
 ![ダッシュボードの GitHub Jobs 広告](/assets/images/help/settings/jobs-ads-on-dashboard.png)
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Jobs Profile の下で、[**Available for hire**] を選択し、続いて [**Save jobs profile**] をクリックします。 ![Jobs profile の設定](/assets/images/help/settings/jobs-profile-settings.png)

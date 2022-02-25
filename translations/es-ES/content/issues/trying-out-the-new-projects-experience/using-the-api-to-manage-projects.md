@@ -365,9 +365,9 @@ La respuesta contendrá la ID de nodo del elemento recién creado.
 
 Si intentas agregar un elemento que ya existe, se devolverá la ID de este.
 
-### Updating a project's settings
+### Actualizar los ajustes de un proyecto
 
-The following example will update your project's settings. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto. Set `public` to `true` to make your project public on {% data variables.product.product_name %}. Modify `description` to make changes to your project's README.
+El siguiente ejemplo actualizará los ajustes de tu proyecto. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto. Configura `public` en `true` para que tu proyecto sea público en {% data variables.product.product_name %}. Modifica `description` para hacer cambios al README de tu proyecto.
 
 {% curl %}
 ```shell

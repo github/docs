@@ -24,7 +24,7 @@ Os administradores podem usar essas informações para ajudar pessoas fora do qu
 ## Exibir pessoas com acesso ao seu repositório
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
-You can see a combined overview of teams and people with access to your repository in your repository settings. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories). "
+Você pode ver uma visão geral combinada de equipes e pessoas com acesso ao seu repositório nas configurações do repositório. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories). "
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

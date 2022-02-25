@@ -31,7 +31,7 @@ Para preservar la seguridad de tu cuenta, te recomendamos que sigas estas buenas
 
 Solo puedes utilizar tu contraseña para ingresar en {% data variables.product.product_name %} a través de tu buscador. Cuadno te atutenticas en {% data variables.product.product_name %} con otros medios, tales como la línea de comandos o la API, debes utilizar otras credenciales. Para obtener más información, consulta la sección "[Acerca de la autenticación en {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)".
 
-{% ifversion fpt or ghec %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user-settings.password-authentication-deprecation %}{% endif %}
 
 ## Leer más
 

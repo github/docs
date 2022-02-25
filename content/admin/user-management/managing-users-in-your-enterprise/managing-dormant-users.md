@@ -56,12 +56,6 @@ topics:
 
 {% data reusables.enterprise-accounts.dormant-user-release-phase %}
 
-{% warning %}
-
-**Note:** During the private beta, ongoing improvements to the report download feature may limit its availability.
-
-{% endwarning %}
-
 ## Downloading the dormant users report from your enterprise account
 
 {% data reusables.enterprise-accounts.access-enterprise %}

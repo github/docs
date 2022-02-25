@@ -26,4 +26,4 @@ shortTitle: 管理自动合并
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or deselect **Allow auto-merge**. ![允许或禁止自动合并的复选框](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
+1. 在 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}“拉取请求”{% else %}“合并按钮”{% endif %} 下，选择或取消选择 **Allow auto-merge（允许自动合并）**。 ![允许或禁止自动合并的复选框](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)

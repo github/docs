@@ -1,5 +1,5 @@
 ---
-title: Common validation errors when creating issue forms
+title: Errores de validación comunes al crear formatos de propuesta
 intro: 'You may see some of these common validation errors when creating, saving, or viewing issue forms.'
 versions:
   fpt: '*'

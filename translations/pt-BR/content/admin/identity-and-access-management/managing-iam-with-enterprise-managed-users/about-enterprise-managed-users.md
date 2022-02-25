@@ -76,6 +76,8 @@ O nome do usuário de configuração é o código curto da sua empresa com o suf
 
 {% data variables.product.prodname_managed_users_caps %} deve efetuar a autenticação por meio de seu provedor de identidade. Para efetuar a autenticação, um {% data variables.product.prodname_managed_user %} pode acessar o seu portal de aplicativo do IdP ou usar a página de login no {% data variables.product.prodname_dotcom_the_website %}.
 
+{% data reusables.enterprise-accounts.about-recovery-codes %} Para obter mais informações, consulte "[Gerenciar a códigos de recuperação para a sua empresa](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)".
+
 ### Efetuando a autenticação como {% data variables.product.prodname_managed_user %} por meio de {% data variables.product.prodname_dotcom_the_website %}
 
 1. Acesse [https://github.com/login](https://github.com/login).

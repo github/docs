@@ -41,30 +41,30 @@ You can set up a staging instance to test modifications, plan for disaster recov
 To protect your production data, you can configure automated backups of {% data variables.product.product_location %} with {% data variables.product.prodname_enterprise_backup_utilities %}. 更多信息请参阅“[在设备上配置备份](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)”。
 
 ### 8. 管理企业的帐单
-Billing for all the organizations and {% data variables.product.product_name %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom %}.com services. Enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+Billing for all the organizations and {% data variables.product.product_name %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom %}.com services. Enterprise owners and billing managers can access and manage billing settings for enterprise accounts. 更多信息请参阅“[管理帐户的计费](/admin/overview/managing-billing-for-your-enterprise)”。
 
 ## Part 2: Organizing and managing your team
 As an enterprise owner or administrator, you can manage settings on user, repository, team and organization levels. You can manage members of your enterprise, create and manage organizations, set policies for repository management, and create and manage teams.
 
-### 1. Managing members of {% data variables.product.product_location %}
+### 1. 管理 {% data variables.product.product_location %} 的成员
 {% data reusables.getting-started.managing-enterprise-members %}
 
 ### 2. 创建组织
 {% data reusables.getting-started.creating-organizations %}
 
-### 3. Adding members to organizations
+### 3. 向组织添加成员
 {% data reusables.getting-started.adding-members-to-organizations %}
 
 ### 4. 创建团队
 {% data reusables.getting-started.creating-teams %}
 
-### 5. Setting organization and repository permission levels
+### 5. 设置组织和存储库权限级别
 {% data reusables.getting-started.setting-org-and-repo-permissions %}
 
-### 6. Enforcing repository management policies
+### 6. 实施存储库管理策略
 {% data reusables.getting-started.enforcing-repo-management-policies %}
 
-## Part 3: Building securely
+## 第 3 部分：安全构建
 To increase the security of {% data variables.product.product_location %}, you can configure authentication for enterprise members, use tools and audit logging to stay in compliance, configure security and analysis features for your organizations, and optionally enable {% data variables.product.prodname_GH_advanced_security %}.
 ### 1. Authenticating enterprise members
 You can use {% data variables.product.product_name %}'s built-in authentication method, or you can choose between an established authentication provider, such as CAS, LDAP, or SAML, to integrate your existing accounts and centrally manage user access to {% data variables.product.product_location %}. For more information, see "[Authenticating users for {% data variables.product.product_location %}](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)."
@@ -75,7 +75,7 @@ You can also require two-factor authentication for each of your organizations. F
 You can implement required status checks and commit verifications to enforce your organization's compliance standards and automate compliance workflows. You can also use the audit log for your organization to review actions performed by your team. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[Audit logging](/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)."
 
 {% ifversion ghes %}
-### 3. Configuring security features for your organizations
+### 3. 为组织配置安全功能
 {% data reusables.getting-started.configuring-security-features %}
 {% endif %}
 
@@ -89,22 +89,22 @@ You can customize and automate work in organizations in your enterprise with {% 
 
 ### 1. Building {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
 You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, such as {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, for use in organizations in your enterprise to complement and extend your workflows. 更多信息请参阅“[关于应用程序](/developers/apps/getting-started-with-apps/about-apps)”。
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. 使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 {% data reusables.getting-started.api %}
 
 {% ifversion ghes %}
-### 3. Building {% data variables.product.prodname_actions %}
+### 3. 构建 {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
 For more information on enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
 
-### 4. Publishing and managing {% data variables.product.prodname_registry %}
+### 4. 发布和管理 {% data variables.product.prodname_registry %}
 {% data reusables.getting-started.packages %}
 
 For more information on enabling and configuring {% data variables.product.prodname_registry %} for {% data variables.product.product_location %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
 {% endif %}
 
-### 5. Using {% data variables.product.prodname_pages %}
+### 5. 使用 {% data variables.product.prodname_pages %}
 {% data reusables.getting-started.github-pages-enterprise %}
 
 ## Part 5: Connecting with other {% data variables.product.prodname_dotcom %} resources

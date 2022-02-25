@@ -12,7 +12,7 @@ shortTitle: 管理允许的 IP 地址
 
 ## 关于 {% data variables.product.prodname_github_apps %} 的 IP 地址允许列表
 
-企业和组织所有者可以通过配置 IP 地址允许列表来限制对资产的访问。 此列表指定允许连接的 IP 地址。 For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
+企业和组织所有者可以通过配置 IP 地址允许列表来限制对资产的访问。 此列表指定允许连接的 IP 地址。 更多信息请参阅“[在企业中实施安全设置策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)”。
 
 当组织拥有允许列表时，通过 {% data variables.product.prodname_github_app %} 连接的第三方应用程序将被拒绝访问，除非以下两个条件成立：
 
