@@ -29,12 +29,12 @@ Most workflow commands use the `echo` command in a specific format, while others
 ### Example
 
 - Using Bash:
-  ```yaml{:copy}
+  ```bash{:copy}
   echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
   ```
 
 - Using PowerShell:
-  ```yaml{:copy}
+  ```pwsh{:copy}
   Write-Output "::workflow-command parameter1={data},parameter2={data}::{command value}"
   ```
 
@@ -109,7 +109,7 @@ The following table shows which toolkit functions are available within a workflo
 
 Sets an action's output parameter.
 
-```yaml{:copy}
+```plaintext{:copy}
 ::set-output name={name}::{value}
 ```
 
@@ -118,12 +118,12 @@ Optionally, you can also declare output parameters in an action's metadata file.
 ### Example: Setting an output parameter
 
 - Using Bash:
-  ```yaml{:copy}
+  ```bash{:copy}
   echo "::set-output name=action_fruit::strawberry"
   ```
 
 - Using PowerShell:
-  ```yaml{:copy}
+  ```pwsh{:copy}
   Write-Output "::set-output name=action_fruit::strawberry"
   ```
 
@@ -131,19 +131,19 @@ Optionally, you can also declare output parameters in an action's metadata file.
 
 Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
 
-```yaml{:copy}
+```plaintext{:copy}
 ::debug::{message}
 ```
 
 ### Example: Setting a debug message
 
 - Using Bash:
-  ```yaml{:copy}
+  ```bash{:copy}
   echo "::debug::Set the Octocat variable"
   ```
 
 - Using PowerShell:
-  ```yaml{:copy}
+  ```pwsh{:copy}
   Write-Output "::debug::Set the Octocat variable"
   ```
 
@@ -153,7 +153,7 @@ Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_
 
 Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-```yaml{:copy}
+```plaintext{:copy}
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -162,12 +162,12 @@ Creates a notice message and prints the message to the log. {% data reusables.ac
 ### Example: Setting a notice message
 
 - Using Bash:
-  ```yaml{:copy}
+  ```bash{:copy}
   echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
   ```
 
 - Using PowerShell:
-  ```yaml{:copy}
+  ```pwsh{:copy}
   Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
   ```
 
@@ -177,7 +177,7 @@ Creates a notice message and prints the message to the log. {% data reusables.ac
 
 Creates a warning message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-```yaml{:copy}
+```plaintext{:copy}
 ::warning file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -186,12 +186,12 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 ### Example: Setting a warning message
 
 - Using Bash:
-  ```yaml{:copy}
+  ```bash{:copy}
   echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
   ```
 
 - Using PowerShell:
-  ```yaml{:copy}
+  ```pwsh{:copy}
   Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
   ```
 
@@ -199,7 +199,7 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 
 Creates an error message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-```yaml{:copy}
+```plaintext{:copy}
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -208,12 +208,12 @@ Creates an error message and prints the message to the log. {% data reusables.ac
 ### Example: Setting an error message
 
 - Using Bash:
-  ```yaml{:copy}
+  ```bash{:copy}
   echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
   ```
 
 - Using PowerShell:
-  ```yaml{:copy}
+  ```pwsh{:copy}
   Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
   ```
 
@@ -221,7 +221,7 @@ Creates an error message and prints the message to the log. {% data reusables.ac
 
 Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
 
-```yaml{:copy}
+```plaintext{:copy}
 ::group::{title}
 ::endgroup::
 ```
@@ -248,7 +248,8 @@ Creates an expandable group in the log. To create a group, use the `group` comma
       runs-on: windows-latest
       steps:
         - name: Group of log lines
-          run: Write-Output "::group::My title"
+          run: |
+              Write-Output "::group::My title"
               Write-Output "Inside group"
               Write-Output "::endgroup::"
   ```
@@ -257,7 +258,7 @@ Creates an expandable group in the log. To create a group, use the `group` comma
 
 ## Masking a value in log
 
-```yaml{:copy}
+```plaintext{:copy}
 ::add-mask::{value}
 ```
 
@@ -268,12 +269,12 @@ Masking a value prevents a string or variable from being printed in the log. Eac
 When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
 
 - Using Bash:
-  ```yaml{:copy}
+  ```bash{:copy}
   echo "::add-mask::Mona The Octocat"
   ```
 
 - Using PowerShell:
-  ```yaml{:copy}
+  ```pwsh{:copy}
   Write-Output "::add-mask::Mona The Octocat"
   ```
 
@@ -309,7 +310,9 @@ When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the l
 
 Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
-`::stop-commands::{endtoken}`
+```plaintext{:copy}
+::stop-commands::{endtoken}
+```
 
 To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
 
@@ -319,7 +322,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 
 {% endwarning %}
 
-```yaml{:copy}
+```plaintext{:copy}
 ::{endtoken}::
 ```
 
@@ -363,7 +366,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
 
-```yaml{:copy}
+```plaintext{:copy}
 ::echo::on
 ::echo::off
 ```
@@ -376,7 +379,7 @@ You can also enable command echoing globally by turning on step debug logging us
 
 ### Example: Toggling command echoing
 
-- Using Bash:
+- Using bash:
   ```yaml{:copy}
   jobs:
     workflow-command-job:
@@ -408,7 +411,7 @@ You can also enable command echoing globally by turning on step debug logging us
 
 The example above prints the following lines to the log:
 
-```yaml{:copy}
+```plaintext{:copy}
 ::set-output name=action_echo::enabled
 ::echo::off
 ```
@@ -450,7 +453,7 @@ jobs:
     steps:
       - shell: powershell
         run: |
-          echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
 PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
@@ -462,25 +465,25 @@ jobs:
     steps:
       - shell: pwsh
         run: |
-          echo "mypath" >> $env:GITHUB_PATH
+          "mypath" >> $env:GITHUB_PATH
 ```
 
 {% endnote %}
 
 ## Setting an environment variable
 
-- Using Bash:
-  ```yaml{:copy}
+- Using bash:
+  ```bash{:copy}
   echo "{environment_variable_name}={value}" >> $GITHUB_ENV
   ```
 
 - Using PowerShell version 6 and higher:
-  ```yaml{:copy}
+  ```pwsh{:copy}
   "{environment_variable_name}={value}" >> $env:GITHUB_ENV
   ```
 
 - Using PowerShell version 5.1 and below:
-  ```yaml{:copy}
+  ```powershell{:copy}
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
   ```
 
@@ -488,39 +491,42 @@ You can make an environment variable available to any subsequent steps in a work
 
 ### Example
 
-{% raw %}
-```yaml{:copy}
-steps:
-  - name: Set the value
-    id: step_one
-    run: |
-      echo "action_state=yellow" >> $GITHUB_ENV
-  - name: Use the value
-    id: step_two
-    run: |
-      echo "${{ env.action_state }}" # This will output 'yellow'
-```
-{% endraw %}
+- Using bash:
+  {% raw %}
+  ```yaml{:copy}
+  steps:
+    - name: Set the value
+      id: step_one
+      run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+    - name: Use the value
+      id: step_two
+      run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
+  ```
+  {% endraw %}
 
-{% raw %}
-```yaml{:copy}
-steps:
-  - name: Set the value
-    id: step_one
-    run: |
-      "action_state=yellow" >> $env:GITHUB_ENV
-  - name: Use the value
-    id: step_two
-    run: |
-      Write-Output "${{ env.action_state }}" # This will output 'yellow'
-```
-{% endraw %}
+- Using PowerShell:
+
+  {% raw %}
+  ```yaml{:copy}
+  steps:
+    - name: Set the value
+      id: step_one
+      run: |
+        "action_state=yellow" >> $env:GITHUB_ENV
+    - name: Use the value
+      id: step_two
+      run: |
+        Write-Output "${{ env.action_state }}" # This will output 'yellow'
+  ```
+  {% endraw %}
 
 ### Multiline strings
 
 For multiline strings, you may use a delimiter with the following syntax. 
 
-```yaml{:copy}
+```plaintext{:copy}
 {name}<<{delimiter}
 {value}
 {delimiter}
@@ -530,11 +536,23 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
 
+The following example demonstrates how to do this in Bash:
+
+```yaml{:copy}
+steps:
+  - name: Set the value in bash
+    id: step_one
+    run: |
+      echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+      curl https://example.lab >> $GITHUB_ENV
+      echo 'EOF' >> $GITHUB_ENV
+```
+
 The following example demonstrates how to do this in PowerShell Core (version 6 and above):
 
 ```yaml{:copy}
 steps:
-  - name: Set the value
+  - name: Set the value in pwsh
     id: step_one
     run: |
       "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
@@ -543,28 +561,17 @@ steps:
     shell: pwsh
 ```
 
-The following example demonstrates how to do this in PowerShell (version 5.1 and below):
-
-```yaml{:copy}
-steps:
-  - name: Set the value
-    id: step_one
-    run: |
-      echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-      curl https://example.lab >> $GITHUB_ENV
-      echo 'EOF' >> $GITHUB_ENV
-```
 ## Adding a system path
 
 Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
-- Using Bash:
-  ```yaml{:copy}
+- Using bash:
+  ```bash{:copy}
   echo "{path}" >> $GITHUB_PATH
   ```
 
 - Using PowerShell:
-  ```yaml{:copy}
+  ```pwrh{:copy}
   "{path}" >> $env:GITHUB_PATH
   ```
 
@@ -572,14 +579,14 @@ Prepends a directory to the system `PATH` variable and automatically makes it av
 
 This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
 
-- Using Bash:
-  ```yaml{:copy}
+- Using bash:
+  ```bash{:copy}
   echo "$HOME/.local/bin" >> $GITHUB_PATH
   ```
 
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
 - Using PowerShell:
-  ```yaml{:copy}
+  ```pwsh{:copy}
   "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH
   ```
