@@ -45,9 +45,9 @@ shortTitle: 申请学生包
 
 ## 到期和续订
 
-在您的 {% data variables.product.prodname_student_pack %} 访问权限到期后，如果您仍有资格，您可以重新申请，但有些合作伙伴可能不提供续订服务。 合作伙伴的大多数计时特惠在您设置后便开始。 To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
+在您的 {% data variables.product.prodname_student_pack %} 访问权限到期后，如果您仍有资格，您可以重新申请，但有些合作伙伴可能不提供续订服务。 合作伙伴的大多数计时特惠在您设置后便开始。 要重新申请，只需返回 https://education.github.com，点击您的个人资料图片，然后点击 **Reverify your academic affiliation（重新验证您的学术关系）**。
 
-![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
+![用于重新验证学术关系的菜单选项](/assets/images/help/education/reverify-academic-affiliation.png)
 
 更多信息请参阅 [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) 页面。
 
