@@ -27,6 +27,8 @@ function createCodeSamples(operation) {
     serverUrl === 'https://api.github.com'
   ) {
     codeSampleParams.serverUrl = operation.servers[0].variables.origin.default
+  } else if (operation.subcategory && operation.subcategory === 'management-console') {
+    codeSampleParams.serverUrl = serverUrl.replace('/api/v3', '')
   }
 
   return [

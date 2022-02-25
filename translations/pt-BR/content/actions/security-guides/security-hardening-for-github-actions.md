@@ -141,6 +141,16 @@ Neste exemplo, a injeção de script não tem sucesso:
 
 Com esta abordagem, o valor da expressão de {% raw %}`${{ github.event.issue.title }}`{% endraw %} é armazenado na memória e usada como uma variável e não interage com o processo de geração de script. Além disso, considere usar variáveis do shell de citação dupla para evitar [divisão de palavras](https://github.com/koalaman/shellcheck/wiki/SC2086), mas esta é [uma das muitas](https://mywiki.wooledge.org/BashPitfalls) recomendações gerais para escrever scripts de shell e não é específica para {% data variables.product.prodname_actions %}.
 
+{% ifversion fpt or ghec %}
+### Usando fluxos de trabalho iniciais para digitalização de código
+
+{% data reusables.advanced-security.starter-workflows-beta %}
+{% data variables.product.prodname_code_scanning_capc %} permite que você encontre vulnerabilidades de segurança antes de atingirem a produção. {% data variables.product.product_name %} fornece fluxos de trabalho iniciais para {% data variables.product.prodname_code_scanning %}. Você pode usar esses fluxos de trabalho sugeridos para construir seus fluxos de trabalho de {% data variables.product.prodname_code_scanning %}, ao invés de começar do zero. O fluxo de trabalho de {% data variables.product.company_short%}, o {% data variables.product.prodname_codeql_workflow %} é alimentado por {% data variables.product.prodname_codeql %}. Também existem fluxos de trabalho de terceiros iniciantes disponíveis.
+
+Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" e "[Configurando {% data variables.product.prodname_code_scanning %} usando fluxos de trabalho iniciais](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."
+
+{% endif %}
+
 ### Restringir permissões para tokens
 
 Para ajudar a mitigar o risco de um token exposto, considere restringir as permissões atribuídas. Para obter mais informações, consulte "[Modificar as permissões para o GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)".

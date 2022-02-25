@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
-import { useTheme, ThemeProvider } from '@primer/components'
+import { useTheme, ThemeProvider } from '@primer/react'
 import { SSRProvider } from '@react-aria/ssr'
 import { defaultComponentThemeProps, getThemeProps } from 'components/lib/getThemeProps'
 

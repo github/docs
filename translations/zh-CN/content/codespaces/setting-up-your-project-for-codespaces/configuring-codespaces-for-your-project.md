@@ -164,4 +164,8 @@ For more information about the available settings for `devcontainer.json`, see [
 1. {% data reusables.codespaces.recovery-mode %} 修复配置中的错误。 ![有关恢复模式的错误消息](/assets/images/help/codespaces/recovery-mode-error-message.png)
    - 要通过查看创建日志来诊断错误，请单击 **View creation log（查看创建日志）**。
    - 要修复日志中发现的错误，请更新您的 `devcontainer.json` 文件。
-   - 要应用更改，请重建容器。 
+   - 要应用更改，请重建容器。
+
+## 延伸阅读
+
+- "[Prebuilding your codespaces](/codespaces/prebuilding-your-codespaces)"

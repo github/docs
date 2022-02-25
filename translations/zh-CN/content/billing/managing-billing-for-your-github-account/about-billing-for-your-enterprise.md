@@ -89,7 +89,7 @@ For more information about roles, see "[Roles in an enterprise](/admin/user-mana
 
 {% endif %}
 
-## About synchronization of license usage
+## 关于同步许可证使用情况
 
 {% data reusables.enterprise.about-deployment-methods %}
 

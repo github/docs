@@ -35,7 +35,7 @@ Para las operaciones de Git basadas en web, puedes configurar tu dirección de c
 
 {% note %}
 
-**Note**: {% data reusables.user-settings.no-verification-disposable-emails %}
+**Nota**: {% data reusables.user-settings.no-verification-disposable-emails %}
 
 {% endnote %}
 

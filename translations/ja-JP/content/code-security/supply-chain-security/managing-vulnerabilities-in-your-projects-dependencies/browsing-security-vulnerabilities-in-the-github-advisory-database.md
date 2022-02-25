@@ -75,6 +75,9 @@ Each security advisory contains information about the vulnerability, which may i
 
 {% endnote %}
 
+## Editing an advisory in the {% data variables.product.prodname_advisory_database %}
+You can suggest improvements to any advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)."
+
 ## {% data variables.product.prodname_advisory_database %} を検索する
 
 データベースを検索し、修飾子を使用して検索を絞り込むことができます。 たとえば、特定の日付、特定のエコシステム、または特定のライブラリで作成されたアドバイザリを検索できます。

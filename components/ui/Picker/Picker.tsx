@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import cx from 'classnames'
 
-import { Details, useDetails, Text, Dropdown, Box } from '@primer/components'
+import { Details, useDetails, Text, Dropdown, Box } from '@primer/react'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
 export type PickerOptionsTypeT = {

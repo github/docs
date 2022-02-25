@@ -45,7 +45,11 @@ Para obtener información sobre cómo renovar tu {% data variables.product.prodn
 
 ## Caducidad y renovaciones
 
-Una vez que caduca tu acceso a {% data variables.product.prodname_student_pack %}, puedes volver a aplicar si sigues siendo elegible, aunque es posible que las ofertas de algunos socios no puedan renovarse. La mayoría de las ofertas regulares de nuestros socios comiencen una vez que las configuraste. Para obtener más información, consulta la página [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
+Una vez que caduca tu acceso a {% data variables.product.prodname_student_pack %}, puedes volver a aplicar si sigues siendo elegible, aunque es posible que las ofertas de algunos socios no puedan renovarse. La mayoría de las ofertas regulares de nuestros socios comiencen una vez que las configuraste. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
+
+![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
+
+Para obtener más información, consulta la página [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
 
 Para ver cuándo caduca tu acceso gratis al {% data variables.product.prodname_student_pack %}, visita los [ajustes de facturación](https://github.com/settings/billing).
 

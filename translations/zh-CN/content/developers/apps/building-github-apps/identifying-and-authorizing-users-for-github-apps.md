@@ -272,8 +272,8 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### Git 引用
 
-* [Create a reference](/rest/reference/git#create-a-reference)
-* [Get a reference](/rest/reference/git#get-a-reference)
+* [创建引用](/rest/reference/git#create-a-reference)
+* [获取引用](/rest/reference/git#get-a-reference)
 * [列出匹配的引用](/rest/reference/git#list-matching-references)
 * [更新引用](/rest/reference/git#update-a-reference)
 * [删除引用](/rest/reference/git#delete-a-reference)
