@@ -1,4 +1,14 @@
 ---
+
+# Установка
+
+https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository
+
+# INSTALL
+
+https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository
+
+---
 title: Transferring a repository
 intro: You can transfer repositories to other users or organization accounts.
 redirect_from:
