@@ -348,7 +348,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
   ```yaml{:copy}
   jobs:
     workflow-command-job:
-      runs-on: ubuntu-latest
+      runs-on: windows-latest
       steps:
         - name: disable workflow commands
           run: |
