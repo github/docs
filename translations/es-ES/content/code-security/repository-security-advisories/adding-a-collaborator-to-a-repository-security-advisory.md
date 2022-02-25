@@ -27,7 +27,7 @@ Los colaboradores tienen permisos de escritura para el aviso de seguridad. For m
 
 {% note %}
 
-{% data reusables.repositories.security-advisory-collaborators-public-repositories %} For more information about removing a collaborator on a security advisory, see "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."
+{% data reusables.repositories.security-advisory-collaborators-public-repositories %} Para obtener más información sobre cómo eliminar a un colaborador en una asesoría de seguridad, consulta la sección "[Eliminar a un colaborador de una asesoría de seguridad de un repositorio](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)".
 
 {% endnote %}
 
