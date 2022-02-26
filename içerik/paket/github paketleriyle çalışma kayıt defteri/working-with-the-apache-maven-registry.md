@@ -7,7 +7,7 @@ redirect_from:
   - /github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry
   - /github/managing-packages-with-github-packages/configuring-apache-maven-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages
-  - /packages/guides/configuring-apache-maven-for-use-with-github-packages
+  - /packages/guides/configuring-apache-maven-for-use-with-github-packagesBNVBC
 versions:
   fpt: '*'
   ghes: '*'
