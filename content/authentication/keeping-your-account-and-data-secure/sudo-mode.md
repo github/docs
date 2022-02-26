@@ -20,3 +20,4 @@ After you've performed a sudo-protected action, you'll only be asked to re-authe
 ## Further reading
 
 - [Unix `sudo` command](http://en.wikipedia.org/wiki/Sudo)
+![800px-Extended_IPA_chart_2005](https://user-images.githubusercontent.com/61102900/155840409-75873895-a5f3-4795-9b05-e614880eb0f9.png)
