@@ -38,6 +38,7 @@ You can also set a status on your profile to provide information about your avai
 
 ## Further reading
 
+
 - "[How do I set up my profile picture?](/articles/how-do-i-set-up-my-profile-picture)"
 - "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
 - "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
