@@ -118,3 +118,4 @@ We dedicate these Community Guidelines to the public domain for anyone to use, r
 
 These are only guidelines; they do not modify our [Terms of Service](/articles/github-terms-of-service/) and are not intended to be a complete list. GitHub retains full discretion under the [Terms of Service](/articles/github-terms-of-service/#c-acceptable-use) to remove any content or terminate any accounts for activity that violates our Terms on Acceptable Use. These guidelines describe when we will exercise that discretion.
 
+content/github/site-policy/github-community-guidelines.md
