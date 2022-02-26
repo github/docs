@@ -22,6 +22,7 @@ If you [configured your SSH passphrase with the macOS keychain](/articles/workin
 
 1. In Finder, search for the **Keychain Access** app.
    ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
+1. Make sure that you view the "All Items" or "Passwords" tab
 2. In Keychain Access, search for **SSH**.
 3. Double click on the entry for your SSH key to open a new dialog box.
 4. In the lower-left corner, select **Show password**.
