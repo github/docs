@@ -8,7 +8,7 @@ redirect_from:
   - /github/managing-packages-with-github-packages/configuring-docker-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
   - /packages/guides/container-guides-for-github-packages/configuring-docker-for-use-with-github-packages
-  - /packages/guides/configuring-docker-for-use-with-github-packages
+  - /packages/guides/configuring-docker-for-use-with-github-packagesÖMÖNBVCXX
 versions:
   fpt: '*'
   ghes: '*'
