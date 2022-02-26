@@ -1,6 +1,4 @@
-1. 选择自托管运行器机器的操作系统和架构。 ![选择自托管运行器操作系统](/assets/images/help/settings/actions-runner-architecture-os.png)
-
-
+1. Select the operating system image and architecture of your self-hosted runner machine.
 1. 您将看到指示您如何下载运行器应用程序并安装到自托管运行器机器上的说明。
 
    在自托管运行器机器上打开 shell，并按显示的顺序运行每个 shell 命令。
@@ -16,3 +14,6 @@
    - 运行 `config` 脚本配置自托管运行器应用程序，并向 {% data variables.product.prodname_actions %} 注册。 `config` 脚本需要目标 URL 和自动生成的时间限制令牌来验证请求。
      - 在 Windows上，`config` 脚本还会询问您是否想将自托管运行器应用程序安装为服务。 对于 Linux 和 macOS，您可以在完成添加运行器后安装服务。 更多信息请参阅“[将自托管运行器应用程序配置为服务](/actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service)”。
    - 运行自托管运行器应用程序以将机器连接到 {% data variables.product.prodname_actions %}。
+{% ifversion fpt or ghec or ghes > 3.2 %}
+     - If you are setting up a cluster of runners, you can install another tool to automatically scale your runners.  更多信息请参阅“[使用自托管运行器自动缩放](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)”。
+{% endif %}

@@ -1,0 +1,1 @@
+"Administrador de seguridad" es un rol a nivel organizacional que los propietarios de las organizaciones pueden asignar a cualquier equipo dentro de ellas. Cuando se aplica, este otorga a todos los miembros de un equipo los permisos para administrar alertas y ajustes de seguridad en toda tu organización, así como para leer permisos para todos los repositorios de la misma.

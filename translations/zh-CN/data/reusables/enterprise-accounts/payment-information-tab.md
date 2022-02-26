@@ -1,1 +1,1 @@
-1. Under "Billing", click **Payment information**.
+1. 在“Billing（帐单）”下，单击 **Payment information（支付信息）**。

@@ -1,11 +1,16 @@
 ---
 title: Pesquisar
+intro: 'A API de pesquisa de {% data variables.product.product_name %} permite que você procure o item específico de forma eficiente.'
 redirect_from:
   - /v3/search
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 A API de pesquisa ajuda a pesquisar o item específico que você deseja encontrar. Por exemplo, você pode encontrar um usuário ou um arquivo específico em um repositório. Pense nisso da mesma forma que você pensa em realizar uma pesquisa no Google. Ele é projetado para ajudá-lo a encontrar o resultado que você está procurando (ou talvez os poucos resultados que você está procurando). Assim como pesquisar no Google, às vezes, você quer ver algumas páginas com resultados de pesquisa para que você possa encontrar o item que melhor atenda às suas necessidades. Para atender a essa necessidade, a API de pesquisa do {% data variables.product.product_name %} fornece **até 1.000 resultados para cada pesquisa**.
@@ -18,9 +23,9 @@ A menos que outra opção de ordenamento seja fornecida como um parâmetro de co
 
 ### Limite de taxa
 
-A API de pesquisa tem um limite de taxa personalizado. Para solicitações que usam a [Autenticação Básica](/rest#authentication)[OAuth ](/rest#authentication) ou [ID e segredo do cliente e](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), você pode fazer até 30 solicitações por minuto. Para solicitações não autenticadas, o limite de taxa permite que você faça até 10 solicitações por minuto.
-
 {% data reusables.enterprise.rate_limit %}
+
+A API de pesquisa tem um limite de taxa personalizado. Para solicitações que usam a [Autenticação Básica](/rest#authentication)[OAuth ](/rest#authentication) ou [ID e segredo do cliente e](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), você pode fazer até 30 solicitações por minuto. Para solicitações não autenticadas, o limite de taxa permite que você faça até 10 solicitações por minuto.
 
 Veja a [documentação do limite de taxa](/rest/reference/rate-limit) para obter informações sobre a determinação do seu status atual de limite de taxa.
 
@@ -34,7 +39,7 @@ Uma consulta pode conter qualquer combinação de qualificadores de pesquisa com
 SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
-Por exemplo, se você quisesse pesquisar todos os _repositórios_ de propriedade de `defunkt` que continham a palavra `GitHub` e `Octocat` no arquivo LEIAME, você usaria a consulta seguinte com o ponto de extremidade _pesquisar repositórios_:
+Por exemplo, se você quisesse pesquisar todos os _repositórios_ de propriedade de `defunkt` que continham a palavra `GitHub` e `Octocat` no arquivo README, você usaria a consulta seguinte com o ponto de extremidade _pesquisar repositórios_:
 
 ```
 GitHub Octocat in:readme user:defunkt
@@ -46,7 +51,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-Veja "[Pesquisar no GitHub](/articles/searching-on-github/)" para obter uma lista completa de qualificadores disponíveis, seu formato e um exemplo de como usá-los. Para obter informações sobre como usar operadores para corresponder a quantidades e datas específicas ou para excluir resultados, consulte "[Entender a sintaxe de pesquisa](/articles/understanding-the-search-syntax/)".
+Consulte "[Pesquisar no GitHub](/search-github/searching-on-github)" para obter uma lista completa de qualificadores disponíveis, seu formato e um exemplo de como usá-los. Para obter informações sobre como usar operadores para corresponder a quantidades e datas específicas ou para excluir resultados, consulte "[Entender a sintaxe de pesquisa](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)".
 
 ### Limitações no tamanho da consulta
 
@@ -64,7 +69,7 @@ Atingir um tempo limite não significa necessariamente que os resultados da pesq
 
 ### Erros de acesso ou resultados de pesquisa ausentes
 
-Você precisa efetuar a autenticação com sucesso e ter acesso aos repositórios nas consultas de pesquisa. Caso contrário, você verá um erro </code>422 Unprocessible Entry` com uma mensagem "Falha na validação". Por exemplo, sua pesquisa irá falhar se sua consulta incluir qualificadores <code>repo:`, `user:` ou `org:` que solicitam recursos aos quais você não tem acesso ao efetuar login em {% data variables.product.prodname_dotcom %}.
+Você precisa efetuar a autenticação com sucesso e ter acesso aos repositórios nas consultas de pesquisa. Caso contrário, você verá um erro `422 Unprocessable Entry` com uma mensagem "Falha na validação". Por exemplo, sua pesquisa irá falhar se sua consulta incluir qualificadores `repo:`, `user:` ou `org:` que solicitam recursos aos quais você não tem acesso ao efetuar login em {% data variables.product.prodname_dotcom %}.
 
 Quando sua consulta de pesquisa solicitar vários recursos, a resposta só conterá os recursos aos quais você tem acesso e **não** fornecerá uma mensagem de erro listando os recursos que não foram retornados.
 

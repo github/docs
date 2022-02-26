@@ -1,1 +1,0 @@
-1. Wenn Du während der Installation kein SSL-Zertifikat angegeben hast, wähle **Skip SSL Certificate Check** (SSL-Zertifikatsprüfung überspringen). ![Kontrollkästchen zum Überspringen der SSL-Zertifikatsprüfung](/assets/images/help/insights/skip-ssl.png)

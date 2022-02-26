@@ -1,1 +1,1 @@
-Activity related to an issue comment. {% data reusables.webhooks.action_type_desc %} For more information, see the "[issue comments](/rest/reference/issues#comments)" REST API.
+IssueあるいはPull Requestコメントに関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については「[Issueコメント](/rest/reference/issues#comments)" REST APIを参照してください。

@@ -30,7 +30,7 @@ Puedes usar [smimesign](https://github.com/github/smimesign) para firmar confirm
   $ git config --local gpg.program smimesign
   ```
   Si estás utilizando una llave X.509 que coincide con tu identidad de persona que confirma el cambio, puedes comenzar firmando confirmaciones y etiquetas.
-4. Si no estás utilizando una llave X.509 que coincide con tu identidad de persona que confirmar el cambio, enumera las llaves X.509 para las cuales tienes tanto un certificado como una llave privada utilizando el comando `smimesign --list-keys`.
+4. Si no estás utilizando una llave X.509 que coincida con tu identidad de confirmante, lista las llaves X.509 para las cuales tienes tanto un certificado como una llave privada utilizando el comando `smimesign --list-keys`.
   ```shell
   $ smimesign --list-keys
   ```

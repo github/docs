@@ -1,11 +1,16 @@
 ---
 title: Buscar
+intro: 'La API de búsqueda de {% data variables.product.product_name %} te permite buscar el elemento específico eficientemente.'
 redirect_from:
   - /v3/search
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 La API de Búsqueda te ayuda a buscar el elemento específico que quieres encontrar. Por ejemplo, puedes buscar un usuario o un archivo específico en el repositorio. Tómalo como el simil de realizar una búsqueda en Google. Se diseñó para ayudarte a encontrar el resultado exacto que estás buscando (o tal vez algunos de los resultados que buscas). Tal como la búsqueda en Google, a veces quieres ver algunas páginas de los resultados de búsqueda para que puedas encontrar el elemento que mejor satisfaga tus necesidades. Para satisfacer esta necesidad, la API de Búsqueda de {% data variables.product.product_name %} proporciona **hasta 1,000 resultados por búsqueda**.
@@ -18,9 +23,9 @@ A menos de que se proporcione algún otro tipo de opción como parámetro de con
 
 ### Limite de tasa
 
-La API de Búsqueda tiene un límite de tasa personalizado. Para las solicitudes que utilizan [Autenticación Básica](/rest#authentication), [OAuth](/rest#authentication), o [secreto e ID de cliente](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), puedes hacer hasta 30 solicitudes por minuto. Para las solicitudes sin autenticar, el límite de tasa te permite hacer hasta 10 por minuto.
-
 {% data reusables.enterprise.rate_limit %}
+
+La API de Búsqueda tiene un límite de tasa personalizado. Para las solicitudes que utilizan [Autenticación Básica](/rest#authentication), [OAuth](/rest#authentication), o [secreto e ID de cliente](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), puedes hacer hasta 30 solicitudes por minuto. Para las solicitudes sin autenticar, el límite de tasa te permite hacer hasta 10 por minuto.
 
 Consulta la [documentación del límite de tasa](/rest/reference/rate-limit) para obtener más detalles sobre cómo determinar tu estado de límite de tasa actual.
 
@@ -46,7 +51,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-Consulta la sección "[Buscar en GitHub](/articles/searching-on-github/)" para encontrar una lista completa de calificadores disponibles, su formato, y ejemplos de cómo utilizarlos. Para obtener más información acerca de cómo utilizar los operadores para que coincidan con cantidades y fechas específicas, o para que excluyan resultados, consulta "[Entender la sintaxis de búsqueda](/articles/understanding-the-search-syntax/)".
+Consulta la sección "[Buscar en GitHub](/search-github/searching-on-github)" para encontrar una lista completa de calificadores disponibles, su formato, y ejemplos de cómo utilizarlos. Para obtener más información acerca de cómo utilizar los operadores para que coincidan con cantidades y fechas específicas o para que excluyan resultados, consulta la sección "[Entender la sintaxis de búsqueda](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)".
 
 ### Limitaciones sobre la longitud de la consulta
 
@@ -64,7 +69,7 @@ Llegar a una interrupción no necesariamente significa que los resultados de bú
 
 ### Errores de acceso o resultados de búsqueda faltantes
 
-Necesitas autenticarte exitosamente y tener acceso a los repositorios en tus consultas de búsqueda, de lo contrario, verás un error de `422 Unprocessible Entry` con un mensaje de "Validation Failed". Por ejemplo, tu búsqueda fallará si tu consulta incluye los calificadores `repo:`, `user:`, o `org:` que solicitan los recursos a los cuales no tienes acceso cuando inicias sesión en {% data variables.product.prodname_dotcom %}.
+Necesitas autenticarte con éxito y tener acceso a los repositorios en tus consultas de búsqueda, de otro modo, verás un error `422 Unprocessable Entry` con un mensaje de "Validation Failed". Por ejemplo, tu búsqueda fallará si tu consulta incluye los calificadores `repo:`, `user:`, o `org:` que solicitan los recursos a los cuales no tienes acceso cuando inicias sesión en {% data variables.product.prodname_dotcom %}.
 
 Cuando tu consulta de búsqueda solicita recursos múltiples, la respuesta solo contendrá aquellos a los que tengas acceso y **no** proporcionará un mensaje de error que liste los recursos que no se devolvieron.
 

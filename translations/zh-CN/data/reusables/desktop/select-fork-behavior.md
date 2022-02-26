@@ -1,14 +1,14 @@
-1. Click **Fork behavior**, then select how you want to use the fork.
+1. 单击 **Fork behavior（复刻行为）**，然后选择您想如何使用复刻。
 
   {% mac %}
 
-  ![The contribute to the parent repository option in the Fork Behavior menu](/assets/images/help/desktop/mac-fork-behavior-menu-contribute.png)
+  ![对 Fork Behavior（复刻行为）菜单中父仓库选项的参与](/assets/images/help/desktop/mac-fork-behavior-menu-contribute.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The contribute to the parent repository option in the Fork Behavior menu](/assets/images/help/desktop/windows-fork-behavior-menu-contribute.png)
+  ![对 Fork Behavior（复刻行为）菜单中父仓库选项的参与](/assets/images/help/desktop/windows-fork-behavior-menu-contribute.png)
 
   {% endwindows %}
 
@@ -16,13 +16,13 @@
 
   {% mac %}
 
-  ![The save button in the Fork Behavior menu](/assets/images/help/desktop/mac-fork-behavior-save.png)
+  ![Fork Behavior（复刻行为）菜单中的保存按钮](/assets/images/help/desktop/mac-fork-behavior-save.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The save button in the Fork Behavior menu](/assets/images/help/desktop/windows-fork-behavior-save.png)
+  ![Fork Behavior（复刻行为）菜单中的保存按钮](/assets/images/help/desktop/windows-fork-behavior-save.png)
 
   {% endwindows %}
   

@@ -2,27 +2,31 @@
 title: Descubrir los recursos para un usuario
 intro: Aprende cómo encontrar los repositorios y organizaciones a los cuales puede acceder tu app para un usuario de manera confiable para tus solicitudes autenticadas a la API de REST.
 redirect_from:
-  - /guides/discovering-resources-for-a-user/
+  - /guides/discovering-resources-for-a-user
   - /v3/guides/discovering-resources-for-a-user
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+shortTitle: Descubrir recursos para un usuario
 ---
 
- 
 
-Cuando se hacen solicitudes autenticadas a la API de {% data variables.product.product_name %}, las aplicaciones a menudo tienen que obtener los repositorios y organizaciones del usuario. En esta guía, te explicaremos cómo descubrir estos recursos de forma confiable.
 
-Para interactuar con la API de {% data variables.product.product_name %}, estaremos utilizando [Octokit.rb][octokit.rb]. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
+Cuando se hacen solicitudes autenticadas a la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, las aplicaciones a menudo necesitan recuperar los repositorios y organizaciones actuales del usuario. En esta guía, te explicaremos cómo descubrir estos recursos de forma confiable.
 
-### Empezar
+Para interactuar con la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, utilizaremos [Octokit.rb][octokit.rb]. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
+
+## Empezar
 
 Si aún no lo has hecho, deberías leer la guía de ["Conceptos Básicos de la Autenticación"][basics-of-authentication] antes de comenzar a trabajar en los siguientes ejemplos. Éstos asumen que tienes una [aplicación de OAuth registrada][register-oauth-app] y de que [tu aplicación tiene un token de OAuth para un usuario][make-authenticated-request-for-user].
 
-### Descubre los repositorios a los cuales tu app puede acceder para un usuario
+## Descubre los repositorios a los cuales tu app puede acceder para un usuario
 
-Adicionalmente a tener sus propios repositorios personales, un usuario puede ser un colaborador en los repositorios que pertenezcan a otros usuarios y organizaciones. En conjunto, estos son los repositorios en donde el usuario tiene acceso privilegiado: ya sea un repositorio privado en donde el usuario tiene acceso de lectura o escritura, o un repositorio público en donde el usuario tiene acceso de escritura.
+Adicionalmente a tener sus propios repositorios personales, un usuario puede ser un colaborador en los repositorios que pertenezcan a otros usuarios y organizaciones. En conjunto, estos son los repositorios en donde el usuario tiene acceso privilegiado: ya sea que se trate de un repositorio en donde el usuario tiene acceso de escritura o lectura o que sea un repositorio {% ifversion fpt %}público{% elsif ghec or ghes %} público o interno{% elsif ghae %} interno{% endif %} al cual tenga acceso dicho usuario.
 
 Los [alcances de OAuth][scopes] y las [políticas de aplicación de la organización][oap] determinan a cuáles de estos repositorios puede acceder tu app para un usuario. Utiliza el siguiente flujo de trabajo para descubrir estos repositorios.
 
@@ -59,7 +63,7 @@ client.repositories.each do |repository|
 end
 ```
 
-### Descubre las organizaciones a las cuales puede acceder tu app para un usuario
+## Descubre las organizaciones a las cuales puede acceder tu app para un usuario
 
 Las aplicaciones pueden llevar a cabo todo tipo de tareas relacionadas con las organizaciones para un usuario. Para llevar a cabo estas tareas, la app necesita una [Autorización de OAuth][scopes] con permisos suficientes. Por ejemplo, el alcance `read:org` te permite [listar los equipos][list-teams], y el alcance `user` te permite [publicitar la membresía organizacional del usuario][publicize-membership]. Una vez que un usuario haya otorgado uno o más de estos alcances a tu app, estarás listo para obtener las organizaciones de éste.
 
@@ -87,11 +91,11 @@ client.organizations.each do |organization|
 end
 ```
 
-#### No dependas de las organizaciones públicas
+### Devuelve todas las membresías de organización del usuario
 
 Si leíste los documentos de principio a fin, tal vez hayas notado que hay un [Método de la API para listar las membrecías de organizaciones públicas de un usuario][list-public-orgs]. La mayoría de las aplicaciones deberían evitar este método de la API. Este método solo devuelve las membrecías de las organizaciones públicas del usuario y no sus membrecías de organizaciones privadas.
 
-Al fungir como una aplicación, habitualmente lo que buscas es todas las organizaciones del usuario (tanto públicas como privadas) en las cuales tu app tenga acceso autorizado. El flujo de trabajo anterior te proporcionará exactamente eso.
+Como aplicación, habitualmente querrás obtener todas las organizaciones de los usuarios a las cuales tu app tiene acceso autorizado. El flujo de trabajo anterior te proporcionará exactamente eso.
 
 [basics-of-authentication]: /rest/guides/basics-of-authentication
 [list-public-orgs]: /rest/reference/orgs#list-organizations-for-a-user

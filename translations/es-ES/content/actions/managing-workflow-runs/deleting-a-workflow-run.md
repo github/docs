@@ -1,10 +1,11 @@
 ---
 title: Borrar una ejecución de flujo de trabajo
-intro: 'Puedes borrar una ejecución de flujo de trabajo que se haya completado o que tenga más de dos semanas de antigüedad.'
-product: '{% data reusables.gated-features.actions %}'
+intro: Puedes borrar una ejecución de flujo de trabajo que se haya completado o que tenga más de dos semanas de antigüedad.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}

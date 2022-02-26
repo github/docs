@@ -1,0 +1,15 @@
+#!/bin/sh
+[ -n "$CI" ] && exit 0
+if command -v git-lfs >/dev/null 2>&1
+then
+  if ! (git lfs pre-push "$@")
+  then
+    printf >&2 "\nGitHub Docs requires Git LFS but using the 'git-lfs' on your path failed.\n"
+  fi
+else
+  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://git.io/JBCId>.\n"
+fi
+
+. "$(dirname "$0")/_/husky.sh"
+
+npm run prevent-pushes-to-main

@@ -1,1 +1,1 @@
-1. In the left sidebar, click **OAuth Apps**. ![OAuth Apps section](/assets/images/settings/oauth_apps_post2dot12.png)
+1. 左のサイドバーで**{% data variables.product.prodname_oauth_apps %}**をクリックしてください。 ![OAuth Appsセクション](/assets/images/help/settings/developer-settings-oauth-apps.png)

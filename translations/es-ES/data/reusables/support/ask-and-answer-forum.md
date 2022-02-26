@@ -1,1 +1,1 @@
-Puedes conectarte con desarrolladores de todo el mundo en el [{% data variables.product.prodname_gcf %}](https://github.community) para preguntar y responder preguntas, aprender e interactuar directamente con el personal de {% data variables.product.product_name %}.
+Puedes conectarte con los desarrolladores de todo el mundo en [{% data variables.product.prodname_gcf %}](https://github.community) para preguntar y responder preguntas, aprender e interactuar directamente con el personal de {% data variables.product.product_name %}.

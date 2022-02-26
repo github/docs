@@ -1,8 +1,8 @@
-{% if currentVersion == "enterprise-server@2.22" %}
+{% ifversion ghae %}
 
 {% note %}
 
-**Observação:** {% data variables.product.prodname_code_scanning_capc %} está em beta em {% data variables.product.prodname_ghe_server %} 2.22. Para a versão geralmente disponível do varredura de código, atualize para a versão mais recente de {% data variables.product.prodname_ghe_server %}.
+**Nota:** {% data variables.product.prodname_code_scanning_capc %} está atualmente em versão beta e sujeito a alterações.
 
 {% endnote %}
 

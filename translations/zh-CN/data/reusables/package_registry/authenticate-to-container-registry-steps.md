@@ -1,7 +1,7 @@
 1. 针对要完成的任务，新创具有适当作用域的个人访问令牌 (PAT)。 如果您的组织需要 SSO，则必须为新令牌启用 SSO。
   {% warning %}
 
-  **注：**如果选择 `write:packages` 作用域，请在创建 PAT 时取消选择 `repo` 作用域。 将具有 `repo` 作用域的 PAT 添加为仓库中的机秘，可让仓库中的所有协作者访问该机密。 这会在操作中使用作用域为 `repo` 的 PAT 时授予不必要的额外访问权限。 有关操作安全最佳实践的更多信息，请参阅“[GitHub Actions 的安全强化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”。
+  **注意：** 默认情况下， 当您在用户界面中选择 `write:packages` 范围的个人访问令牌 (PAT) 时，`repo` 范围也将被选中。 `repo` 范围提供了不必要和广泛的访问权限，我们建议您尤其避免使用 GitHub Actions 工作流程。 更多信息请参阅“[GitHub Actions 的安全性增强](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”。 作为一种解决方法，您可以在以下 URL 的用户界面中为 PAT 选择 `write:packages` 范围：`https://github.com/settings/tokens/new?scopes=write:packages`。
 
   {% endwarning %}
 
@@ -16,7 +16,7 @@
   $ export CR_PAT=YOUR_TOKEN
   ```
 3. 使用您的容器类型的 CLI 登录到
-`ghcr.io` 上的 {% data variables.product.prodname_github_container_registry %} 服务。
+`ghcr.io` 上的 {% data variables.product.prodname_container_registry %} 服务。
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin

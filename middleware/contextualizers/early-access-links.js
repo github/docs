@@ -1,20 +1,27 @@
-const { uniq } = require('lodash')
+import { uniq } from 'lodash-es'
 
-module.exports = function earlyAccessContext (req, res, next) {
+export default function earlyAccessContext(req, res, next) {
   if (process.env.NODE_ENV === 'production') {
     return next(404)
   }
 
   // Get a list of all hidden pages per version
-  const earlyAccessPageLinks = uniq(Object.values(req.context.pages)
-    .filter(page => page.hidden && page.relativePath.startsWith('early-access') && page.relativePath !== 'early-access/index.md')
-    .map(page => page.permalinks)
-    .flat())
+  const earlyAccessPageLinks = uniq(
+    Object.values(req.context.pages)
+      .filter(
+        (page) =>
+          page.hidden &&
+          page.relativePath.startsWith('early-access') &&
+          !page.relativePath.endsWith('index.md')
+      )
+      .map((page) => page.permalinks)
+      .flat()
+  )
     // Get links for the current version
-    .filter(permalink => req.context.currentVersion === permalink.pageVersion)
+    .filter((permalink) => req.context.currentVersion === permalink.pageVersion)
     .sort()
     // Create Markdown links
-    .map(permalink => `- [${permalink.title}](${permalink.href})`)
+    .map((permalink) => `- [${permalink.title}](${permalink.href})`)
 
   // Add to the rendering context
   // This is only used in the separate EA repo on local development

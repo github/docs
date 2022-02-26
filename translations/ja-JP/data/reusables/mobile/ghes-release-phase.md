@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** {% data variables.product.prodname_mobile %} is currently in beta for {% data variables.product.prodname_ghe_server %} 3.0 and subject to change.
+**ノート:** {% data variables.product.prodname_mobile %}は{% data variables.product.prodname_ghe_server %} 3.0に対して現在ベータであり、変更されることがあります。
 
 {% endnote %}

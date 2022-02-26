@@ -1,1 +1,1 @@
-You can authenticate as a {% data variables.product.prodname_github_app %} or as an installation.
+{% data variables.product.prodname_github_app %}として、あるいはインストールとして認証を受けることができます。

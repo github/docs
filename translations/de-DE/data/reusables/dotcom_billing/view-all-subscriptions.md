@@ -1,1 +1,0 @@
-Informationen zum Anzeigen aller Abonnements für Dein {% data variables.product.product_name %}-Konto findest Du unter „[Deine Abonnements und Dein Abrechnungsdatum einsehen](/articles/viewing-your-subscriptions-and-billing-date).“

@@ -1,1 +1,1 @@
-Workflows automate your software development life cycle with a wide range of tools and services.
+ワークフローは、豊富なツールとサービスでソフトウェア開発のライフサイクルを自動化します。

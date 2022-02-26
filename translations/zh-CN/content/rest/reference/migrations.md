@@ -1,11 +1,18 @@
 ---
 title: 迁移
+intro: 'Migration API 可让您将组织的仓库和用户从 {% data variables.product.prodname_dotcom_the_website %} 迁移到 {% data variables.product.prodname_ghe_server %}。'
 redirect_from:
   - /v3/migrations
   - /v3/migration
   - /v3/migration/migrations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.3'
+  ghae: issue-6184
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
@@ -14,7 +21,7 @@ versions:
 
 ## 组织
 
-迁移 API 仅适用于经过身份验证的组织所有者。 更多信息请参阅“[组织的权限级别](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#permission-levels-for-an-organization)”和“[其他身份验证方法](/rest/overview/other-authentication-methods)”。
+迁移 API 仅适用于经过身份验证的组织所有者。 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permission-levels-for-an-organization)”和“[其他身份验证方法](/rest/overview/other-authentication-methods)”。
 
 {% data variables.migrations.organization_migrations_intro %}
 
@@ -22,6 +29,7 @@ versions:
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghec %}
 ## 源导入
 
 {% data variables.migrations.source_imports_intro %}
@@ -106,7 +114,7 @@ versions:
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'source-imports' %}{% include rest_operation %}{% endif %}
 {% endfor %}
-
+{% endif %}
 ## 用户
 
 用户迁移 API 仅适用于经过身份验证的帐户所有者。 更多信息请参阅“[其他身份验证方法](/rest/overview/other-authentication-methods)”。

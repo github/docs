@@ -1,4 +1,4 @@
-const parse = require('../../lib/read-frontmatter')
+import parse from '../../lib/read-frontmatter.js'
 const filepath = 'path/to/file.md'
 const fixture1 = `---
 title: Hello, World
@@ -36,7 +36,7 @@ I am content.
       const expectedError = {
         filepath: 'path/to/file.md',
         message: 'YML parsing error!',
-        reason: 'invalid frontmatter entry'
+        reason: 'invalid frontmatter entry',
       }
       expect(errors[0]).toEqual(expectedError)
     })
@@ -54,7 +54,7 @@ I am content.
       const expectedError = {
         filepath: 'path/to/file.md',
         message: 'YML parsing error!',
-        reason: 'bad indentation of a mapping entry'
+        reason: 'bad indentation of a mapping entry',
       }
       expect(errors[0]).toEqual(expectedError)
     })
@@ -65,12 +65,12 @@ I am content.
       const schema = {
         properties: {
           title: {
-            type: 'string'
+            type: 'string',
           },
           meaning_of_life: {
-            type: 'number'
-          }
-        }
+            type: 'number',
+          },
+        },
       }
 
       const { data, content, errors } = parse(fixture1, { schema })
@@ -85,9 +85,9 @@ I am content.
         properties: {
           meaning_of_life: {
             type: 'number',
-            minimum: 50
-          }
-        }
+            minimum: 50,
+          },
+        },
       }
 
       const { data, content, errors } = parse(fixture1, { schema })
@@ -100,7 +100,7 @@ I am content.
         property: 'meaning_of_life',
         expected: 50,
         actual: 42,
-        message: 'must be greater than or equal to 50'
+        message: 'must be greater than or equal to 50',
       }
       expect(errors[0]).toEqual(expectedError)
     })
@@ -110,9 +110,9 @@ I am content.
         properties: {
           yet_another_key: {
             type: 'string',
-            required: true
-          }
-        }
+            required: true,
+          },
+        },
       }
 
       const { errors } = parse(fixture1, { schema })
@@ -122,7 +122,7 @@ I am content.
         property: 'yet_another_key',
         expected: true,
         actual: undefined,
-        message: 'is required'
+        message: 'is required',
       }
       expect(errors[0]).toEqual(expectedError)
     })
@@ -132,9 +132,9 @@ I am content.
     const schema = {
       properties: {
         age: {
-          type: 'number'
-        }
-      }
+          type: 'number',
+        },
+      },
     }
 
     it('creates errors for undocumented keys if `validateKeyNames` is true', () => {
@@ -144,13 +144,13 @@ I am content.
         {
           property: 'title',
           message: 'not allowed. Allowed properties are: age',
-          filepath: 'path/to/file.md'
+          filepath: 'path/to/file.md',
         },
         {
           property: 'meaning_of_life',
           message: 'not allowed. Allowed properties are: age',
-          filepath: 'path/to/file.md'
-        }
+          filepath: 'path/to/file.md',
+        },
       ]
       expect(errors).toEqual(expectedErrors)
     })
@@ -166,20 +166,21 @@ I am content.
       const schema = {
         properties: {
           meaning_of_life: {
-            type: 'number'
+            type: 'number',
           },
           title: {
-            type: 'string'
-          }
-        }
+            type: 'string',
+          },
+        },
       }
       const { errors } = parse(fixture1, { schema, validateKeyOrder: true, filepath })
       const expectedErrors = [
         {
           property: 'keys',
-          message: 'keys must be in order. Current: title,meaning_of_life; Expected: meaning_of_life,title',
-          filepath: 'path/to/file.md'
-        }
+          message:
+            'keys must be in order. Current: title,meaning_of_life; Expected: meaning_of_life,title',
+          filepath: 'path/to/file.md',
+        },
       ]
       expect(errors).toEqual(expectedErrors)
     })
@@ -188,12 +189,12 @@ I am content.
       const schema = {
         properties: {
           title: {
-            type: 'string'
+            type: 'string',
           },
           meaning_of_life: {
-            type: 'number'
-          }
-        }
+            type: 'number',
+          },
+        },
       }
       const { errors } = parse(fixture1, { schema, validateKeyOrder: true })
       expect(errors.length).toBe(0)
@@ -204,16 +205,16 @@ I am content.
         properties: {
           title: {
             type: 'string',
-            required: true
+            required: true,
           },
           yet_another_key: {
-            type: 'string'
+            type: 'string',
           },
           meaning_of_life: {
             type: 'number',
-            required: true
-          }
-        }
+            required: true,
+          },
+        },
       }
       const { errors } = parse(fixture1, { schema, validateKeyOrder: true })
       expect(errors.length).toBe(0)

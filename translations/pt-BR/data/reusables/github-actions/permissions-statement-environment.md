@@ -1,1 +1,1 @@
-To configure an environment in a user account repository, you must be the repository owner. To configure an environment in an organization repository, you must have `admin` access.
+Para configurar um ambiente em um repositório de conta de usuário, você deve ser o proprietário do repositório. Para configurar um ambiente em um repositório da organização, é necessário ter acesso de `administrador`.

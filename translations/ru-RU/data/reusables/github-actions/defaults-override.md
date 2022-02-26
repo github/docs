@@ -1,1 +1,0 @@
-When more than one default setting is defined with the same name, {% data variables.product.prodname_dotcom %} uses the most specific default setting. For example, a default setting defined in a job will override a default setting that has the same name defined in a workflow.

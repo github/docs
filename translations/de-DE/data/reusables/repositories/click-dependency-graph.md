@@ -1,1 +1,0 @@
-3. Klicke in der linken Seitenleiste auf **Dependency graph** (Abhängigkeitsdiagramm). ![Registerkarte „Dependency graph" (Abhängigkeitsdiagramm) in der linken Seitenleiste](/assets/images/help/graphs/graphs-sidebar-dependency-graph.png)

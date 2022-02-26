@@ -1,1 +1,1 @@
-Even after all required reviewers have approved a pull request, collaborators cannot merge the pull request if there are other open pull requests that have a head branch pointing to the same commit with pending or rejected reviews. Someone with write permissions must approve or dismiss the blocking review on the other pull requests first.
+すべての必須のレビュー担当者がPull Requestを承認した後でも、同じコミットを指すヘッドブランチを持つ、保留中もしくは拒否されたレビューを持つオープンなPull Requestが他にある場合、コラボレータはそのPull Requestをマージできません。 まず、他のPull Request上のブロックしているレビューを、書き込み権限を持つ誰かが承認もしくは却下しなければなりません。

@@ -1,0 +1,3 @@
+You can give organization members, teams, and outside collaborators different levels of access to repositories owned by your organization with repository roles. 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
+
+You can also customize access to your organization's project boards and allow individual organization members to manage your organization's {% data variables.product.prodname_github_apps %}. For more information, see "[Managing access to your organization's project boards](/organizations/managing-access-to-your-organizations-project-boards)" and "[Managing access to your organization's apps](/organizations/managing-access-to-your-organizations-apps)."

@@ -1,11 +1,14 @@
 ---
 title: Política de logo de GitHub
 redirect_from:
-  - /articles/i-m-developing-a-third-party-github-app-what-do-i-need-to-know/
-  - /articles/using-an-octocat-to-link-to-github-or-your-github-profile/
+  - /articles/i-m-developing-a-third-party-github-app-what-do-i-need-to-know
+  - /articles/using-an-octocat-to-link-to-github-or-your-github-profile
   - /articles/github-logo-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Puede añadir {% data variables.product.prodname_dotcom %} logos a tu sitio web o aplicación de terceros en algunos escenarios. Para obtener más información y directrices específicas, consulta la[{% data variables.product.prodname_dotcom %} página de Logos y Uso](https://github.com/logos).

@@ -1,0 +1,23 @@
+---
+date: '2021-12-07'
+sections:
+  security_fixes:
+    - Support bundles could include sensitive files if they met a specific set of conditions.
+    - A UI misrepresentation vulnerability was identified in GitHub Enterprise Server that allowed more permissions to be granted during a GitHub App's user-authorization web flow than was displayed to the user during approval. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.2.5, 3.1.13, 3.0.21. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598).
+    - A remote code execution vulnerability was identified in GitHub Enterprise Server that could be exploited when building a GitHub Pages site. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.0.21, 3.1.13, 3.2.5. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599). Updated February 17, 2022.
+  bugs:
+    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
+    - A misconfiguration in the Management Console caused scheduling errors.
+    - Docker would hold log files open after a log rotation.
+    - GraphQL requests did not set the GITHUB_USER_IP variable in pre-receive hook environments.
+  changes:
+    - Clarifies explanation of Actions path-style in documentation.
+    - Updates support contact URLs to use the current support site, support.github.com.
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

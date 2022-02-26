@@ -1,6 +1,6 @@
 ---
 title: Frontmatter
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.14'
+  fpt: '*'
+  ghes: '>=2.14'
 ---

@@ -1,0 +1,1 @@
+{% data variables.product.company_short %} 建议对 {% data variables.product.prodname_ghe_server %} 使用内存优化的实例。 更多信息请参阅 Amazon EC2 网站上的 [Amazon EC2 实例类型](https://aws.amazon.com/ec2/instance-types/#Memory_Optimized)。

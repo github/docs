@@ -1,1 +1,1 @@
-You can categorize discussions to help community members begin conversations in the right place, and to help community members find related discussions.
+コミュニティのメンバーが適切な場所で会話を始められるように、そしてコミュニティのメンバーが関連するディスカッションを見つけやすくなるように、ディスカッションをカテゴリ付けできます。

@@ -1,1 +1,0 @@
-Con {% data variables.product.prodname_actions %} puedes crear capacidades de integración continua (CI, por sus siglas en inglés) de extremo a extremo y de funcionamiento continuo (CD, por sus siglas en inglés) directamente en tu repositorio.

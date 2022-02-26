@@ -1,4 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 Ao digitar uma senha para efetuar o login, criar uma conta ou mudar sua senha
 {% data variables.product.product_name %} irá verificar se a senha inserida é considerada fraca de acordo com os conjuntos de dados como o HaveIBeenPwted. A senha pode ser identificada como fraca, mesmo que você nunca tenha usado essa senha antes.
 

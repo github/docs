@@ -1,7 +1,7 @@
 1. Crea un token de acceso personal nuevo (PAT) con los alcances adecuados para las tareas que quieres realizar. Si tu organización requiere SSO, debes hablitarlo para tu token nuevo.
   {% warning %}
 
-  **Nota:** Si seleccionas el alcance `write:packages`, deselecciona el alcance `repo` cuando crees el PAT. El agregar un PAT con el alcance `repo` en forma de secreto en tu repositorio permite que todos los colaboradores del repositorio accedan a esta credencial. Esto otorga acceso adicional innecesario cuando un PAT con el alcance `repo` se utiliza dentro de una acción. Para obtener más información acerca de las mejores prácticas de seguridad, consulta la sección "[Fortalecimiento de seguridad para las GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)".
+  **Nota:** Predeterminadamente, cuando seleccionas el alcance `write:packages` para tu token de acceso personal (PAT) en la interface de usuario, también se seleccionará el alcance `repo`. El alcance `repo` ofrece un acceso amplio e innecesario, el cual te recomendamos no utilices para los flujos de trabajo de GitHub Actions en particualr. Para obtener más información, consulta la sección "[Fortalecimiento de la seguridad para las GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)". Como medida alterna, puedes seleccionar solo el alcance de `write:packages` para tu PAT en la interface de usuario con esta url: `https://github.com/settings/tokens/new?scopes=write:packages`.
 
   {% endwarning %}
 
@@ -16,7 +16,7 @@
   $ export CR_PAT=YOUR_TOKEN
   ```
 3. Utilizando el CLI para tu tipo de contenedor, ingresa en el
-servicio del {% data variables.product.prodname_github_container_registry %} en `ghcr.io`.
+servicio del {% data variables.product.prodname_container_registry %} en `ghcr.io`.
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin

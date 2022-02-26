@@ -1,14 +1,14 @@
-1. Open the **Repository** menu, then click **Repository settings...**.
+1. Abre el menú de **Repositorio** y luego haz clic en **Ajustes de repositorio...**.
 
   {% mac %}
 
-  ![Repository settings menu option in the Mac app](/assets/images/help/desktop/mac-repository-settings.png)
+  ![Opción del menú de ajustes del repositorio en la app de Mac](/assets/images/help/desktop/mac-repository-settings.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![Repository settings menu option in the Windows app](/assets/images/help/desktop/windows-repository-settings.png)
+  ![Opción del menú de ajustes del repositorio en la app de Windows](/assets/images/help/desktop/windows-repository-settings.png)
 
   {% endwindows %}
   

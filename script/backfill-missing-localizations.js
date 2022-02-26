@@ -1,13 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const mkdirp = require('mkdirp').sync
-const languages = require('../lib/languages')
-
-const dirs = ['content', 'data']
-
 // [start-readme]
 //
 // This script copies any English files that are missing from the translations directory into the translations directory.
@@ -15,24 +7,34 @@ const dirs = ['content', 'data']
 //
 // [end-readme]
 
-dirs.forEach(dir => {
-  const englishPath = path.join(__dirname, `../${dir}`)
-  const filenames = walk(englishPath)
-    .filter(filename => {
-      return (filename.endsWith('.yml') || filename.endsWith('.md')) &&
-        !filename.endsWith('README.md')
-    })
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import mkdirp from 'mkdirp'
+import languages from '../lib/languages.js'
 
-  filenames.forEach(filename => {
-    Object.values(languages).forEach(language => {
-      if (language.code === 'en') return
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const dirs = ['content', 'data']
+
+for (const dir of dirs) {
+  const englishPath = path.join(__dirname, `../${dir}`)
+  const filenames = walk(englishPath).filter((filename) => {
+    return (
+      (filename.endsWith('.yml') || filename.endsWith('.md')) && !filename.endsWith('README.md')
+    )
+  })
+
+  for (const filename of filenames) {
+    for (const language of Object.values(languages)) {
+      if (language.code === 'en') continue
       const fullPath = path.join(__dirname, '..', language.dir, dir, filename)
       if (!fs.existsSync(fullPath)) {
         console.log('missing', fullPath)
         const englishFullPath = path.join(__dirname, '..', dir, filename)
-        mkdirp(path.dirname(fullPath))
+        await mkdirp(path.dirname(fullPath))
         fs.writeFileSync(fullPath, fs.readFileSync(englishFullPath))
       }
-    })
-  })
-})
+    }
+  }
+}

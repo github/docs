@@ -1,1 +1,1 @@
-A new content reference is `created`. A new content reference is created when the body or comment of an issue or pull request includes a URL that matches a configured content reference domain. For more information, see "[Using content attachments](/apps/using-content-attachments/)" to learn more about content references and attachments.
+新しいコンテンツ参照が`作成されました`。 新しいコンテンツ参照は、IssueもしくはPull Requestのボディあるいはコメントが、設定されたコンテンツ参照ドメインにマッチする場合に作成されます。 詳しい情報については「[コンテンツの添付ファイルの使用](/apps/using-content-attachments/)」を参照して、コンテンツ参照と添付ファイルについて学んでください。

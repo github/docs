@@ -2,23 +2,26 @@
 title: Representar dados como gráficos
 intro: Aprenda a visualizar as linguagens de programação do seu repositório usando a biblioteca D3.js e o Ruby Octokit.
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
 ---
  
 
 
-Neste guia, vamos usar a API para obter informações sobre repositórios dos quais somos proprietários e as linguagens de programação que as compõem. Em seguida, vamos visualizar essas informações de algumas formas diferentes usando a biblioteca [D3.js][D3.js]. Para interagir com a API de {% data variables.product.product_name %}, vamos usar a excelente biblioteca do Ruby, [Octokit][Octokit].
+Neste guia, vamos usar a API para obter informações sobre repositórios dos quais somos proprietários e as linguagens de programação que as compõem. Em seguida, vamos visualizar essas informações de algumas formas diferentes usando a biblioteca [D3.js][D3.js]. Para interagir com a API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, usaremos a excelente biblioteca do Ruby, [Octokit][Octokit].
 
 Caso você ainda não o tenha feito, você deve ler o guia ["Princípios básicos da autentifcação"][basics-of-authentication] antes de iniciar este exemplo. Você pode encontrar o código-fonte completo para este projeto no repositório de [platform-samples][platform samples].
 
 Vamos começar imediatamente!
 
-### Configurar um aplicativo OAuth
+## Configurar um aplicativo OAuth
 
 Primeiro, [registra um novo aplicativo ][new oauth application] no {% data variables.product.product_name %}. Define as URLs principais e a chamada de retorno para `http://localhost:4567/`. Assim como fizemos[anteriormente][basics-of-authentication], vamos gerenciar a autenticação da API implementando um Rack middleware usando [sinatra-auth-github][sinatra auth github]:
 
@@ -71,9 +74,9 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'server'))
 run Example::MyGraphApp
 ```
 
-### Buscar informações do repositório
+## Buscar informações do repositório
 
-Dessa vez, para falar com a API {% data variables.product.product_name %}, vamos usar a [a biblioteca do Ruby, Octokit][Octokit]. Isso é muito mais fácil do que fazer diretamente um monte de chamadas de REST. Além disso, o Octokit foi desenvolvido por um GitHubber e é mantido ativamente, para que você saiba que vai funcionar.
+Dessa vez, para falar com a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, vamos usar a biblioteca do Ruby [Octokit][Octokit]. Isso é muito mais fácil do que fazer diretamente um monte de chamadas de REST. Além disso, o Octokit foi desenvolvido por um GitHubber e é mantido ativamente, para que você saiba que vai funcionar.
 
 É fácil a autenticação com a API através do Octokit. Basta passar seu login e token para o `Octokit::Client` do cliente:
 
@@ -117,7 +120,7 @@ Ao reiniciar seu servidor, sua página web deve exibir algo que se parece com is
 
 Até agora, tudo bem, mas isso não é não muito intuitivo para uma pessoa. Uma visualização seria excelente para nos ajudar a entender como as contagens de linguagens são distribuídas. Vamos alimentar nossas contagens em D3 para obter um gráfico de barras que represente a popularidade dos idiomas que usamos.
 
-### Visualizar contagens de linguagem
+## Visualizar contagens de linguagem
 
 D3.js, ou apenas D3, é uma biblioteca abrangente para criar muitos tipos de gráficos, gráficos e visualizações interativas. Usar D3 em detalhes está fora do âmbito deste guia, mas para um bom artigo introdutório consulte ["D3 para mortais"][D3 mortals].
 
@@ -219,7 +222,7 @@ Ufa! Novamente, não se preocupe com o que a maior parte deste código está faz
 
 Como o guia "D3 para mortais" sugere, este não é necessariamente a melhor forma de utilizar o D3. No entanto, serve para ilustrar como você pode usar a biblioteca, junto com Octokit, para fazer algumas coisas realmente incríveis.
 
-### Combinar diferentes chamadas de API
+## Combinar diferentes chamadas de API
 
 Agora é hora de fazer uma confissão: o atributo da `linguagem` dentro dos repositórios identifica apenas a linguagem "primária" definida. Isso significa que se você tiver um repositório que combina várias linguagens. aquela que tiver mais bytes de código será considerada a linguagem primária.
 
@@ -330,9 +333,8 @@ Et voila! São lindos retângulos que contém suas linguagens de repositório, c
 [basics-of-authentication]: /rest/guides/basics-of-authentication
 [sinatra auth github]: https://github.com/atmos/sinatra_auth_github
 [Octokit]: https://github.com/octokit/octokit.rb
-[Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: http://bl.ocks.org/mbostock/4063582
+[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html
 [language API]: /rest/reference/repos#list-repository-languages
 [language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs

@@ -1,0 +1,1 @@
+Para obtener más información sobre las direcciones de correo electrónico para confirmaciones,{% ifversion fpt or ghec %} incluyendo aquella de `noreply` para {% data variables.product.product_name %}, {% endif %} consulta la sección "[Configurar tu dirección de correo electrónico para confirmaciones](/articles/setting-your-commit-email-address)".

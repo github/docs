@@ -1,0 +1,43 @@
+---
+- 
+  title: Projeto de amostra no Node.js
+  description: Tente um projeto do Node.js com um contêiner de desenvolvimento personalizado
+  languages: Javascript
+  href: microsoft/vscode-remote-try-node
+  tags:
+    - contêineres de desenvolvimento
+- 
+  title: Projeto de amostra do Python
+  description: Experimente um projeto do Python com um contêiner de desenvolvimento personalizado
+  languages: Python
+  href: microsoft/vscode-remote-try-python
+  tags:
+    - contêineres de desenvolvimento
+- 
+  title: Projeto de amostra do Java
+  description: Experimente um projeto do Java com um contêiner de desenvolvimento personalizado
+  languages: Java
+  href: microsoft/vscode-remote-try-java
+  tags:
+    - contêineres de desenvolvimento
+- 
+  title: Projeto de amostra no Go
+  description: Experimente um projeto do Go com um contêiner de desenvolvimento personalizado
+  languages: Go
+  href: microsoft/vscode-remote-try-go
+  tags:
+    - contêineres de desenvolvimento
+- 
+  title: Projeto de amostra do Rust
+  description: Experimente um projeto do Rust com um contêiner de desenvolvimento personalizado
+  languages: Rust
+  href: microsoft/vscode-remote-try-rust
+  tags:
+    - contêineres de desenvolvimento
+- 
+  title: Projeto de amostra no PHP
+  description: Experimente um projeto do PHP com um contêiner de desenvolvimento personalizado
+  languages: PHP
+  href: microsoft/vscode-remote-try-php
+  tags:
+    - contêineres de desenvolvimento

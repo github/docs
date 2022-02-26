@@ -1,5 +1,5 @@
 {% warning %}
 
-**Warning:** The only supported S3 storage providers are Amazon S3 and MinIO Gateway for NAS. Other S3 API-compatible storage providers are not supported. For more information on supported storage providers, see "[Getting started with GitHub Actions for GitHub Enterprise Server](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)."
+**警告:** サポートされているS3のストレージプロバイダは、Amazon S3とMinIO Gateway for NASのみです。 他のS3 API互換ストレージプロバイダはサポートされていません。 サポートされているストレージプロバイダに関する詳しい情報については「[GitHub Enterprise ServerのためのGitHub Actionsの利用を始める](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)」を参照してください。
 
 {% endwarning %}

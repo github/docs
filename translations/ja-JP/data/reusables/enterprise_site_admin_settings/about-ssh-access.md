@@ -1,1 +1,1 @@
-SSH access allows you to run the {% data variables.product.product_name %} command line utilities to troubleshoot, run backups, and configure replication.
+SSHアクセスによって、トラブルシューティング、バックアップの実行、レプリケーションの設定のために{% data variables.product.product_name %}のコマンドラインユーティリティを実行できます。

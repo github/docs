@@ -8,7 +8,7 @@ El registro lista la siguiente información sobre cada acción:
 
 Nota que no puedes buscar entradas utilizando texto. Sin embargo, puedes construir consultas de búsqueda utilizando una variedad de filtros. Muchos operadores que se utilizan cuando se busca el registro por queries, tales como `-`, `>`, o `<`, empatan con el mismo formato que si se busca con {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Buscar en {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)".
 
-#### Búsqueda basada en la operación
+### Búsqueda basada en la operación
 
 Utiliza el calificador `operation` para limitar las acciones en tipos específicos de operaciones. Por ejemplo:
 
@@ -20,7 +20,7 @@ Utiliza el calificador `operation` para limitar las acciones en tipos específic
   * `operation:restore` encuentra todos los eventos en donde se restauró un recurso existente.
   * `operation:transfer` encuentra todos los eventos en donde se transfirió un recurso existente.
 
-#### Búsqueda basada en el repositorio
+### Búsqueda basada en el repositorio
 
 Utiliza el calificador `repo` para limitar las acciones a un repositorio específico. Por ejemplo:
 
@@ -30,7 +30,7 @@ Utiliza el calificador `repo` para limitar las acciones a un repositorio especí
 
 Nota que debes incluir el nombre de cuenta dentro del calificador `repo`; no funcionará si buscas únicamente `repo:our-repo`.
 
-#### Búsqueda basada en el usuario
+### Búsqueda basada en el usuario
 
 El calificador `actor` puede incluir eventos que se basen en quién realizó la acción. Por ejemplo:
 

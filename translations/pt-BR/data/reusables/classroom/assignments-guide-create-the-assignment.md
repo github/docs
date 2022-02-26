@@ -1,5 +1,5 @@
-Para criar uma atividade, efetue o login em {% data variables.product.prodname_classroom_with_url %} e acesse uma sala de aula. Na aba de {% octicon "repo" aria-label="The repo icon" %} **Atividades**, clique em **Nova atividade**.
-
-<div class="procedural-image-wrapper">
-  <img alt="Botão &quot;Nova atividade&quot;" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-new-assignment-button.png">
-</div>
+1. Efetue o login em {% data variables.product.prodname_classroom_with_url %}.
+1. Acesse uma sala de aula.
+1. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, create the assignment.
+   - If this your first assignment, click **Create an assignment**. ![Criando sua primeira atividade](/assets/images/help/classroom/assignments-create-first-assignment.png)
+   - Otherwise, click **New assignment**. ![Botão "Nova atividade"](/assets/images/help/classroom/assignments-click-new-assignment-button.png)

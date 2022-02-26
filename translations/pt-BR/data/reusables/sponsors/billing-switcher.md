@@ -1,1 +1,1 @@
-1. Optionally, to manage your sponsorship on behalf of an organization, in the upper-left corner, use the **Personal settings** drop-down menu, and click the organization. ![Drop-down menu to switch accounts for settings](/assets/images/help/sponsors/billing-account-switcher.png)
+1. Opcionalmente, para gerenciar seu patrocínio em nome de uma organização, no canto superior esquerdo, use o menu suspenso **Configurações pessoais** e clique na organização. ![Menu suspenso para alternar contas para configurações](/assets/images/help/sponsors/billing-account-switcher.png)

@@ -1,2 +1,0 @@
-1. Opcionalmente, si tu organización pertenece a un negocio o institución, selecciona **Esta cuenta pertenece a un negocio**. ![Casilla para organizaciones que pertenecen a un negocio](/assets/images/help/organizations/organization-belongs-to.png)
-2. Si tu organización pertenece a una institución o negocio, teclea el nombre de ésta. ![Campo Nombre de empresa o institución](/assets/images/help/organizations/name-of-business.png)
