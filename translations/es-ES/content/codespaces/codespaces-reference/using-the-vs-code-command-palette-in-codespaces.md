@@ -55,14 +55,14 @@ Para agregar un contenedor dev a una plantilla, [accede a la {% data variables.p
 
 Si agregas un contenedor de dev o si editas cualquiera de los archivos de configuración (`devcontainer.json` y `Dockerfile`), tendrás que reconstruir tu codespace para que este aplique tus cambios.
 
-To rebuild your container, [access the {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette), then start typing "rebuild". Selecciona **Codespaces: Reconstruir contenedor**.
+Para recompilar tu contenedor, [accede a la {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette) y luego comienza a teclear "recompilar". Selecciona **Codespaces: Reconstruir contenedor**.
 
 ![Comando para reconstruir un codespace](/assets/images/help/codespaces/codespaces-rebuild.png)
 
 ### Bitácoras de los codespaces
 
-You can use the {% data variables.product.prodname_vscode_command_palette %} to access the codespace creation logs, or you can use it export all logs.
+Puedes utilizar la {% data variables.product.prodname_vscode_command_palette %} para acceder a las bitácoras de creación de codespaces o puedes utilizarla para exportar todas las bitácoras.
 
-To retrieve the logs for Codespaces, [access the {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette), then start typing "log". Selecciona **Codespaces: Exportar bitácoras** para exportar todas las bitácoras relacionadas con los codespaces o selecciona **Codespaces: Ver las bitácoras de creación** para ver las bitácoras relacionadas con la configuración.
+Para recuperar las bitácoras para Codespaces, [accede a la {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette) y luego comienza a teclear "log". Selecciona **Codespaces: Exportar bitácoras** para exportar todas las bitácoras relacionadas con los codespaces o selecciona **Codespaces: Ver las bitácoras de creación** para ver las bitácoras relacionadas con la configuración.
 
 ![Comando para acceder a las bitácoras](/assets/images/help/codespaces/codespaces-logs.png)

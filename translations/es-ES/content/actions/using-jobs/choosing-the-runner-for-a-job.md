@@ -1,6 +1,6 @@
 ---
 title: Choosing the runner for a job
-shortTitle: Choosing the runner for a job
+shortTitle: Elegir un ejecutor para un job
 intro: Define the type of machine that will process a job in your workflow.
 versions:
   fpt: '*'

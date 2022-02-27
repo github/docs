@@ -3,7 +3,7 @@ sections:
   security_fixes:
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   known_issues:
-    - 'On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.'
+    - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.'
     - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
     - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
     - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'

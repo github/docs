@@ -27,7 +27,7 @@ El pie de página personalizado se muestra sobre el pie de página de {% data va
 {%- ifversion ghec %}
 ![Enterprise profile settings](/assets/images/enterprise/custom-footer/enterprise-profile-ghec.png)
 {%- else %}
-![Enterprise profile settings](/assets/images/enterprise/custom-footer/enterprise-profile-ghes.png)
+![Ajustes de perfil empresarial](/assets/images/enterprise/custom-footer/enterprise-profile-ghes.png)
 {%- endif %}
 
 1. At the top of the Profile section, click **Custom footer**. ![Custom footer section](/assets/images/enterprise/custom-footer/custom-footer-section.png)

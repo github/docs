@@ -20,7 +20,7 @@ Whenever you push changes to your repository, {% data variables.product.prodname
 
 When prebuilds are available for a particular branch of a repository, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the machine type dialog box that's displayed when you create a codespace and multiple machine types are available.
 
-![The dialog box for choosing a machine type](/assets/images/help/codespaces/choose-custom-machine-type.png)
+![La caja de diálogo para elegir un tipo de máquina](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
 ## About billing for {% data variables.product.prodname_codespaces %} prebuilds
 

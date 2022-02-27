@@ -1,5 +1,5 @@
 ---
-date: '2022-03-15'
+date: '2022-02-15'
 release_candidate: true
 deprecated: false
 intro: |
@@ -43,7 +43,7 @@ sections:
         - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
         - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
     - 
-      heading: Performance Changes
+      heading: Cambios de rendimiento
       notes:
         - WireGuard, used to secure communication between {% data variables.product.prodname_ghe_server %} instances in a High Availability configuration, has been migrated to the Kernel implementation.
     - 
@@ -141,7 +141,7 @@ sections:
   #bugs:
   #- PLACEHOLDER
   known_issues:
-    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
     - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.
     - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.
@@ -151,7 +151,7 @@ sections:
     - Actions services needs to be restarted after restoring appliance from backup taken on a different host.
   deprecations:
     - 
-      heading: Deprecation of GitHub Enterprise Server 3.0
+      heading: Obsoletización de GitHub Enterprise Server 3.0
       notes:
         - '**{% data variables.product.prodname_ghe_server %} 3.0 se descontinuó el 16 de febrero de 2022**. Esto significa que no se harán lanzamientos de parche, aún para los problemas de seguridad críticos, después de esta fecha. Para obtener un rendimiento mejor, una seguridad mejorada y características nuevas, [actualiza a la última versión de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) tan pronto te sea posible.'
     - 
@@ -171,16 +171,16 @@ sections:
       notes:
         - 'La vista previa de la API de códigos de conducta, a la cual se podía acceder con el encabezado `scarlet-witch-preview`, es obsoleta y ya no se puede acceder a ella en {% data variables.product.prodname_ghe_server %} 3.4. En vez de esto, te recomendamos utilizar la terminal de "[Obtén métricas de perfil comunitario](/rest/reference/repos#get-community-profile-metrics)" para recuperar información sobre un código de conducta de un repositorio. Para obtener más información, consulta el "[Aviso de obsolescencia: Vista previa de la API de códigos de conducta](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" en la bitácora de cambios de {% data variables.product.prodname_dotcom %}.'
     - 
-      heading: Deprecation of OAuth Application API endpoints and API authentication using query parameters
+      heading: Obsoletización de las terminales de la API de Aplicaciones OAuth y autenticación de la API a través de parámetros de consulta
       notes:
         - |
           A partir de {% data variables.product.prodname_ghe_server %} 3.4, se retiró la [versión obsoleta de las terminales de la API de aplicación OAuth](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected). Si te encuentras con errores 404 en estas terminales, convierte tu código a las versiones de la API de Aplicación OAuth que no tienen `access_tokens` en la URL. También inhabilitamos el uso de la autenticación de API utilizando parámetros de consulta. En vez de esto, te recomendamos utilizar [Autenticación de API en el encabezado de solicitud](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).
     - 
-      heading: Deprecation of the CodeQL runner
+      heading: Obsoletización del ejecutor de CodeQL
       notes:
         - EL ejecutor de {% data variables.product.prodname_codeql %} ya es obsoleto en {% data variables.product.prodname_ghe_server %} 3.4 y ya no hay compatibilidad con este. Esta obsolescencia solo afecta a los usuarios que utilizan el escaneo de código de {% data variables.product.prodname_codeql %} en un sistema de IC/DC de terceros; los usuarios de {% data variables.product.prodname_actions %} no se ven afectados. Recomendamos fuertemente que los clientes se migren al CLI de {% data variables.product.prodname_codeql %}, el cual es un reemplazo con todas las características del ejecutor de {% data variables.product.prodname_codeql %}. Para obtener más información, consulta la [Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).
     - 
-      heading: Deprecation of custom bit-cache extensions
+      heading: Obsoletización de extensiones de bit-caché personalizadas
       notes:
         - |
           Desde {% data variables.product.prodname_ghe_server %} 3.1, el soporte de las extensiones bit-cache propietarias de {% data variables.product.company_short %} se comenzó a eliminar paulatinamente. Estas extensiones son obsoletas en {% data variables.product.prodname_ghe_server %} 3.3 en adelante.
