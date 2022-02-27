@@ -121,9 +121,9 @@ sections:
         - '{% data variables.product.prodname_cli %} 1.9 and later allows you to work with {% data variables.product.prodname_actions %} in your terminal. For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-04-15-github-cli-1-9-enables-you-to-work-with-github-actions-from-your-terminal/).'
         - 'The audit log now includes events associated with {% data variables.product.prodname_actions %} workflow runs. This data provides administrators with a greatly expanded data set for security and compliance audits. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#workflows-category-actions)."'
         - |
-          {% data variables.product.prodname_ghe_server %} 3.2 contains performance improvements for job concurrency with {% data variables.product.prodname_actions %}. For more information about the new performance targets for a range of CPU and memory configurations, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
-          * The "Maximum Concurrency" values were modified to reflect our most up to date performance testing. [Updated: 2021-12-07]
-        - The [{% data variables.product.prodname_actions %} Runner](https://github.com/actions/runner) application in {% data variables.product.prodname_ghe_server %} 3.2 has been updated to [v2.279.0](https://github.com/actions/runner/releases/tag/v2.279.0).
+          {% data variables.product.prodname_ghe_server %} 3.2 contém melhorias de desempenho para a simultaneidade de trabalho com {% data variables.product.prodname_actions %}. Para mais informações sobre os novos objetivos de desempenho em uma variedade de configurações de CPU e memória, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
+          * Os valores de "concorrência máxima" foram modificados para refletir os nossos testes de desempenho mais atualizados. [Atualizado: 2021-12-07]
+        - O aplicativo [Executor de {% data variables.product.prodname_actions %}](https://github.com/actions/runner) em {% data variables.product.prodname_ghe_server %} 3.2 foi atualizado para [v2.279.0](https://github.com/actions/runner/releases/tag/v2.279.0).
     - 
       heading: 'GitHub Packages changes'
       notes:
@@ -167,7 +167,7 @@ sections:
       heading: Alterações de API
       notes:
         - 'Pagination support has been added to the Repositories REST API''s "compare two commits" endpoint, which returns a list of commits reachable from one commit or branch, but unreachable from another. The API can also now return the results for comparisons over 250 commits. For more information, see the "[Commits](/rest/reference/commits#compare-two-commits)" REST API documentation and "[Traversing with pagination](/rest/guides/traversing-with-pagination)."'
-        - 'The REST API can now be used to programmatically resend or check the status of webhooks. For more information, see "[Repositories](/rest/reference/repos#webhooks)," "[Organizations](/rest/reference/orgs#webhooks)," and "[Apps](/rest/reference/apps#webhooks)" in the REST API documentation.'
+        - 'A API REST agora pode ser usada para reenviar ou verificar o status dos webhooks. Para obter mais informações, consulte "[Repositories](/rest/referência/repos#webhooks)," "[Organizations](/rest/reference/orgs#webhooks)," e "[Apps](/rest/reference/apps#webhooks)" na documentação da API REST.'
         - |
           Improvements have been made to the code scanning and {% data variables.product.prodname_GH_advanced_security %} APIs:
 
