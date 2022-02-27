@@ -13,20 +13,20 @@ intro: |
 sections:
   features:
     - 
-      heading: Security Manager role
+      heading: Função do gerente de segurança
       notes:
         - |
-          Organization owners can now grant teams the access to manage security alerts and settings on their repositories. The "security manager" role can be applied to any team and grants the team's members the following access:
+          Os proprietários da organização agora podem conceder às equipes o acesso para gerenciar alertas de segurança e configurações de seus repositórios. A função "gerente de segurança" pode ser aplicada a qualquer equipe e concede aos integrantes da equipe o seguinte acesso:
 
-          - Read access on all repositories in the organization.
-          - Write access on all security alerts in the organization.
-          - Access to the organization-level security tab.
-          - Write access on security settings at the organization level.
-          - Write access on security settings at the repository level.
+          - Acesso de leitura em todos os repositórios da organização.
+          - Acesso de gravação em todos os alertas de segurança na organização.
+          - Acesso na aba de segurança a nível da organização.
+          - Acesso de gravação nas configurações de segurança no nível da organização.
+          - Acesso de gravação nas configurações de segurança no nível de repositório.
 
-          For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+          Para obter mais informações, consulte "[Gerenciando gerentes de segurança na sua organização](/organizations/managing-peopleles-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
     - 
-      heading: 'Ephemeral self-hosted runners for GitHub Actions & new webhooks for auto-scaling'
+      heading: 'Executores efêmeros auto-hospedados no GitHub Actions e novos webhooks para dimensionamento automático'
       notes:
         - |
           {% data variables.product.prodname_actions %} now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
@@ -147,7 +147,7 @@ sections:
       notes:
         - Most REST API previews have graduated and are now an official part of the API. Preview headers are no longer required for most REST API endpoints, but will still function as expected if you specify a graduated preview in the `Accept` header of a request. For previews that still require specifying the preview in the `Accept` header of a request, see "[API previews](/rest/overview/api-previews)."
         - 'You can now use the REST API to configure custom autolinks to external resources. The REST API now provides beta `GET`/`POST`/`DELETE` endpoints which you can use to view, add, or delete custom autolinks associated with a repository. For more information, see "[Autolinks](/rest/reference/repos#autolinks)."'
-        - 'You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.'
+        - 'Agora você pode usar a API REST para sincronizar um repositório bifurcado com o seu repositório upstream. Para obter mais informações, consulte "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" na documentação da API REST.'
         - 'Enterprise administrators on GitHub Enterprise Server can now use the REST API to enable or disable Git LFS for a repository. For more information, see "[Repositories](/rest/reference/repos#git-lfs)."'
         - 'You can now use the REST API to query the audit log for an enterprise. While audit log forwarding provides the ability to retain and analyze data with your own toolkit and determine patterns over time, the new endpoint can help you perform limited analysis on recent events. For more information, see "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)" in the REST API documentation.'
         - GitHub App user-to-server API requests can now read public resources using the REST API. This includes, for example, the ability to list a public repository's issues and pull requests, and to access a public repository's comments and content.

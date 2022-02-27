@@ -9,15 +9,15 @@ sections:
     - É possível que as contagens de trabalhadores do Unicorn possam ter sido definidas de forma incorreta no modo de agrupamento.
     - É possível que as contagens dos trabalhadores do Resqued possam ter sido definidas incorretamente no modo cluster.
     - If Ubuntu's Uncomplicated Firewall (UFW) status was inactive, a client could not clearly see it in the logs.
-    - Upgrading from {% data variables.product.prodname_ghe_server %} 2.x to 3.x failed when there were UTF8 characters in an LDAP configuration.
+    - Falha ao atualizar de {% data variables.product.prodname_ghe_server %} 2.x para 3.x quando havia caracteres UTF8 em uma configuração do LDAP.
     - Some pages and Git-related background jobs might not run in cluster mode with certain cluster configurations.
-    - 'When a new tag was created, the [push](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) webhook payload did not display a correct `head_commit` object. Now, when a new tag is created, the push webhook payload now always includes a `head_commit` object that contains the data of the commit that the new tag points to. As a result, the `head_commit` object will always contain the commit data of the payload''s `after` commit.'
+    - 'Quando uma nova tag foi criada, a [push](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push) carga do webhook não mostrou um objeto `head_commit` correto. Agora, quando uma nova tag é criada, a carga do webhook de push sempre inclui um objeto `head_commit` que contém os dados do commit para o qual a nova tag aponta. Como resultado, o objeto `head_commit` sempre conterá os dados de commit do commit do commit `after` da carga.'
     - The enterprise audit log page would not display audit events for {% data variables.product.prodname_secret_scanning %}.
-    - There was an insufficient job timeout for replica repairs.
+    - Houve um tempo limite de trabalho insuficiente para reparos da réplica.
     - 'Users were not warned about potentially dangerous bidirectional unicode characters when viewing files. For more information, see "[Warning about bidirectional Unicode text](https://github.co/hiddenchars)" in {% data variables.product.prodname_blog %}.'
     - Hookshot Go sent distribution type metrics that Collectd could not handle, which caused a ballooning of parsing errors.
   changes:
-    - Kafka configuration improvements have been added. When deleting repositories, package files are now immediately deleted from storage account to free up space. `DestroyDeletedPackageVersionsJob` now deletes package files from storage account for stale packages along with metadata records.
+    - Foram adicionadas melhorias de configuração do Kafka. Ao excluir repositórios, os arquivos de pacotes agora são excluídos imediatamente da conta de armazenamento para liberar espaço. `DestroyDeletedPackageVersionsJob` agora exclui arquivos de pacote da conta de armazenamento para pacotes obsoletos junto com os registros de metadados.
   known_issues:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.

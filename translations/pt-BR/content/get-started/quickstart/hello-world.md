@@ -26,11 +26,11 @@ Neste guia de início rápido, você irá:
 * Fazer alterações em um arquivo e enviá-los por push para {% data variables.product.product_name %} como commits
 * Abrir e realizar merge de um pull request
 
-Para concluir este tutorial, você precisa de uma conta [{% data variables.product.product_name %}](http://github.com) e acesso à internet. Você não precisa saber como programar, usar a linha de comando ou instalar o Git (o software de controle de versão no qual {% data variables.product.product_name %} é criado).
+Para concluir este tutorial, você precisa de uma conta [{% data variables.product.product_name %}](http://github.com) e acesso à internet. Você não precisa saber como programar, usar a linha de comando ou instalar o Git (o software de controle de versão no qual {% data variables.product.product_name %} é criado). If you have a question about any of the expressions used in this guide, head on over to the [glossary](/get-started/quickstart/github-glossary) to find out more about our terminology.
 
 ## Criar um repositório
 
-Um repositório geralmente é usado para organizar um único projeto. Os repositórios podem conter pastas e arquivos, imagens, vídeos, planilhas e conjuntos de dados - tudo o que seu projeto precisar. Muitas vezes, os repositórios incluem um arquivo `README`, um arquivo com informações sobre o seu projeto. {% data variables.product.product_name %} facilita a adição de um ao mesmo tempo em que você cria o seu novo repositório. Ele também oferece outras opções comuns, como um arquivo de licença.
+Um repositório geralmente é usado para organizar um único projeto. Os repositórios podem conter pastas e arquivos, imagens, vídeos, planilhas e conjuntos de dados - tudo o que seu projeto precisar. Muitas vezes, os repositórios incluem um arquivo _README_, um arquivo com informações sobre o seu projeto. _README_ files are written in the plain text Markdown language. You can use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. {% data variables.product.product_name %} lets you add a _README_ file at the same time you create your new repository. {% data variables.product.product_name %} also offers other common options such as a license file, but you do not have to select any of them now.
 
 Seu repositório `hello-world` pode ser um lugar onde você armazenar ideias, recursos ou até mesmo compartilhar e discutir coisas com outros.
 
@@ -38,7 +38,8 @@ Seu repositório `hello-world` pode ser um lugar onde você armazenar ideias, re
 1. Na caixa **Nome do repositório**, insira em `hello-world`.
 2. Na caixa **Descrição**, escreva uma breve descrição.
 3. Selecione **Adicionar um arquivo README**.
-4. Clique em **Create Repository** (Criar repositório).
+4. Select whether your repository will be **Public** or **Private**.
+5. Clique em **Create Repository** (Criar repositório).
 
    ![Crie um repositório hello world](/assets/images/help/repository/hello-world-repo.png)
 
@@ -46,7 +47,7 @@ Seu repositório `hello-world` pode ser um lugar onde você armazenar ideias, re
 
 O Branch permite que você tenha diferentes versões de um repositório de uma só vez.
 
-Por padrão, o repositório tem um branch denominado `principal` que é considerado o branch definitivo. Você pode usar branches para experimentar e fazer edições antes de fazer commit no `principal`.
+Por padrão, o repositório tem um branch denominado `principal` que é considerado o branch definitivo. You can create additional branches off of `main` in your repository. You can use branches to have different versions of a project at one time. This is helpful when you want to add new features to a project without changing the main source of code. The work done on different branches will not show up on the main branch until you merge it, which we will cover later in this guide. Você pode usar branches para experimentar e fazer edições antes de fazer commit no `principal`.
 
 Ao criar um banch fora do branch `principal`, você está criando uma cópia ou instantâneo do `principal`, como era nesse momento. Se alguém fizer alterações no branch `principal` enquanto você estava trabalhando no seu branch, você poderia fazer essas atualizações.
 
@@ -61,8 +62,8 @@ Este diagrama mostra:
 Você já salvou diferentes versões de um arquivo? Algo assim:
 
 * `story.txt`
-* `story-joe-edit.txt`
-* `story-joe-edit-reviewed.txt`
+* `story-edit.txt`
+* `story-edit-reviewed.txt`
 
 Os branches realizam objetivos semelhantes em repositórios de {% data variables.product.product_name %}.
 
@@ -85,9 +86,9 @@ Quando você criou um novo branch na etapa, {% data variables.product.product_na
 
 Você pode fazer e salvar as alterações nos arquivos do seu repositório. Em {% data variables.product.product_name %}, as alterações salvas são denominadas commits. Cada commit tem uma mensagem de commit associada, que é uma descrição que explica por que uma determinada alteração foi feita. As mensagens de commit capturam histórico das suas alterações para que outros colaboradores possam entender o que você fez e o porquê.
 
-1. Clique no arquivo `README.md`.
-1. Clique em {% octicon "pencil" aria-label="The edit icon" %} para editar o arquivo.
-3. No editor, escreva um pouco sobre você.
+1. Under the `readme-edits` branch you created, click the _README.md_ file.
+2. Clique em {% octicon "pencil" aria-label="The edit icon" %} para editar o arquivo.
+3. No editor, escreva um pouco sobre você. Try using different Markdown elements.
 4. Na caixa **Alterações de commit**, escreva uma mensagem de commit que descreva as suas alterações.
 5. Clique em **Commit changes** (Fazer commit das alterações).
 
@@ -116,17 +117,22 @@ Você pode até abrir pull requests em seu próprio repositório e fazer merge v
 
 5. Clique em **Create pull request** (Criar pull request).
 6. Dê um título ao seu pull request e escreva uma breve descrição das suas alterações. Você pode incluir emojis e arrastar e soltar imagens e gifs.
+7. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**. **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. Para obter mais informações, consulte "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)".
 7. Clique em **Create pull request** (Criar pull request).
 
 Seus colaboradores agora podem revisar suas edições e fazer sugestões.
 
 ## Mesclando seu pull request
 
-Nesta etapa final, você irá fazer merge do seu branch `readme-edits` no branch `principal`.
+Nesta etapa final, você irá fazer merge do seu branch `readme-edits` no branch `principal`.  After you merge your pull request, the changes on your `readme-edits` branch will be incorporated into `main`.
 
-1. Clique **Fazer merge do pull request** para fazer merge das alterações no `principal`.
-2. Clique em **Confirmar a merge**.
-3. Exclua a o branch, uma vez que as suas alterações foram incorporadas, clicando em **Excluir branch**.
+Sometimes, a pull request may introduce changes to code that conflict with the existing code on `main`. If there are any conflicts, {% data variables.product.product_name %} will alert you about the conflicting code and prevent merging until the conflicts are resolved. You can make a commit that resolves the conflicts or use comments in the pull request to discuss the conflicts with your team members.
+
+In this walk-through, you should not have any conflicts, so you are ready to merge your branch into the main branch.
+
+1. Clique **Fazer merge do pull request** para fazer merge das alterações no `principal`. ![Screen shot of merge button.](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
+2. Clique em **Confirmar a merge**. You will receive a message that the request was successfully merged and the request was closed.
+3. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
 
 ## Próximas etapas
 
