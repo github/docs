@@ -28,7 +28,7 @@ IdP と {% data variables.product.product_name %} の間で Team の同期を有
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-Enterprise アカウントが所有する Organization に対して Team の同期を有効化することもできます。 For more information, see "[Managing team synchronization for organizations in your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
+Enterprise アカウントが所有する Organization に対して Team の同期を有効化することもできます。 詳しい情報については「[Enterprise内のOrganizationでのTeam同期の管理](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)」を参照してください。
 
 {% data reusables.enterprise-accounts.team-sync-override %}
 
@@ -44,9 +44,9 @@ Team の同期を有効化する手順は、使用する IdP によって異な�
 
 Organization と、サポートされている IdP について、SAMLシングルサインオンを有効にする必要があります。 詳細は「[Organization で SAML シングルサインオンを施行する](/articles/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。
 
-You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. 詳しい情報については「[SAMLシングルサインオンで認証する](/articles/authenticating-with-saml-single-sign-on)」を参照してください。
+リンクされたSAMLアイデンティティを持っていなければなりません。 リンクされたアイデンティティを作成するには、最低一回はSAML SSOとサポートされたIdPを使ってOrganizationに認証を受けていなければなりません。 詳しい情報については「[SAMLシングルサインオンで認証する](/articles/authenticating-with-saml-single-sign-on)」を参照してください。
 
-Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
+SAMLの設定は、**Issuer**フィールドに有効なIdP URLを含んで**いなければなりません**。
 
 ![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
 
@@ -66,9 +66,9 @@ Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
 
 ### Okta で Team の同期を有効化する
 
-Okta team synchronization requires that SAML and SCIM with Okta have already been set up for your organization.
+OktaのTeam同期には、事前にOrganizationでOktaでのSAMLとSCIMがセットアップされていることが必要です。
 
-To avoid potential team synchronization errors with Okta, we recommend that you confirm that SCIM linked identities are correctly set up for all organization members who are members of your chosen Okta groups, before enabling team synchronization on {% data variables.product.prodname_dotcom %}.
+OktaでのTeam同期のエラーの可能性を回避するために、{% data variables.product.prodname_dotcom %}でTeam同期を有効化する前に、選択したOktaのグループのメンバーになっているすべてのOrganizationメンバーに対して、SCIMのリンクされたアイデンティティが正しくセットアップされているのを確認することをおすすめします。
 
 If an organization member does not have a linked SCIM identity, then team synchronization will not work as expected and the user may not be added or removed from teams as expected. If any of these users are missing a SCIM linked identity, you will need to re-provision them.
 

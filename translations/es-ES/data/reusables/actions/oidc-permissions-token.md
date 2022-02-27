@@ -5,7 +5,7 @@ The `id-token: write` setting allows the JWT to be requested from {% data variab
 - Using environment variables on the runner (`ACTIONS_ID_TOKEN_REQUEST_URL` and `ACTIONS_ID_TOKEN_REQUEST_TOKEN`).
 - Using `getIDToken()` from the Actions toolkit.
 
-If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por ejemplo:
+Si solo necesitas recuperar un token de OIDC para un solo job, entonces este permiso puede configurarse dentro de dicho job. Por ejemplo:
 
 ```yaml{:copy}
 permissions:

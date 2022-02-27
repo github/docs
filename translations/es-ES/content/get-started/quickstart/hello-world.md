@@ -26,11 +26,11 @@ En esta guía de inicio rápido:
 * Harás cambios a un archivo y los subirás a {% data variables.product.product_name %} como confirmaciones
 * Abrirás y fusionarás una solicitud de cambios
 
-Para completar este tutorial, necesitarás una [cuenta de {% data variables.product.product_name %}](http://github.com) y acceso a internet. No necesitas saber cómo codificar, utilizar la línea de comandos o instalar Git (el software de control de versiones en el que está compilado {% data variables.product.product_name %}). If you have a question about any of the expressions used in this guide, head on over to the [glossary](/get-started/quickstart/github-glossary) to find out more about our terminology.
+Para completar este tutorial, necesitarás una [cuenta de {% data variables.product.product_name %}](http://github.com) y acceso a internet. No necesitas saber cómo codificar, utilizar la línea de comandos o instalar Git (el software de control de versiones en el que está compilado {% data variables.product.product_name %}). Si tienes dudas sobre cualquiera de las expresiones que se utilizan en esta guía, dirígete al [glosario](/get-started/quickstart/github-glossary) para encontrar más información sobre nuestra terminología.
 
 ## Crear un repositorio
 
-Un repositorio se utiliza a menudo para organizar un solo proyecto. Los repositorios pueden contener carpetas y archivos, imágenes, videos, hojas de cálculo y conjuntos de datos; todo lo que necesita tu proyecto. A menudo, los repositorios incluyen un archivo de _README_, que es un archivo con información sobre tu proyecto. _README_ files are written in the plain text Markdown language. You can use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. {% data variables.product.product_name %} lets you add a _README_ file at the same time you create your new repository. {% data variables.product.product_name %} also offers other common options such as a license file, but you do not have to select any of them now.
+Un repositorio se utiliza a menudo para organizar un solo proyecto. Los repositorios pueden contener carpetas y archivos, imágenes, videos, hojas de cálculo y conjuntos de datos; todo lo que necesita tu proyecto. A menudo, los repositorios incluyen un archivo de _README_, que es un archivo con información sobre tu proyecto. Los archivos _README_ se escriben en el lenguaje de marcado de texto simple. Puedes utilizar esta [hoja informativa](https://www.markdownguide.org/cheat-sheet/) para iniciar con la sintaxis de lenguaje de marcado. {% data variables.product.product_name %} te permite agregar un archivo de _README_ al mismo tiempo que creas tu repositorio nuevo. {% data variables.product.product_name %} también ofrece otras opciones comunes, tales como un archivo de licencia, pero no teines que seleccionar ninguna de ellas ahora mismo.
 
 Tu repositorio de `hello-world` puede ser un lugar donde almacenes ideas, recursos o incluso compartas y debatas cosas con los demás.
 
@@ -38,7 +38,7 @@ Tu repositorio de `hello-world` puede ser un lugar donde almacenes ideas, recurs
 1. En la caja de **Nombre de repositorio**, ingresa `hello-world`.
 2. En la caja de **Descripción**, escribe una descripción corta.
 3. Selecciona **Agregar un archivo README**.
-4. Select whether your repository will be **Public** or **Private**.
+4. Selecciona si tu repositorio será **Público** o **Privado**.
 5. Haz clic en **Crear repositorio**.
 
    ![Crear un repositorio de hello world](/assets/images/help/repository/hello-world-repo.png)
@@ -47,7 +47,7 @@ Tu repositorio de `hello-world` puede ser un lugar donde almacenes ideas, recurs
 
 La ramificación te permite tener versiones diferentes de un repositorio en una ocasión.
 
-Predeterminadamente, tu repositorio tiene una rama llamada `main`, la cual se considera como la rama definitiva. You can create additional branches off of `main` in your repository. You can use branches to have different versions of a project at one time. This is helpful when you want to add new features to a project without changing the main source of code. The work done on different branches will not show up on the main branch until you merge it, which we will cover later in this guide. Puedes utilizar ramas para experimentar y hacer ediciones antes de confirmarlas a `main`.
+Predeterminadamente, tu repositorio tiene una rama llamada `main`, la cual se considera como la rama definitiva. Puedes crear ramas adicionales de la `main` en tu repositorio. Puedes utilizar ramas para tener versiones diferentes de un proyecto en algún momento específico. Esto es útil cuando quieres agregar características nuevas a un proyecto sin cambiar la fuente de código principal. El trabajo que se hace en las diferentes ramas no se mostrará en la rama principal sino hasta que la fusiones, lo cual veremos más adelante en esta guía. Puedes utilizar ramas para experimentar y hacer ediciones antes de confirmarlas a `main`.
 
 Cuando creas una rama fuera de la de `main`, estás haciendo una copia o captura de pantalla de `main` como lo fue en ese momento. Si alguien más hizo cambios en la rama `main` mientras estuviste trabajando en tu rama, podrías extraer esas actualizaciones.
 
@@ -86,9 +86,9 @@ Cuando creaste una rama nueva en el paso anterior, {% data variables.product.pro
 
 Puedes hacer y guardar cambios a los archivos de tu repositorio. En {% data variables.product.product_name %}, los cambios guardados se llaman confirmaciones. Cada confirmación tiene un mensaje de confirmación asociado, el cual es una descripción que explica por qué se realizó algún cambio en particular. Los mensajes de confirmación capturan la historia de tus cambios para que otros contribuyentes puedan entender lo que hiciste y por qué.
 
-1. Under the `readme-edits` branch you created, click the _README.md_ file.
+1. Debajo de la rama `readme-edits` que creaste, haz clic en el archivo _README.md_.
 2. Haz clic en {% octicon "pencil" aria-label="The edit icon" %} para editar el archivo.
-3. En el editor, escribe un poco sobre ti mismo. Try using different Markdown elements.
+3. En el editor, escribe un poco sobre ti mismo. Intenta utilizar elementos de lenguaje de marcado diferentes.
 4. En la caja de **Cambios de confirmación**, escribe un mensaje de confirmación que describa tus cambios.
 5. Haz clic en **Commit changes** (Confirmar cambios).
 
@@ -117,22 +117,22 @@ Incluso puedes abrir solicitudes de cambio en tu propio repositorio y fusionarla
 
 5. Haz clic en **Create Pull Request** (Crear solicitud de extracción).
 6. Dale un título a tu solicitud de cambios y escribe una descripción breve de estos. Puedes incluir emojis y arrastrar y soltar imágenes y gifs.
-7. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**. **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+7. Opcionalmente, a la derecha de tu título y descripción, haz clic en el {% octicon "gear" aria-label="The Gear icon" %} junto a **Revisores**. **Asignados**, **Etiquetas**, **Proyectos** o **Hito** para agregar cualquiera de estas opciones a tu solicitud de cambios. No necesitas agregar ninguna aún, pero estas opciones ofrecen diversas formas de colaborar utilizando solicitudes de cambio. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 7. Haz clic en **Create Pull Request** (Crear solicitud de extracción).
 
 Tus colaboradores ahora pueden revisar tus ediciones y hacer sugerencias.
 
 ## Fusionar tu solicitud de cambios
 
-En este paso final, fusionarás tu rama de `readme-edits` en la rama `main`.  After you merge your pull request, the changes on your `readme-edits` branch will be incorporated into `main`.
+En este paso final, fusionarás tu rama de `readme-edits` en la rama `main`.  Después de que fusionas tu solicitud de cambios, los cambios en tu rama de `readme-edits` se incorporarán a `main`.
 
-Sometimes, a pull request may introduce changes to code that conflict with the existing code on `main`. If there are any conflicts, {% data variables.product.product_name %} will alert you about the conflicting code and prevent merging until the conflicts are resolved. You can make a commit that resolves the conflicts or use comments in the pull request to discuss the conflicts with your team members.
+Algunas veces, una solicitud de cambios podría introducir cambios al código que entren en conflicto con el existente en `main`. Si existe cualquier conflicto, {% data variables.product.product_name %} te alertará sobre el código que lo ocasiona y no dejará que se fusione sino hasta que esto se resuelva. Puedes hacer una confirmación que resuelva los conflictos o que utilice comentarios en la solicitud de cambios para debatir estos conflictos con tus miembros de equipo.
 
-In this walk-through, you should not have any conflicts, so you are ready to merge your branch into the main branch.
+En este recorrido, no deberías de tener conflictos, así que estás listo para fusionar tu rama en la principal.
 
-1. Haz clic en **Fusionar solicitud de cambios** para fusionar los cambios en `main`. ![Screen shot of merge button.](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
-2. Haz clic en **Confirmar fusión**. You will receive a message that the request was successfully merged and the request was closed.
-3. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
+1. Haz clic en **Fusionar solicitud de cambios** para fusionar los cambios en `main`. ![Captura de pantalla del botón de fusión.](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
+2. Haz clic en **Confirmar fusión**. Recibirás un mensaje indicando que la solicitud se fusionó con éxito y luego se cerró.
+3. Haz clic en **Borrar rama**. Ahora que tu solicitud de cambios se fusionó y tus cambios están en `main`, puedes borrar la rama `readme-edits` con seguridad. Si quieres hacer más cambios a tu proyecto, siempre puedes crear una rama nueva y repetir este proceso.
 
 ## Pasos siguientes
 

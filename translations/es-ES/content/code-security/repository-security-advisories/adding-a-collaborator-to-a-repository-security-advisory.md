@@ -40,6 +40,6 @@ Los colaboradores tienen permisos de escritura para el aviso de seguridad. For m
 
 ## Leer más
 
-- "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
-- "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
+- "[Niveles de servicio para las asesorías de seguridad de repositorio](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
+- "[Colaborar en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad de repositorio](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
 - "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."

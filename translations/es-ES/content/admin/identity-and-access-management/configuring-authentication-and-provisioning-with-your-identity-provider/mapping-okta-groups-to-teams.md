@@ -78,7 +78,7 @@ Enterprise owners can use the site admin dashboard to check how Okta groups are 
 
 1. In the left pane, click **External groups**.
 
-  ![Add group name](/assets/images/help/saml/okta-ae-site-admin-external-groups.png)
+  ![Agrega un nombre de grupo](/assets/images/help/saml/okta-ae-site-admin-external-groups.png)
 
 1. To view more details about a group, in the list of external groups, click on a group.
 
@@ -86,7 +86,7 @@ Enterprise owners can use the site admin dashboard to check how Okta groups are 
 
 1. The group's details includes the name of the Okta group, a list of the Okta users that are members of the group, and the corresponding mapped team on {% data variables.product.prodname_ghe_managed %}.
 
-  ![List of external groups](/assets/images/help/saml/okta-ae-site-admin-group-details.png)
+  ![Lista de grupos externos](/assets/images/help/saml/okta-ae-site-admin-group-details.png)
 
 ## Viewing audit log events for mapped groups
 

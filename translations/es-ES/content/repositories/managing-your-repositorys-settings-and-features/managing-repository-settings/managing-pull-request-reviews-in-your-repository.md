@@ -7,18 +7,18 @@ permissions: Repository administrators can limit which users can approve or requ
 topics:
   - Repositories
   - Pull requests
-shortTitle: Manage pull request reviews
+shortTitle: Administrar las revisiones de las solicitudes de cambios
 ---
 
-## About code review limits
+## Acerca de los límites de revisión de código
 
-By default, in public repositories, any user can submit reviews that approve or request changes to a pull request.
+Predeterminadamente, en los repositorios públicos, cualquier usuario puede emitir revisiones que aprueben o soliciten cambios a una solicitud de cambios.
 
 You can limit which users are able to submit reviews that approve or request changes to pull requests in your public repository. When you enable code review limits, anyone can comment on pull requests in your public repository, but only people with read access or higher can approve pull requests or request changes.
 
 You can also enable code review limits for an organization. If you enable limits for an organization, you will override any limits for individual repositories owned by the organization. For more information, see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)"
 
-## Enabling code review limits
+## Habilitar los límites de revisión de código
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

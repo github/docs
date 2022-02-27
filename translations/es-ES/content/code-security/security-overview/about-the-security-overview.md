@@ -50,7 +50,7 @@ En el resumen de seguridad, tanto a nivel de repositorio como de organización, 
 
 ![El resumen de seguridad para una organziación](/assets/images/help/organizations/security-overview.png)
 
-Para cada repositorio en el resumen de seguridad, verás iconos de cada tipo de característica de seguridad y cuántas alertas hay para cada tipo. Si no se habilita una característica de seguridad para un repositorio, su icono se mostrará en gris. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
+Para cada repositorio en el resumen de seguridad, verás iconos de cada tipo de característica de seguridad y cuántas alertas hay para cada tipo. Si no se habilita una característica de seguridad para un repositorio, su icono se mostrará en gris. Adicionalmente, la puntuación de riesgo se calcula para cada repositorio con base de su escaneo de código, las alertas del Dependabot y del escaneo de secretos. Esta puntuación se encuentra en beta y debe utilizarse con cuidado. Su algoritmo y enfoque está sujeto a cambios.
 
 ![Los iconos en el resumen de seguridad](/assets/images/help/organizations/security-overview-icons.png)
 

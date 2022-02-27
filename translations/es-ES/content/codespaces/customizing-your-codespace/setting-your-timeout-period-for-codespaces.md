@@ -34,7 +34,7 @@ A codespace will stop running after a period of inactivity. You can specify the 
 
 {% data reusables.cli.cli-learn-more %}
 
-To set the timeout period when you create a codespace, use the `idle-timeout` argument with the `codespace create` subcommand. Specify the time in minutes, followed by `m`. The time must be between 5 minutes and 240 minutes (4 hours).
+To set the timeout period when you create a codespace, use the `idle-timeout` argument with the `codespace create` subcommand. Specify the time in minutes, followed by `m`. La hora debe ser entre 5 y 240 minutos (4 horas).
 
 ```shell
 gh codespace create --idle-timeout 90m
