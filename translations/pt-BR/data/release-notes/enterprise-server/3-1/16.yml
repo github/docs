@@ -8,10 +8,10 @@ sections:
     - Ao definir a agenda de manutenção com uma data da ISO 8601, o horário programado real não corresponderá devido fato de o fuso horário não ser convertido em UTC.
     - As mensagens de erro falsas sobre o arquivo `cloud-config.service` seriam a sapida para o console.
     - O número da versão não poderia ser atualizado corretamente após a instalação de um hotpatch que usa `ghe-cluster-each`.
-    - Webhook table cleanup jobs could run simultaneously, causing resource contention and increasing job run time.
+    - Trabalhos de limpeza na tabela de webhook podem ser executados simultaneamente, causando contenção de recursos e aumentando o tempo de execução do trabalho.
     - Ao usar a autenticação CAS e a opção "Reativar usuários suspensos" foi habilitada, os usuários suspensos não foram reativados automaticamente.
-    - The ability to limit email-based notifications to users with emails on a verified or approved domain did not work correctly.
-    - Several documentation links resulted in a 404 Not Found error.
+    - A capacidade de limitar notificações com base em e-mail para usuários com e-mails em um domínio verificado ou aprovado não funcionou corretamente.
+    - Vários links de documentação geraram um erro 404 Not Found error.
   changes:
     - O registro de conexão de dados do GitHub Connect agora inclui uma contagem do número de usuários ativos e inativos e o período de inatividade configurado.
   known_issues:

@@ -2,17 +2,17 @@
 date: '2021-12-07'
 sections:
   security_fixes:
-    - Support bundles could include sensitive files if they met a specific set of conditions.
-    - A UI misrepresentation vulnerability was identified in GitHub Enterprise Server that allowed more permissions to be granted during a GitHub App's user-authorization web flow than was displayed to the user during approval. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.2.5, 3.1.13, 3.0.21. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598).
-    - A remote code execution vulnerability was identified in GitHub Enterprise Server that could be exploited when building a GitHub Pages site. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.3 and was fixed in versions 3.0.21, 3.1.13, 3.2.5. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2021-41599](https://www.cve.org/CVERecord?id=CVE-2021-41599). Updated February 17, 2022.
+    - Os pacotes de apoio podem incluir ficheiros sensíveis, caso satisfaçam um conjunto específico de condições.
+    - Uma vulnerabilidade incorreta da UI foi identificada no GitHub Enterprise Server que permitiu que mais permissões fossem concedidas durante o fluxo da web de autorização de usuário do aplicativo GitHub do que foram exibidas para o usuário durante a aprovação. Esta vulnerabilidade afetou todas as versões do GitHub Enterprise Server antes da versão 3.3 e foi corrigida nas versões 3.2.5, 3.1.13, 3.0.21. Esta vulnerabilidade foi informada por meio do programa de Compensação de Erros do GitHub e recebeu [CVE-2021-41598](https://www.cve.org/CVERecord?id=CVE-2021-41598).
+    - Uma vulnerabilidade de execução de código remoto foi identificada no GitHub Enterprise Server que pode ser explorada ao criar um site do GitHub Pages. Esta vulnerabilidade afetou todas as versões do GitHub Enterprise Server antes de 3.3 e foi corrigida nas versões 3.0.21, 3.1.13 e 3.2.5. Esta vulnerabilidade foi informada no programa de Compensação de Erro do GitHub e recebeu um [CVE-2021-41599](https://www. ve.org/CVERecord?id=CVE-2021-41599). Atualizado em 17 de fevereiro 2022.
   bugs:
-    - Running `ghe-config-apply` could sometimes fail because of permission issues in `/data/user/tmp/pages`.
-    - A misconfiguration in the Management Console caused scheduling errors.
-    - Docker would hold log files open after a log rotation.
-    - GraphQL requests did not set the GITHUB_USER_IP variable in pre-receive hook environments.
+    - Às vezes pode ocorrer uma falha ao executar `ghe-config-apply` devido a problemas de permissão em `/data/user/tmp/pages`.
+    - Uma configuração incorreta no Console de gerenciamento gerou erros de agendamento.
+    - Os arquivos de registro do Docker manteriam abertos após a rotação de um registro.
+    - As solicitações do GraphQL não definiram a variável GITHUB_USER_IP em ambientes de hook pre-receive.
   changes:
-    - Clarifies explanation of Actions path-style in documentation.
-    - Updates support contact URLs to use the current support site, support.github.com.
+    - Detalha a explicação do estilo caminho do Ação na documentação do caminho-estilo.
+    - Atualiza as URLs de contato para usar o site support.github.com de suporte atual.
   known_issues:
     - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.
