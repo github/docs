@@ -272,7 +272,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 
 #### Referencias de Git
 
-* [Create a reference](/rest/reference/git#create-a-reference)
+* [Crear una referencia](/rest/reference/git#create-a-reference)
 * [Obtener una referencia](/rest/reference/git#get-a-reference)
 * [Lista las referencias coincidentes](/rest/reference/git#list-matching-references)
 * [Actualizar una referencia](/rest/reference/git#update-a-reference)

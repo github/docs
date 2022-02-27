@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "@github/failbot": "0.8.0",
-    "@primer/css": "^19.1.1",
+    "@primer/css": "^19.4.0",
     "@primer/octicons": "^16.3.0",
     "@primer/octicons-react": "^16.3.0",
     "@primer/react": "^34.6.0",
@@ -140,6 +140,7 @@
     "japanese-characters": "^1.1.0",
     "javascript-stringify": "^2.1.0",
     "jest": "^27.4.7",
+    "jest-fail-on-console": "^2.2.3",
     "jest-github-actions-reporter": "^1.0.3",
     "jest-slow-test-reporter": "^1.0.0",
     "linkinator": "^3.0.3",

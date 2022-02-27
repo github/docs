@@ -3,12 +3,12 @@ date: '2021-10-28'
 sections:
   security_fixes:
     - 'It was possible for cleartext passwords to end up in certain log files.'
-    - 'Several known weak SSH public keys have been added to the deny list and can no longer be registered. In addition, versions of GitKraken known to generate weak SSH keys (7.6.x, 7.7.x and 8.0.0) have been blocked from registering new public keys.'
+    - 'Várias chaves públicas SSH fracas conhecidas foram adicionadas à lista de recusas e já não podem ser registradas. Além disso, as versões do GitKraken conhecidas por gerar chaves SSH fracas (7.6.x, 7.7.x e 8.0.0) foram impedidas de registrar novas chaves públicas.'
     - 'Os pacotes foram atualizados para as últimas versões de segurança.'
   bugs:
     - 'Restore might fail for enterprise server in clustering mode if orchestrator is not healthily.'
     - 'Codespaces links were displayed in organization settings.'
-    - 'Several parts of the application were unusable for users who are owners of many organizations.'
+    - 'Várias partes do aplicativo eram inutilizáveis para usuários que são proprietários de várias organizações.'
     - 'Fixed a link to https://docs.github.com.'
   changes:
     - 'Browsing and job performance optimizations for repositories with many refs.'

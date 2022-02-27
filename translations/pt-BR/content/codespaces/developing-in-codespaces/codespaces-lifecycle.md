@@ -23,6 +23,8 @@ Se você escolher criar um novo codespace, sempre que você trabalhar em um proj
 
 Se você optar por usar um codespace de longo prazo para o seu projeto, você deverá retirá-lo do branch padrão do repositório cada vez que começar a trabalhar no seu codespace para que seu ambiente tenha os commits mais recentes. Esse fluxo de trabalho é muito parecido como se você estivesse trabalhando com um projeto na sua máquina local.
 
+{% data reusables.codespaces.prebuilds-crossreference %}
+
 ## Salvar alterações em um codespace
 
 Ao conectar-se a um código através da web, a gravação automática é habilitada automaticamente para o editor da web e configurada para salvar as alterações após um atraso. Ao conectar-se a um codespace por meio de {% data variables.product.prodname_vscode %} em execução no seu computador, você deverá habilitar o salvamento automático. Para obter mais informações, consulte [Salvar/Salvar Automaticamente](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) na documentação de {% data variables.product.prodname_vscode %}.

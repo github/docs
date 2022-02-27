@@ -75,14 +75,46 @@ const asyncMiddleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
 
-// The IP address that Fastly regards as the true client making the request w/ fallback to req.ip
-morgan.token('client-ip', (req) => req.headers['Fastly-Client-IP'] || req.ip)
-const productionLogFormat = `:client-ip - ":method :url" :status - :response-time ms`
+// By default, `:remote-addr` is described as following in the morgon docs:
+//
+//    The remote address of the request. This will use req.ip, otherwise
+//    the standard req.connection.remoteAddress value (socket address).
+//
+// But in production, by default, `req.ip` is the IP of the Azure machine
+// which is something like "104.156.87.177:28244" which is *not* the
+// end user. BUT! Because we configure `app.set('trust proxy', true)`
+// *before* morgain is enabled, it will use the first entry from
+// the `x-forwarded-for` header which is looking like this:
+// "75.40.90.27, 157.52.111.52, 104.156.87.177:5786" which is
+// "{USER'S IP}, {FASTLY'S POP IP}, {AZURE'S IP}".
+// Incidentally, that first IP in the comma separated list is the
+// same as the value of `req.headers['fastly-client-ip']` but
+// Fastly will put that into the X-Forwarded-IP.
+// By leaning in to X-Forwarded-IP (*and* the use
+// `app.set('trust proxy', true)`) we can express ourselves here
+// without having to use vendor specific headers.
+const productionLogFormat = `:remote-addr - ":method :url" :status - :response-time ms`
 
 export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
   app.use(abort)
+
+  // Don't use the proxy's IP, use the requester's for rate limiting or
+  // logging.
+  // See https://expressjs.com/en/guide/behind-proxies.html
+  // Essentially, setting this means it believe that the IP is the
+  // first of the `X-Forwarded-For` header values.
+  // If it was 0 (or false), the value would be that
+  // of `req.socket.remoteAddress`.
+  // Now, the `req.ip` becomes the first entry from x-forwarded-for
+  // and falls back on `req.socket.remoteAddress` in all other cases.
+  // Their documentation says:
+  //
+  //   	If true, the client's IP address is understood as the
+  //    left-most entry in the X-Forwarded-For header.
+  //
+  app.set('trust proxy', true)
 
   // *** Request logging ***
   // Enabled in development and azure deployed environments
@@ -181,13 +213,6 @@ export default function (app) {
   }
 
   // *** Early exits ***
-  // Don't use the proxy's IP, use the requester's for rate limiting
-  // See https://expressjs.com/en/guide/behind-proxies.html
-  // Essentially, setting this means it believe that the IP is the
-  // first of the `X-Forwarded-For` header values.
-  // If it was 0 (or false), the value would be that
-  // of `req.socket.remoteAddress`.
-  app.set('trust proxy', 1)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))

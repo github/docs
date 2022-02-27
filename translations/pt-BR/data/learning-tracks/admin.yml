@@ -37,8 +37,8 @@ upgrade_your_instance:
     - /admin/configuration/enabling-and-scheduling-maintenance-mode
     - /admin/enterprise-management/upgrading-github-enterprise-server
 adopting_github_actions_for_your_enterprise:
-  title: 'Adopt GitHub Actions for your enterprise'
-  description: 'Learn how to plan and implement a roll out of {% data variables.product.prodname_actions %} in your enterprise.'
+  title: 'Adote o GitHub Actions para a sua empresa'
+  description: 'Aprenda a planejar e implementar uma versão de {% data variables.product.prodname_actions %} na sua empresa.'
   guides:
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
     - /actions/learn-github-actions/understanding-github-actions

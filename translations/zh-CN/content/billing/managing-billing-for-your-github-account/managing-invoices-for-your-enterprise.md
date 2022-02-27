@@ -30,7 +30,7 @@ topics:
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-4. Under "Payment Due", click **Pay invoice**. ![支付发票链接](/assets/images/help/business-accounts/pay-invoice-link.png)
+4. 在“Payment Due（到期付款）”下，单击 **Pay invoice（支付发票）**。 ![支付发票链接](/assets/images/help/business-accounts/pay-invoice-link.png)
 5. 在“Pay invoice（支付发票）”下，以安全形式输入您的信用卡信息，然后单击 **Pay Invoice（支付发票）**。 ![确认和支付发票](/assets/images/help/business-accounts/pay-invoice.png)
 
 ## 下载当前发票
@@ -45,4 +45,4 @@ topics:
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-4. To see a summary of your past billing activity, under "Billing", click the **Past Invoices** tab. ![查看付款历史记录选项卡](/assets/images/help/business-accounts/view-payment-history.png)
+4. 要查看您过去的结算活动摘要，请在“Billing（帐单）”下，点击 **Past Invoices（过去的发票）**选项卡。 ![查看付款历史记录选项卡](/assets/images/help/business-accounts/view-payment-history.png)

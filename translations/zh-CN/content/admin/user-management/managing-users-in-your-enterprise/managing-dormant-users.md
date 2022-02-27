@@ -52,12 +52,6 @@ topics:
 
 {% data reusables.enterprise-accounts.dormant-user-release-phase %}
 
-{% warning %}
-
-**注意：** 在私人测试期间，对报告下载功能的持续改进可能会限制其可用性。
-
-{% endwarning %}
-
 ## 从企业帐户下载休眠用户报告
 
 {% data reusables.enterprise-accounts.access-enterprise %}
