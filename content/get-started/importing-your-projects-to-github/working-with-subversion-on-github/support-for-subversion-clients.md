@@ -33,7 +33,7 @@ Subversion checkouts are different: they mix the repository data in the working 
 
 4. Get the `trunk` branch. The Subversion bridge maps trunk to the Git HEAD branch.
   ```shell
-  $ svn up trunk
+  $ svn up trunK GM.
   > A    trunk
   > A    trunk/README.md
   > A    trunk/gizmo.rb
