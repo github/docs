@@ -1,6 +1,6 @@
 ---
-title: About managing vulnerable dependencies
-intro: '{% data variables.product.product_name %} helps you to avoid using third-party software that contains known vulnerabilities.'
+title: 脆弱性のある依存関係の管理について
+intro: '{% data variables.product.product_name %} は、既知の脆弱性を含むサードパーティソフトウェアの使用を回避するのに役立ちます。'
 redirect_from:
   - /github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies
   - /code-security/supply-chain-security/about-managing-vulnerable-dependencies
@@ -18,29 +18,29 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Vulnerable dependencies
+shortTitle: 脆弱性のある依存関係
 ---
+
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Managing vulnerabilities in your project’s dependencies ".-->
 
-{% data variables.product.product_name %} provides the following tools for removing and avoiding vulnerable dependencies.
+{% data variables.product.product_name %} は、脆弱性のある依存関係を削除および回避するための次のツールを提供しています。
 
-## Dependency graph
-The dependency graph is a summary of the manifest and lock files stored in a repository. It shows you the ecosystems and packages your codebase depends on (its dependencies) and the repositories and packages that depend on your project (its dependents). The information in the dependency graph is used by dependency review and {% data variables.product.prodname_dependabot %}.
-For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+## 依存関係グラフ
+依存関係グラフは、リポジトリに保存されているマニフェストファイルおよびロックファイルのサマリーです。 コードベースが依存するエコシステムとパッケージ（依存関係）、およびプロジェクトに依存するリポジトリとパッケージ（依存関係）が表示されます。 依存関係グラフの情報は、依存関係のレビューと {% data variables.product.prodname_dependabot %} によって使用されます。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 
-## Dependency review
+## 依存関係のレビュー
 
 {% data reusables.dependency-review.beta %}
 
-By checking the dependency reviews on pull requests you can avoid introducing vulnerabilities from dependencies into your codebase. If the pull requests adds a vulnerable dependency, or changes a dependency to a vulnerable version, this is highlighted in the dependency review. You can change the dependency to a patched version before merging the pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+プルリクエストの依存関係のレビューを確認することで、依存関係からコードベースに脆弱性が発生するのを防ぐことができます。 プルリクエストが脆弱性のある依存関係を追加したり、依存関係を脆弱性のあるバージョンに変更した場合、これは依存関係のレビューで強調表示されます。 プルリクエストをマージする前に、依存関係をパッチを適用したバージョンに変更できます。 詳しい情報については「[依存関係のレビュー](/code-security/supply-chain-security/about-dependency-review)」を参照してください。
 
 ## {% data variables.product.prodname_dependabot_alerts %}
-{% data variables.product.product_name %} can create {% data variables.product.prodname_dependabot_alerts %} when it detects vulnerable dependencies in your repository. The alert is displayed on the Security tab for the repository. The alert includes a link to the affected file in the project, and information about a fixed version. {% data variables.product.product_name %} also notifies the maintainers of the repository, according to their notification preferences. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+リポジトリ内の脆弱性のある依存関係を検出すると、{% data variables.product.product_name %} は {% data variables.product.prodname_dependabot_alerts %} を作成できます。 アラートは、リポジトリの [Security] タブに表示されます。 アラートには、プロジェクト内で影響を受けるファイルへのリンクと、修正バージョンに関する情報が含まれています。 {% data variables.product.product_name %} は、通知設定に従って、リポジトリのメンテナにも通知します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
 ## {% data variables.product.prodname_dependabot_security_updates %}
-When {% data variables.product.product_name %} generates a {% data variables.product.prodname_dependabot %} alert for a vulnerable dependency in your repository, {% data variables.product.prodname_dependabot %} can automatically try to fix it for you. {% data variables.product.prodname_dependabot_security_updates %} are automatically generated pull requests that update a vulnerable dependency to a fixed version. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+{% data variables.product.product_name %} がリポジトリ内の脆弱性のある依存関係に対して {% data variables.product.prodname_dependabot %} アラートが発生すると、{% data variables.product.prodname_dependabot %} は自動的にそれを修正しようとします。 {% data variables.product.prodname_dependabot_security_updates %} は、脆弱性のある依存関係を修正バージョンに更新するプルリクエストを自動的に生成します。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
 
 ## {% data variables.product.prodname_dependabot_version_updates %}
-Enabling {% data variables.product.prodname_dependabot_version_updates %} takes the effort out of maintaining your dependencies. With {% data variables.product.prodname_dependabot_version_updates %}, whenever {% data variables.product.prodname_dotcom  %} identifies an outdated dependency, it raises a pull request to update the manifest to the latest version of the dependency. By contrast, {% data variables.product.prodname_dependabot_security_updates %} only raises pull requests to fix vulnerable dependencies. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates)."
+{% data variables.product.prodname_dependabot_version_updates %} を有効にすると、依存関係を維持する手間が省けます。 {% data variables.product.prodname_dependabot_version_updates %} を使用すると、{% data variables.product.prodname_dotcom  %} が古い依存関係を識別するたびに、マニフェストを最新バージョンの依存関係に更新するためのプルリクエストを発行します。 対照的に、{% data variables.product.prodname_dependabot_security_updates %} は脆弱性のある依存関係を修正するためにプルリクエストのみを発行します。 詳しい情報については、「[ Dependabot のバージョン更新について](/github/administering-a-repository/about-dependabot-version-updates)」を参照してください。
 {% endif %}

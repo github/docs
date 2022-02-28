@@ -33,7 +33,7 @@ $ ssh -T -p 443 git@ssh.github.com
 
 如果您能在端口 443 上通过 SSH 连接到 `git@ssh.{% data variables.command_line.backticks %}`，则可以覆盖您的 SSH 设置以强制与 {% data variables.product.product_location %} 的任何连接均通过该服务器和端口运行。
 
-要在您的 ssh 配置中设置此项，编辑位于 `~/.ssh/config` 的文件，添加以下部分：
+To set this in your SSH confifguration file, edit the file at `~/.ssh/config`, and add this section:
 
 ```
 Host {% data variables.command_line.codeblock %}

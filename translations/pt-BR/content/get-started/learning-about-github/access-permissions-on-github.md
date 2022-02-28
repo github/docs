@@ -1,5 +1,5 @@
 ---
-title: Access permissions on GitHub
+title: Permissões de acesso no GitHub
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
   - /articles/what-are-the-different-types-of-team-permissions
@@ -7,7 +7,7 @@ redirect_from:
   - /articles/access-permissions-on-github
   - /github/getting-started-with-github/access-permissions-on-github
   - /github/getting-started-with-github/learning-about-github/access-permissions-on-github
-intro: 'With roles, you can control who has access to your accounts and resources on {% data variables.product.product_name %} and the level of access each person has.'
+intro: 'Com as funções, você pode controlar quem tem acesso às suas contas e recursos em {% data variables.product.product_name %} bem como o nível de acesso de cada pessoa.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,39 +16,41 @@ versions:
 topics:
   - Permissions
   - Accounts
-shortTitle: Access permissions
+shortTitle: Permissões de acesso
 ---
 
-## About access permissions on {% data variables.product.prodname_dotcom %}
+## Sobre as permissões de acesso em {% data variables.product.prodname_dotcom %}
 
-{% data reusables.organizations.about-roles %} 
+{% data reusables.organizations.about-roles %}
 
-Roles work differently for different types of accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+As funções funcionam de forma diferente para diferentes tipos de contas. Para obter mais informações sobre as contas, consulte "[Tipos de contas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
-## Personal user accounts
+## Contas de usuário pessoais
 
-A repository owned by a user account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)."
+Um repositório pertencente a uma conta de usuário tem dois níveis de permissão: o *proprietário do repositório* e *colaboradores*. Para obter mais informações, consulte "[Níveis de permissão para um repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository)".
 
-## Organization accounts
+## Contas da organização
 
-Organization members can have *owner*{% ifversion fpt or ghec %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% ifversion fpt or ghec %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
-- "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
-- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
-- "[About teams](/articles/about-teams)"
+Os integrantes da organização podem ter funções de *proprietário*{% ifversion fpt or ghec %}, *gerente de cobrança*{% endif %} ou *integrante*. Os proprietários têm acesso administrativo completo à sua organização{% ifversion fpt or ghec %}, enquanto os gerentes de cobrança podem gerenciar configurações de cobrança{% endif %}. O integrante é a função padrão de todos os outros. Você pode gerenciar as permissões de acesso para vários integrantes por vez com equipes. Para obter mais informações, consulte:
+- "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+- "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)"
+- "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[Sobre equipes](/articles/about-teams)"
 
-{% ifversion fpt or ghec %}
+## Contas corporativas
 
-## Enterprise accounts
-
-*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
-
-If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and are fully managed by the identity provider. The {% data variables.product.prodname_managed_users %} have read-only access to repositories that are not a part of their enterprise and cannot interact with users that are not also members of the enterprise. Within the organizations owned by the enterprise, the {% data variables.product.prodname_managed_users %} can be granted the same granular access levels available for regular organizations. For more information, see "[About {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}."{% endif %}
-
+{% ifversion fpt %}
 {% data reusables.gated-features.enterprise-accounts %}
 
+Para obter mais informações sobre as permissões das contas corporativas, consulte [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/learning-about-github/access-permissions-on-github).
+{% else %}
+*Os proprietários de empresas* tem poder definitivo sobre a conta corporativa e pode tomar todas as ações na conta corporativa.{% ifversion ghec or ghes %} *Os gerentes de cobrança* podem gerenciar as configurações de cobrança da conta corporativa.{% endif %} Os integrantes e colaboradores externos de organizações pertencentes à conta da empresa são automaticamente integrantes da conta corporativa, embora não tenham acesso à conta corporativa propriamente dita ou às suas configurações. Para obter mais informações, consulte "[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)".
+
+{% ifversion ghec %}
+Se uma empresa usar {% data variables.product.prodname_emus %}, serão fornecidos novos os integrantes como novas contas de usuário em {% data variables.product.prodname_dotcom %} e serão totalmente gerenciados pelo provedor de identidade. O {% data variables.product.prodname_managed_users %} tem acesso somente leitura a repositórios que não fazem parte da sua empresa e não podem interagir com usuários que não são também integrantes da empresa. Nas organizações pertencentes à empresa, é possível conceder ao {% data variables.product.prodname_managed_users %} os mesmos níveis de acesso granular disponíveis para organizações regulares. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+{% endif %}
 {% endif %}
 
-## Further reading
+## Leia mais
 
-- "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
+- "[Tipos de conta do {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)"

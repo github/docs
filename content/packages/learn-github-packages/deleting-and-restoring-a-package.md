@@ -191,7 +191,7 @@ You can restore a deleted package or version if:
 - You restore the package within 30 days of its deletion.
 - The same package namespace and version is still available and not reused for a new package.
 
-For example, if you have a deleted rubygem package named `octo-package` that was scoped to the repo `octo-repo-owner/octo-repo`, then you can only restore the package if the package namespace `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` is still available, and 30 days have not yet passed.
+For example, if you have a deleted RubyGems package named `octo-package` that was scoped to the repo `octo-repo-owner/octo-repo`, then you can only restore the package if the package namespace `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` is still available, and 30 days have not yet passed.
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
@@ -228,7 +228,7 @@ To review who can restore a package in an organization, see "[Required permissio
 
 You can restore a deleted package through your user account settings, if the package was in one of your repositories or scoped to your user account. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. On the left, click **Packages**.
 4. Under "Deleted Packages", next to the package you want to restore, click **Restore**.
   ![Restore button](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)

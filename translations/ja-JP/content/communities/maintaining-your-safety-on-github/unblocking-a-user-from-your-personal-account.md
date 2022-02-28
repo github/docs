@@ -20,8 +20,8 @@ shortTitle: アカウントのブロックの解除
 
 ## アカウント設定でのユーザのブロックの解除
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. [Blocked users] の下で、ブロックを解除したいユーザの横にある [**Unblock**] をクリックします。 ![ユーザブロックの解除ボタン](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## プロフィールページからのユーザのブロックの解除

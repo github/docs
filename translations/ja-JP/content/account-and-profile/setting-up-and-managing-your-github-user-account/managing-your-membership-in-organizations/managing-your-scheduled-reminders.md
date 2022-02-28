@@ -24,10 +24,9 @@ shortTitle: スケジュールされたリマインダーの管理
 
 ## ユーザアカウントのスケジュールされたリマインダーを作成する
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![[Scheduled reminders] ボタン](/assets/images/help/profile/scheduled-reminders-profile.png)
-3. リマインダーをスケジュールしたい Organization の隣で [**Edit**] をクリックします。 ![[Scheduled reminders edit] ボタン](/assets/images/help/settings/scheduled-reminders-org-choice.png)
+1. リマインダーをスケジュールしたい Organization の隣で [**Edit**] をクリックします。 ![[Scheduled reminders edit] ボタン](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.add-reminder %}
 {% data reusables.reminders.authorize-slack %}
 {% data reusables.reminders.days-dropdown %}
@@ -39,18 +38,16 @@ shortTitle: スケジュールされたリマインダーの管理
 {% data reusables.reminders.create-reminder %}
 
 ## ユーザアカウントのスケジュールされたリマインダーを管理する
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![[Scheduled reminders] ボタン](/assets/images/help/profile/scheduled-reminders-profile.png)
-3. スケジュールされたリマインダーを編集したい Organization の隣で [**Edit**] をクリックします。 ![[Scheduled reminders edit] ボタン](/assets/images/help/settings/scheduled-reminders-org-choice.png)
+1. スケジュールされたリマインダーを編集したい Organization の隣で [**Edit**] をクリックします。 ![[Scheduled reminders edit] ボタン](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
 ## ユーザアカウントのスケジュールされたリマインダーを削除する
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
-![[Scheduled reminders] ボタン](/assets/images/help/profile/scheduled-reminders-profile.png)
-3. リマインダーを削除したい Organization の隣で [**Edit**] をクリックします。 ![[Scheduled reminders edit] ボタン](/assets/images/help/settings/scheduled-reminders-org-choice.png)
+1. リマインダーを削除したい Organization の隣で [**Edit**] をクリックします。 ![[Scheduled reminders edit] ボタン](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.delete %}
 
 ## 参考リンク

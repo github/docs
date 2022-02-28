@@ -16,8 +16,6 @@ By default, {% data variables.product.product_name %} stores build logs and arti
 
 {% data reusables.repositories.permissions-statement-read %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}

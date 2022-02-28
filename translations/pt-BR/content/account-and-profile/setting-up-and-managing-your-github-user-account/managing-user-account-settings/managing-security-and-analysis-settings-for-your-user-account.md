@@ -29,8 +29,8 @@ Para obter uma visão geral da segurança do repositório, consulte "[Proteger s
 
 ## Habilitar ou desabilitar recursos para repositórios existentes
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security-analysis %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
 3. Em "Configurar recursos de segurança e análise" à direita do recurso, clique em **Desabilitar tudo** ou **Habilitar tudo**.
   {% ifversion ghes > 3.2 %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
 6. Opcionalmente, habilite o recurso por padrão para novos repositórios que você possui.
@@ -42,8 +42,8 @@ Para obter uma visão geral da segurança do repositório, consulte "[Proteger s
 
 ## Habilitar ou desabilitar recursos para novos repositórios
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security-analysis %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
 3. Em "Configurar funcionalidades de segurança e análise", à direita do recurso, habilite ou desabilite o recurso por padrão para novos repositórios que você possui.
   {% ifversion ghes > 3.2 %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
 

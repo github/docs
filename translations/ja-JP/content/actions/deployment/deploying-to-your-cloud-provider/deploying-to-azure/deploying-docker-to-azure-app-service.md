@@ -17,7 +17,7 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## はじめに
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Docker container to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
@@ -31,13 +31,13 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% endif %}
 
-## Prerequisites
+## 必要な環境
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+{% data variables.product.prodname_actions %}ワークフローを作成する前に、まず以下のセットアップのステップを完了しておかなければなりません。
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Create a web app.
+1. Webアプリケーションの作成
 
    For example, you can use the Azure CLI to create an Azure App Service web app:
 
@@ -49,13 +49,13 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --deployment-container-image-name nginx:latest
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   上のコマンドで、パラメータは自分の値で置き換えてください。`MY_WEBAPP_NAME`はWebアプリケーションの新しい名前です。
 
 {% data reusables.actions.create-azure-publish-profile %}
 
 1. Set registry credentials for your web app.
 
-   Create a personal access token with the `repo` and `read:packages` scopes. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+   Create a personal access token with the `repo` and `read:packages` scopes. 詳しい情報については、「[個人アクセストークンを作成する](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
 
    Set `DOCKER_REGISTRY_SERVER_URL` to `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` to the GitHub username or organization that owns the repository, and `DOCKER_REGISTRY_SERVER_PASSWORD` to your personal access token from above. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
 
@@ -70,13 +70,13 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 {% endif %}
 
-## Creating the workflow
+## ワークフローの作成
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+必要な環境を整えたら、ワークフローの作成に進むことができます。
 
 The following example workflow demonstrates how to build and deploy a Docker container to Azure App Service when there is a push to the `main` branch.
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created.
+ワークフローの`env`キー中の`AZURE_WEBAPP_NAME`を、作成したWebアプリケーションの名前に設定してください。
 
 {% data reusables.actions.delete-env-key %}
 
@@ -124,19 +124,21 @@ jobs:
           tags: ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
           file: ./Dockerfile
 
-    deploy:
-      runs-on: ubuntu-latest
-      needs: build
-      environment:
-        name: 'production'
-        url: {% raw %}${{ steps.deploy-to-webapp.outputs.webapp-url }}{% endraw %}
+  deploy:
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Lowercase the repo name
-          run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+    needs: build
 
-        - name: Deploy to Azure Web App
-          id: deploy-to-webapp
+    environment:
+      name: 'production'
+      url: {% raw %}${{ steps.deploy-to-webapp.outputs.webapp-url }}{% endraw %}
+
+    steps:
+      - name: Lowercase the repo name
+        run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
         uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
           with:
             app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
@@ -144,10 +146,10 @@ jobs:
             images: 'ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}'
 ```
 
-## Additional resources
+## 追加リソース
 
-The following resources may also be useful:
+以下のリソースも役に立つでしょう。
 
-* For the original starter workflow, see [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
+* オリジナルのスターターワークフローについては、{% data variables.product.prodname_actions %} `starter-workflows`リポジトリ中の[`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml)を参照してください。
+* Webアプリケーションのデプロイに使われたアクションは、公式のAzure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy)アクションです。
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

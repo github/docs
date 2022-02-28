@@ -4,7 +4,6 @@ import { isPlainObject } from 'lodash-es'
 import supertest from 'supertest'
 import createApp from '../../lib/app.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 import Page from '../../lib/page.js'
 import { get } from '../helpers/supertest.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
@@ -21,38 +20,34 @@ describe('redirects', () => {
     redirects = JSON.parse(res.text)
   })
 
-  test('page.redirects is an array', async () => {
+  test('page.buildRedirects() returns an array', async () => {
     const page = await Page.init({
       relativePath:
         'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en',
     })
-    page.buildRedirects()
-    expect(isPlainObject(page.redirects)).toBe(true)
+    const pageRedirects = page.buildRedirects()
+    expect(isPlainObject(pageRedirects)).toBe(true)
   })
 
-  test('dotcom homepage page.redirects', async () => {
+  test('dotcom homepage page.buildRedirects()', async () => {
     const page = await Page.init({
       relativePath: 'github/index.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en',
     })
-    page.buildRedirects()
-    expect(page.redirects[`/en/${nonEnterpriseDefaultVersion}/github`]).toBe('/en/github')
-    expect(page.redirects['/articles']).toBe('/en/github')
-    expect(page.redirects['/en/articles']).toBe('/en/github')
-    expect(page.redirects[`/en/${nonEnterpriseDefaultVersion}/articles`]).toBe('/en/github')
-    expect(page.redirects['/common-issues-and-questions']).toBe('/en/github')
-    expect(page.redirects['/en/common-issues-and-questions']).toBe('/en/github')
-    expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/articles`]).toBe(
-      `/en/enterprise-server@${enterpriseServerReleases.latest}/github`
+    const pageRedirects = page.buildRedirects()
+    expect(pageRedirects['/articles']).toBe('/github')
+    expect(pageRedirects['/common-issues-and-questions']).toBe('/github')
+    expect(pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/articles`]).toBe(
+      `/enterprise-server@${enterpriseServerReleases.latest}/github`
     )
     expect(
-      page.redirects[
-        `/en/enterprise/${enterpriseServerReleases.latest}/user/common-issues-and-questions`
+      pageRedirects[
+        `/enterprise-server@${enterpriseServerReleases.latest}/common-issues-and-questions`
       ]
-    ).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
+    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/github`)
   })
 
   test('converts single `redirect_from` strings values into arrays', async () => {
@@ -61,8 +56,8 @@ describe('redirects', () => {
       basePath: path.join(__dirname, '../fixtures'),
       languageCode: 'en',
     })
-    page.buildRedirects()
-    expect(page.redirects['/redirect-string']).toBe('/en/article-with-redirect-from-string')
+    const pageRedirects = page.buildRedirects()
+    expect(pageRedirects['/redirect-string']).toBe('/article-with-redirect-from-string')
   })
 
   describe('query params', () => {
@@ -97,15 +92,9 @@ describe('redirects', () => {
     })
 
     test('do not work on other paths that include "search"', async () => {
-      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom`
+      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise`
       const res = await get(reqPath)
       expect(res.statusCode).toBe(200)
-    })
-
-    test('work on deprecated versions', async () => {
-      const res = await get('/enterprise/2.12/admin/search?utf8=%E2%9C%93&q=pulls')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('/enterprise/2.12/admin/search?utf8=%E2%9C%93&query=pulls')
     })
   })
 
@@ -201,7 +190,7 @@ describe('redirects', () => {
 
     test('hardcoded @latest redirects to latest version', async () => {
       const res = await get('/en/enterprise-server@latest')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(enterpriseHome)
     })
   })
@@ -347,12 +336,12 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/fork-a-repo`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(
-        `/en/enterprise/${enterpriseServerReleases.latest}/user/articles/about-writing-and-formatting-on-github`
+        `/en/enterprise/${enterpriseServerReleases.latest}/user/articles/fork-a-repo`
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
@@ -366,28 +355,28 @@ describe('redirects', () => {
 
     test('no language code redirects to english', async () => {
       const res = await get(
-        `/enterprise/${enterpriseServerReleases.latest}/user/articles/about-writing-and-formatting-on-github`
+        `/enterprise/${enterpriseServerReleases.latest}/user/articles/fork-a-repo`
       )
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version', async () => {
-      const res = await get('/en/enterprise/user/articles/about-writing-and-formatting-on-github')
+      const res = await get('/en/enterprise/articles/fork-a-repo')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise/user/articles/about-writing-and-formatting-on-github')
+      const res = await get('/ja/enterprise/articles/fork-a-repo')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseUserArticle)
     })
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
-    const redirectFromPath = '/articles/about-writing-and-formatting-on-github'
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/fork-a-repo`
+    const redirectFromPath = '/articles/fork-a-repo'
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('redirects to expected article', async () => {

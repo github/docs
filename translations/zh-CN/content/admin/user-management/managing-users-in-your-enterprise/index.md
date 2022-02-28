@@ -1,6 +1,6 @@
 ---
-title: Managing users in your enterprise
-intro: You can audit user activity and manage user settings.
+title: 管理企业中的用户
+intro: 您可以审核用户活动并管理用户设置。
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise
   - /enterprise/admin/guides/user-management/enabling-avatars-and-identicons
@@ -33,5 +33,6 @@ children:
   - /auditing-ssh-keys
   - /customizing-user-messages-for-your-enterprise
   - /rebuilding-contributions-data
-shortTitle: Manage users
+shortTitle: 管理用户
 ---
+

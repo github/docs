@@ -12,7 +12,7 @@ topics:
 shortTitle: Download your license
 ---
 
-## About license files for {% data variables.product.prodname_enterprise %}
+## 关于 {% data variables.product.prodname_enterprise %} 的许可证文件
 
 After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file. For more information about licenses for {% data variables.product.prodname_enterprise %}, see "[About licenses for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
 

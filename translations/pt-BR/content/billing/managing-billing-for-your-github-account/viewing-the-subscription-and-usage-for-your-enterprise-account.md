@@ -1,7 +1,6 @@
 ---
 title: Exibir assinatura e uso da conta corporativa
 intro: 'Você pode ver a assinatura atual {% ifversion ghec %}, {% endif %}uso da licença{% ifversion ghec %}faturas, histórico de pagamentos e outras informações de faturamento{% endif %} para {% ifversion ghec %}conta corporativa{% elsif ghes %}{% data variables.product.product_location_enterprise %}{% endif %}.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 'Enterprise owners {% ifversion ghec %}and billing managers {% endif %}can access and manage all billing settings for enterprise accounts.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
@@ -37,6 +36,10 @@ Se você deseja ver uma visão geral da sua assinatura e uso para {% data variab
 {% endif %}
 
 ## Exibir assinatura e uso da conta corporativa
+
+Você pode visualizar a assinatura e o uso para a sua empresa e fazer o download de um arquivo com detalhes da licença.
+
+{% data reusables.billing.license-statuses %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

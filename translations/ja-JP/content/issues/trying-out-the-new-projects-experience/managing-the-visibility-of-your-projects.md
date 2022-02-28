@@ -1,6 +1,6 @@
 ---
-title: Managing the visibility of your projects (beta)
-intro: You can control who can view your projects.
+title: プロジェクト（ベータ）の可視性の管理
+intro: プロジェクトを見ることができるユーザを管理できます。
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -13,19 +13,21 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## About project visibility
+## プロジェクトの可視性について
 
-Projects (beta) can be public or private. For public projects, everyone on the internet can view the project. For private projects, only users granted at least read access can see the project.
+プロジェクト（ベータ）は、パブリックあるいはプライベートにできます。 パブリックプロジェクトでは、インターネット上の誰もがプロジェクトを見ることができます。 プライベートプロジェクトでは、最低でも読み取りアクセスを付与されたユーザだけがプロジェクトを見ることができます。
 
-Only the project visibility is affected; to view an item on the project, someone must have the required permissions for the repository that the item belongs to. If your project includes items from a private repository, people who are not collaborators in the repository will not be able to view items from that repository.
+影響を受けるのはプロジェクトの可視性のみです。プロジェクト上のアイテムを見るには、アイテムが属する得リポジトリに対する必要な権限を持っていなければなりません。 プロジェクトにプライベートリポジトリからのアイテムが含まれている場合、そのリポジトリのコラボレータではないユーザは、そのリポジトリからのアイテムを見ることができません。
 
-![Project with hidden item](/assets/images/help/projects/hidden-items.png)
+![非表示のアイテムを持つプロジェクト](/assets/images/help/projects/hidden-items.png)
 
-Only project admins can control project visibility.
+プロジェクトの管理者だけが、プロジェクトの可視性を制御できます。
 
-Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see "[Managing access to projects](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)."
+Organizationが所有するプライベートのプロジェクトでは、プロジェクトを現在更新しているユーザのアバターがプロジェクトのUIに表示されます。
 
-## Changing project visibility
+プロジェクトの管理者は、プロジェクトに対する書き込み及び管理アクセスの管理と、個々のユーザの読み取りアクセスの制御もできます。 詳しい情報については「[プロジェクトのアクセス管理](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)」を参照してください。
+
+## プロジェクトの可視性の変更
 
 {% data reusables.projects.project-settings %}
-1. Under **Visibility**, select **Private** or **Public**.
+1. **Visibility（可視性）**の下で、**Private（プライベート）**もしくは**Public（パブリック）**を選択してください。

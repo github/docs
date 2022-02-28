@@ -1,6 +1,6 @@
 ---
-title: Using the visualization graph
-intro: Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug workflows.
+title: 使用可视化图表
+intro: 每个工作流程运行都会生成一个实时图表，说明运行进度。 您可以使用此图表来监控和调试工作流程。
 redirect_from:
   - /actions/managing-workflow-runs/using-the-visualization-graph
 versions:
@@ -8,7 +8,7 @@ versions:
   ghes: '>=3.1'
   ghae: '*'
   ghec: '*'
-shortTitle: Use the visualization graph
+shortTitle: 使用可视化图表
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -19,8 +19,6 @@ shortTitle: Use the visualization graph
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 
-1. The graph displays each job in the workflow. An icon to the left of the job name indicates the status of the job. Lines between jobs indicate dependencies.
-   ![Workflow graph](/assets/images/help/images/workflow-graph.png)
+1. 图表显示每个工作流程中的作业。 作业名称左侧的图标指示作业的状态。 作业之间的线表示依赖项。 ![工作流程图表](/assets/images/help/images/workflow-graph.png)
 
-2. Click on a job to view the job log.
-   ![Workflow graph](/assets/images/help/images/workflow-graph-job.png)
+2. 单击作业可查看作业日志。 ![工作流程图表](/assets/images/help/images/workflow-graph-job.png)

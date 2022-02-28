@@ -1,8 +1,8 @@
 ---
-title: Assigning the team maintainer role to a team member
-intro: You can give a team member the ability to manage team membership and settings by assigning the team maintainer role.
+title: Asignar el rol de mantenedor de equipo a un miembro del equipo
+intro: Puedes otorgar a los miembros del equipo la capacidad de administrar las membrecías y ajustes del mismo si les asignas el rol de mantenedor de equipo.
 redirect_from:
-  - /articles/giving-team-maintainer-permissions-to-an-organization-member-early-access-program/
+  - /articles/giving-team-maintainer-permissions-to-an-organization-member-early-access-program
   - /articles/giving-team-maintainer-permissions-to-an-organization-member
   - /github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member
   - /organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member
@@ -14,13 +14,13 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Team maintainers
+shortTitle: Mantenedores de equipo
 permissions: Organization owners can promote team members to team maintainers.
 ---
 
-## About team maintainers
+## Acerca de los mantenedores de equipo
 
-People with the team maintainer role can manage team membership and settings.
+Las personas con el rol de mantenedor de equipo pueden administrar la membrecía y ajustes de este.
 
 - [Cambiar el nombre y la descripción del equipo](/articles/renaming-a-team)
 - [Cambiar la visibilidad del equipo](/articles/changing-team-visibility)
@@ -38,10 +38,10 @@ People with the team maintainer role can manage team membership and settings.
 
 ## Promover un miembro de la organización a mantenedor del equipo
 
-Before you can promote an organization member to team maintainer, the person must already be a member of the team.
+Antes de que puedas promover a un miembro de la organización a mantenedor de equipo, esta persona debe ser primero un miembro de dicho equipo.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 4. Selecciona la persona o las personas que desees promover a mantenedor del equipo. ![Casilla junto al miembro de la organización](/assets/images/help/teams/team-member-check-box.png)

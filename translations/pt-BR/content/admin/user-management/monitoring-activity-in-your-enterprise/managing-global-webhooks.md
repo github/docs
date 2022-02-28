@@ -1,7 +1,7 @@
 ---
-title: Managing global webhooks
-shortTitle: Manage global webhooks
-intro: You can configure global webhooks to notify external web servers when events occur within your enterprise.
+title: Gerenciar webhooks globais
+shortTitle: Gerenciar webhooks globais
+intro: Você pode configurar webhooks globais para notificar servidores web externos quando os eventos ocorrerem na sua empresa.
 permissions: Enterprise owners can manage global webhooks for an enterprise account.
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
@@ -23,77 +23,65 @@ topics:
   - Webhooks
 ---
 
-## About global webhooks
+## Sobre webhooks globais
 
-You can use global webhooks to notify an external web server when events occur within your enterprise. You can configure the server to receive the webhook's payload, then run an application or code that monitors, responds to, or enforces rules for user and organization management for your enterprise. For more information, see "[Webhooks](/developers/webhooks-and-events/webhooks)."
+Você pode usar webhooks globais para notificar um servidor web externo quando os eventos ocorrerem dentro de sua empresa. Você pode configurar o servidor para receber a carga do webhook e, em seguida, executar um aplicativo ou código que monitora, responde ou aplica regras para gestão de usuários e organizações para a sua empresa. Para obter mais informações, consulte "[Webhooks](/developers/webhooks-and-events/webhooks).
 
-For example, you can configure {% data variables.product.product_location %} to send a webhook when someone creates, deletes, or modifies a repository or organization within your enterprise. You can configure the server to automatically perform a task after receiving the webhook.
+Por exemplo, você pode configurar {% data variables.product.product_location %} para enviar um webhook quando alguém criar, excluir ou modificar um repositório ou organização dentro da sua empresa. Você pode configurar o servidor para executar automaticamente uma tarefa depois de receber o webhook.
 
-![List of global webhooks](/assets/images/enterprise/site-admin-settings/list-of-global-webhooks.png)
+![Lista de webhooks globais](/assets/images/enterprise/site-admin-settings/list-of-global-webhooks.png)
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-## Adding a global webhook
+## Adicionar um webhook global
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-5. Click **Add webhook**.
-  ![Add webhook button on Webhooks page in Admin center](/assets/images/enterprise/site-admin-settings/add-global-webhook-button.png)
-6. Type the URL where you'd like to receive payloads.
-  ![Field to type a payload URL](/assets/images/enterprise/site-admin-settings/add-global-webhook-payload-url.png)
-7. Optionally, use the **Content type** drop-down menu, and click a payload format.
-  ![Drop-down menu listing content type options](/assets/images/enterprise/site-admin-settings/add-global-webhook-content-type-dropdown.png)
-8. Optionally, in the **Secret** field, type a string to use as a `secret` key.
-  ![Field to type a string to use as a secret key](/assets/images/enterprise/site-admin-settings/add-global-webhook-secret.png)
-9. Optionally, if your payload URL is HTTPS and you would not like {% data variables.product.prodname_ghe_server %} to verify SSL certificates when delivering payloads, select **Disable SSL verification**. Read the information about SSL verification, then click **I understand my webhooks may not be secure**.
-  ![Checkbox for disabling SSL verification](/assets/images/enterprise/site-admin-settings/add-global-webhook-disable-ssl-button.png)
+5. Clique em **Add webhook** (Adicionar webhook). ![Botão Add webhook (Adicionar webhook) na página Webhooks na central de administração](/assets/images/enterprise/site-admin-settings/add-global-webhook-button.png)
+6. Digite a URL em que você gostaria de receber cargas. ![Campo para digitar URL de carga](/assets/images/enterprise/site-admin-settings/add-global-webhook-payload-url.png)
+7. Você também pode usar o menu suspenso **Content type** (Tipo de conteúdo) e clicar em um formato de carga. ![Menu suspenso com opções de tipo de conteúdo](/assets/images/enterprise/site-admin-settings/add-global-webhook-content-type-dropdown.png)
+8. Como alternativa, no campo **Secret** (Segredo), digite uma string para usar como chave `secret`. ![Campo para digitar uma string e usar como chave secreta](/assets/images/enterprise/site-admin-settings/add-global-webhook-secret.png)
+9. Opcionalmente, se a URL da sua carga HTTPS e você não quiser que {% data variables.product.prodname_ghe_server %} verifique os certificados SSL ao entregar as cargas, selecione **Desabilitar verificação SSL**. Leia as informações sobre a verificação SSL e clique em **I understand my webhooks may not be secure** (Eu entendo que meus webhooks podem não ser seguros). ![Caixa de seleção para desabilitar a verificação SSL](/assets/images/enterprise/site-admin-settings/add-global-webhook-disable-ssl-button.png)
 
   {% warning %}
 
-  **Warning:** SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
+  **Aviso:** a verificação SSL ajuda a garantir a entrega segura das cargas do hook. Não é recomendável desabilitar a verificação SSL.
 
   {% endwarning %}
-10. Decide if you'd like this webhook to trigger for every event or for selected events.
-  ![Radio buttons with options to receive payloads for every event or selected events](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-events.png)
-    - For every event, select **Send me everything**.
-    - To choose specific events, select **Let me select individual events**.
-11. If you chose to select individual events, select the events that will trigger the webhook.
+10. Decida se você quer que o webhook seja acionado para todos os eventos ou somente para determinados eventos. ![Botões com opções de receber cargas para todos os eventos ou para eventos específicos](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-events.png)
+    - Para todos os eventos, selecione **Send me everything** (Enviar tudo).
+    - Para eventos específicos, selecione **Let me select individual events** (Selecionar eventos individualmente).
+11. Se você escolher eventos individuais, selecione os eventos que acionarão o webhook.
       {% ifversion ghec %}
-      ![Checkboxes for individual global webhook events](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-individual-events.png)
+      ![Caixas de seleção para eventos de webhook globais individuais](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-individual-events.png)
       {% elsif ghes or ghae %}
-      ![Checkboxes for individual global webhook events](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-individual-events-ghes-and-ae.png)
+      ![Caixas de seleção para eventos de webhook globais individuais](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-individual-events-ghes-and-ae.png)
       {% endif %}
-12. Confirm that the **Active** checkbox is selected.
-  ![Selected Active checkbox](/assets/images/help/business-accounts/webhook-active.png)
-13. Click **Add webhook**.
+12. Confirme que a caixa de seleção **ativa** esteja marcada. ![Caixa de seleção Active (Ativo) marcada](/assets/images/help/business-accounts/webhook-active.png)
+13. Clique em **Add webhook** (Adicionar webhook).
 
-## Editing a global webhook
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-5. Next to the webhook you'd like to edit, click **Edit**.
-  ![Edit button next to a webhook](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
-6. Update the webhook's settings.
-7. Click **Update webhook**.
-
-## Deleting a global webhook
+## Editar um webhook global
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-5. Next to the webhook you'd like to delete, click **Delete**.
-  ![Delete button next to a webhook](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
-6. Read the information about deleting a webhook, then click **Yes, delete webhook**.
-  ![Pop-up box with warning information and button to confirm deleting the webhook](/assets/images/enterprise/site-admin-settings/confirm-delete-global-webhook.png)
+5. Ao lado do webhook que você pretende editar, clique em **Edit** (Editar). ![Botão Edit (Editar) ao lado de um webhook](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
+6. Atualize as configurações do webhook.
+7. Clique em **Update webhook** (Atualizar webhook).
 
-## Viewing recent deliveries and responses
+## Excluir um webhook global
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-5. In the list of webhooks, click the webhook for which you'd like to see deliveries.
-  ![List of webhooks with links to view each webhook](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)
-6. Under "Recent deliveries", click a delivery to view details.
-  ![List of the webhook's recent deliveries with links to view details](/assets/images/enterprise/site-admin-settings/global-webhooks-recent-deliveries.png)
+5. Ao lado do webhook que você pretende excluir, clique em **Delete** (Excluir). ![Botão Delete (Excluir) ao lado de um webhook](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
+6. Leia as informações sobre como excluir um webhook e clique em **Yes, delete webhook** (Sim, excluir webhook). ![Caixa pop-up com informações de aviso e botão para confirmar a exclusão do webhook](/assets/images/enterprise/site-admin-settings/confirm-delete-global-webhook.png)
+
+## Exibir respostas e entregas recentes
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
+5. Na lista de webhooks, clique no webhook em que você gostaria de ver entregas. ![Lista de webhooks com links para exibir cada webhook](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)
+6. Em "Recent deliveries" (Entregas recentes), clique em uma entrega para ver detalhes. ![Lista das entregas recentes do webhook com links para exibir detalhes](/assets/images/enterprise/site-admin-settings/global-webhooks-recent-deliveries.png)

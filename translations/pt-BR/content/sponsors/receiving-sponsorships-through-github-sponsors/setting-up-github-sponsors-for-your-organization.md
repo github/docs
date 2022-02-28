@@ -80,7 +80,7 @@ Para obter mais informações sobre como configurar o Stripe Connect usando o Op
 
 ## Habilitar a autenticação de dois fatores (2FA, two-factor authentication) na sua conta do {% data variables.product.prodname_dotcom %}
 
-Before your organization can become a sponsored organization, you must enable 2FA for your account on {% data variables.product.product_location %}. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
+Antes que sua organização possa se tornar uma organização patrocinada, você deverá habilitar a 2FA para sua conta em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
 
 ## Enviar seu aplicativo ao {% data variables.product.prodname_dotcom %} para aprovação
 

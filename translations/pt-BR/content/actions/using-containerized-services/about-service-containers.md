@@ -1,6 +1,6 @@
 ---
-title: About service containers
-intro: 'You can use service containers to connect databases, web services, memory caches, and other tools to your workflow.'
+title: Sobre os contêineres de serviço
+intro: 'Você pode usar contêineres de serviço para conectar bancos de dados, serviços web, memória cache e outras ferramentas ao seu fluxo de trabalho.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
   - /actions/configuring-and-managing-workflows/about-service-containers
@@ -19,105 +19,105 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About service containers
+## Sobre os contêineres de serviço
 
-Service containers are Docker containers that provide a simple and portable way for you to host services that you might need to test or operate your application in a workflow. For example, your workflow might need to run integration tests that require access to a database and memory cache.
+Os contêineres de serviço são contêineres Docker que fornecem uma forma simples e portátil para os seus serviços de hospedagem que você pode precisar testar ou operar a sua aplicação em um fluxo de trabalho. Por exemplo, o seu fluxo de trabalho pode precisar executar testes de integração que necessitem de acesso a um banco de dados e a uma memória cache.
 
-You can configure service containers for each job in a workflow. {% data variables.product.prodname_dotcom %} creates a fresh Docker container for each service configured in the workflow, and destroys the service container when the job completes. Steps in a job can communicate with all service containers that are part of the same job.
+Você pode configurar os contêineres de serviço para cada trabalho em um fluxo de trabalho. {% data variables.product.prodname_dotcom %} cria um novo contêiner Docker para cada serviço configurado no fluxo de trabalho e destrói o contêiner de serviço quando o trabalho é concluído. As etapas em um trabalho podem comunicar-se com todos os contêineres de serviço que fazem parte do mesmo trabalho.
 
 {% data reusables.github-actions.docker-container-os-support %}
 
-## Communicating with service containers
+## Comunicar-se com os contêineres de serviço
 
-You can configure jobs in a workflow to run directly on a runner machine or in a Docker container. Communication between a job and its service containers is different depending on whether a job runs directly on the runner machine or in a container.
+Você pode configurar trabalhos em um fluxo de trabalho para ser executados diretamente em uma máquina executora ou em um contêiner Docker. A comunicação entre o trabalho e seus contêineres de serviço é diferente, dependendo se um trabalho é executado diretamente na máquina executora ou em um contêiner.
 
-### Running jobs in a container
+### Executar trabalhos em um contêiner
 
-When you run jobs in a container, {% data variables.product.prodname_dotcom %} connects service containers to the job using Docker's user-defined bridge networks. For more information, see "[Use bridge networks](https://docs.docker.com/network/bridge/)" in the Docker documentation.
+Ao executar trabalhos em um contêiner, {% data variables.product.prodname_dotcom %} conecta os contêineres de serviço ao trabalho suando as redes de ponte definidas pelo usuário do Docker. Para obter mais informações, consulte "["Usar redes de ponte](https://docs.docker.com/network/bridge/)" na documentação do Docker.
 
-Running the job and services in a container simplifies network access. You can access a service container using the label you configure in the workflow. The hostname of the service container is automatically mapped to the label name. For example, if you create a service container with the label `redis`, the hostname of the service container is `redis`.
+Executar o trabalho e os serviços em um contêiner simplifica o acesso à rede. Você pode acessar um contêiner de serviço usando a etiqueta que você configurar no fluxo de trabalho. O nome de host do contêiner do serviço é mapeado automaticamente de acordo com o nome da etiqueta. Por exemplo, se você criar um contêiner de serviço com a etiqueta `redis`, o nome de host do contêiner de serviço será `redis`.
 
-You don't need to configure any ports for service containers. By default, all containers that are part of the same Docker network expose all ports to each other, and no ports are exposed outside of the Docker network.
+Você não precisa configurar nenhuma porta para os contêineres de serviço. Por padrão, todos os contêineres que fazem parte da mesma rede do Docker expõem todas as portas entre si e nenhuma porta é exposta fora da rede do Docker.
 
-### Running jobs on the runner machine
+### Executar trabalhos na máquina executora
 
-When running jobs directly on the runner machine, you can access service containers using `localhost:<port>` or `127.0.0.1:<port>`. {% data variables.product.prodname_dotcom %} configures the container network to enable communication from the service container to the Docker host.
+Ao executar trabalhos diretamente na máquina executora, você poderá acessar os contêineres de serviço usando `localhost:<port>` ou `127.0.0.1:<port>`. {% data variables.product.prodname_dotcom %} configura a rede do contêiner para habilitar a comunicação a partir do contêiner de serviço com o host do Docker.
 
-When a job runs directly on a runner machine, the service running in the Docker container does not expose its ports to the job on the runner by default. You need to map ports on the service container to the Docker host. For more information, see "[Mapping Docker host and service container ports](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
+Quando um trabalho é executado diretamente em uma máquina executora, o serviço executado no contêiner do Docker não expõe suas portas ao trabalho no executor por padrão. Você deve mapear as portas no contêiner de serviço com o host do Docker. Para obter mais informações, consulte "[Mapeando o host do Docker e as portas do contêiner de serviço](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)".
 
-## Creating service containers
+## Criar contêineres de serviço
 
-You can use the `services` keyword to create service containers that are part of a job in your workflow. For more information, see [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
+Você pode usar a palavra-chave `serviços` para criar contêineres de serviço que fazem parte de um trabalho no seu fluxo de trabalho. Para obter mais informações, consulte [`trabalhos.<job_id>.serviços`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
 
-This example creates a service called `redis` in a job called `container-job`. The Docker host in this example is the `node:10.18-jessie` container.
+Este exemplo cria um serviço denominado `redis` em um trabalho denominado `container-job`. O host do Docker, neste exemplo, é o contêiner `node:10.18-jessie`.
 
 {% raw %}
 ```yaml{:copy}
-name: Redis container example
-on: push
+nome: Exemplo de contêiner Redis
+em: push
 
-jobs:
-  # Label of the container job
+trabalhos:
+  # Etiqueta do trabalho do contêiner
   container-job:
-    # Containers must run in Linux based operating systems
+    # Os contêineres devem ser executados em sistemas operacionais baseados no Linux
     runs-on: ubuntu-latest
-    # Docker Hub image that `container-job` executes in
+    # Imagem do Docker Hub em que o `container-job` é executado
     container: node:10.18-jessie
 
-    # Service containers to run with `container-job`
-    services:
-      # Label used to access the service container
+    # Contêineres de serviço a serem executados com `container-job`
+    serviços:
+      # Etiqueta usada para acessar o contêiner de serviço
       redis:
-        # Docker Hub image
-        image: redis
+        # Imagem do Docker Hub
+        imagem: redis
 ```
 {% endraw %}
 
-## Mapping Docker host and service container ports
+## Mapear o host do Docker e as portas do contêiner de serviço
 
-If your job runs in a Docker container, you do not need to map ports on the host or the service container. If your job runs directly on the runner machine, you'll need to map any required service container ports to ports on the host runner machine.
+Se o seu trabalho for executado em um contêiner do Docker, você não precisará mapear as portas no host ou no contêiner de serviço. Se o seu trabalho for executado diretamente na máquina executora, você precisará mapear todas as portas do contêiner de serviço necessárias com as portas na máquina executora do host.
 
-You can map service containers ports to the Docker host using the `ports` keyword. For more information, see [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
+Você pode mapear as portas dos contêineres de serviço com o host do Docker usando a palavra-chave `portas`. Para obter mais informações, consulte [`trabalhos.<job_id>.serviços`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
 
-| Value of `ports` |	Description |
-|------------------|--------------|
-| `8080:80` |	Maps TCP port 80 in the container to port 8080 on the Docker host. |
-| `8080:80/udp` |	Maps UDP port 80 in the container to port 8080 on the Docker host. |
-| `8080/udp`	| Map a randomly chosen UDP port in the container to UDP port 8080 on the Docker host. |
+| Valor das `portas` | Descrição                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| `8080:80`          | Mapeia a porta 80 TCP no contêiner com a porta 8080 no host do Docker.                           |
+| `8080:80/udp`      | Mapeia a porta 80 UDP no contêiner com a porta 8080 no host do Docker.                           |
+| `8080/udp`         | Mapeia a porta UDP escolhida aleatoriamente no contêiner com a porta 8080 UDP no host do Docker. |
 
-When you map ports using the `ports` keyword, {% data variables.product.prodname_dotcom %} uses the `--publish` command to publish the container’s ports to the Docker host. For more information, see "[Docker container networking](https://docs.docker.com/config/containers/container-networking/)" in the Docker documentation.
+Ao mapear portas usando a palavra-chave `portas`, {% data variables.product.prodname_dotcom %}usa o comando `--publicar` para publicar as portas do contêiner no host do Docker. Para obter mais informações, consulte "[Rede do contêiner do Docker](https://docs.docker.com/config/containers/container-networking/)" na documentação do Docker.
 
-When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#job-context)."
+Ao especificar a porta do host do Docker mas não a porta do contêiner, a porta do contêiner será atribuída aleatoriamente a uma porta livre. {% data variables.product.prodname_dotcom %} define a porta do contêiner atribuída no contexto do contêiner de serviço. Por exemplo, para um contêiner de serviço `redis`, se você configurou a porta 5432 do host do Docker, você poderá acessar a porta do contêiner correspondente usando o contexto `job.services.redis.ports[5432]`. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts#job-context)".
 
-### Example mapping Redis ports
+### Exemplo de mapeamento de portas Redis
 
-This example maps the service container `redis` port 6379 to the Docker host port 6379.
+Este exemplo mapeia a porta 6379 do contêiner de serviço `redis` com a porta 6379 do host do Docker.
 
 {% raw %}
 ```yaml{:copy}
-name: Redis Service Example
-on: push
+nome: Exemplo de serviço Redis
+em: push
 
-jobs:
-  # Label of the container job
+trabalhos:
+  # Etiqueta do trabalho do contêiner
   runner-job:
-    # You must use a Linux environment when using service containers or container jobs
+    # YoVocê deve usar um ambiente Linux ao usar os contêineres de serviço ou os trabalhos do contêiner
     runs-on: ubuntu-latest
 
-    # Service containers to run with `runner-job`
-    services:
-      # Label used to access the service container
+    # Contêineres de serviço a ser executados com `runner-job`
+    serviços:
+      # Etiqueta usada para acessar o contêiner de serviço
       redis:
-        # Docker Hub image
+        # Imagem do Docker Hubm
         image: redis
         #
-        ports:
-          # Opens tcp port 6379 on the host and service container
+        portas:
+          # Abre a porta 6379 tcp no host e no contêiner de serviço
           - 6379:6379
 ```
 {% endraw %}
 
-## Further reading
+## Leia mais
 
-- "[Creating Redis service containers](/actions/automating-your-workflow-with-github-actions/creating-redis-service-containers)"
-- "[Creating PostgreSQL service containers](/actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers)"
+- [Criando contêineres de serviço Redis](/actions/automating-your-workflow-with-github-actions/creating-redis-service-containers)"
+- [Criando contêineres de serviço PostgreSQL](/actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers)"

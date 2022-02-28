@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 import { Link } from 'components/Link'
 import { BumpLink } from 'components/ui/BumpLink'
 import type { TocItem } from 'components/context/ProductLandingContext'
@@ -32,7 +32,7 @@ export const TableOfContents = (props: Props) => {
                   renderItem: () => (
                     <ActionList.Item>
                       <li key={href} className="f4 d-list-item width-full list-style-none">
-                        <Link className="d-block width-full" href={href}>
+                        <Link className="d-block width-full text-underline" href={href}>
                           {title}
                         </Link>
                         {(childTocItems || []).length > 0 && (
@@ -49,7 +49,10 @@ export const TableOfContents = (props: Props) => {
                               }
                               return (
                                 <li key={childItem.fullPath} className="f4 d-block width-full m-2">
-                                  <Link className="d-block width-full" href={childItem.fullPath}>
+                                  <Link
+                                    className="d-block width-full text-underline"
+                                    href={childItem.fullPath}
+                                  >
                                     {childItem.title}
                                   </Link>
                                 </li>

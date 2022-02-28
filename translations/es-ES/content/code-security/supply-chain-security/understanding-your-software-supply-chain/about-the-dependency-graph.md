@@ -27,10 +27,7 @@ shortTitle: Dependency graph
 
 ## About the dependency graph
 
-The dependency graph is a summary of the manifest and lock files stored in a repository. For each repository, it shows{% ifversion fpt or ghec %}:
-
-- Dependencies, the ecosystems and packages it depends on
-- Dependents, the repositories and packages that depend on it{% else %} dependencies, that is, the ecosystems and packages it depends on. {% data variables.product.product_name %} does not calculate information about dependents, the repositories and packages that depend on a repository.{% endif %}
+{% data reusables.dependabot.about-the-dependency-graph %}
 
 When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %} For information on the supported ecosystems and manifest files, see "[Supported package ecosystems](#supported-package-ecosystems)" below.
 
@@ -65,7 +62,7 @@ You can use the dependency graph to:
 
 {% ifversion fpt or ghec %}To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
 
-{% ifversion ghes or ghae %}If the dependency graph is not available in your system, your enterprise owner can enable the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. For more information, see  "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."{% endif %}
+{% ifversion ghes or ghae %}If the dependency graph is not available in your system, your enterprise owner can enable the dependency graph. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
 
 When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% ifversion fpt or ghec %} and every push to other repositories in the graph{% endif %}.
 
@@ -77,6 +74,9 @@ The recommended formats explicitly define which versions are used for all direct
 | --- | --- | --- | ---|
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | `dotnet` CLI | .NET languages (C#, C++, F#, VB)  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
+{%- if github-actions-in-dependency-graph %}
+| {% data variables.product.prodname_actions %} workflows<sup>[1]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
+{%- endif %}
 {%- ifversion fpt or ghes > 3.2 or ghae %}
 | Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
 {%- elsif ghes = 3.2 %}
@@ -84,18 +84,28 @@ The recommended formats explicitly define which versions are used for all direct
 {%- endif %}
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
-| Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`* |
-{%- ifversion fpt or ghes > 3.3 %}
+| Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`{% if github-actions-in-dependency-graph %}<sup>[2]</sup>{% else %}<sup>[1]</sup>{% endif %} |
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4752 %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |{% endif %}
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
+{% if github-actions-in-dependency-graph %}
+[1] Please note that {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions)."
+
+[2] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+
+{% else %}
+[1] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+{% endif %}
+
+{% if github-actions-in-dependency-graph %}
 {% note %}
 
-**Note:** If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+**Note:** {% data variables.product.prodname_actions %} workflow dependencies are displayed in the dependency graph for informational purposes. Dependabot alerts are not currently supported for {% data variables.product.prodname_actions %} workflows.
 
 {% endnote %}
-
+{% endif %}
 ## Further reading
 
 - "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia

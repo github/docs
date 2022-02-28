@@ -22,7 +22,7 @@ For more information about licenses and usage for {% data variables.product.prod
 
 ## Automatically syncing license usage
 
-{% data variables.product.prodname_github_connect %}を使用して、{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_ghe_cloud %}の間でユーザライセンスの数と使用状況を自動で同期できます。 For more information, see "[Enabling automatic user license sync between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud){% ifversion ghec %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}."{% endif %}
+{% data variables.product.prodname_github_connect %}を使用して、{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_ghe_cloud %}の間でユーザライセンスの数と使用状況を自動で同期できます。 For more information, see "[Enabling automatic user license sync for your enterprise]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}."{% endif %}
 
 ## Manually syncing license usage
 

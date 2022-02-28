@@ -21,8 +21,8 @@ shortTitle: Ver tu uso
 
 Cualquiera puede ver el uso de {% data variables.product.prodname_registry %} para su cuenta de usuario personal.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}

@@ -1,56 +1,56 @@
 ---
-title: About versions of GitHub Docs
-intro: "You can read documentation that reflects the {% data variables.product.company_short %} product you're currently using."
+title: Sobre versões da Documentação do GitHub
+intro: "Você pode ler a documentação que reflete o produto de {% data variables.product.company_short %} que você está usando atualmente."
 versions: '*'
-shortTitle: Docs versions
+shortTitle: Versões da documentação
 ---
 
-## About versions of {% data variables.product.prodname_docs %}
+## Sobre as versões de {% data variables.product.prodname_docs %}
 
-{% data variables.product.company_short %} offers different products for storing and collaborating on code. The product you use determines which features are available to you. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
+{% data variables.product.company_short %} oferece diferentes produtos para armazenar e colaborar no código. O produto que você usa determina quais funcionalidades estão disponíveis para você. Para obter mais informações, consulte os "[Produtos da {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)".
 
-This website, {% data variables.product.prodname_docs %}, provides documentation for all of {% data variables.product.company_short %}'s products. If the content you're reading applies to more than one product, you can choose the version of the documentation that's relevant to you by selecting the product you're currently using.
+Este site, {% data variables.product.prodname_docs %}, fornece documentação para todos os produtos de {% data variables.product.company_short %}. Se o conteúdo que você está lendo se aplicar a mais de um produto, você poderá escolher a versão da documentação que é relevante para você, selecionando o produto que você está usando atualmente.
 
-At the top of a page on {% data variables.product.prodname_docs %}, select the dropdown menu and click a product. If your browser window is not wide enough to display the full navigation bar, you may need to click {% octicon "three-bars" aria-label="The three bars icon" %} first.
+Na parte superior de uma página em {% data variables.product.prodname_docs %}, selecione o menu suspenso e clique em um produto. Se a janela do seu navegador não for grande o suficiente para exibir a barra de navegação inteira, talvez você precise clicar primeiro em {% octicon "three-bars" aria-label="The three bars icon" %}.
 
-![Screenshot of the dropdown menu for picking a version of {% data variables.product.prodname_docs %} to view](/assets/images/help/docs/version-picker.png)
+![Captura de tela do menu suspenso para escolher uma versão de {% data variables.product.prodname_docs %} para ver](/assets/images/help/docs/version-picker.png)
 
 {% note %}
 
-**Note**: You can try changing the version now. You're viewing {% ifversion ghes %}a{% else %}the{% endif %} {% ifversion fpt %}Free, Pro, & Team{% else %}{% data variables.product.product_name %}{% endif %} version of this article.
+**Observação**: Você pode tentar alterar a versão agora. Você está visualizando a versão {% ifversion ghes %}um{% else %}a{% endif %} {% ifversion fpt %}Grátis, Pro, & Equipe{% else %}{% data variables.product.product_name %}{% endif %} deste artigo.
 
 {% endnote %}
 
-## Determining which {% data variables.product.company_short %} product you use
+## Determinando quais produtos de {% data variables.product.company_short %} você usa
 
-You can determine which {% data variables.product.company_short %} product you're currently using by reviewing the URL in the address bar of your browser and the heading for the {% data variables.product.prodname_dotcom %} website you're on.
+Você pode determinar qual produto {% data variables.product.company_short %} você está usando atualmente revisando a URL na barra de endereços do seu navegador e o título para o site {% data variables.product.prodname_dotcom %} que você está visitando.
 
-You may use more than one {% data variables.product.company_short %} product. For example, you might contribute to open source on {% data variables.product.prodname_dotcom_the_website %} and collaborate on code on your employer's {% data variables.product.prodname_ghe_server %} instance. You may need to view different versions of the same article at different times, depending on the problem you're currently trying to solve.
+Você pode usar mais de um produto de {% data variables.product.company_short %}. Por exemplo, você pode contribuir para o código aberto em {% data variables.product.prodname_dotcom_the_website %} e colaborar no código na instância de {% data variables.product.prodname_ghe_server %} do seu empregador. É possível que você precise visualizar diferentes versões do mesmo artigo em momentos diferentes, dependendo do problema que você está tentando resolver.
 
-### {% data variables.product.prodname_dotcom_the_website %} plans or {% data variables.product.prodname_ghe_cloud %}
+### Planos de {% data variables.product.prodname_dotcom_the_website %} ou {% data variables.product.prodname_ghe_cloud %}
 
-If you access {% data variables.product.prodname_dotcom %} at https://github.com, you're either using the features of a Free, Pro, or Team plan, or you're using {% data variables.product.prodname_ghe_cloud %}.
+Se você acessar {% data variables.product.prodname_dotcom %} em https://github.com, você estará usando os recursos de um plano Grátis, Pro, ou da Equipe, ou estará usando {% data variables.product.prodname_ghe_cloud %}.
 
-In a wide browser window, there is no text that immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
+Na janela ampla de um navegador, não há texto que siga imediatamente o logotipo de {% data variables.product.company_short %} no lado esquerdo do cabeçalho.
 
-![Screenshot of the address bar and the {% data variables.product.prodname_dotcom_the_website %} header in a browser](/assets/images/help/docs/header-dotcom.png)
+![Captura de tela da barra de endereços e o header de {% data variables.product.prodname_dotcom_the_website %} em um navegador](/assets/images/help/docs/header-dotcom.png)
 
-On {% data variables.product.prodname_dotcom_the_website %}, each account has its own plan. Each personal account has an associated plan that provides access to certain features, and each organization has a different associated plan. If your personal account is a member of an organization on {% data variables.product.prodname_dotcom_the_website %}, you may have access to different features when you use resources owned by that organization than when you use resources owned by your personal account. For more information, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+Em {% data variables.product.prodname_dotcom_the_website %}, cada conta tem seu próprio plano. Cada conta pessoal tem um plano associado que oferece acesso a determinadas funcionalidades, e cada organização tem um plano associado diferente. Se a sua conta pessoal for integrante de uma organização em {% data variables.product.prodname_dotcom_the_website %}, você poderá ter acesso a diferentes funcionalidades quando usar recursos pertencentes a essa organização do que quando você usa recursos pertencentes à sua conta pessoal. Para obter mais informações, consulte "[Tipos de contas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
-If you don't know whether an organization uses {% data variables.product.prodname_ghe_cloud %}, ask an organization owner. For more information, see "[Viewing people's roles in an organization](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)."
+Se você não sabe se uma organização usa o {% data variables.product.prodname_ghe_cloud %}, pergunte ao proprietário de uma organização. Para obter mais informações, consulte "[Visualizando as funções das pessoas em uma organização](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)".
 
 ### {% data variables.product.prodname_ghe_server %}
 
-If you access {% data variables.product.prodname_dotcom %} at a URL other than https://github.com, `https://*.githubenterprise.com`, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_server %}. For example, you may access {% data variables.product.prodname_ghe_server %} at `https://github.YOUR-COMPANY-NAME.com`. Your administrators may choose a URL that doesn't include the word "{% data variables.product.company_short %}."
+Se você acessar {% data variables.product.prodname_dotcom %} em um URL diferente de https://github.com, `https://*.githubenterprise. om`, `https://*.github.us` ou `https://*.ghe.com`, você estará usando {% data variables.product.prodname_ghe_server %}. Por exemplo, você pode acessar {% data variables.product.prodname_ghe_server %} em `https://github.YOUR-COMPANY-NAME.com`. Seus administradores podem escolher uma URL que não inclua a palavra "{% data variables.product.company_short %}".
 
-In a wide browser window, the word "Enterprise" immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
+Em uma janela ampla do navegador, a palavra "Enterprise" segue imediatamente o logotipo {% data variables.product.company_short %} no lado esquerdo do header.
 
-![Screenshot of address bar and {% data variables.product.prodname_ghe_server %} header in a browser](/assets/images/help/docs/header-ghes.png)
+![Captura de tela da barra de endereços e header {% data variables.product.prodname_ghe_server %} em um navegador](/assets/images/help/docs/header-ghes.png)
 
 ### {% data variables.product.prodname_ghe_managed %}
 
-If you access {% data variables.product.prodname_dotcom %} at `https://*.githubenterprise.com`, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_managed %}.
+Se você acessar {% data variables.product.prodname_dotcom %} em `https://*.githubenterprise.com`, `https://*.github.us` ou `https://*.ghe.com`, você estará usando {% data variables.product.prodname_ghe_managed %}.
 
-In a wide browser window, the words "{% data variables.product.prodname_ghe_managed %}" immediately follow the {% data variables.product.company_short %} logo in the header.
+Na janela ampla de um navegador, as palavras "{% data variables.product.prodname_ghe_managed %}" seguem imediatamente o logotipo de {% data variables.product.company_short %} no header.
 
-![Address bar and {% data variables.product.prodname_ghe_managed %} header in a browser](/assets/images/help/docs/header-ghae.png)
+![Barra de endereços e header de {% data variables.product.prodname_ghe_managed %} em um navegador](/assets/images/help/docs/header-ghae.png)

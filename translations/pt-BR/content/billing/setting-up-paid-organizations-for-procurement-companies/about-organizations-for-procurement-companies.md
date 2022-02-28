@@ -1,6 +1,6 @@
 ---
-title: About organizations for procurement companies
-intro: 'Businesses use organizations to collaborate on shared projects with multiple owners and administrators. You can create an organization for your client, make a payment on their behalf, then pass ownership of the organization to your client.'
+title: Sobre organizações para empresas de compras
+intro: 'As empresas usam organizações para colaborar em projetos compartilhados com vários proprietários e administradores. Você pode criar uma organização para seu cliente, fazer um pagamento no nome dele e, por fim, passar a propriedade da organização ao cliente.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-organizations-for-procurement-companies
   - /articles/about-organizations-for-resellers
@@ -12,27 +12,28 @@ versions:
 type: overview
 topics:
   - Organizations
-shortTitle: About organizations
+shortTitle: Sobre organizações
 ---
-To access an organization, each member must sign into their own personal user account.
 
-Organization members can have different roles, such as *owner* or *billing manager*:
+Para acessar uma organização, cada integrante deve entrar na própria conta de usuário pessoal.
 
-- **Owners** have complete administrative access to an organization and its contents.
-- **Billing managers** can manage billing settings, and cannot access organization contents. Billing managers are not shown in the list of organization members.
+Os integrantes da organização podem ter diferentes funções, como *proprietário* ou *gerente de cobrança*:
 
-## Payments and pricing for organizations
+- **Proprietários** têm acesso administrativo completo a uma organização e seu conteúdo.
+- **Gerentes de cobrança** podem gerenciar configurações de cobrança e não podem acessar o conteúdo da organização. Os gerentes de cobrança não são mostrados na lista de integrantes da organização.
 
-We don't provide quotes for organization pricing. You can see our published pricing for [organizations](https://github.com/pricing) and [Git Large File Storage](/articles/about-storage-and-bandwidth-usage/). We do not provide discounts for procurement companies or for renewal orders.
+## Pagamentos e preços para organizações
 
-We accept payment in US dollars, although end users may be located anywhere in the world.
+Não fornecemos cotações de preços para organização. É possível ver nossos preços publicados para [organizações](https://github.com/pricing) e [Git Large File Storage](/articles/about-storage-and-bandwidth-usage/). Não fornecemos descontos para empresas de compras nem para pedidos de renovação.
 
-We accept payment by credit card and PayPal. We don't accept payment by purchase order or invoice.
+Aceitamos pagamento em dólares americanos, embora os usuários finais possam estar localizados em qualquer lugar do mundo.
 
-For easier and more efficient purchasing, we recommend that procurement companies set up yearly billing for their clients' organizations.
+Aceitamos pagamento por cartão de crédito e PayPal. Não aceitamos pagamento por ordem de compra ou fatura.
 
-## Further reading
+Para mais facilidade e eficiência de compra, é recomendável que as empresas de compras definam anualmente a cobrança para as organizações de seus clientes.
 
-- "[Creating and paying for an organization on behalf of a client](/articles/creating-and-paying-for-an-organization-on-behalf-of-a-client)"
-- "[Upgrading or downgrading your client's paid organization](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
-- "[Renewing your client's paid organization](/articles/renewing-your-client-s-paid-organization)"
+## Leia mais
+
+- "[Criar e pagar para uma organização em nome de um cliente](/articles/creating-and-paying-for-an-organization-on-behalf-of-a-client)"
+- "[Atualizar ou fazer downgrade da organização paga do cliente](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
+- "[Renovar a organização paga do cliente](/articles/renewing-your-client-s-paid-organization)"

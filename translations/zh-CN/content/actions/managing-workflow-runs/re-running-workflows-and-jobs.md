@@ -17,9 +17,7 @@ versions:
 
 ## Re-running all the jobs in a workflow
 
-Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. You can re-run a workflow for up to 30 days after the initial run. 
-
-{% include tool-switcher %}
+重新运行工作流程使用触发工作流程运行的原始事件的 `GITHUB_SHA`（提交 SHA）和 `GITHUB_REF` (Git ref)。 You can re-run a workflow for up to 30 days after the initial run.
 
 {% webui %}
 
@@ -28,12 +26,10 @@ Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**
-    ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
+1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs** ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
 {% endif %}
 {% ifversion ghes < 3.3 or ghae %}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**.
-    ![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
+1. 在工作流程的右上角，使用 **Re-run jobs（重新运行作业）**下拉菜单，并选择 **Re-run all jobs（重新运行所有作业）**。 ![重新运行检查下拉菜单](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
 {% endif %}
 
 {% endwebui %}
@@ -42,13 +38,13 @@ Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (
 
 {% data reusables.cli.cli-learn-more %}
 
-To re-run a failed workflow run, use the `run rerun` subcommand. Replace `run-id` with the ID of the failed run that you want to re-run.  If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
+要重新运行失败的工作流程运行，请使用 `run rerun` 子命令。 将 `run-id` 替换为您想要重新运行的已失败运行的 ID。  如果您没有指定 `run-id`，{% data variables.product.prodname_cli %} 将返回一个交互式菜单，供您选择最近失败的运行。
 
 ```shell
 gh run rerun <em>run-id</em>
 ```
 
-To view the progress of the workflow run, use the `run watch` subcommand and select the run from the interactive list.
+要查看工作流程运行的进度，请使用 `run watch` 子命令，并从交互式列表中选择运行。
 
 ```shell
 gh run watch
@@ -65,8 +61,7 @@ You can view the results from your previous attempts at running a workflow. You 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Any previous run attempts are shown in the left pane.
-    ![Rerun workflow](/assets/images/help/settings/actions-review-workflow-rerun.png)
+1. Any previous run attempts are shown in the left pane. ![Rerun workflow](/assets/images/help/settings/actions-review-workflow-rerun.png)
 1. Click an entry to view its results.
 
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Using a proxy server with self-hosted runners
-intro: 'You can configure self-hosted runners to use a proxy server to communicate with {% data variables.product.product_name %}.'
+title: Usar um servidor proxy com executores auto-hospedados
+intro: 'Você pode configurar executores auto-hospedados para usar um servidor proxy para comunicar-se com {% data variables.product.product_name %}.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
@@ -9,48 +9,48 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-shortTitle: Proxy servers
+shortTitle: Servidores proxy
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Configuring a proxy server using environment variables
+## Configurar um servidor proxy usando variáveis de ambiente
 
-If you need a self-hosted runner to communicate via a proxy server, the self-hosted runner application uses proxy configurations set in the following environment variables:
+Se você precisar de um executor auto-hospedado para comunicar-se por meio de um servidor proxy, o aplicativo do executor auto-hospedado usará as configurações proxy definidas nas variáveis do ambiente a seguir:
 
-* `https_proxy`: Proxy URL for HTTPS traffic. You can also include basic authentication credentials, if required. For example:
+* `https_proxy`: URL Proxy para tráfego HTTPS. Se necessário, você também poderá incluir credenciais de autenticação básica. Por exemplo:
   * `http://proxy.local`
   * `http://192.168.1.1:8080`
   * `http://username:password@proxy.local`
-* `http_proxy`: Proxy URL for HTTP traffic. You can also include basic authentication credentials, if required. For example:
+* `http_proxy`: URL proxy para tráfego HTTP. Se necessário, você também poderá incluir credenciais de autenticação básica. Por exemplo:
   * `http://proxy.local`
   * `http://192.168.1.1:8080`
   * `http://username:password@proxy.local`
-* `no_proxy`: Comma separated list of hosts that should not use a proxy. Only hostnames are allowed in `no_proxy`, you cannot use IP addresses. For example:
+* `no_proxy`: Listas de hosts separados vírgula que não devem usar um proxy. São permitidos apenas nomes de host em `no_proxy`. Você não pode usar endereços IP. Por exemplo:
   * `example.com`
   * `example.com,myserver.local:443,example.org`
 
-The proxy environment variables are read when the self-hosted runner application starts, so you must set the environment variables before configuring or starting the self-hosted runner application. If your proxy configuration changes, you must restart the self-hosted runner application.
+As variáveis do ambiente proxy são lidas quando o aplicativo do executor auto-hospedado inicia. Portanto, você deve definir as variáveis do ambiente antes de configurar ou iniciar o aplicativo do executor auto-hospedado. Se a sua configuração de proxy for alterada, você deverá reiniciar o aplicativo do executor auto-hospedado.
 
-On Windows machines, the proxy environment variable names are not case-sensitive. On Linux and macOS machines, we recommend that you use all lowercase environment variables. If you have an environment variable in both lowercase and uppercase on Linux or macOS, for example `https_proxy` and `HTTPS_PROXY`, the self-hosted runner application uses the lowercase environment variable.
+No Windows, os nomes da variável do ambiente proxy não diferenciam maiúsculas de minúsculas. Nos sistemas Linux e macOS, recomendamos que você use variáveis de ambiente em minúscula. Se você tiver uma variável de ambiente tanto maiúscula quanto minúscula no Linux ou macOS, como, por exemplo `https_proxy` e `HTTPS_PROXY`, o aplicativo executor auto-hospedado usará a variável minúscula do ambiente.
 
 {% data reusables.actions.self-hosted-runner-ports-protocols %}
 
-## Using a .env file to set the proxy configuration
+## Usar um arquivo .env para definir a configuração de proxy
 
-If setting environment variables is not practical, you can set the proxy configuration variables in a file named _.env_ in the self-hosted runner application directory. For example, this might be necessary if you want to configure the runner application as a service under a system account. When the runner application starts, it reads the variables set in _.env_ for the proxy configuration.
+Se não for prático definir as variáveis do ambiente, você poderá definir as variáveis da configuração de proxy em um arquivo de nome _.env_ no diretório do aplicativo do executor auto-hospedado. Por exemplo, isso pode ser necessário se você desejar configurar um aplicativo executor como um serviço em uma conta de sistema. Quando o aplicativo executor é iniciado, ele lerá as variáveis definidas em _.env_ para a configuração de proxy.
 
-An example _.env_ proxy configuration is shown below:
+Um exemplo de configuração de proxy _.env_ é mostrado abaixo:
 
 ```ini
 https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```
 
-## Setting proxy configuration for Docker containers
+## Definir configuração de proxy para contêineres Docker
 
-If you use Docker container actions or service containers in your workflows, you might also need to configure Docker to use your proxy server in addition to setting the above environment variables.
+Se você usar ações do contêiner Dock ou contêineres de serviço nos seus fluxos de trabalho, você também deverá configurar o Docker para usar o seu servidor proxy além de definir as variáveis do ambiente acima.
 
-For information on the required Docker configuration, see "[Configure Docker to use a proxy server](https://docs.docker.com/network/proxy/)" in the Docker documentation.
+Para obter mais informações sobre a configuração do Docker necessária, consulte "[Configurar Docker para usar um servidor proxy](https://docs.docker.com/network/proxy/)" no documento do Docker.

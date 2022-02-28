@@ -1,6 +1,6 @@
 ---
-title: Searching the audit log
-intro: Site administrators can search an extensive list of audited actions on the enterprise.
+title: 搜索审核日志
+intro: 站点管理员可以在企业上搜索已审核操作的广泛列表。
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
@@ -15,37 +15,37 @@ topics:
   - Enterprise
   - Logging
 ---
-## Search query syntax
 
-Compose a search query from one or more key:value pairs separated by AND/OR logical operators.
+## 搜索查询语法
 
-Key            | Value
---------------:| --------------------------------------------------------
-`actor_id`     | ID of the user account that initiated the action
-`actor`        | Name of the user account that initiated the action
-`oauth_app_id` | ID of the OAuth application associated with the action
-`action`       | Name of the audited action
-`user_id`      | ID of the user affected by the action
-`user`         | Name of the user affected by the action
-`repo_id`      | ID of the repository affected by the action (if applicable)
-`repo`         | Name of the repository affected by the action (if applicable)
-`actor_ip`     | IP address from which the action was initiated
-`created_at`   | Time at which the action occurred
-`from`         | View from which the action was initiated
-`note`         | Miscellaneous event-specific information (in either plain text or JSON format)
-`org`          | Name of the organization affected by the action (if applicable)
-`org_id`       | ID of the organization affected by the action (if applicable)
+由一个或多个键值对（以 AND/OR 逻辑运算符分隔）构成一个搜索查询。
 
-For example, to see all actions that have affected the repository `octocat/Spoon-Knife` since the beginning of 2017:
+|              键 | 值                         |
+| --------------:| ------------------------- |
+|     `actor_id` | 发起操作的用户帐户的 ID             |
+|        `actor` | 发起操作的用户帐户的名称              |
+| `oauth_app_id` | 与操作相关联的 OAuth 应用程序的 ID    |
+|       `action` | 已审核操作的名称                  |
+|      `user_id` | 受操作影响的用户的 ID              |
+|           `用户` | 受操作影响的用户的名称               |
+|      `repo_id` | 受操作影响的仓库的 ID（若适用）         |
+|         `repo` | 受操作影响的仓库的名称（若适用）          |
+|     `actor_ip` | 发起操作的 IP 地址               |
+|   `created_at` | 操作发生的时间                   |
+|         `from` | 发起操作的视图                   |
+|         `note` | 事件特定的其他信息（采用纯文本或 JSON 格式） |
+|          `org` | 受操作影响的组织的名称（若适用）          |
+|       `org_id` | 受操作影响的组织的 ID（若适用）         |
+
+例如，要查看自 2017 年初开始影响仓库 `octocat/Spoon-Knife` 的所有操作：
 
   `repo:"octocat/Spoon-Knife" AND created_at:[2017-01-01 TO *]`
 
-For a full list of actions, see "[Audited actions](/admin/user-management/audited-actions)."
+有关操作的完整列表，请参阅“[审核的操作](/admin/user-management/audited-actions)”。
 
-## Searching the audit log
+## 搜索审核日志
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
-4. Type a search query.
-![Search query](/assets/images/enterprise/site-admin-settings/search-query.png)
+4. 输入搜索查询。 ![搜索查询](/assets/images/enterprise/site-admin-settings/search-query.png)

@@ -1,7 +1,6 @@
 ---
 title: GitHub 事件类型
 intro: '对于 {% data variables.product.prodname_dotcom %} 事件 API，了解每个事件类型、{% data variables.product.prodname_dotcom %} 上的触发操作以及每个事件的唯一属性。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types

@@ -1,7 +1,6 @@
 ---
 title: 将 Azure 订阅连接到您的企业
 intro: '您可以使用 Microsoft Enterprise 协议来启用并支付超过企业所含金额的 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 的使用。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -29,6 +28,12 @@ shortTitle: 连接 Azure 订阅
 1. 要登录到您的 Microsoft 帐户，请按照提示执行。
 1. 查看“请求的权限”提示。 如果您同意条款，请单击 **Accept（接受）**。
 1. 在“Select a subscription（选择订阅）”下，选择您想要连接到企业的 Azure 订阅 ID。
+
+   {% note %}
+
+   **Note:** {% data variables.product.company_short %}'s Subscription Permission Validation requests read-only access to display the list of available subscriptions. To select an Azure subscription, you must have owner permissions to the subscription. If the default tenant does not have the right permissions, you may need to specify a different tenant ID. For more information, see [Microsoft identity platform and OAuth 2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) in Microsoft Docs.
+
+   {% endnote %}
 1. 单击 **Connect（连接）**。
 
 ## 从企业帐户断开您的 Azure 订阅

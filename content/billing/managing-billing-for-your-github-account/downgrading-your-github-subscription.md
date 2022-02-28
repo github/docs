@@ -36,8 +36,8 @@ When you downgrade your user account or organization's subscription, pricing and
 
 If you downgrade your user account from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, the account will lose access to advanced code review tools on private repositories. {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. Under "Current plan", use the **Edit** drop-down and click **Downgrade to Free**.
   ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
 5. Read the information about the features your user account will no longer have access to on your next billing date, then click **I understand. Continue with downgrade**.
@@ -92,5 +92,4 @@ To reduce the number of paid seats your organization uses, you can remove member
 - "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"
 - "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
 - "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
-- "[Removing a payment method](/articles/removing-a-payment-method)"
 - "[About per-user pricing](/articles/about-per-user-pricing)"

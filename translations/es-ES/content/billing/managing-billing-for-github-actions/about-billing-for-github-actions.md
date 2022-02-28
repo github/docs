@@ -66,7 +66,7 @@ El almacenamiento que utilza un repositorio es el total del almacenamiento utili
 
 La cantidad de jobs que puedes ejecutar simultáneamente a través de todos los repositorios que pertenezcan a tu cuenta de usuario u organización dependerá de tu plan de GitHub. Para obtener más información, consulta la sección "[Facturación y límites de uso](/actions/reference/usage-limits-billing-and-administration)" para los ejecutores hospedados en {% data variables.product.prodname_dotcom %} y la sección "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para los límites de uso de los ejecutores auto-hospedados.
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Calcular los gastos por minuto y por almacenamiento
 
@@ -76,7 +76,7 @@ Al final de cada mes, {% data variables.product.prodname_dotcom %} calcula el co
 
 ### Ejemplo de cálculos de costo por minuto
 
-Por ejemplo, si tu organización utiliza {% data variables.product.prodname_team %} y permite gastos ilimitados, utilizar 15,000 minutos podría tener un costo extra de almacenamiento y minutos de $56 USD dependiendo de los sistemas operativos que se utilizan para ejecutar jobs.
+Por ejemplo, si tu organización utiliza {% data variables.product.prodname_team %} y permite gastos ilimitados, utilizar 5,000 minutos podría tener un costo extra de almacenamiento y minutos de $56 USD dependiendo de los sistemas operativos que se utilizan para ejecutar jobs.
 
 - 5,000 minutos (3,000 de Linux y 2,000 de Windows) = $56 USD ($24 USD + $32 USD).
   - 3,000 minutos de Linux a $0.008 USD por minuto = $24 USD.

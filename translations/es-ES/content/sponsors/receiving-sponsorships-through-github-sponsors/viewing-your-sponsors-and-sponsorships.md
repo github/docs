@@ -1,6 +1,6 @@
 ---
-title: Viewing your sponsors and sponsorships
-intro: You can view and export detailed information and analytics about your sponsors and sponsorships.
+title: Ver tus patrocinadores y patrocinios
+intro: Puedes ver y exportar la información detallada y la analítica de tus patrocinadores y patrocinios.
 redirect_from:
   - /articles/viewing-your-sponsors-and-sponsorships
   - /github/supporting-the-open-source-community-with-github-sponsors/viewing-your-sponsors-and-sponsorships
@@ -11,55 +11,52 @@ type: how_to
 topics:
   - Open Source
   - Analytics
-shortTitle: View sponsors & sponsorships
+shortTitle: Visualizar patrocinadores & patrocinios
 ---
 
-## About sponsors and sponsorships
+## Acerca de los patrocinadores y los patrocinios
 
-You can view analytics on your current and past sponsorships, the payments you've received from sponsors, and events, such as cancellations and sponsor tier changes for your sponsorships. You can also view activity such as new sponsorships, changes to sponsorships, and canceled sponsorships. You can filter the list of activities by date. You can also export sponsorship data for the account you're viewing in CSV or JSON format.
+Puedes ver la analítica de tus patrocinios actuales y pasados, los pagos que has recibido de tus patrocinadores, y los eventos tales como las cancelaciones y cambios de nivel de patrocinio para tus patrocinios. También puedes ver la actividad tal como los nuevos patrocinios, cambios, y cancelaciones de los mismos. Puedes filtrar la lista de actividades por fecha. También puedes exportar datos del patrocinio en formato CSV o JSON para la cuenta que estás viendo.
 
-## About transaction metadata 
+## Acerca de los metadatos de las transacciones
 
-To track where your sponsorships are coming from, you can use custom URLs with metadata for your {% data variables.product.prodname_sponsors %} profile or checkout page. The metadata will be included in your transaction export in the metadata column. For more information about exporting transaction data, see "[Exporting your sponsorship data](#exporting-your-sponsorship-data)."
+Para rastrear de dónde vienen tus patrocinios, puedes utilizar las URL personalizadas con metadatos para tu perfil de {% data variables.product.prodname_sponsors %} o página de verificación. Los metadatos se incluirán en tu exportación de transacciones en la columna de metadatos. Para obtener más información sobre cómo exportar los datos de las transacciones, consulta la sección "[Exportar los datos de tus patrocinios](#exporting-your-sponsorship-data)".
 
-Metadata must use the `key=value` format and can be added to the end of these URLs.
+Los metadatos deben utilizar el formato `key=value` y se pueden agregar al final de estas URL.
 
-- Sponsored account profile: `https://github.com/sponsors/{account}`
-- Sponsorship checkout: `https://github.com/sponsors/{account}/sponsorships`
+- Perfil de cuenta patrocinada: `https://github.com/sponsors/{account}`
+- Verificación de patrocinio: `https://github.com/sponsors/{account}/sponsorships`
 
-The metadata will persist in the URL as a potential sponsor switches accounts to sponsor with, selects monthly or one-time payments, and chooses a different tier.
+Los metadatos persistirán en la URL conforme el patrocinador potencial cambie la cuenta con la cual patrocina, seleccione pagos mensuales o de una sola ocasión y elija un nivel diferente.
 
-### Syntax requirements
+### Requisitos de sintaxis
 
-Your metadata must meet the following requirements, which do not apply to any other URL parameters that are passed.
+Tus metadatos deben cumplir con los siguientes requisitos, los cuales no aplican a ningún otro parámetro de la URL que se pase.
 
-- Keys must be prefixed by `metadata_`, such as `metadata_campaign`. In your transaction export, the `metadata_` prefix will be removed from the key.
-- Keys and values must only contain alphanumeric values, dashes, or underscores. If non-accepted characters are passed in either keys or values, a 404 error will be presented.
-- Whitespaces are not allowed.
-- A maximum of **10** key-value pairs are accepted per request. If more are passed, only the first 10 will be saved.
-- A maximum of **25** characters per key are accepted. If more than that are passed, only the first 25 will be saved.
-- A maximum of **100** characters per value are accepted. If more than that are passed, only the first 100 will be saved.
+- Las llaves deben tener un prefijo de `metadata_`, tal como `metadata_campaign`. En tu exportación de transacciones, el prefijo `metadata_` se eliminará de la llave.
+- Las llaves y los valores solo deben contener valores alfanuméricos, diagonales o guiones bajos. Si se pasan caracteres inaceptables en cualquiera de las llaves o valores, se presentará un error 404.
+- No se permiten los espacios en blanco.
+- Se acepta un máximo de **10** por solicitud. Si se pasan más, solo se guardarán los primeros 10.
+- Se acepta un máximo de **25** caracteres por llave. Si se pasan más de estos, solo se guardarán los primeros 25.
+- Se acepta un máximo de **100** caracteres por valor. Si se pasan más, solo se guardarán los primeros 100.
 
-For example, you can use `https://github.com/sponsors/{account}?metadata_campaign=myblog` to track sponsorships that originate from your blog. `metadata_campaign` is the key and `myblog` is the value. In the metadata column of your transaction export, the key will be listed as `campaign`.
+Por ejemplo, puedes utilizar `https://github.com/sponsors/{account}?metadata_campaign=myblog` para rastrear los patrocinios que tienen origen en tu blog. `metadata_campaign` es la llave y `myblog` es el valor. En la columna de metadatos de tu exportación de transacciones, la llave se listará como `campaign`.
 
-## Viewing your sponsors and sponsorships
-
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-1. Optionally, to filter your sponsors by tier, use the **Filter** drop-down menu, click **Active tiers** or **Retired tiers**, and select a tier.
-  ![Drop-down menu to filter by tier](/assets/images/help/sponsors/filter-drop-down.png)
-
-## Viewing recent sponsorship activity
+## Ver tus patrocinadores y patrocinios
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.activity-tab %}
+1. Como alternativa, para filtrar los patrocinadores por nivel, utiliza el menú desplegable de **Filter** (Filtro), haz clic en **Active tiers** (Niveles activos) o **Retired tiers** (Niveles retirados) y selecciona un nivel. ![Menú desplegable para filtrar por nivel](/assets/images/help/sponsors/filter-drop-down.png)
 
-## Exporting your sponsorship data
-
-You can export your sponsorship transactions by month. {% data variables.product.company_short %} will send you an email with transaction data for all of your sponsors for the month you select. After the export is complete, you can export another month of data. You can export up to 10 sets of data per hour for any of your sponsored accounts.
+## Visualizar la actividad de patrocinio reciente
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.activity-tab %}
-1. Click {% octicon "download" aria-label="The download icon" %} **Export**.
-  ![Export button](/assets/images/help/sponsors/export-all.png)
-1. Choose a time frame and a format for the data you'd like to export, then click **Start export**.
-  ![Options for data export](/assets/images/help/sponsors/export-your-sponsors.png)
+
+## Exportar tus datos de patrocinio
+
+Puedes exportar tus transacciones de patrocinio mensualmente. {% data variables.product.company_short %} te enviará un correo electrónico con los datos de las transacciones de todos tus patrocinadores para el mes que selecciones. Después de que se complete la exportación, puedes exportar otor mes de datos. Puedes exportar hasta 10 conjuntos de datos por hora para cualquiera de tus cuentas patrocinadas.
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.activity-tab %}
+1. Da clic en {% octicon "download" aria-label="The download icon" %} **Exportar**. ![Botón de exportar](/assets/images/help/sponsors/export-all.png)
+1. Elige un periodo de tiempo y un formato para los datos que te gustaría exportar y luego haz clic en **Iniciar exportación**. ![Opciones para exportar datos](/assets/images/help/sponsors/export-your-sponsors.png)

@@ -1,6 +1,6 @@
 ---
-title: Guides
-intro: 'Learn about getting started with GraphQL, migrating from REST to GraphQL, and how to use the GitHub GraphQL API for a variety of tasks.'
+title: ガイド
+intro: GraphQLの始め方、RESTからGraphQLへの移行、様々なタスクでのGitHub GraphQL APIの利用方法について学んでください。
 redirect_from:
   - /v4/guides
 versions:

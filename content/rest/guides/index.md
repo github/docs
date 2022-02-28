@@ -30,4 +30,4 @@ authentication, to manipulating results, to combining results with other apps.
 Every tutorial here will have a project, and every project will be
 stored and documented in our public
 [platform-samples](https://github.com/github/platform-samples) repository.
-![The Electrocat](/assets/images/electrocat.png)
+![The Octocat](/assets/images/electrocat.png)

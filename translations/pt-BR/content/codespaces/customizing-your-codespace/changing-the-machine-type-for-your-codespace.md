@@ -1,7 +1,7 @@
 ---
-title: Changing the machine type for your codespace
-shortTitle: Change the machine type
-intro: 'You can change the type of machine that''s running your codespace, so that you''re using resources appropriate for work you''re doing.'
+title: Alterando o tipo de máquina para seu codespace
+shortTitle: Alterar o tipo da máquina
+intro: Você pode alterar o tipo de máquina que está executando o seu codespace para você usar os recursos apropriados para o trabalho que está fazendo.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -12,52 +12,55 @@ topics:
   - Codespaces
 ---
 
-## About machine types
+## Sobre os tipos de máquina
 
 {% note %}
 
-**Note:** You can only select or change the machine type if you are a member of an organization using {% data variables.product.prodname_codespaces %} and are creating a codespace on a repository owned by that organization.
+**Observação:** Você só pode selecionar ou alterar o tipo de máquina se você for integrante de uma organização usando {% data variables.product.prodname_codespaces %} e estiver criando um codespace em um repositório pertencente a essa organização.
 
 {% endnote %}
 
 {% data reusables.codespaces.codespaces-machine-types %}
 
-You can choose a machine type either when you create a codespace or you can change the machine type at any time after you've created a codespace. 
+Você pode escolher um tipo de máquina ao criar um codespace ou você pode mudar o tipo de máquina a qualquer momento depois de criar um codespace.
 
-For information on choosing a machine type when you create a codespace, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)." 
-For information on changing the machine type within {% data variables.product.prodname_vscode %}, see "[Using {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#changing-the-machine-type-in-visual-studio-code)."
+Para obter informações sobre como escolher um tipo de máquina ao criar um codespace, consulte "[Criando um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)". Para informações sobre como mudar o tipo de máquina em {% data variables.product.prodname_vscode %}, consulte "[Usando {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#changing-the-machine-type-in-visual-studio-code)."
 
-## Changing the machine type in {% data variables.product.prodname_dotcom %}
+## Alterar o tipo da máquina em {% data variables.product.prodname_dotcom %}
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
-   The current machine type for each of your codespaces is displayed.
+   O tipo de máquina atual para cada um dos seus codespaces é exibido.
 
-   !['Your codespaces' list](/assets/images/help/codespaces/your-codespaces-list.png)
+   ![Lista "Seus codespaces"](/assets/images/help/codespaces/your-codespaces-list.png)
 
-1. Click the ellipsis (**...**) to the right of the codespace you want to modify.
-1. Click **Change machine type**.
+1. Clique nas reticências (**...**) à direita do codespace que você deseja modificar.
+1. Clique **Alterar tipo de máquina**.
 
-   !['Change machine type' menu option](/assets/images/help/codespaces/change-machine-type-menu-option.png)
+   ![Opção de menu '"Alterar tipo de máquina"](/assets/images/help/codespaces/change-machine-type-menu-option.png)
 
-1. Choose the required machine type.
+1. Se vários tipos de máquina estiverem disponíveis para seu codespace, escolha o tipo de máquina que você deseja usar.
 
-2. Click **Update codespace**. 
+   ![Caixa de diálogo que mostra tipos de máquinas disponíveis para escolher](/assets/images/help/codespaces/change-machine-type-choice.png)
 
-   The change will take effect the next time your codespace restarts.
+   {% data reusables.codespaces.codespaces-machine-type-availability %}
 
-## Force an immediate update of a currently running codespace
+2. Clique **Atualizar o codespace**.
 
-If you change the machine type of a codespace you are currently using, and you want to apply the changes immediately, you can force the codespace to restart.
+   A alteração entrará em vigor na próxima vez que seu codespace for reiniciado.
 
-1. At the bottom left of your codespace window, click **{% data variables.product.prodname_codespaces %}**. 
+## Forçar uma atualização imediata de um codespace em execução no momento
 
-   ![Click '{% data variables.product.prodname_codespaces %}'](/assets/images/help/codespaces/codespaces-button.png)
+Se você mudar o tipo de máquina de um codespace que você está usando atualmente desejar aplicar as alterações imediatamente, você poderá forçar a reinicialização do codespace.
 
-1. From the options that are displayed at the top of the page select **Codespaces: Stop Current Codespace**.
+1. No canto inferior esquerdo da janela do seu codespace, clique em **{% data variables.product.prodname_codespaces %}**.
 
-   !['Suspend Current Codespace' option](/assets/images/help/codespaces/suspend-current-codespace.png)
+   ![Clique em "{% data variables.product.prodname_codespaces %}"](/assets/images/help/codespaces/codespaces-button.png)
 
-1. After the codespace is stopped, click **Restart codespace**.
+1. Entre opções que são exibidas na parte superior da página, selecione **Codespaces: Parar os codespaces atuais**.
 
-   ![Click 'Resume'](/assets/images/help/codespaces/resume-codespace.png)
+   ![Opção "Suspender codespace atual"](/assets/images/help/codespaces/suspend-current-codespace.png)
+
+1. Após a interrupção do codespace, clique em **Reiniciar o codespace**.
+
+   ![Clique em "Retomar"](/assets/images/help/codespaces/resume-codespace.png)

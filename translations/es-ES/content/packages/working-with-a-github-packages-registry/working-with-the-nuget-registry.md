@@ -231,6 +231,8 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
 
 Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
 
+If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.
+
 ## Further reading
 
-- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

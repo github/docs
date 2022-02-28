@@ -40,6 +40,12 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 
 {% data reusables.dotcom_billing.pricing_cal %}
 
+### Billing for {% data variables.product.prodname_codespaces %} prebuilds
+
+{% data reusables.codespaces.prebuilds-beta-note %}
+
+{% data reusables.codespaces.billing-for-prebuilds %}
+
 ## Setting a spending limit
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
@@ -47,6 +53,12 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)”。
 
 {% data reusables.codespaces.exporting-changes %}
+
+## Limiting the choice of machine types
+
+The type of machine a user chooses when they create a codespace affects the per-minute charge for that codespace, as shown above.
+
+Organization owners can create a policy to restrict the machine types that are available to users. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
 ## How billing is handled for forked repositories
 

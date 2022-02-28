@@ -1,5 +1,5 @@
 ---
-title: Guide to Submitting a DMCA Takedown Notice
+title: 提交 DMCA 删除通知的指南
 redirect_from:
   - /dmca-notice-how-to
   - /articles/dmca-notice-how-to
@@ -11,84 +11,83 @@ topics:
   - Legal
 ---
 
-This guide describes the information that GitHub needs in order to process a DMCA takedown request. If you have more general questions about what the DMCA is or how GitHub processes DMCA takedown requests, please review our [DMCA Takedown Policy](/articles/dmca-takedown-policy).
+本指南介绍 GitHub 处理 DMCA 删除请求所需的信息。 如果您对 DMCA 的概念或 GitHub 处理 DMCA 删除请求的方式有更多一般性疑问，请参阅我们的 [DMCA 删除政策](/articles/dmca-takedown-policy)。
 
-Due to the type of content GitHub hosts (mostly software code) and the way that content is managed (with Git), we need complaints to be as specific as possible. These guidelines are designed to make the processing of alleged infringement notices as straightforward as possible. Our form of notice set forth below is consistent with the form suggested by the DMCA statute, which can be found at the U.S. Copyright Office's official website: <https://www.copyright.gov>.
+鉴于 GitHub 托管内容的类型（主要是软件代码）以及管理内容的方式（使用 Git），我们需要投诉内容尽可能具体。 这些指南旨在尽可能简单明了地处理指控侵权的通告。 下述通告形式与 DMCA 法规建议的形式一致，您可以登录美国版权局官方网站：<https://www.copyright.gov> 查看该法规。 版权局官方网站：<https://www.copyright.gov>。
 
-As with all legal matters, it is always best to consult with a professional about your specific questions or situation. We strongly encourage you to do so before taking any action that might impact your rights. This guide isn't legal advice and shouldn't be taken as such.
+与所有法律事务一样，就您的具体问题或情况咨询专业人员始终是最好的方式。 我们强烈建议您在采取任何可能影响您权利的行动之前这样做。 本指南不是法律意见，也不应作为法律意见。
 
-## Before You Start
+## 开始前
 
-***Tell the Truth.*** The DMCA requires that you swear to the facts in your copyright complaint *under penalty of perjury*. It is a federal crime to intentionally lie in a sworn declaration. (*See* [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Submitting false information could also result in civil liability — that is, you could get sued for money damages. The DMCA itself [provides for damages](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations) against any person who knowingly materially misrepresents that material or activity is infringing.
+***说实话。***DMCA 要求您对版权投诉中陈述的事实宣誓，捏造事实会*受到伪证处罚*。 在宣誓声明中故意说谎是一种联邦罪行 。 （*请参阅* [美国 法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） （*请参阅* [美国法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） 提交虚假信息还可能导致民事责任，也就是说，可能被诉经济赔偿。 DMCA 本身就针对任何故意捏造材料或活动侵权事实的人[规定了赔偿条款](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations)。
 
-***Investigate.*** Millions of users and organizations pour their hearts and souls into the projects they create and contribute to on GitHub. Filing a DMCA complaint against such a project is a serious legal allegation that carries real consequences for real people. Because of that, we ask that you conduct a thorough investigation and consult with an attorney before submitting a takedown to make sure that the use isn't actually permissible.
+***调查。***数以百万计的用户为自己在 GitHub 上创建和参与的项目倾注了心血。 针对此类项目提出 DMCA 投诉是一种严重的法律指控，会对项目背后真实的人造成真正的后果。 因此，我们要求您在提交删除通知之前进行彻底的调查并咨询律师，以确保您投诉的确实是不允许的使用。
 
-***Ask Nicely First.*** A great first step before sending us a takedown notice is to try contacting the user directly. They may have listed contact information on their public profile page or in the repository's README, or you could get in touch by opening an issue or pull request on the repository. This is not strictly required, but it is classy.
+***先问清。***向我们发送删除通知之前尝试直接联系用户，是一个良好的开端。 他们可能在其公开的个人资料页面上或仓库的自述文件中列出了联系信息，您也可以通过在仓库中打开议题或拉取请求，与他们取得联系。 这不是强制要求，但卓有成效。
 
-***Send In The Correct Request.*** We can only accept DMCA takedown notices for works that are protected by copyright, and that identify a specific copyrightable work. If you have a complaint about trademark abuse, please see our [trademark policy](/articles/github-trademark-policy/). If you wish to remove sensitive data such as passwords, please see our [policy on sensitive data](/articles/github-sensitive-data-removal-policy/). If you are dealing with defamation or other abusive behavior, please see our [Community Guidelines](/articles/github-community-guidelines/).
+***发送正确的请求。***我们只接受针对受版权保护的作品并且标识出具体版权作品的 DMCA 删除通知。 如果您要投诉商标滥用行为，请参阅我们的[商标政策](/articles/github-trademark-policy/)。 如果您要删除密码之类的敏感数据，请参阅我们的[敏感数据政策](/articles/github-sensitive-data-removal-policy/)。 如果您要处理诽谤或其他辱骂行为，请参阅我们的[社区指导方针](/articles/github-community-guidelines/)。
 
-***Code Is Different From Other Creative Content.*** GitHub is built for collaboration on software code. This makes identifying a valid copyright infringement more complicated than it might otherwise be for, say, photos, music, or videos.
+***代码不同于其他创意内容。***GitHub 是软件代码协作的平台。 因此，识别这里的有效版权侵犯行为，比识别照片、音乐或视频方面的版权侵犯行为要复杂得多。
 
-There are a number of reasons why code is different from other creative content. For instance:
+代码不同于其他创意内容的原因有很多。 例如：
 
-- A repository may include bits and pieces of code from many different people, but only one file or even a sub-routine within a file infringes your copyrights.
-- Code mixes functionality with creative expression, but copyright only protects the expressive elements, not the parts that are functional.
-- There are often licenses to consider. Just because a piece of code has a copyright notice does not necessarily mean that it is infringing. It is possible that the code is being used in accordance with an open-source license.
-- A particular use may be [fair-use](https://www.lumendatabase.org/topics/22) if it only uses a small amount of copyrighted content, uses that content in a transformative way, uses it for educational purposes, or some combination of the above. Because code naturally lends itself to such uses, each use case is different and must be considered separately.
-- Code may be alleged to infringe in many different ways, requiring detailed explanations and identifications of works.
+- 仓库可能包含来自许多不同用户的零碎代码，但可能只有一个文件，甚至文件中的一个子例程侵犯了您的版权。
+- 代码结合了功能和创意表达，但版权只保护表达元素，而不保护功能部分。
+- 通常要考虑许可。 仅仅因为一段有版权声明的代码，不一定意味着侵权。 因为该代码有可能是在开源许可下使用的。
+- 如果特定使用符合以下条件，可能属于[合理使用](https://www.lumendatabase.org/topics/22)：只使用少量版权内容、以变换方式使用内容、用于教育目的或以上条件的某些组合。 由于代码本身适合于这些用途，但每个用例都有所不同，因此必须单独考虑。
+- 代码可能被控以许多不同的方式侵权，因此需要对作品进行详细的说明和识别。
 
-This list isn't exhaustive, which is why speaking to a legal professional about your proposed complaint is doubly important when dealing with code.
+此列表并不详尽，因此在提出针对代码的投诉之前，请咨询法律专业人士，这一点特别重要。
 
-***No Bots.*** You should have a trained professional evaluate the facts of every takedown notice you send. If you are outsourcing your efforts to a third party, make sure you know how they operate, and make sure they are not using automated bots to submit complaints in bulk. These complaints are often invalid and processing them results in needlessly taking down projects!
+***不要使用自动程序。***应该让训练有素的专业人员来评估您发送的每个删除通知中的事实。 如果您将工作外包给第三方，请务必了解他们的运作方式，确保他们不使用自动程序来批量提交投诉。 这些投诉往往是无效的，因为处理它们会对项目造成不必要的中断！
 
-***Matters of Copyright Are Hard.*** It can be very difficult to determine whether or not a particular work is protected by copyright. For example, facts (including data) are generally not copyrightable. Words and short phrases are generally not copyrightable. URLs and domain names are generally not copyrightable. Since you can only use the DMCA process to target content that is protected by copyright, you should speak with a lawyer if you have questions about whether or not your content is protectable.
+***版权问题难以确定。***确定特定作品是否受版权保护可能很难。 例如，fact（包括数据）通常不受版权保护。 字词短语通常不受版权保护。 URL 和域名通常不受版权保护。 因为您只能使用 DMCA 流程来处理受版权保护的内容，因此，如果您对内容是否受保护存有疑问，应咨询律师。
 
-***You May Receive a Counter Notice.*** Any user affected by your takedown notice may decide to submit a [counter notice](/articles/guide-to-submitting-a-dmca-counter-notice). If they do, we will re-enable their content within 10-14 days unless you notify us that you have initiated a legal action seeking to restrain the user from engaging in infringing activity relating to the content on GitHub.
+***您可能会收到反通知。***任何受您删除通知影响的用户可自行决定提交[反通知](/articles/guide-to-submitting-a-dmca-counter-notice)。 如果他们这样做，我们将在 10-14 天内重新启用其内容，除非您通知我们，您已采取法律行动以求制止用户从事与 GitHub 上的内容有关的侵权活动。
 
-***Your Complaint Will Be Published.*** As noted in our [DMCA Takedown Policy](/articles/dmca-takedown-policy#d-transparency), after redacting personal information, we publish all complete and actionable takedown notices at <https://github.com/github/dmca>.
+***您的投诉将被公布。***如我们的 [DMCA 删除政策](/articles/dmca-takedown-policy#d-transparency)所述，在删节个人信息后，我们将在 <https://github.com/github/dmca> 上发布所有完整、有效的删除通知。
 
-***GitHub Isn't The Judge.***
-GitHub exercises little discretion in the process other than determining whether the notices meet the minimum requirements of the DMCA. It is up to the parties (and their lawyers) to evaluate the merit of their claims, bearing in mind that notices must be made under penalty of perjury.
+***GitHub 不是法官。***除了确定通知是否符合 DMCA 的最低要求外，GitHub 在此过程中几乎不行使酌处权。 当事方（及其律师）应负责评估其投诉的合理性，并注意，此类通知受伪证处罚条款约束。
 
-## Your Complaint Must ...
+## 您的投诉必须...
 
-1. **Include the following statement: "I have read and understand GitHub's Guide to Filing a DMCA Notice."** We won't refuse to process an otherwise complete complaint if you don't include this statement. But we'll know that you haven't read these guidelines and may ask you to go back and do so.
+1. **包括以下声明：“我已阅读并理解 GitHub 的《提交 DMCA 通知指南》。”**如果您的投诉未包括此声明，但其他内容完整，我们不会拒绝处理。 但我们知道您尚未阅读这些指南后，可能会要求您先完成这一步。
 
-2. **Identify the copyrighted work you believe has been infringed.** This information is important because it helps the affected user evaluate your claim and give them the ability to compare your work to theirs. The specificity of your identification will depend on the nature of the work you believe has been infringed. If you have published your work, you might be able to just link back to a web page where it lives. If it is proprietary and not published, you might describe it and explain that it is proprietary. If you have registered it with the Copyright Office, you should include the registration number. If you are alleging that the hosted content is a direct, literal copy of your work, you can also just explain that fact.
+2. **标识您认为被侵犯版权的作品。**此信息很重要，因为它有助于受影响的用户评估您的主张，使他们能够将您的作品与他们的作品进行比较。 标识的具体性将取决于您认为被侵权的作品的性质。 如果您已发布自己的作品，则只需链接到其所在的网页。 如果它是尚未发布的专有信息，您可以对其进行描述并说明它是专有信息。 如果已在版权局注册它，则应提供注册号。 如果声称托管内容完全是直接复制您的作品，您也可以只阐述这一事实。
 
-3. **Identify the material that you allege is infringing the copyrighted work listed in item #2, above.** It is important to be as specific as possible in your identification. This identification needs to be reasonably sufficient to permit GitHub to locate the material. At a minimum, this means that you should include the URL to the material allegedly infringing your copyright. If you allege that less than a whole repository infringes, identify the specific file(s) or line numbers within a file that you allege infringe. If you allege that all of the content at a URL infringes, please be explicit about that as well. 
-   - Please note that GitHub will *not* automatically disable [forks](/articles/dmca-takedown-policy#b-what-about-forks-or-whats-a-fork) when disabling a parent repository. If you have investigated and analyzed the forks of a repository and believe that they are also infringing, please explicitly identify each allegedly infringing fork. Please also confirm that you have investigated each individual case and that your sworn statements apply to each identified fork. In rare cases, you may be alleging copyright infringement in a full repository that is actively being forked. If at the time that you submitted your notice, you identified all existing forks of that repository as allegedly infringing, we would process a valid claim against all forks in that network at the time we process the notice. We would do this given the likelihood that all newly created forks would contain the same content. In addition, if the reported network that contains the allegedly infringing content is larger than one hundred (100) repositories and thus would be difficult to review in its entirety, we may consider disabling the entire network if you state in your notice that, "Based on the representative number of forks you have reviewed, I believe that all or most of the forks are infringing to the same extent as the parent repository." Your sworn statement would apply to this statement.
+3. **标识您声称侵犯了上述第 2 条中所列版权作品的材料。**您的标识应尽可能具体，这非常重要。 此标识必须足以让 GitHub 找到所指材料。 这意味着至少应包括涉嫌侵犯版权的材料的 URL。 如果您声称并非整个仓库侵权，则应标识涉嫌侵权的具体文件或文件中的具体行号。 如果您声称 URL 上的所有内容都侵权，也请明确说明。
+   - 请注意，GitHub 禁用父仓库时*不会*自动禁用[复刻](/articles/dmca-takedown-policy#b-what-about-forks-or-whats-a-fork)。 如果您已调查和分析了仓库的复刻，并且认为它们也涉嫌侵权，请明确标识每个涉嫌侵权的复刻。 另请确认，您已逐个调查每个所标识的复刻，并且您的宣誓声明适用于每个所标识的复刻。 在极少数情况下，您可能在正被复刻的完整仓库中指称侵权。 如果您在提交通知时发现该仓库的所有现有复刻涉嫌侵权，我们将在处理通知时处理对该网络中所有复刻的有效索赔。 我们这样做是考虑到所有新建复刻都可能包含相同的内容。 此外，如果所报告的包含涉嫌侵权内容的网络大于一百 (100) 个仓库，从而很难全面审查，并且您在通知中指出：“根据您审查的代表性复刻数量，我相信所有或大多数复刻的侵权程度与父仓库相同”，则我们可能会考虑禁用整个网络。 你的宣誓声明将适用于此声明。
 
-4. **Explain what the affected user would need to do in order to remedy the infringement.** Again, specificity is important. When we pass your complaint along to the user, this will tell them what they need to do in order to avoid having the rest of their content disabled. Does the user just need to add a statement of attribution? Do they need to delete certain lines within their code, or entire files? Of course, we understand that in some cases, all of a user's content may be alleged to infringe and there's nothing they could do short of deleting it all. If that's the case, please make that clear as well.
+4. **说明侵权用户需要采取哪些补救措施。**同样，具体性很重要。 我们将您的投诉传达给用户时，这些说明将告诉他们需要采取哪些措施以避免其余内容被禁用。 用户只需要添加归属声明？ 他们需要删除代码中的某些行，或者需要删除整个文件？ 当然，我们明白，在某些情况下，用户的所有内容都涉嫌侵权，除了全部删除之外，别无他法。 如果是这种情况，也请明确说明。
 
-5. **Provide your contact information.** Include your email address, name, telephone number and physical address.
+5. **提供您的联系信息。**包括您的电子邮件地址、姓名、电话号码和实际地址。
 
-6. **Provide contact information, if you know it, for the alleged infringer.** Usually this will be satisfied by providing the GitHub username associated with the allegedly infringing content. But there may be cases where you have additional knowledge about the alleged infringer. If so, please share that information with us.
+6. **提供涉嫌侵权者的联系信息（如果您知道）。**一般通过提供与涉嫌侵权内容相关联的 GitHub 用户名来满足这一要求。 但在某些情况下，您可能对涉嫌侵权者有更多了解。 如果是，请与我们分享这些信息。
 
-7. **Include the following statement: "I have a good faith belief that use of the copyrighted materials described above on the infringing web pages is not authorized by the copyright owner, or its agent, or the law. I have taken fair use into consideration."**
+7. **包括以下声明：“我坚信，在侵权网页上使用上述版权材料，未经版权所有者、其代理人或法律的授权。 我已考虑合理使用的情况。”**
 
-8. **Also include the following statement: "I swear, under penalty of perjury, that the information in this notification is accurate and that I am the copyright owner, or am authorized to act on behalf of the owner, of an exclusive right that is allegedly infringed."**
+8. **还应包括以下声明：“本人谨此宣誓，本通知中的信息准确无误，对于涉嫌受到侵犯之专有权，本人是版权所有者或所有者的授权代表，如有不实，愿接受伪证处罚 。”**
 
-9. **Include your physical or electronic signature.**
+9. **提供您的手写或电子签名。**
 
-## Complaints about Anti-Circumvention Technology
+## 有关反规避技术措施的投诉
 
-The Copyright Act also prohibits the circumvention of technological measures that effectively control access to works protected by copyright. If you believe that content hosted on GitHub violates this prohibition, please send us a report through our {% data variables.contact.contact_dmca %}. A circumvention claim must include the following details about the technical measures in place and the manner in which the accused project circumvents them. Specifically, the notice to GitHub must include detailed statements that describe:
-1. What the technical measures are;
-2. How they effectively control access to the copyrighted material; and 
-3. How the accused project is designed to circumvent their previously described technological protection measures.
+版权法还禁止规避用于有效控制受版权保护作品之访问权限的技术措施。 如果您认为 GitHub 上托管的内容违反了此禁令，请通过我们的 {% data variables.contact.contact_dmca %} 向我们发送报告。 规避索赔必须包括以下关于技术措施以及被告项目规避这些措施的方式的详细信息。 具体而言，给 GitHub 的通知必须包括详细的说明，描述：
+1. 技术措施是什么；
+2. 它们如何有效控制对受版权保护材料的访问；以及
+3. 被告项目是如何设计来规避他们以前描述的技术保护措施的。
 
-## How to Submit Your Complaint
+## 如果提交投诉
 
-The fastest way to get a response is to enter your information and answer all the questions on our {% data variables.contact.contact_dmca %}.
+得到回复的最快方式是在我们的 {% data variables.contact.contact_dmca %} 上输入您的信息并回答所有问题。
 
-You can also send an email notification to <copyright@github.com>. You may include an attachment if you like, but please also include a plain-text version of your letter in the body of your message.
+您也可以发送电子邮件通知到 <copyright@github.com>。 您可以包含附件（如果您愿意），但在邮件正文中也应包含来函的纯文本版本。
 
-If you must send your notice by physical mail, you can do that too, but it will take *substantially* longer for us to receive and respond to it. Notices we receive via plain-text email have a much faster turnaround than PDF attachments or physical mail. If you still wish to mail us your notice, our physical address is:
+如果非要通过实物邮件发送通知，也没问题，但我们接收和回复通知的时间会*大大*延长。 接收纯文本电子邮件通知比接收 PDF 附件或实物邮件要快得多。 如果您仍希望通过邮寄方式发送通知，我们的实际地址是：
 
 ```
 GitHub, Inc
-Attn: DMCA Agent
+收件人：DMCA 代理
 88 Colin P Kelly Jr St
 San Francisco, CA. 94107
 ```

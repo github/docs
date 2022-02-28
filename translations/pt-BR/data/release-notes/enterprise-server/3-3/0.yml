@@ -1,23 +1,23 @@
 ---
 date: '2021-12-07'
-intro: For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."<br><br>**Note:** We are aware of an issue where {% data variables.product.prodname_actions %} may fail to start automatically following the upgrade to {% data variables.product.prodname_ghe_server %} 3.3. To resolve, connect to the appliance via SSH and run the `ghe-actions-start` command.
+intro: Para obter instruções de atualização, consulte "[Atualizando {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server).<br><br>**Observação:** Estamos cientes de um problema em que {% data variables.product.prodname_actions %} pode não começar automaticamente seguindo a atualização para {% data variables.product.prodname_ghe_server %} 3.3. Para resolver, conecte-se ao dispositivo via SSH e execute o comando `ghe-actions-start`.
 sections:
   features:
     - 
-      heading: Security Manager role
+      heading: Função do gerente de segurança
       notes:
         - |
-          Organization owners can now grant teams the access to manage security alerts and settings on their repositories. The "security manager" role can be applied to any team and grants the team's members the following access:
+          Os proprietários da organização agora podem conceder às equipes o acesso para gerenciar alertas de segurança e configurações de seus repositórios. A função "gerente de segurança" pode ser aplicada a qualquer equipe e concede aos integrantes da equipe o seguinte acesso:
 
-          - Read access on all repositories in the organization.
-          - Write access on all security alerts in the organization.
-          - Access to the organization-level security tab.
-          - Write access on security settings at the organization level.
-          - Write access on security settings at the repository level.
+          - Acesso de leitura em todos os repositórios da organização.
+          - Acesso de gravação em todos os alertas de segurança na organização.
+          - Acesso na aba de segurança a nível da organização.
+          - Acesso de gravação nas configurações de segurança no nível da organização.
+          - Acesso de gravação nas configurações de segurança no nível de repositório.
 
-          For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+          Para obter mais informações, consulte "[Gerenciando gerentes de segurança na sua organização](/organizations/managing-peopleles-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
     - 
-      heading: 'Ephemeral self-hosted runners for GitHub Actions & new webhooks for auto-scaling'
+      heading: 'Executores efêmeros auto-hospedados no GitHub Actions e novos webhooks para dimensionamento automático'
       notes:
         - |
           {% data variables.product.prodname_actions %} now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
@@ -44,7 +44,7 @@ sections:
         - '{% data variables.product.prodname_ghe_server %} 3.3 includes the public beta of a repository cache for geographically-distributed teams and CI infrastructure. The repository cache keeps a read-only copy of your repositories available in additional geographies, which prevents clients from downloading duplicate Git content from your primary instance. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
         - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the user impersonation process. An impersonation session now requires a justification for the impersonation, actions are recorded in the audit log as being performed as an impersonated user, and the user who is impersonated will receive an email notification that they have been impersonated by an enterprise administrator. For more information, see "[Impersonating a user](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
         - A new stream processing service has been added to facilitate the growing set of events that are published to the audit log, including events associated with Git and {% data variables.product.prodname_actions %} activity.
-        - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features. [Updated 2021-12-09]
+        - O registro de conexão de dados {% data variables.product.prodname_github_connect %} agora inclui uma lista de funcionalidades de {% data variables.product.prodname_github_connect %} habilitadas. [Atualizado em 2021-12-09]
     - 
       heading: Token Changes
       notes:
@@ -113,8 +113,8 @@ sections:
           * A workflow job is prepared. Importantly, this log includes the list of secrets that were provided to the runner.
 
           For more information, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#auditing-github-actions-events)."
-        - '{% data variables.product.prodname_ghe_server %} 3.3 contains performance improvements for job concurrency with {% data variables.product.prodname_actions %}. For more information about the new performance targets for a range of CPU and memory configurations, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."'
-        - To mitigate insider man in the middle attacks when using actions resolved through {% data variables.product.prodname_github_connect %} to {% data variables.product.prodname_dotcom_the_website %} from {% data variables.product.prodname_ghe_server %}, the actions namespace (`owner/name`) is retired on use. Retiring the namespace prevents that namespace from being created on your {% data variables.product.prodname_ghe_server %} instance, and ensures all workflows referencing the action will download it from {% data variables.product.prodname_dotcom_the_website %}.
+        - '{% data variables.product.prodname_ghe_server %} 3.3 contém melhorias de desempenho para a simultaneidade de trabalho com {% data variables.product.prodname_actions %}. Para mais informações sobre os novos objetivos de desempenho em uma variedade de configurações de CPU e memória, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."'
+        - Para mitigar as pessoas com informações privilegiadas nos ataques de intermediários ao usar ações resolvidas por meio de {% data variables.product.prodname_github_connect %} para {% data variables.product.prodname_dotcom_the_website %} de {% data variables.product.prodname_ghe_server %}, o namespace das ações (`proprietário/nome`) é desativado ao usar. A remoção do namespace impede que esse namespace seja criado na sua instância de {% data variables.product.prodname_ghe_server %} e garante que todos os fluxos de trabalho referenciados pela ação o farão o download de {% data variables.product.prodname_dotcom_the_website %}.
     - 
       heading: 'GitHub Packages changes'
       notes:
@@ -140,7 +140,7 @@ sections:
       notes:
         - Most REST API previews have graduated and are now an official part of the API. Preview headers are no longer required for most REST API endpoints, but will still function as expected if you specify a graduated preview in the `Accept` header of a request. For previews that still require specifying the preview in the `Accept` header of a request, see "[API previews](/rest/overview/api-previews)."
         - 'You can now use the REST API to configure custom autolinks to external resources. The REST API now provides beta `GET`/`POST`/`DELETE` endpoints which you can use to view, add, or delete custom autolinks associated with a repository. For more information, see "[Autolinks](/rest/reference/repos#autolinks)."'
-        - 'You can now use the REST API to sync a forked repository with its upstream repository. For more information, see "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" in the REST API documentation.'
+        - 'Agora você pode usar a API REST para sincronizar um repositório bifurcado com o seu repositório upstream. Para obter mais informações, consulte "[Branches](/rest/reference/branches#sync-a-fork-branch-with-the-upstream-repository)" na documentação da API REST.'
         - 'Enterprise administrators on GitHub Enterprise Server can now use the REST API to enable or disable Git LFS for a repository. For more information, see "[Repositories](/rest/reference/repos#git-lfs)."'
         - 'You can now use the REST API to query the audit log for an enterprise. While audit log forwarding provides the ability to retain and analyze data with your own toolkit and determine patterns over time, the new endpoint can help you perform limited analysis on recent events. For more information, see "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)" in the REST API documentation.'
         - GitHub App user-to-server API requests can now read public resources using the REST API. This includes, for example, the ability to list a public repository's issues and pull requests, and to access a public repository's comments and content.
@@ -160,7 +160,7 @@ sections:
   #bugs:
   #- PLACEHOLDER
   known_issues:
-    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
+    - Após a atualização para {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} pode não ser iniciado automaticamente. Para resolver esse problema, conecte-se ao dispositivo via SSH e execute o comando `ghe-actions-start`.
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.
     - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
@@ -168,6 +168,7 @@ sections:
     - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - 'As configurações de armazenamento de {% data variables.product.prodname_actions %} não podem ser validadas e salvas no {% data variables.enterprise.management_console %} quando "Forçar estilo de caminho" for selecionado e deverão ser definidas com a ferramenta de linha de comando `ghe-actions-precheck`.'
   deprecations:
     - 
       heading: Deprecation of GitHub Enterprise Server 2.22

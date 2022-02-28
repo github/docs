@@ -1,6 +1,6 @@
 ---
-title: Moving assigned issues on project boards
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically move an issue to a specific column on a project board when the issue is assigned.'
+title: Transferir problemas atribuídos em quadros de projeto
+intro: 'Você pode usar {% data variables.product.prodname_actions %} para transferir automaticamente um problema para uma coluna específica no quadro de um projeto quando o problema for atribuído.'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
@@ -12,24 +12,24 @@ type: tutorial
 topics:
   - Workflows
   - Project management
-shortTitle: Move assigned issues
+shortTitle: Mover problemas atribuídos
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## Introdução
 
-This tutorial demonstrates how to use the [`alex-page/github-project-automation-plus` action](https://github.com/marketplace/actions/github-project-automation) to automatically move an issue to a specific column on a project board when the issue is assigned. For example, when an issue is assigned, you can move it into the `In Progress` column your project board.
+Este tutorial demonstra como usar a ação [`alex-page/github-project-automation-plus`](https://github.com/marketplace/actions/github-project-automation) para transferir automaticamente um problema para uma coluna específica em um quadro de projeto quando o problema for atribuído. Por exemplo, quando um problema é atribuído, você pode transferi-lo para a coluna `em andamento` do seu quadro de projeto.
 
-In the tutorial, you will first make a workflow file that uses the [`alex-page/github-project-automation-plus` action](https://github.com/marketplace/actions/github-project-automation). Then, you will customize the workflow to suit your needs.
+No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a ação [`alex-page/github-project-automation-plus`](https://github.com/marketplace/actions/github-project-automation). Então, você personalizará o fluxo de trabalho para atender às suas necessidades.
 
-## Creating the workflow
+## Criar o fluxo de trabalho
 
 1. {% data reusables.actions.choose-repo %}
-2. In your repository, choose a project board. You can use an existing project, or you can create a new project. For more information about creating a project, see "[Creating a project board](/github/managing-your-work-on-github/creating-a-project-board)."
+2. No seu repositório, escolha um quadro de projeto. Você pode usar um projeto existente ou criar um novo projeto. Para obter mais informações sobre como criar um projeto, consulte "[Criar um quadro de projeto](/github/managing-your-work-on-github/creating-a-project-board)".
 3. {% data reusables.actions.make-workflow-file %}
-4. Copy the following YAML contents into your workflow file.
+4. Copie o seguinte conteúdo YAML para o arquivo do fluxo de trabalho.
 
     ```yaml{:copy}
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
@@ -50,28 +50,28 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
               repo-token: {% raw %}${{ secrets.PERSONAL_ACCESS_TOKEN }}{% endraw %}
     ```
 
-5. Customize the parameters in your workflow file:
-   - Change the value for `project` to the name of your project board. If you have multiple project boards with the same name, the `alex-page/github-project-automation-plus` action will act on all projects with the specified name.
-   - Change the value for `column` to the name of the column where you want issues to move when they are assigned.
-   - Change the value for `repo-token`:
-     1. Create a personal access token with the `repo` scope. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
-     1. Store this personal access token as a secret in your repository. For more information about storing secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
-     1. In your workflow file, replace `PERSONAL_ACCESS_TOKEN` with the name of your secret.
+5. Personalize os parâmetros no seu arquivo do fluxo de trabalho:
+   - Altere o valor do `projeto` para o nome do seu quadro de projetos. Se você tiver vários projetos com o mesmo nome, a ação `alex-page/github-project-automation-plus` atuará em todos os projetos com o nome especificado.
+   - Altere o valor da `coluna` para o nome da coluna onde você deseja que os problemas sejam transferidos quando forem atribuídos.
+   - Altere o valor para `repo-token`:
+     1. Crie um token de acesso pessoal com o escopo do </code>repositório`. Para mais informação, consulte "<a href="/github/authenticating-to-github/creating-a-personal-access-token">Criando um token de acesso pessoal</a>."</li>
+<li>Armazene este token de acesso pessoal como um segredo no seu repositório. Para obter mais informações sobre o armazenamento de segredos, consulte "<a href="/actions/reference/encrypted-secrets">Segredos criptografados</a>".</li>
+<li>No seu arquivo do fluxo de trabalho, substitua <code>PERSONAL_ACCESS_TOKEN` pelo nome do seu segredo.
 6. {% data reusables.actions.commit-workflow %}
 
-## Testing the workflow
+## Testar o fluxo de trabalho
 
-Whenever an issue in your repository is assigned, the issue will be moved to the specified project board column. If the issue is not already on the project board, it will be added to the project board.
+Sempre que um problema no seu repositório for atribuído, o problema será transferido para a coluna do quadro de projeto especificado. Se o problema não estiver já no quadro de projeto, ele será adicionado ao quadro de projeto.
 
-If your repository is user-owned, the `alex-page/github-project-automation-plus` action will act on all projects in your repository or user account that have the specified project name and column. Likewise, if your repository is organization-owned, the action will act on all projects in your repository or organization that have the specified project name and column.
+Se o repositório pertencer a um usuário, a ação `alex-page/github-project-automation-plus` atuará em todos os projetos no seu repositório ou conta de usuário que têm o nome e a coluna especificados. Da mesma forma, se o repositório pertencer a uma organização, a ação atuará sobre todos os projetos do seu repositório ou organização que têm o nome e a coluna especificados.
 
-Test your workflow by assigning an issue in your repository.
+Teste seu fluxo de trabalho atribuindo um problema no seu repositório.
 
-1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
-2. Assign the issue. For more information, see "[Assigning issues and pull requests to other GitHub users](/github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users)."
-3. To see the workflow run that assigning the issue triggered, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
-4. When the workflow completes, the issue that you assigned should be added to the specified project board column.
+1. Abra um problema no seu repositório. Para obter mais informações, consulte "[Criar um problema](/github/managing-your-work-on-github/creating-an-issue)".
+2. Atribuir o problema. Para obter mais informações, consulte "[Atribuir problemas e pull requests a outros usuários do GitHub](/github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users)".
+3. Para ver a execução do fluxo de trabalho que atribui o problema acionado, visualize o histórico da execução do fluxo de trabalho. Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+4. Quando o fluxo de trabalho é concluído, o problema que você atribuiu deverá ser adicionado à coluna do quadro de projeto especificado.
 
-## Next steps
+## Próximas etapas
 
-- To learn more about additional things you can do with the `alex-page/github-project-automation-plus` action, like deleting or archiving project cards, visit the [`alex-page/github-project-automation-plus` action documentation](https://github.com/marketplace/actions/github-project-automation).
+- Para saber outras coisas que você pode fazer com a ação `alex-page/github-project-automation-plus`, como excluir ou arquivar cartões do projeto, acesse a documentação da ação [`alex-page/github-project-automation-plus`](https://github.com/marketplace/actions/github-project-automation).

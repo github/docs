@@ -18,58 +18,58 @@ shortTitle: Informações fiscais
 
 Por lei, {% data variables.product.prodname_dotcom %} é exigido pelos EUA. Serviço de Receita Interno (IRS) para coletar informações fiscais em todos os EUA. e fora dos EUA. mantenedores. Esses formulários são mantidos por {% data variables.product.prodname_dotcom %} e não têm de ser enviados ao IRS.
 
-### W-9 (U.S.)
+### W-9 (EUA)
 
-The information from W-9 tax forms helps {% data variables.product.prodname_dotcom %} use the correct Taxpayer Identification Number (TIN) to report income paid to you to the IRS in a 1099 form.
+As informações de formulários de imposto W-9 ajudam {% data variables.product.prodname_dotcom %} a usar o Número de Identificação do Contribuinte (TIN) correto para informar a renda que você recebe ao IRS em um formulário 1099.
 
-If you are a taxpayer in the United States, you must submit a [W-9](https://www.irs.gov/forms-pubs/about-form-w-9) before you can publish your {% data variables.product.prodname_sponsors %} profile.
+Se você for contribuinte nos Estados Unidos, você deverá enviar um [W-9](https://www.irs.gov/forms-pubs/about-form-w-9) antes de publicar o seu perfil de {% data variables.product.prodname_sponsors %}.
 
-### W-8 BEN/W-8 BEN-E (non-U.S.)
+### W-8 BEN/W-8 BEN-E (fora dos EUA)
 
-W-8 BEN and W-8 BEN-E tax forms help {% data variables.product.prodname_dotcom %} determine the beneficial owner of an amount subject to withholding.
+Os formulários de imposto W-8 BEN e W-8 BEN-E ajudam {% data variables.product.prodname_dotcom %} a determinar o proprietário beneficiário de uma quantia sujeita a retenção.
 
-If you are a taxpayer in any other region besides the United States, you must submit a [W-8 BEN](https://www.irs.gov/pub/irs-pdf/fw8ben.pdf) (individual) or [W-8 BEN-E](https://www.irs.gov/forms-pubs/about-form-w-8-ben-e) (company) form before you can publish your {% data variables.product.prodname_sponsors %} profile. Para mais informações, consulte "[Configurando {% data variables.product.prodname_sponsors %} para sua conta de usuário](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-tax-information)" e "[Configurando {% data variables.product.prodname_sponsors %} para sua organização](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization#submitting-your-tax-information)." {% data variables.product.prodname_dotcom %} lhe enviará os formulários apropriados, avisando quando estiverem vencidos, e lhe dará um tempo razoável para completar e enviar os formulários.
+Se você for contribuinte em qualquer outra região fora dos Estados Unidos, você deverá enviar um formulário [W-8 BEN](https://www.irs.gov/pub/irs-pdf/fw8ben.pdf) (pessoa física) ou [W-8 BEN-E](https://www.irs.gov/forms-pubs/about-form-w-8-ben-e) (pessoa jurídica) antes que você possa publicar o seu perfil de {% data variables.product.prodname_sponsors %}. Para mais informações, consulte "[Configurando {% data variables.product.prodname_sponsors %} para sua conta de usuário](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-tax-information)" e "[Configurando {% data variables.product.prodname_sponsors %} para sua organização](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization#submitting-your-tax-information)." {% data variables.product.prodname_dotcom %} lhe enviará os formulários apropriados, avisando quando estiverem vencidos, e lhe dará um tempo razoável para completar e enviar os formulários.
 
-If you have been assigned an incorrect tax form, [contact {% data variables.product.prodname_dotcom %} Support](https://support.github.com/contact?form%5Bsubject%5D=GitHub%20Sponsors:%20tax%20form&tags=sponsors) to get reassigned the correct one for your situation.
+Se lhe foi atribuído um formulário de imposto incorreto, [entre em contato com o suporte de {% data variables.product.prodname_dotcom %} suporte](https://support.github.com/contact?form%5Bsubject%5D=GitHub%20Sponsors:%20tax%20form&tags=sponsors) para receber o formulário correto para a sua situação.
 
-### Tax identification numbers
+### Números de identificação fiscal
 
-The W-8 BEN and W-8 BEN-E tax forms ask for a "U.S. taxpayer identification number (SSN or ITIN)" or "Foreign tax identifying number".
+Os formulários de imposto BEN-E W-8 BEN e W-8 exigem um búmero de identificação do contribuinte (SSN ou ITIN) dos EUA ou "Número de identificação fiscal estrangeiro".
 
-If you are not a U.S. citizen or other U.S. person, including a resident alien individual, then you will usually need to provide the "Foreign tax identifying number". This is a tax identification number that your country of residence has issued you.
+Se você não for cidadão dos EUA ou outra pessoa dos EUA incluindo um estrangeiro residente, você terá geralmente de fornecer o "número de identificação fiscal estrangeiro". Este é um número de identificação fiscal emitido pelo seu país de residência.
 
-If your country of residence or billing country is India, then you can use your Permanent Account Number (PAN) as your tax identification number.
+Se o seu país de residência ou país de cobrança for a Índia, você poderá usar o seu Número de Conta Permanente (PAN) como seu número de identificação fiscal.
 
 {% note %}
 
-**Note:** If your country does not require citizens to have a tax number issued by the government, then you can instead write "not legally required".
+**Observação:** Se o seu país não exigir que os cidadãos tenham um número de imposto emitido pelo governo, você poderá escrever "não exigido juridicamente".
 
-Guidance from the IRS states that you should not write "not applicable." For more information, see "[Instructions for Form W-8BEN, Line 6](https://www.irs.gov/instructions/iw8ben#idm139867098922656)" on the IRS website.
+A orientação do IRS afirma que você não deve escrever "não se aplica". Para obter mais informações, consulte "[Instruções para o formulário W-8BEN, Linha 6](https://www.irs.gov/instructions/iw8ben#idm139867098922656)" no site do IRS.
 {% endnote %}
 
-The IRS allows non-resident and resident aliens to request an [Individual Taxpayer Identification Number](https://www.irs.gov/individuals/international-taxpayers/taxpayer-identification-numbers-tin#itin) or ITIN. It is unlikely that this is necessary for maintainers receiving income through {% data variables.product.prodname_sponsors %}, but read the full [instructions](https://www.irs.gov/pub/irs-pdf/iw8ben.pdf) to determine your individual circumstances.
+O IRS permite que não residente e residentes estrangeiros solicitem um [Número de Identificação do Contribuinte Individual](https://www.irs.gov/individuals/international-taxpayers/taxpayer-identification-numbers-tin#itin) ou ITIN. É improvável que isso seja necessário para que os mantenedores que recebem renda por meio de {% data variables.product.prodname_sponsors %}, mas leia as todas as [instruções](https://www.irs.gov/pub/irs-pdf/iw8ben.pdf) para determinar as suas circunstâncias individuais.
 
-## 1099 forms
+## Formulários 1099
 
-If you are a taxpayer in the United States and earn more than 600 US dollars in a tax year, {% data variables.product.prodname_dotcom %} will send you a [1099-NEC](https://www.irs.gov/forms-pubs/about-form-1099-nec) before January 31 of the next calendar year. Não fornecemos formulários de impostos para contribuintes internacionais.
+Se se for contribuinte dos Estados Unidos e ganhar mais de 600 dólares num ano fiscal, {% data variables.product.prodname_dotcom %}, você receberá um [1099-NEC](https://www.irs.gov/forms-pubs/about-form-1099-nec) antes de 31 de janeiro do próximo ano. Não fornecemos formulários de impostos para contribuintes internacionais.
 
-## General tax information
+## Informações fiscais gerais
 
 O {% data variables.product.prodname_dotcom %} não retém impostos de pagamentos de {% data variables.product.prodname_sponsors %}. Os desenvolvedores patrocinados são responsáveis por avaliar e pagar seus próprios impostos.
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
-## Sales tax
+## Imposto sobre vendas
 
-GitHub is providing information to assist you in calculating your sales tax obligations. This information is not personalized to your country or tax situation and we recommend you talk to a professional to understand your specific obligations. However, we'd like to provide some high-level information to help you understand the general principles of digital sales tax.
+O GitHub fornece informações para ajudar você a calcular suas obrigações fiscais de vendas. Essas informações não estão personalizada para seu país ou situação fiscal e recomendamos que você fale com um profissional para entender suas obrigações específicas. No entanto, gostaríamos de fornecer algumas informações de alto nível para ajudar você a entender os princípios gerais do imposto sobre vendas digitais.
 
-In most countries around the world, sales tax for digital transactions is based on the location of the recipient, not on the seller. For example, if you are a maintainer in the United States and you provide a taxable benefit to a Sponsor in Germany, German sales tax would apply.
+Na maioria dos países, o imposto sobre vendas para transações digitais baseia-se na localização do beneficiário, não no vendedor. Por exemplo, se formos um mantenedor nos Estados Unidos e dermos um benefício tributável a um patrocinador na Alemanha, aplicar-se-ia o imposto alemão sobre as vendas.
 
-Sales tax is generally only applicable when a good or service of value is being provided. Goodwill/general support/undying appreciation is not normally taxable.
+Geralmente, o imposto sobre vendas só é aplicável quando um produto ou serviço é fornecido. Os atos de boa fé, suporte geral e apreciação legal geralmente não são tributáveis.
 
-In the US, both B2B (business-to-business) and B2C (business-to-consumer) are subject to sales tax.
+Nos EUA, tanto o B2B (business-to-business) como o B2C (business-to-consumer) estão sujeitos a um imposto sobre as vendas.
 
-In the EU and most other countries and regions, B2C sales are subject to sales tax. B2B sales are not subject to tax. C2C and C2B sales where a consumer is not registered for VAT are not taxable.
+Na UE e na maioria dos outros países e regiões, as vendas B2C estão sujeitas ao imposto sobre as vendas. As vendas B2B não estão sujeitas a impostos. As vendas C2C e C2B quando um consumidor não está registrado para IVA não são tributáveis.
 
 ## Leia mais
 

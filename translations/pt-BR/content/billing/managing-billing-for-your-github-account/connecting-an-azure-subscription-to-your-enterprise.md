@@ -1,7 +1,6 @@
 ---
 title: Conectar uma assinatura do Azure à sua empresa
 intro: 'Você pode usar o Contrato da Microsoft Enterprise para habilitar e pagar por {% data variables.product.prodname_actions %} e pelo uso de {% data variables.product.prodname_registry %}, além dos valores incluídos para a sua empresa.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -29,6 +28,12 @@ Para conectar sua assinatura do Azure, você deve ter permissões de proprietár
 1. Para entrar na sua conta da Microsoft, siga as instruções.
 1. Revise a instrução de "Permissões solicitadas". Se você concordar com os termos, clique em **Aceitar**.
 1. Em "Selecione uma assinatura", selecione o ID de Assinatura do Azure que você deseja conectar à sua empresa.
+
+   {% note %}
+
+   **Observação:** A validação de permissão da assinatura de {% data variables.product.company_short %} solicita acesso somente leitura para exibir a lista de assinaturas disponíveis. Para selecionar uma assinatura do Azure, você deve ter permissões de proprietário na assinatura. Se o inquilino padrão não tiver as permissões corretas, você deverá especificar o ID de um inquilino diferente. Para obter mais informações, consulte [Plataforma de identidade da Microsoft e o fluxo do código de autorização do OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) na documentação da Microsoft.
+
+   {% endnote %}
 1. Clique em **Conectar**.
 
 ## Desconectar a sua assinatura do Azure da sua conta corporativa

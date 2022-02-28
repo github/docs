@@ -66,7 +66,7 @@ shortTitle: GitHub Actions 的计费
 
 可在用户或组织帐户的所有仓库中同时运行的作业数量取决于您的 GitHub 计划。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## 计算分钟和存储支出
 
@@ -76,15 +76,15 @@ shortTitle: GitHub Actions 的计费
 
 ### 样品分钟数成本计算
 
-For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
+例如，如果您的组织使用 {% data variables.product.prodname_team %} 并允许无限制支出，则使用 5,000 分钟可能会产生 56 美元的总存储空间和分钟数超额费用，具体取决于用于运行作业的操作系统。
 
-- 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
-  - 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
-  - 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
+- 5,000（3,000 Linux 加 2,000 Windows）分钟 = $56 ($24 + $32)。
+  - 3,000 Linux 分钟（每分钟 $0.008）= $24。
+  - 2,000 Windows 分钟（每分钟 $0.016）= $32。
 
 {% data variables.product.prodname_dotcom %} 根据每个月的小时用量计算该月的存储使用量。
 
-### Sample storage cost calculation
+### 样品存储成本计算
 
 例如，如果您在 3 月的 10 天中使用了 3 GB 的存储量，在 3 月的 21 天中使用了 12 GB 的存储量，则您的存储使用量为：
 

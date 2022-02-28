@@ -1,6 +1,6 @@
+import React from 'react'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { useProductGuidesContext } from 'components/context/ProductGuidesContext'
-import React from 'react'
 import { LandingSection } from 'components/landing/LandingSection'
 import { GuidesHero } from 'components/guides/GuidesHero'
 import { LearningTracks } from 'components/guides/LearningTracks'

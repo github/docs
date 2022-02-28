@@ -1,6 +1,6 @@
 ---
-title: Releases
-intro: 'The releases API allows you to create, modify, and delete releases and release assets.'
+title: Versões
+intro: 'A API de versões permite que você crie, modifique e exclua versões e ativos de versões.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -14,10 +14,16 @@ miniTocMaxHeadingLevel: 3
 
 {% note %}
 
-**Note:** The Releases API replaces the Downloads API. You can retrieve the download count and browser download URL from the endpoints in this API that return releases and release assets.
+**Observação:** A API de versões substitui a API de Downloads. Você pode recuperar a contagem de download e a URL de download do navegador a partir dos pontos de extremidades nesta API que retornam versões e liberam ativos.
 
 {% endnote %}
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'releases' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
+{% endfor %}
+
+## Ativos de versões
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'assets' %}{% include rest_operation %}{% endif %}
 {% endfor %}

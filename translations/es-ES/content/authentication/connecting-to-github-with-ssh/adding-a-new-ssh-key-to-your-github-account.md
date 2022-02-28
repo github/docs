@@ -24,7 +24,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% mac %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. Copy the SSH public key to your clipboard.
@@ -42,8 +41,8 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
   {% endtip %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**.
   ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
@@ -51,15 +50,13 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
   ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**.
   ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
-{% data reusables.user_settings.sudo-mode-popup %}
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
 {% endmac %}
 
 {% windows %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -78,8 +75,8 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
   {% endtip %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**.
   ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
@@ -96,7 +93,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% linux %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. Copy the SSH public key to your clipboard.
@@ -114,9 +110,9 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
   **Tip:** Alternatively, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
 
   {% endtip %}
-  
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**.
   ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
