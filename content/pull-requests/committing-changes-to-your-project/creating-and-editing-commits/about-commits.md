@@ -35,9 +35,10 @@ You can see what branch a commit is in by looking at the labels beneath the comm
 
 If your commit is not on the default branch (`main`), the label will show the branches which contain the commit. If the commit is part of an unmerged pull request, you can click the link to go to the pull request.
 
-Once the commit is on the default branch, any tags that contain the commit will be shown and the default branch will be the only branch listed.
+Once the commit is on the default branch, any tags that contain the commit will be shown and the default branch will be the only branch listed. For more information on tags, see "[Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" in the Git documentation.
 
 ![Commit tag label](/assets/images/help/commits/commit-tag-label.png)
 
 ## Further reading
 - "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)" on {% data variables.product.prodname_desktop %}
+- "[Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" in the Git documentation
