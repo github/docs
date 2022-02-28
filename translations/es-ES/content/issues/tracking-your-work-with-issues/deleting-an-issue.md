@@ -1,6 +1,6 @@
 ---
-title: Deleting an issue
-intro: People with admin permissions in a repository can permanently delete an issue from a repository.
+title: Eliminar una propuesta
+intro: Los usuarios con permisos de administración en un repositorio determinado pueden eliminar una propuesta de manera permanente de ese repositorio.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/deleting-an-issue
   - /articles/deleting-an-issue
@@ -14,17 +14,17 @@ versions:
 topics:
   - Pull requests
 ---
-You can only delete issues in a repository owned by your user account. You cannot delete issues in a repository owned by another user account, even if you are a collaborator there.
 
-To delete an issue in a repository owned by an organization, an organization owner must enable deleting an issue for the organization's repositories, and you must have admin or owner permissions in the repository. For more information, see "[Allowing people to delete issues in your organization](/articles/allowing-people-to-delete-issues-in-your-organization)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Solo puedes eliminar una propuesta en un repositorio que sea propiedad de tu cuenta de usuario. No puedes eliminar una propuesta en un repositorio que sea propiedad de otra cuenta de usuario, aun si eres una colaborador de esa cuenta.
 
-Collaborators do not receive a notification when you delete an issue. When visiting the URL of a deleted issue, collaborators will see a message stating that the issue is deleted. People with admin or owner permissions in the repository will additionally see the username of the person who deleted the issue and when it was deleted.
+Para eliminar una propuesta en un repositorio que sea propiedad de una organización, un propietario de la organización debe habilitar la eliminación de una propuesta para los repositorios de la organización, y tú debes tener permisos de propietario o de administración en ese repositorio. Para obtener más información, consulta la sección "[Permitir que se eliminen propuestas en tu organización](/articles/allowing-people-to-delete-issues-in-your-organization)" y "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
-1. Navigate to the issue you want to delete.
-2. On the right side bar, under "Notifications", click **Delete issue**.
-!["Delete issue" text highlighted on bottom of the issue page's right side bar](/assets/images/help/issues/delete-issue.png)
-4. To confirm deletion, click **Delete this issue**.
+Los colaboradores no reciben una notificación cuando eliminas una propuesta. Cuando visiten la URL de una propuesta que ha sido eliminada, los colaboradores verán un mensaje que dice que la propuesta se ha eliminado. Los usuarios con permisos de propietario o de administración en el repositorio verán también el nombre de usuario de la persona que eliminó la propuesta y la fecha en que se la eliminó.
 
-## Further reading
+1. Dirígete a la propuesta que deseas eliminar.
+2. En la barra lateral derecha, debajo de "Notificaciones", da clic en **Borrar informe de problemas**. ![Texto de "Borrar informe de problemas" resaltado al final de la barra lateral derecha de la página del informe de problemas](/assets/images/help/issues/delete-issue.png)
+4. Para confirmar la eliminación, haz clic en **Eliminar esta propuesta**.
 
-- "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)"
+## Leer más
+
+- "[Enlazar una solicitud de extracción a un informe de problemas](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)"

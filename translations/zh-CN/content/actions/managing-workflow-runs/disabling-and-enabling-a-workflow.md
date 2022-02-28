@@ -1,50 +1,43 @@
 ---
-title: Disabling and enabling a workflow
-intro: 'You can disable and re-enable a workflow using the {% data variables.product.prodname_dotcom %} UI, the REST API, or {% data variables.product.prodname_cli %}.'
+title: 禁用和启用工作流程
+intro: '您可以使用 {% data variables.product.prodname_dotcom %} UI、REST API 或 {% data variables.product.prodname_cli %} 禁用并重新启用工作流程。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Disable & enable a workflow
+shortTitle: 禁用和启用工作流程
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Disabling a workflow allows you to stop a workflow from being triggered without having to delete the file from the repo. You can easily re-enable the workflow again on {% data variables.product.prodname_dotcom %}.
+禁用工作流程允许您停止触发工作流程，而不必从仓库中删除文件。 您可以轻松地在 {% data variables.product.prodname_dotcom %} 上重新启用工作流程。
 
-Temporarily disabling a workflow can be useful in many scenarios. These are a few examples where disabling a workflow might be helpful:
+在许多情况下，暂时禁用工作流程可能很有用。 以下是禁用工作流程可能有帮助的几个例子：
 
-- A workflow error that produces too many or wrong requests, impacting external services negatively.
-- A workflow that is not critical and is consuming too many minutes on your account.
-- A workflow that sends requests to a service that is down.
-- Workflows on a forked repository that aren't needed (for example, scheduled workflows).
+- 产生请求过多或错误的工作流程错误，对外部服务产生负面影响。
+- 不重要但会耗费您帐户上太多分钟数的工作流程。
+- 向已关闭的服务发送请求的工作流程。
+- 复刻仓库上不需要的工作流程（例如预定的工作流程）。
 
 {% warning %}
 
-**Warning:** {% data reusables.actions.scheduled-workflows-disabled %}
+**警告：** {% data reusables.actions.scheduled-workflows-disabled %}
 
 {% endwarning %}
 
-You can also disable and enable a workflow using the REST API. For more information, see the "[Actions REST API](/rest/reference/actions#workflows)."
+您也可以使用 REST API 禁用和启用工作流程。 更多信息请参阅“[操作 REST API](/rest/reference/actions#workflows)”。
 
-## Disabling a workflow
-
-{% include tool-switcher %}
+## 禁用工作流程
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workflow you want to disable.
-![actions select workflow](/assets/images/actions-select-workflow.png)
-1. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-![actions kebab menu](/assets/images/help/repository/actions-workflow-menu-kebab.png)
-1. Click **Disable workflow**.
-![actions disable workflow](/assets/images/help/repository/actions-disable-workflow.png)
-The disabled workflow is marked {% octicon "stop" aria-label="The stop icon" %} to indicate its status.
-![actions list disabled workflow](/assets/images/help/repository/actions-find-disabled-workflow.png)
+1. 在左侧边栏中，单击您想要禁用的工作流程。 ![操作选择工作流程](/assets/images/actions-select-workflow.png)
+1. 单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![操作烤肉串菜单](/assets/images/help/repository/actions-workflow-menu-kebab.png)
+1. 单击 **Disable workflow（禁用工作流程）**。 ![actions disable workflow](/assets/images/help/repository/actions-disable-workflow.png) 禁用的工作流程标记为 {% octicon "stop" aria-label="The stop icon" %} 来表示其状态。 ![操作列表禁用的工作流程](/assets/images/help/repository/actions-find-disabled-workflow.png)
 
 {% endwebui %}
 
@@ -52,7 +45,7 @@ The disabled workflow is marked {% octicon "stop" aria-label="The stop icon" %} 
 
 {% data reusables.cli.cli-learn-more %}
 
-To disable a workflow, use the `workflow disable` subcommand. Replace `workflow` with either the name, ID, or file name of the workflow you want to disable. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`. If you don't specify a workflow, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a workflow.
+要禁用工作流程，请使用 `workflow disable` 子命令。 将 `workflow` 替换为要禁用的工作流程的名称、ID 或文件名。 例如 `"Link Checker"`、`1234567` 或 `"link-check-test.yml"`。 如果您没有指定工作流程，{% data variables.product.prodname_cli %} 将返回交互式菜单供您选择工作流程。
 
 ```shell
 gh workflow disable <em>workflow</em>
@@ -60,26 +53,22 @@ gh workflow disable <em>workflow</em>
 
 {% endcli %}
 
-## Enabling a workflow
-
-{% include tool-switcher %}
+## 启用工作流程
 
 {% webui %}
 
-You can re-enable a workflow that was previously disabled.
+您可以重新启用以前禁用过的工作流程。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workflow you want to enable.
-![actions select disabled workflow](/assets/images/help/repository/actions-select-disabled-workflow.png)
-1. Click **Enable workflow**.
-![actions enable workflow](/assets/images/help/repository/actions-enable-workflow.png)
+1. 在左侧边栏中，单击您想要启用的工作流程。 ![操作选择禁用的工作流程](/assets/images/help/repository/actions-select-disabled-workflow.png)
+1. 单击 **Enable workflow（启用工作流程）**。 ![操作启用工作流程](/assets/images/help/repository/actions-enable-workflow.png)
 
 {% endwebui %}
 
 {% cli %}
 
-To enable a workflow, use the `workflow enable` subcommand. Replace `workflow` with either the name, ID, or file name of the workflow you want to enable. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`. If you don't specify a workflow, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a workflow.
+要启用工作流程，请使用 `workflow enable` 子命令。 将 `workflow` 替换为要启用的工作流程的名称、ID 或文件名。 例如 `"Link Checker"`、`1234567` 或 `"link-check-test.yml"`。 如果您没有指定工作流程，{% data variables.product.prodname_cli %} 将返回交互式菜单供您选择工作流程。
 
 ```shell
 gh workflow enable <em>workflow</em>

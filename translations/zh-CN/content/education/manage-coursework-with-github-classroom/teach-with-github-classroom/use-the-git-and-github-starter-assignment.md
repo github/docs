@@ -1,104 +1,104 @@
 ---
-title: Use the Git and GitHub starter assignment
-intro: 'You can use the Git & {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.company_short %} fundamentals.'
+title: 使用 Git 和 GitHub 起始作业
+intro: '您可以使用 Git 和 {% data variables.product.company_short %} 起始作业，让学生全面了解 Git 和 {% data variables.product.company_short %} 基础知识。'
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
-shortTitle: Starter assignment
+shortTitle: 入门作业
 ---
 
-The Git & {% data variables.product.company_short %} starter assignment is a pre-made course that summarizes the basics of Git and {% data variables.product.company_short %} and links students to resources to learn more about specific topics.
+Git 和 {% data variables.product.company_short %} 起始作业是一个预制课程，概括了 Git 和 {% data variables.product.company_short %} 的基础知识，并将学生与资源联系起来以了解更多关于具体主题的信息。
 
-## Prerequisites
+## 基本要求
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## Creating the starter assignment
+## 创建起始作业
 
-### If there are no existing assignments in the classroom
+### 如果在课堂中没有现有作业
 
-1. Sign into {% data variables.product.prodname_classroom_with_url %}.
-2. Navigate to a classroom.
-3. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click  **Use starter assignment**.
-
-<div class="procedural-image-wrapper">
-  <img alt="Creating your first assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-create-first-assignment.png">
-</div>
-
-### If there already are existing assignments in the classroom
-
-1. Sign into {% data variables.product.prodname_classroom_with_url %}.
-2. Navigate to a classroom.
-3. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click the link on the blue banner.
+1. 登录 {% data variables.product.prodname_classroom_with_url %}。
+2. 导航到教室。
+3. 在 {% octicon "repo" aria-label="The repo icon" %} **作业** 选项卡中，单击 **Use starter assignment（使用起始作业）**。
 
 <div class="procedural-image-wrapper">
-  <img alt="The 'New assignment' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-new-starter-assignment-button.png">
+  <img alt="创建第一次作业" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-create-first-assignment.png">
 </div>
 
-## Setting up the basics for an assignment
+### 如果在课堂中已经有现有作业
 
-Import the starter course into your organization, name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
-
-- [Prerequisites](#prerequisites)
-- [Creating the starter assignment](#creating-the-starter-assignment)
-  - [If there are no existing assignments in the classroom](#if-there-are-no-existing-assignments-in-the-classroom)
-  - [If there already are existing assignments in the classroom](#if-there-already-are-existing-assignments-in-the-classroom)
-- [Setting up the basics for an assignment](#setting-up-the-basics-for-an-assignment)
-  - [Importing the assignment](#importing-the-assignment)
-  - [Naming the assignment](#naming-the-assignment)
-  - [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-  - [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
-- [Inviting students to an assignment](#inviting-students-to-an-assignment)
-- [Next steps](#next-steps)
-- [Further reading](#further-reading)
-
-### Importing the assignment
-
-You first need to import the Git & {% data variables.product.product_name %} starter assignment into your organization.
+1. 登录 {% data variables.product.prodname_classroom_with_url %}。
+2. 导航到教室。
+3. 在 {% octicon "repo" aria-label="The repo icon" %} **作业** 选项卡中，单击蓝色横幅上的链接。
 
 <div class="procedural-image-wrapper">
-  <img alt="The `Import the assignment` button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-import-starter-assignment.png">
+  <img alt="“New assignment（新作业）”按钮" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-new-starter-assignment-button.png">
 </div>
 
-### Naming the assignment
+## 设置作业的基本信息
 
-For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.product_name %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.product_name %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
+将入门课程导入您的组织，命名您的作业，决定是否分配截止日期，并选择分配仓库的可见性。
+
+- [基本要求](#prerequisites)
+- [创建起始作业](#creating-the-starter-assignment)
+  - [如果在课堂中没有现有作业](#if-there-are-no-existing-assignments-in-the-classroom)
+  - [如果在课堂中已经有现有作业](#if-there-already-are-existing-assignments-in-the-classroom)
+- [设置作业的基本信息](#setting-up-the-basics-for-an-assignment)
+  - [导入作业](#importing-the-assignment)
+  - [命名作业](#naming-the-assignment)
+  - [分配作业的截止时间](#assigning-a-deadline-for-an-assignment)
+  - [选择作业仓库的可见性](#choosing-a-visibility-for-assignment-repositories)
+- [邀请学生参加作业](#inviting-students-to-an-assignment)
+- [后续步骤](#next-steps)
+- [延伸阅读](#further-reading)
+
+### 导入作业
+
+您首先需要将 Git 和 {% data variables.product.product_name %} 起始作业导入您的组织。
+
+<div class="procedural-image-wrapper">
+  <img alt="“导入作业”按钮" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-import-starter-assignment.png">
+</div>
+
+### 命名作业
+
+对于个人作业，{% data variables.product.prodname_classroom %} 使用仓库前缀和学生的 {% data variables.product.product_name %} 用户名对仓库命名。 默认情况下，仓库前缀是作业标题。 例如，如果您对作业 "assignment-1" 命名，学生在 {% data variables.product.product_name %} 上的用户名是 @octocat，则 @octocat 的作业仓库的名称将是 `assignment-1-octocat`。
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### Assigning a deadline for an assignment
+### 分配作业的截止时间
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### Choosing a visibility for assignment repositories
+### 选择作业仓库的可见性
 
-The repositories for an assignment can be public or private. If you use private repositories, only the student can see the feedback you provide. Under "Repository visibility," select a visibility.
+作业的仓库可以是公开或私有的。 如果您使用私有仓库，只有学生可以查看您提供的反馈。 在“Repository visibility（仓库可见性）”下，选择可见性。
 
-When you're done, click **Continue**. {% data variables.product.prodname_classroom %} will create the assignment and bring you to the assignment page.
+完成后，单击 **Continue（继续）**。 {% data variables.product.prodname_classroom %} 将创建作业并将您带到作业页面。
 
 <div class="procedural-image-wrapper">
-  <img alt="'Continue' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
+  <img alt="“Continue（继续）”按钮" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
 </div>
 
-## Inviting students to an assignment
+## 邀请学生参加作业
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see whether a student has joined the classroom and accepted or submitted an assignment in the **All students** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
+您可以在作业的 **All students（所有学生）**选项卡中查看学生是否已进入教室或提交作业。 {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
-  <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
+  <img alt="个人作业" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
-The Git & {% data variables.product.company_short %} starter assignment is only available for individual students, not for groups. Once you create the assignment, students can start work on the assignment.
+Git 和 {% data variables.product.company_short %} 起始作业只适用于个别学生，不适用于组。 一旦您创建作业，学生可以开始做作业。
 
-## Next steps
+## 后续步骤
 
-- Make additional assignments customized to your course. For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" and "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+- 根据课程定制其他作业。 更多信息请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”和“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
 
-## Further reading
+## 延伸阅读
 
-- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
-- "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
+- "[在课堂和研究中使用 {% data variables.product.prodname_dotcom %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
+- "[将学习管理系统连接到 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"

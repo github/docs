@@ -24,10 +24,13 @@ shortTitle: 禁用项目板
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. 决定是否禁用组织范围的项目板，禁用组织中的仓库项目板，或两者均禁用。 然后，在“项目”（项目）下：
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. 在侧边栏的“Code planning, and automation（代码规划和自动化）”部分中，点击 **{% octicon "table" aria-label="The table icon" %} 项目**。
+{% endif %}
+1. 决定是否禁用组织范围的项目板，禁用组织中的仓库项目板，或两者均禁用。 然后，在“项目”（项目）下：
     - 要禁用组织范围的项目板，请取消选择 **Enable projects for the organization（启用组织的项目）**。
     - 要在组织中禁用仓库项目板，请取消选择 **Enable projects for all repositories（启用所有仓库的项目）**。 ![用于禁用单个组织或单个组织所有仓库的项目的复选框](/assets/images/help/projects/disable-org-projects-checkbox.png)
-5. 单击 **Save（保存）**。
+1. 单击 **Save（保存）**。
 
 {% data reusables.organizations.disable_project_board_results %}
 

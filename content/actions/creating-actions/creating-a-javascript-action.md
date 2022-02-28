@@ -37,9 +37,9 @@ Once you complete this project, you should understand how to build your own Java
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
-1. Download and install Node.js 12.x, which includes npm.
+1. Download and install Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, which includes npm.
 
-  https://nodejs.org/en/download/current/
+  {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
 1. Create a new public repository on {% data variables.product.product_location %} and call it "hello-world-javascript-action". For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
 
@@ -73,7 +73,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node12'
+  using: {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
 ```
 

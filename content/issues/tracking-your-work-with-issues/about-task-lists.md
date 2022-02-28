@@ -51,6 +51,12 @@ If you add a task list to the body of an issue, the list has added functionality
 
 {% data reusables.repositories.task-list-markdown %}
 
+{% tip %}
+
+**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
+
+{% endtip %}
+
 ## Reordering tasks
 
 You can reorder the items in a task list by clicking to the left of a task's checkbox, dragging the task to a new location, and dropping the task. You can reorder tasks across different lists in the same comment, but you can not reorder tasks across different comments.
@@ -70,5 +76,5 @@ Any issues that are referenced in a task list specify that they are tracked by t
 
 ## Further reading
 
-* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+* "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"{% if code-scanning-task-lists %}
 * "[Tracking {% data variables.product.prodname_code_scanning %} alerts in issues using task lists](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

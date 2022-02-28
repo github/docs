@@ -37,6 +37,8 @@ When you sponsor an account using a credit card, the change will become effectiv
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
+You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month. 
+
 If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)."
 
 If the account you want to sponsor does not have a profile on {% data variables.product.prodname_sponsors %}, you can encourage the account to join. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."

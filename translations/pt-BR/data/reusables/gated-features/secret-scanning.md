@@ -1,6 +1,13 @@
-{% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} está disponível para todos os repositórios públicos e para repositórios privados pertencentes a organizações em que {% data variables.product.prodname_GH_advanced_security %} está habilitado.
-{%- elsif ghes > 3.0 or ghae %}{% data variables.product.prodname_secret_scanning_caps %} está disponível para repositórios de organizações onde {% data variables.product.prodname_GH_advanced_security %} está habilitado.
+{%- ifversion fpt %}
+{% data variables.product.prodname_secret_scanning_caps %} is enabled on public repositories in all products. {% data variables.product.prodname_secret_scanning_caps %} is also available in private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghec %}
+{% data variables.product.prodname_secret_scanning_caps %} is included in {% data variables.product.product_name %} for public repositories. To use {% data variables.product.prodname_secret_scanning %} in private repositories owned by organizations, you must have a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghes %}
+{% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %} if your enterprise has a license for {% data variables.product.prodname_GH_advanced_security %}.
+
 {%- elsif ghae %}
-{% data variables.product.prodname_secret_scanning_caps %} está disponível como parte de {% data variables.product.prodname_GH_advanced_security %}, que é grátis durante a versão beta.
-{%- else %}
-{% data variables.product.prodname_secret_scanning_caps %} está disponível se você tiver uma licença para {% data variables.product.prodname_GH_advanced_security %}.{% endif %} {% data reusables.advanced-security.more-info-ghas %}
+{% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
+
+{%- endif %} {% ifversion not ghae %}For more information, see "[GitHub's products](/articles/githubs-products)."{% endif %}

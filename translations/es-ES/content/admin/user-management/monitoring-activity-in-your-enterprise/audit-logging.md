@@ -2,7 +2,7 @@
 title: Registro de auditoría
 intro: '{% data variables.product.product_name %} mantiene las bitácoras de los eventos auditados de{% ifversion ghes %} sistemas,{% endif %} usuarios, organizaciones, y repositorios. Los registros son útiles para la depuración y el cumplimiento interno y externo.'
 redirect_from:
-  - /enterprise/admin/articles/audit-logging/
+  - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
   - /enterprise/admin/user-management/audit-logging
   - /admin/user-management/audit-logging
@@ -26,7 +26,7 @@ Se registra cada operación de inserción de Git. Para obtener más información
 {% ifversion ghes %}
 ## Eventos del sistema
 
-Todos los eventos del sistema auditados, incluidas las inserciones y las extracciones, se registran en `/var/log/github/audit.log`. Los registros se rotan automáticamente cada 24 horas y se mantienen durante siete días.
+Todos los eventos de sistema auditados se registran en `/var/log/github/audit.log`. Los registros se rotan automáticamente cada 24 horas y se mantienen durante siete días.
 
 El paquete de soporte incluye registros del sistema. Para obtener más información, consulta la sección "[Proporcionar datos al soporte de {% data variables.product.prodname_dotcom %}](/admin/enterprise-support/providing-data-to-github-support)".
 

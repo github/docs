@@ -2,7 +2,7 @@
 title: Crear una App de OAuth
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps
   - /apps/building-oauth-apps/creating-an-oauth-app
   - /developers/apps/creating-an-oauth-app
 versions:

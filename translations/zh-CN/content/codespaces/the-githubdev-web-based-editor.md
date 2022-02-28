@@ -86,7 +86,7 @@ You can use the {% data variables.product.prodname_serverless %} to work with an
 2. Press `.` to open the pull request in the {% data variables.product.prodname_serverless %}.
 3. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
 
-## Using extensions
+## 使用扩展
 
 The {% data variables.product.prodname_serverless %} supports {% data variables.product.prodname_vscode %} extensions that have been specifically created or updated to run in the web. These extensions are known as "web extensions". To learn how you can create a web extension or update your existing extension to work for the web, see "[Web extensions](https://code.visualstudio.com/api/extension-guides/web-extensions)" in the {% data variables.product.prodname_vscode %} documentation.
 
@@ -105,3 +105,4 @@ If you have issues opening the {% data variables.product.prodname_serverless %},
 
 - The {% data variables.product.prodname_serverless %} is currently supported in Chrome (and various other Chromium-based browsers), Edge, Firefox, and Safari. We recommend that you use the latest versions of these browsers.
 - Some keybindings may not work, depending on the browser you are using. These keybinding limitations are documented in the "[Known limitations and adaptations](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" section of the {% data variables.product.prodname_vscode %} documentation.
+- `.` may not work to open the {% data variables.product.prodname_serverless %} according to your local keyboard layout. In that case, you can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.product.prodname_serverless %} by changing the URL from `github.com` to `github.dev`.

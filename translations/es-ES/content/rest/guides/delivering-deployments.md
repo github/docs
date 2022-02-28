@@ -2,8 +2,8 @@
 title: Entregar despliegues
 intro: 'Al utilizar la API de REST de Despliegues, puedes crear herramientas personalizadas que interactúen con tu servidor y con una app de terceros.'
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
   fpt: '*'
@@ -20,7 +20,7 @@ La [API de despliegues][deploy API] proporciona a tus proyectos hospedados en {%
 
 Esta guía utilizará la API para demostrar una configuración que puedes utilizar. En nuestro escenario, nosotros:
 
-* Fusionamos una solicitud de extracción
+* Fusionamos una solicitud de cambios.
 * Cuando finaliza la IC, configuramos el estado de la solicitud de extracción según corresponda.
 * Cuando se fusiona la solicitud de extracción, ejecutamos nuestro despliegue en nuestro servidor.
 

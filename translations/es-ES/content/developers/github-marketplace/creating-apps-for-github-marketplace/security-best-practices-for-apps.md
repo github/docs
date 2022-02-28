@@ -2,7 +2,7 @@
 title: Mejores prácticas de seguridad para las apps
 intro: 'Lineamientos para preparar una app segura para que se comparta en {% data variables.product.prodname_marketplace %}.'
 redirect_from:
-  - /apps/marketplace/getting-started/security-review-process/
+  - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
   - /developers/github-marketplace/security-review-process-for-submitted-apps
   - /developers/github-marketplace/security-best-practices-for-apps
@@ -60,4 +60,4 @@ Para obtener un ejemplo de un flujo de trabajo de respuesta a incidentes, consul
 
 Debes llevar a cabo escaneos de vulnerabilidades frecuentes para la infraestructura productiva. Debes clasificar los resultados de los escaneos de vulnerabilidades y definir un tiempo en el que acuerdes remediar dichas vulnerabilidades.
 
-Si no estás listo para configurar un programa completo de administración de vulnerabilidades, es útil comenzar creando un proceso de parchado. Para obtener orientación sobre la creación de una política de administración de parches, consulta este artículo de TechRepublic: "[Establecer una política de administración de parches](https://www.techrepublic.com/blog/it-security/establish-a-patch-management-policy-87756/)".
+Si no estás listo para configurar un programa completo de administración de vulnerabilidades, es útil comenzar creando un proceso de parchado. Para obtener orientación sobre la creación de una política de administración de parches, consulta este artículo de TechRepublic: "[Establecer una política de administración de parches](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/)".

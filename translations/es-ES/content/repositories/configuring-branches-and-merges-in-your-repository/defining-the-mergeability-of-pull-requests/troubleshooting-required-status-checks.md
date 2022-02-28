@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting required status checks
-intro: You can check for common errors and resolve issues with required status checks.
+title: Solución de problemas para verificaciones de estado requeridas
+intro: Puedes verificar si hay errores comunes y resolver problemas con las verificaciones de estado requeridas.
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   fpt: '*'
@@ -12,19 +12,20 @@ topics:
 redirect_from:
   - /github/administering-a-repository/troubleshooting-required-status-checks
   - /github/administering-a-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks
-shortTitle: Required status checks
+shortTitle: Verificaciones de estado requeridas
 ---
-If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/rest/reference/checks)."
 
-After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. This ensures that your branch has been tested with the latest code from the base branch. If your branch is out of date, you'll need to merge the base branch into your branch. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
+Si tienes una verificación y un estado con el mismo nombre y seleccionas dicho nombre como una verificación de estado requerida, tanto la verificación como el estado se requerirán. Para obtener más información, consulta las "[Verificaciones](/rest/reference/checks)".
+
+Después de que habilitas la verificación de estado requerida, tu rama podría tener que actualizarse con la rama base antes de que se pueda fusionar. Esto garantiza que tu rama ha sido probada con el último código desde la rama base. Si tu rama no está actualizada, necesitarás fusionar la rama base en tu rama. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
 
 {% note %}
 
-**Note:** You can also bring your branch up to date with the base branch using Git rebase. For more information, see "[About Git rebase](/github/getting-started-with-github/about-git-rebase)."
+**Nota:** También puedes actualizar tu rama con la rama base utilizando Git rebase. Para obtener más información, consulta [Accerca del rebase de Git](/github/getting-started-with-github/about-git-rebase)."
 
 {% endnote %}
 
-You won't be able to push local changes to a protected branch until all required status checks pass. Instead, you'll receive an error message similar to the following.
+No podrás subir cambios locales a una rama protegida hasta que se hayan aprobado todas las verificaciones de estado requeridas. En su lugar, recibirás un mensaje de error similar al siguiente.
 
 ```shell
 remote: error: GH006: Protected branch update failed for refs/heads/main.
@@ -32,28 +33,28 @@ remote: error: Required status check "ci-build" is failing
 ```
 {% note %}
 
-**Note:** Pull requests that are up-to-date and pass required status checks can be merged locally and pushed to the protected branch. This can be done without status checks running on the merge commit itself.
+**Nota:** Las solicitudes de extracción que están actualizadas y aprobaron las verificaciones de estado requeridas pueden fusionarse localmente y subirse a la rama protegida. Esto se puede hacer sin las verificaciones de estado ejecutándose en la propia confirmación de fusión.
 
 {% endnote %}
 
 {% ifversion fpt or ghae or ghes or ghec %}
 
-## Conflicts between head commit and test merge commit 
+## Conflictos entre confirmaciones de encabezado y confirmaciones de fusiones de prueba
 
-Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pulls](/rest/reference/pulls#get-a-pull-request)."
+Algunas veces, los resultados de las verificaciones de estado para la confirmación de la prueba de fusión y de la confirmación principal entrarán en conflicto. Si la confirmación de fusión de prueba tiene un estado, ésta pasará. De otra manera, el estado de la confirmación principal deberá pasar antes de que puedas fusionar la rama. Para obtener más información sobre las confirmaciones de fusiones de prueba, consulta la sección "[Extracciones](/rest/reference/pulls#get-a-pull-request)".
 
-![Branch with conflicting merge commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
+![Ramas con conflictos en las confirmaciones de fusión](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}
 
-## Handling skipped but required checks
+## Se salta el manejo pero se requieren las verificaciones
 
-Sometimes a required status check is skipped on pull requests due to path filtering. For example, a Node.JS test will be skipped on a pull request that just fixes a typo in your README file and makes no changes to the JavaScript and TypeScript files in the `scripts` directory.
+Algunas veces, se salta una verificación de estado requerida en las solicitudes de cambios debido al filtrado de rutas. Por ejemplo, una prueba de Node.JS podría saltarse en una solicitud de cambios que solo arregla un error de dedo en tu archivo README y no hace cambios a los archivos de JavaScript y TypeScript en el directorio de `scripts`.
 
-If this check is required and it gets skipped, then the check's status is shown as pending, because it's required. In this situation you won't be able to merge the pull request.
+Si esta verificación es requerida y se salta, entonces el estado de verificación se mostrará como pendiente, dado que es requerida. En esta situación no podrás fusionar la solicitud de cambios.
 
-### Example
+### Ejemplo
 
-In this example you have a workflow that's required to pass. 
+En este ejemplo, tienes un flujo de trabajo que se requiere para pasar.
 
 ```yaml
 name: ci
@@ -80,11 +81,11 @@ jobs:
     - run: npm test
 ```
 
-If someone submits a pull request that changes a markdown file in the root of the repository, then the workflow above won't run at all because of the path filtering. As a result you won't be able to merge the pull request. You would see the following status on the pull request:
+Si alguien emite una solicitud de cambios que cambie un archivo de lenguaje de marcado en la raíz del repositorio, entonces el flujo de trabajo anterior no se ejecutará para nada debido al filtrado de ruta. Como resultado, no podrás fusionar la solicitud de cambios. Verías el siguiente estado en la solicitud de cambios:
 
-![Required check skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.png)
+![Verificación requerida omitida, pero mostrada como pendiente](/assets/images/help/repository/PR-required-check-skipped.png)
 
-You can fix this by creating a generic workflow, with the same name, that will return true in any case similar to the workflow below :
+Puedes arreglar esto creando un flujo de trabajo genérico con el mismo nombre, el cual devolverá "true" en cualquier caso similar al flujo de trabajo siguiente:
 
 ```yaml
 name: ci
@@ -99,20 +100,21 @@ jobs:
     steps:
       - run: 'echo "No build required" '
 ```
-Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
+Ahora las verificaciones siempre pasarán cuando alguien envíe una solicitud de cambios que no cambie los archivos que se listan bajo `paths` en el primer flujo de trabajo.
 
-![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
+![Verificar omitidos pero que pasan debido a un flujo de trabajo genérico](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
 
 {% note %}
 
-**Notes:** 
-* Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)".
-* The example above uses {% data variables.product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data variables.product.company_short %}.
+**Notas:**
+* Asegúrate de que la llave `name` y el nombre de job requerido en ambos archivos de flujo de trabajo sean los mismos. Para obtener más información, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)".
+* El ejemplo anterior utiliza {% data variables.product.prodname_actions %}, pero esta solución también aplica a otros proveedores de IC/DC que se integran con {% data variables.product.company_short %}.
 
 {% endnote %}
 
-It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}También es posible que una rama protegida requiera verificaciones de estado desde una {% data variables.product.prodname_github_app %}. Si ves un mensaje similar al siguiente, entonces deberías verificar que la app esperada haya configurado la verificación que se lista en la caja de fusión.
 
 ```
-Required status check "build" was not set by the expected {% data variables.product.prodname_github_app %}.
+La {% data variables.product.prodname_github_app %} esperada no configuró la "compilación" de la verificación de estado requerida.
 ```
+{% endif %}

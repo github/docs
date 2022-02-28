@@ -1,6 +1,6 @@
 ---
 title: Agregar una llave GPG nueva a tu cuenta de GitHub
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to use your new (or existing) GPG key, you''ll also need the key to your account.'
+intro: 'Para configurar tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. para que utilice tu llave GPG nueva (o existente), también necesitarás la llave a tu cuenta.'
 redirect_from:
   - /articles/adding-a-new-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -16,7 +16,7 @@ topics:
 shortTitle: Agrega una llave GPG
 ---
 
-Before adding a new GPG key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you should have:
+Antes de agregar una llave GPG nueva a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}., debes tener:
 - [Comprobado tus llaves GPG existentes](/articles/checking-for-existing-gpg-keys)
 - [Generado y copiado una nueva llave GPG](/articles/generating-a-new-gpg-key)
 
@@ -26,8 +26,8 @@ Al verificar una firma, extraemos la firma e intentamos analizar sus id de llave
 
 ## Agregar una llave GPG
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. Haz clic en **New GPG key** (Nueva llave GPG). ![Botón de llave GPG](/assets/images/help/settings/gpg-add-gpg-key.png)
 4. En el campo "Clave", pega la llave GPG que copiaste cuando [generó tu llave GPG](/articles/generating-a-new-gpg-key). ![Campo de llave](/assets/images/help/settings/gpg-key-paste.png)
 5. Haz clic en **Add GPG key** (Agregar llave GPG). ![Botón Add key (Agregar llave)](/assets/images/help/settings/gpg-add-key.png)

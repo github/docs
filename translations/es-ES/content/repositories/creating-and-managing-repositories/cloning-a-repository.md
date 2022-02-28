@@ -25,8 +25,6 @@ Puedes clonar tu repositorio existente o clonar el repositorio existente de algu
 
 ## Clonar un repositorio
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -88,7 +86,7 @@ Si no puedes clonar un repositorio, revisa que:
 
 - Puedas conectarte utilizando HTTPS. Para obtener más información, consulta la sección "[Errores de clonado de HTTPS](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)".
 - Tienes permiso para acceder al repositorio que quieres clonar. Para obtener más información, consulta la sección "[Error: Repositorio no encontrado](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)".
-- La rama predeterminada que quieres clonar aún existe. Para obtener más información, verifica que tienes permiso para acceder al repositorio que quieres clonar. Para obtener más información, consulta "[Error: El HEAD remoto se refiere a una ref inexistente, imposible registrar](/github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)",
+- La rama predeterminada que quieres clonar aún existe. Para obtener más información, consulta "[Error: El HEAD remoto se refiere a una ref inexistente, imposible registrar](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)",
 
 {% ifversion fpt or ghec %}
 

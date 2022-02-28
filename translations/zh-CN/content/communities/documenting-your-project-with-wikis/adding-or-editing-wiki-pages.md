@@ -1,6 +1,6 @@
 ---
-title: Adding or editing wiki pages
-intro: 'You can add and edit wiki pages directly on {% data variables.product.product_name %} or locally using the command line.'
+title: 添加或编辑 wiki 页面
+intro: '您可以直接在 {% data variables.product.product_name %} 或者本地使用命令行添加和编辑 wiki 页面。'
 redirect_from:
   - /articles/adding-wiki-pages-via-the-online-interface
   - /articles/editing-wiki-pages-via-the-online-interface
@@ -16,55 +16,47 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Manage wiki pages
+shortTitle: 管理 wiki 网页
 ---
 
-## Adding wiki pages
+## 添加 wiki 页面
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-3. In the upper-right corner of the page, click **New Page**.
-  ![Wiki new page button](/assets/images/help/wiki/wiki_new_page_button.png)
-4. Optionally, to write in a format other than Markdown, use the Edit mode drop-down menu, and click a different format.
-  ![Wiki markup selection](/assets/images/help/wiki/wiki_dropdown_markup.gif)
-5. Use the text editor to add your page's content.
-  ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Type a commit message describing the new file you’re adding.
-  ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
-7. To commit your changes to the wiki, click **Save Page**.
+3. 在页面的右上角，单击 **New Page（新页面）**。 ![Wiki 新页面按钮](/assets/images/help/wiki/wiki_new_page_button.png)
+4. 或者，要以 Markdown 以外的格式，请使用 Edit（编辑）模式下拉菜单，并单击不同的格式。 ![Wiki 标记选择](/assets/images/help/wiki/wiki_dropdown_markup.gif)
+5. 使用文本编辑器添加页面内容。 ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. 输入提交消息，描述所添加的新文件。 ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
+7. 要提交更改到 wiki，请单击 **Save Page（保存页面）**。
 
-## Editing wiki pages
+## 编辑 wiki 页面
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-4. Using the wiki sidebar, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**.
-   ![Wiki edit page button](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Use the text editor edit the page's content.
-   ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Type a commit message describing your changes.
-   ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
-7. To commit your changes to the wiki, click **Save Page**.
+4. 使用 wiki 侧栏，导航到您要更改的页面。 在页面的右上角，单击 **Edit（编辑）**。 ![Wiki 编辑页面按钮](/assets/images/help/wiki/wiki_edit_page_button.png)
+5. 使用文本编辑器添加页面内容。 ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. 输入提交消息，描述您的更改。 ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
+7. 要提交更改到 wiki，请单击 **Save Page（保存页面）**。
 
-## Adding or editing wiki pages locally
+## 本地添加或编辑 wiki 页面
 
-Wikis are part of Git repositories, so you can make changes locally and push them to your repository using a Git workflow.
+Wiki 是 Git 仓库的一部分，因此您可以在本地进行更改，然后使用 Git 工作流程将它们推送到仓库。
 
-### Cloning wikis to your computer
+### 克隆 wiki 到计算机
 
-Every wiki provides an easy way to clone its contents down to your computer.
-You can clone the repository to your computer with the provided URL:
+每个 wiki 都提供一种将其内容克隆到计算机的简易方式。 您可以选择使用提供的 URL 将仓库克隆到计算机：
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git
 # Clones the wiki locally
 ```
 
-Once you have cloned the wiki, you can add new files, edit existing ones, and commit your changes. You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
+在克隆 wiki 后，可以添加新文件、编辑现有文件以及提交更改。 您与协作者在操作 wiki 时可以创建分支，但只有推送到默认分支的更改才会生效并供读者使用。
 
-## About wiki filenames
+## 关于 wiki 文件名
 
-The filename determines the title of your wiki page, and the file extension determines how your wiki content is rendered.
+文件名确定 wiki 页面的标题，文件扩展名确定 wiki 内容如何呈现。
 
-Wikis use [our open-source Markup library](https://github.com/github/markup) to convert the markup, and it determines which converter to use by a file's extension. For example, if you name a file *foo.md* or *foo.markdown*, wiki will use the Markdown converter, while a file named *foo.textile* will use the Textile converter.
+Wiki 使用[我们的开源 Markup 库](https://github.com/github/markup)转换标记，它根据文件扩展名确定要使用的转换器。 例如，如果您将文件命名为 *foo.md* 或 *foo.markdown*，wiki 将会使用 Markdown 转换器，而名为 *foo.textile* 的文件将使用 Textile 转换器。
 
-Don't use the following characters in your wiki page's titles: `\ / : * ? " < > |`. Users on certain operating systems won't be able to work with filenames containing these characters. Be sure to write your content using a markup language that matches the extension, or your content won't render properly.
+不要在 wiki 页面标题中使用以下字符：`\ / : * ? " < > |`。 有些操作系统的用户不能使用包含这些字符的文件名。 请确保使用符合扩展名的标记语言编写内容，否则您的内容无法正确呈现。

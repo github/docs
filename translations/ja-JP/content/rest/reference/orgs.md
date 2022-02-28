@@ -42,7 +42,7 @@ Organization に対するブロック呼び出しを実行するには、呼び�
 {% endfor %}
 
 {% ifversion fpt or ghes > 3.4  %}
-## Custom repository roles
+## カスタムリポジトリロール
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'custom_roles' %}{% include rest_operation %}{% endif %}

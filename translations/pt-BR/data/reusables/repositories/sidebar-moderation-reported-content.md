@@ -1,1 +1,1 @@
-1. Na barra lateral esquerda, clique em **Conteúdo relatado**. !["Conteúdo relatado" na barra lateral de Configurações do repositório](/assets/images/help/repository/repo-settings-reported-content.png)
+1. In the "Access" section of the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Reported content**.

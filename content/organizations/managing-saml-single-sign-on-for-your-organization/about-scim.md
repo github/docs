@@ -22,6 +22,12 @@ These identity providers are compatible with the {% data variables.product.produ
 - Okta
 - OneLogin
 
+{% note %}
+
+**Note:** {% data reusables.scim.nameid-and-username-must-match %}
+
+{% endnote %} 
+
 {% data reusables.scim.enterprise-account-scim %}
 
 ## Further reading

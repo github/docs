@@ -1,5 +1,5 @@
 ---
-title: DMCA Takedown Policy
+title: DMCAテイクダウンポリシー
 redirect_from:
   - /dmca
   - /dmca-takedown
@@ -13,105 +13,105 @@ topics:
   - Legal
 ---
 
-Welcome to GitHub's Guide to the Digital Millennium Copyright Act, commonly known as the "DMCA." This page is not meant as a comprehensive primer to the statute. However, if you've received a DMCA takedown notice targeting content you've posted on GitHub or if you're a rights-holder looking to issue such a notice, this page will hopefully help to demystify the law a bit as well as our policies for complying with it.
+このページは、GitHub によるデジタルミレニアム著作権法（DMCA）のガイドです。 これは法律を包括的に説明する入門書ではありません が、あなたが GitHub に投稿したコンテンツを対象とする DMCA テイクダウン通知を受け取った場合、またはそのような通知を発行しようとしている権利所有者の場合、このページはこの法律や、それに従うための当社の方針を理解する上で役立つはずです。
 
 (If you just want to submit a notice, you can skip to "[G. Submitting Notices](#g-submitting-notices).")
 
-As with all legal matters, it is always best to consult with a professional about your specific questions or situation. We strongly encourage you to do so before taking any action that might impact your rights. This guide isn't legal advice and shouldn't be taken as such.
+法律に関わるあらゆる事項と同様、具体的な疑問や状況については専門家に相談するのが常に最善です。 あなたの権利に影響を及ぼす可能性のある行動をとる前に、そうすることを強くお勧めします。 このガイドは法律上の助言ではなく、またそのように解釈されるべきではありません。
 
-## What Is the DMCA?
+## DMCA とは？
 
-In order to understand the DMCA and some of the policy lines it draws, it's perhaps helpful to consider life before it was enacted.
+DMCA とそこから導き出されるポリシーの一部を理解するには、この法律が制定される前の世の中について考えてみると良いでしょう。
 
-The DMCA provides a safe harbor for service providers that host user-generated content. Since even a single claim of copyright infringement can carry statutory damages of up to $150,000, the possibility of being held liable for user-generated content could be very harmful for service providers. With potential damages multiplied across millions of users, cloud-computing and user-generated content sites like YouTube, Facebook, or GitHub probably [never would have existed](https://arstechnica.com/tech-policy/2015/04/how-the-dmca-made-youtube/) without the DMCA (or at least not without passing some of that cost downstream to their users).
+DMCA は、ユーザ生成コンテンツをホストするサービスプロバイダーにセーフハーバーを提供します。 たった一つの著作権侵害請求でも最大 15 万ドルの法定損害賠償金が生じる可能性があることを考えると、ユーザ生成コンテンツの責任を問われる恐れは、サービスプロバイダーにとって死活問題になり得ます。 損害規模が数百万人のユーザに及ぶ可能性がある、クラウドコンピューティングや YouTube、Facebook、GitHub などのユーザ生成コンテンツサイトは、おそらく DMCA なしでは（または少なくともそのコストの一部をユーザに負担してもらわなければ）[存在しなかったでしょう](https://arstechnica.com/tech-policy/2015/04/how-the-dmca-made-youtube/)。
 
-The DMCA addresses this issue by creating a [copyright liability safe harbor](https://www.copyright.gov/title17/92chap5.html#512) for internet service providers hosting allegedly infringing user-generated content. Essentially, so long as a service provider follows the DMCA's notice-and-takedown rules, it won't be liable for copyright infringement based on user-generated content. Because of this, it is important for GitHub to maintain its DMCA safe-harbor status.
+DMCA は、権利侵害が申し立てられたユーザ生成コンテンツをホストしているインターネットサービスプロバイダー向けの[著作権責任のセーフハーバー](https://www.copyright.gov/title17/92chap5.html#512)を設けることにより、この問題に対処しています。 基本的に、DMCA のノーティスアンドテイクダウンの規則に従っている限り、サービスプロバイダーはユーザ生成コンテンツに基づく著作権侵害の責任を問われません。 このため、DMCA のセーフハーバーの状態を維持することは GitHub にとって重要です。
 
-The DMCA also prohibits the [circumvention of technical measures](https://www.copyright.gov/title17/92chap12.html) that effectively control access to works protected by copyright. 
+また DMCA は、著作権で保護されている著作物へのアクセスを効果的に制限する[技術的手段の迂回](https://www.copyright.gov/title17/92chap12.html)も禁止しています。
 
-## DMCA Notices In a Nutshell
+## DMCA 通知の要約
 
-The DMCA provides two simple, straightforward procedures that all GitHub users should know about: (i) a [takedown-notice](/articles/guide-to-submitting-a-dmca-takedown-notice) procedure for copyright holders to request that content be removed; and (ii) a [counter-notice](/articles/guide-to-submitting-a-dmca-counter-notice) procedure for users to get content re-enabled when content is taken down by mistake or misidentification.
+DMCA には、すべての GitHub ユーザが知っておくべき 2 つの単純でわかりやすい手続きが用意されています。それは、(i) 著作権所有者がコンテンツの削除を要求するための[テイクダウン通知](/articles/guide-to-submitting-a-dmca-takedown-notice)の手続き、および (ii) コンテンツが誤ってまたは誤認されて削除された場合に、ユーザがコンテンツを再度有効にするための[異議申し立て通知](/articles/guide-to-submitting-a-dmca-counter-notice)の手続きです。
 
-DMCA [takedown notices](/articles/guide-to-submitting-a-dmca-takedown-notice) are used by copyright owners to ask GitHub to take down content they believe to be infringing. If you are a software designer or developer, you create copyrighted content every day. If someone else is using your copyrighted content in an unauthorized manner on GitHub, you can send us a DMCA takedown notice to request that the infringing content be changed or removed.
+著作権所有者は DMCA [テイクダウン通知](/articles/guide-to-submitting-a-dmca-takedown-notice)を使用して、GitHub に著作権を侵害していると思われるコンテンツを削除するよう依頼することができます。 ソフトウェア設計者や開発者であれば、著作権で保護されたコンテンツを日常的に作成しているでしょう。 他の誰かが著作権で保護されたあなたのコンテンツを GitHub で不正に使用している場合、あなたは著作権を侵害しているコンテンツを変更または削除するよう要求する DMCA テイクダウン通知を当社に送信できます。
 
-On the other hand, [counter notices](/articles/guide-to-submitting-a-dmca-counter-notice) can be used to correct mistakes. Maybe the person sending the takedown notice does not hold the copyright or did not realize that you have a license or made some other mistake in their takedown notice. Since GitHub usually cannot know if there has been a mistake, the DMCA counter notice allows you to let us know and ask that we put the content back up.
+一方、[異議申し立て通知](/articles/guide-to-submitting-a-dmca-counter-notice)は間違いを修正するために使用できます。 テイクダウン通知を送信した人が著作権を保持していない場合や、あなたがライセンスを所有していることを知らなかった場合など、間違いでテイクダウン通知が行われるケースもあります。 通常、GitHub には間違いがあったかどうかを知る術がないため、このような場合は DMCA の異議申し立て通知を使用してコンテンツの復元を依頼してください。
 
-The DMCA notice and takedown process should be used only for complaints about copyright infringement. Notices sent through our DMCA process must identify copyrighted work or works that are allegedly being infringed. The process cannot be used for other complaints, such as complaints about alleged [trademark infringement](/articles/github-trademark-policy/) or [sensitive data](/articles/github-sensitive-data-removal-policy/); we offer separate processes for those situations.
+DMCA のノーティスアンドテイクダウンプロセスは、著作権侵害に関する苦情に対してのみ使用されるべきものです。 DMCA プロセスを通じて送信された通知では、著作物または著作権侵害が申し立てられた著作物を特定する必要があります。 このプロセスは、[商標権侵害](/articles/github-trademark-policy/)の申し立てや[機密データ](/articles/github-sensitive-data-removal-policy/)に関する苦情など、他の苦情には使用できません。これらの状況に対しては個別のプロセスが用意されています。
 
-## A. How Does This Actually Work?
+## A. 具体的なプロセスは？
 
-The DMCA framework is a bit like passing notes in class. The copyright owner hands GitHub a complaint about a user. If it's written correctly, we pass the complaint along to the user. If the user disputes the complaint, they can pass a note back saying so. GitHub exercises little discretion in the process other than determining whether the notices meet the minimum requirements of the DMCA. It is up to the parties (and their lawyers) to evaluate the merit of their claims, bearing in mind that notices must be made under penalty of perjury.
+DMCA のフレームワークは、「授業中のメモまわし」に少し似ています。 著作権所有者は、GitHub にユーザに関する苦情を渡します。 内容に不備がなければ、当社は苦情をユーザに伝えます。 ユーザは、苦情に異議を唱える場合は、その旨を記したメモを返すことができます。 GitHub は、通知が DMCA の最小要件を満たしているかどうかを判断する以外、このプロセスではほとんど裁量権を行使しません。 主張の価値の評価は当事者（およびその弁護士）に委ねられます。なお、通知は偽証罪によって罰せられる対象になることにご注意ください。
 
-Here are the basic steps in the process.
+プロセスの基本的な手順は次のとおりです。
 
-1. **Copyright Owner Investigates.** A copyright owner should always conduct an initial investigation to confirm both (a) that they own the copyright to an original work and (b) that the content on GitHub is unauthorized and infringing. This includes confirming that the use is not protected as [fair use](https://www.lumendatabase.org/topics/22). A particular use may be fair if it only uses a small amount of copyrighted content, uses that content in a transformative way, uses it for educational purposes, or some combination of the above. Because code naturally lends itself to such uses, each use case is different and must be considered separately.
-> **Example:** An employee of Acme Web Company finds some of the company's code in a GitHub repository. Acme Web Company licenses its source code out to several trusted partners. Before sending in a take-down notice, Acme should review those licenses and its agreements to confirm that the code on GitHub is not authorized under any of them.
+1. **著作権所有者が調査します。**著作権所有者は (a) 自身が原著作物の著作権を所有していること、および (b) GitHub のコンテンツが無許可であり著作権を侵害していることの両方を確認するために必ず最初の調査を行う必要があります。 これには、使用が[フェアユース](https://www.lumendatabase.org/topics/22)として保護されていないことの確認が含まれます。 著作権で保護されたコンテンツを少量のみ使用する場合、そのコンテンツを変革的な方法で使用する場合、教育目的で使用する場合、または上記を組み合わせた場合、特定の使用がフェアユースに該当する場合があります。 コードは当然そのような用途に適しているため、使用事例ごとに異なり、個別に検討する必要があります。
+> **例**：Acme Web Company の従業員が、GitHub リポジトリで会社のコードの一部を見つけた。 Acme Web Company は、自社のソースコードを複数の信頼できるパートナーにライセンス供与している。 テイクダウン通知を送信する前に、Acme はこれらのライセンスとその契約を確認して、GitHub 上のコードがそのいずれかに基づいて許可されていないことを確認する必要がある。
 
-2. **Copyright Owner Sends A Notice.** After conducting an investigation, a copyright owner prepares and sends a [takedown notice](/articles/guide-to-submitting-a-dmca-takedown-notice) to GitHub. Assuming the takedown notice is sufficiently detailed according to the statutory requirements (as explained in the [how-to guide](/articles/guide-to-submitting-a-dmca-takedown-notice)), we will [post the notice](#d-transparency) to our [public repository](https://github.com/github/dmca) and pass the link along to the affected user.
+2. **著作権所有者が通知を送信します。**調査を行った後、著作権所有者は[テイクダウン通知](/articles/guide-to-submitting-a-dmca-takedown-notice)を準備し、GitHub に送信します。 テイクダウン通知が（[ハウツーガイド](/articles/guide-to-submitting-a-dmca-takedown-notice)で説明されている）法定要件に従って十分に詳細であることを条件に、当社は[パブリックリポジトリ](https://github.com/github/dmca)に[通知を投稿](#d-transparency)し、影響を受けるユーザにリンクを渡します。
 
-3. **GitHub Asks User to Make Changes.** If the notice alleges that the entire contents of a repository infringe, or a package infringes, we will skip to Step 6 and disable the entire repository or package expeditiously. Otherwise, because GitHub cannot disable access to specific files within a repository, we will contact the user who created the repository and give them approximately 1 business day to delete or modify the content specified in the notice. We'll notify the copyright owner if and when we give the user a chance to make changes. Because packages are immutable, if only part of a package is infringing, GitHub would need to disable the entire package, but we permit reinstatement once the infringing portion is removed. 
+3. **GitHub がユーザに変更を要求します。**通知がリポジトリのコンテンツ全体、またはパッケージが著作権侵害に該当すると主張する内容の場合、当社はステップ 6 に移動し、リポジトリ全体またはパッケージを迅速に無効にします。 そうでない場合、GitHub はリポジトリ内の特定のファイルへのアクセスを無効にすることはできないため、リポジトリを作成したユーザに連絡し、約 1 営業日以内に通知で指定されたコンテンツを削除または変更するよう求めます。 ユーザに変更を行う機会を提供した場合、当社はその旨を著作権者に通知します。 パッケージはイミュータブルであるため、パッケージの一部が著作権を侵害している場合、GitHub はパッケージ全体を無効にする必要がありますが、侵害している部分が削除された場合は復帰を許可しています。
 
-4. **User Notifies GitHub of Changes.** If the user chooses to make the specified changes, they *must* tell us so within the window of approximately 1 business day. If they don't, we will disable the repository (as described in Step 6). If the user notifies us that they made changes, we will verify that the changes have been made and then notify the copyright owner.
+4. **ユーザが GitHub に変更を通知します。**ユーザは、指定された変更を行うことを選択した場合、約 1 営業日以内にその旨を当社に通知する*必要があります*。 選択しなかった場合は、当社はリポジトリを無効にします（ステップ 6 で説明）。 ユーザが変更を行ったことを当社に通知した場合、当社は変更が行われたことを確認してから著作権所有者に通知します。
 
-5. **Copyright Owner Revises or Retracts the Notice.** If the user makes changes, the copyright owner must review them and renew or revise their takedown notice if the changes are insufficient. GitHub will not take any further action unless the copyright owner contacts us to either renew the original takedown notice or submit a revised one. If the copyright owner is satisfied with the changes, they may either submit a formal retraction or else do nothing. GitHub will interpret silence longer than two weeks as an implied retraction of the takedown notice.
+5. **著作権所有者が通知を修正または撤回します。**ユーザが変更を行った場合、著作権所有者はそれを確認し、変更が不十分な場合はテイクダウン通知を更新または修正する必要があります。 GitHub は、元のテイクダウン通知を更新する旨または修正版を送信する旨の連絡が著作権所有者からない限り、それ以上の措置を講じません。 著作権所有者は、変更に満足した場合、正式な撤回を提出することも、何もしないこともできます。 沈黙が 2 週間以上続いた場合、GitHub はそれをテイクダウン通知の暗黙の撤回として解釈します。
 
-6. **GitHub May Disable Access to the Content.** GitHub will disable a user's content if: (i) the copyright owner has alleged copyright over the user's entire repository or package (as noted in Step 3); (ii) the user has not made any changes after being given an opportunity to do so (as noted in Step 4); or (iii) the copyright owner has renewed their takedown notice after the user had a chance to make changes. If the copyright owner chooses instead to *revise* the notice, we will go back to Step 2 and repeat the process as if the revised notice were a new notice.
+6. **GitHub がコンテンツへのアクセスを無効にする場合があります。**次のいずれかの場合、GitHub はユーザのコンテンツを無効にします。(i) 著作権所有者がユーザのリポジトリ全体またはパッケージに対して著作権を主張している場合（ステップ 3 に記載）、(ii) ユーザが変更の機会を与えられた後、変更を行わなかった場合（ステップ 4 に記載）、(iii) ユーザが変更を行う機会を得た後、著作権所有者がテイクダウン通知を更新した場合。 著作権所有者が通知を*修正*することを代わりに選択した場合、当社はステップ 2 に戻り、修正された通知を新規の通知とみなしてプロセスを繰り返します。
 
-7. **User May Send A Counter Notice.** We encourage users who have had content disabled to consult with a lawyer about their options. If a user believes that their content was disabled as a result of a mistake or misidentification, they may send us a [counter notice](/articles/guide-to-submitting-a-dmca-counter-notice). As with the original notice, we will make sure that the counter notice is sufficiently detailed (as explained in the [how-to guide](/articles/guide-to-submitting-a-dmca-counter-notice)). If it is, we will [post it](#d-transparency) to our [public repository](https://github.com/github/dmca) and pass the notice back to the copyright owner by sending them the link.
+7. **ユーザは異議申し立て通知を送信できます。**コンテンツを無効にしたユーザは、選択肢について弁護士に相談することをお勧めします。 間違いや誤認によりコンテンツが無効にされたと思われる場合は、ユーザは[異議申し立て通知](/articles/guide-to-submitting-a-dmca-counter-notice)を送信できます。 元の通知と同様に、当社は異議申し立て通知が十分に詳細であることを確認します（[ハウツーガイド](/articles/guide-to-submitting-a-dmca-counter-notice)で説明されています）。 問題ない場合、当社は[パブリックリポジトリ](https://github.com/github/dmca)に[投稿](#d-transparency)し、リンクを送信することで著作権所有者に通知を返します。
 
-8. **Copyright Owner May File a Legal Action.** If a copyright owner wishes to keep the content disabled after receiving a counter notice, they will need to initiate a legal action seeking a court order to restrain the user from engaging in infringing activity relating to the content on GitHub. In other words, you might get sued. If the copyright owner does not give GitHub notice within 10-14 days, by sending a copy of a valid legal complaint filed in a court of competent jurisdiction, GitHub will re-enable the disabled content.
+8. **著作権所有者は法的措置を講じることができます。**異議申し立て通知を受け取った後も引き続きコンテンツを無効にしたい場合、著作権所有者は GitHub のコンテンツに関連する侵害行為にユーザが関与することを抑制する裁判所命令を求める法的措置を講じる必要があります。 つまり、訴えられる可能性があります。 10〜14 日以内に著作権所有者が GitHub に通知しない場合、管轄権のある裁判所に提出された有効な訴状の写しを送信することにより、GitHub は無効化されたコンテンツを再度有効にします。
 
-## B. What About Forks? (or What's a Fork?)
+## B. フォークの場合は？ （またはフォークとは？）
 
-One of the best features of GitHub is the ability for users to "fork" one another's repositories. What does that mean? In essence, it means that users can make a copy of a project on GitHub into their own repositories. As the license or the law allows, users can then make changes to that fork to either push back to the main project or just keep as their own variation of a project. Each of these copies is a "[fork](/articles/github-glossary#fork)" of the original repository, which in turn may also be called the "parent" of the fork.
+GitHub の最も優れた機能の 1 つに、ユーザが互いのリポジトリを「フォーク」できることがあります。 どういうことかと言うと、 基本的に、ユーザは GitHub のプロジェクトのコピーを自分のリポジトリに作成できます。 ライセンスや法律で許可されている範囲で、ユーザはそのフォークを変更してメインプロジェクトに戻したり、プロジェクトの独自のバリエーションとして保持したりすることができます。 これらの各コピーは、元のリポジトリの「[フォーク](/articles/github-glossary#fork)」であり、フォークの「親」とも呼ばれます。
 
-GitHub *will not* automatically disable forks when disabling a parent repository. This is because forks belong to different users, may have been altered in significant ways, and may be licensed or used in a different way that is protected by the fair-use doctrine. GitHub does not conduct any independent investigation into forks. We expect copyright owners to conduct that investigation and, if they believe that the forks are also infringing, expressly include forks in their takedown notice.
+GitHub は、親リポジトリを無効にするときにフォークを自動的に無効に*しません*。 これは、フォークが異なるユーザに属し、著しく変更されている可能性があり、フェアユースの原則によって保護されている別の方法でライセンス供与または使用されている可能性があるためです。 GitHub がフォークに対して独立した調査を行うことはありません。 著作権所有者がその調査を行い、フォークも著作権を侵害していると思われる場合は、テイクダウン通知にフォークを明示的に含めることが求められます。
 
-In rare cases, you may be alleging copyright infringement in a full repository that is actively being forked. If at the time that you submitted your notice, you identified all existing forks of that repository as allegedly infringing, we would process a valid claim against all forks in that network at the time we process the notice. We would do this given the likelihood that all newly created forks would contain the same content. In addition, if the reported network that contains the allegedly infringing content is larger than one hundred (100) repositories and thus would be difficult to review in its entirety, we may consider disabling the entire network if you state in your notice that, "Based on the representative number of forks I have reviewed, I believe that all or most of the forks are infringing to the same extent as the parent repository." Your sworn statement would apply to this statement.
+時には、活発にフォークされているリポジトリ全体で著作権の侵害を主張することもあるでしょう。 あなたが通知を送信した時点で、そのリポジトリの既存フォーク全体を指定して著作権を侵害していると申し立てた場合、通知を処理する際に、そのネットワークにあるすべてのフォークに対して、有効な請求を適用します。 新しく作成されたフォークすべてに同じコンテンツが含まれる可能性を考慮して、これを行います。 さらに、著作権侵害の疑いがあるコンテンツを含むとして報告されたネットワークが 100 リポジトリを超え、そのすべてを確認することが困難である際、通知の中であなたが次のように記載している場合にはネットワーク全体の無効化を検討します。「サンプルとして十分な数のフォークを確認した結果、私はこのフォークのすべてまたは大部分が、親リポジトリと同程度に著作権を侵害しているものと信じています。(Based on the representative number of forks I have reviewed, I believe that all or most of the forks are infringing to the same extent as the parent repository.)」 あなたの宣誓は、この申し立てに対して適用されます。
 
-## C. What about Circumvention Claims?
+## C. 迂回の申し立てへの対応
 
-The DMCA prohibits the [circumvention of technical measures](https://www.copyright.gov/title17/92chap12.html) that effectively control access to works protected by copyright. Given that these types of claims are often highly technical in nature, GitHub requires claimants to provide [detailed information about these claims](/github/site-policy/guide-to-submitting-a-dmca-takedown-notice#complaints-about-anti-circumvention-technology), and we undertake a more extensive review. 
+DMCA は、著作権で保護されている著作物へのアクセスを効果的に制限する[技術的手段の迂回](https://www.copyright.gov/title17/92chap12.html)を禁止しています。 この種の申し立ては非常に技術的に高度である場合が多いので、GitHub は申立人に対し、[申し立てについて詳細な情報](/github/site-policy/guide-to-submitting-a-dmca-takedown-notice#complaints-about-anti-circumvention-technology)の提供を求め、比較的大規模な確認を行います。
 
-A circumvention claim must include the following details about the technical measures in place and the manner in which the accused project circumvents them. Specifically, the notice to GitHub must include detailed statements that describe:
-1. What the technical measures are;
-2. How they effectively control access to the copyrighted material; and 
-3. How the accused project is designed to circumvent their previously described technological protection measures.
+迂回に関する申し立てには、訴えるプロジェクトが備える技術的手段、および迂回の方法について、以下を詳述する必要があります。 特に GitHub への通知には、以下を説明する詳細な文章を記載する必要があります。
+1. 技術的手段
+2. 用いられている技術的手段が著作権で保護されたものへのアクセスを効果的に制限する方法
+3. 訴えるプロジェクトが、前述の技術的保護措置をどのように迂回するよう設計されているか
 
-GitHub will review circumvention claims closely, including by both technical and legal experts. In the technical review, we will seek to validate the details about the manner in which the technical protection measures operate and the way the project allegedly circumvents them. In the legal review, we will seek to ensure that the claims do not extend beyond the boundaries of the DMCA. In cases where we are unable to determine whether a claim is valid, we will err on the side of the developer, and leave the content up. If the claimant wishes to follow up with additional detail, we would start the review process again to evaluate the revised claims.
+GitHub は、技術的専門家と法的専門家の両者を交えて、迂回の申し立てを綿密に調べます。 技術的審査においては、技術的保護措置の仕組みと、プロジェクトが保護措置を迂回すると申し立てられている方法の詳細を検証するよう努めます。 法的審査においては、申し立てが DMCA の範囲を超えないように努めます。 申し立てが有効であるかどうかを判断できない場合は、開発者側を優先し、コンテンツを残します。 申立人が追加情報を提供して再度審査を求める場合、改訂された申し立てを評価するため再度審査を開始することがあります。
 
-Where our experts determine that a claim is complete, legal, and technically legitimate, we will contact the repository owner and give them a chance to respond to the claim or make changes to the repo to avoid a takedown. If they do not respond, we will attempt to contact the repository owner again before taking any further steps. In other words, we will not disable a repository based on a claim of circumvention technology  without attempting to contact a repository owner to give them a chance to respond or make changes first. If we are unable to resolve the issue by reaching out to the repository owner first, we will always be happy to consider a response from the repository owner even after the content has been disabled if they would like an opportunity to dispute the claim, present us with additional facts, or make changes to have the content restored. When we need to disable content, we will ensure that repository owners can export their issues and pull requests and other repository data that do not contain the alleged circumvention code to the extent legally possible.
+当社の専門家が、申し立てが十全で、法的、技術的に妥当であると判断した場合、当社はリポジトリのオーナーに連絡し、テイクダウンを回避するため、申し立てに応答するかリポジトリに変更を加える機会を与えます。 リポジトリのオーナーが応答しない場合は、さらなる対処を行う前に再度連絡を試みます。 つまり、リポジトリのオーナーに応答または変更の機会を与えるため連絡を試みる前に、迂回技術の申し立てに基づいてリポジトリを無効化することはいたしません。 リポジトリのオーナーに連絡して問題が解決しなかった場合、たとえコンテンツが無効化された後であっても、申し立てに意義を唱える機会を求める、追加の事実を提供する、またはコンテンツを復元するために変更を行う場合、当社はリポジトリのオーナーからの応答を検討いたします。 当社がコンテンツを無効化する必要がある場合は、Issue、プルリクエスト、および迂回コードと申し立てられているものを含まないその他のリポジトリデータについて、法的に可能な範囲でリポジトリのオーナーがエクスポートできるようにします。
 
-Please note, our review process for circumvention technology does not apply to content that would otherwise violate our Acceptable Use Policy restrictions against sharing unauthorized product licensing keys, software for generating unauthorized product licensing keys, or software for bypassing checks for product licensing keys. Although these types of claims may also violate the DMCA provisions on circumvention technology, these are typically straightforward and do not warrant additional technical and legal review. Nonetheless, where a claim is not straightforward, for example in the case of jailbreaks, the circumvention technology claim review process would apply.  
+ただし、当社の迂回技術に関する審査プロセスは、当社の利用規定に反して、不正な製品ライセンスキー、製品ライセンスキーを不正に生成するソフトウェア、および製品ライセンスキーのチェックを迂回するソフトウェアを共有するコンテンツには適用されません。 この種の申し立ては、迂回技術に関する DMCA の規定にも違反していることがありますが、通常は違反が明白であり、技術的および法的審査の実施は保証できません。 しかしながら、ジェイルブレイクなど、申し立ての真偽が明白でない場合は、申し立ての審査プロセスが適用される可能性があります。
 
 When GitHub processes a DMCA takedown under our circumvention technology claim review process, we will offer the repository owner a referral to receive independent legal consultation through [GitHub’s Developer Defense Fund](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/) at no cost to them.
 
-## D. What If I Inadvertently Missed the Window to Make Changes?
+## D. うっかりして期間内に変更できなかった場合は？
 
-We recognize that there are many valid reasons that you may not be able to make changes within the window of approximately 1 business day we provide before your repository gets disabled. Maybe our message got flagged as spam, maybe you were on vacation, maybe you don't check that email account regularly, or maybe you were just busy. We get it. If you respond to let us know that you would have liked to make the changes, but somehow missed the first opportunity, we will re-enable the repository one additional time for approximately 1 business day to allow you to make the changes. Again, you must notify us that you have made the changes in order to keep the repository enabled after that window of approximately 1 business day, as noted above in [Step A.4](#a-how-does-this-actually-work). Please note that we will only provide this one additional chance.
+正当な理由で、リポジトリが無効になる前に提供されるおよそ 1 営業日の期間内に変更を行うことができないケースも多々あることでしょう。 当社からのメッセージがスパムフォルダに入ってしまう場合も、休暇中だった場合も、対象のメールアカウントを定期的に確認していない場合も、単に忙しかった場合もあるでしょう。 このように 変更を行いたかったが、何らかの理由で最初の機会を逃した場合は、その旨を当社にご連絡ください。変更を行うことができるように、リポジトリを再度約 1 営業日有効にします。 繰り返しになりますが、上記の[ステップ A.4](#a-how-does-this-actually-work) で説明したように、約 1 営業日が過ぎてもリポジトリを有効に保つためには変更を行ったことを当社に通知する必要があります。 なお、この追加の機会が提供されるのは 1 度限りですのでご注意ください。
 
-## E. Transparency
+## E. 透明性
 
-We believe that transparency is a virtue. The public should know what content is being removed from GitHub and why. An informed public can notice and surface potential issues that would otherwise go unnoticed in an opaque system. We post redacted copies of any legal notices we receive (including original notices, counter notices or retractions) at <https://github.com/github/dmca>. We will not publicly publish your personal contact information; we will remove personal information (except for usernames in URLs) before publishing notices. We will not, however, redact any other information from your notice unless you specifically ask us to. Here are some examples of a published [notice](https://github.com/github/dmca/blob/master/2014/2014-05-28-Delicious-Brains.md) and [counter notice](https://github.com/github/dmca/blob/master/2014/2014-05-01-Pushwoosh-SDK-counternotice.md) for you to see what they look like. When we remove content, we will post a link to the related notice in its place.
+当社は、透明性は美徳であると信じています。 GitHub から削除されるコンテンツとその理由は公にされるべきです。 知識のある人は、不透明なシステムでは見過ごされてしまう潜在的な問題に気づきこれを表面化することができます。 当社は、受け取った法的通知（元の通知、異議申し立て通知、撤回を含む）の編集後の写しを <https://github.com/github/dmca> に投稿します。 当社は、個人の連絡先情報は公開しません。通知を公開する前に個人情報（URL のユーザ名を除く）を削除します。 ただし、特別な要請がない限り、当社が通知のその他の情報を編集することはありません。 こちらに公開された[通知](https://github.com/github/dmca/blob/master/2014/2014-05-28-Delicious-Brains.md)と[異議申し立て通知](https://github.com/github/dmca/blob/master/2014/2014-05-01-Pushwoosh-SDK-counternotice.md)の例を示しますのでご覧ください。 当社は、コンテンツを削除すると、関連する通知へのリンクを代わりに投稿します。
 
-Please also note that, although we will not publicly publish unredacted notices, we may provide a complete unredacted copy of any notices we receive directly to any party whose rights would be affected by it.
+また、当社が未編集の通知を公開することはありませんが、受け取った通知の未編集の完全な写しを、それによって自身の権利が影響を受ける当事者に直接提供する場合はありますのでご注意ください。
 
-## F. Repeated Infringement
+## F. 繰り返しの侵害
 
-It is the policy of GitHub, in appropriate circumstances and in its sole discretion, to disable and terminate the accounts of users who may infringe upon the copyrights or other intellectual property rights of GitHub or others.
+GitHub は、当社のポリシーとして、状況によっては独自の裁量により、GitHub またはその他の著作権またはその他の知的財産権を侵害する可能性のあるユーザのアカウントを無効化および解約します。
 
-## G. Submitting Notices
+## G. 通知の提出
 
-If you are ready to submit a notice or a counter notice:
-- [How to Submit a DMCA Notice](/articles/guide-to-submitting-a-dmca-takedown-notice)
-- [How to Submit a DMCA Counter Notice](/articles/guide-to-submitting-a-dmca-counter-notice)
+通知または異議申し立て通知を提出する準備ができている場合
+- [DMCA 通知の提出方法](/articles/guide-to-submitting-a-dmca-takedown-notice)
+- [DMCA 異議申し立て通知の提出方法](/articles/guide-to-submitting-a-dmca-counter-notice)
 
-## Learn More and Speak Up
+## 詳細および当社の見解
 
-If you poke around the Internet, it is not too hard to find commentary and criticism about the copyright system in general and the DMCA in particular. While GitHub acknowledges and appreciates the important role that the DMCA has played in promoting innovation online, we believe that the copyright laws could probably use a patch or two—if not a whole new release. In software, we are constantly improving and updating our code. Think about how much technology has changed since 1998 when the DMCA was written. Doesn't it just make sense to update these laws that apply to software?
+インターネットを探せば、著作権システム全般、特に DMCA についての解説や批判は難なく見つけることができるでしょう。 GitHub は、オンラインでイノベーションを促進する上で DMCA が果たしてきた重要な役割を認識し、評価していますが、著作権法については刷新とまではいかなくても、多少の改訂を加える程度のことはあってもいいのではないかと考えています。 ソフトウェアの世界では、コードは絶えず改善、更新されています。 DMCA が作成された 1998 年から、テクノロジーはどれほど変化したことでしょう。 ソフトウェアに適用されるこうした法律を更新することは理にかなっているのではないでしょうか。
 
-We don't presume to have all the answers. But if you are curious, here are a few links to scholarly articles and blog posts we have found with opinions and proposals for reform:
+もちろん当社の考え方が絶対ではありません が、改革に関する意見や提案について私たちが見つけた学術記事やブログ投稿を以下に紹介しますので、もしご関心がございましたらご覧ください。
 
 - [Unintended Consequences: Twelve Years Under the DMCA](https://www.eff.org/wp/unintended-consequences-under-dmca) (Electronic Frontier Foundation)
 - [Statutory Damages in Copyright Law: A Remedy in Need of Reform](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1375604) (William & Mary Law Review)
@@ -120,4 +120,4 @@ We don't presume to have all the answers. But if you are curious, here are a few
 - [Opportunities for Copyright Reform](https://www.cato-unbound.org/issues/january-2013/opportunities-copyright-reform) (Cato Unbound)
 - [Fair Use Doctrine and the Digital Millennium Copyright Act: Does Fair Use Exist on the Internet Under the DMCA?](https://digitalcommons.law.scu.edu/lawreview/vol42/iss1/6/) (Santa Clara Law Review)
 
-GitHub doesn't necessarily endorse any of the viewpoints in those articles. We provide the links to encourage you to learn more, form your own opinions, and then reach out to your elected representative(s) (e.g, in the [U.S. Congress](https://www.govtrack.us/congress/members) or [E.U. Parliament](https://www.europarl.europa.eu/meps/en/home)) to seek whatever changes you think should be made.
+GitHub は、必ずしもこれらの記事の視点を支持しているわけではありません。 私たちがこうしたリンクを提供するのは、あなたがより多くのことを学び、あなた自身の意見を形成し、そしてあなたが選んだ代表者（例えば、[米国 議会](https://www.govtrack.us/congress/members)や[欧州 議会](https://www.europarl.europa.eu/meps/en/home)）に働き掛けて、あなたが考える必要な変化を求めることができるようにするためです。

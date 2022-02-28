@@ -3,18 +3,18 @@ title: Agregar o eliminar un método de pago
 intro: Puedes agregar un método de pago a tu cuenta o actualizar el método de pago existente de tu cuenta en cualquier momento.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/adding-or-editing-a-payment-method
-  - /articles/updating-your-personal-account-s-payment-method/
-  - /articles/how-do-i-update-my-credit-card/
-  - /articles/updating-your-account-s-credit-card/
-  - /articles/updating-your-personal-account-s-credit-card/
-  - /articles/updating-your-personal-account-s-paypal-information/
-  - /articles/does-github-provide-invoicing/
-  - /articles/switching-payment-methods-for-your-personal-account/
-  - /articles/paying-for-your-github-organization-account/
-  - /articles/updating-your-organization-s-credit-card/
-  - /articles/updating-your-organization-s-paypal-information/
-  - /articles/updating-your-organization-s-payment-method/
-  - /articles/switching-payment-methods-for-your-organization/
+  - /articles/updating-your-personal-account-s-payment-method
+  - /articles/how-do-i-update-my-credit-card
+  - /articles/updating-your-account-s-credit-card
+  - /articles/updating-your-personal-account-s-credit-card
+  - /articles/updating-your-personal-account-s-paypal-information
+  - /articles/does-github-provide-invoicing
+  - /articles/switching-payment-methods-for-your-personal-account
+  - /articles/paying-for-your-github-organization-account
+  - /articles/updating-your-organization-s-credit-card
+  - /articles/updating-your-organization-s-paypal-information
+  - /articles/updating-your-organization-s-payment-method
+  - /articles/switching-payment-methods-for-your-organization
   - /articles/adding-or-editing-a-payment-method
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/adding-or-editing-a-payment-method
 versions:
@@ -33,7 +33,7 @@ No entregamos facturas u órdenes de compra de respaldo a cuentas personales. En
 
 ## Actualizar el método de pago de tu cuenta personal
 
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. Si tu cuenta tiene información de facturación existente que quieras actualizar, haz clic en **Editar**. ![Botón de facturar con tarjeta nueva](/assets/images/help/billing/billing-information-edit-button.png)
 {% data reusables.dotcom_billing.enter-billing-info %}

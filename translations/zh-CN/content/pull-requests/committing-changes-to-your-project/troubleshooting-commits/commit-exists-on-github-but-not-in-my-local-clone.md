@@ -1,6 +1,6 @@
 ---
-title: Commit exists on GitHub but not in my local clone
-intro: 'Sometimes a commit will be viewable on {% data variables.product.product_name %}, but will not exist in your local clone of the repository.'
+title: 存在于 GitHub 上但不存在于本地克隆中的提交
+intro: '有时，提交可以在 {% data variables.product.product_name %} 上查看到，但不存在于仓库的本地克隆中。'
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
@@ -10,83 +10,73 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Commit missing in local clone
+shortTitle: 本地克隆中缺少的提交
 ---
-When you use `git show` to view a specific commit on the command line, you may get a fatal error.
 
-For example, you may receive a `bad object` error locally:
+使用 `git show` 在命令行上查看特定提交时，可能会收到致命错误。
+
+例如，可能会在本地收到 `bad object` 错误：
 
 ```shell
 $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 > fatal: bad object 1095ff3d0153115e75b7bca2c09e5136845b5592
 ```
 
-However, when you view the commit on {% data variables.product.product_location %}, you'll be able to see it without any problems:
+但是，当您在 {% data variables.product.product_location %} 上查看该提交时，却可以看到它，并且不会遇到任何问题：
 
 `github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 
-There are several possible explanations:
+有几种可能的解释：
 
-* The local repository is out of date.
-* The branch that contains the commit was deleted, so the commit is no longer referenced.
-* Someone force pushed over the commit.
+* 本地仓库已过期。
+* 包含提交的分支已被删除，因此该提交的引用不再有效。
+* 有人强制推送了提交。
 
-## The local repository is out of date
+## 本地仓库已过期
 
-Your local repository may not have the commit yet. To get information from your remote repository to your local clone, use `git fetch`:
+您的本地仓库可能还没有提交。 要将信息从远程仓库提取到本地克隆，请使用 `git fetch`：
 
 ```shell
 $ git fetch <em>remote</em>
 ```
 
-This safely copies information from the remote repository to your local clone without making any changes to the files you have checked out.
-You can use `git fetch upstream` to get information from a repository you've forked, or `git fetch origin` to get information from a repository you've only cloned.
+这将安全地将信息从远程仓库复制到本地克隆，无需对已检出的文件进行任何更改。 您可以使用 `git fetch upstream`从已复刻的仓库获取信息，或使用 `git fetch origin`从仅克隆的仓库获取信息。
 
 {% tip %}
 
-**Tip**: For more information, read about [managing remotes and fetching data](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes) in the [Pro Git](https://git-scm.com/book) book.
+**提示**：更多信息请参阅 [Pro Git](https://git-scm.com/book) 手册中的[管理远程仓库和获取数据](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes) 。
 
 {% endtip %}
 
-## The branch that contained the commit was deleted
+## 包含提交的分支已被删除
 
-If a collaborator on the repository has deleted the branch containing the commit
-or has force pushed over the branch, the missing commit may have been orphaned
-(i.e. it cannot be reached from any reference) and therefore will not be fetched
-into your local clone.
+如果仓库的协作者已删除包含提交的分支或者已强制推送该分支，则缺失的提交可能已成为孤立状态（即无法从任何引用访问它），因此它不会被提取到您的本地克隆中。
 
-Fortunately, if any collaborator has a local clone of the repository with the
-missing commit, they can push it back to {% data variables.product.product_name %}.  They need to make sure the commit
-is referenced by a local branch and then push it as a new branch to {% data variables.product.product_name %}.
+如果幸好有某个协作者的本地克隆仓库中包含了该缺失的提交，则他们可以将其推送回 {% data variables.product.product_name %}。  他们需要确保通过本地分支引用该提交，然后将其作为新分支推送到 {% data variables.product.product_name %}。
 
-Let's say that the person still has a local branch (call it `B`) that contains
-the commit.  This might be tracking the branch that was force pushed or deleted
-and they simply haven't updated yet.  To preserve the commit, they can push that
-local branch to a new branch (call it `recover-B`) on {% data variables.product.product_name %}.  For this example,
-let's assume they have a remote named `upstream` via which they have push access
-to `github.com/$account/$repository`.
+假设某人仍有包含该提交的本地分支（称为 `B`）。  它们可能追随已被强制推送或删除的分支，只是它们还没有更新。  要保留该提交，他们可以将该本地分支推送到 {% data variables.product.product_name %} 上的新分支（称为 `recover-B`）。  在此例中，假设他们有一个名为 `upstream` 的远程仓库，通过该仓库他们可以推送到 `github.com/$account/$repository`。
 
-The other person runs:
+他们运行：
 
 ```shell
 $ git branch recover-B B
-# Create a new local branch referencing the commit
+# 创建引用该提交的新本地分支
 $ git push upstream B:recover-B
-# Push local B to new upstream branch, creating new reference to commit
+# 将本地分支 B 推送到新上游分支，创建对提交的新引用
 ```
 
-Now, *you* can run:
+现在，*您*可以运行：
 
 ```shell
 $ git fetch upstream recover-B
-# Fetch commit into your local repository.
+# 将提交提取到您的本地仓库。
 ```
 
-## Avoid force pushes
+## 避免强制推送
 
-Avoid force pushing to a repository unless absolutely necessary. This is especially true if more than one person can push to the repository. If someone force pushes to a repository, the force push may overwrite commits that other people based their work on. Force pushing changes the repository history and can corrupt pull requests.
+除非万不得已，否则应避免向仓库强制推送。 如果可以向仓库推送的人不止一个，这个原则尤为重要。 If someone force pushes to a repository, the force push may overwrite commits that other people based their work on. Force pushing changes the repository history and can corrupt pull requests.
 
-## Further reading
+## 延伸阅读
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
-- ["Data Recovery" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)
+- [_Pro Git_ 手册中的“处理远程仓库”](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
+- [_Pro Git_ 手册中的“数据恢复”](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

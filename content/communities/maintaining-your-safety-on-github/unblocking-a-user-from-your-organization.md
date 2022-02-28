@@ -34,7 +34,7 @@ If you selected a specific amount of time to block the user, they will be automa
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}
+{% data reusables.organizations.moderation-settings %}, then click **Blocked users**.
 5. Under "Blocked users", next to the user you'd like to unblock, click **Unblock**.
 ![Unblock user button](/assets/images/help/organizations/org-unblock-user-button.png)
 

@@ -97,8 +97,6 @@ prodname_matching_fund: 'GitHub Sponsors Matching Fund'
 #GitHub Advanced Security
 prodname_GH_advanced_security: 'GitHub Advanced Security'
 prodname_advanced_security: 'Advanced Security'
-#Security Center
-prodname_security_center: 'セキュリティセンター'
 #Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
@@ -145,6 +143,7 @@ prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabotアラート'
 prodname_dependabot_security_updates: 'Dependabotセキュリティアップデート'
 prodname_dependabot_version_updates: 'Dependabotバージョンアップデート'
+prodname_dependabot_updates: 'Dependabot updates'
 #GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'

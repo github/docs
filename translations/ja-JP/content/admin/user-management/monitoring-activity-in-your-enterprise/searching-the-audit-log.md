@@ -1,6 +1,6 @@
 ---
-title: Searching the audit log
-intro: Site administrators can search an extensive list of audited actions on the enterprise.
+title: Audit log を検索する
+intro: サイト管理者は、Enterprise で監査されたアクションの広範なリストを検索できます。
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
@@ -15,37 +15,37 @@ topics:
   - Enterprise
   - Logging
 ---
-## Search query syntax
 
-Compose a search query from one or more key:value pairs separated by AND/OR logical operators.
+## 検索クエリの構文
 
-Key            | Value
---------------:| --------------------------------------------------------
-`actor_id`     | ID of the user account that initiated the action
-`actor`        | Name of the user account that initiated the action
-`oauth_app_id` | ID of the OAuth application associated with the action
-`action`       | Name of the audited action
-`user_id`      | ID of the user affected by the action
-`user`         | Name of the user affected by the action
-`repo_id`      | ID of the repository affected by the action (if applicable)
-`repo`         | Name of the repository affected by the action (if applicable)
-`actor_ip`     | IP address from which the action was initiated
-`created_at`   | Time at which the action occurred
-`from`         | View from which the action was initiated
-`note`         | Miscellaneous event-specific information (in either plain text or JSON format)
-`org`          | Name of the organization affected by the action (if applicable)
-`org_id`       | ID of the organization affected by the action (if applicable)
+AND/ORの論理演算子で区切られた値のペア:1つ以上のキーを使って、検索クエリを構成します。
 
-For example, to see all actions that have affected the repository `octocat/Spoon-Knife` since the beginning of 2017:
+|             キー | 値                                       |
+| --------------:| --------------------------------------- |
+|     `actor_id` | アクションを開始したユーザアカウントの ID                  |
+|        `actor` | アクションを開始したユーザアカウントの名前                   |
+| `oauth_app_id` | アクションに関連付けられている OAuth アプリケーションの ID      |
+|       `action` | 監査されたアクションの名前                           |
+|      `user_id` | アクションによって影響を受けたユーザの ID                  |
+|          `ユーザ` | アクションによって影響を受けたユーザの名前                   |
+|      `repo_id` | アクションによって影響を受けたリポジトリの ID （妥当な場合）        |
+|         `repo` | アクションによって影響を受けたリポジトリの名前 （妥当な場合）         |
+|     `actor_ip` | アクション元の IP アドレス                         |
+|   `created_at` | アクションが作成された時間                           |
+|         `from` | アクション元の View                            |
+|         `note` | イベント固有の他の情報（プレーンテキストまたは JSON フォーマット）    |
+|          `org` | アクションによって影響を受けたOrganizationの名前（該当する場合）  |
+|       `org_id` | アクションによって影響を受けたOrganizationの ID（該当する場合） |
+
+たとえば、2017 年の初めからリポジトリ `octocat/Spoon-Knife` に影響を与えたすべてのアクションを確認するには、次のようにします:
 
   `repo:"octocat/Spoon-Knife" AND created_at:[2017-01-01 TO *]`
 
-For a full list of actions, see "[Audited actions](/admin/user-management/audited-actions)."
+アクションの完全なリストについては、「[監査済みのアクション](/admin/user-management/audited-actions)」を参照してください。
 
-## Searching the audit log
+## Audit log を検索する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
-4. Type a search query.
-![Search query](/assets/images/enterprise/site-admin-settings/search-query.png)
+4. 検索クエリを入力します。![検索クエリ](/assets/images/enterprise/site-admin-settings/search-query.png)

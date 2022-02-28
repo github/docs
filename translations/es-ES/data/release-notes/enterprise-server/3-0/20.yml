@@ -4,13 +4,14 @@ sections:
   security_fixes:
     - Los paquetes se actualizaron a las últimas versiones de seguridad.
   bugs:
-    - Pre-receive hooks would fail due to undefined `PATH`.
-    - 'Running `ghe-repl-setup` would return an error: `cannot create directory /data/user/elasticsearch: File exists` if the instance had previously been configured as a replica.'
-    - In large cluster environments, the authentication backend could be unavailable on a subset of frontend nodes.
-    - Some critical services may not have been available on backend nodes in GHES Cluster.
+    - Los ganchos de pre-recepción fallaron debido a un `PATH` sin definir.
+    - 'El ejecutar `ghe-repl-setup` devolvió un error de tipo: `cannot create directory /data/user/elasticsearch: File exists` si la instancia se había configurado anteriormente como una réplica.'
+    - En ambientes de clúster grandes, el backend de autenticación podría no estar disponible en un subconjunto de nodos de frontend.
+    - Algunos servicios críticos pudieron no haber estado disponibles en los nodos del backend en el Clúster de GHES.
   changes:
-    - An additional outer layer of `gzip` compression when creating a cluster support bundle with `ghe-cluster-suport-bundle` is now turned off by default. This outer compression can optionally be applied with the `ghe-cluster-suport-bundle -c` command line option.
-    - We have added extra text to the admin console to remind users about the mobile apps' data collection for experience improvement purposes.
+    - Una capa externa adicional de la compresión de `gzip`, al crear un paquete de soporte de clúster con `ghe-cluster-suport-bundle`, ahora se encuentra apagada predeterminadamente. Esta compresión externa puede aplicarse opcionalmente con la opción de línea de comandos `ghe-cluster-suport-bundle -c`.
+    - Agregamos texto extra a la consola de administración para recordarles a los usuarios sobre la recolección de datos de las apps móviles para propósitos de mejora de la experiencia.
+    - El registro de conexión de datos de {% data variables.product.prodname_github_connect %} ahora incluye una lista de características de {% data variables.product.prodname_github_connect %} habilitadas. [Actualizado el 2021-12-09]
   known_issues:
     - En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.

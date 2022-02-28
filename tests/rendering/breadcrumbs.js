@@ -1,6 +1,7 @@
 import { getDOM, getJSON } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
 
+// TODO: Use `describeViaActionsOnly` instead. See tests/rendering/server.js
 const describeInternalOnly =
   process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
 // Breadcrumbs were moved to the Header and in the Menu for mobile, so there are now double the Breadcrumbs
@@ -70,22 +71,22 @@ describe('breadcrumbs', () => {
     })
 
     test('parses Liquid variables inside titles', async () => {
-      const $ = await getDOM('/en/enterprise/admin/enterprise-support')
+      const $ = await getDOM('/en/education/manage-coursework-with-github-classroom')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[1].attribs.title).toBe('Working with support')
+      expect($breadcrumbs[1].attribs.title).toBe('GitHub Classroom')
     })
 
     test('English breadcrumbs link to English pages', async () => {
-      const $ = await getDOM('/en/github/importing-your-projects-to-github')
+      const $ = await getDOM('/en/get-started/learning-about-github')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs[0].attribs.href).toBe('/en/github')
+      expect($breadcrumbs[0].attribs.href).toBe('/en/get-started')
     })
 
     test('localized breadcrumbs link to localize pages', async () => {
-      const $ = await getDOM('/ja/github/importing-your-projects-to-github')
+      const $ = await getDOM('/ja/get-started/learning-about-github')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs[0].attribs.href).toBe('/ja/github')
+      expect($breadcrumbs[0].attribs.href).toBe('/ja/get-started')
     })
   })
 

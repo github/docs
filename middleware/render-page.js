@@ -1,5 +1,4 @@
 import { get } from 'lodash-es'
-import QuickLRU from 'quick-lru'
 
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
@@ -7,37 +6,6 @@ import Page from '../lib/page.js'
 import statsd from '../lib/statsd.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
-
-function cacheOnReq(fn, minSize = 1024, lruMaxSize = 1000) {
-  const cache = new QuickLRU({ maxSize: lruMaxSize })
-
-  return async function (req) {
-    const path = req.pagePath || req.path
-
-    // Is the request for the GraphQL Explorer page?
-    const isGraphQLExplorer =
-      req.context.currentPathWithoutLanguage === '/graphql/overview/explorer'
-
-    // Serve from the cache if possible
-    const isCacheable =
-      // Skip for HTTP methods other than GET
-      req.method === 'GET' &&
-      // Skip for JSON debugging info requests
-      !('json' in req.query) &&
-      // Skip for the GraphQL Explorer page
-      !isGraphQLExplorer
-
-    if (isCacheable && cache.has(path)) {
-      return cache.get(path)
-    }
-    const result = await fn(req)
-
-    if (result && isCacheable && result.length > minSize) {
-      cache.set(path, result)
-    }
-    return result
-  }
-}
 
 async function buildRenderedPage(req) {
   const { context } = req
@@ -78,19 +46,10 @@ async function buildMiniTocItems(req) {
   return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
 }
 
-// The avergage size of buildRenderedPage() is about 22KB.
-// The median in 7KB. By only caching those larger than 10KB we avoid
-// putting too much into the cache.
-const wrapRenderedPage = cacheOnReq(buildRenderedPage, 10 * 1024)
-
 export default async function renderPage(req, res, next) {
   const { context } = req
   const { page } = context
   const path = req.pagePath || req.path
-
-  if (path.startsWith('/storybook')) {
-    return nextHandleRequest(req, res)
-  }
 
   // render a 404 page
   if (!page) {
@@ -122,7 +81,7 @@ export default async function renderPage(req, res, next) {
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
 
-  req.context.renderedPage = await wrapRenderedPage(req)
+  req.context.renderedPage = await buildRenderedPage(req)
   req.context.miniTocItems = await buildMiniTocItems(req)
 
   // Stop processing if the connection was already dropped

@@ -27,6 +27,7 @@ In {% data variables.product.prodname_pages %} API endpoints that  return GitHub
    - `branch`: The repository branch used to publish your [site's source files](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
    - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
 
+{% comment %}An extra blank line is needed here to make sure the operations below don't continue the list above.{% endcomment %}
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'pages' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}

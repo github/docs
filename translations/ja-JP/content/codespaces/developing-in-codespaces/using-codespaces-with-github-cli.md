@@ -153,7 +153,7 @@ For more information about the `gh codespace cp` command, including additional f
 
 ### Modify ports in a codespace
 
-You can forward a port on a codespace to a local port. The port remains forwarded as long as the process is running. To stop forwarding the port, press <kbd>control</kbd>+<kbd>c</kbd>.
+You can forward a port on a codespace to a local port. The port remains forwarded as long as the process is running. To stop forwarding the port, press <kbd>Control</kbd>+<kbd>C</kbd>.
 
 ```shell
 gh codespace ports forward <em>codespace-port-number</em>:<em>local-port-number</em> -c <em>codespace-name</em>

@@ -66,7 +66,7 @@ O armazenamento usado por um repositório é o armazenamento total usado por art
 
 O número de trabalhos que você pode executar simultaneamente em todos os repositórios em sua conta de usuário ou organização depende do seu plano GitHub. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Calculando minutos e gastos de armazenamento
 
@@ -76,7 +76,7 @@ No final do mês, {% data variables.product.prodname_dotcom %} calcula o custo d
 
 ### Cálculo de custo de amostra em minutos
 
-Por exemplo, se sua organização usa {% data variables.product.prodname_team %} e permite gastos ilimitados, usando 15.000 minutos, poderia ter um custo total de armazenamento e custo médio de minuto de US$ 56,00, dependendo dos sistemas operacionais usados para executar trabalhos.
+Por exemplo, se sua organização usa {% data variables.product.prodname_team %} e permite gastos ilimitados, usando 5.000 minutos, poderia ter um custo total de armazenamento e custo médio de minuto de US$ 56,00, dependendo dos sistemas operacionais usados para executar trabalhos.
 
 - 5.000 (3.000 Linux e 2.000 Windows) minutos = US$ 56 (US$ 24 + US$ 32).
   - 3.000 minutos de Linux por US$ 0,008 por minuto = US$ 24.

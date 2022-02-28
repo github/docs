@@ -1,26 +1,26 @@
 ---
-title: Customizing GitHub-hosted runners
-intro: You can install additional software on GitHub-hosted runners as a part of your workflow.
+title: Personalizando executores hospedados no GitHub
+intro: Você pode instalar software adicional em executores hospedados no GitHub como parte do seu fluxo de trabalho.
 versions:
   fpt: '*'
   ghec: '*'
 type: tutorial
 topics:
   - Workflows
-shortTitle: Customize runners
+shortTitle: Personalize executores
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-If you require additional software packages on {% data variables.product.prodname_dotcom %}-hosted runners, you can create a job that installs the packages as part of your workflow. 
+Se você precisar de pacotes de software adicionais em executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá criar um trabalho que instale os pacotes como parte de seu fluxo de trabalho.
 
-To see which packages are already installed by default, see "[Preinstalled software](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
+Para ver quais pacotes já estão instalados por padrão, consulte "[Software pré-instalado](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)".
 
-This guide demonstrates how to create a job that installs additional software on a {% data variables.product.prodname_dotcom %}-hosted runner.
+Este guia demonstra como criar um trabalho que instale software adicional em um executor hospedado em {% data variables.product.prodname_dotcom %}.
 
-## Installing software on Ubuntu runners
+## Instalando software nos executores do Ubuntu
 
-The following example demonstrates how to install an `apt` package as part of a job.
+O exemplo a seguir demonstra como instalar um pacote `apt` como parte de um trabalho.
 
 {% raw %}
 ```yaml
@@ -42,13 +42,13 @@ jobs:
 
 {% note %}
 
-**Note:** Always run `sudo apt-get update` before installing a package. In case the `apt` index is stale, this command fetches and re-indexes any available packages, which helps prevent package installation failures. 
+**Observação:** Sempre execute `sudo apt-get update` antes de instalar um pacote. Caso o índice `apt` seja obsoleto, este comando busca e indexa novamente quaisquer pacotes disponíveis, o que ajuda a prevenir falhas na instalação do pacote.
 
 {% endnote %}
 
-## Installing software on macOS runners
+## Instalando o software nos executores do macOS
 
-The following example demonstrates how to install Brew packages and casks as part of a job.
+O exemplo a seguir demonstra como instalar pacotes de Brew e cascas como parte de um trabalho.
 
 {% raw %}
 ```yaml
@@ -72,9 +72,9 @@ jobs:
 ```
 {% endraw %}
 
-## Installing software on Windows runners
+## Instalando software em executores do Windows
 
-The following example demonstrates how to use [Chocolatey](https://community.chocolatey.org/packages) to install the {% data variables.product.prodname_dotcom %} CLI as part of a job.
+O exemplo a seguir demonstra como usar o [Chocolatey](https://community.chocolatey.org/packages) para instalar a CLI de {% data variables.product.prodname_dotcom %} como parte de um trabalho.
 
 {% raw %}
 ```yaml

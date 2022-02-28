@@ -33,6 +33,8 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 
 ## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage
 
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.actions.perform-blob-storage-precheck %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}

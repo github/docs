@@ -2,13 +2,13 @@
 title: Managing a custom domain for your GitHub Pages site
 intro: 'You can set up or update certain DNS records and your repository settings to point the default domain for your {% data variables.product.prodname_pages %} site to a custom domain.'
 redirect_from:
-  - /articles/quick-start-setting-up-a-custom-domain/
-  - /articles/setting-up-an-apex-domain/
-  - /articles/setting-up-a-www-subdomain/
-  - /articles/setting-up-a-custom-domain/
-  - /articles/setting-up-an-apex-domain-and-www-subdomain/
-  - /articles/adding-a-cname-file-to-your-repository/
-  - /articles/setting-up-your-pages-site-repository/
+  - /articles/quick-start-setting-up-a-custom-domain
+  - /articles/setting-up-an-apex-domain
+  - /articles/setting-up-a-www-subdomain
+  - /articles/setting-up-a-custom-domain
+  - /articles/setting-up-an-apex-domain-and-www-subdomain
+  - /articles/adding-a-cname-file-to-your-repository
+  - /articles/setting-up-your-pages-site-repository
   - /articles/managing-a-custom-domain-for-your-github-pages-site
   - /github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -139,7 +139,7 @@ After you configure the apex domain, you must configure a CNAME record with your
 
 ## Securing your custom domain
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."  
+{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
 
 ## Further reading
 

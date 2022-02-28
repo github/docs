@@ -1,5 +1,5 @@
 ---
-title: Making a GitHub App public or private
+title: Tornar um aplicativo do GitHub público ou privado
 intro: '{% data reusables.shortdesc.making-a-github-app-public-or-private %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-installation-options-for-github-apps
@@ -15,29 +15,27 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Manage app visibility
+shortTitle: Gerenciar visibilidade do aplicativo
 ---
-For authentication information, see "[Authenticating with GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
-## Public installation flow
+Para obter informações de autenticação, consulte "[Efetuando autenticação com aplicativos GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
 
-Public installation flows have a landing page to enable other people besides the app owner to install the app in their repositories. This link is provided in the "Public link" field when setting up your GitHub App. For more information, see "[Installing GitHub Apps](/apps/installing-github-apps/)."
+## Fluxo público de instalação
 
-## Private installation flow
+Os fluxos de instalação pública têm uma página inicial para permitir que outras pessoas, além do proprietário do aplicativo, instalem o aplicativo nos seus repositórios. Este link é fornecido no campo "Link público" ao configurar seu aplicativo GitHub. Para obter mais informações, consulte "[Instalando aplicativos GitHub](/apps/installing-github-apps/)".
 
-Private installation flows allow only the owner of a GitHub App to install it. Limited information about the GitHub App will still exist on a public page, but the **Install** button will only be available to organization administrators or the user account if the GitHub App is owned by an individual account. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}Private {% else %}Private (also known as internal){% endif %} GitHub Apps can only be installed on the user or organization account of the owner.
+## Fluxo privado de instalação
 
-## Changing who can install your GitHub App
+Os fluxos privados de instalação permitem que somente o proprietário de um aplicativo GitHub a instale. Informações limitadas sobre o GitHub App continuarão a existir em uma página pública, mas o botão **Instalar** só estará disponível para administradores da organização ou para a conta de usuário se o aplicativo GitHub for propriedade de uma conta individual. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}Privado {% else %}Privado (também conhecido como interno){% endif %} Os aplicativos GitHub só podem ser instalados na conta de usuário ou de organização do proprietário.
 
-To change who can install the GitHub App:
+## Alterar quem pode instalar seu aplicativo GitHub
+
+Para alterar quem pode instalar o aplicativo GitHub:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
-3. Select the GitHub App whose installation option you want to change.
-![App selection](/assets/images/github-apps/github_apps_select-app.png)
+3. Selecione o aplicativo GitHub cuja opção de instalação você deseja alterar. ![Seleção de aplicativo](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
-5. Depending on the installation option of your GitHub App, click either **Make public** or **Make {% ifversion fpt or ghes > 3.1 or ghae or ghec %}private{% else %}internal{% endif %}**.
-![Button to change the installation option of your GitHub App](/assets/images/github-apps/github_apps_make_public.png)
-6. Depending on the installation option of your GitHub App, click either **Yes, make this GitHub App public** or **Yes, make this GitHub App {% ifversion fpt or ghes < 3.2 or ghec %}internal{% else %}private{% endif %}**.
-![Button to confirm the change of your installation option](/assets/images/github-apps/github_apps_confirm_installation_option.png)
+5. Dependendo da opção de instalação do seu aplicativo GitHub, clique em **Tornar público** ou **Tornar {% ifversion fpt or ghes > 3.1 or ghae or ghec %}privado{% else %}interno{% endif %}**. ![Botão para alterar a opção de instalação do seu aplicativo GitHub](/assets/images/github-apps/github_apps_make_public.png)
+6. Dependendo da opção de instalação do seu aplicativo GitHub, clique **Sim, torne público este aplicativo GitHub** ou **Sim, torne este aplicativo GitHub {% ifversion fpt or ghes < 3.2 or ghec %}interno{% else %}interno{% endif %}**. ![Botão para confirmar a mudança de sua opção de instalação](/assets/images/github-apps/github_apps_confirm_installation_option.png)

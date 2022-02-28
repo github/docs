@@ -1,22 +1,23 @@
 ---
-title: Supported browsers
+title: 支持的浏览器
 redirect_from:
   - /articles/why-doesn-t-graphs-work-with-ie-8
   - /articles/why-don-t-graphs-work-with-ie8
   - /articles/supported-browsers
   - /github/getting-started-with-github/supported-browsers
   - /github/getting-started-with-github/using-github/supported-browsers
-intro: 'We design {% data variables.product.product_name %} to support the latest web browsers. We support the current versions of [Chrome](https://www.google.com/chrome/), [Firefox](http://www.mozilla.org/firefox/), [Safari](http://www.apple.com/safari/), and [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge).'
+intro: '我们将 {% data variables.product.product_name %} 设计为支持最新的 Web 浏览器。 我们支持最新版本的 [Chrome](https://www.google.com/chrome/)、[Firefox](http://www.mozilla.org/firefox/)、[Safari](http://www.apple.com/safari/) 和 [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge)。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
+
 ## Firefox Extended Support Release
 
-We do our best to support Firefox's latest [Extended Support Release](https://www.mozilla.org/en-US/firefox/organizations/) (ESR). Older versions of Firefox may disable some features on {% data variables.product.product_name %} and require the latest version of Firefox.
+我们尽最大努力支持 Firefox 的最新 [Extended Support Release](https://www.mozilla.org/en-US/firefox/organizations/) (ESR)。 较旧版本的 Firefox 可能会禁用 {% data variables.product.product_name %} 上的某些功能，因此需要最新版本的 Firefox。
 
-## Beta and developer builds
+## 测试版和开发者版本
 
-You may encounter unexpected bugs in beta and developer builds of our supported browsers. If you encounter a bug on {% data variables.product.product_name %} in one of these unreleased builds, please verify that it also exists in the stable version of the same browser. If the bug only exists in the unstable version, consider reporting the bug to the browser developer.
+您可能会在我们支持的浏览器的测试版和开发者版本中遇到意外的漏洞。 如果您在这些未发布版本之一中遇到 {% data variables.product.product_name %} 上的漏洞，请确认同一浏览器的稳定版本中也存在该漏洞。 如果漏洞仅在不稳定版本中存在，请考虑向浏览器开发者报告该漏洞。

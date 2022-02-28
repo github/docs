@@ -16,7 +16,7 @@ Organization が[メンバーに 2 要素認証を使うことを要求](/articl
 {% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.invite_to_org %}

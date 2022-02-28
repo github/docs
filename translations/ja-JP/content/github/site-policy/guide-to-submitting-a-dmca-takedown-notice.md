@@ -1,5 +1,5 @@
 ---
-title: Guide to Submitting a DMCA Takedown Notice
+title: DMCAテイクダウン通知のガイドの提出
 redirect_from:
   - /dmca-notice-how-to
   - /articles/dmca-notice-how-to
@@ -11,80 +11,79 @@ topics:
   - Legal
 ---
 
-This guide describes the information that GitHub needs in order to process a DMCA takedown request. If you have more general questions about what the DMCA is or how GitHub processes DMCA takedown requests, please review our [DMCA Takedown Policy](/articles/dmca-takedown-policy).
+このガイドでは、DMCA テイクダウンリクエストを処理するために GitHub が必要とする情報について説明します。 DMCA とは何かや、GitHub が DMCA テイクダウンリクエストをどのように処理するかなど、一般的な質問については [DMCA テイクダウンポリシー](/articles/dmca-takedown-policy)をご覧ください。
 
-Due to the type of content GitHub hosts (mostly software code) and the way that content is managed (with Git), we need complaints to be as specific as possible. These guidelines are designed to make the processing of alleged infringement notices as straightforward as possible. Our form of notice set forth below is consistent with the form suggested by the DMCA statute, which can be found at the U.S. Copyright Office's official website: <https://www.copyright.gov>.
+GitHub がホストするコンテンツの種類（主にソフトウェアコード）やコンテンツの管理方法（Git を使用）の性質上、苦情はできるだけ具体的にする必要があります。 このガイドラインの目的は、著作権侵害の申し立て通知の処理をできるだけ簡単にすることです。 以下に定める当社の通知形式は、DMCA 法で提案されている形式と一致しています。 これは、米著作権局の公式ウェブサイト（<https://www.copyright.gov>）でご確認いただけます。
 
-As with all legal matters, it is always best to consult with a professional about your specific questions or situation. We strongly encourage you to do so before taking any action that might impact your rights. This guide isn't legal advice and shouldn't be taken as such.
+法律に関わるあらゆる事項と同様、具体的な疑問や状況については専門家に相談するのが常に最善です。 あなたの権利に影響を及ぼす可能性のある行動をとる前に、そうすることを強くお勧めします。 このガイドは法律上の助言ではなく、またそのように解釈されるべきではありません。
 
-## Before You Start
+## はじめる前に
 
-***Tell the Truth.*** The DMCA requires that you swear to the facts in your copyright complaint *under penalty of perjury*. It is a federal crime to intentionally lie in a sworn declaration. (*See* [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Submitting false information could also result in civil liability — that is, you could get sued for money damages. The DMCA itself [provides for damages](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations) against any person who knowingly materially misrepresents that material or activity is infringing.
+*** 真実を教えてください。***DMCA では、*偽証罪によって罰せられるという条件で*著作権侵害の申し立てを行うことを義務付けています。 宣誓宣言で意図的に虚偽の陳述を行うと連邦犯罪になります。   （[合衆国法典、タイトル 18、セクション 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm) *を参照してください</em>。 ）虚偽の情報を提出すると、民事責任が発生する可能性もあります。 つまり、金銭的損害で訴えられる可能性があります。 DMCA 自体には、資料や活動が権利を侵害していることを故意かつ実質的に不実表示した人物に対する[損害賠償が規定](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations)されています。
 
-***Investigate.*** Millions of users and organizations pour their hearts and souls into the projects they create and contribute to on GitHub. Filing a DMCA complaint against such a project is a serious legal allegation that carries real consequences for real people. Because of that, we ask that you conduct a thorough investigation and consult with an attorney before submitting a takedown to make sure that the use isn't actually permissible.
+***調査してください。***何百万人ものユーザや組織が、GitHub で作成およびコントリビューションするプロジェクトに心血を注ぎ込んでいます。 このようなプロジェクトに対して DMCA の苦情を申し立てることは、実在する人々に現実的な結果をもたらすことになる、重大な法的措置です。 そのため、テイクダウンを送信する前に徹底的な調査を行い、弁護士に相談して、実際に使用が許可されていないことを確認してください。
 
-***Ask Nicely First.*** A great first step before sending us a takedown notice is to try contacting the user directly. They may have listed contact information on their public profile page or in the repository's README, or you could get in touch by opening an issue or pull request on the repository. This is not strictly required, but it is classy.
+***まずは丁寧にお願いしてください。***当社にテイクダウン通知を送信する前に、まずはユーザに直接連絡することが重要です。 連絡先情報は公開プロフィールページやリポジトリの README に記載されている場合があります。または、Issue を開いたり、リポジトリでプルリクエストを送信して連絡を取ることもできます。 これは厳密には義務ではありませんが、その方が上品なやり方と言えるでしょう。
 
-***Send In The Correct Request.*** We can only accept DMCA takedown notices for works that are protected by copyright, and that identify a specific copyrightable work. If you have a complaint about trademark abuse, please see our [trademark policy](/articles/github-trademark-policy/). If you wish to remove sensitive data such as passwords, please see our [policy on sensitive data](/articles/github-sensitive-data-removal-policy/). If you are dealing with defamation or other abusive behavior, please see our [Community Guidelines](/articles/github-community-guidelines/).
+***リクエストは正しく送信してください。***当社は、著作権で保護されている著作物についての、特定の著作物を特定している DMCA テイクダウン通知のみを受け入れることができます。 商標権侵害についての苦情がある場合は、[商標ポリシー](/articles/github-trademark-policy/)をご覧ください。 パスワードなどの機密データを削除したい場合は、[機密データに関するポリシー](/articles/github-sensitive-data-removal-policy/)をご覧ください。 名誉毀損またはその他の虐待行為が対象の場合は、[コミュニティガイドライン](/articles/github-community-guidelines/)をご覧ください。
 
-***Code Is Different From Other Creative Content.*** GitHub is built for collaboration on software code. This makes identifying a valid copyright infringement more complicated than it might otherwise be for, say, photos, music, or videos.
+***コードは他のクリエイティブコンテンツとは異なります。***GitHub はソフトウェアコードのコラボレーションのために構築されています。 このため、著作権侵害を正しく特定することが、写真、音楽、ビデオなどの他のものと比べて難しくなります。
 
-There are a number of reasons why code is different from other creative content. For instance:
+コードが他のクリエイティブコンテンツと異なる理由はいくつもあります。 以下はその例です。
 
-- A repository may include bits and pieces of code from many different people, but only one file or even a sub-routine within a file infringes your copyrights.
-- Code mixes functionality with creative expression, but copyright only protects the expressive elements, not the parts that are functional.
-- There are often licenses to consider. Just because a piece of code has a copyright notice does not necessarily mean that it is infringing. It is possible that the code is being used in accordance with an open-source license.
-- A particular use may be [fair-use](https://www.lumendatabase.org/topics/22) if it only uses a small amount of copyrighted content, uses that content in a transformative way, uses it for educational purposes, or some combination of the above. Because code naturally lends itself to such uses, each use case is different and must be considered separately.
-- Code may be alleged to infringe in many different ways, requiring detailed explanations and identifications of works.
+- リポジトリにはさまざまな人々からのコードの断片が含まれる場合がありますが、1 つのファイル、さらにはファイル内のサブルーチンでさえ著作権侵害に該当します。
+- コードは機能性と創造的な表現の組み合わせですが、著作権が保護するのは機能的な部分ではなく、表現要素のみです。
+- 多くの場合、考慮すべきライセンスがあります。 コードの一部に著作権表示があるからといって、必ずしも著作権を侵害しているとは限りません。 コードがオープンソースライセンスに従って使用されている可能性もあります。
+- 著作権で保護されたコンテンツを少量のみ使用する場合、そのコンテンツを変革的な方法で使用する場合、教育目的で使用する場合、または上記を組み合わせた場合、特定の使用が[フェアユース](https://www.lumendatabase.org/topics/22)に該当する場合があります。 コードは当然そのような用途に適しているため、使用事例ごとに異なり、個別に検討する必要があります。
+- コードに関する著作権侵害の申し立てにはさまざまな形があるため、著作物の詳細な説明と識別が求められます。
 
-This list isn't exhaustive, which is why speaking to a legal professional about your proposed complaint is doubly important when dealing with code.
+このリストはすべてを網羅しているわけではありません。そのため、コードを扱う際にあなたが申し立てる苦情について法律専門家に相談することは二重の意味で重要です。
 
-***No Bots.*** You should have a trained professional evaluate the facts of every takedown notice you send. If you are outsourcing your efforts to a third party, make sure you know how they operate, and make sure they are not using automated bots to submit complaints in bulk. These complaints are often invalid and processing them results in needlessly taking down projects!
+***ボットを使わないでください。***熟練の専門家に、あなたが送信するすべてのテイクダウン通知の事実を評価してもらうべきです。 取り組みを第三者に外部委託している場合は、その活動内容を把握し、第三者が自動化されたボットを使用して苦情を一括送信していないことを確認してください。 ボットを使った苦情は多くの場合無効であり、このような処理を行うとプロジェクトが不必要に削除されてしまいます。
 
-***Matters of Copyright Are Hard.*** It can be very difficult to determine whether or not a particular work is protected by copyright. For example, facts (including data) are generally not copyrightable. Words and short phrases are generally not copyrightable. URLs and domain names are generally not copyrightable. Since you can only use the DMCA process to target content that is protected by copyright, you should speak with a lawyer if you have questions about whether or not your content is protectable.
+***著作権の問題は難解です。***特定の対象が著作権で保護されているかどうかを判断するのは非常に困難な場合があります。 たとえば、事実（データを含む）は一般に著作権の対象ではありません。 また、単語や短いフレーズは一般に著作権の対象ではありません。 そして、URL やドメイン名も一般に著作権の対象ではありません。 DMCA プロセスを使用できるのは著作権で保護されているコンテンツを対象とする場合のみであるため、コンテンツが保護可能かどうかについて質問がある場合は弁護士に相談する必要があります。
 
-***You May Receive a Counter Notice.*** Any user affected by your takedown notice may decide to submit a [counter notice](/articles/guide-to-submitting-a-dmca-counter-notice). If they do, we will re-enable their content within 10-14 days unless you notify us that you have initiated a legal action seeking to restrain the user from engaging in infringing activity relating to the content on GitHub.
+***異議申し立て通知を受け取る可能性があります。***テイクダウン通知の影響を受けるユーザは、[異議申し立て通知](/articles/guide-to-submitting-a-dmca-counter-notice)を送信することができます。 その場合、GitHub のコンテンツに関連する侵害行為にユーザが関与することを差し止めるよう求める法的措置を講じたことがあなたから当社に通知されない限り、当社は 10〜14 日以内にコンテンツを再度有効にします。
 
-***Your Complaint Will Be Published.*** As noted in our [DMCA Takedown Policy](/articles/dmca-takedown-policy#d-transparency), after redacting personal information, we publish all complete and actionable takedown notices at <https://github.com/github/dmca>.
+***あなたの苦情は公開されます。***[DMCA テイクダウンポリシー](/articles/dmca-takedown-policy#d-transparency)に記載されているように、当社は、完全かつ法的に有効なすべてのテイクダウン通知を、個人情報を編集した上、<https://github.com/github/dmca> で公開しています。
 
-***GitHub Isn't The Judge.***
-GitHub exercises little discretion in the process other than determining whether the notices meet the minimum requirements of the DMCA. It is up to the parties (and their lawyers) to evaluate the merit of their claims, bearing in mind that notices must be made under penalty of perjury.
+***GitHub は裁判官ではありません。***GitHub は、通知が DMCA の最小要件を満たしているかどうかを判断する以外、このプロセスではほとんど裁量権を行使しません。 主張の価値の評価は当事者（およびその弁護士）に委ねられます。なお、通知は偽証罪によって罰せられる対象になることにご注意ください。
 
-## Your Complaint Must ...
+## 申し立てられる苦情は ...
 
-1. **Include the following statement: "I have read and understand GitHub's Guide to Filing a DMCA Notice."** We won't refuse to process an otherwise complete complaint if you don't include this statement. But we'll know that you haven't read these guidelines and may ask you to go back and do so.
+1. **"I have read and understand GitHub's Guide to Filing a DMCA Notice."（GitHub の DMCA 通知提出ガイドを読んで理解しました。）という文言を含んでいなければなりません。**この文言が含まれていないとしても、苦情に不備がなければ当社は処理を拒否しません。 ただし、このガイドラインを読んでいないと判断できるため、ガイドラインを読むように求める場合があります。
 
-2. **Identify the copyrighted work you believe has been infringed.** This information is important because it helps the affected user evaluate your claim and give them the ability to compare your work to theirs. The specificity of your identification will depend on the nature of the work you believe has been infringed. If you have published your work, you might be able to just link back to a web page where it lives. If it is proprietary and not published, you might describe it and explain that it is proprietary. If you have registered it with the Copyright Office, you should include the registration number. If you are alleging that the hosted content is a direct, literal copy of your work, you can also just explain that fact.
+2. **侵害されていると思われる著作物を特定しなければなりません。**この情報は重要です。なぜなら、影響を受けるユーザがあなたの主張を評価し、あなたのコンテンツと自分のコンテンツを比較するために、この情報が役立つからです。 特定の具体性は、侵害されたと思われるコンテンツの性質によって異なります。 あなたがコンテンツを公開している場合は、そのコンテンツが存在するウェブページへのリンクを貼ることができるかもしれません。 プロプライエタリで公開されていないコンテンツの場合は、それを説明し、所有権があることを説明できます。 著作権局に登録しているコンテンツの場合は、登録番号を記載する必要があります。 ホストされたコンテンツが自分のコンテンツを直接的、文字通りに複製していると主張する場合は、その事実を説明することもできます。
 
-3. **Identify the material that you allege is infringing the copyrighted work listed in item #2, above.** It is important to be as specific as possible in your identification. This identification needs to be reasonably sufficient to permit GitHub to locate the material. At a minimum, this means that you should include the URL to the material allegedly infringing your copyright. If you allege that less than a whole repository infringes, identify the specific file(s) or line numbers within a file that you allege infringe. If you allege that all of the content at a URL infringes, please be explicit about that as well. 
-   - Please note that GitHub will *not* automatically disable [forks](/articles/dmca-takedown-policy#b-what-about-forks-or-whats-a-fork) when disabling a parent repository. If you have investigated and analyzed the forks of a repository and believe that they are also infringing, please explicitly identify each allegedly infringing fork. Please also confirm that you have investigated each individual case and that your sworn statements apply to each identified fork. In rare cases, you may be alleging copyright infringement in a full repository that is actively being forked. If at the time that you submitted your notice, you identified all existing forks of that repository as allegedly infringing, we would process a valid claim against all forks in that network at the time we process the notice. We would do this given the likelihood that all newly created forks would contain the same content. In addition, if the reported network that contains the allegedly infringing content is larger than one hundred (100) repositories and thus would be difficult to review in its entirety, we may consider disabling the entire network if you state in your notice that, "Based on the representative number of forks you have reviewed, I believe that all or most of the forks are infringing to the same extent as the parent repository." Your sworn statement would apply to this statement.
+3. **上記の第 2 項に記載されている著作物を侵害しているとあなたが主張するデータを特定してください。**できる限り具体的に特定することが大切です。 GitHub がそのデータを見つけるために十分な情報を提供してください。 具体的には、少なくとも、著作権を侵害しているとされるデータの URL を含める必要があります。 リポジトリ全体が著作権を侵害していると主張する場合は、あなたが侵害を主張する特定のファイルまたはファイル内の行番号を特定してください。 URL のすべてのコンテンツが著作権を侵害していると主張する場合は、それについても明示してください。
+   - 親リポジトリを無効にしても[フォーク](/articles/dmca-takedown-policy#b-what-about-forks-or-whats-a-fork)は自動的に*無効にならない*点にご注意ください。 リポジトリのフォークを調査、分析し、フォークも著作権を侵害していると思われる場合は、侵害の疑いのある各フォークを明示的に特定してください。 また、個々のケースを調査したことと、宣誓の上での陳述が特定された各フォークに適用されることを確認してください。 時には、活発にフォークされているリポジトリ全体で著作権の侵害を主張することもあるでしょう。 あなたが通知を送信した時点で、そのリポジトリの既存フォーク全体を指定して著作権を侵害していると申し立てた場合、通知を処理する際に、そのネットワークにあるすべてのフォークに対して、有効な請求を適用します。 新しく作成されたフォークすべてに同じコンテンツが含まれる可能性を考慮して、これを行います。 さらに、著作権侵害の疑いがあるコンテンツを含むとして報告されたネットワークが 100 リポジトリを超え、そのすべてを確認することが困難である際、通知の中であなたが次のように記載している場合にはネットワーク全体の無効化を検討します。「サンプルとして十分な数のフォークを確認した結果、私はこのフォークのすべてまたは大部分が、親リポジトリと同程度に著作権を侵害しているものと信じています。(Based on the representative number of forks you have reviewed, I believe that all or most of the forks are infringing to the same extent as the parent repository.)」 あなたの宣誓は、この申し立てに対して適用されます。
 
-4. **Explain what the affected user would need to do in order to remedy the infringement.** Again, specificity is important. When we pass your complaint along to the user, this will tell them what they need to do in order to avoid having the rest of their content disabled. Does the user just need to add a statement of attribution? Do they need to delete certain lines within their code, or entire files? Of course, we understand that in some cases, all of a user's content may be alleged to infringe and there's nothing they could do short of deleting it all. If that's the case, please make that clear as well.
+4. **著作権侵害を是正するために、影響を受けるユーザが何をする必要があるかを説明しなければなりません。**繰り返しになりますが、具体性は重要です。 当社があなたの苦情をユーザに伝える際、この情報があることで残りのコンテンツが無効にされないようにするためにユーザが何をする必要があるかがわかります。 ユーザは帰属表示を追加するだけでいいのか、 コード内の特定の行、またはファイル全体を削除する必要があるのか。 もちろん、ユーザのコンテンツ全体が著作権を侵害している場合は、コンテンツをすべて削除する以外にユーザに選択肢はありません。 そのような場合は、やはりそれを明示してください。
 
-5. **Provide your contact information.** Include your email address, name, telephone number and physical address.
+5. **あなたの連絡先情報を提供しなければなりません。**メールアドレス、名前、電話番号、住所を記載してください。
 
-6. **Provide contact information, if you know it, for the alleged infringer.** Usually this will be satisfied by providing the GitHub username associated with the allegedly infringing content. But there may be cases where you have additional knowledge about the alleged infringer. If so, please share that information with us.
+6. **著作権侵害の疑いがある人の連絡先情報を知っている場合は、それを提供しなければなりません。**通常、この条件は、著作権を侵害しているとされるコンテンツに関連付けられた GitHub ユーザ名を提供することで満たされます。 しかし、著作権侵害の疑いがある人について他にも知っていることがある場合もあるでしょう。 そのような場合は、その情報を当社に伝えてください。
 
-7. **Include the following statement: "I have a good faith belief that use of the copyrighted materials described above on the infringing web pages is not authorized by the copyright owner, or its agent, or the law. I have taken fair use into consideration."**
+7. **"I have a good faith belief that use of the copyrighted materials described above on the infringing web pages is not authorized by the copyright owner, or its agent, or the law. I have taken fair use into consideration."（私は、著作権所有者、その代理人、または法律により、著作権を侵害するウェブページで上記の著作物の使用が許可されていないことを確信しています。フェアユースの可能性も検討しましたが、フェアユースには該当しません。） という文言を含んでいなければなりません。**
 
-8. **Also include the following statement: "I swear, under penalty of perjury, that the information in this notification is accurate and that I am the copyright owner, or am authorized to act on behalf of the owner, of an exclusive right that is allegedly infringed."**
+8. **"I swear, under penalty of perjury, that the information in this notification is accurate and that I am the copyright owner, or am authorized to act on behalf of the owner, of an exclusive right that is allegedly infringed."（私は、偽証罪の罰則に基づき、この通知の情報は正確であり、私が侵害が申し立てられる排他的権利の著作権所有者であるか、所有者に代わって行動することが認められている者であることを誓います。）という文言も含んでいなければなりません。**
 
-9. **Include your physical or electronic signature.**
+9. **物理的または電子的な署名を含めてください。**
 
-## Complaints about Anti-Circumvention Technology
+## 反迂回技術に関する苦情
 
-The Copyright Act also prohibits the circumvention of technological measures that effectively control access to works protected by copyright. If you believe that content hosted on GitHub violates this prohibition, please send us a report through our {% data variables.contact.contact_dmca %}. A circumvention claim must include the following details about the technical measures in place and the manner in which the accused project circumvents them. Specifically, the notice to GitHub must include detailed statements that describe:
-1. What the technical measures are;
-2. How they effectively control access to the copyrighted material; and 
-3. How the accused project is designed to circumvent their previously described technological protection measures.
+著作権法は、著作権で保護されている著作物へのアクセスを効果的に制御する技術的手段の迂回も禁止しています。 GitHub でホストされているコンテンツがこの禁止事項に違反すると思われる場合は、{% data variables.contact.contact_dmca %} からレポートを送信してください。 迂回に関する申し立てには、訴えるプロジェクトが備える技術的手段、および迂回の方法について、以下を詳述する必要があります。 特に GitHub への通知には、以下を説明する詳細な文章を記載する必要があります。
+1. 技術的手段
+2. 用いられている技術的手段が著作権で保護されたものへのアクセスを効果的に制限する方法
+3. 訴えるプロジェクトが、前述の技術的保護措置をどのように迂回するよう設計されているか
 
-## How to Submit Your Complaint
+## 苦情の提出方法
 
-The fastest way to get a response is to enter your information and answer all the questions on our {% data variables.contact.contact_dmca %}.
+{% data variables.contact.contact_dmca %} で情報を入力し、すべての質問に答えることで、最も早く回答を得ることができます。
 
-You can also send an email notification to <copyright@github.com>. You may include an attachment if you like, but please also include a plain-text version of your letter in the body of your message.
+また、<copyright@github.com> にメール通知を送信することもできます。 必要に応じて添付ファイルを含めることもできますが、メッセージの本文には平文版の文書も含めてください。
 
-If you must send your notice by physical mail, you can do that too, but it will take *substantially* longer for us to receive and respond to it. Notices we receive via plain-text email have a much faster turnaround than PDF attachments or physical mail. If you still wish to mail us your notice, our physical address is:
+通知を郵送する必要がある場合は、それも可能ですが、通知の受け取りと応答には*相当な*時間がかかります。 当社は、平文のメールで作られた通知の方が、PDF ファイルが添付されている場合や郵送の場合よりもずっと早く回答することができます。 それでも通知を郵送する場合は、当社の住所は次のとおりです。
 
 ```
 GitHub, Inc

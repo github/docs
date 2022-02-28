@@ -1,6 +1,6 @@
 ---
-title: Refreshing user-to-server access tokens
-intro: 'To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_github_app %} to use expiring user access tokens.'
+title: Actualizar los tokens de acceso de usuario a servidor
+intro: 'Para cumplir con la rotación habitual de tokens y reducir el impacto de que se ponga en riesgo alguno de ellos, puedes configurar tu {% data variables.product.prodname_github_app %} para que utilice tokens de acceso de usuario con caducidad.'
 redirect_from:
   - /apps/building-github-apps/refreshing-user-to-server-access-tokens
   - /developers/apps/refreshing-user-to-server-access-tokens
@@ -11,35 +11,36 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Refresh user-to-server access
+shortTitle: Actualizar el acceso de usuario a servidor
 ---
+
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 
-## About expiring user access tokens
+## Acerca de los tokens de acceso de usuario con caducidad
 
-To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_github_app %} to use expiring user access tokens. For more information on making user-to-server requests, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+Para cumplir con la rotación habitual de tokens y reducir el impacto de que se ponga en riesgo alguno de ellos, puedes configurar tu {% data variables.product.prodname_github_app %} para que utilice tokens de acceso de usuario con caducidad. Para obtener más información sobre cómo crear solicitudes de usuario a servidor, consulta la sección "[Identificar y autorizar usuarios para las GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
 
-Expiring user tokens expire after 8 hours. When you receive a new user-to-server access token, the response will also contain a refresh token, which can be exchanged for a new user token and refresh token. Refresh tokens are valid for 6 months. 
+La caducidad de los tokens se alcanza después de 8 horas. Cuando recibes un token nuevo para el acceso de usuario a servidor, la respuesta también contendrá un token de actualización, el cual se puede intercambiar por un token de usuario nuevo y un token de actualización. Los tokens de actualización son válidos por 6 meses.
 
-## Renewing a user token with a refresh token
+## Renovar un token de usuario con un token de actualización
 
-To renew an expiring user-to-server access token, you can exchange the `refresh_token` for a new access token and `refresh_token`.
+Para renovar un token de acceso de usuario a servidor que esté por caducar, puedes intercambiar el `refresh_token` por un token de acceso nuevo y un `refresh_token`.
 
   `POST https://github.com/login/oauth/access_token`
 
-This callback request will send you a new access token and a new refresh token.  This callback request is similar to the OAuth request you would use to exchange a temporary `code` for an access token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" and "[Basics of authentication](/rest/guides/basics-of-authentication#providing-a-callback)."
+Esta solicitud de rellamada te enviará un token de acceso y un token de actualización nuevos.  Esta solicitud de rellamada es similar a la solicitud de OAuth que utilizarías para intercambiar un `code` temporal para un token de acceso. Para obtener más información, consulta las secciones "[Identificar y autorizar usuarios para las GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" y "[Información básica sobre la autenticación](/rest/guides/basics-of-authentication#providing-a-callback)".
 
-### Parameters
+### Parámetros
 
-Name | Type | Description
------|------|------------
-`refresh_token` | `string` | **Required.** The token generated when the  {% data variables.product.prodname_github_app %} owner enables expiring tokens and issues a new user access token.
-`grant_type` | `string` | **Required.** Value must be `refresh_token` (required by the OAuth specification).
-`client_id` | `string` | **Required.** The  client ID for your {% data variables.product.prodname_github_app %}.
-`client_secret` | `string`   | **Required.** The  client secret for your {% data variables.product.prodname_github_app %}.
+| Nombre          | Tipo        | Descripción                                                                                                                                                                                    |
+| --------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `refresh_token` | `secuencia` | **Requerido.** El token que se genera cuando el dueño de la  {% data variables.product.prodname_github_app %} habilita los tokens con caducidad y emite un token de acceso de usuario nuevo. |
+| `grant_type`    | `secuencia` | **Requerido.** El valor debe ser `refresh_token` (se requiere en la especificación de OAuth).                                                                                                  |
+| `client_id`     | `secuencia` | **Requerido.** La ID de cliente para tu {% data variables.product.prodname_github_app %}.                                                                                                    |
+| `client_secret` | `secuencia` | **Requerido.** El secreto del cliente para tu {% data variables.product.prodname_github_app %}.                                                                                              |
 
-### Response
+### Respuesta
 
 ```json
 {
@@ -51,35 +52,34 @@ Name | Type | Description
   "token_type": "bearer"
 }
 ```
-## Configuring expiring user tokens for an existing GitHub App
+## Configurar los tokens de usuario con caducidad para una GitHub App existente
 
-You can enable or disable expiring user-to-server authorization tokens from your {% data variables.product.prodname_github_app %} settings.
+Puedes habilitar o inhabilitar los tokens de autorización de usuario a servidor desde los ajustes de tu {% data variables.product.prodname_github_app %}.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
-4. Click **Edit** next to your chosen {% data variables.product.prodname_github_app %}.
-  ![Settings to edit a GitHub App](/assets/images/github-apps/edit-test-app.png)
-5. In the left sidebar, click **{% ifversion ghes < 3.1 %} Beta {% else %} Optional {% endif %} Features**.
+4. Da clic en la opción**Editar** junto a la {% data variables.product.prodname_github_app %} que escogiste. ![Configuración para editar una GitHub App](/assets/images/github-apps/edit-test-app.png)
+5. En la barra lateral izquierda, haz clic en **{% ifversion ghes < 3.1 %} Características Beta {% else %} Características Opcionales {% endif %}**.
   {% ifversion ghes < 3.1 %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
-6. Next to "User-to-server token expiration", click **Opt-in** or **Opt-out**. This setting may take a couple of seconds to apply.
+6. Junto a "caducidad de token de usuario a servidor", da clic en **Unirse** o en **No unirse**. Esta característica podría tardar un par de segundos para su aplicación.
 
-## Opting out of expiring tokens for new GitHub Apps
+## Decidir no unirse a los tokens con caducidad para las GitHub Apps nuevas
 
-When you create a new {% data variables.product.prodname_github_app %}, by default your app will use expiring user-to-server access tokens.
+Cuando creas una {% data variables.product.prodname_github_app %}, ésta utilizará predeterminadamente los tokens de acceso de usuario a servidor con caducidad.
 
-If you want your app to use non-expiring user-to-server access tokens, you can deselect "Expire user authorization tokens" on the app settings page.
+Si quieres que tu app utlice tokens de acceso de usuario a servidor sin caducidad, puedes deseleccionar la opción "Poner caducidad en los tokens de autorización de usuario" en la página de ajustes de la app.
 
-![Option to opt-in to expiring user tokens during GitHub Apps setup](/assets/images/github-apps/expire-user-tokens-selection.png)
+![Opción para unirse a los tokens de usuario con caducidad durante la configuración de las GitHub Apps](/assets/images/github-apps/expire-user-tokens-selection.png)
 
-Existing {% data variables.product.prodname_github_apps %} using user-to-server authorization tokens are only affected by this new flow when the app owner enables expiring user tokens for their app.
+Las {% data variables.product.prodname_github_apps %} existentes que utilicen tokens de autorización de usuario a servidor solo se verán afectadas por este flujo nuevo cuando el propietario de la app habilite la caducidad de los tokens para la app en cuestión.
 
-Enabling expiring user tokens for existing {% data variables.product.prodname_github_apps %} requires sending users through the OAuth flow to re-issue new user tokens that will expire in 8 hours and making a request with the refresh token to get a new access token and refresh token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+Habilitar los tokens de usuario con caducidad para las {% data variables.product.prodname_github_apps %} existentes requiere que se envíen los usuarios a través del flujo de OAuth para re-emitir tokens de usuario nuevos que caducarán en 8 horas y que harán una solicitud con el token de actualización para obtener un token de acceso y un token de actualización nuevos. Para obtener más información, consulta la sección "[Identificar y autorizar usuarios para las GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
-## Further reading
+## Leer más
 
-- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
+- "[Acerca de la autenticación en {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: About organization membership
-intro: You can become a member of an organization to collaborate with coworkers or open-source contributors across many repositories at once.
+title: Sobre associação à organização
+intro: Você pode se tornar um integrante de uma organização para colaborar com colegas de trabalho ou contribuidores de código aberto em muitos repositórios de uma vez.
 redirect_from:
   - /articles/about-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/about-organization-membership
@@ -12,41 +12,42 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Organization membership
+shortTitle: Associação à organização
 ---
-An organization owner can invite you to join their organization as a member, billing manager, or owner. An organization owner or member with admin privileges for a repository can invite you to collaborate in one or more repositories as an outside collaborator. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-You can access organizations you're a member of on your profile page. For more information, see "[Accessing an organization](/articles/accessing-an-organization)."
+Um proprietário da organização pode convidar você para ingressar na organização dele como um integrante, gerente de cobrança ou proprietário. Um proprietário da organização ou integrante com privilégios administrativos para um repositório pode convidar você para colaborar em um ou mais repositórios como um colaborador externo. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-When you accept an invitation to join an organization, the organization owners may be able to see:
+É possível acessar organizações das quais você é integrante em sua página de perfil. Para obter mais informações, consulte "[Acessar uma organização](/articles/accessing-an-organization)".
 
-- Your public profile information
-- Your email address
-- If you have two-factor authorization enabled
-- Repositories you have access to within the organization, and your access level
-- Certain activity within the organization
-- Country of request origin
-- Your IP address
+Quando você aceita um convite para ingressar em uma organização, os proprietários da organização podem ver:
 
-For more information, see the <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} Privacy Statement</a>.
+- Suas informações públicas de perfil
+- Seu endereço de e-mail
+- Se você tem a autorização de dois fatores habilitada
+- Os repositórios aos quais você tem acesso dentro da organização e seu nível de acesso
+- Determinadas atividades dentro da organização
+- País de origem da solicitação
+- Seu endereço IP
+
+Para obter mais informações, consulte "<a href="/articles/github-privacy-statement/" class="dotcom-only">Declaração de privacidade do {% data variables.product.prodname_dotcom %}</a>.
 
   {% note %}
 
-  **Note:** Owners are not able to view member IP addresses in the organization's audit log. In the event of a security incident, such as an account compromise or inadvertent sharing of sensitive data, organization owners may request details of access to private repositories. The information we return may include your IP address.
+  **Observação:** os proprietários não podem ver endereços IP do integrante no log de auditoria da organização. No caso de um incidente de segurança, como comprometimento de uma conta ou compartilhamento acidental de dados confidenciais, os proprietários da organização podem solicitar detalhes de acesso a repositórios privados. As informações que retornamos podem incluir seu endereço IP.
 
   {% endnote %}
 
-By default, your organization membership visibility is set to private. You can choose to publicize individual organization memberships on your profile. For more information, see "[Publicizing or hiding organization membership](/articles/publicizing-or-hiding-organization-membership)."
+Por padrão, a visibilidade de sua associação à organização é definida como privada. Você pode optar por divulgar associações individuais à organização no seu perfil. Para obter mais informações, consulte "[Divulgar ou ocultar associação à organização](/articles/publicizing-or-hiding-organization-membership)".
 
 {% ifversion fpt or ghec %}
 
-If your organization belongs to an enterprise account, you are automatically a member of the enterprise account and visible to enterprise account owners. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+Se sua organização pertence a uma conta corporativa, você automaticamente é um integrante da conta corporativa e está visível aos proprietários da conta corporativa. Para obter mais informações, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}
 
 {% endif %}
 
-You can leave an organization at any time. For more information, see "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization)."
+É possível ter uma organização a qualquer momento. Para obter mais informações, consulte "[Remover a si mesmo de uma organização](/articles/removing-yourself-from-an-organization)".
 
-## Further reading
+## Leia mais
 
-- "[About organizations](/articles/about-organizations)"
-- "[Managing your membership in organizations](/articles/managing-your-membership-in-organizations)"
+- "[Sobre organizações](/articles/about-organizations)"
+- "[Gerenciar sua associação em organizações](/articles/managing-your-membership-in-organizations)"

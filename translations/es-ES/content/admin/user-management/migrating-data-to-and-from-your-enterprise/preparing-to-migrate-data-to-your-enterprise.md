@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
   - /enterprise/admin/migrations/reviewing-migration-conflicts
   - /enterprise/admin/migrations/resolving-migration-conflicts-or-setting-up-custom-mappings
-  - /enterprise/admin/guides/migrations/preparing-the-migrated-data-for-import-to-github-enterprise/
+  - /enterprise/admin/guides/migrations/preparing-the-migrated-data-for-import-to-github-enterprise
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
   - /admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
@@ -20,7 +20,7 @@ shortTitle: Prepararse para migrar los datos
 
 ## Preparar los datos migrados para importarlos a {% data variables.product.prodname_ghe_server %}
 
-1. Con el comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp), copia el archivo de migración generado desde tu instancia u organización de origen a tu {% data variables.product.prodname_ghe_server %} destino:
+1. Con el comando [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp), copia el archivo de migración generado desde tu instancia u organización de origen a tu {% data variables.product.prodname_ghe_server %} destino:
 
     ```shell
     $ scp -P 122 <em>/path/to/archive/MIGRATION_GUID.tar.gz</em> admin@<em>hostname</em>:/home/admin/
@@ -44,7 +44,7 @@ shortTitle: Prepararse para migrar los datos
     $ ghe-migrator conflicts -g <em>MIGRATION_GUID</em> > conflicts.csv
     ```
     - Si no se reporta conflicto alguno, puedes importar los datos de forma segura siguiendo los pasos en la sección "[Migrar datos a tu empresa](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)".
-2. Si hay conflictos, con el comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp), copia *conflicts.csv* a tu computadora local:
+2. Si hay conflictos, con el comando [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp), copia *conflicts.csv* a tu computadora local:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:conflicts.csv ~/Desktop
   ```
@@ -134,7 +134,7 @@ Se puede usar el mismo proceso para crear asignaciones para cada registro que ad
 
 ### Aplicar datos de migración modificados
 
-1. Después de hacer los cambios, utiliza el comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) para aplicar tu *conflicts.csv* modificado (o cualquier otro archivo de mapeo *.csv* en el formato correcto) a la instancia destino:
+1. Después de hacer los cambios, utiliza el comando [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) para aplicar tu *conflicts.csv* modificado (o cualquier otro archivo de mapeo *.csv* en el formato correcto) a la instancia destino:
 
     ```shell
     $ scp -P 122 ~/Desktop/conflicts.csv admin@<em>hostname</em>:/home/admin/

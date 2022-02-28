@@ -64,10 +64,10 @@ Ubuntu 18.04
 macOS Big Sur 11
 </td>
 <td>
-<code>macos-11</code>
+<code>macos-latest</code> or <code>macos-11</code>
 </td>
 <td>
-La etiqueta de <code>macos-latest</code> actualmente utiliza la imagen de ejecutor de macOS 10.15.
+La etiqueta de <code>macos-latest</code> actualmente utiliza la imagen de ejecutor de macOS 11.
 </td>
 </tr>
 <tr>
@@ -75,13 +75,19 @@ La etiqueta de <code>macos-latest</code> actualmente utiliza la imagen de ejecut
 macOS Catalina 10.15
 </td>
 <td>
-<code>macos-latest</code> or <code>macos-10.15</code>
+<code>macos-10.15</code>
 </td>
 <td>
 </td>
 </tr>
 </tbody>
 </table>
+
+{% note %}
+
+**Nota:** Los ambientes virtuales `más recientes` son las últimas imágenes estables que proporciona {% data variables.product.prodname_dotcom %} y puede que no sean las versiones más recientes de los sistemas operativos disponibles desde los proveedores de estos.
+
+{% endnote %}
 
 {% warning %}
 

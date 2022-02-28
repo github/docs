@@ -22,13 +22,13 @@ Build your own tools that seamlessly integrate with the place you push code ever
 
 ## Take on the enterprise
 
-[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %}.
+Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
 
 ## Have an integration that works with GitHub?
 
 Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:</p>
-* [Let us know about your integration](https://github.com/contact?form[subject]=New+GitHub+Integration)
+* [Let us know about your integration](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration)
 * Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub
 * Post a video or a blog on your website about your integration
 

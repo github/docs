@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { useState, useEffect, SyntheticEvent } from 'react'
 import { ChevronDownIcon } from '@primer/octicons-react'
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 
 import { Link } from 'components/Link'
 import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
@@ -30,7 +30,9 @@ export const SidebarProduct = () => {
   }
 
   const productTitle = currentProductTree.renderedShortTitle || currentProductTree.renderedFullTitle
-  const routePath = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
+  // remove query string and hash
+  const routePath = `/${router.locale}${router.asPath.split('?')[0].split('#')[0]}`
+
   const hasExactCategory = !!currentProductTree.childPages.find(({ href }) =>
     routePath.includes(href)
   )

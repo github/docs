@@ -47,19 +47,19 @@ topics:
 
 `sort:author-date` 修飾子は、オーサー日付を降順または昇順でソートします。
 
-| 修飾子                                            | サンプル                                                                                                                                                                                                                                                  |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sort:author-date` または `sort:author-date-desc` | [**feature org:github sort:author-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date&type=Commits) は、オーサー日付で降順にソートされた、{% data variables.product.product_name %} が所有するリポジトリの「feature」という単語を含むコミットにマッチします。      |
-| `sort:author-date-asc`                         | [**feature org:github sort:author-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) は、{% data variables.product.product_name %} が所有するリポジトリの「feature」という単語を含むコミットにマッチし、作者日付の昇順でソートされます。 |
+| 修飾子                                            | サンプル                                                                                                                                                                                                                                                                                                    |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sort:author-date` または `sort:author-date-desc` | [**feature org:github sort:author-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date&type=Commits) は、オーサー日付で降順にソートされた、{% data variables.product.product_name %} が所有するリポジトリの「feature」という単語を含むコミットにマッチします。                                                        |
+| `sort:author-date-asc`                         | [**`feature org:github sort:author-date-asc`**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by ascending author date. |
 
 ## コミッター日付でソート
 
 `sort:committer-date` 修飾子は、コミッター日付を降順または昇順でソートします。
 
-| 修飾子                                                  | サンプル                                                                                                                                                                                                                                                           |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sort:committer-date` または `sort:committer-date-desc` | [**feature org:github sort:committer-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date&type=Commits) は、{% data variables.product.product_name %} が所有するリポジトリの「feature」という単語を含むコミットにマッチし、コミッター日付の降順にソートされます。         |
-| `sort:committer-date-asc`                            | [**feature org:github sort:committer-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) は、{% data variables.product.product_name %} が所有するリポジトリの「feature」という単語を含むコミットにマッチし、コミッター日付の昇順でソートされます。 |
+| 修飾子                                                  | サンプル                                                                                                                                                                                                                                                                                                             |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sort:committer-date` または `sort:committer-date-desc` | [**feature org:github sort:committer-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date&type=Commits) は、{% data variables.product.product_name %} が所有するリポジトリの「feature」という単語を含むコミットにマッチし、コミッター日付の降順にソートされます。                                                           |
+| `sort:committer-date-asc`                            | [**`feature org:github sort:committer-date-asc`**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by ascending committer date. |
 
 ## 更新日付でソート
 
@@ -73,4 +73,4 @@ topics:
 ## 参考リンク
 
 - "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+- 「[IssueやPull Requestのフィルタリングと検索](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)」

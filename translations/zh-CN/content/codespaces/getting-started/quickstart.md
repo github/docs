@@ -27,7 +27,7 @@ For more information on exactly how {% data variables.product.prodname_codespace
 
 2. Name your repository, select your preferred privacy setting, and click **Create repository from this template**.
 
-3. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+3. Navigate to the main page of the newly created repository. 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 {% octicon "plus" aria-label="The plus icon" %} **New codespace（新建代码空间）**。
 
   ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -58,7 +58,7 @@ Once your codespace is created, your repository will be automatically cloned int
   {% octicon "light-bulb" aria-label="The lightbulb icon" %}  If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
   ![Port Forwarding Panel](/assets/images/help/codespaces/quickstart-forward-port.png)
 
-## Committing and pushing your changes
+## 提交和推送更改
 
 Now that you've made a few changes, you can use the integrated terminal or the source view to commit and push the changes back to the remote.
 
@@ -90,10 +90,10 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 
 您已经成功创建、个性化并在代码空间中运行了第一个应用程序，但还有很多需要探索的地方！ 以下是一些帮助您对 {% data variables.product.prodname_codespaces %} 执行后续操作的有用资源：
   - [Deep dive](/codespaces/getting-started/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_codespaces %}. The deep dive looks at these areas from a technical standpoint.
-  - [Setting up your project for {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): These guides provide information on setting up your project to use {% data variables.product.prodname_codespaces %} with specific languages
+  - [Setting up your project for {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): These guides provide information on setting up your project to use {% data variables.product.prodname_codespaces %} with specific languages.
   - [Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project): This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
 
 ## 延伸阅读
 
-- [Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
-- [Managing billing for {% data variables.product.prodname_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
+- [为组织启用 {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
+- [管理组织中的 {% data variables.product.prodname_codespaces %} 帐单](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)

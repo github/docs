@@ -141,14 +141,15 @@ In this example, the attempted script injection is unsuccessful:
 
 With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{% endraw %} expression is stored in memory and used as a variable, and doesn't interact with the script generation process. In addition, consider using double quote shell variables to avoid [word splitting](https://github.com/koalaman/shellcheck/wiki/SC2086), but this is [one of many](https://mywiki.wooledge.org/BashPitfalls) general recommendations for writing shell scripts, and is not specific to {% data variables.product.prodname_actions %}.
 
-### Using CodeQL to analyze your code
+{% ifversion fpt or ghec %}
+### Using starter workflows for code scanning
 
-To help you manage the risk of dangerous patterns as early as possible in the development lifecycle, the {% data variables.product.prodname_dotcom %} Security Lab has developed [CodeQL queries](https://github.com/github/codeql/tree/main/javascript/ql/src/experimental/Security/CWE-094) that repository owners can [integrate](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#running-additional-queries) into their CI/CD pipelines. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
+{% data reusables.advanced-security.starter-workflows-beta %}
+{% data variables.product.prodname_code_scanning_capc %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides starter workflows for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.product.prodname_codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party starter workflows available.
 
-The scripts currently depend on the CodeQL JavaScript libraries, which means that the analyzed repository must contain at least one JavaScript file and that CodeQL must be [configured to analyze this language](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed).
+For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[Setting up {% data variables.product.prodname_code_scanning %} using starter workflows](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."
 
-- `ExpressionInjection.ql`: Covers the expression injections described in this article, and is considered to be reasonably accurate. However, it doesn’t perform data flow tracking between workflow steps.
-- `UntrustedCheckout.ql`: This script's results require manual review to determine whether the code from a pull request is actually treated in an unsafe manner. For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)"  on the {% data variables.product.prodname_dotcom %} Security Lab blog.
+{% endif %}
 
 ### Restricting permissions for tokens
 
@@ -195,6 +196,16 @@ You can help mitigate this risk by following these good practices:
 
 The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)." 
 {% endif %}
+
+{% if internal-actions %}
+## Allowing workflows to access internal repositories
+
+{% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+{% endif %}
+
+## Using OpenSSF Scorecards to secure workflows
+
+[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
 
 ## Potential impact of a compromised runner
 
@@ -254,13 +265,13 @@ This list describes the recommended approaches for accessing repository data wit
 
 ## Hardening for self-hosted runners
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **{% data variables.product.prodname_dotcom %}-hosted** runners execute code within ephemeral and clean isolated virtual machines, meaning there is no way to persistently compromise this environment, or otherwise gain access to more information than was placed in this environment during the bootstrap process.
 {% endif %}
 
-{% ifversion fpt %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
+{% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-{% ifversion fpt %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. Although workflows can control access to environment secrets by using environments and required reviews, these workflows are not run in an isolated environment and are still susceptible to the same risks when run on a self-hosted runner.
+{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. Although workflows can control access to environment secrets by using environments and required reviews, these workflows are not run in an isolated environment and are still susceptible to the same risks when run on a self-hosted runner.
 
 When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.product_name %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
 

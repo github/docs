@@ -1,6 +1,6 @@
 ---
 title: プロジェクト（ベータ）の自動化
-intro: 'You can use built-in workflows or the API and {% data variables.product.prodname_actions %} to manage your projects.'
+intro: '組み込みのワークフロー、あるいはAPIと{% data variables.product.prodname_actions %}を使ってプロジェクトを管理できます。'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -17,23 +17,23 @@ topics:
 
 ## はじめに
 
-You can add automation to help manage your project. Projects (beta) includes built-in workflows that you can configure through the UI. Additionally, you can write custom workflows with the GraphQL API and {% data variables.product.prodname_actions %}.
+プロジェクトの管理に役立つ自動化を追加できます。 プロジェクト（ベータ）には、UIを通じて設定できる組み込みのワークフローが含まれています。 加えて、GraphQL APIと{% data variables.product.prodname_actions %}でカスタムのワークフローを書くことができます。
 
-## Built-in workflows
+## 組み込みのワークフロー
 
 {% data reusables.projects.about-workflows %}
 
-You can enable or disable the built-in workflows for your project.
+プロジェクトでは、組み込みのワークフローを有効化あるいは無効化できます。
 
 {% data reusables.projects.enable-basic-workflow %}
 
-## {% data variables.product.prodname_actions %} workflows
+## {% data variables.product.prodname_actions %}のワークフロー
 
-This section demonstrates how to use the GraphQL API and {% data variables.product.prodname_actions %} to add a pull request to an organization project. In the example workflows, when the pull request is marked as "ready for review", a new task is added to the project with a "Status" field set to "Todo", and the current date is added to a custom "Date posted" field.
+このセクションでは、GraphQL APIと{% data variables.product.prodname_actions %}を使ってOrganizationのプロジェクトにPull Requestを追加する方法を紹介します。 このワークフローの例では、Pull Requestが"ready for review"としてマークされると、プロジェクトに新しいタスクが追加され、"Status"フィールドが"Todo"に設定され、現在の日付がカスタムの"Date posted"フィールドに追加されます。
 
-You can copy one of the workflows below and modify it as described in the table below to meet your needs.
+必要に応じて、以下のワークフローの1つをコピーして、以下の表にあるように変更できます。
 
-プロジェクトは複数のリポジトリにまたがることができますが、ワークフローは1つのリポジトリに固有です。 Add the workflow to each repository that you want your project to track. ワークフローファイルの作成に関する詳しい情報については「[{% data variables.product.prodname_actions %}のクイックスタート](/actions/quickstart)」を参照してください。
+プロジェクトは複数のリポジトリにまたがることができますが、ワークフローは1つのリポジトリに固有です。 ワークフローを、プロジェクトに追跡させたいそれぞれのリポジトリに追加してください。 ワークフローファイルの作成に関する詳しい情報については「[{% data variables.product.prodname_actions %}のクイックスタート](/actions/quickstart)」を参照してください。
 
 この記事は、{% data variables.product.prodname_actions %}を基本的に理解していることを前提としています。 {% data variables.product.prodname_actions %}に関する詳しい情報については「[{% data variables.product.prodname_actions %}](/actions) 」を参照してください。
 
@@ -41,25 +41,25 @@ APIを通じてプロジェクトに対して行える他の変更に関する�
 
 {% note %}
 
-**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access projects (beta). To access projects (beta) you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a personal access token (recommended for user projects). Workflow examples for both approaches are shown below.
+**ノート:** `GITHUB_TOKEN`はリポジトリレベルをスコープとしており、プロジェクト（ベータ）にはアクセスできません。 プロジェクト（ベータ）にアクセスするには、{% data variables.product.prodname_github_app %}（Organizationプロジェクトの場合に推奨）もしくは個人アクセストークン（ユーザプロジェクトの場合に推奨）を作成できます。 以下には、どちらの方法のワークフローの例も示します。
 
 {% endnote %}
 
-### Example workflow authenticating with a {% data variables.product.prodname_github_app %}
+### {% data variables.product.prodname_github_app %}で認証を行うワークフローの例
 
-1. Create a {% data variables.product.prodname_github_app %} or choose an existing {% data variables.product.prodname_github_app %} owned by your organization. For more information, see "[Creating a {% data variables.product.prodname_github_app %}](/developers/apps/building-github-apps/creating-a-github-app)."
-2. Give your {% data variables.product.prodname_github_app %} read and write permissions to organization projects. For more information, see "[Editing a {% data variables.product.prodname_github_app %}'s permissions](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)."
+1. {% data variables.product.prodname_github_app %}を作成するか、自分のOrganizationが所有する既存の{% data variables.product.prodname_github_app %}を選択してください。 詳しい情報については「[{% data variables.product.prodname_github_app %}の作成](/developers/apps/building-github-apps/creating-a-github-app)」を参照してください。
+2. {% data variables.product.prodname_github_app %}に、Organizationプロジェクトに対する読み込み及び書き込み権限を与えてください。 詳しい除法については「[{% data variables.product.prodname_github_app %}の権限の編集](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)」を参照してください。
 
    {% note %}
 
-   **Note:** You can control your app's permission to organization projects and to repository projects. You must give permission to read and write organization projects; permission to read and write repository projects will not be sufficient.
+   **ノート:** アプリケーションのOrganizationプロジェクトに対する権限と、リポジトリプロジェクトに対する権限を制御できます。 Organizationプロジェクトに対する読み書き権限を与えなければなりません。リポジトリプロジェクトに対する読み書き権限だけでは不十分です。
 
    {% endnote %}
 
-3. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see "[Installing {% data variables.product.prodname_github_apps %}](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)."
-4. Store your {% data variables.product.prodname_github_app %}'s ID as a secret in your repository or organization. In the following workflow, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/reference/apps#get-an-app)."
-5. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-6. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. たとえば`octo-org`というようにします。 Replace `YOUR_PROJECT_NUMBER` with your project number. プロジェクト番号を知るには、プロジェクトのURLを見てください。 たとえば`https://github.com/orgs/octo-org/projects/5`ではプロジェクト番号は5です。
+3. Organizationに{% data variables.product.prodname_github_app %}をインストールしてください。 プロジェクトがアクセスする必要があるすべてのリポジトリにインストールしてください。 詳しい情報については「[{% data variables.product.prodname_github_apps %}のインストール](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)」を参照してください。
+4. {% data variables.product.prodname_github_app %}のIDを、リポジトリもしくはOrganizationのシークレットとして保存してください。 以下のワークフローでは、`APP_ID`をシークレット名に置き換えてください。 アプリケーションIDは、アプリケーションの設定ページで、あるいはアプリケーションのAPIを通じて確認できます。 詳しい情報については「[アプリケーション](/rest/reference/apps#get-an-app)」を参照してください。
+5. アプリケーションの秘密鍵を生成してください。 作成されたファイルの内容を、シークレットとしてリポジトリもしくはOrganizationに保存してください。 （ファイルの内容は、`-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`という部分も含めて全体をほぞんしてください。） 以下のワークフローでは、`APP_PEM`をシークレットの名前に置き換えてください。 詳しい情報については「[{% data variables.product.prodname_github_apps %}での認証](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)」を参照してください。
+6. 以下のワークフローでは、`YOUR_ORGANIZATION`をOrganizationの名前で置き換えてください。 たとえば`octo-org`というようにします。 `YOUR_PROJECT_NUMBER`は、プロジェクトの番号で置き換えてください。 プロジェクト番号を知るには、プロジェクトのURLを見てください。 たとえば`https://github.com/orgs/octo-org/projects/5`ではプロジェクト番号は5です。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -162,11 +162,11 @@ jobs:
             }' -f project=$PROJECT_ID -f item=$ITEM_ID -f status_field=$STATUS_FIELD_ID -f status_value={% raw %}${{ env.TODO_OPTION_ID }}{% endraw %} -f date_field=$DATE_FIELD_ID -f date_value=$DATE --silent
 ```
 
-### Example workflow authenticating with a personal access token
+### 個人アクセストークンで認証するワークフローの例
 
-1. Create a personal access token with `org:write` scope. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
-2. Save the personal access token as a secret in your repository or organization.
-3. 以下のワークフローでは、`YOUR_TOKEN`をそのシークレットの名前で置き換えてください。 Replace `YOUR_ORGANIZATION` with the name of your organization. たとえば`octo-org`というようにします。 Replace `YOUR_PROJECT_NUMBER` with your project number. プロジェクト番号を知るには、プロジェクトのURLを見てください。 たとえば`https://github.com/orgs/octo-org/projects/5`ではプロジェクト番号は5です。
+1. `org:write` スコープを使用して個人アクセストークンを作成します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
+2. この個人アクセストークンをシークレットとしてリポジトリもしくはOrganizationに保存します。
+3. 以下のワークフローでは、`YOUR_TOKEN`をそのシークレットの名前で置き換えてください。 `YOUR_ORGANIZATION`をOrganizationの名前で置き換えてください。 たとえば`octo-org`というようにします。 `YOUR_PROJECT_NUMBER`は、プロジェクトの番号で置き換えてください。 プロジェクト番号を知るには、プロジェクトのURLを見てください。 たとえば`https://github.com/orgs/octo-org/projects/5`ではプロジェクト番号は5です。
 
 ```yaml{:copy}
 name: Add PR to project
@@ -261,9 +261,9 @@ jobs:
 
 ```
 
-### Workflow explanation
+### ワークフローの説明
 
-The following table explains sections of the example workflows and shows you how to adapt the workflows for your own use.
+以下の表は、ワークフローの例のセクションについて説明しており、自分の利用方法にそれらのワークフローを適応させる方法を示します。
 
 <table class="table-fixed">
 
@@ -299,13 +299,13 @@ on:
 
 </td>
 <td>
-Uses the <a href="https://github.com/tibdex/github-app-token">tibdex/github-app-token action</a> to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as <code>{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}</code>.
+<a href="https://github.com/tibdex/github-app-token">tibdex/github-app-token action</a>を使い、アプリケーションIDと秘密鍵からアプリケーション用のインストールアクセストークンを生成します。 このインストールアクセストークンは、後にワークフロー内で<code>{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}</code>としてアクセスされます。
 <br>
 <br>
-Replace <code>APP_ID</code> with the name of the secret that contains your app ID.
+<code>APP_ID</code>はアプリケーションIDを含むシークレットの名前で置き換えてください。
 <br>
 <br>
-Replace <code>APP_PEM</code> with the name of the secret that contains your app private key.
+<code>APP_PEM</code>は、アプリケーションの秘密鍵を含むシークレットの名前で置き換えてください。
 </td>
 </tr>
 
@@ -335,7 +335,7 @@ env:
 このステップのための環境変数を設定します。
 <br>
 <br>
-If you are using a personal access token, replace <code>YOUR_TOKEN</code> with the name of the secret that contains your personal access token.
+個人アクセストークンを使っているなら、<code>YOUR_TOKEN</code>を個人アクセストークンを含むシークレットの名前で置き換えてください。
 <br>
 <br>
 <code>YOUR_ORGANIZATION</code>をOrganization名で置き換えてください。 たとえば<code>octo-org</code>というようにします。

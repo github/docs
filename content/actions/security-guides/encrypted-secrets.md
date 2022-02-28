@@ -41,7 +41,7 @@ For secrets stored at the environment level, you can enable required reviewers t
 
 {% data reusables.codespaces.secrets-naming %}
 
-  For example, {% ifversion fpt or ghes > 3.0 or ghae or ghec %}a secret created at the environment level must have a unique name in that environment, {% endif %}a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level. 
+  For example, {% ifversion fpt or ghes > 3.0 or ghae or ghec %}a secret created at the environment level must have a unique name in that environment, {% endif %}a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
   {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.{% endif %}
 
@@ -53,11 +53,7 @@ To make a secret available to an action, you must set the secret as an input or 
 
 You can use and read encrypted secrets in a workflow file if you have access to edit the file. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
-{% warning %}
-
-**Warning:** {% data variables.product.prodname_dotcom %} automatically redacts secrets printed to the log, but you should avoid printing secrets to the log intentionally.
-
-{% endwarning %}
+{% data reusables.github-actions.secrets-redaction-warning %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
@@ -78,8 +74,6 @@ When generating credentials, we recommend that you grant the minimum permissions
 ## Creating encrypted secrets for a repository
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -121,8 +115,6 @@ To list all secrets for the repository, use the `gh secret list` subcommand.
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -159,8 +151,6 @@ gh secret list --env <em>environment-name</em>
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.github-actions.permissions-statement-secrets-organization %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -365,3 +355,50 @@ Secrets are limited to 64 KB in size. To use secrets that are larger than 64 KB,
           run: cat $HOME/secrets/my_secret.json
   ```
 {% endraw %}
+
+
+## Storing Base64 binary blobs as secrets
+
+You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see ["Limits for secrets"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
+
+{% note %}
+
+**Note**: Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
+
+{% endnote %}
+
+1. Use `base64` to encode your file into a Base64 string. For example:
+
+   ```
+   $ base64 -i cert.der -o cert.base64
+   ```
+
+1. Create a secret that contains the Base64 string. For example:
+
+   ```
+   $ gh secret set CERTIFICATE_BASE64 < cert.base64
+   ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
+   ```
+
+1. To access the Base64 string from your runner, pipe the secret to `base64 --decode`.  For example: 
+
+   ```yaml
+   name: Retrieve Base64 secret
+   on:
+     push:
+       branches: [ octo-branch ]
+   jobs:
+     decode-secret:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - name: Retrieve the secret and decode it to a file
+           env:
+             {% raw %}CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}{% endraw %}
+           run: |
+             echo $CERTIFICATE_BASE64 | base64 --decode > cert.der
+         - name: Show certificate information
+           run: |
+             openssl x509 -in cert.der -inform DER -text -noout
+   ```
+

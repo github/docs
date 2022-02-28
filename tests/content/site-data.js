@@ -48,15 +48,19 @@ describe('siteData module (English)', () => {
     expect(reusable.includes('任意のページの左上で')).toBe(true)
   })
 
-  // TODO: re-enable once Janky flakyness is resolved
-  // Docs Engineering issue: 964
-  test.skip('backfills missing translated site data with English values', async () => {
+  test('backfills missing translated site data with English values', async () => {
     const newFile = path.join(__dirname, '../../data/newfile.yml')
-    await fs.writeFile(newFile, 'newvalue: bar')
-    const data = await loadSiteData()
-    expect(get(data, 'en.site.data.newfile.newvalue')).toEqual('bar')
-    expect(get(data, 'ja.site.data.newfile.newvalue')).toEqual('bar')
-    await fs.unlink(newFile)
+    fs.writeFileSync(newFile, 'newvalue: bar')
+    try {
+      const data = loadSiteData()
+      expect(get(data, 'en.site.data.newfile.newvalue')).toEqual('bar')
+      expect(get(data, 'ja.site.data.newfile.newvalue')).toEqual('bar')
+    } finally {
+      // If an error is thrown above, it will still "bubble up"
+      // to the jest reporter, but we still always need to clean up
+      // the temporary file.
+      fs.unlinkSync(newFile)
+    }
   })
 
   test('all Liquid templating is valid', async () => {
@@ -77,10 +81,7 @@ describe('siteData module (English)', () => {
   })
 
   test('includes markdown files as data', async () => {
-    const reusable = get(
-      data,
-      'en.site.data.reusables.enterprise_enterprise_support.submit-support-ticket-first-section'
-    )
+    const reusable = get(data, 'en.site.data.reusables.support.submit-a-ticket')
     expect(typeof reusable).toBe('string')
     expect(reusable.includes('1. ')).toBe(true)
   })

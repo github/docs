@@ -1,6 +1,6 @@
 ---
 title: Hola Mundo
-intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
+intro: 'Sigue este ejercicio de "Hello World" para iniciar con {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,130 +15,136 @@ miniTocMaxHeadingLevel: 3
 
 ## Introducción
 
-{% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+{% data variables.product.product_name %} es una plataforma de hospedaje de código para el control de versiones y la colaboración. Este permite que tú y otras personas trabajen juntos en proyectos desde donde sea.
 
-This tutorial teaches you {% data variables.product.product_name %} essentials like repositories, branches, commits, and pull requests. You'll create your own Hello World repository and learn {% data variables.product.product_name %}'s pull request workflow, a popular way to create and review code.
+Este tutorial te enseña lo esencial de {% data variables.product.product_name %}, como los repositorios, ramas, confirmaciones y solicitudes de cambio. Crearás tu propio repositorio de "Hello World" y aprenderás el flujo de trabajo de las solicitudes de cambio de {% data variables.product.product_name %}, una forma popular de crear y revisar código.
 
-In this quickstart guide, you will:
+En esta guía de inicio rápido:
 
-* Create and use a repository
-* Start and manage a new branch
-* Make changes to a file and push them to {% data variables.product.product_name %} as commits
-* Open and merge a pull request
+* Crearás y utilizarás un repositorio
+* Iniciarás y administrarás una rama nueva
+* Harás cambios a un archivo y los subirás a {% data variables.product.product_name %} como confirmaciones
+* Abrirás y fusionarás una solicitud de cambios
 
-To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on).
+Para completar este tutorial, necesitarás una [cuenta de {% data variables.product.product_name %}](http://github.com) y acceso a internet. No necesitas saber cómo codificar, utilizar la línea de comandos o instalar Git (el software de control de versiones en el que está compilado {% data variables.product.product_name %}). Si tienes dudas sobre cualquiera de las expresiones que se utilizan en esta guía, dirígete al [glosario](/get-started/quickstart/github-glossary) para encontrar más información sobre nuestra terminología.
 
 ## Crear un repositorio
 
-A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a `README` file, a file with information about your project. {% data variables.product.product_name %} makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file.
+Un repositorio se utiliza a menudo para organizar un solo proyecto. Los repositorios pueden contener carpetas y archivos, imágenes, videos, hojas de cálculo y conjuntos de datos; todo lo que necesita tu proyecto. A menudo, los repositorios incluyen un archivo de _README_, que es un archivo con información sobre tu proyecto. Los archivos _README_ se escriben en el lenguaje de marcado de texto simple. Puedes utilizar esta [hoja informativa](https://www.markdownguide.org/cheat-sheet/) para iniciar con la sintaxis de lenguaje de marcado. {% data variables.product.product_name %} te permite agregar un archivo de _README_ al mismo tiempo que creas tu repositorio nuevo. {% data variables.product.product_name %} también ofrece otras opciones comunes, tales como un archivo de licencia, pero no teines que seleccionar ninguna de ellas ahora mismo.
 
-Your `hello-world` repository can be a place where you store ideas, resources, or even share and discuss things with others.
+Tu repositorio de `hello-world` puede ser un lugar donde almacenes ideas, recursos o incluso compartas y debatas cosas con los demás.
 
 {% data reusables.repositories.create_new %}
-1. In the **Repository name** box, enter `hello-world`.
-2. In the **Description** box, write a short description.
-3. Select **Add a README file**.
-4. Haz clic en **Crear repositorio**.
+1. En la caja de **Nombre de repositorio**, ingresa `hello-world`.
+2. En la caja de **Descripción**, escribe una descripción corta.
+3. Selecciona **Agregar un archivo README**.
+4. Selecciona si tu repositorio será **Público** o **Privado**.
+5. Haz clic en **Crear repositorio**.
 
-   ![Create a hello world repository](/assets/images/help/repository/hello-world-repo.png)
+   ![Crear un repositorio de hello world](/assets/images/help/repository/hello-world-repo.png)
 
 ## Cómo crear una rama
 
-Branching lets you have different versions of a repository at one time.
+La ramificación te permite tener versiones diferentes de un repositorio en una ocasión.
 
-By default, your repository has one branch named `main` that is considered to be the definitive branch. You can use branches to experiment and make edits before committing them to `main`.
+Predeterminadamente, tu repositorio tiene una rama llamada `main`, la cual se considera como la rama definitiva. Puedes crear ramas adicionales de la `main` en tu repositorio. Puedes utilizar ramas para tener versiones diferentes de un proyecto en algún momento específico. Esto es útil cuando quieres agregar características nuevas a un proyecto sin cambiar la fuente de código principal. El trabajo que se hace en las diferentes ramas no se mostrará en la rama principal sino hasta que la fusiones, lo cual veremos más adelante en esta guía. Puedes utilizar ramas para experimentar y hacer ediciones antes de confirmarlas a `main`.
 
-When you create a branch off the `main` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
+Cuando creas una rama fuera de la de `main`, estás haciendo una copia o captura de pantalla de `main` como lo fue en ese momento. Si alguien más hizo cambios en la rama `main` mientras estuviste trabajando en tu rama, podrías extraer esas actualizaciones.
 
-This diagram shows:
+Este diagrama muestra:
 
-* The `main` branch
-* A new branch called `feature`
-* The journey that `feature` takes before it's merged into `main`
+* La rama `main`
+* Una rama nueva llamada `feature`
+* El viaje que hace `feature` antes de fusionarse en `main`
 
-![branching diagram](/assets/images/help/repository/branching.png)
+![diagrama de ramificado](/assets/images/help/repository/branching.png)
 
-Have you ever saved different versions of a file? Something like:
+¿Alguna vez has guardado versiones distintas de un archivo? Algo como:
 
 * `story.txt`
-* `story-joe-edit.txt`
-* `story-joe-edit-reviewed.txt`
+* `story-edit.txt`
+* `story-edit-reviewed.txt`
 
-Branches accomplish similar goals in {% data variables.product.product_name %} repositories.
+Las ramas logran metas similares en los repositorios de {% data variables.product.product_name %}.
 
-Here at {% data variables.product.product_name %}, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our `main` (production) branch. When a change is ready, they merge their branch into `main`.
+En {% data variables.product.product_name %}, nuestros desarrolladores, escritores y diseñadores utilizan ramas para mantener las correcciones de errores y el trabajo de las características separados de nuestra rama `main` (productiva). Cuando un cambio está listo, se fusiona su rama en `main`.
 
 ### Crear una rama
 
-1. Click the **Code** tab of your `hello-world` repository.
-2. Click the drop down at the top of the file list that says **main**. ![Branch menu](/assets/images/help/branch/branch-selection-dropdown.png)
-4. Type a branch name, `readme-edits`, into the text box.
-5. Click **Create branch: readme-edits from main**.
+1. Haz clic en la pestaña de **Código** de tu repositorio `hello-world`.
+2. Haz clic ene l menú desplegable en la parte superior del archivo que dice **main**. ![Menú de la rama](/assets/images/help/branch/branch-selection-dropdown.png)
+4. Teclea un nombre de rama, `readme-edits`, en la caja de texto.
+5. Haz clic en **Crear rama: readme-dits desde main**.
 
-![Branch menu](/assets/images/help/repository/new-branch.png)
+![Menú de la rama](/assets/images/help/repository/new-branch.png)
 
-Now you have two branches, `main` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new branch.
+Ahora tienes dos ramas, `main` y `readme-edits`. Ahora mismo, se ven idénticas. A continuación, agregarás cambios a la rama nueva.
 
-## Making and committing changes
+## Hacer y confirmar cambios
 
-When you created a new branch in the previous step, {% data variables.product.product_name %} brought you to the code page for your new `readme-edits` branch, which is a copy of `main`.
+Cuando creaste una rama nueva en el paso anterior, {% data variables.product.product_name %} te llevó a la página de código de tu rama `readme-edits` nueva, la cual es una copia de `main`.
 
-You can make and save changes to the files in your repository. On {% data variables.product.product_name %}, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
+Puedes hacer y guardar cambios a los archivos de tu repositorio. En {% data variables.product.product_name %}, los cambios guardados se llaman confirmaciones. Cada confirmación tiene un mensaje de confirmación asociado, el cual es una descripción que explica por qué se realizó algún cambio en particular. Los mensajes de confirmación capturan la historia de tus cambios para que otros contribuyentes puedan entender lo que hiciste y por qué.
 
-1. Click the `README.md` file.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
-3. In the editor, write a bit about yourself.
-4. In the **Commit changes** box, write a commit message that describes your changes.
+1. Debajo de la rama `readme-edits` que creaste, haz clic en el archivo _README.md_.
+2. Haz clic en {% octicon "pencil" aria-label="The edit icon" %} para editar el archivo.
+3. En el editor, escribe un poco sobre ti mismo. Intenta utilizar elementos de lenguaje de marcado diferentes.
+4. En la caja de **Cambios de confirmación**, escribe un mensaje de confirmación que describa tus cambios.
 5. Haz clic en **Commit changes** (Confirmar cambios).
 
-   ![Commit example](/assets/images/help/repository/first-commit.png)
+   ![Ejemplo de confirmación](/assets/images/help/repository/first-commit.png)
 
-These changes will be made only to the README file on your `readme-edits` branch, so now this branch contains content that's different from `main`.
+Estos cambios se harán únicamente al archivo README en tu rama `readme-edits`, así que ahora esta rama tiene contenido que es diferente de la de `main`.
 
 ## Abrir una solicitud de extracción
 
-Now that you have changes in a branch off of `main`, you can open a pull request.
+Ahora que tienes cambios en una rama furea de la de `main`, puedes abrir una solicitud de cambios.
 
-Pull requests are the heart of collaboration on {% data variables.product.product_name %}. When you open a pull request, you're proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in different colors.
+Las solicitudes de cambios son el núcleo de la colaboración en {% data variables.product.product_name %}. Cuando abres una solicitud de cambios, estás proponiendo tus cambios y solicitando que alguien revise e integre tu contribución y la fusione en su rama. Las solicitudes de cambio muestran diffs o diferencias del contenido de ambas ramas. Los cambios, adiciones y sustracciones se muestran en varios colores.
 
-As soon as you make a commit, you can open a pull request and start a discussion, even before the code is finished.
+Tan pronto hagas una confirmación, puedes abrir una solicitud de cambios y comenzar un debate, incluso antes de que se termine el código.
 
-By using {% data variables.product.product_name %}'s `@mention` feature in your pull request message, you can ask for feedback from specific people or teams, whether they're down the hall or 10 time zones away.
+Si utilizas la característica de `@mention` de {% data variables.product.product_name %} en tu mensaje de solicitud de cambios, puedes pedir retroalimentación de una persona o equipo específico, ya sea que estén al fondo del pasillo o a 10 zonas horarias de distancia.
 
-You can even open pull requests in your own repository and merge them yourself. It's a great way to learn the {% data variables.product.product_name %} flow before working on larger projects.
+Incluso puedes abrir solicitudes de cambio en tu propio repositorio y fusionarlas tú mismo. Es una forma genial para aprenderse el flujo de {% data variables.product.product_name %} antes de trabajar en proyectos más grandes.
 
-1. Click the **Pull requests** tab of your `hello-world` repository.
-2. Click **New pull request**
-3. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
-4. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
+1. Haz clic en la pestaña de **Solicitudes de cambios** de tu repositorio `hello-world`.
+2. Haz clic en **Solicitud de cambios nueva**
+3. En la caja de **Comparaciones de ejemplo**, selecciona la rama que hiciste, `readme-edits`, para compararla con `main` (la original).
+4. Mira tus cambios en los diffs en la página de Comparar, asegúrate que son lo que quieres enviar.
 
-   ![diff example](/assets/images/help/repository/diffs.png)
+   ![ejemplo de diff](/assets/images/help/repository/diffs.png)
 
 5. Haz clic en **Create Pull Request** (Crear solicitud de extracción).
-6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
+6. Dale un título a tu solicitud de cambios y escribe una descripción breve de estos. Puedes incluir emojis y arrastrar y soltar imágenes y gifs.
+7. Opcionalmente, a la derecha de tu título y descripción, haz clic en el {% octicon "gear" aria-label="The Gear icon" %} junto a **Revisores**. **Asignados**, **Etiquetas**, **Proyectos** o **Hito** para agregar cualquiera de estas opciones a tu solicitud de cambios. No necesitas agregar ninguna aún, pero estas opciones ofrecen diversas formas de colaborar utilizando solicitudes de cambio. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 7. Haz clic en **Create Pull Request** (Crear solicitud de extracción).
 
-Your collaborators can now review your edits and make suggestions.
+Tus colaboradores ahora pueden revisar tus ediciones y hacer sugerencias.
 
-## Merging your pull request
+## Fusionar tu solicitud de cambios
 
-In this final step, you will merge your `readme-edits` branch into the `main` branch.
+En este paso final, fusionarás tu rama de `readme-edits` en la rama `main`.  Después de que fusionas tu solicitud de cambios, los cambios en tu rama de `readme-edits` se incorporarán a `main`.
 
-1. Click **Merge pull request** to merge the changes into `main`.
-2. Haz clic en **Confirmar fusión**.
-3. Go ahead and delete the branch, since its changes have been incorporated, by clicking **Delete branch**.
+Algunas veces, una solicitud de cambios podría introducir cambios al código que entren en conflicto con el existente en `main`. Si existe cualquier conflicto, {% data variables.product.product_name %} te alertará sobre el código que lo ocasiona y no dejará que se fusione sino hasta que esto se resuelva. Puedes hacer una confirmación que resuelva los conflictos o que utilice comentarios en la solicitud de cambios para debatir estos conflictos con tus miembros de equipo.
+
+En este recorrido, no deberías de tener conflictos, así que estás listo para fusionar tu rama en la principal.
+
+1. Haz clic en **Fusionar solicitud de cambios** para fusionar los cambios en `main`. ![Captura de pantalla del botón de fusión.](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
+2. Haz clic en **Confirmar fusión**. Recibirás un mensaje indicando que la solicitud se fusionó con éxito y luego se cerró.
+3. Haz clic en **Borrar rama**. Ahora que tu solicitud de cambios se fusionó y tus cambios están en `main`, puedes borrar la rama `readme-edits` con seguridad. Si quieres hacer más cambios a tu proyecto, siempre puedes crear una rama nueva y repetir este proceso.
 
 ## Pasos siguientes
 
-By completing this tutorial, you've learned to create a project and make a pull request on {% data variables.product.product_name %}.
+Al haber completado este tutorial, aprendiste a crear un proyecto y hacer una solicitud de cambios en {% data variables.product.product_name %}.
 
-Here's what you accomplished in this tutorial:
+Esto es lo que lograste en este tutorial:
 
-* Created an open source repository
-* Started and managed a new branch
-* Changed a file and committed those changes to {% data variables.product.product_name %}
-* Opened and merged a pull request
+* Creaste y abriste un repositorio de código fuente
+* Iniciaste y administraste una rama nueva
+* Cambiaste un archivo y confirmaste esos cambios en {% data variables.product.product_name %}
+* Abriste y fusionaste una solicitud de cambios
 
-Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
+Echa un vistazo a tu perfil de {% data variables.product.product_name %} y verás tu trabajo reflejado en tu gráfica de contribuciones.
 
-For more information about the power of branches and pull requests, see "[GitHub flow](/get-started/quickstart/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).
+Para obtener más información sobre el poder de las ramas y las solicitudes de cambios, consulta la sección "[Flujo de GitHub](/get-started/quickstart/github-flow)". Para obtener más información sobre cómo iniciar con {% data variables.product.product_name %}, consulta el resto de las guías en la [guía rápida de inicio](/get-started/quickstart).

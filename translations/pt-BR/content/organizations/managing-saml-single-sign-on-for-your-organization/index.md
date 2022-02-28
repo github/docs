@@ -1,6 +1,6 @@
 ---
-title: Managing SAML single sign-on for your organization
-intro: Organization owners can manage organization members' identities and access to the organization with SAML single sign-on (SSO).
+title: Gerenciar o logon único SAML para sua organização
+intro: Os proprietários da organização podem gerenciar as identidades e acesso dos integrantes da organização com o logon único SAML (SSO).
 redirect_from:
   - /articles/managing-member-identity-and-access-in-your-organization-with-saml-single-sign-on
   - /articles/managing-saml-single-sign-on-for-your-organization
@@ -22,6 +22,6 @@ children:
   - /managing-team-synchronization-for-your-organization
   - /accessing-your-organization-if-your-identity-provider-is-unavailable
   - /troubleshooting-identity-and-access-management
-shortTitle: Manage SAML single sign-on
+shortTitle: Gerenciar logon único SAML
 ---
 

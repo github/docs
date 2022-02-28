@@ -25,7 +25,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% mac %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. 将 SSH 公钥复制到剪贴板。
@@ -43,21 +42,19 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
   {% endtip %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 4. 单击 **New SSH key（新 SSH 密钥）**或 **Add SSH key（添加 SSH 密钥）**。 ![SSH 密钥按钮](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. 在 "Title"（标题）字段中，为新密钥添加描述性标签。 例如，如果您使用的是个人 Mac，此密钥名称可能是 "Personal MacBook Air"。
 6. 将密钥粘贴到 "Key"（密钥）字段。 ![密钥字段](/assets/images/help/settings/ssh-key-paste.png)
 7. 单击 **Add SSH key（添加 SSH 密钥）**。 ![添加密钥按钮](/assets/images/help/settings/ssh-add-key.png)
-{% data reusables.user_settings.sudo-mode-popup %}
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
 {% endmac %}
 
 {% windows %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -76,8 +73,8 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
   {% endtip %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 4. 单击 **New SSH key（新 SSH 密钥）**或 **Add SSH key（添加 SSH 密钥）**。 ![SSH 密钥按钮](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. 在 "Title"（标题）字段中，为新密钥添加描述性标签。 例如，如果您使用的是个人 Mac，此密钥名称可能是 "Personal MacBook Air"。
 6. 将密钥粘贴到 "Key"（密钥）字段。 ![密钥字段](/assets/images/help/settings/ssh-key-paste.png)
@@ -90,7 +87,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% linux %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. 将 SSH 公钥复制到剪贴板。
@@ -109,8 +105,8 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
   {% endtip %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 4. 单击 **New SSH key（新 SSH 密钥）**或 **Add SSH key（添加 SSH 密钥）**。 ![SSH 密钥按钮](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. 在 "Title"（标题）字段中，为新密钥添加描述性标签。 例如，如果您使用的是个人 Mac，此密钥名称可能是 "Personal MacBook Air"。
 6. 将密钥粘贴到 "Key"（密钥）字段。 ![密钥字段](/assets/images/help/settings/ssh-key-paste.png)

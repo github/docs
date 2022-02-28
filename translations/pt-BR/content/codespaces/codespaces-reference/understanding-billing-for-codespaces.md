@@ -30,6 +30,8 @@ Para ver os preços para uso de {% data variables.product.prodname_codespaces %}
 
 A cobrança do seu codespace é feita por minutos de computação e para a quantidade de armazenamento que usa no disco.
 
+If you enable prebuilding of codespaces this will incur additional charges. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)."
+
 ### Ententendo quais minutos de computação são
 A cobrança do seu codespace é feita pelo número de minutos ativos. Se sua janela de codespace estiver inativa por 30 minutos, ela será desligada automaticamente, e o cálculo da cobrança para o codespace terminará até que você inicie o codespace novamente.
 
@@ -54,3 +56,7 @@ Seu código será automaticamente excluído quando você for removido de uma org
 ## Excluindo seus codespaces não utilizados
 
 Você pode excluir manualmente os seus codespaces em https://github.com/codespaces e de dentro de {% data variables.product.prodname_vscode %}. Para reduzir o tamanho de um codespace, você pode excluir arquivos manualmente usando o terminal ou de dentro de {% data variables.product.prodname_vscode %}.
+
+## Leia mais
+
+- "[Gerenciando a cobrança para codespaces na sua organização](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

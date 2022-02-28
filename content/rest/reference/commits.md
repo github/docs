@@ -1,6 +1,6 @@
 ---
 title: Commits
-intro: 'The commits API allows you to retrieve information and commits, create commit comments, and create commit statuses.'
+intro: 'The commits API allows you to list, view, and compare commits in a repository. You can also interact with commit comments and commit statuses.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,12 +12,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Commits
-
-The Repo Commits API supports listing, viewing, and comparing commits in a repository.
-
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
+  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
 ## Commit comments

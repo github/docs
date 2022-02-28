@@ -56,16 +56,16 @@ jobs:
           token: ${{ secrets.DOCS_BOT_FR }}
 
       - name: Setup Node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.13.x
+          node-version: 16.14.x
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
       - name: Cache nextjs build
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -112,8 +112,8 @@ jobs:
         run: |
           echo 'git remote add public-docs-repo https://github.com/github/docs.git'
           git remote add public-docs-repo https://github.com/github/docs.git
-          echo 'git lfs push --all public-docs-repo'
-          git lfs push --all public-docs-repo
+          echo 'GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 GIT_TRACE=1 git lfs push --all public-docs-repo'
+          GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 GIT_TRACE=1 git lfs push --all public-docs-repo
 
       - name: Send slack notification if workflow run fails
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340

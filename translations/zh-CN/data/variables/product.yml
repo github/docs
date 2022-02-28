@@ -97,8 +97,6 @@ prodname_matching_fund: 'GitHub 赞助者匹配基金'
 #GitHub Advanced Security
 prodname_GH_advanced_security: 'GitHub Advanced Security'
 prodname_advanced_security: 'Advanced Security'
-#Security Center
-prodname_security_center: '安全中心'
 #Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
@@ -145,6 +143,7 @@ prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot 警报'
 prodname_dependabot_security_updates: 'Dependabot 安全更新'
 prodname_dependabot_version_updates: 'Dependabot 版本更新'
+prodname_dependabot_updates: 'Dependabot updates'
 #GitHub Archive Program
 prodname_archive: 'GitHub 存档计划'
 prodname_arctic_vault: 'Arctic 代码库'

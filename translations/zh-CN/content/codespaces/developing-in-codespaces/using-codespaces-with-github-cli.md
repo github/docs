@@ -153,7 +153,7 @@ For more information about the `gh codespace cp` command, including additional f
 
 ### Modify ports in a codespace
 
-You can forward a port on a codespace to a local port. The port remains forwarded as long as the process is running. To stop forwarding the port, press <kbd>control</kbd>+<kbd>c</kbd>.
+You can forward a port on a codespace to a local port. The port remains forwarded as long as the process is running. To stop forwarding the port, press <kbd>Control</kbd>+<kbd>C</kbd>.
 
 ```shell
 gh codespace ports forward <em>codespace-port-number</em>:<em>local-port-number</em> -c <em>codespace-name</em>
@@ -173,7 +173,7 @@ You can set the visibility for multiple ports with one command. 例如：
 gh codespace ports visibility 80:private 3000:public 3306:org -c <em>codespace-name</em>
 ```
 
-For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+更多信息请参阅“[在代码空间中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
 
 ### Access codespace logs
 

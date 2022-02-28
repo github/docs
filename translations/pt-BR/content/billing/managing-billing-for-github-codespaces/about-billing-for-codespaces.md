@@ -40,6 +40,12 @@ Se você comprou {% data variables.product.prodname_enterprise %} por meio de um
 
 {% data reusables.dotcom_billing.pricing_cal %}
 
+### Billing for {% data variables.product.prodname_codespaces %} prebuilds
+
+{% data reusables.codespaces.prebuilds-beta-note %}
+
+{% data reusables.codespaces.billing-for-prebuilds %}
+
 ## Definindo um limite de gastos
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
@@ -47,6 +53,12 @@ Se você comprou {% data variables.product.prodname_enterprise %} por meio de um
 Para obter informações sobre como gerenciar e alterar o limite de gastos da sua conta, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
 
 {% data reusables.codespaces.exporting-changes %}
+
+## Limitando a escolha dos tipos de máquina
+
+O tipo de máquina que um usuário escolhe ao criar um codespace afeta a carga por minuto desse codespace, conforme mostrado acima.
+
+Os proprietários da organização podem criar uma política para restringir os tipos de máquina disponíveis para os usuários. Para obter mais informações, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
 ## Como a cobrança é administrada para repositórios bifurcados
 

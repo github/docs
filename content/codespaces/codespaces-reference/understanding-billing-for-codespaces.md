@@ -30,6 +30,8 @@ To see the pricing for {% data variables.product.prodname_codespaces %} usage, s
 
 Your codespace is billed for its compute minutes and for the amount of storage it uses on disk.
 
+If you enable prebuilding of codespaces this will incur additional charges. For more information, see "[About Codespaces prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)."
+
 ### Understanding what compute minutes are
 Your codespace is billed for the number of minutes that it's active. If your codespaces window is left idle for 30 minutes, it will automatically shutdown, and compute billing for the codespace will end until you start the codespace again.
 
@@ -54,3 +56,7 @@ Your codespace will be automatically deleted when you are removed from an organi
 ## Deleting your unused codespaces
 
 You can manually delete your codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, you can manually delete files using the terminal or from within {% data variables.product.prodname_vscode %}.
+
+## Further reading
+
+- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"

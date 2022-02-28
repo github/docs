@@ -5,8 +5,8 @@ permissions:
   actions: read|write|none
   checks: read|write|none
   contents: read|write|none
-  deployments: read|write|none
-  id-token: read|write|none
+  deployments: read|write|none{% ifversion fpt or ghec %}
+  id-token: read|write|none{% endif %}
   issues: read|write|none
   discussions: read|write|none
   packages: read|write|none
@@ -23,4 +23,10 @@ Puedes utilizar la siguiente sintaxis para definir el acceso de lectura o escrit
 
 ```yaml
 permissions: read-all|write-all
+```
+
+Puedes utilizar la siguiente sintaxis para inhabilitar los permisos para todos los alcances disponibles:
+
+```yaml
+permissions: {}
 ```

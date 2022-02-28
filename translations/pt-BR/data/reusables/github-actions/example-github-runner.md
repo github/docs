@@ -1,6 +1,6 @@
 ### Executando em um sistema operacional diferente
 
-O modelo de fluxo de trabalho inicial configura trabalhos para executar no Linux, usando o {% data variables.product.prodname_dotcom %}-executores hospedados `ubuntu-latest`. Você pode alterar a tecla `runs-on` para executar seus trabalhos em um sistema operacional diferente. Por exemplo, você pode usar os {% data variables.product.prodname_dotcom %}-executores Windows hospedados.
+The starter workflow configures jobs to run on Linux, using the {% data variables.product.prodname_dotcom %}-hosted `ubuntu-latest` runners. Você pode alterar a tecla `runs-on` para executar seus trabalhos em um sistema operacional diferente. Por exemplo, você pode usar os {% data variables.product.prodname_dotcom %}-executores Windows hospedados.
 
 {% raw %}
 ```yaml

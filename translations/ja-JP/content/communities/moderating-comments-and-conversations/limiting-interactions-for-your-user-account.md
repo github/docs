@@ -26,7 +26,7 @@ shortTitle: アカウントのインタラクションの制限
 
 ## ユーザアカウントの操作を制限する
 
-{% data reusables.user_settings.access_settings %}
-1. [User settings] サイドバーの [Moderation settings] で、[**Interaction limits**] をクリックします。 ![[User settings] サイドバーの [Interaction limits] タブ](/assets/images/help/settings/settings-sidebar-interaction-limits.png)
+{% data reusables.user-settings.access_settings %}
+1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![[Temporary interaction limits] のオプション](/assets/images/help/settings/user-account-temporary-interaction-limits-options.png)

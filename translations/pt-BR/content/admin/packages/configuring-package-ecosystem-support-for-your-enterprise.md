@@ -23,7 +23,10 @@ Para evitar que novos pacotes sejam carregados, você pode definir um ecossistem
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
-1. Em "Alternância de ecossistema", para cada tipo de pacote, selecione **habilitado**, **somente leitura** ou **Desabilitado**. ![Alternância de ecossistemas](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png)
+1. Em "Alternância de ecossistema", para cada tipo de pacote, selecione **habilitado**, **somente leitura** ou **Desabilitado**.
+{% ifversion ghes > 3.1 %}
+  ![Alternância de ecossistemas](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
+![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes = 3.0 or ghes > 3.0 %}
@@ -40,6 +43,8 @@ Para permitir conexões de rede para o registro npm, você precisa configurar as
 | {% data variables.product.prodname_ghe_server %} | `registry.npmjs.com` | TCP/443 | HTTPS |
 
 Observe que as conexões com `registry.npmjs.com` atravessam a rede Cloudflare e, consequentemente, não se conectam a um único endereço IP estático; em vez disso, é feita uma conexão com um endereço IP dentro dos intervalos de CIDR listados aqui: https://www. loudflare.com/ips/.
+
+Se você deseja habilitar fontes upstream do npm, selecione `habilitado` para `upstream do npm`.
 
 {% endif %}
 

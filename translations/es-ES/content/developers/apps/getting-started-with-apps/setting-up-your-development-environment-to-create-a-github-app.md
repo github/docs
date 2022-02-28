@@ -54,7 +54,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 ## Paso 1. Inicia un canal nuevo de Smee
 
-Para ayudar a que GitHub envíe webhooks a tu máquina local sin exponerla al internet, puedes utilizar una herramienta llamada Smee. Primero, dirígete a https://smee.io y da clic en **Iniciar un canal nuevo**. Si ya estás a gusto con otras herramientas que exponen tu máquina local al internet como [ngrok](https://dashboard.ngrok.com/get-started) o [localtunnel](https://localtunnel.github.io/www/), siéntete libre para utilizarlas.
+Para ayudar a que GitHub envíe webhooks a tu máquina local sin exponerla al internet, puedes utilizar una herramienta llamada Smee. Primero, dirígete a https://smee.io y da clic en **Iniciar un canal nuevo**. Si ya estás a gusto con otras herramientas que exponen tu máquina local al internet, como [`ngrok`](https://dashboard.ngrok.com/get-started) o [`localtunnel`](https://localtunnel.github.io/www/), puedes utilizarlas.
 
 ![El botón de nuevo canal de Smee](/assets/images/smee-new-channel.png)
 
@@ -91,7 +91,7 @@ Posteriormente, regresa a la terminal y sigue estos pasos para ejecutar el clien
 
 El comando `smee --url <unique_channel>` le dice a Smee que reenvíe todos los eventos de webhook que reciba el canal de Smee al cliente de Smee que se ejecuta en tu computadora. La opción `--path /event_handler` reenvía los eventos a la ruta `/event_handler`, lo cual cubriremos en una [sección subsecuente](#step-5-review-the-github-app-template-code). La opción `--port 3000` especifica al puerto 3000, el cual es aquél que escuchará tu servidor. Si utilizas Smee, tu máquina no necesita estar abierta al internet público para recibir webhooks de GitHub. También puedes abrir la URL de Smee en tu buscador para inspeccionar las cargas útiles de los webhooks como vayan llegando.
 
-Te recomendamos dejar abierta esta ventana de terminal y mantener a Smee conectado mientras completas el resto de los pasos de esta guía. Aunque _puedes_ desconectar y reconectar el cliente de Smee sin perder tu dominio único (a diferencia de con ngrok), puede que te sea más fácil dejarlo conectado y llevar a cabo otras tareas en la línea de comandos en una ventana diferente de la terminal.
+Te recomendamos dejar abierta esta ventana de terminal y mantener a Smee conectado mientras completas el resto de los pasos de esta guía. Aunque _puedes_ desconectar y volver a conectar el cliente de Smee sin perder tu dominio único (a diferencia de con `ngrok`), puede que te sea más fácil dejarlo conectado y realizar otras tareas de línea de comandos en una ventana diferente de la Terminal.
 
 ## Paso 2. Registrar una GitHub App nueva
 
@@ -131,7 +131,7 @@ Verás un formato en el cual puedes ingresar detalles sobre tu app. Consulta la 
 
 Después de que creas tu app, se te llevará de regreso a la [página de configuración de la app](https://github.com/settings/apps). Tienes dos cosas más para hacer aquí:
 
-* **Generar una llave privada para tu app.** Esto es necesario para autenticar tu app más adelante. Baja en la página y da clic en **Generar una llave privada**. Guarda el archivo PEM resultante (que tiene un nombre algo similar a _`app-name`_-_`date`_-private-key.pem) en un directorio en donde lo puedas volver a encontrar después.
+* **Generar una llave privada para tu app.** Esto es necesario para autenticar tu app más adelante. Baja en la página y da clic en **Generar una llave privada**. Guarda el archivo `PEM` resultante ( el cual tiene un nombre similar a  _`app-name`_-_`date`_-`private-key.pem`) en un directorio en donde puedas volver a encontrarlo fácilmente.
 
     ![El diálogo de generación de la llave privada](/assets/images/private_key.png)
 
