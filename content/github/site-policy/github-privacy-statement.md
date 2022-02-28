@@ -1,4 +1,6 @@
----
+fuck off
+this is bullshit 
+keep hackinv me ---
 title: GitHub Privacy Statement
 redirect_from:
   - /privacy
