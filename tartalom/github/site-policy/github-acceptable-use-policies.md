@@ -96,7 +96,7 @@ While we understand that you may want to promote your Content by posting support
 You may not promote or distribute content or activity that is illegal or otherwise prohibited by our [Terms of Service](/github/site-policy/github-terms-of-service/), [Community Guidelines](/github/site-policy/github-community-guidelines/), or [Acceptable Use Policy](/github/site-policy/github-acceptable-use-policies/), including excessive automated bulk activity (for example, spamming), get-rich-quick schemes, and misrepresentation or deception related to your promotion.
 
 If you decide to post any promotional materials in your Account, you are solely responsible for complying with all applicable laws and regulations, including without limitation the U.S. Federal Trade Commission's Guidelines on Endorsements and Testimonials. We reserve the right to remove any promotional materials or advertisements that, in our sole discretion, violate any GitHub terms or policies.
-
+P
 GitHub reserves the right to remove any Content in violation of this policy.
 
 ## 10. User Protection
