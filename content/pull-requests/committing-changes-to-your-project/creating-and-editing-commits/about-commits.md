@@ -28,10 +28,11 @@ Rebasing allows you to change a series of commits and can modify the order of th
 
 You can see what branch a commit is in by looking at the labels beneath the commit on the commit page.
 
-1. Navigate to the commit page by clicking the commit message link.
-![Commit message link](/assets/images/help/commits/commit-message-link.png)
-2. To see what branch the commit is on, check the label below the commit message.
-![Commit branch indicator](/assets/images/help/commits/commit-branch-indicator.png)
+{% data reusables.repositories.navigate-to-repo %}
+2. Navigate to the commit page by clicking the commit message link.
+   ![Commit message link](/assets/images/help/commits/commit-message-link.png)
+3. To see what branch the commit is on, check the label below the commit message.
+   ![Commit branch indicator](/assets/images/help/commits/commit-branch-indicator.png)
 
 If your commit is not on the default branch (`main`), the label will show the branches which contain the commit. If the commit is part of an unmerged pull request, you can click the link to go to the pull request.
 
