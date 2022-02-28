@@ -1,6 +1,6 @@
 ---
-title: Organizationでのセキュリティ管理者の管理
-intro: セキュリティ管理者のロールを割り当てることで、セキュリティチームにOrganizationに対する必要最小限のアクセスを付与できます。
+title: Managing security managers in your organization
+intro: You can give your security team the least access they need to your organization by assigning a team to the security manager role.
 versions:
   fpt: '*'
   ghes: '>=3.3'
@@ -8,7 +8,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: セキュリティ管理者のロール
+shortTitle: Security manager role
 permissions: Organization owners can assign the security manager role.
 ---
 
@@ -16,12 +16,12 @@ permissions: Organization owners can assign the security manager role.
 
 {% data reusables.organizations.about-security-managers %}
 
-## セキュリティ管理者のロールの権限
+## Permissions for the security manager role
 
-セキュリティ管理者のロールを持つチームのメンバーは、Organizationのセキュリティを効率的に管理するのに必要な権限だけを持ちます。
+Members of a team with the security manager role have only the permissions required to effectively manage security for the organization.
 
-- 既存のすべてのリポジトリへのアクセスに加えて、Organization内のすべてのリポジトリへの読み取りアクセス
-- Organization内のすべてのセキュリティアラートに対する書き込みアクセス{% ifversion not fpt %}
+- Read access on all repositories in the organization, in addition to any existing repository access
+- Write access on all security alerts in the organization {% ifversion not fpt %}
 - Access to the organization's security overview {% endif %}
 - The ability to configure security settings at the organization level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
 - The ability to configure security settings at the repository level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
@@ -40,16 +40,18 @@ You can assign the security manager role to a maximum of 10 teams in your organi
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-1. Under **Security managers**, search for and select the team to give the role. Each team you select will appear in a list below the search bar. ![Add security manager](/assets/images/help/organizations/add-security-managers.png)
+1. Under **Security managers**, search for and select the team to give the role. Each team you select will appear in a list below the search bar. 
+  ![Add security manager](/assets/images/help/organizations/add-security-managers.png)
 ## Removing the security manager role from a team in your organization
 
 {% warning %}
 
-**Warning:** Removing the security manager role from a team will remove the team's ability to manage security alerts and settings across the organization, but the team will retain read access to repositories that was granted when the role was assigned. You must remove any unwanted read access manually. 詳しい情報については「[OrganizationリポジトリへのTeamのアクセス管理](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#removing-a-teams-access-to-a-repository)」を参照してください。
+**Warning:** Removing the security manager role from a team will remove the team's ability to manage security alerts and settings across the organization, but the team will retain read access to repositories that was granted when the role was assigned. You must remove any unwanted read access manually. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#removing-a-teams-access-to-a-repository)."
 
 {% endwarning %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-1. Under **Security managers**, to the right of the team you want to remove as security managers, click {% octicon "x" aria-label="The X icon" %}. ![Remove security managers](/assets/images/help/organizations/remove-security-managers.png)
+1. Under **Security managers**, to the right of the team you want to remove as security managers, click {% octicon "x" aria-label="The X icon" %}.
+  ![Remove security managers](/assets/images/help/organizations/remove-security-managers.png)

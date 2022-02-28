@@ -1,6 +1,6 @@
 ---
 title: Codespaces
-intro: 'The {% data variables.product.prodname_codespaces %} API enables you to manage your codespaces using the REST API.'
+intro: 'La API de {% data variables.product.prodname_codespaces %} te permite administrar tus codespaces utilizando la API de REST.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -12,14 +12,14 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.codespaces.codespaces-api-beta-note %}
 
-La API de {% data variables.product.prodname_codespaces %} te permite administrar las {% data variables.product.prodname_codespaces %} utilizando la API de REST. This API is available for authenticated users and OAuth Apps, but not GitHub Apps. Para obtener más información, consulta la sección "[{% data variables.product.prodname_codespaces %}](/codespaces)".
+La API de {% data variables.product.prodname_codespaces %} te permite administrar las {% data variables.product.prodname_codespaces %} utilizando la API de REST. Esta API se encuentra disponible para los usuarios autenticados y las Apps de OAuth, pero no para las GitHub Apps. Para obtener más información, consulta la sección "[{% data variables.product.prodname_codespaces %}](/codespaces)".
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Machines
-The Machines API allows a user to determine which machine types are available to create a codespace, either on a given repository or as an authenticated user. For more information, see "[About machine types](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)."
+## Máquinas
+La API de máquinas permite que un usuario determine qué tipos de máquina están disponibles para crear un codespace, ya sea en un repositorio definido o como un usuario autenticado. Para obtener más información, consulta la sección "[Acerca de los tipos de máquina](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)".
 
 También puedes utilizar esta información cuando cambies la máquina de un codespace existente actualizando su propiedad de `machine`. La actualización de la máquina tomará lugar la siguiente vez que el codespace se reinicie. Para obtener más información, consulta la sección "[Cambiar el tipo de máquina de tu codespace](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)".
 {% for operation in currentRestOperations %}
