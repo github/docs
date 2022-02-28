@@ -24,22 +24,22 @@ You can also create a commit on behalf of an organization. For more information,
 
 Rebasing allows you to change a series of commits and can modify the order of the commits in your timeline. For more information, see "[About git rebase](/github/getting-started-with-github/about-git-rebase)."
 
-### About commit branches and tag labels
+## About commit branches and tag labels
 
 You can see what branch a commit is in by looking at the labels beneath the commit on the commit page.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Navigate to the commit page by clicking the commit message link.
-   ![Commit message link](/assets/images/help/commits/commit-message-link.png)
-3. To see what branch the commit is on, check the label below the commit message.
-   ![Commit branch indicator](/assets/images/help/commits/commit-branch-indicator.png)
+{% data reusables.repositories.navigate-to-commit-page %}
+1. Navigate to the commit by clicking the commit message link.
+   ![Screenshot of commit with commit message link emphasized](/assets/images/help/commits/commit-message-link.png)
+2. To see what branch the commit is on, check the label below the commit message.
+   ![Screenshot of commit with commit branch indicator emphasized](/assets/images/help/commits/commit-branch-indicator.png)
 
 If your commit is not on the default branch (`main`), the label will show the branches which contain the commit. If the commit is part of an unmerged pull request, you can click the link to go to the pull request.
 
 Once the commit is on the default branch, any tags that contain the commit will be shown and the default branch will be the only branch listed. For more information on tags, see "[Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" in the Git documentation.
 
-![Commit tag label](/assets/images/help/commits/commit-tag-label.png)
+![Screenshot of commit with commit tag emphasized](/assets/images/help/commits/commit-tag-label.png)
 
 ## Further reading
 - "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)" on {% data variables.product.prodname_desktop %}
-- "[Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" in the Git documentation
