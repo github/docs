@@ -44,7 +44,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
-1. Optionally install `pinentry-mac` using [Homebrew](https://brew.sh/) to open PIN or passphrase entry dialogs when necessary:
+1. Optionally, to prompt you to enter a PIN or passphrase when required, install `pinentry-mac`. For example, using [Homebrew](https://brew.sh/):
   ```shell
   $ brew install pinentry-mac
   $ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
