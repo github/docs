@@ -69,7 +69,7 @@ When you create a repository owned by your user account, the repository is alway
 - 内部リポジトリには、すべての Enterprise メンバーがアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。
 {%- endif %}
 
-Organization のオーナーは、Organization 内で作成されたすべてのリポジトリにいつでもアクセスできます。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Organization のオーナーは、Organization 内で作成されたすべてのリポジトリにいつでもアクセスできます。 詳しい情報については「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
 リポジトリの管理者権限を持つユーザは、既存のリポジトリの可視性を変更できます。 詳細は「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」を参照してください。
 

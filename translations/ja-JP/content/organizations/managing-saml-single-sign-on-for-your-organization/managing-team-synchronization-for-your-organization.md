@@ -48,7 +48,7 @@ Organization と、サポートされている IdP について、SAMLシング�
 
 SAMLの設定は、**Issuer**フィールドに有効なIdP URLを含んで**いなければなりません**。
 
-![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
+![SAML Issuerフィールド](/assets/images/help/saml/saml_issuer.png)
 
 
 
@@ -70,9 +70,9 @@ OktaのTeam同期には、事前にOrganizationでOktaでのSAMLとSCIMがセッ
 
 OktaでのTeam同期のエラーの可能性を回避するために、{% data variables.product.prodname_dotcom %}でTeam同期を有効化する前に、選択したOktaのグループのメンバーになっているすべてのOrganizationメンバーに対して、SCIMのリンクされたアイデンティティが正しくセットアップされているのを確認することをおすすめします。
 
-If an organization member does not have a linked SCIM identity, then team synchronization will not work as expected and the user may not be added or removed from teams as expected. If any of these users are missing a SCIM linked identity, you will need to re-provision them.
+OrganizationのメンバーがリンクされたSCIMアイデンティティを持たない場合、Teamの同期は期待された動作をせず、そのユーザはTeamに追加も削除もされないかもしれません。 もしもユーザの中にSCIMのリンクされたアイデンティティを持たない者がいた場合、それらのユーザはプロビジョニングし直さなければなりません。
 
-For help on provisioning users that have missing a missing SCIM linked identity, see "[Troubleshooting identity and access management](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)."
+SCIMのリンクされたアイデンティティを書いているユーザのプロビジョニングに関するヘルプについては「[アイデンティティ及びアクセス管理のトラブルシューティング](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)」を参照してください。
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
@@ -81,7 +81,7 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.team-sync-confirm-scim %}
-1. Consider enforcing SAML in your organization to ensure that organization members link their SAML and SCIM identities. 詳細は「[Organization で SAML シングルサインオンを施行する](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。
+1. OrganizationでSAMLを施行し、OrganizationのメンバーがSAMLとSCIMのアイデンティティを確実にリンクするようにすることを検討してください。 詳細は「[Organization で SAML シングルサインオンを施行する](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。
 {% data reusables.identity-and-permissions.enable-team-sync-okta %}
 7. Organization 名の下で、有効な SSWS トークンと Okta インスタンスの URL を入力します。 ![Okta Organization で Team の同期を有効化するフォーム](/assets/images/help/teams/confirm-team-synchronization-okta-organization.png)
 6. Organization に接続したいアイデンティティプロバイダのテナント情報を確認してから、[**Create**] をクリックします。 ![Team の同期を有効化する [Create] ボタン](/assets/images/help/teams/confirm-team-synchronization-okta.png)

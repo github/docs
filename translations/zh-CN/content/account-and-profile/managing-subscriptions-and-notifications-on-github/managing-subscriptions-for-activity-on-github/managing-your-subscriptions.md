@@ -75,12 +75,12 @@ shortTitle: 管理您的订阅
    - 忽略某仓库的所有通知
    {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
-1. （可选）要取消订阅指定用户或组织拥有的所有存储库，请选择 **Unwatch all（全部取消关注）**下拉列表，然后单击要取消订阅其存储库的组织。 The button to unwatch all repositories is only available if you are watching all activity or custom notifications on over 10 repositories.
+1. （可选）要取消订阅指定用户或组织拥有的所有存储库，请选择 **Unwatch all（全部取消关注）**下拉列表，然后单击要取消订阅其存储库的组织。 取消关注所有存储库的按钮仅在您正在关注超过 10 个存储库上的所有活动或自定义通知时才可用。
 
-   ![Screenshot of the Unwatch All button.](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
+   ![“全部取消关注”按钮的屏幕截图](/assets/images/help/notifications-v2/unsubscribe-from-all-repos.png)
 
-   - Click **Unwatch** to confirm that you want to unwatch the repositories owned by the selected user or organization, or click **Cancel** to cancel.
+   - 单击 **Unwatch（取消关注）**以确认您要取消关注所选用户或组织拥有的存储库，或单击 **Cancel（取消）**以取消。
 
-   ![Screenshot of the unwatch all confirmation dialogue.](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
+   ![全部取消关注确认对话框的屏幕截图。](/assets/images/help/notifications-v2/unwatch-repo-dialog.png)
 
 {% endif %}

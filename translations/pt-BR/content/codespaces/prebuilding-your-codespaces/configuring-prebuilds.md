@@ -1,6 +1,6 @@
 ---
-title: Configuring prebuilds
-shortTitle: Configure prebuilds
+title: Configurando as pré-criações
+shortTitle: Configurar pré-criações
 intro: Você pode configurar o seu projeto para pré-criar um codespace automaticamente cada vez que você fizer push de uma alteração no repositório.
 versions:
   fpt: '*'
@@ -15,79 +15,79 @@ permissions: People with admin access to a repository can configure prebuilds fo
 
 {% data reusables.codespaces.prebuilds-beta-note %}
 
-You can set up a prebuild configuration for a specific branch of your repository.
+É possível definir uma configuração de pré-criação para um branch específico do repositório.
 
-Any branch created from a prebuild-enabled base branch will typically also get assigned a prebuild during codespace creation. This is true if the dev container on the branch is the same as on the base branch. This is because the majority of the prebuild configuration for branches with the same dev container configuration are identical, so developers can benefit from faster codespace creation times on those branches also. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project)".
+Qualquer branch criado a partir de um branchde base pré-compilado normalmente também receberá uma pré-compilação durante a criação do codespace. Isso é verdade se o contêiner de desenvolvimento no branch for o mesmo que no branch de base. Isso ocorre porque a maioria da configuração de pré-compilação para branches com a mesma configuração de contêiner de desenvolvimento são idênticos, para que os desenvolvedores possam se beneficiar de horários de criação de codespaces mais rápidos também nesses branches. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project)".
 
-Typically, when you configure prebuilds for a branch, prebuilds will be available for {% data variables.product.prodname_codespaces %} machine types for that branch. However, if your repository is greater than 32 GB, prebuilds won't be available for 2-core and 4-core machine types, since the storage these provide is limited to 32 GB.
+Normalmente, ao configurar pré-compilações para um branch, as pré-compilações estarão disponíveis para tipos de máquinas de {% data variables.product.prodname_codespaces %} para esse branch. No entanto, se seu repositório tiver um tamanho superior a 32 GB, as pré-compilações não estarão disponíveis para tipos de máquina 2-core e 4-core, uma vez que o armazenamento previsto é limitado a 32 GB.
 
 ## Pré-requisitos
 
-Before you can configure prebuilds for your project the following must be true:
-* {% data variables.product.prodname_github_codespaces %} must be enabled for your organization. For more information, see "[Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
-* {% data variables.product.prodname_actions %} must be enabled for your repository. Each prebuild configuration needs to be able to trigger an associated Actions workflow. Para obter mais informações, consulte "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)".
+Antes de configurar as pré-compilações para seu projeto, os pontos a seguir devem ser verdadeiros:
+* {% data variables.product.prodname_github_codespaces %} deve estar habilitado para sua organização. Para obter mais informações, consulte "[Habilitando {% data variables.product.prodname_codespaces %} para a sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)".
+* {% data variables.product.prodname_actions %} deve estar habilitado para o seu repositório. Cada configuração de pré-compilação deve poder acionar um fluxo de trabalho de ações. Para obter mais informações, consulte "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)".
 
-## Configuring a prebuild
+## Configurando uma pré-compilação
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %}**.
-1. Under "Prebuild configuration", click **Set up prebuild**.
+1. Na seção "Código & automação" da barra lateral, clique em **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %}**.
+1. Em "Configuração de pré-compilação", clique em **Configurar pré-compilação**.
 
-   ![The 'Set up prebuilds' button](/assets/images/help/codespaces/prebuilds-set-up.png)
+   ![O botão "Configurar pré-compilações"](/assets/images/help/codespaces/prebuilds-set-up.png)
 
-1. Choose the branch for which you want to set up a prebuild.
+1. Escolha o branch para o qual você deseja configurar uma pré-compilação.
 
-   ![The Branch drop-down menu](/assets/images/help/codespaces/prebuilds-choose-branch.png)
+   ![Menu suspenso Branch](/assets/images/help/codespaces/prebuilds-choose-branch.png)
 
    {% note %}
 
-   **Note**: Any branches created from a prebuild-enabled base branch will typically also get prebuilds. For example, if you enable prebuilds for the default branch of the repository, branches based on the default branch will, in most cases, also get prebuilds.
+   **Observação**: Todos os branches criados a partir de um branch de base pré-habilitado normalmente também obtêm pré-compilações. Por exemplo, se você habilitar pré-compilações para o branch padrão do repositório, os branches baseados no branch padrão também obterão, na maioria dos casos, pré-compilações.
 
    {% endnote %}
 
-1. Choose the regions in which you want to set up a prebuild. Developers must be located in a region you select to be able to create codespaces from a prebuild. Alternatively, select **All regions**.
+1. Escolha as regiões nas quais você deseja configurar uma pré-construção. Os desenvolvedores devem estar localizados em uma região selecionada para poderem criar codespaces a partir de uma pré-compilação. Como alternativa, selecione **Todas as regiões**.
 
-   ![The region selection options](/assets/images/help/codespaces/prebuilds-regions.png)
+   ![Opções de seleção de região](/assets/images/help/codespaces/prebuilds-regions.png)
 
    {% note %}
 
    **Atenção**:
-   * The prebuild template for each region will incur individual charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[About {% data variables.product.prodname_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)."
-   * Developers can set their default region for {% data variables.product.prodname_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[Setting your default region for {% data variables.product.prodname_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces)."
+   * O modelo de pré-compilação para cada região irá incorrer em taxas individuais. Por conseguinte, só devem ser permitidas pré-construções para regiões em que se sabe que serão utilizadas. Para obter mais informações, consulte "[Sobre pré-compilações de {% data variables.product.prodname_codespaces %}](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)".
+   * Os desenvolvedores podem definir sua região padrão para {% data variables.product.prodname_codespaces %}, que pode permitir que você habilite pré-compilações para menos regiões. Para obter mais informações, consulte "[Definindo a sua região padrão para {% data variables.product.prodname_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces)".
 
    {% endnote %}
 
 1. Clique em **Criar**.
 
-   The prebuild configuration is listed on the {% data variables.product.prodname_codespaces %} page of your repository settings. A {% data variables.product.prodname_actions %} workflow is queued and then run to create prebuild templates, based on the branch you selected, in the regions you specified.
+   A configuração de pré-compilação está listada na página do {% data variables.product.prodname_codespaces %} das configurações do seu repositório. Um fluxo de trabalho de {% data variables.product.prodname_actions %} está enfileirado e é executado para criar modelos de pré-compilação com base no branch que você selecionou nas regiões que você especificou.
 
    {% note %}
 
-   **Note**: By default, the {% data variables.product.prodname_actions %} workflow for a prebuild configuration can only access resources in its own repository. If your project uses resources from outside of the repository, you'll need to set the `CODESPACES_PREBUILD_TOKEN` secret to grant the required access. For more information, see "[Allowing a prebuild to access external resources](/codespaces/prebuilding-your-codespaces/managing-prebuilds#allowing-a-prebuild-to-access-external-resources)."
+   **Observação**: Por padrão, o fluxo de trabalho de {% data variables.product.prodname_actions %} para uma configuração de pré-compilação só pode acessar recursos no seu próprio repositório. Se o seu projeto usar recursos de fora do repositório, você deverá definir o segredo `CODESPACES_PREBUILD_TOKEN` para permitir o acesso necessário. Para obter mais informações, consulte "[Permitir uma pré-compilação para acessar recursos externos](/codespaces/prebuilding-your-codespaces/managing-prebuilds#allowing-a-prebuild-to-access-external-resources)".
 
    {% endnote %}
 
-## Configuring access to resources that are not in the repository
+## Configurando o acesso a recursos que não estão no repositório
 
-By default, the {% data variables.product.prodname_actions %} workflow for a prebuild configuration can only access its own repository contents. If your project needs to access external resources to build the development environment, you will need to set up a personal access token (PAT) with the appropriate access scopes.
+Por padrão, o fluxo de trabalho de {% data variables.product.prodname_actions %} para uma configuração de pré-compilação só pode acessar o próprio conteúdo do repositório. Se o seu projeto precisa acessar recursos externos para compilar o ambiente de desenvolvimento, você deverá configurar um token de acesso pessoal (PAT) com os escopos de acesso apropriados.
 
-For more information, see “[Allowing a prebuild to access external resources](/codespaces/prebuilding-your-codespaces/managing-prebuilds#allowing-a-prebuild-to-access-external-resources)."
+Para obter mais informações, consulte "[Permitir uma pré-compilação para acessar recursos externos](/codespaces/prebuilding-your-codespaces/managing-prebuilds#allowing-a-prebuild-to-access-external-resources)".
 
 ## Configurar variáveis de ambiente
 
-To allow the prebuild process to access environment variables required to create your development environment, you can set these either as {% data variables.product.prodname_codespaces %} repository secrets or as {% data variables.product.prodname_codespaces %} organization secrets. For more information, see "[Adding secrets for a repository](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces#adding-secrets-for-a-repository)" and "[Adding secrets for an organization](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces#adding-secrets-for-an-organization)."
+Para permitir que o processo de pré-compilação acesse as variáveis de ambiente necessárias para criar seu ambiente de desenvolvimento. Você pode defini-las como segredos de repositório de {% data variables.product.prodname_codespaces %} ou como segredos da organização de {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Adicionando segredos para um repositório](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces#adding-secrets-for-a-repository)" e "[Adicionando segredos a uma organização](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces#adding-secrets-for-an-organization)".
 
-Prebuilds do not use any user-level secrets while building your environment, because these are not added until after the codespace has been created.
+As pré-compilações não usam nenhum segredo de nível de usuário ao construir seu ambiente, porque elas não são adicionadas até que o codespace seja criado.
 
-{% data variables.product.prodname_codespaces %} secrets that you create in this way will be accessible by anyone who creates a codespace from this repository. If you do not want this, you can alternatively set the `CODESPACES_PREBUILD_TOKEN` secret. The `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and its value is not accessible in users' codespaces. For more information, see “[Allowing a prebuild to access external resources](/codespaces/prebuilding-your-codespaces/managing-prebuilds#allowing-a-prebuild-to-access-external-resources)."
+Os segredos de {% data variables.product.prodname_codespaces %} que você criar desta forma serão acessíveis por qualquer pessoa que crie um codespace a partir deste repositório. Se você não quiser isso, você pode definir o segredo `CODESPACES_PREBUILD_TOKEN`. O segredo `CODESPACES_PREBUILD_TOKEN` é usado apenas para pré-compilação e seu valor não pode ser acessado nos codespaces dos usuários. Para obter mais informações, consulte "[Permitir uma pré-compilação para acessar recursos externos](/codespaces/prebuilding-your-codespaces/managing-prebuilds#allowing-a-prebuild-to-access-external-resources)".
 
-## Configuring time-consuming tasks to be included in the prebuild
+## Configurando tarefas demoradas a serem incluídas na pré-compilação
 
-You can use the `onCreateCommand` and `updateContentCommand` commands in your `devcontainer.json` to include time-consuming processes as part of the prebuild template creation. For more information, see the Visual Studio Code documentation, "[devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)."
+Você pode usar os comandos `onCreateCommand` e `updateContentCommand` no seu `devcontainer.json` paraa incluir processos demorados como parte da criação de template de pré-compilação. Para obter mais informações, consulte a documentação do Visual Studio "[referência do devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts)".
 
-`onCreateCommand` is run only once, when the prebuild template is created, whereas `updateContentCommand` is run at template creation and at subsequent template updates. Incremental builds should be included in `updateContentCommand` since they represent the source of your project and need to be included for every prebuild template update.
+`onCreateCommand` é executado apenas uma vez, quando o modelo de pré-compilação é criado, enquanto `updateContentCommand` é executado na criação do modelos e em subsequentes atualizações dos modelos. As compilações incrementais devem ser incluídas em `updateContentCommand` uma vez que representam a fonte do seu projeto e devem ser incluídas para cada atualização de um modelo de pré-compilação.
 
 ## Leia mais
 
-- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- "[Solucionar problemas de pré-compilações](/codespaces/troubleshooting/troubleshooting-prebuilds)"

@@ -20,84 +20,84 @@ sections:
       heading: 'Executores efêmeros auto-hospedados no GitHub Actions e novos webhooks para dimensionamento automático'
       notes:
         - |
-          {% data variables.product.prodname_actions %} now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
+          {% data variables.product.prodname_actions %} agora é compatível com executores efêmeros (um único trabalho) auto-hospedados e um novo [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook para facilitar o dimensionamento automático dos executores.
 
-          Ephemeral runners are good for self-managed environments where each job is required to run on a clean image. After a job is run, ephemeral runners are automatically unregistered from {% data variables.product.product_location %}, allowing you to perform any post-job management.
+          Os executores efêmeros são bons para ambientes gerenciados de forma automática, em que cada trabalho deve ser executado em uma imagem limpa. Depois que um trabalho é executado, os executores efêmeros têm os seus registros automaticamente cancelados de {% data variables.product.product_location %}, permitindo que você execute qualquer gerenciamento de pós-trabalho.
 
-          You can combine ephemeral runners with the new `workflow_job` webhook to automatically scale self-hosted runners in response to {% data variables.product.prodname_actions %} job requests.
+          Você pode combinar executores efêmeros com o novo webhook `workflow_job` para dimensionar automaticamente executores auto-hospedados em resposta a solicitações de trabalho de {% data variables.product.prodname_actions %}.
 
-          For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
+          Para obter mais informações, consulte "[Redimensionamento automático com executoresauto-hospedados](/actions/hosting-your-own runners/autoscaling-with-autohosted-runners)" e "[eventos e cargas](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
     - 
-      heading: 'Dark high contrast theme'
+      heading: 'Tema escuro de alto contraste'
       notes:
         - |
-          A dark high contrast theme, with greater contrast between foreground and background elements, is now available on {% data variables.product.prodname_ghe_server %} 3.3. This release also includes improvements to the color system across all {% data variables.product.company_short %} themes.
+          Um tema de alto contraste escuro, com maior contraste entre o primeiro e os elementos de segundo plano, está disponível em {% data variables.product.prodname_ghe_server %} 3.3. Esta versão também inclui melhorias para o sistema de cores de todos os temas de {% data variables.product.company_short %} .
 
-          ![Animated image of switching between dark default theme and dark high contrast on the appearance settings page](https://user-images.githubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
+          ![Imagem animada para alternar entre o tema padrão escuro e o escuro de alto contraste na página de configurações de aparência](https://user-images. ithubusercontent.com/334891/123645834-ad096c00-d7f4-11eb-85c9-b2c92b00d70a.gif)
 
-          For more information about changing your theme, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+          Para mais informações sobre a mudança de tema, consulte "[Gerenciando suas configurações de tema](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
   changes:
     - 
       heading: Alterações na administração
       notes:
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the maintenance of repositories, especially for repositories that contain many unreachable objects. Note that the first maintenance cycle after upgrading to {% data variables.product.prodname_ghe_server %} 3.3 may take longer than usual to complete.'
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes the public beta of a repository cache for geographically-distributed teams and CI infrastructure. The repository cache keeps a read-only copy of your repositories available in additional geographies, which prevents clients from downloading duplicate Git content from your primary instance. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
-        - '{% data variables.product.prodname_ghe_server %} 3.3 includes improvements to the user impersonation process. An impersonation session now requires a justification for the impersonation, actions are recorded in the audit log as being performed as an impersonated user, and the user who is impersonated will receive an email notification that they have been impersonated by an enterprise administrator. For more information, see "[Impersonating a user](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
-        - A new stream processing service has been added to facilitate the growing set of events that are published to the audit log, including events associated with Git and {% data variables.product.prodname_actions %} activity.
+        - '{% data variables.product.prodname_ghe_server %} 3.3 inclui melhorias na manutenção dos repositórios, especialmente para repositórios que contêm muitos objetos inacessíveis. Observe que o primeiro ciclo de manutenção após a atualização para {% data variables.product.prodname_ghe_server %} 3.3 pode levar mais tempo do que o normal para ser concluído.'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 inclui o beta público do cache de repositórios para equipes e infraestruturas de CI distribuídas geograficamente. O cache do repositório mantém uma cópia somente leitura de seus repositórios disponíveis em outras localidades, o que impede os clientes de fazer o download do conteúdo do Git duplicado a partir da sua instância principal. Para obter mais informações, consulte "[Sobre cache do repositório](/admin/enterprise-management/caching-repositories/about-repository-caching)."'
+        - '{% data variables.product.prodname_ghe_server %} 3.3 inclui melhorias no processo de representação do usuário. Uma sessão de representação agora requer uma justificação para a representação. As ações são registradas no log de auditoria como sendo realizadas como um usuário representado e o usuário que for representado receberá uma notificação por e-mail de que ele foi representado por um administrador da empresa. Para obter mais informações, consulte "[Personificando um usuário](/enterprise-server@3.3/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."'
+        - Um novo serviço de processamento de transmissão foi adicionado para facilitar o crescimento do conjunto de eventos publicados no log de auditoria, incluindo eventos associados à atividade do Git e {% data variables.product.prodname_actions %}.
         - O registro de conexão de dados {% data variables.product.prodname_github_connect %} agora inclui uma lista de funcionalidades de {% data variables.product.prodname_github_connect %} habilitadas. [Atualizado em 2021-12-09]
     - 
       heading: Token Changes
       notes:
         - |
-          An expiration date can now be set for new and existing personal access tokens. Setting an expiration date on personal access tokens is highly recommended to prevent older tokens from leaking and compromising security. Token owners will receive an email when it's time to renew a token that's about to expire. Tokens that have expired can be regenerated, giving users a duplicate token with the same properties as the original.
+          Uma data de vencimento agora pode ser definida para tokens de acesso pessoais novos e existentes. É altamente recomendado definir uma data de expiração em tokens de acesso pessoal para evitar que tokens antigos vazem e comprometam a segurança. Os proprietários de tokens receberão um e-mail quando for hora de renovar um token que está prestes a vencer. Os tokens vencidos podem ser regenerados, dando aos usuários um token duplicado com as mesmas propriedades do original.
 
-          When using a personal access token with the {% data variables.product.company_short %} API, a new `GitHub-Authentication-Token-Expiration` header is included in the response, which indicates the token's expiration date. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+          Ao usar um token de acesso pessoal com a API de {% data variables.product.company_short %} um novo cabeçalho `GitHub-Authentication-Token-Expiration` será incluído na resposta, que indica a data de validade do token. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
     - 
-      heading: 'Notifications changes'
+      heading: 'Alterações de notificações'
       notes:
-        - 'Notification emails from discussions now include `(Discussion #xx)` in the subject, so you can recognize and filter emails that reference discussions.'
+        - 'Os e-mails de notificação das discussões agora incluem `(Discussion #xx)` no assunto, para que você possa reconhecer e filtrar e-mails que fazem referências a discussões.'
     - 
       heading: 'Repositories changes'
       notes:
-        - Public repositories now have a `Public` label next to their names like private and internal repositories. This change makes it easier to identify public repositories and avoid accidentally committing private code.
-        - If you specify the exact name of a branch when using the branch selector menu, the result now appears at the top of the list of matching branches. Previously, exact branch name matches could appear at the bottom of the list.
-        - When viewing a branch that has a corresponding open pull request, {% data variables.product.prodname_ghe_server %} now links directly to the pull request. Previously, there would be a prompt to contribute using branch comparison or to open a new pull request.
-        - You can now click a button to copy the full raw contents of a file to the clipboard. Previously, you would need to open the raw file, select all, and then copy. To copy the contents of a file, navigate to the file and click {% octicon "copy" aria-label="The copy icon" %} in the toolbar. Note that this feature is currently only available in some browsers.
-        - When creating a new release, you can now select or create the tag using a dropdown selector, rather than specifying the tag in a text field. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
-        - A warning is now displayed when viewing a file that contains bidirectional Unicode text. Bidirectional Unicode text can be interpreted or compiled differently than it appears in a user interface. For example, hidden bidirectional Unicode characters can be used to swap segments of text in a file. For more information about replacing these characters, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
+        - Repositórios públicos agora têm uma etiqueta `Público` ao lado de nomes como repositórios privados e internos. Esta alteração torna mais fácil a identificação de repositórios públicos e evita a confirmação acidental de código privado.
+        - Se você especificar o nome exato de um branch ao usar o menu seletor do branch, o resultado agora será exibido na parte superior da lista de branches correspondentes. Anteriormente, as correspondências exatas de nomes de branch poderiam aparecer na parte inferior da lista.
+        - Ao visualizar um branch com um pull request aberto correspondente, {% data variables.product.prodname_ghe_server %} agora irá vincular diretamente ao pull request. Anteriormente, haveria uma instrução para contribuir usando a comparação do branch ou para abrir um novo pull request.
+        - Agora você pode clicar em um botão para copiar todo o conteúdo sem ser processado de um arquivo para a área de transferência. Anteriormente, você deveria abrir o arquivo sem processamento, selecionar todos e, em seguida, copiar. Para copiar o conteúdo de um arquivo, acesse o arquivo e clique em {% octicon "copy" aria-label="The copy icon" %} na barra de ferramentas. Observe que este recurso está disponível apenas em alguns navegadores.
+        - Ao criar uma nova versão, agora você pode selecionar ou criar a tag usando um seletor suspenso, ao invés de especificar a tag em um campo de texto. Para obter mais informações, consulte "[Gerenciar versões em um repositório](/repositórios/releasing-projects-on-github/managing-releases-in-a-repository)".
+        - Um aviso agora é exibido ao visualizar um arquivo que contém texto bidirecional do Unicode. O texto bidirecional Unicode pode ser interpretado ou compilado de forma diferente da que aparece na interface do usuário. Por exemplo, caracteres bidirecionais ocultos Unicode podem ser usados para trocar segmentos de texto em um arquivo. Para obter mais informações sobre a substituição desses caracteres, consulte o [registro de alterações de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
         - You can now use `CITATION.cff` files to let others know how you would like them to cite your work. `CITATION.cff` files are plain text files with human- and machine-readable citation information. {% data variables.product.prodname_ghe_server %} parses this information into common citation formats such as [APA](https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX). For more information, see "[About CITATION files](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
     - 
       heading: 'Markdown changes'
       notes:
         - |
-          You can use new keyboard shortcuts for quotes and lists in Markdown files, issues, pull requests, and comments.
+          Você pode usar novos atalhos de teclado para aspas e listas em arquivos Markdown, problemas, pull requests e comentários.
 
-          * To add quotes, use <kbd>cmd shift .</kbd> on Mac, or <kbd>ctrl shift .</kbd> on Windows and Linux.
-          * To add an ordered list, use <kbd>cmd shift 7</kbd> on Mac, or <kbd>ctrl shift 7</kbd> on Windows and Linux.
-          * To add an unordered list, use <kbd>cmd shift 8</kbd> on Mac, or <kbd>ctrl shift 8</kbd> on Windows and Linux.
+          * Para adicionar citações, use <kbd>cmd shift 7</kbd> no Mac ou <kbd>ctrl shift .</kbd> no Windows e Linux.
+          * Para adicionar uma lista ordenada, use <kbd>cmd shift 7</kbd> no Mac ou <kbd>ctrl shift 7</kbd> no Windows e Linux.
+          * Para adicionar uma lista não ordenada, use <kbd>cmd shift 8</kbd> em Mac ou <kbd>ctrl shift 8</kbd> no Windows e no Linux.
 
-          See "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts)" for a full list of available shortcuts.
-        - 'You can now use footnote syntax in any Markdown field. Footnotes are displayed as superscript links that you can click to jump to the referenced information, which is displayed in a new section at the bottom of the document. For more information about the syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)."'
-        - When viewing Markdown files, you can now click {% octicon "code" aria-label="The code icon" %} in the toolbar to view the source of a Markdown file. Previously, you needed to use the blame view to link to specific line numbers in the source of a Markdown file.
-        - You can now add images and videos to Markdown files in gists by pasting them into the Markdown body or selecting them from the dialog at the bottom of the Markdown file. For information about supported file types, see "[Attaching files](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files)."
-        - '{% data variables.product.prodname_ghe_server %} now automatically generates a table of contents for Wikis, based on headings.'
-        - When dragging and dropping files into a Markdown editor, such as images and videos, {% data variables.product.prodname_ghe_server %} now uses the mouse pointer location instead of the cursor location when placing the file.
+          Consulte "[Atalhos de teclado](/get-started/using-github/keyboard-shortcuts)" para obter uma lista completa dos atalhos disponíveis.
+        - 'Agora você pode usar sintaxe do nota de rodapé em qualquer campo do Markdown. As notas de rodapé são exibidas como links sobrescritos em que você pode clicar para pular para a informação referenciada, que é exibida em uma nova seção no final do documento. Para obter mais informações sobre a sintaxe, consulte "[Sintaxe de escrita básica](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)."'
+        - Ao visualizar arquivos de Markdown, agora você pode clicar em {% octicon "code" aria-label="The code icon" %} na barra de ferramentas para ver a fonte de arquivo de Markdown. Anteriormente, você deveria usar a visão culpada para vincular a números de linha específicos na fonte de um arquivo de Markdown.
+        - Agora você pode adicionar imagens e vídeos aos arquivos Markdown nos gists, colando-os no corpo do Markdown ou selecionando-os da caixa de diálogo na parte inferior do arquivo Markdown. Para obter informações sobre tipos de arquivos compatíveis, consulte "[Anexando arquivos](https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/anexing-files)."
+        - '{% data variables.product.prodname_ghe_server %} agora gera automaticamente uma tabela de conteúdo para Wikis com base nos cabeçalhos.'
+        - Ao arrastar e soltar arquivos para um editor de Markdown, como imagens e vídeos, {% data variables.product.prodname_ghe_server %} agora usa o local do ponteiro do mouse em vez do local do cursor ao colocar o arquivo.
     - 
       heading: 'Issues and pull requests changes'
       notes:
-        - 'You can now search issues by label using a logical OR operator. To filter issues using logical OR, use the comma syntax. For example, `label:"good first issue","bug"` will list all issues with a label of `good first issue` or `bug`. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)."'
+        - 'Agora você pode pesquisar problemas por etiqueta usando um operador lógico OU. Para filtrar os problemas usando o OU lógico, use a sintaxe de vírgula. Por exemplo, `label:"good first issue","bug"` irá listar todos os problemas com a etiqueta `good first issue` ou `bug`. Para obter mais informações, consulte "[Filtrar e pesquisar problemas e pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests#about-search-terms)."'
         - |
-          Improvements have been made to help teams manage code review assignments. You can now:
+          Foram realizadas melhorias para ajudar as equipes a gerenciar as atividades de revisão de código. Agora você pode:
 
-          - Limit assignment to only direct members of the team.
-          - Continue with automatic assignment even if one or more members of the team are already requested.
-          - Keep a team assigned to review even if one or more members is newly assigned.
+          - Limitar atribuição apenas aos integrantes diretos da equipe.
+          - Continuar com a atribuição automática, mesmo que um ou mais integrantes da equipe já estejam solicitados.
+          - Manter uma equipe atribuída para revisar, mesmo que um ou mais integrantes sejam recém-designados.
 
-          The timeline and reviewers sidebar on the pull request page now indicate if a review request was automatically assigned to one or more team members.
+          A barra lateral da linha do tempo e revisores na página de pull request agora indica se uma solicitação de revisão foi automaticamente atribuída a um ou mais integrantes da equipe.
 
-          For more information, see the [{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/).
-        - You can now filter pull request searches to only include pull requests you are directly requested to review.
-        - Filtered files in pull requests are now completely hidden from view, and are no longer shown as collapsed in the "Files Changed" tab. The "File Filter" menu has also been simplified. For more information, see "[Filtering files in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+          Para obter mais informações, consulte o [registro de alterações de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-29-new-code-review-assignment-settings-and-team-filtering-improvements/).
+        - Agora você pode filtrar pesquisas de pull request para incluir apenas pull requests que solicitaram que você revise diretamente.
+        - Os arquivos filtrados em pull requests agora estão completamente ocultos na visualização e não são mais exibidos como recolhidos na guia "Arquivos alterados". O menu "Filtro de Arquivo" também foi simplificado. Para obter mais informações, consulte "[Filtrar arquivos em um pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
     - 
       heading: 'GitHub Actions changes'
       notes:

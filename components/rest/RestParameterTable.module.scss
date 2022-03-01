@@ -1,0 +1,43 @@
+.parameterTable {
+  display: table;
+  border-collapse: collapse;
+  position: relative;
+  width: 100%;
+  line-height: 1.5;
+  table-layout: auto;
+
+  thead {
+    tr {
+      border-top: none;
+
+      th {
+        border: 0;
+        font-weight: normal;
+      }
+    }
+  }
+
+  tr:nth-child(2n) {
+    background: none !important;
+  }
+
+  td {
+    padding: 0.75rem 0.5rem !important;
+    border: 0 !important;
+    vertical-align: top;
+  }
+
+  tbody {
+    tr td:first-child {
+      font-weight: bold;
+    }
+
+    table tr td:not(:first-child) {
+      font-weight: normal;
+    }
+  }
+
+  code {
+    background-color: var(--color-canvas-subtle);
+  }
+}

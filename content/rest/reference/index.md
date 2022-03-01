@@ -51,5 +51,4 @@ children:
   - /teams
   - /users
   - /webhooks
-  - /permissions-required-for-github-apps
 ---
