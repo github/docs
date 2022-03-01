@@ -1,10 +1,5 @@
 .parameterTable {
-  display: table;
-  border-collapse: collapse;
-  position: relative;
-  width: 100%;
-  line-height: 1.5;
-  table-layout: auto;
+  table-layout: fixed !important;
 
   thead {
     tr {
@@ -25,6 +20,7 @@
     padding: 0.75rem 0.5rem !important;
     border: 0 !important;
     vertical-align: top;
+    width: 100%;
   }
 
   tbody {
