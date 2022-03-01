@@ -58,7 +58,7 @@ By default, a codespace can only access the repository from which it was created
 {% data reusables.organizations.click-codespaces %}
 1. Under "User permissions", select **Disabled**.
 
-## Setting a spending limit
+## 设置支出限制
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 

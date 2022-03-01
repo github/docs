@@ -12,10 +12,10 @@
 Windows Server 2022
 </td>
 <td>
-<code>windows-2022</code>
+<code>windows-latest</code> or <code>windows-2022</code>
 </td>
 <td>
-The <code>windows-latest</code> label currently uses the Windows Server 2019 runner image.
+The <code>windows-latest</code> label currently uses the Windows Server 2022 runner image.
 </td>
 </tr>
 <tr>
@@ -23,7 +23,7 @@ The <code>windows-latest</code> label currently uses the Windows Server 2019 run
 Windows Server 2019
 </td>
 <td>
-<code>windows-latest</code> or <code>windows-2019</code>
+<code>windows-2019</code>
 </td>
 <td>
 </td>

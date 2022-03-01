@@ -21,7 +21,7 @@ shortTitle: Workflow billing & limits
 {% data reusables.repositories.about-github-actions %} For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" and "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
 
 {% ifversion fpt or ghec %}
-{% data reusables.github-actions.actions-billing %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+{% data reusables.actions.actions-billing %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 {% else %}
 GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
@@ -47,8 +47,8 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% endnote %}
 
 - **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
-{% data reusables.github-actions.usage-workflow-run-time %}
-{% data reusables.github-actions.usage-api-requests %}
+{% data reusables.actions.usage-workflow-run-time %}
+{% data reusables.actions.usage-api-requests %}
 - **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your GitHub plan, as indicated in the following table. If exceeded, any additional jobs are queued.
 
   | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
@@ -57,8 +57,8 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Pro | 40 | 5 |
   | Team | 60 | 5 |
   | Enterprise | 180 | 50 |
-- **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
-{% data reusables.github-actions.usage-workflow-queue-limits %}
+- **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
+{% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
 Usage limits apply to self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
@@ -94,7 +94,7 @@ For more information, see:
 
 ## Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
 
-{% data reusables.github-actions.disabling-github-actions %}
+{% data reusables.actions.disabling-github-actions %}
 
 For more information, see:
 - "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
