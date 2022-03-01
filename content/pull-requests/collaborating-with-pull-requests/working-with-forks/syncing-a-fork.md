@@ -13,22 +13,17 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+permissions: People with write access for a forked repository can sync the fork to the upstream repository.
 ---
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 
 ## Syncing a fork from the web UI
 
-{% note %}
-
-**Note**: You can only sync a fork if you have write permissions
-
-{% endnote %}
-
 1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-1. Select the **Fetch upstream** drop-down.
+2. Select the **Fetch upstream** drop-down.
     !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
-1. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
+3. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
     !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png)
 
 If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
