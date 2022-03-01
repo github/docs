@@ -46,7 +46,6 @@ COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
-
 # One part of the build relies on this content file to pull all-products
 COPY content/index.md ./content/index.md
 

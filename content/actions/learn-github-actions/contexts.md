@@ -31,7 +31,7 @@ You can access contexts using the expression syntax. For more information, see "
 `${{ <context> }}`
 {% endraw %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 | Context name | Type | Description |
 |---------------|------|-------------|
@@ -59,7 +59,7 @@ In order to use property dereference syntax, the property name must:
 
 ### Determining when to use contexts
 
-{% data reusables.github-actions.using-context-or-environment-variables %}
+{% data reusables.actions.using-context-or-environment-variables %}
 
 ### Context availability
 
@@ -142,7 +142,7 @@ The following table indicates where each context and special function can be use
 
 You can print the contents of contexts to the log for debugging. The [`toJSON` function](/actions/learn-github-actions/expressions#tojson) is required to pretty-print JSON objects to the log.
 
-{% data reusables.github-actions.github-context-warning %}
+{% data reusables.actions.github-context-warning %}
 
 {% raw %}
 ```yaml{:copy}
@@ -173,8 +173,8 @@ jobs:
 
 The `github` context contains information about the workflow run and the event that triggered the run. You can also read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
-{% data reusables.github-actions.github-context-warning %}
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.github-context-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 | Property name | Type | Description |
 |---------------|------|-------------|
@@ -204,8 +204,8 @@ The `github` context contains information about the workflow run and the event t
 | `github.repository_owner` | `string` | The repository owner's name. For example, `Codertocat`. |
 | `github.repositoryUrl` | `string` | The Git URL to the repository. For example, `git://github.com/codertocat/hello-world.git`. |
 | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
-| `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} |
-| `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} |
+| `github.run_id` | `string` | {% data reusables.actions.run_id_description %} |
+| `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
 {%- endif %}
@@ -529,7 +529,7 @@ The `secrets` context contains the names and values of secrets that are availabl
 
 `GITHUB_TOKEN` is a secret that is automatically created for every workflow run, and is always included in the `secrets` context. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
 
-{% data reusables.github-actions.secrets-redaction-warning %}
+{% data reusables.actions.secrets-redaction-warning %}
 
 | Property name | Type | Description |
 |---------------|------|-------------|
@@ -551,7 +551,7 @@ The following example contents of the `secrets` context shows the automatic `GIT
 
 ### Example usage of the `secrets` context
 
-{% data reusables.github-actions.github_token-input-example %}
+{% data reusables.actions.github_token-input-example %}
 
 ## `strategy` context
 

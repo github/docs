@@ -23,7 +23,7 @@ In this guide, you'll learn about the basic components needed to create and use 
 
 Once you complete this project, you should understand how to build your own composite action and test it in a workflow.
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Prerequisites
 

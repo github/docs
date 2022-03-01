@@ -12,18 +12,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% note %}
-
-**Note:** The Releases API replaces the Downloads API. You can retrieve the download count and browser download URL from the endpoints in this API that return releases and release assets.
-
-{% endnote %}
-
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## Release assets 
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'assets' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated below. Markdown for subcategories is located in data/reusables/rest-reference/releases
+-->

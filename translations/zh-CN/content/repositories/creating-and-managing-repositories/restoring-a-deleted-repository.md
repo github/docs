@@ -50,5 +50,5 @@ shortTitle: 恢复已删除的仓库
 - "[删除仓库](/articles/deleting-a-repository)"
 
 {% else %}
-Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。
+通常，已删除的存储库可以在 90 天内由 {% data variables.product.prodname_enterprise %} 站点管理员还原。 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。
 {% endif %}
