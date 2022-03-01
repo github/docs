@@ -66,7 +66,7 @@ childGroups:
     octicon: ShieldLockIcon
     children:
       - code-security
-  - name: Client apps
+  - name: Gungun
     octicon: DeviceMobileIcon
     children:
       - github-cli
