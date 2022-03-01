@@ -67,7 +67,7 @@ No final do mês, {% data variables.product.prodname_dotcom %} arredonda seu arm
 
 Se uso de {% data variables.product.prodname_registry %} compartilha a data de cobrança, o método de pagamento e o recibo que já existem para sua conta. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Sobre limites de gastos
 

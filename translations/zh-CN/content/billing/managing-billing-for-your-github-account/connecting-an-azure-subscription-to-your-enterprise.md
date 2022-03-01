@@ -28,6 +28,12 @@ shortTitle: 连接 Azure 订阅
 1. 要登录到您的 Microsoft 帐户，请按照提示执行。
 1. 查看“请求的权限”提示。 如果您同意条款，请单击 **Accept（接受）**。
 1. 在“Select a subscription（选择订阅）”下，选择您想要连接到企业的 Azure 订阅 ID。
+
+   {% note %}
+
+   **Note:** {% data variables.product.company_short %}'s Subscription Permission Validation requests read-only access to display the list of available subscriptions. To select an Azure subscription, you must have owner permissions to the subscription. If the default tenant does not have the right permissions, you may need to specify a different tenant ID. For more information, see [Microsoft identity platform and OAuth 2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) in Microsoft Docs.
+
+   {% endnote %}
 1. 单击 **Connect（连接）**。
 
 ## 从企业帐户断开您的 Azure 订阅

@@ -41,7 +41,7 @@ shortTitle: GitHub Marketplace 的计费
 - 如果您有其他付费计划或订阅，则在 14 天免费试用结束后，将立即按照备案的付款方式收取到下一个计费日期剩余的时间所应分摊的费用。
 - 如果您有其他付费计划或订阅，则在下个计费日期，您的收据会列出对您的付费 {% data variables.product.prodname_dotcom %} 计划和应用程序订阅收取的费用。
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## 单元计划限制
 

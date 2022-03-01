@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
-import { ActionList, Heading } from '@primer/components'
+import { ActionList, Heading } from '@primer/react'
 
 import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
@@ -50,7 +50,11 @@ const interactiveAlternatives: Record<string, { href: string }> = {
     },
 }
 
-export const ArticlePage = () => {
+export type StructuredContentT = {
+  structuredContent?: ReactNode
+}
+
+export const ArticlePage = ({ structuredContent }: StructuredContentT) => {
   const { asPath } = useRouter()
   const {
     title,
@@ -65,6 +69,7 @@ export const ArticlePage = () => {
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
+  const renderedContent = structuredContent || renderedPage
   const { t } = useTranslation('pages')
   const currentPath = asPath.split('?')[0]
 
@@ -107,7 +112,11 @@ export const ArticlePage = () => {
     // In the future there might be more.
     // Hopefully, we can some day delete all of this and no longer
     // be dependent on the URL hash to do the redirect.
-    if (hash && pathname.endsWith('/rest/reference/repos')) {
+    if (
+      hash &&
+      (pathname.endsWith('/rest/reference/repos') ||
+        pathname.endsWith('/rest/reference/enterprise-admin'))
+    ) {
       setLoadClientsideRedirectExceptions(true)
     }
   }, [])
@@ -232,7 +241,7 @@ export const ArticlePage = () => {
           }
         >
           <div id="article-contents">
-            <MarkdownContent>{renderedPage}</MarkdownContent>
+            <MarkdownContent>{renderedContent}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">
                 Effective as of:{' '}

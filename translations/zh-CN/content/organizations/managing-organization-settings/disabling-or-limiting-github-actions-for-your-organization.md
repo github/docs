@@ -78,7 +78,7 @@ shortTitle: 禁用或限制操作
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-{% ifversion ghec or ghae or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
+{% ifversion ghec or ghae or ghes %}如果对企业禁用了某个策略，则无法对组织启用该策略。{% endif %} 如果对组织禁用了某个策略，则无法对仓库启用该策略。 如果组织启用了某个策略，则可以对个别仓库禁用该策略。
 
 {% data reusables.github-actions.private-repository-forks-options %}
 

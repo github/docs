@@ -34,7 +34,7 @@ Organizationのオーナーには、Organization に対する管理アクセス�
 ## Organizationのオーナーの指名
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. オーナーに昇格させる人 (一人または複数人) を選択します。 ![2 人のメンバーを選択した状態のメンバーリスト](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Team のメンバー一覧の上にあるドロップダウンメニューで [**Change role**] をクリックします。 ![メンバーを削除するオプションのあるドロップダウンメニュー](/assets/images/help/teams/user-bulk-management-options.png)

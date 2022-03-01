@@ -22,7 +22,7 @@ Para ver los despliegues actuales y pasados, da clic en **Ambientes** en la pág
 ![Ambientes](/assets/images/enterprise/2.22/environments-sidebar.png){% else %}
 ![Environments](/assets/images/environments-sidebar.png){% endif %}
 
-La página de despliegues muestra el último despliegue activo de cada ambiente para tu repositorio. If the deployment includes an environment URL, a **View deployment** button that links to the URL is shown next to the deployment.
+La página de despliegues muestra el último despliegue activo de cada ambiente para tu repositorio. Si el despliegue incluye una URL de ambiente, se mostrará junto al despliegue un botón de **Ver despliegue** que enlaza a la URL.
 
 La bitácora de actividad muestra el historial de despliegues para tus ambientes. Predeterminadamente, solo el despliegue más reciente de un ambiente tiene un estado de `Active`; todos los despliegues previos tendrán un estado de `Inactive`. Para obtener más información sobre la inactivación automática de despliegues, consulta la sección "[Despliegues inactivos](/rest/reference/deployments#inactive-deployments)".
 

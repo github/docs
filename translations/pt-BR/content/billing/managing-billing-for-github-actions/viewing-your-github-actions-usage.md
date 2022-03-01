@@ -22,8 +22,8 @@ Você também pode visualizar os minutos de execução do trabalho faturáveis p
 
 Qualquer pessoa pode visualizar o uso de {% data variables.product.prodname_actions %} para sua própria conta de usuário.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}

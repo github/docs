@@ -1,0 +1,5 @@
+{% data variables.product.prodname_dotcom %} provides ready-to-use starter workflows for the following high level categories:
+- **Deployment (CD)**. For more information, see "[About continuous deployment](/actions/deployment/about-deployments/about-continuous-deployment)."
+{% ifversion fpt or ghec %}- **Security**. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} using starter workflows](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."{% endif %}
+- **Continuous Integration (CI)**. 詳細については、「[継続的インテグレーションについて](/actions/automating-builds-and-tests/about-continuous-integration)」を参照してください。
+- **Automation**. Automation starter workflows offer solutions for automating workflows, such as triaging pull requests and applying a label based on the paths that are modified in the pull request, or greeting users who are first time contributors to the repository.

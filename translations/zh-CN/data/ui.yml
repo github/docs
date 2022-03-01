@@ -44,6 +44,7 @@ pages:
   miniToc: 本文内容
   contributor_callout: 这篇文章的参与者和维护者是
   all_enterprise_releases: All Enterprise Server releases
+  about_versions: About versions
 errors:
   oops: 哎呀！
   something_went_wrong: 看来出现了错误。

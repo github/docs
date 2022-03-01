@@ -27,7 +27,12 @@ shortTitle: Existing GPG keys
 {% data reusables.gpg.list-keys-with-note %}
 3. Check the command output to see if you have a GPG key pair.
     * If there are no GPG key pairs or you don't want to use any that are available for signing commits and tags, then [generate a new GPG key](/articles/generating-a-new-gpg-key).
-    * If there's an existing GPG key pair and you want to use it to sign commits and tags, then [add your GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
+    * If there's an existing GPG key pair and you want to use it to sign commits and tags, you can display the public key using the following command, substituting in the GPG key ID you'd like to use. In this example, the GPG key ID is `3AA5C34371567BD2`:
+      ```shell
+      $ gpg --armor --export <em>3AA5C34371567BD2</em>
+      # Prints the GPG key ID, in ASCII armor format
+      ```
+      You can then [add your GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
 
 ## Further reading
 

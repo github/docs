@@ -45,7 +45,11 @@ For information about renewing your {% data variables.product.prodname_student_p
 
 ## Expiration and renewals
 
-Once your {% data variables.product.prodname_student_pack %} access expires, you may reapply if you're still eligible, although some of our partner offers cannot renew. Most of the timed offers from our partners start once you set them up. For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
+Once your {% data variables.product.prodname_student_pack %} access expires, you may reapply if you're still eligible, although some of our partner offers cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
+
+![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
+
+For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
 
 To see when your free access to the {% data variables.product.prodname_student_pack %} expires, visit your account's [billing settings](https://github.com/settings/billing).
 

@@ -57,9 +57,9 @@ r'^\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d
 过滤后还剩下 473 条建议。 但它们的表现形式非常不同：
 
 1. 有些基本上只是重复另一个通过了过滤的案例。 例如，有时 {% data variables.product.prodname_dotcom %} Copilot 提出建议，开发人员键入一个评论行，然后 {% data variables.product.prodname_dotcom %} Copilot 再次提供一个非常相似的建议。 我从分析中删除了这些作为重复项的案例。
-2. 有些是长而重复的序列。 Like the following example, where the repeated blocks of `‘<p>’` are of course found somewhere in the training set: <br>![Example repetitions](/assets/images/help/copilot/example_repetitions.png)<br> Such suggestions can be helpful (test cases, regular expressions) or not helpful (like this case, I suspect). 但无论如何，它们并不符合我开始调查时所想到的死记硬背学习的想法。
+2. 有些是长而重复的序列。 像下面的示例一样，在培训集的某个地方当然可以找到重复的 `‘<p>’` 块 ：<br>![Example repetitions](/assets/images/help/copilot/example_repetitions.png)<br> 这样的建议可能会有所帮助（测试案例、正则表达式）或没有帮助（像本案例，我怀疑）。 但无论如何，它们并不符合我开始调查时所想到的死记硬背学习的想法。
 3. 有些是标准库存，如自然数字、质数、股市股票代码或希腊字母： <br>![希腊字母示例](/assets/images/help/copilot/example_greek.png)
-4. 有些是常见的、直接的方式，甚至是普遍的方式，以很少的自然自由度做事。 For example, the middle part of the following strikes me as very much the standard way of using the BeautifulSoup package to parse a Wikipedia list. 事实上， 在 {% data variables.product.prodname_dotcom %} Copilot 的培训数据<sup id="anchor5">[5](#footnote5)</sup> 中找到的最佳匹配片段使用这种代码解析不同的文章，并继续根据结果做不同的事情。 <br>![Example of Beautiful Soup](/assets/images/help/copilot/example_beautiful_soup.png) <br>这也不符合我对引文的想法。 这有点像有人说“我要把垃圾拿出来；我很快就会回来的”— 这是事实陈述，不是引文，尽管这句话以前已经说过很多次了。
+4. 有些是常见的、直接的方式，甚至是普遍的方式，以很少的自然自由度做事。 例如， 下面的中间部分触发了我使用 BeautifulSoup 包解析维基百科列表的标准方法。 事实上， 在 {% data variables.product.prodname_dotcom %} Copilot 的培训数据<sup id="anchor5">[5](#footnote5)</sup> 中找到的最佳匹配片段使用这种代码解析不同的文章，并继续根据结果做不同的事情。 <br>![Example of Beautiful Soup](/assets/images/help/copilot/example_beautiful_soup.png) <br>这也不符合我对引文的想法。 这有点像有人说“我要把垃圾拿出来；我很快就会回来的”— 这是事实陈述，不是引文，尽管这句话以前已经说过很多次了。
 5. 然后还有所有其他情况。 代码或评论中至少有一些特定重叠。 这些是我最感兴趣的，也是我从现在开始要集中精力的。
 
 此存储桶必须有一些边缘案例<sup id="anchor6">[6](#footnote6)</sup>，并且您的里程可能因您认为应分类的方式而有所不同。 也许你甚至一开始就不同意整套存储桶。

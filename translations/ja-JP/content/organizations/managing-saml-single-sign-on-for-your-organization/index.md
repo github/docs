@@ -1,6 +1,6 @@
 ---
 title: Organization で SAML シングルサインオンを管理する
-intro: Organization owners can manage organization members' identities and access to the organization with SAML single sign-on (SSO).
+intro: Organizationのオーナーは、OrganizationのメンバーのアイデンティティとOrganizationへのアクセスをSAMLシングルサインオン（SSO）で管理できます。
 redirect_from:
   - /articles/managing-member-identity-and-access-in-your-organization-with-saml-single-sign-on
   - /articles/managing-saml-single-sign-on-for-your-organization

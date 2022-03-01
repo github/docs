@@ -194,7 +194,9 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} | | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} | | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
-| `github.path` | `string` | Caminho no executor no arquivo que define as variáveis do `PATH` do sistema a partir de comandos do fluxo de trabalho. Este arquivo é único para a etapa atual e é um arquivo diferente para cada etapa de um trabalho. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." | | `github.repository` | `string` | O proprietário e o nome do repositório. Por exemplo, `Codertocat/Hello-World`. | | `github.repository_owner` | `string` | O nome do proprietário do repositório. Por exemplo, `Codertocat`. | | `github.repositoryUrl` | `string` | A URL do Git para o repositório. Por exemplo, `git://github.com/codertocat/hello-world.git`. | | `github.retention_days` | `string` | O número de dias que os registros e artefatos da execução do fluxo de trabalho são mantidos. | | `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} | | `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} | | `github.run_attempt` | `string` | O úmero único para cada tentativa de uma execução de fluxo de trabalho particular em um repositório. Este número começa em 1 para a primeira tentativa de execução do fluxo de trabalho e aumenta a cada nova execução. | | `github.server_url` | `string` | A URL do servidor do GitHub. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)". | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
+| `github.path` | `string` | Caminho no executor no arquivo que define as variáveis do `PATH` do sistema a partir de comandos do fluxo de trabalho. Este arquivo é único para a etapa atual e é um arquivo diferente para cada etapa de um trabalho. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." | | `github.repository` | `string` | O proprietário e o nome do repositório. Por exemplo, `Codertocat/Hello-World`. | | `github.repository_owner` | `string` | O nome do proprietário do repositório. Por exemplo, `Codertocat`. | | `github.repositoryUrl` | `string` | A URL do Git para o repositório. Por exemplo, `git://github.com/codertocat/hello-world.git`. | | `github.retention_days` | `string` | O número de dias que os registros e artefatos da execução do fluxo de trabalho são mantidos. | | `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} | | `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %}
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
+| `github.run_attempt` | `string` | Um número exclusivo para cada tentativa de execução de um fluxo de trabalho específico em um repositório. Este número começa em 1 para a primeira tentativa de execução do fluxo de trabalho e aumenta a cada nova execução. | |{% endif %}| | `github.server_url` | `string` | O URL do servidor do GitHub. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)". | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
 
 ### Exemplo de conteúdo do contexto `github`
 
@@ -669,7 +671,7 @@ O conteúdo de exemplo a seguir do contexto `needs` mostra informações para do
 
 ### Exemplo de uso do contexto `needs`
 
-This example workflow has three jobs: a `build` job that does a build, a `deploy` job that requires the `build` job, and a `debug` job that requires both the `build` and `deploy` jobs and runs only if there is a failure in the workflow. The `deploy` job also uses the `needs` context to access an output from the `build` job.
+Esse exemplo do fluxo de trabalho tem três trabalhos: um trabalho de `criação` que faz a criação, um trabalho de `implantação` que exige o trabalho de `criação` e um trabalho de `depuração` que exige os trabalhos de `criação` e `implantação` e que é executado apenas se houver uma falha no fluxo de trabalho. O trabalho de `implantação` também usa o contexto `needs` para acessar uma saída do trabalho de `criação`.
 
 {% raw %}
 ```yaml{:copy}
@@ -707,9 +709,11 @@ jobs:
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## Contexto `entradas`
 
-O contexto `entrada` contém propriedades de entrada passada para um fluxo de trabalho reutilizável. The input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow.
+O contexto `entrada` contém propriedades de entrada passada para um fluxo de trabalho reutilizável. Os nomes e tipos de entrada são definidos na configuração do evento de [`workflow_call` ](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) de um fluxo de trabalhoreutilizável, e os valores de entrada são passados de [trabalhos de`.<job_id>.com`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) para um fluxo de trabalho externo que chama o fluxo de trabalho reutilizável.
 
 Não há propriedades padrão no contexto `entradas`, apenas aquelas definidas no arquivo de fluxo de trabalho reutilizável.
+
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 
 Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 
@@ -720,7 +724,7 @@ Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/acti
 
 ### Exemplo de conteúdo do contexto `entradas`
 
-O conteúdo de exemplo das `entradas` contexto é de um trabalho em um fluxo de trabalho reutilizável que definiu as entradas de entrada do arquivo `build_id` e `deploy_target`.
+O conteúdo de exemplo das `entradas` contexto é de um trabalho em um fluxo de trabalho reutilizável que definiu as entradas de `build_id` e `deploy_target`.
 
 ```yaml
 {
@@ -731,7 +735,7 @@ O conteúdo de exemplo das `entradas` contexto é de um trabalho em um fluxo de 
 
 ### Exemplo de uso do contexto `entradas`
 
-This example reusable workflow uses the `inputs` context to get the values of the `build_id` and `deploy_target` inputs that were passed to the reusable workflow from the caller workflow.
+Este exemplo de fluxo de trabalho reutilizável usa o contexto `entradas` para obter os valores das entradas `build_id` e `deploy_target` que foram passadas para o fluxo de trabalho reutilizável do fluxo de trabalho de chamadas.
 
 {% raw %}
 ```yaml{:copy}

@@ -29,9 +29,11 @@ Para usar ações de {% data variables.product.prodname_dotcom_the_website %}, s
 
 ## Habilitar o acesso automático a todas as ações de {% data variables.product.prodname_dotcom_the_website %}
 
-{% data reusables.actions.enterprise-github-connect-warning %}
+Antes de permitir o acesso a todas as ações de {% data variables.product.prodname_dotcom_the_website %} para sua empresa, você deve {% ifversion ghes %}:
+- Configure {% data variables.product.product_location %} para usar {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para o GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+- Habilitar {% else %} habilitar{% endif %} {% data variables.product.prodname_github_connect %}. Para obter mais informações, consulte "[Gerenciando {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".
 
-Antes de habilitar o acesso a todas as ações de {% data variables.product.prodname_dotcom_the_website %} na sua instância corporativa, você deve conectar sua empresa a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Conectando sua empresa a {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)".
+{% data reusables.actions.enterprise-github-connect-warning %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {%- ifversion ghes < 3.1 %}

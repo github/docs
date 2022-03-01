@@ -21,7 +21,7 @@ shortTitle: Log de segurança
 
 O log de segurança lista todas as ações realizadas nos últimos 90 dias.
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
 1. Na seção "Arquivos" da barra lateral, clique em **Registro de segurança de {% octicon "log" aria-label="The log icon" %}**.
 {% else %}

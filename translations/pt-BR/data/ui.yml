@@ -44,6 +44,7 @@ pages:
   miniToc: Neste artigo
   contributor_callout: This article is contributed and maintained by
   all_enterprise_releases: All Enterprise Server releases
+  about_versions: About versions
 errors:
   oops: Ops!
   something_went_wrong: Parece que algo deu errado.

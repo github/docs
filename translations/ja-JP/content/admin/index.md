@@ -10,9 +10,7 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/key-metrics-for-collaboration-in-pull-requests
   - /github/installing-and-configuring-github-insights/viewing-and-filtering-key-metrics-and-reports
   - /github/installing-and-configuring-github-insights/github-insights-and-data-protection-for-your-organization
-  - /enterprise-server@2.22/github/site-policy/github-insights-and-data-protection-for-your-organization
-  - /enterprise-server@2.21/github/site-policy/github-insights-and-data-protection-for-your-organization
-  - /enterprise-server@2.20/github/site-policy/github-insights-and-data-protection-for-your-organization
+  - /github/site-policy/github-insights-and-data-protection-for-your-organization
   - /insights/installing-and-configuring-github-insights/configuring-the-connection-between-github-insights-and-github-enterprise
   - /github/installing-and-configuring-github-insights/navigating-between-github-insights-and-github-enterprise
   - /github/installing-and-configuring-github-insights/enabling-a-link-between-github-insights-and-github-enterprise
@@ -129,7 +127,7 @@ children:
   - /enterprise-management
   - /github-actions
   - /packages
-  - /advanced-security
+  - /code-security
   - /guides
   - /release-notes
   - /all-releases

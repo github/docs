@@ -21,6 +21,8 @@ shortTitle: Revisar las bitácoras de auditoría
 
 La bitácora de auditoría lista eventos que activan las actividades que afectan tu organización dentro del mes actual y los seis meses anteriores. Solo los propietarios pueden acceder al registro de auditoría de una organización.
 
+{% data reusables.audit_log.only-three-months-displayed %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
@@ -169,6 +171,8 @@ Para garantizar que tu propiedad intelectual está segura y que mantienes el cum
 {% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
+
+By default, only events from the past three months are returned. To include older events, you must specify a timestamp in your query.
 
 Para obtener más información sobre la API de REST del log de auditoría, consulta la sección "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization)".
 
@@ -741,18 +745,18 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 
 ### acciones de la categoría `team`
 
-| Acción                                      | Descripción                                                                                                                                                                                                                                                                          |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `add_member (agregar miembro)`              | Se activa cuando un miembro de una organización se [agrega a un equipo](/articles/adding-organization-members-to-a-team).                                                                                                                                                            |
-| `add_repository (agregar repositorio)`      | Se activa cuando se le otorga el control de un repositorio a un equipo.                                                                                                                                                                                                              |
-| `change_parent_team (cambiar equipo padre)` | Se activa cuando se crea un equipo hijo o [se modifica el padre de un equipo hijo](/articles/moving-a-team-in-your-organization-s-hierarchy).                                                                                                                                        |
-| `change_privacy (cambiar privacidad)`       | Se activa cuando se modifica el nivel de privacidad de un equipo.                                                                                                                                                                                                                    |
-| `create (crear)`                            | Se activa cuando se crea un equipo nuevo.                                                                                                                                                                                                                                            |
-| `demote_maintainer`                         | Se activa cuando se baja de categoría a un usuario de mantenedor de equipo a miembro de equipo. For more information, see "[Assigning the team maintainer role to a team member](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)." |
-| `destroy (destruir)`                        | Se activa cuando se elimina un equipo de la organización.                                                                                                                                                                                                                            |
-| `team.promote_maintainer`                   | Se activa cuando se promueve a un usuario de miembro de equipo a mantenedor de equipo. For more information, see "[Assigning the team maintainer role to a team member](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)."          |
-| `remove_member (eliminar miembro)`          | Se activa cuando un miembro de una organización se [elimina de un equipo](/articles/removing-organization-members-from-a-team).                                                                                                                                                      |
-| `remove_repository (eliminar repositorio)`  | Se activa cuando un repositorio deja de estar bajo el control de un equipo.                                                                                                                                                                                                          |
+| Acción                                      | Descripción                                                                                                                                                                                                                                                                                                             |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add_member (agregar miembro)`              | Se activa cuando un miembro de una organización se [agrega a un equipo](/articles/adding-organization-members-to-a-team).                                                                                                                                                                                               |
+| `add_repository (agregar repositorio)`      | Se activa cuando se le otorga el control de un repositorio a un equipo.                                                                                                                                                                                                                                                 |
+| `change_parent_team (cambiar equipo padre)` | Se activa cuando se crea un equipo hijo o [se modifica el padre de un equipo hijo](/articles/moving-a-team-in-your-organization-s-hierarchy).                                                                                                                                                                           |
+| `change_privacy (cambiar privacidad)`       | Se activa cuando se modifica el nivel de privacidad de un equipo.                                                                                                                                                                                                                                                       |
+| `create (crear)`                            | Se activa cuando se crea un equipo nuevo.                                                                                                                                                                                                                                                                               |
+| `demote_maintainer`                         | Se activa cuando se baja de categoría a un usuario de mantenedor de equipo a miembro de equipo. Para obtener más información, consulta la sección "[Asignar el rol de mantenedor de equipo a un miembro del equipo](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)". |
+| `destroy (destruir)`                        | Se activa cuando se elimina un equipo de la organización.                                                                                                                                                                                                                                                               |
+| `team.promote_maintainer`                   | Se activa cuando se promueve a un usuario de miembro de equipo a mantenedor de equipo. Para obtener más información, consulta la sección "[Asignar el rol de mantenedor de equipo a un miembro del equipo](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)".          |
+| `remove_member (eliminar miembro)`          | Se activa cuando un miembro de una organización se [elimina de un equipo](/articles/removing-organization-members-from-a-team).                                                                                                                                                                                         |
+| `remove_repository (eliminar repositorio)`  | Se activa cuando un repositorio deja de estar bajo el control de un equipo.                                                                                                                                                                                                                                             |
 
 ### acciones de la categoría `team_discussions`
 

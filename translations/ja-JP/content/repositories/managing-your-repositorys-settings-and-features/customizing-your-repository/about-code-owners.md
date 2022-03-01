@@ -18,7 +18,7 @@ topics:
 
 管理者あるいはオーナー権限を持つ人は、リポジトリ中に CODEOWNERS ファイルをセットアップできます。
 
-コードオーナーに指定する人は、リポジトリへの書き込み権限を持っていなければなりません。 When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
+The people you choose as code owners must have read permissions for the repository. When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
 ## コードオーナーについて
 
@@ -50,9 +50,14 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 
 CODEOWNERS ファイルは、[一部の例外](#syntax-exceptions)を除いて、[gitignore](https://git-scm.com/docs/gitignore#_pattern_format) ファイルで使用されるルールのほとんどに従うパターンを使用します。 パターンの後には1つ以上の{% data variables.product.prodname_dotcom %}のユーザー名あるいはTeam名が続きます。これらの名前には標準の`@username`あるいは`@org/team-name`フォーマットが使われます。 Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. You can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, for example `user@example.com`.
 
-CODEOWNERS ファイルのいずれかの行に無効な構文が含まれている場合、そのファイルは検出されず、レビューのリクエストには使用されません。
-
 CODEOWNERS paths are case sensitive, because {% data variables.product.prodname_dotcom %} uses a case sensitive file system. Since CODEOWNERS are evaluated by {% data variables.product.prodname_dotcom %}, even systems that are case insensitive (for example, macOS) must use paths and files that are cased correctly in the CODEOWNERS file.
+
+{% if codeowners-errors %}
+If any line in your CODEOWNERS file contains invalid syntax, that line will be skipped. When you navigate to the CODEOWNERS file in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can see any errors highlighted. A list of errors in a repository's CODEOWNERS file is also accessible via the API. For more information, see "[Repositories](/rest/reference/repos#list-codeowners-errors)" in the REST API documentation.
+{% else %}
+CODEOWNERS ファイルのいずれかの行に無効な構文が含まれている場合、そのファイルは検出されず、レビューのリクエストには使用されません。
+{% endif %}
+
 ### CODEOWNERS ファイルの例
 ```
 # これはコメントです。
@@ -104,11 +109,11 @@ apps/ @octocat
 # will require approval from @doctocat or @octocat.
 /scripts/ @doctocat @octocat
 
-# In this example, @octocat owns any file in the `/apps` 
-# directory in the root of your repository except for the `/apps/github` 
+# In this example, @octocat owns any file in the `/apps`
+# directory in the root of your repository except for the `/apps/github`
 # subdirectory, as its owners are left empty.
 /apps/ @octocat
-/apps/github 
+/apps/github
 ```
 ### 構文の例外
 gitignore ファイルには、CODEOWNERS ファイルでは動作しないいくつかの構文ルールがあります。

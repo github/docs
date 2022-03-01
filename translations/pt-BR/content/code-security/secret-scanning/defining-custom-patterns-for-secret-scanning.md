@@ -29,7 +29,7 @@ topics:
 
 No entanto, pode haver situações em que você deverá pesquisar outros padrões secretos nos seus repositórios {% ifversion fpt or ghec %}privados{% endif %}. Por exemplo, você pode ter um padrão de segredo que é interno da sua organização. Para esses casos, você pode definir padrões personalizados de {% data variables.product.prodname_secret_scanning %} na sua empresa, organização ou {% ifversion fpt or ghec %}repositório{% endif %} privado em {% data variables.product.product_name %}. Você pode definir até
 {%- ifversion fpt or ghec or ghes > 3.3 %} 500 padrões personalizados para cada conta da organização ou empresa e até 100 padrões personalizados por {% ifversion fpt or ghec %}repositório{% endif %} privado.
-{%- elsif ghes = 3.3 %} 100 padrões personalizados para cada organização ou conta corporativa, e por repositório.
+{%- elsif ghes = 3.3 %} 100 padrões personalizados para cada organização ou conta corporativa, e 20 por repositório.
 {%- else %} 20 padrões personalizados para cada organização ou conta corporativa, e por repositório.
 {%- endif %}
 
@@ -68,9 +68,9 @@ Antes de definir um padrão personalizado, você deve garantir que {% data varia
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5499 %}
-1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
-1. When the dry run finishes, you'll see a sample of results (up to 1000) from the repository. Review the results and identify any false positive results. ![Screenshot showing results from dry run](/assets/images/help/repository/secret-scanning-publish-pattern.png)
-1. Edit the new custom pattern to fix any problems with the results, then click **Save and dry run** to test your changes.
+1. Quando estiver pronto para testar seu novo padrão personalizado, para identificar correspondências no repositório sem criar alertas, clique em **Salvar testar**.
+1. Quando o teste terminar, você verá uma amostra de resultados (até 1000) do repositório. Revise os resultados e identifique quaisquer resultados falso-positivos. ![Captura de tela que exibe os resultados do teste](/assets/images/help/repository/secret-scanning-publish-pattern.png)
+1. Edite o novo padrão personalizado para corrigir quaisquer problemas com os resultados e, em seguida, clique em **Salvar e testar** para testar as suas alterações.
 {% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}
 {% endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}

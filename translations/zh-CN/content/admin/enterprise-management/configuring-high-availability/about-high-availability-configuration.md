@@ -15,11 +15,11 @@ topics:
 shortTitle: 关于 HA 配置
 ---
 
-配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。 Most {% data variables.product.prodname_ghe_server %} configuration settings are also replicated, including the {% data variables.enterprise.management_console %} password. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。 还会复制大多数 {% data variables.product.prodname_ghe_server %} 配置设置，包括 {% data variables.enterprise.management_console %} 密码。 更多信息请参阅“[访问管理控制台](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)”。
 
 {% data variables.product.prodname_ghe_server %} 支持主动/被动配置，在这些配置下，副本作为备用设备运行，并且数据库服务在复制模式下运行，但应用程序服务将停止。
 
-After replication has been established, the {% data variables.enterprise.management_console %} is no longer accessible on replica appliances. If you navigate to the replica's IP address or hostname on port 8443, you'll see a "Server in replication mode" message, which indicates that the appliance is currently configured as a replica.
+建立复制后，副本设备上将不再可访问 {% data variables.enterprise.management_console %} 。 如果在端口 8443 上导航到副本的 IP 地址或主机名，您将看到“Server in replication mode（服务器处于复制模式）”消息，表示设备当前已配置为副本。
 {% data reusables.enterprise_installation.replica-limit %}
 
 ## 有针对性的故障场景
@@ -30,8 +30,8 @@ After replication has been established, the {% data variables.enterprise.managem
 
 高可用性配置不适用于：
 
-  - **扩展**。 虽然可以使用 Geo-replication 将流量分布在不同地理位置，但写入性能受限于主设备的速度和可用性。 For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."{% ifversion ghes > 3.2 %}
-  - **CI/CD load**. If you have a large number of CI clients that are geographically distant from your primary instance, you may benefit from configuring a repository cache. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."{% endif %}
+  - **扩展**。 虽然可以使用 Geo-replication 将流量分布在不同地理位置，但写入性能受限于主设备的速度和可用性。 更多信息请参阅“[关于 Geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)”。{% ifversion ghes > 3.2 %}
+  - **CI/CD 负载**。 如果您有大量在地理位置上远离主实例的 CI 客户端，则配置仓库缓存可能会使您受益匪浅。 更多信息请参阅“[关于仓库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。{% endif %}
   - **备份主设备**。 高可用性副本不会替代灾难恢复计划中的非现场备份。 某些形式的数据损坏或数据丢失可能会立即从主设备复制到副本。 为确保安全回滚到稳定的过去状态，必须通过历史快照执行定期备份。
   - **零停机时间升级**。 为避免受控升级场景下出现数据丢失和裂脑的状况，请先将主设备置于维护模式并等待所有写入操作完成，然后再对副本进行升级。
 
@@ -45,13 +45,13 @@ After replication has been established, the {% data variables.enterprise.managem
 
 在故障转移期间，必须将主设备置于维护模式，并将其 DNS 记录重定向到副本的 IP 地址。 将流量从主设备重新定向到副本所需的时间将取决于 TTL 配置以及更新 DNS 记录所需的时间。
 
-如果您要使用 Geo-replication，则必须配置 Geo DNS，将流量定向到距离最近的副本。 For more information, see "[About geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)."
+如果您要使用 Geo-replication，则必须配置 Geo DNS，将流量定向到距离最近的副本。 更多信息请参阅“[关于 Geo-replication](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)”。
 
 ### 负载均衡器
 
 {% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-在故障转移期间，您必须将主设备置于维护模式。 您可以将负载均衡器配置为自动检测副本何时已升级为主设备，或者可能需要手动更改配置。 您必须先将副本手动升级为主设备，随后副本才能对用户流量作出响应。 For more information, see "[Using {% data variables.product.prodname_ghe_server %} with a load balancer](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
+在故障转移期间，您必须将主设备置于维护模式。 您可以将负载均衡器配置为自动检测副本何时已升级为主设备，或者可能需要手动更改配置。 您必须先将副本手动升级为主设备，随后副本才能对用户流量作出响应。 更多信息请参阅“[结合使用 {% data variables.product.prodname_ghe_server %} 和负载均衡器](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)”。
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
@@ -188,4 +188,4 @@ Success: Replica has been promoted to primary and is now accepting requests.
 ## 延伸阅读
 
 - “[创建高可用性副本](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)”
-- "[Network ports](/admin/configuration/configuring-network-settings/network-ports)"
+- "[网络端口](/admin/configuration/configuring-network-settings/network-ports)"
