@@ -14,9 +14,9 @@ sections:
       heading: Visão geral de segurança para Segurança Avançada (beta)
       notes:
         - |
-          {% data variables.product.prodname_GH_advanced_security %} customers now have an organization-level view of the application security risks detected by {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %}, and {% data variables.product.prodname_secret_scanning %}. The security overview shows the enablement status of security features on each repository, as well as the number of alerts detected.
+          Os clientes de {% data variables.product.prodname_GH_advanced_security %} agora têm uma visão a nível da organização dos riscos de segurança do aplicativo detectados por {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %} e {% data variables.product.prodname_secret_scanning %}. A visão geral de segurança mostra o status de habilitação das funcionalidades de segurança em cada repositório, bem como o número de alertas detectados.
 
-          In addition, the security overview lists all {% data variables.product.prodname_secret_scanning %} alerts at the organization level. Similar views for {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts are coming in future releases. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          Além disso, a visão geral de segurança lista todos os alertas de {% data variables.product.prodname_secret_scanning %} no nível da organização. As visualizações similares para os alertas de {% data variables.product.prodname_dependabot %} e {% data variables.product.prodname_code_scanning %} serão implementadas em versões futuras. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview).
 
           ![Screenshot of security overview](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
     - 
@@ -37,23 +37,23 @@ sections:
         - |
           A autenticação SSH usando uma chave de segurança FIDO2 agora é compatível quando você adiciona uma Chave SSH `sk-ecdsa-sha2-nistp256@openssh.com` ou `sk-ssh-ed25519@openssh.com` à sua conta. As chaves de segurança SSH armazenam material da chave do segredo em um dispositivo de hardware separado que exige verificação, como um toque, para operar. Para obter mais informações, consulte "[Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
     - 
-      heading: 'Dark and dark dimmed themes'
+      heading: 'Temas escuros e sombreados'
       notes:
         - |
-          Dark and dark dimmed themes are now available for the web UI. {% data variables.product.product_name %} will match your system preferences when you haven't set theme preferences in {% data variables.product.product_name %}. You can also choose which themes are active during the day and night. For more information, see "[Managing your theme settings](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+          Os temas escuros e sombreados estão disponíveis agora para a interface do usuário da web. {% data variables.product.product_name %} irá corresponder as suas preferências de sistema quando você não definiu preferências de tema em {% data variables.product.product_name %}. Você também pode escolher quais temas estão ativos durante o dia e a noite. Para obter mais informações, consulte "[Gerenciando as configurações do tema](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings).
 
-          ![Dark and dark dimmed themes](https://user-images.githubusercontent.com/33528647/114629560-d2231f80-9c86-11eb-9bde-cc301a97040d.gif)
+          ![Temas escuros e sombreados](https://user-images.githubusercontent.com/33528647/114629560-d2231f80-9c86-11eb-9bde-cc301a97040d.gif)
     - 
       heading: 'Aprovando domínios não verificados para notificações de e-mail'
       notes:
         - 'Os domínios que não podem ser verificados agora podem ser aprovados para encaminhamento de notificação de e-mail. Os proprietários de empresas e organizações poderão aprovar domínios e ampliar imediatamente sua política de restrição de notificação por e-mail, permitir que sejam enviadas notificações para colaboradores, consultores, aquisições ou outros parceiros. Para obter mais informações, consulte "[Verificando ou aprovando um domínio para sua empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#about-approval-of-domains)" e "[Restringindo notificações de e-mail para sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise#restricting-email-notifications-for-your-enterprise-account)."'
     - 
-      heading: 'Git Credential Manager (GCM) secure credential storage and multi-factor authentication support'
+      heading: 'Suporte para o armazenamento seguro do Gerenciador de Credencial do Git (GCM) e autenticação de vários fatores'
       notes:
         - |
-          Git Credential Manager (GCM) versions 2.0.452 and later now provide security-hardened credential storage and multi-factor authentication support for {% data variables.product.product_name %}.
+          As versões 2.0.452 e posteriores do Gerenciador de Credencial Git (GCM) agora fornecem armazenamento de credenciais consolidado com segurança e suporte de autenticação multifatorial para {% data variables.product.product_name %}.
 
-          GCM with support for {% data variables.product.product_name %} is included with [Git for Windows](https://gitforwindows.org) versions 2.32 and later. GCM is not included with Git for macOS or Linux, but can be installed separately. For more information, see the [latest release](https://github.com/GitCredentialManager/git-credential-manager/releases/) and [installation instructions](https://github.com/GitCredentialManager/git-credential-manager/releases/) in the `GitCredentialManager/git-credential-manager` repository.
+          O GCM com suporte para {% data variables.product.product_name %} está incluído em [Git para Windows](https://gitforwindows.org) versões 2.32 ou posteriores. O GCM não está incluído no Git para macOS ou Linux, mas pode ser instalado separadamente. Para obter mais informações, consulte a [versão mais recente](https://github. om/GitCredentialManager/git-credential-manager/releases/) e [instruções de instalação](https://github.com/GitCredentialManager/git-credential-manager/releases/) no repositório `GitCredentialManager/git-credential-manager`.
   changes:
     - 
       heading: Alterações na administração

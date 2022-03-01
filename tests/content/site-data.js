@@ -3,6 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import { get, isPlainObject, has } from 'lodash-es'
 import flat from 'flat'
+import { ParseError } from 'liquidjs'
 import loadSiteData from '../../lib/site-data.js'
 import patterns from '../../lib/patterns.js'
 import { liquid } from '../../lib/render-content/index.js'
@@ -63,20 +64,22 @@ describe('siteData module (English)', () => {
     }
   })
 
-  test('all Liquid templating is valid', async () => {
+  test('all Liquid tags are valid', async () => {
     const dataMap = flat(data)
     for (const key in dataMap) {
       const value = dataMap[key]
       if (!patterns.hasLiquid.test(value)) continue
-      let message = `${key} contains a malformed Liquid expression`
-      let result = null
       try {
-        result = await liquid.parseAndRender(value)
+        await liquid.parseAndRender(value)
       } catch (err) {
-        console.trace(err)
-        message += `: ${err.message}`
+        if (err instanceof ParseError) {
+          console.warn('value that failed to parse:', value)
+          throw new Error(`Unable to parse with Liquid: ${err.message}`)
+        }
+        // Note, the parseAndRender() might throw other errors. For
+        // example errors about the the data. But at least it
+        // managed to get paste the Liquid parsing phase.
       }
-      expect(typeof result, message).toBe('string')
     }
   })
 
