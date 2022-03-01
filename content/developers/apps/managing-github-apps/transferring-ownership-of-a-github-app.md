@@ -28,3 +28,4 @@ shortTitle: Transfer ownership
 ![Field to enter the user or org to transfer to](/assets/images/github-apps/github_apps_transfer_new_owner.png)
 9. Click **Transfer this GitHub App**.
 ![Button to confirm the transfer of a GitHub App](/assets/images/github-apps/github_apps_transfer_integration.png)
+Reeves
