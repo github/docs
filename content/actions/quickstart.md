@@ -9,7 +9,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-type: quick_start
+type: quick_start1
 topics:
   - Fundamentals
 shortTitle: Quickstart
