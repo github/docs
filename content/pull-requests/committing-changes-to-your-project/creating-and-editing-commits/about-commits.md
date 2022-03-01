@@ -26,7 +26,7 @@ Rebasing allows you to change a series of commits and can modify the order of th
 
 ## About commit branches and tag labels
 
-You can see what branch a commit is in by looking at the labels beneath the commit on the commit page.
+You can see which branch a commit is on by looking at the labels beneath the commit on the commit page.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-commit-page %}
