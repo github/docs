@@ -41,9 +41,9 @@ Workflow triggers are defined with the `on` key. 更多信息请参阅“[{% dat
 
 ### Triggering a workflow from a workflow
 
-{% data reusables.github-actions.actions-do-not-trigger-workflows %} 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
+{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
-If you do want to trigger a workflow from within a workflow run, you can use a personal access token instead of `GITHUB_TOKEN` to trigger events that require a token. 您需要创建个人访问令牌并将其存储为密码。 为了最大限度地降低 {% data variables.product.prodname_actions %} 使用成本，请确保不要创建递归或意外的工作流程。 For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about storing a personal access token as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+If you do want to trigger a workflow from within a workflow run, you can use a personal access token instead of `GITHUB_TOKEN` to trigger events that require a token. 您需要创建个人访问令牌并将其存储为密码。 为了最大限度地降低 {% data variables.product.prodname_actions %} 使用成本，请确保不要创建递归或意外的工作流程。 有关创建个人访问令牌的更多信息，请参阅“[创建个人访问令牌](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。 For more information about storing a personal access token as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
 For example, the following workflow uses a personal access token (stored as a secret called `MY_TOKEN`) to add a label to an issue via {% data variables.product.prodname_cli %}. Any workflows that run when a label is added will run once this step is performed.
 
@@ -89,23 +89,23 @@ Use the `on` key to specify what events trigger your workflow. For more informat
 
 ### Using a single event
 
-{% data reusables.github-actions.on-single-example %}
+{% data reusables.actions.on-single-example %}
 
 ### Using multiple events
 
-{% data reusables.github-actions.on-multiple-example %}
+{% data reusables.actions.on-multiple-example %}
 
 ### Using activity types and filters with multiple events
 
-You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.github-actions.actions-multiple-types %}
+You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.actions.actions-multiple-types %}
 
 ## Using event activity types
 
-{% data reusables.github-actions.actions-activity-types %}
+{% data reusables.actions.actions-activity-types %}
 
 ## Using filters
 
-{% data reusables.github-actions.actions-filters %}
+{% data reusables.actions.actions-filters %}
 
 ### Using filters to target specific branches for pull request events
 
@@ -125,7 +125,7 @@ You can use activity types and filters to further control when your workflow wil
 
 ## Defining inputs for manually triggered workflows
 
-{% data reusables.github-actions.workflow-dispatch-inputs %}
+{% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Defining inputs, outputs, and secrets for reusable workflows
