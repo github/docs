@@ -43,7 +43,7 @@ Los propietarios de empresa y gerentes de facturación pueden ver el uso de {% d
 
 {% note %}
 
-**Nota:** Los detalles de facturación para las cuentas empresariales no resumen el uso de los minutos para cada sistema operativo. {% data reusables.github-actions.enterprise-billing-details %}
+**Nota:** Los detalles de facturación para las cuentas empresariales no resumen el uso de los minutos para cada sistema operativo. {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

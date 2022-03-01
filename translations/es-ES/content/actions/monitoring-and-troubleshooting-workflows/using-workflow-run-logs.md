@@ -19,7 +19,7 @@ Si la ejecución está completa, puedes ver si el resultado fue exitoso, fallido
 
 {% data variables.product.prodname_actions %} usa la API de verificaciones para generar estados, resultados y registros para un flujo de trabajo. {% data variables.product.prodname_dotcom %} crea una nueva comprobación de suite para cada ejecución de flujo de trabajo. La comprobación de suite contiene una ejecución de comprobación para cada trabajo en el flujo de trabajo, y cada trabajo incluye diferentes pasos. {% data variables.product.prodname_actions %} se ejecutan como un paso en un flujo de trabajo. Para obtener más información acerca de la API de Verificaciones, consulta la sección "[Verificaciones](/rest/reference/checks)".
 
-{% data reusables.github-actions.invalid-workflow-files %}
+{% data reusables.actions.invalid-workflow-files %}
 
 ## Ver registros para diagnosticar fallas
 
