@@ -116,7 +116,7 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 ### Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
-{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}
 
 {% endif %}
 
@@ -126,9 +126,11 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 Você pode usar as autoridades de certificados SSH (CA) para permitir que os integrantes de qualquer organização pertencente à sua empresa acessem os repositórios da organização usando certificados SSH que você fornecer. {% data reusables.organizations.can-require-ssh-cert %} Para obter mais informações, consulte "[Sobre autoridades certificadas de SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)".
 
+{% data reusables.organizations.add-extension-to-cert %}
+
 ### Adicionar uma autoridade certificada de SSH
 
-{% data reusables.organizations.add-extension-to-cert %}
+If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
