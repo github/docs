@@ -24,6 +24,8 @@ shortTitle: Change visibility
 
 {% endtip %}
 
+Only organization members with *owner* or *project admin* roles can change project board visibility.
+
 1. Navigate to the project board you want to make {% ifversion ghae %}internal{% else %}public{% endif %} or private.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
