@@ -1,3 +1,4 @@
+Sorry, you’re not able to edit this repository directly—you need to fork it and propose your changes from there instead.
 ---
 title: GitHub Desktop Documentation
 shortTitle: GitHub Desktop
