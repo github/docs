@@ -54,7 +54,7 @@ When creating a group, you must choose a policy that defines which repositories 
 
    {% warning %}
 
-   **Warning**: {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   **Warning**: {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
@@ -75,7 +75,7 @@ When creating a group, you must choose a policy that defines which repositories 
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
@@ -105,7 +105,7 @@ When creating a group, you must choose a policy that defines which organizations
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
@@ -127,7 +127,7 @@ When creating a group, you must choose a policy that defines which organizations
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
@@ -150,7 +150,7 @@ You can update the access policy of a runner group, or rename a runner group.
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
