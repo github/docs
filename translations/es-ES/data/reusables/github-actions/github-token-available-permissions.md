@@ -24,3 +24,9 @@ Puedes utilizar la siguiente sintaxis para definir el acceso de lectura o escrit
 ```yaml
 permissions: read-all|write-all
 ```
+
+Puedes utilizar la siguiente sintaxis para inhabilitar los permisos para todos los alcances disponibles:
+
+```yaml
+permissions: {}
+```

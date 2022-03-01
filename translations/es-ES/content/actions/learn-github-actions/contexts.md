@@ -76,7 +76,7 @@ The following table indicates where each context and special function can be use
 | <code>concurrency</code> | <code>github, inputs</code> | |
 | <code>env</code> | <code>github, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, inputs</code> | |
+| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> | |
@@ -206,7 +206,9 @@ The `github` context contains information about the workflow run and the event t
 | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
 | `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} |
 | `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} |
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
+{% endif %}
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
 | `github.sha` | `string` | The commit SHA that triggered the workflow run. |
 | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." |
@@ -727,6 +729,8 @@ jobs:
 The `inputs` context contains input properties passed to a reusable workflow. The input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow.
 
 There are no standard properties in the `inputs` context, only those which are defined in the reusable workflow file.
+
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 
 For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)".
 

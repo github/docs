@@ -12,8 +12,8 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.saved_replies %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.saved_replies %}
 3. [Add a saved reply] の下に返信テンプレートのタイトルを追加します。 ![返信テンプレートタイトル](/assets/images/help/settings/saved-replies-title.png)
 4. [Write] フィールドに、返信テンプレートに使用するコンテンツを追加します。 {% data variables.product.product_name %} での書き方に関する詳しい情報については「[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)」を参照してください。 ![返信テンプレートを書く](/assets/images/help/settings/saved-replies-settings-adding.png)
 5. 返信をレビューするには、[**Preview**] をクリックします。 ![返信テンプレートの追加](/assets/images/help/settings/saved-replies-preview.png)

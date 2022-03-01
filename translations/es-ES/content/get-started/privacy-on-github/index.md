@@ -11,6 +11,6 @@ children:
   - /requesting-an-archive-of-your-personal-accounts-data
   - /managing-data-use-settings-for-your-private-repository
   - /opting-into-or-out-of-the-github-archive-program-for-your-public-repository
-shortTitle: Privacy on GitHub
+shortTitle: Privacidad en GitHub
 ---
 

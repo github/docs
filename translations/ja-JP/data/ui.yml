@@ -44,6 +44,7 @@ pages:
   miniToc: 'ここには以下の内容があります:'
   contributor_callout: この記事は、次の人によってコントリビュートされ、管理されています。
   all_enterprise_releases: All Enterprise Server releases
+  about_versions: About versions
 errors:
   oops: 問題が発生しています。
   something_went_wrong: 何か問題が生じています。

@@ -33,9 +33,7 @@ miniTocMaxHeadingLevel: 3
 {% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## 権限
 
-The Permissions API allows you to set permissions for what organizations and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions are allowed to run.{% ifversion fpt or ghec or ghes %} For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)."{% endif %}
-
-Enterprise の権限を設定することもできます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)」REST API を参照してください。
+The Permissions API allows you to set permissions for what enterprises, organizations, and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions are allowed to run.{% ifversion fpt or ghec or ghes %} For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)."{% endif %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'permissions' %}{% include rest_operation %}{% endif %}
@@ -58,9 +56,7 @@ Enterprise の権限を設定することもできます。 詳しい情報に�
 
 セルフホストランナー API では、自分のホストランナーの登録、表示、削除ができます。 {% data reusables.actions.about-self-hosted-runners %} 詳しい情報については「[自分のランナーのホスト](/actions/hosting-your-own-runners)」を参照してください。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. 認証されたユーザがこの API を使用するには、リポジトリまたは Organization への管理者アクセス権が必要です。
-
-Enterprise のセルフホストランナーを管理できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)」REST API を参照してください。
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises to use this API.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runners' %}{% include rest_operation %}{% endif %}
@@ -72,9 +68,7 @@ Enterprise のセルフホストランナーを管理できます。 詳しい�
 
 セルフホストランナーグループ API を使用すると、セルフホストランナーのグループを管理できます。 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. 認証されたユーザがこの API を使用するには、リポジトリまたは Organization への管理者アクセス権が必要です。
-
-Enterprise のセルフホストランナーグループを管理できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin##github-actions)」REST API を参照してください。
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises to use this API.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runner-groups' %}{% include rest_operation %}{% endif %}

@@ -41,7 +41,7 @@ People with the team maintainer role can manage team membership and settings.
 Before you can promote an organization member to team maintainer, the person must already be a member of the team.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 4. 选择要将其升级为团队维护员的人员。 ![组织成员旁的复选框](/assets/images/help/teams/team-member-check-box.png)

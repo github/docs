@@ -1,6 +1,6 @@
 ---
 title: Enabling unified search for your enterprise
-shortTitle: Unified search
+shortTitle: Búsqueda unificada
 intro: 'You can allow users to include repositories on {% data variables.product.prodname_dotcom_the_website %} in their search results when searching from {% data variables.product.product_location %}.'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-and-github-com
@@ -11,7 +11,7 @@ redirect_from:
   - /admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom
   - /admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-unified-search-between-github-enterprise-server-and-githubcom
   - /admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom
-permissions: 'Enterprise owners who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified search between {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %}.'
+permissions: 'Enterprise owners can enable unified search between {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
   ghae: '*'

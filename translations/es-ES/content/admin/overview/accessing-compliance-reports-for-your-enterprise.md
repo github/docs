@@ -18,7 +18,7 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 {% data reusables.security.compliance-report-list %}
 
-## Accessing compliance reports for your enterprise
+## Acceder a los reportes de cumplimiento de tu empresa
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}

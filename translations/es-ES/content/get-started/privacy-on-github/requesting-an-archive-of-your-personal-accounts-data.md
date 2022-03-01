@@ -4,7 +4,7 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-account-s-data
   - /articles/requesting-an-archive-of-your-personal-accounts-data
   - /github/understanding-how-github-uses-and-protects-your-data/requesting-an-archive-of-your-personal-accounts-data
-intro: '{% data reusables.user_settings.export-data %}'
+intro: '{% data reusables.user-settings.export-data %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -28,8 +28,8 @@ El archivo `tar.gz` generado refleja los datos almacenados en el momento que com
 
 ## Descargar un archivo de datos de tu cuenta personal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. En "Export account data" (Exportar datos de cuenta), haz clic en **Start export** (Comenzar exportación) o **New export** (Nueva exportación). ![Botón Start personal data export (Comenzar exportación de datos personales) resaltado](/assets/images/help/repository/export-personal-data.png) ![Botón New personal data export (Nueva exportación de datos personales) resaltado](/assets/images/help/repository/new-export.png)
 4. Una vez que la exportación esté lista para descargar, {% data variables.product.product_name %} te enviará un enlace de descarga a tu dirección principal de correo electrónico.
 5. Haz clic en el enlace de descarga de tu correo electrónico y vuelve a ingresar tu contraseña, si se te solicita.
@@ -37,6 +37,6 @@ El archivo `tar.gz` generado refleja los datos almacenados en el momento que com
 
 ## Eliminar acceso a un archivo de datos de tu cuenta personal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. Para inhabilitar el enlace de descarga que se te envió al correo electrónico antes de que venza, en "Export account data" (Exportar datos de cuenta), encuentra la descarga de exportación de datos que quieres inhabilitar y haz clic en **Delete** (Eliminar). ![Botón Delete personal data export package (Eliminar paquete de exportación de datos personales) resaltado](/assets/images/help/repository/delete-export-personal-account-data.png)

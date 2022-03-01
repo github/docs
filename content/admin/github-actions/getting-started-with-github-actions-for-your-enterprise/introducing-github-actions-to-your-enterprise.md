@@ -71,6 +71,7 @@ Think about how your enterprise can use features of {% data variables.product.pr
 {% data reusables.actions.internal-actions-summary %}
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-4757 %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
@@ -83,6 +84,12 @@ Whenever your workflow developers want to use an action that's stored in a priva
 ## Managing resources
 
 You should plan for how you'll manage the resources required to use {% data variables.product.prodname_actions %}.
+
+{% ifversion ghes %}
+### Hardware requirements
+
+You may need to upgrade the CPU and memory resources for {% data variables.product.product_location %} to handle the load from {% data variables.product.prodname_actions %} without causing performance loss. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
+{% endif %}
 
 ### Runners
 
@@ -110,7 +117,7 @@ You must configure external blob storage for these artifacts. Decide which suppo
 
 {% ifversion ghec or ghes %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %}
+{% data reusables.actions.artifact-log-retention-statement %}
 
 {% endif %}
 

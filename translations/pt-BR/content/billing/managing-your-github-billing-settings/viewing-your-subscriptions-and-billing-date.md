@@ -22,8 +22,8 @@ shortTitle: Assinaturas & data de cobrança
 
 ## Localizar a próxima data de cobrança da sua conta pessoal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
 ## Localizar a próxima data de cobrança da sua organização

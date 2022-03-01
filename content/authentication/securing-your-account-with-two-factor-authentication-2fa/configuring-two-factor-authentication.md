@@ -49,8 +49,8 @@ A time-based one-time password (TOTP) application automatically generates an aut
 {% endtip %}
 
 1. Download a TOTP app.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 {%- ifversion fpt or ghes > 3.1 %}
 5. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.
@@ -92,8 +92,8 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 4. Under "Two-factor authentication", select **Set up using SMS** and click **Continue**.
 5. Under "Authentication verification", select your country code and type your mobile phone number, including the area code. When your information is correct, click **Send authentication code**.
@@ -118,8 +118,8 @@ Authentication with a security key is *secondary* to authentication with a TOTP 
 
 1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
 2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 5. Next to "Security keys", click **Add**.
   ![Add security keys option](/assets/images/help/2fa/add-security-keys-option.png)
 6. Under "Security keys", click **Register new security key**.

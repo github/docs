@@ -685,6 +685,25 @@ on:
 
 {% endnote %}
 
+#### Running your workflow when a pull request merges
+
+When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+
+```yaml
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged
+```
+
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
 ### `pull_request_comment` (utiliza `issue_comment`)
@@ -868,6 +887,25 @@ on:
 ```
 
 {% endnote %}
+
+#### Ejecutar tu flujo de trabajo cuando se fusiona una solicitud de cambios
+
+Cuando se fusiona una solicitud de cambios, esta se cierra automáticamente. To run a workflow when a pull request merges, use the `pull_request_target` `closed` event type along with a conditional that checks the `merged` value of the event. Por ejemplo, el siguiente flujo de trabajo se ejecutará cada que se cierre una solicitud de cambios. El job `if_merged` solo se ejecutará si la solicitud de cambios también se fusionó.
+
+```yaml
+on:
+  pull_request_target:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request_target.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged
+```
 
 ### `subir`
 

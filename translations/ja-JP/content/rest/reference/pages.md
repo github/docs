@@ -27,6 +27,7 @@ GitHub Pages サイトの情報を返す {% data variables.product.prodname_page
    - `branch`: [サイトのソースファイル](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)を公開するために使用するリポジトリのブランチ。 たとえば、_main_ or _gh-pages_ などです。
    - `path`: サイトの公開元のリポジトリディレクトリ。 `/` または `/docs` のどちらかとなります。
 
+{% comment %}An extra blank line is needed here to make sure the operations below don't continue the list above.{% endcomment %}
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}

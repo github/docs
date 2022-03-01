@@ -41,8 +41,8 @@ To avoid losing your password in the future, we suggest using a secure password 
 {% data reusables.repositories.blocked-passwords %}
 
 1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 4. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)"
 5. Click **Update password**.
 

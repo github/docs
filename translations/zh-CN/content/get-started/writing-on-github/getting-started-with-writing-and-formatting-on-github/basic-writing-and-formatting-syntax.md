@@ -25,6 +25,11 @@ shortTitle: 基本格式语法
 
 ![渲染的 H1、H2 和 H6 标题](/assets/images/help/writing/headings-rendered.png)
 
+When you use two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section.
+
+![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
+
+
 ## 样式文本
 
 您可以在评论字段和 `.md` 文件中以粗体、斜体或删除线的文字表示强调。
@@ -80,7 +85,7 @@ git commit
 
 更多信息请参阅“[创建和突出显示代码块](/articles/creating-and-highlighting-code-blocks)”。
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## 链接
 

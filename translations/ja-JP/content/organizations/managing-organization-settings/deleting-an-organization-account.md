@@ -1,6 +1,6 @@
 ---
 title: Organization アカウントの削除
-intro: 'Organization を削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、プロジェクトページや Organization ページもすべて削除されます。 {% ifversion fpt or ghec %}Your billing will end, and after 90 days the organization name becomes available for use on a new user or organization account.{% endif %}'
+intro: 'Organization を削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、プロジェクトページや Organization ページもすべて削除されます。 {% ifversion fpt or ghec %}支払いは終了し、90日後にOrganizationの名前は新しいユーザもしくはOrganizationアカウントで利用できるようになります。{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
   - /github/setting-up-and-managing-organizations-and-teams/deleting-an-organization-account

@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.saved_replies %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.saved_replies %}
 3. Em "Saved replies" (Respostas salvas), ao lado da resposta salva que deseja excluir, clique em {% octicon "x" aria-label="The X" %}.  
    ![Excluir resposta salva](/assets/images/help/settings/saved-replies-delete-existing.png)

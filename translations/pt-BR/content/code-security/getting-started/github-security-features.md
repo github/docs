@@ -73,9 +73,9 @@ Detectar automaticamente vulnerabilidades de segurança e erros de codificação
 
 ### {% data variables.product.prodname_secret_scanning_caps %}
 
-Detectar automaticamente tokens ou credenciais que foram verificados em um repositório. {% ifversion fpt or ghec %}Para segredos identificados em repositórios públicos, informa-se ao serviço que o segredo pode ser comprometido.{% endif %}
+Detectar automaticamente tokens ou credenciais que foram verificados em um repositório. {% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} encontra segredos vazados em todos os repositórios públicos e informa o provedor de serviço relevante de que o segredo pode ser comprometido. Para obter detalhes dos segredos e provedores de serviços compatíveis, consulte "[Parceiros de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-partners)".{% endif %}
 {%- ifversion ghec or ghes or ghae %}
-{% ifversion ghec %}Para repositórios privados, você pode ver{% elsif ghes or ghae %}Visualizar {% endif %}qualquer segredo que {% data variables.product.company_short %} encontrou no seu código. Você deve tratar os tokens ou credenciais que foram verificados no repositório como comprometidos.{% endif %} Para obter mais informações, consulte "[Sobre a digitalização de segredo](/github/administering-a-repository/about-secret-scanning)".
+{% ifversion ghec %}Em repositórios privados, você pode ver {% elsif ghes or ghae %}Você pode ver {% endif %}qualquer segredo que {% data variables.product.company_short %} encontrou no seu código. Você deve tratar os tokens ou credenciais que foram verificados no repositório como comprometidos.{% endif %} Para obter mais informações, consulte "[Sobre a digitalização de segredo](/github/administering-a-repository/about-secret-scanning)".
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### Revisão de dependência
