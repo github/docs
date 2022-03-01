@@ -48,4 +48,4 @@ If you choose a paid plan, you'll pay for your app subscription on your organiza
 ## Further reading
 
 - "[Updating your organization's payment method](/articles/updating-your-organization-s-payment-method)"
-- "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)"
+- "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account![qrcode_github com](https://user-images.githubusercontent.com/100426369/156238767-5ad74981-99f5-4999-b956-be8f4a823a43.png)
