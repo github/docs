@@ -46,7 +46,7 @@ Para actualizar tus flujos de trabajo para ODIC, necesitarás hacer dos cambios 
 Para agregar la integración de OIDC con tus flujos de trabajo, la cual les permita acceder a los secretos en la bóveda, necesitarás agregar los siguientes cambios al código:
 
 - Otorga permiso para recuperar el token del proveedor de OIDC de {% data variables.product.prodname_dotcom %}:
-  - El flujo de trabajo necesita ajustes de `permissions:` con el valor `id-token` configurado en `write`. This lets you fetch the OIDC token from every job in the workflow.
+  - El flujo de trabajo necesita ajustes de `permissions:` con el valor `id-token` configurado en `write`. Esto te permite recuperar el token de OIDC desde cualquier job en el flujo de trabajo.
 - Solicita el JWT desde el proveedor de OIDC de {% data variables.product.prodname_dotcom %} y preséntalo a HashiCorp Vault para recibir un token de acceso:
   - Podrías utilizar las [Herramientas de las acciones](https://github.com/actions/toolkit/) para recuperar los tokens para tu job o puedes utilizar la acción [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) para recuperar el JWT y recibir el token de acceso de la bóveda.
 

@@ -4,6 +4,32 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `DependencyGraphEcosystem` was added",
+          "Field `viewerCanMergeAsAdmin` was added to object type `PullRequest`",
+          "Argument `ecosystem: DependencyGraphEcosystem` added to field `Query.sponsorables`",
+          "Input field `accessToken` was added to input object type `StartRepositoryMigrationInput`",
+          "Input field `githubPat` was added to input object type `StartRepositoryMigrationInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `PullRequest.viewerCanOverrideMergeQueue`:`viewerCanOverrideMergeQueue` will be removed. Use PullRequest.viewerCanMergeAsAdmin instead. **Effective 2022-04-01**.",
+          "On member `Repository.defaultMergeQueue`:`defaultMergeQueue` will be removed. Use `Repository.mergeQueue` instead. **Effective 2022-04-01**.",
+          "On member `Query.sponsorables.dependencyEcosystem`:`dependencyEcosystem` will be removed. Use the ecosystem argument instead. **Effective 2022-07-01**."
+        ]
+      }
+    ],
+    "date": "2022-02-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `RepositoryCodeowners` was added",
           "Type `RepositoryCodeownersError` was added",
           "Type `RepositoryVulnerabilityAlertState` was added",

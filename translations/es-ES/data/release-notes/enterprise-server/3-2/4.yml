@@ -11,7 +11,7 @@ sections:
     - 'Running `ghe-support-bundle` returned an error: `integer expression expected`.'
     - 'Después de configurar una réplica de disponibilidad alta, `ghe-repl-status` incluyó un error en la salida: `unexpected unclosed action in command`.'
     - En ambientes de clúster grandes, el backend de autenticación podría no estar disponible en un subconjunto de nodos de frontend.
-    - Some critical services may not have been available on backend nodes in GHES Cluster.
+    - Algunos servicios críticos pudieron no haber estado disponibles en los nodos del backend en el Clúster de GHES.
     - The repository permissions to the user returned by the `/repos` API would not return the full list.
     - The `childTeams` connection on the `Team` object in the GraphQL schema produced incorrect results under some circumstances.
     - In a high availability configuration, repository maintenance always showed up as failed in stafftools, even when it succeeded.

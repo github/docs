@@ -50,7 +50,7 @@ In the security overview, at both the organization and repository level, there a
 
 ![组织的安全概述](/assets/images/help/organizations/security-overview.png)
 
-For each repository in the security overview, you will see icons for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the icon for that feature will be grayed out.
+For each repository in the security overview, you will see icons for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the icon for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
 
 ![安全概述中的图标](/assets/images/help/organizations/security-overview-icons.png)
 
@@ -61,7 +61,5 @@ For each repository in the security overview, you will see icons for each type o
 | {% octicon "hubot" aria-label="Dependabot alerts" %}          | {% data variables.product.prodname_dependabot_alerts %} 的通知。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。                       |
 | {% octicon "check" aria-label="Check" %}                      | The security feature is enabled, but does not raise alerts in this repository.                                                                                                                |
 | {% octicon "x" aria-label="x" %}                              | The security feature is not supported in this repository.                                                                                                                                     |
-
-默认情况下，存档的仓库被排除在组织的安全概览之外。 您可以应用筛选来查看安全概述中存档的仓库。 For more information, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
 
 The security overview displays active alerts raised by security features. 如果仓库的安全概述中没有警报，则可能仍然存在未检测到的安全漏洞或代码错误。

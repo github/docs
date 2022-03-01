@@ -24,7 +24,7 @@ topics:
 
 如果需要测试某些内容，则代码空间可以是短暂的，或者可以返回到同一代码空间来处理长时间运行的功能工作。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace)”。
 
-Once you've selected the option to create a new codespace, and chosen a machine type for your codespace, some steps happen in the background before the codespace is available to you.
+选择创建新代码空间的选项并为代码空间选择计算机类型后，在代码空间可供您使用之前，某些步骤将在后台进行。
 
 ![使用 Codespaces 打开按钮](/assets/images/help/codespaces/new-codespace-button.png)
 

@@ -14,20 +14,20 @@ shortTitle: OktaでSAMLとSCIMを設定する
 
 ## Okta での SAML と SCIM について
 
-You can control access to your organization on {% data variables.product.product_location %} and other web applications from one central interface by configuring the organization to use SAML SSO and SCIM with Okta, an Identity Provider (IdP).
+{% data variables.product.product_location %}上のOrganizationやその他のWebアプリケーションへのアクセスは、SAML SSO及びSCIMをアイデンティティプロバイダ（IdP）であるOktaとともに使うようOrganizationを設定することで、1つの集中インターフェースから制御できます。
 
-SAML SSO は、リポジトリや Issue、プルリクエストといった Organization のリソースに対するアクセスを制御し、保護します。 SCIM automatically adds, manages, and removes members' access to your organization on {% data variables.product.product_location %} when you make changes in Okta. 詳しい情報については、「[SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)」と「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)」を参照してください。
+SAML SSO は、リポジトリや Issue、Pull Requestといった Organization のリソースに対するアクセスを制御し、保護します。 SCIMは、Oktaで変更があった場合に{% data variables.product.product_location %}上のOrganizationへのメンバーアクセスを自動的に追加、管理、削除します。 詳しい情報については、「[SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)」と「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)」を参照してください。
 
 SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_cloud %} アプリケーションを割り当てる任意のユーザが次のプロビジョニング機能を使えるようになります。
 
-| 機能            | 説明                                                                                                                                                                       |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 新しいユーザのプッシュ   | When you create a new user in Okta, the user will receive an email to join your organization on {% data variables.product.product_location %}.                           |
-| ユーザ無効化のプッシュ   | When you deactivate a user in Okta, Okta will remove the user from your organization on {% data variables.product.product_location %}.                                   |
-| プロフィール更新のプッシュ | When you update a user's profile in Okta, Okta will update the metadata for the user's membership in your organization on {% data variables.product.product_location %}. |
-| ユーザの再アクティブ化   | When you reactivate a user in Okta, Okta will send an email invitation for the user to rejoin your organization on {% data variables.product.product_location %}.        |
+| 機能            | 説明                                                                                                              |
+| ------------- | --------------------------------------------------------------------------------------------------------------- |
+| 新しいユーザのプッシュ   | Oktaで新しいユーザを作成すると、そのユーザは{% data variables.product.product_location %}上のOrganizationに参加するためのメールを受け取ります。          |
+| ユーザ無効化のプッシュ   | ユーザをOktaで無効化すると、Oktaはそのユーザを{% data variables.product.product_location %}のOrganizationから削除します。                   |
+| プロフィール更新のプッシュ | Oktaでユーザのプロフィールを更新すると、Oktaは{% data variables.product.product_location %}のOrganizationのそのデータのメンバーシップメタデータを更新します。 |
+| ユーザの再アクティブ化   | Oktaでユーザを再有効化すると、Oktaは{% data variables.product.product_location %}のOrganizationに再参加するための招待メールを送信します。           |
 
-Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for enterprise accounts is only available with Enterprise Managed Users. For more information, see "[Configuring SAML single sign-on for your enterprise using Okta](/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)" and "[Configuring SCIM provisioning for Enterprise Managed Users with Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)."
+あるいは、EnterpriseでOktaを使うSAML SSOを設定することもできます。 Enterpriseアカウント用のSCIMは、Enterprise管理のユーザでのみ利用できます。 詳しい情報については「[EnterpriseでのOktaを使うSAMLシングルサインオンの設定](/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)」及び「[Enterprise管理ユーザのためのOktaを使うSCIMプロビジョニングの設定](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)」を参照してください。
 
 ## Okta で {% data variables.product.prodname_ghe_cloud %} アプリケーションを追加する
 
